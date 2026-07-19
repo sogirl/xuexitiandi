@@ -1,0 +1,1882 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>亚马逊运营管理与科学分钱机制 · 全套课程知识宝典</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:"PingFang SC","Microsoft YaHei","Noto Sans SC",sans-serif;background:#f8f7f4;color:#2c2c2c;line-height:1.75;display:flex;min-height:100vh}
+a{color:#2563a0;text-decoration:none}
+a:hover{color:#1d4ed8;text-decoration:underline}
+.sidebar{width:290px;min-width:290px;background:#fff;border-right:1px solid #e8e5df;height:100vh;position:fixed;top:0;left:0;overflow-y:auto;z-index:100;box-shadow:2px 0 12px rgba(0,0,0,.04)}
+.sidebar-header{padding:24px 20px;border-bottom:1px solid #e8e5df;background:linear-gradient(135deg,#faf9f6,#f0ede6)}
+.sidebar-header h2{font-size:1.05rem;color:#8b7355;font-weight:700;line-height:1.5}
+.sidebar-header .sub{font-size:.72rem;color:#a09080;margin-top:4px}
+.sidebar-nav{padding:12px 0}
+.sidebar-nav details{margin:0}
+.sidebar-nav summary{cursor:pointer;padding:10px 20px;font-size:.83rem;font-weight:700;color:#5c4f3d;user-select:none;transition:background .15s;list-style:none;display:flex;align-items:center;gap:6px}
+.sidebar-nav summary::-webkit-details-marker{display:none}
+.sidebar-nav summary::before{content:"▸";font-size:.6rem;transition:transform .2s;display:inline-block;width:14px;color:#b8a894}
+.sidebar-nav details[open]>summary::before{transform:rotate(90deg)}
+.sidebar-nav summary:hover{background:#f5f2ec}
+.sidebar-nav details[open]>summary{background:#f0ede6}
+.sidebar-nav .nav-item{display:block;padding:6px 20px 6px 36px;font-size:.78rem;color:#6b5f52;transition:all .15s;border-left:3px solid transparent}
+.sidebar-nav .nav-item:hover{background:#f5f2ec;color:#3d3226;border-left-color:#c4a882}
+.main{margin-left:290px;flex:1;max-width:1100px;padding:40px 48px}
+.header-section{background:#fff;border-radius:12px;padding:40px 44px;margin-bottom:32px;box-shadow:0 1px 4px rgba(0,0,0,.04);border:1px solid #e8e5df}
+.header-section h1{font-size:1.8rem;color:#3d3226;line-height:1.4;margin-bottom:12px}
+.header-section .meta{color:#a09080;font-size:.85rem}
+.header-section .summary-box{background:#faf8f4;border-left:4px solid #c4a882;padding:16px 20px;margin-top:20px;border-radius:0 8px 8px 0;font-size:.88rem;color:#5c4f3d}
+.module-section{background:#fff;border-radius:12px;padding:36px 44px;margin-bottom:28px;box-shadow:0 1px 4px rgba(0,0,0,.04);border:1px solid #e8e5df}
+.module-section h2{font-size:1.35rem;color:#3d3226;border-bottom:2px solid #e8e5df;padding-bottom:14px;margin-bottom:24px}
+.module-section h3{font-size:1.1rem;color:#5c4f3d;margin:28px 0 12px;padding-left:12px;border-left:3px solid #c4a882}
+.module-section h4{font-size:.95rem;color:#6b5f52;margin:20px 0 8px}
+.content-block{background:#faf8f4;border-radius:8px;padding:20px 24px;margin:16px 0;border:1px solid #ece8e0}
+.content-block.highlight{background:#fefdf8;border-left:4px solid #e8c876}
+.content-block.warning{background:#fef9f6;border-left:4px solid #e8986e}
+.content-block.success{background:#f6faf6;border-left:4px solid #8cb88a}
+table{width:100%;border-collapse:collapse;margin:16px 0;font-size:.85rem}
+th{background:#f0ede6;color:#5c4f3d;font-weight:700;padding:10px 14px;text-align:left;border:1px solid #e0dbd2}
+td{padding:9px 14px;border:1px solid #e8e5df;vertical-align:top}
+tr:nth-child(even){background:#faf9f6}
+tr:hover{background:#f5f2ec}
+.formula-box{background:#faf9f6;border:1px solid #e0dbd2;border-radius:8px;padding:16px 20px;margin:12px 0;font-family:"SF Mono","Consolas","Monaco",monospace;font-size:.9rem;color:#3d3226;text-align:center}
+.formula-box .label{font-size:.72rem;color:#a09080;margin-bottom:6px}
+.tag{display:inline-block;padding:3px 10px;border-radius:12px;font-size:.72rem;font-weight:600;margin:2px 4px}
+.tag-core{background:#fef0d5;color:#8b6914}
+.tag-formula{background:#e0ecf5;color:#2563a0}
+.tag-case{background:#e8f0e3;color:#3d6b35}
+.tag-tool{background:#f5e8f0;color:#6b3570}
+.tag-warn{background:#fde8e0;color:#8b3514}
+.case-card{background:#faf9f6;border:1px solid #e0dbd2;border-radius:8px;padding:18px 22px;margin:14px 0}
+.case-card .case-title{font-weight:700;color:#5c4f3d;margin-bottom:8px;font-size:.9rem}
+.step-flow{display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin:16px 0;font-size:.82rem}
+.step-flow .step{background:#f0ede6;padding:8px 16px;border-radius:6px;color:#5c4f3d;font-weight:600}
+.step-flow .arrow{color:#b8a894;font-size:1.2rem}
+.kpi-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:12px;margin:16px 0}
+.kpi-card{background:#fff;border:1px solid #e8e5df;border-radius:8px;padding:16px;text-align:center}
+.kpi-card .kpi-num{font-size:1.6rem;font-weight:700;color:#8b7355}
+.kpi-card .kpi-label{font-size:.75rem;color:#a09080;margin-top:4px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:10px;margin:16px 0}
+.toc-card{background:#faf9f6;border:1px solid #e8e5df;border-radius:8px;padding:14px 18px;transition:all .15s}
+.toc-card:hover{background:#f5f2ec;border-color:#c4a882}
+.toc-card strong{display:block;color:#5c4f3d;margin-bottom:4px}
+.toc-card span{font-size:.78rem;color:#a09080}
+.back-top{position:fixed;bottom:32px;right:32px;width:44px;height:44px;background:#c4a882;color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.3rem;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:all .2s;z-index:200;text-decoration:none}
+.back-top:hover{background:#8b7355;transform:translateY(-2px)}
+.print-only{display:none}
+@media(max-width:900px){.sidebar{display:none}.main{margin-left:0;padding:20px}}
+@media print{.sidebar{display:none}.main{margin-left:0;padding:0}.module-section{box-shadow:none;border:1px solid #ccc;break-inside:avoid}.print-only{display:block}}
+</style>
+</head>
+<body>
+
+<!-- ===== SIDEBAR ===== -->
+<nav class="sidebar">
+<div class="sidebar-header">
+<h2>📚 亚马逊运营管理<br>全套课程知识宝典</h2>
+<div class="sub">搭班子 · 做系统 · 定机制</div>
+</div>
+<div class="sidebar-nav">
+
+<details open>
+<summary>🎯 课程总览</summary>
+<a class="nav-item" href="#overview">课程概述与三大主线</a>
+<a class="nav-item" href="#learning-path">小白到高手学习路径</a>
+<a class="nav-item" href="#knowledge-graph">跨课程知识图谱</a>
+</details>
+
+<details open>
+<summary>🧑‍🤝‍🧑 第一支柱：搭班子</summary>
+<a class="nav-item" href="#s1-1">人才四级等级体系</a>
+<a class="nav-item" href="#s1-2">五要素人才画像</a>
+<a class="nav-item" href="#s1-3">各层级详细画像标准</a>
+<a class="nav-item" href="#s1-4">千万不能招的七类人</a>
+<a class="nav-item" href="#s1-5">七大招聘渠道</a>
+<a class="nav-item" href="#s1-6">岗位说明书撰写</a>
+<a class="nav-item" href="#s1-7">面试五步法与追问技巧</a>
+<a class="nav-item" href="#s1-8">背调的重要性与实操</a>
+<a class="nav-item" href="#s1-9">差异化用人策略</a>
+<a class="nav-item" href="#s1-10">师徒制四步法</a>
+<a class="nav-item" href="#s1-11">分层留人机制</a>
+<a class="nav-item" href="#s1-12">合伙人筛选与股份分配</a>
+</details>
+
+<details open>
+<summary>⚙️ 第二支柱：做系统</summary>
+<a class="nav-item" href="#s2-1">概念思维表（六层递进）</a>
+<a class="nav-item" href="#s2-2">产品定位SOP（十大要素）</a>
+<a class="nav-item" href="#s2-3">流量定位SOP</a>
+<a class="nav-item" href="#s2-4">关键词词库五步法</a>
+<a class="nav-item" href="#s2-5">新品推广SOP框架</a>
+<a class="nav-item" href="#s2-6">ACoS衡量表四大场景</a>
+<a class="nav-item" href="#s2-7">推广利润表（CPA盈亏平衡）</a>
+<a class="nav-item" href="#s2-8">竞品分析SOP</a>
+<a class="nav-item" href="#s2-9">备战旺季SOP</a>
+<a class="nav-item" href="#s2-10">店铺诊断方法论</a>
+<a class="nav-item" href="#s2-11">战略解码（目标拆解）</a>
+<a class="nav-item" href="#ad-efficiency">广告效率与排名量化</a>
+<a class="nav-item" href="#supply-chain">供应链与选品管理</a>
+</details>
+
+<details open>
+<summary>💰 第三支柱：定机制</summary>
+<a class="nav-item" href="#s3-1">激励与考核核心原则</a>
+<a class="nav-item" href="#s3-2">三层次管理理论</a>
+<a class="nav-item" href="#s3-3">绩效设定六步SOP</a>
+<a class="nav-item" href="#s3-4">基层运营激励方案</a>
+<a class="nav-item" href="#s3-5">基层考核千人千面</a>
+<a class="nav-item" href="#s3-6">身股分红六要素</a>
+<a class="nav-item" href="#s3-7">中层管理考核</a>
+<a class="nav-item" href="#s3-8">会议管理体系</a>
+<a class="nav-item" href="#s3-9">空降高管策略</a>
+</details>
+
+<details open>
+<summary>📊 工具与公式库</summary>
+<a class="nav-item" href="#tools-all">全部工具矩阵</a>
+<a class="nav-item" href="#formulas-all">核心公式汇总</a>
+<a class="nav-item" href="#cases-all">16个经典案例索引</a>
+<a class="nav-item" href="#checklist">老板行动清单</a>
+</details>
+
+</div>
+</nav>
+
+<!-- ===== MAIN CONTENT ===== -->
+<main class="main">
+
+<!-- HEADER -->
+<div class="header-section" id="overview">
+<h1>🦾 亚马逊运营管理与科学分钱机制<br>全套课程知识宝典</h1>
+<div class="meta">📅 2026年6月 · 6大模块 · 50+板块 · 16个经典案例 · 从小白到精通</div>
+<div class="summary-box">
+<strong>🎯 课程三大核心主线：</strong> <span class="tag tag-core">搭班子</span> — 组建高人效亚马逊运营团队 → <span class="tag tag-core">做系统</span> — 科学的目标管理与流程SOP → <span class="tag tag-core">定机制</span> — 打造有效激励与科学分钱机制<br><br>
+<strong>📖 一句话总结：</strong>人的上限就是公司的上限。选对人（搭班子）→ 让普通人发挥更大价值（做系统）→ 有效激励留住人才（定机制）。三者环环相扣，缺一不可。
+</div>
+</div>
+
+<!-- LEARNING PATH -->
+<div class="module-section" id="learning-path">
+<h2>🗺️ 小白到高手 · 四周学习路径</h2>
+<table>
+<tr><th>周次</th><th>学习主题</th><th>核心内容</th><th>学习目标</th></tr>
+<tr><td><strong>第一周</strong></td><td>搭班子（团队建设）</td><td>人才四级划分、五要素画像、七大招聘渠道、面试五步法、背调技巧、留人机制、合伙人筛选</td><td>能独立搭建运营团队的人才体系</td></tr>
+<tr><td><strong>第二周</strong></td><td>流程与SOP（运营系统）</td><td>概念思维表、产品定位SOP、流量定位SOP、关键词五步法、新品推广SOP、ACoS衡量表、推广利润表、竞品分析SOP、旺季备战SOP</td><td>能用标准化流程管控运营全链路</td></tr>
+<tr><td><strong>第三周</strong></td><td>科学分钱（激励机制）</td><td>三层次激励、绩效六步SOP、毛利抽成法、绩效奖金法、身股分红六要素、中层管理考核</td><td>能设计完整的薪酬激励与分红体系</td></tr>
+<tr><td><strong>第四周</strong></td><td>整合应用</td><td>广告效率分析、预算量化、年度目标拆解、战略解码、店铺诊断、空降高管策略</td><td>能独立操盘运营管理与战略规划</td></tr>
+</table>
+
+<h3>前置基础知识依赖链路</h3>
+<div class="step-flow">
+<span class="step">人才四级+五要素</span><span class="arrow">→</span>
+<span class="step">概念思维表+关键公式</span><span class="arrow">→</span>
+<span class="step">盈亏平衡模型</span><span class="arrow">→</span>
+<span class="step">ACoS衡量表</span><span class="arrow">→</span>
+<span class="step">SOP体系</span><span class="arrow">→</span>
+<span class="step">推广利润表</span><span class="arrow">→</span>
+<span class="step">战略解码</span><span class="arrow">→</span>
+<span class="step">绩效考核</span><span class="arrow">→</span>
+<span class="step">身股分红</span>
+</div>
+</div>
+
+<!-- KNOWLEDGE GRAPH -->
+<div class="module-section" id="knowledge-graph">
+<h2>🧬 跨课程知识图谱</h2>
+	<div class="content-block" style="padding:8px 12px;overflow-x:auto;-webkit-overflow-scrolling:touch;">
+	<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1280 710" width="100%" height="auto" style="display:block;min-width:860px;font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',sans-serif;">
+	<defs>
+		<filter id="ks" x="-8%" y="-8%" width="120%" height="130%">
+			<feDropShadow dx="0" dy="1.5" stdDeviation="2.5" flood-color="#3d322620"/>
+		</filter>
+		<filter id="ks2" x="-5%" y="-5%" width="115%" height="130%">
+			<feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#3d322612"/>
+		</filter>
+		<linearGradient id="gr-root" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0%" stop-color="#6b5f52"/>
+			<stop offset="100%" stop-color="#544a3f"/>
+		</linearGradient>
+		<linearGradient id="gr-l1a" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0%" stop-color="#8b7355"/>
+			<stop offset="100%" stop-color="#7a6248"/>
+		</linearGradient>
+		<linearGradient id="gr-l1b" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0%" stop-color="#5b7a6e"/>
+			<stop offset="100%" stop-color="#4a6b5e"/>
+		</linearGradient>
+		<linearGradient id="gr-l1c" x1="0" y1="0" x2="1" y2="1">
+			<stop offset="0%" stop-color="#b8954a"/>
+			<stop offset="100%" stop-color="#a07d3a"/>
+		</linearGradient>
+	</defs>
+	<!-- ===== Connections: Root to Layer 1 ===== -->
+	<g fill="none" stroke="#b8a894" stroke-width="2" stroke-linecap="round">
+		<path d="M275,365 H310 V201 H340"/>
+		<path d="M275,365 H340"/>
+		<path d="M275,365 H310 V529 H340"/>
+	</g>
+	<!-- ===== Connections: Layer 1 to Layer 2 ===== -->
+	<g fill="none" stroke="#c4b59a" stroke-width="1.6" stroke-linecap="round">
+		<path d="M505,201 H535 V133 H660"/>
+		<path d="M505,201 H660"/>
+		<path d="M505,201 H535 V269 H660"/>
+		<path d="M505,365 H535 V297 H660"/>
+		<path d="M505,365 H660"/>
+		<path d="M505,365 H535 V433 H660"/>
+		<path d="M505,529 H535 V461 H660"/>
+		<path d="M505,529 H660"/>
+		<path d="M505,529 H535 V597 H660"/>
+	</g>
+	<!-- ===== Connections: Layer 2 to Details ===== -->
+	<g fill="none" stroke="#d5cebf" stroke-width="1" stroke-linecap="round">
+		<path d="M808,133 H822"/><path d="M808,201 H822"/><path d="M808,269 H822"/>
+		<path d="M808,297 H822"/><path d="M808,365 H822"/><path d="M808,433 H822"/>
+		<path d="M808,461 H822"/><path d="M808,529 H822"/><path d="M808,597 H822"/>
+	</g>
+	<!-- ===== Root Node ===== -->
+	<g filter="url(#ks)">
+		<rect x="20" y="323" width="255" height="84" rx="12" fill="url(#gr-root)"/>
+	</g>
+	<text x="147" y="358" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold" letter-spacing="1">课程三大核心主线</text>
+	<text x="147" y="384" text-anchor="middle" fill="#e8e5df" font-size="12.5" letter-spacing=".5">搭班子 · 做系统 · 定机制</text>
+
+	<!-- ===== Layer 1: Talent ===== -->
+	<g filter="url(#ks)">
+		<rect x="340" y="173" width="165" height="56" rx="10" fill="url(#gr-l1a)"/>
+	</g>
+	<text x="422" y="198" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">🧑‍🤝‍🧑 人才管理</text>
+	<text x="422" y="218" text-anchor="middle" fill="#f0ede6" font-size="10.5">搭班子 · §1-1/2-1/3-1</text>
+
+	<!-- ===== Layer 1: Operations ===== -->
+	<g filter="url(#ks)">
+		<rect x="340" y="337" width="165" height="56" rx="10" fill="url(#gr-l1b)"/>
+	</g>
+	<text x="422" y="362" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">⚙️ 运营系统</text>
+	<text x="422" y="382" text-anchor="middle" fill="#e0ece5" font-size="10.5">做系统 · §1-2/2-2/3-2</text>
+
+	<!-- ===== Layer 1: Finance ===== -->
+	<g filter="url(#ks)">
+		<rect x="340" y="501" width="165" height="56" rx="10" fill="url(#gr-l1c)"/>
+	</g>
+	<text x="422" y="526" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">💰 科学分钱</text>
+	<text x="422" y="546" text-anchor="middle" fill="#f5eed8" font-size="10.5">定机制 · §1-3/2-3/3-3</text>
+
+	<!-- ===== Layer 2: Talent Children ===== -->
+	<g filter="url(#ks2)">
+		<rect x="660" y="109" width="148" height="48" rx="8" fill="#faf8f4" stroke="#c4a882" stroke-width="1.2"/>
+	</g>
+	<text x="734" y="138" text-anchor="middle" fill="#5c4f3d" font-size="13" font-weight="bold">人才画像</text>
+
+	<g filter="url(#ks2)">
+		<rect x="660" y="177" width="148" height="48" rx="8" fill="#faf8f4" stroke="#c4a882" stroke-width="1.2"/>
+	</g>
+	<text x="734" y="206" text-anchor="middle" fill="#5c4f3d" font-size="13" font-weight="bold">招聘面试</text>
+
+	<g filter="url(#ks2)">
+		<rect x="660" y="245" width="148" height="48" rx="8" fill="#faf8f4" stroke="#c4a882" stroke-width="1.2"/>
+	</g>
+	<text x="734" y="274" text-anchor="middle" fill="#5c4f3d" font-size="13" font-weight="bold">用人留人</text>
+
+	<!-- ===== Layer 2: Operations Children ===== -->
+	<g filter="url(#ks2)">
+		<rect x="660" y="273" width="148" height="48" rx="8" fill="#f6faf6" stroke="#8cb88a" stroke-width="1.2"/>
+	</g>
+	<text x="734" y="302" text-anchor="middle" fill="#3d5c3d" font-size="13" font-weight="bold">产品定位</text>
+
+	<g filter="url(#ks2)">
+		<rect x="660" y="341" width="148" height="48" rx="8" fill="#f6faf6" stroke="#8cb88a" stroke-width="1.2"/>
+	</g>
+	<text x="734" y="370" text-anchor="middle" fill="#3d5c3d" font-size="13" font-weight="bold">流量定位</text>
+
+	<g filter="url(#ks2)">
+		<rect x="660" y="409" width="148" height="48" rx="8" fill="#f6faf6" stroke="#8cb88a" stroke-width="1.2"/>
+	</g>
+	<text x="734" y="438" text-anchor="middle" fill="#3d5c3d" font-size="13" font-weight="bold">关键词SOP</text>
+
+	<!-- ===== Layer 2: Finance Children ===== -->
+	<g filter="url(#ks2)">
+		<rect x="660" y="437" width="148" height="48" rx="8" fill="#fefdf8" stroke="#d4b860" stroke-width="1.2"/>
+	</g>
+	<text x="734" y="466" text-anchor="middle" fill="#5c4a1d" font-size="13" font-weight="bold">基层激励</text>
+
+	<g filter="url(#ks2)">
+		<rect x="660" y="505" width="148" height="48" rx="8" fill="#fefdf8" stroke="#d4b860" stroke-width="1.2"/>
+	</g>
+	<text x="734" y="534" text-anchor="middle" fill="#5c4a1d" font-size="13" font-weight="bold">中层分红</text>
+
+	<g filter="url(#ks2)">
+		<rect x="660" y="573" width="148" height="48" rx="8" fill="#fefdf8" stroke="#d4b860" stroke-width="1.2"/>
+	</g>
+	<text x="734" y="602" text-anchor="middle" fill="#5c4a1d" font-size="13" font-weight="bold">身股六要素</text>
+
+	<!-- ===== Layer 3: Detail Text ===== -->
+	<g font-size="12" fill="#6b5f52" font-weight="400">
+		<circle cx="828" cy="120" r="2.5" fill="#c4a882"/><text x="836" y="124">四级体系</text>
+		<circle cx="828" cy="138" r="2.5" fill="#c4a882"/><text x="836" y="142">五要素</text>
+		<circle cx="828" cy="156" r="2.5" fill="#c4a882"/><text x="836" y="160">七不招</text>
+
+		<circle cx="828" cy="188" r="2.5" fill="#c4a882"/><text x="836" y="192">五步法</text>
+		<circle cx="828" cy="206" r="2.5" fill="#c4a882"/><text x="836" y="210">背调</text>
+		<circle cx="828" cy="224" r="2.5" fill="#c4a882"/><text x="836" y="228">岗位说明书</text>
+
+		<circle cx="828" cy="256" r="2.5" fill="#c4a882"/><text x="836" y="260">师徒制</text>
+		<circle cx="828" cy="274" r="2.5" fill="#c4a882"/><text x="836" y="278">流程管理</text>
+		<circle cx="828" cy="292" r="2.5" fill="#c4a882"/><text x="836" y="296">关键变量</text>
+
+		<circle cx="828" cy="284" r="2.5" fill="#8cb88a"/><text x="836" y="288">十大要素</text>
+		<circle cx="828" cy="302" r="2.5" fill="#8cb88a"/><text x="836" y="306">三问浓缩</text>
+		<circle cx="828" cy="320" r="2.5" fill="#8cb88a"/><text x="836" y="324">ACOS表</text>
+
+		<circle cx="828" cy="352" r="2.5" fill="#8cb88a"/><text x="836" y="356">五大分类</text>
+		<circle cx="828" cy="370" r="2.5" fill="#8cb88a"/><text x="836" y="374">贴标签</text>
+		<circle cx="828" cy="388" r="2.5" fill="#8cb88a"/><text x="836" y="392">27个市场</text>
+
+		<circle cx="828" cy="420" r="2.5" fill="#8cb88a"/><text x="836" y="424">五步法</text>
+		<circle cx="828" cy="438" r="2.5" fill="#8cb88a"/><text x="836" y="442">海王打法</text>
+		<circle cx="828" cy="456" r="2.5" fill="#8cb88a"/><text x="836" y="460">筛词四规则</text>
+
+		<circle cx="828" cy="448" r="2.5" fill="#d4b860"/><text x="836" y="452">四导向</text>
+		<circle cx="828" cy="466" r="2.5" fill="#d4b860"/><text x="836" y="470">阶梯抽成</text>
+		<circle cx="828" cy="484" r="2.5" fill="#d4b860"/><text x="836" y="488">发放及时</text>
+
+		<circle cx="828" cy="521" r="2.5" fill="#d4b860"/><text x="836" y="525">40-60%</text>
+		<circle cx="828" cy="539" r="2.5" fill="#d4b860"/><text x="836" y="543">存量增量</text>
+
+		<circle cx="828" cy="584" r="2.5" fill="#d4b860"/><text x="836" y="588">负盈不负亏</text>
+		<circle cx="828" cy="602" r="2.5" fill="#d4b860"/><text x="836" y="606">人在股在</text>
+		<circle cx="828" cy="620" r="2.5" fill="#d4b860"/><text x="836" y="624">人走股退</text>
+	</g>
+
+	<!-- ===== Legend ===== -->
+	<g transform="translate(20,650)">
+		<rect x="0" y="0" width="14" height="14" rx="3" fill="#6b5f52"/>
+		<text x="20" y="11" font-size="11" fill="#8b7355">根节点</text>
+		<rect x="80" y="0" width="14" height="14" rx="3" fill="#8b7355"/>
+		<text x="100" y="11" font-size="11" fill="#8b7355">三大支柱</text>
+		<rect x="170" y="0" width="14" height="14" rx="3" fill="#c4a882"/>
+		<text x="190" y="11" font-size="11" fill="#8b7355">搭班子(人才)</text>
+		<rect x="280" y="0" width="14" height="14" rx="3" fill="#5b7a6e"/>
+		<text x="300" y="11" font-size="11" fill="#8b7355">做系统(运营)</text>
+		<rect x="400" y="0" width="14" height="14" rx="3" fill="#b8954a"/>
+		<text x="420" y="11" font-size="11" fill="#8b7355">定机制(分钱)</text>
+		<text x="540" y="11" font-size="10" fill="#b8a894">· 直角折线连接 · 根在左逐层向右 · 可双指放大查看</text>
+	</g>
+	</svg>
+	</div>
+
+</div>
+
+<!-- ===== 第一支柱：搭班子 ===== -->
+<div class="module-section" id="s1-1">
+<h2>🧑‍🤝‍🧑 第一支柱：搭班子 —— 组建高人效亚马逊运营团队</h2>
+<div class="content-block highlight">
+<strong>💡 核心金句：</strong>"人的上限就是公司的上限。人找对的时候能出300单，人找错的时候可能就三单五单。"
+</div>
+
+<!-- 人才四级体系 -->
+<h3>一、人才四级等级体系</h3>
+<p>讲师将亚马逊运营人才划分为<strong>四个等级</strong>，这是整个搭班子模块的基石：</p>
+<table>
+<tr><th>等级</th><th>名称</th><th>核心特征</th><th>市场占比</th><th>薪资范围（福州）</th></tr>
+<tr><td><strong>第一级</strong></td><td>普通运营</td><td>上架、发货、基础广告，能力相对单一</td><td>约80%</td><td>6K-15K</td></tr>
+<tr><td><strong>第二级</strong></td><td>精英运营（尖刀型）</td><td>有独立爆款经验，完整推品逻辑闭环，拿过结果</td><td>约15%</td><td>10K-30K</td></tr>
+<tr><td><strong>第三级</strong></td><td>骨干主管/店长</td><td>会打爆款+带团队+培训辅导，对利润负责</td><td>约4%</td><td>10K-30K+团队提成</td></tr>
+<tr><td><strong>第四级</strong></td><td>合伙人</td><td>能力互补，价值观一致，风险共担</td><td>约1%</td><td>股份分红</td></tr>
+</table>
+
+<div class="content-block warning">
+<strong>⚠️ 重要认知：</strong>
+<ul>
+<li>精英运营的<strong>硬标准</strong>：有完整的逻辑闭环——能完整说出从新品推广到爆款打造的底层逻辑，并且<strong>有拿到结果的经历</strong>。"经历了几家公司都没成功过，这种到了精英运营级别是不能通过的。"</li>
+<li>标品vs非标品打法差异巨大——做3C的操盘手去做服装/鞋子往往"吃瘪"</li>
+<li>大厂运营能力模块可能非常单一（只做选品开发不会广告），不一定适合你的企业</li>
+</ul>
+</div>
+
+<!-- 五要素画像 -->
+<h3 id="s1-2">二、五要素人才画像模型</h3>
+<p>招聘时需从五个维度全面评估候选人：</p>
+<table>
+<tr><th>要素</th><th>核心内容</th><th>关键要点</th></tr>
+<tr><td><strong>1. 基本信息</strong></td><td>年龄、性别、学历、外语能力、区域</td><td>做得好的团队以女性运营为主（男性更易创业跳槽）；普通运营≤35岁；学历代表学习力；注意区域因素（如晋江"少爷"体验生活型）</td></tr>
+<tr><td><strong>2. 工作履历</strong></td><td>工作经历+项目经历</td><td>重点看是否有相关行业成功经验；精英运营<strong>必须看项目经历</strong>；简历写得好≠能力强，需深度追问验证</td></tr>
+<tr><td><strong>3. 能力架构</strong></td><td>符合岗位说明书的能力要求</td><td>产品开发=市场调研+款式设计+包装策划（"产品经理"角色）；运营=listing编写+广告投放+数据分析；不同模式的亚马逊运营写不同条件</td></tr>
+<tr><td><strong>4. 性格特点</strong></td><td>与岗位要求匹配</td><td>运营：对钱有渴望，细致认真（"绿色性格"小富即安不适合）；客服：心态平和，蓝/绿色性格；产品开发：谨慎敏感，市场敏锐度高</td></tr>
+<tr><td><strong>5. 驱动力/潜力</strong></td><td>学习力+可塑性+认知水平</td><td><strong>比经验更重要！</strong>认知水平特别重要，决定了成长的速度和上限；选人标准：基础素质OK+学习力好+执行力强</td></tr>
+</table>HTMLEOF
+
+<!-- 各层级详细画像 -->
+<h3 id="s1-3">三、各层级详细画像标准</h3>
+
+<h4>🔹 普通运营画像</h4>
+<table>
+<tr><th>维度</th><th>要求</th></tr>
+<tr><td>年龄</td><td>不超过35岁（35岁还在做普通运营说明没拿到过结果）</td></tr>
+<tr><td>学历</td><td>大专以上（学历不完全代表能力，但代表学习力）</td></tr>
+<tr><td>履历</td><td>一年以上亚马逊/电商经历，能独立完成基础工作</td></tr>
+<tr><td>能力架构</td><td>英语四级以上，熟练Excel/Word，会使用ChatGPT等AI工具</td></tr>
+<tr><td>性格特点</td><td>细致、认真、耐心（避免设置错误价格、库存等低级失误）</td></tr>
+<tr><td>核心能力</td><td>结果导向、数据思维、流量思维；<strong>听话执行是最重要的软性考核指标</strong></td></tr>
+</table>
+<div class="content-block warning">
+<strong>⚠️ 案例警示：</strong>秒杀价格设错导致零元购，一天亏损严重；广告出价1.19设成11.9，炒高了CPC。这些都是不细心导致的重大损失。
+</div>
+
+<h4>🔹 精英运营画像</h4>
+<table>
+<tr><th>维度</th><th>要求</th></tr>
+<tr><td>基本信息</td><td>不设硬性限制（有初中学历的精英运营做得很好，23岁有爆款经验的也可）</td></tr>
+<tr><td>履历核心</td><td><strong>有独立爆款经验</strong>（必须能讲出完整推品流程）</td></tr>
+<tr><td>能力架构</td><td>推品经验强，已有自己的运营思路和打法；独立运营单店或单品并成功</td></tr>
+<tr><td>性格特点</td><td>思维活跃，能举一反三，有系统/结构思维，有计划有目标感</td></tr>
+<tr><td>核心特质</td><td>目标感强，赢的意识强，学习力和执行力俱佳；<strong>能通过两张表测试：概念思维表+目标管理表</strong></td></tr>
+</table>
+
+<p><strong>爆款经验验证要点：</strong></p>
+<ul>
+<li>能否讲出完整的推品过程（选品→产品定位→推广方式→广告策略）</li>
+<li>推品逻辑是否与你的品类匹配（标品vs非标品打法差异巨大）</li>
+<li>面试中要深度追问：新品怎么推起来的？定价、review、流量哪个更重要？广告开什么类型？为什么这么开？</li>
+</ul>
+
+<h4>🔹 骨干主管画像</h4>
+<table>
+<tr><th>维度</th><th>要求</th></tr>
+<tr><td>履历核心</td><td><strong>团队管理经验+爆款打造经验</strong></td></tr>
+<tr><td>能力架构</td><td>培训能力、目标拆解能力、问题诊断能力；比较全面的运营能力（需做辅导、决策、判断）</td></tr>
+<tr><td>性格特点</td><td>大局观、团队观、长期规划、忠诚度高；<strong>经营成本意识</strong>（能为公司降本增效）</td></tr>
+</table>
+<p><strong>主管必须做到的三件事：</strong></p>
+<ol>
+<li><strong>培训团队</strong>——形成视频文献资料，品类专属SOP</li>
+<li><strong>目标管理</strong>——细化到曝光量、点击量、单量、CPA等关键指标</li>
+<li><strong>问题诊断</strong>——能看懂绩效考核表，反向发现问题</li>
+</ol>
+<div class="content-block warning">
+<strong>⚠️ 反面案例：</strong>厦门服装卖家主管——年薪100万却不开新品、不下放权力，底下3-4个运营始终起不来。问题：没有标准化流程赋能，信不过底下人。<br>
+<strong>✅ 正向建议：</strong>对主管考核不只看业绩，更要看<strong>培养出多少精英运营</strong>。培养出精英运营给予额外奖励。
+</div>
+
+<h4>🔹 合伙人画像</h4>
+<table>
+<tr><th>场景</th><th>核心要求</th></tr>
+<tr><td>事业刚开始</td><td>齐心协力最重要，价值观一致优先</td></tr>
+<tr><td>项目成熟后加入</td><td>能力互补最重要，需要项目经理履历</td></tr>
+</table>
+<p><strong>合伙人三大准则：</strong></p>
+<ol>
+<li><strong>价值观一致</strong>——不一致趁早分</li>
+<li><strong>目标清晰一致</strong>——关起门来讨论，出去只能一种声音</li>
+<li><strong>能力互补</strong>——运营+选品+供应链，各司其职</li>
+</ol>
+<div class="content-block highlight">
+<strong>💡 金句：</strong>"合伙不是利益共担，应该是<strong>风险共担</strong>。分钱没有风险的话只能凝聚一部分的凝聚力，但如果是风险共担，才能是真正的合伙人，这是本质。"
+</div>
+
+<!-- 七类不招的人 -->
+<h3 id="s1-4">四、千万不能招的七类人</h3>
+<table>
+<tr><th>#</th><th>类型</th><th>具体表现</th><th>为什么不能招</th></tr>
+<tr><td>1</td><td><strong>价值观不一致</strong></td><td>你做精细化运营，他想做跟卖、搞对手</td><td>不认可你的赚钱方式，迟早分道扬镳</td></tr>
+<tr><td>2</td><td><strong>能力架构不匹配</strong></td><td>用主管的能力招普通运营，或用普通运营价格招主管</td><td>面试聊两小时觉得投缘就招了，但反推一下缺少你想要的对应能力</td></tr>
+<tr><td>3</td><td><strong>经常跳槽</strong></td><td>4-5年换5份工作，每次都是半桶水</td><td>要么拿你当跳板，要么是半桶水被干掉，要么每家公司都有问题</td></tr>
+<tr><td>4</td><td><strong>没有规划的人</strong></td><td>给目标时让老板很兴奋，要规划就"都装在脑袋里"</td><td>可用概念思维表测试——真正有规划的人能说清楚"议题→目的→目标→策略→衡量→行动"</td></tr>
+<tr><td>5</td><td><strong>没有学习意识</strong></td><td>"不要说各种不同打法，自动广告最好"</td><td>固步自封，觉得自己都是对的，最近没成长</td></tr>
+<tr><td>6</td><td><strong>做事没结果的人</strong></td><td>曝光一直不变，广告没调整，三个月后找各种借口</td><td><strong>"做了不叫做，做好了才叫做，才是结果。"</strong>三类特征：没计划/没目标；有计划没流程；没判断、计划天马行空</td></tr>
+<tr><td>7</td><td><strong>错位的人</strong></td><td>用很低薪水招高级人才，或运营助理要求做销售策略</td><td>又想马儿跑又不给马儿吃草，导致岗位错位</td></tr>
+</table>
+
+<!-- 招聘渠道 -->
+<h3 id="s1-5">五、七大招聘渠道</h3>
+<table>
+<tr><th>渠道</th><th>适用场景</th><th>特点与注意事项</th></tr>
+<tr><td><strong>1. Boss直聘</strong></td><td>主流日常招聘</td><td>使用最多，覆盖面广；杭州某卖家一个月只面试2-3个人，招人要先打开渠道，多面试才能提高命中率</td></tr>
+<tr><td><strong>2. 当地人才网</strong></td><td>本地招聘</td><td>福州有海峡人才网，厦门有厦门人才网</td></tr>
+<tr><td><strong>3. 校园招聘</strong></td><td>储备人才培养</td><td>金华某卖家年做7-8亿，团队全来自校招；适合有规模、需人才储备的企业</td></tr>
+<tr><td><strong>4. 猎聘</strong></td><td>高端管理岗</td><td>运营总监费用5-15万，适合管理岗</td></tr>
+<tr><td><strong>5. 线下沙龙/同学会</strong></td><td>圈子招人</td><td>质量高但有挖墙脚风险；福州高新区A栋B栋之间大卖家互相打听挖人</td></tr>
+<tr><td><strong>6. 小红书/B站/抖音</strong></td><td>发掘潜力股</td><td>运营分享者可看出水平和思路</td></tr>
+<tr><td><strong>7. 自有渠道+转介绍</strong></td><td>品牌影响力强的公司</td><td>官网、公众号、朋友圈；转介绍：同行同事、圈内老板互相推荐</td></tr>
+</table>
+
+<!-- 岗位说明书 -->
+<h3 id="s1-6">六、岗位说明书撰写要点</h3>
+
+<div class="content-block warning">
+<strong>常见问题：</strong>
+<ol>
+<li>职位描述不清晰，对想要什么人没有画像</li>
+<li>薪资与岗位职责不匹配——5-6K的运营助理却要求"分析竞争对手、制定销售计划并对结果负责"（这是销售总监级别的事）</li>
+<li>通篇强调公司福利（下午茶、聚会等），实际能力要求缺失</li>
+</ol>
+</div>
+
+<h4>🔹 三类岗位说明书范本</h4>
+
+<p><strong>普通运营岗位职责（参考：福州汽配大卖，年销40+亿）：</strong></p>
+<ol>
+<li>产品上架：处理描述、定价、listing优化、关键词设置</li>
+<li>产品推广：关键词优化、广告投放、促销秒杀、旗舰店优化</li>
+<li>市场分析：分析市场和竞争对手，制定销售计划</li>
+<li>库存管理：分析销售数据，保持合理库存周转</li>
+<li>店铺健康：好评、feedback、合规管理</li>
+</ol>
+<p><strong>岗位要求：</strong>本科学历（外语/外贸/电商/数学/统计学优先）；一年以上精细化运营经验（FBA、优化逻辑都懂）；数据思维（Excel+第三方工具：卖家精灵/H10/积木/ABA数据）；会用ChatGPT/DeepSeek；学习力+执行力+抗压能力</p>
+
+<p><strong>精英运营岗位职责：</strong></p>
+<ol>
+<li>爆款打造：制定完整的产品开发、运营推广、销售计划并<strong>对结果负责</strong></li>
+<li>产品定位：listing优化、产品创意开发</li>
+<li>促销推广：关键词优化、广告投放、促销秒杀、旗舰店规划</li>
+<li>排名跟踪：监控主力链接销售情况</li>
+<li>竞品分析+数据统计</li>
+</ol>
+<p><strong>岗位要求：</strong>独立负责和操盘过爆款（最好有所在行业经验）；3年以上精细化运营经验；强烈目标感和结果导向意识；有完整的产品运营和推广方案</p>
+
+<p><strong>主管岗位职责：</strong></p>
+<ol>
+<li>爆款打造+团队培养培训</li>
+<li>带队拿结果：目标拆解、绩效考核</li>
+<li>流程标准化：选品、新品推广、备战旺季、竞品调研、关键词等标准化</li>
+<li>数据复盘：保障店铺链接稳定，实时调整策略</li>
+</ol>
+<p><strong>岗位要求：</strong>爆款经验+带过团队；精细化运营全流程经验；目标感+结果导向；团队培养方案和落地能力；<strong>带出过精英运营</strong></p>
+
+<h4>🔹 薪资参考</h4>
+<table>
+<tr><th>岗位</th><th>福州薪资</th><th>杭州薪资</th><th>备注</th></tr>
+<tr><td>普通运营</td><td>6K-15K</td><td>8K左右</td><td>等级越高底薪越高</td></tr>
+<tr><td>精英运营</td><td>10K-30K</td><td>25K-30K</td><td>需有吸引力的薪资+提成</td></tr>
+<tr><td>主管</td><td>10K-30K</td><td>-</td><td>底薪+团队提成+单项奖</td></tr>
+</table>
+
+<!-- 面试五步法 -->
+<h3 id="s1-7">七、面试五步法与追问技巧</h3>
+
+<div class="step-flow">
+<span class="step">1. 初筛（HR+岗位说明书）</span><span class="arrow">→</span>
+<span class="step">2. 笔试（初级运营专业能力考评）</span><span class="arrow">→</span>
+<span class="step">3. 面试（有效提问+深度追问+疑点验证）</span><span class="arrow">→</span>
+<span class="step">4. 背调（尤其主管级别以上）</span><span class="arrow">→</span>
+<span class="step">5. 试用期观察</span>
+</div>
+
+<h4>🔹 有效提问——以招聘爆款操盘手为例</h4>
+<table>
+<tr><th>提问方向</th><th>具体问题</th></tr>
+<tr><td>爆款经验</td><td>请拿一个爆款举例说明，整个推品流程是怎样的？</td></tr>
+<tr><td>选品选款</td><td>这个款跟同行有什么差异？怎么做的？</td></tr>
+<tr><td>产品定位</td><td>产品策划怎么做的？用户画像是谁？痛点是什么？</td></tr>
+<tr><td>推广方式</td><td>推广花了多长时间？以什么模式推广（广告/组合拳）？</td></tr>
+<tr><td>广告细节</td><td>一天花多少钱？达到什么结果？广告单量怎样？</td></tr>
+<tr><td>利润情况</td><td>推起来后有利润吗？利润率多少？</td></tr>
+</table>
+
+<h4>🔹 深度追问技巧</h4>
+<ul>
+<li><strong>核心原则：</strong>提问内容和方向与岗位职责、岗位要求挂钩；追问要<strong>不要不好意思</strong></li>
+<li><strong>针对主管的追问：</strong>你是怎么带团队的？帮他们做了哪些辅导？公司有没有流程？怎么做培训的？有没有形成资料？</li>
+<li><strong>针对运营的追问：</strong>新品怎么推起来的？定价、review、流量哪个更重要？怎么做的？通过哪种形式？刷单、合并变体还是VINE？</li>
+<li><strong>疑点验证：</strong>"你有三个爆款经验，这款是这么打的，另外两款也是这么打的吗？"——用重复问题验证逻辑一致性</li>
+</ul>
+
+<div class="content-block highlight">
+<strong>💡 面试官组合：</strong>老板+主管一起面试，专业问题和综合评估结合。面试前让候选人填基础信息，并提供八个看重要点排序（薪酬福利、岗位晋升、培训机会等），了解候选人优先级。
+</div>
+
+<!-- 背调 -->
+<h3 id="s1-8">八、背调的重要性与实操</h3>
+
+<div class="content-block warning">
+<strong>🔴 背调核心价值：</strong>验证人品和能力；了解离职真正原因；避免招入有问题的员工。
+</div>
+
+<p><strong>背调方法：</strong></p>
+<ul>
+<li>打电话给前公司主管/老板</li>
+<li>通过行业圈内朋友了解</li>
+<li>看有没有行业内的负面评价</li>
+<li>现任公司可以不背调（避免影响求职者）；上家公司、上上家公司可以做</li>
+</ul>
+
+<div class="case-card">
+<div class="case-title">📋 背调三案例</div>
+<p><strong>✅ 正面：</strong>十月份招的运营做了背调，前东家说人品没问题、细心，只是业绩做不起来，最后确认能力没问题才录用</p>
+<p><strong>❌ 反面1：</strong>一个被开除的运营去新公司当操盘手，第一年干亏150万，新公司老板没做过背调</p>
+<p><strong>❌ 反面2：</strong>福州一个运营把前公司的产品数据偷给竞争对手，人品有严重问题</p>
+</div>
+<!-- 用人策略 -->
+<h3 id="s1-9">九、差异化用人策略</h3>
+
+<h4>🔹 普通运营用人方法：流程管理 + 师徒制 + 绩效考核</h4>
+<p><strong>核心目标：</strong>把五分运营变成八分。不按职能划分，按<strong>流程管理</strong>。</p>
+<p><strong>标准化工作：</strong>listing优化标准化、产品定位标准化、流量定位标准化、广告标准化</p>
+
+<div class="content-block highlight">
+<strong>关键原则：</strong>普通运营<strong>不让他们做能力范围外的事</strong>。设定可接受区间范围，不要一刀切。例如：ACoS 40%-50%区间都算达标，毛利最高。
+</div>
+
+<h4>🔹 高级人才用人方法：勤沟通 + 给资源 + 培养能力 + 狠狠激励</h4>
+<ol>
+<li><strong>勤沟通、多交流</strong>——讲师踩过的大坑：以前觉得高级人才应该是"老板一个眼神你就懂了"。后来他们离开的原因就是因为不跟他们交流。社交圈围绕核心团队，一起加班、喝酒、玩。</li>
+<li><strong>给资源、给支持</strong>——培训资源（带来上培训课、报MBA）、人脉资源（给圈子）、权限资源（新品开发优先权、更高抽成比例）。越高级人才匹配资源越多。</li>
+<li><strong>培养与能力提升</strong>——识别能力短板，买书、买视频、报班。推荐书籍：《合伙的本质》。</li>
+<li><strong>狠狠激励</strong>——身股分红和合伙人制度。超额分红：40%-60%。</li>
+</ol>
+
+<h4>🔹 主管双重提成机制</h4>
+<div class="content-block success">
+<p>主管自己做业绩 → 拿提成比例</p>
+<p>底下团队成员完成业绩 → 主管<strong>额外</strong>拿该运营提成的30%-50%（公司额外给，不是从运营扣）</p>
+<p><strong>示例：</strong>P3运营完成保底利润目标3.5万-6万，拿到1600元抽成 → 主管额外获得800元（50%）作为团队管理抽成。运营带得越多，主管收益越多。</p>
+</div>
+
+<h4>🔹 单项奖机制</h4>
+<p>例如：ACoS从20%降到15%，单量利润不变 → 单项奖励500-2000元。<strong>及时性奖励</strong>，激励效果更好。</p>
+
+<div class="content-block warning">
+<strong>⚠️ 反面案例：</strong>厦门某卖家——用华为激励法，但公司一直亏损。按利润抽成，没利润就没提成。运营一年不拿提成，自然流失。<br>
+<strong>✅ 改进方案：</strong>新品不赚钱时，设定运营目标（曝光量、单量、排名），达成目标就给绩效奖励（如工资的1.1倍），让运营有执行动力。
+</div>
+
+<!-- 师徒制 -->
+<h3 id="s1-10">十、师徒制四步法</h3>
+<div class="step-flow">
+<span class="step">1. 我说你听</span><span class="arrow">→</span>
+<span class="step">2. 我做你看</span><span class="arrow">→</span>
+<span class="step">3. 你说我听</span><span class="arrow">→</span>
+<span class="step">4. 你做我看</span>
+</div>
+<p><strong>前提：</strong>公司要求主管必须带人，这是考核项。对主管有绩效考核和激励——培养出精英运营给予额外奖励。</p>
+<p><strong>关键：</strong>三遍后熟悉。做完后做复盘。主管在位时应要求其留下<strong>品类专属的新品推广SOP</strong>（非通用模板）。</p>
+
+<!-- 留人机制 -->
+<h3 id="s1-11">十一、分层留人机制</h3>
+
+<h4>🔹 岗位等级体系（T0-T4）</h4>
+<table>
+<tr><th>等级</th><th>定位</th><th>底薪</th><th>抽成比例</th><th>资源分配</th></tr>
+<tr><td>T4</td><td>实习运营</td><td>最低</td><td>最低</td><td>最少</td></tr>
+<tr><td>T3</td><td>普通运营</td><td>中等</td><td>中等</td><td>中等</td></tr>
+<tr><td>T2</td><td>普通运营（中等偏上）</td><td>中等偏上</td><td>中等偏上</td><td>中等偏上</td></tr>
+<tr><td>T1</td><td>操盘手</td><td>较高</td><td>较高</td><td>较多</td></tr>
+<tr><td>T0</td><td>团队管理者</td><td>最高</td><td>最高</td><td>最多</td></tr>
+</table>
+
+<div class="content-block highlight">
+<strong>💡 亚马逊"7人团队"招聘标准：</strong>新招进来的人能力必须大于七个人中的四个（即必须在前三名到第四名之间），让团队人才潜力越来越大，避免优秀人才觉得不公平而离开。
+</div>
+
+<h4>🔹 留人三大要素</h4>
+<ol>
+<li><strong>懂得给钱与分钱</strong>——"我在乎什么就奖励什么"，奖励指标要与目标挂钩、结果导向</li>
+<li><strong>晋升和成长空间</strong>——连续两个月达到上一层级自动晋升；连续两个月达不到往下降</li>
+<li><strong>优秀人才的聚集地</strong>——优秀人才愿意跟优秀的人在一起，有躺平的人就觉得公司没前途</li>
+</ol>
+
+<div class="content-block highlight">
+<strong>💡 核心金句：</strong>"分钱的目的是<strong>激励</strong>运营，而不是<strong>满足</strong>运营。考核的目的不是为了扣别人的钱，而是为了能按正确的方向走。"
+</div>
+
+<!-- 合伙人筛选 -->
+<h3 id="s1-12">十二、合伙人筛选与股份分配</h3>
+
+<h4>🔹 合伙人考察维度</h4>
+<table>
+<tr><th>维度</th><th>核心要点</th></tr>
+<tr><td><strong>资源</strong></td><td>供应链资源最稀缺</td></tr>
+<tr><td><strong>资金</strong></td><td>纯资金股占比不宜过高（一般只占总股份30%）</td></tr>
+<tr><td><strong>能力</strong></td><td>运营、管理、市场能力互补</td></tr>
+</table>
+
+<h4>🔹 股份分配实操案例（泉州卖家 vs 工厂合伙）</h4>
+<div class="case-card">
+<div class="case-title">📋 盘子1000万：工厂出600万+资源，夫妻出400万+技术运营</div>
+<p><strong>❌ 错误算法（按出资比例）：</strong>工厂64% : 夫妻36%</p>
+<p><strong>✅ 正确算法：</strong></p>
+<ul>
+<li>资金股占整体40% → 工厂占24%（600/1000×40%）、夫妻占16%（400/1000×40%）</li>
+<li>资源股 → 工厂占30%</li>
+<li>运营股30% + 管理股20% → 都归夫妻</li>
+<li><strong>正确比例约：34 : 66（夫妻占大头）</strong></li>
+</ul>
+<p><strong>结论：</strong>"否则做到一定级别你一定分家——工厂只是提供货源，做起来以后你会想把工厂剔掉。"</p>
+</div>
+
+<h4>🔹 合伙人退出机制</h4>
+<ul>
+<li>避免躺平：只出钱不出力的合伙人要有考核机制</li>
+<li>如果某个合伙人躺平又不想离开，可新成立项目由其挑头，按项目分红</li>
+<li>必须白纸黑字：目标、团队规模、达成率写清楚</li>
+<li><strong>反面案例：</strong>泉州某大卖家——一个想做品牌对标斯凯奇，一个想做分销平台，目标不一致导致分裂。初始团队股份平分最终不欢而散</li>
+</ul>
+</div>
+
+<!-- ===== 第二支柱：做系统 ===== -->
+<div class="module-section" id="s2-1">
+<h2>⚙️ 第二支柱：做系统 —— 运营标准化SOP全链路</h2>
+<div class="content-block highlight">
+<strong>💡 核心金句：</strong>"行业整体比较'草本'，流程化管理在行业中并没有特别多。通过做系统，让组织能力得以发挥。"
+</div>
+
+<!-- 概念思维表 -->
+<h3>一、概念思维表 —— 区分普通运营与精英运营的关键工具</h3>
+<p>概念思维表是课程中<strong>最核心的目标管理工具</strong>，被反复引用和演示。它由六个层次构成递进闭环：</p>
+
+<table>
+<tr><th>层次</th><th>说明</th><th>浴帘案例示例</th></tr>
+<tr><td><strong>1. 议题</strong></td><td>讨论的问题要正确</td><td>如何降低ACoS值到合理水平并实现盈利？</td></tr>
+<tr><td><strong>2. 目的</strong></td><td>明确方向，不能偏（方向性问题）</td><td>通过降低CPC和恢复售价来降低ACoS</td></tr>
+<tr><td><strong>3. 目标</strong></td><td>可量化、可拆解（量化指标）</td><td>ACoS从132%降低到33%；CPC降到0.33；转化率做到5.48%</td></tr>
+<tr><td><strong>4. 策略</strong></td><td>头脑风暴，列出所有方法（不论好坏）</td><td>按摩球案例：列出22个方法（贴礼品标签、海王打法、放弃本品流量等）</td></tr>
+<tr><td><strong>5. 衡量</strong></td><td>判断和聚焦，选最好的3-4个方法</td><td>综合判断后选择礼品打法+海王打法（<strong>运营最难环节</strong>）</td></tr>
+<tr><td><strong>6. 行动方案</strong></td><td>具体执行步骤+需要上级/公司提供的支持</td><td>礼品关键词排名计划、海王广告设置参数</td></tr>
+</table>
+
+<div class="content-block warning">
+<strong>⚠️ 目的与目标的区别：</strong>
+<ul>
+<li><strong>目的</strong> = 方向性问题，如"通过爆款模式实现一个亿"</li>
+<li><strong>目标</strong> = 量化指标，如"做到一个亿需要5个爆款，每个爆款2000万"</li>
+</ul>
+</div>
+
+<div class="content-block highlight">
+<strong>💡 讲师金句：</strong>"衡量这个环节对运营来说最难。大部分运营不出成绩的原因在于没法判断哪些是好的，所以大量时间在做无用功——'每天打开后台花8小时，7小时是浪费的'。"
+</div>
+
+<h4>🔹 目标制定三原则</h4>
+<ol>
+<li><strong>可量化</strong>——不能只写"排名第五"，要算出需要多少单量、点击量、曝光量、预算</li>
+<li><strong>可执行</strong>——有数据支撑，有具体行动方案</li>
+<li><strong>结果导向</strong>——以终为始，从目标反推执行</li>
+</ol>
+
+<h4>🔹 概念思维表常见错误</h4>
+<ul>
+<li>策略和衡量一样 → 说明只能想到这些，没有判断力</li>
+<li>行动方案空着 → 说明不具体不细节</li>
+<li>行动方案超过策略 → 说明方案不具体</li>
+</ul>
+
+<h4>🔹 有效运营的五大方针</h4>
+<div class="step-flow">
+<span class="step">定目标</span><span class="arrow">→</span>
+<span class="step">做计划</span><span class="arrow">→</span>
+<span class="step">抓流程</span><span class="arrow">→</span>
+<span class="step">做检查</span><span class="arrow">→</span>
+<span class="step">勤复盘</span>
+</div>
+<p><strong>方针解读：</strong></p>
+<ul>
+<li><strong>定目标：</strong>随品类不同、所处阶段不同而不同，关键变量会有改变和差别。新品期和成熟期的目标一定不同。</li>
+<li><strong>做计划：</strong>弄清楚利润等于什么减去什么。收入端+支出端十几项都要算。"在计划之内做正确的判断和事项，不要乱搞。"</li>
+<li><strong>抓流程：</strong>用流程工具来控。</li>
+<li><strong>做检查：</strong>按流程做了但有没有人检查？这是店长或经理该干的事情。</li>
+<li><strong>勤复盘：</strong>检查完做复盘，才能有绩效辅导，才有办法达成目标。</li>
+</ul>
+
+<!-- 产品定位SOP -->
+<h3 id="s2-2">二、产品定位SOP（十大要素）</h3>
+<div class="content-block highlight">
+<strong>🎯 目标：</strong>做出比90%卖家更好的产品页面。回答清楚这十个问题，产品定位基本没问题。
+</div>
+
+<table>
+<tr><th>#</th><th>要素</th><th>推荐工具</th><th>说明</th></tr>
+<tr><td>1</td><td><strong>产品基本信息</strong></td><td>自己总结+竞品信息</td><td>属性、特征，列优先顺序</td></tr>
+<tr><td>2</td><td><strong>主要用户人群</strong></td><td>卖家精灵插件（百来块钱）</td><td>用户画像</td></tr>
+<tr><td>3</td><td><strong>产品使用场景</strong></td><td>卖家精灵插件</td><td>使用场景描述</td></tr>
+<tr><td>4</td><td><strong>产品核心竞争力</strong></td><td>卖家精灵+竞品分析</td><td>卖点总结</td></tr>
+<tr><td>5</td><td><strong>用户痛点</strong></td><td>卖家精灵插件</td><td>用户关心什么、痛点是什么</td></tr>
+<tr><td>6</td><td><strong>购买驱动因素</strong></td><td>商机探测器（免费）</td><td>促使购买的因素</td></tr>
+<tr><td>7</td><td><strong>退货分析</strong></td><td>商机探测器（免费）</td><td>退货原因分析</td></tr>
+<tr><td>8</td><td><strong>产品创新</strong></td><td>Indiegogo/Kickstarter/社媒/YouTube</td><td>众筹/社媒看创新</td></tr>
+<tr><td>9</td><td><strong>礼品和季节属性</strong></td><td>自己判断</td><td>大部分产品都可以做礼品属性</td></tr>
+<tr><td>10</td><td><strong>Review Insight</strong></td><td>卖家精灵/商机探测器</td><td>客户反馈分析</td></tr>
+</table>
+
+<h4>🔹 核心三问浓缩（卖点/痛点/爽点）</h4>
+<div class="content-block highlight">
+<strong>💡 核心洞察：</strong>"用户可能不会为你的<strong>卖点</strong>买单，因为那是你的事，是商家的事。但一定会为自己的<strong>痛点</strong>买单。如果你还能增加<strong>爽点</strong>的话，那会刺激他购买。"回答清楚这三个问题，listing在转化和吸引力环节就"一定没问题"。
+</div>
+
+<div class="case-card">
+<div class="case-title">📋 案例一：工艺品"乌龟灯"</div>
+<ul>
+<li><strong>用户画像：</strong>祖父母、外祖父母、年纪较长的女士</li>
+<li><strong>使用场景：</strong>花园50%、露台30%、阳台10%、门廊、玄关</li>
+<li><strong>礼品属性：</strong>79%的人当礼品用</li>
+<li><strong>差评关键词：</strong>尺寸太小（小于预期）、不工作、亮度不够</li>
+<li><strong>页面优化落地：</strong>图片中加入祖父母形象、礼品背景；场景图多放户外装饰、庭院装饰、阳台</li>
+<li><strong>亮点：</strong>晋江卖家"清库存清成爆款"</li>
+</ul>
+</div>
+
+<div class="case-card">
+<div class="case-title">📋 案例二：颈椎按摩器</div>
+<ul>
+<li><strong>用户人群：</strong>颈椎有问题的人、办公人群</li>
+<li><strong>使用场景：</strong>颈椎（同时可背部按摩）；等待飞机、办公室</li>
+<li><strong>礼品属性：</strong>可作为礼品</li>
+<li><strong>功能替代：</strong>可替代筋膜枪、背部担架、沙发靠枕</li>
+<li><strong>特征功能：</strong>加热、按摩档位等</li>
+</ul>
+</div>
+
+<div class="case-card">
+<div class="case-title">📋 案例三：枕头创新（3-2新增）</div>
+<ul>
+<li><strong>售价：</strong>108美金</li>
+<li><strong>创新功能：</strong>治疗失眠+治疗打鼾</li>
+<li><strong>效果：</strong>在Indiegogo上众筹完成率达到2000%以上</li>
+</ul>
+</div>
+
+<h4>🔹 关于"gift"关键词的实操建议</h4>
+<ul>
+<li>现在亚马逊平台上有大量"gift"词，问题不大</li>
+<li>老实人规避法：可换"Present"，或加标点符号变体</li>
+<li>投关键词时仍可投gift相关词</li>
+<li>主图可加红色蝴蝶结代表礼物属性（不要当老实人）</li>
+</ul>
+
+<!-- 流量定位SOP -->
+<h3 id="s2-3">三、流量定位SOP</h3>
+<div class="content-block highlight">
+<strong>🎯 核心认知：</strong>大多数卖家只有"本品思维"或对流量有偏见。最重要的事是"搞流量"，甚至可以为流量去适配产品。
+</div>
+
+<h4>🔹 流量定位的两大工作</h4>
+<ol>
+<li><strong>流量池的挖掘</strong></li>
+<li><strong>流量的层级分析</strong></li>
+</ol>
+
+<h4>🔹 流量池的七大关键词类型</h4>
+<table>
+<tr><th>类型</th><th>说明</th><th>示例</th></tr>
+<tr><td><strong>产品词（本品词）</strong></td><td>直接描述产品的词</td><td>massage pillow</td></tr>
+<tr><td><strong>品类词</strong></td><td>所属品类的通用词</td><td>back massager for back</td></tr>
+<tr><td><strong>礼品词</strong></td><td>礼物场景相关</td><td>gift for grandma, present for men</td></tr>
+<tr><td><strong>关联词</strong></td><td>互补产品关联</td><td>按摩球（搭配颈椎按摩器）</td></tr>
+<tr><td><strong>通道词</strong></td><td>特定渠道流量</td><td>TikTok上加鞋子</td></tr>
+<tr><td><strong>品牌词</strong></td><td>大牌流量</td><td>阿迪达斯、耐克</td></tr>
+<tr><td><strong>标签词</strong></td><td>标签属性流量</td><td>同标签ASIN流量</td></tr>
+</table>
+
+<h4>🔹 流量分类表格框架（六大分类）</h4>
+<ol>
+<li>品类的本品流量</li>
+<li>品类流量 / 细分市场流量</li>
+<li>礼品和节日流量</li>
+<li>系统和通道流量（放流量：如高尔夫→衣服、Polo→衣服）</li>
+<li>品牌流量</li>
+<li>站外流量</li>
+</ol>
+
+<h4>🔹 流量分级方法</h4>
+<p><strong>关键词可划等级，ASIN也可划等级：</strong></p>
+<ul>
+<li><strong>第一类：</strong>同类ASIN（与你产品一样）</li>
+<li><strong>第二类：</strong>关联ASIN</li>
+<li><strong>第三类：</strong>同标签ASIN（流量重合）</li>
+</ul>
+
+<h4>🔹 颈椎按摩器流量定位案例</h4>
+<p>本品词（massage pillow）→ 品类大词（back massager for back）→ 互补关联词（按摩球）→ 礼品词（gift相关）→ 品牌词（大牌ASIN）。该产品咔嚓上来后有<strong>27个细分市场</strong>。</p>
+
+<h4>🔹 贴标签打法（弯道超车方法论）⭐ 高级流量策略</h4>
+<div class="content-block success">
+<strong>🚀 核心逻辑：</strong>
+<ol>
+<li>找到跟你产品相关的、流量池丰富的ASIN</li>
+<li>通过ASIN定投（ASIN Targeting）贴标签</li>
+<li>一旦有曝光/收录，<strong>立刻关掉广告</strong></li>
+<li>亚马逊会通过"晕轮效应"认为你跟该ASIN是同类产品，自然流量开始进来</li>
+<li><strong>加速策略：</strong>不投一个ASIN，投一系列相关ASIN，同时贴标签，全面加速</li>
+</ol>
+</div>
+
+<h4>🔹 泛垂直概念</h4>
+<p>垂直=卖家具；泛垂直往上一级=家居装修、搬家、装饰；再往上一级=幸福感。流量一级一级往上叠加，做得好的产品背后有<strong>50个甚至更多的流量池</strong>，而做得差的产品可能只有1个池子。</p>
+
+<!-- 关键词词库五步法 -->
+<h3 id="s2-4">四、关键词词库搭建五步法</h3>
+
+<div class="step-flow">
+<span class="step">1. 选种子竞品</span><span class="arrow">→</span>
+<span class="step">2. 确定流量池</span><span class="arrow">→</span>
+<span class="step">3. 关键词分析</span><span class="arrow">→</span>
+<span class="step">4. 筛选与验证</span><span class="arrow">→</span>
+<span class="step">5. 组织ASIN SOP</span>
+</div>
+
+<h4>🔹 第一步：选种子竞品（三类必须找）</h4>
+<ol>
+<li><strong>销量靠前的竞品</strong></li>
+<li><strong>突然间蹿起来的竞品</strong>（创新迅猛的）</li>
+<li><strong>流量池比较丰富的竞品</strong>（如27个市场、50多个市场）</li>
+</ol>
+
+<h4>🔹 第二步：确定流量池</h4>
+<p>找5-10个卖得好的竞品，汇总其流量池。A可能是礼品、B可能是关联、C可能是本品、D可能是小语种。可交给ChatGPT/DeepSeek做关键词分类。</p>
+
+<h4>🔹 第三步：关键词分析</h4>
+<p>分出哪些是重要流量。需要对所处品类的流量特点有较好理解。</p>
+
+<h4>🔹 第四步：关键词筛选四条规则</h4>
+<table>
+<tr><th>#</th><th>规则</th><th>说明</th></tr>
+<tr><td>1</td><td><strong>筛掉品牌词</strong></td><td>买词的话要筛掉；广告可以打，但不能放listing</td></tr>
+<tr><td>2</td><td><strong>删掉敏感词、违禁词</strong></td><td>可能导致链接消失</td></tr>
+<tr><td>3</td><td><strong>删掉不相关或弱相关词</strong></td><td>不相关又热度高，容易吃走预算</td></tr>
+<tr><td>4</td><td><strong>删掉通道词</strong></td><td>如clearance（清库存）；通道词拿流量靠营销动作，不是打关键词</td></tr>
+</table>
+
+<h4>🔹 关键词验证三部曲</h4>
+<ol>
+<li><strong>前台验证相关性：</strong>最反直觉的洞察——<strong>"没同类最好"</strong>——这代表同行没意识到该流量，是蓝海</li>
+<li><strong>验证CPC和转化率：</strong>目的是算CPA</li>
+<li><strong>验证产品竞争力：</strong>价格、review等，决定定投策略</li>
+</ol>
+
+<h4>🔹 海王打法（海丝大法）⭐ 核心广告策略</h4>
+<div class="content-block success">
+<strong>适用条件：</strong>长尾词转化率高、整体CPA可能低、流量小的词<br>
+<strong>操作：</strong>10-20个词放一组来打；用建议竞价或建议竞价往上一点的CPC去带；算出来只要CPA OK就可以<br>
+<strong>预算设定公式：</strong>预算 > ECPA（盈亏平衡CPA）且 ≤ 3xCPA。假设所有关键词平均CPA是10美金，预算设10-30美金之间。<strong>不是汇总，是平均下来出一单。</strong>
+</div>
+
+<!-- 新品推广SOP -->
+<h3 id="s2-5">五、新品推广SOP框架</h3>
+
+<h4>🔹 新品推广六步流程</h4>
+<div class="step-flow">
+<span class="step">产品定位</span><span class="arrow">→</span>
+<span class="step">Listing优化</span><span class="arrow">→</span>
+<span class="step">各端定位</span><span class="arrow">→</span>
+<span class="step">促销策略</span><span class="arrow">→</span>
+<span class="step">Review策略</span><span class="arrow">→</span>
+<span class="step">广告策略</span>
+</div>
+
+<h4>🔹 促销策略（按产品特性分类）</h4>
+<table>
+<tr><th>产品特性</th><th>促销策略</th></tr>
+<tr><td>仿效剂产品（背包、床单）</td><td>教育优惠（Prime专享折扣，针对学生Prime）</td></tr>
+<tr><td>家庭主妇相关（工艺品、礼品、切菜板）</td><td>Prime专享（家庭主妇人群）</td></tr>
+<tr><td>筋膜枪（高价+高突破）</td><td>促销策略不能落后于竞争对手</td></tr>
+<tr><td>帐篷（100-200美金）</td><td>加大优惠券</td></tr>
+</table>
+
+<h4>🔹 七种Review策略选项（3-2新增）</h4>
+<ol>
+<li>种子链接自发货</li>
+<li>老带新（老品带新品：组织链接）</li>
+<li>苹直评合并</li>
+<li>僵尸Review</li>
+<li>镜像Review</li>
+<li>跨站点Review</li>
+<li>不做Review干预（裸奔）</li>
+</ol>
+<p><strong>选择逻辑完全取决于产品类型：</strong>服装/非标品不大量刷单；标品（如电动按摩椅）很看重Review。高客单价产品：Review内容最重要（找好的写手，3-5个Review可能就够了）；低客单价标品：Review数量最重要。美国站不能刷单，但有些国际站点的review可以迁移到美国站。</p>
+
+<h4>🔹 新品推广关键变量</h4>
+<p>不同品类的关键变量不同。新品推广SOP表格中所有关键变量都写上，有"是否选择"项：产品是否需要划分新品等级（强/中/弱）；是否需要做review调研；是否有礼品属性；Review不敏感→不需要刷单，主力攻listing优化。</p>
+
+<div class="content-block highlight">
+<strong>🎯 关键方法论：</strong>新品阶段不要着急，第一步先看<strong>"新品有没有拿到足够多的精准曝光"</strong>。前两项是基础，前三项不管做什么都得做（基础工作）。
+</div>
+
+<!-- ACoS衡量表 -->
+<h3 id="s2-6">六、ACoS衡量表 —— 四大应用场景</h3>
+<div class="content-block highlight">
+<strong>🎯 ACoS衡量表的本质：</strong>控制CPC、单价和毛利、转化率这几个变量，算出广告的整体ACoS值和广告利润。这是整个课程中最核心的运营决策工具之一。
+</div>
+
+<h4>🔹 四大用途</h4>
+<table>
+<tr><th>用途</th><th>说明</th><th>核心洞察</th></tr>
+<tr><td><strong>1. 优化ACoS/明确广告优化目标</strong></td><td>数字带出来才知道调CPC还是调转化率更好</td><td>浴帘案例：提升转化率方向错误，降低CPC才是正确方向</td></tr>
+<tr><td><strong>2. 模拟预测广告投放效果（沙盘）</strong></td><td>多种广告类型都投，预估哪个效果更佳</td><td>SP自动（ACoS 40%赚钱）vs SD VCPM（ACoS 1077%坚决不允许）vs SBV（ACoS 25%可投）</td></tr>
+<tr><td><strong>3. 测试广告的最佳位置</strong></td><td>跟头部还是掺和着来</td><td>头部CPC 3.6转化30%；其余位置CPC 2.1转化18%；商品页面CPC 1.05转化9%。<strong>推排名看点击次数最多</strong>（商品页面476次点击 vs 头部139次）</td></tr>
+<tr><td><strong>4. 做定价</strong></td><td>不同定价有不同转化率，算出不同利润</td><td>同一产品从6.99到14.99都能卖，13.99-14.99是最佳策略</td></tr>
+</table>
+
+<h4>🔹 案例一：浴帘ACoS优化（降CPC策略）</h4>
+<div class="case-card">
+<div class="case-title">📋 浴帘ACoS从132%降低到33%的完整案例</div>
+<p><strong>初始状态：</strong>定价17.99（比行业平均低2美金），CPC 0.75，转化率3.13%，ACoS值133.19（亏得厉害）</p>
+<p><strong>运营最初方案（❌ 错误示范）：</strong>目的写"增加转化率"；策略包括降价、打精准长尾词。但浴帘行业平均转化率5.48%，头部14%。转化率从3.1%提升到10%根本做不到（行业第一名的水平）。即使做到10%，ACoS仍为41.69%，广告依然亏损。</p>
+<p><strong>方案A（提高转化10%）：</strong>CPC仍0.75，ACoS仍40多，还是亏 → <strong>方向错误</strong></p>
+<p><strong>✅ 方案B（降CPC）：</strong>CPC从0.75降到0.33，转化率提2点到5.48，<strong>ACoS降到39%</strong>，广告盈利</p>
+<p><strong>修正后的方案目标：</strong>ACoS降低到33%；客单价恢复19.99；CPC降到行业平均0.33；转化率做到行业平均5.48% → <strong>三个数字都是行业中位线（及格线），做到及格就能实现ACoS=33%</strong></p>
+</div>
+
+<h4>🔹 案例二：多广告类型模拟</h4>
+<table>
+<tr><th>广告类型</th><th>CPC</th><th>转化率</th><th>预估ACoS</th><th>结论</th></tr>
+<tr><td>自动广告</td><td>0.32</td><td>3.99%</td><td>40.12%</td><td>✅ 赚钱，可投</td></tr>
+<tr><td>SD广告VCPM（千次曝光）</td><td>2.65</td><td>1.23%</td><td>1077%</td><td>❌ 坚决不允许</td></tr>
+<tr><td>SBV</td><td>0.33</td><td>6.49%</td><td>25.44%</td><td>✅ 可投</td></tr>
+</table>
+<div class="content-block warning">
+<strong>⚠️ 2025年变化：</strong>亚马逊广告模型将迎来变化——VCPM收费模型会更靠近转化目标，归因周期从14天改为1天。
+</div>
+
+<h4>🔹 案例三：位置策略核心洞察</h4>
+<div class="content-block success">
+<strong>🎯 核心洞察：</strong>"单量幅度不大的情况下，<strong>点击次数越多，对关键词的权重越高</strong>"——实操中<strong>60%海王打法 + 40%攻坚其余位置</strong>效果更好。推排名不是看CPC最低，而是看<strong>点击次数最多</strong>，因为点击=权重。不是广告在头部点一下权重更高——都是一次点击，权重一样。
+</div>
+
+<!-- 推广利润表 -->
+<h3 id="s2-7">七、推广利润表（CPA盈亏平衡测算）</h3>
+
+<h4>🔹 关键变量</h4>
+<p>客单价、毛利率、转化率、CPC、推广的ACoS值、CPA、<strong>盈亏平衡的自然单占比</strong>、50%自然单利润率、70%自然单占比利润率</p>
+
+<h4>🔹 back massager案例</h4>
+<table>
+<tr><th>指标</th><th>数据</th></tr>
+<tr><td>售价</td><td>26.99美金</td></tr>
+<tr><td>转化率</td><td>10%+</td></tr>
+<tr><td>CPC</td><td>1.1</td></tr>
+<tr><td>推广ACoS</td><td>39.3%</td></tr>
+<tr><td>推广CPA</td><td>10.61</td></tr>
+<tr><td><strong>盈亏平衡自然单占比</strong></td><td><strong>-57.75%（广告就能盈利！）</strong></td></tr>
+<tr><td>50%自然单→利润率</td><td>42.35%</td></tr>
+<tr><td>70%自然单→利润率</td><td>50.21%</td></tr>
+</table>
+
+<h4>🔹 反推CPC上限（关键方法）</h4>
+<div class="content-block highlight">
+<strong>考核标准：</strong>CPC不能高于X（盈亏平衡点），店铺自然单比率不能低于Y。
+</div>
+<table>
+<tr><th>变量</th><th>卡控标准</th><th>奖励触发</th></tr>
+<tr><td>CPC</td><td>≤2.8</td><td>降到1.2 → 单独奖励（CPA降低）</td></tr>
+<tr><td>转化率</td><td>16%-35%区间，至少维持16</td><td>从16提升到25 → 单独奖励</td></tr>
+<tr><td>产品价格</td><td>24.99必须保持</td><td>不能瞎改卖15.99</td></tr>
+</table>
+
+<h4>🔹 增量利润的奖励计算逻辑</h4>
+<p>从3000美金利润 → CPC降到1.3 + 广告单降到50% → 利润提升3倍。增量5万块利润，可奖励运营500-5000。<strong>增量的10%、20%、30%，这是可以计算的。</strong></p>
+
+<h4>🔹 盈亏平衡自然单占比模型（核心分析工具）</h4>
+<div class="content-block success">
+<strong>三个关键数字：</strong>
+<ol>
+<li><strong>盈亏平衡自然单占比：</strong>自然单需要占多少比例才能保本。如果是<strong>负数</strong>，反而是<strong>好消息</strong>——说明仅靠广告本身就能盈利。越负数越好！</li>
+<li><strong>50%自然单时的利润率：</strong>案例产品毛利率51%，自然单占比50%时利润率27%</li>
+<li><strong>70%自然单时的利润率：</strong>自然单占比提高到70%时，利润率37%</li>
+</ol>
+</div>
+<div class="content-block warning">
+<strong>⚠️ 反面案例：</strong>北京一位同学的新品推广后，发现自然单需要做到87%才能保本，这意味着"妥妥的亏钱"。
+</div>
+
+<!-- 竞品分析SOP -->
+<h3 id="s2-8">八、竞品分析SOP</h3>
+
+<h4>🔹 十一项信息维度</h4>
+<p>竞品基本信息 → 销量数据 → 转化率数据 → CPC数据 → 流量结构 → Review分析 → 库存量分析 → 站内运营动作 → 站外运营动作 → 广告透析 → 黑科技或其他</p>
+
+<h4>🔹 九大工具矩阵</h4>
+<table>
+<tr><th>维度</th><th>推荐工具</th></tr>
+<tr><td>竞品信息、流量结构、广告架构</td><td>积木（Jimu）、Helium 10、SIF</td></tr>
+<tr><td>竞品转化率、CPC、流量结构</td><td>Helium 10</td></tr>
+<tr><td>竞品Review</td><td>商机探测器、卖家精灵插件</td></tr>
+<tr><td>竞品库存量</td><td><strong>Softime（最准）</strong></td></tr>
+<tr><td>站内运营动作</td><td>欧陆（全景动态功能）</td></tr>
+<tr><td>站外促销</td><td>站外智慧</td></tr>
+<tr><td>广告透析</td><td>SIF+积木的广告ID反查</td></tr>
+<tr><td>刷单识别</td><td>Review Meta（十几项维度）</td></tr>
+<tr><td>跨平台操作</td><td>谷歌搜索+谷歌Shopping</td></tr>
+</table>
+
+<h4>🔹 寄生流量策略（3-2新增）⭐</h4>
+<div class="content-block success">
+<strong>🚀 核心逻辑：</strong>贴上对手标签后像"牛皮癣"一样寄生在他身上。不做动作，他好你就好。
+</div>
+
+<h4>🔹 库存管理细节</h4>
+<p>通过库存查询发现对方有9000-10000个库存，提醒中国卖家要<strong>设置限购条件</strong>（限购10件/20件），防止被恶意加购。</p>
+
+<!-- 旺季备战SOP -->
+<h3 id="s2-9">九、备战旺季SOP</h3>
+<div class="step-flow">
+<span class="step">旺季前：准备与节奏把控</span><span class="arrow">→</span>
+<span class="step">旺季中：冲刺（盯排名、盯预算、盯广告位置）</span><span class="arrow">→</span>
+<span class="step">旺季后：复盘</span>
+</div>
+<p><strong>定位：</strong>配了一张表，把备战旺季前、中、后要做的事项全部列出。<strong>不是要求所有事项都做</strong>，根据自己情况去定。</p>
+
+<h4>🔹 季节性产品操作要点</h4>
+<ul>
+<li>父亲节往前一周（9-16号）是流量转化高峰期，这个阶段拉曝光预算和CPC</li>
+<li>之前做广告=万里长跑从一开始就冲刺，没必要</li>
+<li>大家都在降价清库存时你也降价=烂在手上——正确做法是起量期/转化期扩大预算赶紧冲刺</li>
+<li><strong>预防最重要——</strong>熟悉季节性产品的流量高峰期</li>
+</ul>
+
+<h4>🔹 淡旺季切换三方法</h4>
+<ol>
+<li><strong>产品定位改变：</strong>圣诞主题→改产品定位为礼品（桌面摆件）</li>
+<li><strong>多备部分移出：</strong>降低损失</li>
+<li><strong>预防（最重要）：</strong>熟悉季节性产品的流量高峰期</li>
+</ol>
+
+<!-- 店铺诊断 -->
+<h3 id="s2-10">十、店铺诊断方法论</h3>
+
+<h4>🔹 三种典型店铺场景诊断</h4>
+<table>
+<tr><th>店铺类型</th><th>症状</th><th>优化目标</th></tr>
+<tr><td>转化好+CPC低但单量起不来</td><td>利润起不来</td><td><strong>增加流量、拉曝光</strong></td></tr>
+<tr><td>新品新店铺（转化率在线）</td><td>缺曝光</td><td><strong>拉精准曝光</strong></td></tr>
+<tr><td>转化率低于行业平均</td><td>如4.19% vs 行业9.8%</td><td><strong>拉转化</strong></td></tr>
+<tr><td>营销成本高</td><td>CPA过高</td><td>从定价、CPC、转化率三个维度出发</td></tr>
+</table>
+
+<h4>🔹 标品店铺优化案例（月利润3000→翻倍空间）</h4>
+<table>
+<tr><th>指标</th><th>当前值</th><th>问题</th></tr>
+<tr><td>月单量</td><td>2185单（日均70单）</td><td>-</td></tr>
+<tr><td>广告单占比</td><td>61%</td><td>过高</td></tr>
+<tr><td>毛利率</td><td>7.2%</td><td>过低</td></tr>
+<tr><td>广告转化率</td><td>20.88%</td><td>可接受</td></tr>
+<tr><td>自然转化率</td><td>约10%</td><td>过低（自然排名靠后）</td></tr>
+<tr><td>CPC</td><td>1.8美金</td><td>-</td></tr>
+<tr><td>ACoS</td><td>约40%</td><td>-</td></tr>
+</table>
+<p><strong>优化策略：</strong>在冲排名相关的流量上加大投入（把主要关键词的预算设定到能把排名冲到目标位置的数值）；增加便宜的流量通道（礼品流量、配件流量，CPC低至0.3几）</p>
+<p><strong>⚠️ 反面操作：</strong>把CPC从1.8降到1.5 → 与推排名冲突；降低广告预算 → 广告数据好看但总利润减少</p>
+
+<h4>🔹 非标品店铺优化案例（月利润约13000美金）</h4>
+<table>
+<tr><th>指标</th><th>当前值</th><th>优化策略</th></tr>
+<tr><td>日均单量</td><td>140-150单</td><td>-</td></tr>
+<tr><td>毛利率</td><td>15.08%</td><td><strong>提价1-2美金</strong>（首要策略，非标品转化率不变）</td></tr>
+<tr><td>ACoS</td><td>25%</td><td>广告架构调整（主力SKU独立广告活动）</td></tr>
+<tr><td>广告转化率</td><td>4.19%（非标品正常）</td><td>拓展放大词流量体系（women clothing等，CPC更低但转化率6%）</td></tr>
+<tr><td>CPC</td><td>0.37</td><td>增加SB广告（CPC也能低）</td></tr>
+</table>
+
+<h4>🔹 降低营销成本的三大路径（绩效辅导核心）</h4>
+<ol>
+<li><strong>控制广告预算：</strong>减少或降低某些广告的配比，更合理地分配广告预算</li>
+<li><strong>提升自然流量：</strong>自然单多了，广告营销占比相对就低了</li>
+<li><strong>找到更便宜的流量：</strong>CPC太高导致广告占比高，需找更便宜的流量渠道</li>
+</ol>
+</div>
+
+<!-- 战略解码 -->
+<h3 id="s2-11">十一、战略解码 —— 年度目标拆解</h3>
+
+<h4>🔹 亿元目标拆解三方案（1-2核心案例）</h4>
+<p><strong>背景：</strong>客单价35.99美金；日均600单（两条链接）；广告单占比60%；类目排名第10名；类目第一名日均1800单；2025年目标销售额1亿人民币 → 每日约1000单，需增加400单</p>
+<table>
+<tr><th>方案</th><th>策略</th><th>优点</th><th>缺点</th></tr>
+<tr><td><strong>方案一：提升排名</strong></td><td>一条链接从第10名推到第4名（日均约1057单），广告预算从4000-5000追加到约8000美金</td><td>不增加新品，仅增加流量通道</td><td>只有一条链接，未来布局不利</td></tr>
+<tr><td><strong>✅ 方案二：产品线扩展（采用）</strong></td><td>老链接20%增长（600→720单）；开发1-3个新小爆款（横向开发关联产品）；新品在30-40名，一天约100单</td><td>多条链接分散风险；今年可能不是1亿而是1.5-2亿</td><td>需开发能力配套</td></tr>
+<tr><td><strong>方案三：高客单价</strong></td><td>老链接20%增长；开发1-2条高客单价产品线</td><td>用客单价弥补单量不足</td><td>-</td></tr>
+</table>
+<p><strong>为什么选方案二：</strong>有能力做到可能超过1亿；没能力至少还有新产品冉冉升起。<strong>爆款模型下不应开太多款</strong>（300多个款的铺货模型在爆款逻辑下不成立）。</p>
+
+<h4>🔹 从2000万到1亿的战略解码（3-2核心案例）</h4>
+<div class="case-card">
+<div class="case-title">📋 帮助福州企业在一年内从2000万做到1亿，增长5倍</div>
+<p><strong>增量8000万的分解路径：</strong></p>
+<ul>
+<li><strong>路径一（存量老链接流量提升）：</strong>老链接从日均300单提升到500单；如果有2条老链接合计增加400单/天；分解到广告层面——广告投入需增加多少？打哪些词？对老运营的考核——从300单到500单怎么做？怎么奖励？</li>
+<li><strong>路径二（新品贡献增量）：</strong>需要25款成功新品（每款日均50单左右）；按50%成功率反推：开发部门至少需要开发50款产品；50款产品必须在合适的时间节点完成开发</li>
+<li><strong>路径三（利润目标）：</strong>利润目标 = 销售目标 × 成本控制系统</li>
+</ul>
+<p><strong>核心逻辑：</strong>销售目标 → 单量目标 → 存量分解（老链接提升）+ 增量分解（新品开发）→ 乘以成本系数 → 利润目标</p>
+</div>
+
+<h4>🔹 50万年利润启动模型</h4>
+<div class="case-card">
+<div class="case-title">📋 按摩球产品：售价19.99美金，毛利约10美金，毛利比约50%</div>
+<p><strong>纯靠广告计算：</strong>净利=19.99×(50%-30%)=约4美金/单；目标利润50万÷7.2（汇率）≈6.94万美金；6.94万÷4÷365≈47单/天 → <strong>实际只需约30单/天</strong>（因为有自然单+ACoS优化空间+礼品CPC更便宜）</p>
+<p><strong>启动资金：</strong>备货2000-3000件（2-3万人民币）；日广告预算约200多美金 → <strong>总结：约2万人民币起步即可</strong></p>
+</div>
+
+<h4>🔹 ACoS高于毛利率50%的经营铁律</h4>
+<div class="content-block warning">
+<strong>🔴 核心铁律（不分品类、不分客单价）：</strong>当ACoS高于毛利率的50%时，此时最重要的事情是<strong>优化成本、提升毛利率</strong>，而不是追加广告投入。
+<p><strong>案例：</strong>福州学员年销2亿，净利率仅10%，ACoS 24% > 毛利率50%（17%）。错误方案：做到4亿实现4000万利润（老板越来越累，风险越来越高）。正确方案：净利率从10%提到15%，销售额从2亿到2.7亿（而非4亿），以优化毛利率为主、增量发展为辅。</p>
+</div>
+
+<h4>🔹 毛利率提升四条路径</h4>
+<ol>
+<li>提升自然排名，把自然流量做大（降低广告单占比）</li>
+<li>增加便宜的流量通道（降低CPA）</li>
+<li>减少无效的广告花费（广告活动效果优化）</li>
+<li>根据目标控制整体预算（减少新款的无效投入）</li>
+</ol>
+
+<!-- ===== 第三支柱：定机制 ===== -->
+<div class="module-section" id="s3-1">
+<h2>💰 第三支柱：定机制 —— 打造有效激励与科学分钱机制</h2>
+<div class="content-block highlight">
+<strong>💡 核心金句：</strong>"很多人是为了激励而激励，并未真正理解激励的目的。" "分钱的目的是<strong>激励</strong>运营，而不是<strong>满足</strong>运营。"
+</div>
+
+<!-- 激励考核核心原则 -->
+<h3>一、激励与考核核心原则</h3>
+
+<h4>🔹 "左手激励，右手考核"</h4>
+<p>三大原则：</p>
+<ol>
+<li>激励和考核必须相辅相成——<strong>左手激励，右手考核</strong></li>
+<li>抽成和奖金必须与绩效考核挂钩</li>
+<li>分红激励（包括干股、期权、持股）也要与绩效挂钩</li>
+</ol>
+
+<h4>🔹 绩效考核三原则</h4>
+<table>
+<tr><th>原则</th><th>说明</th></tr>
+<tr><td><strong>1. 关注什么考核什么</strong></td><td>不能用通用的（毛利、单量、ACoS、TACoS都是片面的）。但关注点必须对——不能关注无关紧要的事</td></tr>
+<tr><td><strong>2. 考核关键变量</strong></td><td>不同店铺关键变量不一样；不同链接关键变量不一样；新店老店关键变量不一样。压缩到店铺的核心几个变量</td></tr>
+<tr><td><strong>3. 考核指标要合理</strong></td><td>合理是有数据支撑的，不能要求做到行业天花板。避免运营骂老板傻、老板说运营不听话</td></tr>
+</table>
+
+<!-- 三层次管理 -->
+<h3 id="s3-2">二、"砍手脚屁股"三层次管理理论</h3>
+<table>
+<tr><th>层级</th><th>激励重点</th><th>核心原则</th><th>"砍掉"什么</th></tr>
+<tr><td><strong>基层</strong></td><td>谈钱</td><td>不谈理想，不画饼；底薪+抽成+奖金；三个月兑现一次；连续两个月达到上一层级自动晋升</td><td><strong>砍掉脑袋</strong>——基层不要自己做决策，执行就好。最怕"劣币驱除良币"</td></tr>
+<tr><td><strong>中层</strong></td><td>谈发展</td><td>资源倾斜给能创造价值的人；不同级别基本薪/提升方式/奖金梯度/权限/资源分配都不同；达到T0级别可谈年度分红（身股分红）</td><td><strong>砍掉屁股</strong>——不能坐办公室看报表；要下到基层、到一线、带团队、建KA、做培训、管店铺</td></tr>
+<tr><td><strong>高层</strong></td><td>谈价值观（但先谈钱）</td><td>先解决钱的问题再谈价值观；合伙人机制+退出机制</td><td><strong>砍掉手脚</strong>——不能做高级执行者；要做思考、规划、管理。如果高层还在天天加班做执行，底下人一盘散沙</td></tr>
+</table>
+
+<!-- 绩效六步SOP -->
+<h3 id="s3-3">三、绩效设定六步SOP</h3>
+<div class="step-flow">
+<span class="step">1. 目标设定</span><span class="arrow">→</span>
+<span class="step">2. 绩效核算</span><span class="arrow">→</span>
+<span class="step">3. 绩效匹配</span><span class="arrow">→</span>
+<span class="step">4. 绩效辅导</span><span class="arrow">→</span>
+<span class="step">5. 流程管控</span><span class="arrow">→</span>
+<span class="step">6. 考评</span>
+</div>
+<ol>
+<li><strong>目标设定：</strong>利润目标、销售目标、各项量化指标</li>
+<li><strong>绩效核算：</strong>靠绩效考核表</li>
+<li><strong>绩效匹配：</strong>运营管理者/老板与运营面谈，确定考核哪些变量、做到什么层次</li>
+<li><strong>绩效辅导：</strong>给工具、给辅导，帮助运营达成目标。主管告诉运营"你的问题可能是这三条，我们来看一下怎么解决"</li>
+<li><strong>流程管控：</strong>用流程管理表、概念思维表确保按正确方式执行</li>
+<li><strong>考评：</strong>主管考评运营相关项，HR/行政考评行政相关项</li>
+</ol>
+
+<!-- 基层激励 -->
+<h3 id="s3-4">四、基层运营激励方案设计</h3>
+
+<h4>🔹 激励四导向</h4>
+<table>
+<tr><th>导向</th><th>说明</th></tr>
+<tr><td><strong>导向明确</strong></td><td>按毛利激励就按毛利，运营要能算清楚自己拿多少钱</td></tr>
+<tr><td><strong>数量得当</strong></td><td>行业按毛利的比例一般30%左右；老链接/新产品可高于此数字</td></tr>
+<tr><td><strong>计算简单</strong></td><td>不要几十项表格；用ERP解决；约定计算方式</td></tr>
+<tr><td><strong>发放及时</strong></td><td>一个月发一次；基层发的越要快；不要年底再发</td></tr>
+</table>
+
+<h4>🔹 四大抽成模式对比</h4>
+<table>
+<tr><th>模式</th><th>比例参考</th><th>特点</th><th>适用场景</th><th>推荐度</th></tr>
+<tr><td><strong>销售额抽成法</strong></td><td>7‰-1%</td><td>简单但有误导</td><td>-</td><td>⭐</td></tr>
+<tr><td><strong>净利抽成法</strong></td><td>5%-9%+</td><td>核算复杂，成本分摊争议大</td><td>-</td><td>⭐⭐</td></tr>
+<tr><td><strong>✅ 毛利抽成法</strong></td><td>4%-6%（最常见）</td><td>成本清晰（ERP录入产品成本+物流成本）；可操作性高</td><td>大多数卖家</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td><strong>绩效奖金法</strong></td><td>薪资的10%-15%</td><td>灵活，适合新店初期</td><td>新店/新品期</td><td>⭐⭐⭐⭐⭐</td></tr>
+</table>
+
+<div class="content-block success">
+<strong>✅ 推荐方案：毛利抽成法 + 绩效奖金法（立体激励）</strong><br>
+<strong>行业参考：</strong>毛利抽成行业平均约3%（2.5%到5%），有些卖家起点高一点（4%-5%）来吸引人才。
+</div>
+
+<h4>🔹 激励方式的综合构成</h4>
+<p>基本薪 + 抽成 + 奖金 + 团队部分（主管级别）+ 特殊奖金（如销冠奖金、排名机制）</p>
+
+<h4>🔹 岗位职级与阶梯抽成</h4>
+<div class="content-block highlight">
+<strong>核心原则：</strong>职级不一样 → 薪酬不一样、薪水不一样、抽成不一样、保底业绩不一样、新项目也不一样。<strong>阶梯必须得有</strong>，比例多寡自己填，用表格自动计算。
+</div>
+
+<h4>🔹 存量与增量的正确抽成逻辑</h4>
+<ul>
+<li><strong>存量部分：</strong>链接本身就能赚钱的，提成比例要低——否则老运营容易躺平</li>
+<li><strong>增量部分：</strong>提成比例要高——激励增长</li>
+<li>利润抽成+绩效奖金组合使用</li>
+<li>组合型、立体型激励方案</li>
+</ul>
+
+<div class="content-block warning">
+<strong>⚠️ 反面案例：</strong>抽成表格非常复杂，正常人都看不懂。一个给公司创造3万美金利润的运营，抽成只拿了三十多块。这种制度导致<strong>"好运营一定走"</strong>。<br>
+<strong>✅ 正面案例：</strong>月毛利47万人民币的运营，月薪6000加抽成最后拿23000左右（按毛利3%给）。
+</div>
+
+<!-- 基层考核千人千面 -->
+<h3 id="s3-5">五、基层运营考核方案（千人千面）</h3>
+
+<h4>🔹 考核的千人千面原则</h4>
+<table>
+<tr><th>维度</th><th>差异</th></tr>
+<tr><td><strong>店铺情况</strong></td><td>标品vs非标品考核变量不同（鞋子关键变量是点击量和重复曝光，不是转化率）</td></tr>
+<tr><td><strong>店铺阶段</strong></td><td>新店vs老店（新店用绩效激励，老店用毛利抽成+关键变量考核）</td></tr>
+<tr><td><strong>链接</strong></td><td>新链接vs老链接</td></tr>
+</table>
+
+<h4>🔹 新店 vs 老店的考核逻辑</h4>
+<table>
+<tr><th>类型</th><th>激励方式</th><th>原因</th></tr>
+<tr><td><strong>新店</strong></td><td>绩效为主 + 利润为辅（立体激励）</td><td>新店初期很难盈利；老运营不太爱做新品（费力不讨好、不赚钱）；新运营入职一年还没拿到抽成很常见</td></tr>
+<tr><td><strong>老店</strong></td><td>毛利抽成 + 关键变量考核</td><td>一年一考核；增量部分给分红</td></tr>
+</table>
+
+<h4>🔹 新店运营考核案例（精品型）</h4>
+<div class="case-card">
+<div class="case-title">📋 杭州某卖家要求新店一个月内从0单到30单</div>
+<p>运营要反算条件——转化率20%→出30单需154点击→新品初期70-80%甚至90%靠广告→按CPC算预算→<strong>向老板"谈条件"</strong>。</p>
+</div>
+
+<h4>🔹 四级目标体系</h4>
+<table>
+<tr><th>层级</th><th>说明</th></tr>
+<tr><td><strong>底线目标</strong></td><td>低于此 → 量化警示</td></tr>
+<tr><td><strong>标准目标</strong></td><td>正常完成区间</td></tr>
+<tr><td><strong>冲刺目标</strong></td><td>超额完成</td></tr>
+<tr><td><strong>低于底线目标</strong></td><td>触发警示机制</td></tr>
+</table>
+
+<h4>🔹 考核分数发放机制</h4>
+<table>
+<tr><th>分数区间</th><th>发放比例</th><th>说明</th></tr>
+<tr><td>70分以下</td><td>无效（淘汰）</td><td>80分不是60分</td></tr>
+<tr><td>70-80分</td><td>按70%发放</td><td>-</td></tr>
+<tr><td>80-90分</td><td>按90%发放</td><td>-</td></tr>
+<tr><td>90-100分</td><td>100%发放</td><td>-</td></tr>
+<tr><td>100分以上</td><td>奖励</td><td>超额奖励</td></tr>
+</table>
+
+<h4>🔹 必考核项</h4>
+<p><strong>定量指标：</strong>毛利润、ACoS值、TACoS值、月库销比（断货有惩罚）、店铺绩效</p>
+<p><strong>定性指标：</strong>拼搏精神、责任心、学习力</p>
+<p><strong>TACoS标准线：</strong>标准目标：TACoS不超过毛利的50%（分水岭）；警戒线：20%。</p>
+<p><strong>权重分配：</strong>每月可按实际情况调整权重比例，满分120分，低于80分不合格。</p>
+
+<h4>🔹 老店新人接手三个月阶梯方案</h4>
+<div class="content-block success">
+<strong>场景：</strong>老运营离职，新运营接手月赚10万美金的稳定店铺<br>
+<ul>
+<li><strong>第1个月：</strong>按原抽成×70%（如原毛利4%→实际提2.8%）</li>
+<li><strong>第2个月：</strong>按原抽成×80%</li>
+<li><strong>第3个月：</strong>按原抽成×100%</li>
+<li><strong>如果三个月都稳定</strong>（完成率80%以上），<strong>把前两个月扣除的部分一次性补回</strong></li>
+</ul>
+<p><strong>核心理念：</strong>"交给你是能力的信任和奖励，但你要付出同样的努力把店铺稳定好。"</p>
+</div>
+
+<!-- 身股分红 -->
+<h3 id="s3-6">六、身股分红机制六要素 ⭐ 科学分钱核心</h3>
+<div class="content-block highlight">
+<strong>🎯 身股分红定义（源自山西晋商模式）：</strong>
+<ul>
+<li>出资人有条件赠与部分股份给骨干</li>
+<li>是<strong>身股</strong>，不涉及债权</li>
+<li><strong>不具备继承权、转让权、表决权</strong></li>
+<li>只有分红权</li>
+<li><strong>负盈不负亏</strong>——赚钱了你有份，亏了跟你无关</li>
+<li>不需要出资，只要符合条件就能享受</li>
+<li><strong>人在股在，人走股退</strong>——岗位换了，分红自动转给新到岗的人</li>
+</ul>
+</div>
+
+<h4>🔹 六要素详解</h4>
+<table>
+<tr><th>要素</th><th>说明</th><th>关键数据</th></tr>
+<tr><td><strong>1. 划分利润单元</strong></td><td>"种哪里的麦子，收哪里的田"。具体到负责的店铺或链接，不是全公司</td><td>-</td></tr>
+<tr><td><strong>2. 明确激励对象</strong></td><td>团队（小组）。店长和负责人拿50%以上（"狠狠激励才有效果"），剩下可自行分配给组员</td><td>主管拿大头（如50%）</td></tr>
+<tr><td><strong>3. 明确激励种类</strong></td><td>存量 vs 增量</td><td>存5%-20%；增40%-60%</td></tr>
+<tr><td><strong>4. 明确激励数量</strong></td><td>超额40-60（低于此起不到激励效果）</td><td>比例越大，越能找到"自己是老板"的感觉</td></tr>
+<tr><td><strong>5. 明确核算方式</strong></td><td>利润的成本结构公开透明；涉及各种成本+管理成本</td><td>-</td></tr>
+<tr><td><strong>6. 明确核算规则</strong></td><td>岗位变动尽量不调整；离职当即失效；保密（泄露两人同时取消）</td><td>-</td></tr>
+</table>
+
+<h4>🔹 关键比例对比</h4>
+<table>
+<tr><th>激励类型</th><th>比例范围</th><th>备注</th></tr>
+<tr><td>毛利抽成</td><td>4%-6%</td><td>基层运营日常激励</td></tr>
+<tr><td>身股分红存量</td><td>5%-20%</td><td>完成率90%-110%时</td></tr>
+<tr><td><strong>身股分红增量</strong></td><td><strong>40%-60%</strong></td><td>超出部分的高比例分红</td></tr>
+</table>
+
+<h4>🔹 运营总监深度分红案例</h4>
+<div class="case-card">
+<div class="case-title">📋 运营总监A，任职5年，管理3个店铺4个运营，去年创造400万利润</div>
+<ul>
+<li><strong>利润单元：</strong>三个店铺的利润</li>
+<li><strong>激励对象：</strong>运营总监+四个运营（团队）</li>
+<li><strong>存量部分（350-450万区间）：</strong>5%-8%</li>
+<li><strong>增量部分（超过400万的部分）：</strong>40%-60%</li>
+<li><strong>示例：</strong>如完成600万，多出200万，40%=80万 → 运营总监拿40万（50%），剩40万分给四个运营</li>
+</ul>
+</div>
+
+<h4>🔹 年度迭代逻辑</h4>
+<p>今年的增量 → 明年的存量，在存量基础上继续做增量，不断往前激活。</p>
+
+<h4>🔹 身股分红与实股的区别</h4>
+<table>
+<tr><th>类型</th><th>出资</th><th>风险</th><th>权利</th><th>退出</th></tr>
+<tr><td><strong>身股</strong></td><td>不需要出资</td><td>负盈不负亏</td><td>只有分红权</td><td>人在股在，人走股退</td></tr>
+<tr><td><strong>实股</strong></td><td>需要出资（如投10万）</td><td>风险共担</td><td>完整股权（表决/转让/继承）</td><td>需约定退出机制（存在"躺平"风险）</td></tr>
+</table>
+<!-- 中层考核 -->
+<h3 id="s3-7">七、中层管理考核与经营思维</h3>
+
+<h4>🔹 中层管理四大考核维度</h4>
+<table>
+<tr><th>维度</th><th>标准</th></tr>
+<tr><td><strong>1. 业绩完成度</strong></td><td>90以下取消身股分红；90-110正常发放；超过部分身股分红</td></tr>
+<tr><td><strong>2. 经营成本</strong></td><td>成本控制能力</td></tr>
+<tr><td><strong>3. 品质/侵权</strong></td><td>风险管控</td></tr>
+<tr><td><strong>4. 团队培养和复试</strong></td><td>培养人才的能力</td></tr>
+</table>
+
+<h4>🔹 侵权处理五种方法</h4>
+<ol>
+<li>改图片（显著性强的，立即）</li>
+<li>不侵权证明（10个工作日，2500-3000美金）</li>
+<li>翻译动作</li>
+<li>跟对方律师联系和解</li>
+<li>自己申请专利（后手，长期）</li>
+</ol>
+
+<!-- 会议管理 -->
+<h3 id="s3-8">八、会议管理体系</h3>
+<div class="content-block highlight">
+<strong>🎯 概念思维表驱动会议：</strong>运营在开会前必须填清楚——发现什么问题？问题对应的原因是什么？目标值是什么？想怎么解决？解决方案具体是什么？<br>
+<strong>"这份表格，开会之前如果我收不到，我是立马拒绝开会。"</strong>
+</div>
+
+<h4>🔹 三类岗位的激励设计</h4>
+<table>
+<tr><th>类型</th><th>岗位</th><th>薪酬结构</th></tr>
+<tr><td><strong>上坡型</strong></td><td>销售/运营（赚钱的）</td><td>低底薪 + 高抽成</td></tr>
+<tr><td><strong>平路型</strong></td><td>美工/技术岗</td><td>高底薪 + 低绩效奖金</td></tr>
+<tr><td><strong>下坡型</strong></td><td>技术支持岗</td><td>高底薪（大概率没抽成）</td></tr>
+</table>
+
+<!-- 空降高管 -->
+<h3 id="s3-9">九、空降高管的应对策略</h3>
+<ol>
+<li><strong>选人的价值观考察</strong></li>
+<li><strong>新项目隔离</strong>——让空降兵先做新项目/新站点，避免直接对抗</li>
+<li><strong>赋予拉拢人心的权限</strong>——如取消大小周</li>
+<li><strong>薪酬拆分技巧</strong>——将一份工资拆成两份</li>
+<li><strong>黄金着陆</strong>——进来后不要立即对抗和改革，先听、先沟通</li>
+</ol>
+
+<h4>🔹 防止核心人才流失</h4>
+<ul>
+<li>身股分红（低成本，比单干更有吸引力）</li>
+<li>内部合伙人/阿米巴模式</li>
+<li>沟通中的风险教育（平时旁敲侧击，让员工知道创业风险和难度）</li>
+<li>福州盘龙模式：运营出去单干，公司提供供应链和资金资源，让对方占大股合伙</li>
+</ul>
+
+<h4>🔹 常见管理问题答疑</h4>
+<table>
+<tr><th>问题</th><th>解答</th></tr>
+<tr><td><strong>主管选拔：内部培养还是外部招？</strong></td><td>两条腿都要走。不想做主管的原因：激励不够/觉得能力无法胜任。<strong>授权原则——出师有名：</strong>先给主管待遇（如精英级到主管12000就按12000给），先给不是先做</td></tr>
+<tr><td><strong>售后考核</strong></td><td>售后核心是产品（质检引起的），跟运营关系不大。QC质检考核项：视频率、售后退货率、满意度</td></tr>
+<tr><td><strong>运营与供应链互动</strong></td><td>运营职责：制定推广计划、提供生产计划；供应链职责：按标准生产、改款、包装、装箱、配合售后</td></tr>
+<tr><td><strong>招不到好人才</strong></td><td>问题在培养不够（用了他的计算力，没提升认知）；不了解品类（花园系列流量体系跟鞋服不一样）</td></tr>
+</table>
+</div>
+
+
+<!-- ===== 广告效率深度解析 ===== -->
+<div class="module-section" id="ad-efficiency">
+<h2>📈 广告效率分析与关键词排名量化（深度补充）</h2>
+
+<h3>一、CPC控制的致命误区</h3>
+<div class="content-block warning">
+<strong>🔴 经典反面案例：</strong>厦门一位资深亚马逊卖家，要求运营第一个月CPC控制在0.5，第二个月压到0.3。老师直接评价："你做这么多年的亚马逊了，你这么做的话你会死。"
+<p><strong>原因分析：</strong></p>
+<ul>
+<li>运营为了拿到绩效奖金，会扣CPC、控预算</li>
+<li>CPC拉低后，曝光大概率会暴跌</li>
+<li>结果：后台广告数据好看（广告赚钱），但<strong>总单量和总利润下降</strong></li>
+<li>广告赚钱 ≠ 整体赚钱，自然单被牺牲了</li>
+</ul>
+</div>
+
+<h3>二、广告投入与自然流量的联动——"薄利多销"模型</h3>
+<div class="case-card">
+<div class="case-title">📋 真实学员案例</div>
+<p><strong>初始状态：</strong>CPC 1.35美金；转化率13%；ACOS 27%（不赚钱）；广告日曝光约1万；广告单每单赚2美金，一天10单=赚20美金。</p>
+<p><strong>策略调整（提高CPC到2美金）：</strong></p>
+<ul>
+<li>曝光从1万涨到3.2-3.3万</li>
+<li>广告单从10单冲到目标30单（实际22单）</li>
+<li>ACOS变高（从27%升到50%），但广告总利润反而增多</li>
+<li><strong>关键效果：</strong>自然排名从第5-6位升到第2位并稳住；拿到Amazon's Choice标签（黑标）；点击和转化效率进入良性循环</li>
+</ul>
+<p><strong>核心结论：</strong>ACOS高了不是唯一的衡量标准。主力产品ACOS应落在一个合理区间内，不能单独追求低ACOS。</p>
+</div>
+
+<h3>三、Amazon's Choice（黑标）获取五大底层逻辑</h3>
+<table>
+<tr><th>#</th><th>底层逻辑</th><th>说明</th></tr>
+<tr><td>1</td><td><strong>性价比</strong></td><td>首要条件。亚马逊逻辑是：服务好、体验好、价格OK。有些BSR价格高也拿到了黑标，核心是"性价比"这个综合概念</td></tr>
+<tr><td>2</td><td><strong>单量要好</strong></td><td>销量要高</td></tr>
+<tr><td>3</td><td><strong>退货率要低</strong></td><td>用户体验指标</td></tr>
+<tr><td>4</td><td><strong>使用FBA发货</strong></td><td>物流体验保障</td></tr>
+<tr><td>5</td><td><strong>语音端有升降</strong></td><td>Echo设备搜索表现；在该词上的广告表现更好也是重要条件之一</td></tr>
+</table>
+<p><strong>补充：</strong>United和Properties Corporation既跟评分有关，又跟评价数量有关。头部品类几十个评价、评分4分以上是基本线。</p>
+
+<h3>四、CP24/SPR推排名预算法</h3>
+<div class="content-block highlight">
+<strong>CP24/SPR含义：</strong>8天之内推到一个关键词前24名所需要的预估单量。不同工具（卖家精灵、H10、Jungle Scout等）核心逻辑一致。这是预估值，实际根据转化效率可调整。
+</div>
+<div class="formula-box">
+<div class="label">推排名日预算公式</div>
+日预算 = 目标单量 ÷ 转化率 × CPC
+</div>
+<p><strong>示例：</strong>目标推到前24名，CP24=240单（8天），日均目标30单，转化率20%，CPC 1.2 → 每日预算 = 30 ÷ 20% × 1.2 = <strong>180美金/天</strong>。实际应用中CPC可能不是1.2而是1.5、1.8，要根据实际情况调整。</p>
+
+<h3>五、关键词排名阶梯目标体系</h3>
+<table>
+<tr><th>目标层级</th><th>排位要求</th><th>说明</th></tr>
+<tr><td><strong>90%流量份额</strong></td><td>前96名（约前两页）</td><td>可拿到该词90%的搜索流量份额。数据来源于ABA和3D探测器。注意：礼品词等特殊词，点击可能分布在120-200名，90%目标的排名位次会不同</td></tr>
+<tr><td><strong>50%流量份额</strong></td><td>前22名</td><td>前22个产品拿走大部分流量（流量较聚集、垄断性强的品类）</td></tr>
+<tr><td><strong>最高投放效率</strong></td><td>前6名</td><td>用户购买行为不需要滑太多屏，投放效率最高。适用于半标品、非标品的标品</td></tr>
+<tr><td><strong>极端情况</strong></td><td>前3名</td><td>有些品类需要推到前3名才能拿到90%流量份额</td></tr>
+</table>
+<p><strong>注意：</strong>对非标品（如服装），流量极其分散，80到1000多名都有流量，排名目标需单独判断。前6名=自然位第一页（1234广告，56789自然位）；前10名=50%流量。</p>
+
+<h3>六、ABA数据反推竞品关键词单量方法</h3>
+<div class="content-block success">
+<strong>步骤：</strong>
+<ol>
+<li>用H10或任意工具查看关键词的ABA Top Click Share和Top Conversion Share</li>
+<li>查看关键词的月搜索单量（如3093单）</li>
+<li>用第一名的点击占比（如21%）和转化占比（如14.6%）计算</li>
+<li>计算：3093 × 14.6% = 约452单（周）/ 7 = 约65单/天（仅搜索结果页）</li>
+<li>实际单量会比这个数值更大（非标品更明显）</li>
+</ol>
+<strong>老师提醒：</strong>用自己后台的实际数据与这个预估值做比对和校准，数据会更准确。
+</div>
+
+<h3>七、流量目标表构建逻辑</h3>
+<div class="content-block highlight">
+<strong>填写逻辑：</strong>
+<ol>
+<li>确定目标关键词排位 → 推算出目标单量</li>
+<li>当前自然单量 + 需补广告单量 = 目标单量</li>
+<li>后台转化率、点击率、CPC数据 → 算出关键词日预算</li>
+<li>拆解到各流量通道（关键词流量、礼品流量、SB流量、SD流量）</li>
+</ol>
+<strong>核心方法论：</strong>拆解必须根据<strong>流量层级</strong>来拆解，不同流量通道的CPC、转化率各不相同，要拆细才能算出核心预算。
+<p><strong>案例演示：</strong>当前一天400单，广告单占比60%；目标1000单；还需600单（广告占比65%）；需根据流量层级分别拆解不同流量通道的目标。</p>
+</div>
+
+
+<!-- ===== 供应链与选品管理 ===== -->
+<div class="module-section" id="supply-chain">
+<h2>🔗 供应链管理与选品分工</h2>
+
+<h3>一、选品与运营分工</h3>
+<p><strong>选品需要的能力：</strong></p>
+<ol>
+<li><strong>数据分析：</strong>细致了解每个市场的关键变量</li>
+<li><strong>专业敏感度：</strong>如印花行业"什么款能卖一眼就知道"</li>
+<li><strong>版权判断：</strong>快速知道版权风险</li>
+<li><strong>行业经验：</strong>懂细分行业产品、行业大趋势</li>
+<li><strong>利润经营风险意识</strong></li>
+<li><strong>风险判断</strong></li>
+</ol>
+
+<div class="content-block success">
+<strong>推荐分工模式：</strong>
+<ul>
+<li><strong>运营线选品：</strong>选需求、选赛道（如发现加热眼罩利润高、需求大）</li>
+<li><strong>开发端：</strong>论证是否侵权、供应链在哪里、加什么功能</li>
+</ul>
+<p><strong>案例：</strong>某学生做厨房切菜板——定需求（切菜板赛道可以做）→ 找痛点（防滑、双面用、果汁槽、耐用度、礼品包装）→ 运营给用户痛点，工厂执行设计 → 最终评价："太漂亮了，都不忍心用它来切菜"。</p>
+</div>
+
+<h3>二、不同品类开发特点</h3>
+<table>
+<tr><th>品类类型</th><th>关键变量</th><th>开发要点</th></tr>
+<tr><td><strong>礼品包装、浴帘</strong></td><td>设计为主</td><td>关键变量是图片库、版权、设计</td></tr>
+<tr><td><strong>功能性产品</strong></td><td>功能开发</td><td>模具等</td></tr>
+<tr><td><strong>跑步机等产品</strong></td><td>专业品质</td><td>需请QC或行业经验人士</td></tr>
+</table>
+
+<h3>三、供应链架构</h3>
+<p><strong>完善供应链四大模块：</strong></p>
+<div class="step-flow">
+<span class="step">产品开发/设计</span><span class="arrow">→</span>
+<span class="step">QC质检</span><span class="arrow">→</span>
+<span class="step">物流包装</span><span class="arrow">→</span>
+<span class="step">改款/重新开模</span>
+</div>
+
+<h3>四、运营与供应链的互动</h3>
+<table>
+<tr><th>角色</th><th>职责</th></tr>
+<tr><td><strong>运营</strong></td><td>制定推广计划、提供生产计划</td></tr>
+<tr><td><strong>供应链</strong></td><td>按标准生产、改款、包装、装箱、配合售后</td></tr>
+</table>
+
+<h3>五、设计师选择</h3>
+<p>国外设计师有文化优势，不要用国内设计师来判断国外市场。有些品类需找竞争对手用的设计师，要全版权。</p>
+
+<h3>六、产品定位十大要素（完整版）</h3>
+<p>想做出比90%卖家更好的产品页面，需系统回答以下十个问题：</p>
+<ol>
+<li><strong>产品基本信息：</strong>属性、特征，列优先顺序</li>
+<li><strong>主要用户人群：</strong>用户画像——谁在使用？</li>
+<li><strong>产品使用场景：</strong>在哪里使用？什么情况下使用？</li>
+<li><strong>产品核心竞争力：</strong>相比竞品的独特优势是什么？</li>
+<li><strong>用户痛点：</strong>用户关心什么、痛点是什么？</li>
+<li><strong>购买驱动因素：</strong>什么促使他们下单？</li>
+<li><strong>退货分析：</strong>为什么退货？退货原因分布？</li>
+<li><strong>产品创新：</strong>能否加创新功能？能否做差异化？</li>
+<li><strong>礼品和季节属性：</strong>是否有礼品属性？是否有季节波动？</li>
+<li><strong>Review Insight：</strong>从客户反馈中发现了什么？</li>
+</ol>
+<div class="content-block highlight">
+<strong>💡 核心三问浓缩：</strong>十个问题浓缩为三个核心——<strong>卖点</strong>（商家视角）、<strong>痛点</strong>（用户视角，最核心）、<strong>爽点</strong>（额外刺激购买）。回答清楚这三个问题，listing在转化和吸引力环节就"一定没问题"。
+</div>
+</div>
+
+<!-- ===== 工具与公式库 ===== -->
+<div class="module-section" id="tools-all">
+<h2>🛠️ 全部工具矩阵</h2>
+
+<table>
+<tr><th>工具名称</th><th>类型</th><th>用途</th><th>费用</th></tr>
+<tr><td><strong>卖家精灵</strong></td><td>综合插件</td><td>用户画像、使用场景、卖点、买家期望、Review Insight、差评分析、购买驱动因素</td><td>约1000多元</td></tr>
+<tr><td><strong>商机探测器（ABA/3D探测器）</strong></td><td>亚马逊官方</td><td>购买驱动因素、退货分析、市场数据、Review分析</td><td>免费</td></tr>
+<tr><td><strong>积木（Jimu）</strong></td><td>关键词/流量</td><td>关键词和流量数据、转化率数据、CPC数据</td><td>约1000多元</td></tr>
+<tr><td><strong>Helium 10（H10）</strong></td><td>综合工具</td><td>竞品转化率、CPC、流量结构、综合数据</td><td>付费</td></tr>
+<tr><td><strong>SIF</strong></td><td>广告分析</td><td>广告ID反查、广告架构分析</td><td>付费</td></tr>
+<tr><td><strong>Softime（索方）</strong></td><td>库存/大盘</td><td>看市场大盘、产品属性特征、<strong>库存量（最准）</strong></td><td>约100多元</td></tr>
+<tr><td><strong>Indiegogo / Kickstarter</strong></td><td>众筹平台</td><td>创意/开款灵感、产品创新</td><td>免费</td></tr>
+<tr><td><strong>YouTube</strong></td><td>社媒</td><td>产品卖点挖掘、销售创意、包装创意</td><td>免费（需科学上网）</td></tr>
+<tr><td><strong>欧陆（全景动态）</strong></td><td>竞品监控</td><td>查看ASIN背后运营操作（秒杀、BSR、关键词类目变化）</td><td>付费</td></tr>
+<tr><td><strong>站外智慧</strong></td><td>站外分析</td><td>站外促销信息</td><td>付费</td></tr>
+<tr><td><strong>Review Meta</strong></td><td>Review分析</td><td>评论异常/刷单检测（十几项维度）</td><td>付费</td></tr>
+<tr><td><strong>流量时光机（Sieve）</strong></td><td>流量分析</td><td>查看广告流量和自然流量的历史变化</td><td>付费</td></tr>
+<tr><td><strong>谷歌搜索+谷歌Shopping</strong></td><td>跨平台</td><td>跨平台操作分析</td><td>免费</td></tr>
+<tr><td><strong>ChatGPT / DeepSeek</strong></td><td>AI工具</td><td>关键词分类、产品定位辅助、文案生成</td><td>部分免费</td></tr>
+<tr><td><strong>Flicky</strong></td><td>AI视频</td><td>输入对手链接→自动生成文案→改文案改素材→快速输出亚马逊视频</td><td>付费</td></tr>
+</table>
+</div>
+
+<!-- 公式汇总 -->
+<div class="module-section" id="formulas-all">
+<h2>📐 核心公式汇总</h2>
+
+<h4>🔹 广告与利润公式</h4>
+<div class="formula-box">
+<div class="label">广告销售成本比</div>
+ACoS = CPC ÷ (客单价 × 转化率)
+</div>
+<div class="formula-box">
+<div class="label">单次出单成本</div>
+CPA = CPC ÷ 转化率
+</div>
+<div class="formula-box">
+<div class="label">总广告成本占比</div>
+TACoS = 广告单占比 × ACoS
+</div>
+<div class="formula-box">
+<div class="label">总盈利公式</div>
+总盈利 = 自然单销售额 × 毛利率 + 广告销售额 × (毛利率 - ACoS)
+</div>
+
+<h4>🔹 流量与预算公式</h4>
+<div class="formula-box">
+<div class="label">每日预算（推排名）</div>
+日预算 = 目标单量 ÷ 转化率 × CPC
+</div>
+<div class="formula-box">
+<div class="label">点击量反推</div>
+点击量 = 单量 ÷ 转化率
+</div>
+<div class="formula-box">
+<div class="label">曝光量反推</div>
+曝光量 = 点击量 ÷ 点击率
+</div>
+<div class="formula-box">
+<div class="label">CPA反推CPC</div>
+CPC = CPA × 转化率
+</div>
+
+<h4>🔹 毛利率计算</h4>
+<div class="formula-box">
+<div class="label">不含广告的毛利率</div>
+毛利率 = 产品售价 - 产品成本 - 物流成本 - 佣金 - FBA费用 - 退货成本
+</div>
+<div class="content-block warning">
+<strong>注意：</strong>广告费用不计入此处的毛利率，而是用"毛利率减去广告费用（或减去CPA/ACoS）"来计算实际利润。服装类退货率高，退货成本一定要算。做年度规划时，部门人员工资、五险一金等必须算入。
+</div>
+
+<h4>🔹 经营决策铁律</h4>
+<div class="formula-box">
+<div class="label">ACoS经营分水岭</div>
+当 ACoS > (毛利率 ÷ 2) 时 → 优先优化毛利率，而非追加广告投入
+</div>
+<p>这一规则<strong>不分品类、不分客单价</strong>，是数学公式推导的经营最优解。</p>
+
+<h4>🔹 盈亏平衡与CPR公式</h4>
+<div class="formula-box">
+<div class="label">CPR推排名预算</div>
+CPR ÷ 8 = 日所需单量；日所需单量 × CPA = 日预算
+</div>
+<div class="formula-box">
+<div class="label">海王CPC范围</div>
+海王CPC范围 = 毛利 × 转化率区间
+</div>
+</div>
+
+<!-- 案例索引 -->
+<div class="module-section" id="cases-all">
+<h2>📋 16个经典案例索引</h2>
+
+<table>
+<tr><th>#</th><th>案例名称</th><th>应用场景</th><th>核心数据/洞察</th></tr>
+<tr><td>1</td><td><strong>按摩球/筋膜球</strong></td><td>概念思维表、50万年利润模型</td><td>CPC 0.45-0.68(礼品)/2(本品)，转化率15%，毛利11美金，27个流量池，广告流量97%来自礼品</td></tr>
+<tr><td>2</td><td><strong>浴帘</strong></td><td>ACoS优化/定价测试/店铺诊断</td><td>CPC 0.33-0.75，转化率3%-5.48%，ACoS从132%降到33%</td></tr>
+<tr><td>3</td><td><strong>乌龟灯</strong></td><td>产品定位SOP</td><td>79%当礼品用，花园50%+露台30%使用场景，清库存清成爆款</td></tr>
+<tr><td>4</td><td><strong>颈椎按摩器</strong></td><td>产品定位/流量定位</td><td>27个利基市场，售价42美元，跨多个流量池</td></tr>
+<tr><td>5</td><td><strong>背部按摩器</strong></td><td>推广利润表</td><td>CPC 1.1，售价26.99，盈亏平衡自然单占比-57.75（广告就能盈利）</td></tr>
+<tr><td>6</td><td><strong>床头柜</strong></td><td>新品推广SOP</td><td>泛垂直：家具→家居装修→幸福感，流量一级一级叠加</td></tr>
+<tr><td>7</td><td><strong>切菜板</strong></td><td>选品流程/关键词</td><td>CPR 154，前24名需16单/天，礼品池竞争低，评价"太漂亮不忍心切菜"</td></tr>
+<tr><td>8</td><td><strong>纸巾架</strong></td><td>两种推广策略对比</td><td>6.99-14.99都能卖，方案一推排名亏本，方案二SB广告赚钱约200万/年</td></tr>
+<tr><td>9</td><td><strong>枕头</strong></td><td>产品创新</td><td>售价108美金，Indiegogo众筹2000%+，治疗失眠+打鼾</td></tr>
+<tr><td>10</td><td><strong>鞋子/服装</strong></td><td>非标品运营</td><td>ACoS从15.6%被拉到169%，标品打法踩坑警示</td></tr>
+<tr><td>11</td><td><strong>筋膜枪</strong></td><td>促销策略</td><td>高价+高突破，促销策略不能落后于竞争对手</td></tr>
+<tr><td>12</td><td><strong>帐篷</strong></td><td>促销策略</td><td>100-200美金，加大优惠券</td></tr>
+<tr><td>13</td><td><strong>花园旗</strong></td><td>库销比</td><td>快递产品库销比1-1.5</td></tr>
+<tr><td>14</td><td><strong>工艺品（圣诞）</strong></td><td>淡旺季切换</td><td>圣诞主题→改产品定位为礼品（桌面摆件）</td></tr>
+<tr><td>15</td><td><strong>跑步机</strong></td><td>选品分工</td><td>需请QC或行业经验人士</td></tr>
+<tr><td>16</td><td><strong>背包/床单</strong></td><td>促销策略</td><td>仿效剂产品，做教育优惠（学生Prime）</td></tr>
+</table>
+</div>
+
+<!-- 行动清单 -->
+<div class="module-section" id="checklist">
+<h2>✅ 老板/高管行动清单</h2>
+
+<h4>🔹 运营层面（6项必做）</h4>
+<ol>
+<li>✅ 做一张<strong>盈亏平衡自然单占比表</strong>，摸清每个主力产品的利润结构</li>
+<li>✅ 用<strong>预算公式</strong>反向计算每个关键词的投入产出</li>
+<li>✅ 当<strong>ACoS超过毛利率50%</strong>时，优先优化而非增投</li>
+<li>✅ 建立<strong>产品定位→流量定位→关键词SOP</strong>的标准化流程</li>
+<li>✅ 运用<strong>ACoS衡量表四个场景</strong>辅助每个月的运营决策</li>
+<li>✅ 建立<strong>概念思维表驱动的会议制度</strong>——不开没有议题和方案的会</li>
+</ol>
+
+<h4>🔹 管理层面（6项必做）</h4>
+<ol>
+<li>✅ 建立<strong>人才四级体系</strong>，明确每个岗位的画像标准</li>
+<li>✅ 写一份清晰的<strong>岗位说明书</strong>（职责+要求具体可衡量）</li>
+<li>✅ 组建<strong>面试团队</strong>（老板+主管一起面），建立五步面试流程</li>
+<li>✅ <strong>新店用绩效激励</strong>（薪资10%-15%），<strong>老店用毛利抽成</strong>（4%-6%）+关键变量奖</li>
+<li>✅ 核心骨干引入<strong>身股分红</strong>（增量部分40%-60%），只负盈不负亏</li>
+<li>✅ 每个月的考核指标<strong>因店制宜、因阶段制宜</strong>，分析出关键变量再定指标</li>
+</ol>
+</div>
+
+<!-- Top 20 -->
+<div class="module-section">
+<h2>🏆 课程Top 20核心要点回顾</h2>
+<ol>
+<li><strong>人的上限就是公司的上限</strong>——人才是企业的第一生产力</li>
+<li><strong>人才有四级三六九等</strong>——普通运营(80%)、精英运营、主管/骨干、合伙人</li>
+<li><strong>精英运营的硬标准</strong>：完整的逻辑闭环+拿过结果，缺一不可</li>
+<li><strong>"做了不叫做，做好了才叫做，才是结果"</strong>——结果导向</li>
+<li><strong>面试核心</strong>：有效提问+深度追问+疑点验证，不要不好意思追问</li>
+<li><strong>重要岗位必须背调</strong>——一个被开除的运营干亏150万的教训</li>
+<li><strong>概念思维表</strong>是区分普通运营和精英运营的关键工具（议题→目的→目标→策略→衡量→行动）</li>
+<li><strong>ACoS衡量表</strong>是广告决策沙盘——四大场景全覆盖，模拟先行，数据决策</li>
+<li><strong>盈亏平衡自然单占比越低越好，越负数越好</strong></li>
+<li><strong>ACoS高于毛利率50%时</strong>：优先优化而非增投（不分品类/客单价的经营铁律）</li>
+<li><strong>单纯控制CPC是陷阱</strong>——可能导致曝光暴跌、自然流丧失、总利润下降</li>
+<li><strong>海王打法</strong>：长尾高转化小流量词，10-20个词一组，CPA OK就打</li>
+<li><strong>贴标签（弯道超车）</strong>：ASIN定投→有曝光即关→晕轮效应→自然流量进来</li>
+<li><strong>关键词验证"没同类最好"</strong>——同行没意识到该流量是蓝海</li>
+<li><strong>激励与考核是左右手关系</strong>——任何激励必须跟绩效挂钩</li>
+<li><strong>砍手脚屁股理论</strong>：高层砍手脚（思考）、中层砍屁股（跑一线）、基层砍脑袋（执行）</li>
+<li><strong>身股分红六要素</strong>：利润单元/对象/种类/数量/核算/规则。增量40-60%，负盈不负亏，人在股在人走股退</li>
+<li><strong>基层激励四导向</strong>：明确/得当/简单/及时。推荐毛利抽成法+绩效奖金法立体结合</li>
+<li><strong>分层管理</strong>：基层谈钱（当月发）、中层谈发展（身股分红）、高层谈价值观（但先谈钱）</li>
+<li><strong>"分钱的目的是激励运营，而不是满足运营"</strong></li>
+</ol>
+</div>
+
+<!-- AI工具场景 -->
+<div class="module-section">
+<h2>🤖 AI工具应用场景汇总</h2>
+<table>
+<tr><th>场景</th><th>用途</th><th>推荐工具</th></tr>
+<tr><td><strong>产品定位分析</strong></td><td>辅助产品定位分析，填写产品定位表格</td><td>ChatGPT / DeepSeek</td></tr>
+<tr><td><strong>关键词分类</strong></td><td>对流量池底下的关键词进行分类</td><td>ChatGPT / DeepSeek</td></tr>
+<tr><td><strong>运营能力要求</strong></td><td>普通运营能力架构包含"会使用ChatGPT等AI工具"</td><td>ChatGPT</td></tr>
+<tr><td><strong>美工效率提升</strong></td><td>AI生成图片和视频；厦门某公司一年用AI生成20万张图片（精铺模式），3秒出图</td><td>AI图片/视频工具</td></tr>
+<tr><td><strong>视频生成</strong></td><td>输入对手链接→自动生成文案→改文案改素材→快速输出亚马逊视频</td><td>Flicky</td></tr>
+</table>
+</div>
+
+<!-- Footer -->
+<div class="module-section" style="text-align:center;color:#a09080;font-size:.82rem;">
+<p>📚 本知识宝典由6篇课程深度总结（1-1、1-2、2-1、2-2、3-1、3-2）经过跨文档去重与交叉引用处理后整合而成。</p>
+<p>课程核心主题：<strong>搭班子（团队建设）+ 做系统（流程SOP）+ 定机制（科学分钱）</strong></p>
+<p>输出时间：2026年6月29日 · 覆盖全部知识点 · 从小白到精通</p>
+</div>
+
+</main>
+
+<!-- Back to Top -->
+<a href="#overview" class="back-top" title="回到顶部">↑</a>
+
+<script>
+// Initialize: open all sidebar details by default (they already have 'open' attribute)
+// Smooth scroll for anchor links
+document.querySelectorAll('a[href^="#"]').forEach(link => {
+  link.addEventListener('click', function(e) {
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      e.preventDefault();
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+
+// Back to top button visibility
+const backTop = document.querySelector('.back-top');
+window.addEventListener('scroll', () => {
+  backTop.style.opacity = window.scrollY > 600 ? '1' : '0';
+  backTop.style.pointerEvents = window.scrollY > 600 ? 'auto' : 'none';
+});
+backTop.style.opacity = '0';
+backTop.style.pointerEvents = 'none';
+backTop.style.transition = 'opacity .3s';
+</script>
+
+</body>
+</html>
