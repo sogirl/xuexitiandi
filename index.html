@@ -228,7 +228,9 @@
       .map(n => ({
         path: n.path,
         size: n.size || 0,
-        url:  `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${n.path.split("/").map(encodeURIComponent).join("/")}`,
+        // Use GitHub Pages URL so HTML files render with text/html MIME.
+        // (raw.githubusercontent.com would force text/plain and show source.)
+        url:  `https://${OWNER}.github.io/${REPO}/${n.path.split("/").map(encodeURIComponent).join("/")}`,
         page: `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/${n.path.split("/").map(encodeURIComponent).join("/")}`,
         sha:  n.sha
       }));
