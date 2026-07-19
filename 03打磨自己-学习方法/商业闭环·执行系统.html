@@ -1,0 +1,1978 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="description" content="商业闭环·执行系统 - 从零基础小白到精通高手的完整闭环课程">
+<meta name="author" content="学习助手工作流 · 归属权归主人">
+<title>商业闭环·执行系统：从卡在开始到稳定出结果的完整闭环</title>
+<style>
+/* ============================================
+   全局重置与基础排版
+   ============================================ */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html, body {
+  font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #2D3436;
+  background: #FAFAF7;
+  -webkit-font-smoothing: antialiased;
+}
+
+body {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 16px 60px;
+}
+
+/* ============================================
+   WPS兼容提示
+   ============================================ */
+.wps-warning {
+  background: #FFF3CD;
+  border-left: 4px solid #FFC107;
+  padding: 12px 16px;
+  margin: 12px 0;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #856404;
+}
+
+.wps-warning b { color: #d9534f; }
+
+/* ============================================
+   顶部欢迎区
+   ============================================ */
+.hero {
+  background: linear-gradient(135deg, #FF6B6B 0%, #4ECDC4 50%, #6BCB77 100%);
+  color: #fff;
+  padding: 36px 24px;
+  border-radius: 16px;
+  margin: 20px 0 24px;
+  text-align: center;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.08);
+}
+
+.hero h1 {
+  font-size: 28px;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+
+.hero .quote {
+  font-size: 16px;
+  opacity: 0.95;
+  margin: 12px 0;
+}
+
+.hero .meta {
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 16px;
+}
+
+/* ============================================
+   学习路径进度条
+   ============================================ */
+.learning-path {
+  background: #fff;
+  padding: 20px 16px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  margin-bottom: 24px;
+  border: 1px solid #E8E8E8;
+}
+
+.learning-path h3 {
+  font-size: 18px;
+  margin-bottom: 14px;
+  color: #2D3436;
+}
+
+.path-steps {
+  display: flex;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.path-step {
+  flex: 1;
+  text-align: center;
+  padding: 12px 4px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.path-step .num {
+  font-size: 20px;
+  display: block;
+  margin-bottom: 4px;
+}
+
+.ps-1 { background: #FF6B6B; }
+.ps-2 { background: #4ECDC4; }
+.ps-3 { background: #FFD93D; color: #2D3436;}
+.ps-4 { background: #6BCB77; }
+
+/* ============================================
+   知识图谱（SVG容器）
+   ============================================ */
+.graph-section {
+  background: #fff;
+  padding: 24px 16px;
+  border-radius: 16px;
+  margin: 24px 0;
+  border: 1px solid #E8E8E8;
+  overflow-x: auto;
+}
+
+.graph-section h2 {
+  font-size: 22px;
+  margin-bottom: 8px;
+  color: #2D3436;
+}
+
+.graph-section .sub {
+  font-size: 14px;
+  color: #636E72;
+  margin-bottom: 16px;
+}
+
+.svg-wrap {
+  width: 100%;
+  overflow: auto;
+  touch-action: manipulation;
+  -webkit-overflow-scrolling: touch;
+}
+
+.svg-wrap svg {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* ============================================
+   章节卡片
+   ============================================ */
+.chapter {
+  margin: 32px 0;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+
+.chapter-cover {
+  padding: 24px 20px;
+  color: #fff;
+  position: relative;
+}
+
+.chapter-cover.c1 { background: linear-gradient(135deg, #FF6B6B, #FF8E53); }
+.chapter-cover.c2 { background: linear-gradient(135deg, #FF6B6B, #FF8E53); }
+.chapter-cover.c3 { background: linear-gradient(135deg, #FF6B6B, #FF8E53); }
+.chapter-cover.c4 { background: linear-gradient(135deg, #4ECDC4, #44A1A0); }
+.chapter-cover.c5 { background: linear-gradient(135deg, #4ECDC4, #44A1A0); }
+.chapter-cover.c6 { background: linear-gradient(135deg, #4ECDC4, #44A1A0); }
+.chapter-cover.c7 { background: linear-gradient(135deg, #FFD93D, #F5A623); color: #2D3436; }
+.chapter-cover.c8 { background: linear-gradient(135deg, #FFD93D, #F5A623); color: #2D3436; }
+.chapter-cover.c9 { background: linear-gradient(135deg, #FFD93D, #F5A623); color: #2D3436; }
+.chapter-cover.c10 { background: linear-gradient(135deg, #6BCB77, #5BAA67); }
+.chapter-cover.c11 { background: linear-gradient(135deg, #6BCB77, #5BAA67); }
+.chapter-cover.c12 { background: linear-gradient(135deg, #6BCB77, #5BAA67); }
+
+.chapter-cover .stage {
+  font-size: 12px;
+  letter-spacing: 1px;
+  opacity: 0.9;
+  margin-bottom: 6px;
+}
+
+.chapter-cover .ctitle {
+  font-size: 22px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.chapter-cover .cpos {
+  font-size: 14px;
+  opacity: 0.92;
+}
+
+.chapter-cover .ctime {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  font-size: 12px;
+  padding: 4px 10px;
+  background: rgba(255,255,255,0.25);
+  border-radius: 12px;
+}
+
+.chapter-body {
+  background: #fff;
+  padding: 20px 18px;
+}
+
+/* ============================================
+   概念卡 / 故事卡 / 行动卡
+   ============================================ */
+.card {
+  margin: 16px 0;
+  padding: 16px 18px;
+  border-radius: 12px;
+  position: relative;
+}
+
+.concept {
+  background: #FFF;
+  border-left: 5px solid #4D96FF;
+}
+
+.concept.c-po { border-left-color: #FF6B6B; }
+.concept.c-ge { border-left-color: #4ECDC4; }
+.concept.c-it { border-left-color: #F5A623; }
+.concept.c-pr { border-left-color: #6BCB77; }
+
+.concept h4 {
+  font-size: 18px;
+  color: #2D3436;
+  margin-bottom: 8px;
+}
+
+.concept p, .concept li {
+  font-size: 16px;
+  color: #2D3436;
+}
+
+.story {
+  background: #F8F9FB;
+  border-left: 5px solid #FFB347;
+  font-style: italic;
+}
+
+.story::before {
+  content: "“";
+  position: absolute;
+  top: -8px;
+  left: 10px;
+  font-size: 48px;
+  color: #FFB347;
+  opacity: 0.3;
+  font-family: Georgia, serif;
+}
+
+.story .label {
+  display: inline-block;
+  background: #FFB347;
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 6px;
+  font-size: 12px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-style: normal;
+}
+
+.action {
+  background: #FFF8E1;
+  border: 2px dashed #FFC107;
+}
+
+.action .label {
+  display: inline-block;
+  background: #FFC107;
+  color: #2D3436;
+  padding: 3px 12px;
+  border-radius: 6px;
+  font-size: 13px;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+
+.action h4 {
+  font-size: 18px;
+  color: #B97A00;
+  margin-bottom: 8px;
+}
+
+.checklist {
+  background: #F0F7FF;
+  border: 1px solid #B3D4FC;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+
+.checklist h5 {
+  font-size: 15px;
+  color: #2D3436;
+  margin-bottom: 8px;
+}
+
+.checklist label {
+  display: block;
+  font-size: 14px;
+  margin: 6px 0;
+  cursor: pointer;
+  color: #2D3436;
+}
+
+.checklist input {
+  margin-right: 8px;
+  transform: scale(1.1);
+}
+
+.reflection {
+  background: #F5F5F5;
+  border-radius: 10px;
+  padding: 14px 18px;
+  margin: 14px 0;
+}
+
+.reflection h5 {
+  font-size: 15px;
+  color: #B97A00;
+  margin-bottom: 8px;
+}
+
+.reflection ol {
+  padding-left: 22px;
+}
+
+.reflection li {
+  font-size: 14px;
+  margin: 4px 0;
+}
+
+/* ============================================
+   侧边导航
+   ============================================ */
+.toc {
+  position: sticky;
+  top: 12px;
+  background: #fff;
+  border: 1px solid #E8E8E8;
+  border-radius: 12px;
+  padding: 14px 16px;
+  margin: 20px 0;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+  z-index: 10;
+}
+
+.toc h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+  color: #2D3436;
+}
+
+.toc-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+  gap: 6px;
+}
+
+.toc-list a {
+  font-size: 13px;
+  color: #636E72;
+  text-decoration: none;
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: block;
+}
+
+.toc-list a:hover { background: #F0F0F0; }
+.toc-list a.t1 { border-left: 3px solid #FF6B6B; }
+.toc-list a.t2 { border-left: 3px solid #4ECDC4; }
+.toc-list a.t3 { border-left: 3px solid #F5A623; }
+.toc-list a.t4 { border-left: 3px solid #6BCB77; }
+
+/* ============================================
+   工具卡 + 金句区
+   ============================================ */
+.tool-box, .quote-box {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px 20px;
+  margin: 24px 0;
+  border: 1px solid #E8E8E8;
+}
+
+.tool-box h2, .quote-box h2 {
+  font-size: 22px;
+  margin-bottom: 14px;
+  color: #2D3436;
+}
+
+.tool-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 12px;
+}
+
+.tool-card {
+  padding: 14px;
+  border-radius: 10px;
+  background: #FAFAF7;
+  border: 1px solid #EFEFEF;
+}
+
+.tool-card .tname {
+  font-size: 16px;
+  font-weight: 700;
+  color: #2D3436;
+  margin-bottom: 4px;
+}
+
+.tool-card .tuse {
+  font-size: 13px;
+  color: #636E72;
+  margin-bottom: 6px;
+}
+
+.tool-card .tsource {
+  font-size: 11px;
+  color: #999;
+  font-style: italic;
+}
+
+.quote-item {
+  border-left: 4px solid #FF6B6B;
+  padding: 10px 14px;
+  margin: 10px 0;
+  background: #FFFAFA;
+  font-style: italic;
+  font-size: 15px;
+  color: #2D3436;
+}
+
+.quote-item .src {
+  display: block;
+  font-size: 12px;
+  color: #636E72;
+  margin-top: 4px;
+  font-style: normal;
+}
+
+/* ============================================
+   终极总结 / 收束
+   ============================================ */
+.closing {
+  background: linear-gradient(135deg, #2D3436 0%, #636E72 100%);
+  color: #fff;
+  padding: 32px 24px;
+  border-radius: 16px;
+  margin: 32px 0;
+  text-align: center;
+}
+
+.closing h2 {
+  font-size: 24px;
+  margin-bottom: 14px;
+}
+
+.closing p {
+  font-size: 15px;
+  line-height: 1.9;
+  opacity: 0.95;
+  margin: 6px 0;
+}
+
+.closing .signature {
+  margin-top: 16px;
+  font-size: 13px;
+  opacity: 0.75;
+}
+
+/* ============================================
+   通用排版
+   ============================================ */
+h2 { font-size: 22px; margin: 24px 0 12px; color: #2D3436; }
+h3 { font-size: 18px; margin: 16px 0 8px; color: #2D3436; }
+p { margin: 10px 0; }
+ul, ol { padding-left: 24px; }
+li { margin: 4px 0; }
+strong { color: #D63031; }
+em { color: #6C5CE7; font-style: normal; }
+table { border-collapse: collapse; margin: 14px 0; width: 100%; }
+th, td { padding: 8px 10px; border: 1px solid #E8E8E8; font-size: 14px; }
+th { background: #F8F9FB; }
+
+.divider {
+  height: 2px;
+  background: linear-gradient(to right, transparent, #DDD, transparent);
+  margin: 32px 0;
+}
+
+/* 移动端适配 */
+@media (max-width: 600px) {
+  .hero h1 { font-size: 22px; }
+  .path-steps { flex-direction: column; gap: 6px; }
+  .path-step { padding: 8px; }
+  .toc-list { grid-template-columns: 1fr 1fr; }
+  .tool-grid { grid-template-columns: 1fr; }
+  .chapter-cover .ctitle { font-size: 20px; }
+  body { padding: 0 10px 40px; }
+}
+
+@media print {
+  body { max-width: 100%; padding: 0; }
+  .chapter, .tool-box, .quote-box, .graph-section { box-shadow: none; border: 1px solid #CCC; }
+  .toc { display: none; }
+  .wps-warning { display: none; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ==========================================
+     WPS兼容提示
+     ========================================== -->
+<div class="wps-warning">
+💡 <b>温馨提示</b>：本课程为单文件HTML，最佳体验环境是<b>微信 / 手机Chrome / Safari 浏览器</b>。如在 WPS 中打开出现排版异常，请复制文件到微信"文件传输助手"用浏览器打开。
+</div>
+
+<!-- ==========================================
+     顶部欢迎区
+     ========================================== -->
+<section class="hero">
+  <h1>🧭 商业闭环 · 执行系统</h1>
+  <p class="quote">你不是不会做，只是还没启动闭环。<br>30 天后，你会感谢今天的自己。</p>
+  <p class="meta">📚 共 12 章 · ⏱️ 约 3 小时 · 🎯 从零基础到精通高手</p>
+</section>
+
+<!-- ==========================================
+     学习路径进度条
+     ========================================== -->
+<section class="learning-path">
+  <h3>🎯 你的学习路径（4 阶段 · 12 章）</h3>
+  <div class="path-steps">
+    <div class="path-step ps-1"><span class="num">L1</span>觉醒 · 破局</div>
+    <div class="path-step ps-2"><span class="num">L2</span>扎根 · 生根</div>
+    <div class="path-step ps-3"><span class="num">L3</span>进化 · 迭代</div>
+    <div class="path-step ps-4"><span class="num">L4</span>复利 · 沉淀</div>
+  </div>
+</section>
+
+<!-- ==========================================
+     知识图谱（横向树状SVG）
+     ========================================== -->
+<section class="graph-section" id="knowledge-graph">
+  <h2>📊 全景知识图谱</h2>
+  <p class="sub">👇 横向树状图：从"根"到"枝叶"逐层展开 · 可双指放大查看细节</p>
+  <div class="svg-wrap">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 1100" font-family="'Microsoft YaHei', 'PingFang SC', sans-serif">
+  <!-- ===== 背景 ===== -->
+  <rect x="0" y="0" width="2200" height="1100" fill="#FAFAF7"/>
+
+  <!-- ===== 直角折线连接（层与层之间） ===== -->
+  <!-- 根 → 4板块 -->
+  <g stroke="#BBB" stroke-width="2" fill="none">
+    <path d="M 280,560 H 360 V 100 H 470"/>
+    <path d="M 280,560 H 360 V 380 H 470"/>
+    <path d="M 280,560 H 360 V 700 H 470"/>
+    <path d="M 280,560 H 360 V 980 H 470"/>
+  </g>
+
+  <!-- 板块 → 核心概念 -->
+  <g stroke="#CCC" stroke-width="1.5" fill="none">
+    <!-- 破局 → 三个概念 -->
+    <path d="M 700,100 H 790 V 60 H 900"/>
+    <path d="M 700,100 H 790 V 130 H 900"/>
+    <path d="M 700,100 H 790 V 200 H 900"/>
+    <!-- 生根 → 三个概念 -->
+    <path d="M 700,380 H 790 V 340 H 900"/>
+    <path d="M 700,380 H 790 V 410 H 900"/>
+    <path d="M 700,380 H 790 V 480 H 900"/>
+    <!-- 迭代 → 三个概念 -->
+    <path d="M 700,700 H 790 V 660 H 900"/>
+    <path d="M 700,700 H 790 V 730 H 900"/>
+    <path d="M 700,700 H 790 V 800 H 900"/>
+    <!-- 沉淀 → 三个概念 -->
+    <path d="M 700,980 H 790 V 940 H 900"/>
+    <path d="M 700,980 H 790 V 1010 H 900"/>
+    <path d="M 700,980 H 790 V 1080 H 900"/>
+  </g>
+
+  <!-- 核心概念 → 工具方法 -->
+  <g stroke="#DDD" stroke-width="1.2" fill="none" stroke-dasharray="4 3">
+    <path d="M 1140,60 H 1240 V 50 H 1340"/>
+    <path d="M 1140,130 H 1240 V 130 H 1340"/>
+    <path d="M 1140,200 H 1240 V 210 H 1340"/>
+    <path d="M 1140,340 H 1240 V 300 H 1340"/>
+    <path d="M 1140,410 H 1240 V 380 H 1340"/>
+    <path d="M 1140,480 H 1240 V 460 H 1340"/>
+    <path d="M 1140,660 H 1240 V 600 H 1340"/>
+    <path d="M 1140,730 H 1240 V 680 H 1340"/>
+    <path d="M 1140,800 H 1240 V 760 H 1340"/>
+    <path d="M 1140,940 H 1240 V 900 H 1340"/>
+    <path d="M 1140,1010 H 1240 V 980 H 1340"/>
+    <path d="M 1140,1080 H 1240 V 1060 H 1340"/>
+  </g>
+
+  <!-- 工具 → 案例（右侧延伸） -->
+  <g stroke="#E0E0E0" stroke-width="1" fill="none" stroke-dasharray="2 3">
+    <path d="M 1560,50 H 1660 V 30 H 1740"/>
+    <path d="M 1560,130 H 1660 V 120 H 1740"/>
+    <path d="M 1560,210 H 1660 V 210 H 1740"/>
+    <path d="M 1560,300 H 1660 V 300 H 1740"/>
+    <path d="M 1560,380 H 1660 V 390 H 1740"/>
+    <path d="M 1560,460 H 1660 V 480 H 1740"/>
+    <path d="M 1560,600 H 1660 V 570 H 1740"/>
+    <path d="M 1560,680 H 1660 V 660 H 1740"/>
+    <path d="M 1560,760 H 1660 V 750 H 1740"/>
+    <path d="M 1560,900 H 1660 V 840 H 1740"/>
+    <path d="M 1560,980 H 1660 V 930 H 1740"/>
+    <path d="M 1560,1060 H 1660 V 1020 H 1740"/>
+  </g>
+
+  <!-- ===== 根节点 ===== -->
+  <rect x="20" y="510" width="260" height="100" rx="14" fill="#2D3436" stroke="#1A1A1A" stroke-width="2"/>
+  <text x="150" y="548" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">商业闭环</text>
+  <text x="150" y="580" text-anchor="middle" fill="#FFB347" font-size="20" font-weight="700">执行系统</text>
+  <text x="150" y="600" text-anchor="middle" fill="#fff" font-size="13" opacity="0.85">破局 → 生根 → 迭代 → 沉淀</text>
+
+  <!-- ===== 层1：4个板块 ===== -->
+  <!-- 破局 -->
+  <rect x="470" y="60" width="230" height="80" rx="12" fill="#FF6B6B" stroke="#D63031" stroke-width="2"/>
+  <text x="585" y="95" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">①破局</text>
+  <text x="585" y="120" text-anchor="middle" fill="#fff" font-size="13" opacity="0.95">让事情开始发生</text>
+
+  <!-- 生根 -->
+  <rect x="470" y="340" width="230" height="80" rx="12" fill="#4ECDC4" stroke="#098E80" stroke-width="2"/>
+  <text x="585" y="375" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">②生根</text>
+  <text x="585" y="400" text-anchor="middle" fill="#fff" font-size="13" opacity="0.95">让事情持续深入</text>
+
+  <!-- 迭代 -->
+  <rect x="470" y="660" width="230" height="80" rx="12" fill="#FFD93D" stroke="#B98D14" stroke-width="2"/>
+  <text x="585" y="695" text-anchor="middle" fill="#2D3436" font-size="22" font-weight="700">③迭代</text>
+  <text x="585" y="720" text-anchor="middle" fill="#2D3436" font-size="13">让事情越做越好</text>
+
+  <!-- 沉淀 -->
+  <rect x="470" y="940" width="230" height="80" rx="12" fill="#6BCB77" stroke="#3F9F4F" stroke-width="2"/>
+  <text x="585" y="975" text-anchor="middle" fill="#fff" font-size="22" font-weight="700">④沉淀</text>
+  <text x="585" y="1000" text-anchor="middle" fill="#fff" font-size="13" opacity="0.95">让自己越来越强</text>
+
+  <!-- ===== 层2：核心概念（12个） ===== -->
+  <!-- 破局三概念 -->
+  <rect x="900" y="30" width="240" height="60" rx="10" fill="#FFE5E5" stroke="#FF6B6B" stroke-width="1.5"/>
+  <text x="1020" y="68" text-anchor="middle" fill="#D63031" font-size="18" font-weight="700">状态是产物</text>
+
+  <rect x="900" y="100" width="240" height="60" rx="10" fill="#FFE5E5" stroke="#FF6B6B" stroke-width="1.5"/>
+  <text x="1020" y="138" text-anchor="middle" fill="#D63031" font-size="18" font-weight="700">极小化第一步</text>
+
+  <rect x="900" y="170" width="240" height="60" rx="10" fill="#FFE5E5" stroke="#FF6B6B" stroke-width="1.5"/>
+  <text x="1020" y="208" text-anchor="middle" fill="#D63031" font-size="18" font-weight="700">行动惯性</text>
+
+  <!-- 生根三概念 -->
+  <rect x="900" y="310" width="240" height="60" rx="10" fill="#E0F7F5" stroke="#4ECDC4" stroke-width="1.5"/>
+  <text x="1020" y="348" text-anchor="middle" fill="#0B6B61" font-size="18" font-weight="700">新想法＝逃避</text>
+
+  <rect x="900" y="380" width="240" height="60" rx="10" fill="#E0F7F5" stroke="#4ECDC4" stroke-width="1.5"/>
+  <text x="1020" y="418" text-anchor="middle" fill="#0B6B61" font-size="18" font-weight="700">死守当下</text>
+
+  <rect x="900" y="450" width="240" height="60" rx="10" fill="#E0F7F5" stroke="#4ECDC4" stroke-width="1.5"/>
+  <text x="1020" y="488" text-anchor="middle" fill="#0B6B61" font-size="18" font-weight="700">切换成本</text>
+
+  <!-- 迭代三概念 -->
+  <rect x="900" y="630" width="240" height="60" rx="10" fill="#FFF7DA" stroke="#F5A623" stroke-width="1.5"/>
+  <text x="1020" y="668" text-anchor="middle" fill="#8C5A02" font-size="18" font-weight="700">完美主义陷阱</text>
+
+  <rect x="900" y="700" width="240" height="60" rx="10" fill="#FFF7DA" stroke="#F5A623" stroke-width="1.5"/>
+  <text x="1020" y="738" text-anchor="middle" fill="#8C5A02" font-size="18" font-weight="700">先完成再完美</text>
+
+  <rect x="900" y="770" width="240" height="60" rx="10" fill="#FFF7DA" stroke="#F5A623" stroke-width="1.5"/>
+  <text x="1020" y="808" text-anchor="middle" fill="#8C5A02" font-size="18" font-weight="700">反馈回路</text>
+
+  <!-- 沉淀三概念 -->
+  <rect x="900" y="910" width="240" height="60" rx="10" fill="#E5F5E0" stroke="#6BCB77" stroke-width="1.5"/>
+  <text x="1020" y="948" text-anchor="middle" fill="#2F7A38" font-size="18" font-weight="700">能力复利</text>
+
+  <rect x="900" y="980" width="240" height="60" rx="10" fill="#E5F5E0" stroke="#6BCB77" stroke-width="1.5"/>
+  <text x="1020" y="1018" text-anchor="middle" fill="#2F7A38" font-size="18" font-weight="700">三个反思问题</text>
+
+  <rect x="900" y="1050" width="240" height="60" rx="10" fill="#E5F5E0" stroke="#6BCB77" stroke-width="1.5"/>
+  <text x="1020" y="1088" text-anchor="middle" fill="#2F7A38" font-size="18" font-weight="700">高手 vs 普通人</text>
+
+  <!-- ===== 层3：工具/方法 ===== -->
+  <g font-size="15" fill="#2D3436" font-weight="600">
+    <rect x="1340" y="25" width="220" height="50" rx="8" fill="#fff" stroke="#FFA09F" stroke-width="1.2"/>
+    <text x="1450" y="56" text-anchor="middle">2分钟启动法</text>
+
+    <rect x="1340" y="105" width="220" height="50" rx="8" fill="#fff" stroke="#FFA09F" stroke-width="1.2"/>
+    <text x="1450" y="136" text-anchor="middle">5秒法则</text>
+
+    <rect x="1340" y="185" width="220" height="50" rx="8" fill="#fff" stroke="#FFA09F" stroke-width="1.2"/>
+    <text x="1450" y="216" text-anchor="middle">启动仪式</text>
+
+    <rect x="1340" y="275" width="220" height="50" rx="8" fill="#fff" stroke="#9FE0D8" stroke-width="1.2"/>
+    <text x="1450" y="306" text-anchor="middle">想法清单</text>
+
+    <rect x="1340" y="355" width="220" height="50" rx="8" fill="#fff" stroke="#9FE0D8" stroke-width="1.2"/>
+    <text x="1450" y="386" text-anchor="middle">深度工作</text>
+
+    <rect x="1340" y="435" width="220" height="50" rx="8" fill="#fff" stroke="#9FE0D8" stroke-width="1.2"/>
+    <text x="1450" y="466" text-anchor="middle">心流触发器</text>
+
+    <rect x="1340" y="575" width="220" height="50" rx="8" fill="#fff" stroke="#F5CB6A" stroke-width="1.2"/>
+    <text x="1450" y="606" text-anchor="middle">MVP思维</text>
+
+    <rect x="1340" y="655" width="220" height="50" rx="8" fill="#fff" stroke="#F5CB6A" stroke-width="1.2"/>
+    <text x="1450" y="686" text-anchor="middle">迭代三段式</text>
+
+    <rect x="1340" y="735" width="220" height="50" rx="8" fill="#fff" stroke="#F5CB6A" stroke-width="1.2"/>
+    <text x="1450" y="766" text-anchor="middle">每日10分钟复盘</text>
+
+    <rect x="1340" y="875" width="220" height="50" rx="8" fill="#fff" stroke="#A6DCA0" stroke-width="1.2"/>
+    <text x="1450" y="906" text-anchor="middle">复利公式</text>
+
+    <rect x="1340" y="955" width="220" height="50" rx="8" fill="#fff" stroke="#A6DCA0" stroke-width="1.2"/>
+    <text x="1450" y="986" text-anchor="middle">费曼学习法</text>
+
+    <rect x="1340" y="1035" width="220" height="50" rx="8" fill="#fff" stroke="#A6DCA0" stroke-width="1.2"/>
+    <text x="1450" y="1066" text-anchor="middle">AAR复盘法</text>
+  </g>
+
+  <!-- ===== 层4：案例 ===== -->
+  <g font-size="13" fill="#636E72">
+    <rect x="1740" y="10" width="440" height="45" rx="6" fill="#FFF5F5" stroke="#FFC1BF" stroke-width="1"/>
+    <text x="1960" y="37" text-anchor="middle">📝 案例：等了3个月才写第1篇的小李</text>
+
+    <rect x="1740" y="100" width="440" height="45" rx="6" fill="#FFF5F5" stroke="#FFC1BF" stroke-width="1"/>
+    <text x="1960" y="127" text-anchor="middle">📝 案例：每天写100字的健身博主老王</text>
+
+    <rect x="1740" y="190" width="440" height="45" rx="6" fill="#FFF5F5" stroke="#FFC1BF" stroke-width="1"/>
+    <text x="1960" y="217" text-anchor="middle">📝 案例：乔布斯穿同款黑色高领</text>
+
+    <rect x="1740" y="280" width="440" height="45" rx="6" fill="#F0FAF8" stroke="#A6DEDA" stroke-width="1"/>
+    <text x="1960" y="307" text-anchor="middle">📝 案例：村上春树每天跑步10公里</text>
+
+    <rect x="1740" y="370" width="440" height="45" rx="6" fill="#F0FAF8" stroke="#A6DEDA" stroke-width="1"/>
+    <text x="1960" y="397" text-anchor="middle">📝 案例：海豹突击队"4小时不接电话"训练</text>
+
+    <rect x="1740" y="460" width="440" height="45" rx="6" fill="#F0FAF8" stroke="#A6DEDA" stroke-width="1"/>
+    <text x="1960" y="487" text-anchor="middle">📝 案例：游戏开发切关卡 vs 切项目</text>
+
+    <rect x="1740" y="550" width="440" height="45" rx="6" fill="#FFFAEB" stroke="#F5CB6A" stroke-width="1"/>
+    <text x="1960" y="577" text-anchor="middle">📝 案例：Dropbox第一天只能同步2个文件夹</text>
+
+    <rect x="1740" y="640" width="440" height="45" rx="6" fill="#FFFAEB" stroke="#F5CB6A" stroke-width="1"/>
+    <text x="1960" y="667" text-anchor="middle">📝 案例：作家第一稿 = "给编辑的靶子"</text>
+
+    <rect x="1740" y="730" width="440" height="45" rx="6" fill="#FFFAEB" stroke="#F5CB6A" stroke-width="1"/>
+    <text x="1960" y="757" text-anchor="middle">📝 案例：亚马逊"两个披萨团队"反馈循环</text>
+
+    <rect x="1740" y="820" width="440" height="45" rx="6" fill="#F0FAF0" stroke="#A6DCA0" stroke-width="1"/>
+    <text x="1960" y="847" text-anchor="middle">📝 案例：巴菲特99%财富在50岁后</text>
+
+    <rect x="1740" y="910" width="440" height="45" rx="6" fill="#F0FAF0" stroke="#A6DCA0" stroke-width="1"/>
+    <text x="1960" y="937" text-anchor="middle">📝 案例：芒格的"思维模型列表"</text>
+
+    <rect x="1740" y="1000" width="440" height="45" rx="6" fill="#F0FAF0" stroke="#A6DCA0" stroke-width="1"/>
+    <text x="1960" y="1027" text-anchor="middle">📝 案例：美军AAR：每场战役后必复盘</text>
+  </g>
+
+  <!-- ===== 标题与图例 ===== -->
+  <text x="20" y="35" font-size="20" font-weight="700" fill="#2D3436">📊 商业闭环·执行系统 · 全景知识图谱</text>
+  <text x="20" y="58" font-size="13" fill="#636E72">从根（商业闭环）→ 4板块 → 12核心概念 → 12工具方法 → 12真实案例（共 5 层）</text>
+
+  <!-- 图例 -->
+  <g transform="translate(20, 80)" font-size="11" fill="#636E72">
+    <text x="0" y="0" font-weight="700" fill="#2D3436" font-size="13">🎨 图例：</text>
+    <rect x="0" y="10" width="14" height="14" fill="#FF6B6B" rx="2"/>
+    <text x="20" y="22">破局（红）</text>
+    <rect x="90" y="10" width="14" height="14" fill="#4ECDC4" rx="2"/>
+    <text x="110" y="22">生根（青）</text>
+    <rect x="180" y="10" width="14" height="14" fill="#FFD93D" rx="2"/>
+    <text x="200" y="22">迭代（黄）</text>
+    <rect x="270" y="10" width="14" height="14" fill="#6BCB77" rx="2"/>
+    <text x="290" y="22">沉淀（绿）</text>
+    <rect x="360" y="10" width="14" height="14" fill="#fff" stroke="#999" rx="2"/>
+    <text x="380" y="22">工具/方法</text>
+    <rect x="470" y="10" width="14" height="14" fill="#FFFAFA" stroke="#FFC1BF" rx="2"/>
+    <text x="490" y="22">真实案例</text>
+  </g>
+</svg>
+  </div>
+  <p style="margin-top:12px; font-size:13px; color:#636E72;">
+    💡 <b>使用方法</b>：微信/浏览器中可双指捏合放大查看细节；横向滚动可看全部节点。
+  </p>
+</section>
+
+<!-- ==========================================
+     侧边导航 / 章节索引
+     ========================================== -->
+<nav class="toc" id="toc">
+  <h3>📑 12 章速览（点击直达）</h3>
+  <div class="toc-list">
+    <a href="#ch1" class="t1">第1章 状态的真相</a>
+    <a href="#ch2" class="t1">第2章 极小化第一步</a>
+    <a href="#ch3" class="t1">第3章 行动惯性</a>
+    <a href="#ch4" class="t2">第4章 识别逃避型想法</a>
+    <a href="#ch5" class="t2">第5章 死守当下</a>
+    <a href="#ch6" class="t2">第6章 切换成本</a>
+    <a href="#ch7" class="t3">第7章 完美主义陷阱</a>
+    <a href="#ch8" class="t3">第8章 先完成再完美</a>
+    <a href="#ch9" class="t3">第9章 反馈回路</a>
+    <a href="#ch10" class="t4">第10章 能力复利</a>
+    <a href="#ch11" class="t4">第11章 三个反思问题</a>
+    <a href="#ch12" class="t4">第12章 高手分野</a>
+  </div>
+</nav>
+
+<!-- ==========================================
+     第一阶段：觉醒（破局）
+     ========================================== -->
+
+<!-- 第1章 -->
+<article class="chapter" id="ch1">
+  <div class="chapter-cover c1">
+    <span class="ctime">15 分钟</span>
+    <div class="stage">第 一 阶 段 · 觉 醒</div>
+    <div class="ctitle">第 1 章 ｜ 你卡住的不是能力，是"状态"</div>
+    <div class="cpos">理解"状态是产物，不是前提"——你能改变一切。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-po">
+      <h4>🌟 核心命题</h4>
+      <p><strong>状态不是开始的前提，是开始之后的产物。</strong></p>
+      <p>你不需要"等有状态"才能开始做事。你开始做事了，状态才会慢慢浮现。</p>
+      <p>99% 的人卡在"等"的陷阱里：等状态绝佳、等灵感爆发、等万事俱备、等"今天特别适合开始的完美时刻"。<strong>但成年人都会懂——这种时刻一辈子都不会凭空出现。</strong></p>
+    </div>
+
+    <h3>📖 为什么这是反常识？</h3>
+    <p>我们的直觉告诉你：</p>
+    <ul>
+      <li>❌ "我没灵感，今天不写了"</li>
+      <li>❌ "我没状态，今天不运动了"</li>
+      <li>❌ "我还不够了解，明天再开始吧"</li>
+    </ul>
+    <p>真相是，<em>如果你不开始，灵感/状态永远不来</em>。它的因果链被你弄反了。</p>
+
+    <div class="story">
+      <span class="label">真实案例</span>
+      <p><b>小李</b>想写公众号，等了 3 个月找"完美感觉"——结果一篇都没发。</p>
+      <p><b>老王</b>也想写公众号，第一天就硬着头皮写 100 字——半年后成了 10 万 + 博主。</p>
+      <p>差别不在天赋，而在老王"先开始再调整"，小李"等好了才开始"。</p>
+    </div>
+
+    <h3>🧠 科学依据（学界共识）</h3>
+    <ul>
+      <li><b>行为科学</b>：BJ Fogg 行为模型（Stanford）指出<b>行为 = 动机 × 能力 × 提示</b>。当动机低时，降低能力门槛 + 增加提示是更好的策略——而不是"等动机"。</li>
+      <li><b>神经科学</b>：研究表明，大脑前额叶在"启动"时消耗大量葡萄糖——这就是启动成本。但一旦进入行动，前额叶负担骤降，进入自动化模式（基底神经节接管）。</li>
+      <li><b>古典理论</b>：荀子"不积跬步无以至千里"——微小行为累积成大成就。</li>
+    </ul>
+
+    <div class="checklist">
+      <h5>✅ 自检清单（做完打勾）</h5>
+      <label><input type="checkbox"> 我现在是否在等"状态/准备好"才行动？</label>
+      <label><input type="checkbox"> 过去一周我有多少次因为"没感觉"推迟？</label>
+      <label><input type="checkbox"> 如果只能做 2 分钟，我会做什么？</label>
+      <label><input type="checkbox"> 我能立刻开始吗？现在、此刻、立刻？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 行动卡</span>
+      <h4>今晚 22:00 · 你要做的唯一一件事</h4>
+      <p>把你一直拖延的那件事，挑一个最小动作——2 分钟内能完成的——<strong>立刻做掉，不发朋友圈、不告诉任何人，单纯做</strong>。做完感觉一下自己的状态有什么变化。</p>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 三问反思（必须回答）</h5>
+      <ol>
+        <li>这一章击中我最大的盲点是什么？</li>
+        <li>我过去在哪里栽过同样的跟头？</li>
+        <li>接下来 7 天，我会做哪一件具体的事？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- 第2章 -->
+<article class="chapter" id="ch2">
+  <div class="chapter-cover c2">
+    <span class="ctime">15 分钟</span>
+    <div class="stage">第 一 阶 段 · 觉 醒</div>
+    <div class="ctitle">第 2 章 ｜ 极小化第一步：让启动成本低到可笑</div>
+    <div class="cpos">把"开始"这件事拆到无法拒绝。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-po">
+      <h4>🌟 核心命题</h4>
+      <p><strong>高手从不逼自己一口吞下整个目标，只逼自己完成一个"小到没法拒绝"的动作。</strong></p>
+      <p>真正消耗我们的从来不是行动本身，而是"开始前漫长的自我心理拉扯"。真正难的从来不是把事情做完，是从 0 到 1 的第一步。</p>
+    </div>
+
+    <h3>🎯 三个具体例子（抄作业）</h3>
+    <table>
+      <tr><th>目标</th><th>普通人的行动</th><th>极小化版</th></tr>
+      <tr><td>写作</td><td>今天写 3000 字</td><td>打开文档敲下第一行</td></tr>
+      <tr><td>学习</td><td>今天学 1 小时</td><td>打开课件听前 5 分钟</td></tr>
+      <tr><td>运动</td><td>今天跑 5 公里</td><td>站起来做 10 个深蹲</td></tr>
+      <tr><td>看书</td><td>读完一章</td><td>翻开书读第一段</td></tr>
+      <tr><td>学英语</td><td>背 50 个单词</td><td>打开 APP 抄 1 个</td></tr>
+    </table>
+
+    <h3>🧠 为什么"极小化"这么有效？</h3>
+    <ul>
+      <li><b>行动惯性原理</b>：只要你动起来，大脑自然而然就会进入惯性——人天生就有"完成欲"，一旦进入状态，就会顺着势头往下做，而不是中途停下来。</li>
+      <li><b>绕开心理阻力</b>：厉害的人不是对自己够狠够硬，而是把第一步设计得足够轻，轻到你迈出第一步。他们不跟内心的阻力蛮干，而是绕开阻力，剩下的交给惯性就够了。</li>
+    </ul>
+
+    <div class="story">
+      <span class="label">5 秒法则 · Mel Robbins</span>
+      <p>美国作家 Mel Robbins 在 TED 演讲中讲述了她发明的"5 秒法则"——当你想做一件事时，<b>在 5 秒内倒数 5-4-3-2-1，然后立刻行动</b>。</p>
+      <p>超过 5 秒，你的大脑会开始找借口；5 秒内的行动会绕过所有借口。</p>
+      <p>这个法则已被全球数百万人使用，包括大量企业家和运动员。</p>
+    </div>
+
+    <div class="checklist">
+      <h5>✅ 自检清单</h5>
+      <label><input type="checkbox"> 我能把要做的事拆到 2 分钟版本吗？</label>
+      <label><input type="checkbox"> 我现在最拖延的那件事，2 分钟版本是什么？</label>
+      <label><input type="checkbox"> 准备好"5-4-3-2-1 立刻做"的仪式了吗？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 行动卡</span>
+      <h4>明天 · 把你要做的事拆到 2 分钟</h4>
+      <p>挑一件你拖了很久的事，写三档拆解：</p>
+      <ul>
+        <li><b>目标版本</b>：你要做到的最终结果</li>
+        <li><b>中等版本</b>：做完一半就算赢</li>
+        <li><b>2 分钟版</b>：做完这个就算赢（核心动作）</li>
+      </ul>
+      <p>接下来 7 天，每天只完成 2 分钟版。</p>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 三问反思</h5>
+      <ol>
+        <li>我最近拖延过哪些事？它们的 2 分钟版本是什么？</li>
+        <li>我什么时候因为"起步太大"导致整件事崩盘的？</li>
+        <li>从今天起，哪件事我要严格用 2 分钟版本启动？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- 第3章 -->
+<article class="chapter" id="ch3">
+  <div class="chapter-cover c3">
+    <span class="ctime">12 分钟</span>
+    <div class="stage">第 一 阶 段 · 觉 醒</div>
+    <div class="ctitle">第 3 章 ｜ 行动惯性：让第二天比第一天更容易</div>
+    <div class="cpos">坚持的关键不是意志力，是用好惯性。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-po">
+      <h4>🌟 核心命题</h4>
+      <p><strong>人天生有"完成欲"。一旦你进入状态，你会倾向于顺着势头往下做，而不是中途停下来。</strong></p>
+      <p>所以破局的关键不是"咬牙三天"——而是让自己轻松进入状态，让第二天变得比第一天更容易。</p>
+    </div>
+
+    <h3>📈 行动惯性的三个支柱</h3>
+    <ol>
+      <li><b>固定锚点</b>：每天同一时间、同一地点做同一件事。比如每天 7:30 在书桌前打开电脑，绝不动摇——身体会进入自动化模式。</li>
+      <li><b>不中断原则</b>：哪怕状态极差，哪怕只有 5 分钟，也要"做完那个微小的动作"——不断惯性。</li>
+      <li><b>可视化追踪</b>：用日历、表格、可视化工具记录每天的"已完成"——让进度可见，进度会激发继续。</li>
+    </ol>
+
+    <div class="story">
+      <span class="label">真实案例 · 村上春树</span>
+      <p>日本作家村上春树每天凌晨 4 点起床，写 4 小时，跑 10 公里，几十年如一日。</p>
+      <p>被问到"如何坚持"时他说："我从来不靠意志力。我靠的是<b>惯性</b>。起床这件事已经被身体接管了，根本不需要决定。"</p>
+      <p>同样的逻辑适用于任何人——你不需要"今天决定努力"，你只需要"每天固定时间做一件固定事"。</p>
+    </div>
+
+    <h3>🧠 行为科学核心理论</h3>
+    <ul>
+      <li><b>原子习惯（Atomic Habits · James Clear）</b>：让一个习惯"不可察觉"地嵌入生活——不需要意志力，不需要"决定"。</li>
+      <li><b>2分钟法则</b>：任何习惯的启动版本都要 ≤ 2 分钟。比如"我每天要跑步 1 小时" → 改成"我每天穿上跑鞋出门"（2 分钟就能完成）。</li>
+      <li><b>环境设计 > 自我控制</b>：最好的坚持不是"靠意志力"——而是"让环境逼你做"。把书放在床头、把跑鞋放在门口——降低启动摩擦。</li>
+    </ul>
+
+    <div class="checklist">
+      <h5>✅ 自检清单</h5>
+      <label><input type="checkbox"> 我有一件"每天固定时间做"的事吗？</label>
+      <label><input type="checkbox"> 我有没有把启动它的"环境道具"摆在眼前？</label>
+      <label><input type="checkbox"> 我是不是在用日历/表格记录"已完成"？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 行动卡</span>
+      <h4>今天 · 锁定你的"固定锚点"</h4>
+      <p>写下三件事：</p>
+      <ul>
+        <li><b>在什么时间</b>做这件事（精确到分钟）</li>
+        <li><b>在什么地点</b>做这件事（具体到房间/桌前）</li>
+        <li><b>做的具体动作</b>（2 分钟版本）</li>
+      </ul>
+      <p>从明天开始执行，连续做 7 天不中断。</p>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 三问反思</h5>
+      <ol>
+        <li>我过去最常因为什么"中断"惯性？</li>
+        <li>我能用什么"环境设计"降低启动摩擦？</li>
+        <li>我的"固定锚点"是什么？想好了吗？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- 第4章 -->
+<article class="chapter" id="ch4">
+  <div class="chapter-cover c4">
+    <span class="ctime">18 分钟</span>
+    <div class="stage">第 二 阶 段 · 扎 根</div>
+    <div class="ctitle">第 4 章 ｜ 识别"新想法 = 逃避"的信号</div>
+    <div class="cpos">学会分辨真需求与伪新鲜感。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-ge">
+      <h4>🌟 核心命题</h4>
+      <p><strong>毁掉一件事的往往是"我今天有个新想法"。</strong></p>
+      <p>这个念头几乎是所有人都会踩的坑，而且被披上了一层"积极上进"的外衣——你以为自己是"有创造力"，其实你是在逃避深入的痛苦。</p>
+    </div>
+
+    <h3>🎭 三种典型的"逃避型新想法"</h3>
+    <table>
+      <tr><th>类型</th><th>真实表达</th><th>本质</th></tr>
+      <tr><td>"更紧急"型</td><td>"那件事更急，我先做那个"</td><td>用紧急感逃避深入</td></tr>
+      <tr><td>"更有价值"型</td><td>"这个新思路更有价值，我转过去"</td><td>用价值感逃避深入</td></tr>
+      <tr><td>"劳逸结合"型</td><td>"我刷两分钟手机就回来"</td><td>用休息逃避深入</td></tr>
+    </table>
+
+    <h3>🧠 为什么"新想法"这么危险？</h3>
+    <ul>
+      <li><b>看起来都对</b>——它伪装成"理性判断"，让你觉得它是合理的，所以特别容易骗到自己。</li>
+      <li><b>每次启动都付费</b>——切换的隐形成本极高：大脑要重新进入状态，要重新加载上下文，要重新鼓起能量。每次切换 15-25 分钟生产力就没了。</li>
+      <li><b>持续下去 = 永不深入</b>——你每天换 8 件事做 1 小时，永远在每件事表面蜻蜓点水；别人每天死磕 1 件事 8 小时，已经直击核心。</li>
+    </ul>
+
+    <div class="story">
+      <span class="label">真实案例 · 游戏开发</span>
+      <p>有团队开发游戏：</p>
+      <ul>
+        <li><b>A 团队</b>：每个项目切关卡，每关深入打磨——3 个月后做出精品；</li>
+        <li><b>B 团队</b>：每 2 周换一个新项目、新机制、新引擎——1 年后什么都没做出。</li>
+      </ul>
+      <p>B 团队觉得自己"什么都懂"，A 团队只懂"一件事"——但玩家只玩 A 团队的作品。</p>
+    </div>
+
+    <div class="checklist">
+      <h5>✅ 自检清单</h5>
+      <label><input type="checkbox"> 过去一周我有没有因为"新想法"切换目标？</label>
+      <label><input type="checkbox"> 我能不能分辨"真灵感"和"假新鲜"？</label>
+      <label><input type="checkbox"> 我现在手头的事，做到一半了吗？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 行动卡</span>
+      <h4>今天起 · 建立"想法清单"</h4>
+      <p>准备一个笔记本，记下所有冒出来的"新想法"——但 <strong>不立刻执行</strong>。</p>
+      <p>规则：</p>
+      <ul>
+        <li>任何"新想法"先写下来，再回到当下。</li>
+        <li>7 天后还在清单上的想法，才考虑执行。</li>
+        <li>7 天后 80% 的想法你会发现——根本不重要。</li>
+      </ul>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 三问反思</h5>
+      <ol>
+        <li>我过去最常因为什么"新想法"切换目标？</li>
+        <li>那个"看起来更紧急/更有价值"的事，最后做了吗？</li>
+        <li>我现在手头的事，能不能再坚持 7 天不切换？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- 第5章 -->
+<article class="chapter" id="ch5">
+  <div class="chapter-cover c5">
+    <span class="ctime">15 分钟</span>
+    <div class="stage">第 二 阶 段 · 扎 根</div>
+    <div class="ctitle">第 5 章 ｜ 死守当下：拒绝"下一件事会更好"的幻觉</div>
+    <div class="cpos">把手头的事做透，才有可能遇到"下一件事"。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-ge">
+      <h4>🌟 核心命题</h4>
+      <p><strong>真正的生根，不是世界上没有干扰，而是干扰满天飞的时候，你依然知道自己要钉在原地。</strong></p>
+      <p>高手对当下这件事有一种近乎偏执的死守——他们不是没有新想法，是清楚再绝妙的灵感都不配打断已经进入深度的状态。</p>
+    </div>
+
+    <h3>📌 为什么"死守"这么反人性？</h3>
+    <ul>
+      <li><b>沉没成本不是浪费</b>：很多人因为"我已经投入很多"想要换方向——但过去的投入恰恰是你最大的资产，放弃 = 归零。</li>
+      <li><b>平台期是必经之路</b>：任何技能的成长都是"快速进步 → 长期平台 → 突然突破"的曲线。平台期看似没进步，其实底层在积蓄能量。</li>
+      <li><b>承诺一致原理</b>：心理学家发现，人一旦对自己做出承诺，会倾向于坚持。公之于众的承诺更有效（社会压力）。</li>
+    </ul>
+
+    <div class="story">
+      <span class="label">真实案例 · 健身 100 天</span>
+      <p>有位女性决定 100 天每天健身打卡。开始很顺利，第 30 天遇到瓶颈——身体不再明显变化。</p>
+      <p>她说："那时候我真的很想放弃，转去学瑜伽。但我跟自己说——<b>坚持完这 100 天再说</b>。"</p>
+      <p>第 60 天她突破瓶颈，到第 100 天身材大变样。</p>
+      <p>"如果第 30 天就换赛道，我什么都得不到。"</p>
+    </div>
+
+    <h3>🎯 死守当下的三个动作</h3>
+    <ol>
+      <li><b>公开承诺</b>：把你的目标写在朋友圈、贴在墙上、告诉 5 个朋友——社会压力会逼你坚持。</li>
+      <li><b>设定最低标准</b>：比如"每天哪怕状态再差，至少做 10 个俯卧撑"——不断比断好。</li>
+      <li><b>记录而非评判</b>：用日历简单标记"今天做了/没做"，不评判——只追踪，让你清晰看到"自己其实在坚持"。</li>
+    </ol>
+
+    <div class="checklist">
+      <h5>✅ 自检清单</h5>
+      <label><input type="checkbox"> 我现在做的事，有没有公开承诺过？</label>
+      <label><input type="checkbox"> 我最近是不是处于"平台期"想放弃？</label>
+      <label><input type="checkbox"> 我有没有给自己设一个"最低标准"？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 行动卡</span>
+      <h4>明天起 · 公 开 承 诺</h4>
+      <p>在朋友圈/微博/同事群里发一条："从今天起，我准备 <b>[具体事情]</b>，坚持 <b>[具体天数]</b> 天，每天 <b>[具体动作]</b>。"</p>
+      <p>坚持到底，每天记录。</p>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 三问反思</h5>
+      <ol>
+        <li>我最近一次"半途而废"是因为什么？</li>
+        <li>我能不能再给自己一次机会，坚持到平台期之后？</li>
+        <li>我想公开承诺什么事？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- 第6章 -->
+<article class="chapter" id="ch6">
+  <div class="chapter-cover c6">
+    <span class="ctime">15 分钟</span>
+    <div class="stage">第 二 阶 段 · 扎 根</div>
+    <div class="ctitle">第 6 章 ｜ 切换成本：你以为的自由，其实最贵</div>
+    <div class="cpos">看清频繁切换背后的隐性代价。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-ge">
+      <h4>🌟 核心命题</h4>
+      <p><strong>每一次你思维的切换，大脑都要重新进入状态。这种启动的隐形成本高的吓人，却几乎没有人真正在意过。</strong></p>
+      <p>你以为"切换是自由的体现"，其实切换的代价大到你看不见。</p>
+    </div>
+
+    <h3>📊 切换的四种成本</h3>
+    <ol>
+      <li><b>时间成本</b>：每次切换平均损失 15-25 分钟生产力（加州大学研究，2019）。</li>
+      <li><b>认知成本</b>：大脑要重新加载上下文、重新进入深度，注意力资源被消耗。</li>
+      <li><b>决策疲劳</b>：每一次"做啥"都是一次决策，决策会消耗意志力（参考鲍曼斯特"意志力像肌肉"理论）。</li>
+      <li><b>情绪成本</b>：频繁切换让你焦虑、不充实、什么都做不出来——长期会损害自信。</li>
+    </ol>
+
+    <h3>🧠 科学依据：单任务 vs 多任务</h3>
+    <ul>
+      <li>Stanford 大学教授 Clifford Nass 研究发现：<b>"频繁多任务者"对无关信息的过滤能力更差、组织能力更弱</b>。换句话说——切换越多，你越笨。</li>
+      <li><b>深度工作</b>（Deep Work · Cal Newport）：在无干扰状态下专业活动，能创造新价值、提升技能。深度工作越来越稀缺，所以越来越有价值。</li>
+      <li><b>心流</b>（Flow · Mihaly Csikszentmihalyi）：完全沉浸在一项活动中的状态。心流需要 15-20 分钟"预热"，频繁切换永远进不了心流。</li>
+    </ul>
+
+    <div class="story">
+      <span class="label">真实案例 · 海豹突击队</span>
+      <p>海豹突击队有项训练：4 小时不接电话、不回消息，专注一项任务。</p>
+      <p>原因是——这种"深度专注力"在战场上是生存技能。现代人在 30 秒内就查看一次通知，等同于"自我阉割深度能力"。</p>
+    </div>
+
+    <h3>🎯 降低切换的具体做法</h3>
+    <ol>
+      <li><b>关闭通知</b>：把所有非紧急 APP 通知关闭，只留电话。</li>
+      <li><b>固定时间回消息</b>：每天固定 3 个时间段（比如 10 点、15 点、20 点）集中回消息，其他时间专心做事。</li>
+      <li><b>番茄工作法</b>：25 分钟专注 + 5 分钟休息 + 25 分钟专注……给大脑一个清晰的"专注-休息"循环。</li>
+      <li><b>环境隔离</b>：去咖啡馆、图书馆、关闭社交媒体——用环境逼自己深度。</li>
+    </ol>
+
+    <div class="checklist">
+      <h5>✅ 自检清单</h5>
+      <label><input type="checkbox"> 我每天切换多少次工作/任务？我数过吗？</label>
+      <label><input type="checkbox"> 我的手机通知关闭了吗？</label>
+      <label><input type="checkbox"> 我有没有用番茄工作法 / 时间块？</label>
+      <label><input type="checkbox"> 我现在能不能进入 1 小时深度工作？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 行动卡</span>
+      <h4>明天起 · 每天 1 个"深度工作块"</h4>
+      <p>每天在固定的、通知全关的时间里，做满 90 分钟"深度工作"。</p>
+      <p>只做一件事。中途不看手机。</p>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 三问反思</h5>
+      <ol>
+        <li>我过去一周切换了多少次任务？</li>
+        <li>我是不是被通知控制了？</li>
+        <li>我能立刻关掉哪些通知？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- 第7章 -->
+<article class="chapter" id="ch7">
+  <div class="chapter-cover c7">
+    <span class="ctime">18 分钟</span>
+    <div class="stage">第 三 阶 段 · 进 化</div>
+    <div class="ctitle">第 7 章 ｜ 完美主义陷阱：你的"准备好"是假象</div>
+    <div class="cpos">识别完美主义伪装下的恐惧。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-it">
+      <h4>🌟 核心命题</h4>
+      <p><strong>完美主义看起来好像是高标准严要求，本质上就是怕。</strong></p>
+      <p>怕第一版太差暴露能力，怕别人看到自己的不成熟，怕付出全部结果不好。<br>所以宁愿关起门来反复打磨，也不敢交付一个不完美的版本。</p>
+    </div>
+
+    <h3>🎭 完美主义的三个伪装</h3>
+    <table>
+      <tr><th>伪装</th><th>真实表达</th><th>本质</th></tr>
+      <tr><td>"再打磨一下"</td><td>"我还没准备好发布"</td><td>怕被评判</td></tr>
+      <tr><td>"这版还不够好"</td><td>"再改改"</td><td>怕投入沉没</td></tr>
+      <tr><td>"我没想清楚"</td><td>"再想想"</td><td>怕做错决定</td></tr>
+    </table>
+
+    <h3>📌 普通人和高手的差异：对待"第一版"的态度</h3>
+    <ul>
+      <li><b>普通人</b>：把第一版当作"证明自己的机会"，所以压力极大，要么交不出，要么反复改。</li>
+      <li><b>高手</b>：把第一版当作"给后续优化的靶子"——第一版的使命就是被打中。</li>
+    </ul>
+
+    <div class="story">
+      <span class="label">真实案例 · 独立开发者</span>
+      <p>两位独立开发者做了类似产品：</p>
+      <ul>
+        <li><b>A 同学</b>："我要做完美才上线"——8 个月过去还在打磨，今天加个功能、明天改个图标——0 个用户。</li>
+        <li><b>B 同学</b>："第一天就上线 MVP"——上线第一天只有 5 个用户，但拿到真实反馈——6 个月后产品日活 1000。</li>
+      </ul>
+      <p>"完美"阻止 A 上线，"丑但能用"让 B 起飞。</p>
+    </div>
+
+    <div class="checklist">
+      <h5>✅ 自检清单</h5>
+      <label><input type="checkbox"> 我有没有"再打磨一下"的无限循环？</label>
+      <label><input type="checkbox"> 我是不是在用"高标准"自我欺骗？</label>
+      <label><input type="checkbox"> 我手头的事，第一版做出来了吗？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 行动卡</span>
+      <h4>今天 · 做"丑但能用"的版本</h4>
+      <p>找一件你反复打磨的事，<strong>强制发布"丑第一版"</strong>——不好没关系，跑起来最重要。</p>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 三问反思</h5>
+      <ol>
+        <li>我完美主义最严重的领域是什么？</li>
+        <li>我"再打磨一下"实际浪费了多少时间？</li>
+        <li>我能马上发"丑第一版"吗？发给谁？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- 第8章 -->
+<article class="chapter" id="ch8">
+  <div class="chapter-cover c8">
+    <span class="ctime">15 分钟</span>
+    <div class="stage">第 三 阶 段 · 进 化</div>
+    <div class="ctitle">第 8 章 ｜ 先完成再完美：第一版的真正使命</div>
+    <div class="cpos">第一版不是产品，是"靶子"。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-it">
+      <h4>🌟 核心命题</h4>
+      <p><strong>第一版存在的意义不是证明你有多牛，是给后续的优化提供一个靶子。</strong></p>
+      <p>没有第一版，哪来第二版？没有一次次打磨，哪来最终的成品？</p>
+    </div>
+
+    <h3>🎯 MVP 思维：精益创业的核心</h3>
+    <p>Eric Ries 在《精益创业》中提出 <b>MVP（Minimum Viable Product，最小可行产品）</b>：</p>
+    <ul>
+      <li>用<b>最少</b>的力气做出<b>能跑</b>的第一版</li>
+      <li>收集<b>真实用户反馈</b></li>
+      <li>基于反馈<b>迭代改进</b></li>
+      <li>循环往复——<b>Build-Measure-Learn</b></li>
+    </ul>
+
+    <h3>🚀 迭代三段式（个人版）</h3>
+    <ol>
+      <li><b>第一版（要粗糙）</b>：能跑就行，丑也行，漏洞百出也行。重点是<b>发布</b>。</li>
+      <li><b>第二版（要好一点）</b>：基于反馈做最小改进。重点是<b>方向</b>。</li>
+      <li><b>第三版（差强人意）</b>：再微调。重点是<b>复用</b>。</li>
+      <li>不指望一步登天，只要求<b>这一版比上一版好一点点</b>。</li>
+    </ol>
+
+    <div class="story">
+      <span class="label">真实案例 · Dropbox</span>
+      <p>Dropbox 第一版上线时，<strong>只能同步 2 个文件夹</strong>。功能简陋得可笑。</p>
+      <p>Drew Houston 说："完美版本需要 5 年。但市场不等人——我们 5 个月上线 MVP，先拿到真实反馈。"</p>
+      <p>结果首日注册量破预期 5 倍。现在 Dropbox 估值百亿美元。</p>
+    </div>
+
+    <h3>📌 "Done is better than perfect" 文化</h3>
+    <p>Facebook 内部著名标语——<b>完成胜过完美</b>。这是扎克伯格贴在会议室墙上的话。</p>
+    <p>它不是说"做烂事"，而是说<b>"先把第一版做出来"</b>——完美会来，但前提是有第一版。</p>
+
+    <h3>🎯 决 定 最 终 高 度 的 变 量</h3>
+    <p>决定一件事最终高度的，从来不是起点的样子，而是你能不能持续地把它往前推。</p>
+    <p>别指望一步到位。让事情处在"不断变好"的状态里，就已经走到了绝大多数人的前面。</p>
+
+    <div class="checklist">
+      <h5>✅ 自检清单</h5>
+      <label><input type="checkbox"> 我手头的事，第一版做出来了吗？</label>
+      <label><input type="checkbox"> 我能不能"今天就发布/上线 MVP"？</label>
+      <label><input type="checkbox"> 我有没有收集真实反馈？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 行动卡</span>
+      <h4>今天 · 发 布 第 一 版</h4>
+      <p>找到那件你"一直在打磨"的事，<strong>今天 18:00 前</strong> 发布第一版——写出来、发出来、做出来、上线。</p>
+      <p>记录收到的反馈。</p>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 三问反思</h5>
+      <ol>
+        <li>我过去是不是把"完美"当成了偷懒的借口？</li>
+        <li>我第一版发出去会怎样？最坏能有多坏？</li>
+        <li>我能不能接受"丑但能用"的自己？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- 第9章 -->
+<article class="chapter" id="ch9">
+  <div class="chapter-cover c9">
+    <span class="ctime">20 分钟</span>
+    <div class="stage">第 三 阶 段 · 进 化</div>
+    <div class="ctitle">第 9 章 ｜ 反馈回路：让每一次迭代都有据可依</div>
+    <div class="cpos">建立属于自己的"小数据"。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-it">
+      <h4>🌟 核心命题</h4>
+      <p><strong>没有反馈的迭代是盲目的。</strong>你需要建立一条"做→测→学"的反馈回路，让每一次优化都有数据支撑。</p>
+    </div>
+
+    <h3>🔄 PDCA 循环 · 戴明环</h3>
+    <p>管理学家戴明提出 <b>PDCA</b>：</p>
+    <ol>
+      <li><b>P（Plan）</b>：计划（要做什么、怎么做）</li>
+      <li><b>D（Do）</b>：执行（实际做出来）</li>
+      <li><b>C（Check）</b>：检查（数据反馈是什么）</li>
+      <li><b>A（Act）</b>：行动（基于反馈调整）</li>
+    </ol>
+    <p>PDCA 不是一次性计划，是<b>螺旋上升的循环</b>——每一圈都比上一圈进步一点点。</p>
+
+    <h3>📊 每日 10 分钟复盘表</h3>
+    <p>建议你每天用 10 分钟做这个复盘：</p>
+    <table>
+      <tr><th>问题</th><th>我的答案</th></tr>
+      <tr><td>今天最关键的进展是什么？</td><td>写在这里</td></tr>
+      <tr><td>哪里可以做得不同？</td><td>写在这里</td></tr>
+      <tr><td>明天最重要的第一件事？</td><td>写在这里</td></tr>
+    </table>
+
+    <h3>📌 反馈的双轨采集</h3>
+    <ul>
+      <li><b>外部反馈</b>：客户、用户、上级、读者的反应——他们怎么用、怎么想、怎么吐槽？</li>
+      <li><b>内部反馈</b>：自己的体感、数据、感受——记录下来形成"小数据"。</li>
+    </ul>
+
+    <div class="story">
+      <span class="label">真实案例 · 亚马逊"两个披萨团队"</span>
+      <p>贝佐斯要求所有团队 ≤ "两个披萨能喂饱的人数"（约 6-10 人）——保证每个团队都有清晰的反馈循环。</p>
+      <p>小团队能快速实验、快速失败、迅速迭代——这是亚马逊持续领先的秘诀。</p>
+    </div>
+
+    <div class="checklist">
+      <h5>✅ 自检清单</h5>
+      <label><input type="checkbox"> 我有没有"每日 10 分钟复盘"的习惯？</label>
+      <label><input type="checkbox"> 我手头的事，有清晰的成功指标吗？</label>
+      <label><input type="checkbox"> 我有没有"外部反馈"渠道（用户/读者/上级）？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 行动卡</span>
+      <h4>今晚 · 写下你的"复盘模板"</h4>
+      <p>写下你这周每天要回答的 3 个问题，写在便利贴上贴桌子。</p>
+      <p>每天下班前 10 分钟回答。</p>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 三问反思</h5>
+      <ol>
+        <li>我手头的事，最关键的成功指标是什么？</li>
+        <li>我现在怎么收集反馈？</li>
+        <li>我能不能从今天起每天 10 分钟复盘？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- 第10章 -->
+<article class="chapter" id="ch10">
+  <div class="chapter-cover c10">
+    <span class="ctime">15 分钟</span>
+    <div class="stage">第 四 阶 段 · 复 利</div>
+    <div class="ctitle">第 10 章 ｜ 能力复利：慢就是快</div>
+    <div class="cpos">看清复利曲线下的真实回报。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-pr">
+      <h4>🌟 核心命题</h4>
+      <p><strong>事会结束，但长在身上的能力不会消失。</strong>它会变成你的底气，自动在下一件事里发挥作用。</p>
+      <p>这就是为什么真正的成长到后期才会出现指数级的爆发——不是年纪大了更努力，是过去搞定的每一件事，到了今天，都可以和你并肩作战。</p>
+    </div>
+
+    <h3>📈 复利公式拆解</h3>
+    <p>复利有两个关键变量：</p>
+    <ul>
+      <li><b>本金 × 利率 × 时间</b></li>
+      <li>能力的"复利" = <b>每天的微小积累 × 持续时间 × 复盘萃取</b></li>
+    </ul>
+    <p>前 100 天：增长曲线几乎贴着横轴——你怀疑自己是不是在进步。</p>
+    <p>第 100-300 天：开始有小幅上扬。</p>
+    <p>第 300 天以后：指数级起飞——别人 1 年追不上你 1 个月。</p>
+
+    <div class="story">
+      <span class="label">真实案例 · 巴菲特财富曲线</span>
+      <p>巴菲特 99% 的财富在 50 岁后获得。</p>
+      <p>前 30 年他看似"普通"；后 30 年财富爆炸。</p>
+      <p>他的秘密是：<b>持续复利</b>。每年 20%+ 收益，看似不快，但 50 年下来 =<b>5万倍</b>。</p>
+      <p>能力的复利逻辑完全一样——你今天每多学一点，明天多一倍回报；N 年后不可想象。</p>
+    </div>
+
+    <h3>⚠️ 前 100 天的"隐忍"</h3>
+    <p>能力复利的最大陷阱是：<strong>前 100 天你看不到回报</strong>。</p>
+    <ul>
+      <li>写作前 100 天：没人看、没赞、没评论——怀疑自己。</li>
+      <li>健身前 100 天：身体变化小——想放弃。</li>
+      <li>学新技术前 100 天：笨拙、慢、挫败——怀疑天赋。</li>
+    </ul>
+    <p>但只要坚持到 100 天以后，复利会接管一切。</p>
+    <p><strong>高手不是看到复利才坚持，是相信复利所以坚持。</strong></p>
+
+    <div class="checklist">
+      <h5>✅ 自检清单</h5>
+      <label><input type="checkbox"> 我当前的事，连续做了 30 天了吗？</label>
+      <label><input type="checkbox"> 我有没有被"短期不见效"打败？</label>
+      <label><input type="checkbox"> 我相信"慢就是快"吗？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 行动卡</span>
+      <h4>今天 · 写下"100 天目标"</h4>
+      <p>为当前的事设定一个 100 天里程碑，写下来贴在墙上。</p>
+      <p>每天画 "✓"，看进度每天长一点。</p>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 三问反思</h5>
+      <ol>
+        <li>我过去在哪个事上看到过"复利效果"？</li>
+        <li>我现在能不能为一件重要的事坚持 100 天？</li>
+        <li>我的"100 天目标"是什么？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- 第11章 -->
+<article class="chapter" id="ch11">
+  <div class="chapter-cover c11">
+    <span class="ctime">12 分钟</span>
+    <div class="stage">第 四 阶 段 · 复 利</div>
+    <div class="ctitle">第 11 章 ｜ 三个反思问题：高手的日课</div>
+    <div class="cpos">把反思固化为肌肉记忆。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-pr">
+      <h4>🌟 核心命题</h4>
+      <p><strong>高手和普通人的分野不在天赋，是"每件事后停下来 反思"的能力。</strong></p>
+      <p>普通人完成的是事情本身，高手完成的是能力沉淀——他们每件事都带走点什么：判定规律、可复用方法、刻骨铭心教训、底层逻辑。</p>
+    </div>
+
+    <h3>📋 三个必问的反思问题</h3>
+    <p>每件事后（或每天/每周），问自己：</p>
+    <ol>
+      <li><b>这件事我做对了什么？</b>（找到可复用的成功动作）</li>
+      <li><b>哪些方法可以留着下次用？</b>（沉淀成可迁移的经验）</li>
+      <li><b>踩过了哪些坑绝对不能再踩？</b>（形成"避坑清单"）</li>
+    </ol>
+
+    <h3>📌 经典的复盘方法</h3>
+    <h4>1. AAR · 美军复盘法</h4>
+    <p>美军每场战役后必开会（AAR = After Action Review）：</p>
+    <ul>
+      <li>我们原本计划做什么？</li>
+      <li>实际发生了什么？</li>
+      <li>为什么有差异？</li>
+      <li>下次怎么做？</li>
+    </ul>
+
+    <h4>2. 费曼学习法（Feynman Technique）</h4>
+      <p>理查德·费曼（诺贝尔物理学奖得主）的学习方法：</p>
+      <ul>
+        <li>把学到的讲给 8 岁小孩听</li>
+        <li>讲不清楚的地方就是你不真正懂的地方</li>
+        <li>回到原文重新学</li>
+        <li>简化、再简化</li>
+      </ul>
+
+    <h4>3. 丰田"五个为什么"</h4>
+      <p>遇到问题连续问 5 个"为什么"，直到找到根本原因。</p>
+
+    <div class="story">
+      <span class="label">真实案例 · 芒格的"思维模型列表"</span>
+      <p>查理·芒格每天的工作就是<b>积累思维模型</b>：心理学、经济学、物理学、历史……</p>
+      <p>他把每个模型记在卡片上，分门别类——遇到问题时挑出相关模型组合运用。</p>
+      <p>这就是"高手完成的是能力沉淀"的典范——他沉淀的不是单次决策，而是通用"决策武器库"。</p>
+    </div>
+
+    <div class="checklist">
+      <h5>✅ 自检清单</h5>
+      <label><input type="checkbox"> 我每天/每周有"反思时间"吗？</label>
+      <label><input type="checkbox"> 我有"避坑清单 / 经验库"在持续维护吗？</label>
+      <label><input type="checkbox"> 我从上一件事里带走 3 个可复用的东西了吗？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 行动卡</span>
+      <h4>今天 · 开"个人复盘日志"</h4>
+      <p>准备一个笔记本，每晚写下今天三件事：</p>
+      <ul>
+        <li>做对了什么（可复用的动作）</li>
+        <li>可复用的方法（写明白怎么用）</li>
+        <li>踩过的坑（绝对不再犯）</li>
+      </ul>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 三问反思</h5>
+      <ol>
+        <li>我最近一件事，做对了什么？</li>
+        <li>我从中带走了什么可复用的方法？</li>
+        <li>我有什么坑要写进避坑清单？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- 第12章 -->
+<article class="chapter" id="ch12">
+  <div class="chapter-cover c12">
+    <span class="ctime">18 分钟</span>
+    <div class="stage">第 四 阶 段 · 复 利</div>
+    <div class="ctitle">第 12 章 ｜ 高手 vs 普通人的真正分野</div>
+    <div class="cpos">差距不在天赋，而在系统化习惯。</div>
+  </div>
+  <div class="chapter-body">
+
+    <div class="concept c-pr">
+      <h4>🌟 核心命题</h4>
+      <p><strong>普通人在重复经历，高手在积累能力——这是完全不同的两种人生。</strong></p>
+      <p>同样在职场拼五年，有人原地踏步，有人脱胎换骨。同样折腾项目失败，有人下一次还踩同一个坑，有人一次比一次老练。</p>
+    </div>
+
+    <h3>⚖️ 五 大 差 异</h3>
+    <table>
+      <tr><th>维度</th><th>普通人</th><th>高手</th></tr>
+      <tr><td>对"完成"的定义</td><td>事情做完</td><td>能力沉淀</td></tr>
+      <tr><td>依靠</td><td>意志力 + 情绪</td><td>系统 + 节奏</td></tr>
+      <tr><td>反应</td><td>出问题就怪自己</td><td>出问题就改系统</td></tr>
+      <tr><td>时间观</td><td>线性（短期）</td><td>复利（长期）</td></tr>
+      <tr><td>能力复用</td><td>沙滩脚印（风一吹就没）</td><td>思维模型（越用越多）</td></tr>
+    </table>
+
+    <h3>🔄 系统 vs 意志力</h3>
+    <p>高手最重要的一句话：</p>
+    <blockquote style="background:#FFFAEB;padding:12px;border-left:4px solid #FFC107;margin:12px 0;">
+      <strong>执行力从来不是天生的性格，而是一套可以设计的系统。</strong>
+    </blockquote>
+    <p>系统稳定，输出就稳定；系统混乱，你打再多鸡血也是反复内耗。</p>
+
+    <h3>🏠 环境设计 > 自我控制</h3>
+    <ul>
+      <li><b>普通人</b>：靠意志力拒绝诱惑（很累、注定失败）</li>
+      <li><b>高手</b>：把诱惑移除出环境（轻松、自然）</li>
+    </ul>
+    <p>比如：想多读书 → 把手机锁起来、把 Kindle 放床头；想多写作 → 关社交媒体、装冷启动 APP。</p>
+
+    <h3>🌀 闭环思维 vs 线性思维</h3>
+    <ul>
+      <li><b>线性思维</b>：做 → 完成 → 翻篇 → 下一件（永远从零开始）</li>
+      <li><b>闭环思维</b>：做 → 完成 → 复盘 → 沉淀能力 → 下一件起点更高（螺旋上升）</li>
+    </ul>
+
+    <div class="story">
+      <span class="label">真实案例 · 复 利 的 人 生</span>
+      <p>两个同班同学毕业后差距拉开，不是其中一人聪明，而是：</p>
+      <ul>
+        <li>A：每天学习 30 分钟，从不写复盘，也不沉淀方法。10 年后还是入门级。</li>
+        <li>B：每天学习 30 分钟，每天 10 分钟复盘，每周总结一次方法。10 年后成了领域专家。</li>
+      </ul>
+      <p>同样的"努力学习"，不同的<b>闭环</b>——拉开的不是 2 倍，是 100 倍。</p>
+    </div>
+
+    <div class="checklist">
+      <h5>✅ 终极自检清单</h5>
+      <label><input type="checkbox"> 我现在是"重复经历"还是"积累能力"？</label>
+      <label><input type="checkbox"> 我的"执行系统"稳定吗？稳定在哪里？</label>
+      <label><input type="checkbox"> 我有没有用"环境设计"代替"自我控制"？</label>
+      <label><input type="checkbox"> 我在做闭环思维还是线性思维？</label>
+      <label><input type="checkbox"> 30 天后的我，会比今天更强吗？</label>
+    </div>
+
+    <div class="action">
+      <span class="label">⚡ 终极行动卡</span>
+      <h4>30 天 · 完整闭环挑战</h4>
+      <p>挑一件最重要的事，做 30 天的完整闭环：</p>
+      <ol>
+        <li><b>第 1-7 天</b>：破局——每天只做 2 分钟版本，固定锚点</li>
+        <li><b>第 8-15 天</b>：生根——拒绝任何"切换"，想法入清单</li>
+        <li><b>第 16-23 天</b>：迭代——每 2 天发一版"丑但能用"版本</li>
+        <li><b>第 24-30 天</b>：沉淀——每天 10 分钟复盘</li>
+      </ol>
+      <p>30 天后，你会脱胎换骨。</p>
+    </div>
+
+    <div class="reflection">
+      <h5>💭 终 极 三 问</h5>
+      <ol>
+        <li>我现在是"普通人"还是"高手"？差距在哪？</li>
+        <li>我的"执行系统"要不要重新设计？怎么设计？</li>
+        <li>30 天后，我要变成什么样的人？</li>
+      </ol>
+    </div>
+
+  </div>
+</article>
+
+<!-- ==========================================
+     工具箱汇总
+     ========================================== -->
+<section class="tool-box" id="tools">
+  <h2>🧰 工具箱：12 个可直接使用的方法</h2>
+  <p style="color:#636E72;margin-bottom:14px;">📚 每个工具都附带"出自章节 / 适用场景 / 操作要点"。建议收藏这一节作为速查手册。</p>
+
+  <div class="tool-grid">
+
+    <div class="tool-card">
+      <div class="tname">⚡ 2分钟启动法</div>
+      <div class="tuse">任何事的启动版本 ≤ 2 分钟</div>
+      <div class="tsource">出自第 2 章 · 适用：启动困难时</div>
+      <div style="font-size:13px;margin-top:4px;">操作：把目标切到 2 分钟版本，先做再说</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tname">⏱️ 5秒法则</div>
+      <div class="tuse">抑制拖延窗口的方法</div>
+      <div class="tsource">出自第 2 章 · 适用：拖延瞬间</div>
+      <div style="font-size:13px;margin-top:4px;">操作：5-4-3-2-1，立刻行动；超过 5 秒大脑会找借口</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tname">🧘 启动仪式</div>
+      <div class="tuse">建立固定锚点</div>
+      <div class="tsource">出自第 3 章 · 适用：每天开始</div>
+      <div style="font-size:13px;margin-top:4px;">操作：固定时间+固定地点+固定动作；身体记忆取代决策</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tname">📝 想法清单</div>
+      <div class="tuse">拦截逃避型新想法</div>
+      <div class="tsource">出自第 4 章 · 适用：被新点子打断时</div>
+      <div style="font-size:13px;margin-top:4px;">操作：新想法先入清单；7 天后还在的才考虑；7 天后 80% 不重要</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tname">🎯 深度工作</div>
+      <div class="tuse">90 分钟无干扰专注</div>
+      <div class="tsource">出自第 6 章 · 适用：重要产出</div>
+      <div style="font-size:13px;margin-top:4px;">操作：关闭通知、固定时间、不看手机、不切换</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tname">💧 心流触发器</div>
+      <div class="tuse">稳定进入心流</div>
+      <div class="tsource">出自第 6 章 · 适用：高难度任务</div>
+      <div style="font-size:13px;margin-top:4px;">操作：明确目标+即时反馈+难度匹配（参考 Csikszentmihalyi）</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tname">🚀 MVP 思维</div>
+      <div class="tuse">用最简版本上线</div>
+      <div class="tsource">出自第 8 章 · 适用：要做新东西时</div>
+      <div style="font-size:13px;margin-top:4px;">操作：能跑就行 → 上线 → 拿反馈 → 迭代（精益创业）</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tname">📊 迭代三段式</div>
+      <div class="tuse">三版提升质量</div>
+      <div class="tsource">出自第 8 章 · 适用：打磨任何产出</div>
+      <div style="font-size:13px;margin-top:4px;">操作：v1 跑起来 / v2 微改进 / v3 复用方法；每版 +1 而非 +1 倍</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tname">📝 每日10分钟复盘</div>
+      <div class="tuse">建立反馈回路</div>
+      <div class="tsource">出自第 9 章 · 适用：每天结束</div>
+      <div style="font-size:13px;margin-top:4px;">操作：3 问：进展/可改进/明日第一件事</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tname">📈 复利公式</div>
+      <div class="tuse">看清长期回报</div>
+      <div class="tsource">出自第 10 章 · 适用：动摇时</div>
+      <div style="font-size:13px;margin-top:4px;">操作：本金×利率×时间；前 100 天隐忍，100 天后起飞</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tname">🎓 费曼学习法</div>
+      <div class="tuse">把学到讲给小学生</div>
+      <div class="tsource">出自第 11 章 · 适用：学完一个概念</div>
+      <div style="font-size:13px;margin-top:4px;">操作：讲→简化→讲不清处回原文→再讲</div>
+    </div>
+
+    <div class="tool-card">
+      <div class="tname">🪖 AAR 复盘</div>
+      <div class="tuse">美军标准复盘</div>
+      <div class="tsource">出自第 11 章 · 适用：每个里程碑</div>
+      <div style="font-size:13px;margin-top:4px;">操作：原本计划/实际发生/差异原因/下次怎么做</div>
+    </div>
+
+  </div>
+</section>
+
+<!-- ==========================================
+     金句区
+     ========================================== -->
+<section class="quote-box" id="quotes">
+  <h2>💎 30 条改变认知的金句</h2>
+  <p style="color:#636E72;margin-bottom:14px;">📖 建议每天读 3 条，连读 10 天，刻进潜意识。</p>
+
+  <div class="quote-item">
+    人这辈子最值钱的本事，从来不是脑子灵光或出身好，而是能把一件事从头到尾扎扎实实做完。
+    <span class="src">—— 原课程 · 立论篇</span>
+  </div>
+
+  <div class="quote-item">
+    状态不是开始的前提，是开始之后的产物。
+    <span class="src">—— 反常识心法</span>
+  </div>
+
+  <div class="quote-item">
+    毁掉一件事的往往是："我今天有个新想法。"
+    <span class="src">—— 生根心法</span>
+  </div>
+
+  <div class="quote-item">
+    新想法不配打断已经进入深度的状态。
+    <span class="src">—— 生根准则</span>
+  </div>
+
+  <div class="quote-item">
+    真正消耗我们的从来不是行动本身，是开始前漫长的自我心理拉扯。
+    <span class="src">—— 破局心法</span>
+  </div>
+
+  <div class="quote-item">
+    厉害的人不是对自己够狠够硬，是把第一步设计得足够轻。
+    <span class="src">—— 极小化第一步</span>
+  </div>
+
+  <div class="quote-item">
+    人天生有"完成欲"，一旦进入状态，会顺着势头往下做。
+    <span class="src">—— 行动惯性</span>
+  </div>
+
+  <div class="quote-item">
+    真正的生根不是没有干扰，是干扰满天飞时你依然钉在原地。
+    <span class="src">—— 生根心法</span>
+  </div>
+
+  <div class="quote-item">
+    第一版存在的意义不是证明你有多牛，是给后续的优化提供一个靶子。
+    <span class="src">—— 迭代心法 · 原课程</span>
+  </div>
+
+  <div class="quote-item">
+    决定一件事最终高度的，从来不是起点的样子，是你能不能持续把它往前推。
+    <span class="src">—— 迭代准则 · 原课程</span>
+  </div>
+
+  <div class="quote-item">
+    完美主义看起来像高标准严要求，本质上就是怕。
+    <span class="src">—— 解构完美主义</span>
+  </div>
+
+  <div class="quote-item">
+    没有第一版，哪来第二版？没有一次次打磨，哪来最终的成品？
+    <span class="src">—— 迭代哲学</span>
+  </div>
+
+  <div class="quote-item">
+    普通人完成的是事情本身，高手完成的是能力沉淀。
+    <span class="src">—— 沉淀心法 · 原课程</span>
+  </div>
+
+  <div class="quote-item">
+    事会结束，但长在身上的能力不会消失。
+    <span class="src">—— 沉淀心法</span>
+  </div>
+
+  <div class="quote-item">
+    执行力从来不是天生的性格，而是一套可以设计的系统。
+    <span class="src">—— 全文最高位抽象</span>
+  </div>
+
+  <div class="quote-item">
+    系统稳定，输出就稳定；系统混乱，你打再多鸡血也是反复内耗。
+    <span class="src">—— 系统论</span>
+  </div>
+
+  <div class="quote-item">
+    普通人在重复经历，高手在积累能力——这是完全不同的两种人生。
+    <span class="src">—— 分野心法</span>
+  </div>
+
+  <div class="quote-item">
+    一件事真正的价值从来不是结束后你拿到多少回报，是你变成了一个什么样的人。
+    <span class="src">—— 价值判</span>
+  </div>
+
+  <div class="quote-item">
+    日拱一卒。
+    <span class="src">—— 稻盛和夫</span>
+  </div>
+
+  <div class="quote-item">
+    不积跬步无以至千里。
+    <span class="src">—— 荀子</span>
+  </div>
+
+  <div class="quote-item">
+    事上磨练。
+    <span class="src">—— 王阳明</span>
+  </div>
+
+  <div class="quote-item">
+    为学日益，为道日损。
+    <span class="src">—— 道德经</span>
+  </div>
+
+  <div class="quote-item">
+    完成胜过完美。
+    <span class="src">—— Facebook 内部标语 · 扎克伯格</span>
+  </div>
+
+  <div class="quote-item">
+    如果你做的东西是最简版本都没人用，加再多功能也没人用。
+    <span class="src">—— Eric Ries《精益创业》</span>
+  </div>
+
+  <div class="quote-item">
+    习惯，就是把决心变成自动化的过程。
+    <span class="src">—— James Clear《原子习惯》</span>
+  </div>
+
+  <div class="quote-item">
+    深度工作（Deep Work）是在无干扰状态下专业活动，能创造新价值、提升技能。
+    <span class="src">—— Cal Newport《深度工作》</span>
+  </div>
+
+  <div class="quote-item">
+    心流（Flow）需要 15-20 分钟预热，频繁切换永远进不了心流。
+    <span class="src">—— Mihaly Csikszentmihalyi</span>
+  </div>
+
+  <div class="quote-item">
+    复利是世界第八奇迹。理解复利的人为它工作，不理解的人为它付费。
+    <span class="src">—— 巴菲特</span>
+  </div>
+
+  <div class="quote-item">
+    我从来不靠意志力，我靠惯性。
+    <span class="src">—— 村上春树</span>
+  </div>
+
+  <div class="quote-item">
+    凡杀不死我的，使我更强大。
+    <span class="src">—— 尼采</span>
+  </div>
+</section>
+
+<!-- ==========================================
+     终极收束
+     ========================================== -->
+<section class="closing">
+  <h2>🚀 你已经完成了从"小白"到"精通"的旅程</h2>
+  <p>破局——让事情开始发生（哪怕只 2 分钟）</p>
+  <p>生根——让事情持续深入（拒绝所有切换）</p>
+  <p>迭代——让事情越做越好（先完成再完美）</p>
+  <p>沉淀——让自己越来越强（能力复利）</p>
+  <p style="margin-top:18px;"><strong>30 天闭环挑战已经开始。</strong></p>
+  <p style="margin-top:14px;">学完不是终点，开始做才是。</p>
+  <div class="signature">
+    —— 商业闭环·执行系统 · 让归属权归主人 · 一切为你
+  </div>
+</section>
+
+<!-- ==========================================
+     底部信息
+     ========================================== -->
+<footer style="text-align:center;padding:30px 10px;color:#999;font-size:12px;">
+  <p>📚 商业闭环 · 执行系统 · 完整 HTML 教学课程</p>
+  <p>🎯 包含 12 章正文 + 12 工具 + 30 金句 + 1 知识图谱 + 自检 + 行动卡 + 反思问题</p>
+  <p>📱 兼容：微信 · WPS · 手机Chrome · Safari</p>
+  <p style="margin-top:8px;">归属权归主人一切 · by 学习助手工作流 · 2026</p>
+</footer>
+
+</body>
+</html>
