@@ -1,0 +1,1881 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>优联荟2026全系列课程 — 跨境电商从入门到精通</title>
+<style>
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: 'Microsoft YaHei','PingFang SC','Helvetica Neue',sans-serif;
+  background: #f8f9fa; color: #2d3436; font-size: 16px; line-height: 1.8;
+  padding: 0; min-height: 100vh;
+}
+/* ===== 顶部提示 ===== */
+.wps-notice {
+  background: #fff3cd; color: #856404; text-align: center;
+  padding: 10px 16px; font-size: 14px; border-bottom: 1px solid #ffc107;
+  display: none;
+}
+@media (max-width:768px) { .wps-notice { display: block; } }
+
+/* ===== 顶部横幅 ===== */
+.hero {
+  background: linear-gradient(135deg, #e8f4f8 0%, #d4edf0 50%, #c9e8ed 100%);
+  padding: 60px 24px 40px; text-align: center; position: relative;
+  border-bottom: 4px solid #4A90A4;
+}
+.hero h1 { font-size: clamp(28px,5vw,48px); color: #2c6e7a; margin-bottom: 12px; }
+.hero p { font-size: clamp(15px,2vw,20px); color: #4a7a82; max-width: 800px; margin: 0 auto 8px; }
+.hero .badge { display: inline-block; background: #4A90A4; color: #fff; padding: 4px 18px; border-radius: 20px; font-size: 14px; margin-top: 8px; }
+.hero .meta { font-size: 13px; color: #6a9aa4; margin-top: 12px; }
+
+/* ===== 容器 ===== */
+.container { max-width: 1000px; margin: 0 auto; padding: 0 20px 60px; }
+
+/* ===== 导航目录 ===== */
+.toc { background: #fff; border-radius: 12px; padding: 32px 36px; margin: 32px 0; box-shadow: 0 2px 12px rgba(0,0,0,0.06); }
+.toc h2 { color: #2c6e7a; margin-bottom: 18px; font-size: 22px; border: none; }
+.toc ul { list-style: none; columns: 2; column-gap: 30px; }
+.toc li { break-inside: avoid; margin-bottom: 6px; }
+.toc a { color: #4A90A4; text-decoration: none; font-size: 14px; display: block; padding: 4px 8px; border-radius: 4px; transition: background 0.2s; }
+.toc a:hover { background: #e8f4f8; }
+.toc .toc-l1 { font-weight: 700; color: #2c6e7a; font-size: 15px; margin-top: 8px; }
+.toc .toc-l2 { padding-left: 16px; }
+@media (max-width:640px) { .toc ul { columns: 1; } }
+
+/* ===== 章节通用 ===== */
+.section {
+  background: #fff; border-radius: 12px; padding: 36px 40px; margin: 24px 0;
+  box-shadow: 0 1px 8px rgba(0,0,0,0.05);
+}
+.section h2 {
+  color: #2c6e7a; font-size: 24px; border-left: 5px solid #4A90A4;
+  padding-left: 16px; margin-bottom: 20px;
+}
+.section h3 {
+  color: #3a7a84; font-size: 19px; margin: 24px 0 12px;
+  border-bottom: 2px solid #e8f4f8; padding-bottom: 6px;
+}
+.section h4 {
+  color: #4a7a82; font-size: 17px; margin: 18px 0 8px;
+}
+.section p { margin-bottom: 12px; color: #444; }
+.section ul { margin: 8px 0 16px 20px; }
+.section li { margin-bottom: 6px; color: #444; }
+.section strong { color: #2c6e7a; }
+.section .highlight { background: #e8f4f8; padding: 2px 8px; border-radius: 4px; }
+
+/* ===== 表格 ===== */
+.table-wrap { overflow-x: auto; margin: 16px 0; }
+.table-wrap table { width: 100%; border-collapse: collapse; font-size: 14px; min-width: 500px; }
+.table-wrap th {
+  background: #4A90A4; color: #fff; padding: 10px 14px; text-align: left;
+  font-weight: 600; white-space: nowrap;
+}
+.table-wrap td { padding: 9px 14px; border-bottom: 1px solid #e8ecee; }
+.table-wrap tr:nth-child(even) td { background: #f8fbfc; }
+.table-wrap tr:hover td { background: #eef6f8; }
+
+/* ===== 代码块 ===== */
+.code-block {
+  background: #f0f4f5; border-left: 4px solid #4A90A4; padding: 16px 20px;
+  margin: 12px 0; font-family: 'Consolas','Courier New',monospace;
+  font-size: 13px; line-height: 1.6; border-radius: 0 6px 6px 0; overflow-x: auto;
+  white-space: pre; color: #2d3436;
+}
+
+/* ===== 信息框 ===== */
+.info-box {
+  background: #e8f4f8; border-left: 4px solid #4A90A4; padding: 14px 18px;
+  margin: 14px 0; border-radius: 4px; font-size: 14px;
+}
+.info-box.tip { background: #fef9e7; border-color: #f39c12; }
+.info-box.warn { background: #fdecea; border-color: #e74c3c; }
+
+/* ===== SVG 容器 ===== */
+.svg-container {
+  width: 100%; overflow: visible; touch-action: manipulation;
+  margin: 20px 0;
+}
+.svg-container svg {
+  width: 100%; height: auto;
+  display: block;
+}
+
+/* ===== 知识点卡片 ===== */
+.card-grid { display: grid; grid-template-columns: repeat(auto-fill,minmax(280px,1fr)); gap: 16px; margin: 16px 0; }
+.card {
+  background: #f8fbfc; border: 1px solid #e0eef0; border-radius: 8px;
+  padding: 18px; transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: 0 2px 10px rgba(74,144,164,0.15); }
+.card h4 { color: #2c6e7a; font-size: 15px; margin-bottom: 6px; }
+.card p { font-size: 13px; color: #555; margin: 0; }
+
+/* ===== 进度指示 ===== */
+.steps { display: flex; flex-wrap: wrap; gap: 8px; margin: 16px 0; }
+.step {
+  flex: 1; min-width: 120px; background: #f0f4f5; text-align: center;
+  padding: 10px 8px; border-radius: 8px; font-size: 13px; color: #555;
+  border-top: 3px solid #c0d6db;
+}
+.step.active { background: #e8f4f8; border-top-color: #4A90A4; color: #2c6e7a; font-weight: 600; }
+
+/* ===== 打印 ===== */
+@media print {
+  body { background: #fff; max-width: 210mm; margin: 0 auto; }
+  .wps-notice { display: none; }
+  .section { box-shadow: none; border: 1px solid #ddd; page-break-inside: avoid; }
+  svg { page-break-inside: avoid; }
+}
+
+/* ===== 响应式 ===== */
+@media (max-width:768px) {
+  .hero { padding: 32px 16px 24px; }
+  .container { padding: 0 12px 40px; }
+  .section { padding: 20px 16px; }
+  .section h2 { font-size: 20px; }
+  .table-wrap table { font-size: 13px; }
+  .card-grid { grid-template-columns: 1fr; }
+  .toc ul { columns: 1; }
+  .steps { flex-direction: column; }
+  .step { min-width: auto; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== WPS兼容提示 ===== -->
+<div class="wps-notice">💡 如在WPS中打开模糊或排版异常，请改用<strong>微信/浏览器</strong>打开体验更佳（支持双指放大查看SVG知识图谱）</div>
+
+<!-- ===== 顶部横幅 ===== -->
+<div class="hero">
+  <h1>🌊 优联荟2026 · 全系列课程</h1>
+  <p>跨境电商从入门到精通 — 覆盖12大专题 · 32篇精华总结 · 完整知识体系</p>
+  <div class="badge">📚 一站式学习文档</div>
+  <div class="meta">整合⽇期：2026年7月3日 ｜ 知识图谱支持双指放大 ｜ 浅色阅读模式</div>
+</div>
+
+<div class="container">
+
+<!-- ===== 全课程知识图谱 · SVG横向树状图 ===== -->
+<div class="section">
+  <h2>🗺️ 全课程知识体系总图</h2>
+  <p style="margin-bottom:6px">本课程从<b>基础认知</b>到<b>终极壁垒</b>，覆盖跨境电商全链路。下图展示整体知识架构：</p>
+  <div class="svg-container">
+    <svg viewBox="0 0 1200 770" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <!-- 连接线 第1层 -->
+      <path d="M 190,160 H 230 V 80 H 270" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 190,160 H 230 V 160 H 270" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 190,160 H 230 V 240 H 270" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 190,160 H 230 V 320 H 270" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 190,160 H 230 V 400 H 270" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 190,160 H 230 V 480 H 270" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 190,160 H 230 V 560 H 270" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 190,160 H 230 V 640 H 270" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 190,160 H 230 V 720 H 270" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <!-- 根节点 -->
+      <rect x="20" y="138" width="170" height="44" rx="10" fill="#4A90A4"/>
+      <text x="105" y="165" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">优联荟2026全系列</text>
+      <!-- 第1层节点 -->
+      <rect x="270" y="56" width="160" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="350" y="83" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">① 专题开营·学习指南</text>
+      <rect x="270" y="136" width="160" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="350" y="163" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">② 2026宏观趋势方法论</text>
+      <rect x="270" y="216" width="160" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="350" y="243" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">③ 亚马逊运营基础</text>
+      <rect x="270" y="296" width="168" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="354" y="323" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">④ 爆品体系化运营高阶</text>
+      <rect x="270" y="376" width="148" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="344" y="403" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">⑤ AI自动化系列</text>
+      <rect x="270" y="456" width="160" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="350" y="483" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">⑥ 小团队增长系列</text>
+      <rect x="270" y="536" width="148" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="344" y="563" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">⑦ 独立站系列</text>
+      <rect x="270" y="616" width="148" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="344" y="643" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">⑧ TikTok快闪系列</text>
+      <rect x="270" y="696" width="160" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="350" y="723" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">⑨ 专题9·网红营销</text>
+
+      <!-- 第1层→第2层 连接线：专题开营 -->
+      <path d="M 430,78 H 480 V 48 H 510" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 430,78 H 480 V 82 H 510" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 430,78 H 480 V 116 H 510" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <!-- 第2层：专题开营子节点 -->
+      <rect x="510" y="26" width="118" height="36" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="569" y="49" text-anchor="middle" fill="#3a7a84" font-size="12">平台入口与圈子</text>
+      <rect x="510" y="62" width="118" height="36" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="569" y="85" text-anchor="middle" fill="#3a7a84" font-size="12">作业与保证金</text>
+      <rect x="510" y="98" width="118" height="36" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="569" y="121" text-anchor="middle" fill="#3a7a84" font-size="12">星火积分体系</text>
+
+      <!-- 第1层→第2层 连接线：2026系列 -->
+      <path d="M 430,158 H 490 V 130 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 430,158 H 490 V 158 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 430,158 H 490 V 186 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <!-- 第2层：2026系列 -->
+      <rect x="520" y="112" width="140" height="34" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="590" y="133" text-anchor="middle" fill="#3a7a84" font-size="12">Cosmos+15标签</text>
+      <rect x="520" y="141" width="140" height="34" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="590" y="162" text-anchor="middle" fill="#3a7a84" font-size="12">Sam.S广告新逻辑</text>
+      <rect x="520" y="170" width="140" height="34" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="590" y="191" text-anchor="middle" fill="#3a7a84" font-size="12">内容飞轮体系</text>
+
+      <!-- 第1层→第2层 连接线：运营基础 -->
+      <path d="M 430,238 H 490 V 218 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 430,238 H 490 V 238 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 430,238 H 490 V 258 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="520" y="200" width="120" height="34" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="580" y="221" text-anchor="middle" fill="#3a7a84" font-size="12">产品开发流程</text>
+      <rect x="520" y="220" width="120" height="34" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="580" y="241" text-anchor="middle" fill="#3a7a84" font-size="12">运营全流程</text>
+      <rect x="520" y="240" width="120" height="34" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="580" y="261" text-anchor="middle" fill="#3a7a84" font-size="12">AI在亚马逊应用</text>
+
+      <!-- 第1层→第2层：爆品高阶 -->
+      <path d="M 438,318 H 500 V 294 H 530" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 438,318 H 500 V 318 H 530" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 438,318 H 500 V 342 H 530" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 438,318 H 500 V 366 H 530" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="530" y="276" width="90" height="34" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="575" y="297" text-anchor="middle" fill="#3a7a84" font-size="12">流量思维重构</text>
+      <rect x="530" y="301" width="90" height="34" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="575" y="322" text-anchor="middle" fill="#3a7a84" font-size="12">科学选品</text>
+      <rect x="530" y="326" width="108" height="34" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="584" y="347" text-anchor="middle" fill="#3a7a84" font-size="12">新品快速出单</text>
+      <rect x="530" y="351" width="108" height="34" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="584" y="372" text-anchor="middle" fill="#3a7a84" font-size="12">数据化运营</text>
+
+      <!-- 第1层→第2层：AI自动化 -->
+      <path d="M 418,398 H 490 V 382 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 418,398 H 490 V 398 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 418,398 H 490 V 414 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="520" y="366" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="385" text-anchor="middle" fill="#3a7a84" font-size="12">N8N工作流</text>
+      <rect x="520" y="383" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="402" text-anchor="middle" fill="#3a7a84" font-size="12">AI制图/短视频</text>
+      <rect x="520" y="400" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="419" text-anchor="middle" fill="#3a7a84" font-size="12">AI知识库搭建</text>
+
+      <!-- 第1层→第2层：小团队 -->
+      <path d="M 430,478 H 490 V 462 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 430,478 H 490 V 478 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 430,478 H 490 V 494 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="520" y="446" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="465" text-anchor="middle" fill="#3a7a84" font-size="12">从0到1找突破口</text>
+      <rect x="520" y="463" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="482" text-anchor="middle" fill="#3a7a84" font-size="12">破局增长扩张</text>
+      <rect x="520" y="480" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="499" text-anchor="middle" fill="#3a7a84" font-size="12">构建终极壁垒</text>
+
+      <!-- 第1层→第2层：独立站 -->
+      <path d="M 418,558 H 490 V 546 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 418,558 H 490 V 560 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 418,558 H 490 V 574 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="520" y="531" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="550" text-anchor="middle" fill="#3a7a84" font-size="12">品牌感打造</text>
+      <rect x="520" y="546" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="565" text-anchor="middle" fill="#3a7a84" font-size="12">EDM营销基础</text>
+      <rect x="520" y="561" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="580" text-anchor="middle" fill="#3a7a84" font-size="12">EDM实战与AI</text>
+
+      <!-- 第1层→第2层：TK快闪 -->
+      <path d="M 418,638 H 490 V 626 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 418,638 H 490 V 642 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 418,638 H 490 V 658 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="520" y="612" width="120" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="580" y="631" text-anchor="middle" fill="#3a7a84" font-size="12">AI与电商结合</text>
+      <rect x="520" y="628" width="120" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="580" y="647" text-anchor="middle" fill="#3a7a84" font-size="12">站外引流SNS</text>
+      <rect x="520" y="644" width="120" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="580" y="663" text-anchor="middle" fill="#3a7a84" font-size="12">网红营销实战</text>
+
+      <!-- 第1层→第2层：网红营销 -->
+      <path d="M 430,718 H 490 V 710 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 430,718 H 490 V 718 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 430,718 H 490 V 726 H 520" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="520" y="696" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="715" text-anchor="middle" fill="#3a7a84" font-size="12">批量开发抓取</text>
+      <rect x="520" y="704" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="723" text-anchor="middle" fill="#3a7a84" font-size="12">沟通与跟进</text>
+      <rect x="520" y="712" width="108" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="574" y="731" text-anchor="middle" fill="#3a7a84" font-size="12">爆款Brief与SEO</text>
+    </svg>
+  </div>
+  <div class="info-box" style="margin-top:12px">💡 <b>使用提示</b>：在手机/平板上可用双指捏合放大查看SVG知识图谱细节；点击目录可直接跳转到对应章节。</div>
+</div>
+
+<!-- ===== 目录 ===== -->
+<div class="toc">
+  <h2>📑 学习目录</h2>
+  <ul>
+    <li class="toc-l1"><a href="#part1">一、专题开营·学习指南</a></li>
+    <li class="toc-l2"><a href="#part1-1">平台入口 · 作业体系 · 保证金 · 星火积分</a></li>
+    <li class="toc-l1"><a href="#part2">二、2026系列·宏观趋势与方法论</a></li>
+    <li class="toc-l2"><a href="#part2-1">Cosmos算法 · 15标签 · Refers · AI评论洞察</a></li>
+    <li class="toc-l2"><a href="#part2-2">Sam.S广告新逻辑 · 属性词策略</a></li>
+    <li class="toc-l2"><a href="#part2-3">内容飞轮 · 人货场公式 · TK×亚马逊</a></li>
+    <li class="toc-l1"><a href="#part3">三、亚马逊运营基础</a></li>
+    <li class="toc-l2"><a href="#part3-1">产品开发流程 · 11种选品法 · 市场调研框架</a></li>
+    <li class="toc-l2"><a href="#part3-2">运营全流程 · 七大支柱 · 备货 · 推广SOP</a></li>
+    <li class="toc-l2"><a href="#part3-3">AI在亚马逊中的应用 · 提示词实战</a></li>
+    <li class="toc-l1"><a href="#part4">四、专题5·爆品体系化运营高阶</a></li>
+    <li class="toc-l2"><a href="#part4-1">流量思维重构 · Cosmos六大升级 · 四大流量支柱</a></li>
+    <li class="toc-l2"><a href="#part4-2">科学选品 · 谷歌五层分析 · 用户需求金字塔</a></li>
+    <li class="toc-l2"><a href="#part4-3">新品快速出单 · 视频广告 · 关键词两层分级</a></li>
+    <li class="toc-l2"><a href="#part4-4">数据化运营 · 广告分析层级 · 三个30%原则</a></li>
+    <li class="toc-l1"><a href="#part5">五、AI自动化系列</a></li>
+    <li class="toc-l2"><a href="#part5-1">AI自动化竞品分析 · VOC采集 · Comet浏览器代理</a></li>
+    <li class="toc-l2"><a href="#part5-2">N8N工作流 · MCP详解 · 部署方式</a></li>
+    <li class="toc-l2"><a href="#part5-3">高质量Listing工作流 · Sorftime MCP</a></li>
+    <li class="toc-l2"><a href="#part5-4">AI制图革命 · Jason提示词 · 批量出图</a></li>
+    <li class="toc-l2"><a href="#part5-5">AI短视频带货 · 10素材库 · 完形填空式</a></li>
+    <li class="toc-l2"><a href="#part5-6">AI知识库 · NotebookLM · Cloud to IM</a></li>
+    <li class="toc-l1"><a href="#part6">六、小团队增长系列</a></li>
+    <li class="toc-l2"><a href="#part6-1">从0到1 · 回款比 · 铺精准需求 · 拼多多套利</a></li>
+    <li class="toc-l2"><a href="#part6-2">破局增长 · 情绪价值 · 蚂蚁雄兵 · 5000达人</a></li>
+    <li class="toc-l2"><a href="#part6-3">终极壁垒 · 七大中心 · 三机器人架构</a></li>
+    <li class="toc-l1"><a href="#part7">七、独立站系列</a></li>
+    <li class="toc-l2"><a href="#part7-1">品牌感打造 · 品牌表达四要素 · 设计四要素</a></li>
+    <li class="toc-l2"><a href="#part7-2">EDM营销 · 用户分层 · Klaviyo五大板块</a></li>
+    <li class="toc-l2"><a href="#part7-3">EDM实战 · Flow四大构成 · AI赋能EDM</a></li>
+    <li class="toc-l1"><a href="#part8">八、TikTok快闪系列</a></li>
+    <li class="toc-l2"><a href="#part8-1">AI与电商 · 五大AI形式 · 混剪方法论</a></li>
+    <li class="toc-l2"><a href="#part8-2">站外引流SNS · 矩阵策略 · 追踪系统</a></li>
+    <li class="toc-l2"><a href="#part8-3">网红营销实战 · YouTube/IG找网红 · 风控</a></li>
+    <li class="toc-l1"><a href="#part9">九、专题9·TikTok网红营销</a></li>
+    <li class="toc-l2"><a href="#part9-1">自动化批量开发 · 生活轨迹倒推 · N8N抓取</a></li>
+    <li class="toc-l2"><a href="#part9-2">自动化沟通 · 开发信策略 · 回复工作流</a></li>
+    <li class="toc-l2"><a href="#part9-3">爆款Brief · TK SEO · 素材再利用</a></li>
+    <li class="toc-l1"><a href="#part10">十、品牌广告与DSP</a></li>
+    <li class="toc-l2"><a href="#part10-1">品牌广告工具矩阵 · AMC · 归因模型</a></li>
+    <li class="toc-l2"><a href="#part10-2">DSP策略 · 三层预算池 · 四步诊断法</a></li>
+    <li class="toc-l1"><a href="#part11">十一、跨课程知识图谱</a></li>
+    <li class="toc-l1"><a href="#part12">十二、终极系统性总结</a></li>
+    <li class="toc-l2"><a href="#part12-1">核心体系 · 关键要点 · 学习路径建议</a></li>
+  </ul>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第一部分：专题开营 -->
+<!-- ========================================================== -->
+<div class="section" id="part1">
+  <h2>📌 第一部分：专题开营·学习指南</h2>
+  <p><strong>主讲人</strong>：Tony ｜ <strong>前置知识</strong>：无，这是学习所有课程的起点</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 800 200" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 170,80 H 220 V 40 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 170,80 H 220 V 80 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 170,80 H 220 V 120 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 170,80 H 220 V 160 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <rect x="20" y="58" width="150" height="44" rx="10" fill="#4A90A4"/>
+      <text x="95" y="85" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">专题开营</text>
+      <rect x="260" y="20" width="130" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="325" y="43" text-anchor="middle" fill="#2c6e7a" font-size="13">平台入口与圈子</text>
+      <rect x="260" y="62" width="130" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="325" y="85" text-anchor="middle" fill="#2c6e7a" font-size="13">专题安排与排期</text>
+      <rect x="260" y="102" width="130" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="325" y="125" text-anchor="middle" fill="#2c6e7a" font-size="13">作业与保证金</text>
+      <rect x="260" y="143" width="130" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="325" y="166" text-anchor="middle" fill="#2c6e7a" font-size="13">星火积分体系</text>
+
+      <path d="M 390,38 H 430 V 20 H 460" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 390,38 H 430 V 50 H 460" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="460" y="4" width="120" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="520" y="24" text-anchor="middle" fill="#3a7a84" font-size="12">钉钉群/圈子</text>
+      <rect x="460" y="36" width="120" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="520" y="56" text-anchor="middle" fill="#3a7a84" font-size="12">12个专题/周二五</text>
+
+      <path d="M 390,80 H 600 V 80 H 620" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="620" y="62" width="150" height="36" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="695" y="85" text-anchor="middle" fill="#3a7a84" font-size="12">4层学习体系</text>
+    </svg>
+  </div>
+
+  <h3>1.1 平台入口与圈子使用</h3>
+  <ul>
+    <li><strong>直播观看</strong>：进入钉钉群，手机版顶部区域、电脑版链接进入</li>
+    <li><strong>群公告</strong>：所有重要通知和历史公告的第一入口</li>
+    <li><strong>圈子动态</strong>：手机端「底部导航→我的→动态→圈子」；电脑端「更多→其他应用→动态」</li>
+  </ul>
+
+  <h3>1.2 专题安排与排期</h3>
+  <ul>
+    <li>2026年计划讲 <strong>12个专题</strong>（从14个候选专题中筛选），上半年全部讲完</li>
+    <li>直播时间：每周 <strong>二和周五晚7点</strong></li>
+    <li>第一期：国民哥哥主讲亚马逊 | 第二期：小北老师主讲AI工作流</li>
+  </ul>
+
+  <h3>1.3 作业体系与提交流程</h3>
+  <p>每期专题设置 <strong>4个作业</strong>，各有不同的截止时间。要求不抄袭、不敷衍。</p>
+  <p><strong>提交流程</strong>：</p>
+  <ol>
+    <li>进入圈子「作业」入口</li>
+    <li>找到当期4个作业，了解作业目标</li>
+    <li><strong>提前备份到云文档或本地</strong>（防钉钉吞作业）</li>
+    <li>提交（<strong>不勾选</strong>「分享到群聊/圈子」）</li>
+    <li>复制作业链接 → 粘贴到作业提交表自己的位置</li>
+  </ol>
+
+  <h3>1.4 保证金制度</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>完成作业数</th><th>退还金额</th></tr>
+      <tr><td>4次（全部）</td><td>全额退还</td></tr>
+      <tr><td>2-3次</td><td>退2,299元</td></tr>
+      <tr><td>不满2次</td><td>按规则处理</td></tr>
+    </table>
+  </div>
+  <p>报名后 <strong>3天内</strong> 可申请退出；退出后 <strong>30天</strong> 后可观看回放。</p>
+
+  <h3>1.5 星火积分与权益兑换</h3>
+  <p><strong>获取方式</strong>：分享优质帖子、优秀作业评选</p>
+  <p><strong>兑换权益</strong>：免费参加线下活动、小北老师一对一辅导、加入垂直群等</p>
+
+  <h3>1.6 四层学习体系</h3>
+  <div class="steps">
+    <div class="step active">第1层：入口层 → 钉钉群·群公告·圈子·知识库·AI问答</div>
+    <div class="step">第2层：学习层 → 12个专题 → 每周二/五直播 → 回放1年有效</div>
+    <div class="step">第3层：作业层 → 4次作业/专题 → 提交到圈子 → 链接填入提交表</div>
+    <div class="step">第4层：激励层 → 表现分 → 星火积分 → 线下活动/辅导/垂直群</div>
+  </div>
+
+  <h3>1.7 组长/课代表制度</h3>
+  <p><strong>福利</strong>：免保证金、免交作业、链接人脉、星火奖励</p>
+  <p><strong>报名条件</strong>：填写自我介绍，根据内容和经验筛选</p>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第二部分：2026系列 -->
+<!-- ========================================================== -->
+<div class="section" id="part2">
+  <h2>📌 第二部分：2026系列——宏观趋势与方法论</h2>
+  <p><strong>讲师</strong>：Sam.S（9年亚马逊实战经验，团队从5人到2000万美金体量）</p>
+
+  <!-- 子图：Cosmos算法 -->
+  <h3 id="part2-1">2.1 2026第一讲——Cosmos算法与15标签营销体系</h3>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 960 320" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <!-- 连接线 -->
+      <path d="M 170,130 H 220 V 60 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 170,130 H 220 V 130 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 170,130 H 220 V 210 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 170,130 H 220 V 280 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <!-- 根 -->
+      <rect x="20" y="108" width="150" height="44" rx="10" fill="#4A90A4"/>
+      <text x="95" y="136" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">2026第一讲</text>
+      <!-- 第1层 -->
+      <rect x="260" y="40" width="160" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="340" y="63" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">Cosmos算法深度解析</text>
+      <rect x="260" y="112" width="160" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="340" y="135" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">15标签体系</text>
+      <rect x="260" y="192" width="160" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="340" y="215" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">Refers购买前犹豫数据库</text>
+      <rect x="260" y="262" width="160" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="340" y="285" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">AI评论洞察与VOC</text>
+      <!-- 第2层 -->
+      <path d="M 420,58 H 470 V 22 H 510" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 420,58 H 470 V 48 H 510" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 420,58 H 470 V 74 H 510" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="510" y="6" width="140" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="580" y="26" text-anchor="middle" fill="#3a7a84" font-size="12">关键词→意图匹配</text>
+      <rect x="510" y="34" width="140" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="580" y="54" text-anchor="middle" fill="#3a7a84" font-size="12">搜索意图差异化</text>
+      <rect x="510" y="62" width="140" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="580" y="82" text-anchor="middle" fill="#3a7a84" font-size="12">跨品类推荐</text>
+
+      <path d="M 420,130 H 470 V 110 H 510" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 420,130 H 470 V 150 H 510" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="510" y="96" width="140" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="580" y="116" text-anchor="middle" fill="#3a7a84" font-size="12">产品相关8维度</text>
+      <rect x="510" y="136" width="140" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="580" y="156" text-anchor="middle" fill="#3a7a84" font-size="12">用户相关7维度</text>
+    </svg>
+  </div>
+
+  <h4>Cosmos算法——2026年亚马逊最大变革</h4>
+  <div class="info-box">
+    <strong>核心转变</strong>：从 <strong>关键词匹配</strong> 到 <strong>用户意图匹配</strong> 的范式转移
+  </div>
+  <p><strong>运作原理</strong>：</p>
+  <div class="code-block">用户行为（搜索/加购/评论/点赞）→ 转化为提示词给LLM → 理解意图后生成属性标签 → 前端展示Filter筛选选项 → 为用户匹配更精准的产品</div>
+  <p><strong>三个核心变化</strong>：</p>
+  <ul>
+    <li><strong>搜索意图差异化</strong>：不同用户搜同一关键词结果不同（孕妇vs学生vs白领搜"鞋子"结果不同）</li>
+    <li><strong>跨品类推荐</strong>：搜"冬天夹克"连带推荐加绒裤子、帽子、手套（理解"保暖"意图）</li>
+    <li><strong>产品开发启示</strong>：可对特定场景做系列化产品开发</li>
+  </ul>
+  <p><strong>测试进度</strong>：全美站点10%流量测试中，服装和电子类测试最多。手机端搜索出现Filter即表示已进入Cosmos时代。</p>
+
+  <h4>15种关系理论与品类词根分析</h4>
+  <p>亚马逊通过15个维度判断产品和用户的匹配关系：</p>
+  <div class="card-grid">
+    <div class="card"><h4>📦 产品相关（8个）</h4><p>是什么产品、用在何处/功能、适用于哪部分、使用场景、完成什么任务、与什么产品一起用、在身体哪部位用、什么功能</p></div>
+    <div class="card"><h4>👤 用户相关（7个）</h4><p>谁在用/谁会喜欢、专业人群标签、用户目标、细分受众、兴趣点、身份角色、材质偏好</p></div>
+  </div>
+  <p><strong>核心方法</strong>：从ABA下载品类所有关键词 → 用AI按15标签分类 → 得出完整品类词根表格</p>
+  <p><strong>应用</strong>：颜色→变体开发、功能→产品开发、材质→采购方向、不同叫法→搜索词埋词、不同关键词组合→不同链接不同定位→提高转化率</p>
+
+  <h4>Refers工具——购买前犹豫数据库</h4>
+  <p>Refers是亚马逊AI驱动的智能问答系统：2025年黑五/网一期间，<strong>Z世代用户</strong>使用比例达 <strong>30%</strong></p>
+  <p><strong>问题收集渠道</strong>：竞品BSR的QA、购物前搜索AI问询、Listing页智能问题板块</p>
+  <div class="table-wrap">
+    <table>
+      <tr><th>袜子品类案例</th><th>商业洞察</th></tr>
+      <tr><td>"最舒适的品牌是什么？"</td><td>袜子也能做品牌</td></tr>
+      <tr><td>"最透气吸湿的袜子？"</td><td>吸湿透气应放在第二张图</td></tr>
+    </table>
+  </div>
+
+  <h4>AI评论分析与洞察</h4>
+  <p><strong>方法论升级</strong>：从简单的"情感正负面分析" → "找到未被满足的卖点和用户爽点标签"</p>
+  <p><strong>核心操作</strong>：下载全部评论数据 → 用提示词挖掘用户在意但未被满足的标签 → 在文案/视觉/视频中针对这些标签做强化 → 通过TK/Ins等站外渠道打造某个评论标签属性</p>
+
+  <h4>AI视觉提示词与设计需求</h4>
+  <div class="code-block">第一张图片：
+  - 视觉方向：模特正面穿连衣裙
+  - 关键卖点：整体裙子可见，裙摆不被头发遮挡
+  - 满足的Cosmos标签：产品是什么、用在哪部位
+  - 文案方向：Feel confident, shine at the party</div>
+  <p><strong>逆向验证方法</strong>：把图片丢给AI，问匹配15标签的程度 → 用客观数据决定用哪张</p>
+
+  <!-- Sam.S广告直播 -->
+  <h3 id="part2-2">2.2 Sam.S广告直播——亚马逊广告策略新逻辑</h3>
+  <div class="info-box tip"><strong>核心理念</strong>：只教 how 和 why，不教怎么打广告。标品生命周期短——数据好起来后大量人可以Copy你。一切围绕快速转化、快速赚钱、在产品下滑前离场。</div>
+
+  <h4>广告漏斗三层策略模型</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>层级</th><th>对象</th><th>策略核心</th></tr>
+      <tr><td>入门级</td><td>标品/1688采购品</td><td>聚焦转化</td></tr>
+      <tr><td>中级</td><td>微创新/私模</td><td>转化+犹豫用户</td></tr>
+      <tr><td>高阶</td><td>独家/品牌力</td><td>心智占领+破圈</td></tr>
+    </table>
+  </div>
+  <p><strong>新品核心</strong>：点击率和点击量（非转化率）</p>
+
+  <h4>自动广告黄金公式</h4>
+  <p>新品必开三组自动广告：</p>
+  <div class="table-wrap">
+    <table>
+      <tr><th>广告组</th><th>竞价</th><th>类型</th><th>目的</th></tr>
+      <tr><td>组1</td><td>0.55（推荐竞价）</td><td>Fix</td><td>稳定跑词</td></tr>
+      <tr><td>组2</td><td>0.55</td><td>Down Only</td><td>ASIN在ASIN页面曝光</td></tr>
+      <tr><td>组3</td><td>0.3</td><td>Up & Down</td><td>表现好加价，差降价——最强AI模型</td></tr>
+    </table>
+  </div>
+
+  <h4>属性词策略（核心创新）</h4>
+  <p>按属性（Attribute）对关键词分组，一个广告组放同一属性的20-25个词。</p>
+  <div class="table-wrap">
+    <table>
+      <tr><th>时代</th><th>算法逻辑</th><th>策略</th></tr>
+      <tr><td>A9时代</td><td>收录逻辑——写了就有曝光</td><td>堆关键词、抢流量入口</td></tr>
+      <tr><td>Cosmos时代</td><td>意图匹配——匹配用户真实需求</td><td>属性细分、精准收割</td></tr>
+    </table>
+  </div>
+
+  <h4>AI提示词实操——关键词归类与广告分组</h4>
+  <div class="code-block">Master Prompt（设置框架）→ 上传产品链接+ABA词+评论
+  → AI输出分组好的广告组方案
+  → 核心理由：强制AI先看评论再分词，避免只看词导致广告费浪费</div>
+
+  <h4>运营核心能力升级</h4>
+  <p><strong>旧运营核心</strong>：广告技巧+规则理解</p>
+  <p><strong>新运营核心（AI时代）</strong>：用户洞察+产品力判断+创意素材能力</p>
+
+  <!-- 2026第三讲 -->
+  <h3 id="part2-3">2.3 2026第三讲——爆款新趋势与内容飞轮</h3>
+
+  <h4>认知重塑：货架电商 vs 兴趣电商</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>维度</th><th>亚马逊（货架电商）</th><th>TK（兴趣电商）</th></tr>
+      <tr><td>逻辑</td><td>人找货</td><td>货找人</td></tr>
+      <tr><td>搜索形态</td><td>收缩漏斗</td><td>扩散路径（激发新需求）</td></tr>
+    </table>
+  </div>
+
+  <h4>人货场黄金公式</h4>
+  <ul>
+    <li><strong>人（Review）</strong>：谁在用？爽不爽？</li>
+    <li><strong>货/场景（Cosmos）</strong>：在什么Location使用？</li>
+    <li><strong>场/需求（Refers）</strong>：最大疑虑是什么？</li>
+  </ul>
+  <p><strong>案例</strong>：BKT腰凳，短视频场景拓圈（司机→白领→家长），2024年营业额25亿。</p>
+
+  <h4>Refers提问式脚本公式</h4>
+  <p><strong>Hook（前3秒）→ 问题引入 → 画面证据 → 结论</strong></p>
+  <p>关键：不要拍脑袋想问题——去前台搜索真实买家问题</p>
+
+  <h4>Review满足式脚本公式</h4>
+  <p><strong>人设切入 → 痛点放大 → 产品引入 → 效果展现 → 文案配合</strong></p>
+
+  <h4>四种达人合作模式</h4>
+  <div class="code-block">联盟达人（高佣金15-20%）→ 头部达人（信任背书）
+  → 折扣达人（短期放量）→ 创作者联盟（亚马逊官方）</div>
+
+  <h4>团队搭建与管理SOP</h4>
+  <p><strong>流水分工</strong>：编导（脚本）+ 拍摄（执行）+ 剪辑（日产出10条）</p>
+  <p><strong>每日15分钟会议</strong>：查卡审点、复盘投放数据、找高点击人设方向</p>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第三部分：亚马逊运营基础 -->
+<!-- ========================================================== -->
+<div class="section" id="part3">
+  <h2>📌 第三部分：亚马逊运营基础</h2>
+
+  <h3 id="part3-1">3.1 第一章——产品开发流程</h3>
+
+  <h4>为什么要学习产品开发</h4>
+  <ul>
+    <li><strong>平台只是销售渠道</strong>：好产品在任何平台都能长期盈利</li>
+    <li><strong>平台费用占比越来越高</strong>：推广费用从5-10%升至15-20%</li>
+    <li><strong>品牌溢价</strong>：品牌从第一个产品就要开始布局</li>
+    <li><strong>长期主义</strong>：手头永远要有一款能挣钱的产品</li>
+  </ul>
+
+  <h4>高效选品方法（11种）</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>方法</th><th>核心</th></tr>
+      <tr><td>榜单选品</td><td>BSR飙升榜、心愿榜单快速评估</td></tr>
+      <tr><td>线下展会</td><td>面对面了解工厂实力、定制可能</td></tr>
+      <tr><td>1688产业带</td><td>顺德小家电、澄海玩具、南通家纺等</td></tr>
+      <tr><td>熟悉品类扩展</td><td>从已做品类邻近品类入手</td></tr>
+      <tr><td>供应商推荐</td><td>供应商每3-4个月新品推荐</td></tr>
+      <tr><td>ABA关键词选品</td><td>ABA排名1-5万以上的关键词</td></tr>
+      <tr><td>众筹网站</td><td>Kickstarter发现创新设计</td></tr>
+      <tr><td>AI辅助选品</td><td>提示词+需求+目标市场</td></tr>
+    </table>
+  </div>
+
+  <h4>市场调研报告框架（15个核心板块）</h4>
+  <div class="card-grid">
+    <div class="card"><h4>📊 产品与品类</h4><p>产品与品类分析、行业需求与趋势、商品集中度</p></div>
+    <div class="card"><h4>📈 数据层面</h4><p>新品数据、产品周期与季节性、价格分布</p></div>
+    <div class="card"><h4>💬 评论层面</h4><p>评论分析、差评分析、VOC分析</p></div>
+    <div class="card"><h4>🔍 竞品层面</h4><p>竞品分析、竞品BSR与价格、竞品销量调研、竞品产品分析</p></div>
+    <div class="card"><h4>💰 利润层面</h4><p>利润分析（毛利率≥30%）、核心关键词分析</p></div>
+  </div>
+  <p><strong>VOC核心原则</strong>：10%以上提及的问题必须解决；10%以下是伪需求可放掉</p>
+
+  <h4>差异化与溢价方法（10种）</h4>
+  <p>做品牌 → Listing差异化 → 数量差异化 → 组合差异化 → 材质差异化 → 外观与元素差异化 → 功能升级 → 反差设计 → 受众变化 → 应用场景变化</p>
+
+  <!-- 运营全流程 -->
+  <h3 id="part3-2">3.2 第二章——运营全流程</h3>
+
+  <h4>七大运营支柱</h4>
+  <div class="steps">
+    <div class="step">① 测款</div>
+    <div class="step">② 运营策略</div>
+    <div class="step">③ 备货策略</div>
+    <div class="step">④ 价格策略</div>
+    <div class="step">⑤ 流量策略</div>
+    <div class="step">⑥ 推广策略</div>
+    <div class="step">⑦ 评论策略</div>
+  </div>
+  <p><strong>测款方式</strong>：FBA测款（推荐），发500个左右。十款中最终盈利约三款。</p>
+
+  <h4>备货策略</h4>
+  <div class="code-block">统计7/14/30天销量 → 计算加权销量 → 计算FBA可售天数
+  → 考虑在途库存和生产周期 → 考虑FBA物流时间（约25天）</div>
+
+  <h4>流量策略</h4>
+  <p><strong>站内流量</strong>：关键词流量（自然+广告排名）、关联流量（免费：一起购买/看了又看/买了又买；付费：四星产品/商品广告等）</p>
+  <p><strong>站外流量</strong>：站外秒杀、联盟营销、红人营销（TikTok/Instagram）</p>
+
+  <h4>Listing图片排列逻辑</h4>
+  <div class="code-block">首图（数量和场景差异化）→ 第二图（场景实拍）→ 第三图（卖点图结合VOC）
+  → 第四至七图（更多场景+人物）→ 最后图（尺寸图）</div>
+
+  <h4>推广策略·广告执行节奏</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>时间</th><th>操作</th></tr>
+      <tr><td>上架</td><td>Listing优化，Vine积累评论</td></tr>
+      <tr><td>1-15天</td><td>自动广告，不太在意ACOS</td></tr>
+      <tr><td>15-30天</td><td>开手动广告，高转化词放手动</td></tr>
+      <tr><td>30-45天</td><td>否定高曝光低转化词</td></tr>
+      <tr><td>45-60天</td><td>ACoS接近毛利润</td></tr>
+      <tr><td>60天后</td><td>逐渐降低竞价</td></tr>
+    </table>
+  </div>
+  <p>新品不打大词，侧重小词配合评论积累</p>
+
+  <h4>SOP清单体系</h4>
+  <p>运营总流程 → 选品调研报告 → 利润分析表 → 销售计划书 → 跟进进度表 → 推广流程 → 广告策略 → 运营清单 → 备货计划 → 售后环节</p>
+
+  <!-- AI在亚马逊 -->
+  <h3 id="part3-3">3.3 第三章——AI在亚马逊工作中的应用</h3>
+
+  <h4>AI的核心认知</h4>
+  <ul>
+    <li>AI是"<strong>遇强则强</strong>"的工具——提问质量决定回答质量</li>
+    <li>做事逻辑：理论→方法→执行→复盘，AI加速迭代</li>
+    <li><strong>避免锤子思维</strong>：AI是工具箱中的利器，不是唯一工具</li>
+    <li><strong>避免过度依赖</strong>：让不同AI互相博弈后自己判断</li>
+  </ul>
+
+  <h4>AI在产品开发中的应用</h4>
+  <ul>
+    <li><strong>AI一站式市场调研</strong>：输入提示词，AI从12个维度分析品类</li>
+    <li><strong>AI文化背景分析</strong>：以仿真绿植为例，揭示美国庭院文化、墓地文化、节日装饰文化</li>
+    <li><strong>AI产品深度拆解</strong>：产品是什么→用来干什么→卖点分析→解决什么痛点→谁买/谁用→在哪用→消费者关注点</li>
+    <li><strong>AI博弈验证</strong>：GPT产出的结果给Gemini分析可行性→指出隐患→迭代改进</li>
+  </ul>
+
+  <h4>AI提示词精选——市场调研框架</h4>
+  <div class="code-block">你是一个亚马逊卖家，请从以下方面分析[品类]：
+  产品分类 / 行业需求和趋势 / 商品集中度 / 是否垄断
+  新品数据 / 产品生命周期和季节性 / 搜索趋势变化
+  价格分布 / 评论分析 / 差评分析 / 竞品分析 / 利润分析</div>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第四部分：专题5——爆品体系化运营高阶 -->
+<!-- ========================================================== -->
+<div class="section" id="part4">
+  <h2>📌 第四部分：专题5——亚马逊爆品体系化运营高阶</h2>
+  <p><strong>主讲人</strong>：贝拉（Bela）｜ 共4节课，系统性最强的运营课程</p>
+
+  <!-- Cosmos算法升级 -->
+  <h3 id="part4-1">4.1 第1节——流量思维重构与Cosmos算法</h3>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 900 270" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 170,110 H 220 V 40 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 170,110 H 220 V 110 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 170,110 H 220 V 180 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 170,110 H 220 V 240 H 260" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <rect x="20" y="88" width="150" height="44" rx="10" fill="#4A90A4"/>
+      <text x="95" y="116" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">专题5-流量重构</text>
+      <rect x="260" y="20" width="168" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="344" y="43" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">A9 vs Cosmos对比</text>
+      <rect x="260" y="92" width="168" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="344" y="115" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">六大升级点</text>
+      <rect x="260" y="162" width="168" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="344" y="185" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">三大应用场景</text>
+      <rect x="260" y="222" width="168" height="36" rx="6" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="344" y="245" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">四大流量支柱</text>
+      <path d="M 428,38 H 600 V 20 H 630" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 428,38 H 600 V 40 H 630" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 428,38 H 600 V 60 H 630" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="630" y="4" width="140" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="700" y="24" text-anchor="middle" fill="#3a7a84" font-size="12">关键词→LLM意图分析</text>
+      <rect x="630" y="26" width="140" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="700" y="46" text-anchor="middle" fill="#3a7a84" font-size="12">推荐流量权重提升</text>
+      <rect x="630" y="48" width="140" height="30" rx="6" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="700" y="68" text-anchor="middle" fill="#3a7a84" font-size="12">千人千面打散竞争</text>
+    </svg>
+  </div>
+
+  <h4>A9 vs Cosmos算法对比</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>维度</th><th>A9（图书管理员）</th><th>Cosmos（智能书店）</th></tr>
+      <tr><td>核心</td><td>关键词匹配+转化率</td><td>LLM分析购买意图+标签化</td></tr>
+      <tr><td>流量</td><td>搜索框是最大免费流量</td><td>推荐流量权重与搜索相当</td></tr>
+      <tr><td>广告</td><td>CPC越高越靠前</td><td>意图相关性权重极高</td></tr>
+      <tr><td>竞争</td><td>针对头部卖家</td><td>千人千面，被打散</td></tr>
+    </table>
+  </div>
+
+  <h4>Cosmos算法六大升级点</h4>
+  <ol>
+    <li><strong>深层次用户意图挖掘</strong></li>
+    <li><strong>构建规模知识图谱</strong></li>
+    <li><strong>个性化推荐</strong></li>
+    <li><strong>搜索相关性提升</strong></li>
+    <li><strong>多场景应用</strong></li>
+    <li><strong>持续优化迭代</strong></li>
+  </ol>
+
+  <h4>页面变化与应对策略</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>变化</th><th>应对策略</th></tr>
+      <tr><td>关键词搜索结果页新增Related Search</td><td>建立<strong>动态关键词库</strong>，定期更新</td></tr>
+      <tr><td>品牌旗舰店直达入口</td><td>把旗舰店作为战略产品打造（转化率30%）</td></tr>
+      <tr><td>Rufus AI购物</td><td>深入分析用户画像、精准填写后台属性</td></tr>
+    </table>
+  </div>
+
+  <h4>流量布局四大支柱</h4>
+  <div class="card-grid">
+    <div class="card"><h4>🌱 自然搜索流量</h4><p>关键词/排名/关联 · 根基</p></div>
+    <div class="card"><h4>🚀 付费广告流量</h4><p>SP/SB/SD · 引擎</p></div>
+    <div class="card"><h4>🔗 关联场景流量</h4><p>类目节点/推荐/FBT · 网络</p></div>
+    <div class="card"><h4>📢 站外品牌流量</h4><p>社媒/红人/Deals · 声浪</p></div>
+  </div>
+  <div class="info-box tip"><strong>核心金句</strong>：驱动运营决策的核心动力不是转化率，而是流量。</div>
+
+  <!-- 科学选品 -->
+  <h3 id="part4-2">4.2 第2节——科学选品方法论</h3>
+
+  <h4>谷歌趋势五层分析法</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>层级</th><th>分析维度</th></tr>
+      <tr><td>第一层</td><td>全球搜索热度趋势 → 产品生命周期判断</td></tr>
+      <tr><td>第二层</td><td>区域热度分析 → 美国、澳洲、加拿大前三</td></tr>
+      <tr><td>第三层</td><td>目标国家搜索趋势 → "Butane Torch" > "Culinary Torch"</td></tr>
+      <tr><td>第四层</td><td>美国各州热度 → 缅因州最高→龙虾季关联</td></tr>
+      <tr><td>第五层</td><td>YouTube趋势 → 判断季节性</td></tr>
+    </table>
+  </div>
+
+  <h4>用户需求金字塔</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>层次</th><th>占比</th><th>内容</th></tr>
+      <tr><td>安全需求（基础）</td><td>65.03%</td><td>使用简单、火焰合适</td></tr>
+      <tr><td>社交需求（期望）</td><td>34.97%</td><td>外观设计、社交用途</td></tr>
+      <tr><td>尊重需求（期望）</td><td>—</td><td>品质感、高端感</td></tr>
+    </table>
+  </div>
+
+  <h4>用户画像5W分析</h4>
+  <p><strong>Who</strong>（谁用）→ <strong>How</strong>（感受）→ <strong>What</strong>（用途）→ <strong>Where</strong>（场景）→ <strong>Why</strong>（目的）</p>
+
+  <h4>市场评估标准</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>维度</th><th>标准</th></tr>
+      <tr><td>卖家垄断系数</td><td>&lt;50%可进入</td></tr>
+      <tr><td>品牌垄断系数</td><td>&lt;50%可进入</td></tr>
+      <tr><td>利润</td><td>显性成本+隐性成本全算</td></tr>
+      <tr><td>季节性</td><td>精准卡位，否则谨慎</td></tr>
+    </table>
+  </div>
+
+  <!-- 新品快速出单 -->
+  <h3 id="part4-3">4.3 第3节——新品快速出单策略</h3>
+
+  <h4>六大核心自然流量入口</h4>
+  <ol>
+    <li><strong>搜索结果页</strong>（占全部流量70%+，前三名占大半）</li>
+    <li><strong>BS榜单</strong>（BS标志提升自然转化率约2%）</li>
+    <li><strong>类目节点</strong></li>
+    <li><strong>猜你喜欢</strong>（Cosmos核心体现：千人千面）</li>
+    <li><strong>关联推荐</strong></li>
+    <li><strong>买了还买（FBT）</strong></li>
+  </ol>
+
+  <h4>Cosmos算法下Listing优化效果</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>指标</th><th>优化前</th><th>优化后</th></tr>
+      <tr><td>广告转化率</td><td>4.55%</td><td>16.42%</td></tr>
+      <tr><td>ACoS</td><td>56.92%</td><td>22.34%</td></tr>
+    </table>
+  </div>
+
+  <h4>视频广告四大要素（Hook-Value-Proof-CTA）</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>要素</th><th>时间</th><th>内容</th></tr>
+      <tr><td>Hook</td><td>1-3秒</td><td>具体可共情的问题/结论</td></tr>
+      <tr><td>Value</td><td>5-15秒</td><td>细化痛点，场景证明</td></tr>
+      <tr><td>Proof</td><td>5-15秒</td><td>对比/反馈/结果</td></tr>
+      <tr><td>CTA</td><td>结尾</td><td>"了解更多"而非"立即买"</td></tr>
+    </table>
+  </div>
+
+  <h4>关键词广告打法（两层分级）</h4>
+  <p><strong>第一层</strong>：按流量大小分 → 核心先分析供给:需求比（竞争程度）</p>
+  <p><strong>第二层</strong>：按属性分 → 形容词词 → 中长尾词 → 属性词 → 使用场景词（最差异化）</p>
+
+  <!-- 数据化运营 -->
+  <h3 id="part4-4">4.4 第4节——运营效率提升与数据化运营</h3>
+
+  <h4>四大广告分析层级</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>层级</th><th>判断</th><th>动作</th></tr>
+      <tr><td>第一层</td><td>ACoS &lt; 毛利率</td><td>无限放量</td></tr>
+      <tr><td>第二层</td><td>广告亏，总订单赚</td><td>控制广告订单占比</td></tr>
+      <tr><td>第三层</td><td>广告亏，总订单亏</td><td>优化广告或页面</td></tr>
+      <tr><td>第四层</td><td>广告不出单</td><td>直接关掉</td></tr>
+    </table>
+  </div>
+
+  <h4>三大核心广告报表</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>报表</th><th>核心用途</th></tr>
+      <tr><td>搜索词报告</td><td>发现机会词和浪费的词</td></tr>
+      <tr><td>投放报告</td><td>评估投放策略</td></tr>
+      <tr><td>展示量份额报告</td><td>看清市场格局</td></tr>
+    </table>
+  </div>
+
+  <h4>三个30%原则</h4>
+  <div class="steps">
+    <div class="step active">毛利率 ≥ 30%</div>
+    <div class="step">广告销售占比 ≤ 30%</div>
+    <div class="step">广告ACoS ≤ 30%</div>
+  </div>
+
+  <h4>关键词自然排名影响因素</h4>
+  <p><strong>前期</strong>：点击率决定（初始位置）</p>
+  <p><strong>后期</strong>：转化率决定（长期维持）</p>
+  <div class="info-box tip">"点击率决定你的起点，转化率决定你的终点。转化率没达标前，别急着往前冲，冲上去也稳不住。"</div>
+
+  <h4>广告架构搭建三阶段</h4>
+  <div class="steps">
+    <div class="step">测试期（自动+广泛）</div>
+    <div class="step">放大器（精准广告）</div>
+    <div class="step">收割/稳固期（流量型广告）</div>
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第五部分：AI自动化系列 -->
+<!-- ========================================================== -->
+<div class="section" id="part5">
+  <h2>📌 第五部分：AI自动化系列</h2>
+  <p>由顾小北老师主讲，从N8N工作流到AI知识库搭建，构建完整的AI自动化体系。</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 1100 280" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 170,120 H 230 V 40 H 270" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <path d="M 170,120 H 230 V 80 H 270" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <path d="M 170,120 H 230 V 120 H 270" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <path d="M 170,120 H 230 V 160 H 270" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <path d="M 170,120 H 230 V 200 H 270" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <path d="M 170,120 H 230 V 240 H 270" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <rect x="20" y="98" width="150" height="44" rx="10" fill="#7FB069"/>
+      <text x="95" y="126" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">AI自动化系列</text>
+      <rect x="270" y="20" width="138" height="36" rx="6" fill="#e8f4e8" stroke="#7FB069"/>
+      <text x="339" y="43" text-anchor="middle" fill="#2d6e3a" font-size="13" font-weight="600">AI自动化竞品分析</text>
+      <rect x="270" y="62" width="138" height="36" rx="6" fill="#e8f4e8" stroke="#7FB069"/>
+      <text x="339" y="85" text-anchor="middle" fill="#2d6e3a" font-size="13" font-weight="600">N8N自动化工作流</text>
+      <rect x="270" y="102" width="150" height="36" rx="6" fill="#e8f4e8" stroke="#7FB069"/>
+      <text x="345" y="125" text-anchor="middle" fill="#2d6e3a" font-size="13" font-weight="600">高质量Listing工作流</text>
+      <rect x="270" y="142" width="120" height="36" rx="6" fill="#e8f4e8" stroke="#7FB069"/>
+      <text x="330" y="165" text-anchor="middle" fill="#2d6e3a" font-size="13" font-weight="600">AI制图革命</text>
+      <rect x="270" y="182" width="138" height="36" rx="6" fill="#e8f4e8" stroke="#7FB069"/>
+      <text x="339" y="205" text-anchor="middle" fill="#2d6e3a" font-size="13" font-weight="600">AI短视频带货</text>
+      <rect x="270" y="222" width="138" height="36" rx="6" fill="#e8f4e8" stroke="#7FB069"/>
+      <text x="339" y="245" text-anchor="middle" fill="#2d6e3a" font-size="13" font-weight="600">AI知识库搭建</text>
+    </svg>
+  </div>
+
+  <h3 id="part5-1">5.1 AI自动化竞品分析</h3>
+
+  <h4>AI的三个层次</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>层级</th><th>特征</th><th>竞争力</th></tr>
+      <tr><td>玩具化</td><td>单点、手动、多窗口切换</td><td>容易被取代</td></tr>
+      <tr><td>工作流化</td><td>触发式、批量输出、稳定</td><td>有明显优势</td></tr>
+      <tr><td>系统化</td><td>用AI写代码搭建管理系统</td><td>成为公司壁垒</td></tr>
+    </table>
+  </div>
+
+  <h4>推荐大模型选型</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>场景</th><th>推荐工具</th></tr>
+      <tr><td>编程/文字</td><td>Claude</td></tr>
+      <tr><td>视频生成</td><td>Google Veo 2 / Sora</td></tr>
+      <tr><td>图片生成</td><td>Recraft / Canva</td></tr>
+      <tr><td>知识库</td><td>NotebookLM</td></tr>
+    </table>
+  </div>
+
+  <h4>VOC差评自动化采集全流程</h4>
+  <div class="code-block">差评截图/文字 → OCR → 翻译中文 → AI分类打标签
+  → 情感分析 → 提取时间/用户名 → 10字总结
+  → 仪表盘统计 → 自动推送群/个人</div>
+
+  <h4>Comet浏览器Agent自动化</h4>
+  <ul>
+    <li><strong>评论批量抓取</strong>：提取前5页差评，自动翻页、滚动、识别</li>
+    <li><strong>24小时市场情报监控</strong>：监控Reddit/YouTube/Blog关键词讨论</li>
+  </ul>
+
+  <h3 id="part5-2">5.2 N8N自动化工作流搭建</h3>
+
+  <h4>工具对比：为什么选择N8N</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>对比项</th><th>N8N</th><th>RPA</th><th>Coze</th><th>Dify</th></tr>
+      <tr><td>稳定性</td><td><strong>最好</strong></td><td>最差</td><td>中等</td><td>中等</td></tr>
+      <tr><td>扩展性</td><td><strong>最好</strong></td><td>最差</td><td>中等</td><td>较好</td></tr>
+      <tr><td>本质</td><td>API数据流通</td><td>模拟人工</td><td>字节生态</td><td>私有RAG</td></tr>
+    </table>
+  </div>
+  <p>结论：N8N是所有工具中稳定性和扩展性最强的，跨境电商领域建议N8N+RPA配合使用。</p>
+
+  <h4>AI Agent的四个组成部分</h4>
+  <div class="code-block">大脑（RAG知识库） + 手脚（MCP）+ 上下文记忆 = AI Agent</div>
+
+  <h4>三种部署方式</h4>
+  <ol>
+    <li>官网Cloud（最简单）</li>
+    <li>本地Docker/NAS（免费）</li>
+    <li>云服务器（无运维负担）</li>
+  </ol>
+
+  <h4>自动化的底层逻辑——三要素公式</h4>
+  <div class="code-block">我想要实现【什么结果】
+  + 我的初步想法是【什么触发条件】
+  + 最终请输出到【什么目的地】
+  = 自动化工作流</div>
+
+  <h4>MCP详解</h4>
+  <p><strong>MCP = 大模型的手脚</strong>。Claude是大脑，MCP赋予执行能力。</p>
+  <ul>
+    <li><strong>N8N MCP</strong>：让Claude增删改N8N工作流</li>
+    <li><strong>飞书MCP</strong>：让Claude读写飞书文档和多维表</li>
+    <li><strong>Sorftime MCP</strong>：让Claude获取精准跨境电商数据</li>
+  </ul>
+
+  <h4>三大学习路径</h4>
+  <ol>
+    <li><strong>先抄再超</strong>：从N8N Workflows官方模板（7888+个）复制JSON→粘贴→Claude汉化→理解→修改</li>
+    <li><strong>MCP对话</strong>：与Claude聊天描述需求→自动生成工作流</li>
+    <li><strong>Claude Code全网搜索</strong>：让Claude搜索GitHub模板→下载→学习→生成最佳实践</li>
+  </ol>
+
+  <h3 id="part5-3">5.3 高质量Listing工作流</h3>
+
+  <h4>核心升级：大模型+精准数据</h4>
+  <div class="code-block">纯大模型：无时间概念，易产生幻觉
+  纯行业软件：数据多，看不懂
+  大模型+精准数据：博士级理解+精准数据</div>
+
+  <p><strong>Claude + Sorftime MCP + 飞书 = 组合拳</strong></p>
+  <p>Claude：大脑 | Sorftime MCP：精准数据源 | 飞书：数据落地</p>
+
+  <h4>如何节省Token</h4>
+  <p><strong>Pin（固定）节点</strong>：运行成功后固定成功节点→后续只运行修改节点→省去前面所有token消耗</p>
+
+  <h3 id="part5-4">5.4 AI制图革命</h3>
+
+  <h4>图片生成的底层原理</h4>
+  <div class="code-block">主体对象 + 场景 + 风格 + 尺寸 + 元素/光影 + 大模型 = 一张图</div>
+  <p>核心洞察：所有软件的底层都一样。<strong>你的工作流就是一个软件，你用的软件就是工作流。</strong></p>
+
+  <h4>Jason（JSON）结构化提示词</h4>
+  <div class="code-block">{
+  "subject": "蓝牙音响",
+  "location": "beach, sunset",
+  "lighting": "natural golden hour light, soft shadows",
+  "camera": "low angle, wide shot, 50mm lens",
+  "color_grade": "warm tones, teal and orange",
+  "mood": "relaxed, premium, summer vibe",
+  "quality": "8K, ultra realistic, product photography"
+}</div>
+
+  <h4>大模型成本对比</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>模型</th><th>单张价格（RMB）</th></tr>
+      <tr><td>ChatGPT高质量</td><td>约1.0元</td></tr>
+      <tr><td>Nano Banana</td><td>约0.5元</td></tr>
+      <tr><td>豆包SeedDream</td><td>0.1-0.2元</td></tr>
+    </table>
+  </div>
+
+  <h3 id="part5-5">5.5 AI短视频带货</h3>
+
+  <h4>带货短视频底层公式</h4>
+  <div class="code-block">停（3秒钩子）→ 病（说到痛点）→ 药（解决方案）→ 信（消除顾虑）→ 买（促单）</div>
+  <p>另一种公式：<strong>要-停-病-药-信</strong>（快乐驱动，开头直接甩出极致效果）</p>
+
+  <h4>十倍增长的底层逻辑</h4>
+  <p><strong>逻辑一：围绕一个人多次触达</strong>——同一产品×N个场景=反复触达同一用户</p>
+  <p><strong>逻辑二：覆盖不同人群</strong>——同一产品×不同场景=吸引完全不同的用户群</p>
+
+  <h4>十个核心素材库体系</h4>
+  <div class="card-grid">
+    <div class="card"><h4>🏗️ 六大核心库</h4><p>框架结构库、号召行动库、痛点场景库、卖点画面库、社会证明库、权益库</p></div>
+    <div class="card"><h4>📁 四大补充库</h4><p>爆款评论库、BGM库、爆款精品库、成片记录表</p></div>
+  </div>
+
+  <h4>拉片复刻（爆款拆解）</h4>
+  <p><strong>人工拆解</strong>：播放量&gt;10万→拆画面→拆文案→提炼框架</p>
+  <p><strong>AI自动拉片</strong>：Claude Code上传视频→逐帧分析→生成脚本→跨品类改编</p>
+
+  <h4>完形填空式拍摄流程</h4>
+  <p>运营从库中选择组合：框架→钩子→痛点→卖点→信任→权益→BGM→记录</p>
+
+  <h3 id="part5-6">5.6 AI知识库搭建</h3>
+
+  <h4>好的知识库标准</h4>
+  <p><strong>两个核心要求</strong>：人看得懂（层级结构清晰）+ AI看得懂（结构体系化）</p>
+  <div class="code-block">亚马逊专题 ├─ 选品 ├─ 供应商 ├─ 上架优化 ├─ 广告 └─ 评论管理
+  独立站专题 ├─ 关键词 ├─ 网站优化 └─ 流量获取</div>
+
+  <h4>NotebookLM深度应用</h4>
+  <p><strong>核心优势</strong>：只基于投喂内容回答，不跑偏</p>
+  <p><strong>五大场景</strong>：</p>
+  <ol>
+    <li><strong>学习YouTube视频</strong>：长视频→AI总结核心观点</li>
+    <li><strong>官方文档学习</strong>：亚马逊官方指南→问AI回答是否符合Cosmos算法</li>
+    <li><strong>保险库</strong>：保单PDF→问条款细节</li>
+    <li><strong>股票投资库</strong>：财报+投资逻辑→AI筛选</li>
+    <li><strong>跨体系匹配</strong>：飞书知识库↔NotebookLM外部知识库→差距分析</li>
+  </ol>
+
+  <h4>Cloud to IM——把Claude Code搬到飞书</h4>
+  <div class="code-block">本地Claude Code → Cloud to IM工具（桥梁）→ 飞书群机器人 → 团队所有人可用</div>
+
+  <h4>Claude MD（全局记忆）</h4>
+  <div class="code-block">刷TikTok → 复制内容到飞书群 → @机器人 → 自动判断库类型 → 自动入库
+  → 需要拍视频时→ Claude从各库自动检索素材→ 自动组合脚本</div>
+
+  <h4>全流程自动化愿景</h4>
+  <div class="code-block">一个人 → 一个Claude Code机器人 → 一个飞书群
+  → 所有团队共用同一套最强AI能力+同一套知识库
+  → 自动入库 → 自动编排 → 持续产出</div>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第六部分：小团队增长系列 -->
+<!-- ========================================================== -->
+<div class="section" id="part6">
+  <h2>📌 第六部分：小团队增长系列</h2>
+  <p><strong>主讲人</strong>：Sam.S ｜ 共3节课：从0到1 → 破局增长 → 终极壁垒</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 900 240" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 170,100 H 220 V 40 H 270" stroke="#E8A87C" stroke-width="2" fill="none"/>
+      <path d="M 170,100 H 220 V 100 H 270" stroke="#E8A87C" stroke-width="2" fill="none"/>
+      <path d="M 170,100 H 220 V 160 H 270" stroke="#E8A87C" stroke-width="2" fill="none"/>
+      <path d="M 170,100 H 220 V 210 H 270" stroke="#E8A87C" stroke-width="2" fill="none"/>
+      <rect x="20" y="78" width="150" height="44" rx="10" fill="#E8A87C"/>
+      <text x="95" y="106" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">小团队增长系列</text>
+      <rect x="270" y="20" width="148" height="36" rx="6" fill="#fdeee8" stroke="#E8A87C"/>
+      <text x="344" y="43" text-anchor="middle" fill="#8a5a3a" font-size="13" font-weight="600">从0到1·增长突破口</text>
+      <rect x="270" y="82" width="148" height="36" rx="6" fill="#fdeee8" stroke="#E8A87C"/>
+      <text x="344" y="105" text-anchor="middle" fill="#8a5a3a" font-size="13" font-weight="600">破局增长·迈向扩张</text>
+      <rect x="270" y="142" width="148" height="36" rx="6" fill="#fdeee8" stroke="#E8A87C"/>
+      <text x="344" y="165" text-anchor="middle" fill="#8a5a3a" font-size="13" font-weight="600">构建终极壁垒</text>
+      <rect x="270" y="195" width="148" height="36" rx="6" fill="#fdeee8" stroke="#E8A87C"/>
+      <text x="344" y="218" text-anchor="middle" fill="#8a5a3a" font-size="13" font-weight="600">七大中心体系</text>
+    </svg>
+  </div>
+
+  <h3 id="part6-1">6.1 从0到1——找到增长突破口</h3>
+
+  <h4>回款比是生死线</h4>
+  <p><strong>100美金产品费用拆解</strong>：</p>
+  <div class="table-wrap">
+    <table>
+      <tr><th>项目</th><th>比例</th></tr>
+      <tr><td>平台佣金</td><td>15%</td></tr>
+      <tr><td>FBA费用</td><td>5%</td></tr>
+      <tr><td>广告费</td><td>30%</td></tr>
+      <tr><td>退货/折扣</td><td>10%</td></tr>
+      <tr><td>预留资金</td><td>20%</td></tr>
+      <tr><td><strong>最终回款</strong></td><td><strong>20%</strong></td></tr>
+    </table>
+  </div>
+  <div class="info-box warn">当采购+头程需要30美金时，卖一单净亏10美金 → 死死盯住回款比</div>
+
+  <h4>从铺产品到铺需求（四步走）</h4>
+  <ol>
+    <li><strong>海量ABA关键词词根筛选</strong>：搜索量稳步上升+点击集中率低的蓝海词根</li>
+    <li><strong>VOC深度分析</strong>：丢给AI分析搜索特定词根的人在埋怨什么</li>
+    <li><strong>反向找国内供应链</strong>：发挥铺货团队效率优势</li>
+    <li><strong>批量生成精准Listing</strong>：50个需求变体→50套痛点Listing→一天上架</li>
+  </ol>
+  <p><strong>2026玩法定义</strong>：铺"精准需求"。用极低成本AI效率高频覆盖未被满足的需求意图。</p>
+
+  <h4>JBL骑行音箱案例</h4>
+  <p><strong>痛点发现</strong>：VOC分析发现15%差评来自山地车爱好者</p>
+  <p><strong>解决方案</strong>：高弹力防滑硅胶带+超大阻尼旋钮（1688标准件），零开模成本</p>
+  <p><strong>广告打法</strong>：不打大词，精准打场景词（speaker for mountain bike）</p>
+
+  <h4>拼多多套利模式</h4>
+  <div class="code-block">洞察需求 → 拼多多/抖音找现货 → 零售价当采购成本算回款比
+  → 买50个发FBA验证 → 跑通后找源头工厂</div>
+  <p><strong>核心公式</strong>：现成方案 × 低成本试错 × 中国内卷供应链 × 亚马逊市场洞察 = 渠道套利</p>
+
+  <h4>定价策略与Bundle防守</h4>
+  <ul>
+    <li><strong>一图一价</strong>：不要半价冲量——会触发Cosmos低端受众标签</li>
+    <li><strong>Bundle策略</strong>：多店铺多链接→配件捆绑→守住利润</li>
+  </ul>
+
+  <h4>内容飞轮——以战养战</h4>
+  <div class="code-block">低成本测款 → 意图收割 → 利润溢价 → 内容投资
+  → 站外种草 → 站内搜索量增长 → 算法倾斜 → 免费流量 → 更多利润</div>
+
+  <h3 id="part6-2">6.2 破局增长——迈向扩张</h3>
+
+  <h4>品牌的三音节规则</h4>
+  <p><strong>品牌最终目的：复购。</strong> 不超过三个音节，易传播易记住。</p>
+
+  <h4>Comfort卫衣案例——情绪价值</h4>
+  <p><strong>定位</strong>：不是卖卫衣，而是卖"缓解焦虑的拥抱"</p>
+  <p><strong>传统卖法</strong>："400克全棉材质，拉链顺滑，限时8折"</p>
+  <p><strong>情绪卖法</strong>："当你感到社恐、焦虑到喘不过气时，穿上它就像被紧紧拥抱一样有安全感"</p>
+  <div class="info-box tip"><strong>文案检验标准</strong>：闭上眼睛只听文案——能否想象出画面。能想出来就是好文案。</div>
+
+  <h4>蚂蚁雄兵——5000个签约达人模式</h4>
+  <p><strong>签约条件</strong>：每天发1条视频，连续30天，保底1000美金+10%佣金</p>
+  <p><strong>规模效应</strong>：Comfort早期签约500达人→目前超过30万合作者→固定5000个达人→新品上市→5000达人每人拍一条→每天5000条内容打底</p>
+
+  <h4>关键词三分法（视频广告专用）</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>词类</th><th>示例</th><th>投放策略</th></tr>
+      <tr><td>核心情绪词</td><td>焦虑卫衣、重力卫衣</td><td>单一大词，打Top of Search</td></tr>
+      <tr><td>物理属性辅助词</td><td>oversize、厚实</td><td>打Rest of Search</td></tr>
+      <tr><td>场景/问题词</td><td>panic attack gifts</td><td>捡漏打法</td></tr>
+    </table>
+  </div>
+
+  <h4>评论区运营与私域</h4>
+  <ul>
+    <li>有人情味的回复（AI设定品牌调性）</li>
+    <li>小号矩阵互动引导进入私域</li>
+    <li>50万播放量→约收300个邮箱</li>
+  </ul>
+
+  <h3 id="part6-3">6.3 构建终极壁垒</h3>
+
+  <h4>AI时代的团队变革——三大机器人架构</h4>
+  <div class="card-grid">
+    <div class="card"><h4>🔍 情报机器人</h4><p>发现问题，按CTR/转化率扫描链接</p></div>
+    <div class="card"><h4>📋 日志机器人</h4><p>收集操作痕迹</p></div>
+    <div class="card"><h4>📊 复盘机器人</h4><p>基于日志+数据自动生成复盘报告</p></div>
+  </div>
+
+  <h4>运营优先级体系</h4>
+  <p><strong>开源&gt;节流</strong>：爆款掉量 &gt; 备货补货 &gt; 广告超标</p>
+
+  <h4>七大中心体系</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>中心</th><th>核心职能</th></tr>
+      <tr><td>产品中心</td><td>算法驱动项目孵化，三个梯队（爆款/复购/创新）</td></tr>
+      <tr><td>供应链中心</td><td>从买卖到数字化管理，三库联动（工厂/物流/销售）</td></tr>
+      <tr><td>营销中心</td><td>流量是被内容勾出来的，全域投放</td></tr>
+      <tr><td>客户中心</td><td>AI看差评→输出给产品/设计/营销</td></tr>
+      <tr><td>私域与达人</td><td>粉丝群→产品迭代→一呼百应</td></tr>
+      <tr><td>人力中心</td><td>深圳高薪核心+长沙/西安/成都兼职</td></tr>
+      <tr><td>知识中心</td><td><strong>AI时代最重要基建</strong>，3-7天克隆骨干能力</td></tr>
+    </table>
+  </div>
+
+  <h4>不同阶段的核心重点</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>阶段</th><th>利润</th><th>精力分配</th></tr>
+      <tr><td>0到1</td><td>&lt;100万/月</td><td>选品70%+差异化20%+站内10%</td></tr>
+      <tr><td>1到10</td><td>100-1000万/月</td><td>20%学习+70%执行+10%创新</td></tr>
+      <tr><td>10到100</td><td>&gt;1000万/月</td><td>七大中心全面建设</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第七部分：独立站系列 -->
+<!-- ========================================================== -->
+<div class="section" id="part7">
+  <h2>📌 第七部分：独立站系列</h2>
+  <p><strong>主讲人</strong>：令 ｜ 品牌感打造 + EDM营销体系</p>
+
+  <h3 id="part7-1">7.1 独立站品牌感打造</h3>
+
+  <h4>品牌感定义与三件套</h4>
+  <p><strong>品牌 = 用户脑海里的印象和感觉</strong></p>
+  <ol>
+    <li>明确品牌定位（我是谁、卖给谁、核心情绪）</li>
+    <li>降低选择成本</li>
+    <li>建立信任</li>
+  </ol>
+
+  <h4>品牌表达四要素</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>要素</th><th>核心原则</th></tr>
+      <tr><td>品牌命名</td><td>可读性/可记忆性/有情绪空间，勿用纯产品词</td></tr>
+      <tr><td>品牌故事</td><td>创始人视角+用户视角+产品视角</td></tr>
+      <tr><td>语言系统</td><td>潜意识语言标签，全触点统一</td></tr>
+      <tr><td>Slogan</td><td>一句话品牌理念，简单好记含情绪</td></tr>
+    </table>
+  </div>
+
+  <h4>品牌设计四要素</h4>
+  <p>Logo（纯文字/图形/图文）→ 品牌色（低饱和度优先）→ 品牌字体（Heading/Body/Highlight）→ 风格一致性</p>
+
+  <h4>转化信任系统</h4>
+  <p>服务政策 + FAQ + 评论/UGC + 付款方式 + KOL背书</p>
+
+  <h4>用户决策漏斗内容策略</h4>
+  <div class="code-block">认知（热门话题）→ 兴趣（使用场景）→ 信任（品牌介绍）
+  → 转化（对比表/优惠）→ 复购（幕后/创始人日常）</div>
+
+  <h4>AI赋能品牌搭建</h4>
+  <ul>
+    <li>AI辅助起名（ChatGPT较优）</li>
+    <li>AI Logo生成（Looka/Recraft/Canva）</li>
+    <li>AI模特统一形象（保持皮肤纹理和不完美）</li>
+    <li><strong>品牌说明书</strong>：含品牌名/定位/理念/情绪/Slogan/视觉系统/AI规则</li>
+  </ul>
+
+  <h3 id="part7-2">7.2 EDM营销（上）——基础框架</h3>
+
+  <h4>EDM的本质定位</h4>
+  <p><strong>EDM = 流量消化器</strong>。不产生新流量，但最大化现有流量的价值。</p>
+  <div class="code-block">上层（广告/社媒/SEO/网红）→ 中层（网站承接）→ 底层（EDM转化+复购）</div>
+
+  <h4>用户分层逻辑</h4>
+  <p><strong>分层公式</strong>：用户行为（订阅/浏览/加购/购买）+ 时间间隔（30天/60天/90天）= 用户层级</p>
+
+  <h4>Klaviyo五大板块</h4>
+  <p>Signup Forms（收集）→ List（用户池）→ Segment（分层）→ Flow（自动运行）+ Campaign（人工发送）→ Content（内容）</p>
+
+  <h4>弹框策略</h4>
+  <p><strong>触发时机</strong>：时间触发（5-10秒）/ 浏览深度30-50% / 跳出意图</p>
+  <p><strong>价值交换</strong>：折扣型/内容型/测试型/社群VIP型</p>
+
+  <h3 id="part7-3">7.3 EDM营销（下）——实战与AI赋能</h3>
+
+  <h4>Flow四大构成要素</h4>
+  <p>Trigger（触发行为）→ Delay（时间策略）→ Content（内容递进）→ Conditional Split（条件拆分）</p>
+  <p><strong>五大核心Flow</strong>：Welcome Flow → Browse Abandon → Add to Cart → Post Purchase → Win-back</p>
+
+  <h4>四大用户分层模型</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>层级</th><th>特征</th><th>发送频次</th></tr>
+      <tr><td>Hot</td><td>已购买+高互动</td><td>每5-10天1次</td></tr>
+      <tr><td>Warm</td><td>感兴趣未购买+30天互动</td><td>每周2-3次</td></tr>
+      <tr><td>Cooling</td><td>31-60天前互动</td><td>每周1次</td></tr>
+      <tr><td>Cold</td><td>90天未互动</td><td>低频次</td></tr>
+    </table>
+  </div>
+
+  <h4>AI在EDM中的实战应用</h4>
+  <ol>
+    <li>AI创建Segment/List/Flow（Klaviyo API授权）</li>
+    <li>AI自动拉取数据和分析（写入Google Sheet+生成报告）</li>
+    <li>AI生成EDM内容（建Project→喂品牌说明书+标题范例+内容模板）</li>
+    <li>工具：Claude + Klaviyo Connector / Codex</li>
+  </ol>
+
+  <h4>数据分析与优化路径</h4>
+  <div class="code-block">打开率低→查标题/时间/质量 → 打开高点击低→查内容/CTA → 点击高转化低→查落地页/折扣</div>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第八部分：TikTok快闪系列 -->
+<!-- ========================================================== -->
+<div class="section" id="part8">
+  <h2>📌 第八部分：TikTok快闪系列</h2>
+  <p><strong>活动</strong>：优联荟TikTok快闪聊天室 ｜ <strong>日期</strong>：2026年6月26日｜ 三大主题</p>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 850 200" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 170,80 H 220 V 30 H 260" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <path d="M 170,80 H 220 V 80 H 260" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <path d="M 170,80 H 220 V 130 H 260" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <path d="M 170,80 H 220 V 170 H 260" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <rect x="20" y="58" width="150" height="44" rx="10" fill="#7FB069"/>
+      <text x="95" y="86" text-anchor="middle" fill="#fff" font-size="15" font-weight="700">TikTok快闪系列</text>
+      <rect x="260" y="12" width="140" height="34" rx="6" fill="#e8f4e8" stroke="#7FB069"/>
+      <text x="330" y="34" text-anchor="middle" fill="#2d6e3a" font-size="13" font-weight="600">AI与电商结合（杨永）</text>
+      <rect x="260" y="62" width="140" height="34" rx="6" fill="#e8f4e8" stroke="#7FB069"/>
+      <text x="330" y="84" text-anchor="middle" fill="#2d6e3a" font-size="13" font-weight="600">站外引流SNS（君泽）</text>
+      <rect x="260" y="114" width="140" height="34" rx="6" fill="#e8f4e8" stroke="#7FB069"/>
+      <text x="330" y="136" text-anchor="middle" fill="#2d6e3a" font-size="13" font-weight="600">网红营销实战（Daisy）</text>
+    </svg>
+  </div>
+
+  <h3 id="part8-1">8.1 嘉宾1——杨永：AI与电商结合</h3>
+
+  <h4>AI=第二大脑，三大核心能力</h4>
+  <p>分析 → 创造/模仿 → 预测</p>
+
+  <h4>五大AI生产力形式</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>形式</th><th>工具</th><th>应用</th></tr>
+      <tr><td>文本</td><td>ChatGPT/Claude</td><td>开发信、Listing、Hashtag</td></tr>
+      <tr><td>图片</td><td>Midjourney/Stable Diffusion</td><td>场景图、背景替换</td></tr>
+      <tr><td>语音</td><td>GPT-SoVITS</td><td>配音、声音克隆</td></tr>
+      <tr><td>视频</td><td>混剪模板+素材库</td><td>日产100+视频</td></tr>
+      <tr><td>直播/数字人</td><td>DeepFaceLab/硅基智能</td><td>换脸直播、口播带货</td></tr>
+    </table>
+  </div>
+
+  <h4>混剪方法论</h4>
+  <ol>
+    <li><strong>建立素材库</strong>（背景/前景/主画面/人物）</li>
+    <li><strong>制作剪辑模板</strong>（固定结构）</li>
+    <li><strong>批量替换</strong>（每个素材文件夹准备好去重素材）</li>
+    <li><strong>快速导出</strong>（日产100+视频）</li>
+  </ol>
+
+  <h4>AI工具选型原则</h4>
+  <p><strong>商业成熟方案 &gt; 海外AI工具 &gt; 国内AI工具</strong></p>
+  <div class="info-box tip"><strong>核心提醒</strong>：务必用AI直接写目标语言，切勿中文写后再翻译。</div>
+
+  <h3 id="part8-2">8.2 嘉宾2——君泽：站外引流SNS策略</h3>
+
+  <h4>SNS四大核心功能</h4>
+  <p>社交网络 + 社交互动 + 个性化 + 聊天工具</p>
+
+  <h4>平台特性对比</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>平台</th><th>适合品类</th><th>用户特点</th></tr>
+      <tr><td>Instagram</td><td>女性产品</td><td>25-45岁，北美，消费力强</td></tr>
+      <tr><td>Pinterest</td><td>视觉类产品</td><td>女性为主，长尾效应</td></tr>
+      <tr><td>Facebook</td><td>各类目</td><td>群组功能强大</td></tr>
+      <tr><td>TikTok</td><td>各类目</td><td>年轻化，商业化加速</td></tr>
+      <tr><td>YouTube</td><td>需展示的产品</td><td>长视频SEO</td></tr>
+    </table>
+  </div>
+
+  <h4>账号矩阵策略</h4>
+  <p><strong>三阶段</strong>：前期试错 → 中期赛马 → 后期批量</p>
+  <p><strong>起步建议</strong>：至少两部手机同时起两个号</p>
+
+  <h4>短链接与追踪系统</h4>
+  <p>使用Bit.ly生成短链接+Google Analytics追踪各渠道转化效果。</p>
+
+  <h3 id="part8-3">8.3 嘉宾3——Daisy：网红营销实战</h3>
+
+  <h4>YouTube查找网红的三种方法</h4>
+  <ol>
+    <li>首页推荐（算法匹配）</li>
+    <li>关键词搜索（过滤条件精筛）</li>
+    <li>通过频道找频道（交叉发现同类网红）</li>
+  </ol>
+
+  <h4>Instagram四大方法</h4>
+  <ol>
+    <li>首页推荐</li>
+    <li>关键词搜索</li>
+    <li><strong>商家Tag法</strong>：找竞争对手Tag的合作网红</li>
+    <li>关注关系延伸</li>
+  </ol>
+
+  <h4>小网红vs大网红策略</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>类型</th><th>策略</th></tr>
+      <tr><td>小网红</td><td>免费为主+激励制度+留评+出视频</td></tr>
+      <tr><td>大网红</td><td>Giveaway活动+大额优惠券+长期签约</td></tr>
+    </table>
+  </div>
+
+  <h4>网红风控机制</h4>
+  <ul>
+    <li><strong>大网红主动上门 = 默认诈骗</strong></li>
+    <li>核对邮箱一致性</li>
+    <li>付款前收Unlisted Link</li>
+    <li>建立黑网红库</li>
+  </ul>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第九部分：专题9——TikTok网红营销 -->
+<!-- ========================================================== -->
+<div class="section" id="part9">
+  <h2>📌 第九部分：专题9——TikTok网红营销</h2>
+  <p>共3节课：自动化批量开发 → 自动化沟通跟进 → 爆款Brief与SEO</p>
+
+  <h3 id="part9-1">9.1 第1节——自动化批量开发与抓取</h3>
+
+  <h4>生活轨迹倒推法找词</h4>
+  <p>不要只盯着产品关键词，而是从"衣食住行用乐"倒推目标用户真实生活轨迹。</p>
+  <div class="table-wrap">
+    <table>
+      <tr><th>维度</th><th>覆盖人群</th></tr>
+      <tr><td>衣</td><td>按品牌/价格/场景区分消费水平</td></tr>
+      <tr><td>食</td><td>Walmart vs 有机超市→消费层级</td></tr>
+      <tr><td>住</td><td>宿舍妙招 vs NYC apartment→经济水平</td></tr>
+      <tr><td>行</td><td>滑雪 vs 乡村俱乐部→兴趣圈层</td></tr>
+      <tr><td>用</td><td>Drug store vs 大牌→价格接受度</td></tr>
+      <tr><td>乐</td><td>Coachella/Taylor Swift→娱乐消费力</td></tr>
+    </table>
+  </div>
+
+  <h4>AI辅助扩词与验证流程</h4>
+  <p>AI推荐关键词→肉眼在TikTok验证→确认博主画像匹配→入库→持续优化</p>
+
+  <h4>N8N自动化抓取（两个独立Flow）</h4>
+  <p><strong>Flow 1：网红基础信息抓取</strong></p>
+  <div class="code-block">定时触发→读取关键词→调用Apify TikTok爬虫→数据清洗（排除词/粉丝量过滤）→查重→AI标签→分批写入</div>
+  <p><strong>Flow 2：网红邮箱深度抓取</strong></p>
+  <div class="code-block">读取网红库（邮箱为空）→初步筛选→打包ID→调取邮箱爬虫→提取邮箱→更新入库</div>
+  <p><strong>成本</strong>：每月约$20-$40</p>
+
+  <h4>数据库表结构</h4>
+  <p>Keyword / Status（Pending/Processing/Done）/ Created At / Notes / Frequency</p>
+
+  <h3 id="part9-2">9.2 第2节——自动化沟通与跟进</h3>
+
+  <h4>防垃圾邮件策略</h4>
+  <ul>
+    <li>三邮箱轮询</li>
+    <li>拟人化发送间隔（每批后等待3-5分钟随机）</li>
+    <li>每天约70封</li>
+  </ul>
+
+  <h4>开发信策略</h4>
+  <p><strong>标题要点</strong>：明确来意（Collaboration/Sponsorship）+ 含网红昵称 + 提付费</p>
+  <p><strong>正文要点</strong>：不卑不亢 + 简明扼要 + 说明为何找到TA + 留话口</p>
+
+  <h4>自动化回复工作流</h4>
+  <div class="code-block">监听收件箱 → 排除无效邮件 → 提取Thread上下文 → 数据库寻人
+  → AI分类匹配SOP → 生成回复草稿（人工审核）→ SOP Gap补充</div>
+
+  <h4>合作沟通全流程SOP</h4>
+  <div class="code-block">网红回复 → 报价 → 讲价 → 确认合作 → 签合同
+  → 发货 → 视频拍摄 → 审核 → 发布 → 付款</div>
+
+  <h3 id="part9-3">9.3 第3节——爆款Brief与TikTok SEO</h3>
+
+  <h4>视频结构框架（停定要信买）</h4>
+  <p><strong>停（痛）→ 定（锁定问题）→ 要（产品作为解决方案）→ 信（信任背书）→ 买（CTA）</strong></p>
+
+  <h4>TikTok搜索排名逻辑（从高到低）</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>权重</th><th>因素</th></tr>
+      <tr><td>1（最重要）</td><td>口播（Voiceover）——语音转写建立索引</td></tr>
+      <tr><td>2</td><td>开头字幕（前3-5秒文字）</td></tr>
+      <tr><td>3</td><td>Caption（文案）</td></tr>
+      <tr><td>4</td><td>Hashtag（限5个，影响力最低）</td></tr>
+    </table>
+  </div>
+
+  <h4>关键词策略</h4>
+  <ul>
+    <li>数据一般的网红：长尾精准词（竞争小、转化高）</li>
+    <li>数据高的网红（100K+）：品类大词（量大曝光广）</li>
+  </ul>
+
+  <h4>素材再利用方式</h4>
+  <p>二次剪辑→不同平台分发→EDM图文转化→品牌社媒发布→UGC纯素材合作</p>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第十部分：品牌广告与DSP -->
+<!-- ========================================================== -->
+<div class="section" id="part10">
+  <h2>📌 第十部分：品牌广告与DSP</h2>
+  <p><strong>适用对象</strong>：日均广告费5000-8000美金以上或年GMV过亿的卖家</p>
+
+  <h3 id="part10-1">10.1 第1节——品牌广告工具矩阵与DSP协同</h3>
+
+  <h4>DSP的本质认知</h4>
+  <p>DSP = 品牌种草工具，不是短期出单工具。底层逻辑：<strong>搞流量 + 做转化</strong>两个动作。</p>
+
+  <h4>广告归因模型（五种）</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>模型</th><th>核心思想</th><th>适用场景</th></tr>
+      <tr><td>首次触达</td><td>归因第一个互动</td><td>品牌拉新评估</td></tr>
+      <tr><td>最后触达</td><td>归因最后一个互动</td><td>短期ROI评估</td></tr>
+      <tr><td>线性归因</td><td>平均分配给所有触点</td><td>长期品牌建设</td></tr>
+      <tr><td>U型归因</td><td>首尾40%+中间20%</td><td>全链路精细化</td></tr>
+      <tr><td>马尔可夫链条</td><td>状态转移路径分析</td><td>各环节流失率</td></tr>
+    </table>
+  </div>
+
+  <h4>AMC（亚马逊营销云）</h4>
+  <p>核心功能：Use Case（38个预建模板）→ Query Editor（SQL）→ Project → Audience → Paid Features</p>
+  <p><strong>四层用户路径模型</strong>：曝光（触达层）→ 浏览（兴趣层）→ 加购（考虑层）→ 转化/复购</p>
+
+  <h4>五大广告单元</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>类型</th><th>侧重</th></tr>
+      <tr><td>SP商品广告</td><td>精准搜索、即时转化</td></tr>
+      <tr><td>SB品牌广告</td><td>品牌曝光、商品集</td></tr>
+      <tr><td>SBV品牌视频广告</td><td>视频触达（完播率是关键）</td></tr>
+      <tr><td>品牌店</td><td>承接转化场域</td></tr>
+      <tr><td>DSP</td><td>站外拉新种草</td></tr>
+    </table>
+  </div>
+
+  <h4>品牌光环效应（Brand Halo Effect）</h4>
+  <p>DSP增强品牌联想→提升搜索量→提升SP/SD转化率</p>
+
+  <h3 id="part10-2">10.2 第2节——DSP广告策略与流量闭环</h3>
+
+  <h4>DSP的深层角色</h4>
+  <p><strong>三大作用</strong>：制造需求（凭空创造）→ 放大需求（扩大影响）→ 召回流失需求（再营销）</p>
+
+  <div class="table-wrap">
+    <table>
+      <tr><th>维度</th><th>搜索广告</th><th>DSP</th></tr>
+      <tr><td>核心任务</td><td>承接需求，即时成交</td><td>制造/放大/召回需求</td></tr>
+      <tr><td>漏斗位置</td><td>中下层</td><td>上层</td></tr>
+      <tr><td>用户状态</td><td>有明确意图</td><td>潜在/泛兴趣/流失人群</td></tr>
+      <tr><td>媒体触点</td><td>站内</td><td>站外（Prime Video/Fire TV/第三方APP）</td></tr>
+    </table>
+  </div>
+
+  <h4>三层预算池模型</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>层级</th><th>目的</th><th>人群</th><th>评估指标</th></tr>
+      <tr><td>坚持层</td><td>扩量、抢注意力</td><td>兴趣/相似/上下文</td><td>Reach、CTR、品牌搜索增长</td></tr>
+      <tr><td>筛选层</td><td>过滤低质流量</td><td>行为/浏览/竞品</td><td>PDP访问率、加购率</td></tr>
+      <tr><td>收割层</td><td>收口、出转化</td><td>未购/加购未购</td><td>CVR、ROAS、CPA</td></tr>
+    </table>
+  </div>
+
+  <h4>预算迁移逻辑</h4>
+  <div class="code-block">坚持层有效 → 加大坚持层扩量
+  筛选层信号增强 → 追加行为层
+  收割层效率变差 → 回补坚持层
+  投产下滑但NTB上升 → 看新客质量和LTV</div>
+
+  <h4>三层受众结构</h4>
+  <ul>
+    <li><strong>扩量层</strong>：兴趣定向+相似人群+上下文定向 → 找潜客</li>
+    <li><strong>筛选层</strong>：行为定向+浏览类目+竞品 → 提纯</li>
+    <li><strong>收口层</strong>：加购未购+高意图用户 → 收割</li>
+  </ul>
+
+  <h4>四步诊断法</h4>
+  <ol>
+    <li><strong>跑不跑得动</strong>（曝光少→受众太窄/出价低）</li>
+    <li><strong>点不点得动</strong>（CTR低→创意弱/阶段不匹配）</li>
+    <li><strong>转不转得动</strong>（CVR低→承接断层/人群意图不高）</li>
+    <li><strong>赚不赚得到</strong>（CPA/NTB/LTV不达标→调整策略）</li>
+  </ol>
+
+  <h4>反常识提醒</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>常识</th><th>实际情况</th></tr>
+      <tr><td>ROI高=DSP做得好</td><td>可能只是截获本来就会买的人</td></tr>
+      <tr><td>曝光多=蓄水有效</td><td>关键看高意图池子是否变大</td></tr>
+      <tr><td>定向越精准越好</td><td>太窄会跑不动</td></tr>
+    </table>
+  </div>
+
+  <h4>增量实验与归因验证</h4>
+  <p><strong>三层归因框架</strong>：</p>
+  <ol>
+    <li>第一层：最后一次触达（日常快速看数据）</li>
+    <li>第二层：多点归因AMC（路径协同分析）</li>
+    <li>第三层：增量实验（验证真实贡献）</li>
+  </ol>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第十一部分：跨课程知识图谱 -->
+<!-- ========================================================== -->
+<div class="section" id="part11">
+  <h2>📌 第十一部分：跨课程知识图谱</h2>
+
+  <h3>核心概念关系图</h3>
+  <div class="svg-container">
+    <svg viewBox="0 0 1000 460" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <!-- Cosmos算法居中 -->
+      <rect x="380" y="10" width="200" height="44" rx="10" fill="#4A90A4"/>
+      <text x="480" y="38" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">🧠 Cosmos算法（意图匹配）</text>
+      <rect x="340" y="58" width="280" height="24" rx="6" fill="#e8f4f8" stroke="#9bbcd0"/>
+      <text x="480" y="74" text-anchor="middle" fill="#3a7a84" font-size="12">2026第一讲 + 专题5-1 最详尽</text>
+
+      <!-- 从Cosmos出发-->
+      <path d="M 480,96 V 130 H 170 V 150" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 480,96 V 130 H 480 V 150" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 480,96 V 130 H 790 V 150" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+
+      <!-- 四个分支 -->
+      <rect x="40" y="150" width="260" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="170" y="176" text-anchor="middle" fill="#2c6e7a" font-size="14" font-weight="600">🎨 15标签营销体系</text>
+      <path d="M 170,194 V 220 H 170 V 240" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="40" y="240" width="260" height="40" rx="8" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="170" y="265" text-anchor="middle" fill="#3a7a84" font-size="13">📱 内容飞轮体系</text>
+
+      <rect x="350" y="150" width="260" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="480" y="176" text-anchor="middle" fill="#2c6e7a" font-size="14" font-weight="600">🎯 属性词广告策略</text>
+      <path d="M 480,194 V 220 H 480 V 240" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="350" y="240" width="260" height="40" rx="8" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="480" y="265" text-anchor="middle" fill="#3a7a84" font-size="13">🏷️ 品牌广告矩阵（专题10）</text>
+
+      <rect x="680" y="150" width="280" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="820" y="176" text-anchor="middle" fill="#2c6e7a" font-size="14" font-weight="600">💬 VOC/Refers洞察</text>
+      <path d="M 820,194 V 220 H 820 V 240" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <rect x="680" y="240" width="280" height="40" rx="8" fill="#f0f8fa" stroke="#9bbcd0"/>
+      <text x="820" y="265" text-anchor="middle" fill="#3a7a84" font-size="13">🤖 AI自动化工作流</text>
+
+      <!-- 汇聚 -->
+      <path d="M 170,280 V 350 H 480 V 370" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 480,280 V 370" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+      <path d="M 820,280 V 350 H 480" stroke="#9bbcd0" stroke-width="1.5" fill="none"/>
+
+      <rect x="340" y="370" width="280" height="44" rx="10" fill="#E8A87C"/>
+      <text x="480" y="398" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">🏢 小团队增长终极壁垒</text>
+      <rect x="320" y="420" width="320" height="28" rx="6" fill="#fdeee8" stroke="#E8A87C"/>
+      <text x="480" y="439" text-anchor="middle" fill="#8a5a3a" font-size="12">七大中心 + 知识中心 = AI时代最重要基建</text>
+    </svg>
+  </div>
+
+  <h3>四条核心学习链路</h3>
+  <div class="card-grid">
+    <div class="card"><h4>📦 链路一：选品→爆品</h4><p>从0到1选品 → 产品开发调研 → 运营全流程推广 → 数据化运营优化 → 品牌化扩张</p></div>
+    <div class="card"><h4>🤖 链路二：AI赋能全链路</h4><p>N8N基础 → AI竞品分析 → Listing工作流 → AI制图 → AI短视频 → AI知识库</p></div>
+    <div class="card"><h4>📱 链路三：兴趣电商×亚马逊</h4><p>Cosmos+15标签 → 属性词广告 → 内容飞轮 → 流量选品 → 网红营销自动化</p></div>
+    <div class="card"><h4>🏢 链路四：品牌体系</h4><p>独立站品牌感 → EDM转化 → 品牌广告DSP → 蚂蚁雄兵达人</p></div>
+  </div>
+
+  <h3>学习阶段递进关系</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>学习阶段</th><th>涉及系列</th><th>核心能力</th></tr>
+      <tr><td>🎯 基础入门</td><td>专题开营→第一章→第二章</td><td>平台认知+基础运营</td></tr>
+      <tr><td>⚡ AI提效</td><td>第三章→AI自动化→N8N</td><td>AI工具应用能力</td></tr>
+      <tr><td>🧠 认知升级</td><td>2026系列（Sam.S）</td><td>算法理解+策略思维</td></tr>
+      <tr><td>📊 深度运营</td><td>专题5（贝拉）</td><td>数据化+系统化运营</td></tr>
+      <tr><td>🏛️ 品牌构建</td><td>独立站→品牌广告→DSP</td><td>品牌打造能力</td></tr>
+      <tr><td>🚀 增长扩张</td><td>小团队增长系列</td><td>团队+体系化能力</td></tr>
+      <tr><td>🌐 兴趣电商</td><td>TikTok快闪→专题九</td><td>站外+网红能力</td></tr>
+    </table>
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- 第十二部分：终极系统性总结 -->
+<!-- ========================================================== -->
+<div class="section" id="part12">
+  <h2>📌 第十二部分：终极系统性总结</h2>
+
+  <h3>一、全部课程的核心知识体系</h3>
+
+  <div class="svg-container">
+    <svg viewBox="0 0 1000 380" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <!-- 根 -->
+      <rect x="20" y="160" width="180" height="44" rx="10" fill="#4A90A4"/>
+      <text x="110" y="188" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">知识体系总览</text>
+      <!-- 连接第一层 -->
+      <path d="M 200,182 H 260 V 40 H 300" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 200,182 H 260 V 120 H 300" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 200,182 H 260 V 200 H 300" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 200,182 H 260 V 280 H 300" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 200,182 H 260 V 340 H 300" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <!-- 第一层 -->
+      <rect x="300" y="18" width="220" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="410" y="41" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">🏛️ 底层认知：三驾马车</text>
+      <text x="410" y="56" text-anchor="middle" fill="#4a7a82" font-size="11">Cosmos · AI加速器 · 回款比</text>
+
+      <rect x="300" y="98" width="220" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="410" y="121" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">📐 运营体系：四大支柱</text>
+      <text x="410" y="136" text-anchor="middle" fill="#4a7a82" font-size="11">选品 · 流量 · 内容 · 品牌</text>
+
+      <rect x="300" y="178" width="220" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="410" y="201" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">🗂️ 管理体系：纵贯线</text>
+      <text x="410" y="216" text-anchor="middle" fill="#4a7a82" font-size="11">SOP · 自动化 · 团队 · 知识</text>
+
+      <rect x="300" y="258" width="220" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="410" y="281" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">📈 增长引擎：内容飞轮</text>
+      <text x="410" y="296" text-anchor="middle" fill="#4a7a82" font-size="11">测款→收割→内容→免费流量</text>
+
+      <rect x="300" y="325" width="220" height="44" rx="8" fill="#e8f4f8" stroke="#4A90A4"/>
+      <text x="410" y="348" text-anchor="middle" fill="#2c6e7a" font-size="13" font-weight="600">🛡️ 终极壁垒：七大中心</text>
+      <text x="410" y="363" text-anchor="middle" fill="#4a7a82" font-size="11">产品·供应链·营销·客户·私域·人力·知识</text>
+    </svg>
+  </div>
+
+  <h4>第一层：底层认知（三驾马车）</h4>
+  <div class="card-grid">
+    <div class="card"><h4>🧠 Cosmos算法</h4><p>2026年一切运营的核心：从关键词匹配到用户意图匹配的范式转移，影响搜索、广告、推荐、产品开发每一个环节。最有深度的讲解在专题5-1和2026第一讲。</p></div>
+    <div class="card"><h4>🤖 AI加速器</h4><p>从N8N自动化工作流到AI内容生成（制图/短视频/知识库），AI正在重构整个跨境电商的作业方式。核心认知来自AI自动化竞品分析和第三章。</p></div>
+    <div class="card"><h4>💰 回流款比</h4><p>经济下行周期，现金流比毛利率更重要。核心内容来自小团队从0到1，死死盯住回款比是生死线。</p></div>
+  </div>
+
+  <h4>第二层：运营体系（四大支柱）</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>支柱</th><th>传统框架</th><th>数据驱动</th><th>AI时代创新</th></tr>
+      <tr><td>选品与产品开发</td><td>第一章：11种选品法/15板块调研</td><td>专题5-2：谷歌五层分析/需求金字塔</td><td>小团队从0到1：拼多多套利/铺精准需求</td></tr>
+      <tr><td>流量获取</td><td>站内关键词+关联流量</td><td>专题5-1：4大流量支柱</td><td>SNS矩阵/网红系统化/DSP种草</td></tr>
+      <tr><td>内容营销</td><td>Listing图片排列逻辑</td><td>15标签视觉体系</td><td>停病药信买公式/10素材库</td></tr>
+      <tr><td>品牌建设</td><td>独立站品牌感打造</td><td>EDM用户分层体系</td><td>蚂蚁雄兵达人/情绪价值定位</td></tr>
+    </table>
+  </div>
+
+  <h3>二、最重要的一组公式</h3>
+  <div class="card-grid">
+    <div class="card"><h4>📊 广告公式</h4><p>属性词分组 → 漏斗分层 → AI提效</p></div>
+    <div class="card"><h4>🎬 短视频公式</h4><p>停-病-药-信-买（痛苦驱动）/ 要-停-病-药-信（快乐驱动）</p></div>
+    <div class="card"><h4>📈 增长公式</h4><p>测款→收割→利润→内容→种草→搜索→免费流量→更多利润</p></div>
+    <div class="card"><h4>🤖 AI公式</h4><p>大模型 + 精准数据 = 博士级能力</p></div>
+    <div class="card"><h4>🏷️ 品牌公式</h4><p>表达 + 设计 + 全触点统一 + 信任系统 + 漏斗内容</p></div>
+  </div>
+
+  <h3>三、按角色推荐学习路径</h3>
+
+  <div class="info-box"><strong>🆕 亚马逊新手卖家</strong></div>
+  <div class="code-block">专题开营 → 第一章：产品开发 → 第二章：运营全流程
+  → 第三章：AI应用 → 专题5全部（系统性最强）
+  → Sam.S广告直播 → 2026第一讲/第三讲</div>
+
+  <div class="info-box"><strong>🚀 成长型卖家（有基础需突破）</strong></div>
+  <div class="code-block">2026系列三讲 → 专题5全部 → Sam.S广告
+  → AI自动化竞品分析 → N8N工作流 → AI短视频带货
+  → 小团队增长系列全部</div>
+
+  <div class="info-box"><strong>🏢 品牌型卖家（需构建壁垒）</strong></div>
+  <div class="code-block">独立站品牌感打造 → EDM上下 → 专题10品牌广告+DSP
+  → 小团队破局增长 → 终极壁垒七大中心
+  → AI知识库搭建（最终整合）</div>
+
+  <div class="info-box"><strong>🌐 内容型卖家（TK方向）</strong></div>
+  <div class="code-block">TikTok快闪全部 → 2026第三讲 → AI短视频带货
+  → 专题九全部（网红系统化）
+  → AI制图革命 → AI知识库搭建</div>
+
+  <h3>四、最佳学习节奏建议</h3>
+  <div class="steps">
+    <div class="step active">① 先听课</div>
+    <div class="step">② 边听边做笔记</div>
+    <div class="step">③ 实操验证</div>
+    <div class="step">④ 建立知识库</div>
+    <div class="step">⑤ 团队同步</div>
+    <div class="step">⑥ 持续迭代</div>
+  </div>
+  <ol>
+    <li><strong>先听课</strong>：按上述路径观看直播回放</li>
+    <li><strong>边听边做笔记</strong>：利用专题开营中介绍的作业体系，完成每期4个作业</li>
+    <li><strong>实操验证</strong>：每学完一个板块，在自己的店铺中落地至少一个具体动作</li>
+    <li><strong>建立知识库</strong>：边学边用NotebookLM或飞书建立个人知识库</li>
+    <li><strong>团队同步</strong>：利用Cloud to IM将能力复制到团队</li>
+    <li><strong>持续迭代</strong>：按照小团队从0到1→破局→终极壁垒的路径逐步升级</li>
+  </ol>
+
+  <div class="info-box" style="margin-top:24px;border-left-width:6px;background:#e8f4f8;">
+    <p style="font-size:17px;font-weight:700;margin-bottom:10px">🎯 终极总结</p>
+    <p>优联荟2026全系列课程的核心思想可以浓缩为一句话：</p>
+    <p style="font-size:19px;font-weight:700;color:#2c6e7a;text-align:center;margin:14px 0;line-height:1.4">
+      "在AI时代，跨境电商的竞争从'执行力'上升到'认知力+系统力'的竞争。"
+    </p>
+    <p>理解Cosmos算法（认知升级）、搭建AI自动化体系（效率革命）、构建品牌与内容飞轮（增长引擎）、建设七大中心（终极壁垒）——这四件事决定了未来三到五年跨境电商卖家的生存与增长。</p>
+    <p style="margin-top:10px">如Sam.S所说："成功路上并不拥挤——听了会做的没多少，会了要做好的没几个，做了能批量化、流程化的更少。"</p>
+    <p style="margin-top:10px;font-weight:700">共勉。</p>
+  </div>
+</div>
+
+</div><!-- end .container -->
+
+<div style="text-align:center;padding:30px 20px;color:#7a9aa4;font-size:13px;border-top:1px solid #e0eef0;margin-top:10px;">
+  <p>📚 优联荟2026全系列课程 · 完整学习文档</p>
+  <p style="margin-top:4px">整合32篇总结 · 涵盖12大专题 · 知识图谱支持双指放大 · 浅色阅读模式</p>
+  <p style="margin-top:4px">处理日期：2026年7月3日</p>
+</div>
+
+</body>
+</html>
