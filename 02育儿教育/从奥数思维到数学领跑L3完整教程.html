@@ -1,0 +1,3947 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="description" content="从奥数思维到数学领跑 L3（三年级）完整教程——12关、24篇、从小白到精通">
+<meta name="author" content="Professor Synapse 智囊团">
+<title>从奥数思维到数学领跑 L3 · 完整教程（小白到精通）</title>
+<style>
+/* ===== 浅色系基础配色 ===== */
+:root {
+  --bg-page: #fafbfc;
+  --bg-card: #ffffff;
+  --bg-soft: #f4f7fa;
+  --bg-highlight: #fff8e1;
+  --bg-formula: #eef5ff;
+  --bg-tip: #f0f9f4;
+  --bg-warn: #fff4e6;
+  --color-text: #2c3e50;
+  --color-soft: #5a6c7d;
+  --color-line: #e1e8ed;
+  --color-primary: #2563eb;
+  --color-accent: #d97706;
+  --color-success: #059669;
+  --color-danger: #dc2626;
+  --color-prev: #7c3aed;
+  --color-class: #2563eb;
+  --color-summary: #059669;
+  --shadow-soft: 0 2px 8px rgba(0,0,0,0.04);
+  --shadow-hover: 0 4px 16px rgba(0,0,0,0.08);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; font-size: 16px; }
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  background: var(--bg-page);
+  color: var(--color-text);
+  line-height: 1.8;
+  -webkit-text-size-adjust: 100%;
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* ===== 顶部封面 ===== */
+.cover {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: #fff;
+  padding: 60px 24px 40px;
+  text-align: center;
+  position: relative;
+}
+.cover h1 { font-size: 2rem; margin-bottom: 12px; letter-spacing: 2px; }
+.cover .sub { font-size: 1rem; opacity: 0.9; margin-bottom: 8px; }
+.cover .meta { font-size: 0.85rem; opacity: 0.8; }
+.cover .badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.2);
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin: 8px 4px;
+}
+
+@media (min-width: 768px) {
+  .cover { padding: 80px 24px 60px; }
+  .cover h1 { font-size: 2.6rem; }
+}
+
+/* ===== 容器 ===== */
+.container { max-width: 1100px; margin: 0 auto; padding: 0 16px; }
+
+/* ===== 浮动目录 ===== */
+.toc {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--color-line);
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  overflow-x: auto;
+  white-space: nowrap;
+}
+.toc a { color: var(--color-soft); margin-right: 12px; }
+.toc a:hover { color: var(--color-primary); }
+@media (min-width: 768px) { .toc { padding: 10px 24px; font-size: 0.9rem; } }
+
+/* ===== 章节 ===== */
+.chapter {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-soft);
+  margin: 24px 0;
+  padding: 24px 20px;
+  border-left: 5px solid var(--color-primary);
+}
+.chapter.prev { border-left-color: var(--color-prev); }
+.chapter.class { border-left-color: var(--color-class); }
+
+.chapter-header {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 2px dashed var(--color-line);
+}
+.chapter-tag {
+  display: inline-block;
+  background: var(--color-primary);
+  color: #fff;
+  padding: 3px 10px;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+.chapter.prev .chapter-tag { background: var(--color-prev); }
+.chapter.class .chapter-tag { background: var(--color-class); }
+
+.chapter h2 { font-size: 1.4rem; color: var(--color-text); flex: 1; min-width: 200px; }
+.chapter h3 { font-size: 1.15rem; color: var(--color-primary); margin: 20px 0 10px; padding-left: 10px; border-left: 4px solid var(--color-primary); }
+.chapter h4 { font-size: 1rem; color: var(--color-accent); margin: 14px 0 8px; }
+.chapter h5 { font-size: 0.95rem; color: var(--color-soft); margin: 10px 0 6px; }
+
+/* ===== 卡片化知识点 ===== */
+.point {
+  background: var(--bg-soft);
+  border-radius: var(--radius-sm);
+  padding: 12px 16px;
+  margin: 10px 0;
+  border-left: 3px solid var(--color-primary);
+}
+.point-title { font-weight: 600; color: var(--color-primary); margin-bottom: 6px; }
+.point.warning { background: var(--bg-warn); border-left-color: var(--color-accent); }
+.point.warning .point-title { color: var(--color-accent); }
+.point.tip { background: var(--bg-tip); border-left-color: var(--color-success); }
+.point.tip .point-title { color: var(--color-success); }
+.point.formula { background: var(--bg-formula); border-left-color: var(--color-primary); }
+.point.formula .point-title { color: var(--color-primary); }
+.point.highlight { background: var(--bg-highlight); border-left-color: var(--color-accent); }
+
+/* ===== 表格 ===== */
+table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 0.9rem; }
+th, td { border: 1px solid var(--color-line); padding: 8px 10px; text-align: left; }
+th { background: var(--bg-soft); color: var(--color-primary); font-weight: 600; }
+tr:nth-child(even) td { background: #fafbfc; }
+
+/* ===== 列表 ===== */
+ul, ol { margin: 8px 0 8px 20px; }
+li { margin: 4px 0; }
+ol.steps { counter-reset: step; list-style: none; padding-left: 0; }
+ol.steps > li {
+  counter-increment: step;
+  padding: 8px 12px 8px 38px;
+  position: relative;
+  margin: 6px 0;
+  background: var(--bg-soft);
+  border-radius: 6px;
+}
+ol.steps > li::before {
+  content: counter(step);
+  position: absolute;
+  left: 8px;
+  top: 8px;
+  background: var(--color-primary);
+  color: #fff;
+  width: 22px;
+  height: 22px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.8rem;
+  font-weight: 600;
+}
+
+/* ===== 代码 / 公式 ===== */
+.formula-block {
+  font-family: "Cambria Math", "Times New Roman", serif;
+  background: var(--bg-formula);
+  border: 1px solid #d0e1f5;
+  border-radius: 6px;
+  padding: 12px 16px;
+  margin: 10px 0;
+  font-size: 1.05rem;
+  color: #1e3a8a;
+  text-align: center;
+  letter-spacing: 0.5px;
+  overflow-x: auto;
+}
+
+code, .kbd {
+  font-family: "SF Mono", Consolas, Monaco, monospace;
+  background: #f1f3f5;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: #c7254e;
+}
+
+.answer {
+  display: inline-block;
+  background: var(--bg-highlight);
+  color: var(--color-accent);
+  padding: 4px 12px;
+  border-radius: 6px;
+  font-weight: 700;
+  border: 1px dashed var(--color-accent);
+}
+
+/* ===== 思维导图区域 ===== */
+.mindmap {
+  margin: 16px 0;
+  padding: 12px;
+  background: #fbfdff;
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-sm);
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  text-align: center;
+}
+.mindmap-title {
+  text-align: center;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 8px;
+  font-size: 0.95rem;
+}
+.mindmap svg { display: inline-block; max-width: none; }
+
+/* 允许 SVG 内部双指缩放 */
+.mindmap .zoomable {
+  transform-origin: left center;
+  transition: transform 0.2s;
+}
+
+/* ===== 段落 ===== */
+p { margin: 8px 0; }
+em { font-style: normal; color: var(--color-accent); font-weight: 600; }
+strong { color: var(--color-primary); }
+
+/* ===== 系统性总结块 ===== */
+.summary-box {
+  background: linear-gradient(135deg, #e3f2fd 0%, #f3e5f5 100%);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 20px 0;
+  border: 1px solid #c5cae9;
+}
+.summary-box h4 { color: #5e35b1; margin-top: 0; }
+
+/* ===== 易错点 ===== */
+.errbox {
+  background: #fff5f5;
+  border-left: 4px solid var(--color-danger);
+  border-radius: 6px;
+  padding: 10px 14px;
+  margin: 10px 0;
+}
+.errbox .err-title { color: var(--color-danger); font-weight: 600; }
+
+/* ===== 工具栏 ===== */
+.toolbar {
+  position: fixed;
+  right: 12px;
+  bottom: 12px;
+  z-index: 200;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.toolbar button {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: var(--color-primary);
+  color: #fff;
+  border: none;
+  font-size: 1.2rem;
+  box-shadow: var(--shadow-hover);
+  cursor: pointer;
+}
+.toolbar button:hover { background: #1d4ed8; }
+
+/* ===== 页脚 ===== */
+.footer {
+  text-align: center;
+  padding: 30px 20px;
+  color: var(--color-soft);
+  font-size: 0.85rem;
+  border-top: 1px solid var(--color-line);
+  margin-top: 40px;
+}
+
+/* ===== 移动端微调 ===== */
+@media (max-width: 600px) {
+  .chapter { padding: 16px 14px; }
+  .chapter h2 { font-size: 1.2rem; }
+  .chapter h3 { font-size: 1.05rem; }
+  table { font-size: 0.8rem; }
+  th, td { padding: 6px 8px; }
+  .cover h1 { font-size: 1.6rem; }
+  .point { padding: 10px 12px; }
+  .formula-block { font-size: 0.95rem; padding: 10px 12px; }
+  .mindmap { padding: 8px; }
+}
+
+/* 打印优化 */
+@media print {
+  .toc, .toolbar { display: none; }
+  .chapter { break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+}
+</style>
+</head>
+<body>
+
+<!-- ===== 顶部封面 ===== -->
+<div class="cover">
+  <div class="badge">L3 三年级</div>
+  <div class="badge">12 关 · 24 篇</div>
+  <div class="badge">小白→精通</div>
+  <h1>从奥数思维到数学领跑</h1>
+  <div class="sub">L3 完整教程 · 全景知识地图</div>
+  <div class="meta">由 Professor Synapse 智囊团 · 6 位虚拟专家联合打造</div>
+  <div class="meta" style="margin-top:12px;">📚 速算 · 几何 · 枚举 · 逻辑 · 数列 · 应用题 · 方阵 · 数阵图</div>
+</div>
+
+<!-- ===== 浮动目录 ===== -->
+<nav class="toc">
+  <a href="#overview">📖 总览</a>
+  <a href="#ch1">L3-1 速算</a>
+  <a href="#ch2">L3-2 周长</a>
+  <a href="#ch3">L3-3 枚举一</a>
+  <a href="#ch4">L3-4 枚举二</a>
+  <a href="#ch5">L3-5 逻辑</a>
+  <a href="#ch6">L3-6 数列</a>
+  <a href="#ch7">L3-7 和差倍</a>
+  <a href="#ch8">L3-8 鸡兔</a>
+  <a href="#ch9">L3-9 鸡兔进阶</a>
+  <a href="#ch10">L3-10 方阵一</a>
+  <a href="#ch11">L3-11 方阵二</a>
+  <a href="#ch12">L3-12 数阵图</a>
+  <a href="#graph">知识图谱</a>
+  <a href="#final">五大维度</a>
+</nav>
+
+<div class="container">
+
+<!-- ===== 课程总览 ===== -->
+<section id="overview" class="chapter">
+  <div class="chapter-header">
+    <span class="chapter-tag">总览</span>
+    <h2>课程概览：12 关全景图</h2>
+  </div>
+
+  <h3>📍 课程定位</h3>
+  <p><strong>《从奥数思维到数学领跑》L3（三年级第 3 级）</strong>是儿童从"课内数学"过渡到"奥数思维"的<strong>奠基阶段</strong>。本级课程以"概念辨析 + 思维训练 + 方法论归纳"为特色，<em>重点不是计算速度和题目难度，而是数学思维方式的建立</em>——识别、抽象、统一、对应、分类、组合、迭代。</p>
+
+  <h3>🎯 设计哲学</h3>
+  <ul>
+    <li><strong>思维先行</strong>：每一关都先讲"为什么"再讲"怎么做"</li>
+    <li><strong>方法论重于答案</strong>：题目是载体，背后是"假设—统一""分组—对应""分类—有序"等通用思维</li>
+    <li><strong>小步子推进</strong>：每一关内部按"复习 → 新知 → 练习 → 综合"递进</li>
+    <li><strong>跨学科隐喻</strong>：引用牛顿、伽利略、哥德巴赫猜想、密码学等学科背景</li>
+  </ul>
+
+  <h3>🗂️ 6 大主题模块</h3>
+  <table>
+    <thead><tr><th>模块</th><th>关卡</th><th>主题</th></tr></thead>
+    <tbody>
+      <tr><td>计算技巧</td><td>L3-1</td><td>速算巧算</td></tr>
+      <tr><td>几何应用</td><td>L3-2 / L3-10 / L3-11</td><td>周长 + 方阵</td></tr>
+      <tr><td>枚举组合</td><td>L3-3 / L3-4</td><td>分类枚举 → 图形枚举</td></tr>
+      <tr><td>逻辑推理</td><td>L3-5</td><td>逻辑推理</td></tr>
+      <tr><td>数列与数论</td><td>L3-6 / L3-12</td><td>等差数列 + 数阵图</td></tr>
+      <tr><td>应用题</td><td>L3-7 / L3-8 / L3-9</td><td>和差倍 + 鸡兔同笼</td></tr>
+    </tbody>
+  </table>
+
+  <h3>🧠 7 大核心思维模型</h3>
+  <table>
+    <thead><tr><th>思维模型</th><th>英文名</th><th>首次出现</th><th>后续复用</th></tr></thead>
+    <tbody>
+      <tr><td>假设—统一</td><td>Hypothesis-Unification</td><td>L3-8</td><td>L3-9 多状态、L3-4 涂色</td></tr>
+      <tr><td>配对—求和</td><td>Pairing-Sum</td><td>L3-1 / L3-6</td><td>L3-2 田字、L3-3 取数</td></tr>
+      <tr><td>分类—有序</td><td>Classification-Order</td><td>L3-3</td><td>L3-4 拼接、L3-9 数组</td></tr>
+      <tr><td>对应—消元</td><td>Correspondence-Elimination</td><td>L3-2 / L3-7</td><td>L3-9、L3-10/11</td></tr>
+      <tr><td>平移—拼接</td><td>Translation-Splicing</td><td>L3-1 / L3-2</td><td>L3-10/11 火柴棍</td></tr>
+      <tr><td>克隆—求和</td><td>Clone-Sum</td><td>L3-6</td><td>L3-7、L3-11</td></tr>
+      <tr><td>数与数字辨析</td><td>Number vs Digit</td><td>L3-1</td><td>L3-6、L3-12</td></tr>
+    </tbody>
+  </table>
+
+  <h3>🗺️ 12 关主题速览</h3>
+  <table>
+    <thead><tr><th>关卡</th><th>主题</th><th>类型</th><th>难度</th><th>核心方法</th><th>标志性数字</th></tr></thead>
+    <tbody>
+      <tr><td>L3-1</td><td>整数速算与巧算</td><td>计算技巧</td><td>★★★</td><td>固定搭配、凑整、分配律</td><td>125万、111、1001</td></tr>
+      <tr><td>L3-2</td><td>几何图形周长</td><td>几何应用</td><td>★★★</td><td>阶梯、田字、蚂蚁爬</td><td>44、66、22、80</td></tr>
+      <tr><td>L3-3</td><td>分类枚举</td><td>枚举组合</td><td>★★★★</td><td>三层次顺序、补集法、对称</td><td>11、12、6、21</td></tr>
+      <tr><td>L3-4</td><td>对称涂色与拼接</td><td>枚举组合</td><td>★★★★</td><td>编号法、最长列分类</td><td>9、12、7</td></tr>
+      <tr><td>L3-5</td><td>逻辑推理</td><td>逻辑推理</td><td>★★★★</td><td>连接词、突破口</td><td>4213（迎春杯）</td></tr>
+      <tr><td>L3-6</td><td>等差数列</td><td>数列</td><td>★★★</td><td>公式、克隆法</td><td>666、2500、499000</td></tr>
+      <tr><td>L3-7</td><td>和倍差倍</td><td>应用题</td><td>★★★</td><td>倍数状态、排除还原</td><td>和÷(倍数+1)</td></tr>
+      <tr><td>L3-8</td><td>鸡兔同笼基础</td><td>应用题</td><td>★★★</td><td>假设法（标准）</td><td>15只鸡5只兔</td></tr>
+      <tr><td>L3-9</td><td>鸡兔同笼进阶</td><td>应用题</td><td>★★★★</td><td>分组法、倍数统一</td><td>592（迎春杯）</td></tr>
+      <tr><td>L3-10</td><td>方阵（一）</td><td>几何应用</td><td>★★★★</td><td>每边公式、相邻层差</td><td>121、196、1225</td></tr>
+      <tr><td>L3-11</td><td>方阵综合</td><td>几何应用</td><td>★★★★★</td><td>火柴棍、正六边形</td><td>360、547、169</td></tr>
+      <tr><td>L3-12</td><td>数阵图</td><td>数形结合</td><td>★★★★</td><td>总和/线和、对比法</td><td>39、12、9</td></tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- ============================================ -->
+<!-- L3-1 整数速算与巧算 -->
+<!-- ============================================ -->
+<section id="ch1" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-1 预</span>
+    <h2>关卡 L3-1（预）· 简单的整数巧算</h2>
+  </div>
+
+  <h3>1️⃣ 乘法三律</h3>
+  <div class="point formula">
+    <div class="point-title">乘法三定律（巧算的"工具"）</div>
+    <ul>
+      <li><strong>交换律</strong>：3×5 = 5×3（数的位置可以换）</li>
+      <li><strong>结合律</strong>：3×5×7，先算哪个都一样（数的结合可以换）</li>
+      <li><strong>分配律（核心）</strong>：A×(B+C) = A×B + A×C；括号里若是减号，结果也是减号</li>
+    </ul>
+  </div>
+
+  <h3>2️⃣ 分拆凑整</h3>
+  <p>在小学低年级阶段做加法和减法时就学过"分拆凑整"——凑成整十数、整百数、整千数。本关在<strong>乘法的范围内</strong>做分拆凑整，目的是方便凑成一些<strong>固定搭配</strong>。</p>
+
+  <h3>3️⃣ 四大固定搭配（必背）</h3>
+
+  <div class="point highlight">
+    <div class="point-title">第一组（凑 100 / 1000 / 10000）</div>
+    <div class="formula-block">2 × 5 = 10　|　<strong>4 × 25 = 100</strong>　|　<strong>8 × 125 = 1000</strong>　|　16 × 625 = 10000</div>
+  </div>
+
+  <div class="point highlight">
+    <div class="point-title">第二组（与 111、999、1001 相关）</div>
+    <div class="formula-block"><strong>37 × 3 = 111</strong>　|　<strong>27 × 37 = 999</strong>（27 是 3 的 9 倍）　|　7 × 11 × 13 = 1001</div>
+  </div>
+
+  <div class="point highlight">
+    <div class="point-title">第三组（缺八数）</div>
+    <div class="formula-block"><strong>12345679 × 9 = 111111111</strong>（注意这个 8 位数是从 1 到 9 顺序写但漏掉 8）</div>
+  </div>
+
+  <div class="point highlight">
+    <div class="point-title">第四组（142857 循环数）</div>
+    <div class="formula-block">142857 × 7 = 999999（六个 9）</div>
+  </div>
+
+  <h3>4️⃣ 方法论提示</h3>
+  <div class="point tip">
+    <div class="point-title">固定搭配的掌握</div>
+    <p>看到新问题，联想到已有的固定搭配，往往是找到简单整数乘法巧算的<strong>突破口</strong>。</p>
+  </div>
+
+  <div class="summary-box">
+    <h4>本关预览·系统性总结</h4>
+    <p>"工具—策略—素材"三层结构：<strong>学定律（工具）→ 用凑整（策略）→ 套搭配（素材）</strong>。固定的乘积搭配就像乐高积木，看到一个新题就要联想到相应的搭配，把它"塞进去"，是整数巧算的通用解题思路。乘法分配律在分拆凑整的过程中起桥梁作用——通过它把"硬算"的式子转化为"好算"的搭配。</p>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-1 课</span>
+    <h2>关卡 L3-1（课）· 整数速算与巧算</h2>
+  </div>
+
+  <h3>板块一：例题一（不列竖式速算三小问）</h3>
+
+  <div class="point">
+    <div class="point-title">第一小问：125×4×25×5×20</div>
+    <ul>
+      <li>识别两对固定搭配：<strong>4×25=100</strong>、5×20=100，125 直接作为基数</li>
+      <li>应用交换律：把 125 调到首位</li>
+      <li>应用结合律：加两个括号 (4×25) 和 (5×20)，得 125×100×100</li>
+      <li>整数补零规律：非零自然数乘以 100，末尾补两个 0</li>
+    </ul>
+    <p>最终答案：<span class="answer">1 250 000（125 万）</span></p>
+  </div>
+
+  <div class="point">
+    <div class="point-title">第二小问：135+246−146−65</div>
+    <p>教师强调本题隐含"括号外面是减号、括号里面的减号要变加号"的去括号规则。凑整路径：</p>
+    <div class="formula-block">(135+65) + (246−146) = 200 + 100 = <strong>300</strong></div>
+  </div>
+
+  <div class="point">
+    <div class="point-title">第三小问：11×91×911</div>
+    <ul>
+      <li>表面无固定搭配，需通过数字关系反推：7×13=91</li>
+      <li>重构算式为 11×7×13×911</li>
+      <li>应用 <strong>71×13=1001</strong>（固定搭配），以及 11×7=71（11 的好朋友数）</li>
+      <li>引入"叠数"概念：把一个整数在后面重复写一遍或多遍</li>
+      <li>关键规律：1001×一个三位数 = 该三位数自身重叠一次（如 1001×911=911911）</li>
+    </ul>
+    <p>最终答案：<span class="answer">911 911</span></p>
+  </div>
+
+  <div class="summary-box">
+    <h4>三层次递进式速算思维</h4>
+    <ol>
+      <li><strong>直接固定搭配</strong>：第一小问属于"看到就能凑"</li>
+      <li><strong>打开括号变号后凑整</strong>：第二小问把去括号变号与凑整结合</li>
+      <li><strong>拆分数字再组合</strong>：第三小问需把 91 拆成 7×13 触发 71×13=1001 的隐藏搭配</li>
+    </ol>
+  </div>
+
+  <h3>板块二：练习一（凑整与固定搭配三小问）</h3>
+
+  <div class="point">
+    <div class="point-title">第一小问：125×32×25</div>
+    <p>32 = 8 × 4，拆分后 <strong>125×8=1000</strong>，<strong>4×25=100</strong>。125 与 8 是"好朋友数"，25 与 4 是"好朋友数"。</p>
+    <p>答案：<span class="answer">10 100 000</span></p>
+  </div>
+
+  <div class="point">
+    <div class="point-title">第二小问：19996+2997+398+49+10</div>
+    <p>每个数改写为接近的整十整百整千：19996=20000−4、2997=3000−3、398=400−2、49=50−1、10=10。</p>
+    <p>打开括号后：(20000+3000+400+50+10)−(4+3+2+1) = 23460−10 = <strong>23450</strong></p>
+    <p><em>关键发现</em>：1+2+3+4 = 10，与单独的 +10 抵消！</p>
+  </div>
+
+  <div class="point">
+    <div class="point-title">第三小问：18000÷125÷8÷6</div>
+    <p>除法是乘法的逆运算：125×8=1000 倒过来就是 1000÷125=8。</p>
+    <ol class="steps">
+      <li>先把 18000÷6=3000（18÷6=3，三个零照写）</li>
+      <li>把 3000 写成 3×1000</li>
+      <li>应用 1000÷125=8</li>
+      <li>3×8=24</li>
+    </ol>
+    <p>答案：<span class="answer">24</span></p>
+  </div>
+
+  <h3>板块三：链下（缺八数与数字和三小问）</h3>
+
+  <div class="point">
+    <div class="point-title">第一小问：37×18</div>
+    <p>关键搭配：<strong>37×3=111</strong>。18 = 3×6，所以 37×3=111，再 ×6 = 666（教师幽默称之为"网络语言 666"）。</p>
+    <p>答案：<span class="answer">666</span></p>
+  </div>
+
+  <div class="point warning">
+    <div class="point-title">第二小问：12345679×82 的"数字和"——概念辨析</div>
+    <ul>
+      <li><strong>"数"（number）</strong>：无数个，如 1、2、3、2003、3.14、√2、π</li>
+      <li><strong>"数字"（digit）</strong>：只有 0、1、2、3、4、5、6、7、8、9 这十个</li>
+    </ul>
+    <p>缺八数 <strong>12345679×9=111111111</strong>（九个 1）。求 12345679×82 的"数字和"。</p>
+    <p>答案：<span class="answer">72</span></p>
+  </div>
+
+  <div class="point">
+    <div class="point-title">第三小问：237×37×27 的"恰好有几种互不相等的数字"</div>
+    <ol class="steps">
+      <li>计算 <strong>27×37=999</strong>（27 的好朋友数 37）</li>
+      <li>转化为 237×999</li>
+      <li>应用 <strong>999=1000−1</strong>，用乘法分配律：237×1000−237=237000−237=<strong>236763</strong></li>
+      <li>数结果中的不同数字：2、3、6、7，共 <strong>4 种</strong></li>
+    </ol>
+  </div>
+
+  <h3>板块四：例题二（12 个乘积之和）</h3>
+  <div class="point">
+    <div class="point-title">题目</div>
+    <p>下图中 12 个乘积的总和是多少？（即 1×5+1×6+1×7+2×5+2×6+2×7+3×5+3×6+3×7+4×5+4×6+4×7）</p>
+    <p><strong>倒过来用乘法分配律</strong>：按行分组，每行提出行号作公因数。</p>
+    <div class="formula-block">总和 = (5+6+7) × (1+2+3+4) = 18 × 10 = <span class="answer">180</span></div>
+    <p>这是小学阶段"提公因数"概念的雏形——二维表格的二维公因数提取：横向公因数（5、6、7）与纵向公因数（1、2、3、4）的双重提取。</p>
+  </div>
+
+  <h3>板块五：练习三（乘法分配律与加减混合）</h3>
+  <div class="point">
+    <div class="point-title">题目：123×45−123×67+123×32</div>
+    <p>提取公因数 123：123×(45−67+32)。<em>易错点</em>：45−67 不够减为负数。</p>
+    <p>处理：交换 −67 和 +32 的顺序，变成 123×(45+32−67) = 123×(77−67) = 123×10 = <strong>1230</strong>（末尾补一个 0）。</p>
+  </div>
+
+  <h3>板块六：练习四（叠数对比与零结果）</h3>
+  <div class="point">
+    <div class="point-title">题目：123123−456456（差）</div>
+    <ul>
+      <li>两个数都是叠数（把三位数自身重叠一次）</li>
+      <li>改写：123123=123×1001；456456=456×1001</li>
+      <li>相减：(123−456)×1001</li>
+      <li>因乘法交换律 123×456=456×123，所以原式 = <span class="answer">0</span>（"大零蛋"）</li>
+    </ul>
+  </div>
+
+  <h3>板块七：练习五（新旧问题联系与 999 搭配）</h3>
+  <div class="point">
+    <div class="point-title">题目：123×456789456789−456789×456789456789</div>
+    <ol class="steps">
+      <li>把 456789456789 改写为 456000000000+789456789</li>
+      <li>用乘法分配律打开括号，分解为<strong>练习四（旧问题）+ 新问题 123×789</strong></li>
+      <li>练习四的结论（大零蛋）直接复用</li>
+      <li>计算 123×789：把 123 拆出 3（123÷3=41），计算 41×999=41×(1000−1)=41000−41=<strong>40959</strong></li>
+    </ol>
+    <p>最终答案：<span class="answer">40 959</span></p>
+  </div>
+
+  <div class="point tip">
+    <div class="point-title">教师升华</div>
+    <p>"面临新问题的时候，发现联想到过去的问题，这是做题、做科学研究、做技术开发常见的突破口。"——牛顿："我只不过是站在巨人的肩膀上"。</p>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-1 全文系统性总结</h4>
+    <h5>① 固定搭配家族</h5>
+    <ul>
+      <li><strong>基础硬搭配</strong>：4×25=100、125×8=1000</li>
+      <li><strong>特殊搭配</strong>：37×3=111、37×27=999</li>
+      <li><strong>缺八数与叠数搭配</strong>：71×13=1001、12345679×9=111111111</li>
+      <li><strong>变形搭配</strong>：999=1000−1</li>
+    </ul>
+    <h5>② 核心计算思想</h5>
+    <ul>
+      <li>交换律与结合律</li>
+      <li>去括号变号</li>
+      <li>拆分数字凑整</li>
+      <li>抵消法（−1−2−3−4+10=0）</li>
+      <li>倒着用乘法分配律</li>
+      <li>除法是乘法逆运算</li>
+      <li>新旧问题联系与迁移</li>
+    </ul>
+    <h5>③ 特殊概念</h5>
+    <ul>
+      <li><strong>叠数</strong>：把一个整数重复写一遍或多遍（如 124124124、911911）</li>
+      <li><strong>缺八数</strong>：12345679（不含 0 和 8），其与 9 相乘得九个 1</li>
+      <li><strong>数字和</strong>：一个数各位数字相加之和</li>
+      <li><strong>好朋友数</strong>：固定搭配的口语化称呼</li>
+    </ul>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-1 易错点警示</div>
+    <ul>
+      <li>去括号外面减号时，括号内减号未变加号</li>
+      <li>45−67 不够减需先调整加数与减数顺序</li>
+      <li>"数"和"数字"混用</li>
+      <li>缺八数乘 9 后忘记"补一个 0"导致数字和算错</li>
+    </ul>
+  </div>
+
+  <!-- L3-1 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-1 速算巧算 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 760" width="1500" height="760" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <defs>
+        <linearGradient id="g1" x1="0" y1="0" x2="1" y2="0">
+          <stop offset="0" stop-color="#2563eb"/><stop offset="1" stop-color="#7c3aed"/>
+        </linearGradient>
+      </defs>
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        .txt-d { fill: #2c3e50; font-weight: 500; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <!-- Root -->
+      <rect class="root" x="20" y="340" width="160" height="80" rx="10"/>
+      <text class="txt" x="100" y="380" text-anchor="middle">L3-1 整数速算</text>
+      <text class="txt" x="100" y="402" text-anchor="middle">与巧算</text>
+
+      <!-- 4 main branches -->
+      <!-- Branch 1: 工具层 -->
+      <line x1="180" y1="380" x2="240" y2="380"/>
+      <line x1="240" y1="100" x2="280" y2="100"/>
+      <rect class="l1" x="280" y="60" width="140" height="80" rx="8"/>
+      <text class="txt" x="350" y="92" text-anchor="middle">工具层</text>
+      <text class="txt" x="350" y="115" text-anchor="middle">乘法三律</text>
+
+      <line x1="420" y1="100" x2="460" y2="100"/>
+      <line x1="460" y1="40" x2="500" y2="40"/>
+      <rect class="l2" x="500" y="20" width="130" height="40" rx="6"/>
+      <text class="txt-d" x="565" y="46" text-anchor="middle" fill="#fff">交换律</text>
+
+      <line x1="460" y1="100" x2="500" y2="100"/>
+      <rect class="l2" x="500" y="80" width="130" height="40" rx="6"/>
+      <text class="txt-d" x="565" y="106" text-anchor="middle" fill="#fff">结合律</text>
+
+      <line x1="460" y1="160" x2="500" y2="160"/>
+      <rect class="l2" x="500" y="140" width="130" height="40" rx="6"/>
+      <text class="txt-d" x="565" y="166" text-anchor="middle" fill="#fff">分配律（核心）</text>
+
+      <!-- Branch 2: 策略层 -->
+      <line x1="240" y1="380" x2="280" y2="380"/>
+      <rect class="l1" x="280" y="340" width="140" height="80" rx="8"/>
+      <text class="txt" x="350" y="372" text-anchor="middle">策略层</text>
+      <text class="txt" x="350" y="395" text-anchor="middle">凑整+分配</text>
+
+      <line x1="420" y1="380" x2="460" y2="380"/>
+      <rect class="l2" x="460" y="360" width="140" height="40" rx="6"/>
+      <text class="txt-d" x="530" y="386" text-anchor="middle" fill="#fff">分拆凑整</text>
+
+      <line x1="460" y1="450" x2="500" y2="450"/>
+      <rect class="l3" x="500" y="430" width="170" height="40" rx="6"/>
+      <text class="txt-d" x="585" y="456" text-anchor="middle" fill="#fff">抵消法（−1−2−3−4+10=0）</text>
+
+      <line x1="460" y1="510" x2="500" y2="510"/>
+      <rect class="l3" x="500" y="490" width="170" height="40" rx="6"/>
+      <text class="txt-d" x="585" y="516" text-anchor="middle" fill="#fff">倒用分配律（提公因数）</text>
+
+      <!-- Branch 3: 素材库 -->
+      <line x1="240" y1="700" x2="280" y2="700"/>
+      <line x1="240" y1="380" x2="240" y2="700"/>
+      <rect class="l1" x="280" y="620" width="140" height="80" rx="8"/>
+      <text class="txt" x="350" y="652" text-anchor="middle">素材层</text>
+      <text class="txt" x="350" y="675" text-anchor="middle">固定搭配</text>
+
+      <line x1="420" y1="640" x2="460" y2="640"/>
+      <rect class="l2" x="460" y="620" width="160" height="40" rx="6"/>
+      <text class="txt-d" x="540" y="646" text-anchor="middle" fill="#fff">凑整：2×5, 4×25, 8×125</text>
+
+      <line x1="420" y1="700" x2="460" y2="700"/>
+      <rect class="l2" x="460" y="680" width="160" height="40" rx="6"/>
+      <text class="txt-d" x="540" y="706" text-anchor="middle" fill="#fff">特殊积：37×3=111, 27×37=999</text>
+
+      <line x1="460" y1="760" x2="500" y2="760"/>
+      <rect class="l2" x="500" y="740" width="180" height="40" rx="6"/>
+      <text class="txt-d" x="590" y="766" text-anchor="middle" fill="#fff">缺八数：12345679×9=111111111</text>
+
+      <!-- Branch 4: 概念层 -->
+      <line x1="180" y1="380" x2="180" y2="730"/>
+      <line x1="180" y1="730" x2="280" y2="730"/>
+      <rect class="l1" x="280" y="710" width="140" height="40" rx="8"/>
+      <text class="txt" x="350" y="736" text-anchor="middle">特殊概念</text>
+
+      <line x1="420" y1="730" x2="500" y2="730"/>
+      <rect class="l3" x="500" y="710" width="180" height="40" rx="6"/>
+      <text class="txt-d" x="590" y="736" text-anchor="middle" fill="#fff">叠数（1001）、数字和、好朋友数</text>
+
+      <!-- Branch 5: 思想升华 -->
+      <line x1="180" y1="380" x2="180" y2="220"/>
+      <line x1="180" y1="220" x2="280" y2="220"/>
+      <rect class="l1" x="280" y="190" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="215" text-anchor="middle">思想升华</text>
+      <text class="txt" x="350" y="235" text-anchor="middle">新旧问题联系</text>
+
+      <line x1="420" y1="220" x2="500" y2="220"/>
+      <rect class="l2" x="500" y="200" width="220" height="40" rx="6"/>
+      <text class="txt-d" x="610" y="226" text-anchor="middle" fill="#fff">"站在巨人的肩膀上"（牛顿）</text>
+
+      <!-- 联系箭头 -->
+      <line x1="240" y1="100" x2="240" y2="220" stroke-dasharray="3,3" stroke="#94a3b8"/>
+      <line x1="240" y1="220" x2="240" y2="340" stroke-dasharray="3,3" stroke="#94a3b8"/>
+    </svg>
+    </div>
+  </div>
+</section>
+
+</div>
+
+<!-- ============================================ -->
+<!-- L3-2 几何图形周长 -->
+<!-- ============================================ -->
+<section id="ch2" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-2 预</span>
+    <h2>关卡 L3-2（预）· 长方形和正方形的周长</h2>
+  </div>
+
+  <h3>1️⃣ 课内基础知识点</h3>
+  <div class="point formula">
+    <div class="point-title">长方形 vs 正方形</div>
+    <ul>
+      <li><strong>长方形</strong>：四个角都是 90 度（直角）。对边相等（两条长相等，两条宽相等）</li>
+      <li><strong>正方形</strong>：特殊长方形，四个直角且<strong>四条边相等</strong></li>
+      <li><strong>重要性质</strong>：<em>只需要三个角是直角</em>（因为四边形内角和 360°−3×90°=270°，第四个角必然 90°）</li>
+    </ul>
+    <div class="formula-block">长方形周长 = (长+宽) × 2　|　正方形周长 = 边长 × 4</div>
+  </div>
+
+  <h3>2️⃣ 拓展一：环形周长</h3>
+  <div class="point highlight">
+    <div class="point-title">环形图形的周长 = 外周长 + 内周长</div>
+    <p>课内通常避免求这种图形的周长，但作为课外拓展需要内外都加。</p>
+  </div>
+
+  <h3>3️⃣ 拓展二：阶梯模型</h3>
+  <div class="point">
+    <div class="point-title">阶梯状图形的周长 = 大长方形的周长</div>
+    <p><strong>核心原理：平移</strong>——一条线段从一个地方移到另一个地方，长度不变。</p>
+    <p>横向的蓝色波浪线可移到上方，因为<strong>长方形对边相等</strong>。</p>
+    <h5>使用阶梯模型的两个前提</h5>
+    <ul>
+      <li><strong>前提一：直角</strong>。每个角必须是 90 度</li>
+      <li><strong>前提二：阶梯局部是单向的</strong>（不能有"坑"）</li>
+    </ul>
+  </div>
+
+  <h3>4️⃣ 拓展三：田字模型</h3>
+  <div class="point">
+    <div class="point-title">田字模型</div>
+    <p>像汉字"田"那样的图形。</p>
+    <p><strong>核心结论</strong>：<em>A 的周长 + D 的周长 = B 的周长 + C 的周长 = 大长方形的周长</em>（对角线两个长方形的周长和相等且等于大长方形周长）。</p>
+    <p><strong>平移证明</strong>：A 下面的边搬到 C 下面（因为 C 长方形上下两条边对边相等）；D 上面的边搬到 B 上面；A 右边的边搬到 B 右边；D 左边的边搬到 C 左边。</p>
+  </div>
+
+  <div class="summary-box">
+    <h4>本关预览·系统性总结</h4>
+    <p>整关的逻辑线索非常清晰：<strong>长方形对边相等</strong>这一基本性质，是所有周长巧妙模型的"理论基石"。无论是阶梯模型还是田字模型，其核心方法都是<em>平移</em>——把不规则的边通过平移拼接成大长方形的边。<strong>"知道结论 → 知道为什么 → 知道前提"</strong>是这节课的三步学习路径。</p>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-2 课</span>
+    <h2>关卡 L3-2（课）· 几何图形周长综合</h2>
+  </div>
+
+  <h3>板块一：例题一（阶梯模型与周长）</h3>
+  <div class="point">
+    <div class="point-title">题目：12 个边长 2 厘米小正方形拼成图形求周长</div>
+    <p><strong>关键定理</strong>：阶梯模型周长 = 大长方形周长 + 凹槽处线段。</p>
+    <ol class="steps">
+      <li>实物拼图特征：左上、右上是标准阶梯（局部单向），下方有两个凹槽</li>
+      <li>先求虚线大长方形的周长：长=2×5=10cm，宽=2×4=8cm，大长方形周长=(10+8)×2=<strong>36cm</strong></li>
+      <li>识别"知其然要知其所以然"——凹槽不满足局部单向原则</li>
+      <li>补充四条凹槽处黑色波浪线段（每条长度 2cm，共 4 条）</li>
+      <li>总周长 = 36 + 4×2 = <span class="answer">44 厘米</span></li>
+    </ol>
+  </div>
+
+  <h3>板块二：练习一（标准阶梯简化）</h3>
+  <div class="point">
+    <div class="point-title">题目：16 个边长 3 厘米的小正方形组成的图形</div>
+    <p>左上、右上是标准阶梯，局部单向无凹槽。直接求大长方形周长：长=3×7=21cm，宽=3×4=12cm，周长=(21+12)×2=<span class="answer">66 厘米</span></p>
+  </div>
+
+  <h3>板块三：练习二（日本算术匹克改编）</h3>
+  <div class="point">
+    <div class="point-title">题目：长方形 ABCD 中含正方形 EFGH，AF=7，HC=4，求大长方形周长</div>
+    <ul>
+      <li>直接求长方形周长需要长和宽——但题目只给了 AF 和 HC</li>
+      <li>突破口：长+宽 = AF+HC = 7+4 = 11（关键洞察）</li>
+      <li>平移论证：FB=GC（长方形对边相等）；HG=FG（正方形边相等）</li>
+      <li>周长 = (长+宽)×2 = 11×2 = <span class="answer">22 厘米</span></li>
+    </ul>
+    <p>这是"和差思想"在几何中的初步应用，避免解方程。</p>
+  </div>
+
+  <h3>板块四：例题二（田字模型周长对角相等）</h3>
+  <div class="point">
+    <div class="point-title">题目：长方形分割成四个小长方形，B、C 周长是 A 的 2 倍，求 D 周长是 A 的几倍</div>
+    <p>田字模型核心定理：<strong>对角线上的两个小长方形周长之和相等</strong>。</p>
+    <p>已知 B+C = 2A+2A = 4A。由 B+C = A+D（对角周长和相等），因此 A+D = 4A，D = 3A，<span class="answer">D 是 A 的 3 倍</span>。</p>
+  </div>
+
+  <h3>板块五：练习三（多次使用田字模型）</h3>
+  <div class="point">
+    <div class="point-title">题目：大长方形被分成 9 个小长方形（编号 1-9），已知 2-6 周长分别为 2、3、4、5、6，求 1 号周长</div>
+    <p><strong>关键技巧</strong>：嵌套使用田字模型（局部也是田字格）。</p>
+    <ol class="steps">
+      <li>找由 2、3、4、8 组成的田字：8 = 2+4−3 = 3（对角周长和：2+4=3+8）</li>
+      <li>找由 3、4、5、7 组成的田字：7 = 5+4−3 = 6</li>
+      <li>找由 4、6、7、1 组成的田字：1 = 6+6−4 = <span class="answer">8</span></li>
+    </ol>
+    <p>教师第二种解法：直接求 7 号周长，不经过 8 号——"拼接+相消"思想。</p>
+  </div>
+
+  <h3>板块六：综合一（剪正方形三种情形周长）</h3>
+  <div class="point">
+    <div class="point-title">题目：周长 40cm 的正方形剪下一个周长 12cm 的正方形，剩余图形周长为多少？</div>
+    <h5>情形一：剪在内部</h5>
+    <p>周长 = 外周长 + 内周长 = 40 + 12 = <strong>52 cm</strong></p>
+    <h5>情形二：剪在边上但未到角</h5>
+    <p>周长 = 大正方形周长 + 补充的两条小正方形边 = 40 + 6 = <strong>46 cm</strong></p>
+    <h5>情形三：剪在角上</h5>
+    <p>周长 = 大正方形周长 = <strong>40 cm</strong></p>
+  </div>
+
+  <h3>板块七：综合二（折线推拼正方形）</h3>
+  <div class="point">
+    <div class="point-title">题目：长方形横向边长 45 厘米，折线分成两阶梯状推拼成正方形</div>
+    <p>三条线段相等关系：AB=CD=EF（折线在两个图中对应位置）。</p>
+    <ul>
+      <li>横向推导：45 厘米对应正方形边长的"三段"，即正方形边长 = 45÷3×2 = <strong>30 厘米</strong></li>
+      <li>纵向推导：30 厘米 = 长方形纵向边的两段 + 一段（即分三段占两份）</li>
+      <li>长方形宽 = 30÷3×2 = <strong>20 厘米</strong></li>
+    </ul>
+    <p><em>关键概念</em>：平移保留方向；旋转变相位移。</p>
+  </div>
+
+  <h3>板块八：综合三（凹槽阶梯+蚂蚁爬双解法）</h3>
+  <div class="point">
+    <div class="point-title">题目："山"字图形，每个角都是直角，已知五段长度（5、5、7、7、9、11、15 等）</div>
+    <h5>方法一：阶梯模型 + 凹槽补偿</h5>
+    <ul>
+      <li>大长方形的长 = 15cm，宽 = 11+(9−7) = 13cm</li>
+      <li>大长方形周长 = (15+13)×2 = 56cm</li>
+      <li>凹槽波浪线共 4 条（五的两条 + 七的两条）= 5+5+7+7=24cm</li>
+      <li>总周长 = 56 + 24 = 80cm</li>
+    </ul>
+    <h5>方法二：蚂蚁爬法（小虫爬）</h5>
+    <ul>
+      <li>蚂蚁爬定理：水平方向向左走总和 = 向右走总和；竖直方向向上走总和 = 向下走总和</li>
+      <li>选择逆时针方向，记录"向右"和"向上"的路程，×2 即得周长</li>
+      <li>横向 15×2=30、纵向 11+9+5=25，再 ×2=50，再加总和 = 80cm</li>
+    </ul>
+    <p><strong>两个答案都是 80 cm</strong>，方法互证。</p>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-2 全文系统性总结</h4>
+    <h5>① 知识网络</h5>
+    <ul>
+      <li><strong>阶梯模型</strong>：标准阶梯周长 = 大长方形周长；非标准阶梯 = 大长方形周长 + 凹槽线段补偿</li>
+      <li><strong>田字模型</strong>：对角周长和相等，多次嵌套使用</li>
+      <li><strong>平移法</strong>：长方形对边相等、正方形四边相等</li>
+      <li><strong>环形周长</strong>：外周长 + 内周长</li>
+      <li><strong>蚂蚁爬法</strong>：周长 = 2×(所有横向线段之和 + 所有纵向线段之和)</li>
+    </ul>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-2 易错点警示</div>
+    <ul>
+      <li>误以为所有阶梯图形都直接 = 大长方形周长（需先判断凹槽）</li>
+      <li>田字模型中忘记"对角"（不一定是 A+C=B+D）</li>
+      <li>蚂蚁爬法中方向选择错误</li>
+      <li>综合一中漏判"剪在边但不剪到角"的情形</li>
+    </ul>
+  </div>
+
+  <!-- L3-2 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-2 几何周长 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" width="1600" height="800" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <!-- Root -->
+      <rect class="root" x="20" y="360" width="170" height="80" rx="10"/>
+      <text class="txt" x="105" y="395" text-anchor="middle">L3-2 几何周长</text>
+      <text class="txt" x="105" y="418" text-anchor="middle">综合</text>
+
+      <!-- Branches -->
+      <line x1="190" y1="400" x2="240" y2="400"/>
+
+      <!-- Branch 1: 基础 -->
+      <line x1="240" y1="80" x2="280" y2="80"/>
+      <rect class="l1" x="280" y="50" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="85" text-anchor="middle">课内基础</text>
+
+      <line x1="420" y1="80" x2="460" y2="80"/>
+      <rect class="l2" x="460" y="40" width="130" height="40" rx="6"/>
+      <text fill="#fff" x="525" y="66" text-anchor="middle" font-weight="600">长方形周长</text>
+      <line x1="460" y1="120" x2="500" y2="120"/>
+      <rect class="l2" x="500" y="100" width="130" height="40" rx="6"/>
+      <text fill="#fff" x="565" y="126" text-anchor="middle" font-weight="600">正方形周长</text>
+      <line x1="460" y1="160" x2="500" y2="160"/>
+      <rect class="l2" x="500" y="140" width="160" height="40" rx="6"/>
+      <text fill="#fff" x="580" y="166" text-anchor="middle" font-weight="600">三直角→必为矩形</text>
+
+      <!-- Branch 2: 阶梯模型 -->
+      <line x1="240" y1="220" x2="280" y2="220"/>
+      <rect class="l1" x="280" y="190" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="225" text-anchor="middle">阶梯模型</text>
+
+      <line x1="420" y1="220" x2="460" y2="220"/>
+      <rect class="l2" x="460" y="200" width="170" height="40" rx="6"/>
+      <text fill="#fff" x="545" y="226" text-anchor="middle" font-weight="600">= 大长方形周长</text>
+      <line x1="460" y1="260" x2="500" y2="260"/>
+      <rect class="l3" x="500" y="240" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="266" text-anchor="middle" font-weight="600">凹槽需补线段</text>
+      <line x1="460" y1="300" x2="500" y2="300"/>
+      <rect class="l3" x="500" y="280" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="306" text-anchor="middle" font-weight="600">前提：直角+单向</text>
+
+      <!-- Branch 3: 田字模型 -->
+      <line x1="240" y1="380" x2="280" y2="380"/>
+      <rect class="l1" x="280" y="350" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="385" text-anchor="middle">田字模型</text>
+
+      <line x1="420" y1="380" x2="460" y2="380"/>
+      <rect class="l2" x="460" y="360" width="170" height="40" rx="6"/>
+      <text fill="#fff" x="545" y="386" text-anchor="middle" font-weight="600">A+D = B+C</text>
+      <line x1="460" y1="420" x2="500" y2="420"/>
+      <rect class="l3" x="500" y="400" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="426" text-anchor="middle" font-weight="600">多次嵌套+相消</text>
+
+      <!-- Branch 4: 蚂蚁爬 -->
+      <line x1="240" y1="540" x2="280" y2="540"/>
+      <rect class="l1" x="280" y="510" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="545" text-anchor="middle">蚂蚁爬法</text>
+
+      <line x1="420" y1="540" x2="460" y2="540"/>
+      <rect class="l2" x="460" y="520" width="190" height="40" rx="6"/>
+      <text fill="#fff" x="555" y="546" text-anchor="middle" font-weight="600">周长=2×(横+纵之和)</text>
+      <line x1="460" y1="580" x2="500" y2="580"/>
+      <rect class="l3" x="500" y="560" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="586" text-anchor="middle" font-weight="600">横平竖直+走一圈</text>
+
+      <!-- Branch 5: 环形 -->
+      <line x1="240" y1="700" x2="280" y2="700"/>
+      <rect class="l1" x="280" y="670" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="705" text-anchor="middle">环形周长</text>
+
+      <line x1="420" y1="700" x2="460" y2="700"/>
+      <rect class="l2" x="460" y="680" width="190" height="40" rx="6"/>
+      <text fill="#fff" x="555" y="706" text-anchor="middle" font-weight="600">= 外周长 + 内周长</text>
+
+      <!-- Branch 6: 几何变换 -->
+      <line x1="240" y1="380" x2="240" y2="780"/>
+      <line x1="240" y1="780" x2="280" y2="780"/>
+      <rect class="l1" x="280" y="750" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="785" text-anchor="middle">几何变换</text>
+
+      <line x1="420" y1="780" x2="500" y2="780"/>
+      <rect class="l2" x="500" y="760" width="190" height="40" rx="6"/>
+      <text fill="#fff" x="595" y="786" text-anchor="middle" font-weight="600">平移（方向同）+ 旋转</text>
+
+      <!-- 主干 -->
+      <line x1="190" y1="400" x2="240" y2="400"/>
+      <line x1="240" y1="80" x2="240" y2="780"/>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- L3-3 分类枚举 -->
+<!-- ============================================ -->
+<section id="ch3" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-3 预</span>
+    <h2>关卡 L3-3（预）· 枚举法一</h2>
+  </div>
+
+  <h3>1️⃣ 什么是枚举法</h3>
+  <div class="point formula">
+    <div class="point-title">枚举法 = 一个一个数过来</div>
+    <p><strong>枚举法的要求：不重不漏</strong>。老师用"数手指"作为反例：声称数了 11 根手指，但数到 3 时偷换概念跳过了 3，直接跳到 4，<em>漏掉了 3 这个数</em>。因此枚举必须<strong>从小到大、从一开始、逐个地将自然数数过来</strong>。</p>
+  </div>
+
+  <h3>2️⃣ 保证不重不漏的两大数学技能</h3>
+  <div class="point">
+    <div class="point-title">两大技能：分类 + 有序</div>
+    <ul>
+      <li><strong>分类</strong>：按某种属性把对象分组</li>
+      <li><strong>有序</strong>：按一定顺序处理</li>
+    </ul>
+  </div>
+
+  <h3>3️⃣ 字母的字典排序法</h3>
+  <div class="point">
+    <div class="point-title">自然数的顺序 vs 字母的顺序</div>
+    <ul>
+      <li>自然数的顺序：小到大</li>
+      <li>字母的顺序：著名的<strong>字典排序法</strong>——看第一个字母在字母排序表的位置；B 打头一定排在 C 打头之前；第一个字母相同看第二个，依此类推</li>
+    </ul>
+  </div>
+
+  <h3>4️⃣ 对称</h3>
+  <div class="point tip">
+    <div class="point-title">对称加速枚举</div>
+    <p>枚举的时候还要<strong>发现枚举结果的规律</strong>，并<strong>利用对称</strong>。老师的左右手基本对称，左手五根手指，右手五根手指，五数完直接加 5 就是十根。</p>
+  </div>
+
+  <div class="summary-box">
+    <h4>本关预览·系统性总结</h4>
+    <p>枚举法的三大支柱：</p>
+    <ul>
+      <li><strong>要求层</strong>：不重不漏——枚举法的质量底线</li>
+      <li><strong>技能层</strong>：分类 + 有序——保证不重不漏的方法论双翼</li>
+      <li><strong>加速层</strong>：对称——利用对称性减少枚举的工作量</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-3 课</span>
+    <h2>关卡 L3-3（课）· 分类枚举</h2>
+  </div>
+
+  <h3>板块一：例题一（数字不重复排列与位置限制）</h3>
+  <div class="point">
+    <div class="point-title">题目：用 1、2、3、4 各一个组成四位数，要求千位不是 1、百位不是 2、十位不是 3</div>
+    <p><strong>第一问：按千位分类枚举</strong>（千位不能为 1，只能是 2、3、4 三类）</p>
+    <ul>
+      <li>千位=2 时：百位=1 时→2143；百位=3 时→2314、2341；百位=4 时→2413。共 <strong>4 个</strong></li>
+      <li>千位=3 时：百位=1 时→3124、3142；百位=4 时→3412。共 <strong>4 个</strong></li>
+      <li>千位=4 时：百位=1 时→4123；百位=3 时→4312、4321。共 <strong>3 个</strong></li>
+    </ul>
+    <p>总计：4+4+3 = <span class="answer">11 个</span></p>
+    <p><strong>第二问：从大到小排列第四个</strong>：倒过来数：最大 4321、第二 4312、第三 3421、第四 <span class="answer">3412</span></p>
+  </div>
+
+  <h3>板块二：练习一（含重复数字的排列）</h3>
+  <div class="point">
+    <div class="point-title">题目：用 1、1、2、3 四个数字（两个 1，一个 2，一个 3）组成四位数</div>
+    <ul>
+      <li>千位为 1 时：共 6 个（1123、1132、1213、1231、1312、1321）</li>
+      <li>千位为 2 时：共 3 个（2113、2131、2311）</li>
+      <li>千位为 3 时：共 3 个（3112、3121、3211）</li>
+    </ul>
+    <p>总计：6+3+3 = <span class="answer">12 个</span></p>
+    <p><strong>对称性洞察</strong>：千位为 1 有 6 个，千位为 2+千位为 3 = 6（"二维千位和三维千位的个数相等"）。</p>
+  </div>
+
+  <h3>板块三：例题二（华杯赛分组三层次顺序）</h3>
+  <div class="point">
+    <div class="point-title">题目（华杯赛决赛小中组）：将 1、2、3、4、5、6 分为三组，每组两个数，每组的两个数之和互不相等，且都不等于 6</div>
+    <p><strong>三层次顺序</strong>：</p>
+    <ol>
+      <li><strong>组内顺序</strong>：每组内小的写前（A&lt;B）</li>
+      <li><strong>组间顺序</strong>：按"组长"（每组较小数）从小到大排</li>
+      <li><strong>方法间顺序</strong>：把所有分法按上述规则写成六位数，从小到大排</li>
+    </ol>
+    <p>最终答案（第一问）：<span class="answer">6 种</span></p>
+    <p>六个六位数：123546、123645、132546、132645、142536（第五个）、162345。按从小到大排列，第五个是 <span class="answer">142536</span></p>
+  </div>
+
+  <h3>板块四：链下（0-9 五个数字取五和为 17）</h3>
+  <div class="point">
+    <div class="point-title">题目：从 0 到 9 十个数字中取出五个各不相同的数字（不计顺序），它们的和为 17</div>
+    <p><strong>枚举策略</strong>：不计顺序（写时小的加数在前），允许首位为 0（因为是组合而非排列）。</p>
+    <p><strong>共 10 种</strong>：{0,1,2,5,9}、{0,1,2,6,8}、{0,1,3,4,9}、{0,1,3,5,8}、{0,1,4,5,7}、{0,2,3,4,8}、{0,2,3,5,7}、{0,2,4,5,6}、{1,2,3,4,7}、{1,2,3,5,6}</p>
+  </div>
+
+  <h3>板块五：练习三（取六数和为 35 的补集法）</h3>
+  <div class="point">
+    <div class="point-title">题目：从 1 到 9 九个数中取出六个各不相同的数（不计顺序），它们的和为 35，问有多少种？</div>
+    <p><strong>补集法</strong>：</p>
+    <ul>
+      <li>1+2+...+9=45（全集总和）</li>
+      <li>取六个数的和为 35 等价于舍去三个数的和为 45−35 = <strong>10</strong></li>
+      <li>把问题转化为"从 1-9 取三个数加和为 10"</li>
+    </ul>
+    <p>枚举三个数加和为 10：一打头 159、168→2 种；二打头 249、258、267→3 种；三打头 148、157→2 种；四打头重复。总共 <span class="answer">8 种</span></p>
+  </div>
+
+  <h3>板块六：综合一（五局三胜制胜负情况树形图）</h3>
+  <div class="point">
+    <div class="point-title">题目：甲乙两人乒乓球比赛，五局三胜。甲胜了第一局且最终甲获胜，问每局有多少种不同的胜负情况？</div>
+    <p>教师用树形图记录所有可能的胜负序列。<strong>最终甲获胜的 6 个序列</strong>：</p>
+    <ol>
+      <li>甲甲甲（3 局结束）</li>
+      <li>甲甲乙甲（4 局结束）</li>
+      <li>甲甲乙乙甲（5 局结束）</li>
+      <li>甲乙甲甲（4 局结束）</li>
+      <li>甲乙甲乙甲（5 局结束）</li>
+      <li>甲乙乙甲甲（5 局结束）</li>
+    </ol>
+    <p>共 <span class="answer">6 种</span></p>
+  </div>
+
+  <h3>板块七：综合二（甲乙丙丁排队相邻限制）</h3>
+  <div class="point">
+    <div class="point-title">题目：甲乙丙丁排成一排，甲乙相邻且乙丙不相邻，问有多少种不同的排列？</div>
+    <p><strong>情形 1</strong>：甲乙在第 1、2 位（与第 3、4 位对称合并）：丙只能在第 4 位，丁在第 3 位。甲乙顺序两种，丙丁顺序两种：2×2=4 种</p>
+    <p><strong>情形 2</strong>：甲乙在第 2、3 位：丙只能在第 1 位，丁在第 4 位。甲乙有两种：2 种</p>
+    <p>利用对称性：左右对称的两类合并后乘以 2。最终答案：<span class="answer">6 种</span></p>
+  </div>
+
+  <h3>板块八：综合三（九颗糖每天至少两颗吃法）</h3>
+  <div class="point">
+    <div class="point-title">题目：9 颗相同的糖，每天至少吃 2 颗，共有多少种不同的吃法？</div>
+    <ul>
+      <li>1 天吃完：1 种</li>
+      <li>2 天吃完：(2,7)、(3,6)、(4,5)、(5,4)、(6,3)、(7,2)。共 6 种</li>
+      <li>3 天吃完：10 种</li>
+      <li>4 天吃完：4 种</li>
+    </ul>
+    <p>总计：1+6+4+10 = <span class="answer">21 种</span></p>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-3 全文系统性总结</h4>
+    <h5>① 知识网络</h5>
+    <ul>
+      <li><strong>排列枚举</strong>：不重复数字排列 / 重复数字排列 / 相邻限制排列</li>
+      <li><strong>组合枚举</strong>：分组计数（华杯赛）/ 取数和为定值 / 补集法</li>
+      <li><strong>三层次顺序</strong>：组内顺序（小数写前）/ 组间顺序（按组长）/ 方法间顺序</li>
+      <li><strong>树形图</strong>：概率路径枚举 / 及时剪枝与终态统计</li>
+      <li><strong>分类策略</strong>：按主变量分类 / 复杂类的二次分类</li>
+    </ul>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-3 易错点警示</div>
+    <ul>
+      <li>排列中位置限制的"传递"</li>
+      <li>重复数字的不可区分性</li>
+      <li>三层次顺序的"反向应用"</li>
+      <li>树形图的剪枝时机</li>
+      <li>按主变量分类时，复杂类的二次分类要"分到底"</li>
+    </ul>
+  </div>
+
+  <!-- L3-3 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-3 分类枚举 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 700" width="1500" height="700" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <rect class="root" x="20" y="310" width="170" height="80" rx="10"/>
+      <text class="txt" x="105" y="345" text-anchor="middle">L3-3 分类枚举</text>
+      <text class="txt" x="105" y="368" text-anchor="middle">基础方法</text>
+
+      <line x1="190" y1="350" x2="240" y2="350"/>
+
+      <line x1="240" y1="60" x2="280" y2="60"/>
+      <rect class="l1" x="280" y="30" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="65" text-anchor="middle">三大支柱</text>
+
+      <line x1="420" y1="60" x2="460" y2="60"/>
+      <rect class="l2" x="460" y="40" width="160" height="40" rx="6"/>
+      <text fill="#fff" x="540" y="66" text-anchor="middle" font-weight="600">不重不漏</text>
+      <line x1="460" y1="100" x2="500" y2="100"/>
+      <rect class="l2" x="500" y="80" width="160" height="40" rx="6"/>
+      <text fill="#fff" x="580" y="106" text-anchor="middle" font-weight="600">分类 + 有序</text>
+      <line x1="460" y1="140" x2="500" y2="140"/>
+      <rect class="l2" x="500" y="120" width="160" height="40" rx="6"/>
+      <text fill="#fff" x="580" y="146" text-anchor="middle" font-weight="600">对称加速</text>
+
+      <line x1="240" y1="200" x2="280" y2="200"/>
+      <rect class="l1" x="280" y="170" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="205" text-anchor="middle">三层次顺序</text>
+
+      <line x1="420" y1="200" x2="460" y2="200"/>
+      <rect class="l2" x="460" y="180" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="206" text-anchor="middle" font-weight="600">组内小数写前</text>
+      <line x1="460" y1="240" x2="500" y2="240"/>
+      <rect class="l2" x="500" y="220" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="246" text-anchor="middle" font-weight="600">组间按组长排序</text>
+      <line x1="460" y1="280" x2="500" y2="280"/>
+      <rect class="l2" x="500" y="260" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="286" text-anchor="middle" font-weight="600">方法间比大小</text>
+
+      <line x1="240" y1="350" x2="280" y2="350"/>
+      <rect class="l1" x="280" y="320" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="355" text-anchor="middle">补集法</text>
+
+      <line x1="420" y1="350" x2="460" y2="350"/>
+      <rect class="l2" x="460" y="330" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="356" text-anchor="middle" font-weight="600">全集总和 - 所求 = 补集</text>
+
+      <line x1="240" y1="490" x2="280" y2="490"/>
+      <rect class="l1" x="280" y="460" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="495" text-anchor="middle">树形图</text>
+
+      <line x1="420" y1="490" x2="460" y2="490"/>
+      <rect class="l2" x="460" y="470" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="496" text-anchor="middle" font-weight="600">分支 + 剪枝</text>
+      <line x1="460" y1="530" x2="500" y2="530"/>
+      <rect class="l3" x="500" y="510" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="536" text-anchor="middle" font-weight="600">终态路径统计</text>
+
+      <line x1="240" y1="640" x2="280" y2="640"/>
+      <rect class="l1" x="280" y="610" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="645" text-anchor="middle">字典排序法</text>
+
+      <line x1="420" y1="640" x2="460" y2="640"/>
+      <rect class="l2" x="460" y="620" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="646" text-anchor="middle" font-weight="600">字母 → 字典序</text>
+
+      <line x1="240" y1="60" x2="240" y2="640"/>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- L3-4 对称涂色与拼接 -->
+<!-- ============================================ -->
+<section id="ch4" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-4 预</span>
+    <h2>关卡 L3-4（预）· 枚举法二：图形枚举入门</h2>
+  </div>
+
+  <h3>1️⃣ 图形枚举的两件注意事项</h3>
+  <div class="point warning">
+    <div class="point-title">① 顺序问题</div>
+    <p>数由小到大有天然顺序，字母有字母表、字典排序法，也有天然顺序。<strong>图形的顺序比数和字母麻烦</strong>——要在枚举的问题中相应<em>建立图的顺序</em>。</p>
+  </div>
+  <div class="point warning">
+    <div class="point-title">② 对称问题（重要升级）</div>
+    <p>很多问题中相关图形<strong>旋转、翻转之后重合</strong>，要视为<em>同一种</em>，不能把一种数成两种，否则就达不到"不重"的目标。</p>
+  </div>
+
+  <h3>2️⃣ 数图形的常见分类方式</h3>
+  <div class="point">
+    <div class="point-title">三种分类方式</div>
+    <ul>
+      <li>按所含区域分类</li>
+      <li>按大小分类</li>
+      <li>按方向分类</li>
+    </ul>
+    <p>各种分类方式都可以。</p>
+  </div>
+
+  <div class="summary-box">
+    <h4>本关预览·系统性总结</h4>
+    <p>两讲合并看，枚举法的整体结构是：<strong>枚举法一（数与字母，天然顺序好建）→ 枚举法二（图形，需自定义顺序且处理旋转翻转的对称）</strong>。在图形枚举中，"分类"比"有序"更重要——因为图形的种类繁多，<em>先按某种属性（区域、大小、方向）分类</em>，再在每类中有序查找，是图形枚举的标准范式。</p>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-4 课</span>
+    <h2>关卡 L3-4（课）· 对称图形的涂色与拼接</h2>
+  </div>
+
+  <h3>板块一：例题一（9 个三角形选 2 涂黑）</h3>
+  <div class="point">
+    <div class="point-title">题目：9 个等边三角形中选 2 个涂黑，两种涂法若能通过翻转或旋转重合视为同一种</div>
+    <p><strong>方法论：编号 + 顺序 + 认图</strong></p>
+    <p><strong>第一步：建立顺序</strong>——给 9 个三角形编号 1-9（从上到下、从左到右）。</p>
+    <p><strong>第二步：枚举并消除重复</strong></p>
+    <ul>
+      <li>以 1 打头：12 ✓、13 ✓、14 与 12 重（左右翻）排除、15 ✓、16 ✓、17 ✓、18 与 16 重排除、19 与 15 重（旋转 180°）排除</li>
+      <li><strong>重要推论</strong>：1 作废 → 5、9 也作废（旋转 90°）。因此 <strong>1、5、9 全部作废</strong></li>
+      <li>以 2 打头：23 ✓、24 与 23 重、25 与 13 重排除、26 与 23 重排除、27 与 24 重排除、28 与 17 重排除、29 ✓</li>
+      <li><strong>新推论</strong>：2 作废 → 4、7 也作废。因此 <strong>2、4、7 作废</strong></li>
+      <li>剩余可选：3、6、8。36 ✓、38 与 36 重（对称轴翻）排除</li>
+    </ul>
+    <p><strong>总计</strong>：12、13、15、16、17、23、29、36、68 共 <span class="answer">9 种</span></p>
+  </div>
+
+  <h3>板块二：练习一（8 个扇形选 3 涂黑）</h3>
+  <div class="point">
+    <div class="point-title">题目：8 个扇形中选 3 个涂黑，旋转/翻转重合视为同一种</div>
+    <p><strong>第一步：强制选 1 号</strong>——8 个扇形可旋转对齐，故必选 1 号（若不选，可旋转到 1 号）。</p>
+    <p><strong>第二步：以 2 号为第二块枚举</strong></p>
+    <ul>
+      <li>123 ✓、124 ✓、125 ✓、126 与 125 重（沿右上-左下对称轴翻）排除、127 与 124 重排除、128 与 123 重排除</li>
+      <li><strong>推论</strong>：2 不能再选 → 3、4 也作废</li>
+    </ul>
+    <p><strong>以 1、5 为前两块，第三块从 6、7、8 中选</strong>：156 ✓、157 ✓、158 与 156 重排除</p>
+    <p>最终答案：<span class="answer">5 种</span></p>
+  </div>
+
+  <h3>板块三：练习二（3×3 格子选 2 涂黑）</h3>
+  <div class="point">
+    <div class="point-title">题目：3×3 格子（编号 1-9，行优先）中选 2 格涂黑</div>
+    <p><strong>第一步：1 打头的枚举</strong>：12 ✓、13 ✓、14 与 12 重排除、15 ✓、16 ✓、17 与 13 重排除、18 与 16 重排除、19 ✓（中心点，旋转后位置不变）</p>
+    <p><strong>第二步：2 打头</strong>：23 ✓、24 ✓、25 ✓、26 与 24 重排除、27 不允许、28 ✓、29 不允许</p>
+    <p><strong>新推论</strong>：1 作废 → 3、7、9 作废（中心对称点）；2 作废 → 4、6、8 作废（中心对称点）。剩 5 一个（中心），无法再选第二个</p>
+    <p>最终答案：<span class="answer">8 种</span></p>
+  </div>
+
+  <h3>板块四：例题二（5 个小正方形拼接图形）</h3>
+  <div class="point">
+    <div class="point-title">题目：5 个相同的小正方形拼接，要求每两个相邻的边完全重合（不重叠），且 5 个连成一块</div>
+    <p><strong>方法论：按最长列分类</strong></p>
+    <ul>
+      <li><strong>最长 = 5</strong>（5×1 形状）：1 种</li>
+      <li><strong>最长 = 4</strong>（4×1+1 形状）：2 种</li>
+      <li><strong>最长 = 3</strong>（3×1+2 形状）：教师结论 8 种</li>
+      <li><strong>最长 = 2</strong>（2×2+1 形状）：1 种</li>
+    </ul>
+    <p>最终结论：1+2+8+1 = <span class="answer">12 种</span></p>
+    <p><em>教师补充</em>：5 个一拼 12 种、6 个一拼 35 种、7 个一拼 108 种（无明显规律）。5、6、7、8 个方块拼接数引出用编程枚举的思想。</p>
+  </div>
+
+  <h3>板块五：练习三（5 个小等边三角形拼接）</h3>
+  <div class="point">
+    <div class="point-title">题目：5 个相同的小等边三角形拼接</div>
+    <ul>
+      <li><strong>最长 = 5</strong>：1 种</li>
+      <li><strong>最长 = 4</strong>：在 4×1 三角形基础上加 1 个。共 2 种</li>
+      <li><strong>最长 = 3</strong>：3 个三角形拼成大三角形（必然是倒三角或正三角）。共 4 种</li>
+    </ul>
+    <p>总计：1+2+4 = <span class="answer">7 种</span></p>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-4 全文系统性总结</h4>
+    <h5>① 涂色枚举三步法</h5>
+    <ol>
+      <li>编号建立顺序</li>
+      <li>枚举 + 识别对称重合</li>
+      <li>推论传递（1 作废 → 5、9 作废等）</li>
+    </ol>
+    <h5>② 五大关键概念</h5>
+    <ul>
+      <li><strong>强制选 1 号</strong>：利用旋转等价，把问题简化为"1 必选"</li>
+      <li><strong>再无相邻</strong>：选完前几块后，剩余可选位置必须与已选位置不相邻</li>
+      <li><strong>中心对称点</strong>：3×3 网格中 1-9、2-8、4-6 中心对称</li>
+      <li><strong>拼接分类法</strong>：按"最长列"分类（最长 5 → 4 → 3 → 2），逐块拼接</li>
+      <li><strong>开放拼接 vs 固定范围</strong>：涂色问题是固定范围内选位置，拼接问题是开放构造图形</li>
+    </ul>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-4 易错点警示</div>
+    <ul>
+      <li>编号顺序的"传递性"：识别 1 作废 → 5、9 作废的旋转关系</li>
+      <li>中心对称点的识别：3×3 中 1 与 9、2 与 8、4 与 6</li>
+      <li>拼接时"最长"的更新：加一块后图形的最长列可能变化</li>
+      <li>三角形拼接的方向性：三角形有正反之分</li>
+      <li>强制选 1 号的合法性：必须确认图形可旋转对齐</li>
+    </ul>
+  </div>
+
+  <!-- L3-4 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-4 对称涂色拼接 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 600" width="1500" height="600" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <rect class="root" x="20" y="260" width="170" height="80" rx="10"/>
+      <text class="txt" x="105" y="295" text-anchor="middle">L3-4 对称涂色</text>
+      <text class="txt" x="105" y="318" text-anchor="middle">与拼接</text>
+
+      <line x1="190" y1="300" x2="240" y2="300"/>
+      <line x1="240" y1="100" x2="240" y2="540"/>
+
+      <!-- Branches -->
+      <line x1="240" y1="100" x2="280" y2="100"/>
+      <rect class="l1" x="280" y="70" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="105" text-anchor="middle">涂色三步法</text>
+
+      <line x1="420" y1="100" x2="460" y2="100"/>
+      <rect class="l2" x="460" y="80" width="160" height="40" rx="6"/>
+      <text fill="#fff" x="540" y="106" text-anchor="middle" font-weight="600">① 编号建立顺序</text>
+      <line x1="460" y1="140" x2="500" y2="140"/>
+      <rect class="l2" x="500" y="120" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="146" text-anchor="middle" font-weight="600">② 枚举+识别对称重合</text>
+      <line x1="460" y1="180" x2="500" y2="180"/>
+      <rect class="l2" x="500" y="160" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="186" text-anchor="middle" font-weight="600">③ 推论传递（1→5,9）</text>
+
+      <line x1="240" y1="240" x2="280" y2="240"/>
+      <rect class="l1" x="280" y="210" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="245" text-anchor="middle">强制选 1 号</text>
+
+      <line x1="420" y1="240" x2="460" y2="240"/>
+      <rect class="l2" x="460" y="220" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="246" text-anchor="middle" font-weight="600">旋转等价 → 简化</text>
+
+      <line x1="240" y1="340" x2="280" y2="340"/>
+      <rect class="l1" x="280" y="310" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="345" text-anchor="middle">拼接·最长列分类</text>
+
+      <line x1="420" y1="340" x2="460" y2="340"/>
+      <rect class="l2" x="460" y="320" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="346" text-anchor="middle" font-weight="600">最长 5 / 4 / 3 / 2</text>
+      <line x1="460" y1="380" x2="500" y2="380"/>
+      <rect class="l3" x="500" y="360" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="386" text-anchor="middle" font-weight="600">5 方块=12 种；6=35</text>
+
+      <line x1="240" y1="440" x2="280" y2="440"/>
+      <rect class="l1" x="280" y="410" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="445" text-anchor="middle">中心对称点</text>
+
+      <line x1="420" y1="440" x2="460" y2="440"/>
+      <rect class="l2" x="460" y="420" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="446" text-anchor="middle" font-weight="600">1-9, 2-8, 4-6</text>
+
+      <line x1="240" y1="540" x2="280" y2="540"/>
+      <rect class="l1" x="280" y="510" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="545" text-anchor="middle">编程思维启蒙</text>
+
+      <line x1="420" y1="540" x2="500" y2="540"/>
+      <rect class="l3" x="500" y="520" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="546" text-anchor="middle" font-weight="600">5/6/7/8 方块拼接数</text>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- L3-5 逻辑推理 -->
+<!-- ============================================ -->
+<section id="ch5" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-5 预</span>
+    <h2>关卡 L3-5（预）· 简单逻辑推理</h2>
+  </div>
+
+  <h3>1️⃣ 逻辑推理不仅是工具方法</h3>
+  <div class="point">
+    <div class="point-title">核心层 vs 工具层</div>
+    <p><strong>假设法、列表法</strong>这些工具方法当然重要。但逻辑推理<em>不仅仅是这些思维方式、逻辑关系的表现</em>，它们只是"表现"，不是"核心"。真正的核心从<strong>逻辑连接词</strong>开始。</p>
+  </div>
+
+  <h3>2️⃣ 三种基本逻辑连接词</h3>
+  <div class="point formula">
+    <div class="point-title">三种基本逻辑连接词</div>
+    <ul>
+      <li><strong>并且（且）</strong>：同时成立</li>
+      <li><strong>或者（或）</strong>：有一个成立即可（包含或，不是互斥或）</li>
+      <li><strong>非（按）</strong>：到了中学是第三种逻辑关系</li>
+    </ul>
+  </div>
+
+  <h3>3️⃣ 两类矛盾</h3>
+  <div class="point warning">
+    <div class="point-title">① 逻辑冲突（至少一错）</div>
+    <p>例子：甲是冠军；甲第一，乙第一——只有一个冠军，不可能同时成立——冲突。<br>这意味着<strong>至少有一个人错了</strong>。有可能<strong>两个人都错了</strong>。<br><em>冲突意味着至少有错，而不意味着一定有对</em>。</p>
+  </div>
+  <div class="point warning">
+    <div class="point-title">② 逻辑对立（一对一错）</div>
+    <p>例子：甲第一；甲不是第一——这两句话也矛盾，但与冲突不同。<br><strong>对立：一定一对一错</strong>——"你对了我就错了，你错了我就对了"。</p>
+  </div>
+
+  <h3>4️⃣ 逻辑推理的两件预备事项</h3>
+  <div class="point">
+    <div class="point-title">① 逻辑链的记录</div>
+    <p>作用：听逻辑课时记笔记用。结构示例：A推出B，B推出C，然后C和D一起推出E，形成一条逻辑推导的链条。</p>
+  </div>
+  <div class="point">
+    <div class="point-title">② 突破口的寻找</div>
+    <p>复杂的逻辑推理问题需要敏锐找到突破口。<strong>突破口往往是被提得最多的条件的交集</strong>，或者是<em>比较奇怪的地方</em>。假设法仍是基础工具。</p>
+  </div>
+
+  <div class="summary-box">
+    <h4>本关预览·系统性总结</h4>
+    <p>本关是逻辑学习的<strong>奠基阶段</strong>。从今天简单的逻辑推理 → 将来逻辑推理进阶 → 复杂的逻辑推理，体现了"核心→工具"的层次结构。</p>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-5 课</span>
+    <h2>关卡 L3-5（课）· 简单的逻辑推理</h2>
+  </div>
+
+  <h3>板块一：例题一（逻辑连接词：且、或、非、不都是）</h3>
+  <div class="point">
+    <div class="point-title">关于甲乙二人是否是三好学生，下面四句话分别是什么意思？</div>
+    <h5>第一句：甲是三好学生且乙是三好学生</h5>
+    <p>"且"：同时成立。等价：甲乙都是三好学生。</p>
+    <h5>第二句：甲是三好学生或乙是三好学生</h5>
+    <p>"或"：有一个成立即可。<em>关键</em>：没说"只有一个"，所以"或"是"包含或"，不是"互斥或"。甲乙都是三好学生也满足"或"。</p>
+    <h5>第三句：甲乙都不是三好学生</h5>
+    <p>不是"都不是"的一个：是"都不是"且"都不是" = 同时成立 = "且"。</p>
+    <h5>第四句：甲乙不都是三好学生</h5>
+    <p>"不都是" = "都是"的反面。所以"不都是"包含 3 种情况：①甲是乙不是；②甲不是乙是；③甲不是乙不是。<br><em>关键洞察</em>："都是"是唯一一种情况，"不都是"是剩下所有情况。</p>
+    <div class="formula-block">
+      <table style="margin:0 auto;">
+        <tr><th>连接词</th><th>数学含义</th><th>等价表达</th></tr>
+        <tr><td>且</td><td>同时成立</td><td>A 且 B = A ∧ B</td></tr>
+        <tr><td>或</td><td>有一个成立即可（含两者都成立）</td><td>A 或 B = A ∨ B</td></tr>
+        <tr><td>不是</td><td>否定</td><td>¬A</td></tr>
+        <tr><td>不都是</td><td>都是的反面</td><td>¬(A 且 B)</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <h3>板块二：练习 1-6（逻辑连接词辨析与推理）</h3>
+  <div class="point">
+    <div class="point-title">练习 1-6 关键结论</div>
+    <ul>
+      <li><strong>练习 1</strong>：甲在且乙不在 → 必然成立：甲在（A ✓）、乙不在（D ✓）</li>
+      <li><strong>练习 2</strong>：甲在或乙在 → 不可能：甲不在且乙不在</li>
+      <li><strong>练习 3</strong>：甲不在或乙不在 → 不可能：甲在且乙在（A）</li>
+      <li><strong>练习 4</strong>：甲乙都不在 → 只有一种情况（甲不在乙也不在）→ 选 D</li>
+      <li><strong>练习 5</strong>：甲乙不都在 → 必然不成立 = 必然成立 = "都在" → 选 A</li>
+      <li><strong>练习 6</strong>：如果甲在，则乙在（A→B）→ 甲是乙的充分条件。<em>关键</em>：可推出"甲在 → 乙在"，反过来"乙在 → 甲在"不成立</li>
+    </ul>
+  </div>
+
+  <h3>板块三：例题二（贴错标签逻辑链）</h3>
+  <div class="point">
+    <div class="point-title">题目：妈妈给小帅三个组和盒子 A、B、C 分别装有两个红球两个绿球（红红）、两个绿球（绿绿）、一个红球一个绿球（红绿）。三个盒子标签全贴错了。只从一个盒子取一个球，就能正确判断所有盒子</div>
+    <p><strong>突破口：选 C</strong></p>
+    <h5>情形 1：C 取出红球</h5>
+    <p>C 标签是红绿，但标签贴错，所以 C 不是红绿。C 可能是红红或绿绿。取出的是红球，所以 C 是红红。剩下 A 标签（红红）、B 标签（绿绿）都贴错。<br>完整：A=绿绿、B=红红、C=红绿</p>
+    <h5>情形 2：C 取出绿球</h5>
+    <p>C 不是红绿（标签错），且有绿球，所以 C 是绿绿。<br>完整：A=红绿、B=红红、C=绿绿</p>
+    <p><strong>两种情形都唯一确定</strong>，所以选 C。</p>
+  </div>
+
+  <h3>板块四：练习七（狐狸、兔子、考拉熊真话假话）</h3>
+  <div class="point">
+    <div class="point-title">题目：狐狸只说假话，兔子和考拉熊说真话假话都可能。甲说"我不是兔子"，乙说"我不是兔子"。问丙是什么？</div>
+    <p><strong>突破口：狐狸的特殊性</strong></p>
+    <ul>
+      <li>如果狐狸说"我不是兔子"，按狐狸说假话规则，狐狸其实是兔子——但狐狸不是兔子，矛盾</li>
+      <li>所以狐狸一定不会说"我不是兔子"</li>
+      <li>甲乙都说"我不是兔子"，所以甲乙都不是狐狸</li>
+      <li>结论：<span class="answer">丙是狐狸</span></li>
+    </ul>
+  </div>
+
+  <h3>板块五：例题三（迎春杯名次推理）</h3>
+  <div class="point">
+    <div class="point-title">题目（迎春杯三年级初赛）：甲乙丙丁获前四名（无并列）</div>
+    <p>①甲说：我既不是第一也不是第二<br>②乙说：我的名次和丙相邻<br>③丙说：我既不是第二也不是第三<br>④丁说：我的名次和乙相邻<br>四人都说真话。求 ABCD 各是第几名？</p>
+    <p><strong>突破口：乙丁的话结合</strong></p>
+    <ul>
+      <li>丙和乙相邻，乙和丁相邻 → 丙乙丁三人名次相邻</li>
+      <li>三人相邻的可能位置：(1,2,3) 或 (2,3,4)</li>
+      <li>甲被挤到两端。甲说"既不是第一也不是第二" → 甲只能是<strong>第四</strong></li>
+      <li>既然甲第四，丙乙丁占据前三位（1、2、3）且相邻</li>
+      <li>乙在中间（即第二），因为"乙和丙相邻 + 乙和丁相邻"要求乙必须在中间 → <strong>乙=第二</strong></li>
+      <li>丙说"既不是第二也不是第三" → <strong>丙=第一</strong></li>
+      <li>丁剩第三</li>
+    </ul>
+    <p>最终答案：A=4、B=2、C=1、D=3，即四位数 <span class="answer">4213</span></p>
+    <p><em>方法论</em>：一维表格（用 4 行即可，不需要 5×5 表），右侧写突破口和逻辑链。</p>
+  </div>
+
+  <h3>板块六：练习八（运动员名次推理）</h3>
+  <div class="point">
+    <div class="point-title">题目（迎春杯三年级初赛）：1-4 号运动员获前四名</div>
+    <ul>
+      <li>1 号说：3 号在我前面 → 3 号在 1 号前面 → 1 号不是第一</li>
+      <li>另一运动员说："我得第三名，1 号不是第四名" → 1 号不是第三；1 号不是第四</li>
+      <li>综合：1 号不是第一、不是第三、不是第四 → <strong>1 号是第二</strong></li>
+      <li>3 号在 1 号前面 → 3 号是第一</li>
+      <li>小裁判员说"号码与名次不同"：4 号不能是第四 → 4 号是第三；2 号是第四</li>
+    </ul>
+    <p>最终答案：1 号=第二、2 号=第四、3 号=第一、4 号=第三，四位数 <span class="answer">2413</span></p>
+  </div>
+
+  <h3>板块七：练习九（狼人杀身份推理）</h3>
+  <div class="point">
+    <div class="point-title">题目（迎春杯网赛改编）：5 个同学玩狼人杀，1-5 号。两个狼人（说假话）、一个预言家、一个女巫、一个猎人</div>
+    <p><strong>教师简化</strong>：狼人说假话、好人说真话 → 5 人中 2 人说假话、3 人说真话。</p>
+    <p><strong>推理链</strong>：</p>
+    <ol class="steps">
+      <li>假设 3 号说了假话 → 3 号是坏人 → 4 号也是坏人（同对错）</li>
+      <li>但 1 号和 2 号对立，至少有一位坏人，加上 3、4 两位坏人，已经有 3 位坏人，违反"两个狼人"前提</li>
+      <li>所以 3 号没说假话 → 3 号是好人 → 4 号是好人</li>
+      <li>3 号说"我用解药救了自己" → 救人的是女巫 → <strong>3 号是女巫</strong></li>
+      <li>1 号和 5 号对立，已知 3、4 是好人，所以 1、2、5 中有 2 个坏人</li>
+      <li>所以 5 号说假话（5 号是坏人）→ 1 号说真话（1 号是好人）</li>
+      <li>坏人：5 号 + 2 号；好人：1、3、4 号</li>
+      <li>1 号说"我是预言家" → 1 号是预言家</li>
+      <li>4 号是猎人（剩余的好人身份）</li>
+    </ol>
+    <p>最终答案：猎人是 <span class="answer">4 号</span></p>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-5 全文系统性总结</h4>
+    <h5>① 知识网络</h5>
+    <ul>
+      <li><strong>逻辑连接词</strong>：且、或（包含或）、不是、不都是。"不都是" = "都是"的反面（3 种情况 vs 1 种）。条件句 A→B（不反推 B→A）</li>
+      <li><strong>真话假话推理</strong>：唯一确定角色（狐狸）的突破口作用；同对错传递；对立关系；数量约束</li>
+      <li><strong>名次推理</strong>：一维表格法；多条件联合；互斥推理</li>
+      <li><strong>逻辑链表达</strong>：突破口优先；右侧写逻辑链；假设法+完全枚举</li>
+    </ul>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-5 易错点警示</div>
+    <ul>
+      <li>"或"是包含或，不是互斥或</li>
+      <li>"不都是"≠"都不是"</li>
+      <li>A→B 不等价于 B→A</li>
+      <li>标签贴错问题中"全错"是同时错</li>
+      <li>身份推理中"对立"和"同对错"不要混淆</li>
+    </ul>
+  </div>
+
+  <!-- L3-5 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-5 逻辑推理 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 650" width="1500" height="650" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <rect class="root" x="20" y="280" width="170" height="80" rx="10"/>
+      <text class="txt" x="105" y="315" text-anchor="middle">L3-5 逻辑推理</text>
+      <text class="txt" x="105" y="338" text-anchor="middle">奠基阶段</text>
+
+      <line x1="190" y1="320" x2="240" y2="320"/>
+      <line x1="240" y1="80" x2="240" y2="580"/>
+
+      <line x1="240" y1="80" x2="280" y2="80"/>
+      <rect class="l1" x="280" y="50" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="85" text-anchor="middle">逻辑连接词</text>
+
+      <line x1="420" y1="80" x2="460" y2="80"/>
+      <rect class="l2" x="460" y="60" width="160" height="40" rx="6"/>
+      <text fill="#fff" x="540" y="86" text-anchor="middle" font-weight="600">且（同时成立）</text>
+      <line x1="460" y1="120" x2="500" y2="120"/>
+      <rect class="l2" x="500" y="100" width="160" height="40" rx="6"/>
+      <text fill="#fff" x="580" y="126" text-anchor="middle" font-weight="600">或（包含或）</text>
+      <line x1="460" y1="160" x2="500" y2="160"/>
+      <rect class="l2" x="500" y="140" width="160" height="40" rx="6"/>
+      <text fill="#fff" x="580" y="166" text-anchor="middle" font-weight="600">不都是 = 3 种</text>
+      <line x1="460" y1="200" x2="500" y2="200"/>
+      <rect class="l2" x="500" y="180" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="206" text-anchor="middle" font-weight="600">A→B 不等价 B→A</text>
+
+      <line x1="240" y1="260" x2="280" y2="260"/>
+      <rect class="l1" x="280" y="230" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="265" text-anchor="middle">逻辑关系</text>
+
+      <line x1="420" y1="260" x2="460" y2="260"/>
+      <rect class="l2" x="460" y="240" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="266" text-anchor="middle" font-weight="600">冲突：至少一错</text>
+      <line x1="460" y1="300" x2="500" y2="300"/>
+      <rect class="l3" x="500" y="280" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="306" text-anchor="middle" font-weight="600">对立：一对一错</text>
+
+      <line x1="240" y1="380" x2="280" y2="380"/>
+      <rect class="l1" x="280" y="350" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="385" text-anchor="middle">真话假话</text>
+
+      <line x1="420" y1="380" x2="460" y2="380"/>
+      <rect class="l2" x="460" y="360" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="386" text-anchor="middle" font-weight="600">唯一确定角色突破口</text>
+      <line x1="460" y1="420" x2="500" y2="420"/>
+      <rect class="l3" x="500" y="400" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="426" text-anchor="middle" font-weight="600">同对错+对立+数量</text>
+
+      <line x1="240" y1="500" x2="280" y2="500"/>
+      <rect class="l1" x="280" y="470" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="505" text-anchor="middle">名次推理</text>
+
+      <line x1="420" y1="500" x2="460" y2="500"/>
+      <rect class="l2" x="460" y="480" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="506" text-anchor="middle" font-weight="600">一维表+多条件联合</text>
+      <line x1="460" y1="540" x2="500" y2="540"/>
+      <rect class="l3" x="500" y="520" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="546" text-anchor="middle" font-weight="600">互斥推理+剩余确定</text>
+
+      <line x1="240" y1="580" x2="280" y2="580"/>
+      <rect class="l1" x="280" y="560" width="160" height="40" rx="8"/>
+      <text class="txt" x="360" y="586" text-anchor="middle">突破口思维</text>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- L3-6 等差数列 -->
+<!-- ============================================ -->
+<section id="ch6" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-6 预</span>
+    <h2>关卡 L3-6（预）· 等差数列</h2>
+  </div>
+
+  <h3>1️⃣ 等差数列的定义</h3>
+  <div class="point formula">
+    <div class="point-title">数列 / 等差 / 公差</div>
+    <ul>
+      <li><strong>数列</strong>：一列数按一定规律写下来</li>
+      <li><strong>等差</strong>：差相等——相邻两项的差相同</li>
+      <li><strong>公差</strong>：这个"差"在等差数列中叫<strong>公差</strong></li>
+    </ul>
+    <h5>项的命名</h5>
+    <ul>
+      <li><strong>首项</strong>：等差数列的第一项</li>
+      <li><strong>末项</strong>：写到某一个数，如写到 200，200 这一项叫末项</li>
+      <li><em>末项的灵活性</em>：在不同的问题里，也可以把一列数中的某个数看成首项、某个数开始末项</li>
+    </ul>
+  </div>
+
+  <h3>2️⃣ 重要的数学思想：配对</h3>
+  <div class="point tip">
+    <div class="point-title">配对是核心思想</div>
+    <p>推导等差数列求和时，会用到<strong>首尾配对</strong>：</p>
+    <ul>
+      <li><strong>配对</strong>是一种重要的数学思想，将来可能进化为<strong>分组</strong>（一对两个 → 三个一组、四个一组）</li>
+      <li><strong>对应</strong>：配对两个一对，这两个一对的和建立了对应关系</li>
+      <li>老师强调：<em>在等差数列中，配对以及配对将来代数的分组和对应，比那几个公式更加重要</em></li>
+    </ul>
+  </div>
+
+  <h3>3️⃣ 概念辨析：等差数列必须至少三项</h3>
+  <div class="point warning">
+    <div class="point-title">等差数列辨析</div>
+    <ul>
+      <li><strong>A 错</strong>：等差数列至少要三项。否则两项，做了差和另外的差怎么去相等？</li>
+      <li><strong>C 错</strong>：3 - 1 = 2；1 - 3 在小学阶段定义为 3 - 1 = 2，会出现变化方向不一致——没有这样的等差数列</li>
+      <li><strong>D 对</strong>：全是一样的数（如 5、5、5、5），这也是等差数列——<strong>公差为零的等差数列</strong></li>
+    </ul>
+    <p><strong>小学与高中定义的差异</strong>：高中等差数列的差是后一个数减前一个数（可以是负差）；小学为了避免差是负数，差一律大减小。</p>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-6 课</span>
+    <h2>关卡 L3-6（课）· 等差数列</h2>
+  </div>
+
+  <h3>板块一：例题一（等差数列四项四问）</h3>
+  <div class="point formula">
+    <div class="point-title">核心公式</div>
+    <div class="formula-block">
+      末项 = 首项 + (项数 − 1) × 公差<br>
+      项数 = (末项 − 首项) ÷ 公差 + 1
+    </div>
+  </div>
+  <div class="point">
+    <div class="point-title">题目：等差数列 1, 4, 7, 10, 13, ... 问四个问题</div>
+    <ul>
+      <li><strong>第一问</strong>：200 在这个数列中吗？公差 = 4−1 = 3。数列中含 202（因为 202 = 1 + 67×3）。200 除以 3 余 2，不在数列中。<span class="answer">不在</span></li>
+      <li><strong>第二问</strong>：第十项是多少？a₁₀ = 1 + 9×3 = <span class="answer">28</span></li>
+      <li><strong>第三问</strong>：到 202 共有多少项？项数 = (202 − 1) ÷ 3 + 1 = 67 + 1 = <span class="answer">68</span></li>
+      <li><strong>第四问</strong>：到 100 共有多少项？项数 = (100 − 1) ÷ 3 + 1 = 33 + 1 = <span class="answer">34</span></li>
+    </ul>
+  </div>
+
+  <h3>板块二：练习一（求项数）</h3>
+  <div class="point">
+    <div class="point-title">题目：等差数列 101, 105, 109, ..., 1001，问 1001 是第几项？</div>
+    <p>公差 = 105 − 101 = 4。项数 = (1001 − 101) ÷ 4 + 1 = 225 + 1 = <span class="answer">226</span></p>
+  </div>
+
+  <h3>板块三：练习二（求末项）</h3>
+  <div class="point">
+    <div class="point-title">题目：等差数列 3, 8, 13, 18, ...（公差 5），求第 100 项</div>
+    <p>a₁₀₀ = 3 + 99×5 = 3 + 495 = <span class="answer">498</span></p>
+    <p><em>教师强调</em>："省略号意味着我们一直能写下去……我就认为这个等差数列只有前 100 项"——即<strong>虚拟截断</strong>思想。</p>
+  </div>
+
+  <h3>板块四：例题二（克隆法推导等差数列求和）</h3>
+  <div class="point">
+    <div class="point-title">题目：计算 1+2+3+...+36</div>
+    <p><strong>克隆法</strong>：</p>
+    <ul>
+      <li>把原算式克隆一份：36+35+34+...+1</li>
+      <li>两式相加：1+36=37、2+35=37、... 共 36 对，每对和为 37</li>
+      <li>但克隆后是两倍的和：2S = 36×37</li>
+      <li>S = 36×37÷2 = 18×37</li>
+      <li>37×3=111，111×6=666</li>
+    </ul>
+    <p>最终答案：<span class="answer">666</span></p>
+    <div class="formula-block">S = (首项 + 末项) × 项数 ÷ 2</div>
+  </div>
+
+  <h3>板块五：练习三（1+2+...+19）</h3>
+  <div class="point">
+    <div class="point-title">题目：1000 − (1+2+3+...+19)</div>
+    <p>S = (1+19) × 19 ÷ 2 = 20 × 19 ÷ 2 = 190。1000 − 190 = <span class="answer">810</span></p>
+    <p><em>三角数</em>：1+2+...+n 称为第 n 个三角数 T_n。</p>
+    <p>常用和：1+2+...+9=45、1+2+...+10=55、1+2+...+19=190、1+2+...+20=200、1+2+...+100=5050、1+2+...+63=2016</p>
+  </div>
+
+  <h3>板块六：练习四（前 N 个奇数和与度数）</h3>
+  <div class="point highlight">
+    <div class="point-title">题目：1+3+5+...+99（前 50 个奇数）的和是多少？</div>
+    <p>公差 2、首项 1、末项 99。项数 = (99−1)÷2+1 = 50。S = (1+99) × 50 ÷ 2 = 100 × 25 = <span class="answer">2500</span></p>
+    <p><strong>观察结论</strong>：前 50 个奇数的和 = 50² = 2500。推广：<em>前 n 个奇数的和 = n²</em>。</p>
+    <p><strong>度数概念</strong>：用图形（圆圈、方阵）研究数列，是中国古代数学的传统。</p>
+  </div>
+
+  <h3>板块七：综合一（公因数提取+等差求和）</h3>
+  <div class="point">
+    <div class="point-title">题目：(1×2)+(3×4)+(5×6)+...+(997×998) − (998×999 − 996×997) − ...</div>
+    <p>每对提公因数（998、996、...、2），每个括号里的减法结果都是 2。化为：2 × (998+996+...+2)。</p>
+    <ul>
+      <li>这是公差 2、首项 2、末项 998 的等差数列求和</li>
+      <li>项数 = (998−2)÷2+1 = 499</li>
+      <li>(2+998)×499÷2 × 2 = 1000×499÷2 × 2 = 1000×499 = <span class="answer">499000</span></li>
+    </ul>
+  </div>
+
+  <h3>板块八：综合二（连续 100 个自然数取奇数位）</h3>
+  <div class="point">
+    <div class="point-title">题目：100 个连续自然数从小到大排好，总和 7650。取出第 1、3、5、...、99 个，问剩下的和？</div>
+    <h5>方法一：普调法</h5>
+    <ul>
+      <li>已知 1+2+...+100=5050</li>
+      <li>总和 7650 比 5050 多 2600</li>
+      <li>普调：把所有 100 个数各加 1，总和就增加 100</li>
+      <li>2600÷100=26，所以每个数增加 26</li>
+      <li>原 100 个数是 27、28、29、...、126</li>
+      <li>留下偶数位：第 2、4、6、...、100 位，即 28、30、32、...、126</li>
+      <li>S = (28+126)×50÷2 = 154×25 = <span class="answer">3850</span></li>
+    </ul>
+    <h5>方法二：对应法</h5>
+    <ul>
+      <li>设 100 个数为 a₁, a₂, a₃, ..., a₁₀₀</li>
+      <li>每对差 1，所以余下的和 − 取走的和 = 50</li>
+      <li>较大数 = (7650 + 50) ÷ 2 = 3850</li>
+    </ul>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-6 全文系统性总结</h4>
+    <h5>① 知识网络</h5>
+    <ul>
+      <li><strong>基础公式</strong>：末项 aₙ = a₁ + (n−1)d；项数 n = (aₙ − a₁) ÷ d + 1</li>
+      <li><strong>求和公式</strong>：S = (a₁ + aₙ) × n ÷ 2；克隆法推导</li>
+      <li><strong>特殊数列</strong>：1+2+...+n = n(n+1)/2（三角数）；1+3+5+...+(2n−1) = n²（奇数和）</li>
+      <li><strong>综合方法</strong>：公因数提取+等差求和；普调法；对应法/和差问题</li>
+      <li><strong>度数概念</strong>：用图形（圆圈、方阵）表示数列。n² 是 n×n 方阵的点数</li>
+    </ul>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-6 易错点警示</div>
+    <ul>
+      <li>末项公式：n−1 不是 n</li>
+      <li>项数公式：别忘了最后 +1</li>
+      <li>公差为负数时（递减数列），公式同样适用，但要小心符号</li>
+      <li>普调法中"普调量"必须能整除总差</li>
+      <li>对应法中"差"是每对差×对数</li>
+    </ul>
+  </div>
+
+  <!-- L3-6 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-6 等差数列 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 700" width="1500" height="700" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <rect class="root" x="20" y="310" width="170" height="80" rx="10"/>
+      <text class="txt" x="105" y="345" text-anchor="middle">L3-6 等差数列</text>
+      <text class="txt" x="105" y="368" text-anchor="middle">代数思维</text>
+
+      <line x1="190" y1="350" x2="240" y2="350"/>
+      <line x1="240" y1="80" x2="240" y2="640"/>
+
+      <line x1="240" y1="80" x2="280" y2="80"/>
+      <rect class="l1" x="280" y="50" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="85" text-anchor="middle">三大公式</text>
+
+      <line x1="420" y1="80" x2="460" y2="80"/>
+      <rect class="l2" x="460" y="40" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="66" text-anchor="middle" font-weight="600">末项公式 aₙ=a₁+(n-1)d</text>
+      <line x1="460" y1="120" x2="500" y2="120"/>
+      <rect class="l2" x="500" y="100" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="126" text-anchor="middle" font-weight="600">项数公式 (aₙ-a₁)÷d+1</text>
+      <line x1="460" y1="160" x2="500" y2="160"/>
+      <rect class="l2" x="500" y="140" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="166" text-anchor="middle" font-weight="600">求和 (a₁+aₙ)×n÷2</text>
+
+      <line x1="240" y1="240" x2="280" y2="240"/>
+      <rect class="l1" x="280" y="210" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="245" text-anchor="middle">求和方法</text>
+
+      <line x1="420" y1="240" x2="460" y2="240"/>
+      <rect class="l2" x="460" y="220" width="160" height="40" rx="6"/>
+      <text fill="#fff" x="540" y="246" text-anchor="middle" font-weight="600">克隆法</text>
+      <line x1="460" y1="280" x2="500" y2="280"/>
+      <rect class="l3" x="500" y="260" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="286" text-anchor="middle" font-weight="600">首尾配对法</text>
+
+      <line x1="240" y1="380" x2="280" y2="380"/>
+      <rect class="l1" x="280" y="350" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="385" text-anchor="middle">特殊数列</text>
+
+      <line x1="420" y1="380" x2="460" y2="380"/>
+      <rect class="l2" x="460" y="360" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="386" text-anchor="middle" font-weight="600">三角数 Tₙ=n(n+1)/2</text>
+      <line x1="460" y1="420" x2="500" y2="420"/>
+      <rect class="l3" x="500" y="400" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="426" text-anchor="middle" font-weight="600">奇数和 1+3+...=n²</text>
+      <line x1="460" y1="460" x2="500" y2="460"/>
+      <rect class="l3" x="500" y="440" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="466" text-anchor="middle" font-weight="600">1225=35²=T₄₉</text>
+
+      <line x1="240" y1="540" x2="280" y2="540"/>
+      <rect class="l1" x="280" y="510" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="545" text-anchor="middle">综合方法</text>
+
+      <line x1="420" y1="540" x2="460" y2="540"/>
+      <rect class="l2" x="460" y="520" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="546" text-anchor="middle" font-weight="600">普调法（全体加减）</text>
+      <line x1="460" y1="580" x2="500" y2="580"/>
+      <rect class="l3" x="500" y="560" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="586" text-anchor="middle" font-weight="600">对应法（和差问题）</text>
+
+      <line x1="240" y1="640" x2="280" y2="640"/>
+      <rect class="l1" x="280" y="620" width="160" height="40" rx="8"/>
+      <text class="txt" x="360" y="646" text-anchor="middle">度数（图形化）</text>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- L3-7 和差倍问题 -->
+<!-- ============================================ -->
+<section id="ch7" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-7 预</span>
+    <h2>关卡 L3-7（预）· 和差倍问题</h2>
+  </div>
+
+  <h3>1️⃣ 和差问题（复习部分）</h3>
+  <div class="point formula">
+    <div class="point-title">和差问题公式</div>
+    <div class="formula-block">
+      较大数 = (和 + 差) ÷ 2<br>
+      较小数 = (和 − 差) ÷ 2
+    </div>
+    <p>例题：甲乙两数的和为 88，甲比乙大 10。乙 = (88-10) ÷ 2 = <strong>39</strong>；甲 = 39+10 = <strong>49</strong>。</p>
+  </div>
+
+  <h3>2️⃣ 本关新课：和倍问题与差倍问题</h3>
+  <div class="point">
+    <div class="point-title">核心工具：线段图</div>
+    <p>和倍问题和差倍问题是小学中年级阶段相对简单的基础模型。仍然使用<strong>线段图</strong>作为基础数学技能，从线段图中发现量与量的关系。</p>
+  </div>
+
+  <h3>3️⃣ 多状态问题的处理</h3>
+  <div class="point tip">
+    <div class="point-title">多状态核心技巧</div>
+    <ul>
+      <li>当做多状态问题时，<strong>要把眼光注重在有倍数的那个状态</strong></li>
+      <li>在初学过程中，两个或多个状态中<strong>只有一个状态</strong>（或只有一个核心的状态）<em>与倍数有关系</em></li>
+      <li>利用和倍、差倍问题的经典解法，<strong>先破解那一个状态</strong>，其他状态也都破解了</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-7 课</span>
+    <h2>关卡 L3-7（课）· 和差倍问题</h2>
+  </div>
+
+  <h3>板块一：例题1（两堆棋子问题）</h3>
+  <div class="point">
+    <div class="point-title">题目：第一堆 99 个棋子，第二堆 81 个，从第一堆拿多少个到第二堆，可使第二堆是第一堆的 3 倍？</div>
+    <p><strong>解题步骤</strong>：</p>
+    <ol class="steps">
+      <li>识别两个状态：第一堆99个、第二堆81个；第二堆=第一堆×3</li>
+      <li>关注倍数状态：第一堆为1倍量，第二堆为3倍量，合计为4份</li>
+      <li>总数不变性：第一堆拿给第二堆，总数不变，依然是99+81=180个</li>
+      <li>求一倍量：一倍量 = 180 ÷ (3+1) = 45个</li>
+      <li>求转移量：第一状态下第一堆99个，新状态下第一堆只有45个，所以从第一堆往第二堆拿 <span class="answer">54个</span></li>
+    </ol>
+    <p><strong>知识点 1（基础公式）</strong>：在和倍问题中，"<em>一倍量 = 和 ÷ (倍数+1)</em>"，要理解"为什么要加 1"——加 1 是要合上一倍量本身，因为一共的份数 = 倍数份 + 1 份。</p>
+    <p><strong>知识点 2（数学技巧）</strong>：当一道题有多个状态时，要把眼光集中在"有倍数关系的状态"，画线段图也只画那个状态的图。</p>
+  </div>
+
+  <h3>板块二：练习 1（甲乙两数和为 20）</h3>
+  <div class="point">
+    <div class="point-title">题目：甲乙两数和是 20，甲数是乙数的 4 倍，问甲乙两数的差是多少？</div>
+    <ul>
+      <li>和 = 20，倍数关系 = 4 倍，乙是一倍量</li>
+      <li>一倍量（乙）= 20 ÷ (4+1) = 4</li>
+      <li>甲 = 4 × 4 = 16</li>
+      <li>差 = 甲 − 乙 = 16 − 4 = <span class="answer">12</span></li>
+    </ul>
+    <p><strong>公式变形</strong>：差 = 一倍量 × (倍数−1) = 4 × 3 = 12。这是从和倍到差倍的过渡桥梁。</p>
+  </div>
+
+  <h3>板块三：例题 2（书架 120 本书问题）</h3>
+  <div class="point">
+    <div class="point-title">题目：两层书架共 120 本书，从第一层拿走 23 本，第二层比第一层的 2 倍还多 4 本，问第二层有多少本？</div>
+    <p>本题不是标准的"几倍"关系，而是"<em>2 倍还多 4 本</em>"。这种"多/少"型倍数关系需要特殊处理：</p>
+    <ol class="steps">
+      <li>排除"多 4 本"还原标准倍数关系：120 − 23 − 4 = 93本（这就是"标准倍数关系"下两个量的和）</li>
+      <li>套用和倍公式：93 ÷ (2+1) = 31本（一倍量，即最终状态下第一层）</li>
+      <li>回推第二层：第二层 = 31 × 2 + 4 = <span class="answer">66本</span></li>
+    </ol>
+  </div>
+
+  <h3>板块四：练习 2（篮球与排球问题）</h3>
+  <div class="point">
+    <div class="point-title">题目：一些篮球和排球。拿走 6 个篮球，篮球与排球一样多。拿走 6 个排球，篮球数恰好是排球数的 4 倍</div>
+    <ul>
+      <li>画线段图：最终状态：排球是一倍量，篮球是 4 倍量</li>
+      <li>拿走 6 个篮球后，篮球=排球，说明原来篮球比排球多 6 个</li>
+      <li>最终状态下，篮球（4倍）比排球（1倍）多（6+6）= 12个</li>
+      <li>套用差倍公式：一倍量 = 差 ÷ (倍数-1) = 12 ÷ 3 = 4个（排球）</li>
+      <li>篮球 = 4 × 4 = 16个；原有排球 = 4 + 6 = 10个</li>
+    </ul>
+    <div class="formula-block"><strong>差倍问题公式：一倍量 = 差 ÷ (倍数−1)</strong></div>
+  </div>
+
+  <h3>板块五：练习 3（两数商为 4、差为 60）</h3>
+  <div class="point">
+    <div class="point-title">题目：两个数的商是 4，差是 60，求较大数？</div>
+    <p>"商是 4" 意味着较大数是较小数的 4 倍。识别差倍问题：差=60，倍数=4。求一倍量（较小数）：60 ÷ (4−1) = 20。较大数：20 + 60 = <span class="answer">80</span>。</p>
+  </div>
+
+  <h3>板块六：练习 4（苹果箱子问题）</h3>
+  <div class="point">
+    <div class="point-title">题目：一箱苹果，箱子和苹果总重 100 千克。拿走一些苹果后总重 36 千克。再从余下苹果中拿走一半，则最初的苹果是剩下来的 6 倍</div>
+    <p><strong>三个状态</strong>：状态1（最初100千克）、状态2（吃了一些36千克）、状态3（再拿走一半）</p>
+    <ol class="steps">
+      <li>关注倍数关系的最终状态：最终苹果是最初苹果的 1/6</li>
+      <li>假设最初苹果为 6 份，最终苹果为 1 份</li>
+      <li>状态3中苹果是1份（每份X千克）；状态2中苹果是2份；状态1中苹果是6份</li>
+      <li>差值：100−36=64千克，是6份和2份的差（即4份）。所以一份 = 64 ÷ 4 = 16千克</li>
+      <li>最初苹果 = 16 × 6 = <span class="answer">96 千克</span></li>
+    </ol>
+  </div>
+
+  <h3>板块七：综合 1（白菜、黄瓜、苹果问题）</h3>
+  <div class="point">
+    <div class="point-title">题目：白菜、黄瓜和苹果共重 5000 克，其中苹果是黄瓜的 3 倍，蔬菜（白菜+黄瓜）是苹果的 4 倍。问妈妈买了多少千克白菜？</div>
+    <ol class="steps">
+      <li>识别倍数关系：苹果 = 黄瓜 × 3；蔬菜 = 苹果 × 4 = 黄瓜 × 12</li>
+      <li>一共 = 蔬菜 + 苹果 = 黄瓜×12 + 黄瓜×3 = 黄瓜×15</li>
+      <li>求水果（苹果）：5000 ÷ (1+4) = 1000克 = 1千克</li>
+      <li>求黄瓜：黄瓜 = 苹果 ÷ 3 = 1000 ÷ 3</li>
+    </ol>
+    <p><em>连锁倍数简化</em>：蔬菜=4×苹果=4×3×黄瓜=12×黄瓜，所以一共=12+3=15份黄瓜。</p>
+  </div>
+
+  <h3>板块八：综合 2（甲乙丙问题）</h3>
+  <div class="point">
+    <div class="point-title">题目：甲乙丙总重 93 千克。甲的重量比乙丙的重量之和轻 3 千克。乙比丙的 2 倍还重 6 千克。问乙重多少？</div>
+    <ol class="steps">
+      <li>前两个条件形成和差问题：甲 + (乙+丙) = 93；(乙+丙) − 甲 = 3 → <strong>和差问题</strong></li>
+      <li>求乙丙之和：(93 + 3) ÷ 2 = <strong>48 千克</strong></li>
+      <li>第三个条件形成新的和倍问题：乙 = 丙×2 + 6。排除 6：48 − 6 = 42千克</li>
+      <li>求一倍量（丙）：42 ÷ (2+1) = 14千克</li>
+      <li>求乙：乙 = 14 × 2 + 6 = <span class="answer">34 千克</span></li>
+    </ol>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-7 全文系统性总结</h4>
+    <h5>① 两大核心公式</h5>
+    <table>
+      <thead><tr><th>问题类型</th><th>已知条件</th><th>核心公式</th></tr></thead>
+      <tbody>
+        <tr><td>和倍问题</td><td>两个量的和 + 倍数关系</td><td>一倍量 = 和 ÷ (倍数+1)</td></tr>
+        <tr><td>差倍问题</td><td>两个量的差 + 倍数关系</td><td>一倍量 = 差 ÷ (倍数−1)</td></tr>
+      </tbody>
+    </table>
+    <h5>② 三大数学思维</h5>
+    <ol>
+      <li><strong>状态选择思维</strong>：多状态问题中，要选择"有倍数关系"的状态作为分析对象</li>
+      <li><strong>排除还原思维</strong>：遇到"几倍还多/还少"的问题时，先把"多/少"的部分排除掉</li>
+      <li><strong>问题分解思维</strong>：复杂的多量、多步问题可以分解为多个经典问题</li>
+    </ol>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-7 易错点警示</div>
+    <ul>
+      <li>"多/少"型倍数关系的处理</li>
+      <li>三状态问题中箱子重量不变</li>
+      <li>倍数状态的选择（聚焦有倍数关系的状态）</li>
+      <li>连锁倍数（蔬菜=12×黄瓜）</li>
+    </ul>
+  </div>
+
+  <!-- L3-7 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-7 和差倍问题 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 700" width="1500" height="700" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <rect class="root" x="20" y="310" width="170" height="80" rx="10"/>
+      <text class="txt" x="105" y="345" text-anchor="middle">L3-7 和差倍</text>
+      <text class="txt" x="105" y="368" text-anchor="middle">应用模型</text>
+
+      <line x1="190" y1="350" x2="240" y2="350"/>
+      <line x1="240" y1="80" x2="240" y2="640"/>
+
+      <line x1="240" y1="80" x2="280" y2="80"/>
+      <rect class="l1" x="280" y="50" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="85" text-anchor="middle">和差问题</text>
+
+      <line x1="420" y1="80" x2="460" y2="80"/>
+      <rect class="l2" x="460" y="60" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="86" text-anchor="middle" font-weight="600">大=(和+差)÷2</text>
+      <line x1="460" y1="120" x2="500" y2="120"/>
+      <rect class="l2" x="500" y="100" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="126" text-anchor="middle" font-weight="600">小=(和−差)÷2</text>
+
+      <line x1="240" y1="240" x2="280" y2="240"/>
+      <rect class="l1" x="280" y="210" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="245" text-anchor="middle">和倍问题</text>
+
+      <line x1="420" y1="240" x2="460" y2="240"/>
+      <rect class="l2" x="460" y="220" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="246" text-anchor="middle" font-weight="600">一倍=和÷(倍数+1)</text>
+      <line x1="460" y1="280" x2="500" y2="280"/>
+      <rect class="l3" x="500" y="260" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="286" text-anchor="middle" font-weight="600">多/少型→先排除</text>
+
+      <line x1="240" y1="380" x2="280" y2="380"/>
+      <rect class="l1" x="280" y="350" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="385" text-anchor="middle">差倍问题</text>
+
+      <line x1="420" y1="380" x2="460" y2="380"/>
+      <rect class="l2" x="460" y="360" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="386" text-anchor="middle" font-weight="600">一倍=差÷(倍数−1)</text>
+
+      <line x1="240" y1="500" x2="280" y2="500"/>
+      <rect class="l1" x="280" y="470" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="505" text-anchor="middle">三大思维</text>
+
+      <line x1="420" y1="500" x2="460" y2="500"/>
+      <rect class="l2" x="460" y="480" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="506" text-anchor="middle" font-weight="600">① 状态选择</text>
+      <line x1="460" y1="540" x2="500" y2="540"/>
+      <rect class="l2" x="500" y="520" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="546" text-anchor="middle" font-weight="600">② 排除还原</text>
+      <line x1="460" y1="580" x2="500" y2="580"/>
+      <rect class="l2" x="500" y="560" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="586" text-anchor="middle" font-weight="600">③ 问题分解</text>
+
+      <line x1="240" y1="640" x2="280" y2="640"/>
+      <rect class="l1" x="280" y="620" width="160" height="40" rx="8"/>
+      <text class="txt" x="360" y="646" text-anchor="middle">连锁倍数</text>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- L3-8 鸡兔同笼基础 -->
+<!-- ============================================ -->
+<section id="ch8" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-8 预</span>
+    <h2>关卡 L3-8（预）· 鸡兔同笼问题第一讲</h2>
+  </div>
+
+  <h3>1️⃣ 对鸡兔同笼问题的数学辩护</h3>
+  <div class="point">
+    <div class="point-title">数学的本质是抽象</div>
+    <p>数学的标准定义：数学是研究<strong>数量变化、空间结构与信息</strong>的学科。<em>数学是抽象的过程</em>：1+2=3——一个苹果加两个苹果等于三个苹果；一个苹果加两个李子等于三个水果；一个苹果加两张桌子等于三个东西。概念范畴越来越大，但核心量被抽象出来，就是 1+2=3。</p>
+    <p><strong>数学工作者爱把不同的东西统一为同一个名字</strong>；反过来，文学工作者（尤其是诗人）把同一个东西在不同的情境下叫不同的名字。</p>
+    <p><em>数学是人类锻炼思维的体操</em>（牛顿说的）；数学是描述世界的语言。</p>
+  </div>
+
+  <h3>2️⃣ 鸡兔同笼与哥德巴赫猜想的类比</h3>
+  <div class="point">
+    <div class="point-title">类比：哥德巴赫猜想</div>
+    <p>鸡兔同笼只是把某些经典问题放在"鸡和兔同笼"这个情境中来研究，<em>鸡和兔是否真的同笼无关紧要</em>。类比：哥德巴赫猜想——质数与合数的关系与现在实际的科研未必有直接关系，但是<strong>数学的基础</strong>，将来某些学科（例如密码学）与质数分布就有很大关系。</p>
+  </div>
+
+  <h3>3️⃣ 二分法</h3>
+  <div class="point tip">
+    <div class="point-title">二分法四步骤</div>
+    <p><strong>猜数游戏</strong>：同学想了一个 1 到 100 之间的自然数让你猜，<strong>最多七次一定猜到</strong>。</p>
+    <ol class="steps">
+      <li><strong>假设</strong>：猜 50</li>
+      <li><strong>差异</strong>：对方说猜错了</li>
+      <li><strong>分析原因</strong>：他说"小了"——不仅提示错了，还提示了方向</li>
+      <li><strong>调整</strong>：50 小了，要调整得大一点。二分法提供了一种调整效率极高的方式</li>
+    </ol>
+    <p><strong>应用扩展</strong>：计算机求解高次方程在某一区间内的根的数值解，就是用类似的方法——假设、差异、调整、再假设、再差异、再调整……不断循环。这种方式解决的是高次方程数值解，不只是 1 次方程或 1 次方程组；因此二分法是<strong>解决一般理科问题、甚至一般问题</strong>的通用思路。</p>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-8 课</span>
+    <h2>关卡 L3-8（课）· 鸡兔同笼问题第一讲</h2>
+  </div>
+
+  <h3>板块一：例题 1（鸡兔同笼基础）</h3>
+  <div class="point">
+    <div class="point-title">题目：20 个头，50 只脚，求鸡多少只？</div>
+    <p><strong>基础数据分析</strong>：鸡和兔都只有一个头；鸡有 2 只脚，兔有 4 只脚；20 个头意味着 20 只动物</p>
+    <p><strong>解题步骤——假设法</strong>：</p>
+    <ol class="steps">
+      <li>假设全是鸡：脚数 = 2 × 20 = 40 只；实际 50 只，少了 50 − 40 = 10 只脚</li>
+      <li>分析差异原因：每只兔少算 4 − 2 = 2 只脚；所以兔的只数 = 10 ÷ 2 = 5 只</li>
+      <li>求鸡的只数：鸡 = 20 − 5 = <strong>15 只</strong></li>
+      <li>校验：15×2 + 5×4 = 30 + 20 = 50 ✓</li>
+    </ol>
+    <p><strong>两个关键结论</strong>：</p>
+    <ul>
+      <li><strong>结论 1：假设统一</strong>——鸡兔同笼问题的核心是"假设统一"，把不同种类的东西统一为同一种</li>
+      <li><strong>结论 2：假设反面更优</strong>——题目求鸡，可以假设全是兔。这样最后直接求出来的就是鸡，省一步减法。<em>一般原则：假设所求的反面</em></li>
+    </ul>
+    <div class="formula-block">
+      假设全是A：另一种B = (实际 − 假设) ÷ (B的特性 − A的特性)
+    </div>
+  </div>
+
+  <h3>板块二：练习 1（苹果和梨）</h3>
+  <div class="point">
+    <div class="point-title">题目：苹果每千克 7 元，梨每千克 9 元。妈妈买了 12 千克水果共花 100 元。问苹果花了多少钱？</div>
+    <ol class="steps">
+      <li>假设全是梨：12 × 9 = 108 元；实际 100 元，多了 108 − 100 = 8 元</li>
+      <li>每千克苹果少算 9 − 7 = 2 元；苹果的千克数 = 8 ÷ 2 = 4 千克</li>
+      <li>苹果花了 4 × 7 = <span class="answer">28 元</span></li>
+      <li>校验：4×7 + 8×9 = 28+72 = 100 ✓</li>
+    </ol>
+  </div>
+
+  <h3>板块三：练习 2（鸵鸟和长颈鹿）</h3>
+  <div class="point">
+    <div class="point-title">题目：鸵鸟和长颈鹿共 30 只眼睛和 44 只脚。求鸵鸟多少只？</div>
+    <p><em>注意</em>：题目没有直接给动物总数！</p>
+    <ol class="steps">
+      <li>根据眼睛数求总数：鸵鸟和长颈鹿都有 2 只眼睛；总数 = 30 ÷ 2 = 15 只</li>
+      <li>假设全是长颈鹿：脚数 = 4 × 15 = 60 只；实际 44 只，多了 60 − 44 = 16 只</li>
+      <li>每只鸵鸟少算 4 − 2 = 2 只脚；鸵鸟 = 16 ÷ 2 = <strong>8 只</strong></li>
+    </ol>
+    <p>关键：<em>先求总数，再做假设</em>。</p>
+  </div>
+
+  <h3>板块四：练习 3（划船问题）</h3>
+  <div class="point warning">
+    <div class="point-title">题目：陈老师带 45 名学生划船，10 艘船，大船 5 人，小船 4 人。每艘无空位，大船几艘？</div>
+    <p><strong>关键陷阱</strong>：<em>陈老师也是人，也得坐船！</em> 实际上是 46 人，不是 45 人。</p>
+    <ol class="steps">
+      <li>假设全租小船：10 × 4 = 40 人；实际 46 人，少了 6 人</li>
+      <li>一艘小船改租大船多坐 5 − 4 = 1 人；大船数 = 6 ÷ 1 = 6 艘</li>
+      <li>小船 = 10 − 6 = 4 艘</li>
+    </ol>
+    <p><strong>易错点</strong>：题目中的隐性人物（老师、教练等）也要算作人数。</p>
+  </div>
+
+  <h3>板块五：例题 2（天文知识竞赛）</h3>
+  <div class="point">
+    <div class="point-title">题目：10 道题，答对一题得 10 分，答错/不答倒扣 2 分。帅帅得 64 分，答对几道？</div>
+    <p><strong>关键说明</strong>："不答"和"答错"得分标准相同——都倒扣 2 分。</p>
+    <ol class="steps">
+      <li>假设全对：10 × 10 = 100 分；实际 64 分，多了 100 − 64 = 36 分</li>
+      <li>一道答对（得 10 分）算成答错或没答（扣 2 分），差了 10 + 2 = 12 分</li>
+      <li>答错或不答的题数 = 36 ÷ 12 = 3 道</li>
+      <li>答对 = 10 − 3 = <span class="answer">7 道</span></li>
+    </ol>
+    <p><strong>核心要点</strong>："一进一出"——答对一题得 10 分（进 10），答错一题扣 2 分（出 2），一进一出差 12 分。<em>这是这类问题的核心数据</em>。</p>
+    <div class="formula-block">错题数 = (假设全对的分数 − 实际分数) ÷ (对一题得分 + 错一题扣分)</div>
+  </div>
+
+  <h3>板块六：练习 4（快递员小杨）</h3>
+  <div class="point">
+    <div class="point-title">题目：按时送一单 5 元，否则不仅不得报酬，还罚款 50 元。送了 40 单共获报酬 90 元，按时送了多少单？</div>
+    <ol class="steps">
+      <li>假设全按时：40 × 5 = 200 元；实际 90 元，多了 200 − 90 = 110 元</li>
+      <li>一单按时（得 5 元）算成不按时（罚 50 元），差了 5 + 50 = 55 元</li>
+      <li>被罚单数 = 110 ÷ 55 = 2 单</li>
+      <li>按时 = 40 − 2 = <span class="answer">38 单</span></li>
+    </ol>
+  </div>
+
+  <h3>板块七：练习 5（试卷 20 道题）</h3>
+  <div class="point">
+    <div class="point-title">题目：20 道题，每人 20 分初始分。答对一题得 4 分，答错扣 1 分。阿奇答完全部题目还是 20 分，答对几道？</div>
+    <p><em>注意</em>：有初始分 20 分，假设全错也只扣到 0 分，不会涉及负数。</p>
+    <p><strong>简化技巧——假设全错</strong>：</p>
+    <ol class="steps">
+      <li>假设全错：20 − 1 × 20 = 0 分</li>
+      <li>实际 20 分，多了 20 − 0 = 20 分</li>
+      <li>一道错题（扣 1 分）算成对（加 4 分），差 4 + 1 = 5 分</li>
+      <li>答对题数 = 20 ÷ 5 = <span class="answer">4 道</span></li>
+    </ol>
+    <p><em>技巧点</em>：本题用"假设全错"而不是"假设全对"，因为有 20 分初始分保护，避免负数，且假设全错的计算更简便。</p>
+  </div>
+
+  <h3>板块八：综合 1（添括号问题）</h3>
+  <div class="point">
+    <div class="point-title">题目：在 1-3-5-7-9-11-13-15-17-19 = 中添加两个括号，使等式成立（结果应为 1921）</div>
+    <p><strong>第一步：理解添括号的作用</strong>——去掉括号时，括号内的减号变加号。条件：要变加号的减号前面还得有一个减号（这个减号不能变）。位置限制：不含第一个减号（即最前面的减号不能变）。</p>
+    <p><strong>第二步：计算全填减号的结果</strong></p>
+    <p>全填减号 = 1 − (3+5+7+9+11+13+15+17+19) = 1 − 100 = −99</p>
+    <p>实际目标值是 1921，所以要增加 1921 − (−99) = 2020</p>
+    <p><strong>第三步：分析减号变加号的影响</strong>——一个减号变加号的效果：原来是 −X，变后是 +X，影响是 +2X</p>
+    <p><strong>第四步：求解</strong>——选择 X 使得 2X = 14，即 X = 7。把 7 前面的减号变加号。</p>
+    <p><em>约束条件</em>：两个括号之间没有数字，即不能选相邻的数变号。</p>
+  </div>
+
+  <h3>板块九：综合 2（男女生调整问题）</h3>
+  <div class="point">
+    <div class="point-title">题目：一开始 40 个男生（没有女生），每次调整减少 3 个男生、增加 2 个女生。当调整到男女生人数相等时，还有多少人？</div>
+    <ol class="steps">
+      <li>识别调整的对象：关注"男生减女生"的差值；初始差 = 40 − 0 = 40；目标差 = 0</li>
+      <li>分析每次调整的影响：男生减少 3 人 + 女生增加 2 人，差减少 3+2 = 5</li>
+      <li>求调整次数：40 ÷ 5 = 8 次</li>
+      <li>求最后人数：每次总人数减少 3−2 = 1；总减少 = 8 × 1 = 8；最后人数 = 40 − 8 = <span class="answer">32 人</span></li>
+    </ol>
+    <p><strong>核心方法——调整法</strong>：识别调整的对象 → 分析每次调整的影响 → 求调整次数。</p>
+  </div>
+
+  <h3>板块十：综合 3（红黄礼盒+陀螺）</h3>
+  <div class="point">
+    <div class="point-title">题目：红色礼盒每个 3 元内有陀螺 2 个，黄色礼盒每个 5 元内有陀螺 3 个。300 元买了 78 个礼盒，可以得到陀螺多少个？</div>
+    <h5>方法一（标准假设法）</h5>
+    <ul>
+      <li>假设全是红色礼盒：78 × 3 = 234 元；实际 300 元，少了 300 − 234 = 66 元</li>
+      <li>黄色礼盒数 = 66 ÷ (5−3) = 33 个；红色礼盒数 = 78 − 33 = 45 个</li>
+      <li>红色贡献：45 × 2 = 90；黄色贡献：33 × 3 = 99；总共 = <span class="answer">189 个</span></li>
+    </ul>
+    <h5>方法二（统一单价假设法）</h5>
+    <ul>
+      <li>红色：3元/2个 = 1.5元/个；黄色：5元/3个 = 1.67元/个</li>
+      <li>每个礼盒都"加 1 元"：红色 (3+1)÷2 = 2元/陀螺；黄色 (5+1)÷3 = 2元/陀螺</li>
+      <li>假设 78 个礼盒每个加 1 元：78 × 1 = 78 元；总共 300 + 78 = 378 元</li>
+      <li>每个陀螺 2 元，总陀螺数 = 378 ÷ 2 = <span class="answer">189 个</span></li>
+    </ul>
+    <p><em>核心思想</em>：假设法不只是统一"表面"的对象种类，还可以统一"背后"的某个量（如单价）。</p>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-8 全文系统性总结</h4>
+    <h5>① 假设法的标准步骤</h5>
+    <ol>
+      <li>确定假设方向：题目求 A，就假设全是 B（求反面的优势：最后省一步减法）</li>
+      <li>计算假设下的结果</li>
+      <li>求差异：实际值 − 假设值</li>
+      <li>分析每单位差异</li>
+      <li>求另一种的数量：差异 ÷ 每单位差异</li>
+      <li>求所求量：总数 − 另一种的数量（如果假设的是反面）</li>
+    </ol>
+    <h5>② 各种应用场景</h5>
+    <table>
+      <thead><tr><th>问题类型</th><th>假设对象</th><th>调整单位</th></tr></thead>
+      <tbody>
+        <tr><td>鸡兔同笼</td><td>全是鸡/全兔</td><td>脚的差(2)</td></tr>
+        <tr><td>苹果和梨</td><td>全是梨/全苹果</td><td>价钱的差(2元)</td></tr>
+        <tr><td>正负分问题</td><td>全对/全错</td><td>一进一出(进+出)</td></tr>
+        <tr><td>礼盒+陀螺</td><td>全是A礼盒</td><td>价钱的差(2元)</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-8 易错点警示</div>
+    <ul>
+      <li>鸡兔问题中"陈老师也是人"的隐性人物</li>
+      <li>一进一出是进+出（10+2=12）而不是进−出（10−2=8）</li>
+      <li>调整法中识别调整对象（差值、和等）</li>
+      <li>礼盒陀螺的"统一单价假设"高级应用</li>
+    </ul>
+  </div>
+
+  <!-- L3-8 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-8 鸡兔同笼基础 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 700" width="1500" height="700" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <rect class="root" x="20" y="310" width="170" height="80" rx="10"/>
+      <text class="txt" x="105" y="345" text-anchor="middle">L3-8 鸡兔同笼</text>
+      <text class="txt" x="105" y="368" text-anchor="middle">基础通用</text>
+
+      <line x1="190" y1="350" x2="240" y2="350"/>
+      <line x1="240" y1="80" x2="240" y2="640"/>
+
+      <line x1="240" y1="80" x2="280" y2="80"/>
+      <rect class="l1" x="280" y="50" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="85" text-anchor="middle">假设法四步</text>
+
+      <line x1="420" y1="80" x2="460" y2="80"/>
+      <rect class="l2" x="460" y="60" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="86" text-anchor="middle" font-weight="600">① 假设 → ② 差异</text>
+      <line x1="460" y1="120" x2="500" y2="120"/>
+      <rect class="l2" x="500" y="100" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="126" text-anchor="middle" font-weight="600">③ 分析 → ④ 调整</text>
+
+      <line x1="240" y1="220" x2="280" y2="220"/>
+      <rect class="l1" x="280" y="190" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="225" text-anchor="middle">两个关键结论</text>
+
+      <line x1="420" y1="220" x2="460" y2="220"/>
+      <rect class="l2" x="460" y="200" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="226" text-anchor="middle" font-weight="600">① 假设统一</text>
+      <line x1="460" y1="260" x2="500" y2="260"/>
+      <rect class="l3" x="500" y="240" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="266" text-anchor="middle" font-weight="600">② 假设反面更优</text>
+
+      <line x1="240" y1="360" x2="280" y2="360"/>
+      <rect class="l1" x="280" y="330" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="365" text-anchor="middle">一进一出</text>
+
+      <line x1="420" y1="360" x2="460" y2="360"/>
+      <rect class="l2" x="460" y="340" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="366" text-anchor="middle" font-weight="600">对+错=进+出=12</text>
+      <line x1="420" y1="400" x2="460" y2="400"/>
+      <rect class="l3" x="500" y="380" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="406" text-anchor="middle" font-weight="600">不是进−出=8</text>
+
+      <line x1="240" y1="480" x2="280" y2="480"/>
+      <rect class="l1" x="280" y="450" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="485" text-anchor="middle">三大变式</text>
+
+      <line x1="420" y1="480" x2="460" y2="480"/>
+      <rect class="l2" x="460" y="460" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="486" text-anchor="middle" font-weight="600">① 调整法</text>
+      <line x1="460" y1="520" x2="500" y2="520"/>
+      <rect class="l2" x="500" y="500" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="526" text-anchor="middle" font-weight="600">② 添括号</text>
+      <line x1="460" y1="560" x2="500" y2="560"/>
+      <rect class="l2" x="500" y="540" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="566" text-anchor="middle" font-weight="600">③ 统一单价假设</text>
+
+      <line x1="240" y1="640" x2="280" y2="640"/>
+      <rect class="l1" x="280" y="620" width="160" height="40" rx="8"/>
+      <text class="txt" x="360" y="646" text-anchor="middle">二分法思维</text>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- L3-9 鸡兔同笼进阶 -->
+<!-- ============================================ -->
+<section id="ch9" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-9 预</span>
+    <h2>关卡 L3-9（预）· 鸡兔同笼问题第二讲</h2>
+  </div>
+
+  <h3>1️⃣ 上讲回顾：四大步骤</h3>
+  <div class="point">
+    <div class="point-title">通用流程</div>
+    <p>上讲把鸡兔同笼问题的解决方式分为四个步骤：<strong>假设 → 发现差异 → 分析原因 → 调整</strong>。这是解决不少数学问题（未必是几元一次方程组，可能出现高次的、其他的方式）的通用流程。</p>
+  </div>
+
+  <h3>2️⃣ 假设和调整的多样性</h3>
+  <div class="point tip">
+    <div class="point-title">本关重点</div>
+    <ul>
+      <li>本节课要强调<strong>假设和调整的多样性</strong></li>
+      <li>假设的目的是为了<strong>统一</strong>——以鸡兔为例，假设全是鸡会怎样</li>
+      <li>不同的假设种类：有些老师认为需要对鸡和兔进行<strong>分组</strong>——这是<strong>假设和调整多样性的一部分</strong></li>
+      <li>假设与调整对象的扩展：未必只有男生和女生这种二分对象，未必关注的只是男生女生的数量。比如可以<strong>关注男生和女生的数量差</strong>，这就是要统一的"新量"，调整的也是那个新量</li>
+    </ul>
+  </div>
+
+  <h3>3️⃣ 从鸡兔同笼到动态和差倍问题</h3>
+  <div class="point">
+    <div class="point-title">鸡兔同笼到动态和差倍</div>
+    <ul>
+      <li>鸡兔同笼问题<strong>整体过渡到动态和差倍</strong></li>
+      <li>动态问题有多个状态；多个状态中可能不止一个有倍数关系</li>
+      <li>鸡兔同笼带来的"假设"——<em>假设的目标是为了统一</em>——照样可以解决这类动态和差倍问题</li>
+      <li>以后学的<strong>年龄问题中的不少都是动态和差倍问题</strong></li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-9 课</span>
+    <h2>关卡 L3-9（课）· 鸡兔同笼问题第二讲</h2>
+  </div>
+
+  <h3>板块一：例题 1（鸡兔共 40 只，脚差 70）</h3>
+  <div class="point">
+    <div class="point-title">题目：鸡与兔共 40 只，鸡的脚的数量比兔的脚的数量少 70 只，问鸡与兔各多少只？</div>
+    <p><strong>特点</strong>：本题只有一个差（脚数差 70），没有给总和，需要用"<em>分组法</em>"。</p>
+    <p><strong>解题步骤——抹平差，统一</strong>：</p>
+    <ol class="steps">
+      <li>抹平脚数差：鸡脚比兔脚少 70 只。一只鸡 2 只脚，需要借来 70 ÷ 2 = 35 只鸡。借来 35 只鸡后，鸡脚数 = 兔脚数（统一了）</li>
+      <li>构造标准组合：现在鸡和兔总只数 = 40 + 35 = 75 只。让"2 只鸡和 1 只兔"为一组（脚数相同：2×2=4）。一组有 3 只动物，共 75 ÷ 3 = 25 组</li>
+      <li>求兔数：一组里 1 只兔，所以兔 = 25 只</li>
+      <li>求原鸡数：现在鸡 50 只，还走 35 只 = 15 只。或用总数 40 − 兔 25 = <strong>15 只</strong></li>
+    </ol>
+    <p><strong>核心思维</strong>：假设的目的是为了"统一"——把脚数差抹平，让鸡脚=兔脚，然后分组（2 鸡 1 兔为一组）。</p>
+  </div>
+
+  <h3>板块二：练习 1（兔比鸡多 8 只）</h3>
+  <div class="point">
+    <div class="point-title">题目：兔比鸡多 8 只，兔和鸡的腿数总和为 80</div>
+    <p>差是只数差（8 只），不是脚数差。</p>
+    <ol class="steps">
+      <li>让鸡和兔只数相同：兔多 8 只，假设减少 8 只兔</li>
+      <li>求新腿数：减少 8 只兔，减少了 8 × 4 = 32 只脚；新腿数 = 80 − 32 = 48 只</li>
+      <li>分组：一组里 1 只鸡+1 只兔 = 2+4 = 6 只脚；组数 = 48 ÷ 6 = 8 组</li>
+      <li>求鸡和兔：鸡 = 8 只；兔 = 8 + 8 = <strong>16 只</strong></li>
+    </ol>
+  </div>
+
+  <h3>板块三：练习 2（两种铅笔）</h3>
+  <div class="point">
+    <div class="point-title">题目：4 角和 8 角的两种铅笔共花 68 元。8 角一支的铅笔比 4 角一支的多 40 支</div>
+    <p>注意单位：68 元 = 680 角</p>
+    <ol class="steps">
+      <li>抹平支数差：假设减少 40 支 8 角铅笔</li>
+      <li>求新总价：减少 40 × 8 = 320 角；新总价 = 680 − 320 = 360 角</li>
+      <li>分组：1 支 4 角+1 支 8 角 = 12 角；组数 = 360 ÷ 12 = 30 组</li>
+      <li>4 角铅笔 = 30 支；8 角铅笔 = 30 + 40 = 70 支</li>
+    </ol>
+  </div>
+
+  <h3>板块四：例题 2（松鼠妈妈采松子）</h3>
+  <div class="point">
+    <div class="point-title">题目：松鼠妈妈晴天每天采 16 个，雨天每天采 11 个。雨天比晴天多 3 天，但采的松子却比晴天少 27 个。问晴天和雨天各多少天？</div>
+    <p><strong>特点</strong>：本题给的两个条件都是"差"——天数差 3 天，松子数差 27 个。</p>
+    <ol class="steps">
+      <li>统一天数：雨天比晴天多 3 天，假设去掉 3 天雨天</li>
+      <li>分析松子数变化：晴天本来比雨天的松子数多 27 个；现在去掉 3 个雨天，每个雨天 11 个松子，共少 33 个。晴天比雨天的松子数现在多了 27 + 33 = 60 个</li>
+      <li>分组求晴天数：1 个晴天+1 个雨天为一组；一组里晴天比雨天多采 16 − 11 = 5 个；要多采 60 个，需要 60 ÷ 5 = 12 组</li>
+      <li>晴天 = <strong>12 天</strong>；雨天 = 12 + 3 = 15 天</li>
+    </ol>
+    <p><em>思维提升</em>：这种处理方式"逐渐就会过渡到所学简单行程问题中的追及问题"。</p>
+  </div>
+
+  <h3>板块五：练习 3（兔比鸡少 10 只）</h3>
+  <div class="point">
+    <div class="point-title">题目：兔比鸡少 10 只，兔的总腿数却比鸡的总腿数多 10，问鸡有多少只？</div>
+    <ol class="steps">
+      <li>让鸡兔只数相同：兔比鸡少 10 只，假设增加 10 只兔</li>
+      <li>分析腿数变化：增加 10 只兔，每只 4 只脚，多了 40 只脚。兔腿本来就多 10，现在又多了 40，兔腿比鸡腿多了 10 + 40 = 50 只</li>
+      <li>分组求鸡数：1 只兔比 1 只鸡多 4 − 2 = 2 只脚；鸡数 = 50 ÷ 2 = <span class="answer">25 只</span></li>
+    </ol>
+  </div>
+
+  <h3>板块六：练习 4（大小寝室问题）</h3>
+  <div class="point">
+    <div class="point-title">题目：大寝室每间 6 人，小寝室每间 10 人。大寝室比小寝室多 2 间，大寝室总人数比小寝室总人数多 20 人</div>
+    <ol class="steps">
+      <li>统一间数：假设减少 2 间大寝室</li>
+      <li>分析人数变化：减少 2 间大寝室，每间 6 人，少 12 人。大寝室原比小寝室多 20 人，现在少 12 人。大寝室人数比小寝室人数多了 20 − 12 = 8 人</li>
+      <li>分组求间数：1 间大寝室比 1 间小寝室多 10 − 6 = 4 人；要多 8 人，需要 8 ÷ 4 = 2 间</li>
+      <li>小寝室 = <strong>2 间</strong>；大寝室 = 2 + 2 = 4 间</li>
+    </ol>
+  </div>
+
+  <h3>板块七：综合 1（老师学生倍数问题）</h3>
+  <div class="point">
+    <div class="point-title">题目：30 名老师和 100 名学生。男同学是男老师的 3 倍，女同学是女老师的 4 倍。男老师多少名？</div>
+    <p><strong>解题步骤——统一倍数</strong>：</p>
+    <ol class="steps">
+      <li>统一倍数关系：男同学=3×男老师，女同学=4×女老师。假设统一为 4 倍</li>
+      <li>求假设下的总学生数：总学生 = 4 × 总老师 = 4 × 30 = 120 名</li>
+      <li>求差异：实际只有 100 名学生；多算了 120 − 100 = 20 名学生</li>
+      <li>分析差异原因：多算的是因为把"3 倍"统一为"4 倍"产生的。每位男老师多算了 4 − 3 = 1 名男生</li>
+      <li>多算了 20 位男生，说明男老师有 <strong>20 名</strong></li>
+    </ol>
+  </div>
+
+  <h3>板块八：综合 2（棋子二倍关系）</h3>
+  <div class="point">
+    <div class="point-title">题目：一盒棋子中黑子是白子的 2 倍。每次取出 4 黑 3 白，取若干次后盒中还有 20 黑 2 白。盒中原有多少枚？</div>
+    <p>每次取的数量必须保持黑子是白子的 2 倍，否则黑白的倍数关系会被破坏。</p>
+    <p><strong>解题步骤——保留倍数</strong>：</p>
+    <ol class="steps">
+      <li>改每次取的数量，保留倍数：黑是白的 2 倍 → 黑：白 = 2：1。原来每次取 4 黑 3 白（比例 4:3，不是 2:1）。改成每次取 4 黑 2 白（比例 2:1，保留倍数关系）</li>
+      <li>分析差异：假设每次取 4 黑 2 白。黑子不变（每次都取 4 个），黑子剩 20 个。白子应该是黑子的一半 = 10 个。实际只有 2 个白子，少了 10 − 2 = 8 个白子</li>
+      <li>求取了几次：每次少取 3 − 2 = 1 个白子；操作了 8 ÷ 1 = 8 次</li>
+      <li>求原来棋子数：最后剩 22 枚；取走 8 × 7 = 56 枚；原来总数 = 22 + 56 = <strong>78 枚</strong></li>
+    </ol>
+  </div>
+
+  <h3>板块九：综合 3（独角兽、双头龙、三脚猫、四脚蛇）</h3>
+  <div class="point">
+    <div class="point-title">题目：草坪上共有 58 个头，160 只脚。四脚蛇的数量恰好是双头龙数量的 2 倍。有多少只独角兽？</div>
+    <p><strong>生物数据</strong>：</p>
+    <table>
+      <thead><tr><th>动物</th><th>头数</th><th>脚数</th></tr></thead>
+      <tbody>
+        <tr><td>独角兽</td><td>1</td><td>1</td></tr>
+        <tr><td>双头龙</td><td>2</td><td>4</td></tr>
+        <tr><td>三脚猫</td><td>1</td><td>3</td></tr>
+        <tr><td>四脚蛇</td><td>1</td><td>4</td></tr>
+      </tbody>
+    </table>
+    <p><strong>第一步：把蛇和龙合并</strong>——四脚蛇的数量是双头龙的 2 倍：1 只双头龙 + 2 只四脚蛇 = 一组（头数：2+2×1=4；脚数：4+2×4=12）</p>
+    <p><strong>第二步：识别这是三脚猫的组合</strong>——4 头 12 脚，比例 = 3 脚/头，正是三脚猫的特点！把这一组当成 4 只三脚猫</p>
+    <p><strong>第三步：用标准鸡兔同笼求解</strong>——现在只有两种动物：独角兽和三脚猫</p>
+    <p>假设全是三脚猫：脚数 = 58 × 3 = 174 只；实际 160 只，多了 174 − 160 = 14 只。每只独角兽（1 脚）算成三脚猫（3 脚），多算了 3 − 1 = 2 只脚。独角兽数量 = 14 ÷ 2 = <span class="answer">7 只</span></p>
+    <p><em>核心思维</em>：通过"倍数组合"识别等效动物；利用动物的特征比例（头脚比）来判断等效关系；多步组合简化。</p>
+  </div>
+
+  <h3>板块十：综合 4（苹果和梨平分问题——迎春杯原题）</h3>
+  <div class="point">
+    <div class="point-title">题目：老师将一些苹果和梨平分给全班同学。分完后苹果和梨都还余下 2 个。每个同学分得的梨的个数是分得的苹果的 2 倍。如果先分给其中 10 名同学每人 10 个，恰好分完，且余下的同学每人分得的梨的个数都是分得的苹果个数的 3 倍。苹果和梨共有多少个？</div>
+    <p><strong>第一步：分析第一次分法</strong>——假设完美分完（没有余下），则苹果:梨 = 1:2。实际余下：苹果 2 个、梨 2 个。所以原来：梨比苹果的 2 倍少 2×2 − 2 = 2 个（少 2 个）</p>
+    <p><strong>第二步：分析第二次分法</strong>——10 人每人分 10 个苹果，那么他们应该分 30 个梨才满足 3 倍关系。但实际每人只分到 10 个梨。所以借来 10 人 × 20 梨 = 200 个梨。即原来梨比苹果的 3 倍少 200 个</p>
+    <p><strong>第三步：列方程求解</strong>——设苹果为 X 个，梨为 Y 个：Y = 2X − 2；Y = 3X − 200。两式相减：(3X − 200) − (2X − 2) = 0 → X = 198（苹果）；Y = 2×198 − 2 = 394（梨）</p>
+    <p>最终答案：198 + 394 = <span class="answer">592 个</span></p>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-9 全文系统性总结</h4>
+    <h5>① 三大核心方法</h5>
+    <table>
+      <thead><tr><th>方法</th><th>核心思想</th><th>适用场景</th></tr></thead>
+      <tbody>
+        <tr><td>假设法（抹平差）</td><td>假设增减某个量，抹平差异</td><td>两个量之间有差</td></tr>
+        <tr><td>分组法</td><td>抹平后构造等效组</td><td>抹平后能用整除</td></tr>
+        <tr><td>倍数统一法</td><td>把不同倍数统一为一个</td><td>有多个不同倍数</td></tr>
+      </tbody>
+    </table>
+    <h5>② 假设法的多种形式</h5>
+    <ul>
+      <li>抹平只数差：练习 1、练习 3、练习 4</li>
+      <li>抹平脚数差：例题 1</li>
+      <li>抹平支数差：练习 2</li>
+      <li>抹平天数差：例题 2（松鼠妈妈）</li>
+      <li>统一倍数：综合 1、综合 2、综合 4</li>
+    </ul>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-9 易错点警示</div>
+    <ul>
+      <li>抹平差后构造等效组（2 鸡 1 兔）</li>
+      <li>倍数统一（多个倍数合成一个）</li>
+      <li>保留倍数的假设操作</li>
+      <li>多步组合识别等效动物</li>
+    </ul>
+  </div>
+
+  <!-- L3-9 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-9 鸡兔同笼进阶 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 650" width="1500" height="650" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <rect class="root" x="20" y="280" width="170" height="80" rx="10"/>
+      <text class="txt" x="105" y="315" text-anchor="middle">L3-9 鸡兔同笼</text>
+      <text class="txt" x="105" y="338" text-anchor="middle">进阶</text>
+
+      <line x1="190" y1="320" x2="240" y2="320"/>
+      <line x1="240" y1="80" x2="240" y2="580"/>
+
+      <line x1="240" y1="80" x2="280" y2="80"/>
+      <rect class="l1" x="280" y="50" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="85" text-anchor="middle">分组法</text>
+
+      <line x1="420" y1="80" x2="460" y2="80"/>
+      <rect class="l2" x="460" y="60" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="86" text-anchor="middle" font-weight="600">① 抹平差</text>
+      <line x1="420" y1="120" x2="460" y2="120"/>
+      <rect class="l2" x="500" y="100" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="126" text-anchor="middle" font-weight="600">② 构造等效组</text>
+      <line x1="420" y1="160" x2="460" y2="160"/>
+      <rect class="l2" x="500" y="140" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="166" text-anchor="middle" font-weight="600">③ 整数除法求组数</text>
+
+      <line x1="240" y1="220" x2="280" y2="220"/>
+      <rect class="l1" x="280" y="190" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="225" text-anchor="middle">抹平差类型</text>
+
+      <line x1="420" y1="220" x2="460" y2="220"/>
+      <rect class="l2" x="460" y="200" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="226" text-anchor="middle" font-weight="600">抹平只数差</text>
+      <line x1="420" y1="260" x2="460" y2="260"/>
+      <rect class="l3" x="500" y="240" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="266" text-anchor="middle" font-weight="600">抹平脚数差</text>
+      <line x1="420" y1="300" x2="460" y2="300"/>
+      <rect class="l3" x="500" y="280" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="306" text-anchor="middle" font-weight="600">抹平支数/天数差</text>
+
+      <line x1="240" y1="360" x2="280" y2="360"/>
+      <rect class="l1" x="280" y="330" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="365" text-anchor="middle">倍数统一法</text>
+
+      <line x1="420" y1="360" x2="460" y2="360"/>
+      <rect class="l2" x="460" y="340" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="366" text-anchor="middle" font-weight="600">多个倍数合一个</text>
+      <line x1="420" y1="400" x2="460" y2="400"/>
+      <rect class="l3" x="500" y="380" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="406" text-anchor="middle" font-weight="600">保留倍数的操作</text>
+
+      <line x1="240" y1="480" x2="280" y2="480"/>
+      <rect class="l1" x="280" y="450" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="485" text-anchor="middle">多步组合</text>
+
+      <line x1="420" y1="480" x2="500" y2="480"/>
+      <rect class="l2" x="500" y="460" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="486" text-anchor="middle" font-weight="600">识别等效动物（头脚比）</text>
+      <line x1="420" y1="520" x2="500" y2="520"/>
+      <rect class="l3" x="500" y="500" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="526" text-anchor="middle" font-weight="600">两次分法倍数假设</text>
+
+      <line x1="240" y1="580" x2="280" y2="580"/>
+      <rect class="l1" x="280" y="560" width="160" height="40" rx="8"/>
+      <text class="txt" x="360" y="586" text-anchor="middle">动态和差倍</text>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- L3-10 方阵第一讲 -->
+<!-- ============================================ -->
+<section id="ch10" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-10 预</span>
+    <h2>关卡 L3-10（预）· 方阵问题第一讲</h2>
+  </div>
+
+  <h3>1️⃣ 什么是方阵问题</h3>
+  <div class="point">
+    <div class="point-title">基础定义</div>
+    <p>最基础的方阵问题：若干枚棋子，整整齐齐排成一个正方形的方阵。例如 25 枚棋子排成五行五列。</p>
+  </div>
+
+  <h3>2️⃣ 正方形实心方阵的核心知识点</h3>
+  <div class="point formula">
+    <div class="point-title">三大核心知识点</div>
+    <h5>知识点一：总数</h5>
+    <div class="formula-block">总数 = N × N = N²</div>
+    <p>例如：5 × 5 = 25</p>
+    <h5>知识点二：最外一层的个数</h5>
+    <ul>
+      <li>最外层：每条边有 N 个</li>
+      <li>四条边：N × 4 个？——<strong>不是</strong></li>
+      <li>因为四个角上的棋子<strong>都被多算了一次</strong>，所以要<em>再减 4</em></li>
+    </ul>
+    <div class="formula-block">最外层个数 = N × 4 − 4　|　逆推：N = 最外层个数 ÷ 4 + 1</div>
+    <h5>知识点三：相邻两层的差</h5>
+    <ul>
+      <li>5×5 方阵的最外层（如 12 个）与里面一层（如 4 个）的差——<strong>差 8 个</strong></li>
+      <li>里面一层只有一个（如中心那层只有 1 个）时，与外层（8 个）的差——<strong>差 7 个</strong></li>
+    </ul>
+    <p><strong>结论</strong>：一般情况下相邻两层<strong>差 8 个</strong>。特殊情况（中心层为 1）<strong>差 7 个</strong>。</p>
+  </div>
+
+  <h3>3️⃣ 本关扩展内容预告</h3>
+  <div class="point tip">
+    <div class="point-title">形状扩展</div>
+    <p>本关除了正方形实心方阵的三块知识点外，还要学：</p>
+    <ul>
+      <li><strong>三角形阵</strong>（三角形阵种类很多）</li>
+      <li>还要学<strong>长方形阵</strong></li>
+      <li><strong>下次课</strong>还会学其他阵型，例如<strong>正六边形阵</strong></li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-10 课</span>
+    <h2>关卡 L3-10（课）· 方阵问题第一讲</h2>
+  </div>
+
+  <h3>板块一：例题 1（实心正方形方阵）</h3>
+  <div class="point">
+    <div class="point-title">题目：最外面一层有学生 40 人，问方阵共有学生多少人？</div>
+    <p><strong>核心公式</strong>：</p>
+    <ol>
+      <li><strong>每边人数 = 最外层人数 ÷ 4 + 1</strong>（一层有四条边，但角上的人被算了两次）</li>
+      <li><strong>总人数 = 每边人数 × 每边人数</strong></li>
+    </ol>
+    <p>每边人数 = 40 ÷ 4 + 1 = 11 人；总人数 = 11 × 11 = <span class="answer">121 人</span></p>
+  </div>
+
+  <h3>板块二：练习 1（九行九列减少两行两列）</h3>
+  <div class="point">
+    <div class="point-title">题目：9 行 9 列的正方形阵，去掉两行两列，每个方阵减少多少名运动员？</div>
+    <h5>方法一：直接操作</h5>
+    <ul>
+      <li>减少两行：2 行 × 9 列 = 18 人</li>
+      <li>减少两列：2 列 × 9 行 = 18 人</li>
+      <li>但交叉部分（2 行 2 列的交点 = 2×2 = 4 人）算了两次</li>
+      <li>实际减少：18 + 18 − 4 = <strong>32 人</strong></li>
+    </ul>
+    <h5>方法二：对比始末两个状态</h5>
+    <ul>
+      <li>起始状态：9 × 9 = 81 人；最终状态：7 × 7 = 49 人</li>
+      <li>减少：81 − 49 = <strong>32 人</strong></li>
+    </ul>
+  </div>
+
+  <h3>板块三：练习 2（最外面三层比一层多 80 人）</h3>
+  <div class="point">
+    <div class="point-title">题目：实心方阵最外面三层比最外面一层多 80 人，求总人数？</div>
+    <ol class="steps">
+      <li>分析 80 人的含义：最外面三层 = 第一层 + 第二层 + 第三层；比最外面一层多 80 人 = 第二层 + 第三层 = 80 人</li>
+      <li>利用相邻层差：相邻两层差 = 8 人</li>
+      <li>用和差问题求第二层：第二层 + 第三层 = 80；第二层 − 第三层 = 8；第二层 = (80+8) ÷ 2 = 44 人</li>
+      <li>求第一层：第一层 = 44 + 8 = 52 人</li>
+      <li>求每边人数和总数：每边人数 = 52 ÷ 4 + 1 = 14 人；总人数 = 14 × 14 = <span class="answer">196 人</span></li>
+    </ol>
+  </div>
+
+  <h3>板块四：练习 3（中空方阵改为 5 层）</h3>
+  <div class="point">
+    <div class="point-title">题目：棋子排成外面三层的中空方阵，多了 16 粒。如果方阵大小不变，外面变为五层，那么第四层和第五层共多少粒？摆到五层时共有多少粒？</div>
+    <ol class="steps">
+      <li>求第四层和第五层总和：原来三层，摆到五层还差 16 粒 → 第四层 + 第五层 = 32 粒</li>
+      <li>用和差问题求第四层：第四层 + 第五层 = 32；第四层 − 第五层 = 8；第四层 = (32+8) ÷ 2 = 20 粒</li>
+      <li>用等差数列求总数：第一层 44 粒、第二层 36 粒、第三层 28 粒、第四层 20 粒、第五层 12 粒。总数 = (44+36+28) + (20+12) = 108 + 32 = <span class="answer">124 粒</span></li>
+    </ol>
+  </div>
+
+  <h3>板块五：例题 2（等边三角形阵）</h3>
+  <div class="point">
+    <div class="point-title">题目：等边三角形阵，最外面一层用了 144 枚，求总数和行数</div>
+    <ol class="steps">
+      <li>求行数：等边三角形阵第一行 1 个，第二行 2 个……最外层 = 3 × 最下行数 − 3。行数 N = 144 ÷ 3 + 1 = 48 + 1 = <strong>49</strong></li>
+      <li>求总数：总数 = 1 + 2 + 3 + ... + 49 = (1+49) × 49 ÷ 2 = 50 × 49 ÷ 2 = 25 × 49 = <span class="answer">1225</span></li>
+    </ol>
+    <div class="formula-block">
+      最外层 = 3N − 3　|　行数 N = 最外层 ÷ 3 + 1　|　相邻层差 = 9（一般）/ 8（特殊）
+    </div>
+    <p><em>特殊数 1225</em>：1225 = 35²（完全平方数）= 1+2+3+...+49（三角数）</p>
+  </div>
+
+  <h3>板块六：练习 4（等边三角形最外两层 111 人）</h3>
+  <div class="point">
+    <div class="point-title">题目：等边三角形阵，最外两层恰好有 111 位同学</div>
+    <ol class="steps">
+      <li>用和差问题求第一层：最外两层 = 111（和）；相邻层差 = 9（一般）；第一层 = (111+9) ÷ 2 = <strong>60 人</strong></li>
+      <li>求行数：行数 N = 60 ÷ 3 + 1 = 20 + 1 = 21 行</li>
+      <li>求总数：总数 = 1 + 2 + ... + 21 = (1+21) × 21 ÷ 2 = 11 × 21 = <span class="answer">231 人</span></li>
+    </ol>
+  </div>
+
+  <h3>板块七：综合 1（六层小三角形阴影 21 个）</h3>
+  <div class="point">
+    <div class="point-title">题目：六层小三角形阴影 21 个。如果排成 2023 层，问阴影比空白多多少？</div>
+    <p><strong>第一步：分析六层的规律</strong>——阴影：第一行 1 个、第二行 2 个……第六行 6 个 = 21 ✓；空白：第一行 0 个……第六行 5 个 = 15</p>
+    <p><strong>第二步：建立对应关系</strong>——每行阴影都比空白多 1。2023 行，每行差 1，共差 2023</p>
+    <p>老师结论：应该是 <span class="answer">2023 个</span></p>
+    <p><em>核心——对应思想</em>：在方法一中，列出式子后拿相应的式子做对应；在方法二中，在列式之前就在图中建立对应关系。对应是数学思想中最重要的思想。</p>
+  </div>
+
+  <h3>板块八：综合 2（黑白珠子问题）</h3>
+  <div class="point">
+    <div class="point-title">题目：第一层摆 1 棵黑珠，第二层摆 3 棵白珠，从上到下从左到右逐颗排。奇数层：1, 3, 5, 7...（全是黑珠）；偶数层：3, 5, 7, 9...（全是白珠）</div>
+    <h5>第一问：当白珠第一次比黑珠多 11 颗时，恰好排到了第几层的第几颗？</h5>
+    <ul>
+      <li>第二层比第一层：白珠比黑珠多 3 − 1 = 2 颗</li>
+      <li>每相邻两层白珠都比黑珠多 2 颗</li>
+      <li>到第 2k 层时，白珠-黑珠 = 2k</li>
+      <li>2k = 12 时，第 12 层多 12 颗</li>
+      <li>白珠第一次比黑珠多 11 颗是在第 12 层的倒数第二颗</li>
+    </ul>
+    <p>最终答案：排到第 12 层的第 22 颗</p>
+    <h5>第二问：当黑珠第一次比白珠多 100 颗时？</h5>
+    <p>第 (2k+1) 层时，黑-白 = k。k = 100，2k+1 = 201 层。排到第 201 层的倒数第二颗。第 201 层有 1+200×2 = 401 颗，倒数第二颗 = 400 颗</p>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-10 全文系统性总结</h4>
+    <h5>① 三大方阵类型与公式</h5>
+    <table>
+      <thead><tr><th>类型</th><th>最外层公式</th><th>相邻层差</th><th>总数公式</th></tr></thead>
+      <tbody>
+        <tr><td>正方形方阵</td><td>4N−4</td><td>8（一般）/ 7（中心层1）</td><td>N²</td></tr>
+        <tr><td>等边三角形阵</td><td>3N−3</td><td>9（一般）/ 8（特殊）</td><td>1+2+...+N = N(N+1)/2</td></tr>
+      </tbody>
+    </table>
+    <h5>② 关键数据</h5>
+    <ul>
+      <li>每边人数 = 最外层 ÷ 4 + 1（正方形）</li>
+      <li>行数 = 最外层 ÷ 3 + 1（等边三角形）</li>
+    </ul>
+    <h5>③ 两种对应方式</h5>
+    <ul>
+      <li><strong>式子对应</strong>：列出求和式，比较两式差异</li>
+      <li><strong>图形对应</strong>：直接在图中标记对应关系</li>
+    </ul>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-10 易错点警示</div>
+    <ul>
+      <li>每边 = 最外层÷4+1（不要忘记+1）</li>
+      <li>相邻层差 = 8（特殊情况差 7）</li>
+      <li>内沿计算 = 外沿-3（不是-2）</li>
+      <li>等边三角形阵：行数 = 最外层÷3+1</li>
+      <li>等差数列求和用中间项×项数（奇数项时）</li>
+    </ul>
+  </div>
+
+  <!-- L3-10 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-10 方阵第一讲 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 700" width="1500" height="700" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <rect class="root" x="20" y="310" width="170" height="80" rx="10"/>
+      <text class="txt" x="105" y="345" text-anchor="middle">L3-10 方阵</text>
+      <text class="txt" x="105" y="368" text-anchor="middle">第一讲</text>
+
+      <line x1="190" y1="350" x2="240" y2="350"/>
+      <line x1="240" y1="80" x2="240" y2="640"/>
+
+      <line x1="240" y1="80" x2="280" y2="80"/>
+      <rect class="l1" x="280" y="50" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="85" text-anchor="middle">正方形方阵</text>
+
+      <line x1="420" y1="80" x2="460" y2="80"/>
+      <rect class="l2" x="460" y="40" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="66" text-anchor="middle" font-weight="600">总数 N²</text>
+      <line x1="460" y1="120" x2="500" y2="120"/>
+      <rect class="l2" x="500" y="100" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="126" text-anchor="middle" font-weight="600">最外层 4N−4</text>
+      <line x1="460" y1="160" x2="500" y2="160"/>
+      <rect class="l2" x="500" y="140" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="166" text-anchor="middle" font-weight="600">层差 8 / 7</text>
+
+      <line x1="240" y1="240" x2="280" y2="240"/>
+      <rect class="l1" x="280" y="210" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="245" text-anchor="middle">等边三角形阵</text>
+
+      <line x1="420" y1="240" x2="460" y2="240"/>
+      <rect class="l2" x="460" y="220" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="246" text-anchor="middle" font-weight="600">最外层 3N−3</text>
+      <line x1="420" y1="280" x2="500" y2="280"/>
+      <rect class="l2" x="500" y="260" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="286" text-anchor="middle" font-weight="600">层差 9 / 8</text>
+      <line x1="420" y1="320" x2="500" y2="320"/>
+      <rect class="l2" x="500" y="300" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="326" text-anchor="middle" font-weight="600">1225 = 35² = T₄₉</text>
+
+      <line x1="240" y1="400" x2="280" y2="400"/>
+      <rect class="l1" x="280" y="370" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="405" text-anchor="middle">和差问题应用</text>
+
+      <line x1="420" y1="400" x2="460" y2="400"/>
+      <rect class="l2" x="460" y="380" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="406" text-anchor="middle" font-weight="600">最外两层关系</text>
+      <line x1="420" y1="440" x2="500" y2="440"/>
+      <rect class="l3" x="500" y="420" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="446" text-anchor="middle" font-weight="600">求中间层</text>
+
+      <line x1="240" y1="540" x2="280" y2="540"/>
+      <rect class="l1" x="280" y="510" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="545" text-anchor="middle">对应思想</text>
+
+      <line x1="420" y1="540" x2="460" y2="540"/>
+      <rect class="l2" x="460" y="520" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="546" text-anchor="middle" font-weight="600">式子对应</text>
+      <line x1="420" y1="580" x2="500" y2="580"/>
+      <rect class="l3" x="500" y="560" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="586" text-anchor="middle" font-weight="600">图形对应</text>
+
+      <line x1="240" y1="640" x2="280" y2="640"/>
+      <rect class="l1" x="280" y="620" width="160" height="40" rx="8"/>
+      <text class="txt" x="360" y="646" text-anchor="middle">黑白分层</text>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- L3-11 方阵第二讲 -->
+<!-- ============================================ -->
+<section id="ch11" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-11 预</span>
+    <h2>关卡 L3-11（预）· 方阵问题第二讲</h2>
+  </div>
+
+  <h3>1️⃣ 上讲回顾</h3>
+  <div class="point">
+    <div class="point-title">已学内容</div>
+    <p>方阵问题第一讲中已经学了：</p>
+    <ul>
+      <li><strong>正方形实心方阵</strong></li>
+      <li><strong>等边三角形阵</strong>（求总数、最外面一层、求每条边上几个以及相邻两层之间的差）</li>
+    </ul>
+  </div>
+
+  <h3>2️⃣ 本关新内容预告</h3>
+  <div class="point tip">
+    <div class="point-title">新内容</div>
+    <p>本关主要要学：</p>
+    <ul>
+      <li><strong>长方形阵</strong></li>
+      <li><strong>正方形阵</strong>（除实心外的扩展）</li>
+      <li><strong>正六边形阵</strong></li>
+      <li><strong>线段排阵</strong>（摆的不是一个个棋子，而是<em>线段</em>）</li>
+    </ul>
+    <p>今天的题都是<strong>正式考题</strong>；有些题的某些小问<strong>还要求出通解</strong>（这是以后中学的内容）。</p>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-11 课</span>
+    <h2>关卡 L3-11（课）· 方阵问题第二讲</h2>
+  </div>
+
+  <h3>板块一：综合 1（火柴棍中空三角形）</h3>
+  <div class="point">
+    <div class="point-title">题目：三根火柴摆成一个小三角形，用很多根火柴摆成中空大三角形。已知大三角形外沿每条边都是 20 根火柴棍，共需要多少根？</div>
+    <h5>方法一：阴影三角形法</h5>
+    <ol class="steps">
+      <li>打阴影标记：把所有尖角向上的小三角形打上阴影</li>
+      <li>计算阴影三角形数：每条边上 20 个；三条边共 60 个；但三个角上的三角形各算了两次。实际阴影三角形数 = 60 − 3 = <strong>57 个</strong></li>
+      <li>阴影三角形用的火柴棍：57 × 3 = 171 根</li>
+      <li>加上内沿的火柴棍：内沿每条边火柴棍数 = 20 − 3 = 17 根；17 × 3 = 51 根</li>
+      <li>总火柴棍数：171 + 51 = <span class="answer">222 根</span></li>
+    </ol>
+    <h5>方法二：对称法</h5>
+    <ul>
+      <li>利用对称性：图形旋转 120 度后与原图一模一样</li>
+      <li>图形中线段只有 3 种方向（横、斜左、斜右）；每种方向的线段条数相同</li>
+      <li>数横线火柴棍：1+2+3+...+16+17+18+19+20 → 抵掉 1 到 16，剩 17+18+19+20 = 74</li>
+      <li>74 × 3 = <strong>222 根</strong> ✓</li>
+    </ul>
+  </div>
+
+  <h3>板块二：综合 2（迎春杯长方形阵列）</h3>
+  <div class="point">
+    <div class="point-title">题目：长方形阵列，最外面三层穿白色，其余同学恰好排成两个大小一样的正方形实心方阵。白色比彩色多 36 人。参加校庆的有多少人？</div>
+    <p><em>这是迎春杯小中组决赛考题</em></p>
+    <p><strong>第一步：分析 36 这个特殊数据</strong>——36 = 4 × 9 = 4 个角，每角 9 人</p>
+    <p><strong>第二步：理解图形结构</strong>——中间是两个同样大小的正方形，左右排列。每个正方形边长为 9。上下各加 3 层白色，最外面三层是白色。左右各加 3 层白色</p>
+    <p><strong>第三步：计算</strong>——总长 = 9 + 3 + 9 + 3 = 24；总宽 = 9 + 3 + 3 = 15；总人数 = 24 × 15 = <span class="answer">360 人</span></p>
+    <p><strong>第四步：校验</strong>——中间两个正方形：9² + 9² = 81 + 81 = 162 人；白色 = 360 − 162 = 198 人；白色 − 彩色 = 198 − 162 = 36 ✓</p>
+  </div>
+
+  <h3>板块三：综合 3（37 枚棋子正六边形）</h3>
+  <div class="point">
+    <div class="point-title">题目：37 枚棋子摆成 4 层的正六边形实心阵列。如果要摆成 10 层的正六边形实心阵列，需要多少枚？</div>
+    <h5>第一步：分析 4 层正六边形</h5>
+    <ul>
+      <li>第 1 层（中心）：1 枚</li>
+      <li>第 2 层：6 枚（6 条边，每条 1 个）= 6</li>
+      <li>第 3 层：12 枚（6×3−6）= 12</li>
+      <li>第 4 层：18 枚（6×4−6）= 18</li>
+    </ul>
+    <p>校验：1 + 6 + 12 + 18 = 37 ✓</p>
+    <h5>第二步：求 10 层正六边形</h5>
+    <p>从第 2 层起构成等差数列（公差 6）：第 2 层 6、第 3 层 12……第 10 层 6×9 = 54</p>
+    <p>总数 = 1 + 6 + 12 + ... + 54 = 1 + 6×(1+2+...+9) = 1 + 6×45 = <strong>271 枚</strong></p>
+    <h5>第二问：最外面两层用了 150 枚，整个正六边形实心阵列共用了多少枚？</h5>
+    <ul>
+      <li>最外两层和 = 150；相邻层差 = 6；最外层 = (150+6) ÷ 2 = 78 枚</li>
+      <li>最外层 78 枚 = 6×13；所以最外层是第 13 层；共 13 层</li>
+      <li>总数 = 1 + 6×(13×14÷2) = 1 + 6×91 = 1 + 546 = <span class="answer">547 枚</span></li>
+    </ul>
+    <h5>第三问：是否存在正六边形实心阵列，外围 = 内部？</h5>
+    <p>第 1 层 1 枚，以后每层都是 6 的倍数。1 + 若干个 6 的倍数一定是<em>奇数</em>。题目要求外围 = 内部，总数应该是偶数（因为两部分相等）。奇数 ≠ 偶数，所以<strong>不可能</strong></p>
+    <h5>第四问：是否存在正六边形实心阵列总数 = 某个正方形实心方阵的总数？</h5>
+    <p>正方形总数 = N²；正六边形总数 = 1 + 6×(1+2+...+k) = 1 + 3k(k+1)。</p>
+    <p>1+6=7、7+12=19、19+18=37、37+24=61、61+30=91、91+36=127、127+42 = <strong>169 = 13²</strong> ✓</p>
+    <p>答案：摆到第 8 层（1+6×28=169），可以摆成 13×13 的正方形。</p>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-11 全文系统性总结</h4>
+    <h5>① 三大思维方法</h5>
+    <table>
+      <thead><tr><th>方法</th><th>核心思想</th><th>应用场景</th></tr></thead>
+      <tbody>
+        <tr><td>阴影标记法</td><td>把图形分成多个小单元计数</td><td>火柴棍围成的图形</td></tr>
+        <tr><td>对称法</td><td>利用图形的旋转对称性</td><td>对称图形计数</td></tr>
+        <tr><td>对应法</td><td>建立"你有我也有"的对应</td><td>多图形、多变量问题</td></tr>
+      </tbody>
+    </table>
+    <h5>② 关键图形规律</h5>
+    <ul>
+      <li><strong>正方形阵列</strong>：每层 4n−4，相邻层差 8</li>
+      <li><strong>等边三角形阵</strong>：每层 3n−3，相邻层差 9</li>
+      <li><strong>正六边形阵列</strong>：每层 6n−6，相邻层差 6；总数 = 1 + 3k(k+1)（奇数）</li>
+    </ul>
+    <h5>③ 经典数</h5>
+    <ul>
+      <li>169 = 13² = 正六边形 8 层</li>
+      <li>1225 = 35² = 1+2+...+49</li>
+      <li>正六边形总数 = 奇数</li>
+    </ul>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-11 易错点警示</div>
+    <ul>
+      <li>阴影三角形的角上修正（60−3=57）</li>
+      <li>内沿火柴棍 = 20−3 = 17</li>
+      <li>特殊数据 36 = 4×9 的理解</li>
+      <li>正六边形总数是奇数</li>
+      <li>169=13² 的构造性证明</li>
+    </ul>
+  </div>
+
+  <!-- L3-11 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-11 方阵综合 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 700" width="1500" height="700" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <rect class="root" x="20" y="310" width="170" height="80" rx="10"/>
+      <text class="txt" x="105" y="345" text-anchor="middle">L3-11 方阵</text>
+      <text class="txt" x="105" y="368" text-anchor="middle">第二讲</text>
+
+      <line x1="190" y1="350" x2="240" y2="350"/>
+      <line x1="240" y1="80" x2="240" y2="640"/>
+
+      <line x1="240" y1="80" x2="280" y2="80"/>
+      <rect class="l1" x="280" y="50" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="85" text-anchor="middle">阴影标记法</text>
+
+      <line x1="420" y1="80" x2="460" y2="80"/>
+      <rect class="l2" x="460" y="60" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="86" text-anchor="middle" font-weight="600">尖角向上打阴影</text>
+      <line x1="420" y1="120" x2="500" y2="120"/>
+      <rect class="l2" x="500" y="100" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="126" text-anchor="middle" font-weight="600">角上修正（60−3=57）</text>
+
+      <line x1="240" y1="200" x2="280" y2="200"/>
+      <rect class="l1" x="280" y="170" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="205" text-anchor="middle">对称法</text>
+
+      <line x1="420" y1="200" x2="460" y2="200"/>
+      <rect class="l2" x="460" y="180" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="206" text-anchor="middle" font-weight="600">旋转 120°</text>
+      <line x1="420" y1="240" x2="500" y2="240"/>
+      <rect class="l3" x="500" y="220" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="246" text-anchor="middle" font-weight="600">3 种方向各算一次</text>
+
+      <line x1="240" y1="320" x2="280" y2="320"/>
+      <rect class="l1" x="280" y="290" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="325" text-anchor="middle">对应法</text>
+
+      <line x1="420" y1="320" x2="460" y2="320"/>
+      <rect class="l2" x="460" y="300" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="326" text-anchor="middle" font-weight="600">白=黄+红</text>
+      <line x1="420" y1="360" x2="500" y2="360"/>
+      <rect class="l3" x="500" y="340" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="366" text-anchor="middle" font-weight="600">36=4×9（特殊数据）</text>
+
+      <line x1="240" y1="450" x2="280" y2="450"/>
+      <rect class="l1" x="280" y="420" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="455" text-anchor="middle">正六边形</text>
+
+      <line x1="420" y1="450" x2="460" y2="450"/>
+      <rect class="l2" x="460" y="430" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="456" text-anchor="middle" font-weight="600">每层 6n−6</text>
+      <line x1="420" y1="490" x2="500" y2="490"/>
+      <rect class="l3" x="500" y="470" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="496" text-anchor="middle" font-weight="600">总数=1+3k(k+1)（奇数）</text>
+      <line x1="420" y1="530" x2="500" y2="530"/>
+      <rect class="l3" x="500" y="510" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="536" text-anchor="middle" font-weight="600">169=13²=8层</text>
+
+      <line x1="240" y1="640" x2="280" y2="640"/>
+      <rect class="l1" x="280" y="620" width="160" height="40" rx="8"/>
+      <text class="txt" x="360" y="646" text-anchor="middle">奇偶性证明</text>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- L3-12 数阵图 -->
+<!-- ============================================ -->
+<section id="ch12" class="chapter prev">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-12 预</span>
+    <h2>关卡 L3-12（预）· 数阵图初步</h2>
+  </div>
+
+  <h3>1️⃣ 什么是数阵图</h3>
+  <div class="point">
+    <div class="point-title">定义</div>
+    <p>在一些线组成的图形中，有一些<strong>圆圈或方块</strong>；在里面<strong>填上数</strong>要满足一些要求；<em>数阵图 = 数与形的结合</em>——既满足数的要求，又满足形的要求。</p>
+  </div>
+
+  <h3>2️⃣ 数阵图的核心概念</h3>
+  <div class="point formula">
+    <div class="point-title">三大核心概念</div>
+    <ul>
+      <li><strong>线和</strong>：所填所有数的总和；每条线或圆上所填几个数的和称为<em>线和</em></li>
+      <li><strong>几次</strong>：一次指的是一个小圆圈它在几条线上</li>
+      <li><strong>整除</strong>：一般情况下每个小圆圈中填的都是<em>整数、自然数</em>；每条线的和、总和都是自然数；因此要<em>利用整除的特点锁定某些位置只能填某些数</em></li>
+    </ul>
+  </div>
+
+  <h3>3️⃣ 本关的两大数学技巧</h3>
+  <div class="point tip">
+    <div class="point-title">两大技巧</div>
+    <ul>
+      <li><strong>最大与最小</strong>：填的数已经锁定范围，但具体填在哪个位置不知道；要使得和大、使得和小</li>
+      <li><strong>对比两线和</strong>：在中年级阶段分析数阵图时，对比两条线的和为什么相等；去掉公共部分，剩下这两个数的和等于另外两个数之和</li>
+    </ul>
+  </div>
+</section>
+
+<section class="chapter class">
+  <div class="chapter-header">
+    <span class="chapter-tag">L3-12 课</span>
+    <h2>关卡 L3-12（课）· 数阵图初步</h2>
+  </div>
+
+  <h3>板块一：例题 1（1 到 7 填入 7 个圆圈）</h3>
+  <div class="point">
+    <div class="point-title">题目：把 1 到 7 七个自然数填入图中 7 个圆圈，使每条直线上 3 个圆圈数的和相等，并使和尽可能大</div>
+    <p>总和 = 1+2+3+4+5+6+7 = <strong>28</strong>；线和 S = 每条线上三个数的和</p>
+    <h5>思路一：三条线相加</h5>
+    <p>3 条线（A、B 两个端点各被算两次）：3S = 总和 + A + B → 3S = 28 + A + B</p>
+    <p>要 S 最大，A+B 最大。A+B 最大 = 7+6 = 13，但 28+13 = 41，不能被 3 整除。所以实际最大 = 39（小于 41 的 3 的倍数），S = <span class="answer">13</span></p>
+    <h5>思路二：只看两条横线</h5>
+    <p>两条横线之和 = 2S = 总和 - C；S = (28 - C) / 2；C 最小偶数 = 2（不能是 1，因为 S 要整数）→ S = 13</p>
+    <p>填法：C = 2（上下竖线的中间位置），一条横线 = 13，竖线另外两个数之和 = 13 − 2 = 11。可能的填法：4+7 或 5+6</p>
+  </div>
+
+  <h3>板块二：练习 1（1 到 11 填入 11 个圆圈）</h3>
+  <div class="point">
+    <div class="point-title">题目：把 1 到 11 填入图中圆圈，使每条直线上 3 个数的和相等，并使和尽可能大。填好后与 3 在同一条直线上的另一个一位数是多少？</div>
+    <p>总和 = 1+2+...+11 = <strong>66</strong>；5 条线（一条竖线+四条斜线），中心数 A 算了 5 次</p>
+    <p>5S = 66 + 4A → S = (66 + 4A) / 5</p>
+    <p>要 S 最大，A 最大。A = 11，S = (66 + 4×11) / 5 = 110/5 = <span class="answer">22</span></p>
+    <p>中心的 A=11，每条线上另外两个数之和 = 22 − 11 = 11。剩余十个数配成 5 对：{1,10}, {2,9}, {3,8}, {4,7}, {5,6}</p>
+    <p>与 3 同一直线：3 必与 11 在一条线；与 3 同直线的另一位一位数是 <span class="answer">8</span>（来自 {3,8}）</p>
+  </div>
+
+  <h3>板块三：练习 2（5 个圆圈填入互不相同的数）</h3>
+  <div class="point">
+    <div class="point-title">题目：从 {2,3,5,7,11,13,17,19} 中选出 5 个互不相同的数填到 5 个圆圈，每条线（一横一竖）总和都等于 21</div>
+    <p><strong>第一步：分析奇偶性</strong>——21 是奇数，3 个整数的和是 21；要么全奇数，要么 1 偶 2 奇；八个数中只有 2 是偶数；不能用 1 偶 2 奇，所以必须全用奇数</p>
+    <p><strong>第二步：分析大小</strong>——排除 2、19、17（19+3+5=27>21）</p>
+    <p><strong>第三步：列出可用的 5 个数</strong>——{3, 5, 7, 11, 13}；总和 = 3+5+7+11+13 = <span class="answer">39</span></p>
+    <p><em>简化方法</em>：两条线和 = 2×21 = 42；中心数被算了两次，其余数各算一次；42 = 39 + 中心数；中心数 = 3</p>
+  </div>
+
+  <h3>板块四：例题 2（1 到 7 填入带圆的图）</h3>
+  <div class="point">
+    <div class="point-title">题目：把 1 到 7 填入 7 个圆圈，使每条直线上 3 个数的和与每个圆上 3 个数的和都相等</div>
+    <p><strong>图形分析</strong>——三条直线 + 两个圆 = 5 个"线和"</p>
+    <p>中心记 3 次；6 个外围点每点记 2 次</p>
+    <p>5S = 2×28 + A = 56 + A → S = (56 + A) / 5</p>
+    <p>56+A 要被 5 整除 → A = 4；S = 60/5 = <strong>12</strong></p>
+    <p>中心填 4；每条直线上另外两个数之和 = 12−4 = 8；用剩 5 个数 {1,2,3,5,6,7} 配成 3 对：{1,7}, {2,6}, {3,5}</p>
+  </div>
+
+  <h3>板块五：练习 3（迎春杯 1 到 6 填入）</h3>
+  <div class="point">
+    <div class="point-title">题目：将 1 到 6 填入 6 个圆圈，使得每条直线上所填所有数的和都相等</div>
+    <p><em>这是迎春杯三年级初赛考题</em></p>
+    <p>5 条线：3 条斜线（每条 3 个圆圈）+ 2 条直线（每条 2 个圆圈）</p>
+    <p>A 记 2 次；C、D、E、F 各记 2 次；B 记 3 次</p>
+    <p>5S = 2×21 + B = 42 + B → S = (42 + B) / 5</p>
+    <p>42+B 要被 5 整除 → B = 3；S = 45/5 = <strong>9</strong></p>
+    <p>竖线 AB 之和 = 9；A + B = 9；因为 B = 3，所以 A = 6</p>
+  </div>
+
+  <h3>板块六：例题 3（1 到 9 填入 9 个圆圈）</h3>
+  <div class="point">
+    <div class="point-title">题目：将 1 到 9 填入 9 个圆圈内，使每条线上 3 个数的和都相等。已经填入了 1, 4, 5 三个数</div>
+    <p>特点：图中有 6 条线，部分数记 1 次、部分记 2 次、部分记 3 次，传统的总和方法不好用。</p>
+    <h5>对比法</h5>
+    <ul>
+      <li>找两条有公共元素的线</li>
+      <li>比较它们的已知部分，反推未知部分</li>
+      <li>通过对比推出：F=2, E=7, B=6, C=3, A=9, D=8（具体顺序因图而异）</li>
+    </ul>
+    <p><em>对比法的核心</em>：你有我也有，比较差异。</p>
+  </div>
+
+  <h3>板块七：练习 4（填 1 或 2 使大圆周互不相同）</h3>
+  <div class="point">
+    <div class="point-title">题目：六个小圆圈内填 1 或 2，使每个大圆周上的四个数字之和互不相同</div>
+    <p><em>这是华校四年级考题</em></p>
+    <p>三个大圆周（上面的、左下的、右下的），每个大圆周上有 4 个圆圈，要求三个圆周上的和互不相同</p>
+    <h5>简化结论</h5>
+    <ul>
+      <li>用字母表示：A+B+C+D+E+F</li>
+      <li>经过分析，只需要 A+E, B+F, C+D 三组互不相等</li>
+      <li>A+E、B+F、C+D 的可能值：2, 3, 4（来自 1+1, 1+2, 2+2）</li>
+      <li>只要这三组取不同的值即可</li>
+    </ul>
+    <p>填法：A=1, E=1, A+E=2；B=1, F=2, B+F=3；C=2, D=2, C+D=4。三个值 2, 3, 4 互不相同 ✓</p>
+  </div>
+
+  <h3>板块八：综合 1（1 到 10 填入阴影三角形）</h3>
+  <div class="point">
+    <div class="point-title">题目：将 1 到 10 填入 10 个圆圈内，使每个阴影三角形的三个顶点处的圆圈内所填数的和都等于 16</div>
+    <ol class="steps">
+      <li>求中心数：三个角上的阴影三角形之和 = 3×16 = 48；用总和法：55 - 3×16 = 55 - 48 = <strong>7</strong>（中心填 7）</li>
+      <li>用三个哑铃求其他数：哑铃 = 两个圆圈与 7 在同一个三角形中；每个三角形三个数之和 = 16；哑铃两个数之和 = 16 − 7 = 9；三个哑铃，每个和 9；9 的配对：1+8, 3+6, 4+5（排除已用的 7）。所以用 {1,8}, {3,6}, {4,5}</li>
+      <li>确定角上的三个数：剩下的 {2, 9, 10}；角上三个数 = {2, 9, 10}</li>
+    </ol>
+  </div>
+
+  <div class="summary-box">
+    <h4>L3-12 全文系统性总结</h4>
+    <h5>① 三大核心概念</h5>
+    <table>
+      <thead><tr><th>概念</th><th>定义</th><th>应用</th></tr></thead>
+      <tbody>
+        <tr><td>总和</td><td>所有填入数的和</td><td>基础数据</td></tr>
+        <tr><td>线和</td><td>每条线上数的和</td><td>题目要求相等</td></tr>
+        <tr><td>次数</td><td>每个圆圈被几条线包含</td><td>计算总和关系的关键</td></tr>
+      </tbody>
+    </table>
+    <h5>② 总和公式</h5>
+    <p><strong>一般公式</strong>：n×线和 = 总和 + (各数被多算的次数之和)</p>
+    <p>具体形式取决于图形的结构：</p>
+    <ul>
+      <li>例题 1：3S = 28 + A + B（两个端点各被多算 1 次）</li>
+      <li>练习 1：5S = 66 + 4A（中心被多算 4 次）</li>
+      <li>例题 2：5S = 56 + A（中心被多算 1 次）</li>
+      <li>练习 3：5S = 42 + B（中心被多算 1 次）</li>
+    </ul>
+    <h5>③ 三大填图技巧</h5>
+    <ol>
+      <li><strong>整除性分析</strong>：确定最大可能值或中心数</li>
+      <li><strong>奇偶性分析</strong>：快速排除不可能</li>
+      <li><strong>大小分析</strong>：排除过大或过小的数</li>
+    </ol>
+  </div>
+
+  <div class="errbox">
+    <div class="err-title">⚠️ L3-12 易错点警示</div>
+    <ul>
+      <li>每个圆圈的"次数"必须数清</li>
+      <li>总和公式 nS = 总和 + 多算部分</li>
+      <li>整除性、奇偶性、大小分析</li>
+      <li>对比法在次数不均时的应用</li>
+      <li>哑铃配对法（每对和 = 线和 - 中心数）</li>
+    </ul>
+  </div>
+
+  <!-- L3-12 思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 L3-12 数阵图 · 知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 700" width="1500" height="700" font-family="-apple-system,PingFang SC,sans-serif" font-size="13">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <rect class="root" x="20" y="310" width="170" height="80" rx="10"/>
+      <text class="txt" x="105" y="345" text-anchor="middle">L3-12 数阵图</text>
+      <text class="txt" x="105" y="368" text-anchor="middle">数形结合</text>
+
+      <line x1="190" y1="350" x2="240" y2="350"/>
+      <line x1="240" y1="80" x2="240" y2="640"/>
+
+      <line x1="240" y1="80" x2="280" y2="80"/>
+      <rect class="l1" x="280" y="50" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="85" text-anchor="middle">三大核心概念</text>
+
+      <line x1="420" y1="80" x2="460" y2="80"/>
+      <rect class="l2" x="460" y="40" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="66" text-anchor="middle" font-weight="600">总和（所有数之和）</text>
+      <line x1="460" y1="120" x2="500" y2="120"/>
+      <rect class="l2" x="500" y="100" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="126" text-anchor="middle" font-weight="600">线和（每条线上之和）</text>
+      <line x1="460" y1="160" x2="500" y2="160"/>
+      <rect class="l2" x="500" y="140" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="590" y="166" text-anchor="middle" font-weight="600">次数（被几线包含）</text>
+
+      <line x1="240" y1="240" x2="280" y2="240"/>
+      <rect class="l1" x="280" y="210" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="245" text-anchor="middle">总和公式</text>
+
+      <line x1="420" y1="240" x2="460" y2="240"/>
+      <rect class="l2" x="460" y="220" width="240" height="40" rx="6"/>
+      <text fill="#fff" x="580" y="246" text-anchor="middle" font-weight="600">nS = 总和 + 多算部分</text>
+      <line x1="420" y1="280" x2="500" y2="280"/>
+      <rect class="l3" x="500" y="260" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="286" text-anchor="middle" font-weight="600">整除性确定中心</text>
+
+      <line x1="240" y1="360" x2="280" y2="360"/>
+      <rect class="l1" x="280" y="330" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="365" text-anchor="middle">三大填图技巧</text>
+
+      <line x1="420" y1="360" x2="460" y2="360"/>
+      <rect class="l2" x="460" y="340" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="560" y="366" text-anchor="middle" font-weight="600">① 整除性分析</text>
+      <line x1="420" y1="400" x2="500" y2="400"/>
+      <rect class="l2" x="500" y="380" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="406" text-anchor="middle" font-weight="600">② 奇偶性分析</text>
+      <line x1="420" y1="440" x2="500" y2="440"/>
+      <rect class="l2" x="500" y="420" width="200" height="40" rx="6"/>
+      <text fill="#fff" x="600" y="446" text-anchor="middle" font-weight="600">③ 大小分析</text>
+
+      <line x1="240" y1="520" x2="280" y2="520"/>
+      <rect class="l1" x="280" y="490" width="140" height="60" rx="8"/>
+      <text class="txt" x="350" y="525" text-anchor="middle">对比法</text>
+
+      <line x1="420" y1="520" x2="460" y2="520"/>
+      <rect class="l2" x="460" y="500" width="220" height="40" rx="6"/>
+      <text fill="#fff" x="570" y="526" text-anchor="middle" font-weight="600">找有公共元素的线</text>
+      <line x1="420" y1="560" x2="500" y2="560"/>
+      <rect class="l3" x="500" y="540" width="220" height="40" rx="6"/>
+      <text fill="#fff" x="610" y="566" text-anchor="middle" font-weight="600">你有我也有 → 比较差异</text>
+
+      <line x1="240" y1="640" x2="280" y2="640"/>
+      <rect class="l1" x="280" y="620" width="160" height="40" rx="8"/>
+      <text class="txt" x="360" y="646" text-anchor="middle">哑铃配对</text>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 跨课程知识图谱 -->
+<!-- ============================================ -->
+<section id="graph" class="chapter">
+  <div class="chapter-header">
+    <span class="chapter-tag" style="background:#5e35b1;">综合</span>
+    <h2>跨课程知识图谱</h2>
+  </div>
+
+  <h3>一、核心数学思想在不同关卡的复用</h3>
+  <table>
+    <thead><tr><th>数学思想</th><th>首次提出</th><th>后续复用关卡</th><th>思想层级</th></tr></thead>
+    <tbody>
+      <tr><td>固定搭配（凑整）</td><td>L3-1(课)</td><td>L3-3(课) 综合、L3-6(课) 综合一、L3-8(课) 综合 3</td><td>计算技巧层</td></tr>
+      <tr><td>枚举法（不重不漏）</td><td>L3-3(课)</td><td>L3-4(课) 涂色拼接、L3-8(课) 综合 1</td><td>基础方法层</td></tr>
+      <tr><td>假设法（统一差异）</td><td>L3-8(课)</td><td>L3-9(课) 全部、L3-10(课) 综合 2、L3-11(课) 综合 2</td><td>核心思维层</td></tr>
+      <tr><td>分组法</td><td>L3-9(课) 例题 1</td><td>L3-9(课) 全部、L3-10(课) 练习 3、L3-11(课) 全部</td><td>高级思维层</td></tr>
+      <tr><td>对应思想（对应消元）</td><td>L3-1(课) 综合</td><td>L3-6(课) 综合二、L3-10(课) 综合 1、综合 2、L3-11(课) 综合 2</td><td>高级思维层</td></tr>
+      <tr><td>配对法</td><td>L3-6(预)</td><td>L3-6(课) 全部、L3-10(课) 例题 1、L3-12(课) 全部</td><td>核心技巧层</td></tr>
+      <tr><td>克隆法</td><td>L3-6(课) 例题 2</td><td>L3-6(课) 全部</td><td>独特技巧层</td></tr>
+      <tr><td>普调法</td><td>L3-6(课) 综合二</td><td>后续灵活应用</td><td>综合技巧层</td></tr>
+      <tr><td>和差问题</td><td>L3-7(预) 复习</td><td>L3-7(课) 全部、L3-10(课) 练习 2、L3-11(课) 综合 2</td><td>基础应用模型</td></tr>
+      <tr><td>和倍/差倍</td><td>L3-7(课)</td><td>L3-7(课) 全部、L3-8(课) 综合、L3-9(课) 综合</td><td>核心应用模型</td></tr>
+      <tr><td>鸡兔同笼（假设法）</td><td>L3-8(课)</td><td>L3-9(课) 全部</td><td>基础通用模型</td></tr>
+      <tr><td>方阵（相邻层差）</td><td>L3-10(课)</td><td>L3-11(课) 全部</td><td>几何思维模型</td></tr>
+      <tr><td>数形结合</td><td>L3-12(预)</td><td>L3-12(课) 全部</td><td>数学哲学层</td></tr>
+      <tr><td>逻辑推理（连接词）</td><td>L3-5(课)</td><td>后续所有推理题</td><td>思维工具层</td></tr>
+      <tr><td>对称识别</td><td>L3-4(预)</td><td>L3-4(课) 全部</td><td>空间思维层</td></tr>
+      <tr><td>奇偶性分析</td><td>L3-11(课) 综合 3</td><td>L3-12(课) 练习 2</td><td>数论思维层</td></tr>
+    </tbody>
+  </table>
+
+  <h3>二、知识点依赖链路</h3>
+  <div class="formula-block" style="text-align:left; padding: 16px;">
+L3-1 整数速算与巧算（基础计算层）<br>
+&nbsp;&nbsp;└─→ L3-2 几何计数（应用层：周长面积）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─→ L3-3 枚举法一（数与字母）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─→ L3-4 枚举法二（图形、对称）── 编程思维启蒙<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─→ L3-5 简单逻辑推理（思维工具层）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─→ L3-6 等差数列（代数思维）── 数列求和综合<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─→ L3-7 和差倍问题（应用题基础）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─→ L3-8 鸡兔同笼（基础通用模型）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─→ L3-9 鸡兔同笼进阶（分组法、统一倍数）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─→ L3-10 方阵问题一（正方形、三角形）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─→ L3-11 方阵问题二（长方形、六边形、对称）<br>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─→ L3-12 数阵图初步（数形结合）
+  </div>
+
+  <h3>三、核心方法论的"思维链"</h3>
+  <div class="formula-block" style="text-align:left; padding: 16px;">
+观察 → 识别 → 重构 → 计算 → 验证<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ 校验结果的合理性<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ 套用公式或规则<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ 把复杂问题转化为标准模型<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ 识别问题的类型（差/倍/方阵/数阵）<br>
+&nbsp;&nbsp;│&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ 找出关键特征（对称、顺序、数量关系）<br>
+&nbsp;&nbsp;└─ 观察题目
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- 五大维度总结 -->
+<!-- ============================================ -->
+<section id="final" class="chapter">
+  <div class="chapter-header">
+    <span class="chapter-tag" style="background:#059669;">五大维度</span>
+    <h2>终极系统性总结（五大维度）</h2>
+  </div>
+
+  <h3>维度 1：数学思想方法</h3>
+  <h4>基础思想方法</h4>
+  <table>
+    <thead><tr><th>思想方法</th><th>定义</th><th>典型应用</th><th>关联关卡</th></tr></thead>
+    <tbody>
+      <tr><td>固定搭配</td><td>看到特定数字组合直接出结果</td><td>5×2=10、25×4=100、125×8=1000</td><td>L3-1, L3-6</td></tr>
+      <tr><td>凑整</td><td>把数拆成接近整十/百/千的部分</td><td>99=100−1、998=1000−2</td><td>L3-1, L3-6</td></tr>
+      <tr><td>枚举</td><td>按一定顺序不重不漏地列出所有情况</td><td>数与字母、图形、对称</td><td>L3-3, L3-4</td></tr>
+      <tr><td>分类</td><td>按某种属性把对象分成不同类别</td><td>按区域、大小、方向分类</td><td>L3-3, L3-4</td></tr>
+      <tr><td>对称</td><td>利用旋转/翻转的对称性简化问题</td><td>涂色去重、拼接去重</td><td>L3-4</td></tr>
+      <tr><td>配对</td><td>把两个相关的对象放在一起处理</td><td>首尾配对求和</td><td>L3-6, L3-10</td></tr>
+      <tr><td>分组</td><td>把多个对象按某种规则组合成组</td><td>等效组、倍数组</td><td>L3-6, L3-9</td></tr>
+      <tr><td>对应</td><td>建立"你有我也有"的对应关系</td><td>和差对应、黑白对应</td><td>L3-1, L3-6, L3-10</td></tr>
+      <tr><td>假设</td><td>把问题假设为某种简化情形</td><td>假设全是鸡、假设全是兔</td><td>L3-8, L3-9</td></tr>
+      <tr><td>调整</td><td>在假设基础上进行修正</td><td>差异调整</td><td>L3-8, L3-9</td></tr>
+      <tr><td>克隆</td><td>把算式复制一份再相加</td><td>求和公式推导</td><td>L3-6</td></tr>
+      <tr><td>普调</td><td>把所有数同时加/减同一个值</td><td>等差数列整体平移</td><td>L3-6</td></tr>
+    </tbody>
+  </table>
+  <h4>高级思想方法</h4>
+  <table>
+    <thead><tr><th>思想方法</th><th>定义</th><th>典型应用</th><th>关联关卡</th></tr></thead>
+    <tbody>
+      <tr><td>二分法</td><td>假设→差异→分析→调整的循环</td><td>猜数、解高次方程</td><td>L3-8(预)</td></tr>
+      <tr><td>状态选择</td><td>多状态中选有倍数关系的状态</td><td>鸡兔同笼多状态</td><td>L3-7, L3-9(预)</td></tr>
+      <tr><td>问题分解</td><td>把复杂问题分解为经典模型</td><td>和差+和倍分步</td><td>L3-7</td></tr>
+      <tr><td>排除还原</td><td>把"多/少"排除，回归标准问题</td><td>"几倍多N"问题</td><td>L3-7</td></tr>
+      <tr><td>数形结合</td><td>既满足数的要求又满足形的要求</td><td>数阵图</td><td>L3-12</td></tr>
+      <tr><td>整体与局部</td><td>整体统揽、局部特殊化</td><td>数阵图、方阵</td><td>L3-12</td></tr>
+      <tr><td>整除分析</td><td>用整除性约束取值</td><td>数阵图中心数</td><td>L3-12</td></tr>
+      <tr><td>奇偶分析</td><td>用奇偶性排除不可能</td><td>正六边形等分不可能</td><td>L3-11, L3-12</td></tr>
+      <tr><td>构造性证明</td><td>找出一个解即证存在</td><td>169=13²</td><td>L3-11</td></tr>
+      <tr><td>阴影标记</td><td>把复杂图形分成小单元</td><td>火柴棍围图形</td><td>L3-11</td></tr>
+      <tr><td>对称旋转</td><td>利用图形的旋转对称性</td><td>火柴棍围图形</td><td>L3-11</td></tr>
+      <tr><td>简化对比</td><td>找真正起作用的元素</td><td>大圆周互不相同</td><td>L3-12</td></tr>
+    </tbody>
+  </table>
+
+  <h3>维度 2：核心计算技巧与特殊数</h3>
+  <h4>速算固定搭配</h4>
+  <div class="formula-block">2×5=10　|　4×25=100　|　8×125=1000　|　16×625=10000</div>
+  <div class="formula-block">37×3=111　|　27×37=999　|　7×11×13=1001</div>
+  <div class="formula-block">12345679×9=111111111　|　142857×7=999999</div>
+  <h4>等差数列公式</h4>
+  <div class="formula-block">末项：aₙ = a₁ + (n−1)d　|　项数：n = (aₙ − a₁) ÷ d + 1　|　求和：S = (a₁ + aₙ) × n ÷ 2</div>
+  <h4>特殊数</h4>
+  <table>
+    <thead><tr><th>特殊数</th><th>意义</th></tr></thead>
+    <tbody>
+      <tr><td>T_n = n(n+1)/2</td><td>三角数：1+2+...+n</td></tr>
+      <tr><td>1+3+...+(2n−1) = n²</td><td>奇数和 = n²</td></tr>
+      <tr><td>1225 = 35² = T₄₉</td><td>完全平方数 + 三角数</td></tr>
+      <tr><td>169 = 13² = 1+6×(1+...+7)</td><td>正六边形 8 层 = 13² 正方形</td></tr>
+      <tr><td>36 = 4×9</td><td>4 个角每角 9 人</td></tr>
+      <tr><td>271 / 547</td><td>10 层/13 层正六边形</td></tr>
+    </tbody>
+  </table>
+  <h4>方阵公式对比</h4>
+  <table>
+    <thead><tr><th>方阵类型</th><th>每层公式</th><th>相邻层差</th><th>总数公式</th></tr></thead>
+    <tbody>
+      <tr><td>正方形</td><td>4n−4</td><td>8（一般）/ 7（中心层 1）</td><td>n²</td></tr>
+      <tr><td>等边三角形</td><td>3n−3</td><td>9（一般）/ 8（特殊）</td><td>n(n+1)/2</td></tr>
+      <tr><td>正六边形</td><td>6n−6</td><td>6</td><td>1+3n(n+1)（奇数）</td></tr>
+    </tbody>
+  </table>
+  <h4>和差倍核心公式</h4>
+  <div class="formula-block">和差问题：较大数 = (和+差)÷2，较小数 = (和−差)÷2<br>和倍问题：一倍量 = 和÷(倍数+1)　|　差倍问题：一倍量 = 差÷(倍数−1)</div>
+
+  <h3>维度 3：典型应用模型</h3>
+  <h4>经典应用题模型</h4>
+  <table>
+    <thead><tr><th>模型</th><th>核心方法</th><th>典型例子</th></tr></thead>
+    <tbody>
+      <tr><td>鸡兔同笼</td><td>假设法+差异分析</td><td>鸡 15 兔 5，脚数差 70</td></tr>
+      <tr><td>和差问题</td><td>较大数=(和+差)÷2</td><td>甲乙和 88 差 10</td></tr>
+      <tr><td>和倍问题</td><td>一倍量=和÷(倍数+1)</td><td>棋子 99+81 转移 54</td></tr>
+      <tr><td>差倍问题</td><td>一倍量=差÷(倍数−1)</td><td>篮球排球差 12</td></tr>
+      <tr><td>正负分问题</td><td>一进一出=进+出</td><td>答对+10 答错−2</td></tr>
+      <tr><td>多状态问题</td><td>状态选择+倍数状态</td><td>苹果箱子三状态</td></tr>
+      <tr><td>多步综合</td><td>问题分解</td><td>甲乙丙 93 千克</td></tr>
+      <tr><td>方阵问题</td><td>每边+层差+等差求和</td><td>5×5 方阵 121 人</td></tr>
+      <tr><td>数阵图</td><td>总和+线和+对比</td><td>1-7 填 7 圈 S=12</td></tr>
+    </tbody>
+  </table>
+  <h4>几何模型</h4>
+  <table>
+    <thead><tr><th>模型</th><th>核心方法</th><th>典型例子</th></tr></thead>
+    <tbody>
+      <tr><td>图形计数</td><td>按大小/方向/区域分类</td><td>凹四边形 20 种</td></tr>
+      <tr><td>涂色问题</td><td>编号+推论传递</td><td>9 个三角形选 2 涂黑</td></tr>
+      <tr><td>拼接问题</td><td>按最长列分类</td><td>5 个小正方形 12 种</td></tr>
+      <tr><td>正方形阵列</td><td>每边+层差</td><td>5×5 方阵最外 12</td></tr>
+      <tr><td>等边三角形阵</td><td>3n−3+层差 9</td><td>49 行 1225</td></tr>
+      <tr><td>正六边形阵</td><td>6n−6+层差 6</td><td>13 层 547</td></tr>
+      <tr><td>火柴棍围图</td><td>阴影+对称</td><td>222 根火柴棍</td></tr>
+      <tr><td>数阵图</td><td>总和+线和+对比</td><td>5 条线 5S=56+A</td></tr>
+    </tbody>
+  </table>
+  <h4>数论模型</h4>
+  <table>
+    <thead><tr><th>模型</th><th>核心方法</th><th>典型例子</th></tr></thead>
+    <tbody>
+      <tr><td>整除分析</td><td>用整除约束值</td><td>56+A 被 5 整除</td></tr>
+      <tr><td>奇偶分析</td><td>排除不可能</td><td>1+3k(k+1) 必奇</td></tr>
+      <tr><td>构造性证明</td><td>找出一个解</td><td>169=13² 存在</td></tr>
+      <tr><td>特殊数识别</td><td>1225, 169, 36, 7</td><td>数形桥梁</td></tr>
+    </tbody>
+  </table>
+
+  <h3>维度 4：能力进阶路径</h3>
+  <div class="formula-block" style="text-align:left; padding: 16px;">
+★ 入门：L3-1, L3-2 → 套用公式，做基础计算<br>
+★★ 基础应用：L3-3, L3-6(基础) → 枚举、等差数列基础<br>
+★★★ 进阶：L3-4, L3-5, L3-7 → 对称、逻辑、倍数状态<br>
+★★★★ 综合：L3-8, L3-10 → 鸡兔同笼、方阵基础<br>
+★★★★★ 高阶综合：L3-9, L3-11, L3-12 → 分组法、构造证明、数阵图
+  </div>
+
+  <h3>维度 5：学习路径建议与易错点警示</h3>
+  <h4>五阶段学习路径</h4>
+  <table>
+    <thead><tr><th>阶段</th><th>关卡</th><th>重点</th><th>必背</th></tr></thead>
+    <tbody>
+      <tr><td>第一阶段（打基础）</td><td>L3-1 → L3-2 → L3-3</td><td>计算熟练度、几何直觉、枚举思维</td><td>固定搭配、面积周长公式、字典序枚举</td></tr>
+      <tr><td>第二阶段（建思维）</td><td>L3-4 → L3-5 → L3-6</td><td>对称识别、逻辑连接词、等差数列公式</td><td>涂色对称规则、连接词含义、末项/求和公式</td></tr>
+      <tr><td>第三阶段（应用模型）</td><td>L3-7 → L3-8</td><td>和差倍、鸡兔同笼（假设法）</td><td>和差倍公式、假设法四步、"一进一出"</td></tr>
+      <tr><td>第四阶段（高级思维）</td><td>L3-9 → L3-10 → L3-11</td><td>分组法、方阵问题、对称综合应用</td><td>相邻层差、奇数和公式、特殊数（1225, 169）</td></tr>
+      <tr><td>第五阶段（哲学思维）</td><td>L3-12</td><td>数形结合、对比消元</td><td>总和公式 nS、整除性分析、对比法</td></tr>
+    </tbody>
+  </table>
+  <h4>跨章节的"一错百错"警示</h4>
+  <ul>
+    <li><strong>假设方向错误</strong>：L3-8/L3-9 假设不统一会导致后续调整失败</li>
+    <li><strong>次数计算错误</strong>：L3-12 数阵图总和公式完全建立在次数基础上</li>
+    <li><strong>层差搞错</strong>：L3-10/L3-11 正方形差 8、三角形差 9、六边形差 6，不能混淆</li>
+    <li><strong>倍数状态漏看</strong>：L3-7 多状态问题找错倍数状态</li>
+    <li><strong>整除性忽略</strong>：L3-12 没有整除性分析就确定不了中心数</li>
+  </ul>
+
+  <div class="summary-box">
+    <h4>奥数学习的核心哲学</h4>
+    <p>L3 三年级奥数课程体系完整、循序渐进，体现了奥数教育的核心理念：</p>
+    <ul>
+      <li><strong>从具体到抽象</strong>：数字计算 → 几何图形 → 抽象模型</li>
+      <li><strong>从单一到综合</strong>：单一方法 → 多种方法 → 综合应用</li>
+      <li><strong>从模仿到创造</strong>：套用公式 → 灵活选择 → 自己设计（数阵图）</li>
+    </ul>
+    <p>整个课程培养的核心能力：</p>
+    <ul>
+      <li>计算能力（L3-1, L3-6）</li>
+      <li>几何直觉（L3-2, L3-10, L3-11）</li>
+      <li>分类思维（L3-3, L3-4）</li>
+      <li>逻辑推理（L3-5）</li>
+      <li>代数思维（L3-6）</li>
+      <li>应用建模（L3-7, L3-8, L3-9）</li>
+      <li>数形结合（L3-12）</li>
+    </ul>
+    <p><em>奥数的本质不是难题，而是思维方法的训练</em>——这就是 L3 课程的设计哲学。</p>
+  </div>
+
+  <!-- 总思维导图 -->
+  <div class="mindmap">
+    <div class="mindmap-title">🌳 整套 L3 课程 · 全景知识图谱（横向树状 · 可双指放大）</div>
+    <div class="zoomable">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1800 800" width="1800" height="800" font-family="-apple-system,PingFang SC,sans-serif" font-size="12">
+      <style>
+        .root { fill: #2563eb; }
+        .l1 { fill: #7c3aed; }
+        .l2 { fill: #059669; }
+        .l3 { fill: #d97706; }
+        .txt { fill: #fff; font-weight: 600; }
+        line { stroke: #94a3b8; stroke-width: 1.5; fill: none; }
+      </style>
+
+      <rect class="root" x="20" y="350" width="190" height="100" rx="10"/>
+      <text class="txt" x="115" y="390" text-anchor="middle">L3 三年级奥数</text>
+      <text class="txt" x="115" y="415" text-anchor="middle">从奥数思维到</text>
+      <text class="txt" x="115" y="438" text-anchor="middle">数学领跑</text>
+
+      <line x1="210" y1="400" x2="260" y2="400"/>
+      <line x1="260" y1="60" x2="260" y2="780"/>
+
+      <!-- 12 关卡 -->
+      <line x1="260" y1="60" x2="300" y2="60"/>
+      <rect class="l1" x="300" y="40" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="66" text-anchor="middle">L3-1 速算</text>
+
+      <line x1="260" y1="120" x2="300" y2="120"/>
+      <rect class="l1" x="300" y="100" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="126" text-anchor="middle">L3-2 周长</text>
+
+      <line x1="260" y1="180" x2="300" y2="180"/>
+      <rect class="l1" x="300" y="160" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="186" text-anchor="middle">L3-3 枚举一</text>
+
+      <line x1="260" y1="240" x2="300" y2="240"/>
+      <rect class="l1" x="300" y="220" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="246" text-anchor="middle">L3-4 枚举二</text>
+
+      <line x1="260" y1="300" x2="300" y2="300"/>
+      <rect class="l1" x="300" y="280" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="306" text-anchor="middle">L3-5 逻辑</text>
+
+      <line x1="260" y1="360" x2="300" y2="360"/>
+      <rect class="l1" x="300" y="340" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="366" text-anchor="middle">L3-6 数列</text>
+
+      <line x1="260" y1="420" x2="300" y2="420"/>
+      <rect class="l1" x="300" y="400" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="426" text-anchor="middle">L3-7 和差倍</text>
+
+      <line x1="260" y1="480" x2="300" y2="480"/>
+      <rect class="l1" x="300" y="460" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="486" text-anchor="middle">L3-8 鸡兔</text>
+
+      <line x1="260" y1="540" x2="300" y2="540"/>
+      <rect class="l1" x="300" y="520" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="546" text-anchor="middle">L3-9 鸡兔进阶</text>
+
+      <line x1="260" y1="600" x2="300" y2="600"/>
+      <rect class="l1" x="300" y="580" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="606" text-anchor="middle">L3-10 方阵一</text>
+
+      <line x1="260" y1="660" x2="300" y2="660"/>
+      <rect class="l1" x="300" y="640" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="666" text-anchor="middle">L3-11 方阵二</text>
+
+      <line x1="260" y1="720" x2="300" y2="720"/>
+      <rect class="l1" x="300" y="700" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="726" text-anchor="middle">L3-12 数阵图</text>
+
+      <!-- 思维方法分类 -->
+      <line x1="260" y1="780" x2="300" y2="780"/>
+      <rect class="l1" x="300" y="760" width="120" height="40" rx="6"/>
+      <text class="txt" x="360" y="786" text-anchor="middle">综合总结</text>
+
+      <!-- 6 大主题分类 -->
+      <line x1="420" y1="100" x2="460" y2="100"/>
+      <rect class="l2" x="460" y="40" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="66" text-anchor="middle" font-weight="600">📐 几何应用</text>
+
+      <line x1="420" y1="60" x2="460" y2="60"/>
+      <rect class="l2" x="460" y="20" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="46" text-anchor="middle" font-weight="600">🔢 计算技巧</text>
+
+      <line x1="420" y1="180" x2="460" y2="180"/>
+      <rect class="l2" x="460" y="160" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="186" text-anchor="middle" font-weight="600">🎨 枚举组合</text>
+
+      <line x1="420" y1="300" x2="460" y2="300"/>
+      <rect class="l2" x="460" y="280" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="306" text-anchor="middle" font-weight="600">🧠 逻辑推理</text>
+
+      <line x1="420" y1="360" x2="460" y2="360"/>
+      <rect class="l2" x="460" y="340" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="366" text-anchor="middle" font-weight="600">📊 数列数论</text>
+
+      <line x1="420" y1="480" x2="460" y2="480"/>
+      <rect class="l2" x="460" y="460" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="486" text-anchor="middle" font-weight="600">🧮 应用题</text>
+
+      <line x1="420" y1="720" x2="460" y2="720"/>
+      <rect class="l2" x="460" y="700" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="550" y="726" text-anchor="middle" font-weight="600">🔮 数形结合</text>
+
+      <!-- 核心方法 -->
+      <line x1="640" y1="60" x2="680" y2="60"/>
+      <rect class="l3" x="680" y="20" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="770" y="46" text-anchor="middle" font-weight="600">固定搭配+凑整</text>
+
+      <line x1="640" y1="100" x2="680" y2="100"/>
+      <rect class="l3" x="680" y="80" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="770" y="106" text-anchor="middle" font-weight="600">阶梯+田字+蚂蚁爬</text>
+
+      <line x1="640" y1="180" x2="680" y2="180"/>
+      <rect class="l3" x="680" y="160" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="770" y="186" text-anchor="middle" font-weight="600">分类+有序+对称</text>
+
+      <line x1="640" y1="300" x2="680" y2="300"/>
+      <rect class="l3" x="680" y="280" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="770" y="306" text-anchor="middle" font-weight="600">连接词+对立</text>
+
+      <line x1="640" y1="360" x2="680" y2="360"/>
+      <rect class="l3" x="680" y="340" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="770" y="366" text-anchor="middle" font-weight="600">公式+克隆+配对</text>
+
+      <line x1="640" y1="480" x2="680" y2="480"/>
+      <rect class="l3" x="680" y="460" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="770" y="486" text-anchor="middle" font-weight="600">假设+分组+统一</text>
+
+      <line x1="640" y1="720" x2="680" y2="720"/>
+      <rect class="l3" x="680" y="700" width="180" height="40" rx="6"/>
+      <text fill="#fff" x="770" y="726" text-anchor="middle" font-weight="600">总和+对比+配对</text>
+
+      <!-- 终极能力 -->
+      <line x1="860" y1="100" x2="900" y2="100"/>
+      <rect class="l2" x="900" y="60" width="200" height="80" rx="6"/>
+      <text fill="#fff" x="1000" y="90" text-anchor="middle" font-weight="600">🎯 培养核心能力</text>
+      <text fill="#fff" x="1000" y="115" text-anchor="middle" font-weight="600" font-size="11">计算·几何·分类·逻辑</text>
+      <text fill="#fff" x="1000" y="135" text-anchor="middle" font-weight="600" font-size="11">代数·应用·数形结合</text>
+    </svg>
+    </div>
+  </div>
+</section>
+
+<!-- 返回顶部按钮 -->
+<div class="toolbar">
+  <button onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</button>
+</div>
+
+<div class="footer">
+  <p>📖 《从奥数思维到数学领跑 L3》完整教程</p>
+  <p>由 Professor Synapse 智囊团 · 6 位虚拟专家（向老师/余老师/李工/周工/张老师/林编辑）联合打造</p>
+  <p>适用于 WPS / 微信浏览器 / 移动端 · 支持双指放大</p>
+</div>
+
+</body>
+</html>
