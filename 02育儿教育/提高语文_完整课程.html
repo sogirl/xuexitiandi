@@ -1,0 +1,1093 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>提高语文 · 完整课程</title>
+<style>
+  :root{
+    --bg:#FAFAF7;
+    --paper:#FFFFFF;
+    --cream:#F5F1E8;
+    --ink:#2C2C2C;
+    --warm:#8B6F47;
+    --warm-soft:#F5E6D3;
+    --warm-line:#E8E2D5;
+    --blue:#5B7C99;
+    --blue-soft:#E8EEF3;
+    --muted:#6B6B6B;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"Microsoft YaHei","PingFang SC","Hiragino Sans GB",sans-serif;
+    line-height:1.8;
+    font-size:16px;
+  }
+  .page{
+    max-width:920px;
+    margin:0 auto;
+    padding:48px 32px 96px;
+    background:var(--paper);
+  }
+  /* Logo / Title */
+  .hero{
+    text-align:center;
+    padding:48px 24px 56px;
+    border-bottom:1px solid var(--warm-line);
+    background:linear-gradient(180deg,var(--cream) 0%,var(--paper) 100%);
+    border-radius:4px;
+    margin-bottom:48px;
+  }
+  .hero .badge{
+    display:inline-block;
+    padding:6px 16px;
+    border:1px solid var(--warm);
+    color:var(--warm);
+    font-size:13px;
+    letter-spacing:2px;
+    margin-bottom:20px;
+    border-radius:2px;
+  }
+  .hero h1{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:normal;
+    font-size:40px;
+    color:var(--ink);
+    margin:0 0 12px;
+    letter-spacing:2px;
+  }
+  .hero .sub{
+    font-family:Georgia,"Times New Roman",serif;
+    font-style:italic;
+    color:var(--blue);
+    font-size:18px;
+    margin-bottom:24px;
+  }
+  .hero .meta{
+    font-size:14px;
+    color:var(--muted);
+  }
+  /* TOC */
+  .toc{
+    background:var(--cream);
+    padding:24px 32px;
+    border-left:4px solid var(--warm);
+    margin:0 0 56px;
+    border-radius:2px;
+  }
+  .toc h2{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:normal;
+    font-size:20px;
+    margin:0 0 16px;
+    color:var(--warm);
+  }
+  .toc ol{
+    margin:0;
+    padding-left:24px;
+  }
+  .toc li{
+    margin:6px 0;
+  }
+  .toc a{
+    color:var(--ink);
+    text-decoration:none;
+    border-bottom:1px dashed transparent;
+    transition:all .2s;
+  }
+  .toc a:hover{
+    color:var(--warm);
+    border-bottom-color:var(--warm);
+  }
+  /* Sections */
+  section{
+    margin:64px 0;
+  }
+  .part-title{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:normal;
+    font-size:32px;
+    color:var(--ink);
+    margin:0 0 8px;
+    padding-bottom:12px;
+    border-bottom:1px solid var(--warm-line);
+  }
+  .part-no{
+    font-family:Georgia,"Times New Roman",serif;
+    font-style:italic;
+    color:var(--blue);
+    font-size:14px;
+    letter-spacing:3px;
+    margin-bottom:8px;
+    display:block;
+  }
+  h2{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:normal;
+    font-size:24px;
+    color:var(--ink);
+    margin:40px 0 12px;
+  }
+  h3{
+    font-family:Georgia,"Times New Roman",serif;
+    font-weight:normal;
+    font-size:19px;
+    color:var(--warm);
+    margin:32px 0 12px;
+  }
+  h4{
+    font-family:"Microsoft YaHei",sans-serif;
+    font-weight:bold;
+    font-size:16px;
+    color:var(--blue);
+    margin:20px 0 8px;
+  }
+  p{margin:12px 0;}
+  /* Decoration */
+  .key{
+    font-weight:bold;
+    color:var(--warm);
+  }
+  .term{
+    font-weight:bold;
+    color:var(--warm);
+  }
+  /* Quote block */
+  blockquote{
+    margin:20px 0;
+    padding:14px 20px;
+    background:var(--cream);
+    border-left:4px solid var(--warm);
+    color:var(--ink);
+    font-style:italic;
+    border-radius:2px;
+  }
+  blockquote .tip{
+    display:block;
+    font-style:normal;
+    color:var(--blue);
+    font-size:13px;
+    letter-spacing:2px;
+    margin-bottom:6px;
+  }
+  /* Lists */
+  ul,ol{margin:12px 0;padding-left:28px;}
+  li{margin:6px 0;}
+  /* Table */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    margin:20px 0;
+    font-size:14.5px;
+  }
+  th,td{
+    border:1px solid var(--warm-line);
+    padding:10px 12px;
+    text-align:left;
+    vertical-align:top;
+  }
+  th{
+    background:var(--cream);
+    color:var(--warm);
+    font-weight:bold;
+  }
+  /* Code-like block */
+  pre.code{
+    background:var(--cream);
+    padding:20px;
+    border:1px solid var(--warm-line);
+    border-radius:4px;
+    font-family:Consolas,"Courier New",monospace;
+    font-size:13px;
+    line-height:1.6;
+    white-space:pre;
+    overflow-x:auto;
+    color:var(--ink);
+  }
+  /* Case block */
+  .case{
+    background:var(--paper);
+    border:1px solid var(--warm-line);
+    padding:18px 22px;
+    margin:16px 0;
+    border-radius:4px;
+  }
+  .case .case-label{
+    display:inline-block;
+    padding:2px 10px;
+    background:var(--warm-soft);
+    color:var(--warm);
+    font-size:12px;
+    letter-spacing:1px;
+    border-radius:2px;
+    margin-bottom:8px;
+  }
+  .case .case-label.bad{
+    background:#F5E6E6;
+    color:#A66E6E;
+  }
+  .case .case-label.good{
+    background:var(--warm-soft);
+    color:var(--warm);
+  }
+  .case p{margin:8px 0;}
+  /* Anchor target */
+  [id]{scroll-margin-top:32px;}
+  /* Warn ribbon */
+  .warn{
+    background:linear-gradient(90deg,var(--warm-soft),transparent);
+    border-left:4px solid var(--warm);
+    padding:14px 18px;
+    margin:24px 0;
+    font-size:15px;
+  }
+  /* Strong final line */
+  .final{
+    margin-top:56px;
+    padding:32px;
+    text-align:center;
+    background:var(--cream);
+    border-top:1px solid var(--warm-line);
+    border-bottom:1px solid var(--warm-line);
+  }
+  .final blockquote{
+    background:transparent;
+    border:none;
+    padding:0;
+    margin:0;
+    font-family:Georgia,"Times New Roman",serif;
+    font-style:italic;
+    font-size:19px;
+    color:var(--warm);
+    line-height:1.8;
+  }
+  /* Footer */
+  footer{
+    margin-top:48px;
+    padding-top:24px;
+    border-top:1px solid var(--warm-line);
+    text-align:center;
+    font-size:13px;
+    color:var(--muted);
+    font-family:Georgia,"Times New Roman",serif;
+    font-style:italic;
+  }
+  /* Responsive */
+  @media (max-width:640px){
+    .page{padding:24px 18px 64px;}
+    .hero{padding:32px 16px;}
+    .hero h1{font-size:30px;}
+    .part-title{font-size:26px;}
+    h2{font-size:20px;}
+    h3{font-size:17px;}
+    .toc{padding:18px 22px;}
+    table{font-size:13px;}
+    pre.code{font-size:12px;}
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ======== 顶部 Logo / 标题 ======== -->
+  <header class="hero">
+    <span class="badge">语 文 高 分 全 攻 略</span>
+    <h1>提高语文 · 完整课程</h1>
+    <p class="sub">From "Lazy" to 90+ — The Anthology</p>
+    <p class="meta">献给所有卡在 90 分以下、愿意把简单的事坚持做的学生</p>
+  </header>
+
+  <!-- ======== 全局目录 ======== -->
+  <nav class="toc">
+    <h2>全局目录</h2>
+    <ol>
+      <li><a href="#part1">第一部分：语文怎么学</a></li>
+      <li><a href="#part2">第二部分：作文写法</a></li>
+      <li><a href="#map">跨课程知识图谱</a></li>
+      <li><a href="#final">终极系统性总结（含 4 阶段学习路径）</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============================================== -->
+  <!-- 第一部分：语文怎么学 -->
+  <!-- ============================================== -->
+  <section id="part1">
+    <span class="part-no">PART ONE</span>
+    <h1 class="part-title">第一部分 · 语文怎么学</h1>
+
+    <div class="warn">
+      本部分是整个语文学习的<span class="key">地基</span>。作文高分、阅读理解、字词基础，全部依赖这一部分打牢。请先通读并执行本部分，再进入"作文写法"的高分训练。
+    </div>
+
+    <!-- 一、核心论点 -->
+    <h2>一、核心论点</h2>
+    <p>文章开篇即提出一个<span class="key">反直觉</span>的核心观点：<span class="term">语文成绩上不了 90 分，与智力无关，根子是"懒"</span>。作者用直白且略带犀利的口吻指出——</p>
+    <blockquote>
+      <span class="tip">原文第 1 段</span>
+      "语文但凡上不了 90 分的，跟你的脑瓜聪不聪明没有半毛钱关系。你就是一个字——懒。"
+    </blockquote>
+    <p>作者进一步给出承诺：<span class="key">只要在期末考前扎扎实实做好"三件事"，每一个人都能上 90 分</span>。这三件事是本文的骨架，后文逐一展开。</p>
+
+    <!-- 二、第一件事 -->
+    <h2>二、第一件事：读课本字词</h2>
+    <h3>1. 行动起点</h3>
+    <p>作者要求学生立即打开语文课本，翻到<span class="key">后面的三张表格</span>：</p>
+    <ul>
+      <li><span class="term">识字表</span></li>
+      <li><span class="term">写字表</span></li>
+      <li><span class="term">词语表</span></li>
+    </ul>
+    <p>作者强调"<span class="key">逐个去读</span>"，即不能跳读、不能挑读，必须一个一个过。</p>
+
+    <h3>2. 三张表的具体要求</h3>
+    <table>
+      <thead>
+        <tr><th>表格</th><th>要求等级</th><th>具体要求</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="term">识字表</span></td>
+          <td><span class="key">两会</span></td>
+          <td>会读音、会组词</td>
+        </tr>
+        <tr>
+          <td><span class="term">写字表</span></td>
+          <td><span class="key">三会</span></td>
+          <td>会读、会写、会组词</td>
+        </tr>
+        <tr>
+          <td><span class="term">词语表</span></td>
+          <td><span class="key">三会</span></td>
+          <td>会读、会写、会造句</td>
+        </tr>
+      </tbody>
+    </table>
+    <blockquote>
+      <span class="tip">关键细节</span>
+      三张表的要求逐级递进——识字表只要求"读 + 组词"，写字表加上了"会写"，词语表则升级到"造句"。<span class="key">造句是最高要求</span>，意味着学生必须真正理解词义并能运用。
+    </blockquote>
+
+    <h3>3. 背后的痛点诊断</h3>
+    <p>作者在讲第一件事之前，先指出了学生普遍存在的问题：</p>
+    <ul>
+      <li>期中试卷上面有<span class="key">大量错别字</span></li>
+      <li>听写了<span class="key">很多遍</span>仍然在错</li>
+    </ul>
+    <p>针对这一痛点，作者明确说<span class="term">"我都不用大家抄"</span>——即不需要采取罚抄等低效方式，只需<span class="key">逐个去读</span>三张表即可。</p>
+
+    <!-- 三、第二件事 -->
+    <h2>三、第二件事：读"语文园地"</h2>
+    <h3>1. 价值定位</h3>
+    <p>作者直接给出分值预期：<span class="key">期末考试卷子上至少占到 10 分</span>。这是一个明确的"性价比"信号，告诉学生这一板块投入回报率高。</p>
+
+    <h3>2. 四个栏目的具体要求</h3>
+    <table>
+      <thead>
+        <tr><th>栏目</th><th>内容性质</th><th>学习要求</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><span class="term">交流平台</span></td>
+          <td>阅读的考点集中地</td>
+          <td>理解其作为考点导向的本质</td>
+        </tr>
+        <tr>
+          <td><span class="term">词句段运用</span></td>
+          <td>词语和句型板块</td>
+          <td>
+            所有词语需要：
+            <ul>
+              <li><span class="key">会造句</span></li>
+              <li><span class="key">知道意思</span></li>
+              <li><span class="key">会写</span></li>
+            </ul>
+          </td>
+        </tr>
+        <tr>
+          <td><span class="term">下面的句子（例句）</span></td>
+          <td>例句板块</td>
+          <td>句子要进行<span class="key">仿写</span></td>
+        </tr>
+        <tr>
+          <td><span class="term">日积月累</span></td>
+          <td>小古文、俗语、谚语、名言警句</td>
+          <td>
+            <ul>
+              <li><span class="key">知道意思</span></li>
+              <li><span class="key">背诵并且默写</span></li>
+              <li>做到"我说上句你能接出下句"<span class="key">的接龙级熟练</span></li>
+            </ul>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <blockquote>
+      <span class="tip">关键细节</span>
+      "日积月累"是要求最高的栏目——不仅要会背会默，还要达到"接龙"级别的熟练度。作者用<span class="term">"我说上句你能接出下句"</span>这一具象化标准，给出了可自我检验的硬指标。
+    </blockquote>
+
+    <!-- 四、第三件事 -->
+    <h2>四、第三件事：读课后题</h2>
+    <h3>1. 行动指令</h3>
+    <p>作者要求学生翻开语文课本<span class="key">第一课</span>的<span class="key">三道课后思考题</span>，并当场检验"谁能答得上来"。这是一种以<span class="term">"自我测试"</span>驱动的学习方式。</p>
+
+    <h3>2. 痛点诊断——阅读理解失分原因</h3>
+    <p>作者直接抛出两个典型问题：</p>
+    <ul>
+      <li>"为什么阅读理解总是<span class="key">达不到点上</span>答题？"</li>
+      <li>"为什么总是<span class="key">没有词儿</span>？"</li>
+    </ul>
+    <p>给出的归因非常明确：</p>
+    <blockquote>
+      <span class="tip">原文第 5 段</span>
+      "语文课本都没读好，你课外的怎么可能答得对呢？"
+    </blockquote>
+    <blockquote>
+      <span class="tip">逻辑链条</span>
+      课本没读懂 → 阅读方法与词汇积累不足 → 课外阅读理解必然失分。这是<span class="term">"以课本为根"</span>的方法论根基。
+    </blockquote>
+
+    <h3>3. 词汇贫化的具体表现</h3>
+    <p>作者在第 6 段直接列举了学生在"表达了什么思想感情"题型中反复使用的"万能词"清单：</p>
+    <div class="case">
+      <p>喜爱 · 赞美 · 欣赏 · 向往 · 思念 · 怀念 · 懊悔 · 遗憾 · 爱戴 · 敬佩</p>
+      <p style="color:var(--muted);font-size:14px;margin:6px 0 0;">共 <span class="key">10 个高频词</span>，全部是情感类词汇。</p>
+    </div>
+    <p>作者用反问<span class="term">"教了这么多词儿都学到哪儿去了？"</span>点出：词汇不是没学过，而是<span class="key">没有通过课本吸收、内化</span>。</p>
+
+    <h3>4. 核心方法论</h3>
+    <p>作者揭示了所有成绩好的同学共同遵守的道理——</p>
+    <blockquote>
+      <span class="tip">原文第 7 段</span>
+      <span class="key">"一定要抓好课本。"</span>
+    </blockquote>
+    <p>这一句是全文的<span class="term">方法论总纲</span>，前三件事都是这一总纲的具体落地。</p>
+
+    <!-- 五、执行方案 -->
+    <h2>五、执行方案——时间与节奏</h2>
+    <p>作者给出了可操作的时间安排：</p>
+    <table>
+      <tbody>
+        <tr><th>每日时长</th><td>每天读<span class="key">10 分钟</span></td></tr>
+        <tr><th>推荐时段</th><td>早晨 <span class="term">晨读（首选）</span> / 晚上 <span class="term">晚读（备选）</span></td></tr>
+        <tr><th>执行周期</th><td>从现在到期末考试，<span class="key">满打满算一个多月</span></td></tr>
+        <tr><th>结果承诺</th><td>"你期末一定能够上 <span class="key">90</span>"</td></tr>
+      </tbody>
+    </table>
+    <blockquote>
+      <span class="tip">关键细节</span>
+      作者用<span class="term">"满打满算一个多月"</span>框定了投入产出的时间比——每天仅 10 分钟、累计约 30 小时，即可冲击 90 分。这是一个<span class="key">"低投入高回报"</span>的学习方案。
+    </blockquote>
+
+    <!-- 附:系统性总结 -->
+    <h2>附：第一部分系统性总结</h2>
+
+    <h3>1. 一个中心论点</h3>
+    <p>语文成绩与智力无关，<span class="key">根子在"懒"</span>——不读课本才是症结。解药是三件具体的事，不是抽象的方法论。</p>
+
+    <h3>2. 三件事（方法骨架）</h3>
+    <table>
+      <thead>
+        <tr><th>事项</th><th>对应板块</th><th>最低分值</th><th>核心动作</th><th>要求等级</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>第一件</td>
+          <td>课本三张表（识字 / 写字 / 词语）</td>
+          <td>基础</td>
+          <td>逐个去读</td>
+          <td>两会 → 三会 → 三会（递进）</td>
+        </tr>
+        <tr>
+          <td>第二件</td>
+          <td>语文园地</td>
+          <td><span class="key">至少 10 分</span></td>
+          <td>四个栏目分别掌握</td>
+          <td>词句三层 + 日积月累接龙级</td>
+        </tr>
+        <tr>
+          <td>第三件</td>
+          <td>课后题</td>
+          <td>关联阅读理解</td>
+          <td>翻开第一课三道题测试</td>
+          <td>能答上来才算读完</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>3. 一条总纲</h3>
+    <p><span class="term">"一定要抓好课本"</span>——所有成绩好的同学都知道的道理。三件事都是这一总纲在不同板块的展开。</p>
+
+    <h3>4. 一套执行参数</h3>
+    <ul>
+      <li>时长：每天 <span class="key">10 分钟</span></li>
+      <li>时段：<span class="key">晨读优先</span>，<span class="key">晚读备选</span></li>
+      <li>周期：距期末约 <span class="key">一个多月</span></li>
+      <li>目标：期末上 <span class="key">90 分</span></li>
+    </ul>
+
+    <h3>5. 逻辑关系梳理</h3>
+<pre class="code">
+              [中心论点：语文差 = 懒，不是笨]
+                            │
+                            ▼
+                  [解药：抓好课本（总纲）]
+                            │
+            ┌───────────────┼───────────────┐
+            ▼               ▼               ▼
+       [第一件事]       [第二件事]       [第三件事]
+       课本字词          语文园地          课后题
+       (基础积累)        (考点突击)        (方法迁移)
+            │               │               │
+       三张表递进       四栏目分层        三道题自测
+       读音→会写→造句   词句→日积月累     答得上才算读完
+            │               │               │
+            └───────────────┼───────────────┘
+                            ▼
+                  [每日 10 分钟 × 30 天]
+                            │
+                            ▼
+                     [期末冲击 90 分]
+</pre>
+
+    <h3>6. 底层教育心理学逻辑</h3>
+    <ol>
+      <li><span class="term">痛点驱动 → 行动指令 → 标准量化 → 时间承诺</span>：文章遵循"先戳痛点（错别字 / 阅读丢分）→ 再给动作（读三张表）→ 量化标准（两会 / 三会 / 接龙）→ 给出时间表（10 分钟 / 天）"的闭环说服结构。</li>
+      <li>
+        <span class="term">从输入到输出递进</span>：
+        <ul>
+          <li>识字表：<span class="key">输入</span>（读音、组词）→ 理解</li>
+          <li>写字表：<span class="key">输入 + 输出</span>（会写）→ 记忆</li>
+          <li>词语表：<span class="key">应用</span>（造句）→ 迁移</li>
+          <li>课后题：<span class="key">综合运用</span>（答得上来）→ 闭环</li>
+        </ul>
+      </li>
+      <li><span class="term">"课本 — 考试"映射论</span>：作者反复强调"课本没读好，课外怎么可能答得对"，传递一个朴素但反直觉的方法论——<span class="key">课内是源，课外是流</span>。这与市面上"刷题提分"的路径形成鲜明对比。</li>
+    </ol>
+
+    <h3>7. 可直接复用的行动清单</h3>
+    <ol>
+      <li>打开课本 → 翻到末尾三张表 → 每天逐个读</li>
+      <li>
+        语文园地四个栏目分别过关：
+        <ul>
+          <li>交流平台（理解考点）</li>
+          <li>词句段运用（造句 + 知意 + 会写）</li>
+          <li>句子仿写</li>
+          <li>日积月累（知意 + 背默 + 接龙）</li>
+        </ul>
+      </li>
+      <li>翻开第一课三道课后题自测，<span class="key">能答上来才算读完</span></li>
+      <li>每天 10 分钟，<span class="key">晨读优先</span>，<span class="key">晚读备选</span></li>
+      <li>坚持到期末，<span class="key">目标 90+</span></li>
+    </ol>
+
+    <h3>8. 关键反直觉点</h3>
+    <ul>
+      <li><span class="key">语文差 ≠ 笨</span>，而是"懒"——打破"语文靠天赋"的迷思。</li>
+      <li><span class="key">不靠刷题、不靠课外班</span>，靠课本——打破"提分靠外培"的迷思。</li>
+      <li><span class="key">10 分钟 × 30 天 = 90 分</span>——打破"提分必须高强度"的迷思。</li>
+      <li>写作"万能词"泛滥是课本词汇没吸收的信号——把"词穷"问题归因到课本而非课外积累。</li>
+    </ul>
+
+    <h3>9. 文档定位与适用对象</h3>
+    <ul>
+      <li><span class="term">类型</span>：语文学习方法论（小学 / 初中阶段，以"识字表 / 写字表 / 词语表 / 语文园地 / 课后题"为标志）</li>
+      <li><span class="term">语气</span>：直白、犀利、反鸡汤，强调可执行性</li>
+      <li><span class="term">目标受众</span>：语文成绩卡在 90 分以下、考前一个多月、愿意扎实用功的学生</li>
+      <li><span class="term">本文不涉及</span>：具体课文内容、具体题型解题技巧、写作方法、文言文学习方法——本文聚焦于"<span class="key">回归课本</span>"这一元方法</li>
+    </ul>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 第二部分：作文写法 -->
+  <!-- ============================================== -->
+  <section id="part2">
+    <span class="part-no">PART TWO</span>
+    <h1 class="part-title">第二部分 · 作文写法</h1>
+
+    <div class="warn">
+      <span class="key">前置知识</span>：第一部分"语文怎么学"——三件事。作文是<span class="term">输出</span>，字词是<span class="term">输入</span>。如果字词没过关，作文写得再花哨也是空中楼阁。请先打牢第一部分，再练本部分的"三招"。
+    </div>
+
+    <!-- 一、核心立论 -->
+    <h2>一、核心观点与立论</h2>
+    <p>原文开门见山提出一个反直觉的观察：操场上存在一种让阅卷老师<span class="key">"一看就想给高分"</span>的写法，其核心竞争力并非"文采多好"或"素材多新"，而是写出了<span class="term">"我本来也想这么说的感觉"</span>。作者为这种写法命名——</p>
+    <blockquote>
+      <span class="tip">原文金句</span>
+      <span class="key">"人人心中有人，人笔下无。"</span>
+    </blockquote>
+    <p>随后，作者进一步澄清了一个普遍误区：许多同学以为高分作文要靠"<span class="term">华丽辞藻</span>、<span class="term">冷门素材</span>"，但真正打动人的，是把那些<span class="key">"大家都感受过却从没写出来过的东西"</span>替他们写出来。这是文章的总论点，也是支撑三招训练的认知前提：</p>
+    <p style="text-align:center;font-family:Georgia,serif;font-size:20px;color:var(--warm);margin:24px 0;"><em>打动阅卷者的不是"装饰"，而是"还原"。</em></p>
+    <p>作者将这种能力的本质归结为两点：<span class="key">观察力 + 转换力</span>（即将日常感受转化为文字表达的能力），并提出核心主张：<span class="term">暑假练三招就够了</span>。这一句既是动员，也是文章结构的预告——下文将围绕"三招"展开。</p>
+
+    <!-- 二、第一招 -->
+    <h2>二、第一招：把结论变回过程</h2>
+
+    <h3>1. 招式定义</h3>
+    <p>作者首先指出常见写作的弊病：<span class="key">直接抛出结论</span>。例如"<span class="term">妈妈很爱我</span>"——这是一个结论，人人都会下，但读者看了没感觉。原因在于：<span class="term">结论是抽象判断，缺少让读者共情的"证据链"</span>。</p>
+    <p>作者给出的破解思路是：<span class="key">回到"过程"中，去还原这个结论是怎么得出来的</span>。即追问两个关键问题：</p>
+    <ul>
+      <li>是一件事让你感觉到的？</li>
+      <li>还是一个细节让你突然发现的？</li>
+    </ul>
+
+    <h3>2. 案例示范</h3>
+    <p>为了具体说明，作者给出一个反例和一个正例：</p>
+
+    <div class="case">
+      <span class="case-label bad">反例写法</span>
+      <p>"妈妈很担心，连夜照顾我。"——这是<span class="key">结论堆砌</span>，读者无法产生真实感受。</p>
+    </div>
+
+    <div class="case">
+      <span class="case-label good">正例写法（体温计）</span>
+      <p>在暑假发烧的场景中，写一个极小的细节——</p>
+      <p>"迷迷糊糊睁开眼，看见<span class="key">我妈靠在床边椅子上，手里还捏着体温计，指节发白</span>。"——<span class="term">作者明确不写出"担心"二字</span>。</p>
+    </div>
+
+    <blockquote>
+      <span class="tip">关键技法要点</span>
+      那一根"<span class="key">被她捏得发白的体温计</span>"，比任何一句"我爱你"都有分量。这是因为<span class="term">细节承载了过程，过程蕴含了情感，情感才能引发读者的自主判断</span>。
+    </blockquote>
+
+    <h3>3. 招式原理</h3>
+    <p>作者总结这一招的底层心理学原理——</p>
+    <blockquote>
+      <span class="tip">原文第 5 段</span>
+      "把结论删掉，把过程还原出来，<span class="key">读者自己会得出那个结论，而且比你直接告诉他要深刻 100 倍。</span>"
+    </blockquote>
+    <p>这一招的核心机制是：<span class="term">让读者从"被动接受信息"转变为"主动建构意义"</span>。当读者自行得出结论时，那份感受是"自己的"，因此更深刻、更持久。</p>
+
+    <!-- 三、第二招 -->
+    <h2>三、第二招：给抽象找一个"肉体"</h2>
+
+    <h3>1. 招式定义</h3>
+    <p>作者首先解释了<span class="term">"肉体"</span>这个比喻的概念：<span class="key">能被感官捕捉到的东西</span>——具体包括五类：</p>
+    <ul>
+      <li>眼睛<span class="key">看到</span>的</li>
+      <li>耳朵<span class="key">听到</span>的</li>
+      <li>鼻子<span class="key">闻到</span>的</li>
+      <li>手指<span class="key">触碰</span>到的</li>
+      <li>（隐含的）舌头<span class="key">尝到</span>的</li>
+    </ul>
+    <p>这一招的本质是：<span class="term">将抽象情感"具象化、感官化"</span>。作者指出，"孤独""愧疚"等抽象词，读者看完是没感觉的，必须找到<span class="key">能看见、能听见的"肉身"</span>来承载。</p>
+
+    <h3>2. 案例示范一 · 孤独</h3>
+    <p><span class="term">场景设定</span>：暑假里，爸妈上班去了，一个人在家。</p>
+    <div class="case">
+      <span class="case-label bad">反例写法</span>
+      <p>"我一个人在家很孤独。"——<span class="key">直白陈述抽象词</span>。</p>
+    </div>
+    <div class="case">
+      <span class="case-label good">正例写法（泡面油花）</span>
+      <p>写一系列感官细节——</p>
+      <ul>
+        <li><span class="term">视觉</span>："中午煮了包泡面，吃完不想洗碗，就<span class="key">盯着碗里的油花一圈圈散开</span>"</li>
+        <li><span class="term">听觉</span>："客厅的钟走得特别响，<span class="key">每一秒都像踩在地板上</span>"</li>
+      </ul>
+    </div>
+    <blockquote>
+      <span class="tip">关键技法要点</span>
+      <span class="key">整段不提"孤独"两个字儿</span>，但读者读的时候，<span class="term">孤独感会自动浮现</span>。这就是"找肉身"的威力。
+    </blockquote>
+
+    <h3>3. 案例示范二 · 愧疚</h3>
+    <p><span class="term">场景设定</span>：答应了爸妈暑假学习，结果天天玩手机。</p>
+    <div class="case">
+      <span class="case-label bad">反例写法</span>
+      <p>"我很愧疚。"——<span class="key">又是结论堆砌</span>。</p>
+    </div>
+    <div class="case">
+      <span class="case-label good">正例写法（回避眼神）</span>
+      <p>写一个动作的回避——</p>
+      <p>"妈下班回来说了一句，<span class="term">'今天学累了吧'</span>。我嗯了一声，<span class="key">没敢看她的眼睛</span>。"</p>
+    </div>
+    <blockquote>
+      <span class="tip">关键技法要点</span>
+      <span class="term">"没敢看她的眼睛"</span>这一动作，把"愧疚"这个抽象情感转化为<span class="key">可被看见、可被想象的身体反应</span>。读者会瞬间脑补那个回避的眼神，进而自己填补出愧疚的重量。
+    </blockquote>
+
+    <h3>4. 招式价值</h3>
+    <p>作者评价：<span class="term">"这一招够你用三年"</span>。这一句既是技法价值的断言，也是作者对读者的承诺——掌握此招，作文表达将进入新阶段。</p>
+
+    <!-- 四、第三招 -->
+    <h2>四、第三招：写反常的细节</h2>
+
+    <h3>1. 招式定义</h3>
+    <p>作者揭示了一个认知规律：<span class="key">人最容易忽略的就是那些"习以为常"的东西</span>。但是——<span class="term">真正动人的往往是那些"不对劲"的瞬间</span>。</p>
+    <p>这一招的核心观察视角是：<span class="key">寻找日常生活中的"反常点"</span>。所谓"反常"，是指某个过去一直如此、最近突然发生变化、或过去从未如此、突然出现的细节。</p>
+
+    <h3>2. 案例示范一 · 父亲的变化</h3>
+    <div class="case">
+      <span class="case-label bad">常见写法</span>
+      <p>"爸爸很辛苦。"——这是一个<span class="key">静态的、没有变化的概括</span>。</p>
+    </div>
+    <div class="case">
+      <span class="case-label good">反常写法</span>
+      <p>作者引导学生去捕捉"反常"——</p>
+      <ul>
+        <li>"<span class="term">你爸以前说话嗓门很大</span>，但<span class="key">最近什么时候突然变小了？</span>"</li>
+        <li>"<span class="term">你爸以前什么事儿都要管</span>，<span class="key">哪一天开始他突然不管你了，只说一句'你自己看着办'？</span>"</li>
+      </ul>
+    </div>
+    <blockquote>
+      <span class="tip">关键技法要点</span>
+      作者点明，这种"反常"是<span class="term">成长的入口</span>。因为反常背后往往是人物关系的变化、孩子自我意识的觉醒、家庭角色的调整等深层主题。
+    </blockquote>
+
+    <h3>3. 案例示范二 · 爷爷的挥手</h3>
+    <p>这是全文最有文学性的一个案例，作者讲述了自己班里一个学生的作文片段：</p>
+    <p><span class="term">场景</span>：暑假和爷爷告别。</p>
+    <div class="case">
+      <span class="case-label bad">常见写法</span>
+      <p>"我很舍不得爷爷。"——直接说情感。</p>
+    </div>
+    <div class="case">
+      <span class="case-label good">反常写法（手没放下）</span>
+      <ul>
+        <li><span class="term">表面不变</span>："走的时候，爷爷站在门口挥手，跟以前一样。"</li>
+        <li><span class="term">反常细节</span>："但这次车拐弯的时候，我回头看见<span class="key">他的手还没放下——以前他挥两下就转身进屋了。</span>"</li>
+      </ul>
+    </div>
+    <blockquote>
+      <span class="tip">关键技法要点</span>
+      这一笔的精妙在于<span class="term">"对比"与"反差"</span>——表面动作一致（都在挥手），但细节有变（<span class="key">手没放下</span>）。正是这个细微的差异，让读者和作者一起"<span class="term">鼻子一酸</span>"。
+    </blockquote>
+
+    <h3>4. 招式呼应主题</h3>
+    <p>作者用一句——</p>
+    <blockquote>
+      <span class="tip">原文第 13 段</span>
+      <span class="key">"这就叫'人人心中有人，人笔下无'。"</span>
+    </blockquote>
+    <p>收束第三招。这一收束呼应了文章开头的核心概念，将三个具体技法升华回"还原普遍感受"的写作哲学。</p>
+
+    <!-- 五、全文总结 -->
+    <h2>五、全文总结段</h2>
+    <p>作者对全文做了一次精炼的回顾与动员：</p>
+
+    <h3>1. 三招归纳</h3>
+    <ol>
+      <li><span class="term">把结论变回过程</span>；</li>
+      <li><span class="term">给抽象找到肉体</span>；</li>
+      <li><span class="term">捕捉反常的细节</span>。</li>
+    </ol>
+
+    <h3>2. 学习路径建议</h3>
+    <p>作者强调一个<span class="key">反鸡汤</span>的观点：<span class="term">暑假不必专门去体验什么</span>。不必刻意去"积累素材"，只需<span class="key">在每天刷手机、吃西瓜、和爸妈拌嘴的日子里，用这三招去重新看一遍</span>。</p>
+
+    <h3>3. 价值承诺</h3>
+    <p>作者断言——</p>
+    <blockquote>
+      <span class="tip">原文第 14 段</span>
+      <span class="key">"原来你的生活里到处藏着高分作文。"</span>
+    </blockquote>
+    <p>这一句将作文能力与日常生活重新连接，化解了学生"没什么可写"的焦虑。</p>
+
+    <h3>4. 互动引导</h3>
+    <p>文章末尾邀请读者在评论区告知"先练哪一招"，并预告下一条视频将<span class="term">挑一招现场拿学生暑假的真实事例进行示范</span>。这是一个面向短视频场景的钩子设计。</p>
+
+    <!-- 附:系统性总结 -->
+    <h2>附：第二部分系统性总结</h2>
+
+    <h3>1. 核心论点（一句话概括）</h3>
+    <p><span class="key">作文高分的核心竞争力不是"文采"和"素材"，而是"把大家感受过却没写出来的东西替读者写出来"的能力</span>——即"<span class="term">人人心中有人，人笔下无</span>"。这种能力由观察力和转换力构成，可通过三招训练获得。</p>
+
+    <h3>2. 三大招式逻辑关系图</h3>
+<pre class="code">
+           核心目标：人人心中有人，人笔下无（写出大家感受过却没说出的东西）
+                            │
+       ┌────────────────────┼────────────────────┐
+       │                    │                    │
+   【第一招】            【第二招】            【第三招】
+  把结论变回过程        给抽象找肉体         写反常的细节
+       │                    │                    │
+   针对问题：          针对问题：           针对问题：
+   结论堆砌，          抽象空洞，          描写平淡，
+   缺乏过程            缺少感官            缺少发现
+       │                    │                    │
+   解决思路：          解决思路：           解决思路：
+   还原证据链，        转化为五感          捕捉变化点，
+   让读者自得出        可捕捉的具象        通过对比反衬
+       │                    │                    │
+   底层原理：          底层原理：           底层原理：
+   主动建构 >          具象 > 抽象          变化 > 常态
+   被动告知            （感官直达情感）     （反常承载意义）
+</pre>
+
+    <h3>3. 三招的内在逻辑递进</h3>
+    <p>三招并非平行罗列，而是构成了一个<span class="key">由浅入深、由表及里</span>的能力进阶体系：</p>
+    <ol>
+      <li><span class="term">第一招（把结论变回过程）—— "破除结论依赖"</span>：解决"<span class="key">写什么</span>"的问题。教会学生不要停留在抽象判断，而是回到事件发生的具体过程。这一招是基础，解决的是"<span class="term">无内容可写</span>"的初级困境。</li>
+      <li><span class="term">第二招（给抽象找肉体）—— "建立感官表达"</span>：解决"<span class="key">怎么写</span>"的问题。教会学生将抽象情感翻译为五感可捕捉的具体细节。这一招是中阶，解决的是"<span class="term">写出来没感觉</span>"的中级困境。</li>
+      <li><span class="term">第三招（写反常的细节）—— "培养观察敏锐度"</span>：解决"<span class="key">写得有深度</span>"的问题。教会学生从习以为常中识别反常信号，从变化中提炼意义。这一招是高阶，解决的是"<span class="term">写出来不动人</span>"的高级困境。</li>
+    </ol>
+
+    <h3>4. 三招的共同底层逻辑</h3>
+    <p>虽然三招分别针对不同问题，但它们共享同一套底层哲学：</p>
+    <ul>
+      <li><span class="term">从"告知"转向"呈现"</span>：不再告诉读者"这是什么"，而是让读者自己感受到"这是什么"。</li>
+      <li><span class="term">从"抽象"转向"具象"</span>：无论是过程、感官还是反常，本质都是用具体的、可感知的细节替代空洞的结论。</li>
+      <li><span class="term">从"作者中心"转向"读者中心"</span>：作者不再是情感的发布者，而是场景的搭建者；读者从被动接受者变为主动建构者。</li>
+      <li><span class="term">从"装饰性表达"转向"还原性表达"</span>：不靠辞藻华丽取胜，而靠"写出了真实"取胜。</li>
+    </ul>
+
+    <h3>5. 可迁移的核心方法论</h3>
+    <p><span class="term">"人人心中有人，人笔下无"</span> 这条原则可提炼为可迁移的写作（乃至表达）方法论：</p>
+    <blockquote>
+      找出"集体潜意识中已被感受、但尚未被语言化"的内容，<span class="key">把它用具体的、可感知的方式呈现出来</span>。
+    </blockquote>
+    <p>这条方法论可以应用于：</p>
+    <ul>
+      <li>作文（议论文、记叙文、散文）</li>
+      <li>演讲与口述</li>
+      <li>营销文案与品牌故事</li>
+      <li>产品文案与用户体验描述</li>
+    </ul>
+
+    <h3>6. 对学习的启示</h3>
+    <p>原文的精髓不仅是三招本身，更是其<span class="key">背后的认知重构</span>：</p>
+    <ol>
+      <li><span class="term">破除"高分靠文采"的迷信</span>——高分来自真实，来自还原，来自对普遍情感的精准捕捉。</li>
+      <li><span class="term">破除"必须体验特殊事件"的迷信</span>——日常生活本身就是素材矿藏，关键在于观察视角。</li>
+      <li><span class="term">破除"写作是天赋"的迷信</span>——转换力是可以训练的，三招就是可操作的训练工具。</li>
+    </ol>
+
+    <h3>7. 文档类型与适用场景</h3>
+    <ul>
+      <li><span class="term">目标读者</span>：中学生（特别是即将进入新学期、需要提升作文成绩的学生）</li>
+      <li><span class="term">使用场景</span>：暑假学习、开学作文准备</li>
+      <li><span class="term">表达风格</span>：口语化、有亲和力、使用反问和对话</li>
+      <li><span class="term">结构特点</span>：总—分—总。开头抛出反直觉观点，中间三招并列展开（每招均含"反例 + 正例 + 原理"），结尾归纳总结。</li>
+      <li><span class="term">互动设计</span>：结尾留钩子引导评论，并预告下一期内容</li>
+    </ul>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 跨课程知识图谱 -->
+  <!-- ============================================== -->
+  <section id="map">
+    <span class="part-no">PART THREE</span>
+    <h1 class="part-title">跨课程知识图谱</h1>
+
+    <h2>一、核心概念关系梳理</h2>
+    <ul>
+      <li><span class="term">"语文怎么学"</span> 回答 <span class="key">"如何打基础"</span>——是语文学习的"输入端"，聚焦课本、字词、园地、课后题，目标是期末上 90 分。</li>
+      <li><span class="term">"作文写法"</span> 回答 <span class="key">"如何拿高分"</span>——是语文学习的"输出端"，聚焦三招技法（过程 / 感官 / 反常），目标是写出"看了就想给高分"的作文。</li>
+      <li>两者构成<span class="key">"基础 → 高分"</span>的递进关系：先有字词句的扎实积累（语文怎么学），再有三招的技法训练（作文写法）。<span class="term">没有第一部分的地基，第二部分的三招是空中楼阁；只有第一部分，作文也难以出彩。</span></li>
+    </ul>
+
+<pre class="code">
+  ┌─────────────────────┐                  ┌─────────────────────┐
+  │  第一部分：语文怎么学 │ ──── 基础层 ────▶│   第二部分：作文写法  │
+  │                     │                  │                     │
+  │  字词/园地/课后题   │                  │   过程/感官/反常    │
+  │  每日10分钟 × 30天  │                  │   暑假练三招         │
+  │  目标：90 分        │                  │  目标：高分作文       │
+  └─────────────────────┘                  └─────────────────────┘
+            │                                        │
+            ▼                                        ▼
+       [输入端：基础积累]                     [输出端：综合表达]
+            │                                        │
+            └──────────────┬─────────────────────────┘
+                           ▼
+           [完整语文高分能力 = 输入 + 输出]
+</pre>
+
+    <h2>二、知识点依赖链路</h2>
+    <table>
+      <thead>
+        <tr><th>序号</th><th>输入层（语文怎么学）</th><th>→</th><th>输出层（作文写法）</th><th>关联点</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="term">课本字词</span>（基础层）</td>
+          <td>→</td>
+          <td>作文中的"词汇 / 表达"</td>
+          <td>识字表 / 写字表 / 词语表 → 作文用词不词穷</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="term">语文园地</span>（考点层）</td>
+          <td>→</td>
+          <td>作文中的"素材积累"</td>
+          <td>词句段运用 + 日积月累 → 作文可引用的金句</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="term">课后题</span>（能力层）</td>
+          <td>→</td>
+          <td>作文中的"思想感情表达"</td>
+          <td>阅读理解方法迁移 → 写作中"10 个万能词"问题被破解</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="term">执行方案</span>（方法层）</td>
+          <td>→</td>
+          <td>三招训练（过程 / 肉体 / 反常）</td>
+          <td>每天 10 分钟习惯 → 暑假持续练三招，综合输出高分作文</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h2>三、底层逻辑汇流</h2>
+    <p>两篇文章在认知层面高度一致，共享三组核心反直觉观点：</p>
+
+    <h3>1. "破除天赋迷信"</h3>
+    <ul>
+      <li>语文怎么学：<span class="key">语文差 = 懒 ≠ 笨</span></li>
+      <li>作文写法：<span class="key">写不好 ≠ 没文采 ≠ 没素材</span>，而是"没还原"普遍感受</li>
+    </ul>
+
+    <h3>2. "破除外培迷信"</h3>
+    <ul>
+      <li>语文怎么学：<span class="key">不靠刷题、不靠课外班</span>，靠课本</li>
+      <li>作文写法：<span class="key">不靠华丽辞藻、不靠冷门素材</span>，靠"三招"练转换力</li>
+    </ul>
+
+    <h3>3. "破除高强度迷信"</h3>
+    <ul>
+      <li>语文怎么学：<span class="key">每天 10 分钟 × 30 天 = 90 分</span></li>
+      <li>作文写法：<span class="key">暑假练三招就够了</span>，不必专门"体验"什么，在日常中重新观察</li>
+    </ul>
+  </section>
+
+  <!-- ============================================== -->
+  <!-- 终极系统性总结 -->
+  <!-- ============================================== -->
+  <section id="final">
+    <span class="part-no">PART FOUR</span>
+    <h1 class="part-title">终极系统性总结</h1>
+
+    <h2>一、全部课程的核心知识体系</h2>
+    <p>整个"提高语文"知识体系由两大模块组成，各模块的核心要点回顾如下：</p>
+
+    <h3>模块 A：语文怎么学（基础输入端）</h3>
+    <ul>
+      <li><span class="key">一句话心法</span>：语文成绩与智力无关，根子在"懒"，解药是"读课本"。</li>
+      <li>
+        <span class="key">三件事骨架</span>：
+        <ol>
+          <li>读课本三张表（识字 / 写字 / 词语）—— 两会 → 三会 → 三会 递进</li>
+          <li>读语文园地——交流平台 / 词句段运用 / 句子仿写 / 日积月累，至少 10 分</li>
+          <li>读课后题——翻开第一课三道题自测，能答上来才算读完</li>
+        </ol>
+      </li>
+      <li><span class="key">一条总纲</span>：一定要抓好课本（所有成绩好的同学共同遵守）</li>
+      <li><span class="key">执行参数</span>：每天 10 分钟 + 晨读优先 + 距期末一个多月 + 目标 90+</li>
+    </ul>
+
+    <h3>模块 B：作文写法（高分输出端）</h3>
+    <ul>
+      <li><span class="key">一句话心法</span>：作文高分 = 写出"大家感受过却没说出的东西" = "人人心中有人，人笔下无"。</li>
+      <li>
+        <span class="key">三招骨架</span>：
+        <ol>
+          <li><span class="term">第一招（基础）</span>——把结论变回过程：不写"妈妈很爱我"，写"她手里捏着体温计，指节发白"</li>
+          <li><span class="term">第二招（中阶）</span>——给抽象找肉体：不写"我很孤独"，写"碗里的油花一圈圈散开"</li>
+          <li><span class="term">第三招（高阶）</span>——写反常的细节：不写"爸爸很辛苦"，捕捉"他突然说话嗓门变小了"</li>
+        </ol>
+      </li>
+      <li><span class="key">一个底层逻辑</span>：主动建构 > 被动告知；具象 > 抽象；变化 > 常态</li>
+      <li><span class="key">一个可迁移方法论</span>：找出"集体潜意识中已被感受、但尚未被语言化"的内容，用具体可感知的方式呈现</li>
+    </ul>
+
+    <h2>二、各文档之间的逻辑关系与递进关系</h2>
+<pre class="code">
+              [全文核心：语文高分 = 输入（基础）+ 输出（表达）]
+                            │
+              ┌─────────────┴─────────────┐
+              ▼                           ▼
+      [第一部分：语文怎么学]         [第二部分：作文写法]
+           输入端                       输出端
+              │                           │
+              ▼                           ▼
+      [字词/园地/课后题]            [过程/感官/反常]
+              │                           │
+              ▼                           ▼
+         [每日 10 分钟]              [暑假练三招]
+              │                           │
+              └─────────────┬─────────────┘
+                            ▼
+              [期末 90 分 + 高分作文 = 语文王者]
+</pre>
+
+    <h3>递进关系总结</h3>
+    <ul>
+      <li><span class="term">横向并列</span>：两篇都是语文学习的必要模块，缺一不可。</li>
+      <li><span class="term">纵向递进</span>：第一部分解决"读懂、记住、考好"——是基础中的基础；第二部分解决"写出好作文"——是能力的升华。</li>
+      <li><span class="term">方法互通</span>：两篇共享"破除迷信、重基础、重可执行"的元方法论，本质上是同一种学习哲学在不同场景的落地。</li>
+    </ul>
+
+    <h2>三、关键要点回顾（速记清单）</h2>
+    <ol>
+      <li><span class="key">语文差，根子在"懒"</span>——读课本就是解药，每天 10 分钟即可。</li>
+      <li><span class="key">课本三张表要逐个读</span>——识字两会、写字三会、词语三会（造句最难）。</li>
+      <li><span class="key">语文园地占分 10+</span>——四个栏目分清要求，日积月累要"接龙"级熟练。</li>
+      <li><span class="key">课后题是阅读理解的根</span>——能答上来才算读完第一课。</li>
+      <li><span class="key">作文高分不靠文采，靠"还原"</span>——写出"大家感受过却没写出来的东西"。</li>
+      <li><span class="key">三招按顺序练</span>：过程（基础）→ 感官（中阶）→ 反常（高阶），由浅入深。</li>
+      <li><span class="key">生活处处是素材</span>——不必专门"体验"，在日常中用三招重新观察即可。</li>
+    </ol>
+
+    <h2>四、学习路径建议（60-70 分 → 90 分 + 高分作文）</h2>
+
+    <h3>阶段一：筑基（考前 1 个月，每天 10 分钟）</h3>
+    <p><span class="term">任务</span>：执行"语文怎么学"三件事</p>
+    <ul>
+      <li>早晨（或晚上）10 分钟，<span class="key">逐个</span>读课本三张表</li>
+      <li>每天<span class="key">轮换</span>过语文园地四个栏目（4 天一个循环）</li>
+      <li>每周<span class="key">精读</span>一篇课文的课后题，自测能答上来</li>
+    </ul>
+    <p><span class="term">目标</span>：字词错误归零、园地 10 分稳拿、阅读理解"答到点上"</p>
+
+    <h3>阶段二：升级（同步开始，每天 15-20 分钟）</h3>
+    <p><span class="term">任务</span>：在"语文怎么学"基础上，<span class="key">每天加练一篇作文片段（5 分钟观察 + 10 分钟写）</span></p>
+    <ul>
+      <li>第一周：专练<span class="term">第一招（过程）</span>——把一个"妈妈 / 爸爸 / 爷爷"的结论性赞美，改写成过程</li>
+      <li>第二周：专练<span class="term">第二招（感官）</span>——用五感写"孤独""愧疚""快乐"等抽象词</li>
+      <li>第三周：专练<span class="term">第三招（反常）</span>——观察家人 / 朋友的一个"反常"瞬间并写下来</li>
+      <li>第四周：<span class="term">三招综合</span>——写一篇完整作文，每招至少用一次</li>
+    </ul>
+    <p><span class="term">目标</span>：作文从"词穷 + 堆砌"升级为"还原 + 共鸣"，冲一类文（48/50 以上）</p>
+
+    <h3>阶段三：实战（考前 2 周）</h3>
+    <p><span class="term">任务</span>：限时模拟 + 真题写作</p>
+    <ul>
+      <li>每 2 天写一篇<span class="key">限时作文（40-50 分钟）</span></li>
+      <li>用<span class="key">三招自检表</span>对照修改：① 有无过程？② 有无感官？③ 有无反常？</li>
+    </ul>
+    <p><span class="term">目标</span>：稳定输出三类文以上</p>
+
+    <h3>阶段四：巩固（考试前 1 周）</h3>
+    <p><span class="term">任务</span>：回看本总结的"三件事"清单 + "三招"清单</p>
+    <ul>
+      <li>字词表快速过一遍</li>
+      <li>日积月累随机抽背</li>
+      <li>三招心法默念：<span class="key">过程、感官、反常</span></li>
+    </ul>
+    <p><span class="term">目标</span>：信心上考场，锁定 90 分 + 高分作文</p>
+
+    <div class="final">
+      <blockquote>
+        主人专属学习心法（最后一句）：<br><br>
+        语文的高分，从来不是天生的聪明，<br>
+        而是"<span class="key">把简单的事坚持做</span>"。<br>
+        每天 10 分钟读课本，把三招练到本能，<br>
+        你的语文成绩，一定会让人刮目相看。
+      </blockquote>
+    </div>
+  </section>
+
+  <footer>
+    本课程献给所有卡在 90 分以下、愿意把简单的事坚持做的学生 · 提高语文 · 完整课程
+  </footer>
+
+</div>
+</body>
+</html>
