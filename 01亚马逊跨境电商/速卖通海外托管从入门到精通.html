@@ -1,0 +1,1198 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+<title>速卖通海外托管教程 - 从入门到精通</title>
+<style>
+  :root {
+    --primary: #4A90D9;
+    --primary-light: #E8F0FE;
+    --secondary: #5CB85C;
+    --accent: #F5A623;
+    --danger: #E74C3C;
+    --text: #2C3E50;
+    --text-light: #7F8C8D;
+    --bg: #F9FAFB;
+    --card: #FFFFFF;
+    --border: #E5E9F0;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    font-size: 15px;
+    -webkit-text-size-adjust: 100%;
+  }
+  .container { max-width: 1100px; margin:0 auto; padding:15px; }
+
+  /* Header */
+  .header {
+    background: linear-gradient(135deg, #4A90D9 0%, #357ABD 100%);
+    color: #fff;
+    padding: 40px 20px 30px;
+    text-align: center;
+    border-radius: 0 0 24px 24px;
+    margin-bottom: 30px;
+  }
+  .header h1 { font-size: 1.8em; margin-bottom: 8px; font-weight: 700; }
+  .header p { opacity: 0.9; font-size: 0.95em; }
+  .header .meta { margin-top: 10px; font-size: 0.85em; opacity: 0.7; }
+
+  /* Mind Map Section */
+  .mindmap-section {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 20px 10px;
+    margin-bottom: 28px;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+  .mindmap-section h2 {
+    text-align: center;
+    color: var(--primary);
+    font-size: 1.2em;
+    margin-bottom: 15px;
+  }
+  .mindmap-section svg {
+    display: block;
+    margin: 0 auto;
+    max-width: 100%;
+    height: auto;
+    min-height: 540px;
+  }
+
+  /* TOC */
+  .toc {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 20px 24px;
+    margin-bottom: 28px;
+  }
+  .toc h2 { color: var(--primary); font-size: 1.15em; margin-bottom: 15px; padding-bottom: 10px; border-bottom: 2px solid var(--primary-light); }
+  .toc ol { padding-left: 20px; }
+  .toc li { margin: 6px 0; }
+  .toc a { color: var(--text); text-decoration: none; transition: color 0.2s; }
+  .toc a:hover { color: var(--primary); }
+
+  /* Section */
+  .section {
+    background: var(--card);
+    border-radius: 16px;
+    box-shadow: var(--shadow);
+    padding: 24px 20px;
+    margin-bottom: 28px;
+  }
+  .section-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 18px;
+    padding-bottom: 12px;
+    border-bottom: 3px solid var(--primary-light);
+  }
+  .section-header .num {
+    width: 36px; height: 36px;
+    background: var(--primary);
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 0.9em;
+    flex-shrink: 0;
+  }
+  .section-header h2 { font-size: 1.2em; color: var(--primary); }
+
+  /* Lessons */
+  .lesson { margin-bottom: 22px; }
+  .lesson:last-child { margin-bottom: 0; }
+  .lesson-title {
+    background: var(--primary-light);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1em;
+    cursor: default;
+    color: var(--primary);
+    border-left: 4px solid var(--primary);
+    margin-bottom: 10px;
+  }
+  .lesson-body { padding: 0 4px; }
+
+  /* Tables */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 10px 0;
+    font-size: 0.9em;
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  th, td {
+    padding: 8px 10px;
+    text-align: left;
+    border: 1px solid var(--border);
+  }
+  th { background: var(--primary-light); color: var(--primary); font-weight: 600; }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    padding: 2px 10px;
+    border-radius: 12px;
+    font-size: 0.78em;
+    font-weight: 500;
+    margin: 2px 3px;
+  }
+  .tag-red { background: #FDE8E8; color: #C0392B; }
+  .tag-green { background: #E8F8E8; color: #27AE60; }
+  .tag-blue { background: var(--primary-light); color: var(--primary); }
+  .tag-orange { background: #FEF3E2; color: #E67E22; }
+
+  /* Tips */
+  .tip {
+    padding: 10px 14px;
+    border-radius: 8px;
+    margin: 8px 0;
+    font-size: 0.9em;
+  }
+  .tip-danger { background: #FDE8E8; border-left: 4px solid var(--danger); }
+  .tip-warning { background: #FEF3E2; border-left: 4px solid var(--accent); }
+  .tip-success { background: #E8F8E8; border-left: 4px solid var(--secondary); }
+  .tip-info { background: var(--primary-light); border-left: 4px solid var(--primary); }
+
+  .keyword { color: var(--primary); font-weight: 600; }
+  .red { color: var(--danger); font-weight: 600; }
+  .green { color: var(--secondary); font-weight: 600; }
+  .orange { color: #E67E22; font-weight: 600; }
+
+  /* Steps */
+  .steps { padding-left: 20px; margin: 8px 0; }
+  .steps li { margin: 4px 0; }
+
+  /* Flow */
+  .flow {
+    background: var(--primary-light);
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 0.9em;
+    text-align: center;
+    margin: 8px 0;
+    word-break: break-all;
+    color: var(--primary);
+  }
+
+  /* Checklists */
+  .checklist { padding-left: 20px; margin: 6px 0; }
+  .checklist li { margin: 3px 0; list-style: none; }
+  .checklist li::before { content: "☐ "; color: var(--primary); }
+
+  /* compare */
+  .compare-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin: 8px 0;
+  }
+  .compare-grid .col { padding: 8px 10px; border-radius: 8px; font-size: 0.9em; }
+  .compare-grid .col-a { background: var(--primary-light); }
+  .compare-grid .col-b { background: #FEF3E2; }
+
+  /* Bottom */
+  .footer {
+    text-align: center;
+    padding: 20px;
+    color: var(--text-light);
+    font-size: 0.85em;
+  }
+
+  @media (max-width: 640px) {
+    .container { padding: 10px; }
+    .header { padding: 24px 14px; }
+    .header h1 { font-size: 1.4em; }
+    .table-wrapper { overflow-x: auto; }
+    table { font-size: 0.82em; }
+    .compare-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ============ HEADER ============ -->
+<div class="header">
+  <h1>📦 速卖通海外托管 · 从入门到精通</h1>
+  <p>完整教程 · 涵盖全部 40 节课程 · 零基础到实操高手</p>
+  <div class="meta">📅 2026年07月03日 · 共计 8 大篇章 · 40 个知识点模块</div>
+</div>
+
+<!-- ============ MIND MAP ============ -->
+<div class="mindmap-section">
+  <h2>🧠 知识全景图谱（横向树状图）</h2>
+  <svg viewBox="0 0 1060 620" xmlns="http://www.w3.org/2000/svg" style="width:100%;max-width:1060px;height:auto;" preserveAspectRatio="xMidYMid meet">
+    <defs>
+      <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#4A90D9"/></marker>
+      <style>
+        .nrect { fill:#fff; stroke:#4A90D9; stroke-width:1.5; rx:6; ry:6; }
+        .nrect-root { fill:#4A90D9; stroke:#357ABD; stroke-width:2; rx:10; ry:10; }
+        .ntext { font-size:12px; fill:#2C3E50; text-anchor:middle; dominant-baseline:central; }
+        .ntext-root { font-size:14px; fill:#fff; text-anchor:middle; font-weight:bold; dominant-baseline:central; }
+        .ntext-sub { font-size:10.5px; fill:#5D6D7E; text-anchor:middle; dominant-baseline:central; }
+        .nline { stroke:#BDC3C7; stroke-width:1.2; fill:none; stroke-linejoin:round; }
+      </style>
+    </defs>
+
+    <!-- ===== Root ===== -->
+    <rect x="8" y="275" width="120" height="36" class="nrect-root"/>
+    <text x="68" y="284" class="ntext-root">速卖通海外托管</text>
+    <text x="68" y="300" class="ntext-root" font-size="10" font-weight="normal">（全部40节）</text>
+
+    <!-- Level 1 Branches - X positions for right-angle lines -->
+    <!-- Branch 1: 认知篇 -->
+    <path d="M128,282 L148,282 L148,55 L168,55" class="nline" marker-end="url(#arrow)"/>
+    <rect x="168" y="37" width="110" height="36" class="nrect"/>
+    <text x="223" y="55" class="ntext" font-weight="bold">第一部分 · 认知篇</text>
+    <!-- Sub nodes for 认知篇 -->
+    <path d="M278,48 L298,48 L298,18 L318,18" class="nline" marker-end="url(#arrow)"/>
+    <rect x="318" y="6" width="98" height="24" class="nrect"/>
+    <text x="367" y="18" class="ntext-sub">海外托管模式介绍</text>
+    <path d="M278,48 L298,48 L298,42 L318,42" class="nline" marker-end="url(#arrow)"/>
+    <rect x="318" y="30" width="98" height="24" class="nrect"/>
+    <text x="367" y="42" class="ntext-sub">什么是海托店铺</text>
+    <path d="M278,48 L298,48 L298,66 L318,66" class="nline" marker-end="url(#arrow)"/>
+    <rect x="318" y="54" width="110" height="24" class="nrect"/>
+    <text x="373" y="66" class="ntext-sub">适合哪些商家</text>
+    <path d="M278,62 L298,62 L298,90 L318,90" class="nline" marker-end="url(#arrow)"/>
+    <rect x="318" y="78" width="110" height="24" class="nrect"/>
+    <text x="373" y="90" class="ntext-sub">主体及售卖范围</text>
+
+    <!-- Branch 2: 入驻篇 -->
+    <path d="M128,282 L148,282 L148,130 L168,130" class="nline" marker-end="url(#arrow)"/>
+    <rect x="168" y="112" width="110" height="36" class="nrect"/>
+    <text x="223" y="130" class="ntext" font-weight="bold">第二部分 · 入驻篇</text>
+    <path d="M278,125 L298,125 L298,106 L318,106" class="nline" marker-end="url(#arrow)"/>
+    <rect x="318" y="94" width="98" height="24" class="nrect"/>
+    <text x="367" y="106" class="ntext-sub">商家入驻总流程</text>
+    <path d="M278,125 L298,125 L298,130 L318,130" class="nline" marker-end="url(#arrow)"/>
+    <rect x="318" y="118" width="130" height="24" class="nrect"/>
+    <text x="383" y="130" class="ntext-sub">国内主体新注册入驻</text>
+    <path d="M278,135 L298,135 L298,154 L318,154" class="nline" marker-end="url(#arrow)"/>
+    <rect x="318" y="142" width="122" height="24" class="nrect"/>
+    <text x="379" y="154" class="ntext-sub">自运营店铺开通海托</text>
+    <path d="M278,145 L298,145 L298,178 L318,178" class="nline" marker-end="url(#arrow)"/>
+    <rect x="318" y="166" width="110" height="24" class="nrect"/>
+    <text x="373" y="178" class="ntext-sub">香港主体入驻</text>
+    <path d="M278,155 L298,155 L298,202 L318,202" class="nline" marker-end="url(#arrow)"/>
+    <rect x="318" y="190" width="110" height="24" class="nrect"/>
+    <text x="373" y="202" class="ntext-sub">欧盟主体入驻</text>
+
+    <!-- Branch 3: 品牌与合规 -->
+    <path d="M128,282 L148,282 L148,240 L168,240" class="nline" marker-end="url(#arrow)"/>
+    <rect x="168" y="222" width="120" height="36" class="nrect"/>
+    <text x="228" y="240" class="ntext" font-weight="bold">第三部分 · 品牌与合规</text>
+    <path d="M288,235 L308,235 L308,218 L328,218" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="206" width="110" height="24" class="nrect"/>
+    <text x="383" y="218" class="ntext-sub">国内主体品牌申请</text>
+    <path d="M288,235 L308,235 L308,242 L328,242" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="230" width="110" height="24" class="nrect"/>
+    <text x="383" y="242" class="ntext-sub">欧盟主体品牌申请</text>
+    <path d="M288,250 L308,250 L308,266 L328,266" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="254" width="98" height="24" class="nrect"/>
+    <text x="377" y="266" class="ntext-sub">商品资质合规</text>
+    <path d="M288,260 L308,260 L308,290 L328,290" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="278" width="122" height="24" class="nrect"/>
+    <text x="389" y="290" class="ntext-sub">欧盟责任人及标签</text>
+    <path d="M288,270 L308,270 L308,314 L328,314" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="302" width="98" height="24" class="nrect"/>
+    <text x="377" y="314" class="ntext-sub">ERP法规合规</text>
+    <path d="M288,275 L308,275 L308,338 L328,338" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="326" width="98" height="24" class="nrect"/>
+    <text x="377" y="338" class="ntext-sub">税费合规（VAT）</text>
+
+    <!-- Branch 4: 选品与定价 -->
+    <path d="M128,282 L148,282 L148,370 L168,370" class="nline" marker-end="url(#arrow)"/>
+    <rect x="168" y="352" width="120" height="36" class="nrect"/>
+    <text x="228" y="370" class="ntext" font-weight="bold">第四部分 · 选品与定价</text>
+    <path d="M288,365 L308,365 L308,354 L328,354" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="342" width="110" height="24" class="nrect"/>
+    <text x="383" y="354" class="ntext-sub">应该上传什么产品</text>
+    <path d="M288,365 L308,365 L308,378 L328,378" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="366" width="110" height="24" class="nrect"/>
+    <text x="383" y="378" class="ntext-sub">备货核心策略</text>
+    <path d="M288,375 L308,375 L308,402 L328,402" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="390" width="98" height="24" class="nrect"/>
+    <text x="377" y="402" class="ntext-sub">如何定价</text>
+
+    <!-- Branch 5: 商品发布 -->
+    <path d="M128,282 L148,282 L148,440 L168,440" class="nline" marker-end="url(#arrow)"/>
+    <rect x="168" y="422" width="120" height="36" class="nrect"/>
+    <text x="228" y="440" class="ntext" font-weight="bold">第五部分 · 商品发布</text>
+    <path d="M288,435 L308,435 L308,410 L328,410" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="398" width="98" height="24" class="nrect"/>
+    <text x="377" y="410" class="ntext-sub">商品发布规范</text>
+    <path d="M288,435 L308,435 L308,434 L328,434" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="422" width="98" height="24" class="nrect"/>
+    <text x="377" y="434" class="ntext-sub">标题撰写攻略</text>
+    <path d="M288,435 L308,435 L308,458 L328,458" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="446" width="98" height="24" class="nrect"/>
+    <text x="377" y="458" class="ntext-sub">优质主图标准</text>
+    <path d="M288,445 L308,445 L308,482 L328,482" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="470" width="110" height="24" class="nrect"/>
+    <text x="383" y="482" class="ntext-sub">主图视频标准</text>
+    <path d="M288,455 L308,455 L308,506 L328,506" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="494" width="98" height="24" class="nrect"/>
+    <text x="377" y="506" class="ntext-sub">优质详情页布局</text>
+    <path d="M288,458 L308,458 L308,530 L328,530" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="518" width="130" height="24" class="nrect"/>
+    <text x="393" y="530" class="ntext-sub">工作台发品流程</text>
+    <path d="M288,462 L308,462 L308,554 L328,554" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="542" width="130" height="24" class="nrect"/>
+    <text x="393" y="554" class="ntext-sub">表格批量发品流程</text>
+    <path d="M288,465 L308,465 L308,578 L328,578" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="566" width="122" height="24" class="nrect"/>
+    <text x="389" y="578" class="ntext-sub">同主体导入发品</text>
+
+    <!-- Branch 6: 物流与仓储 -->
+    <path d="M128,282 L148,282 L148,610 L168,610" class="nline" marker-end="url(#arrow)"/>
+    <rect x="168" y="592" width="120" height="36" class="nrect"/>
+    <text x="228" y="610" class="ntext" font-weight="bold">第六部分 · 物流与仓储</text>
+    <path d="M288,603 L308,603 L308,594 L328,594" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="582" width="98" height="24" class="nrect"/>
+    <text x="377" y="594" class="ntext-sub">运费模板设置</text>
+    <path d="M288,603 L308,603 L308,618 L328,618" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="606" width="122" height="24" class="nrect"/>
+    <text x="389" y="618" class="ntext-sub">合规信息后台填写</text>
+    <path d="M288,613 L308,613 L308,642 L328,642" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="630" width="98" height="24" class="nrect"/>
+    <text x="377" y="642" class="ntext-sub">认证仓介绍</text>
+    <path d="M288,620 L308,620 L308,666 L328,666" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="654" width="110" height="24" class="nrect"/>
+    <text x="383" y="666" class="ntext-sub">海外认证仓分布</text>
+    <path d="M288,625 L308,625 L308,690 L328,690" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="678" width="110" height="24" class="nrect"/>
+    <text x="383" y="690" class="ntext-sub">海外仓服务订购</text>
+    <path d="M288,630 L308,630 L308,714 L328,714" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="702" width="130" height="24" class="nrect"/>
+    <text x="393" y="714" class="ntext-sub">划仓订购无响应处理</text>
+
+    <!-- Branch 7: 店铺运营 -->
+    <path d="M128,282 L148,282 L148,750 L168,750" class="nline" marker-end="url(#arrow)"/>
+    <rect x="168" y="732" width="120" height="36" class="nrect"/>
+    <text x="228" y="750" class="ntext" font-weight="bold">第七部分 · 店铺运营</text>
+    <path d="M288,745 L308,745 L308,730 L328,730" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="718" width="130" height="24" class="nrect"/>
+    <text x="393" y="730" class="ntext-sub">申请加入POP店铺商群</text>
+    <path d="M288,745 L308,745 L308,754 L328,754" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="742" width="110" height="24" class="nrect"/>
+    <text x="383" y="754" class="ntext-sub">商货绑定流程</text>
+    <path d="M288,755 L308,755 L308,778 L328,778" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="766" width="130" height="24" class="nrect"/>
+    <text x="393" y="778" class="ntext-sub">运费模板配置POP仓发</text>
+    <path d="M288,760 L308,760 L308,802 L328,802" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="790" width="130" height="24" class="nrect"/>
+    <text x="393" y="802" class="ntext-sub">取消订购认证仓操作</text>
+    <path d="M288,768 L308,768 L308,826 L328,826" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="814" width="130" height="24" class="nrect"/>
+    <text x="393" y="826" class="ntext-sub">店铺名称申请及规范</text>
+    <path d="M288,770 L308,770 L308,850 L328,850" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="838" width="130" height="24" class="nrect"/>
+    <text x="393" y="850" class="ntext-sub">发货退货地址管理</text>
+    <path d="M288,775 L308,775 L308,874 L328,874" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="862" width="130" height="24" class="nrect"/>
+    <text x="393" y="874" class="ntext-sub">配送失败处理偏好设置</text>
+    <path d="M288,780 L308,780 L308,898 L328,898" class="nline" marker-end="url(#arrow)"/>
+    <rect x="328" y="886" width="110" height="24" class="nrect"/>
+    <text x="383" y="898" class="ntext-sub">截单时间设置</text>
+  </svg>
+</div>
+
+<!-- ============ TOC ============ -->
+<div class="toc">
+  <h2>📑 课程目录（共计 40 节）</h2>
+  <ol>
+    <li><a href="#p1">第一部分 · 认知篇（模式与适用）— 4 节</a></li>
+    <li><a href="#p2">第二部分 · 入驻篇（开店流程）— 5 节</a></li>
+    <li><a href="#p3">第三部分 · 品牌与合规篇 — 6 节</a></li>
+    <li><a href="#p4">第四部分 · 选品与定价篇 — 3 节</a></li>
+    <li><a href="#p5">第五部分 · 商品发布篇 — 8 节</a></li>
+    <li><a href="#p6">第六部分 · 物流与仓储篇 — 6 节</a></li>
+    <li><a href="#p7">第七部分 · 店铺运营篇 — 8 节</a></li>
+    <li><a href="#redline">附录 · 五大红线 &amp; 学习路径</a></li>
+  </ol>
+</div>
+
+<!-- ========================================================== -->
+<!-- PART 1 -->
+<div class="section" id="p1">
+  <div class="section-header"><div class="num">一</div><h2>认知篇 · 模式与适用</h2></div>
+
+  <!-- Lesson 1 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第1节 · 海外托管模式介绍</div>
+    <div class="lesson-body">
+      <p><span class="keyword">海外托管</span>是速卖通面向<strong>已在海外备货的商家</strong>提供的<strong>经营托管服务</strong>。目前覆盖全球 <strong>30 个国家</strong>，商品可获得「本地发货」标识获得优先推广。</p>
+
+      <div class="tip-info tip"><strong>托管核心含义：</strong>「托管」= 经营托管，平台管流量营销，商家管物流。与POP店本质区别在于平台负责广告、营销、销售、客服全部运营工作。</div>
+
+      <table>
+        <tr><th>环节</th><th>卖家负责</th><th>平台负责</th></tr>
+        <tr><td>选品</td><td>开通店铺 + 上传商品信息</td><td>店铺审核、商品审核</td></tr>
+        <tr><td>运营</td><td>——</td><td>广告·营销·销售·客服全部由平台负责</td></tr>
+        <tr><td>物流</td><td>头程+尾程配送、库存管理</td><td>考核履约时效（有扣罚机制）</td></tr>
+        <tr><td>售后</td><td>视产品情况灵活决定</td><td>可代为服务消费者</td></tr>
+        <tr><td>回款</td><td>按供货价结算</td><td>T+15自然日放款（可申请提前）</td></tr>
+      </table>
+
+      <p><span class="keyword">两种备仓方式：</span>①第三方海外仓（如亚马逊FBA可直接接入）②平台官方仓（之前没做海托想新备仓的）</p>
+      <p><span class="keyword">回款机制：</span>按供货价结算，T+15自然日放款；功能性产品建议商家自管售后。</p>
+    </div>
+  </div>
+
+  <!-- Lesson 2 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第2节 · 什么是速卖通海外托管店铺</div>
+    <div class="lesson-body">
+      <p>海外托管店铺是速卖通专门为<strong>海外备货商家</strong>开设的独立店铺类型。</p>
+      <p><span class="keyword">五大特征：</span></p>
+      <ul class="steps">
+        <li><strong>无类目限制</strong> — 开店无需选择经营类目，可任意上传海外有货的产品，单店最多3000个SPU</li>
+        <li><strong>相当于新增一家店铺</strong> — 已有速卖通店铺的商家，同账号下可同时拥有POP店+海托店共存</li>
+        <li><strong>开通方式</strong> — 平台定向邀请开白名单，或纯新卖家单独注册</li>
+        <li><strong>目标市场</strong> — 首批美国、西班牙、法国等欧洲国家，后续扩展</li>
+        <li><strong>结算周期</strong> — 前期约1个月（买家确认收货后15天）；后期5-7天；运营3-4个月后可申请提前放款</li>
+      </ul>
+
+      <div class="tip-warning tip">
+        <strong>⚠️ 发货时效考核：</strong>
+        <ul class="steps">
+          <li><strong>48小时上网率</strong> — 买家下单后48小时内要有物流上网记录</li>
+          <li><strong>工作日节假日不考核</strong> — 国外周末和法定节假日不计入</li>
+          <li><strong>妥投率考核（关键风控）</strong> — 近30天上网率&lt;95%或妥投率&lt;85%，冻结物流权限30天</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- Lesson 3 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第3节 · 海外托管店铺适合哪些商家</div>
+    <div class="lesson-body">
+      <p><span class="keyword">核心门槛一句话：在海外有现货的商家。</span></p>
+      <ul class="steps">
+        <li>亚马逊FBA卖家（美国/欧洲有仓库）</li>
+        <li>独立站商家（货已发到海外仓）</li>
+        <li>已有速卖通海外仓的商家</li>
+        <li>其他电商平台有海外库存的商家</li>
+      </ul>
+
+      <table>
+        <tr><th>优点</th><th>说明</th></tr>
+        <tr><td>不需要佣金</td><td>目前不收取佣金（POP店有5%-8%）</td></tr>
+        <tr><td>不需要客服</td><td>平台处理客服</td></tr>
+        <tr><td>售后问题少</td><td>海外备货品质更好；平台对优质客户有保护</td></tr>
+        <tr><td>不需要运营</td><td>只需上产品，不须投直通车/参加活动</td></tr>
+        <tr><td>专属流量阵地</td><td>到货快、转化率高</td></tr>
+        <tr><td>利润更高</td><td>高于POP/半托管/全托管</td></tr>
+      </table>
+
+      <div class="tip-danger tip">
+        <strong>🚨 核心风险：</strong>不能专门为了做海外托管而去海外备新库存！必须满足两个条件缺一不可：<br>
+        ✅ 海外有现货 + ✅ 速卖通有市场
+      </div>
+    </div>
+  </div>
+
+  <!-- Lesson 4 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第4节 · 海托商家主体及售卖范围</div>
+    <div class="lesson-body">
+      <p><span class="keyword">三类入驻主体：</span></p>
+      <ul class="steps">
+        <li><strong>中国主体</strong> — 中国大陆、香港企业营业执照（不支持个人营业执照、不支持台湾主体）</li>
+        <li><strong>海外主体（欧洲）</strong> — 西班牙、法国、德国、波兰、意大利、英国</li>
+        <li><strong>海外主体（美洲/亚洲）</strong> — 美国、墨西哥、日本、澳大利亚</li>
+      </ul>
+
+      <div class="tip-success tip">
+        <strong>🌟 欧洲六国核心规则「一仓覆盖欧盟」：</strong>
+        在西班牙、法国、德国、波兰、意大利、捷克任一国有备货，可覆盖大部分欧盟国家。<br>
+        ⚠️ 误区澄清：不是「西班牙仓只能发西班牙」，可覆盖多国。<br>
+        但其他国家（如美国仓）只能售卖对应国家，不能跨区域。
+      </div>
+
+      <div class="tip-info tip">
+        <strong>备仓策略建议：</strong>主市场是美国 → 在美国备货即可；主市场是欧洲 → 选欧洲六国中一国备货，覆盖整个欧盟，节省囤货成本。
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- PART 2 -->
+<div class="section" id="p2">
+  <div class="section-header"><div class="num">二</div><h2>入驻篇 · 开店流程</h2></div>
+
+  <!-- Lesson 5 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第5节 · 海托商家入驻流程</div>
+    <div class="lesson-body">
+      <div class="flow">注册账号 → 选择模式 → 提交企业信息 → 人脸认证 → 店铺/经营信息 → 审核 → 缴保证金 → 开店成功</div>
+      <table>
+        <tr><th>步骤</th><th>关键说明</th></tr>
+        <tr><td>① 注册账号</td><td>全新邮箱（未注册过阿里系的）</td></tr>
+        <tr><td>② 选择模式</td><td>指定为海外托管店铺类型</td></tr>
+        <tr><td>③ 提交企业信息+人脸认证</td><td>香港和海外主体需人脸验证；中国大陆主体基本没有</td></tr>
+        <tr><td>④ 提供店铺/经营信息</td><td>等待审核</td></tr>
+        <tr><td>⑤ 缴纳保证金</td><td>审核通过后完成</td></tr>
+      </table>
+
+      <div class="tip-danger tip">
+        <strong>🚨 保证金缴纳方式差异：</strong><br>
+        中国大陆主体 → 任意支付宝账号充值即可<br>
+        欧盟/香港主体 → <strong>必须使用企业同名对公账号打款</strong>
+      </div>
+      <p><span class="keyword">材料要求：</span>所有材料需完整清晰、原件扫描件或四角可见的清晰拍照件，不能有折痕。</p>
+    </div>
+  </div>
+
+  <!-- Lesson 6 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第6节 · 国内主体新注册账号入驻流程</div>
+    <div class="lesson-body">
+      <p><span class="keyword">保证金 1万人民币</span>，有两种缴纳方式：</p>
+      <table>
+        <tr><th>方式</th><th>说明</th></tr>
+        <tr><td>立即缴纳</td><td>直接缴1万</td></tr>
+        <tr><td>暂缓缴纳（当前政策）</td><td>先开店卖货 → 结算货款冻结作保证金 → 冻结满1万后正常提现</td></tr>
+      </table>
+      <div class="tip-warning tip"><strong>⚠️ 暂缓缴纳限制：</strong>只有未绑定保证金缴纳支付宝的商家才能选暂缓；暂缓只是推后交不是不交！</div>
+      <p><span class="keyword">入驻步骤：</span>定向邀约链接 → 全新邮箱 → 选择海外托管店铺 → 企业支付宝认证（推荐）→ 3-5工作日审核 → 交保证金 → 开店完成</p>
+    </div>
+  </div>
+
+  <!-- Lesson 7 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第7节 · 自运营店铺开通海托账号流程</div>
+    <div class="lesson-body">
+      <p><span class="keyword">适用：</span>已有POP自运营店铺的商家，在原店铺基础上开通海托。无需重新注册主体。</p>
+      <p><span class="keyword">4大步骤：</span></p>
+      <ul class="steps">
+        <li><strong>步骤1：</strong>POP账号登录后台 → 右上角找到入口 → 点击"开通海外托管店铺"</li>
+        <li><strong>步骤2：</strong>勾选协议 → 绑定<strong>全新邮箱</strong>（不能与POP店重复）→ 营业执照信息等</li>
+        <li><strong>步骤3：</strong>等待平台审核</li>
+        <li><strong>步骤4：</strong>缴纳保证金1万（立即缴纳或暂缓缴纳）</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Lesson 8 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第8节 · 香港主体入驻流程</div>
+    <div class="lesson-body">
+      <p><span class="keyword">准备资料：</span></p>
+      <ul class="steps">
+        <li>公司注册证明书、主董事身份信息及证件照、联系人信息、企业受益人信息</li>
+        <li>资金证明（三选一）：近6个月银行对账单 / 水电煤气账单 / 董事手持证件照</li>
+      </ul>
+      <p><span class="keyword">6步流程：</span></p>
+      <ul class="steps">
+        <li>① 注册账号 → <strong>注册地必须选"中国香港"</strong>（默认大陆易选错）</li>
+        <li>② 选择"海外托管"模式</li>
+        <li>③ 企业认证信息填写（公司注册证明、商业登记编号等）</li>
+        <li>④ 开通资金账户（上传资金证明）</li>
+        <li>⑤ 店铺经营信息填写（主营类目、产品<strong>英文状态</strong>名称、供货价格）</li>
+        <li>⑥ 国际支付宝缴纳保证金</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Lesson 9 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第9节 · 欧盟主体入驻流程</div>
+    <div class="lesson-body">
+      <p><span class="keyword">支持5国：</span>西班牙、法国、德国、波兰、意大利（最复杂流程）</p>
+      <p><span class="keyword">6类准备资料：</span>公司注册文件+章程、VAT税号（必须与主体国一致、有效可查）、主董事护照+身份证+居住证明、股东资料（如有）、第三方电商平台经验证明、<strong>1200欧元保证金</strong></p>
+
+      <table>
+        <tr><th>国家</th><th>纳税人识别号格式</th></tr>
+        <tr><td>西班牙</td><td>9位字符</td></tr>
+        <tr><td>德国</td><td>11位</td></tr>
+        <tr><td>法国（企业）</td><td>9位</td></tr>
+        <tr><td>法国（个体户）</td><td>13位</td></tr>
+        <tr><td>意大利</td><td>11位</td></tr>
+        <tr><td>波兰</td><td>10位</td></tr>
+      </table>
+
+      <div class="tip-danger tip"><strong>🚨 关键注意：</strong>专用注册链接（找老师索取）→ <strong>注册国选择不可更改</strong> → 密码8-20位（数字+字母）→ VAT必须有效可查 → UBO（最终受益人）股份比例必须一致</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- PART 3 -->
+<div class="section" id="p3">
+  <div class="section-header"><div class="num">三</div><h2>品牌与合规篇</h2></div>
+
+  <!-- Lesson 10 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第10节 · 国内主体品牌申请流程</div>
+    <div class="lesson-body">
+      <p><strong>情况A：</strong>店铺主体公司即为品牌权利人 → 仅需商标注册证</p>
+      <p><strong>情况B：</strong>店铺主体公司不是品牌权利人 → 需<strong>全链路品牌授权采购凭证</strong></p>
+      <table>
+        <tr><th>组合</th><th>凭证1</th><th>凭证2</th></tr>
+        <tr><td>组合一</td><td>采购合同</td><td>采购发票（或其打款凭证）</td></tr>
+        <tr><td>组合二</td><td>品牌授权书</td><td>末级采购发票+打款凭证</td></tr>
+        <tr><td>组合三</td><td>采购方与品牌方的采购发票</td><td>对应打款凭证</td></tr>
+      </table>
+      <p><span class="keyword">后台操作6步：</span>店铺信息→店铺品牌申请→搜索品牌名称→选择子类目（一次性全部勾选）→填写授权角色→填写授权级别（1-5级）→提交审核</p>
+      <div class="tip-warning tip"><strong>⚠️ 新品牌：</strong>若平台搜索不到，先点击"添加新品牌"填写商标信息，审核通过后再进行类目申请。<br>国内知名品牌为行业定向邀约，不能自主申请。</div>
+    </div>
+  </div>
+
+  <!-- Lesson 11 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第11节 · 欧盟主体品牌申请流程</div>
+    <div class="lesson-body">
+      <p><span class="keyword">核心差异：</span>仅允许<strong>R标</strong>（已注册商标），不接受TM标（申请中的商标）</p>
+      <p><span class="keyword">申请入口位置不同：</span>国内主体在「店铺信息→品牌内部权限」；欧盟主体在「<strong>店铺设置→品牌申请</strong>」</p>
+      <p>国际知名品牌（三星、苹果等）需行业邀约+正品承诺函</p>
+      <div class="tip-warning tip"><strong>⚠️ 子类目精准选择：</strong>选错将无法使用对应品牌上传产品。例如只选了"洗地机"但实际要上传"扫地机器人"则无法选择对应品牌。</div>
+    </div>
+  </div>
+
+  <!-- Lesson 12 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第12节 · 商品资质合规</div>
+    <div class="lesson-body">
+      <table>
+        <tr><th>品类</th><th>欧盟</th><th>英国</th><th>美国</th></tr>
+        <tr><td>电子电器</td><td>CE + WEEE + GPSR</td><td>UKCA + WEEE</td><td>FCC</td></tr>
+        <tr><td>玩具</td><td>CE + GPSR</td><td>UKCA</td><td>FCC</td></tr>
+        <tr><td>食品接触类</td><td>CE + 飞叉logo</td><td>UKCA</td><td>-</td></tr>
+      </table>
+      <p><span class="keyword">欧盟通用要求：</span>GPSR法规、CE认证、DOC声明、WEEE认证、欧盟责任人、合规标签</p>
+      <p><span class="keyword">其他认证：</span>英国UKCA、美国FCC、韩国KC</p>
+    </div>
+  </div>
+
+  <!-- Lesson 13 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第13节 · 欧盟责任人及标签</div>
+    <div class="lesson-body">
+      <p><span class="keyword">欧盟责任人</span>是强制性合规要素。办理方式：</p>
+      <ul class="steps">
+        <li>方式1（推荐）：速卖通后台服务市场（价格便宜、服务商靠谱）</li>
+        <li>方式2：第三方平台（某宝等）找服务商</li>
+      </ul>
+      <div class="tip-danger tip"><strong>🚨 虚假信息警示：</strong>平台会定期公布虚假欧盟责任人名单。办理前先核对名单，避免浪费时间和费用。</div>
+      <p><span class="keyword">合规标签5大核心要素：</span>制造商信息（名称+地址+电话）→ 欧盟责任人信息 → 原产地（如Made in China）→ 警示标语 → 各类资质标识（CE/C1等）</p>
+      <p>标签必须<strong>贴在产品外包装上</strong>随包裹发出。未办理则欧盟地区被屏蔽！</p>
+    </div>
+  </div>
+
+  <!-- Lesson 14 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第14节 · ERP法规合规</div>
+    <div class="lesson-body">
+      <p><span class="keyword">ERP = 生产者责任延伸</span>，环保法规要求，不同国家不同品类要求不同。</p>
+      <table>
+        <tr><th>国家</th><th>包装类</th><th>电子电器/电池</th><th>其他</th></tr>
+        <tr><td>法国</td><td>平台代收代缴</td><td>商家自行注册</td><td>自行注册</td></tr>
+        <tr><td>西班牙</td><td>平台代收代缴</td><td>服务商办理</td><td>服务商办理</td></tr>
+        <tr><td>德国</td><td>自行注册（有课程）</td><td>服务商办理</td><td>-</td></tr>
+        <tr><td>奥地利</td><td colspan="3">必须找服务商办理（不能自行注册）</td></tr>
+        <tr><td>波兰/意大利等6国</td><td colspan="3">仅电池类需办理，其他非电子类无需处理</td></tr>
+      </table>
+      <p>未办理 = 对应国家屏蔽，商品无法销售。</p>
+    </div>
+  </div>
+
+  <!-- Lesson 15 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第15节 · 税费合规（VAT）</div>
+    <div class="lesson-body">
+      <table>
+        <tr><th>对比项</th><th>中国主体</th><th>欧盟主体</th></tr>
+        <tr><td>VAT办理</td><td>按发货国办理</td><td>入驻即校验+按发货国办理</td></tr>
+        <tr><td>缴纳方式</td><td><strong>平台代扣代缴</strong>（优势）</td><td>商家自行申报缴纳</td></tr>
+        <tr><td>操作复杂度</td><td>较低</td><td>较高</td></tr>
+        <tr><td>定价影响</td><td>无需考虑VAT</td><td>必须计入VAT成本</td></tr>
+      </table>
+      <div class="tip-info tip"><strong>核心原则：</strong>在哪个国家发货办理哪个国家VAT。中国主体享受平台代扣代缴便利，只需办理税号无需自行申报。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- PART 4 -->
+<div class="section" id="p4">
+  <div class="section-header"><div class="num">四</div><h2>选品与定价篇</h2></div>
+
+  <!-- Lesson 16 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第16节 · 应该上传什么产品</div>
+    <div class="lesson-body">
+      <p><strong>场景A：速卖通老商家</strong> → 海外仓卖得好的产品全部上，但定价<strong>不能低于本店价</strong>！</p>
+      <div class="tip-danger tip"><strong>🚨 核心注意：</strong>海外托管价 ≥ 本店价。卖便宜了会导致同品内卷，把正常店铺挤死！</div>
+      <p><strong>场景B：其他平台商家（无速卖通店铺）</strong> → 先验市场再上产品。</p>
+      <p><span class="keyword">验市场三步：</span>①打开速卖通前台(alipay express.com) ②谷歌邮箱登录买家账号 ③搜索海外现货产品的主关键词看销量。有高销量→有市场可上传；只有几十个销量或没有→放弃。</p>
+      <div class="tip-warning tip"><strong>⚠️ 关键细节：</strong>不能只看品类整体，要看具体风格/人群！例如卖的是"穆斯林风格裙子"，搜"裙子"有市场不代表你的风格有市场。</div>
+    </div>
+  </div>
+
+  <!-- Lesson 17 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第17节 · 备货核心策略</div>
+    <div class="lesson-body">
+      <div class="tip-danger tip"><strong>🚨 核心原则：</strong>初期库存<strong>宁少勿多</strong>（10-50个试水），不影响正常店铺运转为前提。</div>
+      <p><span class="keyword">断货风险管理（反直觉）：</span>最可怕的不是海托断货，而是海托太好卖把正常店铺的库存吃光。正常店铺是保底的，不能丢。</p>
+      <p><span class="keyword">补货时效：</span>海运1-2个月入仓，空运10-15天（贵3倍以上）。通常补货都是海运。</p>
+      <p><span class="keyword">速卖通老商家补货公式：</span>库存消耗速度 × 补货周期（40天）= 最少补货量</p>
+      <p><span class="keyword">亚马逊等其他平台商家：</span>断谁都不应该断亚马逊。备货周期建议2个月以上，优先保主营平台库存。</p>
+      <p><span class="keyword">尾货模式：</span>填真实数量，卖完就换品。也可从其他商家低价收尾货（如成本400元50元收购）→ 正常价卖，把海托当销货渠道。</p>
+    </div>
+  </div>
+
+  <!-- Lesson 18 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第18节 · 如何定价</div>
+    <div class="lesson-body">
+      <div class="flow">供货价 = 产品成本 + 头程运费 + 尾程运费 + 海外仓费用 + 售后费率预留（3-5%）+ 活动邀约预留 + 利润空间</div>
+      <div class="tip-danger tip"><strong>🚨 比价红线（最重要）：</strong>供货价 ≤ 站外同款产品页面展示价格的 <strong>8折</strong>！例如亚马逊卖$100 → 你的供货价必须 ≤ $80</div>
+      <p><span class="keyword">定价器包含6个模块：</span>①头程运费（运费单价×重量）②海外仓费用（到仓卸货费+出库操作费+打包耗材费）③商品供货价（成本+利润）④税费（跨境商家填0，本土商家约20%）⑤纠纷损耗率（一般类目3%-5%，服装类适当提高）⑥商品体积重</p>
+      <p><span class="keyword">跨境 vs 本土税务差异：</span>跨境商家不含VAT（平台代收代缴），本土商家含税需自行处理。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- PART 5 -->
+<div class="section" id="p5">
+  <div class="section-header"><div class="num">五</div><h2>商品发布篇</h2></div>
+
+  <!-- Lesson 19 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第19节 · 商品发布规范</div>
+    <div class="lesson-body">
+      <p><span class="keyword">基础规则：</span></p>
+      <ul class="steps">
+        <li><strong>一货一仓：</strong>一个产品仅支持一个发货地，多发货地需发布多条链接</li>
+        <li><strong>供货价模式：</strong>商家填写供货价（非售价），平台定零售价</li>
+        <li><strong>营销图强制必填：</strong>两张都必须上传且合规</li>
+      </ul>
+      <p><span class="keyword">高风险品类规避（5大类）：</span></p>
+      <ul class="steps">
+        <li>政治宗教类（各国国旗、军警用品、货币相关、宗教元素）</li>
+        <li>敏感违禁品（敏感药物、赌博烟草酒精）</li>
+        <li>情趣低俗类（裸露/成人内容、中东地区短袖即可能被屏蔽）</li>
+        <li>暴力惊悚类（恐怖血腥、利器射击物）</li>
+        <li>感官不适类（恶心图片）</li>
+      </ul>
+      <p><span class="keyword">信息作弊行为（严禁5种）：</span>类目错放（禁止追求高流量放错类目）→ SKU作弊（禁止用配件低价引流）→ 标题滥用（禁止无产品名称/关键词堆砌）→ 运费倒挂（禁止低价售产品+高运费）→ 山寨虚假产品（禁止盗用品牌/侵权产品）</p>
+    </div>
+  </div>
+
+  <!-- Lesson 20 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第20节 · 标题撰写攻略</div>
+    <div class="lesson-body">
+      <p><span class="keyword">黄金标题公式：</span></p>
+      <div class="flow">品牌词 + 核心关键词 + 属性词 + 核心关键词 + 长尾词</div>
+      <table>
+        <tr><th>规则</th><th>要求</th></tr>
+        <tr><td>核心关键词前置</td><td>必须放在<strong>前30个字符内</strong></td></tr>
+        <tr><td>字符数</td><td>120-128字符（不低于120）</td></tr>
+        <tr><td>关键词重复</td><td>不超过3次，推荐2次</td></tr>
+        <tr><td>首字母大写</td><td>实词首字母大写（形容词、冠词、介词可小写），单词间空格分隔</td></tr>
+        <tr><td>禁止抄袭爆款</td><td>爆款标题已成型权重高，抄袭无法竞争</td></tr>
+      </table>
+      <p><span class="keyword">关键词类型：</span>核心关键词（精准匹配，用2次）→ 属性词（材质、功能、卖点）→ 长尾词（场景、精准描述）→ 流量词（流量大但精准低，尽量不用）</p>
+    </div>
+  </div>
+
+  <!-- Lesson 21 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第21节 · 优质主图标准</div>
+    <div class="lesson-body">
+      <p><span class="keyword">技术规格：</span>1:1比例≥800×800像素；3:4比例≥750×1000像素；JPG/PNG格式；必须搭配主图视频和营销图</p>
+      <p><span class="keyword">核心原则：差异化</span>——主图不能千篇一律。</p>
+      <p><span class="keyword">内容禁区：</span></p>
+      <ul class="steps">
+        <li><strong>禁止出现中文</strong> — 所有区域禁止中文，必须全英文或图上不写字</li>
+        <li><strong>禁止水印和牛皮癣</strong> — 水印影响产品曝光</li>
+      </ul>
+      <p><span class="keyword">制作要点：</span>简洁突出主体 → 突出产品优势 → 适量文字引导（不超过面积15%）→ 主图与关键词高度匹配 → 词图一致是关键转化链路</p>
+    </div>
+  </div>
+
+  <!-- Lesson 22 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第22节 · 主图视频标准</div>
+    <div class="lesson-body">
+      <table>
+        <tr><th>规格项</th><th>要求</th></tr>
+        <tr><td>文件大小</td><td>≤ 2GB</td></tr>
+        <tr><td>画面比例</td><td>1:1 / 3:4 / 9:16（必须与主图保持一致）</td></tr>
+        <tr><td>视频时长</td><td>≤ 30秒（10-20秒最佳）</td></tr>
+      </table>
+      <p><span class="keyword">主图视频 ≠ 功能操作视频！</span>主图视频用于吸引眼球促成下单（≤30秒）；操作视频放详情页或发给客户。</p>
+      <p><span class="keyword">内容结构：</span>商标开头（品牌认知）→ 关注引导（粉丝积累）→ 产品展示（主体呈现）→ 场景展示（代入感）→ 品牌强化（信任建立）</p>
+      <p><span class="keyword">禁区：</span>无PPT形式、无黑边、无水印、无中文、必须有产品主体</p>
+    </div>
+  </div>
+
+  <!-- Lesson 23 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第23节 · 优质详情页布局</div>
+    <div class="lesson-body">
+      <p><span class="keyword">属性填写：</span>必填+非必填全部填满，自定义属性添加搜索词提升搜索权重。</p>
+      <p><span class="keyword">详情页6大模块：</span>场景图（代入感）→ 实拍图（信任）→ 细节图（尺寸/材质，消除顾虑）→ 对比图（不露竞品品牌）→ 买家秀（好评展示）→ 宣传图（品牌实力）</p>
+      <p><span class="keyword">前5张图布局（翻看率最高）：</span></p>
+      <ul class="steps">
+        <li><strong>服装类：</strong>模特展示 → 正面细节 → 背面细节 → 尺寸细节（肩宽/腰围/衣长等）→ 材质细节</li>
+        <li><strong>功能性产品：</strong>核心功能展示 → 重点信息前置 → 其他功能依次展示</li>
+      </ul>
+      <p><span class="keyword">高转化5大要素：</span>①图文结合（看得见+读得懂）②风格统一（品牌调性）③场景化展示（代入感）④买家问答展示（高频问题消除疑虑）⑤服务能力展示（时效/保修/售后）</p>
+    </div>
+  </div>
+
+  <!-- Lesson 24 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第24节 · 工作台发品流程</div>
+    <div class="lesson-body">
+      <div class="flow">选子类目 → 选发货国+运费模板 → 上传6张主图+营销图+白底图 → 写标题(~120字符) → 填属性+SKU+供货价+库存+重量尺寸 → 写详情 → 关联欧盟责任人 → 提交 → 三步审核</div>
+      <p><span class="keyword">多国发货重要规则：</span>多国发货会生成<strong>多个独立产品链接</strong>，不像POP自运营合并为一个链接。3个海外仓→同一款产品→3个独立链接。</p>
+      <table>
+        <tr><th>审核环节</th><th>要求</th></tr>
+        <tr><td>类目小二审核</td><td>类目合规</td></tr>
+        <tr><td>比价审核</td><td>供货价 ≤ 同类电商平台前台展示价 <strong>8折</strong></td></tr>
+        <tr><td>风控审核</td><td>风控合规</td></tr>
+      </table>
+      <p>整体审核一般5个工作日内。欧盟国家必须先开通VAT资质才能选择其海外仓。</p>
+      <p><span class="keyword">注意事项：</span>打包出售供货价按整包报；重量按kg填（200g=0.2kg）；尺寸按包装后尺寸；产品类型选普货/纯电/内店等。</p>
+    </div>
+  </div>
+
+  <!-- Lesson 25 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第25节 · 表格批量发品流程</div>
+    <div class="lesson-body">
+      <p><span class="keyword">适用：</span>批量发布多个产品时使用Excel表格上传。</p>
+      <p><span class="keyword">操作流程：</span>后台→海外托管商品管理→批量工具→批量上传→选择最下级子类目→下载模板→填写→上传</p>
+      <table>
+        <tr><th>关键字段</th><th>填写要点</th></tr>
+        <tr><td>产品信息图（主图）</td><td>必须填<strong>素材中心图片链接</strong>，不能直接拖图片</td></tr>
+        <tr><td>多SKU产品</td><td><strong>必填产品发布序列号</strong></td></tr>
+        <tr><td>含税供货价</td><td>填<strong>人民币</strong>（勿填美元！）</td></tr>
+        <tr><td>重量/长宽高</td><td>包装后物流包裹尺寸</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Lesson 26 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第26节 · 同主体导入发品流程</div>
+    <div class="lesson-body">
+      <p><span class="keyword">适用：</span>已开自运营店铺且海托与自运营在同一主体下。</p>
+      <p><span class="keyword">操作流程：</span>后台→商品批量工具→批量导入同主体→店铺授权→填写店铺ID+商品ID→选择运费模板→确定</p>
+      <div class="tip-warning tip"><strong>⚠️ 关键区别：</strong>导入的产品不会直接进审核，而是进入<strong>草稿箱</strong>！需在草稿箱补充属性信息+供货价后手动发布才进入审核。</div>
+      <table>
+        <tr><th>三种发品方式对比</th><th>适合</th><th>流程特点</th></tr>
+        <tr><td>工作台发品</td><td>少量新品</td><td>逐个填，提交即审核</td></tr>
+        <tr><td>表格批量发品</td><td>多个新品</td><td>Excel批量，提交即审核</td></tr>
+        <tr><td>同主体导入</td><td>已有自运营店铺</td><td>复用图文，进草稿箱，补价格后手动发布</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- PART 6 -->
+<div class="section" id="p6">
+  <div class="section-header"><div class="num">六</div><h2>物流与仓储篇</h2></div>
+
+  <!-- Lesson 27 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第27节 · 运费模板设置</div>
+    <div class="lesson-body">
+      <p><span class="keyword">前置步骤：</span>海托店铺→发货管理→物流服务→仓配服务</p>
+      <p><span class="keyword">创建流程5步：</span>新增模板（自定义命名如"美国仓发货模板"）→ 选择发货地址国家（西班牙/意大利等需先开通VAT）→ 选择物流线路（与海外仓合作的尾程配送物流商）→ 选择发货国家/地区（欧盟可发大部分地区，海托仅发货/不发货二选一）→ 保存</p>
+      <div class="tip-info tip"><strong>注意：</strong>海托运费模板无自定义设置，仅有"发货/不发货"两个选项。模板命名清晰化便于多仓管理。</div>
+    </div>
+  </div>
+
+  <!-- Lesson 28 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第28节 · 合规信息后台填写流程</div>
+    <div class="lesson-body">
+      <p><span class="keyword">路径：</span>店铺信息→店铺基础信息→合规信息</p>
+      <p><span class="keyword">欧盟责任人填写：</span>创建合规责任人→选择欧盟→填写责任人信息→<strong>详细地址从国家开始写</strong>（即使上方已填国家城市，详细地址仍需重复写）→必须包含门牌号→联系方式三选一（电话/邮箱/官网）→上传委托协议</p>
+      <p><span class="keyword">制造商信息填写：</span>制造商全称必须与注册文件一致→详细地址同样需重复写→<strong>省市区必须用英文（不能用拼音）</strong>→邮编/电话/邮箱必填</p>
+      <div class="tip-danger tip"><strong>🚨 审核通过后：</strong>必须点击关联产品，将欧盟责任人和制造商信息分别关联到对应产品上，才能销售到对应欧盟地区。</div>
+    </div>
+  </div>
+
+  <!-- Lesson 29 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第29节 · 认证仓介绍</div>
+    <div class="lesson-body">
+      <p><span class="keyword">认证仓</span>是平台为解决发货履约问题对接的优质第三方海外仓，功能包括库存同步、订单自动下发、订单自动回传。</p>
+      <p><span class="keyword">三大权益：</span></p>
+      <table>
+        <tr><th>权益</th><th>说明</th></tr>
+        <tr><td>处罚减免50%</td><td>成交不卖：正常100元→认证仓50元；未按约定发货/到货：正常100元→50元</td></tr>
+        <tr><td>本地仓透标</td><td>产品获"本地仓海外仓"标识，转化提升（不支持定制品/虚拟数字产品/超大件）</td></tr>
+        <tr><td>售后举证责任转移</td><td>买家发起售后→<strong>买家举证</strong>（普通仓是商家举证），大幅降低售后率</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Lesson 30 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第30节 · 海外认证仓分布</div>
+    <div class="lesson-body">
+      <table>
+        <tr><th>国家</th><th>仓库</th><th>特点</th></tr>
+        <tr><td>西班牙</td><td>菜鸟/谷仓/启程签下</td><td>菜鸟可发泛欧26国（最重70kg，本地2.5天，泛欧6天）</td></tr>
+        <tr><td>法国</td><td>菜鸟/出口易/谷仓/派速送/新欧达</td><td>5个仓库可选</td></tr>
+        <tr><td>德国</td><td>多个仓库</td><td>认证仓最多国家</td></tr>
+        <tr><td>美国</td><td>启程/UPS等</td><td>启程限500g以内；超重选UPS（可到30kg）</td></tr>
+        <tr><td>意大利</td><td>快速/新欧达</td><td>适合重货，体积重限制较大</td></tr>
+        <tr><td>捷克</td><td>谷仓</td><td>1个仓库</td></tr>
+      </table>
+      <p><span class="keyword">选择公式：</span>目的国 + 尾程渠道 + 体积重限制 + 时效 + 费用 = 最优仓</p>
+    </div>
+  </div>
+
+  <!-- Lesson 31 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第31节 · 海外仓服务订购</div>
+    <div class="lesson-body">
+      <div class="flow">后台 → 发货物流服务 → 菜鸟海外仓配服务管理 → 管理服务 → 选择仓库 → 订购 → 提交VAT信息确认 → 开通新仓审核 → 划仓成功</div>
+      <p><span class="keyword">审核时效：</span>一般1-2个工作日划仓完成。超过时效未审核联系小二催促。</p>
+      <p>划仓成功后进入<strong>供应链协作平台</strong>进行货品相关操作。</p>
+      <table>
+        <tr><th>划仓状态</th><th>含义</th></tr>
+        <tr><td>未划仓</td><td>已提交，等待小二划仓</td></tr>
+        <tr><td>已划仓</td><td>小二已处理完成，可进供应链平台操作</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Lesson 32 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第32节 · 划仓订购无响应处理</div>
+    <div class="lesson-body">
+      <p>问题：后台点击仓库订购页面一直加载中无响应。</p>
+      <p><span class="keyword">3步排查方案：</span></p>
+      <ul class="steps">
+        <li><strong>方案一：浏览器设置调整</strong> — 完全关闭谷歌浏览器 → 重新打开 → 网站设置中将「侵扰广告」「弹出式窗口」「不安全内容」全部改为<strong>允许</strong> → 再次关闭浏览器重开</li>
+        <li><strong>方案二：使用无痕模式</strong> — 设置完成后打开无痕模式登录后台再操作</li>
+        <li><strong>方案三：清除浏览器缓存</strong> — 开发者工具→清除网址字段+Cookies→刷新重试</li>
+      </ul>
+      <div class="tip-warning tip"><strong>提示：</strong>页面本身加载较慢，刷新2-3次多次点击下一步一般会成功。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- PART 7 -->
+<div class="section" id="p7">
+  <div class="section-header"><div class="num">七</div><h2>店铺运营篇</h2></div>
+
+  <!-- Lesson 33 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第33节 · 申请加入POP店铺商群</div>
+    <div class="lesson-body">
+      <p><span class="keyword">入口：</span>海托店铺后台→仓发管理→商群管理→申请加入商群</p>
+      <p><strong>关键信息：</strong>主账号必须填写POP店铺<strong>CN开头的主账号</strong>（不是商品ID也不是邮箱）</p>
+      <p><strong>商群绑定规则：</strong></p>
+      <ul class="steps">
+        <li><strong>一对一限制：</strong>一个海托店铺只能加入一个POP店铺的商群</li>
+        <li><strong>一对多支持：</strong>一个商群可以绑定多个海托店铺</li>
+        <li><strong>不可跨群：</strong>海托绑定一个POP后不能再绑定另一个POP</li>
+      </ul>
+      <table>
+        <tr><th>费用类型</th><th>扣费店铺</th></tr>
+        <tr><td>尾程配送费</td><td>海托托管店铺</td></tr>
+        <tr><td>入库费</td><td>POP主店铺</td></tr>
+        <tr><td>仓储（餐桌）费</td><td>POP存储店铺</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <!-- Lesson 34 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第34节 · 商货绑定流程</div>
+    <div class="lesson-body">
+      <p><span class="keyword">入口：</span>POP店铺后台→物流中心→仓库发货→供应链协作平台→商品管理→商品列表</p>
+      <div class="flow">导出未绑定商品Excel → 填写货品ID或货品编码（二选一，均填以编码为准）→ 批量绑定商户信息上传 → SKU列表批量关联货品 → 完成</div>
+      <div class="tip-warning tip"><strong>⚠️ 注意：</strong>入口必须在物流中心！货品ID和编码都填时以货品编码为准。</div>
+    </div>
+  </div>
+
+  <!-- Lesson 35 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第35节 · 运费模板配置POP仓发线路</div>
+    <div class="lesson-body">
+      <p><span class="keyword">核心要求：</span>使用POP库存销售的产品，运费模板<strong>必须包含POP发货线路</strong>。</p>
+      <p>新增运费模板 → 选择发货地址 → 选择「菜鸟海外仓标准配送」（通用推荐）→ 勾选所有可发货国家/地区 → 创建并关联产品</p>
+      <div class="tip-danger tip"><strong>🚨 活动产品修改规则：</strong>产品正在活动中，必须联系对应小二退出活动→修改运费模板→重新报名。否则修改<strong>不会生效</strong>！</div>
+      <p>在商品列表中可手动编辑POP仓实际发货库存。</p>
+    </div>
+  </div>
+
+  <!-- Lesson 36 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第36节 · 取消订购认证仓操作</div>
+    <div class="lesson-body">
+      <p><span class="keyword">正确入口：</span>商家后台→<strong>仓发管理→商户绑定</strong>（不是原订购入口！）</p>
+      <p>找到目标货品 → 多SKU展开下拉选择 → 点击「解绑服务商货品」</p>
+      <div class="tip-warning tip"><strong>⚠️ 当前限制：</strong>不支持批量解绑，必须逐个操作。批量解绑场景需预留充足时间。</div>
+    </div>
+  </div>
+
+  <!-- Lesson 37 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第37节 · 店铺名称申请及使用规范</div>
+    <div class="lesson-body">
+      <p><span class="keyword">核心规则：</span>一店一名，每个海托店铺只能申请一个店铺名称。</p>
+      <p>平台自动添加"店铺"后缀，商家只需填写前缀部分（如填"甜甜"→显示"甜甜店铺"）</p>
+      <table>
+        <tr><th>店铺类型</th><th>适用场景</th></tr>
+        <tr><td>普通店铺</td><td>一般商品销售</td></tr>
+        <tr><td>专营店</td><td>多品牌经营</td></tr>
+        <tr><td>专卖店</td><td>单品牌授权</td></tr>
+        <tr><td>旗舰店</td><td>自有品牌或主授权</td></tr>
+      </table>
+      <p><span class="keyword">字符规范：</span>4-80个字符；仅英文字母(A-Z,a-z)、数字(0-9)、空格、英文标点；空格和标点不能出现在首尾部；标点必须是英文状态</p>
+      <p><span class="keyword">品牌使用：</span>必须自有品牌或持有品牌授权才能使用商标名称。未经授权不得使用。</p>
+    </div>
+  </div>
+
+  <!-- Lesson 38 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第38节 · 发货退货地址管理</div>
+    <div class="lesson-body">
+      <p><span class="keyword">入口：</span>海托后台→店铺信息→店铺基础信息→地址管理</p>
+      <p><span class="keyword">添加地址：</span>选择国家/州/城市（下拉选择）→详细地址栏<strong>仅填写具体街道门牌</strong>（不要重复填写国家/州/城市/邮编，否则备案失败！）→邮编→手机号（必填）→联系人姓名（必填）→邮箱（选填）→勾选默认地址→提交</p>
+      <div class="tip-danger tip"><strong>🚨 关键避坑：</strong>详细地址栏不要重复填写已在下拉选择的国/州/市/邮编，否则导致备案失败！这是最常见的错误。</div>
+      <p>退货地址流程与发货地址完全相同。支持添加多个地址。</p>
+    </div>
+  </div>
+
+  <!-- Lesson 39 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第39节 · 配送失败处理偏好设置</div>
+    <div class="lesson-body">
+      <p><span class="keyword">入口：</span>海托后台→发货→我要发货→配送失败处理设置</p>
+      <table>
+        <tr><th>处理方式</th><th>适用场景</th></tr>
+        <tr><td>退回</td><td>高客单价产品，退回价值高于退回成本</td></tr>
+        <tr><td>销毁</td><td>低客单价产品，退回成本高于产品价值</td></tr>
+      </table>
+      <p><span class="keyword">推荐策略：金额阈值设置</span> — 如设置50美金，订单金额&gt;50退回，≤50销毁。</p>
+      <div class="tip-warning tip"><strong>⚠️ 国家差异：</strong>美国支持退回+销毁两种；波兰仅支持退回无销毁选项。配置前需确认。</div>
+    </div>
+  </div>
+
+  <!-- Lesson 40 -->
+  <div class="lesson">
+    <div class="lesson-title">📖 第40节 · 截单时间设置</div>
+    <div class="lesson-body">
+      <p><span class="keyword">入口：</span>海托后台→发货→我要发货→截单时间设置</p>
+      <div class="tip-warning tip"><strong>⚠️ 适用范围：</strong>目前<strong>仅支持波兰地区</strong>。</div>
+      <p><span class="keyword">配置参数：</span>每日截单时间最迟16点 → 工作日勾选周一至周五（波兰不支持周末揽收）→ 保存</p>
+      <p><span class="keyword">核心价值：</span>自动生成包裹交接单，无需手动预约交货，系统自动通知物流商上门揽收。</p>
+      <div class="tip-warning tip"><strong>⚠️ 修改注意：</strong>如需修改当天截单时间，<strong>至少提前1小时操作</strong>（设置生效非实时）。暂停揽收开启后系统不再自动生成揽收交接单。</div>
+    </div>
+  </div>
+</div>
+
+<!-- ========================================================== -->
+<!-- APPENDIX -->
+<div class="section" id="redline">
+  <div class="section-header"><div class="num">八</div><h2>附录 · 五大红线 &amp; 学习路径</h2></div>
+
+  <div class="lesson">
+    <div class="lesson-title">🚫 五大不可逾越的红线</div>
+    <div class="lesson-body">
+      <div class="tip-danger tip">
+        <strong>⚠️ 红线一 · 比价红线：</strong>供货价 ≤ 站外同款售价8折（否则审核不通过）
+      </div>
+      <div class="tip-danger tip">
+        <strong>⚠️ 红线二 · 备货红线：</strong>不能为了做海外托管专门去海外备新货（风险极大）
+      </div>
+      <div class="tip-danger tip">
+        <strong>⚠️ 红线三 · 定价红线：</strong>海外托管价 ≥ 本店价（否则会把自己店铺挤死）
+      </div>
+      <div class="tip-danger tip">
+        <strong>⚠️ 红线四 · 合规红线：</strong>欧盟市场必须有VAT + 欧盟责任人（否则无法发品）
+      </div>
+      <div class="tip-danger tip">
+        <strong>⚠️ 红线五 · 履约红线：</strong>必须按时发货到货（有扣罚机制，认证仓可减半）
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-title">🎯 从入门到精通 · 五阶段学习路径</div>
+    <div class="lesson-body">
+      <table>
+        <tr><th>阶段</th><th>时间</th><th>学习内容</th></tr>
+        <tr><td><strong>第一阶段 · 认知准备</strong></td><td>1-2天</td><td>学习模式介绍、适用商家、主体范围；自我评估是否适合做海外托管</td></tr>
+        <tr><td><strong>第二阶段 · 入驻实操</strong></td><td>3-5天</td><td>准备营业执照、邮箱、手机号；完成账号注册、主体认证、保证金缴纳</td></tr>
+        <tr><td><strong>第三阶段 · 合规配置</strong></td><td>5-7天</td><td>办理VAT税号（欧盟）、欧盟责任人、品牌申请</td></tr>
+        <tr><td><strong>第四阶段 · 选品定价</strong></td><td>持续</td><td>验市场、定价器算供货价、小批量备货试水</td></tr>
+        <tr><td><strong>第五阶段 · 发品运营</strong></td><td>持续</td><td>工作台/表格/导入发品、配置运费模板、加入认证仓、持续补货优化</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-title">💡 核心决策 · 5问5答</div>
+    <div class="lesson-body">
+      <table>
+        <tr><th>问题</th><th>答案</th></tr>
+        <tr><td>该不该做海外托管？</td><td>有海外现货 + 速卖通有市场 → 做；否则不做</td></tr>
+        <tr><td>用什么主体入驻？</td><td>优先中国主体（VAT代扣代缴），其次是目标市场本土主体</td></tr>
+        <tr><td>保证金怎么交？</td><td>中国主体可用暂缓缴纳（货款抵扣）；欧盟/香港必须对公打款</td></tr>
+        <tr><td>定价怎么定？</td><td>成本+头程+尾程+仓费+售后预留+利润，且≤站外同款售价8折</td></tr>
+        <tr><td>备货怎么备？</td><td>初始宁少勿多，不影响主营店铺为原则；爆单后再快速补货</td></tr>
+      </table>
+    </div>
+  </div>
+
+  <div class="lesson">
+    <div class="lesson-title">🎓 选品策略判断</div>
+    <div class="lesson-body">
+      <table>
+        <tr><th>商家类型</th><th>选品策略</th></tr>
+        <tr><td>速卖通老商家</td><td>海外仓卖得好的产品直接上，定价≥本店价</td></tr>
+        <tr><td>亚马逊FBA卖家</td><td>尾货/滞销品先上，或正常销售品多渠道</td></tr>
+        <tr><td>独立站商家</td><td>先验速卖通市场（搜关键词看销量）→有市场再上</td></tr>
+        <tr><td>其他平台商家</td><td>同上，验市场后决策</td></tr>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ============ FOOTER ============ -->
+<div class="footer">
+  <p>📦 速卖通海外托管教程 · 从入门到精通</p>
+  <p>涵盖全部 40 节课程 · 8 大篇章 · 200+ 知识点</p>
+  <p>祝尊贵的主人开店顺利，大卖全球！🚀</p>
+</div>
+
+</div>
+</body>
+</html>
