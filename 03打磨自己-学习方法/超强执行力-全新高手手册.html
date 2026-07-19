@@ -1,0 +1,1591 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>超强执行力高手手册</title>
+  <style>
+    :root {
+      --bg: #f7f4ee;
+      --paper: #fffdfa;
+      --paper-2: #fcf8f1;
+      --ink: #2f2a24;
+      --muted: #645b51;
+      --line: #ddd2c1;
+      --line-strong: #cbb89e;
+      --accent: #8f6940;
+      --accent-2: #b68754;
+      --soft-gold: #f2e5d2;
+      --soft-green: #e8f0e4;
+      --soft-blue: #e9eff7;
+      --soft-rose: #f6ebe4;
+      --soft-gray: #f1eee8;
+      --shadow: 0 16px 36px rgba(75, 58, 37, 0.08);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--ink);
+      font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans SC", sans-serif;
+      line-height: 1.8;
+    }
+
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+
+    a:hover {
+      text-decoration: underline;
+    }
+
+    .page {
+      max-width: 1240px;
+      margin: 0 auto;
+      padding: 24px 16px 72px;
+    }
+
+    .hero,
+    .panel,
+    .chapter,
+    .appendix,
+    .graph-box,
+    .table-box {
+      background: var(--paper);
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+    }
+
+    .hero {
+      padding: 34px 30px 28px;
+      margin-bottom: 16px;
+      background:
+        linear-gradient(180deg, rgba(255, 252, 247, 0.98), rgba(255, 253, 250, 1)),
+        var(--paper);
+    }
+
+    .eyebrow {
+      display: inline-block;
+      margin-bottom: 12px;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+      color: var(--accent);
+      font-size: 13px;
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3,
+    h4 {
+      margin: 0 0 10px;
+      line-height: 1.3;
+    }
+
+    h1 {
+      font-size: 34px;
+    }
+
+    h2 {
+      font-size: 28px;
+    }
+
+    h3 {
+      font-size: 22px;
+    }
+
+    h4 {
+      font-size: 18px;
+    }
+
+    p {
+      margin: 0 0 12px;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .hero-actions,
+    .hero-meta,
+    .quick-links,
+    .toc-grid,
+    .problem-grid,
+    .summary-grid,
+    .chapter-grid,
+    .card-grid,
+    .check-grid,
+    .flow-grid {
+      display: grid;
+      gap: 12px;
+    }
+
+    .hero-actions {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      margin: 18px 0 16px;
+    }
+
+    .hero-meta {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .action-link,
+    .mini-card,
+    .chapter-card,
+    .fact-card,
+    .problem-card,
+    .check-card,
+    .flow-card,
+    .quote-card {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper-2);
+      padding: 14px 16px;
+    }
+
+    .action-link {
+      display: block;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .action-link span {
+      display: block;
+      margin-top: 4px;
+      font-size: 13px;
+      color: var(--muted);
+      font-weight: 400;
+    }
+
+    .panel,
+    .chapter,
+    .appendix,
+    .graph-box {
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .toc-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      margin-top: 14px;
+    }
+
+    .toc-item {
+      padding: 12px 14px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper-2);
+    }
+
+    .toc-item strong,
+    .mini-card strong,
+    .chapter-card strong,
+    .fact-card strong,
+    .problem-card strong,
+    .check-card strong,
+    .flow-card strong,
+    .quote-card strong {
+      display: block;
+      margin-bottom: 6px;
+      color: var(--accent);
+    }
+
+    .problem-grid,
+    .summary-grid,
+    .chapter-grid,
+    .card-grid,
+    .check-grid,
+    .flow-grid {
+      grid-template-columns: repeat(12, minmax(0, 1fr));
+    }
+
+    .problem-card,
+    .chapter-card,
+    .check-card,
+    .flow-card {
+      grid-column: span 6;
+    }
+
+    .check-grid .check-card.full {
+      grid-column: span 12;
+    }
+
+    .summary-grid .mini-card {
+      grid-column: span 4;
+    }
+
+    .chapter-grid .chapter-card.full,
+    .card-grid .chapter-card.full,
+    .flow-grid .flow-card.full {
+      grid-column: span 12;
+    }
+
+    .chapter-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin: 12px 0 18px;
+    }
+
+    .chip {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      border: 1px solid var(--line);
+      background: var(--paper-2);
+      font-size: 13px;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .chapter > .muted {
+      margin-bottom: 16px;
+    }
+
+    .chapter section {
+      margin-bottom: 18px;
+    }
+
+    .chapter ul,
+    .chapter ol,
+    .appendix ul,
+    .appendix ol,
+    .panel ul,
+    .panel ol {
+      margin: 8px 0 0 20px;
+      padding: 0;
+    }
+
+    .chapter li,
+    .appendix li,
+    .panel li {
+      margin-bottom: 8px;
+    }
+
+    .quote-card {
+      background: var(--soft-gold);
+    }
+
+    .fact-card.blue {
+      background: var(--soft-blue);
+    }
+
+    .fact-card.green {
+      background: var(--soft-green);
+    }
+
+    .fact-card.rose {
+      background: var(--soft-rose);
+    }
+
+    .fact-card.gray {
+      background: var(--soft-gray);
+    }
+
+    .table-box {
+      overflow-x: auto;
+      margin-top: 14px;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      min-width: 860px;
+    }
+
+    th,
+    td {
+      border: 1px solid var(--line);
+      padding: 12px;
+      text-align: left;
+      vertical-align: top;
+    }
+
+    th {
+      background: var(--soft-gold);
+      color: var(--ink);
+    }
+
+    .svg-wrap {
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fffefb;
+      padding: 12px;
+      overflow: hidden;
+    }
+
+    .svg-wrap svg {
+      display: block;
+      width: 100%;
+      height: auto;
+    }
+
+    .footer-nav {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 18px;
+    }
+
+    .footer-link {
+      display: inline-block;
+      padding: 8px 12px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--paper-2);
+    }
+
+    .small {
+      font-size: 14px;
+    }
+
+    .tiny {
+      font-size: 13px;
+    }
+
+    @media (max-width: 900px) {
+      h1 {
+        font-size: 28px;
+      }
+
+      h2 {
+        font-size: 24px;
+      }
+
+      h3 {
+        font-size: 20px;
+      }
+
+      .hero-actions,
+      .hero-meta,
+      .toc-grid {
+        grid-template-columns: 1fr;
+      }
+
+      .summary-grid .mini-card,
+      .problem-card,
+      .chapter-card,
+      .check-card,
+      .flow-card {
+        grid-column: span 12;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main class="page" id="top">
+    <section class="hero">
+      <div class="eyebrow">全新重制 · 单文件 HTML · 纯手写 · 零 JS</div>
+      <h1>超强执行力高手手册</h1>
+      <p class="muted">
+        这不是一本靠鸡血逼行动的书，而是一套把“卡住的人”重新带回掌控感、目标感、行动感和长期稳态的操作系统。
+        全书按主题重组，正文不按 Day 排列；但文末保留逐课知识点索引，方便回查原课程脉络。
+      </p>
+      <div class="hero-actions">
+        <a class="action-link" href="#system-map">先看总图<span>先抓整套执行力系统，再决定从哪一章开始。</span></a>
+        <a class="action-link" href="#problem-nav">直接查问题<span>按“动不了、焦虑、边界、节奏、复盘”快速定位。</span></a>
+        <a class="action-link" href="#chapter-1">开始系统学习<span>从掌控感修复开始，沿着全书路径走完一轮。</span></a>
+      </div>
+      <div class="hero-meta">
+        <div class="mini-card">
+          <strong>适合谁</strong>
+          <p class="small">明明有想做的事，却长期卡在起步、反复设目标又反复自责的人。</p>
+        </div>
+        <div class="mini-card">
+          <strong>怎么用</strong>
+          <p class="small">第一次建议顺读；以后可直接按“问题导航”或“附录清单”跳读速查。</p>
+        </div>
+        <div class="mini-card">
+          <strong>核心立场</strong>
+          <p class="small">执行力不是靠狠出来的，而是靠安全感、结构感、边界感和可持续节奏长出来的。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="problem-nav">
+      <h2>快速导航</h2>
+      <p class="muted">尊贵的主人可以按学习路径进入，也可以按眼前最真实的卡点直接跳读。</p>
+      <div class="problem-grid">
+        <div class="problem-card">
+          <strong>我总是动不了</strong>
+          <p class="small">先看 <a href="#chapter-1">第一章</a>、<a href="#chapter-4">第四章</a>。</p>
+        </div>
+        <div class="problem-card">
+          <strong>我一设目标就焦虑</strong>
+          <p class="small">先看 <a href="#chapter-2">第二章</a>、<a href="#chapter-3">第三章</a>。</p>
+        </div>
+        <div class="problem-card">
+          <strong>我老在抱怨，觉得环境决定一切</strong>
+          <p class="small">先看 <a href="#chapter-5">第五章</a>。</p>
+        </div>
+        <div class="problem-card">
+          <strong>我总想一步到位</strong>
+          <p class="small">先看 <a href="#chapter-4">第四章</a>、<a href="#chapter-10">第十章</a>。</p>
+        </div>
+        <div class="problem-card">
+          <strong>我做到了一点也不承认自己</strong>
+          <p class="small">先看 <a href="#chapter-6">第六章</a>。</p>
+        </div>
+        <div class="problem-card">
+          <strong>我被别人期待压得很重</strong>
+          <p class="small">先看 <a href="#chapter-8">第八章</a>。</p>
+        </div>
+        <div class="problem-card">
+          <strong>我休息会有罪恶感</strong>
+          <p class="small">先看 <a href="#chapter-7">第七章</a>、<a href="#chapter-9">第九章</a>。</p>
+        </div>
+        <div class="problem-card">
+          <strong>我一停下来就觉得自己退步了</strong>
+          <p class="small">先看 <a href="#chapter-9">第九章</a>、<a href="#chapter-11">第十一章</a>。</p>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel" id="toc">
+      <h2>全书目录</h2>
+      <div class="toc-grid">
+        <div class="toc-item"><strong><a href="#system-map">一页总览：执行力系统地图</a></strong><span class="tiny">先看整套逻辑，再下钻细节。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-1">第一章：掌控感系统</a></strong><span class="tiny">你不是懒，你是掌控感受损。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-2">第二章：目标系统</a></strong><span class="tiny">目标要保留，但不能再拿来判自己死刑。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-3">第三章：阻力系统</a></strong><span class="tiny">为什么目标越清楚，焦虑反而越重。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-4">第四章：启动系统</a></strong><span class="tiny">不要扑向终点，先拿回第一步控制权。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-5">第五章：主体性系统</a></strong><span class="tiny">从抱怨到自我负责，恢复选择权。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-6">第六章：实验与证据系统</a></strong><span class="tiny">把改变当实验，把做到一次当证据。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-7">第七章：动力与乐趣系统</a></strong><span class="tiny">乐趣不是奖励，而是改变前的基础设施。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-8">第八章：责任与边界系统</a></strong><span class="tiny">既不只顾自己，也不处处迎合。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-9">第九章：节奏系统</a></strong><span class="tiny">间隔、切换、停顿，都是训练的一部分。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-10">第十章：资源与重组系统</a></strong><span class="tiny">别推倒自己，重组自己。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-11">第十一章：身份连续性系统</a></strong><span class="tiny">改变里也要保留一点不变。</span></div>
+        <div class="toc-item"><strong><a href="#chapter-final">终章：从小白到高手的完整流程</a></strong><span class="tiny">一条可以反复套用的执行路径。</span></div>
+        <div class="toc-item"><strong><a href="#appendix-map">附录 A：知识图谱</a></strong><span class="tiny">横向树状静态 SVG。</span></div>
+        <div class="toc-item"><strong><a href="#appendix-day">附录 B：逐课知识点索引</a></strong><span class="tiny">Day 到主题章节映射。</span></div>
+        <div class="toc-item"><strong><a href="#appendix-check">附录 C：清单总汇</a></strong><span class="tiny">每日行动、每周复盘、避坑清单。</span></div>
+      </div>
+    </section>
+
+    <section class="panel" id="system-map">
+      <h2>一页总览：执行力系统地图</h2>
+      <p class="muted">
+        整套课程的主线不是“逼自己做更多”，而是先修正一个底层误会：多数人卡住，不是因为天生没行动力，而是因为长期目标压力、自责、外控、节奏失衡和身份冲突，把行动系统压坏了。
+      </p>
+      <div class="summary-grid">
+        <div class="mini-card">
+          <strong>第一层：先降压</strong>
+          <p class="small">停止继续伤害自己。先减少自责、恢复最小掌控感和安全感。</p>
+        </div>
+        <div class="mini-card">
+          <strong>第二层：重做目标</strong>
+          <p class="small">目标保留方向感，但必须去掉自我审判属性，并改造成可操作结构。</p>
+        </div>
+        <div class="mini-card">
+          <strong>第三层：处理阻力</strong>
+          <p class="small">看见焦虑、回避、完美主义和意义负担，不把它们误判为懒。</p>
+        </div>
+        <div class="mini-card">
+          <strong>第四层：开始小动作</strong>
+          <p class="small">先找路标，先做实验，先承认“一次做到”就是证据。</p>
+        </div>
+        <div class="mini-card">
+          <strong>第五层：做长期整合</strong>
+          <p class="small">把乐趣、边界、节奏、旧资源和新身份重新编织成稳态。</p>
+        </div>
+        <div class="mini-card">
+          <strong>最终目标</strong>
+          <p class="small">不是换一个人，而是在不攻击自己的前提下，重新获得对生活的影响力。</p>
+        </div>
+      </div>
+      <div class="quote-card">
+        <strong>一句总纲</strong>
+        <p>安全、放松、稳定，不是改变后的奖励，而是改变前的前提。</p>
+      </div>
+    </section>
+
+    <article class="chapter" id="chapter-1">
+      <div class="eyebrow">第一章</div>
+      <h2>掌控感系统：你不是懒，你是掌控感受损</h2>
+      <p class="muted">对应课程重点：Day1，并为 Day16、Day19 的身份连续性铺底。</p>
+      <div class="chapter-nav">
+        <span class="chip">一眼看懂</span>
+        <span class="chip">底层原理</span>
+        <span class="chip">识别信号</span>
+        <span class="chip">操作步骤</span>
+        <span class="chip">练习清单</span>
+      </div>
+
+      <section>
+        <h3>一眼看懂</h3>
+        <div class="card-grid">
+          <div class="chapter-card">
+            <strong>结论 1</strong>
+            <p class="small">很多人不是“没行动力”，而是过去反复设目标、反复失败、反复自责，导致掌控感越来越弱。</p>
+          </div>
+          <div class="chapter-card">
+            <strong>结论 2</strong>
+            <p class="small">真正的起点不是马上变好，而是先停止继续伤害自己。</p>
+          </div>
+          <div class="chapter-card">
+            <strong>结论 3</strong>
+            <p class="small">“先不要改变”不是拖延，而是用一个几乎必然完成的任务，把最小可信感找回来。</p>
+          </div>
+          <div class="chapter-card">
+            <strong>结论 4</strong>
+            <p class="small">理解自己不是改变前的附属步骤，而是改变的一部分。</p>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>本章解决什么问题</h3>
+        <ul>
+          <li>我明明知道很多道理，为什么就是起不来？</li>
+          <li>我是不是太懒、太没用、太没自制力？</li>
+          <li>为什么别人越劝我改变，我越想躲？</li>
+          <li>为什么我对“马上开始”这句话本能反感？</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>底层原理讲透</h3>
+        <p>课程一开始就把对象重新定义了：真正来学这套内容的人，往往不是纯粹不想做事的人，而是那些心里一直有想做的事，却长期卡在起步环节的人。也就是说，问题不在“想不想”，而在“能不能带着足够安全感走出第一步”。</p>
+        <p>过去反复失败以后，人最容易留下来的不是经验，而是结论：“我是不是很差”“是不是只有我做不到”“我这种人不行”。这类结论会慢慢侵蚀行动系统。久而久之，你不是不会做，而是不再相信自己做得成。</p>
+        <p>所以课程第一步故意不让你立刻冲刺，而是让你先保持原状。这个安排反直觉，但非常关键。它不是放任，而是要切断“越想变好越自责，越自责越动不了”的恶性循环。你先别继续拿鞭子抽自己，这本身就是系统修复的一部分。</p>
+        <p>更进一步，课程甚至允许你暂时把问题“变严重一点”。重点不在方向对不对，而在验证一件事：你是否仍然能影响自己的状态。只要你还能让自己更晚睡一点、更沉迷一点，就说明“影响能力”还在，只是还没有被稳稳地转向更有益的方向。</p>
+        <p>这背后的总原则是：真正支持改变的，不是高压，不是羞耻，不是持续批判，而是内在安全、放松、稳定。只有在不再继续自我攻击的状态里，人才可能产生真实观察、真实理解和后续资源。</p>
+      </section>
+
+      <section>
+        <h3>识别信号</h3>
+        <div class="card-grid">
+          <div class="fact-card rose chapter-card">
+            <strong>你可能正卡在这里</strong>
+            <ul>
+              <li>别人一提“你就做一下”，你心里立刻烦。</li>
+              <li>你不是没想法，而是一想到开始就感觉自己会失败。</li>
+              <li>你最常说的话不是“我不想做”，而是“我做不到”。</li>
+              <li>你会把拖延自动翻译成“我这个人不行”。</li>
+            </ul>
+          </div>
+          <div class="fact-card green chapter-card">
+            <strong>你真正缺的不是狠劲</strong>
+            <ul>
+              <li>缺的是一个不继续伤害自己的起点。</li>
+              <li>缺的是把“动不了”重新解释为可观察状态，而不是道德失败。</li>
+              <li>缺的是最小掌控感，而不是更大的口号。</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section>
+        <h3>常见误区</h3>
+        <ol>
+          <li><strong>误区：先骂自己，行动才会出来。</strong> 实际上，自我否定更容易把人冻住。</li>
+          <li><strong>误区：先证明自己有用，才配被理解。</strong> 课程恰好反过来，先理解，行动才有机会。</li>
+          <li><strong>误区：先变好，再允许自己轻松一点。</strong> 真相是：很多人恰恰因为从未放松，才越来越难改变。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>正确做法：分步骤执行</h3>
+        <ol>
+          <li><strong>停掉鞭子：</strong> 先暂停“我必须立刻好起来”的命令。</li>
+          <li><strong>承认现状：</strong> 把“我现在动不起来”当作事实，不立刻给它附上人格评价。</li>
+          <li><strong>找回最小影响力：</strong> 观察自己还能怎样影响状态，哪怕暂时方向并不漂亮。</li>
+          <li><strong>开始自我觉察：</strong> 记录自己何时最想逃、何时最想躲、脑子里在说什么。</li>
+          <li><strong>借外部眼光补充认识：</strong> 让别人看见你，也让别人对你的理解补充你自己的盲区。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>案例拆解</h3>
+        <p><strong>案例：</strong> 一个人总在晚上刷手机到很晚，然后第二天骂自己没救了。常规思路是“你赶紧自律一点”。课程的思路不是先催他十点睡，而是先让他不要再继续用“没救了”来定义自己。因为当一个人已经被羞耻感吞掉时，再加码只会加深冻结。</p>
+        <p>接着才进入观察：刷手机满足了什么？是放松、逃离、熟悉感、麻木感、还是唯一不被要求的时间？只要这个问题被看见，后面的改变才不会变成简单粗暴地“把手机拿走”。</p>
+      </section>
+
+      <section>
+        <h3>练习清单</h3>
+        <ul>
+          <li>今天先不要求自己变好，只要求自己少说一句自我攻击。</li>
+          <li>写下：我最近最常用哪三句话否定自己？</li>
+          <li>写下：当我动不起来时，我最真实的体验是什么？</li>
+          <li>找一个人描述自己现在的状态，不争辩，只收集外部观察。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>复盘问题</h3>
+        <ul>
+          <li>我目前最常把哪种状态误判成“懒”？</li>
+          <li>我的自责在过去到底让我更能行动，还是更难行动？</li>
+          <li>如果我今天先不追求变好，最小的修复动作是什么？</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>本章与其他章节的关系</h3>
+        <p>这是全书起点。没有这一章，后面的目标、路标、实验、节奏都会重新滑回“更高要求版的自责”。</p>
+      </section>
+
+      <section>
+        <h3>Day 对照索引</h3>
+        <p class="small">主要吸收：Day1。</p>
+      </section>
+      <div class="footer-nav">
+        <a class="footer-link" href="#toc">返回目录</a>
+        <a class="footer-link" href="#chapter-2">下一章</a>
+      </div>
+    </article>
+
+    <article class="chapter" id="chapter-2">
+      <div class="eyebrow">第二章</div>
+      <h2>目标系统：目标要存在，但不能再拿来审判自己</h2>
+      <p class="muted">对应课程重点：Day2、Day3。</p>
+
+      <section>
+        <h3>一眼看懂</h3>
+        <div class="card-grid">
+          <div class="chapter-card"><strong>目标的双重性</strong><p class="small">目标能给方向，也能变成法官。</p></div>
+          <div class="chapter-card"><strong>第一任务</strong><p class="small">先把目标从 KPI 改回方向工具。</p></div>
+          <div class="chapter-card"><strong>好目标三要素</strong><p class="small">肯定、具象、内控。</p></div>
+          <div class="chapter-card"><strong>真正的操作要点</strong><p class="small">可以有愿景，但不要把愿景写成审判书。</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h3>本章解决什么问题</h3>
+        <ul>
+          <li>为什么我一想到目标就烦？</li>
+          <li>为什么我明明想变好，却总被目标压垮？</li>
+          <li>为什么目标写了很多，却越来越像失败提醒器？</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>底层原理讲透</h3>
+        <p>课程没有否定目标，而是重建目标观。多数人的痛苦不在“有没有目标”，而在目标早就被升级成了价值裁判：没做到就说明自己不配、现在很差、还不够好。于是目标不再只是方向，而成了持续审判。</p>
+        <p>目标有双重性。它本来能给出方向、希望和启动动力；但一旦过度执着，它就会把人的注意力从“我要去哪”转成“我现在怎么这么差”。越重视目标，越容易在行动前就先低落。</p>
+        <p>更深一层的问题是，很多人不仅怕做不到，也怕真的做到。因为他们不相信内在那位严厉的老板会因此满意，反而担心一旦做成，下一个更高标准会立刻冒出来。于是目标完成也不等于解脱，而像新一轮自我压迫的开始。</p>
+        <p>因此，课程第一步不是教你如何攻克目标，而是先给目标降权：它可以是可能性的展示、是 21 天后的愿景、是一个白日梦式的方向，但不能变成你活得有没有资格的证据。</p>
+        <p>等目标从审判工具退回到方向工具后，才进入目标结构化。结构化的标准很现实：肯定、具象、内控。肯定，是用正向指向去替代“不想要”；具象，是让摄影机都能看出来你是否做到了；内控，是把目标限定在你自己负责的那一部分。</p>
+      </section>
+
+      <section>
+        <h3>识别信号</h3>
+        <ul>
+          <li>你一想到目标，脑子里先跳出来的是“我又做不到”。</li>
+          <li>你的目标常写成“不再”“不要”“别再这样了”。</li>
+          <li>你的目标听起来很宏大，但没有明确完成标准。</li>
+          <li>你的目标严重依赖别人配合、认可或喜欢你。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>常见误区</h3>
+        <ol>
+          <li><strong>误区：目标越狠越好。</strong> 实际上，越像军令状，越容易激活自责系统。</li>
+          <li><strong>误区：抽象理想比具体动作更高级。</strong> 恰恰相反，太抽象会导致永远无法判定是否做到。</li>
+          <li><strong>误区：只要我足够想，就能控制他人反馈。</strong> 外控目标会持续制造失控感。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>正确做法：分步骤执行</h3>
+        <ol>
+          <li><strong>先写愿景，不写军令状：</strong> 描述“最好可能发生什么”，而不是“我必须做到什么”。</li>
+          <li><strong>把否定句改成肯定句：</strong> 从“不要晚睡”改成“十一点前上床”。</li>
+          <li><strong>用摄影机标准具象化：</strong> 问自己：如果被录下来，别人能否看出是否做到？</li>
+          <li><strong>做内控抽取：</strong> 从复杂情境里抽出你真正能负责的动作。</li>
+          <li><strong>保留方向，降低审判：</strong> 目标存在，但不拿它评价你整个人。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>案例拆解</h3>
+        <p><strong>坏目标：</strong> 我要变成一个幸福的人。<br /><strong>问题：</strong> 抽象、不可检验、随时变标准。</p>
+        <p><strong>修正：</strong> 本周至少有 3 天，在 23:00 前上床；每天 30 分钟不带产出要求地散步；周五前给一个重要朋友发出一次主动联系。这样做并不是把幸福缩小，而是先让幸福有了进入现实的接口。</p>
+      </section>
+
+      <section>
+        <h3>练习清单</h3>
+        <ul>
+          <li>写出你当前最重要的 1 个目标。</li>
+          <li>把其中所有“不、别、不要”改成正向表达。</li>
+          <li>用摄影机标准重写一遍。</li>
+          <li>把依赖别人配合的部分删掉，改成你自己能负责的动作。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>复盘问题</h3>
+        <ul>
+          <li>我是在拿目标当方向，还是当鞭子？</li>
+          <li>我的目标里哪一部分其实是别人负责的，不该由我背？</li>
+          <li>如果我允许自己先不完美，我的目标会如何改写？</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Day 对照索引</h3>
+        <p class="small">主要吸收：Day2、Day3。</p>
+      </section>
+      <div class="footer-nav">
+        <a class="footer-link" href="#chapter-1">上一章</a>
+        <a class="footer-link" href="#chapter-3">下一章</a>
+        <a class="footer-link" href="#toc">返回目录</a>
+      </div>
+    </article>
+
+    <article class="chapter" id="chapter-3">
+      <div class="eyebrow">第三章</div>
+      <h2>阻力系统：为什么目标一清楚，焦虑反而更重</h2>
+      <p class="muted">对应课程重点：Day4。</p>
+
+      <section>
+        <h3>一眼看懂</h3>
+        <div class="summary-grid">
+          <div class="mini-card"><strong>目标清楚</strong><p class="small">不只增加推动力，也会增加风险感。</p></div>
+          <div class="mini-card"><strong>焦虑来源</strong><p class="small">结果不确定、人际反馈不确定、意义太大、成功也可能落空。</p></div>
+          <div class="mini-card"><strong>课程立场</strong><p class="small">不是消灭焦虑，而是减少对焦虑的二次批判。</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h3>底层原理讲透</h3>
+        <p>很多人以为，只要目标足够具体，行动就会自动开始。课程要纠正的，恰恰是这个误解。目标越清楚，越贴近现实动作，人越无法继续躲在抽象幻想里，必须直面“做了之后会怎样”的不确定性。</p>
+        <p>第一层焦虑来自结果。动作本身可能不难，难的是你无法保证结果满意。第二层焦虑来自人际与环境。多数行动都不是在真空里完成的，而要面对别人的反馈、误解、拒绝或失望。第三层焦虑来自意义负担。某些目标一旦被赋予“决定人生”的重量，行动就会像走上审判台。第四层焦虑更隐蔽：有的人怕的不是失败，而是成功后也不过如此，根本回答不了“我是谁、我值不值得”这些更深的问题。</p>
+        <p>因此，课程不是把焦虑视为缺陷，而是视为正常机制。焦虑本来就是面对不确定时的警觉系统。真正让人更难受的，不只是焦虑本身，而是紧接着对焦虑的判词：我怎么又这样、我怎么这么没用。</p>
+        <p>这也是为什么课程用“转移”而不是“逃避”来描述很多行为。你去刷手机、发呆、打游戏，未必只是烂，而可能是在面对高压不确定时，自然地转向更熟悉、更稳定的内容。先理解这个功能，后面才谈得上改变它。</p>
+      </section>
+
+      <section>
+        <h3>识别信号</h3>
+        <ul>
+          <li>目标一明确，你立刻开始想最坏结果。</li>
+          <li>越是重要的事，越到最后一步越卡。</li>
+          <li>你不是不懂该做什么，而是脑中开始疯狂预演失败、误解、丢脸和空虚。</li>
+          <li>你会转去做一些更轻松、更熟悉的事，然后再骂自己没出息。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>常见误区</h3>
+        <ol>
+          <li><strong>误区：有焦虑说明我不够坚定。</strong> 其实更多是在说明你看见了不确定性。</li>
+          <li><strong>误区：要先把焦虑消灭掉才能开始。</strong> 实际上是先理解焦虑，才能带着它开始。</li>
+          <li><strong>误区：转移注意力说明我本性差。</strong> 很多转移先是保护，再谈代价。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>正确做法：分步骤执行</h3>
+        <ol>
+          <li>承认焦虑是正常反应，而不是品格缺陷。</li>
+          <li>区分你怕的是动作本身，还是动作之后的结果、人际和意义。</li>
+          <li>把脑中的隐性问题说出来：我到底在怕什么？</li>
+          <li>减少对焦虑的二次批判，不再因为紧张而额外羞耻。</li>
+          <li>把目标拆小，降低“这一做就决定一切”的重量。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>一句提醒</h3>
+        <div class="quote-card">
+          <strong>反直觉原则</strong>
+          <p>改变不是先消灭焦虑，而是先停止因为焦虑而继续羞辱自己。</p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Day 对照索引</h3>
+        <p class="small">主要吸收：Day4。</p>
+      </section>
+      <div class="footer-nav">
+        <a class="footer-link" href="#chapter-2">上一章</a>
+        <a class="footer-link" href="#chapter-4">下一章</a>
+        <a class="footer-link" href="#toc">返回目录</a>
+      </div>
+    </article>
+
+    <article class="chapter" id="chapter-4">
+      <div class="eyebrow">第四章</div>
+      <h2>启动系统：不要扑向终点，先拿回第一步控制权</h2>
+      <p class="muted">对应课程重点：Day5。</p>
+
+      <section>
+        <h3>一眼看懂</h3>
+        <ul>
+          <li>大目标让人瘫住，往往不是因为它不重要，而是因为中间不确定性太大。</li>
+          <li>“路标”不是缩小梦想，而是只提取出眼前那一段你能控制的确定性。</li>
+          <li>一个好路标必须肯定、具象、内控，而且放在两周内。</li>
+          <li>设好路标后先别急着冲，给自己两天缓冲，防止旧式兴奋和高位摔落重演。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>底层原理讲透</h3>
+        <p>当目标太大、太远、太重要时，人真正怕的并不只是目标本身，而是“从这里到那里”之间塞满了不可预测因素。路标法的意义，是先别处理整条路，只处理眼前这一小段确定性。你不是没能力走到终点，而是一次性背不动整条路。</p>
+        <p>课程用航海比喻讲得很清楚：海上不是一张图就能跑到底，你只能先找一个近处的小岛补给、校准方向，再决定下一段。路标的价值就在这里：把巨大不确定，切成一个小而可达的确定动作。</p>
+        <p>但课程同时提醒一个很现实的心理阻力：人往往不愿意承认自己的第一步只能这么小。因为越小，越容易让人感到终点还很远，自尊心会说“这算什么”。于是许多人不是不会拆步骤，而是不愿意接受“我现在只能从这么小的地方开始”这个现实。</p>
+        <p>所以路标法既是行动工具，也是情绪训练。你要一边承认沮丧正常，一边不让沮丧决定自己是否出发。更进一步，设好路标后还要先停两天，就是为了防止你又被“终于清楚了，我现在要狠狠干一把”的兴奋感拖回旧轨道。</p>
+      </section>
+
+      <section>
+        <h3>正确做法：分步骤执行</h3>
+        <ol>
+          <li>先写出远目标，但不直接扑向它。</li>
+          <li>问自己：在未来两周内，最小、最具体、最内控的一步是什么？</li>
+          <li>把这一步写成肯定句和可观察动作。</li>
+          <li>允许自己对这一步很不满意，但不要因此取消它。</li>
+          <li>设定好后先缓两天，不立刻膨胀，不立刻加码。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>案例拆解</h3>
+        <p><strong>大目标：</strong> 改善与家人的关系。<br /><strong>错误启动：</strong> 这周我要和家人完成一次深入灵魂的对话。<br /><strong>路标版本：</strong> 本周约一次十分钟的友善日常聊天，不讨论旧账，只维持连接。</p>
+        <p>看起来不“燃”，但这恰恰是可进入的入口。改变不是先表现出伟大，而是先让系统能动起来。</p>
+      </section>
+
+      <section>
+        <h3>练习清单</h3>
+        <ul>
+          <li>写出你当前一个最重要的大目标。</li>
+          <li>把它缩成未来两周内的一个动作。</li>
+          <li>确认这一步是否肯定、具象、内控。</li>
+          <li>写下自己对“这么小也叫开始吗”的真实抵触。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Day 对照索引</h3>
+        <p class="small">主要吸收：Day5。</p>
+      </section>
+      <div class="footer-nav">
+        <a class="footer-link" href="#chapter-3">上一章</a>
+        <a class="footer-link" href="#chapter-5">下一章</a>
+        <a class="footer-link" href="#toc">返回目录</a>
+      </div>
+    </article>
+
+    <article class="chapter" id="chapter-5">
+      <div class="eyebrow">第五章</div>
+      <h2>主体性系统：从抱怨到自我负责，重新看见自己还能选什么</h2>
+      <p class="muted">对应课程重点：Day8。</p>
+
+      <section>
+        <h3>一眼看懂</h3>
+        <div class="summary-grid">
+          <div class="mini-card"><strong>现实不是纯内控</strong><p class="small">人生大部分问题是内外共同决定的混合型问题。</p></div>
+          <div class="mini-card"><strong>抱怨有功能</strong><p class="small">它能暂时减轻责任和压力，提供安全感。</p></div>
+          <div class="mini-card"><strong>代价也很高</strong><p class="small">长期外控会让人生越来越像“只能靠运气”。</p></div>
+          <div class="mini-card"><strong>训练目标</strong><p class="small">不是假装全能，而是在限制里恢复选择意识。</p></div>
+        </div>
+      </section>
+
+      <section>
+        <h3>底层原理讲透</h3>
+        <p>课程处理的不是教你把一切都揽到自己头上，而是要纠正一种常见解释习惯：只要事情不顺，我就默认它全是环境、他人、命运在决定。问题不在事实是否完全错误，而在这种解释会压缩你对后续动作的想象空间。</p>
+        <p>人生大多数难题都不是纯内控或纯外控。关系、工作、成长、成就，几乎都是内外因素共同作用的混合型问题。真正重要的，不是争论“到底谁占 100%”，而是你在叙事时把重心放在哪：你更习惯看见自己的影响力，还是更习惯强调外部主导。</p>
+        <p>抱怨为什么难放下？因为它有心理收益。把问题理解成别人造成的、环境造成的，你会暂时轻松一点，不必立刻承担责任，也更容易获得安慰和同情。可长期代价是，你会越来越难把自己当成能够调整、试探、退出、重选的人。</p>
+        <p>课程给出的核心句式是：“这个事实我改变不了，但是我可以选择……” 重点不是改变事实，而是改写叙事重心。哪怕你选择暂时不改变，只要你承认“这是我正在做的选择”，主体性也已经在恢复。</p>
+      </section>
+
+      <section>
+        <h3>常见误区</h3>
+        <ol>
+          <li><strong>误区：自我负责就是把一切都怪到自己头上。</strong> 课程不是要你自责，而是要你看见可选项。</li>
+          <li><strong>误区：抱怨只说明我消极。</strong> 抱怨先是保护，再谈代价。</li>
+          <li><strong>误区：我必须立刻做出正确选择。</strong> 先恢复“我还能选”，比先选对更重要。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>正确做法：内控表达模板</h3>
+        <ol>
+          <li>先承认一个你当前无法改变的事实。</li>
+          <li>接一句：“但是我可以选择……”</li>
+          <li>把所有选项都列出来，不要求它们立刻高尚、积极、完美。</li>
+          <li>从这些选项里挑一个当前最现实、最可承受的。</li>
+          <li>在后续复盘里，看见是“我在选”，而不是“世界把我推到这里”。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>案例拆解</h3>
+        <p><strong>外控说法：</strong> 我运气不好，总遇到糟糕的人。<br /><strong>内控改写：</strong> 我确实遇到了糟糕的人，但我可以选择沟通、设置边界、退出关系、重新选择下一段关系。</p>
+        <p>现实并没有被粉饰，但你的身份从“纯承受者”变回了“仍有选择权的人”。</p>
+      </section>
+
+      <section>
+        <h3>Day 对照索引</h3>
+        <p class="small">主要吸收：Day8。</p>
+      </section>
+      <div class="footer-nav">
+        <a class="footer-link" href="#chapter-4">上一章</a>
+        <a class="footer-link" href="#chapter-6">下一章</a>
+        <a class="footer-link" href="#toc">返回目录</a>
+      </div>
+    </article>
+
+    <article class="chapter" id="chapter-6">
+      <div class="eyebrow">第六章</div>
+      <h2>实验与证据系统：把改变当实验，把做到一次当证据</h2>
+      <p class="muted">对应课程重点：Day9、Day15。</p>
+
+      <section>
+        <h3>一眼看懂</h3>
+        <ul>
+          <li>改变不是重大宣誓，而是低风险实验。</li>
+          <li>实验的第一价值不是立刻变好，而是收集关于自己的真实数据。</li>
+          <li>很多人的障碍不是没做，而是做了也拒绝承认。</li>
+          <li>“做到一次”不是终点，而是打破“我绝对做不到”的反证。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>底层原理讲透</h3>
+        <p>课程到了中段，开始允许你动，但依然拒绝“从今天起我要换个人生”的戏剧化叙事。实验者心态的核心，就是把即将发生的动作看成一次小实验，而不是一场决定命运的大战。实验的目的不是立刻产生成果，而是帮你观察真实反应。</p>
+        <p>这时关注点会从“我推进了多少成果”变成“这件事在我身上引发了什么”。你做十分钟，也可以收获大量数据：我是在兴奋、抵触、害怕、内心攻击、想放弃，还是其实比想象中轻松？这些都是真实资料。</p>
+        <p>接着课程又处理了另一个大坑：很多人其实已经做成了一点，但他们不认。因为固定自我信念太稳了，“我这种人做不到”已经成了身份叙事。于是即便做到了，也会立刻被解释成巧合、侥幸、不算数。</p>
+        <p>课程的干预很克制，不要求你立刻宣布自己彻底改变，只要求你承认一个事实：在某些条件下，我确实做到了。只要这件事被承认，“我绝对做不到”这句老话就失效了。改变就从“证明我是谁”转向“观察在什么条件下我能做到”。</p>
+      </section>
+
+      <section>
+        <h3>正确做法：分步骤执行</h3>
+        <ol>
+          <li>把动作设计得足够小、足够安全、随时可停。</li>
+          <li>开始前不问“这能不能改变人生”，先问“这能不能让我多了解自己一点”。</li>
+          <li>做的过程中记录情绪、身体、念头、自我批判和真实体验。</li>
+          <li>完成后先承认事实：我做到了。</li>
+          <li>再追问 how：我是在什么条件下做到的？可以复制哪些条件？</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>社群强化法</h3>
+        <p>少问 why not，多问 how。不要急着追问“那你以后都能做到吗”，而是先问“你这一次是怎么做到的”。这种提问会把成功经验从偶然事件转成可分析、可再用的经验。</p>
+      </section>
+
+      <section>
+        <h3>练习清单</h3>
+        <ul>
+          <li>本周安排一次 10 到 15 分钟的小实验。</li>
+          <li>做前写下预期，做后写下真实体验。</li>
+          <li>找出一次你最近“勉强做到”的小事，禁止自己说“不算”。</li>
+          <li>补写一句：在某些条件下，我是可以做到的。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Day 对照索引</h3>
+        <p class="small">主要吸收：Day9、Day15。</p>
+      </section>
+      <div class="footer-nav">
+        <a class="footer-link" href="#chapter-5">上一章</a>
+        <a class="footer-link" href="#chapter-7">下一章</a>
+        <a class="footer-link" href="#toc">返回目录</a>
+      </div>
+    </article>
+
+    <article class="chapter" id="chapter-7">
+      <div class="eyebrow">第七章</div>
+      <h2>动力与乐趣系统：乐趣不是奖励，而是改变前的基础设施</h2>
+      <p class="muted">对应课程重点：Day10。</p>
+
+      <section>
+        <h3>一眼看懂</h3>
+        <ul>
+          <li>很多人不是没有想做的事，而是价值审查系统太早启动，真实欲望在出口前就被筛掉了。</li>
+          <li>乐趣不是高尚项目，而是撤掉要求之后，你自发愿意把时间放进去的事。</li>
+          <li>安全感一低，人就会回旧模式；自由感一升，新尝试才更可能发生。</li>
+          <li>“白送给自己的 1 小时”和“乐趣清单”不是奖励，而是恢复安全感的工具。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>底层原理讲透</h3>
+        <p>课程讨论“你想做的事”时，故意绕开了意义、成长、价值这些词。因为许多人一说“我想做……”，脑中就立刻出现审查官：这有用吗？高级吗？能证明你吗？于是很多真实想法在还没说出口时就被自己否了。</p>
+        <p>所以课程用更有效的问题来绕开审查：如果今天什么都不必证明，什么都不必完成，你自然会把时间花在哪？可能只是睡觉、发呆、散步、吃喜欢的东西、看一点无用但舒服的内容。重点不在它是否伟大，而在你是否自发愿意接近。</p>
+        <p>这背后跟安全感直接相关。只要你觉得时间必须高效、必须成长、必须产出，神经系统就会把环境理解成带有威胁，于是优先调用熟悉旧模式。很多看似“不上进”的行为，其实正在承担恢复安全感的功能。</p>
+        <p>也正因此，乐趣不是成长的敌人。恰恰相反，它是让神经系统从威胁模式切回安全模式的方式。安全一旦回来，人反而更愿意尝试新东西。所谓“白送给自己的 1 小时”，本质是在日常里人为造出一段不被考核的时间，让你重新感受到“此刻不必证明，我也可以存在”。</p>
+      </section>
+
+      <section>
+        <h3>常见误区</h3>
+        <ol>
+          <li><strong>误区：放松必须顺便成长。</strong> 这往往只是换一种方式继续压自己。</li>
+          <li><strong>误区：无所求就是浪费。</strong> 对长期紧绷的人来说，无所求恰恰是恢复空间。</li>
+          <li><strong>误区：乐趣要高雅才算数。</strong> 课程强调的是“真实”，不是“体面”。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>练习清单</h3>
+        <ul>
+          <li>列出你的乐趣清单，不要求高级、不要求有产出。</li>
+          <li>每天给自己白送 1 小时，不附加任何成长任务。</li>
+          <li>观察：我最容易在哪些时候把乐趣重新绩效化？</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Day 对照索引</h3>
+        <p class="small">主要吸收：Day10。</p>
+      </section>
+      <div class="footer-nav">
+        <a class="footer-link" href="#chapter-6">上一章</a>
+        <a class="footer-link" href="#chapter-8">下一章</a>
+        <a class="footer-link" href="#toc">返回目录</a>
+      </div>
+    </article>
+
+    <article class="chapter" id="chapter-8">
+      <div class="eyebrow">第八章</div>
+      <h2>责任与边界系统：既不只顾自己，也不处处迎合</h2>
+      <p class="muted">对应课程重点：Day11。</p>
+
+      <section>
+        <h3>一眼看懂</h3>
+        <ul>
+          <li>乐趣不能脱离关系而存在，责任也不能脱离自我而存在。</li>
+          <li>成熟不是在“只顾自己”和“全面讨好”之间二选一，而是学会平衡。</li>
+          <li>三条核心原则：职责有多种完成方式；不是所有人都必须满足；你负责行动，不负责评价结果。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>底层原理讲透</h3>
+        <p>这套课不是鼓励你只为自己的舒服而活。人活在家庭、团队、社会关系里，乐趣一定会跟责任发生碰撞。真正的问题不是“要不要负责”，而是“如何不在负责时把自己弄丢”。</p>
+        <p>课程首先纠正一个两极误解：很多人以为，如果这件事是职责，就只能按最消耗自己的方式去做；否则就是不负责。其实职责和固定做法不是一回事。你要承担责任，但完全可以设计、协商、个体化调整做法。</p>
+        <p>第二个关键点是边界。并不是所有人的期待都自动等于你的义务。关系有远近，责任有层级，资源有限。真正成熟的责任感不是对所有人平均讨好，而是有优先级地回应重要关系。</p>
+        <p>第三个关键点是把“尽责”和“让对方满意”拆开。你可以负责地去做你认为该做的事，但不能再把“让所有人都满意”视为第二层必须完成的任务。否则责任会无限膨胀，最后只剩下耗尽。</p>
+      </section>
+
+      <section>
+        <h3>正确做法：三条操作原则</h3>
+        <ol>
+          <li><strong>职责有多种完成方式：</strong> 承认职责存在，但允许自己设计更适合自身节奏的完成路径。</li>
+          <li><strong>不是所有人都必须满足：</strong> 按关系重要性和真实责任范围做优先级排序。</li>
+          <li><strong>你负责行动，不负责评价：</strong> 把重心放在“我是否做了我认为对的事”，而不是“他们是否都满意”。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>案例拆解</h3>
+        <p><strong>场景：</strong> 你是内向的人，同事总希望你频繁参与聚餐。<br /><strong>旧模式：</strong> 要么强迫自己每次都参加，回家后被耗空；要么彻底不去，然后背负内疚。<br /><strong>课程式做法：</strong> 承认团队连接是职责的一部分，但改用更适合自己的方式完成，比如清晰表达感谢、偶尔参加关键场合、平时用更轻量方式维持连接。</p>
+      </section>
+
+      <section>
+        <h3>练习清单</h3>
+        <ul>
+          <li>列一份责任清单：我对谁、在什么角色里，确实有职责。</li>
+          <li>列一份期待清单：别人希望我做，但未必构成我义务的部分。</li>
+          <li>给责任清单做优先级排序。</li>
+          <li>针对一项高负担职责，设计至少两种更适合自己的完成方式。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Day 对照索引</h3>
+        <p class="small">主要吸收：Day11。</p>
+      </section>
+      <div class="footer-nav">
+        <a class="footer-link" href="#chapter-7">上一章</a>
+        <a class="footer-link" href="#chapter-9">下一章</a>
+        <a class="footer-link" href="#toc">返回目录</a>
+      </div>
+    </article>
+
+    <article class="chapter" id="chapter-9">
+      <div class="eyebrow">第九章</div>
+      <h2>节奏系统：间隔、切换、停顿，都是训练的一部分</h2>
+      <p class="muted">对应课程重点：Day12。</p>
+
+      <section>
+        <h3>一眼看懂</h3>
+        <ul>
+          <li>停顿不是课程中断，而是课程的一部分。</li>
+          <li>人的专注天然会经历启动、沉浸、衰减、切换。</li>
+          <li>切换不是失败，而是策略；好节奏没有统一标准。</li>
+          <li>最好的节奏不是道理推出来的，而是实验出来的。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>底层原理讲透</h3>
+        <p>课程特意安排间隔，是为了教你重新理解节奏。生活不是一根线把一件事从头拉到尾，而是不断在不同任务、不同状态之间切换。既然切换是常态，停顿就不是多余，而是大脑更新刺激、恢复效能、重新组织状态的必要阶段。</p>
+        <p>很多人误以为自己在玩游戏时能连续很久，所以工作做不到，只是因为工作不够有趣。课程指出，即便是游戏，真正高质量沉浸也不会无限持续。很多人后来继续玩，只是因为不想退出那个世界、重新面对现实和自责。也就是说，“持续很久”未必等于“持续投入”。</p>
+        <p>因此，节奏问题不该再用道德语言解释。有人适合 8 分钟一轮、频繁切换；有人适合长时间沉浸。好节奏不是别人的节奏，而是能让你既保有新鲜感、又保有产出的那种节律组合。</p>
+        <p>课程还给出一个重要技巧：即便正在兴头上，也可以到点就停。这样做不是剥夺快乐，而是在心里保留“未完成张力”，让你下一次更容易重新进入。它训练的是一种长期返回能力，而不是一次燃尽。</p>
+      </section>
+
+      <section>
+        <h3>正确做法：节奏实验</h3>
+        <ol>
+          <li>选一件你想练的事，设一个清晰的起止时间。</li>
+          <li>时间不要太长，可以从 10 分钟、20 分钟、30 分钟试起。</li>
+          <li>闹铃响时开始，闹铃响时结束，即便正有感觉也先停。</li>
+          <li>记录：哪种时长最舒服、最能持续、最有返回欲望。</li>
+          <li>别套标准答案，用实验找你自己的节律。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>一句提醒</h3>
+        <div class="quote-card">
+          <strong>反直觉原则</strong>
+          <p>间隔不是懈怠，切换不是不专注，停在兴头上也不是浪费，而是为长期可持续服务。</p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Day 对照索引</h3>
+        <p class="small">主要吸收：Day12。</p>
+      </section>
+      <div class="footer-nav">
+        <a class="footer-link" href="#chapter-8">上一章</a>
+        <a class="footer-link" href="#chapter-10">下一章</a>
+        <a class="footer-link" href="#toc">返回目录</a>
+      </div>
+    </article>
+
+    <article class="chapter" id="chapter-10">
+      <div class="eyebrow">第十章</div>
+      <h2>资源与重组系统：别推倒自己，重组自己</h2>
+      <p class="muted">对应课程重点：Day17、Day18。</p>
+
+      <section>
+        <h3>一眼看懂</h3>
+        <ul>
+          <li>改变不是先否定自己，再去拼一个新的人设。</li>
+          <li>资源不只包括优势，也包括问题、缺点、限制、病史、经历和旧模式。</li>
+          <li>最小化改变不是降低追求，而是让改变终于能落地。</li>
+          <li>旧毛线不是废料，新毛衣正是由它重新编织出来的。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>底层原理讲透</h3>
+        <p>课程后段把“接纳自己”继续往前推了一步：不只是接纳，而且要学会把自己当资源。很多人想到自己，先想到的是缺点、创伤、疾病、麻烦和改不掉的东西，于是默认改变要先把这些部分清空。但现实不是这样运作的。</p>
+        <p>资源的定义不是“好东西”，而是“可被利用的条件”。只要某个事实在特定目标下能提供作用，它就可以是资源。疾病可能逼你停下来重排生活，跨行业经历可能带来新视角，异地可能带来别的关系没有的浪漫结构。改变的关键不是否认问题，而是重做用途解释。</p>
+        <p>再往下，课程提出“最小化改变”的总模型。你不需要先扔掉旧毛线，才能拥有新毛衣；你只是把旧材料拆开，换一种织法。绝大部分结构可以不变，只在关键场景里多加一个小动作，就可能带来巨大功能差异。</p>
+        <p>课程给了许多实战例子：发火的父母不用先变圣人，只需在发火后补一个修复动作；拖延的人不用先变高效机器，只要在原生活里插入 10 分钟更符合目标的动作；作息问题不必先从完美早睡开始，而可以先想办法减少凌晨自责。判断标准不是体面，而是有效。</p>
+      </section>
+
+      <section>
+        <h3>正确做法：最小化改变五步法</h3>
+        <ol>
+          <li>先承认原材料：现在的你就是这些特点、限制和旧模式的组合。</li>
+          <li>不要问“怎么彻底换人”，先问“哪一点最关键”。</li>
+          <li>围绕那个关键节点设计一个极小动作。</li>
+          <li>允许这个动作看起来不标准、不漂亮，但必须真实有效。</li>
+          <li>观察它是否让现实功能变好了，而不是只看它是否宏伟。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>案例拆解</h3>
+        <p><strong>亲子场景：</strong> 你暂时做不到从不发火，那就先增加一个修复动作，比如吵完后主动倒杯水、道歉、留下连接信号。<br /><strong>学习场景：</strong> 你暂时做不到每天高效 3 小时，那就先保留原生活，只额外插入 10 到 30 分钟稳定学习。</p>
+        <p>这类动作看起来小，却往往是系统真正开始变形的地方。</p>
+      </section>
+
+      <section>
+        <h3>社群升级练习</h3>
+        <ul>
+          <li>拿出一个你最讨厌的特点，问：如果短期内改不了，它还能怎样被使用？</li>
+          <li>拿出一个你最想解决的难题，问：最小化改变方案是什么？</li>
+          <li>如果自己想不出，就把这团“旧毛线”拿给别人一起编方案。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>Day 对照索引</h3>
+        <p class="small">主要吸收：Day17、Day18。</p>
+      </section>
+      <div class="footer-nav">
+        <a class="footer-link" href="#chapter-9">上一章</a>
+        <a class="footer-link" href="#chapter-11">下一章</a>
+        <a class="footer-link" href="#toc">返回目录</a>
+      </div>
+    </article>
+
+    <article class="chapter" id="chapter-11">
+      <div class="eyebrow">第十一章</div>
+      <h2>身份连续性系统：改变里也要保留一点不变</h2>
+      <p class="muted">对应课程重点：Day16、Day19。</p>
+
+      <section>
+        <h3>一眼看懂</h3>
+        <ul>
+          <li>当你真的开始变了，不舒服不一定说明变错了，也可能是身份叙事正在松动。</li>
+          <li>旧模式未必是错，只是在旧环境里曾经有效。</li>
+          <li>改变太快也可能出问题，因为人需要靠某些不变元素维持安全感。</li>
+          <li>真正可持续的改变，不是抛弃旧我，而是带着旧我往前走。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>底层原理讲透</h3>
+        <p>课程后段专门处理一个经常被忽视的问题：当你真的做到过去以为做不到的事时，你可能反而会不舒服。因为改变触碰到的，不只是动作，而是“我是谁”这套稳定叙事。人会本能依赖熟悉的自我描述，因为熟悉就意味着安全。</p>
+        <p>所以课程要先修复一个错误理解：旧模式不是道德失败，而是在旧环境里曾经有效的答案。父亲对孩子的命令式沟通、老人不适应智能手机、某些人一直靠拖延和回避维持平衡，这些模式未必漂亮，但它们常常不是凭空出现，而是曾经帮助过你活下来的结构。</p>
+        <p>一旦你把旧我简单判成错误版本，后面的改变就很容易带着羞耻和切割感。课程因此强调：不是任何人的错，更多是环境变了，适配逻辑需要更新。改变不是对过去自我的审判，而是对新环境的响应。</p>
+        <p>结营时课程又进一步提醒：如果你最近变得很快，也请慢一点。不要太急着全盘接受“我已经完全是另一个人”。人需要一些不变元素来维持连续性。照片、旧物、习惯、童年记忆、某些一直喜欢的小动作，都可以成为锚点，提醒你：我在变，但我没有离开我自己。</p>
+      </section>
+
+      <section>
+        <h3>正确做法：和解与锚点</h3>
+        <ol>
+          <li>把旧模式重新理解为“旧环境里的有效解”，而不是“错误人格”。</li>
+          <li>当出现新能力时，不急着神化新我，也不急着羞辱旧我。</li>
+          <li>列出 3 到 5 个你愿意保留的不变元素。</li>
+          <li>把其中至少一个变成现实锚点：照片、角落、物件、仪式、习惯。</li>
+          <li>提醒自己：变化帮助我适应世界，稳定帮助我安顿自己。</li>
+        </ol>
+      </section>
+
+      <section>
+        <h3>练习清单</h3>
+        <ul>
+          <li>写下一个你以前认为“有问题”的模式，追问它当年帮你守住了什么。</li>
+          <li>写下一个最近的新变化，追问它有没有让你产生轻微背叛感。</li>
+          <li>保留一个旧元素，作为你变化中的身份锚点。</li>
+        </ul>
+      </section>
+
+      <section>
+        <h3>一句提醒</h3>
+        <div class="quote-card">
+          <strong>反直觉原则</strong>
+          <p>不急于变，不等于不变；它是在给更稳的改变腾空间。</p>
+        </div>
+      </section>
+
+      <section>
+        <h3>Day 对照索引</h3>
+        <p class="small">主要吸收：Day16、Day19。</p>
+      </section>
+      <div class="footer-nav">
+        <a class="footer-link" href="#chapter-10">上一章</a>
+        <a class="footer-link" href="#chapter-final">下一章</a>
+        <a class="footer-link" href="#toc">返回目录</a>
+      </div>
+    </article>
+
+    <article class="chapter" id="chapter-final">
+      <div class="eyebrow">终章</div>
+      <h2>从小白到高手的完整执行流程</h2>
+      <p class="muted">这是全书最实用的一页。以后尊贵的主人每次卡住，都可以直接按这套流程走一遍。</p>
+
+      <div class="flow-grid">
+        <div class="flow-card"><strong>步骤 1：先诊断，不先骂</strong><p class="small">我现在卡住，是因为懒，还是因为掌控感受损、目标过重、焦虑上头？</p></div>
+        <div class="flow-card"><strong>步骤 2：先降压</strong><p class="small">停止继续伤害自己，先减少二次自责。</p></div>
+        <div class="flow-card"><strong>步骤 3：重写目标</strong><p class="small">把目标从审判工具改回方向工具，再做到肯定、具象、内控。</p></div>
+        <div class="flow-card"><strong>步骤 4：识别阻力</strong><p class="small">说清楚你怕的是结果、人际、意义，还是成功后的空虚。</p></div>
+        <div class="flow-card"><strong>步骤 5：设路标</strong><p class="small">只抓未来两周内最小、最具体、最内控的一步。</p></div>
+        <div class="flow-card"><strong>步骤 6：做实验</strong><p class="small">把动作做小，把结果先降级成数据。</p></div>
+        <div class="flow-card"><strong>步骤 7：承认证据</strong><p class="small">只要做到一次，就禁止自己说“不算”。</p></div>
+        <div class="flow-card"><strong>步骤 8：补安全感</strong><p class="small">保留乐趣、白送时间、恢复自由感，别让系统一直处于威胁模式。</p></div>
+        <div class="flow-card"><strong>步骤 9：设节奏</strong><p class="small">用切换、间隔和未完成张力维持长期返回能力。</p></div>
+        <div class="flow-card"><strong>步骤 10：重组材料</strong><p class="small">别幻想换人，问旧资源怎样被重新织进新生活。</p></div>
+        <div class="flow-card"><strong>步骤 11：保留锚点</strong><p class="small">变的时候也保留一点不变，避免身份连续性断裂。</p></div>
+        <div class="flow-card"><strong>步骤 12：复盘而非判刑</strong><p class="small">问“这次我学到了什么、下次要调什么”，不问“我是不是又失败了”。</p></div>
+      </div>
+    </article>
+
+    <section class="appendix graph-box" id="appendix-map">
+      <div class="eyebrow">附录 A</div>
+      <h2>全课程知识图谱</h2>
+      <p class="muted">
+        下图采用横向树状静态 SVG：根在左，逐层向右展开，全部为直角折线连接，零 JS，高度自适应，可在 WPS 手机与微信浏览器中双指放大查看。
+      </p>
+      <div class="svg-wrap">
+        <svg viewBox="0 0 2280 1460" preserveAspectRatio="xMinYMin meet" aria-label="超强执行力知识图谱">
+          <defs>
+            <style>
+              .line { fill: none; stroke: #a88356; stroke-width: 3; }
+              .root { fill: #f2e5d2; stroke: #b68754; stroke-width: 2; }
+              .nodeA { fill: #e9eff7; stroke: #8ca3c4; stroke-width: 2; }
+              .nodeB { fill: #e8f0e4; stroke: #89a779; stroke-width: 2; }
+              .nodeC { fill: #f6ebe4; stroke: #c08b74; stroke-width: 2; }
+              .nodeD { fill: #f1eee8; stroke: #a1988c; stroke-width: 2; }
+              .label { fill: #2f2a24; font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif; font-size: 26px; }
+              .small { fill: #2f2a24; font-family: 'Microsoft YaHei', 'PingFang SC', sans-serif; font-size: 22px; }
+            </style>
+          </defs>
+
+          <path class="line" d="M250 730 H430 V180 H520" />
+          <path class="line" d="M250 730 H430 V450 H520" />
+          <path class="line" d="M250 730 H430 V720 H520" />
+          <path class="line" d="M250 730 H430 V1000 H520" />
+          <path class="line" d="M250 730 H430 V1270 H520" />
+
+          <rect class="root" x="40" y="650" rx="8" ry="8" width="210" height="160" />
+          <text class="label" x="76" y="718">超强执行力</text>
+          <text class="small" x="92" y="756">完整系统</text>
+
+          <rect class="nodeA" x="520" y="110" rx="8" ry="8" width="250" height="140" />
+          <text class="small" x="576" y="170">先降压</text>
+          <text class="small" x="562" y="206">修复掌控感</text>
+
+          <rect class="nodeA" x="520" y="380" rx="8" ry="8" width="250" height="140" />
+          <text class="small" x="576" y="440">重做目标</text>
+          <text class="small" x="548" y="476">处理目标焦虑</text>
+
+          <rect class="nodeB" x="520" y="650" rx="8" ry="8" width="250" height="140" />
+          <text class="small" x="548" y="710">启动行动</text>
+          <text class="small" x="534" y="746">实验与证据</text>
+
+          <rect class="nodeC" x="520" y="930" rx="8" ry="8" width="250" height="140" />
+          <text class="small" x="534" y="990">主体性与边界</text>
+          <text class="small" x="548" y="1026">责任与乐趣</text>
+
+          <rect class="nodeD" x="520" y="1200" rx="8" ry="8" width="250" height="140" />
+          <text class="small" x="548" y="1260">节奏与整合</text>
+          <text class="small" x="520" y="1296">重组与长期稳态</text>
+
+          <path class="line" d="M770 180 H940 V120 H1040" />
+          <path class="line" d="M770 180 H940 V240 H1040" />
+          <path class="line" d="M770 450 H940 V360 H1040" />
+          <path class="line" d="M770 450 H940 V500 H1040" />
+          <path class="line" d="M770 720 H940 V640 H1040" />
+          <path class="line" d="M770 720 H940 V800 H1040" />
+          <path class="line" d="M770 1000 H940 V920 H1040" />
+          <path class="line" d="M770 1000 H940 V1080 H1040" />
+          <path class="line" d="M770 1270 H940 V1200 H1040" />
+          <path class="line" d="M770 1270 H940 V1340 H1040" />
+
+          <rect class="nodeA" x="1040" y="60" rx="8" ry="8" width="280" height="120" />
+          <text class="small" x="1108" y="112">Day1</text>
+          <text class="small" x="1074" y="146">先不要改变</text>
+
+          <rect class="nodeA" x="1040" y="190" rx="8" ry="8" width="280" height="120" />
+          <text class="small" x="1108" y="242">掌控感</text>
+          <text class="small" x="1062" y="276">理解自己</text>
+
+          <rect class="nodeA" x="1040" y="300" rx="8" ry="8" width="280" height="120" />
+          <text class="small" x="1108" y="352">Day2</text>
+          <text class="small" x="1054" y="386">目标降权</text>
+
+          <rect class="nodeA" x="1040" y="440" rx="8" ry="8" width="280" height="120" />
+          <text class="small" x="1108" y="492">Day3</text>
+          <text class="small" x="1048" y="526">肯定 具象 内控</text>
+
+          <rect class="nodeA" x="1040" y="580" rx="8" ry="8" width="280" height="120" />
+          <text class="small" x="1108" y="632">Day4</text>
+          <text class="small" x="1048" y="666">焦虑正常化</text>
+
+          <rect class="nodeB" x="1040" y="740" rx="8" ry="8" width="280" height="120" />
+          <text class="small" x="1108" y="792">Day5</text>
+          <text class="small" x="1054" y="826">第一个路标</text>
+
+          <rect class="nodeB" x="1040" y="860" rx="8" ry="8" width="280" height="120" />
+          <text class="small" x="1108" y="912">Day9</text>
+          <text class="small" x="1060" y="946">实验者心态</text>
+
+          <rect class="nodeB" x="1040" y="980" rx="8" ry="8" width="280" height="120" />
+          <text class="small" x="1098" y="1032">Day15</text>
+          <text class="small" x="1038" y="1066">做到一次就很好</text>
+
+          <rect class="nodeC" x="1040" y="1120" rx="8" ry="8" width="280" height="120" />
+          <text class="small" x="1108" y="1172">Day8</text>
+          <text class="small" x="1048" y="1206">从抱怨到负责</text>
+
+          <rect class="nodeC" x="1040" y="1250" rx="8" ry="8" width="280" height="120" />
+          <text class="small" x="1098" y="1302">Day10</text>
+          <text class="small" x="1044" y="1336">乐趣与安全感</text>
+
+          <rect class="nodeC" x="1440" y="1020" rx="8" ry="8" width="320" height="120" />
+          <text class="small" x="1502" y="1072">Day11</text>
+          <text class="small" x="1480" y="1106">责任与边界</text>
+
+          <path class="line" d="M1320 1180 H1410 V1080 H1440" />
+
+          <rect class="nodeD" x="1040" y="1180" rx="8" ry="8" width="280" height="120" />
+          <text class="small" x="1098" y="1232">Day12</text>
+          <text class="small" x="1068" y="1266">节奏与间隔</text>
+
+          <rect class="nodeD" x="1440" y="1180" rx="8" ry="8" width="320" height="120" />
+          <text class="small" x="1502" y="1232">Day16</text>
+          <text class="small" x="1460" y="1266">停下的新发现</text>
+
+          <rect class="nodeD" x="1440" y="1310" rx="8" ry="8" width="320" height="120" />
+          <text class="small" x="1502" y="1362">Day17</text>
+          <text class="small" x="1460" y="1396">把问题变资源</text>
+
+          <rect class="nodeD" x="1820" y="1180" rx="8" ry="8" width="320" height="120" />
+          <text class="small" x="1882" y="1232">Day18</text>
+          <text class="small" x="1850" y="1266">旧毛线新毛衣</text>
+
+          <rect class="nodeD" x="1820" y="1310" rx="8" ry="8" width="320" height="120" />
+          <text class="small" x="1882" y="1362">Day19</text>
+          <text class="small" x="1842" y="1396">不急于变更稳</text>
+
+          <path class="line" d="M1320 1240 H1410 V1240 H1440" />
+          <path class="line" d="M1320 1240 H1410 V1370 H1440" />
+          <path class="line" d="M1760 1240 H1790 V1240 H1820" />
+          <path class="line" d="M1760 1370 H1790 V1370 H1820" />
+        </svg>
+      </div>
+    </section>
+
+    <section class="appendix" id="appendix-day">
+      <div class="eyebrow">附录 B</div>
+      <h2>逐课知识点索引：Day 到主题章节映射</h2>
+      <div class="table-box">
+        <table>
+          <thead>
+            <tr>
+              <th>课程日</th>
+              <th>主题章节</th>
+              <th>关键知识点</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Day1</td>
+              <td>第一章</td>
+              <td>你不是懒；先不要改变；停止继续伤害自己；最小掌控感；自我觉察；社群旁观视角。</td>
+            </tr>
+            <tr>
+              <td>Day2</td>
+              <td>第二章</td>
+              <td>目标的双重性；目标降权；愿景而非军令状；允许现状；社群接纳；没做到也是理解入口。</td>
+            </tr>
+            <tr>
+              <td>Day3</td>
+              <td>第二章</td>
+              <td>目标三要素：肯定、具象、内控；摄影机标准；从外控结果改成自我动作。</td>
+            </tr>
+            <tr>
+              <td>Day4</td>
+              <td>第三章</td>
+              <td>目标焦虑；结果不确定；人际风险；意义负担；成功焦虑；转移的功能；减少二次批判。</td>
+            </tr>
+            <tr>
+              <td>Day5</td>
+              <td>第四章</td>
+              <td>第一个路标；两周内；小而具体；先缓两天；只处理一小段确定性。</td>
+            </tr>
+            <tr>
+              <td>Day8</td>
+              <td>第五章</td>
+              <td>控制点；混合型问题；抱怨的安全感收益；内控表达；我改变不了什么，但我可以选择什么。</td>
+            </tr>
+            <tr>
+              <td>Day9</td>
+              <td>第六章</td>
+              <td>实验者心态；把体验当数据；动作做小；随时可停；承诺时间与提醒。</td>
+            </tr>
+            <tr>
+              <td>Day10</td>
+              <td>第七章</td>
+              <td>乐趣清单；白送给自己的 1 小时；要求感与安全感；旧模式回潮的神经系统解释。</td>
+            </tr>
+            <tr>
+              <td>Day11</td>
+              <td>第八章</td>
+              <td>责任与讨好区分；职责有多种完成方式；不是所有人都要满足；做该做的事但不控制评价。</td>
+            </tr>
+            <tr>
+              <td>Day12</td>
+              <td>第九章</td>
+              <td>节奏；切换；间隔；未完成张力；个体化时长；主动停下。</td>
+            </tr>
+            <tr>
+              <td>Day15</td>
+              <td>第六章</td>
+              <td>做到一次就很好；固定负面叙事；先承认事实；how 比 why not 更重要。</td>
+            </tr>
+            <tr>
+              <td>Day16</td>
+              <td>第十一章</td>
+              <td>停下的新发现；身份冲击；旧模式在旧环境里有效；不是任何人的错；尊重过去的自己。</td>
+            </tr>
+            <tr>
+              <td>Day17</td>
+              <td>第十章</td>
+              <td>把问题变资源；资源重定义；固定叙事松动；他人视角帮助资源化。</td>
+            </tr>
+            <tr>
+              <td>Day18</td>
+              <td>第十章</td>
+              <td>旧毛线新毛衣；最小化改变；承认边界；不标准但有效的方法也可以保系统稳定。</td>
+            </tr>
+            <tr>
+              <td>Day19</td>
+              <td>第十一章</td>
+              <td>不急于变；变化中保留不变；仪式感和锚点；新我旧我和解；带着自己往前走。</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="appendix" id="appendix-check">
+      <div class="eyebrow">附录 C</div>
+      <h2>每日行动清单 / 每周复盘清单 / 常见误区总清单</h2>
+      <div class="check-grid">
+        <div class="check-card">
+          <strong>每日行动清单</strong>
+          <ul>
+            <li>今天我有没有少攻击自己一点？</li>
+            <li>今天我的目标有没有保持方向感，而不是重新变成审判？</li>
+            <li>今天我有没有做一个最小路标动作？</li>
+            <li>今天我有没有给自己留一段不被考核的时间？</li>
+            <li>今天我有没有把一次做到承认为事实？</li>
+          </ul>
+        </div>
+        <div class="check-card">
+          <strong>每周复盘清单</strong>
+          <ul>
+            <li>我这周最常在哪个环节卡住：掌控感、目标、焦虑、启动、节奏、边界、身份？</li>
+            <li>我这周做成过哪怕一次的小动作？它是在什么条件下发生的？</li>
+            <li>我这周有没有把某个问题重新当资源看过？</li>
+            <li>我的节奏实验结果如何？哪种时长最适合我？</li>
+            <li>我最近的变化是否太快，需要保留什么锚点？</li>
+          </ul>
+        </div>
+        <div class="check-card full">
+          <strong>高手避坑清单</strong>
+          <ul>
+            <li>不要把“动不起来”自动翻译成“我这个人不行”。</li>
+            <li>不要把目标写成惩罚自己用的判词。</li>
+            <li>不要在焦虑上头时再追加一层羞耻。</li>
+            <li>不要因为第一步太小，就取消第一步。</li>
+            <li>不要把抱怨功能看不见，也不要长期住在抱怨里。</li>
+            <li>不要把乐趣也绩效化。</li>
+            <li>不要把责任理解成无限迎合。</li>
+            <li>不要把停顿看成退步。</li>
+            <li>不要因为做到一次“不够大”，就抹掉它。</li>
+            <li>不要幻想换一个新人设解决所有问题，真正有效的是重组旧材料。</li>
+            <li>不要把新我神化，也不要把旧我污名化。</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <section class="panel">
+      <h2>使用说明收尾</h2>
+      <p>如果尊贵的主人准备从头完整学一轮，建议路径是：<strong>第一章 → 第二章 → 第三章 → 第四章 → 第六章 → 第七章 → 第八章 → 第九章 → 第十章 → 第十一章 → 终章</strong>。</p>
+      <p>如果是现实里突然卡住，直接回到上面的“快速导航”和“终章流程”即可。整套课程真正要训练的，不是更会逼自己，而是更会在不攻击自己的前提下，重新获得对生活的影响力。</p>
+      <div class="footer-nav">
+        <a class="footer-link" href="#top">回到顶部</a>
+        <a class="footer-link" href="#system-map">回到总图</a>
+        <a class="footer-link" href="#chapter-final">回到终章流程</a>
+      </div>
+    </section>
+  </main>
+</body>
+</html>
