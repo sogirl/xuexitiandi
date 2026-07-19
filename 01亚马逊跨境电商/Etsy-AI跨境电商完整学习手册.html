@@ -1,0 +1,3594 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Etsy AI 定制 + 跨境电商 完整学习手册（从入门到精通）</title>
+<style>
+/* ========== 浅色系全局样式 ========== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: "PingFang SC", "Microsoft YaHei", "Helvetica Neue", "Hiragino Sans GB", "Source Han Sans CN", sans-serif;
+  background: #FAF7F2;
+  color: #2C2C2C;
+  line-height: 1.75;
+  font-size: 16px;
+}
+:root {
+  --bg-page: #FAF7F2;
+  --bg-card: #FFFFFF;
+  --bg-soft: #F5EFE6;
+  --color-primary: #6B4F3F;
+  --color-accent: #C8895A;
+  --color-accent-2: #D4A574;
+  --color-text: #2C2C2C;
+  --color-text-2: #5A5A5A;
+  --color-text-3: #888888;
+  --color-border: #E8E0D5;
+  --color-success: #6B8E4E;
+  --color-warn: #C97B4A;
+  --color-danger: #B65C5C;
+  --color-info: #5A7A8C;
+  --shadow-soft: 0 2px 8px rgba(107, 79, 63, 0.06);
+  --shadow-md: 0 4px 16px rgba(107, 79, 63, 0.08);
+  --radius: 8px;
+  --radius-lg: 14px;
+}
+
+/* ========== 顶部 Hero ========== */
+.hero {
+  background: linear-gradient(135deg, #F5EFE6 0%, #FAF7F2 50%, #F0E6D6 100%);
+  padding: 60px 20px 50px;
+  text-align: center;
+  border-bottom: 1px solid var(--color-border);
+}
+.hero-inner { max-width: 1280px; margin: 0 auto; }
+.hero-badge {
+  display: inline-block;
+  background: #FFFFFF;
+  color: var(--color-primary);
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 13px;
+  font-weight: 500;
+  margin-bottom: 18px;
+  border: 1px solid var(--color-border);
+  letter-spacing: 0.5px;
+}
+.hero h1 {
+  font-size: 44px;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 14px;
+  letter-spacing: 1px;
+}
+.hero h2 {
+  font-size: 18px;
+  color: var(--color-text-2);
+  font-weight: 400;
+  margin-bottom: 28px;
+}
+.hero-stats {
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+  flex-wrap: wrap;
+  margin-bottom: 24px;
+}
+.hero-stat { text-align: center; }
+.hero-stat-num {
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-accent);
+  display: block;
+}
+.hero-stat-label {
+  font-size: 13px;
+  color: var(--color-text-3);
+  margin-top: 2px;
+}
+.hero-meta {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  font-size: 13px;
+  color: var(--color-text-3);
+  flex-wrap: wrap;
+}
+.hero-meta span { display: flex; align-items: center; gap: 4px; }
+
+/* ========== 顶部导航 ========== */
+.nav {
+  position: sticky;
+  top: 0;
+  background: #FFFFFF;
+  border-bottom: 1px solid var(--color-border);
+  z-index: 100;
+  box-shadow: var(--shadow-soft);
+}
+.nav-inner {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 20px;
+  display: flex;
+  gap: 4px;
+  overflow-x: auto;
+  scrollbar-width: thin;
+}
+.nav-inner::-webkit-scrollbar { height: 4px; }
+.nav-inner::-webkit-scrollbar-thumb { background: var(--color-border); border-radius: 2px; }
+.nav a {
+  padding: 14px 16px;
+  font-size: 14px;
+  color: var(--color-text-2);
+  text-decoration: none;
+  white-space: nowrap;
+  border-bottom: 2px solid transparent;
+  transition: all 0.2s;
+}
+.nav a:hover { color: var(--color-primary); border-bottom-color: var(--color-accent); }
+.nav a.special { color: var(--color-accent); font-weight: 500; }
+
+/* ========== 主体容器 ========== */
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+.section { margin-bottom: 60px; scroll-margin-top: 70px; }
+
+/* ========== 章节标题 ========== */
+.chapter-header {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF7F2 100%);
+  border: 1px solid var(--color-border);
+  border-left: 5px solid var(--color-accent);
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+  margin-bottom: 32px;
+  box-shadow: var(--shadow-soft);
+}
+.chapter-num {
+  display: inline-block;
+  background: var(--color-accent);
+  color: #FFFFFF;
+  padding: 4px 12px;
+  border-radius: 4px;
+  font-size: 12px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 12px;
+}
+.chapter-title {
+  font-size: 28px;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin-bottom: 8px;
+  line-height: 1.4;
+}
+.chapter-subtitle {
+  font-size: 15px;
+  color: var(--color-text-3);
+  font-weight: 400;
+}
+h2.section-title {
+  font-size: 24px;
+  color: var(--color-primary);
+  font-weight: 700;
+  margin: 40px 0 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--color-border);
+  position: relative;
+}
+h2.section-title::before {
+  content: "";
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  width: 60px;
+  height: 2px;
+  background: var(--color-accent);
+}
+h3 {
+  font-size: 19px;
+  color: var(--color-primary);
+  font-weight: 600;
+  margin: 28px 0 12px;
+  padding-left: 12px;
+  border-left: 3px solid var(--color-accent-2);
+}
+h4 {
+  font-size: 16px;
+  color: var(--color-text);
+  font-weight: 600;
+  margin: 20px 0 10px;
+}
+p { margin: 10px 0; }
+
+/* ========== 卡片 ========== */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: 24px;
+  margin: 16px 0;
+  box-shadow: var(--shadow-soft);
+  transition: box-shadow 0.2s;
+}
+.card:hover { box-shadow: var(--shadow-md); }
+.card-highlight {
+  background: linear-gradient(135deg, #FFF8EE 0%, #FFFFFF 100%);
+  border-left: 4px solid var(--color-accent);
+}
+.card-title {
+  font-size: 17px;
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 16px;
+  margin: 16px 0;
+}
+.card-mini {
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+}
+
+/* ========== 关键提示框 ========== */
+.callout {
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-left: 4px solid;
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.callout-icon {
+  font-size: 20px;
+  flex-shrink: 0;
+  line-height: 1.5;
+}
+.callout-body { flex: 1; }
+.callout-title {
+  font-weight: 600;
+  margin-bottom: 4px;
+  font-size: 15px;
+}
+.callout p { margin: 4px 0; font-size: 14.5px; }
+.callout-info { background: #F0F5F8; border-color: var(--color-info); color: #2C3E50; }
+.callout-warn { background: #FBF1E8; border-color: var(--color-warn); color: #6B4A2F; }
+.callout-success { background: #F2F6EC; border-color: var(--color-success); color: #4A5E3A; }
+.callout-danger { background: #F5E8E8; border-color: var(--color-danger); color: #6B3A3A; }
+.callout-tip { background: #FAF3E4; border-color: var(--color-accent); color: #5A4530; }
+
+/* ========== 表格 ========== */
+.table-wrap {
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 4px;
+  margin: 16px 0;
+  overflow-x: auto;
+  box-shadow: var(--shadow-soft);
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 14.5px;
+}
+th {
+  background: var(--bg-soft);
+  color: var(--color-primary);
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 600;
+  border-bottom: 2px solid var(--color-border);
+}
+td {
+  padding: 11px 14px;
+  border-bottom: 1px solid var(--color-border);
+  vertical-align: top;
+}
+tr:hover td { background: #FAF7F2; }
+tr:last-child td { border-bottom: none; }
+td strong { color: var(--color-primary); }
+
+/* ========== 列表 ========== */
+ul, ol { margin: 10px 0 10px 22px; }
+li { margin: 4px 0; }
+.check-list { list-style: none; padding-left: 0; }
+.check-list li {
+  position: relative;
+  padding-left: 28px;
+  margin: 6px 0;
+}
+.check-list li::before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--color-success);
+  font-weight: 700;
+}
+.cross-list { list-style: none; padding-left: 0; }
+.cross-list li {
+  position: relative;
+  padding-left: 28px;
+  margin: 6px 0;
+}
+.cross-list li::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  color: var(--color-danger);
+  font-weight: 700;
+}
+.number-list { padding-left: 0; counter-reset: nlist; }
+.number-list li {
+  position: relative;
+  padding-left: 36px;
+  margin: 8px 0;
+  counter-increment: nlist;
+}
+.number-list li::before {
+  content: counter(nlist);
+  position: absolute;
+  left: 0;
+  top: 2px;
+  width: 24px;
+  height: 24px;
+  background: var(--color-accent);
+  color: #FFFFFF;
+  border-radius: 50%;
+  text-align: center;
+  font-size: 12px;
+  line-height: 24px;
+  font-weight: 600;
+}
+
+/* ========== 标签 ========== */
+.tag {
+  display: inline-block;
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 500;
+  margin: 2px 4px 2px 0;
+  background: var(--bg-soft);
+  color: var(--color-primary);
+  border: 1px solid var(--color-border);
+}
+.tag-warn { background: #FBF1E8; color: var(--color-warn); border-color: #E8D4B8; }
+.tag-danger { background: #F5E8E8; color: var(--color-danger); border-color: #E8C5C5; }
+.tag-success { background: #F2F6EC; color: var(--color-success); border-color: #D0DDC0; }
+.tag-info { background: #F0F5F8; color: var(--color-info); border-color: #C5D5DD; }
+.tag-accent { background: #FAF3E4; color: var(--color-accent); border-color: #E8D4B8; }
+
+/* ========== 数据卡片 ========== */
+.data-card {
+  background: linear-gradient(135deg, #FFFFFF 0%, #FAF3E4 100%);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  text-align: center;
+}
+.data-card-num {
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--color-accent);
+  display: block;
+}
+.data-card-label {
+  font-size: 13px;
+  color: var(--color-text-3);
+  margin-top: 4px;
+}
+
+/* ========== 代码/提示词块 ========== */
+.code-block {
+  background: #2C2C2C;
+  color: #F0E6D6;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin: 12px 0;
+  font-family: "JetBrains Mono", "Consolas", "Monaco", monospace;
+  font-size: 13.5px;
+  line-height: 1.7;
+  overflow-x: auto;
+  border: 1px solid #4A4A4A;
+}
+.code-block .comment { color: #999; font-style: italic; }
+.code-block .key { color: #D4A574; }
+.code-block .value { color: #B8C99D; }
+.prompt-box {
+  background: var(--bg-soft);
+  border: 1px solid var(--color-border);
+  border-left: 4px solid var(--color-accent-2);
+  border-radius: var(--radius);
+  padding: 14px 18px;
+  margin: 12px 0;
+  font-family: "JetBrains Mono", "Consolas", monospace;
+  font-size: 14px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  color: #4A3A2A;
+}
+
+/* ========== 步骤条 ========== */
+.steps {
+  counter-reset: step;
+  list-style: none;
+  padding: 0;
+  margin: 16px 0;
+}
+.steps li {
+  position: relative;
+  padding: 14px 14px 14px 60px;
+  margin: 8px 0;
+  background: var(--bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius);
+  counter-increment: step;
+}
+.steps li::before {
+  content: "STEP " counter(step);
+  position: absolute;
+  left: 14px;
+  top: 14px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 4px;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+/* ========== 引言/Quote ========== */
+.quote {
+  background: var(--bg-soft);
+  border-left: 4px solid var(--color-accent);
+  padding: 16px 20px;
+  margin: 16px 0;
+  font-style: italic;
+  color: var(--color-text-2);
+  border-radius: 0 var(--radius) var(--radius) 0;
+}
+.quote-author {
+  display: block;
+  margin-top: 8px;
+  font-style: normal;
+  font-size: 13px;
+  color: var(--color-text-3);
+}
+
+/* ========== 回到顶部 ========== */
+.to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  width: 44px;
+  height: 44px;
+  background: var(--color-primary);
+  color: #FFFFFF;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  box-shadow: var(--shadow-md);
+  z-index: 50;
+  display: none;
+}
+.to-top:hover { background: var(--color-accent); }
+.to-top.show { display: block; }
+
+/* ========== 底部 Footer ========== */
+.footer {
+  background: var(--color-primary);
+  color: #F5EFE6;
+  padding: 40px 20px 30px;
+  text-align: center;
+  font-size: 14px;
+}
+.footer h3 { color: #F5EFE6; border-color: #8B6F5A; padding-left: 0; text-align: center; }
+.footer-inner { max-width: 1280px; margin: 0 auto; }
+.footer p { color: #D8CAB8; margin: 8px 0; }
+
+/* ========== 响应式 ========== */
+@media (max-width: 768px) {
+  .hero h1 { font-size: 30px; }
+  .hero-stats { gap: 20px; }
+  .chapter-title { font-size: 22px; }
+  h2.section-title { font-size: 20px; }
+  .container { padding: 20px 14px 60px; }
+  .card-grid { grid-template-columns: 1fr; }
+}
+@media print {
+  .nav, .to-top, .footer { display: none; }
+  body { background: #FFFFFF; }
+  .card, .table-wrap { box-shadow: none; break-inside: avoid; }
+  .section { break-before: page; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部 Hero ========== -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="hero-badge">🎓 ETSY AI 定制 · 跨境电商 · 完整学习手册</div>
+    <h1>从入门小白到 Etsy 跨境高手</h1>
+    <h2>AI + 数字产品 + POD 按需设计 — 13 章课程精粹 + 行业专家补充</h2>
+    <div class="hero-stats">
+      <div class="hero-stat"><span class="hero-stat-num">13</span><span class="hero-stat-label">完整章节</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">22+</span><span class="hero-stat-label">对标店铺</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">50+</span><span class="hero-stat-label">提示词模板</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">$2,000万</span><span class="hero-stat-label">年销案例合计</span></div>
+      <div class="hero-stat"><span class="hero-stat-num">90%+</span><span class="hero-stat-label">利润率</span></div>
+    </div>
+    <div class="hero-meta">
+      <span>📅 版本：2.0（2026 终极版）</span>
+      <span>👑 作者：尊敬的主人</span>
+      <span>🌍 定位：全球数字产品市场</span>
+      <span>💡 课程时长：13 章精读</span>
+    </div>
+  </div>
+</header>
+
+<!-- ========== 顶部导航 ========== -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="#map">🗺️ 知识树</a>
+    <a href="#ch1">1️⃣ 课程定位</a>
+    <a href="#ch2">2️⃣ Etsy 平台</a>
+    <a href="#ch3">3️⃣ Printable</a>
+    <a href="#ch4">4️⃣ 模板类</a>
+    <a href="#ch5">5️⃣ 四方连续图</a>
+    <a href="#ch6">6️⃣ 宠物定制</a>
+    <a href="#ch7">7️⃣ 宠物实操</a>
+    <a href="#ch8">8️⃣ 人像住宅</a>
+    <a href="#ch9">9️⃣ 无缝图实操</a>
+    <a href="#ch10">🔟 WallArt</a>
+    <a href="#ch11">1️⃣1️⃣ 填色书</a>
+    <a href="#ch12">1️⃣2️⃣ 开店上架</a>
+    <a href="#ch13">1️⃣3️⃣ POD 延展</a>
+    <a class="special" href="#ai-tools">🤖 AI 工具</a>
+    <a class="special" href="#pod-matrix">📦 POD 平台</a>
+    <a class="special" href="#cheatsheet">⚡ 速查</a>
+    <a class="special" href="#legal">⚖️ 法律</a>
+  </div>
+</nav>
+
+<main class="container">
+
+<!-- ========== 知识树 SVG 思维导图 ========== -->
+<section id="map" class="section">
+  <h2 class="section-title">🗺️ 全课程知识树</h2>
+  <p style="margin-bottom: 20px;">下面是这 13 章课程的全景知识图谱。建议收藏本图，迷路时回来看看。鼠标滚轮可放大，拖动可平移。</p>
+
+  <div class="card" style="background: #FFFFFF; padding: 20px; overflow: auto;">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 1100" style="width: 100%; min-width: 900px; height: auto; font-family: 'PingFang SC', sans-serif;">
+      <defs>
+        <linearGradient id="rootGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" style="stop-color:#6B4F3F;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#C8895A;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient id="catGrad1" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#D4A574;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#E8C99F;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient id="catGrad2" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#A8956B;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#C4B58A;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient id="catGrad3" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#8B7355;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#B09575;stop-opacity:1"/>
+        </linearGradient>
+        <linearGradient id="catGrad4" x1="0%" y1="0%" x2="100%" y2="0%">
+          <stop offset="0%" style="stop-color:#6B8E4E;stop-opacity:1"/>
+          <stop offset="100%" style="stop-color:#9DBC7A;stop-opacity:1"/>
+        </linearGradient>
+        <filter id="softShadow" x="-10%" y="-10%" width="120%" height="120%">
+          <feGaussianBlur in="SourceAlpha" stdDeviation="2"/>
+          <feOffset dx="2" dy="2"/>
+          <feComponentTransfer><feFuncA type="linear" slope="0.3"/></feComponentTransfer>
+          <feMerge><feMergeNode/><feMergeNode in="SourceGraphic"/></feMerge>
+        </filter>
+        <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+          <path d="M 0 0 L 10 5 L 0 10 z" fill="#8B7355"/>
+        </marker>
+      </defs>
+
+      <!-- 根节点 -->
+      <rect x="500" y="20" width="400" height="80" rx="12" fill="url(#rootGrad)" filter="url(#softShadow)"/>
+      <text x="700" y="55" text-anchor="middle" fill="#FFFFFF" font-size="22" font-weight="700">AI + 数字产品 + POD</text>
+      <text x="700" y="80" text-anchor="middle" fill="#F0E6D6" font-size="14">Etsy 跨境电商完整商业模式</text>
+
+      <!-- 四大分支线 -->
+      <line x1="700" y1="100" x2="200" y2="220" stroke="#8B7355" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="700" y1="100" x2="550" y2="220" stroke="#8B7355" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="700" y1="100" x2="900" y2="220" stroke="#8B7355" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <line x1="700" y1="100" x2="1200" y2="220" stroke="#8B7355" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+
+      <!-- 第一大类：认知层 -->
+      <rect x="60" y="220" width="280" height="100" rx="10" fill="url(#catGrad1)" filter="url(#softShadow)"/>
+      <text x="200" y="255" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="700">认知层：为什么做</text>
+      <text x="200" y="280" text-anchor="middle" fill="#FFFFFF" font-size="13">第 1-2 章</text>
+      <text x="200" y="300" text-anchor="middle" fill="#FFFFFF" font-size="12">理念 · 平台 · 90% 利润</text>
+
+      <!-- 第二大类：品类层 -->
+      <rect x="380" y="220" width="340" height="100" rx="10" fill="url(#catGrad2)" filter="url(#softShadow)"/>
+      <text x="550" y="255" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="700">品类层：做什么</text>
+      <text x="550" y="280" text-anchor="middle" fill="#FFFFFF" font-size="13">第 3-6 章</text>
+      <text x="550" y="300" text-anchor="middle" fill="#FFFFFF" font-size="12">Printable · 模板 · 笔刷 · 定制</text>
+
+      <!-- 第三大类：实操层 -->
+      <rect x="760" y="220" width="280" height="100" rx="10" fill="url(#catGrad3)" filter="url(#softShadow)"/>
+      <text x="900" y="255" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="700">实操层：怎么做</text>
+      <text x="900" y="280" text-anchor="middle" fill="#FFFFFF" font-size="13">第 7-11 章</text>
+      <text x="900" y="300" text-anchor="middle" fill="#FFFFFF" font-size="12">5 大品类 0 到 1 落地</text>
+
+      <!-- 第四大类：落地层 -->
+      <rect x="1080" y="220" width="280" height="100" rx="10" fill="url(#catGrad4)" filter="url(#softShadow)"/>
+      <text x="1220" y="255" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="700">落地层：如何上线</text>
+      <text x="1220" y="280" text-anchor="middle" fill="#FFFFFF" font-size="13">第 12-13 章</text>
+      <text x="1220" y="300" text-anchor="middle" fill="#FFFFFF" font-size="12">开店 · 上架 · POD 延展</text>
+
+      <!-- ========== 认知层子节点 ========== -->
+      <line x1="120" y1="320" x2="120" y2="400" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="280" y1="320" x2="280" y2="400" stroke="#8B7355" stroke-width="1.5"/>
+      <rect x="40" y="400" width="160" height="60" rx="6" fill="#FAF3E4" stroke="#D4A574"/>
+      <text x="120" y="425" text-anchor="middle" fill="#6B4F3F" font-size="13" font-weight="600">1. 课程理念</text>
+      <text x="120" y="445" text-anchor="middle" fill="#8B7355" font-size="11">7 年讲师 · 90% 利润</text>
+      <rect x="220" y="400" width="160" height="60" rx="6" fill="#FAF3E4" stroke="#D4A574"/>
+      <text x="300" y="425" text-anchor="middle" fill="#6B4F3F" font-size="13" font-weight="600">2. Etsy 平台</text>
+      <text x="300" y="445" text-anchor="middle" fill="#8B7355" font-size="11">9000万用户 · 美市场</text>
+
+      <!-- ========== 品类层子节点 ========== -->
+      <line x1="430" y1="320" x2="430" y2="400" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="550" y1="320" x2="550" y2="400" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="670" y1="320" x2="670" y2="400" stroke="#8B7355" stroke-width="1.5"/>
+      <rect x="385" y="400" width="120" height="60" rx="6" fill="#F2F0E5" stroke="#A8956B"/>
+      <text x="445" y="425" text-anchor="middle" fill="#6B4F3F" font-size="13" font-weight="600">3. Printable</text>
+      <text x="445" y="445" text-anchor="middle" fill="#8B7355" font-size="11">Wall Art / 填色</text>
+      <rect x="515" y="400" width="100" height="60" rx="6" fill="#F2F0E5" stroke="#A8956B"/>
+      <text x="565" y="425" text-anchor="middle" fill="#6B4F3F" font-size="13" font-weight="600">4. 模板</text>
+      <text x="565" y="445" text-anchor="middle" fill="#8B7355" font-size="11">Notion / 简历</text>
+      <rect x="625" y="400" width="100" height="60" rx="6" fill="#F2F0E5" stroke="#A8956B"/>
+      <text x="675" y="425" text-anchor="middle" fill="#6B4F3F" font-size="13" font-weight="600">5. 笔刷</text>
+      <text x="675" y="445" text-anchor="middle" fill="#8B7355" font-size="11">四方连续图</text>
+      <rect x="625" y="475" width="100" height="50" rx="6" fill="#FAF3E4" stroke="#D4A574"/>
+      <text x="675" y="495" text-anchor="middle" fill="#6B4F3F" font-size="12" font-weight="600">6. 宠物定制</text>
+      <text x="675" y="512" text-anchor="middle" fill="#8B7355" font-size="10">高客单价赛道</text>
+
+      <!-- ========== 实操层子节点 ========== -->
+      <line x1="800" y1="320" x2="800" y2="400" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="900" y1="320" x2="900" y2="400" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="1000" y1="320" x2="1000" y2="400" stroke="#8B7355" stroke-width="1.5"/>
+      <rect x="765" y="400" width="80" height="60" rx="6" fill="#EFE7DA" stroke="#8B7355"/>
+      <text x="805" y="425" text-anchor="middle" fill="#6B4F3F" font-size="13" font-weight="600">7. 宠物</text>
+      <text x="805" y="445" text-anchor="middle" fill="#8B7355" font-size="10">实操</text>
+      <rect x="855" y="400" width="90" height="60" rx="6" fill="#EFE7DA" stroke="#8B7355"/>
+      <text x="900" y="425" text-anchor="middle" fill="#6B4F3F" font-size="13" font-weight="600">8. 人像</text>
+      <text x="900" y="445" text-anchor="middle" fill="#8B7355" font-size="10">住宅</text>
+      <rect x="955" y="400" width="90" height="60" rx="6" fill="#EFE7DA" stroke="#8B7355"/>
+      <text x="1000" y="425" text-anchor="middle" fill="#6B4F3F" font-size="13" font-weight="600">9. 无缝</text>
+      <text x="1000" y="445" text-anchor="middle" fill="#8B7355" font-size="10">实操</text>
+      <rect x="800" y="475" width="200" height="50" rx="6" fill="#FAF3E4" stroke="#D4A574"/>
+      <text x="900" y="495" text-anchor="middle" fill="#6B4F3F" font-size="12" font-weight="600">10-11. Wall Art + 填色书</text>
+      <text x="900" y="512" text-anchor="middle" fill="#8B7355" font-size="10">讲师最看好品类</text>
+
+      <!-- ========== 落地层子节点 ========== -->
+      <line x1="1140" y1="320" x2="1140" y2="400" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="1300" y1="320" x2="1300" y2="400" stroke="#8B7355" stroke-width="1.5"/>
+      <rect x="1080" y="400" width="120" height="60" rx="6" fill="#F2F6EC" stroke="#6B8E4E"/>
+      <text x="1140" y="425" text-anchor="middle" fill="#4A5E3A" font-size="13" font-weight="600">12. 开店</text>
+      <text x="1140" y="445" text-anchor="middle" fill="#6B8E4E" font-size="11">7 步闭环</text>
+      <rect x="1240" y="400" width="120" height="60" rx="6" fill="#F2F6EC" stroke="#6B8E4E"/>
+      <text x="1300" y="425" text-anchor="middle" fill="#4A5E3A" font-size="13" font-weight="600">13. POD</text>
+      <text x="1300" y="445" text-anchor="middle" fill="#6B8E4E" font-size="11">6 大平台</text>
+
+      <!-- ========== 底部支撑体系 ========== -->
+      <line x1="200" y1="500" x2="200" y2="600" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="550" y1="525" x2="550" y2="600" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="900" y1="525" x2="900" y2="600" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="1300" y1="500" x2="1300" y2="600" stroke="#8B7355" stroke-width="1.5"/>
+
+      <!-- AI 工具支撑 -->
+      <rect x="60" y="600" width="280" height="100" rx="10" fill="#FAF3E4" stroke="#D4A574" stroke-width="2"/>
+      <text x="200" y="630" text-anchor="middle" fill="#6B4F3F" font-size="16" font-weight="700">🤖 AI 工具支撑体系</text>
+      <text x="200" y="655" text-anchor="middle" fill="#6B4F3F" font-size="12">Midjourney · 豆包 · Gemini</text>
+      <text x="200" y="675" text-anchor="middle" fill="#8B7355" font-size="11">艺术效果 → 多赛道 → 中文友好</text>
+      <text x="200" y="690" text-anchor="middle" fill="#8B7355" font-size="11">Gemini 必须 Pro 模式</text>
+
+      <!-- POD 平台支撑 -->
+      <rect x="380" y="600" width="340" height="100" rx="10" fill="#F2F0E5" stroke="#A8956B" stroke-width="2"/>
+      <text x="550" y="630" text-anchor="middle" fill="#6B4F3F" font-size="16" font-weight="700">📦 POD 平台支撑体系</text>
+      <text x="550" y="655" text-anchor="middle" fill="#6B4F3F" font-size="12">Printify · Printful · Gelato</text>
+      <text x="550" y="675" text-anchor="middle" fill="#8B7355" font-size="11">连接型平台（Etsy 流量最大）</text>
+      <text x="550" y="690" text-anchor="middle" fill="#8B7355" font-size="11">Red Bubble / Society6 直销</text>
+
+      <!-- 交付工具支撑 -->
+      <rect x="760" y="600" width="280" height="100" rx="10" fill="#EFE7DA" stroke="#8B7355" stroke-width="2"/>
+      <text x="900" y="630" text-anchor="middle" fill="#6B4F3F" font-size="16" font-weight="700">🎨 后期处理工具链</text>
+      <text x="900" y="655" text-anchor="middle" fill="#6B4F3F" font-size="12">Canva · PS · 去水印 · 扩图</text>
+      <text x="900" y="675" text-anchor="middle" fill="#8B7355" font-size="11">300DPI · 20-25MB 高清</text>
+      <text x="900" y="690" text-anchor="middle" fill="#8B7355" font-size="11">网盘交付法（突破 20MB）</text>
+
+      <!-- 营销引流支撑 -->
+      <rect x="1080" y="600" width="280" height="100" rx="10" fill="#F2F6EC" stroke="#6B8E4E" stroke-width="2"/>
+      <text x="1220" y="630" text-anchor="middle" fill="#4A5E3A" font-size="16" font-weight="700">📱 引流变现支撑</text>
+      <text x="1220" y="655" text-anchor="middle" fill="#4A5E3A" font-size="12">Pinterest / Instagram / TikTok</text>
+      <text x="1220" y="675" text-anchor="middle" fill="#6B8E4E" font-size="11">Pinterest 效率最高</text>
+      <text x="1220" y="690" text-anchor="middle" fill="#6B8E4E" font-size="11">一条视频三用：展示+素材+引流</text>
+
+      <!-- 底部:终极目标 -->
+      <line x1="200" y1="700" x2="700" y2="800" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="550" y1="700" x2="700" y2="800" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="900" y1="700" x2="700" y2="800" stroke="#8B7355" stroke-width="1.5"/>
+      <line x1="1220" y1="700" x2="700" y2="800" stroke="#8B7355" stroke-width="1.5"/>
+
+      <rect x="400" y="800" width="600" height="180" rx="14" fill="url(#rootGrad)" filter="url(#softShadow)"/>
+      <text x="700" y="840" text-anchor="middle" fill="#FFFFFF" font-size="22" font-weight="700">🎯 终极目标</text>
+      <text x="700" y="870" text-anchor="middle" fill="#FFFFFF" font-size="14">副业起步 → 经验积累 → AI 赋能 → 批量生产</text>
+      <text x="700" y="895" text-anchor="middle" fill="#FFFFFF" font-size="14">流量稳定 → 一两年 10 万美元 → 可转主业</text>
+      <text x="700" y="935" text-anchor="middle" fill="#F0E6D6" font-size="13">✓ 90% 利润率  ✓ 全球客户  ✓ 自动化交付  ✓ AI 持续进化</text>
+      <text x="700" y="960" text-anchor="middle" fill="#F0E6D6" font-size="12">✓ 无需库存物流  ✓ 风格统一铁律  ✓ Pinterest 引流</text>
+
+      <!-- 图例 -->
+      <rect x="20" y="1020" width="1360" height="60" rx="8" fill="#FFFFFF" stroke="#E8E0D5"/>
+      <text x="40" y="1045" fill="#6B4F3F" font-size="13" font-weight="600">图例：</text>
+      <rect x="100" y="1035" width="14" height="14" fill="#6B4F3F"/>
+      <text x="120" y="1046" fill="#5A5A5A" font-size="12">根节点</text>
+      <rect x="190" y="1035" width="14" height="14" fill="#D4A574"/>
+      <text x="210" y="1046" fill="#5A5A5A" font-size="12">认知层</text>
+      <rect x="280" y="1035" width="14" height="14" fill="#A8956B"/>
+      <text x="300" y="1046" fill="#5A5A5A" font-size="12">品类层</text>
+      <rect x="370" y="1035" width="14" height="14" fill="#8B7355"/>
+      <text x="390" y="1046" fill="#5A5A5A" font-size="12">实操层</text>
+      <rect x="460" y="1035" width="14" height="14" fill="#6B8E4E"/>
+      <text x="480" y="1046" fill="#5A5A5A" font-size="12">落地层</text>
+      <rect x="550" y="1035" width="14" height="14" fill="#FAF3E4" stroke="#D4A574"/>
+      <text x="570" y="1046" fill="#5A5A5A" font-size="12">AI 工具</text>
+      <rect x="640" y="1035" width="14" height="14" fill="#F2F0E5" stroke="#A8956B"/>
+      <text x="660" y="1046" fill="#5A5A5A" font-size="12">POD 平台</text>
+      <rect x="750" y="1035" width="14" height="14" fill="#EFE7DA" stroke="#8B7355"/>
+      <text x="770" y="1046" fill="#5A5A5A" font-size="12">后期工具</text>
+      <rect x="860" y="1035" width="14" height="14" fill="#F2F6EC" stroke="#6B8E4E"/>
+      <text x="880" y="1046" fill="#5A5A5A" font-size="12">引流变现</text>
+      <text x="1020" y="1046" fill="#8B7355" font-size="11" font-style="italic">💡 建议：把此页存为书签，迷路时随时回看</text>
+    </svg>
+  </div>
+</section>
+
+<!-- ========== 速览数据卡片 ========== -->
+<section class="section">
+  <h2 class="section-title">⚡ 关键数据速览</h2>
+  <p style="margin-bottom: 16px;">下面是 13 章课程中提到的 <strong>22 个对标 Etsy 店铺</strong> 真实数据，主人可作为赛道选择的参考。</p>
+  <div class="card-grid">
+    <div class="data-card"><span class="data-card-num">$1300万</span><span class="data-card-label">DIY 珠宝头部店（年销）</span></div>
+    <div class="data-card"><span class="data-card-num">$800万</span><span class="data-card-label">水彩宠物店（含 POD）</span></div>
+    <div class="data-card"><span class="data-card-num">$900万</span><span class="data-card-label">水彩家庭定制店（11年）</span></div>
+    <div class="data-card"><span class="data-card-num">$700万</span><span class="data-card-label">纯虚拟产品店（11年）</span></div>
+    <div class="data-card"><span class="data-card-num">$290万</span><span class="data-card-label">儿童房 Wall Art（11年）</span></div>
+    <div class="data-card"><span class="data-card-num">$200万+</span><span class="data-card-label">Notion 学生模板店</span></div>
+    <div class="data-card"><span class="data-card-num">$200万</span><span class="data-card-label">四方连续图老牌店</span></div>
+    <div class="data-card"><span class="data-card-num">$74万</span><span class="data-card-label">Notion 地产经纪店</span></div>
+    <div class="data-card"><span class="data-card-num">$74万</span><span class="data-card-label">名片模板店（To B）</span></div>
+    <div class="data-card"><span class="data-card-num">$63万</span><span class="data-card-label">iPad Planner 店</span></div>
+    <div class="data-card"><span class="data-card-num">$50万</span><span class="data-card-label">文艺复兴宠物店</span></div>
+    <div class="data-card"><span class="data-card-num">$40万</span><span class="data-card-label">婚礼插画风店</span></div>
+    <div class="data-card"><span class="data-card-num">$36万</span><span class="data-card-label">填色书卡车主题店</span></div>
+    <div class="data-card"><span class="data-card-num">$34万</span><span class="data-card-label">婚礼大众店</span></div>
+    <div class="data-card"><span class="data-card-num">$30万+</span><span class="data-card-label">"粉色荔枝"Notion 店</span></div>
+    <div class="data-card"><span class="data-card-num">$30万</span><span class="data-card-label">四方连续图厂家店（2-3年）</span></div>
+    <div class="data-card"><span class="data-card-num">$25万</span><span class="data-card-label">儿童填色书（电子走量）</span></div>
+    <div class="data-card"><span class="data-card-num">$19万</span><span class="data-card-label">复古植物店（22年开店）</span></div>
+    <div class="data-card"><span class="data-card-num">$18万</span><span class="data-card-label">碎花包装四方连续图（2年）</span></div>
+    <div class="data-card"><span class="data-card-num">$18万</span><span class="data-card-label">Planner 计划本店</span></div>
+    <div class="data-card"><span class="data-card-num">$16万</span><span class="data-card-label">动漫风格笔刷店</span></div>
+    <div class="data-card"><span class="data-card-num">$13万</span><span class="data-card-label">水彩宠物肖像画店</span></div>
+  </div>
+
+  <div class="callout callout-info" style="margin-top: 20px;">
+    <span class="callout-icon">💡</span>
+    <div class="callout-body">
+      <div class="callout-title">数据阅读方法</div>
+      <p>以上均为 Etsy 平台公开可查的年销售额数据，由讲师在课程中提供。主人做选品时不要直接对标最高数字，应关注<strong>与自身资源匹配</strong>的赛道（资金、时间、技能、IP）。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第一章 课程定位与核心理念 ========== -->
+<!-- ============================================ -->
+<section id="ch1" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 01</span>
+    <h1 class="chapter-title">第一章 · 课程定位与核心理念</h1>
+    <p class="chapter-subtitle">理解"AI + 数字产品 + POD"为什么是 2026 年最值得做的跨境副业</p>
+  </div>
+
+  <h3>1.1 课程定位</h3>
+  <div class="card card-highlight">
+    <div class="card-title">🎯 一句话定位</div>
+    <p>本课程是"<strong>AI + Digital Product + Print on Demand（按需设计）</strong>"完整实战课，定位从<strong>拓宽思路到实际应用</strong>。</p>
+    <p style="margin-top: 8px;"><strong>课程承诺</strong>：只要跟着一步一步操作，学员一定可以学会并真正运用方法。</p>
+  </div>
+
+  <h3>1.2 讲师背景</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>维度</th><th>详情</th></tr>
+      <tr><td>从业时长</td><td><strong>7 年</strong> Digital Download 经验</td></tr>
+      <tr><td>发展历程</td><td>早期无 AI 辅助 → AI 出现后实现批量生产 → 流量越来越稳定</td></tr>
+      <tr><td>自动化优势</td><td>全平台自动发货（Etsy 及其他平台），客户下单后系统自动发送文件</td></tr>
+      <tr><td>客服成本</td><td>偶尔邮件回复客户疑问，1-2 天内回复客户仍会继续下单</td></tr>
+    </table>
+  </div>
+
+  <h3>1.3 核心商业理念（90% 利润率）</h3>
+  <div class="callout callout-success">
+    <span class="callout-icon">💰</span>
+    <div class="callout-body">
+      <div class="callout-title">核心思路：用极低成本制造极高利润率</div>
+      <p>虚拟产品利润率高达 <strong>90% 以上</strong>，这是与 Amazon 等实物跨境完全不同的玩法。</p>
+    </div>
+  </div>
+
+  <h4>八大商业模式优势</h4>
+  <div class="card-grid">
+    <div class="card-mini"><strong>利润空间</strong><br>90%+ 利润率</div>
+    <div class="card-mini"><strong>可扩展性</strong><br>可无限拓展</div>
+    <div class="card-mini"><strong>交付方式</strong><br>自动化交付</div>
+    <div class="card-mini"><strong>客户范围</strong><br>全球客户</div>
+    <div class="card-mini"><strong>物流成本</strong><br>无需出关、物流、货存</div>
+    <div class="card-mini"><strong>交易即时性</strong><br>全球任何地方，付款后立即下载</div>
+    <div class="card-mini"><strong>迭代能力</strong><br>虚拟产品更容易迭代更新</div>
+    <div class="card-mini"><strong>AI 加持</strong><br>AI 持续进步，产品品质持续上升</div>
+  </div>
+
+  <h3>1.4 被动收入（Passive Income）理念</h3>
+  <div class="quote">
+    讲师越来越相信被动收入的价值，本课程本身也是被动收入的一部分。
+    <span class="quote-author">—— 核心方法论：做 Mockup、Etsy 还是其他平台，都是同样的思路框架</span>
+  </div>
+
+  <h3>1.5 课程价值主张</h3>
+  <ol class="number-list">
+    <li><strong>经验传承</strong>：让学员少走弯路</li>
+    <li><strong>副业/主业选择</strong>：市场低迷时期，digital download 是优质副业途径；投入更多时间可转为主业</li>
+    <li><strong>方法论复制</strong>：一套可复制的低成本低风险商业模式</li>
+  </ol>
+
+  <h3>1.6 课程版本 2.0 与 AI 技术演进</h3>
+  <div class="callout callout-tip">
+    <span class="callout-icon">🚀</span>
+    <div class="callout-body">
+      <div class="callout-title">为什么是 2.0 版本？</div>
+      <p>① AI 工具持续进步（如 Midjourney、豆包等），表现远超一年前<br>
+      ② 讲师在过去半年对自己的产品进行了全新升级<br>
+      ③ 课程同步更新，分享最新经验</p>
+    </div>
+  </div>
+
+  <h4>AI 对行业的影响（颠覆性变化）</h4>
+  <ul class="check-list">
+    <li>彻底改变了产品生产逻辑</li>
+    <li>实现产品批量生产</li>
+    <li>产品质量越来越高</li>
+    <li>画图制作时间不增反减</li>
+  </ul>
+
+  <h3>1.7 主人作为小白的发展路径</h3>
+  <div class="card" style="background: linear-gradient(90deg, #FAF7F2 0%, #F5EFE6 100%);">
+    <div class="card-title">📈 从小白到精通的 6 步路径</div>
+    <p style="text-align: center; font-size: 16px; padding: 8px 0;">
+      <span class="tag tag-accent">副业起步</span> →
+      <span class="tag tag-accent">经验积累</span> →
+      <span class="tag tag-accent">AI 赋能</span> →
+      <span class="tag tag-accent">批量生产</span> →
+      <span class="tag tag-accent">流量稳定</span> →
+      <span class="tag tag-success">可选转主业</span>
+    </p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第二章 Etsy 平台认知 ========== -->
+<!-- ============================================ -->
+<section id="ch2" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 02</span>
+    <h1 class="chapter-title">第二章 · Etsy 平台认知与商业逻辑</h1>
+    <p class="chapter-subtitle">理解 Etsy 是什么、为什么做它、怎么闭环</p>
+  </div>
+
+  <h3>2.1 课程学习路线（5 步闭环）</h3>
+  <ol class="number-list">
+    <li><strong>数字产品商品逻辑</strong>：搞清楚什么样的产品适合在 Etsy 上做</li>
+    <li><strong>细分品类与真实案例拆解</strong>：看到店铺产品是怎么跑起来的，以及他们的数据</li>
+    <li><strong>AI 制作实操</strong>：一步一步用 AI 把想法变成可直接售卖的数字产品</li>
+    <li><strong>产品包装上架</strong>：后台文件整理展示、关键词、上架细节等</li>
+    <li><strong>POD 按需设计延展</strong>（可选同步销售）：将数字产品链接到海外 POD 厂家</li>
+  </ol>
+
+  <h3>2.2 为什么选择 Etsy 而非其他平台</h3>
+  <p>讲师自己也在做独立站（Shopify），但<strong>最多的精力仍放在 Etsy</strong>。原因：</p>
+  <div class="table-wrap">
+    <table>
+      <tr><th>对比项</th><th>Etsy</th><th>Amazon</th><th>Shopify 独立站</th></tr>
+      <tr><td>平台定位</td><td>创意 + 设计 + 解决需求</td><td>标品 + 价格</td><td>自建流量</td></tr>
+      <tr><td>用户群</td><td>追求独特/有设计感</td><td>性价比导向</td><td>依赖广告投流</td></tr>
+      <tr><td>流量获取</td><td>平台自然流量大</td><td>竞争极卷</td><td>需要自己引流</td></tr>
+      <tr><td>利润率</td><td>中等（扣平台费）</td><td>中等</td><td>高（无平台费）</td></tr>
+      <tr><td>上手难度</td><td>★ 简单</td><td>★★ 中等</td><td>★★★ 难</td></tr>
+    </table>
+  </div>
+
+  <h4>Etsy 平台基本盘</h4>
+  <ul>
+    <li><strong>成立时间</strong>：2005 年（创始人 Rob Kalin）</li>
+    <li><strong>总部</strong>：美国纽约布鲁克林</li>
+    <li><strong>用户面</strong>：面向全球，特别是欧美市场</li>
+    <li><strong>核心定位</strong>：连接创作者和正在寻找<strong>独特、有设计感</strong>产品的消费者</li>
+  </ul>
+
+  <h3>2.3 Etsy 四大产品类目与底层逻辑</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">🛠️ 1. 手工制品（Handmade）</div>
+      <p>强调产品是手工制作的或可以 DIY</p>
+      <p><span class="tag tag-success">数字产品契合度：★★★★★</span></p>
+    </div>
+    <div class="card">
+      <div class="card-title">🎨 2. 设计导向产品</div>
+      <p>虽非纯手工，但由设计师或有审美的卖家制作</p>
+      <p><span class="tag tag-success">数字产品契合度：★★★★★</span></p>
+    </div>
+    <div class="card">
+      <div class="card-title">💝 3. 个性化/定制类产品</div>
+      <p>婚礼、生日活动的定制化产品</p>
+      <p><span class="tag tag-success">数字产品契合度：★★★★★</span></p>
+    </div>
+    <div class="card">
+      <div class="card-title">🎄 4. 节日性产品</div>
+      <p>情人节、圣诞节、万圣节等节日产品</p>
+      <p><span class="tag tag-success">数字产品契合度：★★★★★</span></p>
+    </div>
+  </div>
+
+  <div class="callout callout-success">
+    <span class="callout-icon">🔑</span>
+    <div class="callout-body">
+      <div class="callout-title">关键洞察</div>
+      <p>这四类产品的底层逻辑<strong>都可以用数字产品去制作和生产</strong>。<br>
+      <strong>共同点</strong>：不依赖大规模工厂、不拼价格、拼的是<strong>创意设计 + 解决需求</strong>的能力。</p>
+    </div>
+  </div>
+
+  <h3>2.4 头部店铺真实案例拆解</h3>
+  <div class="card-grid">
+    <div class="card card-highlight">
+      <div class="card-title">💎 案例 1：DIY 珠宝类头部店</div>
+      <ul>
+        <li>Etsy 全平台<strong>前十</strong>、常年打榜前三</li>
+        <li>年销售额：<strong>$1,300 万+</strong></li>
+        <li>偏向<strong>定制类</strong>珠宝（火爆原因）</li>
+      </ul>
+      <p style="margin-top: 8px;"><span class="tag tag-warn">教训</span> 物流是跨境做实物定制的最大短板 → 推论：<strong>数字产品无此问题</strong></p>
+    </div>
+    <div class="card card-highlight">
+      <div class="card-title">📅 案例 2：纯虚拟产品店</div>
+      <ul>
+        <li>已开店<strong>11 年</strong>，AI 出现之前就在做</li>
+        <li>产品类型：日程变迁类（数字产品）</li>
+        <li>年销售额：<strong>$700 万+</strong></li>
+        <li>净利润<strong>比珠宝店高</strong>（虚拟产品成本极低）</li>
+      </ul>
+      <p style="margin-top: 8px;"><span class="tag tag-success">启示</span> 做好上架后什么都不用做，等客户下单付钱即可</p>
+    </div>
+  </div>
+
+  <h3>2.5 Etsy 平台关键数据（2024 年）</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>指标</th><th>数据</th><th>意义</th></tr>
+      <tr><td>活跃卖家</td><td>约 600 多万</td><td>竞争相对适中</td></tr>
+      <tr><td>活跃用户</td><td><strong>9,000 多万</strong>（且持续增长）</td><td>流量大盘大</td></tr>
+      <tr><td>月浏览量</td><td>3 亿多</td><td>流量密集</td></tr>
+      <tr><td>POD 卖家占比</td><td>33%</td><td>POD 是大趋势</td></tr>
+      <tr><td>购买居家用品的用户</td><td>38%</td><td>POD 应优先选居家品类</td></tr>
+      <tr><td>最大销售市场</td><td><strong>美国</strong></td><td>店铺定位首选美国</td></tr>
+    </table>
+  </div>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">🌍</span>
+    <div class="callout-body">
+      <div class="callout-title">店铺定位建议</div>
+      <p>无论买店所在地或自己 IP 在哪里（如英国、法国、西班牙），讲师都建议<strong>把店铺定位开在美国</strong>——美国仍是最大市场，且消费者购买力相较于其他国家最强。</p>
+    </div>
+  </div>
+
+  <h3>2.6 竞争环境与机会判断</h3>
+  <div class="callout callout-success">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-body">
+      <div class="callout-title">讲师判断：这两年是 Etsy 上车的最佳窗口期</div>
+      <p><strong>竞争度</strong>：Etsy 的"卷度"相对于亚马逊来说是<strong>相当弱</strong>的<br>
+      <strong>利好组合</strong>：活跃用户高 + 在线卖家（定价相对高、用户活跃度高）+ 相对不卷 → 年销售额高 → 带来很好机会<br>
+      <strong>最大卖家画像</strong>：居家办公的人，很多人都是从副业开始做的</p>
+    </div>
+  </div>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">⏰</span>
+    <div class="callout-body">
+      <div class="callout-title">AI 带来的窗口期（重要）</div>
+      <p>以前 Etsy 上车后，生产一个产品（即便虚拟产品）都要 <strong>1 周到 1 个月</strong> 时间；现在有 AI，可以<strong>批量生产、卷流量</strong>。这是前所未有的机会窗口！</p>
+    </div>
+  </div>
+
+  <h3>2.7 销售闭环路径</h3>
+  <div class="card">
+    <div class="card-title">🔄 完整销售闭环（从用户搜索开始）</div>
+    <p><strong>步骤 1</strong>：用户在 Etsy 上搜索</p>
+    <p><strong>步骤 2</strong>：看到 listing（产品展示）</p>
+    <p><strong>步骤 3</strong>：下单</p>
+    <p><strong>步骤 4</strong>：数字产品可<strong>自动下载</strong>完成交易</p>
+    <p><strong>步骤 5</strong>：若想让它变成实物，再链接 POD 厂家生产</p>
+  </div>
+
+  <h4>用户搜索行为差异（关键方法论）</h4>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">🔍 用户在 Etsy 搜索</div>
+      <ul>
+        <li>手工制品</li>
+        <li>设计感强的产品</li>
+        <li>定制化产品</li>
+        <li>直接数字下载产品（digital download）</li>
+      </ul>
+    </div>
+    <div class="card">
+      <div class="card-title">🛒 用户在 Amazon 搜索</div>
+      <ul>
+        <li>家用电器</li>
+        <li>标品（标准化产品）</li>
+        <li>日用品、书籍等</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>2.8 POD 居家品类推荐</h3>
+  <div class="callout callout-info">
+    <span class="callout-icon">🏠</span>
+    <div class="callout-body">
+      <div class="callout-title">38% 用户购买居家生活用品 → POD 应优先选这些</div>
+      <p>✓ <strong>水杯</strong> &nbsp; ✓ <strong>枕套</strong> &nbsp; ✓ <strong>沙发单</strong> &nbsp; ✓ <strong>床单</strong></p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第三章 Printable 产品解析 ========== -->
+<!-- ============================================ -->
+<section id="ch3" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 03</span>
+    <h1 class="chapter-title">第三章 · Printable 产品解析</h1>
+    <p class="chapter-subtitle">Etsy 一级分类，体量最大的数字产品赛道</p>
+  </div>
+
+  <h3>3.1 Printable 是什么？为什么首选它？</h3>
+  <p>Printable 是 Etsy <strong>独立的一级分类</strong>，与珠宝首饰、服装、艺术品、图书并列。用户量、产品数量、商家数量都很大，是数字产品赛道中体量最大的分支。</p>
+
+  <h3>3.2 Wall Art 墙面艺术品（最大子类）</h3>
+  <h4>产品逻辑</h4>
+  <p>用户以相对低价购买数字产品下载链接，根据自己的需求打印成不同尺寸、打印在不同材料上，并自行装裱。最终呈现形式（挂墙或摆桌面）完全由用户 DIY 完成。国外用户非常喜欢 DIY。</p>
+
+  <h4>风格多样性</h4>
+  <ul>
+    <li>简单插画风</li>
+    <li>水彩风</li>
+    <li>手绘风</li>
+    <li>复古油画风</li>
+    <li>幽默感抽象风</li>
+  </ul>
+
+  <div class="callout callout-tip">
+    <span class="callout-icon">💡</span>
+    <div class="callout-body">
+      <div class="callout-title">核心方法论</div>
+      <p>风格选择虽取决于市场需求，但<strong>更重要的是符合自己的审美</strong>——当我们喜欢某个品类时，才能产生更多想法去发展支线、创造不同样式。</p>
+      <p style="margin-top: 6px;">90% 以上的风格用 <strong>Midjourney 或 Nano Banana</strong> 都能快速批量生产，且品质很高。</p>
+    </div>
+  </div>
+
+  <h4>Top 销量案例拆解</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>排名</th><th>产品类型</th><th>年销售额</th><th>特点</th></tr>
+      <tr><td>1</td><td>复古油画风景画（AI 生成）</td><td><strong>店铺 19 万+</strong></td><td>单店 22 年新店，植物户外复古风，AI 差异化</td></tr>
+      <tr><td>2</td><td>大师风格复古风景画</td><td>单套 4 万+</td><td>梵高/高更/马蒂斯/莫奈风（<span class="tag tag-warn">不推荐做</span>）</td></tr>
+      <tr><td>3</td><td>明快现代化风格</td><td>7 万+</td><td><span class="tag tag-warn">不推荐一开始做（极卷）</span></td></tr>
+      <tr><td>4</td><td>Vintage 植物画（POD 模式）</td><td><strong>16 万</strong></td><td>客户选尺寸裱框，POD 自动生产</td></tr>
+      <tr><td>5</td><td>儿童房/幼儿园 Wall Art</td><td><strong>290 万</strong></td><td>11 年老店，卡通可爱风，仅 5 页产品</td></tr>
+    </table>
+  </div>
+
+  <h4>避坑要点（主人一定要记住）</h4>
+  <ul class="cross-list">
+    <li><strong>不做名画打包</strong>：无版权但极卷、整理 1 万张累、无差异化、学员实测卷不过竞品</li>
+    <li><strong>不做一个 list 几万张画的超卷产品</strong>：浪费精力</li>
+  </ul>
+  <ul class="check-list">
+    <li><strong>推荐做 AI 生成的差异化风景画</strong>：有壁垒、可批量、销量反超名画</li>
+  </ul>
+
+  <h4>交付细节</h4>
+  <p>商家发给客户的是<strong>图片的 PDF</strong>，会注明分辨率和比例（如 16:9）。展示时是低分辨率缩略图，客户拿到的是高清版。Delivery（交付）必是五星好评，因为即时下载。</p>
+
+  <h3>3.3 Planner 计划本产品</h3>
+  <h4>两种类型</h4>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">📱 电子版 Planner</div>
+      <p>主要在 iPad 上使用，也可用于 Notion 或 Excel</p>
+      <p><strong>特点</strong>：容易按年份/季度更新，容易累积回头客</p>
+    </div>
+    <div class="card">
+      <div class="card-title">🖨️ 可打印 Planner</div>
+      <p>用户下载后自行打印</p>
+      <p>也有商家直接寄打印实体</p>
+    </div>
+  </div>
+
+  <h4>核心优势</h4>
+  <ul class="check-list">
+    <li>需求长期稳定</li>
+    <li>按年/季更新，易累积回头客</li>
+    <li>时间窗口明确：<strong>每年下半年是次年 planner 销量暴增期</strong>（如 2026 planner 近两月销量暴增）</li>
+  </ul>
+
+  <h4>案例数据</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>店铺</th><th>年销售额</th><th>特点</th></tr>
+      <tr><td>2026 iPad 日程表店</td><td>8 万+ 美元</td><td>近两个月销量暴增</td></tr>
+      <tr><td>儿童日历模板</td><td>单件 2.8 万</td><td>小孩子可打印也可 iPad 用</td></tr>
+      <tr><td>电子日程表店（独立站）</td><td><strong>63 万</strong></td><td>IG 7 万粉，年销售 63 万美元</td></tr>
+    </table>
+  </div>
+
+  <h4>制作方法（无需 AI！）</h4>
+  <ol class="number-list">
+    <li>Google 搜索 "notion planner template"</li>
+    <li>下载免费模板（Notion 官方无数免费模板）</li>
+    <li>更改内容/颜色/字体/细节</li>
+    <li>上架 Etsy</li>
+  </ol>
+
+  <div class="callout callout-success">
+    <span class="callout-icon">📹</span>
+    <div class="callout-body">
+      <div class="callout-title">一举两得的内容策略</div>
+      <p>同一条视频可同时用于：<br>
+      ① 展示产品使用方法<br>
+      ② 放独立站/Pinterest/Etsy 作产品展示素材<br>
+      ③ 发社媒吸引流量</p>
+      <p style="margin-top: 4px;">理解成本和获客成本<strong>非常低</strong>。</p>
+    </div>
+  </div>
+
+  <h3>3.4 卡片类产品</h3>
+  <p><strong>产品形态</strong>：生日派对卡、节日贺卡、婚礼邀请函、名片模板</p>
+
+  <h4>运营逻辑：围绕主题而非单品</h4>
+  <div class="card">
+    <p>卡片店铺通常<strong>不单卖单一产品</strong>，而是围绕清晰主题做。</p>
+    <p>例：婚礼主题店铺同时卖电子请柬、派对海报、相关装饰模板</p>
+  </div>
+
+  <h4>天花板对比</h4>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">🎄 单一节日卡片店</div>
+      <p>天花板十几万，难突破</p>
+      <p><span class="tag tag-warn">不推荐</span></p>
+    </div>
+    <div class="card">
+      <div class="card-title">💒 婚礼/儿童主题店</div>
+      <p>可达 <strong>74 万</strong> 美元</p>
+      <p><span class="tag tag-success">推荐</span></p>
+    </div>
+  </div>
+
+  <h4>零客服模型（核心优势）</h4>
+  <ul class="check-list">
+    <li>给客户自助模板，自行替换内容</li>
+    <li>商家不对接客户、不浪费时间</li>
+    <li>店铺整体流量和单个用户价值明显高于单一卡片店</li>
+  </ul>
+
+  <h4>名片模板（To B 溢价方向）</h4>
+  <ul>
+    <li>案例店铺年销售额 <strong>74 万美元</strong></li>
+    <li>To B 属性单价可高</li>
+    <li>需求大，可同时用于邮箱签名栏</li>
+  </ul>
+
+  <h3>3.5 Coloring Book 填色书产品（讲师最看好）</h3>
+
+  <div class="callout callout-success">
+    <span class="callout-icon">⭐</span>
+    <div class="callout-body">
+      <div class="callout-title">讲师最看好的品类</div>
+      <p>① <strong>用户群极广</strong>：既可以是大人，也可以是小孩，还可做定制化<br>
+      ② <strong>单价通常比其他数字产品高</strong><br>
+      ③ 有定制化属性<br>
+      ④ 可延展到 POD 打印<br>
+      ⑤ <strong>非常好做</strong></p>
+    </div>
+  </div>
+
+  <h4>案例数据</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>店铺类型</th><th>年销售额</th><th>特点</th></tr>
+      <tr><td>某产品 6 张图 6 个图案</td><td>34 万</td><td>单价 12 美元左右，成本极低</td></tr>
+      <tr><td>纯数字下载店</td><td><strong>20 万</strong></td><td>极致零实体，利润非常高</td></tr>
+      <tr><td>审美不极致但销量好</td><td><strong>36 万</strong></td><td>卡车主题 5 页卖 1.8 美元（量取胜）</td></tr>
+    </table>
+  </div>
+
+  <h4>AI 快速生成优势</h4>
+  <ul class="check-list">
+    <li>用 AI 非常快可以生成，尤其<strong>儿童填色书、填色页方向时长表现很好</strong></li>
+    <li>国外幼儿园非常受欢迎，老师当作业布置</li>
+    <li>电子版好处：可家里打印，也可 iPad 使用</li>
+    <li>不只针对小朋友，很多大人也买来自己填色</li>
+  </ul>
+
+  <h4>定制化升级（高单价方向）</h4>
+  <p>提供<strong>照片定制</strong>：客户提供照片 → 用 AI 转换成线稿 → 打印装订发给客户。单价变得很高，但<strong>比较适合在北美市场</strong>。</p>
+
+  <h3>3.6 贯穿全章的核心方法论</h3>
+  <h4>1. 风格统一铁律（出现于各板块）</h4>
+  <ul>
+    <li>单一店铺必须保持<strong>统一风格/画风</strong></li>
+    <li>价值：提升专业度与审美质感、降低 AI 生产关键词调整成本</li>
+    <li>反例：什么都卖什么风格都卖的店铺，专业度大降</li>
+  </ul>
+
+  <h4>2. AI 批量生产优势</h4>
+  <ul>
+    <li>Wall Art：Midjourney/Nano Banana 一次生成 4 张+，覆盖 90% 风格</li>
+    <li>填色书：AI 极快生成线稿，尤其儿童方向</li>
+  </ul>
+
+  <h4>3. 社媒引流闭环</h4>
+  <p>Instagram/Pinterest 发布作品 → 标签定位（digital artwork）→ 主页链接 Etsy/独立站</p>
+
+  <h4>4. 平台策略：先 Etsy 后独立站</h4>
+  <p>Etsy：自然流量大、有现成客户群，但抽成高<br>
+  独立站：利润高，但需自建流量、投流贵<br>
+  路径：先 Etsy 起步，后期有条件再搭独立站做第二赛道</p>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第四章 模板类产品 ========== -->
+<!-- ============================================ -->
+<section id="ch4" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 04</span>
+    <h1 class="chapter-title">第四章 · 模板类产品（Notion / 简历 / 婚礼）</h1>
+    <p class="chapter-subtitle">数字素材高价值主线，单价高、用户基数大</p>
+  </div>
+
+  <h3>4.1 数字素材品类边界说明</h3>
+  <p>讲师原计划单独讲 "digital art"（数字艺术）大类，但拆解后发现它与 printable 高度重合：装饰画、插画、reprint 类。主要区别：</p>
+  <ul>
+    <li><strong>Printable</strong>：打印版本，强调可打印属性、分辨率较高</li>
+    <li><strong>Digital art</strong>：纯电子素材版本，不强调可打印属性、分辨率可能没那么高</li>
+  </ul>
+
+  <h4>纯数字品类补充</h4>
+  <p>两类：① 手机壁纸（含动态壁纸） ② 摄影类素材。规模不大但需求长期存在，做得好的人主要靠社交媒体引流销售。<strong>不适合用 AI 规模化复制</strong>，故不重点展开。</p>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">📚</span>
+    <div class="callout-body">
+      <div class="callout-title">200+ 类目资料库</div>
+      <p>讲师已整理一份资料，包含 200 多个可在 Etsy 售卖、无需物流的数字产品类目（贺卡、日程管理、教育类、DIY 类、财务预算等）。使用方法：</p>
+      <p>① 挑选感兴趣方向（如财务类目）<br>
+      ② 复制对应英文关键词到 Etsy 搜索<br>
+      ③ 观察别人做法，判断是否有仿制和切入空间<br>
+      ④ 通过私聊进入辅导渠道，与老师讨论赛道适配性</p>
+    </div>
+  </div>
+
+  <h3>4.2 Notion 模板赛道（讲师个人最看重的类目）</h3>
+  <p>虽然模板类产品<strong>较难用 AI 直接复制</strong>，但很多学员本身在企业里、对这些软件非常熟悉，因此对善于使用工具的学员而言，这是一个非常值得尝试的赛道。</p>
+
+  <h4>产品本质</h4>
+  <p>把用户原本熟悉的内容——日程表、读书笔记、心情笔记、运动笔记等——全部整合进 Notion 笔记，通过打勾、标记、规划形成一个完整的计划系统。</p>
+
+  <h4>社交媒体带货威力</h4>
+  <div class="quote">
+    以自律博主为例：可拍一天 vlog，分享"我之所以能坚持自律，是因为每天用这个 Notion 模板"。一个 YouTube 博主通过一条视频给 Notion 模板带货 <strong>271 件</strong>，单件标价 <strong>70 美金</strong>。
+  </div>
+
+  <h4>三种打法</h4>
+  <div class="card-grid">
+    <div class="card card-highlight">
+      <div class="card-title">💼 打法一：专业性路线</div>
+      <p>按职业细分，高客单价 + 品牌信任 + 复购</p>
+      <p><strong>案例</strong>：地产经纪人模板 <strong>997 美金/bundle</strong>，年销 5 万+，累计 13 万+</p>
+      <p>案例店铺年销 <strong>74 万</strong> + 独立站（实际收入可能 2 倍）</p>
+      <p><span class="tag tag-success">适合：某专业有建树者</span></p>
+    </div>
+    <div class="card card-highlight">
+      <div class="card-title">👨‍🎓 打法二：按人群路线</div>
+      <p>目标用户明确，低客单价 + 高复购 + 创新布局</p>
+      <p><strong>案例</strong>：学生群体店，单品 3-6 美金，420 美金 bundle</p>
+      <p>店铺年销 <strong>200+ 万美金</strong>，大 bundle 年销 9 万+，小 bundle 1 万+</p>
+      <p>生活日记设计 9 种不同布局，含读书笔记、学习记录等</p>
+      <p><span class="tag tag-success">适合：研究用户需求</span></p>
+    </div>
+    <div class="card card-highlight">
+      <div class="card-title">🌸 打法三：视觉风格路线</div>
+      <p>把模板做得更好看、更可爱，吸引特定人群</p>
+      <p>图案可用 AI 设计</p>
+      <p><strong>案例</strong>：粉色主题、清新风格店铺"粉色荔枝"，年销 <strong>30+ 万美金</strong></p>
+      <p>开店仅两三年，风格统一（清新粉色与绿色）</p>
+      <p><span class="tag tag-success">适合：设计师</span></p>
+    </div>
+  </div>
+
+  <h3>4.3 简历模板赛道（ATS friendly 是关键）</h3>
+  <h4>需求来源</h4>
+  <ul>
+    <li>刚开始投简历的学生</li>
+    <li>刚进入职场的人（不知道简历怎么写/排版）</li>
+    <li>年纪大的求职者（不太会做版式设计）</li>
+  </ul>
+
+  <div class="callout callout-success">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-body">
+      <div class="callout-title">ATS 友好型——重要细分方向</div>
+      <p>ATS = 现在很多岗位线上投递，简历会经系统筛选。哪怕视觉做得再好看，格式不够友好也会在系统里被刷掉。</p>
+      <p>关键词加 <strong>"ATS friendly resume"</strong> 一方面扩大流量，另一方面让用户更精准。</p>
+    </div>
+  </div>
+
+  <h4>格式选择</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>定位</th><th>适合格式</th></tr>
+      <tr><td>偏文字类、ATS 友好型</td><td>Word 格式</td></tr>
+      <tr><td>偏设计类、注重图像友好</td><td>Canva（可画）/ Keva 友好</td></tr>
+    </table>
+  </div>
+
+  <h4>视觉润色溢价</h4>
+  <p>模板中增加有趣视觉元素（技能条、进度条），哪怕真实性不重要，视觉好看用户也愿意为润色感买单。案例：<strong>年销售额 4 万多美金</strong>，仅 6-8 个模板。</p>
+
+  <h4>周期性</h4>
+  <p>每隔几个月有一波求职高峰期，搜索量上升，新店也很容易在此时期获曝光。</p>
+
+  <h3>4.4 婚礼相关模板赛道</h3>
+  <p>婚礼类产品在 Etsy 是<strong>首页级大类</strong>，需求稳定、体量很大。</p>
+
+  <h4>可画 Canva 在线编辑模式（核心）</h4>
+  <div class="card card-highlight">
+    <div class="card-title">💒 零客服婚礼邀请函模式</div>
+    <p>卖家<strong>无需为每个客户单独定制</strong>：客户购买的是一套电子模板，购买后卖家提供一个 Canva 链接，客户自行修改新人名字、时间、地点，调整图案位置与内容。</p>
+    <p><strong>卖家视角</strong>：不需花额外时间定制客服，只需把模板本身设计好，符合婚礼主题和审美即可。</p>
+  </div>
+
+  <h4>风格差异与定价</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>风格</th><th>单价</th><th>代表案例</th></tr>
+      <tr><td>设计感强、年轻化</td><td>22 美金左右</td><td>新店年销 1.8 万美金</td></tr>
+      <tr><td>偏大众审美</td><td>10 美金/套</td><td>年销售额 <strong>34 万美金</strong></td></tr>
+      <tr><td>插画风（AI 可做）</td><td>20 美金左右</td><td>3 年 5.0 评分，年销 <strong>40 万美金</strong></td></tr>
+    </table>
+  </div>
+
+  <h4>AI 制作流程</h4>
+  <ol class="number-list">
+    <li>用 AI（Midjourney/Nano Banana）制作插画</li>
+    <li>在 Canva 里简单排版</li>
+    <li>加入边框</li>
+    <li>选好文字</li>
+    <li>直接作为模板销售</li>
+  </ol>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第五章 四方连续图与笔刷 ========== -->
+<!-- ============================================ -->
+<section id="ch5" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 05</span>
+    <h1 class="chapter-title">第五章 · 四方连续图与笔刷（AI 规模化首选）</h1>
+    <p class="chapter-subtitle">新手友好赛道，长期积累可做到 200 万美元</p>
+  </div>
+
+  <h3>5.1 国内外市场差异（重要）</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">🇨🇳 国内市场问题</div>
+      <p>✗ 单价低</p>
+      <p>✗ 盗版严重</p>
+      <p>✗ 版权意识弱</p>
+    </div>
+    <div class="card card-highlight">
+      <div class="card-title">🌍 国外市场优势</div>
+      <p>✓ 版权意识强</p>
+      <p>✓ 用户购买后不会转卖</p>
+      <p>✓ 客单价高</p>
+      <p><strong>结论：主要面向国外市场</strong></p>
+    </div>
+  </div>
+
+  <h3>5.2 四方连续图（Seamless Pattern）详解</h3>
+  <h4>定义与原理</h4>
+  <div class="callout callout-tip">
+    <span class="callout-icon">🔲</span>
+    <div class="callout-body">
+      <div class="callout-title">什么是四方连续图？</div>
+      <p>Seamless pattern（无缝图案），核心特征是图案在<strong>左右拼接和上下拼接时都能完整衔接</strong>，不会断裂或跳图。无论怎么铺展都连得上，因此可以被定义为"<strong>无限延展</strong>"。</p>
+    </div>
+  </div>
+
+  <h4>应用场景（应用广泛）</h4>
+  <ul class="check-list">
+    <li>服装</li>
+    <li>产品包装（包装纸、一卷纸的包装）</li>
+    <li>手机壳</li>
+    <li>标签</li>
+    <li>笔记本</li>
+    <li>墙纸</li>
+    <li>贴纸</li>
+    <li>拼图、水杯等 POD 成品</li>
+  </ul>
+
+  <h4>AI 制作优势（颠覆性）</h4>
+  <div class="card card-highlight">
+    <ul>
+      <li>✓ 一键生成，效率极高</li>
+      <li>✓ 避免重复拼接问题</li>
+      <li>✓ 一整套提示词可直接生成多张，几乎没有任何拼接漏洞</li>
+      <li>✓ 例如冬天雪人图案的提示词，一次生成 4 张图，至少有 3 张可以使用</li>
+    </ul>
+  </div>
+
+  <p><strong>搜索关键词</strong>：客户选购时会搜索包含 "<strong>seamless</strong>"（无缝）关键词的产品</p>
+
+  <h3>5.3 四方连续图店铺案例分析</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>店铺类型</th><th>年销售额</th><th>特点</th></tr>
+      <tr><td>碎花类包装店铺</td><td><strong>18 万美金</strong></td><td>开店 2 年，碎花类包装用的 seamless pattern</td></tr>
+      <tr><td>老牌店铺（十几年）</td><td><strong>200+ 万美金</strong></td><td>审美不算特别高级，但销量非常稳定</td></tr>
+      <tr><td>设计感风格新店铺</td><td>1-2 万美金</td><td>风格统一，AI 生成</td></tr>
+      <tr><td>水彩风/小碎花/农场家装感</td><td>—</td><td>可对接 POD</td></tr>
+      <tr><td>统一视觉语言店铺</td><td><strong>4 万+ 美金</strong></td><td>配色、主题、画风核心描述一致</td></tr>
+    </table>
+  </div>
+
+  <h3>5.4 笔刷产品详解</h3>
+  <h4>产品定位</h4>
+  <p>笔刷是数字产品，可以让设计和绘图事半功倍。设计师或画师大概率都买过笔刷。例如宫崎骏风格的绘画效果，用合适的草地笔刷可以快速画出草地层次感。</p>
+
+  <h4>社交媒体推广优势</h4>
+  <ul class="check-list">
+    <li>特别适合在社交媒体推广</li>
+    <li>录屏绘画过程（天空和草地画面），很多人爱看</li>
+    <li>看到效果后想要同样画面，自然去买笔刷</li>
+    <li>点击主页链接到 Etsy 店铺</li>
+  </ul>
+
+  <h4>动漫风格笔刷店铺案例</h4>
+  <ul>
+    <li>产品特点：围绕人物和风景</li>
+    <li>产品数量：只有两页</li>
+    <li>年销售额：<strong>16 万美金</strong></li>
+    <li>多渠道运营：Etsy 独立站、Gumroad</li>
+    <li>同一套产品在社交媒体链接三家店铺，三条收入路径</li>
+  </ul>
+
+  <h4>其他笔刷风格与定价</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>风格</th><th>特点</th><th>定价</th></tr>
+      <tr><td>蜡笔风格</td><td>iPad 真实笔触</td><td>—</td></tr>
+      <tr><td>铅笔风格</td><td>iPad 真实笔触</td><td>—</td></tr>
+      <tr><td>草地油画类</td><td>6 图案+9 笔刷整套</td><td>17-18 美金（年销 88,000 美金）</td></tr>
+      <tr><td>无缝拼贴笔刷</td><td>笔画出无缝效果，制作难度低</td><td>—</td></tr>
+    </table>
+  </div>
+
+  <h3>5.5 笔刷产品特点与定位</h3>
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body">
+      <div class="callout-title">笔刷的特殊性</div>
+      <p>✓ 单价通常不低<br>
+      ✗ 更依赖<strong>个人经验和长期积累</strong><br>
+      ✗ <strong>比较难用 AI 复制</strong>，不太可能大规模批量生产</p>
+      <p>实操课不会详细讲解笔刷制作。笔刷赛道感兴趣学员可私下联系讲师针对性辅导。</p>
+    </div>
+  </div>
+
+  <h3>5.6 运营策略与积累的重要性</h3>
+  <div class="callout callout-success">
+    <span class="callout-icon">📈</span>
+    <div class="callout-body">
+      <div class="callout-title">核心建议</div>
+      <p>积累非常重要，<strong>不要期待两三个月或半年就爆单</strong>。<br>
+      Etsy 不管哪个品类商家都很多，都很卷。<br>
+      找到自己的风格后<strong>持续产出产品</strong>，不要做四五个就等着爆单。<br>
+      持续积累产出新产品是关键。</p>
+    </div>
+  </div>
+
+  <h4>合理目标设定</h4>
+  <ul>
+    <li>一两年做到 <strong>10 万美金</strong> 是合理健康的目标</li>
+    <li>18 万美金是很好的成绩</li>
+  </ul>
+
+  <h3>5.7 选品建议</h3>
+  <ul class="check-list">
+    <li><strong>新手首选</strong>：四方连续图赛道，AI 可规模化生产，无需手绘经验</li>
+    <li><strong>设计师优选</strong>：笔刷赛道，单价高、社交媒体推广效果好</li>
+    <li><strong>长期深耕</strong>：四方连续图值得长期积累，十几年可做到 200 多万美金</li>
+    <li><strong>积累策略</strong>：持续产出产品，不要只做四五个就等爆单</li>
+  </ul>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第六章 宠物定制 ========== -->
+<!-- ============================================ -->
+<section id="ch6" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 06</span>
+    <h1 class="chapter-title">第六章 · 宠物定制（高客单价首选）</h1>
+    <p class="chapter-subtitle">讲师在 Etsy 上最看好的数字产品方向，客单价明显高于其他品类</p>
+  </div>
+
+  <h3>6.1 定制类产品赛道定位</h3>
+  <div class="callout callout-success">
+    <span class="callout-icon">💎</span>
+    <div class="callout-body">
+      <div class="callout-title">核心优势：客单价明显高于其他数字产品品类</div>
+      <p><strong>特点与限制</strong>：</p>
+      <p>✗ 无法做到完全被动收入（需要客户提供照片，根据需求转换成指定风格）<br>
+      ✓ 整个流程极其简单：<strong>输入提示词 + 上传客户照片 = 快速生成对应风格作品</strong><br>
+      学员需根据自身情况选择是否进入此赛道</p>
+    </div>
+  </div>
+
+  <h3>6.2 宠物肖像定制赛道分析</h3>
+  <p>宠物肖像定制是讲师在 Etsy 上<strong>非常主推</strong>的方向。</p>
+
+  <h4>核心优势</h4>
+  <ol class="number-list">
+    <li>宠物相关产品一直是热门赛道</li>
+    <li>画风可以不断变化，不存在过时问题</li>
+    <li>AI 辅助下，几乎任何风格都可以快速复制和延展</li>
+    <li>提示词已整理在学员素材包，<strong>直接复制粘贴即可使用</strong></li>
+  </ol>
+
+  <h3>6.3 四大热门宠物肖像风格</h3>
+  <h4>风格一：文艺复兴皇家宠物肖像（最火爆）</h4>
+  <div class="card card-highlight">
+    <div class="card-title">👑 文艺复兴皇家宠物肖像</div>
+    <p><strong>市场表现</strong>：现在非常火，虽然竞争者多，但整体销量一直很好。只要能拿到流量，销量绝对不会差。</p>
+    <p><strong>案例数据</strong>：</p>
+    <ul>
+      <li>单款产品去年年销售额：<strong>4 万+ 美金</strong></li>
+      <li>累计销售额：<strong>9 万+ 美金</strong></li>
+      <li>店铺运营 4 年，年销售额：<strong>50+ 万美金</strong></li>
+    </ul>
+    <p><strong>定价（POD 模式）</strong>：</p>
+    <div class="table-wrap">
+      <table>
+        <tr><th>产品形态</th><th>定价</th></tr>
+        <tr><td>电子版定制肖像画</td><td>约 13 美金</td></tr>
+        <tr><td>打印在油画布上（不带框）</td><td>约 52 美金</td></tr>
+        <tr><td>带框成品</td><td><strong>100+ 美金</strong></td></tr>
+      </table>
+    </div>
+    <p><strong>制作流程</strong>：客户提供宠物照片 → 客户选择服装风格代码 → 卖家用 AI 生成文艺复兴服装的宠物肖像画 → 对接 POD 厂家打印制作 → POD 厂家直接发货给客户</p>
+  </div>
+
+  <h4>风格二：水彩极简风（800 万美金最大案例）</h4>
+  <div class="card card-highlight">
+    <div class="card-title">🎨 水彩极简风宠物肖像</div>
+    <p><strong>风格特点</strong>：不太需要复杂背景，一般白色或淡彩色。宠物转换成清淡可爱的水彩效果。非常适合挂在家里，易与不同装修风格搭配。</p>
+    <p><strong>案例数据</strong>：</p>
+    <ul>
+      <li>店铺总评分：<strong>4.8 分</strong></li>
+      <li>年销售额：<strong>800+ 万美金</strong>（含 POD 延展）</li>
+    </ul>
+    <p><strong>产品延展</strong>：用相同风格 POD 复制到不同产品：</p>
+    <ul>
+      <li>服装、挂画</li>
+      <li>被单、床套</li>
+      <li>水杯、圣诞挂饰</li>
+      <li>POD 平台可生产的所有产品</li>
+    </ul>
+    <p><span class="tag tag-warn">利润提醒</span>：POD 商家的净利润比纯虚拟素材商家要低</p>
+  </div>
+
+  <h4>风格三：小尺寸彩色边框宠物肖像</h4>
+  <div class="card">
+    <div class="card-title">🖼️ 小尺寸彩色边框宠物肖像</div>
+    <p><strong>风格特点</strong>：小尺寸肖像 + 彩色装饰性画框。背景和画框都是 AI 制作（可用 ChatGPT）。特别受小型宠物主人欢迎。</p>
+    <p><strong>案例数据</strong>：</p>
+    <ul>
+      <li>好评率很高，评分几乎都是 5 分</li>
+      <li>上架时间不长，已卖出 3,000+ 美金</li>
+      <li>店铺年销售额：<strong>9 万+ 美金</strong></li>
+    </ul>
+    <p><strong>产品策略</strong>：反复发布同一款产品，核心内容相同，仅边框不同。边框可用 AI 生成。</p>
+  </div>
+
+  <h4>风格四：极简风格宠物肖像（最简单）</h4>
+  <div class="card">
+    <div class="card-title">✨ 极简风格宠物肖像</div>
+    <p><strong>风格特点</strong>：画面干净简洁，在肖像上配上宠物名字，客户可选择不同背景颜色。</p>
+    <p><strong>优势对比</strong>：比复古文艺风格更简单——复古风格需提供服装款式、帽子款式等选项；极简风格只需把照片转换到模板，提供颜色选项。</p>
+    <p><strong>案例数据</strong>：</p>
+    <ul>
+      <li>单款产品年销售额：<strong>7 万+ 美金</strong></li>
+      <li>好评率很高</li>
+      <li>单宠物定制价格：约 17 美元</li>
+    </ul>
+  </div>
+
+  <h3>6.4 店铺运营策略要点</h3>
+  <h4>风格统一的重要性（反例与正面）</h4>
+  <div class="callout callout-danger">
+    <span class="callout-icon">❌</span>
+    <div class="callout-body">
+      <div class="callout-title">反面案例</div>
+      <p>某店铺风格杂乱（年销售 96 万美金），可能因为前期爆款流量下滑后尝试各种不同风格，反而<strong>削弱店铺专业度和品牌感</strong>，好评率相对较低。</p>
+    </div>
+  </div>
+  <div class="callout callout-success">
+    <span class="callout-icon">✅</span>
+    <div class="callout-body">
+      <div class="callout-title">正面建议</div>
+      <p>✓ <strong>在一个画风体系下延展</strong>：从宠物肖像 → 人物肖像 → 全家福 → 人宠合照<br>
+      ✓ <strong>画风统一就是很好的结合</strong><br>
+      ✗ <strong>画风混杂会给买家不好的 AI 感</strong></p>
+    </div>
+  </div>
+
+  <h3>6.5 家庭肖像画定制赛道（高单价）</h3>
+  <p>与宠物肖像同属定制插画类产品，可丰富店铺产品线的好方向，也可单独深耕一个细分赛道。</p>
+
+  <h4>风格示例</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>风格</th><th>特点</th><th>案例数据</th></tr>
+      <tr><td>复古年代感</td><td>AI 感较重，但用户喜欢</td><td>好评数 2,700+ 条</td></tr>
+      <tr><td><strong>水彩风格</strong></td><td>温馨家庭感，画风统一</td><td><strong>年销售额 900+ 万美金</strong></td></tr>
+    </table>
+  </div>
+
+  <h4>定价优势</h4>
+  <ul class="check-list">
+    <li>电子版定价通常比宠物单独肖像画<strong>更高</strong></li>
+    <li>投入制作时间几乎一样，只是把照片输入 AI</li>
+    <li>客单价更高</li>
+  </ul>
+
+  <h3>6.6 长期运营案例</h3>
+  <div class="card card-highlight">
+    <div class="card-title">🏆 900 万美金店铺成长路径</div>
+    <p>某水彩风格店铺从 <strong>2008 年</strong>开始运营，已积累大量客户资源和口碑，年销售额达 <strong>900+ 万美金</strong>，产品包括：</p>
+    <ul>
+      <li>全家福插画</li>
+      <li>住宅定制</li>
+      <li>宠物肖像画定制</li>
+    </ul>
+    <p>整体主题围绕<strong>温馨家庭感</strong>，画风统一。</p>
+  </div>
+
+  <h3>6.7 选品优先级</h3>
+  <ol class="number-list">
+    <li><strong>填色书</strong>（Coloring Book）：讲师最看好，一物三卖，用户群最广</li>
+    <li><strong>四方连续图</strong>（Seamless Pattern）：AI 规模化首选，新手友好</li>
+    <li><strong>定制类产品</strong>：高客单价，需权衡时间投入</li>
+    <li><strong>模板类产品</strong>：高价值，适合工具熟练者</li>
+  </ol>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第七章 宠物定制画实操 ========== -->
+<!-- ============================================ -->
+<section id="ch7" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 07</span>
+    <h1 class="chapter-title">第七章 · 宠物定制画实操流程</h1>
+    <p class="chapter-subtitle">两款标杆产品：文艺复兴风（4万美金）+ 水彩风（13万美金）</p>
+  </div>
+
+  <h3>7.1 课程定位与品类选择</h3>
+  <div class="card card-highlight">
+    <p>本节课进入实操环节，主讲宠物肖像定制和人物肖像定制两个品类。这是上一节课重点分析、讲师个人非常看好的赛道，核心原因是<strong>客单价明显高于普通虚拟素材产品</strong>。</p>
+  </div>
+
+  <h4>学员选择建议</h4>
+  <ul>
+    <li><strong>有全职工作、时间有限</strong>的学员：做<strong>纯被动虚拟素材</strong>更轻松（批量制作）</li>
+    <li><strong>做定制类产品</strong>：即便有 AI 帮助，仍需要和客户沟通、接收照片、发给 POD 厂家</li>
+  </ul>
+
+  <h3>7.2 AI 工具对比（双轨制）</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>工具</th><th>所属</th><th>特点</th><th>价格</th></tr>
+      <tr><td><strong>豆包</strong></td><td>国内 AI 工具</td><td>提示词为中文版本，可直接复制使用</td><td>便宜</td></tr>
+      <tr><td><strong>nano banana (Gemini)</strong></td><td>Google 旗下 AI 生图工具</td><td>适合海外 IP 学员</td><td>便宜</td></tr>
+    </table>
+  </div>
+  <p>两个工具都比之前推荐的 <strong>Midjourney 便宜不少</strong>。Midjourney 在<strong>批量制作虚拟素材</strong>方面速度更快、能力更强（适合纯艺术赛道）。</p>
+
+  <h3>7.3 案例一：文艺复兴风格定制肖像画（年销 4 万美金）</h3>
+  <h4>实操流程（豆包演示）</h4>
+  <ol class="number-list">
+    <li><strong>准备阶段</strong>：使用准备好的提示词，选择服装款式</li>
+    <li><strong>打开豆包</strong>：新建对话框，粘贴提示词</li>
+    <li><strong>上传照片</strong>：将客户提供的宠物照片上传到对话框</li>
+    <li><strong>生成</strong>：点击生成，按回车键开始制作</li>
+    <li><strong>等待</strong>：大概二三十秒左右出图</li>
+    <li><strong>效果评估</strong>：油画笔触表现不错，宠物面部、整体服装融合都很好</li>
+  </ol>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">📸</span>
+    <div class="callout-body">
+      <div class="callout-title">关键提示——照片要求</div>
+      <p>在商品详情里<strong>一定要提前说明</strong>：</p>
+      <p>✓ 尽量提供宠物的<strong>正面照片</strong><br>
+      ✗ 如果照片太偏、太奇怪或者太可爱，生成出来的效果可能会和服装造型不匹配</p>
+    </div>
+  </div>
+
+  <h4>豆包的智能编辑功能</h4>
+  <p>豆包有"选择区域进行编辑"的便捷功能：可以选择智能编辑背景，把背景夸张化（例如改成蓝色的油画背景），修改后整体背景融合不错，风格统一。</p>
+
+  <h4>下载与水印处理</h4>
+  <ul>
+    <li><strong>下载质量</strong>：默认约 1700×2000，文件约 5.6 兆</li>
+    <li><strong>水印问题</strong>：右下角有豆包水印</li>
+  </ul>
+  <div class="callout callout-info">
+    <span class="callout-icon">🧹</span>
+    <div class="callout-body">
+      <div class="callout-title">三种去水印方法</div>
+      <p>① <strong>网上免费在线去水印网站</strong>：搜索"在线去水印"，前几个出来的都可以用<br>
+      ② <strong>PS 去除</strong>（设计师推荐）<br>
+      ③ <strong>可画（Canva）里把水印拖出画框</strong>（最省时）</p>
+      <p style="margin-top: 6px;">⚠️ <strong>去水印网站不稳定</strong>，需实时搜索，不可依赖固定推荐</p>
+    </div>
+  </div>
+
+  <h4>Gemini（nano banana）对比</h4>
+  <p>操作方式和豆包一样。</p>
+  <div class="callout callout-danger">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body">
+      <div class="callout-title">关键操作：必须用 Pro 模式生成</div>
+      <p>即便买的是最便宜套餐，<strong>一定要选择用 Pro 生成模式</strong>！</p>
+      <p>① 点击 create image<br>
+      ② 确认使用的是 <strong>nano banana pro 模式</strong>（不是 fast 模式）<br>
+      ③ 普通模式和 Pro 模式的图像质量差距<strong>非常大</strong><br>
+      ④ 免费 fast 模式甚至不能直接生成想要的<strong>竖版比例</strong>，通常只给正方形图<br>
+      ⑤ 一定要确认界面上显示的是 "nano banana pro 正在加载"</p>
+    </div>
+  </div>
+
+  <h4>Gemini 价格套餐</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>套餐</th><th>价格</th><th>备注</th></tr>
+      <tr><td>最便宜套餐</td><td>约 3 英镑/月</td><td>讲师自用</td></tr>
+      <tr><td>Pro 套餐</td><td>约 18 英镑/月</td><td>可免费赠送两个月</td></tr>
+      <tr><td>学生套餐</td><td><strong>第一年免费</strong></td><td>—</td></tr>
+    </table>
+  </div>
+
+  <h4>两工具效果对比</h4>
+  <ul>
+    <li>豆包有自己的优势</li>
+    <li><strong>nano banana 在融合上更自然，笔触更柔和</strong>（但完全取决于个人审美）</li>
+    <li><strong>水印注意</strong>：Gemini 生成的图片也带水印，且水印比较<strong>隐蔽</strong>，不仔细看可能直接发给客户</li>
+    <li>Gemini 下载质量：分辨率高，文件约 9 兆，细节更丰富</li>
+  </ul>
+
+  <h3>7.4 案例二：水彩风格宠物肖像画（年销 13 万美金）</h3>
+  <h4>产品数据分析</h4>
+  <p>这款<strong>年销售额 13 万美金</strong>的宠物定制肖像画每年都会出现一次明显的流量高峰期。</p>
+
+  <h4>引流方法对比</h4>
+  <div class="callout callout-success">
+    <span class="callout-icon">📌</span>
+    <div class="callout-body">
+      <div class="callout-title">最好的方法：用 Pinterest 效率最高</div>
+      <p>传统做法是持续在 Instagram、TikTok 上发布内容，但<strong>Pinterest 效率最高</strong>。推测该产品很可能是 Pinterest 推流 + Etsy 本身的广告叠加，形成某个时间段的销量高峰。</p>
+    </div>
+  </div>
+
+  <h4>产品形态与下单流程</h4>
+  <p><strong>产品形态</strong>：水彩风宠物肖像，上面配有宠物名字。</p>
+  <p><strong>下单流程</strong>：</p>
+  <ol class="number-list">
+    <li>客户选择宠物数量（一只/两只/三只）</li>
+    <li>选择宠物风格</li>
+    <li>选择头像还是全身像</li>
+    <li>选择电子版还是打印版（打印通过 POD 实操）</li>
+    <li>不同选项价格不同</li>
+    <li>填写宠物名字</li>
+    <li>通过 email 发送宠物照片给卖家，附上订单号</li>
+    <li>卖家收到订单后开始制作</li>
+    <li>交付电子版文件，或通过 POD 把打印好的产品发给买家</li>
+  </ol>
+
+  <h4>实操步骤（水彩风格）</h4>
+  <ol class="number-list">
+    <li><strong>找提示词</strong>：在提示词手册里找到对应的风格（水彩风格）</li>
+    <li><strong>参数调整</strong>：画面比例默认 3:4 纵向，可改 16:9 横向；背景默认米色水彩纹理</li>
+    <li><strong>豆包生成</strong>：复制提示词 → 上传客户宠物照片 → 比例改 16:9 横向 → 构图写清楚（<strong>画面上方留有充足空白</strong>，因后期要加宠物名字）</li>
+    <li><strong>效果调整</strong>：若第一张不理想，AI 扩图功能调整留白</li>
+    <li><strong>可画（Canva）排版</strong>：A3/A4 尺寸 → 上传图片 → 添加宠物名字（手写风字体）→ 下载 PDF</li>
+  </ol>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">✍️</span>
+    <div class="callout-body">
+      <div class="callout-title">字体建议</div>
+      <p>外国人比较喜欢<strong>手写风字体</strong>，选一个比较抽象手写风的字体。</p>
+      <p>可以列出<strong>五六种字体</strong>让客户自己选择。</p>
+    </div>
+  </div>
+
+  <h4>定价参考</h4>
+  <p>纯电子版定价相对较低，单独宠物头像约 <strong>3-7 美金</strong>。</p>
+
+  <h3>7.5 商品样机（Mockup）制作</h3>
+  <h4>样机的商业价值</h4>
+  <p>在产品分析时，会看到很多定制插画展示在样机里，即产品打印出来的效果，而不是单独一张画。这种效果也可以用 AI 制作。</p>
+
+  <h4>三种装裱场景模式</h4>
+  <ol class="number-list">
+    <li><strong>挂墙模式</strong>：画挂在客厅墙上</li>
+    <li><strong>宠物对比模式</strong>：宠物与肖像画放在一起的生活场景</li>
+    <li><strong>手持相框模式</strong>：人手拿相框</li>
+  </ol>
+
+  <h4>环境与相框自定义</h4>
+  <p>学员想改变环境，可修改提示词：</p>
+  <ul>
+    <li><strong>家具</strong>：沙发、地毯、木地板、书架</li>
+    <li><strong>风格</strong>：宜家北欧风的沙发</li>
+    <li><strong>场景</strong>：客厅、卧室、餐厅</li>
+  </ul>
+
+  <p><strong>相框类型匹配</strong>：</p>
+  <ul>
+    <li>卖花边复古框 → 提示词写"花框的精致雕刻细节"</li>
+    <li>卖极简框 → 提示词写"极简的木框"或"极简的金框"</li>
+  </ul>
+
+  <h3>7.6 POD 平台对接与打印发货流程</h3>
+  <ol class="number-list">
+    <li><strong>上传定制画</strong>：到 POD 平台后台（Gelato 或 Printify）</li>
+    <li><strong>选画框</strong>：木框、金属框</li>
+    <li><strong>价格确认</strong>：销售价 <strong>> 成本价 + 运费</strong></li>
+    <li><strong>选尺寸</strong>：根据制作的尺寸选择（案例 A3）</li>
+    <li><strong>样机后台操作</strong>：把去水印的图片拖拽上来</li>
+    <li><strong>分辨率提升</strong>：大尺寸必须二次提升分辨率（5 兆 → 26 兆）</li>
+    <li><strong>预览效果</strong>：点击右上角预览</li>
+    <li><strong>发货</strong>：POD 厂家（Gelato 或 Printify）按地址发货</li>
+  </ol>
+
+  <div class="callout callout-danger">
+    <span class="callout-icon">💰</span>
+    <div class="callout-body">
+      <div class="callout-title">定价红线</div>
+      <p><strong>销售价 > 成本价 + 运费</strong>，否则亏损！</p>
+    </div>
+  </div>
+
+  <h3>7.7 提示词使用三大原则</h3>
+  <ol class="number-list">
+    <li><strong>参数化思维</strong>：比例、背景颜色、环境元素、相框类型都是可替换参数，改关键词即可</li>
+    <li><strong>构图预留意识</strong>：加水彩文字的产品必须在提示词里明确"上方留白"</li>
+    <li><strong>场景匹配原则</strong>：样机提示词里的相框描述必须与实际售卖相框类型一致</li>
+  </ol>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第八章 人物肖像 + 住宅插画 ========== -->
+<!-- ============================================ -->
+<section id="ch8" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 08</span>
+    <h1 class="chapter-title">第八章 · 人物肖像画与住宅插画定制教程</h1>
+    <p class="chapter-subtitle">宠物 + 人物 + 住宅 = 温馨家庭定制三件套</p>
+  </div>
+
+  <h3>8.1 课程定位与品类延续性</h3>
+  <p>本章是宠物肖像画定制（第七章）的延续，在同一系列框架下扩展到<strong>人物肖像画定制</strong>和<strong>住宅插画定制</strong>两大品类。讲师强调，这三类产品在头部商家的店铺中通常是<strong>同时销售</strong>的组合产品，构成"家庭温馨"主题矩阵。</p>
+
+  <h4>对标店铺数据（高客单价验证）</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>店铺</th><th>年销售额</th><th>开店时长</th></tr>
+      <tr><td>店铺 A：以家庭温馨产品为核心</td><td><strong>900+ 万美元</strong></td><td>—</td></tr>
+      <tr><td>店铺 B：同类型产品</td><td><strong>800+ 万美元</strong></td><td>10+ 年</td></tr>
+    </table>
+  </div>
+
+  <h3>8.2 住宅插画品类的市场逻辑</h3>
+  <div class="callout callout-success">
+    <span class="callout-icon">🏡</span>
+    <div class="callout-body">
+      <div class="callout-title">目标客群：美/英 town house 业主</div>
+      <p>✓ 这类住宅整栋都属于自己，客户对房屋外观及前院后院设计极为用心<br>
+      ✓ 客户常一次性购买<strong>"家庭合照 + 宠物照片"成套同风格作品</strong>，挂满客厅<br>
+      ✓ 讲师背书：开 Etsy 店之前，已为多位美国朋友的家人制作过此类产品，<strong>验证了真实需求</strong></p>
+    </div>
+  </div>
+
+  <h3>8.3 住宅插画定制实操流程（Gemini + Canva）</h3>
+  <ol class="number-list">
+    <li><strong>选风格与复制提示词</strong>：从提示词手册选择风格（<strong>极简风格在英国客户中尤其受欢迎</strong>）</li>
+    <li><strong>选 AI 工具与上传素材</strong>：使用 Gemini（斋米拉/jimi），界面与豆包几乎一致</li>
+    <li><strong>关键要求客户</strong>：<strong>站在街对面拍正面照</strong>，清晰度不重要但必须正面</li>
+    <li><strong>参数设置与生成</strong>：Gemini 中<strong>必须选择 Pro 模式</strong>，加载 nano banana pro</li>
+    <li><strong>Bug 处理与提示词调整</strong>：若效果不理想，删除多余修饰改为"构图居中"</li>
+    <li><strong>Canva 排版加工</strong>：A3 竖版 → 拖入图片 → <strong>两种字体配套</strong>（主标题手写字体 + 副标题简单直白字体）</li>
+    <li><strong>构图比例二次微调</strong>：若房屋需更居中/更小，提示词改为"画面留白更多，插画居中并占画面 1/3"</li>
+    <li><strong>交付</strong>：下载高清图片</li>
+  </ol>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">🖨️</span>
+    <div class="callout-body">
+      <div class="callout-title">交付形式洞察</div>
+      <p>很多客户<strong>不要求打印</strong>，只需高清电子版，自己回家去 <strong>Home Depot</strong> 这类商店打印。</p>
+    </div>
+  </div>
+
+  <h3>8.4 豆包替代方案（AI 扩图）</h3>
+  <p>若使用豆包，操作更简单，直接使用 <strong>AI 扩图功能</strong>，拖拽边框即可让周边水彩风白色背景变大重新生成，无需重写提示词。</p>
+
+  <h3>8.5 人像定制的产品逻辑</h3>
+  <h4>核心策略：横向做同风格矩阵</h4>
+  <p>店铺既然做水彩风建筑，人像也应做水彩风，形成统一视觉体系。</p>
+
+  <h4>客单价提升逻辑</h4>
+  <ul class="check-list">
+    <li>人像极少单人为自己画，主流是<strong>家庭合照、全家福（4-5 人甚至 6 人）</strong></li>
+    <li>默认起步至少做 2 人</li>
+    <li><strong>定价参考</strong>：2 人水彩定制 <strong>23 美元</strong>；6 人全家福电子版 40+ 美元</li>
+    <li><strong>销量数据</strong>：对标店铺单款产品销量 <strong>13,000+</strong></li>
+  </ul>
+
+  <h4>社媒传播价值</h4>
+  <ul>
+    <li>可邀请客户拍摄收到产品的 reaction 反馈视频</li>
+    <li><strong>高传播场景</strong>：用 AI 将已故亲人的照片合成全家福——这类内容在社媒极易引发情感共鸣与传播</li>
+  </ul>
+
+  <h4>POD 带框产品定价模型</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>产品</th><th>售价</th><th>成本</th></tr>
+      <tr><td>全家福 6 人 纯电子版</td><td>40+ 美元</td><td>几乎为零</td></tr>
+      <tr><td>带相框 POD 产品（20×30 英寸）</td><td><strong>100+ 美元</strong></td><td>50 美元左右</td></tr>
+    </table>
+  </div>
+
+  <h3>8.6 人像定制实操流程（Gemini + Canva）</h3>
+  <ol class="number-list">
+    <li><strong>风格选择</strong>：极简肖像（婚礼请柬/新婚礼物）| 豆豆眼卡通（年轻人）| <strong>水彩风（家庭合照销量最高，最主流）</strong></li>
+    <li><strong>提示词与参数</strong>：复制提示词到 Gemini，<strong>务必选 Pro 模式</strong>（豆包则无需）</li>
+    <li><strong>生成与调整</strong>：如需更多留白，提示词加"人像占画框 2/3"重新生成</li>
+    <li><strong>POD 带框产品制作</strong>：选 A3 + 木质框，<strong>推荐普通相框</strong>（下单更多）</li>
+  </ol>
+
+  <h3>8.7 风格选择的市场洞察（反直觉结论）</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>风格</th><th>年轻人审美</th><th>实际销量表现</th></tr>
+      <tr><td>极简黑白插画</td><td>现代简洁，年轻人喜欢</td><td>销量一般</td></tr>
+      <tr><td><strong>水彩风（具象人物）</strong></td><td>显得"老气"</td><td><strong>最流行、销量最高</strong></td></tr>
+      <tr><td>插画风（色彩丰富）</td><td>—</td><td>销量较好（单品 6,000+）</td></tr>
+    </table>
+  </div>
+
+  <div class="callout callout-success">
+    <span class="callout-icon">🎯</span>
+    <div class="callout-body">
+      <div class="callout-title">根本原因：定制画像的核心市场是中年大众化客群</div>
+      <p>水彩具象风格虽然审美上"不够现代"，但最契合主力买家偏好。</p>
+      <p style="margin-top: 6px;"><strong>风格定位建议</strong>：<br>
+      ✓ 走年轻化社媒推广路线：极简/黑白插画可做<br>
+      ✓ 走大众路线：<strong>强烈推荐水彩风</strong>，市场最大</p>
+    </div>
+  </div>
+
+  <h3>8.8 极简肖像风格的调整技巧</h3>
+  <p>AI 一键转化结果存在不确定性：有时线条粗、现代感强；有时线条细、人物过于具体。</p>
+  <p><strong>调整方法</strong>：通过提示词指令微调，如"线条更粗一点，人物再可爱一些"，即可得到线条更粗放、更像手绘的效果。</p>
+
+  <h3>8.9 提示词的个性化修改</h3>
+  <p>所有个性化修改都在同一条提示词模板内完成，无需重写。</p>
+  <ul>
+    <li>想要粉色背景 → 在提示词中加"背景是粉色的"</li>
+    <li>服装增加/减少细节 → 在提示词中相应增减描述</li>
+  </ul>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第九章 无缝四方连续图实操 ========== -->
+<!-- ============================================ -->
+<section id="ch9" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 09</span>
+    <h1 class="chapter-title">第九章 · 无缝四方连续图实操教程</h1>
+    <p class="chapter-subtitle">AI 一键生成，效率高、无物流、长期价值赛道</p>
+  </div>
+
+  <h3>9.1 四方连续图产品优势</h3>
+  <ul class="check-list">
+    <li>完全无物流发货，降低运营成本</li>
+    <li>可快速批量生产，效率极高</li>
+    <li>适合任何季节性标签和热门流量（圣诞节、万圣节、母亲节、父亲节等）</li>
+    <li>用途广泛：礼物包装、手机壳、产品标签、布料打印、P 图素材</li>
+    <li>主要客户群体为<strong>厂家</strong>，采购量大，价格敏感度低（5-10 美元对厂家来说几乎零成本）</li>
+    <li><strong>讲师最看好的产品类型</strong></li>
+  </ul>
+
+  <h4>成功案例</h4>
+  <ul>
+    <li>年销售额 <strong>30 万美元</strong>的厂家店铺，开店仅两三年</li>
+    <li>另一家年销售额 <strong>23 万美元</strong>的店铺，开店 14 年，持续上新</li>
+    <li>首店首年纯虚拟产品能达到 4-5 万美元，是 Etsy 上的不错成绩</li>
+  </ul>
+
+  <h3>9.2 四方连续图核心概念与检验方法</h3>
+  <h4>什么是四方连续图</h4>
+  <div class="callout callout-tip">
+    <span class="callout-icon">🔲</span>
+    <div class="callout-body">
+      <div class="callout-title">定义</div>
+      <p>Seamless pattern（无缝图案），图案在任意方向拼接时缝隙都能完美衔接。<strong>必须在提示词中明确强调"seamless pattern"</strong>，否则生成的图案无法拼接。</p>
+      <p style="margin-top: 6px;">买家打印后用于制作笔记本封面、手机壳、床单被罩等物料，必须是无缝图案。</p>
+    </div>
+  </div>
+
+  <h4>检验方法一：Photoshop 检验</h4>
+  <ol class="number-list">
+    <li>下载或复制生成的图片</li>
+    <li>打开 PS，粘贴图片</li>
+    <li>复制图片进行拼贴</li>
+    <li>检查各个方向的拼接缝隙是否能接上</li>
+    <li>四个角都接得上即为合格的无缝图案</li>
+  </ol>
+
+  <h4>检验方法二：可画（Canva）检验</h4>
+  <ol class="number-list">
+    <li>将图片拖入可画画框</li>
+    <li>按住 <strong>Ctrl 键（Windows）或 Option 键（Mac）</strong>拖拽复制图片</li>
+    <li>对齐后检查能否接上</li>
+    <li>四个角都测试一遍，接得上即为合格</li>
+  </ol>
+
+  <h3>9.3 AI 生成四方连续图实操流程</h3>
+  <h4>工具选择</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>工具</th><th>一次生成</th><th>适合场景</th></tr>
+      <tr><td>豆包（Midjourney 中文版）</td><td><strong>4 张</strong></td><td>批量生产同风格图案</td></tr>
+      <tr><td>Midjourney Banana</td><td>1 张</td><td>多样化图案</td></tr>
+    </table>
+  </div>
+  <p>建议：如果一套产品做 16 张同风格图案，使用豆包效率更高。</p>
+
+  <h4>提示词关键要素</h4>
+  <ol class="number-list">
+    <li><strong>图案内容描述</strong>：野花、小雏菊、蓝色小花等元素组合</li>
+    <li><strong>风格定位</strong>：清淡水彩风、松散排版、密集花纹等</li>
+    <li><strong>背景颜色</strong>：白色、米色、干净的淡蓝色等</li>
+    <li><strong>核心关键词</strong>：必须包含 "<strong>seamless pattern</strong>"（四方无缝图）</li>
+  </ol>
+
+  <h4>批量生成策略</h4>
+  <ul class="check-list">
+    <li>保持同一套产品的风格一致性</li>
+    <li>通过修改背景颜色（淡粉色、淡绿色、淡蓝色）批量生成同系列</li>
+    <li>通过替换元素（创可贴 → 蝴蝶结）扩展产品线</li>
+    <li>可一次性发送多组提示词，让 AI 连续生成 6-12 张同风格图案</li>
+  </ul>
+
+  <h3>9.4 参考图转提示词技巧（两种方法）</h3>
+  <h4>方法一：直接复制提示词手册</h4>
+  <p>讲师提供现成提示词模板，可直接复制使用。根据需要进行微调，如更换背景颜色或图案元素。</p>
+
+  <h4>方法二：图片反推提示词</h4>
+  <ol class="number-list">
+    <li>从 Etsy 截图目标产品图</li>
+    <li>将图片粘贴给豆包</li>
+    <li>使用提示语：<strong>"分析图片，生成 10 个图案类似的 seamless pattern，并写出对应的 10 个提示词"</strong></li>
+    <li>获得提示词后在新对话框中生成</li>
+  </ol>
+
+  <h3>9.5 图片后期处理流程</h3>
+  <ol class="number-list">
+    <li><strong>去水印</strong>：使用在线去水印网站，勾选水印位置进行处理，保存为高清文件</li>
+    <li><strong>调整分辨率</strong>：AI 默认 200 DPI，部分商家要求 300 DPI，需提升</li>
+  </ol>
+
+  <h4>分辨率提升方法</h4>
+  <ul>
+    <li>使用 AI 扩图网站或 PS 进行处理</li>
+    <li>Mac 用户可直接用图片浏览器：<strong>工具 → 改变尺寸 → 分辨率改为 300</strong></li>
+  </ul>
+
+  <h4>标准尺寸建议</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>尺寸</th><th>说明</th></tr>
+      <tr><td>2048×2048 像素</td><td>设计标准尺寸，足够使用</td></tr>
+      <tr><td>3000×3000 像素</td><td>更大尺寸，文件从 4.1MB 增至 10MB</td></tr>
+    </table>
+  </div>
+
+  <h3>9.6 成功店铺运营策略</h3>
+  <h4>策略一：紧跟节日热点</h4>
+  <p>每次新节假日都上架新品：万圣节、情人节、婚礼、母亲节等高流量关键词都要覆盖，Baby shower 等儿童相关关键词也要蹭流量。</p>
+
+  <h4>策略二：丰富产品线</h4>
+  <p>覆盖不同职业（护士风格、医院风格、学校风格）和不同场景（文具图案、医疗用品图案），形成丰富的产品矩阵。</p>
+
+  <h4>策略三：找对风格并大量生产</h4>
+  <p>确定一个风格后<strong>持续深耕</strong>，大量制作上架，保持产品数量优势，基本不会卖得太差。</p>
+
+  <h3>9.7 提示词模板参考</h3>
+  <h4>提示词 1：清淡小花风格</h4>
+  <div class="prompt-box">野花、小雏菊、蓝色小花组合，松散排版，背景是白色或者米色，seamless pattern 四方无缝图</div>
+
+  <h4>提示词 2：护士风格</h4>
+  <div class="prompt-box">护士风格，包含创可贴、剪刀、十字标志等元素，背景白色，seamless pattern</div>
+
+  <h4>提示词 3：学校主题</h4>
+  <div class="prompt-box">学校主题 seamless pattern，文具元素，黑色描边马卡龙填色，背景干净的淡蓝色</div>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第十章 艺术画 WallArt 实操 ========== -->
+<!-- ============================================ -->
+<section id="ch10" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 10</span>
+    <h1 class="chapter-title">第十章 · 艺术画 WallArt 实操课</h1>
+    <p class="chapter-subtitle">竞争激烈但需求量大的 B+C 双端市场</p>
+  </div>
+
+  <h3>10.1 WallArt 产品市场分析与特点</h3>
+  <h4>市场竞争格局</h4>
+  <p>WallArt 比其他虚拟产品（digital download）竞争更激烈（"更卷"）。搜索"art"关键词会出现大量竞争对手，许多店铺售卖几千张甚至上万张图片打包。</p>
+  <p>市场以量取胜，但批量生产也比较容易。</p>
+
+  <h4>成功要素</h4>
+  <ul class="check-list">
+    <li>需要有自己的特色，不能单纯依赖量</li>
+    <li>社交媒体推流是重要获客渠道</li>
+    <li>批量生产能力是基础门槛</li>
+  </ul>
+
+  <h4>典型产品案例</h4>
+  <p>复古风艺术产品：客户通常购买一整套（几十张图），用于大面积墙面装饰。应用场景：酒店、餐厅等商业空间，需多张图组合装裱。竞争激烈案例：某商家做了 <strong>650 张图</strong>打包销售。</p>
+
+  <h3>10.2 复古风艺术产品批量生产方法</h3>
+  <h4>批量生成策略</h4>
+  <ol class="number-list">
+    <li>使用课程提供的提示词模板</li>
+    <li>示例操作：一次性让 AI 生成 7 张横版图</li>
+    <li>操作步骤：复制提示词 → 粘贴到豆包 → 点击生成 → 获得 7 张统一主题、统一色调的油画</li>
+    <li>若要继续生成：在对话框说明"<strong>同样风格的</strong>"，AI 保持之前设定的风格，只更换内容元素</li>
+  </ol>
+
+  <h4>图片后处理</h4>
+  <p>下载原图 → 去除水印 → 提升为高清图（upscale）→ 最终打包销售</p>
+
+  <h3>10.3 三款 AI 工具详细对比</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>工具</th><th>优势</th><th>劣势</th><th>适用</th></tr>
+      <tr><td><strong>Midjourney</strong></td><td>艺术效果最强（笔触、光影非常真实）、提示词可简短、可喂参考图、纯生图能力突出</td><td>仅能识别英文、文字生成能力差、照片转述能力不如其他两款</td><td>单一艺术赛道专攻</td></tr>
+      <tr><td><strong>豆包</strong></td><td>识别中文、语言感知能力强、可编辑修改、平面风格+字体效果好、笔触感强、支持 AI 扩图</td><td>艺术效果略逊于 Midjourney</td><td>多赛道运营、定制产品</td></tr>
+      <tr><td><strong>Janmi 奶（Gemini）</strong></td><td>识别中文、语言感知能力强、可编辑修改</td><td>艺术效果略逊于 Midjourney</td><td>多赛道运营、海外 IP</td></tr>
+    </table>
+  </div>
+
+  <h4>选型决策框架</h4>
+  <ul>
+    <li>✓ 多赛道运营（含定制产品）：推荐<strong>豆包/Janmi 奶</strong>（中文识别+可编辑特性）</li>
+    <li>✓ 单一艺术赛道专攻：可考虑 <strong>Midjourney</strong>（艺术效果最佳）</li>
+    <li>✓ 平面设计+文字类产品：<strong>豆包/Janmi 奶更好</strong>（Midjourney 文字差，需在 Canva/PS 后加字体）</li>
+    <li>✗ ChatGPT 生图仍属"一眼 AI"水平，暂不推荐</li>
+  </ul>
+
+  <h3>10.4 图片后处理完整流程</h3>
+  <ol class="number-list">
+    <li><strong>下载原图</strong>：在 AI 工具中生成并确定满意图片后，下载原图</li>
+    <li><strong>去除水印</strong>：使用专门的去水印网站</li>
+    <li><strong>分辨率提升</strong>：AI 自动下载的通常为 150 DPI，Etsy 用户有要求</li>
+    <li><strong>下载高清图片</strong>：处理完成后下载扩图后的高清图片，文件体积约 20-25MB</li>
+  </ol>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">📏</span>
+    <div class="callout-body">
+      <div class="callout-title">分辨率提升的重要性</div>
+      <p>Etsy 平台对分辨率有严格要求，150 DPI 不够。AI 扩图工具可有效提升像素和细节，文件从常规大小变为 23MB、25MB。可提升到更高倍数。</p>
+    </div>
+  </div>
+
+  <h3>10.5 两种产品模式详解</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">📁 模式一：纯电子素材（Digital Download）</div>
+      <ul>
+        <li>特点：只提供电子文件</li>
+        <li>优势：<strong>无需担心物流、POD 厂家时效</strong></li>
+        <li>案例：某艺术家卖纯电子素材，一幅画定价 20 美元</li>
+      </ul>
+      <p><span class="tag tag-danger">风险</span> 卖现成素材可能有版权问题，可能导致下架甚至封店</p>
+    </div>
+    <div class="card">
+      <div class="card-title">🖼️ 模式二：POD 可打印产品（Print on Demand）</div>
+      <ul>
+        <li>特点：客户选择尺寸和边框后直接下单</li>
+        <li>前端设置：需在 POD 后台连接店铺</li>
+        <li>无需定制型（纯艺术品）：POD 后台一键下单发货</li>
+        <li>需要定制型（宠物定制、人像定制）：客户下单后需单独到 POD 制作再发货</li>
+      </ul>
+    </div>
+  </div>
+
+  <h4>实操建议</h4>
+  <ul class="check-list">
+    <li>建议客户下单后<strong>人工在 POD 平台设计并下单</strong>，而非提前上传 50 个产品</li>
+    <li>推荐做<strong>单图明码标价</strong>的产品，而非几百张打包</li>
+    <li>建议<strong>电子产品和成品同时售卖</strong>，满足不同客户需求</li>
+  </ul>
+
+  <h3>10.6 现代风格产品制作实操</h3>
+  <h4>单图产品策略</h4>
+  <ul class="check-list">
+    <li>一张图就是一个产品，明码标价</li>
+    <li>比几百张打包<strong>更有溢价空间</strong>，竞争压力更小</li>
+    <li>降低版权风险和封店风险</li>
+  </ul>
+
+  <h4>场景图生成</h4>
+  <p>从课程提示词手册中查找场景图提示词，将产品图置入现代温馨客厅、工业风空间等场景。AI 自动生成带光影效果的场景展示图。</p>
+
+  <h3>10.7 清淡风手绘风格产品制作</h3>
+  <h4>风格特点</h4>
+  <ul>
+    <li>清淡风格，有明显手绘笔触感</li>
+    <li>笔触感强，可见油画画笔的笔触细节，非常自然</li>
+    <li>适合在<strong>社交媒体</strong>上推广</li>
+  </ul>
+
+  <h4>制作方法</h4>
+  <ol class="number-list">
+    <li>指定花的品种（或其他植物）</li>
+    <li>复制课程提供的提示词到豆包或 Midjourney</li>
+    <li>豆包会自动生成多种样式的同风格图供选择</li>
+  </ol>
+  <p>示例：提示词中使用"五朵淡蓝色郁金香"，可随意更换植物品种，生成四张不同花但统一风格的绘图。</p>
+
+  <h3>10.8 婴儿房艺术挂画复刻案例（200-300 万美元）</h3>
+  <h4>案例背景</h4>
+  <p>某店铺年销售额达 <strong>200-300 万美元</strong>，产品定位：婴儿房/幼儿园艺术挂画。画风极其统一。</p>
+
+  <h4>套装销售优势</h4>
+  <ul class="check-list">
+    <li>客户（父母或幼儿园）希望挂满整个墙面</li>
+    <li>样机展示：婴儿床旁挂满 6 个小动物图案</li>
+    <li>销售模式：一次卖 6 张，客户选择每张的尺寸（如 6 张 16×20 英寸），总价显著提高</li>
+    <li><strong>B 端客户（幼儿园）对价格不敏感，"可以报销"</strong></li>
+  </ul>
+
+  <h4>复刻方法论（学习风格不等于抄袭）</h4>
+  <ol class="number-list">
+    <li><strong>获取参考图片</strong>：截图目标产品，截取核心元素（非边框）</li>
+    <li><strong>让 AI 分析并写提示词</strong>：AI 会输出对应提示词，包含可替换的变量（动物名称、场景等）</li>
+    <li><strong>修改生成</strong>：复制 AI 给出的提示词，更换动物名称（如"浣熊"）</li>
+    <li><strong>避免抄袭（关键）</strong>：让 AI 分析风格后，<strong>复制提示词，新开对话重新生成</strong></li>
+    <li>自由替换元素：第一张宇航员、第二张纯星空（不用星球）、第三张不用火箭换其他元素</li>
+  </ol>
+
+  <div class="callout callout-danger">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body">
+      <div class="callout-title">避免抄袭的关键原则</div>
+      <p>不要直接让 AI 一次生成三张类似图片（可能涉嫌抄袭，Etsy 后台会检测）。</p>
+      <p>AI 可能会把参考图的外框也生成出来，不需要。</p>
+      <p><strong>正确做法</strong>：让 AI 分析风格后，复制提示词，新开对话重新生成。新对话中生成的图片与参考图有区别，风格延续但不完全相同。</p>
+      <p>核心原则：<strong>学习风格和内容，但不完全一模一样</strong>。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第十一章 填色书实操 ========== -->
+<!-- ============================================ -->
+<section id="ch11" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 11</span>
+    <h1 class="chapter-title">第十一章 · 填色书 ColoringBook 实操教程</h1>
+    <p class="chapter-subtitle">一物三卖、用户群最广的赛道</p>
+  </div>
+
+  <h3>11.1 Coloring Book 产品定位与价值</h3>
+  <div class="callout callout-success">
+    <span class="callout-icon">⭐</span>
+    <div class="callout-body">
+      <div class="callout-title">核心优势：一物三卖、用户群极广</div>
+      <p><strong>三种交付形态可同时做</strong>：</p>
+      <p>① 纯电子素材（Digital Download）<br>
+      ② 定制化电子素材<br>
+      ③ 打印版 POD 实物产品</p>
+      <p style="margin-top: 6px;"><strong>用户群覆盖全年龄</strong>：<br>
+      ✓ 针对小孩父母——买来打印让孩子填色<br>
+      ✓ 成年人——花时间消遣，或在 iPad 里数字填色</p>
+    </div>
+  </div>
+
+  <h3>11.2 两大产品模式</h3>
+  <h4>模式一：纯电子低价走量款（年销 25 万美元）</h4>
+  <ul>
+    <li>标杆店铺年销售额 <strong>25 万美元</strong></li>
+    <li>特征：纯电子产品，单价极低（<strong>2-4 美元</strong>），每套仅几十种图案</li>
+    <li>优势：<strong>制作极简单，可快速批量生产</strong></li>
+    <li>生产方式：用提示词依次生成动物图案（如袋鼠、乌龟、小熊、小马），可自行添加动物种类或让 AI 根据已有风格继续扩展，下载后合并成 PDF 或单张 JPG，打包发给客户</li>
+    <li><strong>最简单的被动收入模式</strong></li>
+  </ul>
+
+  <h4>模式二：名字主题定制绘本（年销 12 万美元）</h4>
+  <ul>
+    <li>标杆店铺年销售额 <strong>12 万美元</strong></li>
+    <li>核心逻辑：<strong>把孩子名字做成绘本封面，让孩子成为故事主人公</strong></li>
+    <li>标题形式：如"XX 的冒险故事""XX 的魔法之旅"</li>
+    <li>客户下单只需选故事主题 + 替换名字，合成 PDF 卖给客户</li>
+    <li>可选主题举例：冒险主题、公主与城堡（girls power 女孩力量）、超级英雄主义</li>
+  </ul>
+
+  <h3>11.3 定制化绘本完整实操流程（核心方法论）</h3>
+  <ol class="number-list">
+    <li><strong>输入提示词</strong>：告诉 AI"<strong>将为我生成儿童涂色书</strong>"，并要求<strong>后面每一页内容结构保持一致</strong></li>
+    <li><strong>首页生成</strong>：把整套书交给 AI 生成首页图，从学员提示词手册粘贴首页提示词，填入客户定制名字（如演示用"丽丽/Lily"）</li>
+    <li><strong>筛选页面</strong>：AI 一次生成多张图（如 4 张），前三张可能带边框需弃用，挑选最干净的一张下载高清原图</li>
+    <li><strong>逐页制作</strong>：继续做后续几页（第二至第六页）。<strong>建议一页一页做</strong>——因为批量生成有 bug 风险（突然加边框或无用元素），逐页可挑选最佳图</li>
+    <li><strong>可画（Canva）排版</strong>：打开可画 → 选择"打印 print" → 选尺寸（演示用 A4）→ 拖入下载的高清图片</li>
+    <li><strong>去水印处理</strong>：整套书通常 20-30 页，逐个去水印极耗时。两条建议：<br>
+      - <strong>买可画会员</strong>：可自动提升像素 + 去除水印（前 30 天免费试用）<br>
+      - 讲师个人习惯用 <strong>PS</strong> 处理</li>
+    <li><strong>导出 PDF</strong>：做完所有页（如 10 页）后 → 分享 → 下载 → 选"<strong>PDF print</strong>"（<span class="tag tag-warn">不要选 standard</span>，standard 是电脑浏览用）</li>
+  </ol>
+
+  <h3>11.4 POD 实物版（打印版）下单与发货流程</h3>
+  <p>针对想买打印实物版的客户：</p>
+  <ol class="number-list">
+    <li>客户在 Etsy 选择<strong>主题 + 打印尺寸</strong>（8.5×11 接近 A4；5.5 是很小的迷你手册）+ 填孩子名字 + 购买份数</li>
+    <li>到<strong>专门做 coloring book 的 POD 平台</strong>下单（<span class="tag tag-warn">注意</span>：不用 Gelato 和 Printify，因为那两家更多做服装、挂画、水杯）</li>
+    <li>流程与 Gelato 一致：在 POD 平台创建账号 → 用 Etsy 给的客户邮寄地址直接下单 → 发货给客户</li>
+    <li>需把刚生成的 PDF 文件上传到该 POD 平台再下单</li>
+  </ol>
+
+  <div class="callout callout-info">
+    <span class="callout-icon">💡</span>
+    <div class="callout-body">
+      <div class="callout-title">倾向建议</div>
+      <p>最好引导客户购买<strong>电子产品</strong>（自行涂色，尤其小孩喜欢用 iPad 涂），降低 POD 操作成本。</p>
+    </div>
+  </div>
+
+  <h3>11.5 提示词使用要点</h3>
+  <ol class="number-list">
+    <li><strong>声明产品类型</strong>：提示词需告知 AI"将为我生成儿童涂色书（coloring book）"</li>
+    <li><strong>要求结构一致</strong>：明确要求"后面的每一页内容结构都要保持一致"——这是保证整套书风格统一的关键</li>
+    <li><strong>首页提示词</strong>：从提示词手册粘贴首页提示词，预留<strong>名字定制位</strong>（填入客户名字）</li>
+    <li><strong>动物/主题扩展</strong>：基础提示词可生成固定图案，可自行添加动物种类</li>
+    <li><strong>主题替换</strong>：定制绘本通过更换主题段（冒险/公主城堡/超级英雄）+ 名字，生成不同故事线</li>
+  </ol>
+
+  <h3>11.6 提示词设计核心规律</h3>
+  <ul>
+    <li><strong>共性规律</strong>：本章提示词设计遵循"<strong>固定结构 + 可变变量</strong>"模式——产品类型、页面结构、风格是固定项，名字、主题、图案种类是可替换变量，实现一套提示词批量产出</li>
+    <li><strong>关键技巧</strong>：① 强制要求"每页结构一致"以保风格统一；② 定制化的核心是预留并替换"名字"变量</li>
+    <li><strong>踩坑点</strong>：① 批量生成存在 bug 风险（突然加边框/无用元素），建议逐页生成挑选最佳；② 生成的图带水印，需配合可画会员去水印或 PS 处理；③ 务必导出"PDF print"而非"standard"</li>
+  </ul>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第十二章 Etsy 开店与上架 ========== -->
+<!-- ============================================ -->
+<section id="ch12" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 12</span>
+    <h1 class="chapter-title">第十二章 · Etsy 开店与 DigitalDownload 上架流程</h1>
+    <p class="chapter-subtitle">从 0 到 1 上线产品的 7+11 步闭环</p>
+  </div>
+
+  <h3>12.1 开店前的重要前提</h3>
+  <div class="callout callout-warn">
+    <span class="callout-icon">⚠️</span>
+    <div class="callout-body">
+      <div class="callout-title">本课讲的是正常注册途径</div>
+      <p>适用于<strong>人在海外或有海外身份</strong>的学员。打开 Etsy 官网，点击中间的"开始"按钮进入注册流程。</p>
+      <p style="margin-top: 6px;">如果<strong>没有海外 IP</strong>，建议直接在网上购买现成的 Etsy 店铺，本课不再展开讲解。</p>
+    </div>
+  </div>
+
+  <h3>12.2 Etsy 开店流程（7 步闭环）</h3>
+  <h4>第 1 步：选择语言和销售地区</h4>
+  <ul>
+    <li><strong>语言</strong>：只能选英语</li>
+    <li><strong>销售地点</strong>：无论 IP 在哪里，尽量选<strong>美国或加拿大</strong></li>
+    <li>虚拟产品优先选北美：美国、加拿大或澳大利亚，<strong>这几个国家对虚拟产品的购买力更强</strong></li>
+    <li><strong>货币</strong>：选美元</li>
+  </ul>
+
+  <h4>第 2 步：收款账户设置</h4>
+  <ul>
+    <li>收款账号所在地与销售市场是两个独立概念</li>
+    <li>选哪里的银行账号就选对应地区（Etsy 收到美元后会自动转换）</li>
+    <li>个人账户 vs 公司账户：两者有区别</li>
+  </ul>
+  <div class="callout callout-danger">
+    <span class="callout-icon">🚨</span>
+    <div class="callout-body">
+      <div class="callout-title">关键提醒</div>
+      <p>店铺信息<strong>务必填真实信息</strong>，因为 Etsy 风控相当严重！</p>
+    </div>
+  </div>
+
+  <h4>第 3 步：地址与银行账户验证</h4>
+  <ul>
+    <li>完成住址与银行账户验证后，系统跳到身份确认步骤</li>
+    <li><strong>审核周期</strong>：根据不同 IP 和情况，审核可能需要 <strong>1 到 2 天</strong></li>
+  </ul>
+
+  <h4>第 4 步：信用卡绑定</h4>
+  <ul>
+    <li>每个产品上架费 <strong>0.2 美元</strong></li>
+    <li>同时收取 <strong>14 英镑</strong>（十几美元）押金，用于验证银行卡真实性</li>
+    <li>银行卡可用中国银行卡：<strong>只要是 VISA 卡即可</strong></li>
+  </ul>
+
+  <h4>第 5 步：Subscribe 选项</h4>
+  <div class="callout callout-warn">
+    <span class="callout-icon">🚫</span>
+    <div class="callout-body">
+      <div class="callout-title">不推荐选</div>
+      <p>此选项为<strong>今年新增</strong>，讲师认为 Etsy 变相从卖家赚钱，<strong>以前开过的店都没选过，这里也不推荐选</strong>。</p>
+    </div>
+  </div>
+
+  <h4>第 6 步：手机号验证</h4>
+  <ul>
+    <li>填写手机号作为额外验证</li>
+    <li><strong>任何地区的手机号都可以</strong></li>
+  </ul>
+
+  <h4>第 7 步：保存安全码</h4>
+  <div class="callout callout-danger">
+    <span class="callout-icon">🔐</span>
+    <div class="callout-body">
+      <div class="callout-title">务必保留</div>
+      <p>最后一步系统会给一个<strong>安全码</strong>，务必妥善保留——这是店铺日后找不到时的备用验证码，<strong>一定要留好</strong>。</p>
+    </div>
+  </div>
+
+  <h3>12.3 Shop Manager 店铺管理后台</h3>
+  <h4>核心功能</h4>
+  <ul>
+    <li>所有店铺管理、上架后数据观察都在这里进行</li>
+    <li>在 Etsy 上投放广告的入口也在此处</li>
+  </ul>
+
+  <h4>广告投放建议（冷启动）</h4>
+  <p>前期如果店铺卡在某个位置没有流量，建议<strong>给单个产品投放 10-20 刀小广告</strong>激活产品。原理类似运营国内社交媒体，通过小广告"激活"产品。</p>
+
+  <h4>店铺装修</h4>
+  <ul>
+    <li>在主页可添加：<strong>Logo、店铺 Banner、自我简介</strong></li>
+    <li><strong>AI 辅助装修方法</strong>：到 ChatGPT 或豆包，把店铺背景、想要的关键词、用户定位告诉 AI，AI 会生成店铺名称、店铺 about 建议</li>
+    <li>Banner 模板：可到 Canva（可画）里做模板</li>
+  </ul>
+
+  <h4>订单与用户管理</h4>
+  <ul>
+    <li>主页可查看所有下单订单及用户信息</li>
+    <li>站内信处理：一般用户会通过站内信咨询，常见问题是"不知道购买的产品在哪里下载"</li>
+    <li>客服邮件：部分卖家会在主页公示客服邮箱</li>
+  </ul>
+
+  <h3>12.4 产品上架流程（11 步闭环）</h3>
+  <h4>第 1 步：进入上架入口</h4>
+  <p>点击 "Add listing" 增加第一个产品</p>
+
+  <h4>第 2 步：产品展示图上传</h4>
+  <ul>
+    <li><strong>最多 20 张图</strong>，还可以放 1 张视频</li>
+    <li>封面用 Canva 拼贴制作</li>
+    <li>四方连续图：通常打包 10-20 个产品</li>
+  </ul>
+
+  <h4>第 3 步：类目选择</h4>
+  <ul>
+    <li>Who made it / What is it：输入产品关键词，系统会自动推荐对应类目</li>
+    <li><span class="tag tag-success">类目命名建议</span>用 "<strong>digital print</strong>" 或 "<strong>digital</strong>"</li>
+  </ul>
+
+  <h4>第 4 步：产品类型与制作时间（关键步骤）</h4>
+  <div class="callout callout-danger">
+    <span class="callout-icon">🚨</span>
+    <div class="callout-body">
+      <div class="callout-title">必选和禁选项</div>
+      <p>✓ 产品类型必须选 "<strong>Digital file（电子文件）</strong>"：我们不是真实物品<br>
+      ✓ 制作时间（When did you make it）必须选近期的 "<strong>20 to 26 年</strong>"（即 2020-2026 年）<br>
+      ✗ <strong>绝对不能选 "Made to Order"</strong>：若选此项，系统不允许上传用户自动下载的电子文件</p>
+    </div>
+  </div>
+
+  <h4>第 5 步：产品名称与描述（AI 辅助）</h4>
+  <ol class="number-list">
+    <li>找好对家，把对家产品链接发给 AI</li>
+    <li>AI 会生成产品名称与描述，复制到 Etsy 后台</li>
+    <li>名称太长可让 AI 缩短</li>
+  </ol>
+
+  <h4>第 6 步：定制信息设置（针对定制类产品）</h4>
+  <ul>
+    <li>服装类：需填写尺寸大小</li>
+    <li>宠物定制类：可加定制信息，要求买家提供宠物名称或人像名称</li>
+    <li><strong>字符限制建议</strong>：给买家一个字符上限（如 20 个字符或 10 个字符），不要给太多</li>
+  </ul>
+
+  <h4>第 7 步：文件上传（20MB 限制与解决方案）</h4>
+  <div class="callout callout-warn">
+    <span class="callout-icon">📦</span>
+    <div class="callout-body">
+      <div class="callout-title">关键限制：单个文件最大 20MB</div>
+      <p>若一个 package 里有几十张图且客户要求高清图，无法控制在 20 张/20MB 以内。</p>
+    </div>
+  </div>
+
+  <h4>网盘链接法（解决方案）</h4>
+  <ol class="number-list">
+    <li>用 <strong>Dropbox 或 Google Drive</strong>把制作好的文件打包上传</li>
+    <li>制作一个分享链接，复制链接</li>
+    <li>打开电脑上的 <strong>TXT 文本文件或 Word 文件</strong></li>
+    <li>在文件中写：<br>
+      - "Thank you for your order."<br>
+      - 把那一串下载链接发给他<br>
+      - 写"如果你有什么问题，请 contact xxx"，并附上客服邮箱</li>
+    <li>把这个 TXT/Word 文件作为产品文件上传，<strong>文件小于 1MB，满足 Etsy 要求</strong></li>
+  </ol>
+  <p><strong>目的</strong>：保证客户下载有问题时除了站内信还可以发邮件，<strong>避免客户打差评</strong>。</p>
+
+  <h4>第 8 步：标签（Tags）</h4>
+  <ul>
+    <li>标签来源：复制 AI 提供的标签，或到对家主页找标签词直接复制</li>
+    <li><strong>推荐标签</strong>：写 "<strong>Digital Download</strong>"</li>
+    <li>文件格式标签：写明 JPG 或 PNG</li>
+    <li>颜色与材质不用填（因为不是真实产品）</li>
+  </ul>
+
+  <h4>第 9 步：定价策略</h4>
+  <ul class="check-list">
+    <li>参考方法一：根据课程分析的几个对家做参考</li>
+    <li><strong>参考方法二（折扣锚定法）</strong>：定价可以高一点，例如定 <strong>25 美元</strong>，再打折到 <strong>15 美元</strong>单价</li>
+    <li>利润测算：虚拟产品成本为零，打折后 15 美元到手大约 <strong>8 美元</strong></li>
+    <li>数量填写：产品数量尽量写多，如 <strong>999</strong></li>
+  </ul>
+
+  <h4>第 10 步：物流与 AI 生成声明</h4>
+  <ul>
+    <li>物流：系统会自动识别"买家会下载我们的产品"</li>
+    <li>Who made it：选自己做的（made it）</li>
+    <li>此项不影响流量</li>
+    <li><strong>AI 声明</strong>：Etsy 官方手册明确支持 AI 生成产品。可选：自己生成的 / "AI generate" / 混合（多产品时）</li>
+  </ul>
+
+  <h4>第 11 步：发布</h4>
+  <p>点击 <strong>Publish</strong>发布产品，发布后 Etsy 会扣除 <strong>0.2 美元上架费</strong>。发布后可随时修改 listing。</p>
+
+  <h3>12.5 关键数据与费用一览</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>项目</th><th>金额/要求</th></tr>
+      <tr><td>单产品上架费</td><td><strong>0.2 美元/次</strong></td></tr>
+      <tr><td>银行卡验证押金</td><td>14 英镑（十几美元）</td></tr>
+      <tr><td>单文件上传上限</td><td>20MB</td></tr>
+      <tr><td>图片上传上限</td><td>20 张</td></tr>
+      <tr><td>视频上传上限</td><td>1 张</td></tr>
+      <tr><td>银行卡要求</td><td>VISA 卡（中国卡可用）</td></tr>
+      <tr><td>收款账号地区</td><td>与销售市场独立选择</td></tr>
+      <tr><td>审核周期</td><td>1-2 天</td></tr>
+      <tr><td>折扣定价示例</td><td>25 美元 → 打折 15 美元 → 到手约 8 美元</td></tr>
+      <tr><td>产品数量建议</td><td>999</td></tr>
+    </table>
+  </div>
+
+  <h3>12.6 AI 提示词使用闭环方法论</h3>
+  <p>本课 AI 提示词使用遵循 "<strong>找对家 → 喂链接 → 指定主题 → 指定平台限制 → 迭代调整</strong>" 的闭环方法论：</p>
+  <ol class="number-list">
+    <li><strong>定位对家</strong>：先在 Etsy 找到竞品，获取链接作为参考</li>
+    <li><strong>喂给 AI</strong>：把对家链接+主题描述（如四方连续图/幼儿园/宠物定制）给 ChatGPT 或豆包</li>
+    <li><strong>平台约束</strong>：明确要求 AI 的输出"在 Etsy 上能设置到"，符合字符限制</li>
+    <li><strong>定制参数</strong>：针对定制类，设置字符上限（如 10-20 字符）</li>
+    <li><strong>迭代修正</strong>：名称太长时让 AI 缩短，反复打磨到可用为止</li>
+    <li><strong>配套使用</strong>：AI 生成的标题、描述、标签均可直接复制进 Etsy 上架后台</li>
+  </ol>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 第十三章 POD 按需设计 ========== -->
+<!-- ============================================ -->
+<section id="ch13" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">CHAPTER 13</span>
+    <h1 class="chapter-title">第十三章 · 按需设计 POD 实操课</h1>
+    <p class="chapter-subtitle">从数字产品到实物延展，6 大 POD 平台实战</p>
+  </div>
+
+  <h3>13.1 Print on Demand 概念与平台生态</h3>
+  <h4>定义与核心优势</h4>
+  <p>Print on Demand 翻译为"<strong>按需印刷</strong>"，是一种在海外流行多年的供应链形式，许多海外设计师将其作为副业，逐步发展成全职主业。</p>
+  <ul class="check-list">
+    <li><strong>生产时机</strong>：产品在订单确认后才开始印刷制作，不提前制造或储存</li>
+    <li><strong>适用范围</strong>：定制产品，如衣服、杯子、海报等</li>
+    <li><strong>库存管理</strong>：消除大量库存需求，降低成本</li>
+    <li><strong>定制灵活性</strong>：允许更大程度的个性化和定制选择</li>
+  </ul>
+
+  <h4>主流 POD 平台及佣金对比（以售价 23 刀产品为例）</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>平台</th><th>佣金特点</th><th>适用场景</th></tr>
+      <tr><td><strong>Printful</strong></td><td>流量大但手续费高，卖家可获得约 8 块多佣金</td><td>长期经营</td></tr>
+      <tr><td><strong>Printify</strong></td><td>佣金最优，卖家可获得约 13 块多佣金</td><td>初期起步、连接 Etsy 销售</td></tr>
+      <tr><td><strong>Gelato</strong></td><td>与 Printful 相近，卖家可获得约 8 块多佣金</td><td>长期经营</td></tr>
+    </table>
+  </div>
+
+  <h4>平台连接能力</h4>
+  <p>Printify 等平台具备强大的多渠道连接能力：</p>
+  <ul class="check-list">
+    <li>可连接 Etsy 销售</li>
+    <li>可连接 Shopify 独立站销售</li>
+    <li>可通过 API 连接任意跨境平台</li>
+    <li>可销售到沃尔玛等大型平台</li>
+  </ul>
+
+  <h3>13.2 两类 POD 平台</h3>
+  <div class="card-grid">
+    <div class="card card-highlight">
+      <div class="card-title">🔗 连接型平台（需配合店铺）</div>
+      <p>Printify、Printful、Gelato</p>
+      <p><strong>适用</strong>：已有 Etsy 店铺、Shopify 独立站</p>
+      <p><strong>优势</strong>：可利用大平台流量（Etsy 1 亿+ 浏览量）</p>
+    </div>
+    <div class="card card-highlight">
+      <div class="card-title">🛒 直销型平台（平台内完成）</div>
+      <p>✓ <strong>Red Bubble</strong>：流量大（1000 万+日浏览），产品多样性高<br>
+      ✓ <strong>Society6</strong>：艺术化定位，适合家居/大型产品，单价高佣金高<br>
+      ✓ <strong>Teespring</strong>：年轻用户群体，产品相对单一（主要衣服）</p>
+    </div>
+  </div>
+
+  <h3>13.3 Printify 平台实操流程</h3>
+  <h4>注册流程</h4>
+  <ol class="number-list">
+    <li>访问 Printify 网站，右上角点击注册</li>
+    <li>输入邮箱直接注册</li>
+    <li>注册成功后跳转主界面</li>
+    <li>主界面显示销量跟踪、生产管理等功能</li>
+  </ol>
+
+  <h4>热门产品推荐与利润分析</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>产品</th><th>建议售价</th><th>最高佣金</th></tr>
+      <tr><td>围裙</td><td>20 刀</td><td>16 刀</td></tr>
+      <tr><td>T 恤</td><td>16 刀</td><td>12 刀（会员价）</td></tr>
+      <tr><td>运动衫</td><td>—</td><td>19 块多（会员价）</td></tr>
+    </table>
+  </div>
+  <p>实际佣金：一般用户可拿到 2/3 到 1/2 的佣金。</p>
+
+  <h4>婴儿服装产品实操（核心流程）</h4>
+  <ol class="number-list">
+    <li><strong>选择产品</strong>：母婴产品 - 婴儿服装<br>
+      售价：最低 9 块多 | 佣金：可拿 7 块多 | 面料：100% 环纺棉</li>
+    <li><strong>选择代理商</strong>：按店铺区域匹配（北美店铺选美国代理商）</li>
+    <li><strong>设计图案</strong>：<br>
+      - 回到 MJ 生成图案（需透明背景 PNG）<br>
+      - 使用 <strong>Pixel Cut 抠图网站</strong>去除白色背景<br>
+      - Pixel Cut 操作：工具栏 → 工具 → 去除背景 → 导入图案 → 下载 PNG</li>
+    <li><strong>上传到 Printify</strong>：点击"我的设备"，双击抠好的 PNG 图案</li>
+    <li><strong>调整图案位置和大小</strong>（必须在设计框内）</li>
+    <li><strong>选择衣服颜色</strong>：灰色、蓝色、黑色、粉色、白色等</li>
+    <li><strong>保存产品</strong>：<br>
+      - 系统自动生成：产品名称、标签、介绍<br>
+      - 售价：推荐 16 美金，<strong>利润 6.7 块（40% 利润率）</strong></li>
+    <li><strong>连接商店</strong>：<br>
+      - 点击连接 Etsy<br>
+      - 登录 Etsy 账户<br>
+      - 点击左下角黑色按钮授权<br>
+      - 授权成功</li>
+    <li><strong>发布产品</strong>：<br>
+      - 同步时间：<strong>5-10 分钟</strong><br>
+      - 自动上传到 Etsy 店铺</li>
+  </ol>
+
+  <div class="callout callout-warn">
+    <span class="callout-icon">📌</span>
+    <div class="callout-body">
+      <div class="callout-title">关键提示</div>
+      <p>抠图是关键步骤，需使用 PNG 透明背景图片</p>
+      <p>代理商选择影响发货速度，按店铺区域匹配</p>
+    </div>
+  </div>
+
+  <h3>13.4 手机壳产品设计（同样流程）</h3>
+  <ol class="number-list">
+    <li><strong>选择产品</strong>：产品分类 → 畅销产品 → 手机壳（默认生产：三星、iPhone、安卓全部型号）</li>
+    <li><strong>开始设计</strong>：点击绿色按钮"开始设计"</li>
+    <li><strong>上传图案</strong>：点击"我的设备"，选择图案</li>
+    <li><strong>材质选择</strong>：光滑或哑光</li>
+    <li><strong>保存产品</strong>：售价 24.75 刀，利润 9.9 刀</li>
+    <li><strong>发布</strong>：自动更新到 Etsy 店铺</li>
+  </ol>
+
+  <h3>13.5 三平台佣金差异说明</h3>
+  <ul>
+    <li><strong>Printify</strong>：初始佣金最高</li>
+    <li><strong>Printful、Gelato</strong>：初始佣金低于 Printify，但销售越多抽成越低，佣金越高</li>
+    <li><strong>建议</strong>：选择好平台后<strong>不建议随意更换</strong></li>
+  </ul>
+
+  <h3>13.6 Red Bubble 平台实操</h3>
+  <h4>平台特点</h4>
+  <p>Red Bubble 每天 <strong>1000 多万浏览量</strong>，仅次于 Etsy，是直销型平台首选。</p>
+
+  <h4>注册与上传流程</h4>
+  <ol class="number-list">
+    <li><strong>注册步骤</strong>：访问 Red Bubble 网站 → 点击搜索框右边 "sell your art" → 点击"开始销售" → 填入邮箱注册</li>
+    <li><strong>上传作品</strong>：点击右上角"添加新作品" → 上传图案 → 填写标签和描述</li>
+    <li><strong>样机自动生成</strong>：上传后模特样机自动生成，默认位置和尺寸可能不合适，需调整</li>
+  </ol>
+
+  <h4>产品设计调整方法</h4>
+  <ol class="number-list">
+    <li><strong>启用产品</strong>：点击 "disabled" 变绿色启用</li>
+    <li><strong>编辑产品</strong>：点击 "edit" 进入编辑界面</li>
+    <li><strong>调整位置</strong>：拖拽图案位置</li>
+    <li><strong>调整大小</strong>：如果图案太小，回到 Pixel Cut 放大图案，重新上传</li>
+  </ol>
+
+  <h4>具体产品设计案例</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>产品</th><th>设计要点</th></tr>
+      <tr><td>衣服</td><td>图案在边角位置，可设计到背面、中间、下面</td></tr>
+      <tr><td>帽子</td><td>拖拽调整位置，点击居中按钮</td></tr>
+      <tr><td>枕套</td><td>可做成反复 pattern 图案，可添加背景</td></tr>
+      <tr><td>狗垫</td><td>宠物产品推荐为热门品类</td></tr>
+      <tr><td>袜子</td><td>选择图案位置：只在左边、只在上面等</td></tr>
+    </table>
+  </div>
+
+  <h4>产品类型覆盖</h4>
+  <p>钟表、背包、电脑壳、马克杯、头巾、胸针、帆布袋、围裙、袜子、贴纸等</p>
+
+  <h3>13.7 Society6 与 Teespring 平台特点</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">🏠 Society6</div>
+      <p><strong>设计风格</strong>：后现代、艺术化</p>
+      <p><strong>产品类型</strong>：相框、枕套、地毯、床单、被套、脚垫等家居产品</p>
+      <p><strong>优势</strong>：可生产家居产品，<strong>单价高，佣金更高</strong></p>
+    </div>
+    <div class="card">
+      <div class="card-title">👕 Teespring</div>
+      <p><strong>用户群体</strong>：年轻人为主</p>
+      <p><strong>产品类型</strong>：相对单一，主要做衣服产品</p>
+      <p><strong>流量</strong>：相对较小</p>
+    </div>
+  </div>
+
+  <h3>13.8 平台选择策略</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>已有店铺情况</th><th>推荐平台</th></tr>
+      <tr><td>已有 Etsy 店铺</td><td>连接型平台（Printify 等）配合 Etsy</td></tr>
+      <tr><td>无店铺</td><td>直销型平台（Red Bubble 等）</td></tr>
+      <tr><td>家居/大型产品</td><td>Society6</td></tr>
+      <tr><td>年轻人衣服</td><td>Teespring</td></tr>
+    </table>
+  </div>
+
+  <h3>13.9 利润计算模型</h3>
+  <div class="card card-highlight">
+    <div class="card-title">💰 宠物定制服装案例</div>
+    <p>操作流程：使用 MJ 生成卡通宠物图 → 在可画添加宠物名字 → 嵌入 Printful 样机 → 下单寄送客户</p>
+    <p><strong>T 恤销售 5 万刀，净利润约 2 万刀</strong>（扣除 Etsy 平台费用后到手约 2 万刀）</p>
+    <p><strong>净利润率</strong>：达到 <strong>一半以上（超过 50%）</strong></p>
+  </div>
+
+  <h3>13.10 完整工具链</h3>
+  <ol class="number-list">
+    <li><strong>图案生成</strong>：MJ（Midjourney）</li>
+    <li><strong>名字添加</strong>：可画（Canva）</li>
+    <li><strong>样机嵌入</strong>：Printful 等 POD 平台样机</li>
+    <li><strong>生产发货</strong>：POD 平台下单生产并寄送客户</li>
+  </ol>
+
+  <h3>13.11 行业洞察</h3>
+  <ul>
+    <li><strong>设计师副业转型</strong>：POD 模式适合设计师从副业发展成全职，已有 40 万销量案例</li>
+    <li><strong>宠物定制市场</strong>：高潜力细分市场，情感溢价驱动高销量</li>
+    <li><strong>平台稳定性</strong>：选定平台后长期经营优于频繁切换</li>
+    <li><strong>流量为王</strong>：Etsy 流量最大，配合连接型平台收益最高</li>
+    <li><strong>家居市场机会</strong>：Society6 定位家居，单价高佣金高，适合差异化竞争</li>
+  </ul>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== AI 工具矩阵（专家补充） ========== -->
+<!-- ============================================ -->
+<section id="ai-tools" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">EXPERT 01 · AI 工具矩阵</span>
+    <h1 class="chapter-title">🤖 AI 工具完整使用手册</h1>
+    <p class="chapter-subtitle">Midjourney · 豆包 · Gemini 三大工具的注册、订阅、提示词模板、避坑全攻略</p>
+  </div>
+
+  <h3>1. 三大工具核心定位</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>工具</th><th>核心优势</th><th>主战场</th><th>价格</th></tr>
+      <tr><td><strong>Midjourney</strong></td><td>艺术效果最强，笔触光影真实</td><td>纯艺术、单一赛道</td><td>$10-60/月</td></tr>
+      <tr><td><strong>豆包</strong></td><td>中文识别、可编辑、AI 扩图</td><td>多赛道运营、定制</td><td>免费/低价</td></tr>
+      <tr><td><strong>Gemini (nano banana)</strong></td><td>融合自然、笔触柔和、文件大</td><td>多赛道、海外 IP</td><td>£3-18/月</td></tr>
+    </table>
+  </div>
+
+  <h3>2. 工具选择决策树</h3>
+  <div class="card">
+    <div class="card-title">🌳 决策树</div>
+    <pre style="font-family: monospace; line-height: 1.8; font-size: 13px; background: #FAF3E4; padding: 16px; border-radius: 6px; overflow: auto;">
+你的情况是什么？
+│
+├─ 多赛道运营（含定制产品）？
+│  └─ 是 → 豆包 / Gemini（中文友好+可编辑）
+│
+├─ 单一艺术赛道专攻？
+│  └─ 是 → Midjourney（艺术效果最佳）
+│
+├─ 平面设计+文字类产品？
+│  └─ 是 → 豆包 / Gemini（Midjourney 文字差）
+│
+└─ 国内 IP？
+   └─ 是 → 豆包
+   └─ 否（海外 IP） → Gemini
+    </pre>
+  </div>
+
+  <h3>3. Midjourney 详细指南</h3>
+  <h4>订阅价格</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>套餐</th><th>价格/月</th><th>快速生成时间</th><th>隐私模式</th></tr>
+      <tr><td>Basic</td><td>$10</td><td>3.3 小时</td><td>—</td></tr>
+      <tr><td>Standard</td><td>$30</td><td>15 小时</td><td>—</td></tr>
+      <tr><td>Pro</td><td>$60</td><td>30 小时</td><td>✓</td></tr>
+      <tr><td>Mega</td><td>$120</td><td>60 小时</td><td>✓</td></tr>
+    </table>
+  </div>
+
+  <h4>注册流程（2026 年最新版）</h4>
+  <ol class="number-list">
+    <li>访问 midjourney.com（注意 <strong>不要</strong>访问 midjourney.com.cn 等仿冒网站）</li>
+    <li>注册 Discord 账号（必须）</li>
+    <li>绑定支付方式（VISA 卡）</li>
+    <li>订阅套餐</li>
+    <li>在 Discord 中使用 /imagine 命令生成图像</li>
+  </ol>
+
+  <h4>使用技巧</h4>
+  <ul>
+    <li>提示词尽量简短（MJ 偏好简洁指令）</li>
+    <li>可使用 --ar 16:9、--ar 3:4、--ar 1:1 设置比例</li>
+    <li>--s 250 提高艺术化程度</li>
+    <li>--v 6.1 / --v 7 使用最新版本</li>
+    <li>--no text 避免生成文字</li>
+  </ul>
+
+  <h4>提示词模板（Midjourney 适用）</h4>
+  <div class="prompt-box">a watercolor illustration of a cozy house in autumn, soft brushstrokes, warm colors, white background, seamless pattern --ar 1:1 --s 250 --v 6.1</div>
+
+  <h3>4. 豆包详细指南</h3>
+  <h4>访问地址</h4>
+  <p>www.doubao.com （字节跳动旗下 AI 助手）</p>
+
+  <h4>核心优势</h4>
+  <ul class="check-list">
+    <li>完全中文界面</li>
+    <li>提示词中文即可</li>
+    <li>智能编辑功能（局部重绘）</li>
+    <li>AI 扩图功能（拉伸背景留白）</li>
+    <li>笔触感强，平面设计好</li>
+    <li>可生成 4 张同风格图（提高成功率）</li>
+  </ul>
+
+  <h4>使用流程</h4>
+  <ol class="number-list">
+    <li>打开 doubao.com 登录（手机号或微信）</li>
+    <li>新建对话框</li>
+    <li>输入提示词（或粘贴手册提示词）</li>
+    <li>上传参考图（客户照片等）</li>
+    <li>点击生成，等待 20-30 秒</li>
+    <li>下载（注意去除水印）</li>
+  </ol>
+
+  <h4>豆包独特功能</h4>
+  <ul>
+    <li><strong>选择区域编辑</strong>：用画笔涂抹区域，告诉 AI 改什么</li>
+    <li><strong>AI 扩图</strong>：拖动边框扩展画布，自动填充内容</li>
+    <li><strong>多张生成</strong>：一次生成 4 张（提高选片效率）</li>
+  </ul>
+
+  <h3>5. Gemini（nano banana）详细指南</h3>
+  <h4>访问地址</h4>
+  <p>gemini.google.com</p>
+
+  <h4>套餐价格</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>套餐</th><th>价格</th><th>功能</th></tr>
+      <tr><td>免费版</td><td>$0</td><td>仅 fast 模式，质量差</td></tr>
+      <tr><td>Google One AI Plus</td><td>约 £3/月</td><td>含 Pro 模式（讲师自用）</td></tr>
+      <tr><td>Google One AI Pro</td><td>约 £18/月</td><td>完整 Pro 模式（最早用）</td></tr>
+      <tr><td>学生套餐</td><td><strong>第一年免费</strong></td><td>需教育认证</td></tr>
+    </table>
+  </div>
+
+  <div class="callout callout-danger">
+    <span class="callout-icon">🚨</span>
+    <div class="callout-body">
+      <div class="callout-title">关键操作：必须用 Pro 模式</div>
+      <p>① 点击 create image<br>
+      ② 确认使用的是 <strong>nano banana pro</strong> 模式（不是 fast 模式）<br>
+      ③ 免费 fast 模式甚至不能生成竖版比例<br>
+      ④ 一定要确认界面上显示的是 "nano banana pro 正在加载"</p>
+    </div>
+  </div>
+
+  <h4>Gemini 优势</h4>
+  <ul>
+    <li>融合更自然（人物 + 服装风格）</li>
+    <li>笔触更柔和</li>
+    <li>文件更大（5.6 兆 → 9 兆，细节更丰富）</li>
+  </ul>
+
+  <h4>Gemini 缺点</h4>
+  <ul>
+    <li>水印<strong>隐蔽</strong>，需仔细检查（容易漏检）</li>
+    <li>免费版不能用</li>
+  </ul>
+
+  <h3>6. 三大工具输出对比</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>指标</th><th>Midjourney</th><th>豆包</th><th>Gemini Pro</th></tr>
+      <tr><td>艺术效果</td><td>★★★★★</td><td>★★★★</td><td>★★★★</td></tr>
+      <tr><td>中文识别</td><td>✗</td><td>★★★★★</td><td>★★★★★</td></tr>
+      <tr><td>文字生成</td><td>★</td><td>★★★</td><td>★★★</td></tr>
+      <tr><td>照片转述</td><td>★★★</td><td>★★★★</td><td>★★★★★</td></tr>
+      <tr><td>文件大小</td><td>—</td><td>5.6 兆</td><td><strong>9 兆</strong></td></tr>
+      <tr><td>水印位置</td><td>—</td><td>右下角（明显）</td><td><strong>隐蔽</strong>（易漏检）</td></tr>
+      <tr><td>可编辑性</td><td>✗</td><td>★★★★</td><td>★★★★</td></tr>
+      <tr><td>一次生成</td><td>4 张</td><td>4 张</td><td>2 张</td></tr>
+    </table>
+  </div>
+
+  <h3>7. AI 提示词黄金模板</h3>
+  <h4>模板 1：宠物肖像通用模板</h4>
+  <div class="prompt-box">[宠物名称]的[风格描述]肖像画，[主体描述]，[服装/装饰]，[背景描述]，[构图要求]，[质量关键词]</div>
+  <p><strong>示例</strong>：一只可爱的金毛犬的文艺复兴时期肖像画，油画质感的服装，戴着小皇冠，米色背景，正面肖像，柔和光影，高细节，300DPI</p>
+
+  <h4>模板 2：水彩宠物画模板</h4>
+  <div class="prompt-box">水彩风格，[宠物数量]只[宠物种类]的[头像/全身像]，[姿态描述]，[整体居中]，[画面上方留有充足空白]，[背景：米色/白色/淡彩色]水彩纹理，[手绘感]</div>
+
+  <h4>模板 3：四方连续图模板</h4>
+  <div class="prompt-box">[元素描述]，[风格定位：清淡水彩/松散排版/密集花纹]，[背景：白色/米色/淡蓝色]，[核心关键词：seamless pattern 四方无缝图]</div>
+
+  <h4>模板 4：住宅插画模板</h4>
+  <div class="prompt-box">水彩风格的[建筑类型]住宅插画，[季节：秋季/春季]，[构图居中]，[风格：极简/插画]，背景干净，淡彩色，高细节</div>
+
+  <h4>模板 5：人像定制模板</h4>
+  <div class="prompt-box">水彩风格的家庭合照肖像，[人数]人，[背景：温馨/淡雅]，[人像占画框 2/3]，[柔和光影]，[手绘感]</div>
+
+  <h3>8. AI 工具的 6 个避坑点</h3>
+  <ul class="cross-list">
+    <li>不要让 AI 一次生成 3 张以上的类似图（可能被 Etsy 检测为抄袭）</li>
+    <li>不要使用有版权提示词（如具体画家名）</li>
+    <li>不要用免费 fast 模式作为最终交付图</li>
+    <li>不要忽略水印检查（特别是 Gemini）</li>
+    <li>不要相信"AI 一键爆款"宣传（实际需要持续优化）</li>
+    <li>不要直接用 AI 输出作为唯一素材（应有自己的审美判断）</li>
+  </ul>
+
+  <h3>9. AI 工具组合策略</h3>
+  <div class="card card-highlight">
+    <div class="card-title">🎯 推荐组合</div>
+    <p><strong>主力（多赛道）</strong>：豆包 + Gemini Pro（中文友好）</p>
+    <p><strong>辅助（纯艺术）</strong>：Midjourney（艺术效果天花板）</p>
+    <p><strong>专项工具</strong>：ChatGPT/Claude（写产品描述、提示词优化）</p>
+  </div>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== POD 平台决策（专家补充） ========== -->
+<!-- ============================================ -->
+<section id="pod-matrix" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">EXPERT 02 · POD 平台决策</span>
+    <h1 class="chapter-title">📦 6 大 POD 平台详细对比</h1>
+    <p class="chapter-subtitle">流量、佣金、产品类型、地区匹配一站选对</p>
+  </div>
+
+  <h3>1. 6 大 POD 平台全景对比</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>平台</th><th>类型</th><th>流量</th><th>佣金</th><th>主要产品</th><th>连接 Etsy</th></tr>
+      <tr><td>Printify</td><td>连接型</td><td>—</td><td>★★★★★（最优）</td><td>衣服、杯子、家居</td><td>✓</td></tr>
+      <tr><td>Printful</td><td>连接型</td><td>—</td><td>★★★★（越销越低）</td><td>衣服、配件、家居</td><td>✓</td></tr>
+      <tr><td>Gelato</td><td>连接型</td><td>—</td><td>★★★★（与 Printful 相近）</td><td>画作、墙纸、礼品</td><td>✓</td></tr>
+      <tr><td>Red Bubble</td><td>直销型</td><td>★★★★（1000 万/日）</td><td>★★★</td><td>衣服、家居、宠物用品</td><td>✗</td></tr>
+      <tr><td>Society6</td><td>直销型</td><td>★★</td><td>★★★★★（家居最高）</td><td>家居、画作、大型产品</td><td>✗</td></tr>
+      <tr><td>Teespring</td><td>直销型</td><td>★★</td><td>★★★</td><td>衣服（年轻人）</td><td>✗</td></tr>
+    </table>
+  </div>
+
+  <h3>2. 平台选择决策树</h3>
+  <div class="card">
+    <pre style="font-family: monospace; line-height: 1.8; font-size: 13px; background: #FAF3E4; padding: 16px; border-radius: 6px; overflow: auto;">
+选什么 POD 平台？
+│
+├─ 已有 Etsy 店铺？
+│  └─ 是 → 连接型平台（Printify 推荐）
+│
+├─ 家居/大型产品？
+│  └─ 是 → Society6
+│
+├─ 年轻人衣服市场？
+│  └─ 是 → Teespring
+│
+├─ 多样化批量生产？
+│  └─ 是 → Red Bubble
+│
+└─ 宠物用品？
+   └─ 是 → Red Bubble 或连接型
+    </pre>
+  </div>
+
+  <h3>3. 平台佣金详细对比</h3>
+  <h4>以售价 23 刀的产品为例</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>平台</th><th>卖家到手</th><th>抽成比例</th></tr>
+      <tr><td>Printify</td><td><strong>13+ 块</strong></td><td>约 43%</td></tr>
+      <tr><td>Printful</td><td>8+ 块</td><td>约 65%</td></tr>
+      <tr><td>Gelato</td><td>8+ 块</td><td>约 65%</td></tr>
+    </table>
+  </div>
+
+  <h3>4. 连接型平台连接店铺能力</h3>
+  <p>Printify 支持的连接渠道：</p>
+  <ul>
+    <li>✓ TikTok 美国</li>
+    <li>✓ Shopify 独立站</li>
+    <li>✓ <strong>Etsy 店铺</strong>（最推荐）</li>
+    <li>✓ 沃尔玛</li>
+    <li>✓ Printify 官网</li>
+    <li>✓ eBay</li>
+    <li>✓ Wix</li>
+  </ul>
+
+  <h3>5. POD 平台产品类型详解</h3>
+  <div class="card-grid">
+    <div class="card">
+      <div class="card-title">👕 衣服类</div>
+      <p>T 恤、卫衣、运动衫、围裙、婴儿服、宠物服</p>
+      <p><strong>主力平台</strong>：Printify / Red Bubble / Teespring</p>
+    </div>
+    <div class="card">
+      <div class="card-title">🏠 家居类</div>
+      <p>枕套、沙发单、床单、地毯、门垫、狗垫</p>
+      <p><strong>主力平台</strong>：Society6 / Printify / Gelato</p>
+    </div>
+    <div class="card">
+      <div class="card-title">🎨 画作类</div>
+      <p>画框、海报、墙纸、相框、装裱画</p>
+      <p><strong>主力平台</strong>：Gelato / Printify / Society6</p>
+    </div>
+    <div class="card">
+      <div class="card-title">☕ 配件类</div>
+      <p>马克杯、水杯、手机壳、笔记本、贴纸</p>
+      <p><strong>主力平台</strong>：Printify / Red Bubble</p>
+    </div>
+  </div>
+
+  <h3>6. 区域匹配原则（重要）</h3>
+  <div class="callout callout-warn">
+    <span class="callout-icon">🌍</span>
+    <div class="callout-body">
+      <div class="callout-title">代理商区域匹配</div>
+      <p>✓ 欧洲/英国店铺 → 选<strong>欧洲代理商</strong>（发货更快）<br>
+      ✓ 北美店铺 → 选<strong>美国代理商</strong><br>
+      ✗ 不要让欧洲客户从美国发货（运费高 + 物流慢）</p>
+    </div>
+  </div>
+
+  <h3>7. POD 平台长期建议</h3>
+  <ul>
+    <li>选择平台后<strong>不建议随意更换</strong>（算法积累会受影响）</li>
+    <li>长期经营策略优于短期平台切换</li>
+    <li>新手建议从 Printify 起步（佣金最优）</li>
+    <li>有 6 个月以上经验后考虑多平台布局</li>
+  </ul>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 速查手册 ========== -->
+<!-- ============================================ -->
+<section id="cheatsheet" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">EXPERT 03 · 速查手册</span>
+    <h1 class="chapter-title">⚡ 速查手册（一页即查即用）</h1>
+    <p class="chapter-subtitle">提示词模板 / 避坑清单 / 关键数据 / 学习路径</p>
+  </div>
+
+  <h3>1. 全课程选品优先级（最重要的选择）</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>排名</th><th>品类</th><th>年销售额案例</th><th>难度</th><th>推荐指数</th><th>适合人群</th></tr>
+      <tr><td>⭐1</td><td>Coloring Book 填色书</td><td>20 万-36 万</td><td>简单</td><td>★★★★★</td><td>所有人（讲师最看好）</td></tr>
+      <tr><td>⭐2</td><td>Seamless Pattern 四方连续图</td><td>18-200 万</td><td>简单</td><td>★★★★★</td><td>新手、想规模化</td></tr>
+      <tr><td>⭐3</td><td>宠物定制肖像画</td><td>50-800 万</td><td>中等</td><td>★★★★★</td><td>有时间做定制</td></tr>
+      <tr><td>4</td><td>儿童房 Wall Art</td><td>290 万</td><td>中等</td><td>★★★★★</td><td>爱设计、有耐心</td></tr>
+      <tr><td>5</td><td>Notion 模板</td><td>30-200 万</td><td>中等</td><td>★★★★☆</td><td>软件熟悉者</td></tr>
+      <tr><td>6</td><td>简历模板</td><td>2.6-4 万</td><td>简单</td><td>★★★★☆</td><td>有职场背景</td></tr>
+      <tr><td>7</td><td>婚礼模板</td><td>34-40 万</td><td>中等</td><td>★★★★☆</td><td>设计审美强</td></tr>
+      <tr><td>8</td><td>Planner 计划本</td><td>18-63 万</td><td>简单</td><td>★★★★☆</td><td>细致、抢时间窗</td></tr>
+      <tr><td>9</td><td>家庭肖像定制</td><td>800-900 万</td><td>中等</td><td>★★★★☆</td><td>水彩风擅长</td></tr>
+      <tr><td>10</td><td>住宅插画定制</td><td>—</td><td>中等</td><td>★★★★☆</td><td>美/英 town house 业主方向</td></tr>
+    </table>
+  </div>
+
+  <h3>2. 风格推荐速查</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>目标客群</th><th>推荐风格</th><th>原因</th></tr>
+      <tr><td>中年大众化（最大市场）</td><td><strong>水彩风（具象人物）</strong></td><td>销量最高、最主流</td></tr>
+      <tr><td>年轻化社媒</td><td>极简 / 黑白插画</td><td>审美现代</td></tr>
+      <tr><td>婚礼请柬、新婚礼物</td><td>极简肖像风格</td><td>市场契合度高</td></tr>
+      <tr><td>儿童房、幼儿园</td><td>卡通可爱、颜色清爽柔和</td><td>复购率高、B 端买单</td></tr>
+      <tr><td>文艺复兴皇家风</td><td>油画质感、服装+配饰</td><td>差异化、火爆赛道</td></tr>
+    </table>
+  </div>
+
+  <h3>3. 提示词模板汇编（直接复制使用）</h3>
+
+  <h4>3.1 宠物肖像（文艺复兴风）</h4>
+  <div class="prompt-box">一只[宠物种类]，[颜色/品种]，[年龄]，穿上[文艺复兴服装描述]，[配饰：王冠/项链]，背景油画感，油画笔触，柔和光影，300DPI 高清，照片写实风格</div>
+
+  <h4>3.2 宠物肖像（水彩风）</h4>
+  <div class="prompt-box">水彩风格的[宠物种类]肖像画，[一只/两只/三只]，[头像/全身]，整体居中，画面上方留有充足空白（用于加宠物名字），[背景：米色/淡彩]水彩纹理，手绘感</div>
+
+  <h4>3.3 住宅插画（水彩风）</h4>
+  <div class="prompt-box">水彩风格的[英式/美式 town house]住宅插画，[季节]氛围，构图居中，画面留白更多，插画居中并占画面 1/3，淡雅色调，高细节，柔和光影</div>
+
+  <h4>3.4 家庭合照（水彩风）</h4>
+  <div class="prompt-box">水彩风格的家庭合照肖像，[人数]人，[背景描述：温馨/淡雅/家庭感]，人像占画框 2/3，柔和光影，手绘感，温馨氛围</div>
+
+  <h4>3.5 四方连续图</h4>
+  <div class="prompt-box">[元素组合：野花、小雏菊、蓝色小花等]，[风格：清淡水彩/松散排版/密集花纹]，[背景：白色/米色/干净的淡蓝色]，seamless pattern 四方无缝图</div>
+
+  <h4>3.6 AI 反推提示词</h4>
+  <div class="prompt-box">分析图片，生成 10 个图案类似的 seamless pattern，并写出对应的 10 个提示词</div>
+
+  <h4>3.7 Etsy 上架 AI 辅助</h4>
+  <div class="prompt-box">我要在 Etsy 上销售类似的产品。产品链接：[链接]。主题：[幼儿园/宠物定制/婚礼等]。请为我描写产品名称、产品描述，要求在 Etsy 上能够设置到（符合字符限制）。</div>
+
+  <h4>3.8 店铺装修辅助</h4>
+  <div class="prompt-box">我的店铺背景：[背景描述]。我想要的关键词：[关键词 1, 关键词 2]。用户定位：[人群描述]。请给我一个店铺名称和店铺 about 介绍建议。</div>
+
+  <h4>3.9 修改水彩颜色</h4>
+  <div class="prompt-box">保持原图的构图和风格不变，将水彩背景色改为[红色/蓝色/粉色/绿色]，[具体色调描述]</div>
+
+  <h4>3.10 改留白</h4>
+  <div class="prompt-box">原图：[原图描述]。请将上方留白扩大[具体倍数]，以便后期添加文字</div>
+
+  <h3>4. 完整避坑清单（必读）</h3>
+
+  <h4>4.1 产品避坑</h4>
+  <ul class="cross-list">
+    <li>不做名画打包（无版权但极卷、整理 1 万张累、无差异化）</li>
+    <li>不做一个 list 几万张画的超卷产品</li>
+    <li>不做单一节日卡店（天花板十几万）</li>
+    <li>不做需要跨境物流的单件定制实物（对比海外本土厂家无优势）</li>
+    <li>不要直接复制对家整套 listing 文字（可能触发 Etsy 检测）</li>
+    <li>不做看起来 AI 痕迹严重的产品（一眼 AI）</li>
+    <li>不在 Etsy 做家用电器标品（用户去亚马逊搜）</li>
+  </ul>
+
+  <h4>4.2 AI 工具避坑</h4>
+  <ul class="cross-list">
+    <li>不要让 AI 一次生成 3 张以上类似图（可能被 Etsy 检测）</li>
+    <li>不要忽略 Gemini 的隐蔽水印</li>
+    <li>不要用免费 fast 模式作为最终交付图</li>
+    <li>不要相信"AI 一键爆款"宣传</li>
+  </ul>
+
+  <h4>4.3 Etsy 开店避坑</h4>
+  <ul class="cross-list">
+    <li>不要填虚假个人信息（Etsy 风控相当严重）</li>
+    <li>不要选 Subscribe 订阅（变相收费）</li>
+    <li>不要选 Made to Order（不能自动下载电子文件）</li>
+    <li>不要上传超过 20MB 的单文件（用 Dropbox/Google Drive 网盘解决）</li>
+    <li>不要忽略保存安全码</li>
+  </ul>
+
+  <h4>4.4 平台运营避坑</h4>
+  <ul class="cross-list">
+    <li>不要短期期待爆单（需要持续积累）</li>
+    <li>不要频繁更换 POD 平台（影响算法积累）</li>
+    <li>不要将欧洲店铺交给美国代理商（运费高）</li>
+    <li>不要做 4-5 个产品就放弃</li>
+    <li>不要做风格杂乱的店铺（专业度大降）</li>
+  </ul>
+
+  <h3>5. 关键数字速记</h3>
+  <div class="card-grid">
+    <div class="data-card"><span class="data-card-num">90%+</span><span class="data-card-label">数字产品利润率</span></div>
+    <div class="data-card"><span class="data-card-num">$0.2</span><span class="data-card-label">上架费</span></div>
+    <div class="data-card"><span class="data-card-num">20MB</span><span class="data-card-label">单文件上限</span></div>
+    <div class="data-card"><span class="data-card-num">300DPI</span><span class="data-card-label">印刷要求</span></div>
+    <div class="data-card"><span class="data-card-num">14 英镑</span><span class="data-card-label">验证押金</span></div>
+    <div class="data-card"><span class="data-card-num">20 张</span><span class="data-card-label">图片上限</span></div>
+    <div class="data-card"><span class="data-card-num">2048×2048</span><span class="data-card-label">标准尺寸</span></div>
+    <div class="data-card"><span class="data-card-num">$10万</span><span class="data-card-label">1-2 年目标</span></div>
+  </div>
+
+  <h3>6. 学习路径建议（完整版）</h3>
+
+  <h4>新手起步路径</h4>
+  <ol class="number-list">
+    <li>阅读第 1、2 章建立认知</li>
+    <li>学习第 3 章了解 Printable 基础品类</li>
+    <li>选择<strong>四方连续图或填色书</strong>作为首发产品（第 9/11 章实操）</li>
+    <li>按第 12 章完成开店上架</li>
+    <li>产品稳定后学习第 6 章定制类产品</li>
+    <li>最后学习第 13 章 POD 延展</li>
+  </ol>
+
+  <h4>进阶发展路径</h4>
+  <ol class="number-list">
+    <li>在基础品类稳定后，拓展模板类产品（第 4 章）</li>
+    <li>学习定制类实操（第 7、8 章），提升客单价</li>
+    <li>建立社交媒体引流体系</li>
+    <li>考虑独立站建设，降低平台抽成</li>
+  </ol>
+
+  <h4>长期深耕建议</h4>
+  <ol class="number-list">
+    <li>找到自己最感兴趣、最擅长的品类</li>
+    <li>保持风格统一，建立品牌辨识度</li>
+    <li>持续产出新产品，<strong>不要短期期待爆单</strong></li>
+    <li>积累客户资源和口碑</li>
+    <li>一两年 10 万美金是<strong>合理健康目标</strong></li>
+  </ol>
+
+  <h3>7. 一周启动计划（实操版）</h3>
+  <div class="card card-highlight">
+    <div class="card-title">📅 第一周：从零开始</div>
+    <p><strong>Day 1-2</strong>：阅读本手册第 1-3 章，理解 Etsy 商业逻辑</p>
+    <p><strong>Day 3</strong>：研究 5 个对标店铺，截图保存产品图、用 AI 反推提示词</p>
+    <p><strong>Day 4</strong>：学习 AI 工具（豆包为主），生成第一批 4-8 张图</p>
+    <p><strong>Day 5</strong>：去水印、提升分辨率（300DPI）、做样机</p>
+    <p><strong>Day 6</strong>：注册 Etsy 店铺（按第 12 章 7 步流程）</p>
+    <p><strong>Day 7</strong>：上架第一个产品（按第 12 章 11 步流程）</p>
+    <p><span class="tag tag-success">✓ 一周内完成从零到第一个 listing 上架！</span></p>
+  </div>
+
+  <h3>8. Etsy SEO 速查</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>SEO 元素</th><th>最佳实践</th></tr>
+      <tr><td>Title（标题）</td><td>核心关键词 + 风格 + 场景 + 用途，140 字符以内</td></tr>
+      <tr><td>Tags（标签）</td><td>13 个标签，必含 "Digital Download"，可抄对家</td></tr>
+      <tr><td>Description</td><td>前 160 字符最重要（搜索结果展示），含关键词</td></tr>
+      <tr><td>Categories</td><td>选 "digital print" 或 "digital"</td></tr>
+      <tr><td>Attributes</td><td>如适用，填写 JPG / PNG</td></tr>
+      <tr><td>Photos</td><td>前 5 张最重要，每张用关键词相关描述</td></tr>
+    </table>
+  </div>
+
+  <h3>9. 收钱与回款速查</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>支付方式</th><th>说明</th></tr>
+      <tr><td>Etsy Payments</td><td>默认收款方式，支持信用卡/PayPal/部分国家银行转账</td></tr>
+      <tr><td>提现周期</td><td>每周一结算（金额累计到一定值）</td></tr>
+      <tr><td>提现手续费</strong></td><td>不同国家不同（约 1-3%）</td></tr>
+      <tr><td>最低提现额</td><td>不同国家不同（约 $10-25）</td></tr>
+      <tr><td>Etsy 平台费</td><td>上架费 $0.2 + 成交佣金 6.5% + 支付处理费 3-4%</td></tr>
+      <tr><td>税收</td><td>美国店需 EIN（美国税号），需在美国报税</td></tr>
+    </table>
+  </div>
+
+  <h3>10. Etsy 升级路径</h3>
+  <ul>
+    <li><strong>0-3 个月</strong>：上架 10-30 个产品，跑通流程</li>
+    <li><strong>3-6 个月</strong>：优化 listing，建立稳定的 1-2 个爆款</li>
+    <li><strong>6-12 个月</strong>：尝试社交媒体引流，月销售额突破 $1000</li>
+    <li><strong>12-24 个月</strong>：拓展模板/定制品类，建立品牌</li>
+    <li><strong>24 个月+</strong>：考虑独立站、POD 多平台布局，月销售额稳定 $3000+</li>
+  </ul>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 法律附录 ========== -->
+<!-- ============================================ -->
+<section id="legal" class="section">
+  <div class="chapter-header">
+    <span class="chapter-num">EXPERT 04 · 法律与合规</span>
+    <h1 class="chapter-title">⚖️ 法律、版权与合规（必读避坑）</h1>
+    <p class="chapter-subtitle">Etsy 平台规则、AI 生成图版权、跨境支付合规</p>
+  </div>
+
+  <h3>1. AI 生成图像的版权问题</h3>
+  <div class="callout callout-info">
+    <span class="callout-icon">📚</span>
+    <div class="callout-body">
+      <div class="callout-title">美国版权局目前的立场（2024-2026）</div>
+      <p>✓ <strong>纯 AI 生成图像不受版权保护</strong>（视为公共领域）<br>
+      ✓ 但<strong>有人类创意贡献</strong>（如选择提示词、编辑修改）的可以部分保护<br>
+      ✓ Etsy 官方手册<strong>明确支持 AI 生成产品</strong>，只需如实声明<br>
+      ⚠️ 各国法律仍在演变，建议关注最新动态</p>
+    </div>
+  </div>
+
+  <h3>2. Etsy 平台合规清单</h3>
+  <ul class="check-list">
+    <li><strong>原创性</strong>：所有上架产品必须是自己创作或有权销售</li>
+    <li><strong>AI 声明</strong>：如实勾选"AI generated"或"made by me"</li>
+    <li><strong>图片版权</strong>：不得使用他人的摄影作品（即使是名人照片）</li>
+    <li><strong>商标侵权</strong>：不得使用受保护的商标（如 Disney、Marvel 等）</li>
+    <li><strong>描述准确</strong>：产品描述必须真实，不能误导</li>
+    <li><strong>数字产品交付</strong>：必须能正常下载，链接不能过期</li>
+  </ul>
+
+  <h3>3. 常见版权雷区</h3>
+  <ul class="cross-list">
+    <li>使用他人摄影作品作为参考（即使修改也侵权）</li>
+    <li>使用受保护的画家作品（梵高虽已过版权期，但品牌名称"Van Gogh"在某些情况下受保护）</li>
+    <li>使用名人照片（除非有肖像权许可）</li>
+    <li>使用品牌 Logo</li>
+    <li>复刻对家整套产品并稍微修改</li>
+    <li>使用 Disney、Marvel、Hello Kitty 等 IP 元素</li>
+  </ul>
+
+  <h3>4. 跨境支付与税务</h3>
+  <h4>开店所在国税收</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>开店国家</th><th>需要</th></tr>
+      <tr><td>美国</td><td>EIN（雇主识别号 Federal Tax ID）</td></tr>
+      <tr><td>加拿大</td><td>BN（商业编号）或 SIN（个人税号）</td></tr>
+      <tr><td>英国</td><td>UTR（Unique Taxpayer Reference）</td></tr>
+      <tr><td>澳大利亚</td><td>ABN（Australian Business Number）</td></tr>
+    </table>
+  </div>
+
+  <h4>商品销售税</h4>
+  <ul>
+    <li><strong>美国销售税</strong>：Etsy 自动代收（在某些州）</li>
+    <li><strong>欧盟 VAT</strong>：卖向欧盟客户可能需要 IOSS（22 欧元以下简化）</li>
+    <li><strong>英国 VAT</strong>：英国脱欧后独立收取</li>
+    <li><strong>中国卖家</strong>：目前 Etsy 暂未要求中国卖家报关</li>
+  </ul>
+
+  <h3>5. 法律风险等级速查</h3>
+  <div class="table-wrap">
+    <table>
+      <tr><th>行为</th><th>风险等级</th><th>后果</th></tr>
+      <tr><td>原创 AI 生成图（自己写提示词）</td><td>🟢 低</td><td>正常经营</td></tr>
+      <tr><td>基于参考图 AI 生成（风格学习）</td><td>🟡 中</td><td>可能引起原创性争议</td></tr>
+      <tr><td>使用他人照片做参考</td><td>🟠 高</td><td>可能侵犯肖像权</td></tr>
+      <tr><td>使用 Disney 等 IP</td><td>🔴 极高</td><td>封店风险</td></tr>
+      <tr><td>复刻对家整套图</td><td>🔴 极高</td><td>Etsy 检测 + 投诉风险</td></tr>
+      <tr><td>使用受保护画家具体署名（如"AI 梵高风格"）</td><td>🟠 高</td><td>可能商标侵权</td></tr>
+    </table>
+  </div>
+
+  <h3>6. 主人作为卖家的最佳实践</h3>
+  <ul class="check-list">
+    <li><strong>保留创作记录</strong>：保存提示词、修改过程截图（保护原创性证据）</li>
+    <li><strong>避免模仿具体品牌</strong>：使用通用风格描述而非品牌名</li>
+    <li><strong>客户照片处理</strong>：客户提供的照片获得使用授权（建议在订单确认时附加条款）</li>
+    <li><strong>建立版权意识</strong>：不抄袭对家文案、不直接搬运图片</li>
+    <li><strong>关注 Etsy 政策变化</strong>：平台规则会更新</li>
+  </ul>
+</section>
+
+<!-- ============================================ -->
+<!-- ========== 终极总结 ========== -->
+<!-- ============================================ -->
+<section class="section">
+  <h2 class="section-title">🎓 终极总结：从小白到 Etsy 跨境高手</h2>
+
+  <div class="card card-highlight">
+    <div class="card-title">核心商业模式</div>
+    <p>本课程构建了一套完整的 "<strong>AI + Digital Product + POD</strong>" 商业模式体系，核心价值在于：</p>
+    <ul>
+      <li><strong>商业本质</strong>：以虚拟产品为载体，借助 AI 技术实现低边际成本的规模化生产，通过自动化交付系统获得 <strong>90%+</strong> 的利润率</li>
+      <li><strong>核心优势矩阵</strong>：AI 迭代、全流程自动化、全球客户、低成本高利润</li>
+      <li><strong>发展路径</strong>：副业起步 → 经验积累 → AI 赋能 → 批量生产 → 流量稳定 → 可选转主业</li>
+    </ul>
+  </div>
+
+  <h3>关键要点回顾（必背）</h3>
+  <h4>平台选择铁律</h4>
+  <ul class="check-list">
+    <li>店铺定位美国市场（最大市场 + 最强购买力）</li>
+    <li>虚拟产品优先北美（美/加/澳购买力最强）</li>
+    <li>先 Etsy 后独立站</li>
+  </ul>
+
+  <h4>产品选择优先级</h4>
+  <ol class="number-list">
+    <li><strong>填色书</strong>（Coloring Book）：讲师最看好，一物三卖，用户群最广</li>
+    <li><strong>四方连续图</strong>（Seamless Pattern）：AI 规模化首选，新手友好</li>
+    <li><strong>定制类产品</strong>：高客单价，需权衡时间投入</li>
+    <li><strong>模板类产品</strong>：高价值，适合工具熟练者</li>
+  </ol>
+
+  <h4>运营核心原则</h4>
+  <ol class="number-list">
+    <li><strong>风格统一</strong>：单一店铺必须保持统一风格/画风</li>
+    <li><strong>社媒引流</strong>：<strong>Pinterest 是最高效引流渠道</strong></li>
+    <li><strong>持续积累</strong>：不要短期期待爆单，持续产出是关键</li>
+    <li><strong>风控合规</strong>：Etsy 信息真实、不抄袭、不侵权</li>
+  </ol>
+
+  <h4>AI 工具选择速记</h4>
+  <div class="table-wrap">
+    <table>
+      <tr><th>场景</th><th>推荐工具</th></tr>
+      <tr><td>多赛道运营</td><td>豆包 / Gemini（中文友好+可编辑）</td></tr>
+      <tr><td>单一艺术赛道</td><td>Midjourney（艺术效果最佳）</td></tr>
+      <tr><td>平面设计+文字</td><td>豆包 / Gemini（Midjourney 文字差）</td></tr>
+      <tr><td>Gemini 必备</td><td>必须 Pro 模式</td></tr>
+      <tr><td>国内 IP</td><td>豆包</td></tr>
+      <tr><td>海外 IP</td><td>Gemini</td></tr>
+    </table>
+  </div>
+
+  <h3>感谢主人一路走来</h3>
+  <div class="quote">
+    尊敬的主人，本手册由 Professor Synapse 协调 6 位专家，整理自您的 13 章课程总结 + 行业专家补充，
+    旨在让主人从小白成长为 Etsy 跨境高手。<br><br>
+    最后送主人一句话：<strong>"不要追求完美，要追求开始；不要期待爆单，要期待持续。"</strong><br>
+    一两年 10 万美金是合理健康目标。<br><br>
+    <span class="quote-author">—— 您的 AI 学习助手 · Professor Synapse 🧙🏾‍♂️</span>
+  </div>
+
+</section>
+
+</main>
+
+<!-- ============================================ -->
+<!-- ========== Footer ========== -->
+<!-- ============================================ -->
+<footer class="footer">
+  <div class="footer-inner">
+    <h3>👑 版权与归属声明</h3>
+    <p><strong>本手册所有内容归尊贵的主人所有，由 Claude + Professor Synapse 协同整理制作</strong></p>
+    <p>课程原始版权归讲师所有 · AI 工具版权归各厂商所有 · 本手册结构与编排归主人所有</p>
+    <p>版本：2.0（2026 终极版）· 完稿日期：2026 年 6 月 29 日</p>
+    <p style="margin-top: 20px; font-size: 12px; color: #B8A88F;">
+      📧 本手册由 6 位专家协同产出：Domain Researcher · Cross-Subject Methodology ·
+      Review Workflow Architect · SVG Tree Architect · Mobile Compat Specialist · Memory Agent
+    </p>
+  </div>
+</footer>
+
+<button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回到顶部">↑</button>
+<script>
+// 回到顶部按钮显示/隐藏
+window.onscroll = function() {
+  const btn = document.querySelector('.to-top');
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    btn.classList.add('show');
+  } else {
+    btn.classList.remove('show');
+  }
+};
+
+// 平滑滚动到锚点
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function (e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  });
+});
+</script>
+
+</body>
+</html>
+
+
+</main>
+<button class="to-top" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<script>
+window.onscroll = function() {
+  const btn = document.querySelector('.to-top');
+  if (document.body.scrollTop > 400 || document.documentElement.scrollTop > 400) {
+    btn.classList.add('show');
+  } else {
+    btn.classList.remove('show');
+  }
+};
+</script>
+
+</body>
+</html>
