@@ -1,0 +1,1187 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=3.0,user-scalable=yes">
+<title>自我管理初级班 · 完整课程宝典</title>
+<style>
+  :root {
+    --bg: #faf8f5;
+    --card: #ffffff;
+    --primary: #5b7a5e;
+    --primary-light: #e8efe9;
+    --accent: #d49a6a;
+    --accent-bg: #f5ede4;
+    --text: #3d3d3d;
+    --text-light: #6b6b6b;
+    --border: #e5e0d8;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06);
+    --radius: 12px;
+    --max-w: 960px;
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.8;
+    padding: 0 16px 80px;
+    -webkit-text-size-adjust: 100%;
+  }
+  .container { max-width: var(--max-w); margin: 0 auto; }
+
+  /* Header */
+  .header {
+    text-align: center;
+    padding: 48px 20px 32px;
+    position: relative;
+  }
+  .header::after {
+    content: '';
+    display: block;
+    width: 60px; height: 3px;
+    background: var(--accent);
+    margin: 20px auto 0;
+    border-radius: 2px;
+  }
+  .header h1 {
+    font-size: clamp(26px,5vw,38px);
+    font-weight: 700;
+    letter-spacing: 2px;
+    color: var(--primary);
+  }
+  .header p {
+    color: var(--text-light);
+    font-size: clamp(14px,2.5vw,16px);
+    margin-top: 10px;
+  }
+
+  /* Sections */
+  .section {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 32px 28px;
+    margin: 24px 0;
+    border: 1px solid var(--border);
+  }
+  .section h2 {
+    font-size: clamp(20px,3.5vw,26px);
+    color: var(--primary);
+    padding-bottom: 12px;
+    border-bottom: 2px solid var(--primary-light);
+    margin-bottom: 20px;
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section h2 .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 36px; height: 36px;
+    background: var(--primary);
+    color: #fff; font-size: 16px; font-weight: 700;
+    border-radius: 50%; flex-shrink: 0;
+  }
+  .section h3 {
+    font-size: clamp(17px,2.8vw,20px);
+    color: var(--accent);
+    margin: 24px 0 12px;
+    padding-left: 14px;
+    border-left: 4px solid var(--accent);
+  }
+  .section h4 {
+    font-size: clamp(15px,2.5vw,17px);
+    color: var(--text);
+    margin: 18px 0 8px;
+  }
+  .section p, .section li {
+    font-size: clamp(14px,2.3vw,15px);
+    color: var(--text);
+    margin-bottom: 8px;
+  }
+  .section ul, .section ol {
+    padding-left: 24px;
+    margin-bottom: 12px;
+  }
+  .section li { margin-bottom: 4px; }
+
+  /* Highlight boxes */
+  .box-tip {
+    background: var(--primary-light);
+    border-left: 4px solid var(--primary);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+  }
+  .box-warn {
+    background: #fef6e7;
+    border-left: 4px solid #e6a23c;
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+  }
+  .box-key {
+    background: var(--accent-bg);
+    border-left: 4px solid var(--accent);
+    padding: 16px 20px;
+    border-radius: 0 8px 8px 0;
+    margin: 16px 0;
+  }
+  .box-key strong, .box-tip strong, .box-warn strong { color: inherit; }
+
+  /* Tags */
+  .tag {
+    display: inline-block;
+    padding: 2px 12px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 2px 4px 2px 0;
+  }
+  .tag-green { background: #e8efe9; color: #5b7a5e; }
+  .tag-orange { background: #f5ede4; color: #d49a6a; }
+  .tag-blue { background: #e4edf5; color: #5a7a9a; }
+
+  /* Table */
+  .tbl {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 16px 0;
+    font-size: clamp(13px,2.2vw,14px);
+  }
+  .tbl th, .tbl td {
+    border: 1px solid var(--border);
+    padding: 10px 14px;
+    text-align: left;
+    vertical-align: top;
+  }
+  .tbl th {
+    background: var(--primary-light);
+    color: var(--primary);
+    font-weight: 600;
+  }
+  .tbl tr:nth-child(even) { background: #faf8f5; }
+
+  /* Mind map wrapper */
+  .map-wrap {
+    background: var(--card);
+    border-radius: var(--radius);
+    box-shadow: var(--shadow);
+    padding: 16px;
+    margin: 24px 0;
+    border: 1px solid var(--border);
+    overflow: hidden;
+  }
+  .map-wrap h2 {
+    font-size: clamp(18px,3vw,22px);
+    color: var(--primary);
+    text-align: center;
+    margin-bottom: 12px;
+  }
+
+  /* Responsive */
+  @media (max-width:600px) {
+    body { padding: 0 10px 60px; }
+    .section { padding: 20px 16px; }
+    .tbl th, .tbl td { padding: 6px 8px; }
+  }
+
+  /* Print */
+  @media print {
+    body { background: #fff; padding: 0; }
+    .section { box-shadow: none; break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ========== HEADER ========== -->
+<div class="header">
+  <h1>📚 自我管理初级班</h1>
+  <p>从小白到精通 · 完整课程宝典 · 涵盖全部知识点</p>
+  <p style="margin-top:6px;font-size:13px;color:#999;">基于奥姐7年自我管理实践 · 已运营20+期 · 零差评训练营</p>
+</div>
+
+<!-- ========== MIND MAP ========== -->
+<div class="map-wrap">
+  <h2>🧠 课程知识体系 · 全景思维导图</h2>
+  <div style="width:100%;overflow:auto;-webkit-overflow-scrolling:touch;">
+    <svg viewBox="0 0 1280 880" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;min-width:780px;display:block;" preserveAspectRatio="xMidYMid meet">
+      <defs>
+        <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#5b7a5e"/></marker>
+        <!-- 连接线样式 -->
+        <filter id="shadow1" x="-2%" y="-2%" width="104%" height="104%">
+          <feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/>
+        </filter>
+      </defs>
+
+      <!-- 背景 -->
+      <rect width="1280" height="880" fill="#faf8f5" rx="8"/>
+
+      <!-- ===== 根节点（左侧） ===== -->
+      <rect x="28" y="400" width="154" height="62" rx="31" fill="#5b7a5e" filter="url(#shadow1)"/>
+      <text x="105" y="430" text-anchor="middle" fill="#fff" font-size="17" font-weight="700">自我管理初级班</text>
+      <text x="105" y="448" text-anchor="middle" fill="#d4e8d6" font-size="11">21天从入门到精通</text>
+
+      <!-- ===== 第1层分支 & 连接线 ===== -->
+      <!-- 根 → 模块一 -->
+      <path d="M182,431 L214,431 L214,80 L244,80" stroke="#5b7a5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <rect x="244" y="49" width="130" height="56" rx="28" fill="#6b8c6e" filter="url(#shadow1)"/>
+      <text x="309" y="75" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">模块一</text>
+      <text x="309" y="93" text-anchor="middle" fill="#d4e8d6" font-size="11">认知筑基</text>
+
+      <!-- 根 → 模块二 -->
+      <path d="M182,431 L214,431 L214,144 L244,144" stroke="#5b7a5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <rect x="244" y="113" width="130" height="56" rx="28" fill="#6b8c6e" filter="url(#shadow1)"/>
+      <text x="309" y="139" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">模块二</text>
+      <text x="309" y="157" text-anchor="middle" fill="#d4e8d6" font-size="11">自知机制</text>
+
+      <!-- 根 → 模块三 -->
+      <path d="M182,431 L214,431 L214,208 L244,208" stroke="#5b7a5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <rect x="244" y="177" width="130" height="56" rx="28" fill="#6b8c6e" filter="url(#shadow1)"/>
+      <text x="309" y="203" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">模块三</text>
+      <text x="309" y="221" text-anchor="middle" fill="#d4e8d6" font-size="11">精要主义</text>
+
+      <!-- 根 → 模块四 -->
+      <path d="M182,431 L214,431 L214,272 L244,272" stroke="#5b7a5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <rect x="244" y="241" width="130" height="56" rx="28" fill="#6b8c6e" filter="url(#shadow1)"/>
+      <text x="309" y="267" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">模块四</text>
+      <text x="309" y="285" text-anchor="middle" fill="#d4e8d6" font-size="11">精力管理</text>
+
+      <!-- 根 → 模块五 -->
+      <path d="M182,431 L214,431 L214,336 L244,336" stroke="#5b7a5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <rect x="244" y="305" width="130" height="56" rx="28" fill="#6b8c6e" filter="url(#shadow1)"/>
+      <text x="309" y="331" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">模块五</text>
+      <text x="309" y="349" text-anchor="middle" fill="#d4e8d6" font-size="11">习惯养成</text>
+
+      <!-- 根 → 模块六 -->
+      <path d="M182,431 L214,431 L214,400 L244,400" stroke="#5b7a5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <rect x="244" y="369" width="130" height="56" rx="28" fill="#6b8c6e" filter="url(#shadow1)"/>
+      <text x="309" y="395" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">模块六</text>
+      <text x="309" y="413" text-anchor="middle" fill="#d4e8d6" font-size="11">情绪管理</text>
+
+      <!-- 根 → 模块七 -->
+      <path d="M182,431 L214,431 L214,464 L244,464" stroke="#5b7a5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <rect x="244" y="433" width="130" height="56" rx="28" fill="#6b8c6e" filter="url(#shadow1)"/>
+      <text x="309" y="459" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">模块七</text>
+      <text x="309" y="477" text-anchor="middle" fill="#d4e8d6" font-size="11">日回顾实操</text>
+
+      <!-- 根 → 模块八 -->
+      <path d="M182,431 L214,431 L214,528 L244,528" stroke="#5b7a5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <rect x="244" y="497" width="130" height="56" rx="28" fill="#6b8c6e" filter="url(#shadow1)"/>
+      <text x="309" y="523" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">模块八</text>
+      <text x="309" y="541" text-anchor="middle" fill="#d4e8d6" font-size="11">常见问题</text>
+
+      <!-- 根 → 模块九 -->
+      <path d="M182,431 L214,431 L214,592 L244,592" stroke="#5b7a5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <rect x="244" y="561" width="130" height="56" rx="28" fill="#6b8c6e" filter="url(#shadow1)"/>
+      <text x="309" y="587" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">模块九</text>
+      <text x="309" y="605" text-anchor="middle" fill="#d4e8d6" font-size="11">进阶与提升</text>
+
+      <!-- 根 → 模块十 -->
+      <path d="M182,431 L214,431 L214,656 L244,656" stroke="#5b7a5e" stroke-width="2" fill="none" marker-end="url(#arrow)"/>
+      <rect x="244" y="625" width="130" height="56" rx="28" fill="#6b8c6e" filter="url(#shadow1)"/>
+      <text x="309" y="651" text-anchor="middle" fill="#fff" font-size="14" font-weight="600">模块十</text>
+      <text x="309" y="669" text-anchor="middle" fill="#d4e8d6" font-size="11">资源与工具</text>
+
+      <!-- ===== 第2层 子节点 ===== -->
+
+      <!-- 第1列X坐标: 408  第2列X坐标: 620  第3列X坐标: 832  第4列X坐标: 1044 -->
+
+      <!-- === 模块一子节点 === -->
+      <!-- 模块一 → 子1 -->
+      <path d="M374,77 L408,77 L408,55 L430,55" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="430" y="38" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="60" text-anchor="middle" fill="#5b7a5e" font-size="12">奥姐7年实践成果</text>
+      <!-- 模块一 → 子2 -->
+      <path d="M374,77 L408,77 L408,98 L430,98" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="430" y="81" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="103" text-anchor="middle" fill="#5b7a5e" font-size="12">大象与骑象人模型</text>
+      <!-- 模块一 → 子3 -->
+      <path d="M374,77 L408,77 L408,141 L430,141" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="430" y="124" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="146" text-anchor="middle" fill="#5b7a5e" font-size="12">五大系统总览</text>
+
+      <!-- === 模块二子节点 === -->
+      <path d="M374,141 L408,141" stroke="#b8c9b9" stroke-width="1.5"/>
+      <!-- 模块二 → 子1 -->
+      <path d="M374,141 L620,141 L620,55 L430,55" stroke="transparent"/>
+      <rect x="430" y="167" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="189" text-anchor="middle" fill="#5b7a7e" font-size="12">事前预测法</text>
+      <path d="M374,141 L430,141 L430,184 L430,184" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <!-- 模块二 → 子2 -->
+      <path d="M374,141 L430,141 L430,210 L430,210" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="430" y="210" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="232" text-anchor="middle" fill="#5b7a7e" font-size="12">每日检查清单</text>
+      <!-- 模块二 → 子3 -->
+      <path d="M374,141 L430,141 L430,253 L430,253" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="430" y="253" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="275" text-anchor="middle" fill="#5b7a7e" font-size="12">日回顾系统</text>
+
+      <!-- === 模块三子节点 === -->
+      <path d="M374,205 L620,205" stroke="#b8c9b9" stroke-width="1.5"/>
+      <rect x="430" y="296" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="318" text-anchor="middle" fill="#5b7a7e" font-size="12">三大核心思维</text>
+      <path d="M374,205 L430,205 L430,313 L430,313" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <path d="M374,205 L430,205 L430,339 L430,339" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="430" y="339" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="361" text-anchor="middle" fill="#5b7a7e" font-size="12">三只青蛙法则</text>
+      <path d="M374,205 L430,205 L430,382 L430,382" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="430" y="382" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="404" text-anchor="middle" fill="#5b7a7e" font-size="12">停顿的智慧</text>
+
+      <!-- === 模块四子节点 === -->
+      <path d="M374,269 L620,269" stroke="#b8c9b9" stroke-width="1.5"/>
+      <rect x="430" y="425" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="447" text-anchor="middle" fill="#5b7a7e" font-size="12">4个1精力循环</text>
+      <path d="M374,269 L430,269 L430,442 L430,442" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <path d="M374,269 L430,269 L430,468 L430,468" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="430" y="468" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="490" text-anchor="middle" fill="#5b7a7e" font-size="12">减少消耗策略</text>
+      <path d="M374,269 L430,269 L430,511 L430,511" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="430" y="511" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="533" text-anchor="middle" fill="#5b7a7e" font-size="12">极简冥想</text>
+
+      <!-- === 模块五子节点 === -->
+      <path d="M374,333 L620,333" stroke="#b8c9b9" stroke-width="1.5"/>
+      <rect x="430" y="554" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="576" text-anchor="middle" fill="#5b7a7e" font-size="12">习惯四要素</text>
+      <path d="M374,333 L430,333 L430,571 L430,571" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <path d="M374,333 L430,333 L430,597 L430,597" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="430" y="597" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="619" text-anchor="middle" fill="#5b7a7e" font-size="12">小步子原理</text>
+      <path d="M374,333 L430,333 L430,640 L430,640" stroke="#b8c9b9" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+      <rect x="430" y="640" width="124" height="34" rx="17" fill="#e8efe9" stroke="#c5d6c6" stroke-width="1"/>
+      <text x="492" y="662" text-anchor="middle" fill="#5b7a7e" font-size="12">早起/阅读习惯</text>
+
+      <!-- === 模块六子节点 === -->
+      <rect x="620" y="38" width="124" height="34" rx="17" fill="#f5ede4" stroke="#e5d5c5" stroke-width="1"/>
+      <text x="682" y="60" text-anchor="middle" fill="#d49a6a" font-size="12">非暴力沟通四步</text>
+      <rect x="620" y="81" width="124" height="34" rx="17" fill="#f5ede4" stroke="#e5d5c5" stroke-width="1"/>
+      <text x="682" y="103" text-anchor="middle" fill="#d49a6a" font-size="12">避免形式主义</text>
+      <rect x="620" y="124" width="124" height="34" rx="17" fill="#f5ede4" stroke="#e5d5c5" stroke-width="1"/>
+      <text x="682" y="146" text-anchor="middle" fill="#d49a6a" font-size="12">治标与治本结合</text>
+      <line x1="374" y1="397" x2="620" y2="55" stroke="#b8c9b9" stroke-width="1.5"/>
+      <line x1="374" y1="397" x2="620" y2="98" stroke="#b8c9b9" stroke-width="1.5"/>
+      <line x1="374" y1="397" x2="620" y2="141" stroke="#b8c9b9" stroke-width="1.5"/>
+
+      <!-- === 模块七子节点 === -->
+      <rect x="620" y="303" width="124" height="34" rx="17" fill="#f5ede4" stroke="#e5d5c5" stroke-width="1"/>
+      <text x="682" y="325" text-anchor="middle" fill="#d49a6a" font-size="12">初阶模板</text>
+      <rect x="620" y="346" width="124" height="34" rx="17" fill="#f5ede4" stroke="#e5d5c5" stroke-width="1"/>
+      <text x="682" y="368" text-anchor="middle" fill="#d49a6a" font-size="12">五步自问法</text>
+      <rect x="620" y="389" width="124" height="34" rx="17" fill="#f5ede4" stroke="#e5d5c5" stroke-width="1"/>
+      <text x="682" y="411" text-anchor="middle" fill="#d49a6a" font-size="12">精力与青蛙</text>
+      <rect x="620" y="432" width="124" height="34" rx="17" fill="#f5ede4" stroke="#e5d5c5" stroke-width="1"/>
+      <text x="682" y="454" text-anchor="middle" fill="#d49a6a" font-size="12">精要主义反思</text>
+      <line x1="374" y1="461" x2="620" y2="320" stroke="#b8c9b9" stroke-width="1.5"/>
+      <line x1="374" y1="461" x2="620" y2="363" stroke="#b8c9b9" stroke-width="1.5"/>
+      <line x1="374" y1="461" x2="620" y2="406" stroke="#b8c9b9" stroke-width="1.5"/>
+      <line x1="374" y1="461" x2="620" y2="449" stroke="#b8c9b9" stroke-width="1.5"/>
+
+      <!-- === 模块八子节点 === -->
+      <rect x="620" y="497" width="124" height="34" rx="17" fill="#e4edf5" stroke="#c5d5e5" stroke-width="1"/>
+      <text x="682" y="519" text-anchor="middle" fill="#5a7a9a" font-size="12">计划有效性</text>
+      <rect x="620" y="540" width="124" height="34" rx="17" fill="#e4edf5" stroke="#c5d5e5" stroke-width="1"/>
+      <text x="682" y="562" text-anchor="middle" fill="#5a7a9a" font-size="12">青蛙设置误区</text>
+      <rect x="620" y="583" width="124" height="34" rx="17" fill="#e4edf5" stroke="#c5d5e5" stroke-width="1"/>
+      <text x="682" y="605" text-anchor="middle" fill="#5a7a9a" font-size="12">执行障碍对策</text>
+      <line x1="374" y1="525" x2="620" y2="514" stroke="#b8c9b9" stroke-width="1.5"/>
+      <line x1="374" y1="525" x2="620" y2="557" stroke="#b8c9b9" stroke-width="1.5"/>
+      <line x1="374" y1="525" x2="620" y2="600" stroke="#b8c9b9" stroke-width="1.5"/>
+
+      <!-- === 模块九子节点 === -->
+      <rect x="620" y="629" width="124" height="34" rx="17" fill="#e4edf5" stroke="#c5d5e5" stroke-width="1"/>
+      <text x="682" y="651" text-anchor="middle" fill="#5a7a9a" font-size="12">三次答疑直播</text>
+      <rect x="620" y="672" width="124" height="34" rx="17" fill="#e4edf5" stroke="#c5d5e5" stroke-width="1"/>
+      <text x="682" y="694" text-anchor="middle" fill="#5a7a9a" font-size="12">六维评估体系</text>
+      <rect x="620" y="715" width="124" height="34" rx="17" fill="#e4edf5" stroke="#c5d5e5" stroke-width="1"/>
+      <text x="682" y="737" text-anchor="middle" fill="#5a7a9a" font-size="12">优秀学员案例</text>
+      <line x1="374" y1="589" x2="620" y2="646" stroke="#b8c9b9" stroke-width="1.5"/>
+      <line x1="374" y1="589" x2="620" y2="689" stroke="#b8c9b9" stroke-width="1.5"/>
+      <line x1="374" y1="589" x2="620" y2="732" stroke="#b8c9b9" stroke-width="1.5"/>
+
+      <!-- === 模块十子节点 === -->
+      <rect x="620" y="758" width="124" height="34" rx="17" fill="#e4edf5" stroke="#c5d5e5" stroke-width="1"/>
+      <text x="682" y="780" text-anchor="middle" fill="#5a7a9a" font-size="12">推荐书单</text>
+      <rect x="620" y="801" width="124" height="34" rx="17" fill="#e4edf5" stroke="#c5d5e5" stroke-width="1"/>
+      <text x="682" y="823" text-anchor="middle" fill="#5a7a9a" font-size="12">日回顾模板</text>
+      <line x1="374" y1="653" x2="620" y2="775" stroke="#b8c9b9" stroke-width="1.5"/>
+      <line x1="374" y1="653" x2="620" y2="818" stroke="#b8c9b9" stroke-width="1.5"/>
+
+      <!-- ===== 第3层 ===== -->
+      <!-- 模块一子节点的子节点 -->
+      <line x1="554" y1="55" x2="740" y2="55" stroke="#d4dcd4" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="740" y="38" width="140" height="30" rx="15" fill="#f5f9f5" stroke="#d4dcd4" stroke-width="0.8"/>
+      <text x="810" y="58" text-anchor="middle" fill="#7a9a7a" font-size="11">年薪百万·15年早起</text>
+
+      <line x1="554" y1="98" x2="740" y2="98" stroke="#d4dcd4" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="740" y="81" width="140" height="30" rx="15" fill="#f5f9f5" stroke="#d4dcd4" stroke-width="0.8"/>
+      <text x="810" y="101" text-anchor="middle" fill="#7a9a7a" font-size="11">情绪面(大象)决定成败</text>
+
+      <line x1="554" y1="141" x2="740" y2="141" stroke="#d4dcd4" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="740" y="124" width="140" height="30" rx="15" fill="#f5f9f5" stroke="#d4dcd4" stroke-width="0.8"/>
+      <text x="810" y="144" text-anchor="middle" fill="#7a9a7a" font-size="11">引擎·方向盘·导航·燃油·保养</text>
+
+      <!-- 模块二子节点的子节点 -->
+      <line x1="554" y1="184" x2="740" y2="184" stroke="#d4dcd4" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="740" y="167" width="140" height="30" rx="15" fill="#f5f9f5" stroke="#d4dcd4" stroke-width="0.8"/>
+      <text x="810" y="187" text-anchor="middle" fill="#7a9a7a" font-size="11">逆向思维推演</text>
+
+      <line x1="554" y1="227" x2="740" y2="227" stroke="#d4dcd4" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="740" y="210" width="140" height="30" rx="15" fill="#f5f9f5" stroke="#d4dcd4" stroke-width="0.8"/>
+      <text x="810" y="230" text-anchor="middle" fill="#7a9a7a" font-size="11">每日检视</text>
+
+      <line x1="554" y1="270" x2="740" y2="270" stroke="#d4dcd4" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="740" y="253" width="140" height="30" rx="15" fill="#f5f9f5" stroke="#d4dcd4" stroke-width="0.8"/>
+      <text x="810" y="273" text-anchor="middle" fill="#7a9a7a" font-size="11">702篇沉淀</text>
+
+      <!-- 模块三子节点的子节点 -->
+      <line x1="554" y1="313" x2="740" y2="313" stroke="#d4dcd4" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="740" y="296" width="140" height="30" rx="15" fill="#f5f9f5" stroke="#d4dcd4" stroke-width="0.8"/>
+      <text x="810" y="316" text-anchor="middle" fill="#7a9a7a" font-size="11">选择·甄别·取舍</text>
+
+      <line x1="554" y1="356" x2="740" y2="356" stroke="#d4dcd4" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="740" y="339" width="140" height="30" rx="15" fill="#f5f9f5" stroke="#d4dcd4" stroke-width="0.8"/>
+      <text x="810" y="359" text-anchor="middle" fill="#7a9a7a" font-size="11">日回顾·学习·工作</text>
+
+      <line x1="554" y1="399" x2="740" y2="399" stroke="#d4dcd4" stroke-width="1" stroke-dasharray="3,3"/>
+      <rect x="740" y="382" width="140" height="30" rx="15" fill="#f5f9f5" stroke="#d4dcd4" stroke-width="0.8"/>
+      <text x="810" y="402" text-anchor="middle" fill="#7a9a7a" font-size="11">停顿5分钟再行动</text>
+
+      <!-- 底部图例 -->
+      <rect x="940" y="800" width="12" height="12" rx="2" fill="#e8efe9" stroke="#c5d6c6" stroke-width="0.8"/>
+      <text x="958" y="811" fill="#5b7a5e" font-size="11">核心方法</text>
+      <rect x="1010" y="800" width="12" height="12" rx="2" fill="#f5ede4" stroke="#e5d5c5" stroke-width="0.8"/>
+      <text x="1028" y="811" fill="#d49a6a" font-size="11">实操工具</text>
+      <rect x="1080" y="800" width="12" height="12" rx="2" fill="#e4edf5" stroke="#c5d5e5" stroke-width="0.8"/>
+      <text x="1098" y="811" fill="#5a7a9a" font-size="11">答疑&进阶</text>
+    </svg>
+  </div>
+  <p style="text-align:center;margin-top:8px;font-size:13px;color:#999;">💡 可双指放大查看 · 横向树状结构 · 根在左逐层向右展开</p>
+</div>
+
+<!-- ========== 模块一：认知筑基 ========== -->
+<div class="section">
+  <h2><span class="num">一</span> 认知筑基 · 自我管理的底层逻辑</h2>
+
+  <h3>1.1 奥姐7年自我管理的实战成果</h3>
+  <p>奥姐通过长达10年的自我管理实践，在六大维度取得了顶级成果：</p>
+  <ul>
+    <li><strong>事业与财富：</strong>28岁年薪百万，29岁带领团队负责百亿级市场，平均每周收到3个猎头邀约</li>
+    <li><strong>个人IP：</strong>知乎仅7篇回答获28万阅读量，两个月完成16次咨询、1个销售专栏、4场直播</li>
+    <li><strong>学习成长：</strong>9个月阅读80本书，港科大MBA毕业</li>
+    <li><strong>家庭关系：</strong>每年带父母旅行2次，每周约会伴侣，工作日一起散步</li>
+    <li><strong>体能健康：</strong>坚持早起15年（4:30起床），持续跑步5年</li>
+    <li><strong>系统化运作：</strong>沉淀702篇日回顾，周回顾坚持4年，半年度/年度回顾坚持7年</li>
+  </ul>
+  <p>核心启示：自我管理不是"压榨"时间，而是"扩容"人生——构建良性运转的"飞轮系统"。</p>
+
+  <h3>1.2 打破传统认知的底层逻辑</h3>
+
+  <h4>🚫 抛弃"时间管理"与"痛苦的自律"</h4>
+  <ul>
+    <li>时间不可管理，只能管理"自己"</li>
+    <li>传统词汇（自律、奋斗、坚持、刻苦）暗示"很难"，违背人性</li>
+    <li>人的本性是畏难、追求开心的，强力压制导致放弃、自责、焦虑</li>
+  </ul>
+
+  <div class="box-key">
+    <strong>🧠 核心模型：大象与骑象人</strong>
+    <p style="margin-top:6px;">出自《象与骑象人》（乔纳森·海特）：</p>
+    <ul>
+      <li><strong>大象（情感面）：</strong>感性、情绪、本能、直觉——是动力的源泉</li>
+      <li><strong>骑象人（理性面）：</strong>理智、理性思考</li>
+      <li><strong>核心原则：</strong>必须让"大象"处于积极、愉悦的状态，才能事半功倍</li>
+    </ul>
+  </div>
+
+  <h4>🎯 打造"正反馈机制"的三步走</h4>
+  <ol>
+    <li><strong>小步子原理：</strong>既不在舒适区，也不在极限区（如7点起床→6:30起，而非4:30）</li>
+    <li><strong>尝到甜头：</strong>设定能立刻带来成就感的标准（如"比昨天多读5页"）</li>
+    <li><strong>激发内驱力：</strong>从"痛苦的坚持"转化为"想要去做"</li>
+  </ol>
+
+  <h3>1.3 五大系统总览（汽车比喻）</h3>
+  <table class="tbl">
+    <thead><tr><th>系统</th><th>比喻</th><th>功能</th><th>核心方法</th></tr></thead>
+    <tbody>
+      <tr><td>大象积极面</td><td>引擎（动力源）</td><td>提供持续的情绪燃料</td><td>正反馈循环、小步子原理</td></tr>
+      <tr><td>自知机制</td><td>方向盘（方向校准）</td><td>确保每天行动与长期目标对齐</td><td>事前预测法、日回顾、检查清单</td></tr>
+      <tr><td>精要主义</td><td>导航仪（路径优化）</td><td>只做更少而更好的事</td><td>三只青蛙、停顿的智慧</td></tr>
+      <tr><td>精力管理</td><td>燃油系统（能量保障）</td><td>主动管理精力而非透支</td><td>4个1循环、极简冥想</td></tr>
+      <tr><td>抽离</td><td>保养模式（全局视角）</td><td>定期审视大方向</td><td>周末/假期从日常抽身</td></tr>
+    </tbody>
+  </table>
+</div>
+
+<!-- ========== 模块二：自知机制 ========== -->
+<div class="section">
+  <h2><span class="num">二</span> 自知机制 · 找到人生方向，告别"陀螺"状态</h2>
+
+  <h3>2.1 核心理念：从"陀螺模式"到"主动模式"</h3>
+  <p>大多数人被外界期望和规则驱使着盲目旋转（陀螺模式），目标是通过建立"自知机制"切换到主动模式。</p>
+
+  <h3>2.2 事前预测法（逆向思维定位方向）</h3>
+  <div class="box-key">
+    <strong>核心方法：</strong>假设3-5年后你对自己极度失望，想象是因为你失去了什么或没做到什么。利用"损失厌恶"心理（人对失去比得到更敏感），精准倒逼出你内心真正不能失去的重要事项。
+  </div>
+
+  <h3>2.3 每日检查清单（Checklist）</h3>
+  <ul>
+    <li>将找到的重要事项拆解为每天的<strong>可执行动作</strong></li>
+    <li>例：发现家庭重要→设定"每天与父母通话10分钟"</li>
+    <li>每天对照清单复盘：是/否完成</li>
+  </ul>
+
+  <h3>2.4 高频日回顾</h3>
+  <p>每天对照清单复盘，通过"每日反思→第二天践行"的高频循环，确保每天行动与长期目标死死咬合。</p>
+  <div class="box-tip">
+    <strong>💡 关键原则：</strong>复盘频次决定成长速度。遇到问题如果两天才写一次日回顾，问题会被延误。最佳撰写时间是早晨（大脑最清醒）。
+  </div>
+</div>
+
+<!-- ========== 模块三：精要主义 ========== -->
+<div class="section">
+  <h2><span class="num">三</span> 精要主义 · 做更少但更好的事</h2>
+
+  <h3>3.1 为什么需要精要主义？</h3>
+  <p><strong>根本矛盾：</strong>个人时间与精力绝对有限，无法做完所有事情。</p>
+  <ul>
+    <li><strong>短箭头效应：</strong>精力分散向各个方向→每个方向进展有限</li>
+    <li><strong>解决：</strong>在每一领域只抓最重要的一件事</li>
+  </ul>
+
+  <h3>3.2 三大核心思维</h3>
+  <ol>
+    <li><strong>相信自己有选择权：</strong>打破"受害者模式"，夺回主动权</li>
+    <li><strong>精准甄别：</strong>在海量事务中找到投资回报率最高的方向</li>
+    <li><strong>勇敢取舍：</strong>拒绝"既要又要"，只做唯一重要的事</li>
+  </ol>
+
+  <h3>3.3 🐸 三只青蛙法则（每日核心执行工具）</h3>
+
+  <h4>三只青蛙的固定设定（初阶铁律）</h4>
+  <table class="tbl">
+    <thead><tr><th>顺序</th><th>青蛙</th><th>说明</th><th>执行时间</th></tr></thead>
+    <tbody>
+      <tr><td>第1只</td><td>日回顾和复盘</td><td>回顾前一天的执行情况</td><td rowspan="2"><strong>出门前完成！</strong><br>在"个人专区"执行</td></tr>
+      <tr><td>第2只</td><td>工作外的学习</td><td>阅读、个人IP等长线成长</td></tr>
+      <tr><td>第3只</td><td>当日工作最重要的1件事</td><td>对升职加薪影响最大、不做就无法挽回的事</td><td>到公司后完成</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box-warn">
+    <strong>⚠️ 核心铁律：</strong>前两只青蛙必须在<strong>早上出门前</strong>解决掉！因为一旦出门就会进入"社畜模式"，被各种突发打断。出门前吃掉前两只蛙，带来巨大的安全感和成就感。
+  </div>
+
+  <h4>如何精准识别"最重要的一件事"</h4>
+  <ul>
+    <li><strong>非Yes即No法则：</strong>问自己是否最重要时，只要有一丝犹豫就是No</li>
+    <li><strong>只做"非我不可"的事：</strong>流程性琐事大胆授权</li>
+    <li><strong>青蛙必须符合SMART原则：</strong>具体、可衡量、可达成、相关、有时限</li>
+    <li><strong>具备明显推动性：</strong>做完后能在某个维度明显推进</li>
+  </ul>
+
+  <h4>新手常见误区</h4>
+  <ul>
+    <li>❌ 生搬硬套大类标签，缺乏具体指向</li>
+    <li>❌ 用时间作为衡量标准（如"看书10分钟"）</li>
+    <li>❌ 动作描述模糊（如"整理资料"）</li>
+    <li>❌ 起步目标太大太难</li>
+    <li>❌ 不会设定"有正反馈"的青蛙</li>
+  </ul>
+
+  <h3>3.4 停顿的智慧</h3>
+  <p>做完一件事后不要像陀螺一样立刻投入下一件，<strong>必须强迫自己停顿5分钟</strong>，思考下一步什么才是最重的事情。源自《每天最重要的2小时》。</p>
+</div>
+
+<!-- ========== 模块四：精力管理 ========== -->
+<div class="section">
+  <h2><span class="num">四</span> 精力管理 · 保障续航基本盘</h2>
+
+  <h3>4.1 🔄 "4个1"精力循环（核心操作系统）</h3>
+  <p>这套循环在"高效产出"与"精力恢复"之间建立标准流程，可以在一天内开启多个循环：</p>
+
+  <table class="tbl">
+    <thead><tr><th>顺序</th><th>环节</th><th>动作</th><th>消耗特点</th><th>核心原则</th></tr></thead>
+    <tbody>
+      <tr>
+        <td><strong>第1个"1"</strong></td>
+        <td>休整期</td>
+        <td>睡觉或冥想</td>
+        <td>恢复精力</td>
+        <td><strong>最关键的一步！</strong>做不到这个后面的全部失效。</td>
+      </tr>
+      <tr>
+        <td><strong>第2个"1"</strong></td>
+        <td>吃青蛙</td>
+        <td>高价值单点专注工作</td>
+        <td>慢速消耗</td>
+        <td>单人、单界面、无需交互</td>
+      </tr>
+      <tr>
+        <td><strong>第3个"1"</strong></td>
+        <td>处理杂务</td>
+        <td>跨平台交互、回消息</td>
+        <td>快速消耗</td>
+        <td>绝对不能排在第2个"1"之前</td>
+      </tr>
+      <tr>
+        <td><strong>第4个"1"</strong></td>
+        <td>进食期</td>
+        <td>吃饭收尾</td>
+        <td>闭环</td>
+        <td>运动前只能吃1颗糖，正式早饭必须是第4个"1"</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="box-tip">
+    <strong>💡 循环叠加：</strong>一天可开启多个循环（早起→出门、出门→中午、下午、晚间任务前可再冥想一次开启第4个循环）。感到精力耗尽时立刻中止，强制切入"第1个1"（休息/冥想）来止损。
+  </div>
+
+  <h3>4.2 主动减少消耗</h3>
+  <ul>
+    <li><strong>减少事项/设备切换：</strong>频繁切换终端（iPad、手机、电脑）或回微信，极大消耗注意力</li>
+    <li><strong>减少选择：</strong>固定时间、固定环境、固定工具做固定事情（如每天固定吃水煮蛋）</li>
+    <li><strong>屏蔽噪音：</strong>使用降噪耳机，关闭手机娱乐APP通知</li>
+    <li><strong>切断负面情绪：</strong>问自己"这么想有用吗？没用"，直接睡觉替代纠结</li>
+  </ul>
+
+  <h3>4.3 主动恢复精力</h3>
+  <ul>
+    <li><strong>碎片补觉：</strong>利用出租车、高铁上补觉</li>
+    <li><strong>午休底线：</strong>哪怕只留15分钟听一段冥想指令，远胜喝咖啡硬挺</li>
+    <li><strong>随时休息：</strong>困了就休息，绝不硬扛</li>
+    <li><strong>快速激活：</strong>连续做10分钟开合跳，快速加快心率唤醒身体</li>
+  </ul>
+</div>
+
+<!-- ========== 模块五：习惯养成 ========== -->
+<div class="section">
+  <h2><span class="num">五</span> 习惯养成 · 轻松建立受益终身的好习惯</h2>
+
+  <h3>5.1 习惯的本质</h3>
+  <p>人每天40%的活动是习惯的产物（如刷牙、开车），习惯的本质是<strong>不需要消耗额外精力</strong>的下意识行为。</p>
+
+  <div class="box-key">
+    <strong>🔒 习惯的"四要素"（必须同时满足）</strong>
+    <ol style="margin-top:6px;">
+      <li><strong>固定的时间</strong>（如每天写完日回顾后）</li>
+      <li><strong>固定的环境</strong>（如客厅桌上）</li>
+      <li><strong>固定的工具</strong>（如配置键盘的iPad分屏）</li>
+      <li><strong>做固定的事</strong>（如只做阅读+记笔记）</li>
+    </ol>
+    <p style="margin-top:6px;">打破任何一个固定要素→习惯受到极大挑战。只有高度固化四要素，才能"舒适"，不额外消耗大脑精力。</p>
+  </div>
+
+  <h3>5.2 轻松养成习惯的三大步骤</h3>
+
+  <h4>第一步：建立正确的心理认知</h4>
+  <ul>
+    <li>摒弃"自律、刻苦、坚持"等沉重词汇</li>
+    <li>必须让"大象"保持积极、愉悦的状态</li>
+    <li>尊重自己作为"人"的本性</li>
+  </ul>
+
+  <h4>第二步：识别和规避阻力（提前扫清障碍）</h4>
+  <ul>
+    <li><strong>犯困→</strong>提前半小时入睡，早起后立刻活动身体/洗脸</li>
+    <li><strong>分神→</strong>手机放远、卸掉干扰APP、退出微信登录</li>
+    <li><strong>多任务→</strong>吃完第1只青蛙前绝不切换事项</li>
+  </ul>
+
+  <h4>第三步：设计正反馈，提升动力</h4>
+  <div class="box-key">
+    <strong>🎯 小步子原理+正反馈循环</strong>
+    <p style="margin-top:6px;"><strong>小步子精准定义：</strong>既不在"舒适区"，也不在"极限区"。</p>
+    <p>例：平时7点起→先定6:30起（不是4:30）。</p>
+    <p><strong>正反馈循环：</strong>尝试（小步子）→ 获得正反馈（成就感/喜悦）→ 持续/下一步</p>
+    <p>这种开心=给"大象"喂食 → 大象开心 → 自动产生内驱力</p>
+  </div>
+
+  <h3>5.3 早起习惯专项</h3>
+
+  <h4>为什么要培养早起？</h4>
+  <ul>
+    <li>创造"不被打扰的空间"（凌晨4点多没有人联络）</li>
+    <li>为"吃青蛙"和"做日回顾"提供黄金时间保障</li>
+    <li>用早起对抗白天的不确定性</li>
+  </ul>
+
+  <h4>早起正反馈分阶段设计</h4>
+  <table class="tbl">
+    <thead><tr><th>阶段</th><th>目标</th><th>正反馈来源</th></tr></thead>
+    <tbody>
+      <tr><td>初始期</td><td>先尝试比平时早起半小时</td><td>"我做到了"的成就感，吃完第1&2只青蛙</td></tr>
+      <tr><td>稳定期</td><td>稳定在目标时间</td><td>早起后高效完成了核心事项，获得掌控感</td></tr>
+      <tr><td>巩固期</td><td>形成自动生物钟</td><td>习惯内化，不做反而感到"不爽"</td></tr>
+    </tbody>
+  </table>
+
+  <h4>早起阻力与对策</h4>
+  <ul>
+    <li><strong>赖床→</strong>物理隔离手机，前一晚列好第二天待办（用"未完成的催促感"逼自己起）</li>
+    <li><strong>犯困→</strong>早起后立刻活动身体/洗脸，中午配合午睡</li>
+    <li><strong>分神→</strong>固化仪式动作（起床第一件事先刷牙喝热水），不给自己犹豫空间</li>
+    <li><strong>状态不稳定→</strong>即使没睡好，也按原定时间起床→洗漱清醒→做日回顾→再回去补觉。目的是让身体记住生物钟。</li>
+  </ul>
+
+  <h3>5.4 阅读习惯专项</h3>
+
+  <h4>阅读的核心价值</h4>
+  <ul>
+    <li>性价比最高的自我提升方式（三低一高：时间、金钱、门槛低，收益高）</li>
+    <li>突破"五人平均值"社交圈局限</li>
+    <li>直接链接顶尖大脑，重塑价值观</li>
+  </ul>
+
+  <h4>阅读习惯三阶段进阶路径</h4>
+  <table class="tbl">
+    <thead><tr><th>阶段</th><th>时间</th><th>读什么</th><th>正反馈</th></tr></thead>
+    <tbody>
+      <tr><td>第一阶段</td><td>前100天</td><td>纯兴趣导向！绝对不要碰晦涩的硬核书</td><td>阅读数量的增加（页数）</td></tr>
+      <tr><td>第二阶段</td><td>习惯稳定后</td><td>实用价值导向，与自身业务相关</td><td>获得新知的愉悦</td></tr>
+      <tr><td>第三阶段</td><td>彻底稳固后</td><td>更具挑战性、更深度的书籍</td><td>学以致用的成就感</td></tr>
+    </tbody>
+  </table>
+
+  <h4>高效选书：漏斗式三步筛选法</h4>
+  <ol>
+    <li><strong>设定品类黑名单：</strong>经典名著以外的虚构类直接排除</li>
+    <li><strong>获取候选书单：</strong>
+      <ul>
+        <li>被动：翻阅高质量书籍末尾的"参考书目/文献"</li>
+        <li>主动：豆瓣评分必须在<strong>7.5分以上</strong></li>
+      </ul>
+    </li>
+    <li><strong>目录试读校验：</strong>跳过序言直接看目录→找到最感兴趣的章节试读→问自己"靠不靠谱？有没有启发？"</li>
+  </ol>
+
+  <h4>保证阅读效果："先读厚，再读薄"</h4>
+  <ul>
+    <li><strong>读厚：</strong>摘录关键原句（标红）+ 加上自己的反思评论（标黄）</li>
+    <li><strong>读薄：</strong>只梳理出几个"自己立刻就能拿来实践的核心要点"，形成极简清爽版笔记</li>
+  </ul>
+
+  <h4>新手阅读四大挑战应对</h4>
+  <table class="tbl">
+    <thead><tr><th>挑战</th><th>解决方案</th></tr></thead>
+    <tbody>
+      <tr><td>走神看不进</td><td><strong>指读法：</strong>用手指/笔尖指着字一行一行移动，视觉被迫跟着走</td></tr>
+      <tr><td>突然想起琐事</td><td><strong>备忘录法：</strong>写在待办清单上，然后立刻回到书本，绝不中途去处理</td></tr>
+      <tr><td>看完收获不大</td><td>要做笔记（读厚建立安全感），读薄聚焦核心运用</td></tr>
+      <tr><td>进度焦虑</td><td>放弃数量攀比，追求深度"知识内化"</td></tr>
+    </tbody>
+  </table>
+
+  <h3>5.5 习惯的第四步：复盘与优化</h3>
+  <div class="box-tip">
+    <strong>🔄 核心观点：</strong>没有一次成型的完美方案，必须通过"日回顾"每天检验→及时调整→不断试错。
+    <p style="margin-top:6px;">每天问自己：应对措施是否有效？正反馈是否真的带来动力？无效就立刻更换！</p>
+    <p>最终产出：<strong>专属"习惯运转说明书"</strong>（阻力与应对措施表 + 正反馈机制）</p>
+  </div>
+
+  <h3>5.6 习惯养成的"空间场"效应</h3>
+  <p><strong>万能公式：</strong>在固定的时间 + 在固定的环境 + 用固定的工具 + 做固定的事情。</p>
+  <p>当"空间场"固化后，身体会形成肌肉记忆。一旦脱离这个环境场（如出差换酒店），习惯执行就会受到干扰。</p>
+</div>
+
+<!-- ========== 模块六：情绪管理 ========== -->
+<div class="section">
+  <h2><span class="num">六</span> 情绪管理 · 非暴力沟通与内心和解</h2>
+
+  <h3>6.1 非暴力沟通四步法</h3>
+  <p>非暴力沟通包含四个步骤，很多人只做到了前两步：</p>
+  <div class="box-key">
+    <strong>观察 → 感受 → 需要 → 请求</strong>
+    <p style="margin-top:6px;">⚠️ 常见误区：停留在"感受"阶段，用来安抚情绪但不去解决根本问题。</p>
+  </div>
+
+  <h4>完整闭环</h4>
+  <table class="tbl">
+    <thead><tr><th>步骤</th><th>核心动作</th><th>常见问题</th></tr></thead>
+    <tbody>
+      <tr><td>1. 观察</td><td>客观描述事实，不加评判</td><td>容易加入主观指责</td></tr>
+      <tr><td>2. 感受</td><td>识别自己的情绪状态</td><td>⚠️ 很多人止步于此！只安抚不解决</td></tr>
+      <tr><td>3. 需要</td><td>明确背后真正的需求</td><td>回避深层需求</td></tr>
+      <tr><td>4. 请求</td><td>制定具体的行动方案</td><td>缺乏可执行的请求</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box-warn">
+    <strong>⚠️ 警惕"乌龟壳效应"：</strong>把非暴力沟通当成逃避现实的工具——情绪平复后就不采取行动了。治标更要治本，必须制定行动计划并执行，从物理层面解决引发情绪的根源问题。
+  </div>
+
+  <h3>6.2 日回顾中的非暴力沟通实践</h3>
+  <p>在日回顾中设置非暴力沟通模块：</p>
+  <ul>
+    <li>我的观察：XXX</li>
+    <li>我的感受：XXX</li>
+    <li>我的需要：XXX</li>
+    <li>我的请求：XXX</li>
+  </ul>
+
+  <h3>6.3 深度复盘：去臃肿化与强制物理限制</h3>
+  <ul>
+    <li><strong>字数限制法：</strong>在模板上明确标注"用20字内写出问题是什么"——逼迫提炼核心</li>
+    <li><strong>耗时记录法：</strong>记录完成某项工作的实际耗时，用客观数据暴露效率低下</li>
+    <li><strong>模板化反思：</strong>成年人的复盘必须是结构化公式——"发生了什么→问题是什么→下一步行动计划"</li>
+  </ul>
+</div>
+
+<!-- ========== 模块七：日回顾实操 ========== -->
+<div class="section">
+  <h2><span class="num">七</span> 日回顾实操 · 手把手教你写日回顾</h2>
+
+  <h3>7.1 初阶日回顾模板（标准版）</h3>
+
+  <div class="box-key">
+    <strong>📋 例行事项</strong>
+    <ul style="margin-top:6px;">
+      <li>今日早起：__点__分</li>
+      <li>今日运动：跑步__公里，体重__公斤</li>
+      <li>今日冥想：__分钟 回神__次</li>
+      <li>今日与父母沟通：</li>
+      <li>今日晚餐：</li>
+      <li>今日散步：</li>
+      <li>今日入睡：__点__分</li>
+    </ul>
+  </div>
+
+  <div class="box-key">
+    <strong>📋 主观事项</strong>
+    <ul style="margin-top:6px;">
+      <li>工作-新产品、行业、客户的学习进展如何？</li>
+    </ul>
+  </div>
+
+  <div class="box-key">
+    <strong>📋 精要主义反思（每日必做）</strong>
+    <ol style="margin-top:6px;">
+      <li>当天定的3只青蛙是哪些？确实是最重要的事吗？</li>
+      <li>定的青蛙吃完了没？</li>
+      <li>为什么没吃完？</li>
+      <li>明天该怎么优化？</li>
+    </ol>
+  </div>
+
+  <h3>7.2 日回顾的五大核心模块（进阶完整版）</h3>
+
+  <h4>模块A：基础习惯追踪（三大组件）</h4>
+  <p>包含早起习惯、精力管理、非暴力沟通——在初阶阶段必须严格记录。</p>
+  <p><strong>高阶状态：</strong>奥姐坦诚自己已不再记录这三项，因为已"99%没有障碍"彻底内化。但初学者必须严格按课程来！</p>
+
+  <h4>模块B：主观事项（核心价值所在）</h4>
+  <ul>
+    <li><strong>精要主义反思：</strong>"是否只做了非我不可的事情？"——逼迫放权</li>
+    <li><strong>主业与关键项目：</strong>业绩追踪、项目精力分配</li>
+    <li><strong>个人IP反思：</strong>业务精进、管理机制优化</li>
+  </ul>
+
+  <div class="box-tip">
+    <strong>💡 初学者的主观事项建议：</strong>
+    <ul>
+      <li>至少必须包含"主业/工作"和"学习"两项</li>
+      <li>挑选自己最容易出问题、需要反复加强提醒的事情（"痛点追踪"）</li>
+      <li>哪怕不在标准模板里，也要写下来每天反思</li>
+    </ul>
+  </div>
+
+  <h3>7.3 晨间实操步骤（按时间顺序）</h3>
+  <ol>
+    <li><strong>早起第一件事：</strong>立刻打开日回顾模板，记录准确起床时间</li>
+    <li><strong>防御性提醒：</strong>发现坏习惯就在模板中敲下提醒文字（如"今日早起不看手机"）——打字的过程就是自我暗示</li>
+    <li><strong>数据录入：</strong>运动/体重/冥想数据在"发生当时"就顺手记录</li>
+    <li><strong>关系回溯：</strong>像放电影一样回放前一天的人际互动与睡前状态</li>
+    <li><strong>周常目标每日曝光：</strong>把周目标放在每日回顾的视野里，防止遗忘</li>
+  </ol>
+
+  <div class="box-warn">
+    <strong>⚠️ 硬件隔离要求：</strong>
+    <ul>
+      <li>🚫 绝对不要用<strong>手机</strong>写日回顾（易分心去刷APP）</li>
+      <li>🚫 绝对不要用<strong>公司电脑</strong>写（肌肉记忆会想去处理工作邮件）</li>
+      <li>✅ 建议用iPad或专用个人设备，形成习惯记忆</li>
+    </ul>
+  </div>
+
+  <h3>7.4 主观回顾"五步自问法"</h3>
+  <p>当不知道主观回顾怎么下笔时，依次回答以下五个问题：</p>
+  <table class="tbl">
+    <thead><tr><th>步骤</th><th>问题</th><th>作用</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>今天发生了什么重要事情？</strong></td><td>锚定复盘的具体场景</td></tr>
+      <tr><td>2</td><td><strong>我的现状/能力是什么？</strong></td><td>客观评估真实水平</td></tr>
+      <tr><td>3</td><td><strong>反思我自己的不足是什么？</strong></td><td>直面问题（建立深度的关键）</td></tr>
+      <tr><td>4</td><td><strong>这件事情给我的启发是什么？</strong></td><td>提炼经验教训</td></tr>
+      <tr><td>5</td><td><strong>我的下一步行动计划是什么？</strong></td><td>落脚于行动改变（闭环）</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.5 精力管理与三只青蛙的联动</h3>
+  <ul>
+    <li><strong>"一小三大"结构：</strong>日回顾是小青蛙+个人IP、学习、工作各一只大青蛙</li>
+    <li><strong>弹性执行：</strong>单只青蛙体量过大时灵活变通，"放过自己"</li>
+    <li><strong>深度反思：</strong>不问"吃完了没"，而是问"为什么没吃完？明天该怎么优化？"</li>
+    <li><strong>归档至精力管理：</strong>被打断等反思记录归入精力管理模块</li>
+  </ul>
+
+  <h3>7.6 给初学者的铁律建议</h3>
+  <div class="box-warn">
+    <strong>🚨 奥姐连续三遍强调：</strong>
+    <p style="margin-top:4px;">"初学者请按照课程来！"</p>
+    <ul>
+      <li>不要因为看到高阶模板简单，就擅自删减自己的模块</li>
+      <li>设定任务时颗粒度必须极细，不能含糊</li>
+      <li>反思必须落地到具体动作，不能停留在"没做完"的表层</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== 模块八：常见问题 ========== -->
+<div class="section">
+  <h2><span class="num">八</span> 常见问题与解决方案</h2>
+
+  <h3>8.1 不确定计划是否有效</h3>
+  <p><strong>破局方案：先执行，后验证，再调整</strong></p>
+  <ul>
+    <li>别人无法评判你的计划是否有用——脱离执行者谈计划无意义</li>
+    <li>设定观察期（如一个月），执行后看结果</li>
+    <li>21天后重新做第一周的作业（再次寻找最重要事项），你会发现经过21天执行，认知和路径都会刷新</li>
+  </ul>
+
+  <h3>8.2 青蛙设置有问题，缺乏成就感</h3>
+  <p><strong>优质青蛙的两大黄金标准：</strong></p>
+  <ol>
+    <li><strong>必须符合SMART原则</strong>（具体、可衡量、可达成、相关、有时限）</li>
+    <li><strong>具备明显推动性</strong>——做完后能明显推进某个维度</li>
+  </ol>
+  <p><strong>最高成就感秘诀："现学现用"</strong>——马上把学到的东西用起来。</p>
+
+  <h3>8.3 执行时容易分神或打瞌睡</h3>
+  <p><strong>核心对策：提前预判并"扫清障碍"</strong></p>
+  <ul>
+    <li>分神→提前把手机放远，物理距离增加分神难度</li>
+    <li>打瞌睡→早上起来第一件事先活动身体或洗脸</li>
+    <li>必须在障碍发生之前就识别并设好防线，不要等早上再去想"怎么办"</li>
+  </ul>
+  <div class="box-tip">
+    <strong>🐘 善待你的大象：</strong>承认自己趋利避害的本性，通过提前的环境设计和规则设定来保护大象免受诱惑和挫败，而不是靠早上的意志力硬扛。
+  </div>
+
+  <h3>8.4 早上时间来不及吃青蛙或做日回顾</h3>
+  <p><strong>破局方案：将"规划"动作前置到前一晚</strong></p>
+  <ul>
+    <li>前一天晚上提前把第二天要吃的青蛙定好、时间表排好</li>
+    <li>注意：前一晚的规划≠把日回顾挪到晚上！日回顾依然是早上的事</li>
+    <li><strong>双重价值：</strong>物理上腾出执行时间 + 心理上产生"使命感"和"期待感"</li>
+  </ul>
+
+  <h3>8.5 晚睡拖延与入睡困难</h3>
+  <ul>
+    <li>睡前玩手机→卸载导致熬夜的APP，用看书替代刷视频（看书产生困意）</li>
+    <li>焦虑睡不着→提前写好第二天的时间表和青蛙，减轻大脑负担</li>
+    <li>深呼吸法助眠→"呼到不能再呼，吸到不能再吸"</li>
+  </ul>
+
+  <h3>8.6 下午精力不济</h3>
+  <ul>
+    <li><strong>必须安排午休！</strong>哪怕15分钟冥想也好过喝咖啡硬挺</li>
+    <li>设置两个"吃青蛙"时间点：早起后 + 午睡恢复后</li>
+  </ul>
+
+  <h3>8.7 临时插单与"伪紧急"事项</h3>
+  <ul>
+    <li>遇到指令先<strong>停顿一下</strong>，识别是否真的需要立刻做</li>
+    <li>放下"自我重要感"——晚半小时回复，天不会塌下来</li>
+    <li>不急的先放入"待办清单"，按自己节奏处理</li>
+  </ul>
+
+  <h3>8.8 坚持一段时间后松懈</h3>
+  <p><strong>回归目标本质：</strong>自我管理只是拿结果的手段。重新明确最终目标是事业、家庭、健康。只要坚持拿到真实的正反馈，就不会轻易松懈。</p>
+</div>
+
+<!-- ========== 模块九：进阶与提升 ========== -->
+<div class="section">
+  <h2><span class="num">九</span> 进阶提升 · 从初阶到精通</h2>
+
+  <h3>9.1 初阶学员的执行底线</h3>
+  <p>极端情况下的两条<strong>绝对不能丢的底线</strong>：</p>
+  <ol>
+    <li><strong>日回顾</strong>——保持对自己的觉察</li>
+    <li><strong>生物钟</strong>——维持稳定的作息</li>
+  </ol>
+
+  <div class="box-tip">
+    <strong>💡 极端情况应对：</strong>先"放过自己"，砍掉所有非必要任务，死守底线。善用"见缝插针"制造休息：缩短吃饭时间、打车时补觉。
+  </div>
+
+  <h3>9.2 习惯的"空间场"与万能公式</h3>
+  <p><strong>习惯万能公式：</strong>固定时间 + 固定环境 + 固定工具 + 固定事情</p>
+  <ul>
+    <li>打造"环境场"的根本目的是降低启动门槛</li>
+    <li>四要素必须严格锁定，甚至连APP都不能变</li>
+    <li>一旦脱离固定环境（如出差），习惯执行就会受干扰</li>
+  </ul>
+
+  <h3>9.3 目标管理的"动态演进"</h3>
+  <ul>
+    <li><strong>大目标保持稳定</strong>（如一个月核心目标不变）</li>
+    <li><strong>子目标必须动态刷新</strong>——根据实际进展调整，这叫"演进"</li>
+    <li><strong>用"已知"消除"未知恐惧"：</strong>去招聘网站看薪资、查经验帖子、亲自面试——用现实反馈校验目标</li>
+  </ul>
+
+  <h3>9.4 冥想深入解析</h3>
+  <table class="tbl">
+    <thead><tr><th>类型</th><th>用途</th><th>特点</th></tr></thead>
+    <tbody>
+      <tr><td><strong>入睡版/纯享版冥想</strong></td><td>精力透支或睡不着时</td><td>放松神经，帮助快速入睡</td></tr>
+      <tr><td><strong>清醒版冥想（专注型）</strong></td><td>聚拢注意力和精神</td><td>背脊挺直、固定坐姿、注意力死死扣在呼吸上——<strong>相当费力！</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box-tip">
+    <strong>🧘 冥想的"大脑弹窗"效应：</strong>坚持冥想的最大收益是——当你不该走神时（如正准备刷短视频），脑子里会立刻弹出一个"意识弹窗"，提醒你当前最重要的事，让你恢复"觉知"。
+  </div>
+
+  <h3>9.5 戒除短视频瘾的三管齐下</h3>
+  <ol>
+    <li><strong>复盘升维：</strong>把"刷短视频"放在主观事项中深度反思，而非例行打勾</li>
+    <li><strong>动作替换：</strong>疲劳时用冥想替代刷视频，尝到"精力恢复"的正反馈后自然戒除</li>
+    <li><strong>睡前干预：</strong>洗澡前就把第二天待办事项梳理好，带着"使命感"入睡</li>
+  </ol>
+
+  <h3>9.6 出差/见客户导致节奏打乱的应对</h3>
+  <p><strong>死守"第1个1"：</strong>只要感到累、大脑不受控，立刻中止其他计划，随时随地强行补觉（打车上设置20分钟睡眠/中午回酒店补觉）。只要通过睡眠恢复精力，就能重新拿回大脑控制权。</p>
+
+  <h3>9.7 核心认知转变</h3>
+  <ul>
+    <li><strong>自我管理是拿结果的手段，而非逃避现实的避风港</strong></li>
+    <li><strong>打破"长期主义"焦虑：</strong>将"长期"务实地缩短为"一周"，在这段时间只聚焦干成"一件"新事</li>
+    <li><strong>拒绝完美主义：</strong>不追求24小时打鸡血，建立"觉察→方案→行动→复盘"的动态容错闭环</li>
+  </ul>
+</div>
+
+<!-- ========== 模块十：资源与工具 ========== -->
+<div class="section">
+  <h2><span class="num">十</span> 资源与工具 · 推荐书单与模板</h2>
+
+  <h3>10.1 推荐书单</h3>
+  <table class="tbl">
+    <thead><tr><th>系统</th><th>推荐书籍</th><th>核心用途</th></tr></thead>
+    <tbody>
+      <tr><td>大象积极面（情绪底座）</td><td>《象与骑象人》《了不起的我》</td><td>理解情绪与人性的心理学基础</td></tr>
+      <tr><td>精力管理</td><td>《精力管理》《意志力陷阱》</td><td>学习主动管理精力的方法</td></tr>
+      <tr><td>精要主义</td><td>《吃掉那只青蛙》《精要主义》《每天最重要的2小时》</td><td>掌握聚焦与取舍的策略</td></tr>
+      <tr><td>自知机制</td><td>《思考，快与快》</td><td>提取"事前预测法"用于制定目标</td></tr>
+      <tr><td>习惯养成</td><td>《习惯的力量》</td><td>理解习惯的自动化机制</td></tr>
+    </tbody>
+  </table>
+
+  <div class="box-tip">
+    <strong>💡 奥姐的阅读原则：</strong>"书不能白看，必须功利性地去用。"哪怕一本书里只有一个小点被拿去实际运用了，这本书就发挥了巨大价值。
+  </div>
+
+  <h3>10.2 极简工具流</h3>
+  <table class="tbl">
+    <thead><tr><th>工具</th><th>用途</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>手机自带备忘录</td><td>记录时间表</td><td>轻量级，不增加学习成本</td></tr>
+      <tr><td>印象笔记/石墨文档</td><td>写日回顾和周复盘</td><td>承载大块深度思考内容</td></tr>
+      <tr><td>降噪耳机（Bose/3M耳塞）</td><td>屏蔽噪音</td><td>隔绝干扰，保持专注</td></tr>
+      <tr><td>Sleep Cycle等App</td><td>辅助睡眠</td><td>在睡眠最浅阶段唤醒</td></tr>
+    </tbody>
+  </table>
+
+  <h3>10.3 六维结营评估体系</h3>
+  <table class="tbl">
+    <thead><tr><th>维度</th><th>核心指标</th><th>评分</th></tr></thead>
+    <tbody>
+      <tr><td>自知机制</td><td>对状态偏离的敏感度和调整速度</td><td>满分10分</td></tr>
+      <tr><td>精要主义</td><td>吃3只青蛙的执行力</td><td>满分10分</td></tr>
+      <tr><td>精力管理</td><td>主动恢复精力的能力</td><td>满分10分</td></tr>
+      <tr><td>早起习惯</td><td>守护每日高效时间</td><td>满分10分</td></tr>
+      <tr><td>情绪管理</td><td>情绪平稳度与内耗控制</td><td>满分10分</td></tr>
+      <tr><td><strong>写日回顾</strong></td><td><strong>坚持每日复盘频率</strong></td><td><strong>满分50分！</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="box-key">
+    <strong>📊 总分分级建议：</strong>
+    <ul style="margin-top:6px;">
+      <li><strong>&lt;80分（潜机力）：</strong>缺乏内驱力→直接回炉重修</li>
+      <li><strong>80-90分（升机力）：</strong>具备一定内驱→出营后观察一周，看能否稳住</li>
+      <li><strong>&gt;90分（上瘾阶段）：</strong>习惯稳固→直接报名高阶课程</li>
+    </ul>
+    <p style="margin-top:6px;">日回顾占50%权重——没有日回顾，其他自我管理动作都是空谈！</p>
+  </div>
+
+  <h3>10.4 优秀学员蜕变案例</h3>
+  <table class="tbl">
+    <thead><tr><th>学员</th><th>蜕变前</th><th>蜕变后</th></tr></thead>
+    <tbody>
+      <tr><td>皮卡丘</td><td>精神内耗、依赖外力推动</td><td>稳定6:30起床、每天跑2.5公里、执行力极强</td></tr>
+      <tr><td>Jessie</td><td>随时"懵逼"状态、做事只做表面</td><td>"整个人更醒目了"，通过冥想获得正念专注力</td></tr>
+      <tr><td>小灯泡</td><td>新冠发胖、分手、业务转型三重危机</td><td>用最强时间表+内耗分析+四维盘点法化解危机</td></tr>
+      <tr><td>悟空（高阶组长）</td><td>"想法多但从不去执行"的空想家</td><td>精力高度集中，想到就去做，执行力爆表</td></tr>
+    </tbody>
+  </table>
+
+</div>
+
+<!-- ========== 附录：课程概要时间线 ========== -->
+<div class="section">
+  <h2><span class="num" style="background:var(--accent)">+</span> 附录 · 21天课程时间线与学习纪律</h2>
+
+  <h3>📅 课程节奏</h3>
+  <table class="tbl">
+    <thead><tr><th>阶段</th><th>时间</th><th>核心内容</th></tr></thead>
+    <tbody>
+      <tr><td>开营</td><td>第0天</td><td>先导课+入学测试，了解课程体系和纪律</td></tr>
+      <tr><td>初阶·自知机制</td><td>第1-2天</td><td>找到重要事项，建立日回顾习惯（第1天作业耗时约3小时，需备纸巾）</td></tr>
+      <tr><td>初阶·精要主义</td><td>第3-4天</td><td>学习三只青蛙法则，掌握极简执行</td></tr>
+      <tr><td>初阶·精力管理</td><td>第5-6天</td><td>学习4个1循环，冥想入门</td></tr>
+      <tr><td>第1周答疑</td><td>周日</td><td>第一阶段答疑直播</td></tr>
+      <tr><td>初阶·早起习惯</td><td>第2周</td><td>设计早起正反馈机制，巩固早起习惯</td></tr>
+      <tr><td>初阶·阅读/习惯养成</td><td>第2周</td><td>轻松养成好习惯的通用方法论</td></tr>
+      <tr><td>第2周答疑</td><td>第2周周日</td><td>第二阶段答疑直播</td></tr>
+      <tr><td>初阶·非暴力沟通</td><td>第3周</td><td>学会非暴力沟通，与自己和解</td></tr>
+      <tr><td>初阶·冥想深化</td><td>第3周</td><td>运用极简冥想方法不再走神</td></tr>
+      <tr><td>结营</td><td>第3周周日</td><td>第三阶段答疑+结营仪式+六维评估</td></tr>
+    </tbody>
+  </table>
+
+  <h3>📌 学习纪律</h3>
+  <ul>
+    <li><strong>空杯心态：</strong>不要把过去旧的方法与课程揉合，不要自己加"佐料"</li>
+    <li><strong>两次即踢出：</strong>两次未交作业且未请假→踢出社群（保留听课权限）</li>
+    <li><strong>重新定义"不可抗力"：</strong>只有突发手术、亲人去世才算。出差、闺蜜来访、小孩生病都不算——越混乱越锻炼能力</li>
+    <li><strong>打破"无菌实验室"幻想：</strong>真实生活不可能完美，在混乱中稳住阵脚才是真本事</li>
+  </ul>
+
+  <h3>📝 作业提交规范</h3>
+  <ul>
+    <li>使用石墨文档完成</li>
+    <li>标题格式：如"第三四天-2月24号中午12点-学号"</li>
+    <li>每周五提交周总结问卷</li>
+    <li>每周日参加直播答疑</li>
+    <li>支持系统：族长制（往期优秀学员担任），先找小组长解决问题</li>
+    <li>双群分离：通知群（纯通知）+ 交流群（氛围打卡）</li>
+  </ul>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<div style="text-align:center;padding:40px 20px 20px;color:#999;font-size:13px;">
+  <p>📖 自我管理初级班 · 完整课程宝典</p>
+  <p>基于奥姐自我管理训练营20+期课程内容整理</p>
+  <p style="margin-top:8px;">核心原则：<strong>尊重人性 · 轻松可持续 · 先僵化后固化再优化</strong></p>
+  <p style="margin-top:20px;font-size:12px;">最后更新：2026年7月</p>
+</div>
+
+</div> <!-- /container -->
+
+</body>
+</html>
