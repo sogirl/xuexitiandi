@@ -1,0 +1,1031 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>自我管理高级班全套课程</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --bg: #F7FAFF; --card: #FFFFFF; --text: #2D3748; --text-muted: #5A6A7E;
+    --blue: #4A90D9; --blue-light: #E8F4FD; --blue-dark: #2B6CB0;
+    --green: #48BB78; --green-light: #EBF8F4; --green-dark: #276749;
+    --purple: #9F7AEA; --purple-light: #F3EEFF; --purple-dark: #6B46C1;
+    --pink: #ED64A6; --orange: #ED8936; --teal: #38B2AC;
+    --shadow: 0 2px 12px rgba(0,0,0,0.06); --radius: 16px;
+    --radius-sm: 10px;
+    --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: var(--font-sans); background: var(--bg); color: var(--text);
+    line-height: 1.8; font-size: 16px; overflow-x: hidden;
+  }
+  .container { max-width: 1000px; margin: 0 auto; padding: 20px 16px 60px; }
+
+  /* Header */
+  .header {
+    text-align: center; padding: 36px 20px 28px; margin-bottom: 28px;
+    background: linear-gradient(135deg, #E8F4FD 0%, #F3EEFF 50%, #EBF8F4 100%);
+    border-radius: var(--radius); position: relative; overflow: hidden;
+  }
+  .header::before {
+    content: ''; position: absolute; top: -60px; right: -60px;
+    width: 200px; height: 200px; background: rgba(74,144,217,0.06); border-radius: 50%;
+  }
+  .header::after {
+    content: ''; position: absolute; bottom: -80px; left: -40px;
+    width: 240px; height: 240px; background: rgba(159,122,234,0.06); border-radius: 50%;
+  }
+  .header h1 {
+    font-size: 26px; font-weight: 800; color: var(--blue-dark);
+    position: relative; z-index: 1; letter-spacing: 2px;
+  }
+  .header p {
+    font-size: 14px; color: var(--text-muted); margin-top: 8px;
+    position: relative; z-index: 1;
+  }
+  .header .badge {
+    display: inline-block; background: var(--blue); color: #fff; font-size: 12px;
+    padding: 4px 16px; border-radius: 20px; margin-top: 10px; letter-spacing: 1px;
+  }
+
+  /* Section */
+  .section {
+    background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 28px 24px; margin-bottom: 24px;
+    border-left: 4px solid var(--blue);
+  }
+  .section-title {
+    font-size: 20px; font-weight: 700; color: var(--blue-dark);
+    padding-bottom: 10px; margin-bottom: 18px;
+    border-bottom: 2px solid var(--blue-light);
+    display: flex; align-items: center; gap: 10px;
+  }
+  .section-title .num {
+    display: inline-flex; align-items: center; justify-content: center;
+    width: 32px; height: 32px; border-radius: 50%; background: var(--blue);
+    color: #fff; font-size: 14px; font-weight: 700; flex-shrink: 0;
+  }
+  .section-subtitle {
+    font-size: 17px; font-weight: 600; color: var(--blue); margin: 20px 0 12px;
+    padding-left: 12px; border-left: 3px solid var(--blue);
+  }
+  .section-subtitle2 {
+    font-size: 15px; font-weight: 600; color: var(--purple-dark); margin: 16px 0 10px;
+  }
+
+  /* Chapter variations */
+  .section.ch2 { border-left-color: var(--green); }
+  .section.ch2 .section-title { color: var(--green-dark); border-bottom-color: var(--green-light); }
+  .section.ch2 .section-title .num { background: var(--green); }
+  .section.ch2 .section-subtitle { color: var(--green); border-left-color: var(--green); }
+
+  .section.ch3 { border-left-color: var(--purple); }
+  .section.ch3 .section-title { color: var(--purple-dark); border-bottom-color: var(--purple-light); }
+  .section.ch3 .section-title .num { background: var(--purple); }
+  .section.ch3 .section-subtitle { color: var(--purple); border-left-color: var(--purple); }
+
+  .section.ch4 { border-left-color: var(--orange); }
+  .section.ch4 .section-title { color: #C05621; }
+  .section.ch4 .section-title .num { background: var(--orange); }
+
+  .section.ch5 { border-left-color: var(--pink); }
+  .section.ch5 .section-title { color: #B83280; }
+  .section.ch5 .section-title .num { background: var(--pink); }
+
+  .section.ch6 { border-left-color: var(--teal); }
+  .section.ch6 .section-title { color: #2C7A7B; }
+  .section.ch6 .section-title .num { background: var(--teal); }
+
+  .section.ch7 { border-left-color: #E53E3E; }
+  .section.ch7 .section-title { color: #C53030; }
+  .section.ch7 .section-title .num { background: #E53E3E; }
+
+  .section.ch8 { border-left-color: #667EEA; }
+  .section.ch8 .section-title { color: #4C51BF; }
+  .section.ch8 .section-title .num { background: #667EEA; }
+
+  .section.tpl { border-left-color: var(--green); }
+  .section.tpl .section-title { color: var(--green-dark); }
+  .section.tpl .section-title .num { background: var(--green); }
+
+  .section.sop { border-left-color: var(--purple); }
+  .section.sop .section-title { color: var(--purple-dark); }
+  .section.sop .section-title .num { background: var(--purple); }
+
+  /* Content typography */
+  .content p { margin-bottom: 12px; font-size: 15px; }
+  .content ul, .content ol { margin: 8px 0 14px; padding-left: 24px; }
+  .content li { margin-bottom: 6px; font-size: 14.5px; line-height: 1.7; }
+  .content li strong { color: var(--text); }
+
+  .highlight-box {
+    background: var(--blue-light); border-radius: var(--radius-sm);
+    padding: 16px 18px; margin: 14px 0; border-left: 3px solid var(--blue);
+  }
+  .highlight-box.green { background: var(--green-light); border-left-color: var(--green); }
+  .highlight-box.purple { background: var(--purple-light); border-left-color: var(--purple); }
+
+  .tag {
+    display: inline-block; font-size: 12px; padding: 2px 10px;
+    border-radius: 12px; margin: 2px 3px;
+  }
+  .tag.blue { background: var(--blue-light); color: var(--blue-dark); }
+  .tag.green { background: var(--green-light); color: var(--green-dark); }
+  .tag.purple { background: var(--purple-light); color: var(--purple-dark); }
+
+  strong { color: var(--blue-dark); }
+  .ch2 strong { color: var(--green-dark); }
+  .ch3 strong { color: var(--purple-dark); }
+  .ch4 strong { color: #C05621; }
+  .ch5 strong { color: #B83280; }
+  .ch6 strong { color: #2C7A7B; }
+  .ch7 strong { color: #C53030; }
+
+  /* Tables */
+  .table-wrap {
+    overflow-x: auto; margin: 16px 0; border-radius: var(--radius-sm);
+    border: 1px solid #E2E8F0;
+  }
+  table {
+    width: 100%; border-collapse: collapse; font-size: 13.5px; min-width: 640px;
+  }
+  thead { background: var(--blue-light); }
+  .ch2 thead { background: var(--green-light); }
+  .ch3 thead { background: var(--purple-light); }
+  th {
+    padding: 10px 12px; text-align: left; font-weight: 600;
+    color: var(--text); font-size: 13px; border-bottom: 2px solid #E2E8F0;
+  }
+  td {
+    padding: 9px 12px; border-bottom: 1px solid #EDF2F7;
+    vertical-align: top; line-height: 1.6;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #FAFCFE; }
+
+  .kbd {
+    display: inline-block; background: #EDF2F7; border: 1px solid #CBD5E0;
+    border-radius: 4px; padding: 1px 6px; font-size: 12px; font-style: normal;
+  }
+
+  /* FAQ box */
+  .faq-item {
+    background: #FAFCFE; border-radius: var(--radius-sm);
+    padding: 14px 16px; margin-bottom: 12px;
+    border: 1px solid #E8ECF1;
+  }
+  .faq-q { font-weight: 600; color: var(--blue-dark); font-size: 14px; margin-bottom: 6px; }
+  .ch2 .faq-q { color: var(--green-dark); }
+  .ch3 .faq-q { color: var(--purple-dark); }
+
+  /* Mindmap SVG */
+  .mindmap-wrap {
+    background: var(--card); border-radius: var(--radius); box-shadow: var(--shadow);
+    padding: 20px; margin-bottom: 28px; overflow: hidden;
+  }
+  .mindmap-wrap h2 {
+    font-size: 16px; font-weight: 700; color: var(--blue-dark);
+    margin-bottom: 14px; text-align: center;
+  }
+  .mindmap-wrap svg {
+    display: block; width: 100%; height: auto; max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  /* Divider */
+  .divider {
+    border: none; height: 2px; background: linear-gradient(90deg, transparent, var(--blue-light), transparent);
+    margin: 20px 0;
+  }
+
+  /* Responsive */
+  @media (max-width: 640px) {
+    .container { padding: 12px 10px 40px; }
+    .section { padding: 20px 16px; }
+    .header h1 { font-size: 20px; }
+    .section-title { font-size: 17px; }
+    .content p { font-size: 14px; }
+    .content li { font-size: 14px; }
+    table { font-size: 12px; min-width: 480px; }
+    th, td { padding: 7px 8px; }
+    .mindmap-wrap { padding: 12px; }
+  }
+
+  /* Print */
+  @media print {
+    .section { break-inside: avoid; box-shadow: none; border: 1px solid #E2E8F0; }
+    .mindmap-wrap { break-inside: avoid; }
+  }
+</style>
+</head>
+<body>
+
+<div class="container">
+
+<!-- ========== HEADER ========== -->
+<div class="header">
+  <h1>自我管理高级班 全套课程</h1>
+  <p>从初阶到高阶 · 21天系统训练 · 持久高能待机</p>
+  <span class="badge">八章完整收录 · 含模板与SOP</span>
+</div>
+
+<!-- ========== MIND MAP ========== -->
+<div class="mindmap-wrap">
+  <h2>课程知识体系全景导图</h2>
+  <svg viewBox="0 0 1000 720" xmlns="http://www.w3.org/2000/svg" style="background:#FAFCFE;border-radius:10px;">
+    <defs>
+      <marker id="arrow" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#4A90D9"/></marker>
+      <marker id="arrow-g" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#48BB78"/></marker>
+      <marker id="arrow-p" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#9F7AEA"/></marker>
+      <marker id="arrow-o" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#ED8936"/></marker>
+      <marker id="arrow-pk" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#ED64A6"/></marker>
+      <marker id="arrow-t" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#38B2AC"/></marker>
+      <marker id="arrow-r" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6" fill="#E53E3E"/></marker>
+      <filter id="shadow"><feDropShadow dx="1" dy="1" stdDeviation="2" flood-opacity="0.1"/></filter>
+    </defs>
+
+    <!-- Root node -->
+    <rect x="18" y="315" width="108" height="44" rx="22" fill="#4A90D9" filter="url(#shadow)"/>
+    <text x="72" y="343" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">自我管理高阶</text>
+
+    <!-- Level 1 connector lines and nodes -->
+    <!-- Ch1 -->
+    <path d="M126,337 L170,337 L170,40 L200,40" fill="none" stroke="#4A90D9" stroke-width="1.8" marker-end="url(#arrow)"/>
+    <rect x="202" y="18" width="160" height="44" rx="10" fill="#E8F4FD" stroke="#4A90D9" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="282" y="46" text-anchor="middle" fill="#2B6CB0" font-size="13" font-weight="600">第一章 开营仪式</text>
+
+    <!-- Ch2 -->
+    <path d="M126,337 L170,337 L170,112 L200,112" fill="none" stroke="#48BB78" stroke-width="1.8" marker-end="url(#arrow-g)"/>
+    <rect x="202" y="90" width="166" height="44" rx="10" fill="#EBF8F4" stroke="#48BB78" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="285" y="118" text-anchor="middle" fill="#276749" font-size="13" font-weight="600">第二章 日回顾应用升级</text>
+
+    <!-- Ch3 -->
+    <path d="M126,337 L170,337 L170,184 L200,184" fill="none" stroke="#9F7AEA" stroke-width="1.8" marker-end="url(#arrow-p)"/>
+    <rect x="202" y="162" width="156" height="44" rx="10" fill="#F3EEFF" stroke="#9F7AEA" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="280" y="190" text-anchor="middle" fill="#6B46C1" font-size="13" font-weight="600">第三章 最强时间表</text>
+
+    <!-- Ch4 -->
+    <path d="M126,337 L170,337 L170,256 L200,256" fill="none" stroke="#ED8936" stroke-width="1.8" marker-end="url(#arrow-o)"/>
+    <rect x="202" y="234" width="176" height="44" rx="10" fill="#FFF3E6" stroke="#ED8936" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="290" y="262" text-anchor="middle" fill="#C05621" font-size="13" font-weight="600">第四章 第一阶段答疑总结</text>
+
+    <!-- Ch5 -->
+    <path d="M126,337 L170,337 L170,328 L200,328" fill="none" stroke="#ED64A6" stroke-width="1.8" marker-end="url(#arrow-pk)"/>
+    <rect x="202" y="306" width="166" height="44" rx="10" fill="#FFF0F7" stroke="#ED64A6" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="285" y="334" text-anchor="middle" fill="#B83280" font-size="13" font-weight="600">第五章 精要主义应用升级</text>
+
+    <!-- Ch6 -->
+    <path d="M126,337 L170,337 L170,400 L200,400" fill="none" stroke="#38B2AC" stroke-width="1.8" marker-end="url(#arrow-t)"/>
+    <rect x="202" y="378" width="176" height="44" rx="10" fill="#EBF8FA" stroke="#38B2AC" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="290" y="406" text-anchor="middle" fill="#2C7A7B" font-size="13" font-weight="600">第六章 第二阶段答疑直播</text>
+
+    <!-- Ch7 -->
+    <path d="M126,337 L170,337 L170,472 L200,472" fill="none" stroke="#E53E3E" stroke-width="1.8" marker-end="url(#arrow-r)"/>
+    <rect x="202" y="450" width="156" height="44" rx="10" fill="#FFF0F0" stroke="#E53E3E" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="280" y="478" text-anchor="middle" fill="#C53030" font-size="13" font-weight="600">第七章 消灭内耗</text>
+
+    <!-- Ch8 -->
+    <path d="M126,337 L170,337 L170,544 L200,544" fill="none" stroke="#667EEA" stroke-width="1.8" marker-end="url(#arrow)"/>
+    <rect x="202" y="522" width="176" height="44" rx="10" fill="#EEF0FF" stroke="#667EEA" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="290" y="550" text-anchor="middle" fill="#4C51BF" font-size="13" font-weight="600">第八章 答疑与结营仪式</text>
+
+    <!-- Templates -->
+    <path d="M126,337 L170,337 L170,616 L200,616" fill="none" stroke="#48BB78" stroke-width="1.8" marker-end="url(#arrow-g)"/>
+    <rect x="202" y="594" width="120" height="44" rx="10" fill="#EBF8F4" stroke="#48BB78" stroke-width="1.2" filter="url(#shadow)"/>
+    <text x="262" y="622" text-anchor="middle" fill="#276749" font-size="13" font-weight="600">核心模板表格</text>
+
+    <!-- Sub-nodes for Ch1 -->
+    <path d="M362,40 L400,40 L400,10 L440,10" fill="none" stroke="#4A90D9" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="442" y="0" width="120" height="28" rx="6" fill="#E8F4FD" stroke="#4A90D9" stroke-width="1" filter="url(#shadow)"/>
+    <text x="502" y="19" text-anchor="middle" fill="#2B6CB0" font-size="10.5">60+学员 21天周期</text>
+
+    <path d="M362,40 L400,40 L400,52 L440,52" fill="none" stroke="#4A90D9" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="442" y="39" width="120" height="28" rx="6" fill="#E8F4FD" stroke="#4A90D9" stroke-width="1" filter="url(#shadow)"/>
+    <text x="502" y="58" text-anchor="middle" fill="#2B6CB0" font-size="10.5">双群运营 族长机制</text>
+
+    <path d="M362,40 L400,40 L400,94 L440,94" fill="none" stroke="#4A90D9" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="442" y="81" width="120" height="28" rx="6" fill="#E8F4FD" stroke="#4A90D9" stroke-width="1" filter="url(#shadow)"/>
+    <text x="502" y="100" text-anchor="middle" fill="#2B6CB0" font-size="10.5">空杯心态 不可抗力</text>
+
+    <!-- Sub-nodes for Ch2 -->
+    <path d="M368,112 L410,112 L410,128 L440,128" fill="none" stroke="#48BB78" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+    <rect x="442" y="115" width="130" height="28" rx="6" fill="#EBF8F4" stroke="#48BB78" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="134" text-anchor="middle" fill="#276749" font-size="10.5">4+4模型 四领域四问题</text>
+
+    <path d="M368,112 L410,112 L410,170 L440,170" fill="none" stroke="#48BB78" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+    <rect x="442" y="157" width="130" height="28" rx="6" fill="#EBF8F4" stroke="#48BB78" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="176" text-anchor="middle" fill="#276749" font-size="10.5">复盘四步法</text>
+
+    <path d="M368,112 L410,112 L410,212 L440,212" fill="none" stroke="#48BB78" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+    <rect x="442" y="199" width="130" height="28" rx="6" fill="#EBF8F4" stroke="#48BB78" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="218" text-anchor="middle" fill="#276749" font-size="10.5">例行+主观事项</text>
+
+    <!-- Sub-nodes for Ch3 -->
+    <path d="M358,184 L400,184 L400,240 L440,240" fill="none" stroke="#9F7AEA" stroke-width="1.5" marker-end="url(#arrow-p)"/>
+    <rect x="442" y="227" width="120" height="28" rx="6" fill="#F3EEFF" stroke="#9F7AEA" stroke-width="1" filter="url(#shadow)"/>
+    <text x="502" y="246" text-anchor="middle" fill="#6B46C1" font-size="10.5">四步制定时间表</text>
+
+    <path d="M358,184 L400,184 L400,282 L440,282" fill="none" stroke="#9F7AEA" stroke-width="1.5" marker-end="url(#arrow-p)"/>
+    <rect x="442" y="269" width="120" height="28" rx="6" fill="#F3EEFF" stroke="#9F7AEA" stroke-width="1" filter="url(#shadow)"/>
+    <text x="502" y="288" text-anchor="middle" fill="#6B46C1" font-size="10.5">动态执行 先记录</text>
+
+    <path d="M358,184 L400,184 L400,324 L440,324" fill="none" stroke="#9F7AEA" stroke-width="1.5" marker-end="url(#arrow-p)"/>
+    <rect x="442" y="311" width="120" height="28" rx="6" fill="#F3EEFF" stroke="#9F7AEA" stroke-width="1" filter="url(#shadow)"/>
+    <text x="502" y="330" text-anchor="middle" fill="#6B46C1" font-size="10.5">七个关键要点</text>
+
+    <!-- Sub-nodes for Ch4 -->
+    <path d="M378,256 L420,256 L420,298 L440,298" fill="none" stroke="#ED8936" stroke-width="1.5" marker-end="url(#arrow-o)"/>
+    <rect x="442" y="285" width="130" height="28" rx="6" fill="#FFF3E6" stroke="#ED8936" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="304" text-anchor="middle" fill="#C05621" font-size="10.5">四个一循环法则</text>
+
+    <path d="M378,256 L420,256 L420,340 L440,340" fill="none" stroke="#ED8936" stroke-width="1.5" marker-end="url(#arrow-o)"/>
+    <rect x="442" y="327" width="130" height="28" rx="6" fill="#FFF3E6" stroke="#ED8936" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="346" text-anchor="middle" fill="#C05621" font-size="10.5">习惯四固定 环境场</text>
+
+    <!-- Sub-nodes for Ch5 -->
+    <path d="M368,328 L410,328 L410,374 L440,374" fill="none" stroke="#ED64A6" stroke-width="1.5" marker-end="url(#arrow-pk)"/>
+    <rect x="442" y="361" width="130" height="28" rx="6" fill="#FFF0F7" stroke="#ED64A6" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="380" text-anchor="middle" fill="#B83280" font-size="10.5">一周唯一重脑力新事</text>
+
+    <path d="M368,328 L410,328 L410,416 L440,416" fill="none" stroke="#ED64A6" stroke-width="1.5" marker-end="url(#arrow-pk)"/>
+    <rect x="442" y="403" width="130" height="28" rx="6" fill="#FFF0F7" stroke="#ED64A6" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="422" text-anchor="middle" fill="#B83280" font-size="10.5">漏斗法 决策二叉树</text>
+
+    <!-- Sub-nodes for Ch6 -->
+    <path d="M378,400 L420,400 L420,446 L440,446" fill="none" stroke="#38B2AC" stroke-width="1.5" marker-end="url(#arrow-t)"/>
+    <rect x="442" y="433" width="130" height="28" rx="6" fill="#EBF8FA" stroke="#38B2AC" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="452" text-anchor="middle" fill="#2C7A7B" font-size="10.5">正反馈成瘾机制</text>
+
+    <path d="M378,400 L420,400 L420,488 L440,488" fill="none" stroke="#38B2AC" stroke-width="1.5" marker-end="url(#arrow-t)"/>
+    <rect x="442" y="475" width="130" height="28" rx="6" fill="#EBF8FA" stroke="#38B2AC" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="494" text-anchor="middle" fill="#2C7A7B" font-size="10.5">破除紧急错觉</text>
+
+    <!-- Sub-nodes for Ch7 -->
+    <path d="M358,472 L400,472 L400,518 L440,518" fill="none" stroke="#E53E3E" stroke-width="1.5" marker-end="url(#arrow-r)"/>
+    <rect x="442" y="505" width="130" height="28" rx="6" fill="#FFF0F0" stroke="#E53E3E" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="524" text-anchor="middle" fill="#C53030" font-size="10.5">五类焦虑 本质归因</text>
+
+    <path d="M358,472 L400,472 L400,560 L440,560" fill="none" stroke="#E53E3E" stroke-width="1.5" marker-end="url(#arrow-r)"/>
+    <rect x="442" y="547" width="130" height="28" rx="6" fill="#FFF0F0" stroke="#E53E3E" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="566" text-anchor="middle" fill="#C53030" font-size="10.5">行动破解 书面记录</text>
+
+    <!-- Sub-nodes for Ch8 -->
+    <path d="M378,544 L420,544 L420,590 L440,590" fill="none" stroke="#667EEA" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="442" y="577" width="130" height="28" rx="6" fill="#EEF0FF" stroke="#667EEA" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="596" text-anchor="middle" fill="#4C51BF" font-size="10.5">六维度自测 动力模型</text>
+
+    <path d="M378,544 L420,544 L420,632 L440,632" fill="none" stroke="#667EEA" stroke-width="1.5" marker-end="url(#arrow)"/>
+    <rect x="442" y="619" width="130" height="28" rx="6" fill="#EEF0FF" stroke="#667EEA" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="638" text-anchor="middle" fill="#4C51BF" font-size="10.5">四学员实战案例</text>
+
+    <!-- Sub nodes for Templates -->
+    <path d="M322,616 L360,616 L360,652 L440,652" fill="none" stroke="#48BB78" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+    <rect x="442" y="639" width="130" height="28" rx="6" fill="#EBF8F4" stroke="#48BB78" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="658" text-anchor="middle" fill="#276749" font-size="10.5">日回顾/周目标/月规划</text>
+
+    <path d="M322,616 L360,616 L360,694 L440,694" fill="none" stroke="#48BB78" stroke-width="1.5" marker-end="url(#arrow-g)"/>
+    <rect x="442" y="681" width="130" height="28" rx="6" fill="#EBF8F4" stroke="#48BB78" stroke-width="1" filter="url(#shadow)"/>
+    <text x="507" y="700" text-anchor="middle" fill="#276749" font-size="10.5">全链路SOP</text>
+
+  </svg>
+</div>
+
+<!-- ================================ CHAPTER 1 ================================ -->
+<div class="section ch1">
+  <div class="section-title"><span class="num">1</span> 开营仪式</div>
+  <div class="content">
+    <div class="section-subtitle">一、开营概况与上期回顾</div>
+    <p><strong>平台变动</strong>：由于飞书在会议时长和上线人数上限方面发生变化，本次开营仪式从飞书转移到腾讯会议。腾讯会议非常方便，甚至不需要下载APP即可直接上线。</p>
+    <p><strong>本期规模</strong>：60多名学员参与，训练营周期为21天。</p>
+    <p><strong>上期优秀案例</strong>：</p>
+    <ul>
+      <li><strong>学员"反传"</strong>：春节期间走了万步路、拜访20家亲戚，依然每天坚持写"日回顾"。</li>
+      <li><strong>学员陈清勇</strong>：成功戒掉沉迷多年的看小说坏习惯，本期担任族长。</li>
+      <li><strong>备婚学员</strong>：参加高阶训练营的同时筹办婚礼，依然保持良好自我管理。</li>
+    </ul>
+
+    <div class="section-subtitle">二、课程体系设计（初阶与高阶）</div>
+    <p><strong>初阶课程</strong>（6大模块）：</p>
+    <ul>
+      <li><strong>自我机制</strong>：正确制定目标，提升执行力。</li>
+      <li><strong>精要主义</strong>：专治"事多焦虑"，从繁杂中抽离。</li>
+      <li><strong>精力管理</strong>：减少疲惫感，保持良好状态。</li>
+      <li><strong>早起习惯</strong>：建立并巩固早起作息。</li>
+      <li><strong>非暴力沟通</strong>：情绪管理，控制在良好状态。</li>
+      <li><strong>冥想</strong>：非常好的习惯，锻炼觉察力。</li>
+    </ul>
+    <p><strong>高阶课程</strong>：仅4节课，密度极高，每堂至少听3遍。核心大招为"时间表"系统。</p>
+
+    <div class="section-subtitle">三、核心学习任务与执行建议</div>
+    <p><strong>每日核心任务</strong>：听课与写"日回顾"。建议在睡前或第二天早上进行，早起时大脑更清醒，复盘状态最好。</p>
+    <p><strong>每周任务</strong>：每周五提交当周"总结问卷"，周日参加答疑直播。</p>
+    <p><strong>首日大作业（初阶）</strong>："梳理目标"，人均约需3小时，需预留大段完整时间。</p>
+    <p><strong>工具选择</strong>：</p>
+    <ul>
+      <li>作业统一在<strong>石墨文档</strong>完成，建议使用<strong>电脑端</strong>，坚决反对用手机写日回顾。</li>
+      <li><strong>绝对不要用公司电脑做作业</strong>——打开公司电脑会触发工作习惯。</li>
+    </ul>
+    <p><strong>学习心态</strong>：保持<strong>空杯心态</strong>，完全按照课程方法做，不掺杂旧方法。第一周为"阵痛期"。</p>
+    <p><strong>重新定义"不可抗力"</strong>：突发手术、家人去世等才算不可抗力。出差、闺蜜借住、小孩生病等不算不可抗力，反而是宝贵实操场景。</p>
+
+    <div class="section-subtitle">四、社群服务与纪律规则</div>
+    <p><strong>族长辅导</strong>：初阶5位族长，高阶4位族长，均为往期优秀老学员。</p>
+    <p><strong>淘汰规则</strong>：两次以上不交作业且未请假，将被直接踢出社群。</p>
+    <p><strong>双群运营</strong>：</p>
+    <ul>
+      <li><strong>上课通知群（禁言）</strong>：只发布核心指令，确保不错过重要进度。</li>
+      <li><strong>交流群（自愿加入）</strong>：包含往期老学员，有极强的正向氛围。</li>
+    </ul>
+    <p><strong>入学测试</strong>：初阶新学员必须在开营当晚10点前听完先导课并完成入学测试。</p>
+  </div>
+</div>
+
+<!-- ================================ CHAPTER 2 ================================ -->
+<div class="section ch2">
+  <div class="section-title"><span class="num">2</span> 日回顾应用升级</div>
+  <div class="content">
+    <div class="section-subtitle">一、核心理念："变与不变"</div>
+    <ul>
+      <li><strong>不变</strong>：日回顾的整体框架和本质逻辑始终如一。</li>
+      <li><strong>变</strong>：随着自我觉察的提升，对日回顾的具体模板内容进行动态刷新。</li>
+      <li>高阶日回顾模板的产生基础，从21天周期转变为<strong>基于每周的复盘和下一周的目标</strong>。</li>
+    </ul>
+
+    <div class="section-subtitle">二、4+4模型：周目标制定</div>
+    <p><strong>四大领域</strong>：</p>
+    <ol>
+      <li><strong>身体和精神状态</strong>（学习不单列，因学习是途径而非目的）</li>
+      <li><strong>家庭朋友关系</strong></li>
+      <li><strong>事业</strong></li>
+      <li><strong>财富管理</strong></li>
+    </ol>
+    <p><strong>四个问题</strong>：</p>
+    <ol>
+      <li><strong>本月的目标是什么？</strong>（承接月度目标）</li>
+      <li><strong>已识别到的风险和问题是什么？</strong>（事前预测法）</li>
+      <li><strong>接下来一周的目标是什么？</strong>（生成日回顾"各领域进展"来源）</li>
+      <li><strong>哪些是更少而更好的事？</strong>（生成"例行事项"来源）</li>
+    </ol>
+
+    <div class="section-subtitle">三、高阶日回顾模板结构</div>
+    <p><strong>例行事项（Routine）</strong>：从4+4模型的Q4提取，按时间顺序排列。</p>
+    <p><strong>主观事项（Subjective）</strong>包含三个子模块：</p>
+    <ul>
+      <li><strong>各领域进展</strong>：将周目标复制过来，每日用X打叉追踪进度。</li>
+      <li><strong>薄弱项管理</strong>：个性化补短板，做得好就不需要再记录。</li>
+      <li><strong>值得记录的其他事情</strong>：记录非标准模板内的灵感与深度思考。</li>
+    </ul>
+
+    <div class="section-subtitle">四、高质量复盘四步法</div>
+    <div class="highlight-box">
+      <p><strong>第一步：发生了什么？</strong>记录事实（Fact），而非观点（Opinion）。</p>
+      <p><em>正确</em>："直播没有一个用户购买"；<em>错误</em>："直播准备不足"。</p>
+      <p><strong>第二步：有何发现？</strong>寻找规律（Pattern），而非情绪化评价（Emotion）。</p>
+      <p><em>正确</em>："预约人数比上次少一半"；<em>错误</em>："直播很搓"。</p>
+      <p><strong>第三步：我可以做什么？</strong>向内求（Internal），而非归咎外界（External）。</p>
+      <p><em>正确</em>："我可以测试开播时间的影响"；<em>错误</em>："用户不懂货"。</p>
+      <p><strong>第四步：行动计划是什么？</strong>可执行（SMART原则），而非假大空。</p>
+      <p><em>正确</em>："直播前3天实现预约XX人"；<em>错误</em>："要提高重视程度"。</p>
+    </div>
+
+    <div class="section-subtitle">五、6个常见FAQ</div>
+    <div class="faq-item">
+      <div class="faq-q">Q1：可以用自己的框架做高阶日回顾吗？</div>
+      <p>坚决不行。必须遵循<strong>先僵化→后固化→再优化</strong>，以空杯心态百分之百还原。借用华为学习IBM的经典案例。</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q2：为什么只有周目标没有周复盘？</div>
+      <p>高频的日复盘已完美替代周复盘。在"各领域进展"中，周目标已被拆解到每天，用X叉追踪进度。</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q3：月/季/半年/年度目标怎么做？</div>
+      <p>套用4+4模型，进行时间维度的"向上升维替换"，将"本月"替换为"本季度"，"下周"替换为"下月"。</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q4：长周期目标总是变化，正常吗？</div>
+      <p><strong>非常正常</strong>。"登山理论"：终极目标（山顶）不变，但达成路线一定会变。只要确认还在朝着山顶方向前进即可。</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q5：为什么四大领域中不单列"学习"？</div>
+      <p>学习只是途径，永远不是目的。取消单列是为了倒逼反功利化，带着具体项目去学，而非为学而学。</p>
+    </div>
+    <div class="faq-item">
+      <div class="faq-q">Q6：用什么软件写日回顾最好？</div>
+      <p>推荐基础文字软件如<strong>印象笔记</strong>或<strong>iOS备忘录</strong>。不要用公司电脑写，必须做到设备隔离。</p>
+    </div>
+  </div>
+</div>
+
+<!-- ================================ CHAPTER 3 ================================ -->
+<div class="section ch3">
+  <div class="section-title"><span class="num">3</span> 最强时间表</div>
+  <div class="content">
+    <div class="section-subtitle">一、核心理念与目标</div>
+    <ul>
+      <li><strong>核心动作</strong>：从"被动跟随"到"主动制造停顿"。</li>
+      <li><strong>核心追求</strong>：极致细化的颗粒度与时间利用率。</li>
+      <li><strong>终极目标</strong>：持久高能待机，精准抓住最重要的事情。</li>
+      <li><strong>弹性哲学</strong>：状态第一，灵活退守。遇到不适时退回到初阶模式，保住日回顾和生物钟即可。</li>
+    </ul>
+
+    <div class="section-subtitle">二、制定时间表的四步骤</div>
+    <p><strong>步骤一：清空过往，锁定固定事项</strong></p>
+    <p>翻阅日历，将不可更改的会议列出。使用<strong>书名号《》</strong>标记固定事项，作为绝对底座。</p>
+    <p><strong>步骤二：分割线划分时空区块</strong></p>
+    <p>主动将一天划分为四个区块：早晨出门前、上午到中午、下午、晚间（副业/家庭）。</p>
+    <p><strong>步骤三：分配青蛙与待办杂事</strong></p>
+    <p>将青蛙清单和待办杂事分配到各时空区块。用<strong>？</strong>标记待确认事项。</p>
+    <p><strong>步骤四：拒绝坨坨账，设定精准时间锚点</strong></p>
+    <p>为每一件事设定预估起止时间（如"日回顾 5:15-5:45"）。这些时间锚点即使超时也会制造紧迫感。</p>
+
+    <div class="section-subtitle">三、动态执行策略</div>
+    <p><strong>回车键提示法</strong>：每推进到一个新环节，在前敲一次回车，形成强烈的心理暗示。</p>
+    <p><strong>动态修正</strong>：如果超时，立刻修改后续任务的起始时间，确保时间锚点持续有效。</p>
+    <p><strong>应对打断："先记录"缓冲</strong>：遇到突发，第一反应该是记录到待办区，绝不立刻反应。延后到停顿点再分配。</p>
+    <p><strong>任务的三种结局</strong>：</p>
+    <ul>
+      <li>顺利做完（即使超时）→ 进入下一项。</li>
+      <li>完全没做完 → 放回待办池。</li>
+      <li>做了一半需返工 → 转化为新的具体待办，安排新时间窗。</li>
+    </ul>
+
+    <div class="section-subtitle">四、七个关键要点</div>
+    <ol>
+      <li><strong>状态降级</strong>：状态第一，不行就退回初阶。</li>
+      <li><strong>主动停顿</strong>：通过记录和调整动作强迫自己抽离。</li>
+      <li><strong>时空环境场</strong>：用分割线主动划定界限。</li>
+      <li><strong>只记录不反应</strong>：面对打断的唯一正确动作。</li>
+      <li><strong>极简形式主义</strong>：只用基础文本功能，拒绝花哨APP。</li>
+      <li><strong>拒绝坨坨账</strong>：设定具体时间锚点。</li>
+      <li><strong>先僵化后优化再固化</strong>：反复练习，直至内化。</li>
+    </ol>
+
+    <div class="section-subtitle">五、进阶技巧</div>
+    <p><strong>跨期提前规划</strong>：想起未来某事时，立刻找到对应日期的时间表提前写进去。</p>
+    <p><strong>工具选择</strong>：多端同步快的工具（印象笔记/有道云笔记/系统备忘录）。<strong>绝对不用花哨打卡APP</strong>。</p>
+    <p><strong>每日复盘固化</strong>：在日回顾中增加"时间表应用复盘"模块，对照七个要点每日反思。</p>
+  </div>
+</div>
+
+<!-- ================================ CHAPTER 4 ================================ -->
+<div class="section ch4">
+  <div class="section-title"><span class="num">4</span> 第一阶段答疑与总结</div>
+  <div class="content">
+    <div class="section-subtitle">一、"四个一"循环法则</div>
+    <div class="highlight-box">
+      <p><strong>第一个"1"：睡觉或冥想</strong>（主动恢复精力）<br>极度疲惫时选睡觉，精力尚可时选清醒版冥想。清醒版冥想背脊挺直、关注呼吸，是体力活。</p>
+      <p><strong>第二个"1"：吃青蛙</strong>（单人单界面高能输出）<br>精力最好时做不需要交互的深度工作，如看书、写日回顾。</p>
+      <p><strong>第三个"1"：消耗型任务</strong>（交互型碎片化工作）<br>回复消息、多平台跳转。绝对不能排在第二个"1"之前。</p>
+      <p><strong>第四个"1"：吃饭</strong>（能量补充）<br>前三个完成后才能吃。未完成前三个就吃饭，碳水易致犯困。</p>
+    </div>
+    <p>一天可开启多个循环：早起→出门前、上午、下午、晚间。形式灵活但内核顺序不变：休息→高专注→交互→吃饭。</p>
+
+    <div class="section-subtitle">二、任务分类与优先级锁定</div>
+    <p><strong>初阶僵化模板</strong>：每天计划限制在——三只青蛙、日回顾、工作外学习、一件工作最重要事项。</p>
+    <p><strong>终极提问法</strong>：面对多项任务问自己——<strong>"如果今天不做会有什么后果？"</strong></p>
+
+    <div class="section-subtitle">三、习惯养成与环境场</div>
+    <p><strong>四个固定公式</strong>：固定时间 + 固定环境 + 固定工具 + 做固定的事情。</p>
+    <p><strong>环境场的本质</strong>：让你做这件事变得"容易"，是物理外挂。包含身体触感、整体感受甚至灯光效果。</p>
+
+    <div class="section-subtitle">四、目标追踪与日回顾优化</div>
+    <p><strong>目标降维</strong>：宏大目标必须拆解为当前阶段的可行性目标，至少以周为单位追踪。</p>
+    <p><strong>20字+50字限制</strong>：20字以内概括问题，50字以内写出行动计划，倒逼深度思考。</p>
+    <p><strong>客观数据记录</strong>：通过精准的耗时记录暴露效率问题。</p>
+
+    <div class="section-subtitle">五、情绪管理与坏习惯根除</div>
+    <p><strong>恐惧化解</strong>：用"越来越多的已知替代未知"——去查信息、去对比、去面试，把未知转化为已知。</p>
+    <p><strong>坏习惯三步策略</strong>：</p>
+    <ul>
+      <li><strong>认知干预</strong>：把坏习惯放入日回顾"主观事项"进行深度反思。</li>
+      <li><strong>动作干预</strong>：主动替换——用冥想替代刷手机。</li>
+      <li><strong>源头阻断</strong>：洗澡前写好明日计划，带着使命感入睡。</li>
+    </ul>
+    <p><strong>NVC不是逃避工具</strong>：必须走到最后两步"需要与请求"，制定行动计划解决问题。</p>
+    <p><strong>冥想的弹窗机制</strong>：锻炼在情绪爆发或坏习惯冒头瞬间的实时觉察力。</p>
+  </div>
+</div>
+
+<!-- ================================ CHAPTER 5 ================================ -->
+<div class="section ch5">
+  <div class="section-title"><span class="num">5</span> 精要主义应用升级</div>
+  <div class="content">
+    <div class="section-subtitle">一、核心理念进化</div>
+    <p>从初阶的"每日三只青蛙"升级为高阶的<strong>跨领域战略聚焦</strong>。顶尖高手的共同秘诀：<strong>专注（Focus）</strong>。</p>
+
+    <div class="section-subtitle">二、核心实操</div>
+    <p><strong>第一步：基于当周状态排列优先级</strong>。排序依据是<strong>脑力投入程度</strong>而非价值观。需要重脑力的领域排前面。</p>
+    <p><strong>第二步：全领域仅保留一件重脑力新事</strong>。这是解决执行焦虑的核心铁律。</p>
+    <p><strong>第三步：模板视觉暗示</strong>。将唯一重脑力新事标红，作为每日警报（Alarm）。消除决策疲劳。</p>
+
+    <div class="highlight-box green">
+      <p><strong>精准界定"新事"</strong>：</p>
+      <p><strong>重脑力新事</strong>：没有既定路径、需要探索试错的事。</p>
+      <p><strong>不是新事</strong>：需要别人动脑的事（如设计师出方案）、大量体力但不耗脑力的习惯动作、已经轻车熟路的事。</p>
+      <p>例如：去医院看严重皮炎——非常重要、耗时很长，但属于日常维护，不是重脑力新事。</p>
+    </div>
+
+    <div class="section-subtitle">三、破局策略：三连问漏斗法</div>
+    <p><strong>第一步：明确两个目标</strong>——大目标（SMART原则）和当前阶段目标。</p>
+    <p><strong>第二步：罗列所有探索选项</strong>。</p>
+    <p><strong>第三步：三连问筛选</strong>：</p>
+    <ol>
+      <li><strong>是否跟大目标相关？</strong>无关则直接排除。</li>
+      <li><strong>是否跟当前阶段目标相关？</strong>无关则束之高阁。</li>
+      <li><strong>哪个对实现当前目标帮助最大？</strong>小步快跑测试，发现有效路径立刻单点爆破。</li>
+    </ol>
+    <p><strong>核心心法</strong>：所有的路都是走出来的，不是想出来的。"没有结果"也是正反馈——消除了不确定性。</p>
+  </div>
+</div>
+
+<!-- ================================ CHAPTER 6 ================================ -->
+<div class="section ch6">
+  <div class="section-title"><span class="num">6</span> 第二阶段答疑直播</div>
+  <div class="content">
+    <div class="section-subtitle">一、早起与作息管理</div>
+    <p><strong>早起的本质</strong>：营造无干扰的"环境场"。凌晨4点是极少有人打扰的真空时间。</p>
+    <p><strong>入睡困难三大干预</strong>：</p>
+    <ol>
+      <li><strong>睡前清空大脑</strong>：提前写好第二天时间表和青蛙。</li>
+      <li><strong>极度深呼吸法</strong>：呼到不能再呼，吸到不能再吸。</li>
+      <li><strong>阅读催眠法</strong>：趴在床上看书迅速消耗精力。</li>
+    </ol>
+    <p><strong>生物钟锚定法</strong>：哪怕睡得很差，也按原计划时间起床→刷牙洗脸→完成日回顾→如果还困可补觉。核心是维持生物钟节律。</p>
+
+    <div class="section-subtitle">二、正反馈成瘾机制</div>
+    <p><strong>自律不累的真相</strong>：当你每天拿到肉眼可见的进展和结果时，你不会觉得累。人的本性趋利。</p>
+    <p><strong>对标游戏成瘾</strong>：自我管理上瘾机制与打游戏一样——每打完一关得到极强且及时的反馈。</p>
+    <p><strong>三大领域正反馈</strong>：</p>
+    <ul>
+      <li><strong>阅读</strong>：正反馈来自实践，不是读完。</li>
+      <li><strong>运动</strong>：正反馈来自身体的即时感知——做完普拉提身体变轻盈，跑完步多巴胺畅快感。</li>
+      <li><strong>工作</strong>：正反馈来自阶段性进展。用SMART原则设定目标并获得击破感。</li>
+    </ul>
+
+    <div class="section-subtitle">三、执行Bug的SOP</div>
+    <ol>
+      <li><strong>觉察并记录</strong>：在日回顾中打字写下来。</li>
+      <li><strong>制定替代方案</strong>：例如卸载上瘾APP，或把刷视频替换为趴床上看书。</li>
+      <li><strong>行动测试</strong>：实施后复盘，不行换下一个方案，直到解决。</li>
+    </ol>
+    <p><strong>避坑警示</strong>：自我管理不是逃避现实的避风港。手段≠目的。<strong>自我管理的终极目的是"做成事"</strong>——在事业、家庭、健康上产生实际收益。</p>
+
+    <div class="section-subtitle">四、破除教条主义</div>
+    <ul>
+      <li>重脑力"新事情" ≠ 耗时长的日常重要事（如看病不算新事）。</li>
+      <li>最高优先级 ≠ 全天霸占。优先保障核心动作完成，其余时间仍可推进日常工作。</li>
+      <li><strong>午休不可妥协</strong>。冥想 > 咖啡。设置两个吃青蛙时间段（早起后、中午睡醒后）。</li>
+    </ul>
+
+    <div class="section-subtitle">五、粉碎紧急错觉</div>
+    <p><strong>生死之外无大事</strong>。99%的"紧急"是我们的主观放大。</p>
+    <p><strong>刻意停顿法</strong>：收到任务→停顿→快速识别是否真需要立刻做→放入待办。</p>
+    <p><strong>敢于拒接电话</strong>：吃青蛙时段哪怕老板电话也不接，完事后回拨并解释。</p>
+    <p><strong>降低自我重要感</strong>："你并没有那么重要"——晚半小时处理，公司不会倒闭。</p>
+  </div>
+</div>
+
+<!-- ================================ CHAPTER 7 ================================ -->
+<div class="section ch7">
+  <div class="section-title"><span class="num">7</span> 消灭内耗</div>
+  <div class="content">
+    <div class="section-subtitle">一、核心理念</div>
+    <p><strong>所有内耗都可以通过行动治疗</strong>。所有问题都可以通过"我的"行动得到解决。<strong>极致的向内归因</strong>——即使面对公司体制问题，也从自己身上找行动方案。</p>
+
+    <div class="section-subtitle">二、内耗的源头剖析</div>
+    <p><strong>五类焦虑</strong>（引用《认知觉醒》）：</p>
+    <ol>
+      <li><strong>完成焦虑</strong>：事情太多，感觉耽误一天就搞不定。</li>
+      <li><strong>定位焦虑</strong>：源于攀比——为什么同龄人已经取得巨大成就。</li>
+      <li><strong>选择焦虑</strong>：选项太多，大脑瘫痪。</li>
+      <li><strong>环境焦虑</strong>：受制于客观条件，想做做不了。</li>
+      <li><strong>难度焦虑</strong>：畏难，踌躇不前。</li>
+    </ol>
+    <p><strong>本质归因</strong>：<strong>"想同时做很多事情，又想立刻看到效果"</strong>。</p>
+
+    <div class="section-subtitle">三、行动的两类障碍</div>
+    <p><strong>障碍一：不能开始</strong></p>
+    <ul>
+      <li><strong>执行类</strong>：不知道怎么做/不敢做 → <strong>决策二叉树</strong>：最差后果？能接受？有规避吗？收益如何？</li>
+      <li><strong>心理类</strong>：觉得无所谓/畏难 → <strong>"我不能"→"我不想"</strong> 转换：承认不行动是选择而非能力问题。</li>
+      <li><strong>通用步骤</strong>：先调用恐惧——<strong>事前预测法</strong>：三年后最差会发生什么？</li>
+    </ul>
+    <p><strong>障碍二：无法持续</strong></p>
+    <ul>
+      <li><strong>战略耐心</strong>：从"表现型人格（be good）"转为"进取型人格（be better）"。</li>
+      <li><strong>行动闭环</strong>：定锚点→执行→复盘。</li>
+      <li><strong>重新定义正反馈</strong>：验证了一条路行不通也是正反馈——消除了不确定性。</li>
+    </ul>
+
+    <div class="highlight-box purple">
+      <p><strong>核心基石：书面记录</strong></p>
+      <p>如果没有书面记录（不做作业、不写日回顾），整套自我管理体系的效率<strong>不到10%</strong>。</p>
+      <p>《吃掉那只青蛙》：<strong>"明确的书面目标对你的思想有不可思议的影响力"</strong>。</p>
+      <p>只有亲手写下最怕的后果，心才会真正颤抖；只有亲手写下Y/N，才会形成无可逃避的提醒。</p>
+    </div>
+
+    <div class="section-subtitle">四、内耗自查作业指南</div>
+    <p>在日回顾主观事项中新增<strong>"内耗自查"</strong>模块：</p>
+    <ol>
+      <li>选定内耗事项</li>
+      <li>溯源五类焦虑中的哪一类</li>
+      <li>诊断是"不能开始"还是"无法持续"</li>
+      <li>执行对应的破解步骤</li>
+    </ol>
+  </div>
+</div>
+
+<!-- ================================ CHAPTER 8 ================================ -->
+<div class="section ch8">
+  <div class="section-title"><span class="num">8</span> 第三阶段答疑与结营仪式</div>
+  <div class="content">
+    <div class="section-subtitle">一、核心理念答疑</div>
+    <p><strong>NVC深度应用</strong>：性格改变绝非一蹴而就。警惕NVC沦为逃避现实的"乌龟壳"——必须走到"需要与请求"（<strong>后两步才是破局关键</strong>）。</p>
+    <p><strong>精力管理</strong>：越忙越需要主动休息。<strong>"见缝插针"的极端休息法</strong>：</p>
+    <ul>
+      <li>战斗饭（缩短30分钟吃饭时间）</li>
+      <li>美容院做项目时睡觉</li>
+      <li>滴滴车上睡觉</li>
+    </ul>
+    <p><strong>1分钟身体唤醒</strong>：连续10分钟<strong>开合跳</strong>，迅速加快心率，回归高能状态。</p>
+
+    <div class="section-subtitle">二、日回顾的绝对基石地位</div>
+    <p><strong>六维度自测中日回顾占50分</strong>（其他五项各10分），一票否决！没有日回顾其他都是空谈。</p>
+    <p><strong>初阶→高阶的评判标准</strong>：唯一标准是<strong>对写日回顾不再排斥</strong>，能执行得比较顺溜。不是要求每天完美打卡。</p>
+    <p><strong>如何做到深刻</strong>：聚焦于<strong>某一个特定领域</strong>进行深度剖析，而非贪多。少即是多。</p>
+
+    <div class="section-subtitle">三、动力模型与自测</div>
+    <p><strong>六维度自我测试</strong>（满分100分）：</p>
+    <ul>
+      <li>状态觉察（10分）</li>
+      <li>精要主义/吃青蛙（10分）</li>
+      <li>精力管理（10分）</li>
+      <li>早起习惯（10分）</li>
+      <li>情绪管理（10分）</li>
+      <li><strong>日回顾（50分）</strong></li>
+    </ul>
+    <p><strong>三阶段</strong>：</p>
+    <ul>
+      <li><strong>潜机力（＜80分）</strong>：需外部驱动，建议回炉。</li>
+      <li><strong>升机力（80-90分）</strong>：已具内驱力，建议观察结营后一周能否稳住。</li>
+      <li><strong>上瘾（＞90分）</strong>：不做不舒服，已内化为生活方式。</li>
+    </ul>
+
+    <div class="section-subtitle">四、四位优秀学员案例</div>
+    <p><strong>皮卡丘（微习惯）</strong>：从"抽一下动一下"到稳定6:30起床、每天跑2.5公里。例行事项是抗焦虑的解药。</p>
+    <p><strong>Jess（正念）</strong>：通过冥想提升正念觉察力，从"懵逼"状态变得"醒目"，知行合一。</p>
+    <p><strong>小灯泡（四维度盘点）</strong>：面对失恋+发胖+职场动荡，用"每天不联系前任"硬核打卡切断情绪、精要主义破职场困局、四维度盘点防崩溃。</p>
+    <p><strong>悟空（盖洛普盲点）</strong>：发现"学习"和"搜集"才干的盲点——为学而学、囤积而不行动。打破性格定式，刻意练习。</p>
+  </div>
+</div>
+
+<!-- ================================ TEMPLATES ================================ -->
+<div class="section tpl">
+  <div class="section-title"><span class="num">◆</span> 核心模板表格</div>
+  <div class="content">
+
+    <div class="section-subtitle">模板一：高阶日回顾模版</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:16%">模块</th>
+            <th style="width:16%">细分项</th>
+            <th style="width:30%">来源/说明</th>
+            <th style="width:18%">今日执行/进度</th>
+            <th style="width:20%">深度复盘/反思</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td rowspan="3"><strong>一、例行事项</strong><br><span style="font-size:12px;color:var(--text-muted);">来自Q4"更少更好的事"</span></td>
+            <td>早起流程</td>
+            <td>5:00起床、不刷手机</td>
+            <td>[ ] 完成</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>身体激活</td>
+            <td>测体重、冥想、运动</td>
+            <td>[ ] 完成</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>睡前流程</td>
+            <td>列明日待办、阅读</td>
+            <td>[ ] 完成</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td rowspan="6"><strong>二、主观事项</strong><br><span style="font-size:12px;color:var(--text-muted);">来自Q3"周目标"</span></td>
+            <td>1. 各领域进展</td>
+            <td>每天填写真实进度</td>
+            <td>进度：__/__</td>
+            <td rowspan="2">使用四步复盘法：发生了什么？发现了什么？我能做什么？行动计划？</td>
+          </tr>
+          <tr>
+            <td>A. 身体/精神</td>
+            <td>本周减重1kg</td>
+            <td>进度：__/__</td>
+          </tr>
+          <tr>
+            <td>B. 家庭/关系</td>
+            <td>确定装修方案</td>
+            <td>进度：__/__</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>C. 事业</td>
+            <td>完成A项目合同确认</td>
+            <td>进度：__/__</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>D. 财富管理</td>
+            <td>清理信用卡账单</td>
+            <td>进度：__/__</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td>2. 薄弱项管理</td>
+            <td>精要主义/精力管理/早起/情绪管理 + 当前阶段坏习惯</td>
+            <td>[ ] 是 / [ ] 否</td>
+            <td></td>
+          </tr>
+          <tr>
+            <td colspan="5"><strong>3. 内耗自查</strong>（新增模块）：今日纠结事项 → 障碍分析（不能开始/无法持续）→ 具体破解行动</td>
+          </tr>
+          <tr>
+            <td colspan="5"><strong>4. 值得记录的其他事项</strong>：超出模板范围的灵感、感悟或重要事件</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-subtitle">模板二：周目标制定模版（4+4法则）</div>
+    <div class="highlight-box green"><strong>本周优先领域排序</strong>：1.____ 2.____ 3.____ 4.____（按脑力投入排序，重脑力新事仅1件）</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:16%">领域</th>
+            <th style="width:21%">Q1：本月目标</th>
+            <th style="width:21%">Q2：已识别的风险</th>
+            <th style="width:21%">Q3：本周目标</th>
+            <th style="width:21%">Q4：更少更好的事</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>A. 身体和精神状态</strong></td>
+            <td>减重到45kg，恢复鼻炎</td>
+            <td>饭局多易吃多；下雨无法跑步</td>
+            <td>本周减重0.5kg；做3次理疗</td>
+            <td>早起测体重；早午冥想15分钟</td>
+          </tr>
+          <tr>
+            <td><strong>B. 家庭与朋友关系</strong></td>
+            <td>敲定婚庆方案</td>
+            <td>双方父母意见不统一</td>
+            <td>周三前确认场地；周五前确认司仪</td>
+            <td>晚饭后散步30分钟；睡前不看手机</td>
+          </tr>
+          <tr>
+            <td><strong>C. 事业</strong></td>
+            <td>完成A项目签约</td>
+            <td>客户法务流程慢</td>
+            <td>周二前确认合同条款</td>
+            <td>（此处通常无例行，多为动态目标）</td>
+          </tr>
+          <tr>
+            <td><strong>D. 财富管理</strong></td>
+            <td>收回房租</td>
+            <td>租客可能拖延</td>
+            <td>周一发微信提醒；周五查账</td>
+            <td>周日晚记账</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-subtitle">模板三：月度/季度目标规划模版</div>
+    <div class="table-wrap">
+      <table>
+        <thead>
+          <tr>
+            <th style="width:16%">领域</th>
+            <th style="width:21%">上级目标</th>
+            <th style="width:21%">现状与障碍</th>
+            <th style="width:21%">本月核心目标</th>
+            <th style="width:21%">关键策略</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>A. 身体和精神状态</strong></td>
+            <td>体脂率降至20%</td>
+            <td>工作压力大导致暴饮暴食</td>
+            <td>本月体脂率降至22%</td>
+            <td>尝试16+8轻断食；雇私教</td>
+          </tr>
+          <tr>
+            <td><strong>B. 家庭与朋友关系</strong></td>
+            <td>完成新房装修</td>
+            <td>预算超支；材料延期</td>
+            <td>完成硬装验收</td>
+            <td>每周六去工地盯工</td>
+          </tr>
+          <tr>
+            <td><strong>C. 事业</strong></td>
+            <td>Q3业绩达成100万</td>
+            <td>老客户流失；新线索不足</td>
+            <td>本月完成30万</td>
+            <td>激活沉睡客户；尝试知乎引流</td>
+          </tr>
+          <tr>
+            <td><strong>D. 财富管理</strong></td>
+            <td>存款增加5万</td>
+            <td>双11购物冲动</td>
+            <td>本月储蓄1.5万</td>
+            <td>强制储蓄；卸载购物APP</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="section-subtitle">最强时间表模版</div>
+    <div class="table-wrap">
+      <table>
+        <thead><tr><th>时段区块</th><th>时间锚点</th><th>事项</th></tr></thead>
+        <tbody>
+          <tr><td><strong>早起到出门前</strong></td><td>5:15-5:45<br>5:45-6:15<br>6:15-7:00</td><td>日回顾<br>冥想<br>洗漱+早餐</td></tr>
+          <tr><td><strong>上午</strong></td><td>7:00-9:00<br>9:00-10:00<br>10:00-12:00</td><td>《通勤+听书》<br>青蛙1：写方案<br>《10:30客户会议》</td></tr>
+          <tr><td><strong>下午</strong></td><td>13:00-14:00<br>14:00-16:00<br>16:00-18:00</td><td>午休/冥想<br>青蛙2：项目推进<br>交互型任务（邮件/消息）</td></tr>
+          <tr><td><strong>晚上</strong></td><td>19:00-20:00<br>20:00-21:00<br>21:00-22:00</td><td>运动<br>副业/学习<br>洗漱+列明日待办</td></tr>
+          <tr><td colspan="3"><strong>青蛙清单</strong>：①日回顾 ②工作最重要1件事 ③工作外学习</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ================================ SOP ================================ -->
+<div class="section sop">
+  <div class="section-title"><span class="num">◆</span> 全链路实操SOP</div>
+  <div class="content">
+    <div class="highlight-box">
+      <p><strong>核心原则</strong></p>
+      <p>1. <strong>先僵化，后固化，再优化</strong>：前21天不加个人发挥，完全照搬执行。</p>
+      <p>2. <strong>书面记录是灵魂</strong>：所有计划、复盘、纠结必须落实在笔头。</p>
+      <p>3. <strong>行动治愈内耗</strong>：所有焦虑源于想同时做很多事又想立刻看到效果，唯一解药是行动。</p>
+    </div>
+
+    <div class="section-subtitle2">第一阶段：环境与工具准备</div>
+    <ul>
+      <li><strong>固定三要素</strong>：固定时间（早起后/睡前）、固定地点（书桌）、固定工具。</li>
+      <li><strong>设备隔离</strong>：严禁使用办公电脑写私人日回顾。</li>
+      <li><strong>工具选择</strong>：多端同步简单的文字工具（备忘录/印象笔记），严禁花哨打卡APP。</li>
+    </ul>
+
+    <div class="section-subtitle2">第二阶段：周维度规划（每周日晚/周一早）</div>
+    <ul>
+      <li><strong>4+4法则制定周目标</strong>：四大领域×四个问题。</li>
+      <li><strong>精要主义铁律</strong>：全领域重脑力新事≤1件。排序按脑力消耗而非价值观。</li>
+      <li><strong>生成日回顾模板</strong>：Part A例行事项（来自Q4）+ Part B主观事项（来自Q3+薄弱项+内耗自查）。</li>
+    </ul>
+
+    <div class="section-subtitle2">第三阶段：日维度执行（全天候）</div>
+    <ul>
+      <li><strong>制作最强时间表</strong>：画线分四区→填入《固定事项》→安插青蛙（标注时间锚点）。</li>
+      <li><strong>1+1+1+1能量循环</strong>：每天3-4个循环（休息/冥想→高能工作→消耗型工作→吃饭）。</li>
+      <li><strong>应对打断</strong>：只记录不反应，在停顿点分配杂事到合适时段。</li>
+    </ul>
+
+    <div class="section-subtitle2">第四阶段：复盘与心智维护（睡前/次日晨）</div>
+    <ul>
+      <li><strong>完成日回顾</strong>：填写进度 + 深度复盘四步法。</li>
+      <li><strong>消灭内耗</strong>：事前预测法（不能开始） / 重定义正反馈（无法持续） / "我不能"→"我不想"转换（心理障碍）。</li>
+      <li><strong>情绪管理</strong>：NVC必须走到"需要与请求"→制定行动计划解决问题。</li>
+    </ul>
+
+    <div class="section-subtitle2">SOP验收标准</div>
+    <ul>
+      <li><strong>及格线（潜机力＜80分）</strong>：需靠打卡群、助教监督才能完成日回顾。</li>
+      <li><strong>良好线（升机力80-90分）</strong>：内驱主动完成，不需外力。</li>
+      <li><strong>优秀线（上瘾＞90分）</strong>：不写日回顾就浑身难受。</li>
+      <li><strong>高阶毕业标准</strong>：对写日回顾不再排斥，视为生活必需品。</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ========== FOOTER ========== -->
+<div style="text-align:center;padding:30px 0 10px;color:var(--text-muted);font-size:13px;">
+  <p>自我管理高级班 · 全套课程知识体系</p>
+  <p style="margin-top:4px;">路是走出来的，不是想出来的 — 先僵化，后固化，再优化</p>
+</div>
+
+</div><!-- /container -->
+</body>
+</html>
