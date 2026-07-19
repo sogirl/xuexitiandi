@@ -1,0 +1,2236 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>DeepSeek 赋能跨境电商 —— 从入门到精通</title>
+<style>
+  /* ========== 全局基础 ========== */
+  *,*::before,*::after{box-sizing:border-box}
+  :root{
+    --bg:#fafbfc;
+    --bg-soft:#f5f7fa;
+    --bg-card:#ffffff;
+    --primary:#2563eb;
+    --primary-soft:#dbeafe;
+    --green:#059669;
+    --green-soft:#d1fae5;
+    --orange:#f59e0b;
+    --orange-soft:#fef3c7;
+    --red:#dc2626;
+    --red-soft:#fee2e2;
+    --purple:#7c3aed;
+    --purple-soft:#ede9fe;
+    --ink:#1f2937;
+    --ink-soft:#4b5563;
+    --muted:#9ca3af;
+    --line:#e5e7eb;
+    --code-bg:#1f2937;
+    --code-fg:#f9fafb;
+    --shadow:0 4px 18px rgba(31,41,55,.06);
+    --shadow-lg:0 12px 40px rgba(31,41,55,.10);
+    --radius:14px;
+    --radius-sm:8px;
+    --maxw:1100px;
+  }
+  html{scroll-behavior:smooth;scroll-padding-top:80px}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue","Hiragino Sans GB",-apple-system,BlinkMacSystemFont,"Segoe UI",Arial,sans-serif;
+    line-height:1.75;
+    font-size:16px;
+    -webkit-font-smoothing:antialiased;
+  }
+  code,pre,kbd,samp{font-family:"JetBrains Mono","Fira Code","SFMono-Regular",Consolas,"Courier New",monospace}
+  a{color:var(--primary);text-decoration:none}
+  a:hover{text-decoration:underline}
+  .container{max-width:var(--maxw);margin:0 auto;padding:0 20px}
+
+  /* ========== 顶部 Header ========== */
+  header.site{
+    background:linear-gradient(135deg,#eff6ff 0%,#ecfdf5 100%);
+    padding:48px 0 36px;
+    border-bottom:1px solid var(--line);
+    position:relative;
+    overflow:hidden;
+  }
+  header.site::before{
+    content:"";position:absolute;top:-80px;right:-80px;width:280px;height:280px;
+    background:radial-gradient(circle,rgba(37,99,235,.15),transparent 70%);
+    border-radius:50%;
+  }
+  header.site::after{
+    content:"";position:absolute;bottom:-100px;left:-60px;width:240px;height:240px;
+    background:radial-gradient(circle,rgba(5,150,105,.12),transparent 70%);
+    border-radius:50%;
+  }
+  header.site .container{position:relative;z-index:1}
+  .badge{
+    display:inline-block;background:var(--primary-soft);color:var(--primary);
+    padding:5px 14px;border-radius:20px;font-size:13px;font-weight:600;margin-bottom:14px;
+  }
+  header.site h1{font-size:38px;line-height:1.25;margin:0 0 12px;color:var(--ink);letter-spacing:-.5px}
+  header.site h1 .accent{color:var(--primary)}
+  header.site .sub{font-size:17px;color:var(--ink-soft);max-width:760px;margin:0 0 28px}
+  .learning-path-cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:12px;margin-top:24px}
+  .stage-card{
+    background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);
+    padding:14px 16px;box-shadow:var(--shadow);position:relative;
+    transition:transform .2s,box-shadow .2s;
+  }
+  .stage-card:hover{transform:translateY(-2px);box-shadow:var(--shadow-lg)}
+  .stage-card .week{font-size:11px;font-weight:700;color:var(--primary);letter-spacing:1px;text-transform:uppercase}
+  .stage-card .name{font-weight:700;font-size:15px;margin:4px 0 2px;color:var(--ink)}
+  .stage-card .chap{font-size:12px;color:var(--ink-soft)}
+
+  /* ========== 固定导航 ========== */
+  nav.topnav{
+    position:sticky;top:0;z-index:99;
+    background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(10px);
+    -webkit-backdrop-filter:saturate(180%) blur(10px);
+    border-bottom:1px solid var(--line);
+  }
+  nav.topnav .nav-inner{
+    max-width:var(--maxw);margin:0 auto;padding:0 16px;
+    display:flex;align-items:center;gap:6px;overflow-x:auto;scrollbar-width:none;
+  }
+  nav.topnav .nav-inner::-webkit-scrollbar{display:none}
+  nav.topnav a{
+    flex-shrink:0;padding:14px 12px;font-size:14px;color:var(--ink-soft);
+    border-bottom:2px solid transparent;transition:color .2s,border-color .2s;white-space:nowrap;
+  }
+  nav.topnav a:hover{color:var(--primary);text-decoration:none}
+  nav.topnav a.active{color:var(--primary);border-bottom-color:var(--primary);font-weight:600}
+  nav.topnav .brand{font-weight:700;color:var(--primary);font-size:15px;padding-right:18px;border-right:1px solid var(--line);margin-right:6px}
+
+  /* ========== 主内容 ========== */
+  main{padding:36px 0 60px}
+  section{padding:48px 0;border-bottom:1px dashed var(--line)}
+  section:last-child{border-bottom:0}
+  .chapter-head{margin-bottom:28px}
+  .chap-num{
+    display:inline-block;
+    background:linear-gradient(135deg,var(--primary),var(--green));
+    color:#fff;padding:4px 12px;border-radius:6px;
+    font-size:13px;font-weight:700;letter-spacing:1px;margin-bottom:10px;
+  }
+  h2.section-title{font-size:30px;margin:0 0 10px;color:var(--ink);letter-spacing:-.3px}
+  h3{font-size:22px;margin:34px 0 14px;color:var(--ink);padding-left:12px;border-left:4px solid var(--primary)}
+  h4{font-size:17px;margin:22px 0 10px;color:var(--primary)}
+  p{margin:10px 0}
+
+  /* ========== 卡片 ========== */
+  .card{background:var(--bg-card);border:1px solid var(--line);border-radius:var(--radius);padding:22px 24px;box-shadow:var(--shadow);margin:18px 0}
+  .card-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:18px 0}
+  .mini-card{background:#fff;border:1px solid var(--line);border-radius:var(--radius-sm);padding:16px 18px;box-shadow:var(--shadow)}
+  .mini-card h5{margin:0 0 8px;font-size:15px;color:var(--primary);display:flex;align-items:center;gap:6px}
+  .mini-card p{margin:6px 0;font-size:14px;color:var(--ink-soft)}
+
+  /* ========== 数据卡 ========== */
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(170px,1fr));gap:14px;margin:18px 0}
+  .stat{background:#fff;border-radius:var(--radius-sm);padding:18px;text-align:center;box-shadow:var(--shadow);border-top:3px solid var(--primary)}
+  .stat.green{border-top-color:var(--green)}
+  .stat.orange{border-top-color:var(--orange)}
+  .stat.red{border-top-color:var(--red)}
+  .stat.purple{border-top-color:var(--purple)}
+  .stat .num{font-size:26px;font-weight:800;color:var(--ink);line-height:1.1}
+  .stat .lbl{font-size:12px;color:var(--ink-soft);margin-top:6px}
+
+  /* ========== 提示词卡片 ========== */
+  .prompt-card{background:linear-gradient(135deg,#eff6ff 0%,#ecfdf5 100%);border-radius:var(--radius);padding:0;margin:18px 0;border-left:5px solid var(--primary);overflow:hidden;box-shadow:var(--shadow)}
+  .prompt-card.green{border-left-color:var(--green);background:linear-gradient(135deg,#ecfdf5 0%,#f0fdfa 100%)}
+  .prompt-card.orange{border-left-color:var(--orange);background:linear-gradient(135deg,#fffbeb 0%,#fef3c7 100%)}
+  .prompt-card.purple{border-left-color:var(--purple);background:linear-gradient(135deg,#f5f3ff 0%,#ede9fe 100%)}
+  .prompt-card .pc-head{padding:14px 20px;border-bottom:1px solid rgba(0,0,0,.06);display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px}
+  .prompt-card .pc-head h4{margin:0;color:var(--ink);border:none;padding:0;font-size:16px}
+  .prompt-card .pc-head .tag{font-size:11px;background:#fff;color:var(--ink-soft);padding:3px 10px;border-radius:12px;font-weight:600;border:1px solid var(--line)}
+  .prompt-card .pc-body{padding:14px 20px}
+  .prompt-card .pc-body p{margin:6px 0;font-size:14px}
+  .prompt-card .pc-body strong{color:var(--ink)}
+
+  /* ========== 代码块 ========== */
+  pre{background:var(--code-bg);color:var(--code-fg);padding:18px 20px;border-radius:var(--radius-sm);overflow-x:auto;font-size:13.5px;line-height:1.65;position:relative;margin:12px 0}
+  pre code{white-space:pre;display:block;background:none;color:inherit;padding:0}
+  .copy-btn{position:absolute;top:10px;right:10px;background:rgba(255,255,255,.12);color:#fff;border:1px solid rgba(255,255,255,.18);border-radius:6px;padding:4px 10px;font-size:12px;cursor:pointer;font-family:inherit;transition:background .15s}
+  .copy-btn:hover{background:rgba(255,255,255,.22)}
+  .copy-btn.copied{background:var(--green);border-color:var(--green)}
+
+  /* ========== 表格 ========== */
+  table{width:100%;border-collapse:collapse;background:#fff;border-radius:var(--radius-sm);overflow:hidden;box-shadow:var(--shadow);margin:16px 0;font-size:14px}
+  thead{background:#f1f5f9}
+  th{text-align:left;padding:12px 14px;color:var(--ink);font-weight:700;border-bottom:2px solid var(--line);font-size:13px}
+  td{padding:11px 14px;border-bottom:1px solid var(--line);color:var(--ink-soft);vertical-align:top}
+  tbody tr:nth-child(even){background:#fafbfc}
+  tbody tr:hover{background:#f1f5f9}
+  td code{background:var(--bg-soft);padding:2px 6px;border-radius:4px;color:var(--primary);font-size:12px}
+
+  /* ========== 列表 ========== */
+  ul,ol{padding-left:24px}
+  li{margin:6px 0}
+  ul li::marker{color:var(--primary)}
+  ol li::marker{color:var(--green);font-weight:700}
+
+  /* ========== 高亮块 ========== */
+  .quote{background:var(--bg-soft);border-left:4px solid var(--green);padding:14px 18px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:16px 0;color:var(--ink-soft);font-style:italic}
+  .quote strong{color:var(--ink);font-style:normal}
+  .warning{background:var(--red-soft);border-left:4px solid var(--red);padding:14px 18px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:16px 0;color:#7f1d1d}
+  .tip{background:var(--orange-soft);border-left:4px solid var(--orange);padding:14px 18px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:16px 0;color:#78350f}
+  .info{background:var(--primary-soft);border-left:4px solid var(--primary);padding:14px 18px;border-radius:0 var(--radius-sm) var(--radius-sm) 0;margin:16px 0;color:#1e3a8a}
+
+  /* ========== 知识图谱 ========== */
+  .kg{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:22px;box-shadow:var(--shadow);overflow-x:auto;font-size:12.5px;line-height:1.5;color:var(--ink-soft)}
+  .kg pre{background:none;color:var(--ink);padding:0;font-size:12.5px}
+
+  /* ========== 回到顶部 ========== */
+  .to-top{position:fixed;right:18px;bottom:18px;width:44px;height:44px;border-radius:50%;background:var(--primary);color:#fff;display:flex;align-items:center;justify-content:center;cursor:pointer;box-shadow:0 6px 20px rgba(37,99,235,.4);border:none;font-size:18px;opacity:0;visibility:hidden;transition:opacity .2s,transform .2s;z-index:90}
+  .to-top.show{opacity:1;visibility:visible}
+  .to-top:hover{transform:translateY(-2px)}
+
+  /* ========== Footer ========== */
+  footer{background:#1f2937;color:#d1d5db;padding:40px 0 30px;text-align:center;font-size:14px}
+  footer .brand{font-size:20px;font-weight:700;color:#fff;margin-bottom:10px}
+  footer p{margin:6px 0;color:#9ca3af}
+
+  /* ========== 标签徽章 ========== */
+  .pill{display:inline-block;background:var(--bg-soft);color:var(--ink-soft);padding:3px 10px;border-radius:12px;font-size:12px;margin:2px 4px 2px 0;border:1px solid var(--line)}
+  .pill.green{background:var(--green-soft);color:#065f46;border-color:#a7f3d0}
+  .pill.blue{background:var(--primary-soft);color:#1e40af;border-color:#bfdbfe}
+  .pill.orange{background:var(--orange-soft);color:#92400e;border-color:#fde68a}
+  .pill.red{background:var(--red-soft);color:#991b1b;border-color:#fecaca}
+  .pill.purple{background:var(--purple-soft);color:#5b21b6;border-color:#ddd6fe}
+
+  /* ========== 响应式 ========== */
+  @media (max-width:768px){
+    header.site{padding:32px 0 28px}
+    header.site h1{font-size:26px}
+    header.site .sub{font-size:15px}
+    h2.section-title{font-size:24px}
+    h3{font-size:19px}
+    .learning-path-cards{grid-template-columns:repeat(2,1fr)}
+    .stage-card .name{font-size:14px}
+    .card-grid{grid-template-columns:1fr}
+    .stats{grid-template-columns:repeat(2,1fr)}
+    section{padding:36px 0}
+    .card{padding:18px}
+    nav.topnav a{padding:12px 8px;font-size:13px}
+    nav.topnav .brand{font-size:13px;padding-right:10px;margin-right:2px}
+  }
+  @media (max-width:480px){
+    .learning-path-cards{grid-template-columns:1fr}
+    .stats{grid-template-columns:1fr 1fr}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="container">
+    <span class="badge">AI × 跨境电商 · 系统课程</span>
+    <h1>DeepSeek 赋能跨境电商<span class="accent">—— 从入门到精通</span></h1>
+    <p class="sub">这是一份专为"零基础小白"准备的完整学习手册，覆盖市场认知、智能选品、品牌构建、引流转化、客户运营、风险控制、物流供应链、提示词速查 8 大章节，结合 9 周学习路径与 49+ 可直接套用的提示词模板，帮你把 AI 真正变成跨境生意的杠杆。</p>
+    <div class="learning-path-cards">
+      <div class="stage-card"><div class="week">第 1 周</div><div class="name">认知建立期</div><div class="chap">第 1 章 · AI 跨境格局</div></div>
+      <div class="stage-card"><div class="week">第 2-3 周</div><div class="name">核心方法掌握期</div><div class="chap">第 2-3 章 · 选品+品牌</div></div>
+      <div class="stage-card"><div class="week">第 4-6 周</div><div class="name">运营执行突破期</div><div class="chap">第 4-5 章 · 引流+客服</div></div>
+      <div class="stage-card"><div class="week">第 7-8 周</div><div class="name">风控与供应链精通期</div><div class="chap">第 6-7 章 · 风控+物流</div></div>
+      <div class="stage-card"><div class="week">第 9 周</div><div class="name">工具箱与未来布局</div><div class="chap">第 8 章 · 速查+趋势</div></div>
+    </div>
+  </div>
+</header>
+
+<nav class="topnav" id="topnav">
+  <div class="nav-inner">
+    <span class="brand">课程目录</span>
+    <a href="#chapter-1">第 1 章</a>
+    <a href="#chapter-2">第 2 章</a>
+    <a href="#chapter-3">第 3 章</a>
+    <a href="#chapter-4">第 4 章</a>
+    <a href="#chapter-5">第 5 章</a>
+    <a href="#chapter-6">第 6 章</a>
+    <a href="#chapter-7">第 7 章</a>
+    <a href="#chapter-8">第 8 章</a>
+    <a href="#knowledge-map">知识图谱</a>
+    <a href="#learning-path">学习路径</a>
+    <a href="#prompt-library">提示词库</a>
+    <a href="#product-library">选品库</a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ========== 第 1 章 ========== -->
+<section id="chapter-1">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">CHAPTER 01</span>
+      <h2 class="section-title">重新认识 AI 时代的跨境电商</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">把握宏观格局，看清 AI 带来的机会与工具武器</p>
+    </div>
+
+    <h3>1.1 跨境电商市场规模与发展前景</h3>
+    <p>根据权威数据，<strong>2023 年全球跨境电商市场规模已经达到 1.34 万亿美元</strong>，并预计到 <strong>2031 年将达到 3.77 万亿美元</strong>。从 2024 年到 2031 年期间，年复合增长率（CAGR）将保持在 <strong>13.8%</strong> 左右。这表明跨境电商市场仍处于持续增长阶段，对卖家而言蕴含着大量机会。</p>
+
+    <div class="stats">
+      <div class="stat"><div class="num">1.34T</div><div class="lbl">2023 市场规模（美元）</div></div>
+      <div class="stat green"><div class="num">3.77T</div><div class="lbl">2031 预测规模（美元）</div></div>
+      <div class="stat orange"><div class="num">13.8%</div><div class="lbl">年复合增长率（CAGR）</div></div>
+      <div class="stat purple"><div class="num">8 年</div><div class="lbl">约 2.8 倍增长窗口</div></div>
+    </div>
+
+    <h3>1.2 卖家玩法的多元化演变</h3>
+    <div class="card-grid">
+      <div class="mini-card"><h5>独立站崛起</h5><p><strong>Shopify 全球店铺数已达 240 万家</strong>，相比 2020 年增长 70%。越来越多卖家不再单纯依赖大平台，开始打造自有品牌站点。</p></div>
+      <div class="mini-card"><h5>社交电商爆发</h5><p>TikTok 在东南亚市场增速超过 <strong>4 倍</strong>，已成为当地第二大电商平台；Temu 冲到了全球电商排行榜第二位。</p></div>
+      <div class="mini-card"><h5>老牌平台主流</h5><p>亚马逊、eBay 等仍是主流。渠道格局从"单一平台垄断"演变为"多平台矩阵共存"。</p></div>
+    </div>
+
+    <h3>1.3 卖家面临的四大挑战</h3>
+    <table>
+      <thead><tr><th>挑战</th><th>具体表现</th></tr></thead>
+      <tbody>
+        <tr><td><strong>同质化竞争激烈</strong></td><td>产品同质化严重，普遍陷入价格战，利润空间被压缩，品牌建设困难</td></tr>
+        <tr><td><strong>平台规则复杂</strong></td><td>各平台政策差异大，合规要求严格，操作失误容易"踩坑"</td></tr>
+        <tr><td><strong>运营成本上涨</strong></td><td>平台佣金增加、广告费用攀升、仓储物流成本上涨，整体成本压力增大</td></tr>
+        <tr><td><strong>数据获取困难</strong></td><td>缺乏完整的用户数据，精准营销难以实现，影响科学销售决策</td></tr>
+      </tbody>
+    </table>
+
+    <h3>1.4 AI 在跨境电商的六大应用场景</h3>
+    <div class="card-grid">
+      <div class="mini-card"><h5>① 降低学习成本</h5><p>快速理解各平台规则、整理知识库、充当培训助手，帮助新手快速上手。</p></div>
+      <div class="mini-card"><h5>② 精准选品</h5><p>通过大数据分析用户偏好，预测下一波爆款商品，避免盲目选品。</p></div>
+      <div class="mini-card"><h5>③ 提升运营效率</h5><p>AI 同时管理多平台商品信息、自动同步库存，实现跨平台协同运营。</p></div>
+      <div class="mini-card"><h5>④ 营销推广升级</h5><p>自动撰写文案、多语言翻译、精准广告投放，提升转化率。</p></div>
+      <div class="mini-card"><h5>⑤ 供应链管理优化</h5><p>预测市场需求、自动调整库存、规划最优物流路线、精细化成本控制。</p></div>
+      <div class="mini-card"><h5>⑥ 风险控制加强</h5><p>自动评估供应商可靠性、合规性自动检查、风险问题提前预警，降低运营损失。</p></div>
+    </div>
+
+    <h3>1.5 DeepSeek 系列模型介绍</h3>
+    <div class="card-grid">
+      <div class="mini-card"><h5>DeepSeek V3</h5><p>2024 年 12 月发布的大语言模型，<strong>685B 参数</strong>，完全开源，性能强劲且成本不高。</p></div>
+      <div class="mini-card"><h5>DeepSeek R1</h5><p>2025 年 1 月推出的推理模型，擅长深度分析与逻辑推理，帮助完成复杂决策。</p></div>
+      <div class="mini-card"><h5>多模态模型</h5><p>既能识别图像，也能根据文字生成图像，适合视觉营销场景。</p></div>
+      <div class="mini-card"><h5>技术规格</h5><p>最大输入 <strong>64000 token</strong>（约 3-4 万汉字）<br>最大输出 <strong>8192 token</strong><br>最多 50 个附件，单个 100MB<br>支持 Word / PDF / 图片</p></div>
+    </div>
+
+    <h3>1.6 DeepSeek 实战案例 —— 欧洲家居市场分析</h3>
+    <ol>
+      <li>用 DeepSeek 全网搜索欧洲家居市场最新趋势</li>
+      <li>识别增长快速的品类</li>
+      <li>对比亚马逊、eBay 等平台的热搜关键词差异</li>
+      <li>AI 生成具体发展建议（多平台布局、未来发展规划）</li>
+    </ol>
+    <p>这种"搜索 → 分析 → 对比 → 建议"的工作流，让决策更加可靠。</p>
+
+    <h3>1.7 AI 内容生成的全场景覆盖</h3>
+    <div class="card-grid">
+      <div class="mini-card"><h5>商品内容</h5><p>写产品 Listing、优化商品标题、撰写商品描述、提取核心关键词、生成营销文案</p></div>
+      <div class="mini-card"><h5>广告与营销</h5><p>Instagram 广告文案、促销内容创作</p></div>
+      <div class="mini-card"><h5>客服类</h5><p>处理客户邮件回复、咨询应答、售后争议处理</p></div>
+      <div class="mini-card"><h5>多媒体内容</h5><p>视频脚本撰写、直播稿子生成</p></div>
+    </div>
+
+    <h3>1.8 AI 带来的三大核心价值</h3>
+    <div class="stats">
+      <div class="stat"><div class="num">10×</div><div class="lbl">效率革命提升上限</div></div>
+      <div class="stat green"><div class="num">↓</div><div class="lbl">成本优化（少人力、高 ROI）</div></div>
+      <div class="stat orange"><div class="num">数据驱动</div><div class="lbl">科学决策、少走弯路</div></div>
+    </div>
+
+    <div class="warning"><strong>使用注意：AI 幻觉问题</strong>——AI 有时会"编造"内容。涉及关键信息时必须再次核对，避免因 AI 生成错误信息导致业务损失。</div>
+
+    <h3>1.9 章节核心要点回顾</h3>
+    <ol>
+      <li>市场红利持续：8 年增长窗口，CAGR 13.8%，仍是蓝海市场。</li>
+      <li>渠道格局重塑：独立站 + 社交电商 + 新兴平台，传统垄断格局被打破。</li>
+      <li>AI 六大场景落地：全链路赋能已成现实。</li>
+      <li>DeepSeek 成核心工具：V3 + R1 + 多模态矩阵。</li>
+      <li>效率革命 10 倍提升，但要警惕 AI 幻觉。</li>
+    </ol>
+
+    <div class="quote"><strong>行业判断</strong>：像 DeepSeek 这样大量涌现的新 AI 工具，正在重新定义跨境电商的玩法。<strong>拥抱 AI 就是拥抱未来的竞争力</strong>——这是 AI 时代跨境电商卖家的必然选择。</div>
+  </div>
+</section>
+
+<!-- ========== 第 2 章 ========== -->
+<section id="chapter-2">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">CHAPTER 02</span>
+      <h2 class="section-title">DeepSeek 智能选品实战</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">从"选国家"到"选产品"，用结构化方法做差异化创新</p>
+    </div>
+
+    <h3>2.1 跨境电商宏观市场判断与目标国家选择</h3>
+    <p>跨境电商第一步是宏观判断"<strong>哪些国家跨境电商发展速度快</strong>"，必须系统化思考而非冲动入场。课程提供大量提示词模板作为"思路参考"，帮助用户从"不知道怎么提问题"到"有方法提问"。</p>
+    <div class="quote"><strong>重要认知</strong>：提问本身是技能。提示词是"语料"，让对话框记住聊过的内容，后续提问会更精确。</div>
+
+    <h3>2.2 印尼服装市场深度案例剖析</h3>
+    <h4>第一层：市场层面</h4>
+    <ul>
+      <li>分析对象：印尼服装销售数据、用户画像、社媒情况</li>
+      <li>关键发现：印尼服装属于"高增长有潜力的产品"</li>
+      <li>用户搜索量高，但价格挑战明显</li>
+    </ul>
+    <h4>第二层：品类层面</h4>
+    <ul>
+      <li>TikTok Shop 在印尼市场表现突出</li>
+      <li>关键洞察：<strong>2024 年 3 月印尼穆斯林时尚占比极高</strong>，头饰、头盖类产品发展非常快</li>
+    </ul>
+    <h4>第三层：店铺层面</h4>
+    <div class="stats">
+      <div class="stat"><div class="num">1.4M</div><div class="lbl">粉丝量</div></div>
+      <div class="stat green"><div class="num">1300万</div><div class="lbl">店铺销售额（美金）</div></div>
+      <div class="stat orange"><div class="num">230万</div><div class="lbl">穆斯林产品 GMV（美金）</div></div>
+    </div>
+    <h4>第四层：基础设施层面</h4>
+    <ul>
+      <li>当地支付习惯：以二维码支付为主</li>
+      <li>重要支付平台：GoPay 等</li>
+      <li>实操建议：网站或电商平台应对接当地支付平台以符合用户习惯</li>
+    </ul>
+
+    <h3>2.3 跨境电商平台的选择与评估方法论</h3>
+    <div class="card">
+      <h4 style="margin-top:0">平台选择核心公式</h4>
+      <pre><code>平台选择 = 流量质量 × 运营成本效率 × 规则友好度</code></pre>
+      <p style="margin-bottom:0;color:var(--ink-soft)">这是十余年经验积累的成果。"没有完美的平台，只有最适合的平台"。</p>
+    </div>
+
+    <h4>多维度评估框架</h4>
+    <ul>
+      <li>前期交易成本</li>
+      <li>启动资金需求</li>
+      <li>物流难度</li>
+      <li>运营复杂度</li>
+      <li>平台对卖家友好度（是否动不动就封店）</li>
+    </ul>
+
+    <h4>卖家模式选择</h4>
+    <table>
+      <thead><tr><th>模式</th><th>资金需求</th><th>适配情况</th></tr></thead>
+      <tbody>
+        <tr><td>铺货模式</td><td>资金链需求大</td><td>50 万预算"不堪一击"</td></tr>
+        <tr><td>精铺模式</td><td>中等</td><td>平衡选择</td></tr>
+        <tr><td>品牌卖家</td><td>长期投入</td><td>适合有实力团队</td></tr>
+      </tbody>
+    </table>
+
+    <div class="warning">"<strong>听说跨境电商挺好做</strong>"是错误认知；"<strong>国内太卷就转国外</strong>"很难快速得到回报。跨境电商平台还包括：俄罗斯 Yandex/Ozon、日本/韩国乐天/Coupang（酷彭）等。</div>
+
+    <h3>2.4 爆款产品的 AI 辅助挖掘与用户需求洞察</h3>
+    <h4>第一步：启用联网搜索找爆品</h4>
+    <ul>
+      <li>操作：让 DeepSeek 点开联网搜索</li>
+      <li>数据源：各平台搜索量、销量变化</li>
+      <li>推荐结果示例：互动性节日视频类产品 / 家居清洁类 / 高性价比快时尚配饰</li>
+    </ul>
+
+    <h4>第二步：根据社媒数据推荐具体产品</h4>
+    <ul>
+      <li>基于 TikTok 前一个月点赞量、分享量推荐 20 个产品</li>
+      <li>推荐逻辑：要让 AI 解释"为什么推荐这 20 个产品"</li>
+      <li>案例切入点：便携榨汁机（团队有供应链资源）</li>
+    </ul>
+
+    <h4>第三步：真实需求洞察</h4>
+    <div class="card">
+      <h4 style="margin-top:0">便携榨汁机用户痛点清单（7 大痛点）</h4>
+      <ol>
+        <li>速度问题——除了快速之外，硬物根本无法处理</li>
+        <li>续航能力不足</li>
+        <li>便携式充电时间久</li>
+        <li>难清洗</li>
+        <li>噪音大</li>
+        <li>长期使用怕老化</li>
+        <li>个性化定制需求</li>
+      </ol>
+    </div>
+    <div class="info"><strong>核心方法论</strong>：别人卖得好不代表你也能卖得好。必须做产品洞察，找到未满足需求；与竞品做差异化，产品上线后才能卖得好。</div>
+
+    <h4>第四步：数据验证</h4>
+    <ul>
+      <li>担心：AI 大模型可能存在"机器幻觉"</li>
+      <li>验证方法：通过 Google Trends 搜索"便携榨汁机"</li>
+      <li>验证结果：美国市场热度高，当前阶段达到最高</li>
+      <li>原则：必须不断验证 AI 推荐内容</li>
+    </ul>
+
+    <h3>2.5 第三方数据验证与 VOC 用户心声分析</h3>
+    <h4>工具组合策略</h4>
+    <ul>
+      <li>DeepSeek 优势：语言理解、结构化分析</li>
+      <li>DeepSeek 劣势：无法实时对接大平台 API 接口获取最新数据</li>
+      <li>互补工具：<strong>卖家精灵</strong>（亚马逊卖家常用，实时数据更新）</li>
+    </ul>
+
+    <h4>美国浴室地毯市场分析结果（卖家精灵）</h4>
+    <div class="card-grid">
+      <div class="mini-card"><h5>市场体量</h5><p>偏大</p></div>
+      <div class="mini-card"><h5>需求稳定性</h5><p>稳定</p></div>
+      <div class="mini-card"><h5>季节性影响</h5><p>较好</p></div>
+      <div class="mini-card"><h5>卖家竞争</h5><p>卖家 60+，头部卖家多，中小卖家竞争激烈</p></div>
+      <div class="mini-card"><h5>价格区间</h5><p>中低端 15-15 美金，竞争度中等</p></div>
+    </div>
+
+    <h4>差异化机会</h4>
+    <ul>
+      <li>捆绑售卖提高客单价</li>
+      <li>更多尺寸选择</li>
+      <li>强调环保</li>
+      <li>退货政策友好</li>
+      <li>防滑、吸水性强</li>
+    </ul>
+
+    <h4>波特五力模型分析</h4>
+    <table>
+      <thead><tr><th>五力维度</th><th>评估结果</th></tr></thead>
+      <tbody>
+        <tr><td>行业竞争</td><td><strong>高</strong></td></tr>
+        <tr><td>新进入者威胁</td><td>中等</td></tr>
+        <tr><td>替代品</td><td>比较容易</td></tr>
+        <tr><td>供应商议价能力</td><td>较低（供应商分散可压价）</td></tr>
+        <tr><td>购买者议价能力</td><td>较高（性价比主导）</td></tr>
+      </tbody>
+    </table>
+
+    <h4>VOC 用户心声洞察</h4>
+    <ul>
+      <li>VOC 数据采集工具：<strong>Appear.y</strong>（通过爬虫抓取 Vfile 美国市场浴室地毯评论）</li>
+      <li>VOC 分析三维度：情感分析 / 负面评价深挖 / 平台用户群体差异</li>
+      <li>实测结果：正面评价占比 <strong>85%</strong>（不易出现差评）</li>
+    </ul>
+
+    <h3>2.6 结构化思维模型驱动产品差异化创新 —— SCAMPER</h3>
+    <p><strong>SCAMPER 七个维度</strong>：</p>
+    <div class="card-grid">
+      <div class="mini-card"><h5>S - Substitute</h5><p>替代</p></div>
+      <div class="mini-card"><h5>C - Combine</h5><p>组合</p></div>
+      <div class="mini-card"><h5>A - Adjust</h5><p>调整</p></div>
+      <div class="mini-card"><h5>M - Modify</h5><p>修改</p></div>
+      <div class="mini-card"><h5>P - Put to other uses</h5><p>另作他用</p></div>
+      <div class="mini-card"><h5>E - Eliminate</h5><p>消除</p></div>
+      <div class="mini-card"><h5>R - Rearrange</h5><p>重组</p></div>
+    </div>
+
+    <p>在 VOC 洞察基础上应用 SCAMPER 模型，提问模板：</p>
+    <ul>
+      <li>可不可以用其他材质？</li>
+      <li>可不可以和 A 产品、B 产品组合？</li>
+      <li>怎么调整形状？</li>
+      <li>可不可以修改为拼接式？</li>
+    </ul>
+
+    <div class="card">
+      <h4 style="margin-top:0">最终方案：模块化可替换硅藻泥地毯</h4>
+      <p><strong>约束条件</strong>：目标追求高利润；风险偏好中低风险（保守）</p>
+      <p><strong>方案输出</strong>：模块化设计 + 可替换组件 + 硅藻泥材质 + 完整建议</p>
+    </div>
+
+    <h3>2.7 章节核心要点</h3>
+    <ol>
+      <li>提问能力是核心技能——提示词模板不能依赖，最终要建立自己的提问框架</li>
+      <li>顺势而为选市场——必须选择电商增长率超过 30% 的市场（印尼、拉美）</li>
+      <li>平台选择三要素——流量 × 成本 × 规则，并配合综合打分机制</li>
+      <li>AI + 第三方工具组合验证——警惕 AI 幻觉，用卖家精灵、Google Trends、Appear.y 等交叉验证</li>
+      <li>结构化思维模型驱动选品与创新——波特五力 + VOC + SCAMPER 构成完整方法论</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== 第 3 章 ========== -->
+<section id="chapter-3">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">CHAPTER 03</span>
+      <h2 class="section-title">DeepSeek 赋能品牌构建与内容创作</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">从命名到建站，给你的产品赋予一个深刻的含义</p>
+    </div>
+
+    <p>本章节的核心任务是"<strong>给你的产品赋予一个深刻的含义</strong>"。整章逻辑围绕"品牌从 0 到 1 的完整链路"展开：</p>
+    <div class="info"><strong>完整链路</strong>：品牌命名 → Slogan → 品牌故事 → 品牌定位与营销策略 → VI 视觉设计 → Logo 生成 → 建站策略 → Landing Page 优化 → 广告素材与文案</div>
+
+    <h3>3.1 品牌命名（Brand Naming）</h3>
+    <p>操作流程：先做品牌定位，再做品牌命名。把"结构清晰的命名咨询提示词"喂给 DeepSeek，告知其针对目标市场（美国）和目标产品进行命名。</p>
+    <p><strong>命名必须遵循的三大原则</strong>：</p>
+    <ol>
+      <li>美国市场的语言规划</li>
+      <li>文化适配策略</li>
+      <li>差异化定位策略</li>
+    </ol>
+    <p>还需在"美国发音拼写 SEO 维度"上考虑名字的适配性。</p>
+
+    <h3>3.2 Slogan（品牌口号）创作</h3>
+    <p>把确定的品牌名用于撰写"官方网站上的品牌和核心价值"，要求"语言自然优美、适合宣传"。</p>
+    <div class="quote">DeepSeek 产出举例："Play, take cute, let play take root in the heart"（玩耍扎根于心），"天性玩耍应用很可持续"等。<br>传统创意需要专门团队花一两周，而 DeepSeek <strong>不到 30 秒</strong>就给出了多个方向和"核心的价值组装"。</div>
+
+    <h3>3.3 品牌故事（Brand Story）创作</h3>
+    <p><strong>品牌故事创造的六大标准</strong>：</p>
+    <ol>
+      <li>真实性</li>
+      <li>关系（连接）</li>
+      <li>独特性</li>
+      <li>情感的共鸣</li>
+      <li>简洁明了</li>
+      <li>价值传达</li>
+    </ol>
+    <div class="card">
+      <h4 style="margin-top:0">DeepSeek 产出的故事核心</h4>
+      <p>创始人是一位父亲也是设计师，看到小 baby 越过鲜艳塑料玩具而执迷木质玩具，反思在电子产品、声光玩具盛行的当下，为何孩子偏爱木质——引出"<strong>玩具是大自然玩耍的神秘力量</strong>"这一温暖、有冲突感的核心叙事。</p>
+    </div>
+
+    <h3>3.4 品牌定位与营销策略（资深出海内容营销专家角色）</h3>
+    <p><strong>Prompt 设计方法论</strong>：</p>
+    <ol>
+      <li>先给定角色能力（知识体系）：告知它作为出海内容营销专家必须具备哪些能力</li>
+      <li>再下任务：明确要做品牌定义、价值锚点、内容启动等任务</li>
+      <li>层层递进：不断添加新任务</li>
+    </ol>
+    <p><strong>冷启动公式</strong>：小 KOL（Forester）→ 开箱视频 + 折扣码 → Facebook Group 群组线索沉淀 → EDM 邮件营销</p>
+    <p><strong>渠道覆盖</strong>：海外社交媒体 Pinterest、Instagram、YouTube、Facebook、EDM 电子邮件等</p>
+
+    <h3>3.5 VI 视觉与 Logo 生成</h3>
+    <p>让 DeepSeek 担任"<strong>品牌视觉设计师</strong>"，传达 VI 视觉相关建议，涵盖：色彩 / 字体设计 / Logo 设计方案</p>
+    <p>要求：必须符合消费心理学、当地市场（美国）、文化标记、色彩适配性。</p>
+
+    <h4>Logo 生成（极梦 / 即梦工具结合）</h4>
+    <ol>
+      <li>先在 DeepSeek 中"创建极梦的提示词"</li>
+      <li>将提示词直接复制到"即梦"国内工具</li>
+      <li>由 AI 生成多个 Logo 方案</li>
+    </ol>
+    <p>除了即梦，也可以用海外的 Midjourney 等生图工具。</p>
+
+    <h3>3.6 独立站建站策略</h3>
+    <p>把 DeepSeek 当作"<strong>跨境电商运营的战略专家</strong>"，要求制定进入美国市场的完整独立站运营策略。</p>
+    <p><strong>策略框架的 8 大维度</strong>：</p>
+    <ol>
+      <li>战略意义</li>
+      <li>目标人群消费画像</li>
+      <li>品牌定义</li>
+      <li>流量获取</li>
+      <li>运营规划</li>
+      <li>数据监测</li>
+      <li>其他配套维度</li>
+      <li>其他配套维度</li>
+    </ol>
+    <div class="tip"><strong>关键控制指令（控制 DeepSeek 输出节奏）</strong>：<br>"<strong>你每一步推理必须是分步骤来展示的，而且每一个步骤待我确认之后才可以进行下一步。</strong>"</div>
+
+    <h4>建站准备清单</h4>
+    <ul>
+      <li>用过哪些建站工具（Shopify 或其他）</li>
+      <li>域名注册到上线注意要点</li>
+      <li>必备插件</li>
+      <li>页面品牌页设计</li>
+      <li>合规性</li>
+      <li>上线前测试清单</li>
+      <li>推广物料准备</li>
+    </ul>
+
+    <h3>3.7 Landing Page 与 Listing 撰写</h3>
+    <p>传统独立站最大流量入口是广告，广告引导用户进入的产品页面即 Landing Page。</p>
+    <p><strong>Listing 必含内容</strong>：核心主张传达、<strong>卖点提炼（最重要）</strong>、结构化输出、客户常见 Q&A（最好以"隐藏"形式放在产品页面）、差异化表达（即卖点）</p>
+
+    <h4>DeepSeek 产出清单（举例）</h4>
+    <ul>
+      <li>为什么这个产品重要</li>
+      <li>符合哪些第三方标准</li>
+      <li>标题</li>
+      <li>产品介绍</li>
+      <li>产品卖点</li>
+      <li>用户反馈</li>
+      <li>尺寸</li>
+    </ul>
+
+    <h3>3.8 广告素材与营销文案</h3>
+    <p><strong>广告文案标准句式</strong>：标题 + 正文 + CTA（Call To Action，立即购买指令）。要求符合"让用户赶紧购买"的句式。</p>
+    <p>已建站卖家的扩展应用：把现有网站内容给到 DeepSeek，让其进行内容优化。DeepSeek 会给出：原有内容分析、优化方向、优化后版本。</p>
+
+    <h3>3.9 章节核心要点</h3>
+    <ol>
+      <li><strong>品牌构建五步走</strong>：命名 → Slogan → 品牌故事 → 定位与营销策略 → VI 视觉与 Logo</li>
+      <li><strong>角色设定法</strong>：资深出海内容营销专家 / 品牌视觉设计师 / 跨境电商运营战略专家</li>
+      <li><strong>分步骤迭代法</strong>："每一步分步骤展示，待确认后再进行下一步"</li>
+      <li><strong>多工具协同</strong>：DeepSeek（文字）+ 即梦/Midjourney（图像）+ Shopify（建站）</li>
+      <li><strong>AI 时代平权</strong>：提问能力比专业技能更重要</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== 第 4 章 ========== -->
+<section id="chapter-4">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">CHAPTER 04</span>
+      <h2 class="section-title">DeepSeek 驱动引流与转化</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">"做跨境电商最贵的就是流量了"——本章教你 6 大营销场景的玩法</p>
+    </div>
+
+    <h3>4.1 营销日历制定与全年营销活动规划</h3>
+    <p>做海外营销引流，<strong>最重要的第一步是先做一份营销日历</strong>。像每年的 9 月、10 月就要开始制作；作者服务客户已在索要 2026 年的营销日历。</p>
+    <p>营销日历需包含两个关键维度：</p>
+    <ul>
+      <li>重要的全年节日节点（情人节、母亲节、父亲节、会员日、感恩节、圣诞等）</li>
+      <li>每个节日的营销活动主题形式</li>
+    </ul>
+
+    <h4>案例应用 —— 木制玩具营销日历</h4>
+    <div class="info">
+      <strong>美国市场特点</strong>：注重消费节日文化洞察，强调"全球品牌为美国家庭设计"的故事，而非单纯强调中国制造。<br>
+      <strong>重要度标记</strong>：DeepSeek 用五星标记全球营销节点的重要程度。<br>
+      <strong>圣诞创意案例核心 Slogan</strong>："Give the story, not just a toy — 馈赠一段故事，不只是一件玩具"<br>
+      营销逻辑：木制玩具具备代际传承属性（父辈祖辈玩过，小孩到曾孙子都可玩）<br>
+      分发渠道：Instagram、TikTok、Facebook、Email<br>
+      预算分配示例（5 万美金）：KOL 占比最大，其次是付费广告
+    </div>
+
+    <h4>单场营销活动的完整规划要素</h4>
+    <ol>
+      <li>活动内容、目的</li>
+      <li>活动的转化形式</li>
+      <li>创意方向</li>
+      <li>在哪些社交媒体上发布</li>
+      <li>预算与规划</li>
+    </ol>
+
+    <h3>4.2 SEO 内容创作与持续优化策略</h3>
+    <h4>第一阶段：关键词与长尾词挖掘</h4>
+    <ul>
+      <li>DeepSeek 能给出日文关键词与长尾词</li>
+      <li>行业洞察：日本本土并无专门的地道 AI 大模型，日本也用 ChatGPT</li>
+    </ul>
+
+    <h4>第二阶段：SEO 文章大纲与 CTA 设计</h4>
+    <ul>
+      <li>生成 SEO 文章大纲时要注重关键点</li>
+      <li>必须包含 CTA（Call to Action）动作：购买、订阅等转化指令</li>
+    </ul>
+
+    <h4>第三阶段：完整 SEO 文章生成 —— 多轮引导法</h4>
+    <ol>
+      <li>先要求做调查</li>
+      <li>基于以上内容再生成 SEO 文章</li>
+      <li>要求文章同时配中文解释，方便快速判断</li>
+    </ol>
+    <p><strong>核心方法论</strong>："不断引导"比"一次性生成"质量更高。</p>
+
+    <h4>第四阶段：持续优化 SEO 策略（五大维度）</h4>
+    <ol>
+      <li>更新频率</li>
+      <li>优化等级优先度</li>
+      <li>AB Test 的建议</li>
+      <li>搜索意图变化后的内容调整方向</li>
+      <li>关键词 AB Test 可往哪些方向测试</li>
+    </ol>
+
+    <div class="tip"><strong>RPA + AI 批量生产体系</strong>：作者服务客户已实现通过 RPA 和 AI 大模型批量生成 SEO 内容，上传至官方网站。</div>
+
+    <h3>4.3 海外社交媒体营销</h3>
+    <p><strong>角色设定技巧</strong>：使用 DeepSeek 时，先给 AI 设定专家角色——例如"假设你是社交媒体的营销专家，擅长这个社交媒体的工作"。</p>
+
+    <h4>第一阶段：竞品平台分析</h4>
+    <p>分析对象：美国市场的耳机产品。竞品：Apple、SONY、BOSE、Samsung、新兴品牌。</p>
+    <p>DeepSeek 给出的策略洞察：</p>
+    <ul>
+      <li>内容层面：TikTok Reels 做引爆款引流</li>
+      <li>信任沉淀：Reddit 和 YouTube 做信任沉淀</li>
+      <li>合作策略：找网红广告、做 AB Test、定向找到用户人群</li>
+      <li>品牌升级：做社会责任感提升品牌形象</li>
+    </ul>
+
+    <h4>第二阶段：Instagram 内容框架</h4>
+    <ul>
+      <li>设定：Instagram 种草年轻人群（蓝牙运动骨传导耳塞）</li>
+      <li>DeepSeek 输出脚本框架 1、框架 2（美学静态、真实 UGC 内容）</li>
+    </ul>
+
+    <h4>重要辅助工具 —— ForeverS 多模型对比</h4>
+    <ul>
+      <li>功能：输入信息后，可用不同模型对比生成结果</li>
+      <li>支持模型：Cloud 3.5、ChatGPT-4o、其他模型</li>
+      <li>用途：把 DeepSeek 生成的内容用其他模型再写一遍，对比择优</li>
+    </ul>
+
+    <h3>4.4 海外新闻媒体 PR 营销与 AIDA 邮件模型</h3>
+    <p>PR 是一个<strong>往往被低估但很重要的流量入口</strong>。覆盖范围：新闻媒体、新媒体、联盟营销、博客等内容。</p>
+
+    <div class="warning"><strong>AI 时代的新机遇 —— AI 购物助手流量入口</strong>：用户输入如"父亲节我要送什么礼物"，AI 直接返回购物平台/店铺链接。趋势洞察：用户越来越不愿用 Google 等传统搜索引擎，更多直接问 AI 问题 → <strong>必须主动铺设 AI 可识别的内容</strong>。</div>
+
+    <h4>AIDA 邮件模型 —— Pitch 邮件写作黄金框架</h4>
+    <div class="card-grid">
+      <div class="mini-card"><h5>A - Attention</h5><p>注意</p></div>
+      <div class="mini-card"><h5>I - Interest</h5><p>兴趣</p></div>
+      <div class="mini-card"><h5>D - Desire</h5><p>欲望</p></div>
+      <div class="mini-card"><h5>A - Action</h5><p>行动</p></div>
+    </div>
+    <p>写作要求：语气专业而亲切</p>
+
+    <h4>邮件跟进策略</h4>
+    <ul>
+      <li>第一封邮件可能无效果，需要第二封、第三封跟进</li>
+      <li>方法：让 DeepSeek 定制再次联系媒体的策略</li>
+      <li>关系维护：已完成报道的媒体要发感谢信</li>
+    </ul>
+
+    <h3>4.5 海外网红营销（Influencer Marketing）</h3>
+    <div class="quote"><strong>经典战绩</strong>：通过全球网红宣传，把不到 100 块成本的表卖到 2000 块（DW Daniel Wellington 案例）</div>
+
+    <h4>网红营销策略生成</h4>
+    <ol>
+      <li>目标人群画像</li>
+      <li>找 YouTube 还是 Instagram 的网红</li>
+      <li>找怎么样的内容</li>
+      <li>网红合作方式</li>
+      <li>合作风险（如跑单风险：给了产品人就消失了）</li>
+    </ol>
+
+    <h4>网红推荐与筛选</h4>
+    <ul>
+      <li>工具建议：ChatGPT 找网红数据可能效果更好</li>
+      <li>DeepSeek 输出网红列表，包含：网红直接推荐、观看量数据、报价</li>
+    </ul>
+
+    <h4>网红合作效果复盘</h4>
+    <ul>
+      <li>数据指标：播放量、点赞、RY（Reach 触达率）</li>
+      <li>计算方式</li>
+      <li>数据采集方式：所有销量可追踪、加 UTM 追踪链接</li>
+      <li>对比维度：不同网红类型、内容类型、发帖时间</li>
+    </ul>
+
+    <h3>4.6 EDM 邮件营销与全章总结</h3>
+    <p><strong>EDM 营销的 AB Test 方法论</strong>：</p>
+    <ul>
+      <li>测试维度：图片、字体大小、内容、发送时间点</li>
+      <li><strong>核心原则：每次发的时候只改变一个元素</strong></li>
+      <li>目的：通过数据对比，找到适合品牌的最佳邮件发送 know-how</li>
+    </ul>
+
+    <h3>4.7 六大营销场景方法论地图</h3>
+    <table>
+      <thead><tr><th>场景</th><th>核心方法</th><th>DeepSeek 角色</th><th>关键产出</th></tr></thead>
+      <tbody>
+        <tr><td>营销日历</td><td>提前 3-4 个月规划节日+主题</td><td>策略生成器</td><td>全年节日重要度+单场活动方案</td></tr>
+        <tr><td>SEO</td><td>多轮引导+持续优化</td><td>内容生产者+策略顾问</td><td>关键词库+SEO 长文+优化策略</td></tr>
+        <tr><td>社媒营销</td><td>多平台矩阵+多模型对比</td><td>专家角色扮演+脚本撰写</td><td>平台策略+全年规划+脚本</td></tr>
+        <tr><td>PR 营销</td><td>AIDA 邮件+本地化叙事</td><td>策略顾问+邮件撰写</td><td>Pitch 邮件+跟进策略</td></tr>
+        <tr><td>网红营销</td><td>数据筛选+UTM 追踪</td><td>策略生成+网红推荐</td><td>网红列表+合作邮件+复盘策略</td></tr>
+        <tr><td>EDM 营销</td><td>AB Test+单变量控制</td><td>内容生成器</td><td>邮件内容+测试维度</td></tr>
+      </tbody>
+    </table>
+
+    <h3>4.8 AI 时代营销的核心洞察</h3>
+    <ol>
+      <li><strong>流量入口变迁</strong>：Google 搜索 → AI 问答（ChatGPT/Claude/Gemini）→ 必须为 AI "铺设可识别的语料"</li>
+      <li><strong>AI 平权时代</strong>：传统花上千上万学的营销技能，AI 对话即可学到</li>
+      <li><strong>核心竞争力转移</strong>：从"会做"转向"会问"——提示词工程成为关键能力</li>
+      <li><strong>人机协作模式</strong>：人类负责经验沉淀 + AI 负责规模化执行</li>
+    </ol>
+
+    <div class="quote">"<strong>只有用才是最好的老师</strong>"——像招聘实习生——他什么都不懂，需要你教他做事。</div>
+  </div>
+</section>
+
+<!-- ========== 第 5 章 ========== -->
+<section id="chapter-5">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">CHAPTER 05</span>
+      <h2 class="section-title">DeepSeek 为客户运营赋能</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">7×24 智能客服 + 多语言 + 邮件自动化，把客户体验做到极致</p>
+    </div>
+
+    <h3>5.1 提升基础沟通效率的三大维度</h3>
+    <div class="card-grid">
+      <div class="mini-card"><h5>① 7×24 小时在线</h5><p>AI 智能客服真正做到永不掉线，无论客户来自哪个时区、什么时候咨询都能得到及时响应。</p></div>
+      <div class="mini-card"><h5>② 自然流畅的对话体验</h5><p>AI 能够进行非常拟人化的多轮对话，理解客户真实意图，提供更自然、更聪明的回复。</p></div>
+      <div class="mini-card"><h5>③ 强大的多平台对接能力</h5><p>无论主流电商平台、后端 ERP 系统，还是专业客服工具，基本都能集成 AI 功能。</p></div>
+    </div>
+
+    <h3>5.2 多语言翻译：跨境沟通神器</h3>
+    <ul>
+      <li><strong>双向翻译</strong>：将客户咨询翻译成中文、回复翻译回客户语言</li>
+      <li><strong>文化敏感性</strong>：考虑当地用语习惯和礼貌用语，避免生硬直译</li>
+      <li><strong>智能分类与建议</strong>：自动对客户问题分类，并给客服提供处理建议</li>
+    </ul>
+
+    <h3>5.3 评论与反馈的智能处理</h3>
+    <h4>情感分析</h4>
+    <p>自动准确判断评论倾向（积极、中性、消极），并识别客户表扬或批评的具体点（如物流快、产品瑕疵）。</p>
+    <h4>自动生成回复</h4>
+    <ul>
+      <li><strong>正面评论</strong>：自动生成表示感谢和赞赏的礼貌回复，邀请客户再次光临</li>
+      <li><strong>负面评论</strong>：积极回应、诚恳道歉，并提供具体解决方案（如退款、补发）</li>
+    </ul>
+
+    <h3>5.4 主动营销：精准转化与复购</h3>
+    <div class="card-grid">
+      <div class="mini-card"><h5>店铺粉丝激活</h5><p>AI 分析粉丝的关注时间和互动行为，在最可能购物的时候推送个性化购买提醒和专属优惠。</p></div>
+      <div class="mini-card"><h5>购物车催付</h5><p>对已加购物车未付款的客户，AI 生成的提醒更具技巧性，营造紧迫感（库存紧张）或提供额外利益诱导。</p></div>
+      <div class="mini-card"><h5>最终成效</h5><p>通过个性化内容和行动引导，有效提高店铺整体转化率和客户复购频率。</p></div>
+    </div>
+
+    <h3>5.5 邮件全流程自动化处理</h3>
+    <ol>
+      <li><strong>接收邮件</strong>：系统自动接收客户邮件</li>
+      <li><strong>无缝衔接 AI 处理</strong>：可设置规则自动触发 AI 处理</li>
+      <li><strong>分析内容</strong>：DeepSeek 深度分析邮件正文和任何附件内容</li>
+      <li><strong>智能归类</strong>：根据预设指令精准分类（询价或投诉）</li>
+      <li><strong>结果执行</strong>：自动分派、自动生成回复草稿</li>
+    </ol>
+
+    <h3>5.6 智能邮件分类标签系统（三层）</h3>
+    <table>
+      <thead><tr><th>标签类型</th><th>作用</th></tr></thead>
+      <tbody>
+        <tr><td><strong>咨询类型标签</strong></td><td>询价、订单咨询、付款问题、物流跟踪、售后咨询、退换货申请、投诉建议</td></tr>
+        <tr><td><strong>紧急程度标签</strong></td><td>根据"紧急""尽快"等关键词标记为高/中/低三等级</td></tr>
+        <tr><td><strong>客户分级标签</strong></td><td>新客户、重要客户、老客户、VIP 客户，自动设定更高处理优先级</td></tr>
+      </tbody>
+    </table>
+
+    <h3>5.7 智能回复生成流程</h3>
+    <ul>
+      <li><strong>深度理解客户意图</strong>：分析邮件判断客户主要意图</li>
+      <li><strong>自动提取关键信息</strong>：订单号、产品名称、数量、价格、联系方式</li>
+      <li><strong>生成多语言专业回复</strong>：包含准确产品价格、交货时间等</li>
+      <li><strong>多风格选择</strong>：系统通常生成 2-3 个不同风格（更正式/更亲切）的回复草稿，并附一份中文参考版本</li>
+    </ul>
+
+    <h3>5.8 知识库建设：四步打造智能客服</h3>
+    <ol>
+      <li><strong>第一步：数据搜集整理</strong>——收集历史客服聊天记录、邮件往来、FAQ 文档</li>
+      <li><strong>第二步：产品参数整理</strong>——建立结构化的产品和服务参数知识库</li>
+      <li><strong>第三步：智能批量生成</strong>——利用 Coze 等平台工作流，指挥 DeepSeek 批量生成覆盖各种场景、各种语言的高质量客服话术和邮件模板</li>
+      <li><strong>第四步：个性化营销</strong>——基于客户浏览、购买历史等数据，AI 自动生成高度个性化的营销邮件内容</li>
+    </ol>
+
+    <h3>5.9 引入 DeepSeek 的四大核心价值</h3>
+    <div class="stats">
+      <div class="stat"><div class="num">7×24</div><div class="lbl">全天候服务</div></div>
+      <div class="stat green"><div class="num">100+</div><div class="lbl">支持语言数量</div></div>
+      <div class="stat orange"><div class="num">80%</div><div class="lbl">效率提升</div></div>
+      <div class="stat purple"><div class="num">降本</div><div class="lbl">增效+智能化转型</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 第 6 章 ========== -->
+<section id="chapter-6">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">CHAPTER 06</span>
+      <h2 class="section-title">使用 DeepSeek 进行跨境电商风险控制</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">"在大海里开船"——DeepSeek 是你船上的超级雷达和智能导航系统</p>
+    </div>
+
+    <div class="quote">跨境电商就像"<strong>在大海里开船</strong>"，风景虽好但风浪不少。DeepSeek 被定位为卖家船上的"<strong>超级雷达和智能导航系统</strong>"，能帮助提前发现风险、绕开暗礁。</div>
+
+    <h3>6.1 合规风险</h3>
+    <h4>海关与税务合规</h4>
+    <p>DeepSeek 在此领域的能力是"快速查到最新规定 + 预测潜在税务风险 + 给出合理建议"。以德国市场为例，增值税 <strong>19%</strong>。</p>
+
+    <div class="card">
+      <h4 style="margin-top:0">卖抱枕到欧洲的具体合规清单</h4>
+      <ul>
+        <li><strong>海关编码</strong>：63079098</li>
+        <li><strong>关税</strong>：4% – 12%</li>
+        <li><strong>德国增值税</strong>：19%</li>
+        <li><strong>标签要求</strong>：必须用德语写上成分、原产国</li>
+        <li><strong>建议</strong>：最好搞个环保认证，并完成包装法注册</li>
+      </ul>
+    </div>
+
+    <h4>知识产权（IP）合规 —— 三大坑</h4>
+    <div class="card-grid">
+      <div class="mini-card"><h5>① 商标侵权（最常见）</h5><p>卖波西米亚风家居要避开 Vical、Apology 等知名品牌。操作方法：去欧盟知识产权局数据库查商标。</p></div>
+      <div class="mini-card"><h5>② 专利侵权（外观设计+实用新型）</h5><p>建议避开结构复杂、功能独特的产品。原则：简单点、原创点最安全。</p></div>
+      <div class="mini-card"><h5>③ 版权侵权（多发于图案）</h5><p>流行的动漫形象、艺术图案不可直接用。解决方案：①自己原创设计；②购买商用版权；③对传统图案做二次创作。</p></div>
+    </div>
+
+    <div class="quote">"<strong>做生意可以借灵感，但不能抄作业。DeepSeek 就是那个帮你检查作业有没有抄错的同桌学霸。</strong>"</div>
+
+    <h3>6.2 运营风险（供应链 + 物流）</h3>
+    <h4>供应链风险</h4>
+    <ul>
+      <li><strong>关税冲击案例</strong>：美国对中国产品加征关税，综合税率最高能到 <strong>45%</strong></li>
+      <li><strong>DeepSeek 建议</strong>：①不要把鸡蛋放一个篮子里；②可考虑把部分生产转移到东南亚；③优化物流方案</li>
+    </ul>
+
+    <h4>物流风险</h4>
+    <ul>
+      <li><strong>现实痛点</strong>：近几年海运价格"像过山车"，因红海局势等问题成本能涨 <strong>30% – 50%</strong></li>
+      <li><strong>DeepSeek 建议</strong>：①千万别只依赖一家物流商；②建立多元化物流网络；③制定应急预案</li>
+    </ul>
+
+    <div class="info"><strong>"三条腿走路"策略</strong>：供应链多元化 + 物流方案优化 + 产品升级提高附加值。终极目标：逐步向本土化生产转型。</div>
+
+    <h3>6.3 平台绩效风险</h3>
+    <table>
+      <thead><tr><th>类型</th><th>触发场景</th><th>DeepSeek 作用</th></tr></thead>
+      <tbody>
+        <tr><td><strong>ODR（订单缺陷率）</strong></td><td>负面反馈、索赔、信用卡拒付</td><td>分析原因（产品质量 vs 物流），并准备申诉证据</td></tr>
+        <tr><td><strong>政策合规申诉</strong></td><td>被投诉 IP 侵权、卖假货、违禁商品</td><td>梳理情况、撰写专业申诉信、争取恢复销售权限</td></tr>
+        <tr><td><strong>配送绩效优化</strong></td><td>迟发率、取消率、追踪率、准时交货率</td><td>分析数据找出短板</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6.4 差评处理（标准四步流程）</h3>
+    <ol>
+      <li><strong>Step 1：识别问题</strong>——客户说"颜色和图片完全不符"→ 产品描述问题；客户说"线头很多，做工粗糙"→ 产品质量问题</li>
+      <li><strong>Step 2：制定应对策略</strong>——主动联系买家，诚恳道歉；提供方案：退款 / 重发 / 补优惠券；红线：<strong>千万不要在评论区和客户吵架</strong></li>
+      <li><strong>Step 3：内部优化</strong>——优化产品描述和图片；加强产品质量控制和检查流程</li>
+      <li><strong>Step 4：核心思想</strong>——态度要专业、积极行动要快速有效；让其他潜在客户看到负责任的态度，反而能提升品牌形象</li>
+    </ol>
+
+    <h3>6.5 法律风险：TRO（临时限制令）</h3>
+    <p>TRO 是"跨境电商卖家能遇到的最严重的法律风险之一"，中招后支付账户可能被平台冻结，"非常麻烦"。</p>
+
+    <table>
+      <thead><tr><th>步骤</th><th>关键动作</th><th>要点</th></tr></thead>
+      <tbody>
+        <tr><td>第一步</td><td>确认 TRO 文件</td><td>仔细看法院文件：禁止你做什么 / 原告证据 / 主张权利</td></tr>
+        <tr><td>第二步</td><td>评估侵权风险</td><td>冷静客观分析产品是否真构成侵权</td></tr>
+        <tr><td>第三步</td><td>制定应对策略</td><td>选项 A：找原告律师协商和解；选项 B：认为自己完全没侵权 → 向法院提出动议反驳</td></tr>
+        <tr><td>第四步</td><td>寻求法律咨询</td><td><strong>必须</strong>联系专门处理跨境电商 IP 案件的律师；DeepSeek 不能代替律师</td></tr>
+      </tbody>
+    </table>
+
+    <h3>6.6 风险控制五大关键要素</h3>
+    <table>
+      <thead><tr><th>要素</th><th>落地方法</th><th>DeepSeek 的作用</th></tr></thead>
+      <tbody>
+        <tr><td><strong>预防为主</strong></td><td>别等问题发生再救火</td><td>建立完善合规体系，提前扫描各种风险</td></tr>
+        <tr><td><strong>快速响应</strong></td><td>问题出现，反应一定要快</td><td>快速生成应对策略和沟通模板</td></tr>
+        <tr><td><strong>证据充分</strong></td><td>平时整理保留所有业务记录</td><td>整理采购发票、物流凭证、设计稿源文件等</td></tr>
+        <tr><td><strong>专业沟通</strong></td><td>对平台对客户，态度好、证据足</td><td>生成专业得体的沟通话术</td></tr>
+        <tr><td><strong>持续改进</strong></td><td>风险控制不是一劳永逸</td><td>利用分析结果优化产品、供应链、流程</td></tr>
+      </tbody>
+    </table>
+
+    <div class="quote"><strong>收官金句</strong>：DeepSeek 就像是一位风险控制专家，用它强大的智能分析能力帮跨境电商卖家有效识别、评估和控制各类风险，让咱们能把更多精力放在业务增长上，真正做到<strong>安心出海，稳健赚钱</strong>。</div>
+  </div>
+</section>
+
+<!-- ========== 第 7 章 ========== -->
+<section id="chapter-7">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">CHAPTER 07</span>
+      <h2 class="section-title">物流与供应链优化</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">"物流供应链稳，生意就稳了一半"</p>
+    </div>
+
+    <h3>7.1 物流供应链的战略地位</h3>
+    <div class="quote">物流与供应链是"<strong>跨境电商的生命线</strong>"。它连接全球的工厂、仓库和消费者，效率直接决定订单交付速度、产品到手状态、售后服务质量。所谓"<strong>物流供应链稳，生意就稳了一半</strong>"。</div>
+
+    <h3>7.2 优化供应链的第一步：精准需求评估</h3>
+    <p>优化供应链第一步<strong>不是急着去找货</strong>，而是先搞清楚市场需要什么。如果选品方向错了，后面的一切优化都是白费力气。</p>
+    <p>DeepSeek 在需求评估中的作用：</p>
+    <ul>
+      <li>强大的数据分析能力可从谷歌趋势、社交媒体、电商平台等渠道抓取海量数据</li>
+      <li>快速识别新兴趋势、热门品类、消费者最新偏好变化</li>
+    </ul>
+
+    <h3>7.3 案例：波西米亚风格抱枕全球市场调研</h3>
+    <table>
+      <thead><tr><th>市场</th><th>关键数据</th><th>结论</th></tr></thead>
+      <tbody>
+        <tr><td><strong>美国</strong></td><td>"logo four pilots"关键词搜索量一年内增长 25%</td><td>需求旺盛</td></tr>
+        <tr><td><strong>欧盟</strong></td><td>相关关键词搜索量比 2023 年增长 18%</td><td>消费者青睐环保材质抱枕</td></tr>
+        <tr><td><strong>东盟</strong></td><td>中产阶级崛起，搜索量年增长率高达 30%</td><td>增长最快</td></tr>
+        <tr><td><strong>Instagram</strong></td><td>#boho 话题累计 1.2 亿次浏览</td><td>抱枕作为核心装饰元素，出现频率超过 60%</td></tr>
+      </tbody>
+    </table>
+
+    <p><strong>热门设计元素偏好</strong>：流苏、几何图案、民族风、刺绣；天然材质提及率超过 50%。</p>
+
+    <h3>7.4 供应商筛选的系统方法（四步）</h3>
+    <ol>
+      <li><strong>平台标签筛选</strong>：在 1688 上优先选择"实力商家""诚信通"标签工厂，特别关注响应速度</li>
+      <li><strong>供应商分类</strong>：重点关注做自营品牌的厂家，或有给欧美品牌代工经验的工厂</li>
+      <li><strong>多维度评估</strong>：不能光看价格便宜，要从生产效率、产品质量、发货速度、售后服务综合打分</li>
+      <li><strong>实地验厂/验货</strong>：大订单最好委托第三方机构检查生产环境、质量管理流程</li>
+    </ol>
+
+    <h3>7.5 物流方案优化的三大核心</h3>
+    <div class="card-grid">
+      <div class="mini-card"><h5>① 分析变动趋势</h5><p>分析历史物流数据，判断未来价格涨跌，抓住价格低点合理安排发货时间。</p></div>
+      <div class="mini-card"><h5>② 规划替代路线</h5><p>当港口拥堵、航线取消时，快速规划新路线，告知延误时长、成本变化。</p></div>
+      <div class="mini-card"><h5>③ 整体成本控制</h5><p>设计多种运输方式组合方案（如海运+铁路、空运+本地快递）。</p></div>
+    </div>
+
+    <h3>7.6 海运成本飙升的三层应对方案</h3>
+    <div class="card-grid">
+      <div class="mini-card"><h5>第一层：供应链优化</h5><p>运输方式多元化（海运+中欧班列+空运）；提前定舱锁价；优化装箱。</p></div>
+      <div class="mini-card"><h5>第二层：海外仓布局</h5><p>批量备货至目标市场海外仓，本地发货；支持退货、换标服务。</p></div>
+      <div class="mini-card"><h5>第三层：运营策略调整</h5><p>成本扛不住时适度提价 5%–10%；产品组合销售；JIT（Just-in-Time，准时制）模式。</p></div>
+    </div>
+
+    <h3>7.7 中欧线路三大替代方案对比</h3>
+    <table>
+      <thead><tr><th>方案</th><th>路线</th><th>时效</th><th>成本变化</th></tr></thead>
+      <tbody>
+        <tr><td><strong>方案一：跨里海南通道</strong></td><td>西安 → 阿塞拜疆巴库 → 格鲁吉亚 → 土耳其 → 德国汉堡</td><td>全程约 15 天</td><td>运费上涨 10%–15%</td></tr>
+        <tr><td><strong>方案二：中线（经二连浩特）</strong></td><td>西安 → 二连浩特 → 蒙古 → 俄罗斯 → 汉堡</td><td>—</td><td>运费持平或下降 5%</td></tr>
+        <tr><td><strong>方案三：东线（经满洲里）</strong></td><td>西安 → 满洲里 → 俄罗斯 → 芬兰 → 汉堡</td><td>通行能力提升 30%</td><td>运费上涨 8%–10%</td></tr>
+      </tbody>
+    </table>
+
+    <h3>7.8 极致成本优化案例：越南 → 美国关税优化</h3>
+    <div class="card">
+      <h4 style="margin-top:0;color:var(--green)">推荐路线：越南工厂 → 新加坡中转 → 美国洛杉矶港</h4>
+      <p><strong>背后的逻辑</strong>：</p>
+      <ul>
+        <li><strong>关税优化</strong>：利用新加坡-美国自由贸易协定，关税从原本 <strong>46%</strong> 直接降到 <strong>0%–5%</strong></li>
+        <li><strong>成本控制</strong>：新加坡港口加工成本远低于美国本土</li>
+        <li><strong>风险分散</strong>：到美国的海运费用相对稳定</li>
+        <li><strong>效率保障</strong>：新加坡港口效率全球领先，减少延误</li>
+      </ul>
+      <p><strong>核心理念</strong>："<strong>用智慧和方法来省钱，而不仅仅是靠压价</strong>"</p>
+    </div>
+
+    <h3>7.9 文档自动化处理</h3>
+    <h4>智能报价单生成</h4>
+    <ul>
+      <li>自动从客户询盘邮件提取关键信息</li>
+      <li>结合市场趋势和竞品价格水平</li>
+      <li>快速生成格式标准、价格有竞争力的报价单</li>
+    </ul>
+
+    <h4>认证材料辅助</h4>
+    <ul>
+      <li>不同国家有不同进口认证要求（如 <strong>CE、CPR、SDoC、CE System</strong> 等）</li>
+      <li>DeepSeek 可根据产品类型和目的国告知具体需要的认证</li>
+      <li>辅助生成符合格式要求的文件内容</li>
+    </ul>
+
+    <h3>7.10 章节核心要点</h3>
+    <ol>
+      <li><strong>生命线思维</strong>：物流与供应链是跨境电商的生命线</li>
+      <li><strong>选品先行</strong>：供应链优化的第一步是精准需求评估</li>
+      <li><strong>数据驱动选品</strong>：谷歌趋势、社交媒体、电商平台多渠道数据洞察</li>
+      <li><strong>供应商筛选四步法</strong>：平台标签 → 分类侧重 → 多维评估 → 实地验厂</li>
+      <li><strong>物流三大能力</strong>：趋势分析、替代路线、成本优化组合</li>
+      <li><strong>海运成本三层应对</strong>：供应链多元化 + 海外仓 + 运营调整</li>
+      <li><strong>关税优化的智慧</strong>：利用 FTA + 中转港设计，关税从 46% 降至 0%-5%</li>
+      <li><strong>文档自动化</strong>：报价单和认证材料的 AI 生成大幅提升效率</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== 第 8 章 ========== -->
+<section id="chapter-8">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">CHAPTER 08</span>
+      <h2 class="section-title">跨境电商提示词速查表及趋势探索</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">AI 工具速查手册 + 未来趋势导航图</p>
+    </div>
+
+    <h3>8.1 章节定位与总体框架</h3>
+    <p>第 8 章被定位为"<strong>一本可以随时查阅的 AI 工具使用手册</strong>"和"<strong>一份未来趋势导航图</strong>"。核心内容分为两大部分：</p>
+    <ul>
+      <li><strong>速查手册部分</strong>：覆盖市场调研、产品优化、客服沟通、营销创作四大日常核心工作场景</li>
+      <li><strong>未来趋势展望部分</strong>：眺望 AI 将为跨境电商带来的未来演进方向</li>
+    </ul>
+
+    <h3>8.2 市场调研的 AI 提问模板</h3>
+    <p>主要面向三大场景：</p>
+    <ul>
+      <li><strong>趋势分析</strong>：分析某个国家某个品类的趋势</li>
+      <li><strong>竞品挖掘</strong>：挖竞争对手的底细</li>
+      <li><strong>消费者洞察</strong>：深入了解消费者痛点</li>
+    </ul>
+    <p>使用方法为"直接套用这些模板"，AI 即可生成"像样的出版分析报告"。</p>
+
+    <h3>8.3 关键词挖掘的四步走系统策略</h3>
+    <ol>
+      <li><strong>找核心词</strong></li>
+      <li><strong>拓展长尾词</strong></li>
+      <li><strong>反查对手的词</strong></li>
+      <li><strong>完成多语言本地化</strong></li>
+    </ol>
+    <p>文中以"抱枕"找词作为具体例子，被定义为"非常实用的工作流程图"。</p>
+
+    <h3>8.4 产品页优化的全流程</h3>
+    <ul>
+      <li><strong>标题</strong></li>
+      <li><strong>描述</strong></li>
+      <li><strong>卖点</strong></li>
+      <li><strong>适配平台规则</strong></li>
+      <li><strong>多语言本地化</strong></li>
+    </ul>
+    <p>核心理念：AI 不仅能"帮你生成内容"，更重要的是"能确保内容符合平台规则和当地用户的阅读习惯，避免自说自话"。</p>
+
+    <h3>8.5 客服沟通的简单模板</h3>
+    <p>主要应对：</p>
+    <ul>
+      <li>常见客户咨询</li>
+      <li>售后问题</li>
+      <li><strong>处理负面评价时，帮你保持专业形象</strong></li>
+    </ul>
+
+    <h3>8.6 营销内容创作的工具箱</h3>
+    <ul>
+      <li>社交媒体文案</li>
+      <li>产品故事</li>
+      <li>视频脚本</li>
+      <li>营销邮件</li>
+    </ul>
+    <p>关键点在于"本地化"——"<strong>让营销内容不说外国话，真正融入当地文化，打动人心</strong>"。</p>
+
+    <h3>8.7 视觉内容的 AI 绘画指令</h3>
+    <ul>
+      <li>营销海报</li>
+      <li>产品细节图</li>
+      <li>社交媒体配图</li>
+      <li>包装设计概念</li>
+    </ul>
+    <p>核心价值：学会写好的提示词能"大幅降低设计成本和沟通成本"。</p>
+
+    <h3>8.8 AI 驱动的未来五大趋势</h3>
+    <div class="card-grid">
+      <div class="mini-card"><h5>① 极致的个性化体验</h5><p>AI 将根据每个用户的行为和偏好提供量身定制的购物体验。</p></div>
+      <div class="mini-card"><h5>② 全渠道的智能融合</h5><p>线上线下、社媒平台、独立站之间无缝衔接。</p></div>
+      <div class="mini-card"><h5>③ 高度自动化运营</h5><p>从选品到客服、从物流到营销的全链路自动化。</p></div>
+      <div class="mini-card"><h5>④ 建立信任的情感智能</h5><p>AI 不仅会"做事"，更能"读懂人心"，建立信任。</p></div>
+      <div class="mini-card"><h5>⑤ AI + 物联网智能化管理</h5><p>AI 与物联网结合带来智能化管理新形态。</p></div>
+    </div>
+
+    <h3>8.9 DeepSeek 技术发展路线</h3>
+    <p>从参数规模的增长 → 到复杂推理能力的突破，预示着未来能为跨境卖家提供"<strong>更强大、更智能的知识</strong>"。</p>
+
+    <div class="quote">
+      <strong>结尾愿景</strong>：语言技术的最终目的不是"高深莫测"，而是"温暖日常"。正在抹平语言和文化的隔阂，让每一位用心创造的卖家，无论大小都有机会被世界看见，让地球两端的微笑轻易相连。正在共同迈向一个"<strong>用连接消融隔阂，让每个平凡美好都能发光的新跨境时代</strong>"。
+    </div>
+  </div>
+</section>
+
+<!-- ========== 跨章节知识图谱 ========== -->
+<section id="knowledge-map">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">KNOWLEDGE GRAPH</span>
+      <h2 class="section-title">跨章节知识图谱</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">8 个章节之间的关系一目了然</p>
+    </div>
+
+    <div class="kg">
+<pre>
+DeepSeek 赋能跨境电商知识体系
+│
+├── 【第 1 章】AI 时代跨境电商认知（全局视角）
+│    └── 跨境电商市场基础（1.34 万亿→3.77 万亿、CAGR 13.8%）
+│        └── 卖家四大挑战 → AI 六大场景 → DeepSeek 模型矩阵
+│
+├── 【第 2-3 章】核心方法层（做什么 + 怎么做）
+│    ├── 第 2 章：智能选品（市场→国家→平台→产品→创新）
+│    │    └── 提问能力 + 结构化思维模型（波特五力 + VOC + SCAMPER）
+│    └── 第 3 章：品牌构建（命名→Slogan→故事→策略→VI→建站→文案）
+│         └── 角色设定 + 分步迭代 + 多工具协同
+│
+├── 【第 4-5 章】运营落地层（怎么获客 + 怎么服务）
+│    ├── 第 4 章：引流与转化（营销日历+SEO+社媒+PR+网红+EDM）
+│    │    └── 角色设定 + 多轮引导 + 多模型对比 + 数据闭环
+│    └── 第 5 章：客户运营（沟通+翻译+评论+邮件+知识库）
+│         └── 7×24 在线 + 多语言 + 自动化 + 标签路由
+│
+├── 【第 6-7 章】支撑保障层（怎么避险 + 怎么提效）
+│    ├── 第 6 章：风险控制（合规+运营+平台+差评+TRO）
+│    │    └── 预防为主 + 快速响应 + 证据充分 + 专业沟通
+│    └── 第 7 章：物流供应链（需求评估+供应商+物流+关税+文档）
+│         └── 数据驱动 + 多式联运 + 海外仓 + FTA 利用
+│
+└── 【第 8 章】工具箱与未来趋势
+     ├── 速查手册（6 大场景：调研+关键词+产品页+客服+营销+视觉）
+     └── 五大趋势（个性化+全渠道+自动化+情感智能+AIoT）
+</pre>
+    </div>
+
+    <h3>知识点依赖链路</h3>
+    <div class="info">
+      <strong>核心链路</strong>：<br>
+      第 1 章是基础（认知） → 第 2-3 章是核心方法（选品+品牌） → 第 4-5 章是运营执行（引流+服务） → 第 6-7 章是支撑保障（风控+供应链） → 第 8 章是工具箱与未来
+    </div>
+
+    <h4>前置依赖关系表</h4>
+    <table>
+      <thead><tr><th>前置章节</th><th>当前章节</th><th>依赖的具体内容</th></tr></thead>
+      <tbody>
+        <tr><td>第 1 章</td><td>第 2 章</td><td>AI 应用场景（精准选品）→ 实操选品方法论</td></tr>
+        <tr><td>第 2 章</td><td>第 3 章</td><td>选定的产品 → 品牌构建（命名/故事/VI）</td></tr>
+        <tr><td>第 3 章</td><td>第 4 章</td><td>品牌定位 → 营销策略 → 引流与转化</td></tr>
+        <tr><td>第 4 章</td><td>第 5 章</td><td>引流带来的客户 → 客户运营与服务</td></tr>
+        <tr><td>第 5 章</td><td>第 6 章</td><td>日常运营 → 风险识别与控制</td></tr>
+        <tr><td>第 6 章</td><td>第 7 章</td><td>风险中的物流/供应链 → 物流供应链优化</td></tr>
+        <tr><td>全部章节</td><td>第 8 章</td><td>全流程提示词速查 + 趋势展望</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ========== 学习路径 ========== -->
+<section id="learning-path">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">LEARNING PATH</span>
+      <h2 class="section-title">9 周完整学习路径（小白 → 精通）</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">跟着走，从完全不懂到独立运营</p>
+    </div>
+
+    <h3>第一阶段：认知建立期（第 1 周）</h3>
+    <p><strong>目标</strong>：建立 AI 时代跨境电商的全局认知</p>
+    <p><strong>学习内容</strong>：第 1 章：跨境电商市场宏观数据、AI 六大应用场景、DeepSeek 模型矩阵</p>
+    <p><strong>每日任务</strong>：</p>
+    <ul>
+      <li>Day 1-2：通读第 1 章深度总结</li>
+      <li>Day 3-4：用 DeepSeek 回答"我适合做哪个国家的跨境电商"</li>
+      <li>Day 5-7：熟悉 DeepSeek 基本操作（提示词、附件上传、联网搜索）</li>
+    </ul>
+    <p><strong>阶段产出</strong>：一份《个人跨境电商可行性报告》</p>
+
+    <h3>第二阶段：核心方法掌握期（第 2-3 周）</h3>
+    <p><strong>目标</strong>：掌握选品与品牌构建两大核心方法</p>
+    <p><strong>学习内容</strong>：第 2 章选品方法论 + 第 3 章品牌构建全链路</p>
+    <p><strong>每日任务</strong>：</p>
+    <ul>
+      <li>Week 2 Day 1-3：用波特五力 + VOC + SCAMPER 方法做完整选品</li>
+      <li>Week 2 Day 4-7：为选定产品做品牌命名、Slogan、品牌故事</li>
+      <li>Week 3 Day 1-4：用 DeepSeek 生成 VI 视觉方案、Logo（结合即梦/Midjourney）</li>
+      <li>Week 3 Day 5-7：完成独立站建站策略、Landing Page、Listing 撰写</li>
+    </ul>
+    <p><strong>阶段产出</strong>：一份《完整品牌方案+独立站文案》</p>
+
+    <h3>第三阶段：运营执行突破期（第 4-6 周）</h3>
+    <p><strong>目标</strong>：落地引流与客户运营</p>
+    <p><strong>学习内容</strong>：第 4 章 6 大营销场景 + 第 5 章客户运营</p>
+    <p><strong>每日任务</strong>：</p>
+    <ul>
+      <li>Week 4 Day 1-3：制作全年营销日历</li>
+      <li>Week 4 Day 4-7：搭建 SEO 内容生产流程</li>
+      <li>Week 5 Day 1-3：搭建多平台社媒矩阵（Instagram+TikTok+YouTube+Facebook）</li>
+      <li>Week 5 Day 4-7：完成 PR Pitch 邮件、网红合作邮件、EDM AB Test</li>
+      <li>Week 6 Day 1-4：搭建客服知识库、邮件自动化系统</li>
+      <li>Week 6 Day 5-7：搭建评论智能回复、主动营销机制</li>
+    </ul>
+    <p><strong>阶段产出</strong>：一份《完整运营 SOP+客服知识库》</p>
+
+    <h3>第四阶段：风控与供应链精通期（第 7-8 周）</h3>
+    <p><strong>目标</strong>：建立风险控制与物流供应链优化能力</p>
+    <p><strong>学习内容</strong>：第 6 章风险控制 + 第 7 章物流与供应链</p>
+    <p><strong>每日任务</strong>：</p>
+    <ul>
+      <li>Week 7 Day 1-3：扫描目标市场的合规风险（HS 编码、关税、IP）</li>
+      <li>Week 7 Day 4-7：建立风险控制 SOP（预防+响应+证据+沟通+改进）</li>
+      <li>Week 8 Day 1-4：完成供应商筛选、物流方案优化</li>
+      <li>Week 8 Day 5-7：设计关税优化路径（如越南→新加坡→美国案例）</li>
+    </ul>
+    <p><strong>阶段产出</strong>：一份《风控 SOP+物流优化方案》</p>
+
+    <h3>第五阶段：工具箱与未来布局（第 9 周）</h3>
+    <p><strong>目标</strong>：将全部方法论工具化、流程化</p>
+    <p><strong>学习内容</strong>：第 8 章速查手册与未来趋势</p>
+    <p><strong>每日任务</strong>：</p>
+    <ul>
+      <li>整理个人提示词库（市场调研+关键词+产品页+客服+营销+视觉 6 大场景）</li>
+      <li>关注 AI 驱动五大未来趋势，提前布局</li>
+    </ul>
+    <p><strong>阶段产出</strong>：一份《个人 AI 提示词工具箱+未来 3 年战略规划》</p>
+  </div>
+</section>
+
+<!-- ========== 全部提示词库 ========== -->
+<section id="prompt-library">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">PROMPT LIBRARY</span>
+      <h2 class="section-title">全部提示词库（49 条）</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">按场景分类，点击右上角"复制"按钮即可使用</p>
+    </div>
+
+    <h3>一、市场宏观判断类（第 2 章）</h3>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 1：识别高增长电商市场</h4>
+        <span class="tag">第 2 章 · 宏观判断</span>
+      </div>
+      <div class="pc-body">
+        <p><strong>使用场景</strong>：跨境电商第一步——选国家</p>
+        <pre><button class="copy-btn">复制</button><code>近三年电商增长率超过30%的国家和地区有哪些？说一下是什么原因造成的。</code></pre>
+        <p><strong>预期输出</strong>：印尼（社交+内容电商）、新加坡、印度、拉美</p>
+      </div>
+    </div>
+
+    <h3>二、具体市场分析类（第 2 章）</h3>
+
+    <div class="prompt-card green">
+      <div class="pc-head">
+        <h4>提示词 2：印尼服装市场潜力分析</h4>
+        <span class="tag">第 2 章 · 市场分析</span>
+      </div>
+      <div class="pc-body">
+        <p><strong>使用场景</strong>：锁定国家后做具体市场分析</p>
+        <pre><button class="copy-btn">复制</button><code>分析一下印尼服装的销售数据、用户还有社媒情况，判断印尼服装是否属于高增长有潜力的产品。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card green">
+      <div class="pc-head">
+        <h4>提示词 3：印尼市场潜在机遇与挑战分析</h4>
+        <span class="tag">第 2 章 · 市场分析</span>
+      </div>
+      <div class="pc-body">
+        <p><strong>使用场景</strong>：评估市场基础设施</p>
+        <pre><button class="copy-btn">复制</button><code>印尼市场有哪些潜在的机遇和挑战，包括当地支付设施、支付习惯和政策法规。</code></pre>
+      </div>
+    </div>
+
+    <h3>三、平台选择类（第 2 章）</h3>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 4：跨境电商平台选择维度</h4>
+        <span class="tag">第 2 章 · 平台选择</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>在选择跨境电商平台时要注意哪些维度？</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 5：平台综合打分</h4>
+        <span class="tag">第 2 章 · 平台选择</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>比较这些平台权重，进行综合打分。
+例如：东南亚市场 Shopee、TikTok、Temu 三个平台帮我打分。</code></pre>
+        <p><strong>关键参数</strong>：可根据自身资金情况调整资金维度权重</p>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 6：卖家模式选择分析</h4>
+        <span class="tag">第 2 章 · 模式选择</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>我公司供应商基础好，运营经验不足，初始资金50万，注重快速回款和运营能力，该用铺货、精铺还是品牌卖家模式？</code></pre>
+      </div>
+    </div>
+
+    <h3>四、爆品挖掘类（第 2 章）</h3>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 7：联网搜索爆款产品</h4>
+        <span class="tag">第 2 章 · 爆品挖掘</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>点开联网搜索，看各个平台搜索销量的变化，给我们推荐一下这些爆品。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 8：根据社媒数据推荐产品</h4>
+        <span class="tag">第 2 章 · 爆品挖掘</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>根据上一个月的点赞量、分享量给我们推荐20个产品，解释为什么推荐这20个产品。</code></pre>
+      </div>
+    </div>
+
+    <h3>五、需求洞察与市场结构分析（第 2 章）</h3>
+
+    <div class="prompt-card purple">
+      <div class="pc-head">
+        <h4>提示词 9：真实用户需求洞察</h4>
+        <span class="tag">第 2 章 · 需求洞察</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>发现这个产品用户有哪些未被满足的需求？真实的需求痛点是什么？
+案例：便携榨汁机的硬物处理、续航、充电、清洗、噪音、老化、定制问题。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card purple">
+      <div class="pc-head">
+        <h4>提示词 10：波特五力模型分析</h4>
+        <span class="tag">第 2 章 · 市场结构</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>用波特五力模型分析美国市场浴室地毯这个品类好不好做，包括拿货壁垒、专利情况。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card purple">
+      <div class="pc-head">
+        <h4>提示词 11：VOC 评论情感分析</h4>
+        <span class="tag">第 2 章 · VOC</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>分析这些评论的情感分析（正面/负面/中性比例）、未被满足的需求、不同平台用户群体差异。</code></pre>
+        <p><strong>配套工具</strong>：Appear.y 爬虫下载评论</p>
+      </div>
+    </div>
+
+    <h3>六、产品创新类（第 2 章）</h3>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 12：SCAMPER 创新模型提问</h4>
+        <span class="tag">第 2 章 · 产品创新</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>用 SCAMPER 模型（替代、组合、调整、修改、另作他用、消除、重组）分析如何创新浴室地毯产品。
+具体：
+- 可不可以用其他材质？
+- 可不可以和 A 产品、B 产品组合？
+- 怎么调整形状？
+- 可不可以修改为拼接式？</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 13：多维度延伸提问</h4>
+        <span class="tag">第 2 章 · 产品创新</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>从设计理念、材质、工艺、用户体验多维度给我们更多创新建议。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 14：约束条件下最终方案</h4>
+        <span class="tag">第 2 章 · 方案收敛</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>我们现在要追求高利润，但我们的风险偏好是中低风险，比较保守的方案是什么？</code></pre>
+      </div>
+    </div>
+
+    <h3>七、数据验证类（第 2 章）</h3>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 15：第三方数据交叉验证</h4>
+        <span class="tag">第 2 章 · 数据验证</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>验证步骤：
+1. 用 Google Trends 搜索关键词，看市场热度趋势
+2. 用卖家精灵下载类目报告，验证样本量、卖家数、售价、竞争度
+3. 上传报告给 DeepSeek，让其给出市场体量、竞争激烈程度、选品意见</code></pre>
+        <p><strong>配套工具</strong>：Google Trends、卖家精灵</p>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 16：报告解读与差异化建议</h4>
+        <span class="tag">第 2 章 · 差异化建议</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>分析美国市场浴室地毯的整体竞争激烈程度和潜在机会，给出选品意见，特别是差异化方向。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 17：从差评识别入局点</h4>
+        <span class="tag">第 2 章 · 差评分析</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>分析竞品的差评，从差评中识别我们能入局的产品特点。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 18：消费者关注点优化建议</h4>
+        <span class="tag">第 2 章 · 创新点</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>用户对浴室地毯隐私比较注重，设计时减少接触，给出3个产品创新点。</code></pre>
+      </div>
+    </div>
+
+    <h3>八、品牌构建类（第 3 章 · 9 条）</h3>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 19：品牌命名咨询提示词</h4>
+        <span class="tag">第 3 章 · 命名</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>你是一位品牌命名咨询专家。请为[目标产品/品类]进入[目标市场，如美国]市场进行品牌命名。
+
+要求：
+1. 命名原则：美国市场的语言规划、文化适配策略、差异化定位策略
+2. 附加要求：在美国发音拼写 SEO 维度上具备适配性
+3. 第一轮输出：报告内容、消费心理命名原则核心提炼、情感链接分析
+4. 第二轮输出：在第一轮基础上给出3-5个更有创意的名字，与品牌风格一致，并讲解含义
+5. 附加输出：商标注册、品牌资产保护等下一步行动建议</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 20：Slogan 创作提示词</h4>
+        <span class="tag">第 3 章 · Slogan</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请为品牌名 [品牌名] 撰写用于官方网站的品牌核心价值 Slogan。
+
+要求：
+- 语言自然优美、适合宣传
+- 输出多条 Slogan 候选
+- 结合品牌的核心价值主张</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 21：品牌故事创作提示词</h4>
+        <span class="tag">第 3 章 · 品牌故事</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>以品牌名 [品牌名] 为核心，强调 [自然教育/环保理念/代际连接/数字平衡] 等方向，撰写品牌故事。
+
+六大标准（必备）：
+1. 真实性
+2. 关系
+3. 独特性
+4. 情感的共鸣
+5. 简洁明了
+6. 价值传达
+
+输出要求：多版本供选择</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 22：品牌策略与营销规划提示词</h4>
+        <span class="tag">第 3 章 · 营销策略</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>假设你是一位资深的出海内容营销专家，擅长品牌建设、社媒运营、网红营销、PR传播、SEO优化、KOL/Influencer、EDM邮件营销等。
+
+必备能力：
+- 出海内容营销专家应具备的知识体系
+
+请输出以下要素：
+- 价值锚点
+- 内容启动方式
+- 冷启动公式：小KOL（Forester）→ 开箱视频+折扣码 → Facebook Group群组线索沉淀 → EDM邮件营销
+- 差异化内容方向
+- 品牌风格
+- 品牌声音（Brand Voice）
+- 品牌传播计划
+- 品牌一致性建设
+
+渠道覆盖：Pinterest、Instagram、YouTube、Facebook、EDM</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 23：VI 视觉与 Logo 设计提示词</h4>
+        <span class="tag">第 3 章 · VI</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>假设你是品牌视觉设计师。
+
+请传达 VI 视觉相关建议，涵盖：
+- 色彩方案
+- 字体设计
+- Logo 设计方案
+
+必备要求：
+- 符合消费心理学
+- 符合当地市场（美国）
+- 具备文化标记
+- 色彩适配性
+
+进阶：在最后输出可复制到极梦/Midjourney 的图像生成提示词。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 24：独立站建站策略提示词</h4>
+        <span class="tag">第 3 章 · 建站策略</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>假设你是跨境电商运营的战略专家，要求制定进入美国市场的完整独立站运营策略。
+
+8 大策略维度：
+1. 战略意义
+2. 目标人群消费画像
+3. 品牌定义
+4. 流量获取
+5. 用户运营规划
+6. 数据监测
+7. 其他维度
+8. 其他维度
+
+关键控制指令：
+你每一步推理必须是分步骤来展示的，而且每一个步骤待我确认之后才可以进行下一步。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 25：建站准备清单提示词</h4>
+        <span class="tag">第 3 章 · 建站清单</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请输出一份跨境电商独立站搭建的完整准备清单：
+
+- 用过的建站工具（Shopify 或其他）
+- 域名注册到上线注意要点
+- 必备插件
+- 页面品牌页设计
+- 合规性
+- 上线前测试清单
+- 推广物料准备</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 26：Landing Page / Listing 撰写提示词</h4>
+        <span class="tag">第 3 章 · Listing</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请为产品 [产品名称] 撰写 Landing Page / Listing 文案。
+
+输出要素：
+- 核心主张传达
+- 卖点提炼（最重要）
+- 结构化输出
+- 客户常见 Q&A（最好隐藏）
+- 差异化表达
+
+完整输出示范包括：标题、产品介绍、产品卖点、用户反馈、尺寸等一整套。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 27：广告文案创作提示词</h4>
+        <span class="tag">第 3 章 · 广告文案</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请为产品 [产品名称] 撰写广告投放文案。
+
+标准句式结构：标题 + 正文 + CTA（Call To Action）
+核心要求：立即购买导向，让用户赶紧购买
+
+附加用法：对已有网站内容进行优化升级，给出"原内容-优化方向-优化后版本"对比。</code></pre>
+      </div>
+    </div>
+
+    <h3>九、引流转化类（第 4 章 · 22 条）</h3>
+
+    <div class="prompt-card green">
+      <div class="pc-head">
+        <h4>提示词 28：营销节日筛选提示词</h4>
+        <span class="tag">第 4 章 · 营销日历</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>基于[产品品类]筛选全年最重要的节日，给出相应的主题活动形式，并标注各节日的重要度（如五星制）。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card green">
+      <div class="pc-head">
+        <h4>提示词 29：单场营销活动规划提示词</h4>
+        <span class="tag">第 4 章 · 单场活动</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请策划具体营销活动，包括：
+- 营销活动的内容
+- 活动的转化形式
+- 创意方向
+- 在哪些社交媒体上发布
+- 预算与规划分配</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card green">
+      <div class="pc-head">
+        <h4>提示词 30：营销计划全要素提示词</h4>
+        <span class="tag">第 4 章 · 完整计划</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请制定完整营销计划，包括：
+- 活动阶段时间表、时间轴
+- 要产出哪些内容
+- 预算怎么去分配
+- 内部怎么去协调
+- 备货的节奏
+- 客服的协同</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card green">
+      <div class="pc-head">
+        <h4>提示词 31：营销复盘提示词</h4>
+        <span class="tag">第 4 章 · 活动复盘</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>以下是本次活动的核心数据（数据来源：多维表格管理），请对比分析，给出复盘结论与优化建议。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 32：SEO 关键词挖掘提示词</h4>
+        <span class="tag">第 4 章 · SEO 启动</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>基于[产品]在[目标市场，如日本]，给出关键词与长尾词（本地化语言）。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 33：SEO 文章大纲提示词</h4>
+        <span class="tag">第 4 章 · SEO 大纲</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请基于上述关键词，生成 SEO 文章大纲，注重哪些要点；必须包含 CTA 动作（购买、订阅等）。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 34：SEO 文章多轮引导生成提示词</h4>
+        <span class="tag">第 4 章 · SEO 多轮</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>第一步：基于以上内容进行调查
+第二步：再生成 SEO 文章
+第三步：要求文章配有中文解释，方便快速判断</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 35：SEO 持续优化策略提示词</h4>
+        <span class="tag">第 4 章 · SEO 优化</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请提供 SEO 长期优化策略：
+- 更新频率
+- 优化的等级优先度
+- AB Test 的建议
+- 搜索意图变化后的内容调整方向
+- 关键词 AB Test 方向</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card purple">
+      <div class="pc-head">
+        <h4>提示词 36：社媒平台分析提示词</h4>
+        <span class="tag">第 4 章 · 社媒平台</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>假设你是社交媒体营销专家。基于[目标市场]分析：
+- 重点投放哪些平台
+- 不同平台的特点
+- 用户兴趣偏好、消费习惯
+- 竞争产品在社交媒体的优劣势（联网搜索）</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card purple">
+      <div class="pc-head">
+        <h4>提示词 37：Instagram 内容框架提示词</h4>
+        <span class="tag">第 4 章 · Instagram</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>设定：Instagram 种草[目标人群]
+产品：[产品定位]
+
+请提供内容框架，要求多风格（美学静态、真实 UGC 等）。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card purple">
+      <div class="pc-head">
+        <h4>提示词 38：全年社媒营销策略提示词</h4>
+        <span class="tag">第 4 章 · 全年策略</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请制定全年社媒营销策略，包括：
+- 每月策略事项
+- 平台优先级
+- 不同季节内容策略差异化</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card purple">
+      <div class="pc-head">
+        <h4>提示词 39：发帖内容规划提示词</h4>
+        <span class="tag">第 4 章 · 发帖节奏</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请规划社媒发帖节奏：
+- 发帖频率
+- 不同时间安排
+- 节假日安排
+- UGC 内容生产</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card purple">
+      <div class="pc-head">
+        <h4>提示词 40：短视频创意脚本提示词</h4>
+        <span class="tag">第 4 章 · 短视频</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>为[产品/品牌]撰写短视频脚本：
+- 每个主题品牌如何露出
+- 给出五个脚本
+- 拍摄准备清单（演员、道具、色彩、灯光、摄影、拍摄画面节奏）
+- 输出中英文脚本</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 41：PR 营销策略提示词</h4>
+        <span class="tag">第 4 章 · PR</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请输出海外新闻媒体 PR 营销策略：
+- 营销策略制定
+- 前期准备
+- 联系哪些媒体
+- Pitch 策略沟通方案
+- 关系维护
+- 执行时间轴</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 42：媒体叙事角度挖掘提示词</h4>
+        <span class="tag">第 4 章 · 媒体叙事</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请帮助挖掘媒体叙事角度：
+- 品牌的内核结构
+- 美国本地化关注的点
+- 本地化影响叙事
+- 核心信息提炼</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 43：媒体 Pitch 邮件提示词</h4>
+        <span class="tag">第 4 章 · AIDA</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请基于 AIDA 模型撰写媒体 Pitch 邮件：
+- A - Attention（注意）
+- I - Interest（兴趣）
+- D - Desire（欲望）
+- A - Action（行动）
+语气专业而亲切；针对具体媒体（如 Senate）定制。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="pc-head">
+        <h4>提示词 44：媒体跟进邮件提示词</h4>
+        <span class="tag">第 4 章 · 跟进维护</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请基于上一封邮件，撰写跟进邮件策略：
+- 第二封/第三封跟进邮件
+- 已完成报道的感谢邮件
+- Pitch 联系策略</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 45：网红营销策略提示词</h4>
+        <span class="tag">第 4 章 · 网红策略</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请生成海外网红营销策略：
+- 目标人群画像
+- 找 YouTube 还是 Instagram 的网红
+- 找怎么样的内容
+- 网红怎么合作
+- 合作风险防范（如跑单）</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 46：网红推荐提示词</h4>
+        <span class="tag">第 4 章 · 网红筛选</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>基于[产品+市场]推荐网红列表，要求包含：网红直接推荐、观看量、报价。</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 47：网红合作邮件提示词</h4>
+        <span class="tag">第 4 章 · 合作邮件</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请撰写网红合作邀请邮件：
+- 公司介绍
+- 产品介绍
+- 合作邀请</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card orange">
+      <div class="pc-head">
+        <h4>提示词 48：网红营销数据复盘提示词</h4>
+        <span class="tag">第 4 章 · 效果分析</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请提供网红营销复盘策略：
+- 注重播放、点赞、RY（触达率）计算
+- 数据采集方式（UTM 追踪链接）
+- 对比维度（网红类型、内容类型、发帖时间）
+- 投放数据优化</code></pre>
+      </div>
+    </div>
+
+    <div class="prompt-card purple">
+      <div class="pc-head">
+        <h4>提示词 49：EDM 邮件 AB Test 提示词</h4>
+        <span class="tag">第 4 章 · EDM</span>
+      </div>
+      <div class="pc-body">
+        <pre><button class="copy-btn">复制</button><code>请设计 EDM 邮件 AB Test 方案：
+- 图片 AB Test
+- 字体大小 AB Test
+- 内容 AB Test
+- 发送时间点 AB Test
+原则：单变量控制，每次只改变一个元素。</code></pre>
+      </div>
+    </div>
+
+    <div class="tip"><strong>提示词设计 8 大黄金法则</strong>：
+      ① 设定专家角色 ② 明确背景与场景 ③ 拆解输出要素 ④ 要求结构化输出 ⑤ 多轮迭代优化 ⑥ 结合经典模型（AIDA/4P/SWOT）⑦ 追加本地化要求 ⑧ 数据追踪设计</div>
+  </div>
+</section>
+
+<!-- ========== 全部选品清单 ========== -->
+<section id="product-library">
+  <div class="container">
+    <div class="chapter-head">
+      <span class="chap-num">PRODUCT LIBRARY</span>
+      <h2 class="section-title">全部选品清单（8 个产品）</h2>
+      <p style="color:var(--ink-soft);font-size:16px;margin-top:6px">课程中提到的所有选品案例汇总，可直接作为你的备选清单</p>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th style="width:50px">序号</th>
+          <th>中文商品名</th>
+          <th>英文商品名</th>
+          <th>选品理由</th>
+          <th>判断（Go/Not Go）</th>
+          <th>来源</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>印尼穆斯林时尚头饰/头盖</td>
+          <td>Indonesian Muslim Hijab/Headcover</td>
+          <td>印尼电商增速快，2024年3月穆斯林时尚占比极高，头饰头盖品类 230 万美金 GMV 验证</td>
+          <td><span class="pill green">Go</span></td>
+          <td>第 2 章</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>便携榨汁机</td>
+          <td>Portable Blender</td>
+          <td>团队有供应链资源，TikTok 前一个月热度高</td>
+          <td><span class="pill orange">Not Go（直接）/ Go（差异化后）</span></td>
+          <td>第 2 章</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>美国浴室地毯</td>
+          <td>US Bathroom Rug/Mat</td>
+          <td>卖家精灵验证市场体量大、需求稳定、季节性影响好</td>
+          <td><span class="pill blue">Go（差异化）</span></td>
+          <td>第 2 章</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>模块化可替换硅藻泥地毯</td>
+          <td>Modular Replaceable Diatom Mud Mat</td>
+          <td>综合 VOC 洞察 + SCAMPER 创新 + 中低风险高利润约束的最终方案</td>
+          <td><span class="pill green">Go（强推荐）</span></td>
+          <td>第 2 章</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>互动性节日视频类产品</td>
+          <td>Interactive Holiday Video Products</td>
+          <td>DeepSeek 联网推荐爆品方向之一</td>
+          <td><span class="pill">待定</span></td>
+          <td>第 2 章</td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>家居清洁类产品</td>
+          <td>Home Cleaning Products</td>
+          <td>DeepSeek 联网推荐爆品方向之一</td>
+          <td><span class="pill">待定</span></td>
+          <td>第 2 章</td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>高性价比快时尚配饰</td>
+          <td>Cost-effective Fast Fashion Accessories</td>
+          <td>DeepSeek 联网推荐爆品方向之一</td>
+          <td><span class="pill">待定</span></td>
+          <td>第 2 章</td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>波西米亚风格抱枕</td>
+          <td>Boho Pillow</td>
+          <td>美国搜索量+25%/欧盟+18%/东盟+30%；#boho 话题 1.2 亿次浏览</td>
+          <td><span class="pill purple">可作为参考</span></td>
+          <td>第 7 章</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="quote"><strong>关键洞察</strong>：印尼穆斯林时尚头盖 / 头饰（产品 1）单一店铺 GMV 达 1300 万美金，穆斯林品类 GMV 达 230 万美金，是数据最扎实的 Go 产品。便携榨汁机（产品 2）和浴室地毯（产品 3）虽然竞争激烈，但通过 SCAMPER 创新可做出差异化方案。模块化可替换硅藻泥地毯（产品 4）是中低风险高利润的优解。</div>
+
+    <h3>选品决策关键警示</h3>
+    <div class="warning">
+      <ul style="margin:0;padding-left:20px">
+        <li>"听说跨境电商挺好做"是错误认知</li>
+        <li>"国内太卷就转国外"难以快速得到回报</li>
+        <li>必须避免"我们刚好有某产品资源"这类资源导向的盲目决策</li>
+        <li>别人卖得好不代表你也能卖得好——必须做产品洞察，找到未满足需求</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="container">
+    <div class="brand">DeepSeek × 跨境电商</div>
+    <p>本课程由 8 份单篇总结 + 1 份终极总结深度合并而成</p>
+    <p>采用"原文优先、互补整合、去重交叉引用"原则，严格忠实于原始章节内容</p>
+    <p style="margin-top:14px;color:#6b7280">
+      致每一位用心创造的卖家：让 AI 工具成为你的杠杆，让结构化思维成为你的引擎，让品牌成为你最稳的护城河。无论大小，都有机会被世界看见。
+    </p>
+    <p style="margin-top:14px;color:#6b7280;font-size:12px">© DeepSeek 赋能跨境电商课程 · 仅供学习使用</p>
+  </div>
+</footer>
+
+<button class="to-top" id="toTop" title="回到顶部">↑</button>
+
+<script>
+  // 1. 平滑滚动（CSS 已设 scroll-behavior，但为兼容性做兜底）
+  document.querySelectorAll('a[href^="#"]').forEach(a=>{
+    a.addEventListener('click',function(e){
+      const id=this.getAttribute('href');
+      if(id.length>1 && document.querySelector(id)){
+        e.preventDefault();
+        document.querySelector(id).scrollIntoView({behavior:'smooth',block:'start'});
+      }
+    });
+  });
+
+  // 2. 顶部导航 IntersectionObserver 高亮
+  const navLinks=document.querySelectorAll('nav.topnav a');
+  const sections=Array.from(navLinks).map(a=>document.querySelector(a.getAttribute('href'))).filter(Boolean);
+  const linkMap=new Map();
+  navLinks.forEach(a=>linkMap.set(a.getAttribute('href'),a));
+
+  if('IntersectionObserver' in window){
+    const io=new IntersectionObserver(entries=>{
+      entries.forEach(en=>{
+        if(en.isIntersecting){
+          const id='#'+en.target.id;
+          navLinks.forEach(a=>a.classList.remove('active'));
+          if(linkMap.get(id)) linkMap.get(id).classList.add('active');
+        }
+      });
+    },{rootMargin:'-30% 0px -65% 0px',threshold:0});
+    sections.forEach(s=>io.observe(s));
+  }
+
+  // 3. 回到顶部按钮
+  const toTop=document.getElementById('toTop');
+  window.addEventListener('scroll',()=>{
+    if(window.scrollY>400) toTop.classList.add('show');
+    else toTop.classList.remove('show');
+  });
+  toTop.addEventListener('click',()=>{
+    window.scrollTo({top:0,behavior:'smooth'});
+  });
+
+  // 4. 代码块复制按钮
+  document.querySelectorAll('pre').forEach(pre=>{
+    if(pre.querySelector('.copy-btn')){
+      const btn=pre.querySelector('.copy-btn');
+      btn.addEventListener('click',async()=>{
+        const code=pre.querySelector('code');
+        const text=code?code.innerText:pre.innerText;
+        try{
+          await navigator.clipboard.writeText(text);
+          btn.textContent='已复制';
+          btn.classList.add('copied');
+          setTimeout(()=>{
+            btn.textContent='复制';
+            btn.classList.remove('copied');
+          },1800);
+        }catch(err){
+          // 兜底：传统方法
+          const ta=document.createElement('textarea');
+          ta.value=text;
+          document.body.appendChild(ta);
+          ta.select();
+          document.execCommand('copy');
+          document.body.removeChild(ta);
+          btn.textContent='已复制';
+          btn.classList.add('copied');
+          setTimeout(()=>{
+            btn.textContent='复制';
+            btn.classList.remove('copied');
+          },1800);
+        }
+      });
+    }
+  });
+</script>
+
+</body>
+</html>
