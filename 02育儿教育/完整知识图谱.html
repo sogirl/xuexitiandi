@@ -1,0 +1,2032 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>从课本基础到奥数思维·完整知识图谱（L3）</title>
+<style>
+/* ============== 浅色系基础样式 ============== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --primary: #4A7BC8;       /* 主色 - 学术蓝 */
+  --primary-light: #E3EDF7;
+  --accent: #D97757;         /* 强调色 - 暖橙 */
+  --accent-light: #FAEEE5;
+  --success: #5B9D7F;
+  --warning: #C8A452;
+  --text-main: #2C3E50;
+  --text-soft: #5D6D7E;
+  --text-light: #8B9AAB;
+  --bg-page: #FAFBFC;
+  --bg-card: #FFFFFF;
+  --bg-section: #F4F7FA;
+  --border: #E1E8ED;
+  --shadow: 0 2px 8px rgba(74,123,200,0.08);
+  --shadow-hover: 0 4px 16px rgba(74,123,200,0.15);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+
+html {
+  font-size: 16px;
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
+  background: var(--bg-page);
+  color: var(--text-main);
+  line-height: 1.7;
+  padding-bottom: 60px;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============== 顶部导航 ============== */
+.nav-bar {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background: linear-gradient(135deg, #4A7BC8 0%, #6B95D4 100%);
+  color: white;
+  padding: 12px 16px;
+  box-shadow: var(--shadow);
+}
+
+.nav-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  text-align: center;
+}
+
+.nav-subtitle {
+  font-size: 0.75rem;
+  opacity: 0.9;
+  text-align: center;
+  margin-top: 2px;
+}
+
+.nav-toc {
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+  padding: 10px 12px;
+  overflow-x: auto;
+  white-space: nowrap;
+  -webkit-overflow-scrolling: touch;
+}
+
+.nav-toc a {
+  display: inline-block;
+  color: var(--primary);
+  text-decoration: none;
+  padding: 4px 10px;
+  font-size: 0.8rem;
+  border-radius: 16px;
+  margin-right: 4px;
+  border: 1px solid var(--primary-light);
+}
+
+.nav-toc a:active {
+  background: var(--primary);
+  color: white;
+}
+
+/* ============== 容器 ============== */
+.container {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: 16px;
+}
+
+.hero {
+  background: linear-gradient(135deg, #FAEEE5 0%, #E3EDF7 100%);
+  border-radius: var(--radius);
+  padding: 24px 20px;
+  margin-bottom: 20px;
+  text-align: center;
+  border: 1px solid var(--border);
+}
+
+.hero h1 {
+  font-size: 1.4rem;
+  color: var(--text-main);
+  margin-bottom: 8px;
+}
+
+.hero p {
+  font-size: 0.85rem;
+  color: var(--text-soft);
+}
+
+/* ============== 章节卡 ============== */
+.part {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  margin-bottom: 16px;
+  box-shadow: var(--shadow);
+  overflow: hidden;
+  border: 1px solid var(--border);
+}
+
+.part-header {
+  background: linear-gradient(90deg, var(--primary) 0%, #6B95D4 100%);
+  color: white;
+  padding: 14px 16px;
+  font-weight: 600;
+  font-size: 1rem;
+}
+
+.part-body {
+  padding: 16px;
+}
+
+.lesson {
+  border-bottom: 1px dashed var(--border);
+  padding: 16px 0;
+}
+
+.lesson:last-child {
+  border-bottom: none;
+}
+
+.lesson-title {
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 10px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.lesson-no {
+  background: var(--primary);
+  color: white;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.75rem;
+  flex-shrink: 0;
+}
+
+/* ============== 内容块 ============== */
+.tip-box {
+  background: var(--accent-light);
+  border-left: 3px solid var(--accent);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+}
+
+.tip-box.key {
+  background: var(--primary-light);
+  border-left-color: var(--primary);
+}
+
+.method {
+  background: var(--bg-section);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+}
+
+.method strong {
+  color: var(--primary);
+}
+
+.formula {
+  background: #F8F4E9;
+  border-left: 3px solid var(--warning);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 0.85rem;
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+.example {
+  background: linear-gradient(90deg, #FAFBFC 0%, #F4F7FA 100%);
+  border-radius: var(--radius-sm);
+  padding: 12px 14px;
+  margin: 10px 0;
+  font-size: 0.88rem;
+  border: 1px solid var(--border);
+}
+
+.example-title {
+  font-weight: 600;
+  color: var(--accent);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.example-title::before {
+  content: "📝";
+}
+
+/* ============== 表格 ============== */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 10px 0;
+  font-size: 0.85rem;
+  background: white;
+  border-radius: var(--radius-sm);
+  overflow: hidden;
+  box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+}
+
+th {
+  background: var(--primary);
+  color: white;
+  padding: 8px 10px;
+  text-align: left;
+  font-weight: 600;
+}
+
+td {
+  padding: 8px 10px;
+  border-top: 1px solid var(--border);
+  vertical-align: top;
+}
+
+tr:nth-child(even) td {
+  background: var(--bg-section);
+}
+
+/* ============== 思维导图容器 ============== */
+.mindmap-section {
+  background: var(--bg-card);
+  border-radius: var(--radius);
+  padding: 20px 16px;
+  margin-bottom: 20px;
+  box-shadow: var(--shadow);
+  border: 1px solid var(--border);
+}
+
+.mindmap-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--primary);
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.mindmap-subtitle {
+  font-size: 0.78rem;
+  color: var(--text-soft);
+  text-align: center;
+  margin-bottom: 12px;
+}
+
+.mindmap-container {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-sm);
+  background: #FAFAFA;
+  touch-action: pinch-zoom;
+}
+
+.mindmap-container svg {
+  display: block;
+  min-width: 100%;
+}
+
+/* ============== 易错点 ============== */
+.warning-box {
+  background: #FFF8F0;
+  border: 1px solid #F5D9B8;
+  border-left: 3px solid var(--warning);
+  border-radius: var(--radius-sm);
+  padding: 10px 14px;
+  margin: 10px 0;
+  font-size: 0.85rem;
+}
+
+.warning-box::before {
+  content: "⚠️ 易错点：";
+  font-weight: 600;
+  color: var(--warning);
+}
+
+/* ============== 思想方法高亮 ============== */
+.heart-quote {
+  background: linear-gradient(135deg, #FFF8F0 0%, #FAEEE5 100%);
+  border-radius: var(--radius);
+  padding: 16px 18px;
+  margin: 14px 0;
+  font-style: italic;
+  font-size: 0.95rem;
+  color: var(--text-main);
+  border-left: 4px solid var(--accent);
+  text-align: center;
+  font-weight: 500;
+}
+
+.heart-quote::before {
+  content: "💡 ";
+  font-style: normal;
+}
+
+/* ============== 移动端适配 ============== */
+@media (max-width: 640px) {
+  html { font-size: 15px; }
+  .container { padding: 12px; }
+  .nav-toc a { font-size: 0.75rem; padding: 3px 8px; }
+  .hero { padding: 18px 16px; }
+  .hero h1 { font-size: 1.2rem; }
+  table { font-size: 0.78rem; }
+  th, td { padding: 6px 8px; }
+}
+
+/* 字号放大按钮 */
+.zoom-controls {
+  position: fixed;
+  bottom: 20px;
+  right: 16px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  z-index: 99;
+}
+
+.zoom-btn {
+  width: 38px;
+  height: 38px;
+  border-radius: 50%;
+  background: var(--primary);
+  color: white;
+  border: none;
+  font-size: 1.1rem;
+  box-shadow: var(--shadow-hover);
+  cursor: pointer;
+}
+
+.zoom-btn:active {
+  transform: scale(0.92);
+}
+
+/* 章节锚点 */
+[id] {
+  scroll-margin-top: 70px;
+}
+
+/* 标签 */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 8px 0;
+}
+
+.tag {
+  background: var(--primary-light);
+  color: var(--primary);
+  padding: 2px 10px;
+  border-radius: 12px;
+  font-size: 0.72rem;
+  font-weight: 500;
+}
+
+.tag.warm {
+  background: var(--accent-light);
+  color: var(--accent);
+}
+
+/* 优化学列表 */
+ul, ol {
+  padding-left: 24px;
+  margin: 8px 0;
+}
+
+li {
+  margin: 4px 0;
+  font-size: 0.88rem;
+}
+
+/* 强调字 */
+.hl { color: var(--accent); font-weight: 600; }
+.hl-primary { color: var(--primary); font-weight: 600; }
+.hl-success { color: var(--success); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<header class="nav-bar">
+  <div class="nav-title">📐 从课本基础到奥数思维</div>
+  <div class="nav-subtitle">三年级 L3 · 完整知识图谱 · 小白→精通高手</div>
+</header>
+
+<nav class="nav-toc">
+  <a href="#top">🏠 顶部</a>
+  <a href="#mindmap">🧭 知识图谱</a>
+  <a href="#part1">📖 名师点金</a>
+  <a href="#part2">🎯 关卡L3</a>
+  <a href="#path">🗺️ 学习路径</a>
+</nav>
+
+<main class="container" id="top">
+
+<div class="hero">
+  <h1>🌳 从课本基础到奥数思维</h1>
+  <p><strong>三年级 L3 · 13 讲完整课程</strong></p>
+  <p style="margin-top:8px;">还原思想 · 运筹优化 · 枚举 · 加减巧算 · 测量几何 · 植树问题 · 行程初步 · 等量代换 · 数字谜 · 符号谜</p>
+  <p style="margin-top:8px;font-size:0.78rem;">由 <strong>📚 小学数学教研</strong> + <strong>🏆 华杯赛教练</strong> + <strong>🎓 跨学科方法论</strong> + <strong>📐 SVG架构</strong> + <strong>📱 移动端兼容</strong> 五大专家共同打造</p>
+</div>
+
+<!-- ============ 知识图谱SVG ============ -->
+<section class="mindmap-section" id="mindmap">
+<div class="mindmap-title">🧭 完整知识图谱（横向树状·向右展开）</div>
+<p class="mindmap-subtitle">👆 可双指放大或左右滑动查看全部 13 讲知识点</p>
+<div class="mindmap-container" id="mindmapContainer">
+<svg viewBox="0 0 3000 1100" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
+<style>
+  .mm-text { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #2C3E50; }
+  .mm-text-main { font-size: 18px; font-weight: 700; fill: white; }
+  .mm-text-sub { font-size: 13px; font-weight: 600; fill: white; }
+  .mm-text-detail { font-size: 11px; fill: #2C3E50; }
+  .mm-text-small { font-size: 10px; fill: #5D6D7E; }
+  .mm-rect-main { fill: #4A7BC8; stroke: #2C5282; stroke-width: 1.5; }
+  .mm-rect-method { fill: #6B95D4; stroke: #4A7BC8; stroke-width: 1; }
+  .mm-rect-topic { fill: #E3EDF7; stroke: #4A7BC8; stroke-width: 1; }
+  .mm-rect-subject1 { fill: #D97757; stroke: #A0533A; stroke-width: 1; }
+  .mm-rect-subject2 { fill: #5B9D7F; stroke: #2D5942; stroke-width: 1; }
+  .mm-rect-purple { fill: #9B7EBD; stroke: #634E7C; stroke-width: 1; }
+  .mm-line { stroke: #4A7BC8; stroke-width: 1.5; fill: none; }
+  .mm-line-sub { stroke: #8B9AAB; stroke-width: 1; fill: none; }
+</style>
+
+<!-- ROOT 根节点 -->
+<g transform="translate(20, 480)">
+  <rect class="mm-rect-main" x="0" y="0" width="220" height="120" rx="14"/>
+  <text class="mm-text-main" x="110" y="40" text-anchor="middle">奥数思维</text>
+  <text class="mm-text-main" x="110" y="62" text-anchor="middle">完整知识树</text>
+  <text class="mm-text-sub" x="110" y="86" text-anchor="middle">（三年级 L3）</text>
+  <text class="mm-text-small" x="110" y="106" text-anchor="middle" fill="white">13 讲 · 26 课时</text>
+</g>
+
+<!-- 一级分支：名师点金 -->
+<g transform="translate(280, 200)">
+  <rect class="mm-rect-subject1" x="0" y="0" width="200" height="80" rx="12"/>
+  <text class="mm-text-main" x="100" y="32" text-anchor="middle">📖 名师点金</text>
+  <text class="mm-text-main" x="100" y="56" text-anchor="middle">思维方法课</text>
+</g>
+<line class="mm-line" x1="240" y1="540" x2="280" y2="240"/>
+
+<!-- 一级分支：关卡L3 -->
+<g transform="translate(280, 800)">
+  <rect class="mm-rect-subject2" x="0" y="0" width="200" height="80" rx="12"/>
+  <text class="mm-text-main" x="100" y="32" text-anchor="middle">🎯 关卡 L3</text>
+  <text class="mm-text-main" x="100" y="56" text-anchor="middle">题型实战课</text>
+</g>
+<line class="mm-line" x1="240" y1="540" x2="280" y2="840"/>
+
+<!-- 二级分支：名师点金下的5讲 -->
+<!-- L3-1 还原思想 -->
+<g transform="translate(540, 60)">
+  <rect class="mm-rect-method" x="0" y="0" width="170" height="60" rx="10"/>
+  <text class="mm-text-main" x="85" y="24" text-anchor="middle" font-size="14">L3-1 还原思想</text>
+  <text class="mm-text-small" x="85" y="46" text-anchor="middle" fill="white">逆推思想</text>
+</g>
+<line class="mm-line" x1="480" y1="220" x2="540" y2="90"/>
+<line class="mm-line-sub" x1="540" y1="120" x2="740" y2="40"/>
+<g transform="translate(740, 20)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">它乘我除 它减我加</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">倍增/分割/多人分配</text>
+</g>
+
+<!-- L3-2 运筹优化 -->
+<g transform="translate(540, 160)">
+  <rect class="mm-rect-method" x="0" y="0" width="170" height="60" rx="10"/>
+  <text class="mm-text-main" x="85" y="24" text-anchor="middle" font-size="14">L3-2 运筹优化</text>
+  <text class="mm-text-small" x="85" y="46" text-anchor="middle" fill="white">合理安排时间</text>
+</g>
+<line class="mm-line" x1="480" y1="240" x2="540" y2="190"/>
+<line class="mm-line-sub" x1="540" y1="220" x2="740" y2="140"/>
+<g transform="translate(740, 120)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">串行+并行</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">沏茶/煎饼/接水</text>
+</g>
+
+<!-- L3-3 枚举总论 -->
+<g transform="translate(540, 260)">
+  <rect class="mm-rect-method" x="0" y="0" width="170" height="60" rx="10"/>
+  <text class="mm-text-main" x="85" y="24" text-anchor="middle" font-size="14">L3-3 枚举总论</text>
+  <text class="mm-text-small" x="85" y="46" text-anchor="middle" fill="white">有序与无序</text>
+</g>
+<line class="mm-line" x1="480" y1="260" x2="540" y2="290"/>
+<line class="mm-line-sub" x1="540" y1="320" x2="740" y2="240"/>
+<g transform="translate(740, 220)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">分清你我有序无序</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">打电话/发微信/分物</text>
+</g>
+
+<!-- L3-4 无序枚举 -->
+<g transform="translate(960, 60)">
+  <rect class="mm-rect-method" x="0" y="0" width="160" height="60" rx="10"/>
+  <text class="mm-text-main" x="80" y="24" text-anchor="middle" font-size="14">L3-4 无序枚举</text>
+  <text class="mm-text-small" x="80" y="46" text-anchor="middle" fill="white">主语配对法</text>
+</g>
+<line class="mm-line" x1="710" y1="260" x2="960" y2="90"/>
+<line class="mm-line-sub" x1="1120" y1="80" x2="1320" y2="40"/>
+<g transform="translate(1320, 20)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">3人选2配对</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">硬币凑钱/组合</text>
+</g>
+
+<!-- L3-5 有序枚举 -->
+<g transform="translate(960, 160)">
+  <rect class="mm-rect-method" x="0" y="0" width="160" height="60" rx="10"/>
+  <text class="mm-text-main" x="80" y="24" text-anchor="middle" font-size="14">L3-5 有序枚举</text>
+  <text class="mm-text-small" x="80" y="46" text-anchor="middle" fill="white">排列问题</text>
+</g>
+<line class="mm-line" x1="710" y1="280" x2="960" y2="190"/>
+<line class="mm-line-sub" x1="1120" y1="180" x2="1320" y2="140"/>
+<g transform="translate(1320, 120)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">三位数/排列</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">n!=3!=6</text>
+</g>
+
+<!-- 二级分支：关卡L3下的8讲 -->
+<!-- L3-6 加减混合 -->
+<g transform="translate(540, 600)">
+  <rect class="mm-rect-method" x="0" y="0" width="170" height="60" rx="10"/>
+  <text class="mm-text-main" x="85" y="24" text-anchor="middle" font-size="14">L3-6 加减混合</text>
+  <text class="mm-text-small" x="85" y="46" text-anchor="middle" fill="white">和差不变</text>
+</g>
+<line class="mm-line" x1="480" y1="820" x2="540" y2="630"/>
+<line class="mm-line-sub" x1="540" y1="660" x2="740" y2="580"/>
+<g transform="translate(740, 560)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">拆数凑整·借来还去</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">按位交换·同级搬家</text>
+</g>
+
+<!-- L3-7 测量与最短路线 -->
+<g transform="translate(540, 700)">
+  <rect class="mm-rect-method" x="0" y="0" width="170" height="60" rx="10"/>
+  <text class="mm-text-main" x="85" y="24" text-anchor="middle" font-size="14">L3-7 测量最短</text>
+  <text class="mm-text-small" x="85" y="46" text-anchor="middle" fill="white">点 vs 段</text>
+</g>
+<line class="mm-line" x1="480" y1="840" x2="540" y2="730"/>
+<line class="mm-line-sub" x1="540" y1="760" x2="740" y2="680"/>
+<g transform="translate(740, 660)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">两点之间线段最短</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">垂线段最短·路径比较</text>
+</g>
+
+<!-- L3-8 植树问题 -->
+<g transform="translate(540, 800)">
+  <rect class="mm-rect-method" x="0" y="0" width="170" height="60" rx="10"/>
+  <text class="mm-text-main" x="85" y="24" text-anchor="middle" font-size="14">L3-8 植树问题</text>
+  <text class="mm-text-small" x="85" y="46" text-anchor="middle" fill="white">棵数 vs 段数</text>
+</g>
+<line class="mm-line" x1="480" y1="860" x2="540" y2="830"/>
+<line class="mm-line-sub" x1="540" y1="860" x2="740" y2="780"/>
+<g transform="translate(740, 760)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">两端都植树/都不植</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">敲钟·上楼</text>
+</g>
+
+<!-- L3-9 植树2 -->
+<g transform="translate(540, 900)">
+  <rect class="mm-rect-method" x="0" y="0" width="170" height="60" rx="10"/>
+  <text class="mm-text-main" x="85" y="24" text-anchor="middle" font-size="14">L3-9 植树变形</text>
+  <text class="mm-text-small" x="85" y="46" text-anchor="middle" fill="white">环形+锯木头</text>
+</g>
+<line class="mm-line" x1="480" y1="880" x2="540" y2="930"/>
+<line class="mm-line-sub" x1="540" y1="960" x2="740" y2="880"/>
+<g transform="translate(740, 860)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">环形/一端植/锯木头</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">日期vs时间·公交车</text>
+</g>
+
+<!-- L3-10 行程初步 -->
+<g transform="translate(960, 600)">
+  <rect class="mm-rect-method" x="0" y="0" width="160" height="60" rx="10"/>
+  <text class="mm-text-main" x="80" y="24" text-anchor="middle" font-size="14">L3-10 行程初步</text>
+  <text class="mm-text-small" x="80" y="46" text-anchor="middle" fill="white">速度·时间·路程</text>
+</g>
+<line class="mm-line" x1="710" y1="800" x2="960" y2="630"/>
+<line class="mm-line-sub" x1="1120" y1="620" x2="1320" y2="560"/>
+<g transform="translate(1320, 540)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">v×t=s 三大公式</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">时刻vs时间·画图法</text>
+</g>
+
+<!-- L3-11 等量代换 -->
+<g transform="translate(960, 700)">
+  <rect class="mm-rect-method" x="0" y="0" width="160" height="60" rx="10"/>
+  <text class="mm-text-main" x="80" y="24" text-anchor="middle" font-size="14">L3-11 等量代换</text>
+  <text class="mm-text-small" x="80" y="46" text-anchor="middle" fill="white">天平原则</text>
+</g>
+<line class="mm-line" x1="710" y1="820" x2="960" y2="730"/>
+<line class="mm-line-sub" x1="1120" y1="720" x2="1320" y2="660"/>
+<g transform="translate(1320, 640)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">曹冲称象·空瓶换水</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">冰糖葫芦法</text>
+</g>
+
+<!-- L3-12 数字谜 -->
+<g transform="translate(960, 800)">
+  <rect class="mm-rect-method" x="0" y="0" width="160" height="60" rx="10"/>
+  <text class="mm-text-main" x="80" y="24" text-anchor="middle" font-size="14">L3-12 数字谜</text>
+  <text class="mm-text-small" x="80" y="46" text-anchor="middle" fill="white">加减数字谜</text>
+</g>
+<line class="mm-line" x1="710" y1="840" x2="960" y2="830"/>
+<line class="mm-line-sub" x1="1120" y1="820" x2="1320" y2="760"/>
+<g transform="translate(1320, 740)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">个位分析·特殊结构</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">还原·按位交换</text>
+</g>
+
+<!-- L3-13 符号谜 -->
+<g transform="translate(960, 900)">
+  <rect class="mm-rect-method" x="0" y="0" width="160" height="60" rx="10"/>
+  <text class="mm-text-main" x="80" y="24" text-anchor="middle" font-size="14">L3-13 符号谜</text>
+  <text class="mm-text-small" x="80" y="46" text-anchor="middle" fill="white">字母/汉字</text>
+</g>
+<line class="mm-line" x1="710" y1="860" x2="960" y2="930"/>
+<line class="mm-line-sub" x1="1120" y1="920" x2="1320" y2="860"/>
+<g transform="translate(1320, 840)">
+  <rect class="mm-rect-topic" x="0" y="0" width="160" height="40" rx="6"/>
+  <text class="mm-text-detail" x="80" y="18" text-anchor="middle">尾数分析·进位</text>
+  <text class="mm-text-detail" x="80" y="32" text-anchor="middle">不同符号不同数</text>
+</g>
+
+<!-- 顶层：核心数学观 -->
+<g transform="translate(960, 1040)">
+  <rect class="mm-rect-purple" x="0" y="0" width="600" height="44" rx="10"/>
+  <text class="mm-text-sub" x="300" y="20" text-anchor="middle" font-size="13">🌟 贯穿 13 讲的核心数学观：</text>
+  <text class="mm-text-sub" x="300" y="36" text-anchor="middle" font-size="13">底层思维 &gt; 答案技巧 · 画图习惯 · 动手+动脑 · 举例子 &gt; 死记</text>
+</g>
+
+</svg>
+</div>
+<p style="text-align:center;font-size:0.72rem;color:var(--text-light);margin-top:6px;">📌 提示：双指在屏幕上捏合/张开即可缩放；横向滑动可看全部内容</p>
+</section>
+
+<!-- ============ 第一部分：名师点金·思维方法 ============ -->
+<section class="part" id="part1">
+<div class="part-header">📖 第一部分：名师点金·思维方法课（5讲·刘老师）</div>
+<div class="part-body">
+
+<p style="margin-bottom:14px;font-size:0.85rem;color:var(--text-soft);">👨‍🏫 <strong>主讲：刘老师</strong> · 5讲聚焦数学思维的本质，专注"为什么这样做"，而非死记套路。</p>
+
+<!-- L3-1 还原思想 -->
+<article class="lesson" id="L3-1">
+<div class="lesson-title"><span class="lesson-no">L3·1</span>还原思想（逆推思想）</div>
+<div class="tags">
+  <span class="tag">名师点金</span>
+  <span class="tag warm">核心思维</span>
+  <span class="tag">贯穿课</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：还原思想就是 <span class="hl">"走回去"</span>。一个动作的正着走与倒着走互为逆过程。
+</div>
+
+<div class="method">
+<strong>📚 概念引入</strong>：刘老师以「网上买礼物、退货」全过程开篇：要买礼物，依次打开包装纸→盒子→布袋→取出礼物；退货则把动作<strong>倒着做一遍</strong>。这就是<strong>还原思想</strong>——一个动作的"正着走"与"倒着走"互为逆过程。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 还原思想三大底层依据</h4>
+<ol>
+  <li><strong>逆运算关系</strong>：减法是加法的逆运算，除法是乘法的逆运算。</li>
+  <li><strong>等式基本性质</strong>：等式两边同加、同减、同乘、同除，值不变。</li>
+  <li><strong>操作的可逆性</strong>：任何正向操作都存在对应的反向操作。</li>
+</ol>
+
+<div class="formula">
+<strong>🔑 必背四字口诀：</strong>
+它乘我除，它减我加，它加我减，它除我乘
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📋 六类问题的还原套路</h4>
+<table>
+<thead>
+<tr><th>问题类型</th><th>还原策略</th><th>代表例题</th></tr>
+</thead>
+<tbody>
+<tr><td>倍增类</td><td>往前推一个时间单位即除以倍数</td><td>虫子24小时长到20cm，求5cm需几小时</td></tr>
+<tr><td>投放份数类</td><td>多投放几份等价于多乘几个2</td><td>4份水草多少天长满</td></tr>
+<tr><td>四则运算类</td><td>用"它乘我除，它加我减"逆推</td><td>一个数 ×4 +6 -10 ×2 = 88</td></tr>
+<tr><td>分割类</td><td>分段画图，逐段×2还原</td><td>铁丝剪半剩14分米，求原长</td></tr>
+<tr><td>卖半类</td><td>同一逻辑的连续分割</td><td>西瓜卖两次剩10只，求原数</td></tr>
+<tr><td>多人分配类</td><td>设终态为统一变量，倒推求差</td><td>三人玻璃球最终同样多，求原差</td></tr>
+</tbody>
+</table>
+
+<h4 style="margin-top:16px;font-size:0.95rem;color:var(--primary);">📝 例题详解</h4>
+
+<div class="example">
+<div class="example-title">例1：虫子每小时长一倍</div>
+<p><strong>题目</strong>：虫子每小时长一倍，24小时能长到20厘米。长到5厘米时需要多少小时？</p>
+<p><strong>还原过程</strong>（从20厘米往前推）：</p>
+<ul>
+  <li>20 ÷ 2 = 10（23小时）</li>
+  <li>10 ÷ 2 = 5（<span class="hl">22小时</span>）</li>
+</ul>
+</div>
+
+<div class="example">
+<div class="example-title">例2：水草每天长一倍（变式）</div>
+<p><strong>题目</strong>：1份水草长满池塘需要26天。如果开始放进4份同样的水草，多少天可以长满？</p>
+<p><strong>分析</strong>：4份水草 = 已经多乘了2个2（即2×2=4），因此只需 26 - 2 = <span class="hl">24天</span>长满。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例3：四则运算的逆推还原</div>
+<p><strong>题目</strong>：一个数的4倍，加上6，减去10，再乘2，得88。求这个数。</p>
+<div class="formula">起点(88) → 还原×2（88÷2=44）→ 还原-10（44+10=54）→ 还原+6（54-6=48）→ 还原×4（48÷4=<span class="hl">12</span>）</div>
+<p><strong>验证</strong>：12×4=48 → 48+6=54 → 54-10=44 → 44×2=88 ✓</p>
+</div>
+
+<div class="example">
+<div class="example-title">例4：铁丝问题（分割类）</div>
+<p><strong>题目</strong>：一根铁丝，第一次剪去一半，第二次再剪去余下的一半，这时还剩14分米。原来长多少？</p>
+<p><strong>关键方法</strong>：<strong>分开画图，一个单位一条线段</strong>。</p>
+<ul>
+  <li>14分米 = 第二段的一半 → 第二段原长 = 14×2 = 28分米</li>
+  <li>28分米 = 整根铁丝的一半 → 整根铁丝 = 28×2 = <span class="hl">56分米</span></li>
+</ul>
+</div>
+
+<div class="example">
+<div class="example-title">例5：玻璃球问题（多人分配类）</div>
+<p><strong>题目</strong>：小松、小明、小航各有玻璃球若干个。如果小松给小明10个，小明给小航6个，三人玻璃球个数同样多。小松比小航原来多多少个？</p>
+<p><strong>还原过程</strong>（三人最终都为x）：</p>
+<table>
+<thead><tr><th>步骤</th><th>小松</th><th>小明</th><th>小航</th></tr></thead>
+<tbody>
+<tr><td>最终态</td><td>x</td><td>x</td><td>x</td></tr>
+<tr><td>还原"小明给小航6个"</td><td>x</td><td>x+6</td><td>x-6</td></tr>
+<tr><td>还原"小松给小明10个"</td><td>x+10</td><td>x-4</td><td>x-6</td></tr>
+</tbody>
+</table>
+<p><strong>答案</strong>：<span class="hl">小松比小航多16个</span>（差值 = 所有转移量之和 = 10+6 = 16）。</p>
+</div>
+
+<div class="warning-box">
+漏掉小括号（先把正向过程写出来） · 还原方向搞反（牢记"它乘我除，它加我减"） · 多人问题求各人原数过繁（直接求差：所有转移量求和） · 分割问题画图混乱（每次操作画独立线段）。
+</div>
+
+<div class="heart-quote">
+我们解决问题的时候，不仅可以正着想，还可以怎么样从结果往前想。
+</div>
+
+</article>
+
+<!-- L3-2 运筹优化 -->
+<article class="lesson" id="L3-2">
+<div class="lesson-title"><span class="lesson-no">L3·2</span>合理安排时间（运筹优化）</div>
+<div class="tags">
+  <span class="tag">名师点金</span>
+  <span class="tag warm">生活迁移</span>
+  <span class="tag">并行思维</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：合理安排时间就是 <span class="hl">运筹优化</span> —— 识别串行与并行的边界，让主线最短，让可并行任务充分重叠。
+</div>
+
+<div class="method">
+<strong>📚 概念搭桥：时刻与时间</strong>
+<ul>
+  <li><strong>时刻</strong>：一个具体的"点"（如早上7点）。</li>
+  <li><strong>时间</strong>：两个时刻之间的"线段"（如7点到8点经过1小时）。</li>
+  <li>形象比喻：<span class="hl-primary">时刻是点，时间是线段</span>。</li>
+</ul>
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">🎨 画图三原则（必背）</h4>
+<ol>
+  <li>能并行的线段<strong>左端对齐</strong>；</li>
+  <li>主线任务不能错位；</li>
+  <li>总耗时 = 主线各段时间求和（不含并行部分）。</li>
+</ol>
+
+<div class="formula">
+<strong>🔑 方法口诀</strong>：拉一条线 → 串行排队 → 并行嵌进 → 取最长
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">🏆 五大典型场景</h4>
+
+<div class="example">
+<div class="example-title">场景1：沏茶问题（找主线+并行）</div>
+<p><strong>题目</strong>：给客人沏茶——烧开水12分钟，洗茶杯2分钟，买茶叶8分钟，放茶叶泡茶1分钟。</p>
+<p><strong>最优安排</strong>：0分钟开始烧开水（同时洗茶杯2分钟、买茶叶8分钟）→ 12分钟水开放茶叶泡茶1分钟 → <span class="hl">13分钟完成</span>。</p>
+<p><strong>关键</strong>：泡茶必须等水烧开 → "烧水→泡茶"是主线；洗杯、买茶叶可并行。</p>
+</div>
+
+<div class="example">
+<div class="example-title">场景2：炒鸡蛋问题（单位统一+可前置）</div>
+<p><strong>题目</strong>：敲蛋10秒、切葱花20秒、搅拌20秒、烧油1分钟、炒蛋2分钟、装盘10秒。最少多少秒？</p>
+<p><strong>Step 1</strong>：单位统一（烧油60秒，炒蛋120秒）</p>
+<p><strong>Step 2</strong>：主线 = 烧油→炒蛋→装盘（不可并行）</p>
+<p><strong>关键洞察</strong>：油可以先烧！烧油同时敲蛋、切葱花、搅蛋。</p>
+<p><strong>答案</strong>：主线耗时 = 60+120+10 = <span class="hl">190秒</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">场景3：接水等候问题（加权求和最小化）</div>
+<p><strong>题目</strong>：四个小朋友打水，时间分别是2、4、5、3分钟，只有一个水龙头，怎样安排使接水和等候时间总和最短？</p>
+<p><strong>累积耗时</strong> = 4A + 3B + 2C + 1D</p>
+<p><strong>最优原则</strong>：要使加权求和最小，A取最小、B取次小、C取再次、D取最大。</p>
+<p>时间排序2、3、4、5 → <span class="hl">总累积耗时 = 30分钟</span>。</p>
+<p><strong>核心思想</strong>：加权求和最小化——<strong>系数大的变量取较小值</strong>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">场景4：看病等候变式（多人多医生）</div>
+<p><strong>变式1</strong>：四名同学打针时间1、2、3、4分钟，1个医生 → 4×1+3×2+2×3+4 = <span class="hl">20分钟</span>。</p>
+<p><strong>变式2</strong>：4名病人，2名医生 → 2A+2B+C+D = 2×1+2×2+3+4 = <span class="hl">13分钟</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">场景5：煎饼问题（拆面法）</div>
+<p><strong>题目</strong>：平底锅每次最多放2个饼，煎一个饼要2分钟（正反各1分钟）。煎3个饼至少几分钟？</p>
+<p><strong>错误方法</strong>：1号正→1号反→3号正→3号反（4分钟，锅有空隙）</p>
+<p><strong>最优方法</strong>：1号正+2号正 → 1号反+3号正 → 2号反+3号反（<span class="hl">3分钟</span>，锅无空隙）</p>
+<p><strong>通用拆面法</strong>：总面数 = 饼数×2；轮数 = 总面数÷锅容量；总时间 = 轮数×每面耗时。</p>
+<table>
+<thead><tr><th>饼数</th><th>总面数</th><th>轮数</th><th>总耗时</th></tr></thead>
+<tbody>
+<tr><td>3</td><td>6</td><td>3</td><td>3分钟</td></tr>
+<tr><td>5</td><td>10</td><td>5</td><td>5分钟</td></tr>
+<tr><td>12</td><td>24</td><td>12</td><td>12分钟</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tip-box">
+<strong>📋 五类场景方法对照表</strong>
+<table>
+<thead><tr><th>场景</th><th>核心方法</th><th>关键技巧</th></tr></thead>
+<tbody>
+<tr><td>沏茶</td><td>找主线+并行叠加</td><td>识别必须串行的关键路径</td></tr>
+<tr><td>炒鸡蛋</td><td>单位统一+主线求和</td><td>可前置操作（如先烧油）</td></tr>
+<tr><td>接水</td><td>加权求和最小化</td><td>大系数配小时间</td></tr>
+<tr><td>看病</td><td>加权系数随医生数变化</td><td>让高权重取小值</td></tr>
+<tr><td>煎饼</td><td>拆面法</td><td>用"轮数×单轮时间"公式</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="warning-box">
+不知道哪些可并行（先画主线） · 单位不统一（先换算） · 接水题简单记口诀（要理解加权本质） · 煎饼时让锅空着（用拆面法）。
+</div>
+
+<div class="heart-quote">
+我们一定要先拉出一条主线，然后像画线段一样，能同时做的左端对齐，最终取最长那条线段的总和，就是答案。
+</div>
+</article>
+
+<!-- L3-3 枚举总论 -->
+<article class="lesson" id="L3-3">
+<div class="lesson-title"><span class="lesson-no">L3·3</span>枚举总论（有序与无序）</div>
+<div class="tags">
+  <span class="tag">名师点金</span>
+  <span class="tag warm">计数基础</span>
+  <span class="tag">铺垫乘法原理</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：<span class="hl">分你我就是有序，不分你我就是无序</span>。枚举是乘法原理的基础，不要急于学乘法原理、加法原理，必须先把枚举学扎实。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 枚举两大根本方法</h4>
+<ol>
+  <li><strong>标数法</strong>：数一个标一个，建立一一对应关系，避免遗漏。</li>
+  <li><strong>分类法</strong>：按类别分组计数，每类打不同标记，避免重复。</li>
+</ol>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 枚举两大根本原则</h4>
+<div class="method">
+<strong>原则1：不重不漏 + 分类</strong><br>
+枚举必须不重复、不遗漏。最常用工具是"分类"：把研究对象分成互不重叠的几类。
+</div>
+<div class="method">
+<strong>原则2：分清有序与无序</strong><br>
+通俗判断标准：<span class="hl-primary">先选A再选B，和先选B再选A，一不一样？</span> 一样就是无序，不一样就是有序。
+</div>
+
+<div class="formula">
+<strong>🔑 核心规律</strong>：单向动作（打电话） → 无序；双向动作（发微信） → 有序
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 例题详解</h4>
+
+<div class="example">
+<div class="example-title">例1：数线段问题（标数法与分类法）</div>
+<p><strong>方法1（标数法）</strong>：数一个标一个，建立一一对应关系，避免重复或遗漏。</p>
+<p><strong>方法2（分类法）</strong>：把线段按图形分类</p>
+<table>
+<thead><tr><th>类别</th><th>标记</th><th>数量</th><th>每条线段边数</th><th>线段总数</th></tr></thead>
+<tbody>
+<tr><td>三角形</td><td>√</td><td>3</td><td>3</td><td>9</td></tr>
+<tr><td>四边形</td><td>×</td><td>3</td><td>4</td><td>12</td></tr>
+<tr><td>其他</td><td>—</td><td>—</td><td>—</td><td>13</td></tr>
+<tr><td colspan="4"><strong>总数</strong></td><td><strong>34</strong></td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="example">
+<div class="example-title">例2：打电话 vs 发微信</div>
+<p><strong>题目1</strong>：平平、行行、乐乐互相打电话拜年，需要打几个？</p>
+<p>分析：打电话不分你和我 → <span class="hl">3个电话</span>。</p>
+<p><strong>题目2</strong>：三位同学互相发微信拜年，需要发几条？</p>
+<p>分析：微信分你和我 → <span class="hl">6条微信</span>（微信数 = 电话数 × 2）。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例3：两个自然数乘积为12（进阶辨析）</div>
+<p>所有算式：1×12、2×6、3×4、4×3、6×2、12×1（共6个）</p>
+<table>
+<thead><tr><th>场景</th><th>是否区分顺序</th><th>答案</th></tr></thead>
+<tbody>
+<tr><td>求"和"（1+12=12+1）</td><td>不分</td><td>3个</td></tr>
+<tr><td>求"算式"（1×12≠12×1）</td><td>分</td><td>6个</td></tr>
+<tr><td>长方形（长≥宽）</td><td>不分</td><td>3个</td></tr>
+</tbody>
+</table>
+<p><strong>核心规律</strong>：<span class="hl-primary">同一组数字，问的问题不同，是否区分顺序就不同</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例4：分物问题（有序无序的应用）</div>
+<p><strong>小学默认规则</strong>：每人至少1个（否则就是分给一个人了）。</p>
+<table>
+<thead><tr><th>题目</th><th>分法</th><th>答案</th></tr></thead>
+<tbody>
+<tr><td>"分给"东东和阿奇（归属明确）</td><td><strong>有序</strong></td><td>7种</td></tr>
+<tr><td>"分成"两堆（无归属）</td><td><strong>无序</strong></td><td>4种</td></tr>
+<tr><td>"分两天"花完（时间区分）</td><td><strong>有序</strong></td><td>7种</td></tr>
+</tbody>
+</table>
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📋 判断有序/无序的三大关键词</h4>
+<table>
+<thead><tr><th>关键词</th><th>通常意味着</th></tr></thead>
+<tbody>
+<tr><td>"分给"、"发给"</td><td>有序（指定对象）</td></tr>
+<tr><td>"分成"、"组成"</td><td>无序（无归属）</td></tr>
+<tr><td>"先……再……"</td><td>有序（有时序）</td></tr>
+</tbody>
+</table>
+
+<div class="warning-box">
+心里默数导致遗漏（用标数法） · 分类时重复计数（不同类别打不同标记） · 同一题不区分"求和"与"求算式"（看清题目问的是什么） · 分物题默认规则（小学默认每人至少1个）。
+</div>
+
+<div class="heart-quote">
+题可以千变万化，什么是不变的？分不分你我，有序还是无序。
+</div>
+</article>
+
+<!-- L3-4 无序枚举 -->
+<article class="lesson" id="L3-4">
+<div class="lesson-title"><span class="lesson-no">L3·4</span>无序枚举（综合训练）</div>
+<div class="tags">
+  <span class="tag">名师点金</span>
+  <span class="tag warm">枚举综合</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：无序枚举 = <span class="hl">不分先后</span>，先选A再选B和先选B再选A是一样的。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 例题详解</h4>
+
+<div class="example">
+<div class="example-title">例1：三人握手次数</div>
+<p>甲、乙、丙握手：甲-乙、甲-丙、乙-丙，共<span class="hl">3次</span>。</p>
+<p><strong>口诀</strong>：<strong>先选出一个人当"主语"，再依次与剩下的人配对，避免重复</strong>。</p>
+<p><strong>公式雏形</strong>：n个人的无序两人组数 = <strong>n(n-1)/2</strong>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例2：硬币凑钱</div>
+<p>两种面值硬币各一枚（1分、2分），能组成多少种不同的钱数？</p>
+<p>用两枚：1+2=3（1种）；用一枚：1分、2分（2种）→ <span class="hl">共3种</span>（{1,2,3}）。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例3：枚举的两大核心方法</div>
+<p><strong>核心方法一</strong>：分类（按某个维度切分成不重叠的几类）。<br>
+<strong>核心方法二</strong>：考虑有序/无序（先选A再选B和先选B再选A算不算同一种）。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例4：1元/2元/5元凑18元的风筝付款方式</div>
+<p>用1元、2元、5元，不多于10张，至少用两种面额，买18元风筝。</p>
+<p><strong>分类标准：以5元的张数分类</strong></p>
+<table>
+<thead><tr><th>类别</th><th>张数细节</th><th>方案数</th></tr></thead>
+<tbody>
+<tr><td>3张5元</td><td>剩余3元（1张2+1张1 / 3张1）</td><td>2种</td></tr>
+<tr><td>2张5元</td><td>剩余8元（5种组合）</td><td>5种</td></tr>
+<tr><td>1张5元</td><td>剩余13元（3种合法组合）</td><td>3种</td></tr>
+<tr><td>0张5元</td><td>只用2元和1元（至少两种面额）</td><td>1种</td></tr>
+<tr><td colspan="2"><strong>总计</strong></td><td><strong>11种</strong></td></tr>
+</tbody>
+</table>
+<p><strong>核心难点</strong>：分类要完整（5元的张数从0到3全部覆盖）+ 每类内枚举要不重不漏。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例5：从1到6中取两数和大于6</div>
+<p>枚举（i<j, i+j>6）：(2,5)(2,6)(3,4)(3,5)(3,6)(4,5)(4,6)(5,6)(1,6) → <span class="hl">9种</span>。</p>
+<p><strong>心法</strong>：用"小数在前"规则避免重复。</p>
+</div>
+
+<div class="tip-box">
+<strong>💡 多种解法对比</strong>：
+<ul>
+  <li><strong>分类枚举</strong>：情况较复杂需切分。</li>
+  <li><strong>有序/无序判断</strong>：取组合时用"小数在前"规则。</li>
+  <li><strong>最小-最大过电影法</strong>：取值连续范围时，min到max逐个判断。</li>
+  <li><strong>方法不固化</strong>：没有"哪个方法一定简单"，要灵活选择。</li>
+</ul>
+</div>
+
+<div class="heart-quote">
+方法不固化：没有"哪个方法一定简单"，要根据题目灵活选择。鼓励孩子动手+动脑，即使视频课也可用实物卡片拼摆。
+</div>
+</article>
+
+<!-- L3-5 有序枚举 -->
+<article class="lesson" id="L3-5">
+<div class="lesson-title"><span class="lesson-no">L3·5</span>有序枚举（排列问题）</div>
+<div class="tags">
+  <span class="tag">名师点金</span>
+  <span class="tag warm">排列问题</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：有序枚举 = <span class="hl">分你我、分顺序</span>，先选A再选B和先选B再选A不一样。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 有序枚举的四大通用步骤</h4>
+<ol>
+  <li><strong>判断有序/无序</strong>：决定计数方式（A→B与B→A是否相同）</li>
+  <li><strong>分类</strong>：把整体切成互不重叠的几类</li>
+  <li><strong>每类逐一枚举</strong>：在每类内部把所有可能列出来</li>
+  <li><strong>求和</strong>：把每类的数量加起来</li>
+</ol>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 五道例题的统一规律</h4>
+<table>
+<thead><tr><th>例题</th><th>有序/无序</th><th>分类依据</th><th>每类数量</th><th>总数</th></tr></thead>
+<tbody>
+<tr><td>三位数（123）</td><td>有序</td><td>百位取值</td><td>2种</td><td>6</td></tr>
+<tr><td>三景点</td><td>有序</td><td>第一站</td><td>2种</td><td>6</td></tr>
+<tr><td>三座位</td><td>有序</td><td>最前位置</td><td>2种</td><td>6</td></tr>
+<tr><td>三色灯</td><td>有序</td><td>第一盏颜色</td><td>2种</td><td>6</td></tr>
+<tr><td>两段路</td><td>有序</td><td>第一段选哪条</td><td>4种</td><td>12</td></tr>
+</tbody>
+</table>
+<p><strong>共同规律</strong>：n个元素的有序全排列 = n!（3! = 6；3 × 4 = 12）</p>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 枚举与乘法原理的关系</h4>
+<table>
+<thead><tr><th>方法</th><th>适用场景</th></tr></thead>
+<tbody>
+<tr><td><strong>枚举</strong></td><td>通用方法，所有题都能用</td></tr>
+<tr><td><strong>乘法原理</strong></td><td>每步选择互不影响时的高效工具</td></tr>
+</tbody>
+</table>
+
+<div class="example">
+<div class="example-title">例1：用1、2、3组成不含重复数字的三位数</div>
+<p>按百位分类：1→{123,132}；2→{213,231}；3→{312,321}，共 <span class="hl">6个</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例2-4：景点顺序/座位/信号灯</div>
+<p>三景点（少林寺、龙门、清明上河园）：先去的不同算不同，共 <span class="hl">6种</span>。</p>
+<p>三人座位（平、行、乐）：最前不同→2种×3类= <span class="hl">6种</span>。</p>
+<p>三色信号灯（红黄蓝）：第一盏不同→2种×3类= <span class="hl">6种</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例5：两段路的走法</div>
+<p>家到学校3条路，学校到公园4条路。家到公园走法 = <span class="hl">3 × 4 = 12种</span>。</p>
+</div>
+
+<div class="warning-box">
+急于用乘法原理（先做完整枚举，乘法原理是"捷径"不是"必选"） · 忘记判断有序/无序（第一步必须做） · 分类时漏类（画分类表） · 枚举时漏项（类内逐一列出）。
+</div>
+
+<div class="heart-quote">
+做题顺序：第一步先判断有序还是无序；第二步分类；第三步每类不同不漏地枚举；最后把每类的方法加在一起。
+</div>
+</article>
+
+</div>
+</section>
+
+<!-- ============ 第二部分：关卡L3·题型实战 ============ -->
+<section class="part" id="part2">
+<div class="part-header">🎯 第二部分：关卡 L3·题型实战课（8讲·精讲题型）</div>
+<div class="part-body">
+
+<p style="margin-bottom:14px;font-size:0.85rem;color:var(--text-soft);">🛠️ <strong>8讲题型实战</strong> · 把思维方法落地到具体题型，每个题型都有"预览+详讲"双版本。</p>
+
+<!-- L3-6 加减混合运算 -->
+<article class="lesson" id="L3-6">
+<div class="lesson-title"><span class="lesson-no">L3·6</span>加减混合运算（算力核心）</div>
+<div class="tags">
+  <span class="tag warm">算力核心</span>
+  <span class="tag">和差不变</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：算力 = <span class="hl">理解，不是刷题</span>。算力的核心工具是"<strong>和差不变</strong>"的技巧。
+</div>
+
+<div class="method">
+<strong>📚 概念搭桥：位值原则</strong>
+<ul>
+  <li>123 = 1个百 + 2个十 + 3个一</li>
+  <li>238 = 23个十 + 8个一（把"23"看作一个整体单位）</li>
+</ul>
+这是小学最重要的<strong>位值原则</strong>，所有后续简算技巧都建立在此基础上。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📚 不一样的加法交换律（核心新概念）</h4>
+<div class="method">
+<strong>普通加法交换律</strong>：34 + 25 = 25 + 34（两个加数整体交换位置）。<br>
+<strong>不一样的加法交换律</strong>：不交换整个加数，而是<strong>按"相同的数位"进行交换</strong>，和也不变。<br>
+例如：34 + 25 → 35 + 24（个位4↔5，十位3↔2）。<br>
+<span class="hl-primary">结论</span>：相同的数位（十位与十位、个位与个位）进行交换，和不变。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 五大核心定律</h4>
+
+<h4 style="font-size:0.9rem;color:var(--accent);margin-top:10px;">📌 加法「和不变」5条定律</h4>
+<ol>
+  <li><strong>加法交换律</strong>：A + B = B + A</li>
+  <li><strong>加法结合律</strong>：A + B + C = A + (B + C)</li>
+  <li><strong>不一样的加法交换律</strong>（按位交换）</li>
+  <li><strong>来回给/来回分</strong>：和不变（不分对象如何流动，总数不变）<br>
+    例：78 + 99 → 减1给1 → 77 + 100</li>
+  <li><strong>借来还去</strong>：为了凑整，向别人"借"一个数，算完后必须"还"回去<br>
+    例：78 + 99 = 78 + (100 − 1) = 78 + 100 − 1 = 177</li>
+</ol>
+
+<h4 style="font-size:0.9rem;color:var(--accent);margin-top:10px;">📌 减法「差不变」2条定律</h4>
+<ol>
+  <li><strong>同加同减差不变</strong>：被减数和减数同时加上或同时减去同一个数，差不变<br>
+    例：178 − 99 = (178 + 1) − (99 + 1) = 179 − 100 = <span class="hl">79</span></li>
+  <li><strong>连续减去两数 = 减去两数之和</strong>：A − B − C = A − (B + C)</li>
+</ol>
+
+<h4 style="font-size:0.9rem;color:var(--accent);margin-top:10px;">📌 同级运算：数字和符号可以一起搬家</h4>
+<div class="method">
+<strong>关键规则</strong>：没有小括号的同级运算（加减混合 或 乘除混合），<strong>可以把数字和它前面的运算符号一起"搬家"</strong>，结果不变。<br>
+例：17 + 9 − 7 = 17 − 7 + 9 = 19（搬家）
+</div>
+
+<h4 style="font-size:0.9rem;color:var(--accent);margin-top:10px;">📌 A − B − C 的小括号去掉</h4>
+<div class="formula">
+<strong>死记口诀</strong>：A − (B − C) = A − B + C（括号前是减号要变号）
+<strong>差不变解释</strong>：让括号内变0最简单
+例：173 − (93 − 29) = 173 − 93 − 29
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 例题</h4>
+
+<div class="example">
+<div class="example-title">例1：拆数凑整</div>
+<div class="formula">91 = 90 + 1 = 100 - 9
+99 = 100 - 1
+102 = 100 + 2
+168 = 170 - 2
+199 = 200 - 1
+999 = 1000 - 1</div>
+<p><strong>关键思想</strong>：拆出整十、整百、整千，便于口算。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例2：加法简算·拆分法</div>
+<p>36 + 47 = 36 + 4 + 43 = 40 + 43 = <span class="hl">83</span>（把47拆成4+43，因为36+4=40是整十数）。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例3：减法简算·差不变</div>
+<p>72 − 46：<br>
+方法1：72 − 42 − 4 = 30 − 4 = <span class="hl">26</span><br>
+方法2：72 = 70 + 2 → 70 − 46 + 2 = 24 + 2 = <span class="hl">26</span>（数字带符号搬家）<br>
+方法3：63 − 28 = 65 − 30 = <span class="hl">35</span>（加2）</p>
+</div>
+
+<div class="example">
+<div class="example-title">例4：加减混合·和不变</div>
+<p>178 + 99 = 177 + 100 = <span class="hl">277</span>（把99"加1"，给178"减1"，和不变）</p>
+<p>178 + 98 + 96 = 178 + (100−2) + (100−4) = 178 + 200 − 6 = <span class="hl">372</span></p>
+</div>
+
+<div class="example">
+<div class="example-title">例5：连加连减·生活场景化</div>
+<p>"挣了19块、花了18块、挣了17块、花了16块、挣了15块、花了14块、又挣了13块"</p>
+<p>等价于：(19-18) + (17-16) + (15-14) + 13 = 1 + 1 + 1 + 13 = <span class="hl">16</span></p>
+<p><strong>终极例题</strong>：1+2+3+...+9+10 - (2+3+4+...+9+10) = <span class="hl">1</span>（首尾对齐相消，只剩第一个1）</p>
+</div>
+
+<div class="warning-box">
+72 + 38 − 72 + 38 ≠ 0（同级运算要从左到右或搬家） · 加减法结合律使用时，先观察能否凑整 · "借来还去"法要注意"借多少还多少"。
+</div>
+
+<div class="heart-quote">
+算力是理解，不是刷题。搞懂"为什么可以这样算"，比记住公式重要100倍。
+</div>
+</article>
+
+<!-- L3-7 测量与最短路线 -->
+<article class="lesson" id="L3-7">
+<div class="lesson-title"><span class="lesson-no">L3·7</span>测量与最短路线</div>
+<div class="tags">
+  <span class="tag warm">几何启蒙</span>
+  <span class="tag">点 vs 段</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：刻度是<strong>点</strong>，长度是<strong>段</strong>；两点之间<strong>线段</strong>最短；点到直线<strong>垂线段</strong>最短。
+</div>
+
+<div class="method">
+<strong>📚 概念搭桥：刻度 vs 长度</strong>
+<ul>
+  <li><strong>刻度</strong>：尺子上标的数字（0、1、2、3、4、5……），是一个<strong>点</strong>。</li>
+  <li><strong>长度</strong>：两个刻度之间那一段线段的长度（10厘米等）。</li>
+  <li><strong>时刻 vs 时间</strong>：七点（点）→ 七点到八点（间隔）。</li>
+  <li><strong>与植树问题伏笔</strong>：树 = 刻度（点），间距 = 长度（段）。</li>
+</ul>
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 最短路线两大公理</h4>
+<div class="formula">
+<strong>公理一</strong>：两点之间线段最短（线段的长度叫这两点之间的距离）。
+<strong>公理二</strong>：从直线外一点到这条直线所画的线段中，垂线段最短。
+<strong>推论</strong>：三角形的两边之和大于第三边。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 比较线段长短的3种方法</h4>
+<ol>
+  <li><strong>一端比齐</strong>：把线段的一端对齐，看另一端。</li>
+  <li><strong>同加同减（差不变）</strong>：起点相同，同减同样长，谁有剩余谁更长。</li>
+  <li><strong>量化思想</strong>：分成相同小段，数段数（段数最多=最长）。</li>
+</ol>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 例题</h4>
+
+<div class="example">
+<div class="example-title">例1：跳远成绩测量（垂线段最短）</div>
+<p>张强同学跳远，测量成绩时应在离起跳线最近的脚印脚跟处取一点，并向起跳线做<strong>垂直线段</strong>。<br>
+<strong>应用价值</strong>：跳远、跳高等体育测量都基于此原理。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例2：机器人走格子（A到B的距离）</div>
+<p>机器人先南1米→东1米→南2米→东2米→南1米到B点。A到B的水平位移=1+2=3米，垂直位移=1+2+1=4米。</p>
+<p><strong>方法1</strong>：勾三股四弦五 → <span class="hl">5米</span>。</p>
+<p><strong>方法2</strong>（奥数思维核心）：</p>
+<div class="formula">
+AC < AB + BC = 7，所以不是7米
+BC = 4是垂线段，所以AC > 4
+AC > 3（因为比斜边短）
+排除3、4、7，只能选 <span class="hl">5米</span>
+</div>
+<p><strong>老师重点讲方法2（排除法）</strong>：不靠死记"勾股定理"，靠排除与推理。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例3：方格图中黑猫白猫捉老鼠</div>
+<p>同时出发，速度相同，谁先到？</p>
+<p><strong>方法1（标准单位计数）</strong>：黑猫6+3+3=12单位；白猫6+6+3=15单位 → 黑猫先到。</p>
+<p><strong>方法2（同加同减差不变）</strong>：不去数总长度，逐段消去。消去后黑猫先到。</p>
+<p><strong>结论</strong>：当路径可通过"逐段对齐消去"完全配对时，两人同时到达。</p>
+</div>
+
+<div class="warning-box">
+例2不要死记"勾三股四弦五"，而要会用排除法 · 比较线段长短时，先观察能否平移到同一参考系 · 同加同减消去法必须保证逐段对齐。
+</div>
+
+<div class="heart-quote">
+用孩子手边的尺子，让他/她指着刻度3、刻度7，量一量两个刻度之间的距离，把"点 vs 段"刻进肌肉记忆。
+</div>
+</article>
+
+<!-- L3-8 植树问题 -->
+<article class="lesson" id="L3-8">
+<div class="lesson-title"><span class="lesson-no">L3·8</span>植树问题（棵数 vs 段数）</div>
+<div class="tags">
+  <span class="tag warm">几何应用</span>
+  <span class="tag">棵数段数</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：所有植树问题，<span class="hl">画图就迎刃而解</span>。画最简单的图（如"两棵树一段"），判断棵数和段数的关系。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 概念搭桥：时刻/时间 与 刻度/长度</h4>
+<table>
+<thead><tr><th>概念</th><th>含义</th></tr></thead>
+<tbody>
+<tr><td>时刻（点）</td><td>七点、八点、九点</td></tr>
+<tr><td>时间（间隔）</td><td>7点到9点 = 2个小时</td></tr>
+<tr><td>刻度（点）</td><td>1、2、3、4</td></tr>
+<tr><td>长度（段）</td><td>1和3之间长度是2</td></tr>
+</tbody>
+</table>
+<p><strong>核心结论</strong>：n个连续刻度之间，长度 = n − 1（n棵树 = n−1段间距的原理）</p>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 植树问题的本质</h4>
+<div class="method">
+<strong>本质</strong>：研究<strong>间隔数（段数）与树数（棵数）之间的关系</strong>。<br>
+把尺子画出来植树（共植6棵树）：6棵树只有 <strong>5个间隔</strong>。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 4种场景下的棵数与段数关系</h4>
+<table>
+<thead><tr><th>场景</th><th>棵数与段数关系</th><th>例子</th></tr></thead>
+<tbody>
+<tr><td>两端都植树</td><td>棵数 = 段数 + 1</td><td>4段 → 5棵树</td></tr>
+<tr><td>一端植树一端不植树</td><td>棵数 = 段数</td><td>2段 → 2棵树</td></tr>
+<tr><td>两端都不植树</td><td>棵数 = 段数 − 1</td><td>3段 → 2棵树</td></tr>
+<tr><td>环形植树</td><td>棵数 = 段数</td><td>4段 → 4棵树（把线弯成一个圈）</td></tr>
+</tbody>
+</table>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 例题</h4>
+
+<div class="example">
+<div class="example-title">例1：两端都植树</div>
+<p>路长200米，每隔10米种一棵树，两端都种：200÷10=20段 → <span class="hl">20+1=21棵</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例2：反向应用</div>
+<p>每隔5米种一棵树，两端都种，正好种了10棵：段数 = 10-1 = 9段 → 路长 = 9×5 = <span class="hl">45米</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例3：方阵游行问题</div>
+<p>10个方阵，每个长10米，间隔5米：10个方阵 → 9个间隔 → 总长 = 9×5 + 10×10 = <span class="hl">145米</span>。<br>
+<strong>提醒</strong>：很多孩子只算间隔总长，忘记加方阵自身长度。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例4：敲钟问题（两端都植树的变形）</div>
+<p>6点钟敲6下用5秒：6棵树 → 5个间隔 → 1秒/间隔。<br>
+12点钟敲12下：12棵树 → 11个间隔 → <span class="hl">11秒</span>。<br>
+<strong>本质</strong>：敲钟问题就是"两端都植树"的变形。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例5：上楼问题</div>
+<p>玲玲家住9层，每层1分钟：1楼不需要上 → 楼高数 = 9-1 = 8 → <span class="hl">8分钟</span>。<br>
+<strong>常见错误</strong>：误以为6是3的2倍，用时也2倍 = 12分钟（错的！应按楼高算）。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例6：两端都不植树（电线杆）</div>
+<p>100米公路，每隔10米架设一根，两端都不架设：100÷10=10段 → <span class="hl">10-1=9根</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例7：楼梯级数</div>
+<p>李林家住4楼，1楼到3楼走18级：1楼到3楼=2个楼高 → 1个楼高=9级 → 1楼到4楼=3个楼高 → <span class="hl">27级</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例8：电线杆问题（间隔与电线杆数）</div>
+<p>第1根到第10根用9分钟，22分钟走到第几根？9个间隔用9分钟 → 1个间隔=1分钟 → 22分钟走22个间隔 → <span class="hl">22+1=23根</span>。</p>
+</div>
+
+<div class="warning-box">
+上楼问题：1楼是起点，不用上，"楼层数 - 1"才是楼高数 · 敲钟问题：敲N下有N-1个间隔（不是N个） · 方阵问题：总长度要包含间隔长度+方阵自身长度 · 反向应用（已知棵数求长度）：先求段数（棵数-1），再求长度。
+</div>
+
+<div class="heart-quote">
+所有植树问题，画图就迎刃而解。
+</div>
+</article>
+
+<!-- L3-9 植树2 -->
+<article class="lesson" id="L3-9">
+<div class="lesson-title"><span class="lesson-no">L3·9</span>植树问题2（变形·环形·日期vs时间）</div>
+<div class="tags">
+  <span class="tag warm">植树变形</span>
+  <span class="tag">举例子 > 死记</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：锯木头、敲钟、上楼、公交车发车 —— 它们本质都是<span class="hl">植树问题</span>的变形。<strong>举例子 > 死记</strong>。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 植树问题四类总结</h4>
+<table>
+<thead><tr><th>类型</th><th>关系</th><th>典型题型</th></tr></thead>
+<tbody>
+<tr><td>两端都植树</td><td>棵数 = 段数 + 1</td><td>直路两端种树、敲钟、上楼梯</td></tr>
+<tr><td>一端植树一端不植树</td><td>棵数 = 段数</td><td>接着植树、接着爬楼梯</td></tr>
+<tr><td>两端都不植树</td><td>棵数 = 段数 − 1</td><td>锯木头、剪绳子、直路两端不种</td></tr>
+<tr><td>环形植树</td><td>棵数 = 段数</td><td>圆周植树、公交车发车</td></tr>
+</tbody>
+</table>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 关键区分：日期问题 vs 时间问题</h4>
+<table>
+<thead><tr><th>对比项</th><th>日期问题</th><th>时间问题</th></tr></thead>
+<tbody>
+<tr><td>起点</td><td>1号（一整天）</td><td>1点（时刻）</td></tr>
+<tr><td>终点</td><td>3号（一整天）</td><td>3点（时刻）</td></tr>
+<tr><td>间隔数</td><td>3 − 1 + 1 = 3天（两端都算）</td><td>3 − 1 = 2小时（端点不算）</td></tr>
+<tr><td>模型</td><td>两端都植树</td><td>一端植树一端不植树</td></tr>
+</tbody>
+</table>
+<p><strong>关键洞察</strong>："一号"是<strong>完整时间段</strong>（0点到24点）；"1点"是<strong>时刻</strong>（一个点）。同样是"两个端点之间的数量"，含端点还是不含端点要看具体语义。</p>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 例题</h4>
+
+<div class="example">
+<div class="example-title">例1：锯木头问题（两端都不植树）</div>
+<p>彩带长25分米，剪成5分米一段：25÷5 = 5段。剪5段需剪4次（次数 = 段数 − 1）。</p>
+<p>锯成5段，每锯一次5分钟：4×5 = <span class="hl">20分钟</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例2：坑题辨析</div>
+<p>李师傅把一根水管锯成3段用6分钟，他一口气锯了5根，共用多少分钟？</p>
+<p><strong>坑点</strong>：找"锯1次几分钟"再乘以5根的次数。</p>
+<p><strong>正解</strong>：每根锯3段都用6分钟（与单次时间无关） → 5×6 = <span class="hl">30分钟</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例3：一端植树一端不植树</div>
+<p>街心花园一端原有1株桃树，每隔10米种海棠，共用23棵海棠：23棵海棠=23段 → 23×10 = <span class="hl">230米</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例4：环形植树（棵数等于段数）</div>
+<p>人工湖周长150米，每隔3米种一棵：150÷3=50段 → <span class="hl">50棵</span>。</p>
+<p>水池周长400米栽80棵树，相邻距离 = 400÷80 = <span class="hl">5米</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例5：公交车发车问题（环形植树变形）</div>
+<p>全程60分钟，每隔5分钟一辆车。最少需要多少辆车？</p>
+<p><strong>化动为静</strong>：5分钟一辆循环运转 → 等价于环形植树。</p>
+<p>辆数 = 段数（环形）= 60÷5 = <span class="hl">12辆车</span>。</p>
+<p><strong>强调</strong>：不要被"公交车"表象迷惑，本质就是环形植树。</p>
+</div>
+
+<div class="warning-box">
+例2（锯木头坑题）：不要被"锯一次几分钟"误导 · 敲钟问题：钟响N下是N棵树，N-1个间隔 · 上楼问题：1楼不需要上，楼层数 - 1 = 楼高数 · 环形植树：首尾相连，棵数 = 段数（不是+1）。
+</div>
+
+<div class="heart-quote">
+将来你学习奇偶分析也是一样的。你没必要记，举例子就行。 —— 奥数里很多看似需要"背"的规律，本质都是"举一个例子就能推出来"的。
+</div>
+</article>
+
+<!-- L3-10 行程初步 -->
+<article class="lesson" id="L3-10">
+<div class="lesson-title"><span class="lesson-no">L3·10</span>行程初步（速度·时间·路程）</div>
+<div class="tags">
+  <span class="tag warm">行程入门</span>
+  <span class="tag">三大公式</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：行程问题不是公式，<span class="hl">而是基本概念 + 画图理解</span>。必须先弄清速度、时间、路程的本质。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 行程三大基本概念</h4>
+<table>
+<thead><tr><th>概念</th><th>定义</th></tr></thead>
+<tbody>
+<tr><td><strong>路程</strong></td><td>物体实际经过的路径长度</td></tr>
+<tr><td><strong>速度</strong></td><td>单位时间内走的路程</td></tr>
+<tr><td><strong>时间</strong></td><td>走完路程所用的时长</td></tr>
+</tbody>
+</table>
+
+<div class="formula">
+<strong>三大基本关系式</strong>：
+速度 × 时间 = 路程
+路程 ÷ 速度 = 时间
+路程 ÷ 时间 = 速度
+</div>
+
+<div class="method">
+<strong>📚 概念搭桥：距离 vs 路程</strong>
+<ul>
+  <li><strong>距离</strong>：两点之间的<strong>线段长度</strong>（直线长度）</li>
+  <li><strong>路程</strong>：两点之间<strong>走过的轨迹</strong>长度（可走曲线）</li>
+  <li>通常：距离 ≤ 路程</li>
+</ul>
+</div>
+
+<div class="method">
+<strong>📚 速度的建构（重点）</strong>：比较两人快慢需统一一个量。
+<ul>
+  <li>时间相同 → 看路程（走得多者快）</li>
+  <li>路程相同 → 看时间（用得少者快）</li>
+  <li>都不一样 → 必须统一一个量</li>
+</ul>
+<strong>速度定义</strong>：单位时间内（1小时、1分钟、1秒）走的路程。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 例题</h4>
+
+<div class="example">
+<div class="example-title">例1：相对位置问题（距离的多种可能）</div>
+<p>小米家距学校1200米，学校距图书馆800米。小米家距图书馆多少米？</p>
+<p>图书馆可能在学校的<strong>两边</strong>：</p>
+<ul>
+  <li>情形1：图书馆在学校另一侧 → 1200+800 = <span class="hl">2000米</span></li>
+  <li>情形2：图书馆在学校和小米家之间 → 1200−800 = <span class="hl">400米</span></li>
+</ul>
+<p><strong>核心思维</strong>：位置不确定时，分类讨论所有可能。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例2：画图与演示工具</div>
+<p>小可家距学校1000米，走了250米忘戴口罩，原路返回拿。一共走了多少米？</p>
+<p><strong>工具</strong>：<strong>画图</strong>（画出往返轨迹）+ <strong>演示</strong>（教具模拟走动）。</p>
+<p>计算：250 + 250 + 1000 = <span class="hl">1500米</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例3-5：三大公式灵活应用</div>
+<p><strong>例3（求时间）</strong>：孙悟空500米，每分钟10米 → 500÷10 = <span class="hl">50分钟</span>。</p>
+<p><strong>例4（求速度）</strong>：倒霉熊走600米用5分钟 → 600÷5 = <span class="hl">120米/分钟</span>。</p>
+<p><strong>例5（速度×时间=路程）</strong>：7:30出发，10:30到达（3小时），每小时行8000米 → 8000×3 = <span class="hl">24000米 = 24千米</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例6：往返求时间</div>
+<p>去时6000米/小时，回时6000米/小时，24千米需几小时？</p>
+<p>24÷6 = <span class="hl">4小时</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例7：两段路（家→早餐店→学校）</div>
+<p>沙和尚先步行10分钟（40米/分钟）到早餐店，再坐30分钟公交（1000米/分钟）。家到学校多远？</p>
+<p>第一段：40×10=400米；第二段：1000×30=3000米 → 总 = <span class="hl">3400米</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例8：变速问题</div>
+<p>小娜扎每分钟走60米，18分钟到校。今天前3分钟走50米/分钟，要想10分钟到校，后面每分钟走多少？</p>
+<p>总路程：60×18=1080米；前3分钟走的：50×3=150米；剩余1080−150=930米；剩余7分钟。</p>
+<p>后续速度：930÷7 ≈ <span class="hl">133米/分钟</span>。</p>
+<p><strong>核心</strong>：分段画图，逐一分析每段速度、路程、时间。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例9：火车行程</div>
+<p>两列火车同从西安去北京。甲车120千米/小时，10小时到。乙车150千米/小时，几小时到？</p>
+<p>总路程：120×10=1200千米 → 乙车时间：1200÷150 = <span class="hl">8小时</span>。</p>
+</div>
+
+<div class="warning-box">
+时刻vs时间：7:30是时刻，7:30到10:30是3小时（时间） · 单位一致：千米/小时、米/分钟要先统一 · 画图规范：要标清出发地、目的地、运动方向、每段参数 · 位置不确定：必须考虑所有可能位置。
+</div>
+
+<div class="heart-quote">
+五六年级更难的行程问题也基于此基础，必须把概念理解透彻。
+</div>
+</article>
+
+<!-- L3-11 等量代换 -->
+<article class="lesson" id="L3-11">
+<div class="lesson-title"><span class="lesson-no">L3·11</span>等量代换（天平原则）</div>
+<div class="tags">
+  <span class="tag warm">方程思维</span>
+  <span class="tag">曹冲称象</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：等量代换就是 <span class="hl">天平原则</span> —— 等式两边同时加、同时减、同时乘（除零外）、同时除，依然平衡。
+</div>
+
+<div class="method">
+<strong>📚 概念搭桥：曹冲称象</strong>：用"船下沉到同一位置"的等量关系，把"称大象"转化成"称石头"。这就是<strong>等量代换</strong>的雏形。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 等量代换三大工具</h4>
+<ol>
+  <li><strong>等式基本性质</strong>：同加同减同乘同除不变。</li>
+  <li><strong>直接代入法</strong>：已知关系代入未知项。</li>
+  <li><strong>整体代换法</strong>：把某部分看作一个整体进行替换。</li>
+</ol>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 例题</h4>
+
+<div class="example">
+<div class="example-title">例1：天平问题·冰糖葫芦法</div>
+<p>积木每块50克，3苹果=9积木，3桃子=6积木。一只桃比一只苹果轻多少克？</p>
+<ul>
+  <li>3苹果=9积木 → 1苹果=9÷3=3积木</li>
+  <li>3桃子=6积木 → 1桃子=6÷3=2积木</li>
+  <li>1苹果比1桃子多1积木 → 1积木=50克</li>
+  <li><strong>答案</strong>：<span class="hl">桃子比苹果轻50克</span></li>
+</ul>
+<p><strong>冰糖葫芦法</strong>：用竹签从上往下"穿"积木，能穿几个就是几块积木（用于图形叠加的天平问题）。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例2：进阶等量代换</div>
+<p>"1桃=2包+40克"，"1桃+80克=4包+80克"。求1桃+4包共重多少克？</p>
+<p>代入第二式：2包+40克+80克=4包+80克 → 2包=120克 → 1包=60克。</p>
+<p>1桃+4包 = (2×60+40) + 4×60 = <span class="hl">400克</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例3-4：基础等量代换</div>
+<p><strong>例3</strong>：圆+圆+圆=18 → 圆=6；三角+圆=10 → 三角=4。<br>
+<strong>例4</strong>：圆=3三角，圆+三角=24 → 三角=6 → 圆=18。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例5：空瓶换水（3空瓶换1汽水）</div>
+<p><strong>核心思维</strong>：3空瓶=1汽水（含瓶）→ 等式两边都"去掉"1空瓶 → <strong>2空瓶=1汽水里的"水"</strong>。</p>
+<p>28瓶汽水 → 28空瓶 → 28÷2 = 14份水 → <span class="hl">总共喝的 = 28+14 = 42瓶</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例6-7：空瓶换水变式</div>
+<p><strong>例6（4空瓶换1汽水）</strong>：4空瓶=1汽水 → 3空瓶=1汽水里的水。18空瓶÷3=6份水 → <span class="hl">24瓶</span>。</p>
+<p><strong>例7（7空瓶换1汽水·反向）</strong>：7人喝→买6瓶。2009人÷7=287组（287×6=1722瓶）→ <span class="hl">买1722瓶</span>。</p>
+</div>
+
+<div class="tip-box key">
+<strong>🔑 空瓶换水的本质</strong>：N空瓶换1汽水 → (N-1)空瓶 = 1汽水里的水。<br>
+<strong>不是</strong>"借来换去"或"买N送M"的技巧。<strong>本质就是等量代换</strong>。
+</div>
+
+<div class="warning-box">
+空瓶换水不要死记"借来换去"（本质是等量代换） · 等式两边同加同减时要保持平衡 · 不同符号要严格区分 · 大数除法必须列竖式（即使三年级也要）。
+</div>
+
+<div class="heart-quote">
+等量代换是五六年级方程的基础，必须扎实掌握。
+</div>
+</article>
+
+<!-- L3-12 加减数字谜 -->
+<article class="lesson" id="L3-12">
+<div class="lesson-title"><span class="lesson-no">L3·12</span>加减数字谜</div>
+<div class="tags">
+  <span class="tag warm">数字推理</span>
+  <span class="tag">四大方法</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：数字谜的四大方法：<span class="hl">个位分析、特殊结构、还原思想、按位交换</span>。从最确定的位（个位）开始，逐步推到不定的位。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 数字谜四大分析方法</h4>
+<ol>
+  <li><strong>个位分析法</strong>：从个位入手，逐步考虑进位。</li>
+  <li><strong>特殊结构法</strong>：识别特殊数字结构（如三位减两位=一位必是100-99=1）。</li>
+  <li><strong>还原思想</strong>：减法是加法的逆运算，把减法还原成加法。</li>
+  <li><strong>加法交换律</strong>（按位交换）：交换方框和已知数字的位置。</li>
+</ol>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 例题</h4>
+
+<div class="example">
+<div class="example-title">例1：个位分析法（入门）</div>
+<p>三角+方块=85，三角+2=6。</p>
+<ul>
+  <li>个位分析：4+2=6 → 三角=4。</li>
+  <li>4+方块=85 → <span class="hl">方块=81</span>。</li>
+</ul>
+<p><strong>进位专题</strong>：8+4=12（进位）→ 个位是2，<strong>注意进位1</strong> → 9+谁=15？6，所以星=6。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例2：还原思想（减法转加法）</div>
+<p>□−1=7 → □=8（直接算）。或"<strong>遇到减法可以还原成加法</strong>"来做。</p>
+<p>还原口诀：遇到"加"就减，遇到"减"就加，遇到"乘"就除，遇到"除"就乘。</p>
+<p><strong>链式运算例</strong>：一个数先+6，再×6，再−6=30。从结果往前推：30+6=36；36÷6=6；6−6=<span class="hl">0</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例3-5：特殊结构法</div>
+<p><strong>例3</strong>：三位数减两位数=1 → 特殊结构必是 <strong>100 − 99 = 1</strong>。</p>
+<p><strong>例4</strong>：两位数+两位数=196 → 98+98=196 ✓；97+99=196 ✓。<span class="hl">两组</span>。</p>
+<p><strong>例5</strong>：方框+方框=198 → 99+99=198 → <span class="hl">一组</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例6-7：加法交换律（位置互换）</div>
+<p><strong>例6</strong>：方框+2=8（个位），十位+3=10（进位），百位+4=7。</p>
+<p>把方框和3交换位置 → 436+方框=708 → <span class="hl">方框=272</span>。</p>
+<p><strong>例7</strong>：550+方框=746 → 交换5 → <span class="hl">方框=196</span>。</p>
+<p><strong>核心思想</strong>：直接分析困难时，把方框与已知数字交换位置，用加减关系求出。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例8：汉字数字谜（爱数学）</div>
+<p><strong>核心方法</strong>：两个相同数相加，个位数字是6，那么这个数是8（8+8=16）或3（3+3=6）。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例9：图形相加（特殊结构）</div>
+<p>三角+三角+三角=888。</p>
+<p><strong>方法1（特殊结构法）</strong>：888÷3 = <span class="hl">296</span>。</p>
+<p><strong>方法2（个位分析法）</strong>：三角×3=个位8 → 三角=6（6×3=18）。综合 → 三角=<span class="hl">296</span>。</p>
+<p><strong>两种方法都要掌握</strong>。</p>
+</div>
+
+<div class="warning-box">
+进位不能漏（每位相加后都要考虑） · 借位要追踪（减法中被借走的1要传递） · 特殊结构识别要快 · 数字谜中相同字符代表相同数字。
+</div>
+
+<div class="heart-quote">
+三种方法（个位·特殊·还原·按位交换）—— 关键看题目特征灵活选用。
+</div>
+</article>
+
+<!-- L3-13 符号谜 -->
+<article class="lesson" id="L3-13">
+<div class="lesson-title"><span class="lesson-no">L3·13</span>符号谜（字母/汉字代表数字）</div>
+<div class="tags">
+  <span class="tag warm">数字谜进阶</span>
+  <span class="tag">符号约束</span>
+</div>
+
+<div class="tip-box key">
+<strong>🎯 一句话心法</strong>：符号谜和数字谜<span class="hl">本质一样</span>，只是把"方框"换成了字母/汉字/图形，<strong>相同符号代表相同数字，不同符号代表不同数字</strong>。
+</div>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📐 符号谜 vs 数字谜</h4>
+<table>
+<thead><tr><th>维度</th><th>数字谜</th><th>符号谜</th></tr></thead>
+<tbody>
+<tr><td>表示</td><td>方框（□）代替数字</td><td>字母、汉字、图形代替数字</td></tr>
+<tr><td>约束</td><td>方框可同可不同</td><td>同符号同数字，<strong>不同符号必不同数字</strong></td></tr>
+<tr><td>方法</td><td colspan="2">特殊结构法、尾数分析法、进位分析法（方法相通）</td></tr>
+</tbody>
+</table>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 4种常用方法</h4>
+<ol>
+  <li><strong>等式基本性质法</strong>：等式两边同加同减同乘同除（只有加减时最直接）。</li>
+  <li><strong>乘法意义 + 画图</strong>：把"几×几"理解为"几个几相加"。</li>
+  <li><strong>尾数分析法</strong>：从个位入手分析进位。</li>
+  <li><strong>特殊结构分析法</strong>：识别位数极端值（如三位+三位=1998 → 999+999）。</li>
+</ol>
+
+<h4 style="margin-top:14px;font-size:0.95rem;color:var(--primary);">📝 例题</h4>
+
+<div class="example">
+<div class="example-title">例1：等式基本性质法</div>
+<p>★★ − 8 = 14 → 两边都加8 → ★★=22 → <span class="hl">★=11</span>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例2：乘法意义 + 画图</div>
+<p>18×○ − 16×○ = 48。</p>
+<p><strong>思路1（乘法意义）</strong>：18个○ − 16个○ = 2个○ = 48 → <span class="hl">○=24</span>。</p>
+<p><strong>思路2（画图）</strong>：用18段表示○的18倍，16段表示16倍，差=2段=48，每段=24。</p>
+<p><strong>强调</strong>：<strong>乘法分配律不是必须的</strong>，三年级还没学，可以用"几个几"理解。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例3：乘除法尾数排查（系统顺序）</div>
+<p>两个数相乘个位是2：</p>
+<div class="formula">系统排查顺序（从小到大）：
+1×2 ✓，2×1（重复）
+2×6 ✓，6×2（重复）
+3×4 ✓，4×3（重复）
+4×8 ✓，8×4（重复）
+6×7 ✓，7×6（重复）
+8×9 ✓，9×8（重复）
+
+共 <strong>6 种</strong>：1×2、2×6、3×4、4×8、6×7、8×9</div>
+<p><strong>心法</strong>：从小到大按顺序排查，不重复、不遗漏。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例4：特殊结构分析法</div>
+<p>三位数 + 三位数 = 1998 → 只能是 <strong>999 + 999 = 1998</strong>。</p>
+<p>方框 − 两位数 = 1 → 只有 <strong>100 − 99 = 1</strong>。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例5：经纬分析法（位数范围）</div>
+<p>两位数 + 两位数 = ? → 两位数最大99，所以和最多99+99=198 → 结果只能是100-198。</p>
+</div>
+
+<div class="example">
+<div class="example-title">例6（符号谜综合）：喜欢数学</div>
+<p>求"喜、欢、数、学"代表的数字。</p>
+<div class="formula">学×3=8（个位）→ 学=6（6×3=18）→ 进位1
+数×3+1=0（个位）→ 数×3=9 → 数=3 → 进位1
+欢×3+1=0 → 欢=9（9+1=10）
+喜×3+1=? → 喜=1
+
+答案：<span class="hl">喜=1，欢=9，数=3，学=6</span></div>
+</div>
+
+<div class="example">
+<div class="example-title">例7（恭贺新喜）：多重进位追踪</div>
+<p>求"恭、贺、新、喜"代表的数字。</p>
+<p><strong>关键突破</strong>：贺这一步有两种可能（4或9），需结合上下文判断。</p>
+<p>9×2=18+2=20（个位0，进位2），但最高位不能是0 → 贺不能是9。</p>
+<p>4×2=8+2=10（个位0，进位1） → 贺=4 ✓。</p>
+<p><strong>答案</strong>：<span class="hl">恭=1，贺=4，新=6，喜=5</span>。</p>
+</div>
+
+<div class="warning-box">
+进位追踪：每步问"是否进位？进几？" · 最高位约束：结果最高位不能为0 · 不同符号约束：不同符号必代表不同数字 · 讨论要全：多种可能时都要列出再逐一排除。
+</div>
+
+<div class="heart-quote">
+数字谜和符号谜本质一样，关键是掌握分析方法。
+</div>
+</article>
+
+</div>
+</section>
+
+<!-- ============ 第三部分：学习路径与心法 ============ -->
+<section class="part" id="path">
+<div class="part-header">🗺️ 第三部分：学习路径 · 跨课程心法 · 终极总结</div>
+<div class="part-body">
+
+<h3 style="color:var(--primary);font-size:1.05rem;margin-bottom:10px;">📚 学习路径建议（两阶段13讲）</h3>
+
+<div class="method">
+<strong>第一阶段：建立思想方法基础（约5讲 · 名师点金）</strong>
+<ol>
+  <li>L3-1 还原思想（预览 → 详讲）</li>
+  <li>L3-2 合理规划时间（预览 → 详讲）</li>
+  <li>L3-3 枚举总论（预览 → 详讲）</li>
+  <li>L3-4 无序枚举（预览 → 详讲）</li>
+  <li>L3-5 有序枚举（预览 → 详讲）</li>
+</ol>
+</div>
+
+<div class="method">
+<strong>第二阶段：进入关卡题型（约8讲 · 题型实战）</strong>
+<ol>
+  <li>L3-6 加减混合运算（预览 → 详讲）</li>
+  <li>L3-7 测量与最短路线（预览 → 详讲）</li>
+  <li>L3-8 植树问题（预览 → 详讲）</li>
+  <li>L3-9 植树问题 2（预览 → 详讲）</li>
+  <li>L3-10 行程初步（预览 → 详讲）</li>
+  <li>L3-11 等量代换（预览 → 详讲）</li>
+  <li>L3-12 加减数字谜（预览 → 详讲）</li>
+  <li>L3-13 符号谜（预览 → 详讲）</li>
+</ol>
+</div>
+
+<h3 style="color:var(--primary);font-size:1.05rem;margin:16px 0 10px;">🔗 跨课程核心概念关系</h3>
+<table>
+<thead><tr><th>核心概念</th><th>涉及的课程</th><th>性质</th></tr></thead>
+<tbody>
+<tr><td>点 vs 段</td><td>L3-7、L3-8、L3-9、L3-10</td><td>几何/代数基础区分</td></tr>
+<tr><td>有序 vs 无序</td><td>L3-3、L3-4、L3-5、L3-12</td><td>计数方法判别</td></tr>
+<tr><td>还原思想</td><td>L3-1、L3-12、L3-13</td><td>逆运算本质</td></tr>
+<tr><td>和差不变</td><td>L3-6、L3-7、L3-10</td><td>算力核心</td></tr>
+<tr><td>等量代换</td><td>L3-11</td><td>方程思维基础</td></tr>
+<tr><td>同加同减差不变</td><td>L3-6、L3-7</td><td>综合比较</td></tr>
+<tr><td>棵数段数关系</td><td>L3-8、L3-9</td><td>几何计数模型</td></tr>
+<tr><td>速度时间路程</td><td>L3-10</td><td>行程问题三大概念</td></tr>
+</tbody>
+</table>
+
+<h3 style="color:var(--primary);font-size:1.05rem;margin:16px 0 10px;">🧠 思想方法的横向迁移</h3>
+<table>
+<thead><tr><th>思想方法</th><th>应用1</th><th>应用2</th><th>应用3</th></tr></thead>
+<tbody>
+<tr><td>还原思想</td><td>L3-1：求原值</td><td>L3-12：链式运算还原</td><td>L3-13：等式基本性质</td></tr>
+<tr><td>并行思维</td><td>L3-2：安排时间</td><td>L3-10：变速分段处理</td><td>生活的任务规划</td></tr>
+<tr><td>有序无序</td><td>L3-3/4/5：枚举</td><td>L3-12：猜字讨论</td><td>L3-13：多解讨论</td></tr>
+<tr><td>特殊结构</td><td>L3-12：三位-两位=一</td><td>L3-13：两位+两位=三</td><td>极值锁定问题</td></tr>
+<tr><td>同加同减</td><td>L3-6：差不变</td><td>L3-7：路径比较</td><td>L3-10：单位统一</td></tr>
+</tbody>
+</table>
+
+<h3 style="color:var(--primary);font-size:1.05rem;margin:16px 0 10px;">📋 关键要点回顾（贯穿全课）</h3>
+
+<h4 style="font-size:0.9rem;color:var(--accent);margin-top:10px;">1️⃣ 算力方法（计算又快又准的核心）</h4>
+<ul>
+  <li><strong>和不变</strong>：加法交换律、结合律、按位交换、来回给、借来还去</li>
+  <li><strong>差不变</strong>：同加同减、连续减去两数之和</li>
+  <li><strong>同级运算</strong>：数字带符号一起搬家（生活场景化：挣/花）</li>
+</ul>
+
+<h4 style="font-size:0.9rem;color:var(--accent);margin-top:10px;">2️⃣ 计数方法（避免重漏的利器）</h4>
+<ul>
+  <li><strong>分类</strong>：按某个标志把情况分成不重叠的几类</li>
+  <li><strong>有序无序</strong>：先A再B = 先B再A 吗？</li>
+  <li><strong>分类枚举</strong>：分类+类内枚举+求和</li>
+  <li><strong>最小-最大过电影法</strong>：连续范围的简化</li>
+</ul>
+
+<h4 style="font-size:0.9rem;color:var(--accent);margin-top:10px;">3️⃣ 几何基础</h4>
+<ul>
+  <li><strong>两大公理</strong>：两点之间线段最短；点到直线垂线段最短</li>
+  <li><strong>三种比较方法</strong>：一端对齐、同加同减、量小段</li>
+</ul>
+
+<h4 style="font-size:0.9rem;color:var(--accent);margin-top:10px;">4️⃣ 行程基础</h4>
+<ul>
+  <li><strong>三大概念</strong>：速度、时间、路程</li>
+  <li><strong>三个公式</strong>：速度 = 路程÷时间（基础公式）</li>
+</ul>
+
+<h4 style="font-size:0.9rem;color:var(--accent);margin-top:10px;">5️⃣ 等量代换</h4>
+<ul>
+  <li><strong>本质</strong>：等式两边同加同减同乘同除，等式仍成立</li>
+  <li><strong>空瓶换水规律</strong>：N空瓶=1汽水 → (N−1)空瓶=1汽水里的水</li>
+</ul>
+
+<h4 style="font-size:0.9rem;color:var(--accent);margin-top:10px;">6️⃣ 数字谜/符号谜</h4>
+<ul>
+  <li><strong>三大方法</strong>：特殊结构法、尾数分析法、进位分析法</li>
+  <li><strong>两个约定</strong>（符号谜）：不同符号不同数，相同符号相同数</li>
+</ul>
+
+<h3 style="color:var(--primary);font-size:1.05rem;margin:16px 0 10px;">💡 给主人的辅导建议（贯穿13讲）</h3>
+<div class="tip-box">
+<ol>
+  <li><strong>重视思想方法</strong>：本套课程的核心是"思想方法 &gt; 答案技巧"，务必引导孩子想"为什么这样做"，而不是背"怎么做"。</li>
+  <li><strong>画图能力培养</strong>：从三年级开始培养"画简单图"的习惯，是为六年级复杂题打基础。</li>
+  <li><strong>生活化迁移</strong>：所有问题都源自生活，老师强调"学完运筹思想要应用到生活中"。</li>
+  <li><strong>方法不固化</strong>：没有"哪个方法一定简单"，要根据题目灵活选择。</li>
+  <li><strong>不急于乘法原理</strong>：先把枚举学扎实，乘法原理是水到渠成的事。</li>
+</ol>
+</div>
+
+<div class="tip-box">
+<strong>📌 各题型专项练习建议</strong>
+<table>
+<thead><tr><th>题型</th><th>建议</th></tr></thead>
+<tbody>
+<tr><td>计算类（L3-6）</td><td>多练凑整（看到99/98/97联想+1/+2/+3）；多练按位交换；多练同级搬家（用挣/花的生活场景）</td></tr>
+<tr><td>计数类（L3-3/4/5）</td><td>养成"分清有序无序"的习惯；画分类表；动手摆实物卡片</td></tr>
+<tr><td>几何类（L3-7/8/9）</td><td>画图万能；所有植树题画简单图；举例子胜过死记</td></tr>
+<tr><td>行程类（L3-10）</td><td>画运动轨迹（起点、终点、方向）；三大概念打底</td></tr>
+<tr><td>推理类（L3-11/12/13）</td><td>理解等式基本性质；符号谜先抓最高位的特殊结构；写清进位</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="heart-quote">
+底层思维 &gt; 答案技巧 · 画图习惯 · 动手+动脑 · 举例子 &gt; 死记 —— 13讲共同的核心数学观。
+</div>
+
+<p style="text-align:center;margin-top:24px;font-size:0.78rem;color:var(--text-light);">
+🎓 完结撒花！本页涵盖《从课本基础到奥数思维》三年级 L3 全部 13 讲 · 26 课时核心知识。<br>
+由 📚 小学数学教研 + 🏆 华杯赛教练 + 🎓 跨学科方法论 + 📐 SVG架构 + 📱 移动端兼容 五大专家共同打造。
+</p>
+
+</div>
+</section>
+
+</main>
+
+<div class="zoom-controls">
+  <button class="zoom-btn" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="回顶部">↑</button>
+  <button class="zoom-btn" onclick="document.documentElement.style.fontSize=(parseInt(getComputedStyle(document.documentElement).fontSize)+1)+'px'" title="字号+">A+</button>
+  <button class="zoom-btn" onclick="document.documentElement.style.fontSize=(parseInt(getComputedStyle(document.documentElement).fontSize)-1)+'px'" title="字号-">A-</button>
+</div>
+
+</body>
+</html>
