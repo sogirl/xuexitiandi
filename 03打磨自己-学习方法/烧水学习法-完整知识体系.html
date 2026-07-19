@@ -1,0 +1,1625 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=3.0,user-scalable=yes">
+<title>烧水学习法 · 完整知识体系</title>
+<style>
+/* ===== 全局重置 ===== */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;background:#f9f5ef;color:#2c2c2c;line-height:1.8;padding:0 0 60px 0}
+
+/* ===== 容器 ===== */
+.container{max-width:880px;margin:0 auto;padding:0 20px}
+
+/* ===== 顶部横幅 ===== */
+.hero{background:linear-gradient(135deg,#d4a574 0%,#c17f3b 50%,#a0662e 100%);color:#fff;padding:50px 20px 40px;text-align:center;position:relative}
+.hero h1{font-size:2.2rem;font-weight:800;letter-spacing:3px;margin-bottom:8px;text-shadow:0 2px 8px rgba(0,0,0,.2)}
+.hero .sub{font-size:1.05rem;opacity:.9;margin-bottom:6px}
+.hero .tag{display:inline-block;background:rgba(255,255,255,.2);border-radius:20px;padding:4px 18px;font-size:.85rem;margin-top:8px}
+.hero .temp-bar{display:flex;justify-content:center;gap:6px;margin-top:18px;flex-wrap:wrap}
+.hero .temp-bar span{display:inline-block;padding:2px 12px;border-radius:10px;font-size:.75rem;background:rgba(255,255,255,.15)}
+
+/* ===== 导航卡片 ===== */
+.nav-card{background:#fff;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,.06);padding:24px 28px;margin:30px 0 20px}
+.nav-card h2{font-size:1.15rem;color:#c17f3b;margin-bottom:14px;padding-bottom:8px;border-bottom:2px solid #f0e8dc}
+.nav-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(180px,1fr));gap:8px}
+.nav-grid a{display:block;padding:8px 14px;background:#faf6f0;border-radius:8px;text-decoration:none;color:#2c2c2c;font-size:.88rem;transition:all .2s;border-left:3px solid #d4a574}
+.nav-grid a:hover{background:#f0e6d8;transform:translateX(3px)}
+
+/* ===== SVG 容器 ===== */
+.svg-wrap{background:#fff;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,.06);padding:24px;margin:0 0 24px;overflow:auto;-webkit-overflow-scrolling:touch}
+.svg-wrap svg{display:block;width:100%;height:auto;max-width:1200px;margin:0 auto}
+.svg-wrap svg text{font-family:-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
+
+/* ===== 章节 ===== */
+.chapter{margin:32px 0 0}
+.chapter-header{background:linear-gradient(135deg,#fff 0%,#faf6f0 100%);border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,.06);padding:24px 28px;margin-bottom:20px}
+.chapter-header .temp-badge{display:inline-block;padding:2px 14px;border-radius:10px;font-size:.8rem;font-weight:600;color:#fff;margin-bottom:8px}
+.chapter-header h2{font-size:1.5rem;color:#2c2c2c;margin-bottom:6px}
+.chapter-header p{font-size:.9rem;color:#888}
+
+/* ===== 课程卡片 ===== */
+.lesson{margin:18px 0;background:#fff;border-radius:14px;box-shadow:0 2px 12px rgba(0,0,0,.06);overflow:hidden}
+.lesson-title{padding:18px 24px;cursor:default;display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.lesson-title .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;color:#fff;font-weight:700;font-size:.85rem;flex-shrink:0}
+.lesson-title h3{font-size:1.1rem;font-weight:600;color:#2c2c2c;flex:1}
+.lesson-title .tag{font-size:.75rem;color:#999;background:#f5f0e8;padding:2px 10px;border-radius:8px}
+.lesson-body{padding:0 24px 20px}
+.lesson-body .quote{border-left:4px solid #d4a574;background:#faf6f0;padding:12px 16px;border-radius:0 8px 8px 0;margin:10px 0;font-size:.92rem;color:#555}
+.lesson-body .quote strong{color:#c17f3b}
+.lesson-body p{margin:10px 0;font-size:.95rem;color:#444;text-indent:0}
+.lesson-body ul,.lesson-body ol{margin:8px 0 8px 20px;font-size:.93rem;color:#444}
+.lesson-body ul li,.lesson-body ol li{margin:5px 0}
+
+/* ===== 表格 ===== */
+.tb-wrap{overflow-x:auto;margin:12px 0;border-radius:10px;border:1px solid #eee}
+table{width:100%;border-collapse:collapse;font-size:.88rem}
+thead{background:#f5f0e8}
+th{padding:10px 12px;text-align:left;font-weight:600;color:#555;border-bottom:2px solid #e0d8cc}
+td{padding:9px 12px;border-bottom:1px solid #f0ece4;color:#444;vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover{background:#faf8f4}
+
+/* ===== 高亮框 ===== */
+.highlight-box{background:linear-gradient(135deg,#fdf6ee 0%,#faf0e4 100%);border-radius:10px;padding:16px 20px;margin:14px 0;border-left:4px solid #c17f3b}
+.highlight-box .h-title{font-weight:700;color:#a0662e;font-size:.9rem;margin-bottom:4px}
+.highlight-box p{margin:4px 0;color:#555;font-size:.92rem}
+
+/* ===== 流程 ===== */
+.flow{margin:14px 0;padding:0}
+.flow-step{display:flex;align-items:flex-start;gap:10px;margin:0}
+.flow-step .dot{flex-shrink:0;width:28px;height:28px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.75rem;margin-top:2px}
+.flow-step .content{flex:1;padding-bottom:12px;font-size:.93rem;color:#444}
+.flow-arrow{text-align:center;font-size:1.1rem;color:#c17f3b;margin:-4px 0 2px 38px}
+
+/* ===== 公式块 ===== */
+.formula{background:#f5f0e8;border-radius:8px;padding:12px 16px;margin:12px 0;text-align:center;font-size:1rem;font-weight:600;color:#555;letter-spacing:1px}
+
+/* ===== 温度色 ===== */
+.temp-20{background:#8fb8d6}
+.temp-40{background:#5a9e9e}
+.temp-60{background:#d4a04a}
+.temp-80{background:#d4804a}
+.temp-100{background:#c16040}
+.temp-bonus{background:#7a6ba5}
+
+/* ===== 心法卡 ===== */
+.mind-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px;margin:14px 0}
+.mind-item{background:#fff;border-radius:10px;padding:14px 16px;border:1px solid #eee;border-left:3px solid #c17f3b;font-size:.88rem;color:#444}
+.mind-item .m-num{font-weight:700;color:#c17f3b;margin-right:4px}
+.mind-item .m-title{font-weight:600;color:#2c2c2c}
+
+/* ===== 温度里程碑 ===== */
+.temp-milestone{margin:14px 0}
+.temp-row{display:flex;align-items:center;gap:12px;margin:6px 0;padding:6px 0;flex-wrap:wrap}
+.temp-dot{flex-shrink:0;width:36px;height:36px;border-radius:50%;display:flex;align-items:center;justify-content:center;color:#fff;font-weight:700;font-size:.8rem}
+.temp-label{font-size:.9rem;color:#555;flex:1;min-width:120px}
+.temp-label strong{color:#2c2c2c}
+
+/* ===== 响应式 ===== */
+@media(max-width:640px){
+  .hero h1{font-size:1.6rem}
+  .nav-grid{grid-template-columns:1fr 1fr}
+  .chapter-header,.lesson-title,.lesson-body{padding-left:16px;padding-right:16px}
+  .container{padding:0 12px}
+  .mind-grid{grid-template-columns:1fr}
+  .lesson-title .num{width:28px;height:28px;font-size:.75rem}
+  .lesson-title h3{font-size:1rem}
+  .lesson-body .quote{padding:10px 12px;font-size:.88rem}
+}
+
+/* ===== 打印 ===== */
+@media print{
+  body{background:#fff;font-size:12px}
+  .hero{background:#c17f3b!important;-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  .svg-wrap{overflow:visible}
+  .svg-wrap svg{max-width:100%}
+}
+</style>
+</head>
+<body>
+
+<!-- ==================== 顶部横幅 ==================== -->
+<div class="hero">
+  <h1>🔥 烧水学习法</h1>
+  <div class="sub">核聚高效学习 · 何俊 · 完整知识体系</div>
+  <div class="tag">从学渣到北大博士后 · 15节课改变人生</div>
+  <div class="temp-bar">
+    <span style="background:rgba(143,184,214,.5)">思维篇 20°C</span>
+    <span style="background:rgba(90,158,158,.5)">概念篇 40°C</span>
+    <span style="background:rgba(212,160,74,.5)">原理篇 60°C</span>
+    <span style="background:rgba(212,128,74,.5)">法则篇 80°C</span>
+    <span style="background:rgba(193,96,64,.5)">技术篇 100°C</span>
+    <span style="background:rgba(122,107,165,.5)">加餐课</span>
+  </div>
+</div>
+
+<div class="container">
+
+<!-- ==================== 核心理念 ==================== -->
+<div class="nav-card">
+  <h2>📌 课程核心理念</h2>
+  <div style="font-size:.95rem;color:#444">
+    <p><strong>学习 = 烧水。</strong> 必须一口气烧开。99%等于0。能积微者速成。</p>
+    <p>学到一点，巩固一点，别再丢了，再学下一点。</p>
+  </div>
+  <div class="formula" style="margin-top:14px">🔥 学习 = 烧水 · 99% = 0 · 能积微者速成</div>
+</div>
+
+<!-- ==================== 目录导航 ==================== -->
+<div class="nav-card">
+  <h2>📖 目录导航</h2>
+  <div class="nav-grid">
+    <a href="#exp">🎬 体验课</a>
+    <a href="#ch1">🌱 思维篇 20°C</a>
+    <a href="#ch2">📐 概念篇 40°C</a>
+    <a href="#ch3">⚡ 原理篇 60°C</a>
+    <a href="#ch4">🎯 法则篇 80°C</a>
+    <a href="#ch5">🚀 技术篇 100°C</a>
+    <a href="#bonus">🎁 加餐课</a>
+    <a href="#path">🗺️ 学习路径</a>
+    <a href="#map">💡 知识图谱</a>
+    <a href="#temp">🌡️ 烧水温度</a>
+  </div>
+</div>
+
+<!-- ==================== SVG 知识图谱 ==================== -->
+<div class="nav-card" id="map">
+  <h2>🧠 烧水学习法 · 完整知识图谱</h2>
+  <p style="font-size:.88rem;color:#888;margin-bottom:12px">横向树状图 · 根在左逐层向右展开 · 可双指放大查看</p>
+</div>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 1180 880" xmlns="http://www.w3.org/2000/svg" style="min-width:800px" font-size="13">
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#c17f3b"/></marker>
+    <marker id="arrowL" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 Z" fill="#bbb"/></marker>
+  </defs>
+
+  <!-- 背景 -->
+  <rect x="0" y="0" width="1180" height="880" fill="#fcfaf7" rx="12"/>
+
+  <!-- ====== 根节点 ====== -->
+  <rect x="16" y="390" width="130" height="48" rx="24" fill="#c17f3b"/>
+  <text x="81" y="420" text-anchor="middle" fill="#fff" font-weight="700" font-size="17">烧水学习法</text>
+
+  <!-- ====== 第1层：六大模块 ====== -->
+  <!-- 体验课 -->
+  <rect x="200" y="86" width="100" height="38" rx="19" fill="#7a6ba5"/>
+  <text x="250" y="111" text-anchor="middle" fill="#fff" font-weight="600" font-size="13">体验课</text>
+  <path d="M146,414 L180,414 L180,105 L200,105" stroke="#c17f3b" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+  <path d="M146,414 L180,414 L180,105 L200,105" stroke="#c17f3b" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- 思维篇 -->
+  <rect x="200" y="168" width="100" height="38" rx="19" fill="#8fb8d6"/>
+  <text x="250" y="193" text-anchor="middle" fill="#fff" font-weight="600" font-size="13">🌱 思维篇</text>
+  <text x="250" y="211" text-anchor="middle" fill="#8fb8d6" font-size="10">20°C · 明确方向</text>
+  <path d="M146,414 L178,414 L178,187 L200,187" stroke="#c17f3b" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- 概念篇 -->
+  <rect x="200" y="280" width="100" height="38" rx="19" fill="#5a9e9e"/>
+  <text x="250" y="305" text-anchor="middle" fill="#fff" font-weight="600" font-size="13">📐 概念篇</text>
+  <text x="250" y="323" text-anchor="middle" fill="#5a9e9e" font-size="10">40°C · 夯实基础</text>
+  <path d="M146,414 L176,414 L176,299 L200,299" stroke="#c17f3b" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- 原理篇 -->
+  <rect x="200" y="392" width="100" height="38" rx="19" fill="#d4a04a"/>
+  <text x="250" y="417" text-anchor="middle" fill="#fff" font-weight="600" font-size="13">⚡ 原理篇</text>
+  <text x="250" y="435" text-anchor="middle" fill="#d4a04a" font-size="10">60°C · 提升效能</text>
+  <path d="M146,414 L200,414 L200,411" stroke="#c17f3b" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- 法则篇 -->
+  <rect x="200" y="504" width="100" height="38" rx="19" fill="#d4804a"/>
+  <text x="250" y="529" text-anchor="middle" fill="#fff" font-weight="600" font-size="13">🎯 法则篇</text>
+  <text x="250" y="547" text-anchor="middle" fill="#d4804a" font-size="10">80°C · 节省精力</text>
+  <path d="M146,414 L176,414 L176,523 L200,523" stroke="#c17f3b" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- 技术篇 -->
+  <rect x="200" y="616" width="100" height="38" rx="19" fill="#c16040"/>
+  <text x="250" y="641" text-anchor="middle" fill="#fff" font-weight="600" font-size="13">🚀 技术篇</text>
+  <text x="250" y="659" text-anchor="middle" fill="#c16040" font-size="10">100°C · 高效产出</text>
+  <path d="M146,414 L178,414 L178,635 L200,635" stroke="#c17f3b" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- 加餐课 -->
+  <rect x="200" y="728" width="100" height="38" rx="19" fill="#8a7ab5"/>
+  <text x="250" y="753" text-anchor="middle" fill="#fff" font-weight="600" font-size="13">🎁 加餐课</text>
+  <text x="250" y="771" text-anchor="middle" fill="#8a7ab5" font-size="10">实战小锦囊</text>
+  <path d="M146,414 L178,414 L178,747 L200,747" stroke="#c17f3b" stroke-width="1.8" fill="none" marker-end="url(#arrow)"/>
+
+  <!-- ====== 第2层：具体课程 ====== -->
+
+  <!-- 体验课子节点 -->
+  <rect x="358" y="79" width="130" height="34" rx="17" fill="#eee8f0"/>
+  <text x="423" y="100" text-anchor="middle" fill="#555" font-size="12" font-weight="600">暴-力-突-破-法</text>
+  <text x="423" y="115" text-anchor="middle" fill="#999" font-size="10">30道题分5-6组</text>
+  <path d="M300,105 L340,105 L340,96 L358,96" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="120" width="130" height="34" rx="17" fill="#eee8f0"/>
+  <text x="423" y="141" text-anchor="middle" fill="#555" font-size="12" font-weight="600">分-组-滚-动</text>
+  <text x="423" y="156" text-anchor="middle" fill="#999" font-size="10">回顾巩固再推进</text>
+  <path d="M300,105 L340,105 L340,137 L358,137" stroke="#bbb" stroke-width="1.5" fill="none"/>
+
+  <!-- 思维篇子节点 -->
+  <rect x="358" y="148" width="150" height="34" rx="17" fill="#e6edf5"/>
+  <text x="433" y="169" text-anchor="middle" fill="#555" font-size="12" font-weight="600">1-1 烧水思维</text>
+  <path d="M300,187 L345,187 L345,165 L358,165" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="190" width="150" height="34" rx="17" fill="#e6edf5"/>
+  <text x="433" y="211" text-anchor="middle" fill="#555" font-size="12" font-weight="600">1-2 对标思维</text>
+  <path d="M300,187 L345,187 L345,207 L358,207" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="232" width="150" height="34" rx="17" fill="#e6edf5"/>
+  <text x="433" y="253" text-anchor="middle" fill="#555" font-size="12" font-weight="600">1-3 极致思维</text>
+  <path d="M300,187 L345,187 L345,249 L358,249" stroke="#bbb" stroke-width="1.5" fill="none"/>
+
+  <!-- 概念篇子节点 -->
+  <rect x="358" y="260" width="150" height="34" rx="17" fill="#e0eee8"/>
+  <text x="433" y="281" text-anchor="middle" fill="#555" font-size="12" font-weight="600">2-1 学习的本质</text>
+  <path d="M300,299 L345,299 L345,277 L358,277" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="302" width="150" height="34" rx="17" fill="#e0eee8"/>
+  <text x="433" y="323" text-anchor="middle" fill="#555" font-size="12" font-weight="600">2-2 知识的本质</text>
+  <path d="M300,299 L345,299 L345,319 L358,319" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="344" width="150" height="34" rx="17" fill="#e0eee8"/>
+  <text x="433" y="365" text-anchor="middle" fill="#555" font-size="12" font-weight="600">2-3 考试的本质</text>
+  <path d="M300,299 L345,299 L345,361 L358,361" stroke="#bbb" stroke-width="1.5" fill="none"/>
+
+  <!-- 原理篇子节点 -->
+  <rect x="358" y="372" width="150" height="34" rx="17" fill="#f0e8d8"/>
+  <text x="433" y="393" text-anchor="middle" fill="#555" font-size="12" font-weight="600">3-1 记忆原理</text>
+  <path d="M300,411 L345,411 L345,389 L358,389" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="414" width="150" height="34" rx="17" fill="#f0e8d8"/>
+  <text x="433" y="435" text-anchor="middle" fill="#555" font-size="12" font-weight="600">3-2 速成原理</text>
+  <path d="M300,411 L345,411 L345,431 L358,431" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="456" width="150" height="34" rx="17" fill="#f0e8d8"/>
+  <text x="433" y="477" text-anchor="middle" fill="#555" font-size="12" font-weight="600">3-3 上瘾原理</text>
+  <path d="M300,411 L345,411 L345,473 L358,473" stroke="#bbb" stroke-width="1.5" fill="none"/>
+
+  <!-- 法则篇子节点 -->
+  <rect x="358" y="484" width="150" height="34" rx="17" fill="#f0e0d4"/>
+  <text x="433" y="505" text-anchor="middle" fill="#555" font-size="12" font-weight="600">4-1 目的法则</text>
+  <path d="M300,523 L345,523 L345,501 L358,501" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="526" width="150" height="34" rx="17" fill="#f0e0d4"/>
+  <text x="433" y="547" text-anchor="middle" fill="#555" font-size="12" font-weight="600">4-2 节奏法则</text>
+  <path d="M300,523 L345,523 L345,543 L358,543" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="568" width="150" height="34" rx="17" fill="#f0e0d4"/>
+  <text x="433" y="589" text-anchor="middle" fill="#555" font-size="12" font-weight="600">4-3 能力法则</text>
+  <path d="M300,523 L345,523 L345,585 L358,585" stroke="#bbb" stroke-width="1.5" fill="none"/>
+
+  <!-- 技术篇子节点 -->
+  <rect x="358" y="596" width="150" height="34" rx="17" fill="#f0dcd4"/>
+  <text x="433" y="617" text-anchor="middle" fill="#555" font-size="12" font-weight="600">5-1 费曼技巧</text>
+  <path d="M300,635 L345,635 L345,613 L358,613" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="638" width="150" height="34" rx="17" fill="#f0dcd4"/>
+  <text x="433" y="659" text-anchor="middle" fill="#555" font-size="12" font-weight="600">5-2 大脑演练技术</text>
+  <path d="M300,635 L345,635 L345,655 L358,655" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="680" width="150" height="34" rx="17" fill="#f0dcd4"/>
+  <text x="433" y="701" text-anchor="middle" fill="#555" font-size="12" font-weight="600">5-3 进步本技术</text>
+  <path d="M300,635 L345,635 L345,697 L358,697" stroke="#bbb" stroke-width="1.5" fill="none"/>
+
+  <!-- 加餐课子节点 -->
+  <rect x="358" y="708" width="150" height="34" rx="17" fill="#ede8f5"/>
+  <text x="433" y="729" text-anchor="middle" fill="#555" font-size="12" font-weight="600">5分钟对抗拖延</text>
+  <path d="M300,747 L345,747 L345,725 L358,725" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="750" width="150" height="34" rx="17" fill="#ede8f5"/>
+  <text x="433" y="771" text-anchor="middle" fill="#555" font-size="12" font-weight="600">穿越学习低谷</text>
+  <path d="M300,747 L345,747 L345,767 L358,767" stroke="#bbb" stroke-width="1.5" fill="none"/>
+  <rect x="358" y="792" width="150" height="34" rx="17" fill="#ede8f5"/>
+  <text x="433" y="813" text-anchor="middle" fill="#555" font-size="12" font-weight="600">消除低级错误</text>
+  <path d="M300,747 L345,747 L345,809 L358,809" stroke="#bbb" stroke-width="1.5" fill="none"/>
+
+  <!-- ====== 第3层：关键概念 ====== -->
+
+  <!-- 体验课3层 -->
+  <rect x="540" y="73" width="110" height="28" rx="14" fill="#f5f0f8"/>
+  <text x="595" y="92" text-anchor="middle" fill="#666" font-size="11">一天提升20分</text>
+  <path d="M488,96 L520,96 L520,87 L540,87" stroke="#ccc" stroke-width="1" fill="none"/>
+  <rect x="540" y="108" width="110" height="28" rx="14" fill="#f5f0f8"/>
+  <text x="595" y="127" text-anchor="middle" fill="#666" font-size="11">3个晚自习见效</text>
+  <path d="M488,96 L520,96 L520,122 L540,122" stroke="#ccc" stroke-width="1" fill="none"/>
+  <rect x="540" y="143" width="110" height="28" rx="14" fill="#f5f0f8"/>
+  <text x="595" y="162" text-anchor="middle" fill="#666" font-size="11">准确率50%→95%</text>
+  <path d="M488,137 L520,137 L520,157 L540,157" stroke="#ccc" stroke-width="1" fill="none"/>
+
+  <!-- 烧水思维3层 -->
+  <rect x="560" y="163" width="115" height="28" rx="14" fill="#eef3f8"/>
+  <text x="617" y="182" text-anchor="middle" fill="#666" font-size="11">进步本3环节</text>
+  <path d="M508,196 L540,196 L540,177 L560,177" stroke="#ccc" stroke-width="1" fill="none"/>
+  <rect x="560" y="198" width="115" height="28" rx="14" fill="#eef3f8"/>
+  <text x="617" y="217" text-anchor="middle" fill="#666" font-size="11">99% = 0</text>
+  <path d="M508,196 L540,196 L540,212 L560,212" stroke="#ccc" stroke-width="1" fill="none"/>
+  <rect x="560" y="233" width="115" height="28" rx="14" fill="#eef3f8"/>
+  <text x="617" y="252" text-anchor="middle" fill="#666" font-size="11">持续烧开不中断</text>
+  <path d="M508,196 L540,196 L540,247 L560,247" stroke="#ccc" stroke-width="1" fill="none"/>
+
+  <!-- 对标思维3层 -->
+  <rect x="560" y="296" width="115" height="28" rx="14" fill="#eef3f8"/>
+  <text x="617" y="315" text-anchor="middle" fill="#666" font-size="11">精-准-对-标</text>
+  <path d="M508,305 L540,305 L540,310 L560,310" stroke="#ccc" stroke-width="1" fill="none"/>
+  <rect x="560" y="331" width="115" height="28" rx="14" fill="#eef3f8"/>
+  <text x="617" y="350" text-anchor="middle" fill="#666" font-size="11">深-度-对-标</text>
+  <path d="M508,305 L540,305 L540,345 L560,345" stroke="#ccc" stroke-width="1" fill="none"/>
+  <rect x="560" y="366" width="115" height="28" rx="14" fill="#eef3f8"/>
+  <text x="617" y="385" text-anchor="middle" fill="#666" font-size="11">极-致-对-标</text>
+  <path d="M508,305 L540,305 L540,380 L560,380" stroke="#ccc" stroke-width="1" fill="none"/>
+
+  <!-- 学习本质3层 -->
+  <rect x="560" y="430" width="115" height="28" rx="14" fill="#eaf5f0"/>
+  <text x="617" y="449" text-anchor="middle" fill="#666" font-size="11">学=模仿</text>
+  <path d="M508,438 L540,438 L540,444 L560,444" stroke="#ccc" stroke-width="1" fill="none"/>
+  <rect x="560" y="465" width="115" height="28" rx="14" fill="#eaf5f0"/>
+  <text x="617" y="484" text-anchor="middle" fill="#666" font-size="11">习=刻意练习</text>
+  <path d="M508,438 L540,438 L540,479 L560,479" stroke="#ccc" stroke-width="1" fill="none"/>
+
+  <!-- 知识本质3层 -->
+  <rect x="560" y="525" width="115" height="28" rx="14" fill="#eaf5f0"/>
+  <text x="617" y="544" text-anchor="middle" fill="#666" font-size="11">知识=解决问题</text>
+  <path d="M508,532 L540,532 L540,539 L560,539" stroke="#ccc" stroke-width="1" fill="none"/>
+  <rect x="560" y="560" width="115" height="28" rx="14" fill="#eaf5f0"/>
+  <text x="617" y="579" text-anchor="middle" fill="#666" font-size="11">问答拆解法</text>
+  <path d="M508,532 L540,532 L540,574 L560,574" stroke="#ccc" stroke-width="1" fill="none"/>
+
+  <!-- 考试本质3层 -->
+  <rect x="560" y="625" width="115" height="28" rx="14" fill="#eaf5f0"/>
+  <text x="617" y="644" text-anchor="middle" fill="#666" font-size="11">测试效应</text>
+  <path d="M508,630 L540,630 L540,639 L560,639" stroke="#ccc" stroke-width="1" fill="none"/>
+  <rect x="560" y="660" width="115" height="28" rx="14" fill="#eaf5f0"/>
+  <text x="617" y="679" text-anchor="middle" fill="#666" font-size="11">选拔·反馈·学习</text>
+  <path d="M508,630 L540,630 L540,674 L560,674" stroke="#ccc" stroke-width="1" fill="none"/>
+
+  <!-- 记忆原理3层 -->
+  <rect x="560" y="720" width="130" height="28" rx="14" fill="#f5efe0"/>
+  <text x="625" y="739" text-anchor="middle" fill="#666" font-size="11">刺激频率+刺激强度</text>
+  <path d="M508,725 L540,725 L540,734 L560,734" stroke="#ccc" stroke-width="1" fill="none"/>
+  <rect x="560" y="755" width="130" height="28" rx="14" fill="#f5efe0"/>
+  <text x="625" y="774" text-anchor="middle" fill="#666" font-size="11">高频回测</text>
+  <path d="M508,725 L540,725 L540,769 L560,769" stroke="#ccc" stroke-width="1" fill="none"/>
+
+  <!-- 速成原理3层 -->
+  <rect x="560" y="810" width="130" height="28" rx="14" fill="#f5efe0"/>
+  <text x="625" y="829" text-anchor="middle" fill="#666" font-size="11">能积微者速成</text>
+  <path d="M508,815 L540,815 L540,824 L560,824" stroke="#ccc" stroke-width="1" fill="none"/>
+  <rect x="560" y="845" width="130" height="28" rx="14" fill="#f5efe0"/>
+  <text x="625" y="864" text-anchor="middle" fill="#666" font-size="11">组合爆炸</text>
+  <path d="M508,815 L540,815 L540,859 L560,859" stroke="#ccc" stroke-width="1" fill="none"/>
+
+  <!-- 标语 -->
+  <text x="820" y="870" text-anchor="middle" fill="#ccc" font-size="11" font-style="italic">能积微者速成 · 99% = 0 · 学习必须一口气烧开</text>
+</svg>
+</div>
+
+<!-- ==================== 温度里程碑 SVG ==================== -->
+<div class="nav-card" id="temp">
+  <h2>🌡️ 烧水温度里程碑</h2>
+  <p style="font-size:.88rem;color:#888;margin-bottom:8px">课程从20°C逐步加热到100°C，每一度都是质变</p>
+</div>
+
+<div class="svg-wrap">
+<svg viewBox="0 0 840 260" xmlns="http://www.w3.org/2000/svg" style="min-width:600px" font-size="13">
+  <rect x="0" y="0" width="840" height="260" fill="#fcfaf7" rx="12"/>
+
+  <!-- 背景温度梯度 -->
+  <defs>
+    <linearGradient id="tempGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#8fb8d6"/>
+      <stop offset="25%" stop-color="#5a9e9e"/>
+      <stop offset="50%" stop-color="#d4a04a"/>
+      <stop offset="75%" stop-color="#d4804a"/>
+      <stop offset="100%" stop-color="#c16040"/>
+    </linearGradient>
+  </defs>
+  <rect x="40" y="130" width="760" height="18" rx="9" fill="url(#tempGrad)" opacity=".5"/>
+
+  <!-- 刻度 -->
+  <line x1="40" y1="148" x2="40" y2="158" stroke="#aaa" stroke-width="1.5"/>
+  <text x="40" y="175" text-anchor="middle" fill="#888" font-size="11">20°C</text>
+  <text x="40" y="195" text-anchor="middle" fill="#8fb8d6" font-size="11" font-weight="600">思维篇</text>
+
+  <line x1="230" y1="148" x2="230" y2="158" stroke="#aaa" stroke-width="1.5"/>
+  <text x="230" y="175" text-anchor="middle" fill="#888" font-size="11">40°C</text>
+  <text x="230" y="195" text-anchor="middle" fill="#5a9e9e" font-size="11" font-weight="600">概念篇</text>
+
+  <line x1="420" y1="148" x2="420" y2="158" stroke="#aaa" stroke-width="1.5"/>
+  <text x="420" y="175" text-anchor="middle" fill="#888" font-size="11">60°C</text>
+  <text x="420" y="195" text-anchor="middle" fill="#d4a04a" font-size="11" font-weight="600">原理篇</text>
+
+  <line x1="610" y1="148" x2="610" y2="158" stroke="#aaa" stroke-width="1.5"/>
+  <text x="610" y="175" text-anchor="middle" fill="#888" font-size="11">80°C</text>
+  <text x="610" y="195" text-anchor="middle" fill="#d4804a" font-size="11" font-weight="600">法则篇</text>
+
+  <line x1="800" y1="148" x2="800" y2="158" stroke="#aaa" stroke-width="1.5"/>
+  <text x="800" y="175" text-anchor="middle" fill="#888" font-size="11">100°C</text>
+  <text x="800" y="195" text-anchor="middle" fill="#c16040" font-size="11" font-weight="600">技术篇</text>
+
+  <!-- 壶图标 -->
+  <text x="40" y="60" text-anchor="middle" fill="#8fb8d6" font-size="28">🏺</text>
+  <text x="40" y="82" text-anchor="middle" fill="#888" font-size="10">明确方向</text>
+
+  <text x="230" y="60" text-anchor="middle" fill="#5a9e9e" font-size="30">📐</text>
+  <text x="230" y="82" text-anchor="middle" fill="#888" font-size="10">夯实基础</text>
+
+  <text x="420" y="60" text-anchor="middle" fill="#d4a04a" font-size="30">⚡</text>
+  <text x="420" y="82" text-anchor="middle" fill="#888" font-size="10">提升效能</text>
+
+  <text x="610" y="60" text-anchor="middle" fill="#d4804a" font-size="30">🎯</text>
+  <text x="610" y="82" text-anchor="middle" fill="#888" font-size="10">节省精力</text>
+
+  <text x="800" y="60" text-anchor="middle" fill="#c16040" font-size="30">🚀</text>
+  <text x="800" y="82" text-anchor="middle" fill="#888" font-size="10">高效产出</text>
+
+  <!-- 箭头链接 -->
+  <text x="135" y="56" fill="#ddd" font-size="22">→</text>
+  <text x="325" y="56" fill="#ddd" font-size="22">→</text>
+  <text x="515" y="56" fill="#ddd" font-size="22">→</text>
+  <text x="705" y="56" fill="#ddd" font-size="22">→</text>
+
+  <!-- 底部说明 -->
+  <text x="420" y="240" text-anchor="middle" fill="#bbb" font-size="11">体验课 = 全景预览 · 加餐课 = 实战锦囊（可在任意阶段使用）</text>
+</svg>
+</div>
+</div><!-- end container -->
+
+<!-- ==================== 课程内容（后半部分）在第二个文件 ==================== -->
+<div class="container" style="margin-top:0">
+<p style="text-align:center;padding:20px 0;color:#aaa;font-size:.9rem">— 以下为全部17节课程的完整知识点 —</p>
+</div>
+
+<!-- ==================== 全部17节课程内容 ==================== -->
+<div class="container">
+
+<!-- ================================================================ -->
+<!-- 体验课 -->
+<!-- ================================================================ -->
+<div class="chapter" id="exp">
+<div class="chapter-header">
+  <span class="temp-badge temp-bonus">🎬 体验课</span>
+  <h2>超效能学习法则揭秘</h2>
+  <p>整个烧水学习法的浓缩预览 · 暴力突破与分组进步的核心理念</p>
+</div>
+
+<div class="lesson">
+<div class="lesson-body">
+  <h4 style="color:#c17f3b;margin:12px 0 8px">📌 核心命题</h4>
+  <p><strong>如何在短时间内大幅提升成绩？</strong> 答案是：<strong>一天之内，甚至3小时之内就可以。</strong></p>
+
+  <div class="highlight-box">
+    <div class="h-title">📊 真实案例</div>
+    <p>👉 一天之内两门科目（数学和物理）各提升20分</p>
+    <p>👉 3个晚自习让害怕数学的高三文科班大部分学生产生乐趣（平均分仅七十多分）</p>
+  </div>
+
+  <h4 style="color:#c17f3b;margin:12px 0 8px">⚙️ 暴力突破法 · 操作步骤</h4>
+  <div class="flow">
+    <div class="flow-step"><div class="dot temp-bonus">1</div><div class="content"><strong>选取专题</strong> — 选定要突破的专题，每个专题选30道题</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-bonus">2</div><div class="content"><strong>分组</strong> — 把30道题分成5-6组，每组3-5道题</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-bonus">3</div><div class="content"><strong>一组一组突破</strong> — 做第一组 → 回顾充分 → 做第二组 → 再回顾 → 依此类推</div></div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="h-title">💡 核心要点</div>
+    <p><strong>新学会的东西一定要把握住、回顾充分，再往前推进。</strong></p>
+    <p>准确率会从<strong>50%逐步提高到95%甚至100%</strong>。</p>
+    <p>这就是作者在国家队带运动员拿冠军的方法。</p>
+  </div>
+
+  <h4 style="color:#c17f3b;margin:12px 0 8px">🔗 与全套课程的关系</h4>
+  <ul>
+    <li><strong>分组突破</strong> → 详见 3-2 速成原理：分组滚动学习法</li>
+    <li><strong>把握住新学的内容</strong> → 详见 5-3 进步本技术：三个环节闭环运作</li>
+    <li><strong>从50%到100%的准确率提升</strong> → 详见 3-2 能积微者速成</li>
+  </ul>
+</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- 第1章：思维篇 -->
+<!-- ================================================================ -->
+<div class="chapter" id="ch1">
+<div class="chapter-header">
+  <span class="temp-badge temp-20">🌱 思维篇 · 20°C</span>
+  <h2>第一章：思维篇 — 明确方向</h2>
+  <p>树立对标思维，对照高标准 · 思维定方向，方向不对努力白费</p>
+</div>
+
+<!-- 1-1 烧水思维 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-20">1</span>
+  <h3>1-1 烧水思维：从学渣到北大博士后的终极奥秘</h3>
+  <span class="tag">总纲奠基</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心命题：</strong>学习的本质目的是进步。不进步就等于没学习。进步必须是客观的、可衡量的、可以牢牢把握住的。</div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">📖 个人逆袭故事</h4>
+  <p>主讲人何俊高中四百多分（满分150的数学只考七十多分），在重点高中与满分高手差距一百多分。前两年尝试各种方法未果，反复追问<strong>"这一天的学习究竟是为了啥？"</strong>最终想通：学习的唯一目的是进步。基于此，发明了<strong>进步本</strong>技术。</p>
+  <p>最终结果：市第一名考入北大，拿到北大新生奖学金。</p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">📒 进步本技术（核心框架）</h4>
+  <p>进步本包含三个核心环节，循环运转：</p>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>环节</th><th>动作</th><th>关键</th><th>常见失败点</th></tr></thead>
+    <tbody>
+      <tr><td><strong>① 记录</strong></td><td>记下所有当天进步</td><td>有什么记什么</td><td>以为记了就会了（潜在进步）</td></tr>
+      <tr><td><strong>② 回顾</strong></td><td>先复习再推进</td><td>随时回顾，重做错题</td><td><strong>99.9%的人败在复习</strong></td></tr>
+      <tr><td><strong>③ 测试</strong></td><td>通过考试查缺补漏</td><td>直到拿满分为止</td><td>自以为是假进步</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>逻辑关系：<strong>记录→复习→测试→记录（闭环）</strong>，循环运转，步步为营，直到彻底掌握。</p>
+
+  <div class="highlight-box">
+    <div class="h-title">📊 进步本效果</div>
+    <p>✅ 一天见效 — 当天就能感受到明显进步</p>
+    <p>✅ 拿满分的方法 — 闭环运转直到彻底掌握</p>
+    <p>✅ 可复制 — 不同年龄段、不同学科都适用</p>
+    <p>✅ 消除焦虑 — <strong>两周之内焦虑情绪一扫而空</strong></p>
+    <p>✅ 客观可衡量 — 正确率和分数直接证明进步</p>
+    <p>📌 一批读者/学员用此方法考到北大、清华，有人拿到高考状元</p>
+    <p>📌 初中老师用该方法带自己孩子和学生，<strong>一天之内数学物理提升20分</strong></p>
+  </div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">🔥 烧水思维 — 学习必须一口气烧开</h4>
+  <p><strong>烧水的比喻：</strong>一壶水烧到60-70度拔掉电源 → 降温；再接上烧到70-80度又拔掉 → 又降温。这样无限循环，<strong>永远烧不开一壶水</strong>。</p>
+  <p><strong>99.9999%的人学习失败的原因 — 持续性不行。</strong>学了忘、忘了学、学了再忘、忘了再学。</p>
+  <p><strong>学习不直观：</strong>烧水可以通过声音或指示灯判断是否烧开，但学习过程看不见刻度、看不见结果。</p>
+
+  <div class="quote"><strong>🔥 威尔·史密斯：</strong>"99% is the same as 0. 学习这壶水烧到99度都不行，必须一口气烧开。"</div>
+
+  <p><strong>核心启示：</strong></p>
+  <ol>
+    <li><strong>持续性压倒一切</strong> — 学习绝不能中断</li>
+    <li><strong>99% = 0</strong> — 半途而废等于没开始</li>
+    <li><strong>需要工具衡量进度</strong> — 如进步本</li>
+    <li><strong>一次烧开一壶水</strong> — 聚焦目标，彻底掌握一门知识</li>
+  </ol>
+</div>
+</div>
+
+<!-- 1-2 对标思维 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-20">2</span>
+  <h3>1-2 对标思维：3位清北学霸逆袭背后的思维心法</h3>
+  <span class="tag">明确方向</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心公式：</strong>对标 = 模仿榜样 + 抠细节 + 重复到极致</div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">🎯 对标的本质</h4>
+  <p>"对标"就是<strong>深度模仿榜样</strong>。具体操作：</p>
+  <ol>
+    <li><strong>找到你的榜样</strong></li>
+    <li><strong>详细研究你的榜样</strong></li>
+    <li><strong>关键：</strong>必须清楚别人做成一件事情过程中的<strong>每一个环节、每一个细节</strong>，凡是能弄清楚的环节和细节，都要<strong>直接去模仿操作</strong>。这是99%的人都做不到的。</li>
+  </ol>
+  <p>你想考清北、想考高分，但不去研究顶级高手是怎么做的？— <strong>这就是最大的浪费。</strong></p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">📊 对标的三个层次</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>层次</th><th>名称</th><th>时间跨度</th><th>效果</th><th>核心特征</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td><strong>精准对标</strong></td><td>短时间</td><td>暴力突破瓶颈</td><td>抓住关键一点彻底执行</td></tr>
+      <tr><td>2</td><td><strong>深度对标</strong></td><td>更长时间、更全面</td><td>人生翻盘</td><td>全面覆盖、持久坚持</td></tr>
+      <tr><td>3</td><td><strong>极致对标</strong></td><td>极致投入</td><td>创造人生奇迹</td><td>极致标准、狠劲到位</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">案例一：精准对标 — 慷慨30天冲上高考状元</h4>
+  <p>高考最后30天读到"进步本"概念，抓住核心句"进步本记录的所有具体的进步"，百分之百执行进步本三个环节。<strong>结果：2017年青海省理科高考状元。</strong></p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">案例二：深度对标 — 袁佩佩二战考研翻盘北大</h4>
+  <p>普通一本→工作一年→考研失败→第二次成功考入北大。不仅记录进步本，而且里面<strong>每一个点滴、每一个细微的地方全都被掌握</strong>。她男朋友也受她影响，一起考入北大同一专业。</p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">案例三：极致对标 — 张玲玲3天极限冲刺清华大学</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>做法</th><th>具体操作</th></tr></thead>
+    <tbody>
+      <tr><td>①</td><td><strong>用11小时把一套数学卷子做4遍</strong>（模拟→改错→逐题分析→与标准答案完全一致地重做）</td></tr>
+      <tr><td>②</td><td><strong>复试前3天极限冲刺</strong>：看不懂的真题死记硬背默写答案；历年真题重复做5遍</td></tr>
+      <tr><td>③</td><td><strong>面试稿子背50+遍</strong>（洗漱、骑车、走路时反复背诵）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>结果：以绝对优势被清华大学录取。</strong></p>
+
+  <div class="highlight-box">
+    <div class="h-title">🎯 极致对标的5个特征</div>
+    <p>🎯 标准最高 — 与标准答案完全一致，书写工整</p>
+    <p>🔍 抠到极致 — 一道题一道题抠，一个字一个字抠</p>
+    <p>📚 重复到底 — 试卷做4遍，真题做5遍，稿子背50+遍</p>
+    <p>💪 死记硬背 — 看不懂的先背下来，在实践中理解</p>
+    <p>✨ 自信淡定 — 下了狠功夫，自然期待考试而不是恐惧</p>
+  </div>
+
+  <p><strong>三个层次的递进关系：</strong>精准对标（暴力突破）→ 深度对标（人生翻盘）→ 极致对标（创造奇迹）</p>
+</div>
+</div>
+
+<!-- 1-3 极致思维 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-20">3</span>
+  <h3>1-3 极致思维：如何给大脑编写快速进步的秘诀</h3>
+  <span class="tag">核心算法</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心命题：</strong>你已经会了一个东西，你只需要知道你是怎么会的，然后重复它。</div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">🧠 焦虑的根源与解药</h4>
+  <p><strong>所有学习焦虑的根源：</strong>目标和现实有差距。解决方案分三个层次：</p>
+  <ol>
+    <li><strong>对标伟人</strong> → 消除焦虑</li>
+    <li><strong>对标自己</strong> → 进入深度学习</li>
+    <li><strong>深度思维</strong> → 发现学习的核心算法</li>
+  </ol>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">对标伟人消除焦虑</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>对标对象</th><th>功夫</th><th>对我们的启示</th></tr></thead>
+    <tbody>
+      <tr><td>《中庸》</td><td>人一己百，人十己千</td><td>用数量弥补差距</td></tr>
+      <tr><td>《三国志》</td><td>书读百遍</td><td>重复是最基本的要求</td></tr>
+      <tr><td>苏东坡</td><td>80万字《汉书》一字不差背诵</td><td>极致的基础功夫</td></tr>
+      <tr><td>郑板桥</td><td>每读书必千万遍</td><td>要么不读，要读就读透</td></tr>
+      <tr><td>理查德·布兰森</td><td>持续记录笔记</td><td>好记性不如烂笔头</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>对标伟人后—还焦虑吗？不焦虑了。因为我们下的功夫跟人家相比，简直是沧海一粟。</p>
+
+  <div class="quote"><strong>💡 一切焦虑都源于不扎实。</strong>古人说：抓铁留痕，踏石留印。正确的事情一遍一遍扎扎实实地做，就能解决一切焦虑。</div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">对标自己进入深度学习</h4>
+  <p>遇到烦躁时，回忆你<strong>刚刚掌握的那个东西</strong>，弄清楚你是怎么学会它的，然后用同样的方法去学下一个。这个方法"百试百灵"。</p>
+  <p><strong>原理：</strong>你已经具备学会一个东西的能力（既然能学会一个单词/公式，就具备了超级学习力的潜质）。你需要做的只是<strong>回忆并复制这个过程</strong>。核心机制不是能力问题，而是<strong>方法失忆</strong>：你忘记了自己本来就会学。</p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">⚙️ 超级学习力的核心算法（三个环节）</h4>
+  <div class="formula" style="text-align:left;padding:16px 20px;line-height:2">
+    ① 学会一个东西（证明你有学习能力）<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    ② 反思如何学会的（挖掘自己的方法论）<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    ③ 回顾不忘 + 以此类推（复制成功经验）
+  </div>
+
+  <p><strong>为什么99.99%的人被卡在第二步？</strong></p>
+  <ul>
+    <li>只关注"学什么"，不关注"怎么学"</li>
+    <li>从不停下来反思自己成功的学习过程</li>
+    <li>不知道自己本身就拥有超级学习力的钥匙</li>
+  </ul>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">核心认知转变</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>认知转变</th><th>从 → 到</th></tr></thead>
+    <tbody>
+      <tr><td>对焦虑</td><td>焦虑是能力问题 → <strong>焦虑是方法问题</strong></td></tr>
+      <tr><td>对学习</td><td>学习复杂烦琐 → <strong>学习只有三个核心环节</strong></td></tr>
+      <tr><td>对自己</td><td>我学不好 → <strong>我已具备超级学习力潜质</strong></td></tr>
+      <tr><td>对方法</td><td>每个学科方法不同 → <strong>底层规律完全一样</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- 第2章：概念篇 -->
+<!-- ================================================================ -->
+<div class="chapter" id="ch2">
+<div class="chapter-header">
+  <span class="temp-badge temp-40">📐 概念篇 · 40°C</span>
+  <h2>第二章：概念篇 — 夯实基础</h2>
+  <p>明确学习核心概念，学习方向始终不错</p>
+</div>
+
+<!-- 2-1 学习本质 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-40">4</span>
+  <h3>2-1 学习：如何科学制定学习方案，获取进步捷径</h3>
+  <span class="tag">学习的本质</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心定义：</strong>学 = 模仿，习 = 反复刻意练习。学习的本质 = 基于模仿对象的反复刻意练习。</div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">为什么绝大多数人学不好？</h4>
+  <p>90%以上的人学了十年英语讲不出十句标准英语。根本原因：<strong>不懂学习的本质是什么</strong>。</p>
+  <p>孔子两千多年前在"学而时习之，不亦乐乎"中揭示：学和习是两回事。学是模仿，习是练习。按照学习的本质去学习，会产生<strong>学习乐趣</strong>。</p>
+
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>要素</th><th>含义</th><th>常见错误</th></tr></thead>
+    <tbody>
+      <tr><td><strong>学（模仿）</strong></td><td>找到正确的模仿对象，精准模仿</td><td>不知道模仿谁，模仿不到位</td></tr>
+      <tr><td><strong>习（练习）</strong></td><td>反复的刻意练习</td><td>只是机械重复，不是刻意练习</td></tr>
+      <tr><td><strong>关键环节</strong></td><td>知道如何正确模仿和练习</td><td>以为看懂了就结束了</td></tr>
+      <tr><td><strong>结果</strong></td><td>产生了学习乐趣（不亦乐乎）</td><td>越学越痛苦</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">案例：英语极致模仿</h4>
+  <p>一天背10句标准句子，10天就是100句。100句可排列组合出成千上万篇文章。作者背了20多篇文章后<strong>考研英语第一名</strong>，北大读研期间<strong>写作课接近满分</strong>。</p>
+  <p>林语堂："学英语的唯一正轨，不出仿效与熟诵。"</p>
+  <p><strong>背诵的本质：在大脑里建造高水平的精准语料库。</strong></p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">案例：理科极致模仿</h4>
+  <p>考研统计物理95分（差5分满分）。方法：每个公式独立推导→与书上一模一样一字不差；几套真题百分之百研究透；解题步骤极其清晰标准。</p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">案例：文科模仿标准答案</h4>
+  <p><strong>三步法：看标准答案 → 默写 → 对比差异，抠细节。</strong></p>
+  <p><strong>进阶：抄题 = 研究出题人的思路。</strong>掌握出题人的知识网络→做一道题顶别人做100道甚至1000道题。</p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">案例：体育对标到极致</h4>
+  <p>作者在国家皮划艇队：选男子前三名（比女子冠军快10%以上）→ 100秒比赛录像切成<strong>2400帧图片</strong> → 每张精确分析 → 大量刻意练习。结果：<strong>第一块金牌仅在"直线滑行"一项上突破就拿到了。</strong></p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">科学制定学习方案</h4>
+  <div class="flow">
+    <div class="flow-step"><div class="dot temp-40">1</div><div class="content"><strong>确定模仿对象：</strong>填空题模仿出题人思路，论述题模仿标准答案，公式模仿课本推导，语言模仿标准句子</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-40">2</div><div class="content"><strong>确定模仿到位的标准：</strong>背到只字不差，百分之百独立做对，能独立复述</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-40">3</div><div class="content"><strong>反复刻意练习：</strong>练习中发现漏洞→回到第一步，循环直到把壶水烧开</div></div>
+  </div>
+</div>
+</div>
+
+<!-- 2-2 知识本质 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-40">5</span>
+  <h3>2-2 知识：有效问答拆解知识，提高知识消化率</h3>
+  <span class="tag">知识的本质</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心定义：</strong>知识的本质 = 用来解决问题的。有问才有学，没有问就没有学。</div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">学习知识的两大困境</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>困境</th><th>表现</th><th>根源</th></tr></thead>
+    <tbody>
+      <tr><td>面对资料茫然</td><td>不知从何下手</td><td>没有提问意识</td></tr>
+      <tr><td>反复读但把握不住</td><td>模模糊糊，说不清学了什么</td><td>只有记忆，没有理解</td></tr>
+      <tr><td colspan="2"><strong>根本问题</strong></td><td><strong>视学习为"采集信息"而非"解决问题"</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">知识的本质链</h4>
+  <div class="formula">知识 → 用来解决问题 → 知识 = 学问 → 学问 = 问学 → 有问才有学</div>
+  <p>99.9%的人掉进了学习知识的大坑 — 因为他们从来不提问。</p>
+  <p>惠勒（物理学家）：没有问题，没有答案。爱因斯坦：提出一个合适的问题就等于解决问题的一半。</p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">高效掌握知识的方法 — 拆解成问答</h4>
+  <div class="flow">
+    <div class="flow-step"><div class="dot temp-40">①</div><div class="content"><strong>提问：</strong>问自己"它究竟想要回答什么问题？"拆到一段话、一句话，问题越小越具体越好</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-40">②</div><div class="content"><strong>找答案：</strong>答案能否浓缩成一句话？新概念与已知概念有什么联系？</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-40">③</div><div class="content"><strong>系统排列：</strong>去掉细枝末节，留下主线问题，按逻辑顺序排列</div></div>
+  </div>
+  <p><strong>循环往复，直到豁然开朗。</strong></p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">案例：《童年的秘密》问答式拆解</h4>
+  <p>作者把这本书拆解成<strong>一百多个问答</strong>，重复读了<strong>两百多遍</strong>，终于豁然贯通，发现全书核心问题：<strong>"人格是如何形成的"</strong>。</p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">问答学习法的四大优势</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>优势</th><th>说明</th></tr></thead>
+    <tbody>
+      <tr><td>🎯 回归本质</td><td>知识的本质就是解决问题，问答是唯一正确姿势</td></tr>
+      <tr><td>🔬 深度理解</td><td>步步追问直到最底层，把知识真正"消化"</td></tr>
+      <tr><td>🎮 游戏化学习</td><td>高频收获感 → 产生学习乐趣 → 上瘾</td></tr>
+      <tr><td>🚀 接近创造</td><td>用创造知识的方法学习知识，达到最高效能</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>费曼："凡我不能创造的，我就不能理解。"</p>
+</div>
+</div>
+
+<!-- 2-3 考试本质 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-40">6</span>
+  <h3>2-3 考试：深入理解考试本质，3步攻克任何考试</h3>
+  <span class="tag">考试的本质</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心定义：</strong>考试 = 公平、公正、公开地分配不平等资源的一种方式。高频测试本身就是一种高级学习方法。</div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">考试的三重本质（递进关系）</h4>
+  <div class="formula" style="text-align:left;padding:16px 20px;line-height:2">
+    本质一：社会选拔机制 → 心平气和地接受<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    本质二：精准反馈工具 → 认真分析利用<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    本质三：高级学习方法（测试效应）→ 高频测试发挥极致<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    烧开学习这壶水，拿到满分
+  </div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">本质一：社会选拔机制</h4>
+  <p>考试不是某个人拍脑袋想出来的，是社会发展史创造的最公平的人才选拔机制（公元900年前后隋唐科举制度）。好的学校（北大清华）名额有限，凭考试成绩分配。<strong>心态转变：考试是压力 → 考试是机会</strong></p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">本质二：精准反馈</h4>
+  <p>考试分数给学习状况提供精准精确的反馈，指出明确的进步方向。<strong>分数不是判决书，是指南针。</strong>分数指出：知识层面、技能层面、身体素质层面、心理素质层面的具体问题。</p>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">本质三：测试效应（Testing Effect）</h4>
+  <p><strong>心理学验证：</strong>常规被动学习正确率45%，通过测试进行学习正确率<strong>67%</strong>（提升接近50%）。</p>
+  <p><strong>神经科学原理：</strong>记忆的本质是神经元产生新链接。产生变化只有两种途径：提高刺激强度（考试丢分让人"难受"）+ 提高刺激频率（高频测试反复刺激神经元）。</p>
+  <p><strong>学霸的特质：高频回测、高频测试、高频考自己。</strong></p>
+
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>普通人</th><th>高手（学霸/学神）</th></tr></thead>
+    <tbody>
+      <tr><td>考一次试不回顾</td><td><strong>随时随地测试自己</strong></td></tr>
+      <tr><td>漏洞积累越来越多</td><td><strong>发现一个漏洞补一个</strong></td></tr>
+      <tr><td>心烦意乱</td><td><strong>随时巩固后方，随时前进</strong></td></tr>
+      <tr><td>学习这壶水经常断电</td><td><strong>让学习这壶水一直在烧</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="color:#5a9e9e;margin:14px 0 6px">考前必记的三句话</h4>
+  <ol>
+    <li>考试是最公平的资源分配方式 → <strong>珍惜</strong></li>
+    <li>考试分数是最精准的进步指南针 → <strong>分析</strong></li>
+    <li>高频测试 = 烧开学习这壶水的秘诀 → <strong>行动</strong></li>
+  </ol>
+</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- 第3章：原理篇 -->
+<!-- ================================================================ -->
+<div class="chapter" id="ch3">
+<div class="chapter-header">
+  <span class="temp-badge temp-60">⚡ 原理篇 · 60°C</span>
+  <h2>第三章：原理篇 — 提升效能</h2>
+  <p>梳理学习背后的原因，知其所以然才能一通百通</p>
+</div>
+
+<!-- 3-1 记忆原理 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-60">7</span>
+  <h3>3-1 记忆原理：掌握记忆规律，2步告别学了就忘</h3>
+  <span class="tag">记忆规律</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心命题：</strong>记忆 = 改变大脑。遗忘很残酷，高频回测就是对冲遗忘的终极武器。</div>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">两大误解</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>误区</th><th>真相</th></tr></thead>
+    <tbody>
+      <tr><td>记忆不重要，理解创造才重要</td><td><strong>没有记忆就没有一切</strong>，理解创造都建立在记忆之上</td></tr>
+      <tr><td>艾宾浩斯"记忆曲线"</td><td>是<strong>"遗忘曲线"</strong> — 遗忘非常残酷，20分钟忘掉42%</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <p><strong>大师们的超强记忆力：</strong>苏东坡背诵80万字《汉书》、冯·诺依曼背百科全书、巴菲特几乎把600-700页《证券分析》背下来。</p>
+
+  <div class="highlight-box">
+    <div class="h-title">📊 艾宾浩斯遗忘曲线数据</div>
+    <p>刚记住：100% | 20分钟后（不复习）：<strong>58%</strong>（已忘42%）</p>
+    <p>1小时后：44% | 更长时间：33%</p>
+    <p>遗忘就是这么残酷。这也是各种学习困难产生的根本原因。</p>
+  </div>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">记忆的科学原理 — 神经生理结构变化</h4>
+  <div class="formula">记忆内容 → 神经元产生新轴突/树突 → 形成新神经回路 → 生理结构变化</div>
+  <p><strong>学习 = 改造大脑，改造生命。</strong>正因为记忆必须对应生理结构变化，所以记忆才这么难，遗忘才这么残酷。</p>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">超级记忆力的两条路径</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>路径</th><th>原理</th><th>操作</th><th>案例</th></tr></thead>
+    <tbody>
+      <tr><td><strong>提高刺激频率</strong></td><td>反复刺激巩固回路</td><td>多来几遍、高频回顾</td><td>"人一能之己百之"</td></tr>
+      <tr><td><strong>提高刺激强度</strong></td><td>强力刺激一次焊牢</td><td>考自己、丢分难受</td><td>摸烫水杯</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>高频回测（高频考自己）同时利用了两条路径：</strong>高频→提高刺激频率；测试本身→丢分的难受感→提高刺激强度。</p>
+  <p><strong>高频测试 = 高效学习的秘诀 = 超级记忆力的秘诀</strong></p>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">对抗遗忘的实操方案 — 高频回测</h4>
+  <p><strong>2017年《科学美国人》"记忆之网"研究：</strong>在24小时之内完成复习，信息存储在同一神经元群；超过24小时，回忆难度大大增加。</p>
+  <p><strong>正确做法：随时随地高频回测回顾。</strong>学习后立即回测→吃饭时回测→走路/洗漱/睡前回测→第二天一早回测→感觉模糊了立即回测。</p>
+  <p><strong>每次回顾产生两种结果：</strong>一想就清楚 → 已掌握，又加强一次。一想就模糊 → <strong>立即复习，直到清晰为止。</strong></p>
+  <p>掌握的标准：在大脑里一回想，所学知识点都是<strong>清晰的</strong>，不是模模糊糊的。<strong>这就是一直烧水，直到烧开。</strong></p>
+
+  <div class="highlight-box">
+    <div class="h-title">🚫 普通人对抗遗忘的常见错误</div>
+    <p>① 忽视回顾 — 盲目赶进度</p>
+    <p>② 频率和强度不够 — 每周只回顾一次</p>
+    <p>③ 滥用艾宾浩斯 — 定太复杂的复习计划，无法执行</p>
+  </div>
+</div>
+</div>
+
+<!-- 3-2 速成原理 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-60">8</span>
+  <h3>3-2 速成原理：2条速成路径，快速暴力突破考试</h3>
+  <span class="tag">速成规律</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心命题：</strong>速成 ≠ 快。速成 = 不回头。能积微者速成。</div>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">凡事皆可速成 — 大量事实证据</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>人物</th><th>速成事迹</th></tr></thead>
+    <tbody>
+      <tr><td>孙正义（软银创始人）</td><td>3周学完美国高中3年内容，考入加州大学伯克利</td></tr>
+      <tr><td>杨伟院士（歼20总设计师）</td><td>初中毕业当年参加高考，顶级分数考入西北工业大学</td></tr>
+      <tr><td>加里·科恩（高盛前主席）</td><td>阅读障碍患者，不到1周学完600多页《期权策略》通过面试</td></tr>
+      <tr><td>斯科特·杨</td><td>1年学完麻省理工4年33门课（平均1周1门）</td></tr>
+      <tr><td>小平邦彦（菲尔兹奖得主）</td><td>8天学完1门课</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">速成原理一：学到一个东西 = 学到成千上万个东西</h4>
+  <p>任何一个知识你都会<strong>成千上万次</strong>用到它。学得扎实的人一次学精准，后续每次使用都顺畅通过；学得含糊的人每次遇到都卡壳。<strong>如果在很小的知识点上不愿意下狠功夫 → 你就没法速成。</strong></p>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">速成原理二：知识的组合爆炸特性</h4>
+  <p>任何知识都具有<strong>高度可压缩性</strong>，组合在一起不是简单加法，而是<strong>爆炸级增长</strong>。</p>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>领域</th><th>基本元素</th><th>衍生结果</th></tr></thead>
+    <tbody>
+      <tr><td>英语句子</td><td>100个标准句子</td><td>排列组合→天文数字般的文章</td></tr>
+      <tr><td>牛顿力学</td><td>三大定律+万有引力</td><td>解释潮汐、日月食、行星运动……</td></tr>
+      <tr><td>欧几里得几何</td><td>不到10个概念+不到10个公设</td><td>无穷无尽的定理和命题</td></tr>
+      <tr><td>量子力学</td><td>五条公理</td><td>推导出各种量子力学结论</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>学习的核心：构造知识的基因。</strong>基因=最基本的概念、问题、定理、定义、原理、思维逻辑。把基因搞牢固→后面就可以组合爆炸。</p>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">速成的秘诀 — 能积微者速成（荀子）</h4>
+  <p>"能积微" = 学到一点一滴的知识，要<strong>能积累住</strong>，别再忘了。用持续烧水的方式，直到知识稳定、清晰。</p>
+  <p><strong>速成公式：</strong>扎实学一点 → 巩固住 → 再学下一点 → 再巩固 → 滚动积累 → 速成</p>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">实战方案 — 分组滚动学习法</h4>
+  <div class="flow">
+    <div class="flow-step"><div class="dot temp-60">1</div><div class="content"><strong>划分明确专题</strong>（如数学→代数、几何……）</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-60">2</div><div class="content"><strong>分组成题</strong>（如50道题分5组，每组10道）</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-60">3</div><div class="content"><strong>做第一组 → 记录学到了什么（进进步本）</strong></div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-60">4</div><div class="content"><strong>做第二组前 → 先复习巩固第一组学到的内容</strong></div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-60">5</div><div class="content"><strong>滚动推进</strong> → 做完一组→巩固之前所有→做下一组→巩固……</div></div>
+  </div>
+  <p><strong>效果验证：</strong>初始正确率60% → 完成50道题后可达<strong>90%以上</strong>。</p>
+  <p><strong>分组学习 ≠ 做完50道题。分组学习 = 每做完一组，巩固之前所有，再前进。</strong></p>
+  <p><strong>速成 = 不回头。</strong>慢在当下（每个细节扎实掌握），快在长期（不用反复回头重学）。</p>
+</div>
+</div>
+
+<!-- 3-3 上瘾原理 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-60">9</span>
+  <h3>3-3 上瘾原理：告别拖延，用心流模型对学习上瘾</h3>
+  <span class="tag">心流状态</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心命题：</strong>频繁地问自己"我究竟学到了什么"，频繁的收获感会让你对学习上瘾。</div>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">SMART目标 — 真正的目标</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>要素</th><th>含义</th><th>错误示例</th><th>正确示例</th></tr></thead>
+    <tbody>
+      <tr><td><strong>S</strong>pecific</td><td>目标必须具体</td><td>"考个好大学"</td><td>"考北大，考720分"</td></tr>
+      <tr><td><strong>M</strong>easurable</td><td>要能准确反馈</td><td>"提高英语水平"</td><td>"英语阅读正确率95%"</td></tr>
+      <tr><td><strong>A</strong>mazing</td><td>足够高激发动力</td><td>"今天多做一道题"</td><td>"考上清华"</td></tr>
+      <tr><td><strong>R</strong>ealistic</td><td>必须可操作</td><td>"成为神仙"</td><td>"数学从80提到90分"</td></tr>
+      <tr><td><strong>T</strong>ime bounding</td><td>要有截止时间</td><td>"把英语学好"</td><td>"21天背完21篇文章"</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>但仅SMART还不够：</strong>有了远大目标但频繁失败，原因是只有远大目标，没有近期目标。</p>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">目标粉末化 — 从痛苦到上瘾的秘诀</h4>
+  <p>托尔斯泰："要有生活目标，有一辈子的目标、一个阶段的目标……乃至<strong>一分钟的目标</strong>。"</p>
+  <p><strong>为什么是"粉末"而不是"颗粒"？</strong>食物磨成粉容易消化吸收。目标也一样：打得越碎越容易执行，越容易超额完成→产生超额成就感→养成习惯。</p>
+  <p><strong>林语堂学英语的秘诀：</strong>不是一目十行，是<strong>每天精选两三句，回环练习</strong>。学之前把以往的内容全部巩固住，再推进。</p>
+
+  <div class="formula" style="text-align:left;padding:16px 20px;line-height:2">
+    大目标（如英语国际一流水平）<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    粉末化（如每天精选两三句，回环练习）<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    频繁收获感（每5分钟就能检验成果）<br>
+    &nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+    上瘾（欲罢不能）
+  </div>
+
+  <p><strong>《上瘾》（Hooked）的核心机制：</strong>上瘾的关键 = 有没有收获。没有明确收获→不可能全身心投入。频繁感受到收获→上瘾。</p>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">上瘾的具体操作三步骤</h4>
+  <ol>
+    <li><strong>设定SMART目标</strong></li>
+    <li><strong>划定极小范围，目标粉末化</strong>（如一个公式独立推导出来→10-20分钟搞定）</li>
+    <li><strong>反复咀嚼，反复琢磨</strong> — 最常犯的错误是忘记了巩固大后方</li>
+  </ol>
+
+  <div class="highlight-box">
+    <div class="h-title">❓ 终极一问（决定学习成败的问题）</div>
+    <p><strong>"你究竟学到了什么？" — 永远比"你学了什么"重要。</strong></p>
+    <p>学了1小时说不清学到了什么 → 这1小时就是慢性自杀。</p>
+  </div>
+
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th></th><th>普通人</th><th>学霸/学神</th></tr></thead>
+    <tbody>
+      <tr><td>关注点</td><td>学了多久、学了多少</td><td><strong>学到了什么</strong></td></tr>
+      <tr><td>心态</td><td>自我欺骗、走形式</td><td><strong>较真、较劲</strong></td></tr>
+      <tr><td>结果</td><td>一壶水都没烧开</td><td><strong>不断烧开一壶壶水</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="color:#c17f3b;margin:14px 0 6px">心流状态 — 全身心投入的终极愉悦</h4>
+  <p>契克森米哈伊的心流理论：人们在行动中产生愉悦的共同模式 — <strong>全力以赴为一个明确的目标努力</strong>。</p>
+  <p><strong>从学习痛苦到心流的转变路径：</strong>学习痛苦（目标太大、没有反馈）→ 目标粉末化（设定极小的可完成目标）→ 频繁收获感（每几分钟就能检验成果）→ 学习上瘾（欲罢不能）→ 心流（全力以赴、浑然忘我）</p>
+
+  <div class="formula">SMART目标 + 粉末化 + 频繁问"学到了什么" = 学习上瘾 = 心流</div>
+</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- 第4章：法则篇 -->
+<!-- ================================================================ -->
+<div class="chapter" id="ch4">
+<div class="chapter-header">
+  <span class="temp-badge temp-80">🎯 法则篇 · 80°C</span>
+  <h2>第四章：法则篇 — 节省精力</h2>
+  <p>明确必须做和绝对不能做的事，把精力用在刀刃上</p>
+</div>
+
+<!-- 4-1 目的法则 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-80">10</span>
+  <h3>4-1 目的法则：建立知识抢夺意识，3步快速提分</h3>
+  <span class="tag">聚焦目标</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心命题：</strong>频繁地问自己"究竟学到了什么" — 这就是目的思维用到极致的方法。</div>
+
+  <h4 style="color:#d4804a;margin:14px 0 6px">目的的误区</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>误区</th><th>表现</th><th>后果</th><th>解决</th></tr></thead>
+    <tbody>
+      <tr><td>没有目的</td><td>不知道真正想要什么</td><td>思维混乱，效能低下</td><td>明确一个阶段一个目的</td></tr>
+      <tr><td>目的太多</td><td>什么都想要</td><td>什么都抓不到</td><td><strong>少则得，多则惑</strong>（道德经）</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>最重要的事情只有一件。制心一处，无事不办。读书以一当万，做事以一念代万念。</strong></p>
+
+  <h4 style="color:#d4804a;margin:14px 0 6px">达成目的的背后 — 抢夺意识</h4>
+  <p><strong>斯坦福大学罗斯教授的"夺瓶子实验"：</strong></p>
+  <p>"试着把瓶子夺走" → 试探性拽了拽，没成功（蛮力）<br>
+  "请把瓶子拿走" → 加大力气，没成功（蛮力）<br>
+  <strong>"必须抢走"</strong> → 趁其不备，瞬间抽走瓶子（能力）</p>
+  <p>当<strong>付诸行动</strong>，靠的是<strong>能力</strong>。当<strong>尝试</strong>，用的是<strong>蛮力</strong>。</p>
+
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>心态</th><th>表现</th><th>结果</th></tr></thead>
+    <tbody>
+      <tr><td>尝试心态</td><td>试试看，拿不到也无所谓</td><td>用蛮力，失败</td></tr>
+      <tr><td><strong>抢夺心态</strong></td><td><strong>必须拿到的，不达目的不罢休</strong></td><td><strong>想办法，用能力，成功</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>学习的"抢夺意识"：</strong>考试的本质=抢夺分数。抢知识→装到自己大脑里→消化、理解、吸收、固化、清晰化。</p>
+
+  <h4 style="color:#d4804a;margin:14px 0 6px">达成目的的具体操作三步骤</h4>
+  <div class="flow">
+    <div class="flow-step"><div class="dot temp-80">1</div><div class="content"><strong>愿望 → 具体目的：</strong>把幻想拉回现实。愿望 ≠ 目的。愿望是心里想想，目的是具体明确可操作。</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-80">2</div><div class="content"><strong>目的 → SMART目标：</strong>可量化可操作。作者高三一年做了<strong>6400页进步本</strong>，平均每天20页。</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-80">3</div><div class="content"><strong>行动 → 抢夺知识：</strong>全力以赴，不达目的不罢休。至于用什么方法（燃煤燃气还是柴火）——<strong>目的只有一个：烧开。</strong></div></div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="h-title">📌 "学到了什么" vs "学了什么"</div>
+    <p>"学了什么" → 关注过程、时间、形式 → <strong>容易自我欺骗</strong></p>
+    <p>"学到了什么" → 关注结果、效果、实质 → <strong>目的思维</strong></p>
+    <p>99%的人不敢问自己"学到了什么"</p>
+  </div>
+</div>
+</div>
+
+<!-- 4-2 节奏法则 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-80">11</span>
+  <h3>4-2 节奏法则：4步管理压力和情绪，激发最大潜能</h3>
+  <span class="tag">压力管理</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心命题：</strong>轰轰烈烈地学习，轻轻松松地休息。</div>
+
+  <h4 style="color:#d4804a;margin:14px 0 6px">压力的两种类型</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>压力类型</th><th>特征</th><th>对大脑的影响</th></tr></thead>
+    <tbody>
+      <tr><td><strong>慢性压力</strong></td><td>长时间的持续压力</td><td>☠️ <strong>有毒害作用</strong>，侵蚀大脑关键区域</td></tr>
+      <tr><td><strong>短期压力</strong></td><td>短期的高强度压力</td><td>✅ <strong>有益</strong>，保持头脑敏锐，延缓大脑衰老</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>大多数人面临的困境：</strong>半死不活地学习、工作和生活 → 被慢性压力困住。</p>
+
+  <h4 style="color:#d4804a;margin:14px 0 6px">杠铃法则的原理</h4>
+  <p><strong>慢性压力 = 大脑的毒药 | 短期压力 = 大脑的补药</strong></p>
+  <p>核心不是"有没有压力"，而是压力是什么类型。</p>
+  <p><strong>三重好处：</strong></p>
+  <ol>
+    <li><strong>短期见效</strong> → 成就感、自信、心理高度放松</li>
+    <li><strong>中间休息</strong> → 身体健康，可持续，灵感涌现</li>
+    <li><strong>抓住窗口期</strong> → 机会往往有窗口期，没有短期高强度能力就把握不住</li>
+  </ol>
+
+  <h4 style="color:#d4804a;margin:14px 0 6px">实战案例</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>人物</th><th>高强度期</th><th>成果</th></tr></thead>
+    <tbody>
+      <tr><td>加里·科恩</td><td>1周读4遍大部头</td><td>从小白到专家，拿到华尔街职位</td></tr>
+      <tr><td>巴菲特</td><td>1周读300多本书</td><td>掌握赌马投资知识</td></tr>
+      <tr><td>作者（国家队教练）</td><td>1-2个月分析24000帧图片</td><td>拿到全国+亚洲金牌</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="color:#d4804a;margin:14px 0 6px">杠铃法则四步法</h4>
+  <div class="flow">
+    <div class="flow-step"><div class="dot temp-80">1</div><div class="content"><strong>选定一件事</strong>（让你兴奋）</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-80">2</div><div class="content"><strong>短时间猛攻</strong>（无所不用其极）</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-80">3</div><div class="content"><strong>总结成果</strong>（升级认知）</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-80">4</div><div class="content"><strong>休息充电</strong>（策划新行动）→ 回到①</div></div>
+  </div>
+  <p><strong>对于长期备考：</strong>不需要全年高压。把大目标拆分成阶段性目标，每个小阶段运用杠铃法则—<strong>阶段性地集中火力猛攻→烧开→休息→再猛攻。</strong></p>
+  <p>威廉·詹姆斯（现代心理学创始人）：与我们能达到的相比，我们只是半睡半醒。究竟能达到什么？只能靠自己去实战、去挑战极限。</p>
+</div>
+</div>
+
+<!-- 4-3 能力法则 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-80">12</span>
+  <h3>4-3 能力法则：3步明确能力圈，创造考试奇迹</h3>
+  <span class="tag">边界意识</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心命题：</strong>能做到的事情做到位，就足以创造奇迹。</div>
+
+  <h4 style="color:#d4804a;margin:14px 0 6px">精准认知自己的能力圈</h4>
+  <p><strong>99.9%的人有三个通病：</strong></p>
+  <ol>
+    <li>大事做不来，小事不愿做</li>
+    <li><strong>严重低估已有能力</strong> → 错过机会</li>
+    <li><strong>高估某方面能力</strong> → 造成损失</li>
+  </ol>
+
+  <p><strong>能力圈的三层结构：</strong>我们真正能做的事情（最小）⊂ 我们以为自己能做的事情（中等）⊂ 我们应该做的事情（最大）。</p>
+  <p>不检测自己能力圈的后果 ≈ <strong>长平之战</strong>（赵括纸上谈兵，40多万赵军全军覆没）。</p>
+  <p>巴菲特名言：确认你的能力圈是最重要的投资。</p>
+
+  <h4 style="color:#d4804a;margin:14px 0 6px">在能力圈内做到位</h4>
+  <p><strong>考试中80%是基础题，20%是难题。牢牢把握80%，一分不扣，已经远超平均分。</strong></p>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>错误做法</th><th>正确做法</th></tr></thead>
+    <tbody>
+      <tr><td>难题上死磕2小时可能做不出来</td><td><strong>2小时做10道中等题，每道都长知识</strong></td></tr>
+      <tr><td>被难题卡住，一无所获</td><td><strong>能力增长了，原来卡住的自然就通了</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p>巴菲特："我从不去跳7英尺的栅栏，我找的是1英尺的栅栏，直接迈过去。"</p>
+
+  <h4 style="color:#d4804a;margin:14px 0 6px">扩大能力圈</h4>
+  <div class="flow">
+    <div class="flow-step"><div class="dot temp-80">1</div><div class="content"><strong>把能力圈内的事情做到位</strong>（基础）</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-80">2</div><div class="content"><strong>不断挑战、扩大能力圈</strong>（进阶）</div></div>
+  </div>
+  <p>作者高三实践：知道只要做好记录、复习、检测三步就一定在进步。<strong>全天候做这件事</strong>—不仅在课堂上做，大脑中也做（在大脑里实施进步本）。高三下半学期各科专门找难题做，因为大多数题目<strong>一眼看过去100%拿下</strong>。</p>
+
+  <div class="highlight-box">
+    <div class="h-title">📌 三不原则</div>
+    <p><strong>不低估自己</strong> — 能做到的偏不去做？</p>
+    <p><strong>不高估自己</strong> — 做不了的事瞎逞能？</p>
+    <p><strong>不留遗憾</strong> — 能做到的做到位，足矣创造奇迹</p>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- 第5章：技术篇 -->
+<!-- ================================================================ -->
+<div class="chapter" id="ch5">
+<div class="chapter-header">
+  <span class="temp-badge temp-100">🚀 技术篇 · 100°C</span>
+  <h2>第五章：技术篇 — 高效产出（烧开！）</h2>
+  <p>具体技术的深度理解和精通，一壶水彻底烧开</p>
+</div>
+
+<!-- 5-1 费曼技巧 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-100">13</span>
+  <h3>5-1 费曼技巧：向大师偷艺，4步实现学神跃迁</h3>
+  <span class="tag">教是最好的学</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心命题：</strong>凡我不能创造的，我就不能理解。 — 理查德·费曼</div>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">费曼 — 物理学大师中的大师</h4>
+  <p>乔布斯的偶像（苹果公司曾把费曼的巨幅照片贴在办公大楼上）；比尔·盖茨专门写文章介绍费曼；谷歌创始人布林和佩奇从小特别喜欢费曼。</p>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">费曼技巧的四个步骤（思维回路）</h4>
+  <div class="flow">
+    <div class="flow-step"><div class="dot temp-100">1</div><div class="content"><strong>收集研读材料：</strong>选定主题，收集相关资料，进行研读</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-100">2</div><div class="content"><strong>讲给外行人听：</strong>尝试把你掌握的内容讲给外行听</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-100">3</div><div class="content"><strong>发现鸿沟：</strong>讲的过程中发现别人听不懂→说明自己还没真正理解</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-100">4</div><div class="content"><strong>返回去研读资料：</strong>补充知识漏洞，再讲，循环往复</div></div>
+  </div>
+  <p><strong>循环直到给一个外行讲明白。</strong>费曼对自己的严苛标准：即使是高深的物理学，也要给本科生讲懂。</p>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">为什么费曼技巧是终极学习法？</h4>
+  <p><strong>原因一：主动学习优于被动学习（学习金字塔）</strong></p>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>学习方式</th><th>类型</th><th>效能</th></tr></thead>
+    <tbody>
+      <tr><td>听课/看视频/看书</td><td>被动</td><td>5%</td></tr>
+      <tr><td>阅读</td><td>被动</td><td>10%</td></tr>
+      <tr><td>多媒体</td><td>被动</td><td>20%</td></tr>
+      <tr><td>演示</td><td>被动</td><td>30%</td></tr>
+      <tr><td><strong>讨论</strong></td><td><strong>主动</strong></td><td><strong>50%</strong></td></tr>
+      <tr><td><strong>练习（实践）</strong></td><td><strong>主动</strong></td><td><strong>75%</strong></td></tr>
+      <tr><td><strong>教给别人</strong></td><td><strong>主动</strong></td><td><strong>90%</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>费曼技巧比听课效率高18倍</strong> — 别人18个月才能掌握的东西，用费曼技巧1个月就能掌握。</p>
+
+  <p><strong>原因二：教是最好的学。</strong>无法自欺（别人一摇头就知道你没讲明白）；即时自检（讲的过程中立即发现知识漏洞）；高频整合（教别人=高频回顾+高频反思+高频测试+高频整合）。</p>
+  <p><strong>原因三：指向学习的终极目的 — 创造。</strong>讲给外行听→语言表达→演讲→作品。写文章解释→写作→作品。</p>
+  <p>费曼："Know how to solve every problem that has been solved."（去解决每一个被解决了的问题。）</p>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">实战案例 — 杨柳青15天逆袭南开大学</h4>
+  <p>临考15天非常焦虑，找了一位师弟每晚9:30-10:30讲1小时宏观经济学。在北方冬天的走廊里打着手电筒画知识树。发现漏洞→马上补上→心境由焦虑到平静。<strong>结果：成功考入南开大学，复试第一名，绝对优势录取。</strong></p>
+  <p><strong>没有听众怎么办？</strong>可以写文章、在白纸上给自己讲，同样有效。</p>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">实践要点</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>步骤</th><th>操作</th></tr></thead>
+    <tbody>
+      <tr><td>选择主题</td><td>要学的知识点或学科，收集材料</td></tr>
+      <tr><td>尝试教给别人</td><td>找一个人，用最简单的话讲清楚，目标让外行人听懂</td></tr>
+      <tr><td>发现鸿沟</td><td>哪里卡壳了？对方哪里听不懂？这就是知识漏洞</td></tr>
+      <tr><td>回去补漏洞</td><td>回到资料中弄明白，循环直到彻底讲明白</td></tr>
+    </tbody>
+  </table>
+  </div>
+  <p><strong>费曼技巧 = 进步本的极致运用：</strong>记录（研读资料）→ 复习（反复讲、理清逻辑）→ 测试（别人听懂了没？）</p>
+</div>
+</div>
+
+<!-- 5-2 大脑演练技术 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-100">14</span>
+  <h3>5-2 大脑演练技术：图像知识化，学习效果指数级增长</h3>
+  <span class="tag">知识宫殿</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心命题：</strong>在大脑中形成清晰的"知识图像" — 知识框架 = 知识的"衣架"。</div>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">大脑呈现知识的重要性</h4>
+  <p><strong>心理表象（Mental Rehearsal）：</strong>闭上眼睛，客厅的场景自然浮现在脑海中。图像包含了巨量信息（用文字描述需要1-2万字），但大脑中一幅图像就包含了所有。<strong>图像 = 知识的高度压缩。</strong></p>
+  <p><strong>核潜艇的故事：</strong>中国研究核潜艇时，科学家们拿到一个外国核潜艇的<strong>玩具模型</strong>→如获至宝→精密测量、按比例放大→最终造出了真正的核潜艇。可视化的东西，对顶级的科研工作都非常重要。</p>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">知识框图 — 复杂知识清晰化的关键</h4>
+  <p><strong>知识框架 = 衣架：</strong>有了衣架→可以在上面悬挂各种知识；没有衣架→所有东西只能胡乱堆在一起。知识框架把零散知识<strong>综合集成、各安其位</strong>，知识高度有序化，高效存储+高效提取。</p>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">大脑演练技术三步法</h4>
+  <div class="flow">
+    <div class="flow-step"><div class="dot temp-100">1</div><div class="content"><strong>参考/创建知识框架：</strong>在纸上复现（参考教科书目录/思维导图，先照抄再默写）</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-100">2</div><div class="content"><strong>记住框架：</strong>不断重复，反复默写。记住才能提取，框架=知识的提取线索</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-100">3</div><div class="content"><strong>校正+呈现：</strong>微观↔宏观循环，直到脑海清晰浮现</div></div>
+  </div>
+
+  <div class="highlight-box">
+    <div class="h-title">💪 "100次"的信念</div>
+    <p>作者面对一张非常复杂的数学知识地图时：</p>
+    <p>"研究一遍我可能画不出来，但<strong>我可以尝试100次</strong>。"</p>
+    <p>第49次→能在纸上完整复现</p>
+    <p>第60-80次→能在脑海中清晰浮现整个知识框架</p>
+    <p>→<strong>一通百通</strong></p>
+  </div>
+
+  <p><strong>最佳实践：</strong>每学一个章节，就把这壶水烧开（100%精准呈现）。一个章节和另一个章节彼此挂钩。最终综合集成到一个大的知识画面中。</p>
+  <p><strong>最终效果：</strong>在你大脑里建立了一个<strong>知识宫殿</strong>、一个<strong>知识的世界</strong>。以前恐惧考试→现在<strong>期待考试</strong>（考试成了一场比赛、一场游戏）。</p>
+</div>
+</div>
+
+<!-- 5-3 进步本技术 -->
+<div class="lesson">
+<div class="lesson-title">
+  <span class="num temp-100">15</span>
+  <h3>5-3 进步本技术：康奈尔笔记＋进步本，考试通关杀器</h3>
+  <span class="tag">终极技术 ⭐</span>
+</div>
+<div class="lesson-body">
+  <div class="quote"><strong>💬 核心命题：</strong>进步本 = 康奈尔笔记法的极致升级。进步本的本质不是笔记本，而是进步的回路。</div>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">康奈尔笔记法 — 世界上最有名的笔记技术</h4>
+  <p><strong>一页笔记分三栏：</strong>主栏（记录）、护栏（提炼归纳）、思考栏（反思）。</p>
+  <p><strong>五步思维操作：</strong>①记录→②简化→③背诵→④思考→⑤复习。<strong>一个学习内容要折腾5遍。</strong></p>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">进步本 = 康奈尔笔记法的极致升级</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>环节</th><th>康奈尔笔记法</th><th>进步本（极致版）</th></tr></thead>
+    <tbody>
+      <tr><td><strong>记录</strong></td><td>记尽可能丰富的信息</td><td><strong>把当天所有进步都记进去：</strong>做错的+改过来的、不会的+弄懂的、新知识、新感悟……<strong>一个都不放过</strong></td></tr>
+      <tr><td><strong>复习</strong></td><td>每周约10分钟</td><td><strong>随时随地检测式复习</strong>—感觉模糊了立即回去复习，做过的题目重做，重要内容重复默写</td></tr>
+      <tr><td><strong>检测</strong></td><td>强调较少</td><td><strong>专门的检测环节</strong>—通过做模拟题、真题发现真实水平，寻找漏洞</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">进步本三个环节的详细要求</h4>
+  <p><strong>① 记录环节：</strong>错题不能直接把正确答案写在空上（否则后面没法考自己）。正确答案和题目要<strong>分离开</strong>。要分析所有选项的正误—不只是正确选项，错误选项也要分析为什么错。要分析出题人的意图—<strong>抄题</strong>，在抄题中研究出题思路。能做独立出一道类似的题 = 真正掌握了。</p>
+  <p><strong>② 复习环节：</strong>随时随地的检测式复习。感到模糊了→立即回去复习。题目会做了还不够→要熟练→要<strong>高度熟练</strong>。知识要在大脑里反复呈现→<strong>以清晰为标准</strong>。</p>
+  <p><strong>③ 检测环节：</strong>因为我们的感觉会<strong>造假</strong>，最擅长的就是<strong>自我欺骗</strong>。必须通过真题、模拟题去检测真实水平。</p>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">为什么必须追求极致？</h4>
+  <p><strong>考试分两类：</strong></p>
+  <ul>
+    <li><strong>资格考试</strong>（驾照、司法考试）— 达到分数线即可</li>
+    <li><strong>竞争性考试</strong>（高考、考研、面试）— <strong>必须奔着极端去，上不封顶，不断趋近满分</strong></li>
+  </ul>
+
+  <h4 style="color:#c16040;margin:14px 0 6px">实操案例</h4>
+  <p><strong>反例：</strong>把正确答案直接填在题目空上→没法考自己；只分析正确选项→浪费知识网络；不抄题→错过深度理解。</p>
+  <p><strong>正面案例：</strong>一位高中生把非洲地图画得五彩斑斓—不是在记笔记，而是在<strong>创造艺术品</strong>。杨柳青的进步本从图很简单→后来越画越细致，标注密密麻麻。</p>
+  <p>杨柳青："当我落笔的刹那，我感觉到它就像是我生命里的一件艺术品，仿佛成了活物，有了自己的思想和生命。纵然没有任何人欣赏，我也愿意一点一点地去打磨，去雕刻，直到我能够达到的极致。"</p>
+  <p><strong>结果：复试第一名，以绝对优势被录取。</strong></p>
+
+  <div class="highlight-box">
+    <div class="h-title">📌 进步本与全课程的关系</div>
+    <p>记录 → 2-2 知识本质 + 2-1 模仿对象</p>
+    <p>复习 → 3-1 记忆原理（高频回测）+ 3-2 能积微者速成</p>
+    <p>检测 → 2-3 考试本质（测试效应）+ 5-1 费曼技巧</p>
+    <p>整体循环 → 1-1 烧水思维（一口气烧开）+ 3-3 上瘾原理</p>
+  </div>
+
+  <div class="formula">记在本子上的东西 ≠ 真实进步。记在本子上→巩固在大脑里→体现在考试成绩上→才是真实进步。</div>
+</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- 加餐课 -->
+<!-- ================================================================ -->
+<div class="chapter" id="bonus">
+<div class="chapter-header">
+  <span class="temp-badge temp-bonus">🎁 加餐课 · 实战锦囊</span>
+  <h2>加餐课：3个备考小锦囊</h2>
+  <p>可在任何阶段使用的实战技巧，5分钟见效</p>
+</div>
+
+<div class="lesson">
+<div class="lesson-body">
+
+  <h4 style="color:#7a6ba5;margin:12px 0 8px">🍅 锦囊一：五分钟对抗拖延</h4>
+  <p><strong>拖延的本质 = 恐惧</strong>（恐惧失败 + 恐惧成功）。<strong>恐惧的根源 = 无知</strong>。</p>
+  <p>大多数人有一个经历：刚开始学一个东西时付出回报率很高，过一段时间不知不觉陷入<strong>低谷</strong>（付出回报率下降）。如果越过低谷，就会迎来<strong>指数增长</strong>。</p>
+  <p><strong>最典型的例子 — 背单词表：</strong>英文单词表第一个词往往是"abandon"（放弃）。为什么这个词记得最熟？<strong>因为它第一个出现，你重复的次数最多。</strong>一旦发现这个秘密—任何单词你都有办法让它彻底记住。再难的单词重复到一定次数就能记住。</p>
+  <p><strong>核心技巧：微精通。</strong>把知识打成<strong>粉末</strong>，细到不能再细，轻松掌握一个小知识点到90-100%。对知识的感觉立刻亲切→恐惧感消除→成就感产生。</p>
+  <p><strong>具体操作：只做五分钟。</strong>不要想"把这件事做完美"。<strong>先做5分钟，只做一小点。</strong>做5分钟后，你可能不知不觉做了7分钟、8分钟、10分钟。又为难了？→再坚持5分钟。受不了了？→过一会儿再来一组。</p>
+  <div class="highlight-box">
+    <div class="h-title">💡 对抗拖延公式</div>
+    <p>拖延（恐惧+无知）→ 知识粉末化（微精通）→ 只做5分钟 → 进入状态</p>
+  </div>
+
+  <h4 style="color:#7a6ba5;margin:12px 0 8px">⛰️ 锦囊二：五分钟穿越学习低谷</h4>
+  <p><strong>学习低谷的三个阶段：</strong>初始期（回报率高）→ 低谷期（付出回报率降低）→ 爆发期（高速增长）</p>
+  <p><strong>进入低谷的原因：</strong>太聪明（总以为一口气能学很多东西）、太傲慢（以为学到一点很容易）、太盲目（羡慕学霸，无视大师的笨功夫）。</p>
+  <p><strong>大师的笨功夫：</strong>费曼读到哪卡住→从头开始读；杨振宁读数学书"读不过第一句"，卡住了只能一点一滴补；《中庸》人一能之己百之；《道德经》少则得，多则惑；荀子能积微者速成。</p>
+  <div class="flow">
+    <div class="flow-step"><div class="dot temp-bonus">1</div><div class="content"><strong>把第一章第一节拿到满分</strong>（接近100%掌握）</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-bonus">2</div><div class="content"><strong>第一章第二节也接近100%掌握</strong>（含做题准确率）</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-bonus">3</div><div class="content"><strong>综合复习第一、二节 → 仍然拿到100%</strong></div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-bonus">4</div><div class="content"><strong>以此类推 → 全书暴力突破</strong></div></div>
+  </div>
+  <p><strong>循序渐进 = 快进。</strong>每一个细节都慢得让人难以忍受，但时间稍微拉长→就是最快的方法。</p>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>你以为的"快"</th><th>你以为的"慢"</th></tr></thead>
+    <tbody>
+      <tr><td>赶进度、贪多</td><td>扎扎实实、一步一个脚印</td></tr>
+      <tr><td><strong>= 真正的慢（消化不良、反复回头）</strong></td><td><strong>= 真正的快（一通百通、爆发式增长）</strong></td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="color:#7a6ba5;margin:12px 0 8px">📝 锦囊三：五分钟消除低级错误 — 三步法</h4>
+  <p><strong>一个残酷的事实：</strong>所有人都会犯低级错误，包括清北学生。但<strong>水平越高，低级错误越少。</strong></p>
+  <p><strong>低级错误的根本原因：一心不得二用。</strong>大脑想解题思路时，照顾不到笔下内容的精准性。想的是对的，写出来是错的。低级错误绝不是偶然—它是一心二用带来的<strong>必然现象</strong>。</p>
+  <div class="flow">
+    <div class="flow-step"><div class="dot temp-bonus">1</div><div class="content"><strong>演算纸和答题纸一样工整</strong> — 99%的人做不到。演算纸转着圈写，甚至作者本人都看不清。一旦做到，威力立现。</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-bonus">2</div><div class="content"><strong>不要省略任何步骤</strong> — 你以为某个步骤太简单可以省略→恰好是那个出问题。多写一行字看似浪费时间→实际是节省精力。</div></div>
+    <div class="flow-arrow">⬇</div>
+    <div class="flow-step"><div class="dot temp-bonus">3</div><div class="content"><strong>迭代回测</strong> — 每计算两三步就回测一遍。检视完毕→再继续往下写。如此滚动迭代前进。</div></div>
+  </div>
+  <p><strong>这样做有两个意义：</strong>再次确认思路正确；如果检查出错误—<strong>赚大了</strong>（一个小的错漏可能葬送十几分）。</p>
+  <div class="highlight-box">
+    <div class="h-title">💡 本质</div>
+    <p>态度好 ≠ 不犯错。<strong>操作程序正确 = 稳定产生好结果。</strong></p>
+    <p>任何粗心，本质上还是<strong>不屑于把微小的东西做到位</strong>。一个人可以有无数理由不做简单的事情。</p>
+    <p><strong>作用力与反作用力：你对微小环节不屑，它们对你也不客气。</strong></p>
+  </div>
+
+  <h4 style="color:#7a6ba5;margin:12px 0 8px">三大锦囊汇总</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>锦囊</th><th>问题</th><th>方法</th><th>核心</th></tr></thead>
+    <tbody>
+      <tr><td>①对抗拖延</td><td>恐惧、无知</td><td>只做5分钟</td><td>知识粉末化</td></tr>
+      <tr><td>②穿越低谷</td><td>付出回报率下降</td><td>第一章第一节拿满分→滚动推进</td><td>循序渐进=快进</td></tr>
+      <tr><td>③消除低级错误</td><td>一心二用</td><td>三步法（工整+不省略+迭代回测）</td><td>严谨的操作程序</td></tr>
+    </tbody>
+  </table>
+  </div>
+</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- 学习路径 & 核心心法 -->
+<!-- ================================================================ -->
+<div class="chapter" id="path">
+<div class="chapter-header">
+  <h2>🗺️ 系统性学习路径建议</h2>
+  <p>根据自己的当前水平选择起点，从小白到高手</p>
+</div>
+
+<div class="lesson">
+<div class="lesson-body">
+
+  <h4 style="color:#c17f3b;margin:14px 0 8px">按分数诊断（推荐起点）</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>当前状态</th><th>建议切入点</th><th>核心课程</th><th>预期效果</th></tr></thead>
+    <tbody>
+      <tr><td>严重焦虑、拖延（30-50分）</td><td>加餐课锦囊一</td><td>1-3 极致思维 + 加餐课</td><td>5分钟打破僵局，3天建立信心</td></tr>
+      <tr><td>有一定基础、不稳定（50-70分）</td><td>建立进步本</td><td>1-1 烧水思维 + 5-3 进步本</td><td>2周内焦虑消除，分数稳定上升</td></tr>
+      <tr><td>中等偏上、卡瓶颈（70-85分）</td><td>暴力突破法</td><td>3-2 速成原理 + 体验课</td><td>专题突破，1天提升10-20分</td></tr>
+      <tr><td>目标高分、冲满分（85-100分）</td><td>极致对标</td><td>1-2 对标思维 + 5-1 费曼技巧</td><td>复刻顶级高手的路径，冲击满分</td></tr>
+      <tr><td>长期备考（考研/考公）</td><td>节奏管理</td><td>4-2 节奏法则 + 3-3 上瘾原理</td><td>可持续的高效学习，避免烧不开</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="color:#c17f3b;margin:14px 0 8px">按场景推荐</h4>
+  <div class="tb-wrap">
+  <table>
+    <thead><tr><th>场景</th><th>推荐课程</th><th>核心工具</th></tr></thead>
+    <tbody>
+      <tr><td>背单词/语言学习</td><td>2-1 学习本质 + 3-1 记忆原理 + 3-3 目标粉末化</td><td>高频回测 + 每天两三句</td></tr>
+      <tr><td>数学/理科攻坚</td><td>1-1 烧水思维 + 2-1 理科方法 + 3-2 分组滚动</td><td>独立推导 + 进步本</td></tr>
+      <tr><td>文科/政治/论述题</td><td>2-2 问答拆解 + 2-1 文科方法 + 5-1 费曼技巧</td><td>默写标准答案 + 讲给别人</td></tr>
+      <tr><td>考前冲刺（1个月内）</td><td>体验课 + 3-2 分组滚动 + 1-2 精准对标</td><td>30道题分组突破法</td></tr>
+      <tr><td>终极冲刺（3天-1周）</td><td>1-2 极致对标（张玲玲）+ 4-2 杠铃法则</td><td>一套卷子做4遍 + 死记硬背</td></tr>
+      <tr><td>长期坚持不掉线</td><td>4-2 节奏法则 + 3-3 上瘾原理 + 4-1 目的法则</td><td>杠铃节奏 + 目标粉末化</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h4 style="color:#c17f3b;margin:14px 0 8px">💎 核心心法速查表（17条黄金法则）</h4>
+  <div class="mind-grid">
+    <div class="mind-item"><span class="m-num">1</span><span class="m-title">烧水思维</span><br>学习必须一口气烧开，99%等于0</div>
+    <div class="mind-item"><span class="m-num">2</span><span class="m-title">对标准则</span><br>模仿榜样+抠细节+重复到极致</div>
+    <div class="mind-item"><span class="m-num">3</span><span class="m-title">核心算法</span><br>学会一个→反思怎么学会→以此类推</div>
+    <div class="mind-item"><span class="m-num">4</span><span class="m-title">学习本质</span><br>学=模仿，习=反复刻意练习</div>
+    <div class="mind-item"><span class="m-num">5</span><span class="m-title">知识的钥匙</span><br>把知识拆解成问答，有问才有学</div>
+    <div class="mind-item"><span class="m-num">6</span><span class="m-title">测试效应</span><br>考试本身就是高级学习方法</div>
+    <div class="mind-item"><span class="m-num">7</span><span class="m-title">高频回测</span><br>随时随地考自己，模糊了立即复习</div>
+    <div class="mind-item"><span class="m-num">8</span><span class="m-title">能积微者速成</span><br>扎实学一点→巩固住→再学下一点</div>
+    <div class="mind-item"><span class="m-num">9</span><span class="m-title">目标粉末化</span><br>SMART目标打成粉末，频繁收获感</div>
+    <div class="mind-item"><span class="m-num">10</span><span class="m-title">抢夺意识</span><br>不是尝试，是必须拿到</div>
+    <div class="mind-item"><span class="m-num">11</span><span class="m-title">杠铃法则</span><br>短期暴力突破+充分休息的节奏</div>
+    <div class="mind-item"><span class="m-num">12</span><span class="m-title">能力圈法则</span><br>做到的做到位，足以创造奇迹</div>
+    <div class="mind-item"><span class="m-num">13</span><span class="m-title">费曼技巧</span><br>凡我不能创造的，我就不能理解</div>
+    <div class="mind-item"><span class="m-num">14</span><span class="m-title">大脑演练</span><br>知识框架+大脑图像呈现</div>
+    <div class="mind-item"><span class="m-num">15</span><span class="m-title">进步本回路</span><br>记录→复习→检测，循环到满分</div>
+    <div class="mind-item"><span class="m-num">16</span><span class="m-title">5分钟法则</span><br>只做5分钟，把知识打成粉末</div>
+    <div class="mind-item"><span class="m-num">17</span><span class="m-title">迭代回测</span><br>每两三步回测一次，不让错误累积</div>
+  </div>
+
+  <h4 style="color:#c17f3b;margin:14px 0 8px">最终建议</h4>
+  <div class="highlight-box">
+    <div class="h-title">🔥 从现在开始，立即行动</div>
+    <p><strong>1. 立即行动</strong> — 从今天开始建立进步本，哪怕只记录一个知识点</p>
+    <p><strong>2. 专注一口锅</strong> — 先选定一门课程或一个专题，先烧开这壶水</p>
+    <p><strong>3. 不要回头</strong> — 按照"能积微者速成"的原则，学到一点巩固一点</p>
+    <p><strong>4. 随时回测</strong> — 感觉模糊了立即回头复习，不让漏洞过夜</p>
+    <p><strong>5. 对标榜样</strong> — 找到你的对标对象，一个细节一个细节地模仿</p>
+  </div>
+
+  <div class="formula" style="margin-bottom:12px">🔥 你已经会了一个东西，你只需要知道你是怎么会的，然后重复它。</div>
+  <div class="formula" style="background:#faf0e4">你能做到的远远超出你的想象。</div>
+
+  <div class="quote" style="margin-top:20px"><strong>📌 终极提醒：</strong>除非你去行动，否则你很难知道那个秘密背后究竟隐藏着多么大的一个世界。<br><strong>智慧不是知道，智慧是行动。方法再好，只有亲自用起来才能发挥威力。</strong></div>
+
+</div>
+</div>
+</div>
+
+<!-- ==================== 页脚 ==================== -->
+<div style="text-align:center;padding:40px 0 20px;color:#bbb;font-size:.85rem;border-top:1px solid #f0e8dc;margin-top:30px">
+  <p>🔥 烧水学习法 · 完整知识体系</p>
+  <p>何俊 · 核聚高效学习 · 15节系统课程 + 体验课 + 加餐课</p>
+  <p style="margin-top:8px">能积微者速成 · 99% = 0 · 学习必须一口气烧开</p>
+  <p style="margin-top:16px;font-size:.78rem">📱 兼容手机/平板/电脑 · 支持双指缩放 · 纯CSS无JS</p>
+</div>
+
+</div><!-- end container -->
+
+</body>
+</html>
