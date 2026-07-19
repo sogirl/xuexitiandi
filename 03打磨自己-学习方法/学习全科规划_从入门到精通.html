@@ -1,0 +1,1419 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>学习全科规划 · 从入门到精通</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', sans-serif;
+    background: #F7F8FA;
+    color: #2C3E50;
+    line-height: 1.8;
+    font-size: 16px;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 20px 16px 60px;
+  }
+  a { color: #4A90A4; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  h1, h2, h3, h4 { color: #1a2a3a; margin-top: 1.4em; margin-bottom: 0.5em; font-weight: 600; }
+  h1 { font-size: 26px; text-align: center; margin-top: 0.8em; }
+  h2 { font-size: 21px; border-left: 4px solid #4A90A4; padding-left: 12px; }
+  h3 { font-size: 18px; color: #3a5a6a; }
+  h4 { font-size: 16px; color: #4A90A4; }
+  p { margin: 0.6em 0; }
+  ul, ol { margin: 0.4em 0 0.4em 1.6em; }
+  li { margin: 0.3em 0; }
+
+  /* 卡片 */
+  .card { background: #fff; border-radius: 12px; padding: 20px 24px; margin: 18px 0; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+  .card-title { font-size: 18px; font-weight: 600; color: #4A90A4; margin-bottom: 10px; }
+
+  /* 标签 */
+  .tag { display: inline-block; background: #E8F4F8; color: #4A90A4; padding: 2px 10px; border-radius: 12px; font-size: 13px; margin: 2px 3px; }
+  .tag-green { background: #E6F4E6; color: #5A8A5A; }
+  .tag-orange { background: #FDF2E9; color: #C07830; }
+  .tag-red { background: #FDECEA; color: #C0392B; }
+  .tag-blue { background: #E8F0FE; color: #3A7BD5; }
+
+  /* 提示框 */
+  .tip { background: #E8F4F8; border-left: 4px solid #4A90A4; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+  .warn { background: #FDF2E9; border-left: 4px solid #E8A87C; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+  .danger { background: #FDECEA; border-left: 4px solid #E74C3C; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+  .success { background: #E6F4E6; border-left: 4px solid #7FB069; padding: 12px 16px; margin: 12px 0; border-radius: 0 8px 8px 0; }
+
+  /* 表格 */
+  table { width: 100%; border-collapse: collapse; margin: 12px 0; font-size: 14px; }
+  th, td { border: 1px solid #E0E6ED; padding: 8px 12px; text-align: left; }
+  th { background: #E8F4F8; font-weight: 600; color: #2C3E50; }
+  tr:nth-child(even) { background: #FAFBFD; }
+
+  /* WPS提示 */
+  .wps-tip { background: #FFF8E1; border: 1px solid #FFE082; border-radius: 8px; padding: 10px 16px; margin: 12px 0; font-size: 14px; color: #8D6E00; text-align: center; }
+
+  /* 目录 */
+  .toc { background: #fff; border-radius: 12px; padding: 20px 24px; margin: 16px 0; box-shadow: 0 1px 6px rgba(0,0,0,0.06); }
+  .toc a { display: block; padding: 4px 0; color: #4A90A4; }
+  .toc a:hover { color: #2a6a7a; }
+  .toc .l1 { font-weight: 600; padding-left: 0; }
+  .toc .l2 { padding-left: 20px; font-size: 14px; }
+  .toc .l3 { padding-left: 38px; font-size: 13px; color: #5a7a8a; }
+
+  /* SVG容器 */
+  .svg-wrap { width: 100%; overflow: visible; touch-action: manipulation; margin: 16px 0; }
+  .svg-wrap svg { width: 100%; height: auto; display: block; }
+
+  /* 折叠 */
+  details { margin: 8px 0; background: #FAFBFD; border-radius: 8px; padding: 8px 14px; border: 1px solid #E8EDF2; }
+  details summary { cursor: pointer; font-weight: 600; color: #4A90A4; padding: 4px 0; }
+  details[open] { background: #fff; }
+  details[open] summary { margin-bottom: 8px; }
+  .detail-content { padding: 4px 0 8px; }
+
+  /* 心法卡片 */
+  .xinfa { background: linear-gradient(135deg, #F0F6FA, #FAFBFD); border: 1px solid #D5E5ED; border-radius: 10px; padding: 14px 18px; margin: 8px 0; }
+  .xinfa strong { color: #4A90A4; }
+
+  /* 时间线 */
+  .timeline { position: relative; padding-left: 28px; margin: 12px 0; }
+  .timeline::before { content: ''; position: absolute; left: 8px; top: 0; bottom: 0; width: 2px; background: #D5E5ED; }
+  .tl-item { position: relative; margin: 14px 0; padding: 12px 16px; background: #fff; border-radius: 8px; box-shadow: 0 1px 4px rgba(0,0,0,0.04); border: 1px solid #E8EDF2; }
+  .tl-item::before { content: ''; position: absolute; left: -24px; top: 18px; width: 10px; height: 10px; border-radius: 50%; background: #4A90A4; border: 2px solid #fff; box-shadow: 0 0 0 2px #4A90A4; }
+  .tl-item .year { display: inline-block; background: #4A90A4; color: #fff; padding: 0 10px; border-radius: 10px; font-size: 13px; font-weight: 600; margin-bottom: 6px; }
+  .tl-item .year.green { background: #7FB069; }
+  .tl-item .year.orange { background: #E8A87C; }
+  .tl-item .year.purple { background: #9B6B9B; }
+
+  /* 首页 */
+  .hero { text-align: center; padding: 40px 20px 30px; background: linear-gradient(135deg, #E8F4F8 0%, #F0F6FA 100%); border-radius: 16px; margin-bottom: 24px; }
+  .hero h1 { font-size: 28px; border: none; margin: 8px 0; }
+  .hero .subtitle { font-size: 16px; color: #5a7a8a; margin-top: 4px; }
+  .hero .badge { display: inline-block; background: #4A90A4; color: #fff; padding: 4px 14px; border-radius: 16px; font-size: 13px; margin: 4px; }
+  .hero .badge.green { background: #7FB069; }
+  .hero .badge.orange { background: #E8A87C; }
+
+  @media print {
+    body { max-width: 210mm; margin: 0 auto; }
+    .svg-wrap svg { page-break-inside: avoid; }
+    .wps-tip { display: none; }
+  }
+  @media (max-width: 600px) {
+    body { padding: 12px 10px 40px; font-size: 15px; }
+    .card { padding: 14px 16px; }
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; }
+    table { font-size: 13px; }
+    th, td { padding: 6px 8px; }
+    .hero { padding: 24px 14px 20px; }
+    .hero h1 { font-size: 22px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== WPS提示 ==================== -->
+<div class="wps-tip">💡 如在WPS中打开模糊或排版异常，请改用<strong>微信/浏览器</strong>打开本文件，体验更佳</div>
+
+<!-- ==================== 封面 ==================== -->
+<div class="hero">
+  <h1>📚 学习全科规划</h1>
+  <div class="subtitle">从入门到精通 · 体制内升学完全规划手册</div>
+  <p style="margin-top:10px;color:#6a8a9a;font-size:14px;">
+    涵盖幼升小→小学→初中→高中 · 12年全周期 · 语数英物化生全科目
+  </p>
+  <div style="margin-top:14px;">
+    <span class="badge">🎯 保姆级方案</span>
+    <span class="badge green">🧠 认知先行</span>
+    <span class="badge orange">⚡ 避坑指南</span>
+  </div>
+</div>
+
+<!-- ==================== 全局目录 ==================== -->
+<div class="toc">
+  <h3 style="margin-top:0;border:none;padding:0;">📖 目录</h3>
+  <a href="#ch0" class="l1">第一章 · 课程总览</a>
+  <a href="#ch1" class="l1">第二章 · 年级篇（6-18岁时间线）</a>
+  <a href="#ch1-0" class="l2">幼升小</a>
+  <a href="#ch1-1" class="l2">一年级</a>
+  <a href="#ch1-2" class="l2">二年级</a>
+  <a href="#ch1-3" class="l2">三年级</a>
+  <a href="#ch1-4" class="l2">四年级 / 五年级</a>
+  <a href="#ch1-5" class="l2">小升初</a>
+  <a href="#ch1-6" class="l2">初中三年</a>
+  <a href="#ch1-7" class="l2">高中三年</a>
+  <a href="#ch2" class="l1">第三章 · 科目篇（语数英物化生）</a>
+  <a href="#ch2-1" class="l2">语文</a>
+  <a href="#ch2-2" class="l2">数学</a>
+  <a href="#ch2-3" class="l2">英语</a>
+  <a href="#ch2-4" class="l2">物理</a>
+  <a href="#ch2-5" class="l2">化学</a>
+  <a href="#ch2-6" class="l2">生物</a>
+  <a href="#ch3" class="l1">第四章 · 观念与认知（心法篇）</a>
+  <a href="#ch3-1" class="l2">提前学</a>
+  <a href="#ch3-2" class="l2">每日时间规划</a>
+  <a href="#ch3-3" class="l2">寒暑假预习</a>
+  <a href="#ch3-4" class="l2">低年级陪读</a>
+  <a href="#ch3-5" class="l2">省钱鸡娃</a>
+  <a href="#ch3-6" class="l2">小学奥数</a>
+  <a href="#ch3-7" class="l2">编程·信奥</a>
+  <a href="#ch4" class="l1">第五章 · 专题篇（关键节点）</a>
+  <a href="#ch4-1" class="l2">小升初简历</a>
+  <a href="#ch4-2" class="l2">初中自招体系</a>
+  <a href="#ch4-3" class="l2">初中语文抢救</a>
+</div>
+
+<!-- ==================== 全书知识图谱（SVG） ==================== -->
+<h2 id="kg">🧠 全书知识图谱</h2>
+<div class="card">
+  <p style="font-size:14px;color:#5a7a8a;margin-bottom:10px;">全局思维导图 · 根在左逐层向右展开 · 可双指放大查看</p>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 1480 1100" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+      <!-- 连接线 -->
+      <!-- 根→两大主线 -->
+      <path d="M 180,70 H 230 V 120 H 280" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 180,70 H 230 V 280 H 280" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 180,70 H 230 V 460 H 280" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 180,70 H 230 V 620 H 280" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 180,70 H 230 V 780 H 280" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <!-- 年级主线分支 -->
+      <path d="M 420,120 H 470 V 170 H 520" stroke="#7FB069" stroke-width="1.8" fill="none"/>
+      <path d="M 420,120 H 470 V 220 H 520" stroke="#7FB069" stroke-width="1.8" fill="none"/>
+      <path d="M 420,120 H 470 V 270 H 520" stroke="#7FB069" stroke-width="1.8" fill="none"/>
+      <path d="M 420,120 H 470 V 320 H 520" stroke="#7FB069" stroke-width="1.8" fill="none"/>
+      <path d="M 420,120 H 470 V 370 H 520" stroke="#7FB069" stroke-width="1.8" fill="none"/>
+      <path d="M 420,120 H 470 V 420 H 520" stroke="#7FB069" stroke-width="1.8" fill="none"/>
+      <path d="M 420,120 H 470 V 470 H 520" stroke="#7FB069" stroke-width="1.8" fill="none"/>
+      <!-- 科目篇分支 -->
+      <path d="M 420,280 H 470 V 330 H 520" stroke="#E8A87C" stroke-width="1.8" fill="none"/>
+      <path d="M 420,280 H 470 V 380 H 520" stroke="#E8A87C" stroke-width="1.8" fill="none"/>
+      <path d="M 420,280 H 470 V 430 H 520" stroke="#E8A87C" stroke-width="1.8" fill="none"/>
+      <path d="M 420,280 H 470 V 480 H 520" stroke="#E8A87C" stroke-width="1.8" fill="none"/>
+      <path d="M 420,280 H 470 V 530 H 520" stroke="#E8A87C" stroke-width="1.8" fill="none"/>
+      <path d="M 420,280 H 470 V 580 H 520" stroke="#E8A87C" stroke-width="1.8" fill="none"/>
+      <!-- 观念篇分支 -->
+      <path d="M 420,460 H 470 V 510 H 520" stroke="#9B6B9B" stroke-width="1.8" fill="none"/>
+      <path d="M 420,460 H 470 V 560 H 520" stroke="#9B6B9B" stroke-width="1.8" fill="none"/>
+      <path d="M 420,460 H 470 V 610 H 520" stroke="#9B6B9B" stroke-width="1.8" fill="none"/>
+      <path d="M 420,460 H 470 V 660 H 520" stroke="#9B6B9B" stroke-width="1.8" fill="none"/>
+      <path d="M 420,460 H 470 V 710 H 520" stroke="#9B6B9B" stroke-width="1.8" fill="none"/>
+      <!-- 专题篇分支 -->
+      <path d="M 420,620 H 470 V 670 H 520" stroke="#C07830" stroke-width="1.8" fill="none"/>
+      <path d="M 420,620 H 470 V 720 H 520" stroke="#C07830" stroke-width="1.8" fill="none"/>
+      <path d="M 420,620 H 470 V 770 H 520" stroke="#C07830" stroke-width="1.8" fill="none"/>
+      <!-- 观念→子分支 -->
+      <path d="M 660,510 H 700 V 545 H 740" stroke="#9B6B9B" stroke-width="1.5" fill="none"/>
+      <path d="M 660,560 H 700 V 595 H 740" stroke="#9B6B9B" stroke-width="1.5" fill="none"/>
+      <path d="M 660,610 H 700 V 645 H 740" stroke="#9B6B9B" stroke-width="1.5" fill="none"/>
+      <path d="M 660,660 H 700 V 695 H 740" stroke="#9B6B9B" stroke-width="1.5" fill="none"/>
+      <path d="M 660,710 H 700 V 745 H 740" stroke="#9B6B9B" stroke-width="1.5" fill="none"/>
+      <!-- 年级→三年级的子分支 -->
+      <path d="M 660,320 H 700 V 355 H 740" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 660,320 H 700 V 400 H 740" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 660,320 H 700 V 445 H 740" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <!-- 根节点 -->
+      <rect x="20" y="44" width="160" height="52" rx="10" fill="#2C3E50"/>
+      <text x="100" y="76" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">学习全科规划</text>
+      <!-- 五大板块 -->
+      <rect x="280" y="95" width="140" height="50" rx="8" fill="#4A90A4"/>
+      <text x="350" y="126" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">📅 年级篇</text>
+      <rect x="280" y="255" width="140" height="50" rx="8" fill="#E8A87C"/>
+      <text x="350" y="286" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">📖 科目篇</text>
+      <rect x="280" y="435" width="140" height="50" rx="8" fill="#9B6B9B"/>
+      <text x="350" y="466" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">🧠 观念篇</text>
+      <rect x="280" y="595" width="140" height="50" rx="8" fill="#C07830"/>
+      <text x="350" y="626" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">🔖 专题篇</text>
+      <rect x="280" y="755" width="140" height="50" rx="8" fill="#5A8A5A"/>
+      <text x="350" y="786" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">📊 跨课程图谱</text>
+
+      <!-- 年级篇子节点 -->
+      <rect x="520" y="148" width="140" height="40" rx="6" fill="#E6F4E6" stroke="#7FB069"/>
+      <text x="590" y="174" text-anchor="middle" fill="#2C3E50" font-size="13">🎒 幼升小</text>
+      <rect x="520" y="198" width="140" height="40" rx="6" fill="#E6F4E6" stroke="#7FB069"/>
+      <text x="590" y="224" text-anchor="middle" fill="#2C3E50" font-size="13">📗 一年级</text>
+      <rect x="520" y="248" width="140" height="40" rx="6" fill="#E6F4E6" stroke="#7FB069"/>
+      <text x="590" y="274" text-anchor="middle" fill="#2C3E50" font-size="13">📗 二年级</text>
+      <rect x="520" y="298" width="140" height="40" rx="6" fill="#FFF3E0" stroke="#E8A87C"/>
+      <text x="590" y="324" text-anchor="middle" fill="#2C3E50" font-size="13">📕 三年级</text>
+      <rect x="520" y="348" width="140" height="40" rx="6" fill="#FFF3E0" stroke="#E8A87C"/>
+      <text x="590" y="374" text-anchor="middle" fill="#2C3E50" font-size="13">📙 四/五年级</text>
+      <rect x="520" y="398" width="140" height="40" rx="6" fill="#FDECEA" stroke="#E74C3C"/>
+      <text x="590" y="424" text-anchor="middle" fill="#2C3E50" font-size="13">📔 小升初</text>
+      <rect x="520" y="448" width="140" height="40" rx="6" fill="#E8F0FE" stroke="#4A90A4"/>
+      <text x="590" y="474" text-anchor="middle" fill="#2C3E50" font-size="13">🏫 初中三年</text>
+
+      <!-- 科目篇子节点 -->
+      <rect x="520" y="308" width="140" height="40" rx="6" fill="#FDF2E9" stroke="#E8A87C"/>
+      <text x="590" y="334" text-anchor="middle" fill="#2C3E50" font-size="13">📝 语文</text>
+      <rect x="520" y="358" width="140" height="40" rx="6" fill="#FDF2E9" stroke="#E8A87C"/>
+      <text x="590" y="384" text-anchor="middle" fill="#2C3E50" font-size="13">🔢 数学</text>
+      <rect x="520" y="408" width="140" height="40" rx="6" fill="#FDF2E9" stroke="#E8A87C"/>
+      <text x="590" y="434" text-anchor="middle" fill="#2C3E50" font-size="13">🔤 英语</text>
+      <rect x="520" y="458" width="140" height="40" rx="6" fill="#FDF2E9" stroke="#E8A87C"/>
+      <text x="590" y="484" text-anchor="middle" fill="#2C3E50" font-size="13">⚡ 物理</text>
+      <rect x="520" y="508" width="140" height="40" rx="6" fill="#FDF2E9" stroke="#E8A87C"/>
+      <text x="590" y="534" text-anchor="middle" fill="#2C3E50" font-size="13">🧪 化学</text>
+      <rect x="520" y="558" width="140" height="40" rx="6" fill="#FDF2E9" stroke="#E8A87C"/>
+      <text x="590" y="584" text-anchor="middle" fill="#2C3E50" font-size="13">🧬 生物</text>
+
+      <!-- 观念篇子节点 -->
+      <rect x="520" y="488" width="140" height="40" rx="6" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="590" y="514" text-anchor="middle" fill="#2C3E50" font-size="13">⏳ 提前学</text>
+      <rect x="520" y="538" width="140" height="40" rx="6" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="590" y="564" text-anchor="middle" fill="#2C3E50" font-size="13">🕐 每日规划</text>
+      <rect x="520" y="588" width="140" height="40" rx="6" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="590" y="614" text-anchor="middle" fill="#2C3E50" font-size="13">🌴 寒暑假预习</text>
+      <rect x="520" y="638" width="140" height="40" rx="6" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="590" y="664" text-anchor="middle" fill="#2C3E50" font-size="13">👪 低年级陪读</text>
+      <rect x="520" y="688" width="140" height="40" rx="6" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="590" y="714" text-anchor="middle" fill="#2C3E50" font-size="13">💰 省钱鸡娃</text>
+
+      <!-- 专题篇子节点 -->
+      <rect x="520" y="648" width="140" height="40" rx="6" fill="#FFF8E1" stroke="#C07830"/>
+      <text x="590" y="674" text-anchor="middle" fill="#2C3E50" font-size="13">📄 小升初简历</text>
+      <rect x="520" y="698" width="140" height="40" rx="6" fill="#FFF8E1" stroke="#C07830"/>
+      <text x="590" y="724" text-anchor="middle" fill="#2C3E50" font-size="13">🎯 自招体系</text>
+      <rect x="520" y="748" width="140" height="40" rx="6" fill="#FFF8E1" stroke="#C07830"/>
+      <text x="590" y="774" text-anchor="middle" fill="#2C3E50" font-size="13">🏥 语文抢救</text>
+
+      <!-- 三年级子节点 -->
+      <rect x="740" y="333" width="160" height="34" rx="5" fill="#FFF3E0" stroke="#E8A87C"/>
+      <text x="820" y="355" text-anchor="middle" fill="#2C3E50" font-size="12">🏆 奥数启动</text>
+      <rect x="740" y="378" width="160" height="34" rx="5" fill="#FFF3E0" stroke="#E8A87C"/>
+      <text x="820" y="400" text-anchor="middle" fill="#2C3E50" font-size="12">📘 PET备考</text>
+      <rect x="740" y="423" width="160" height="34" rx="5" fill="#FFF3E0" stroke="#E8A87C"/>
+      <text x="820" y="445" text-anchor="middle" fill="#2C3E50" font-size="12">✏️ 作文三大主线</text>
+
+      <!-- 观念第三级 -->
+      <rect x="740" y="523" width="180" height="34" rx="5" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="830" y="545" text-anchor="middle" fill="#2C3E50" font-size="12">≠抢跑·用未来视角学今天</text>
+      <rect x="740" y="573" width="180" height="34" rx="5" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="830" y="595" text-anchor="middle" fill="#2C3E50" font-size="12">4-9点主战场质量=成绩</text>
+      <rect x="740" y="623" width="180" height="34" rx="5" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="830" y="645" text-anchor="middle" fill="#2C3E50" font-size="12">弯道超车·拉开差距窗口</text>
+      <rect x="740" y="673" width="180" height="34" rx="5" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="830" y="695" text-anchor="middle" fill="#2C3E50" font-size="12">陪伴观察·非辅导代做</text>
+      <rect x="740" y="723" width="180" height="34" rx="5" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="830" y="745" text-anchor="middle" fill="#2C3E50" font-size="12">录播＞直播·99%资源免费</text>
+
+      <!-- 底部：学科依赖关系 额外区域 -->
+      <!-- 学科依赖图 - 从科目篇延伸 -->
+      <path d="M 660,384 H 720 V 830 H 760" stroke="#4A90A4" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+      <path d="M 660,484 H 720 V 860 H 760" stroke="#4A90A4" stroke-width="1.5" fill="none" stroke-dasharray="4,3"/>
+
+      <!-- 依赖关系区域 -->
+      <rect x="760" y="810" width="160" height="34" rx="5" fill="#E8F4F8" stroke="#4A90A4"/>
+      <text x="840" y="832" text-anchor="middle" fill="#3A5A6A" font-size="12">数学→物理→化学</text>
+      <rect x="760" y="850" width="160" height="34" rx="5" fill="#E8F4F8" stroke="#4A90A4"/>
+      <text x="840" y="872" text-anchor="middle" fill="#3A5A6A" font-size="12">识字→阅读→作文</text>
+
+      <!-- 右侧最末端的标题文字区 -->
+      <rect x="980" y="333" width="180" height="34" rx="5" fill="#E6F4E6" stroke="#7FB069"/>
+      <text x="1070" y="355" text-anchor="middle" fill="#2C3E50" font-size="12">课内95+·奥数体系</text>
+      <rect x="980" y="378" width="180" height="34" rx="5" fill="#E6F4E6" stroke="#7FB069"/>
+      <text x="1070" y="400" text-anchor="middle" fill="#2C3E50" font-size="12">三年级上启动·四上过</text>
+      <rect x="980" y="423" width="180" height="34" rx="5" fill="#E6F4E6" stroke="#7FB069"/>
+      <text x="1070" y="445" text-anchor="middle" fill="#2C3E50" font-size="12">结构为王·先框架后装修</text>
+
+      <!-- 最上方tips -->
+      <rect x="980" y="95" width="200" height="40" rx="6" fill="#FFF8E1" stroke="#C07830"/>
+      <text x="1080" y="113" text-anchor="middle" fill="#8D6E00" font-size="11">💡 一年级越低看规划越划算</text>
+
+      <rect x="980" y="148" width="180" height="34" rx="5" fill="#FFF8E1" stroke="#C07830"/>
+      <text x="1070" y="170" text-anchor="middle" fill="#8D6E00" font-size="11">看图写话·自然拼读</text>
+      <rect x="980" y="198" width="180" height="34" rx="5" fill="#FFF8E1" stroke="#C07830"/>
+      <text x="1070" y="220" text-anchor="middle" fill="#8D6E00" font-size="11">口算·识字·陪读</text>
+      <rect x="980" y="248" width="180" height="34" rx="5" fill="#FFF8E1" stroke="#C07830"/>
+      <text x="1070" y="270" text-anchor="middle" fill="#8D6E00" font-size="11">应用题·分级阅读</text>
+
+      <!-- 初中延伸 -->
+      <rect x="980" y="448" width="180" height="34" rx="5" fill="#E8F0FE" stroke="#4A90A4"/>
+      <text x="1070" y="470" text-anchor="middle" fill="#2C3E50" font-size="12">自招体系·物化加入</text>
+      <rect x="980" y="498" width="180" height="34" rx="5" fill="#E8F0FE" stroke="#4A90A4"/>
+      <text x="1070" y="520" text-anchor="middle" fill="#2C3E50" font-size="12">分水岭·中考冲刺</text>
+
+      <!-- legend -->
+      <rect x="20" y="940" width="600" height="80" rx="8" fill="#FAFBFD" stroke="#E0E6ED"/>
+      <text x="40" y="968" fill="#2C3E50" font-size="13" font-weight="bold">图例</text>
+      <rect x="40" y="980" width="14" height="14" rx="3" fill="#4A90A4"/>
+      <text x="60" y="993" fill="#2C3E50" font-size="12">四大板块</text>
+      <rect x="150" y="980" width="14" height="14" rx="3" fill="#7FB069"/>
+      <text x="170" y="993" fill="#2C3E50" font-size="12">年级篇</text>
+      <rect x="260" y="980" width="14" height="14" rx="3" fill="#E8A87C"/>
+      <text x="280" y="993" fill="#2C3E50" font-size="12">科目篇</text>
+      <rect x="370" y="980" width="14" height="14" rx="3" fill="#9B6B9B"/>
+      <text x="390" y="993" fill="#2C3E50" font-size="12">观念篇</text>
+      <rect x="480" y="980" width="14" height="14" rx="3" fill="#C07830"/>
+      <text x="500" y="993" fill="#2C3E50" font-size="12">专题篇</text>
+    </svg>
+  </div>
+</div>
+
+
+<!-- ==================== 第一章：课程总览 ==================== -->
+<h2 id="ch0">第一章 · 课程总览</h2>
+<div class="card">
+  <div class="card-title">📌 一句话定位</div>
+  <p>副标题为「<strong>学习与升学的完全规划</strong>」，定位为<strong>体制内升学（中高考）路线设计</strong>的体系化课程。</p>
+</div>
+
+<div class="card">
+  <div class="card-title">🏗️ 核心架构——金字塔结构</div>
+  <p><strong>两条主线 + 一条副线</strong></p>
+  <ul>
+    <li><strong>主线一 · 年级主线</strong>：6–18 岁，每年一个视频，覆盖从 10 岁到 18 岁的整体路径。</li>
+    <li><strong>主线二 · 科目主线</strong>：语数英物等主课单独成片，形成「年级篇」与「科目篇」的双重视角强化。</li>
+    <li><strong>副线 · 小 tips</strong>：奥数要不要学、早读怎么读、晚上几点睡等生活细节问题。</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">🎯 核心输出</div>
+  <ul>
+    <li>每一年该干什么、不该干什么</li>
+    <li>具体周末报课方案</li>
+    <li>具体科目学习方案</li>
+    <li>附讲师 1v1 顾问咨询（永久观看 + 12 年陪伴到高考）</li>
+  </ul>
+</div>
+
+<div class="card">
+  <div class="card-title">💡 关键设计理念</div>
+  <ul>
+    <li><strong>「学习规划 + 升学规划」合一</strong>——只讲升学路径是误区，成绩一定来自升学之前的积累。</li>
+    <li><strong>「保姆式方案」+「讲清楚为什么是这样」</strong>——家长根据自家情况决策，不是被命令。</li>
+    <li><strong>三层价值</strong>：效率层（省时省钱省心）、情绪层（防止焦虑）、执行层（避坑 + 顾问陪伴）。</li>
+  </ul>
+</div>
+
+<div class="tip">
+  <strong>💎 核心金句：</strong>年级越低看规划课越划算；四五年级才买的家长，建议不要回头看一二三年级规划（看完会悔恨）。
+</div>
+
+
+<!-- ==================== 第二章：年级篇 ==================== -->
+<h2 id="ch1">第二章 · 年级篇（6-18岁全时间线）</h2>
+
+<div class="card">
+  <p>本章是课程的主线骨架——从幼升小到高中三年，每一年的「该做什么」「不该做什么」「节奏怎么走」。</p>
+  <p><strong>年级依赖链路：</strong> 幼升小 → 一年级 → 二年级 → 三年级 → 四/五年级 → 小升初 → 初中 → 高中</p>
+</div>
+
+<!-- 年级篇SVG时间线思维导图 -->
+<div class="card">
+  <div class="card-title">📊 年级篇完整时间线</div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 1480 500" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+      <!-- 连接线 -->
+      <path d="M 220,120 H 270 V 175 H 320" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <path d="M 220,120 H 270 V 225 H 320" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <path d="M 220,120 H 270 V 275 H 320" stroke="#7FB069" stroke-width="2" fill="none"/>
+      <path d="M 220,120 H 270 V 325 H 320" stroke="#E8A87C" stroke-width="2" fill="none"/>
+      <path d="M 220,120 H 270 V 375 H 320" stroke="#E8A87C" stroke-width="2" fill="none"/>
+      <path d="M 220,120 H 270 V 425 H 320" stroke="#E74C3C" stroke-width="2" fill="none"/>
+      <path d="M 220,120 H 270 V 475 H 320" stroke="#4A90A4" stroke-width="2" fill="none"/>
+      <path d="M 220,120 H 270 V 525 H 320" stroke="#4A90A4" stroke-width="2" fill="none"/>
+
+      <!-- 右侧连接线 -->
+      <path d="M 460,175 H 510 V 215 H 560" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 460,275 H 510 V 315 H 560" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 460,325 H 510 V 340 H 560" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 460,325 H 510 V 365 H 560" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 460,325 H 510 V 390 H 560" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+
+      <!-- 根 -->
+      <rect x="20" y="94" width="200" height="52" rx="10" fill="#2C3E50"/>
+      <text x="120" y="126" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">📅 年级时间线</text>
+
+      <!-- 年级节点 -->
+      <rect x="320" y="150" width="140" height="45" rx="7" fill="#E6F4E6" stroke="#7FB069"/>
+      <text x="390" y="178" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">🎒 幼升小</text>
+      <rect x="320" y="200" width="140" height="45" rx="7" fill="#E6F4E6" stroke="#7FB069"/>
+      <text x="390" y="228" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">📗 一年级</text>
+      <rect x="320" y="250" width="140" height="45" rx="7" fill="#E6F4E6" stroke="#7FB069"/>
+      <text x="390" y="278" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">📗 二年级</text>
+      <rect x="320" y="300" width="140" height="45" rx="7" fill="#FFF3E0" stroke="#E8A87C"/>
+      <text x="390" y="328" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">📕 三年级</text>
+      <rect x="320" y="350" width="140" height="45" rx="7" fill="#FFF3E0" stroke="#E8A87C"/>
+      <text x="390" y="378" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">📙 四/五年级</text>
+      <rect x="320" y="400" width="140" height="45" rx="7" fill="#FDECEA" stroke="#E74C3C"/>
+      <text x="390" y="428" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">📔 小升初</text>
+      <rect x="320" y="450" width="140" height="45" rx="7" fill="#E8F0FE" stroke="#4A90A4"/>
+      <text x="390" y="478" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">🏫 初中三年</text>
+      <rect x="320" y="500" width="140" height="45" rx="7" fill="#E8F0FE" stroke="#4A90A4"/>
+      <text x="390" y="528" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">🎓 高中三年</text>
+
+      <!-- 详情节点 -->
+      <rect x="560" y="190" width="190" height="45" rx="6" fill="#FAFBFD" stroke="#B8D4D8"/>
+      <text x="655" y="208" text-anchor="middle" fill="#3A5A6A" font-size="11">拼音·识字200-300·10以内</text>
+      <text x="655" y="226" text-anchor="middle" fill="#3A5A6A" font-size="11">坐得住·听指令·心理建设</text>
+
+      <rect x="560" y="240" width="190" height="45" rx="6" fill="#FAFBFD" stroke="#B8D4D8"/>
+      <text x="655" y="258" text-anchor="middle" fill="#3A5A6A" font-size="11">识字·写字·口算打卡</text>
+      <text x="655" y="276" text-anchor="middle" fill="#3A5A6A" font-size="11">英语动画·全程陪读</text>
+
+      <rect x="560" y="290" width="190" height="45" rx="6" fill="#FAFBFD" stroke="#B8D4D8"/>
+      <text x="655" y="308" text-anchor="middle" fill="#3A5A6A" font-size="11">完整句·应用题读题</text>
+      <text x="655" y="326" text-anchor="middle" fill="#3A5A6A" font-size="11">分级阅读·抽查式陪读</text>
+
+      <rect x="560" y="315" width="190" height="45" rx="6" fill="#FAFBFD" stroke="#B8D4D8"/>
+      <text x="655" y="333" text-anchor="middle" fill="#3A5A6A" font-size="11">🏆 奥数启动·PET备考</text>
+      <text x="655" y="351" text-anchor="middle" fill="#3A5A6A" font-size="11">✏️ 作文启动·二类字过关</text>
+
+      <rect x="560" y="340" width="190" height="45" rx="6" fill="#FAFBFD" stroke="#B8D4D8"/>
+      <text x="655" y="358" text-anchor="middle" fill="#3A5A6A" font-size="11">四年级巩固·五年级冲刺</text>
+      <text x="655" y="376" text-anchor="middle" fill="#3A5A6A" font-size="11">FCE备考·简历启动</text>
+
+      <!-- 更多详情可增加 -->
+    </svg>
+  </div>
+</div>
+
+<!-- ===== 幼升小 ===== -->
+<h3 id="ch1-0">🎒 幼升小（5-6岁）</h3>
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>「幼小衔接」不是抢跑，而是<strong>习惯养成与心理准备</strong>；这一年的核心是「让孩子愿意上学」而不是「让孩子学完一年级」。</div>
+
+  <h4>✅ 学科知识底线</h4>
+  <ul>
+    <li>拼音启蒙</li>
+    <li>10 以内加减法</li>
+    <li>识字 200–300 字</li>
+    <li>会写自己名字</li>
+  </ul>
+  <div class="warn"><strong>⚠️ 注意：</strong>以上是「底线」，不是目标——不要拔高到「学完一年级」。</div>
+
+  <h4>✅ 习惯养成（比知识更重要）</h4>
+  <ul>
+    <li>坐得住（30 分钟）</li>
+    <li>听指令</li>
+    <li>收拾书包</li>
+    <li>按时睡觉</li>
+  </ul>
+
+  <h4>✅ 心理建设</h4>
+  <ul>
+    <li>提前带孩子参观目标小学</li>
+    <li>模拟课堂体验</li>
+    <li><strong>不要</strong>用「上学」恐吓孩子</li>
+  </ul>
+
+  <div class="danger"><strong>🚫 避坑：</strong>不要在幼儿园阶段报「拼音班」「写字班」等提前学课程——会让孩子对学习产生抵触。</div>
+</div>
+
+
+<!-- ===== 一年级 ===== -->
+<h3 id="ch1-1">📗 一年级（6-7岁）</h3>
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>一年级的核心不是成绩，是「学习兴趣 + 学习习惯 + 学习能力」三件套的奠基。</div>
+
+  <h4>✅ 三件事比分数重要</h4>
+  <ol>
+    <li>坐得住</li>
+    <li>会听课</li>
+    <li>能完成简单作业</li>
+  </ol>
+
+  <h4>📚 各科重点</h4>
+  <table>
+    <tr><th>科目</th><th>重点</th><th>方法</th></tr>
+    <tr><td>语文</td><td>识字 + 写字（一类字+二类字）</td><td>听写为主，拼音跟住课堂即可</td></tr>
+    <tr><td>数学</td><td>计算速度 + 计算准确率</td><td>每天10-15分钟口算打卡</td></tr>
+    <tr><td>英语</td><td>培养语感</td><td>看动画、听儿歌，不要背单词学语法</td></tr>
+  </table>
+
+  <div class="success"><strong>👪 家长陪读：</strong>一年级必须陪读，核心是「观察」而非「辅导」。</div>
+</div>
+
+
+<!-- ===== 二年级 ===== -->
+<h3 id="ch1-2">📗 二年级（7-8岁）</h3>
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>二年级是「分化年」——孩子之间开始拉开差距，习惯好的开始显现优势。</div>
+
+  <h4>📚 各科重点</h4>
+  <table>
+    <tr><th>科目</th><th>重点</th><th>方法</th></tr>
+    <tr><td>语文</td><td>继续抓识字，目标能独立阅读简单绘本</td><td>开始写「完整句」而非「短语」</td></tr>
+    <tr><td>数学</td><td>应用题读题能力</td><td>重点训练读题，不要急着做</td></tr>
+    <tr><td>英语</td><td>分级阅读启动</td><td>RAZ、牛津树等，每天15-20分钟</td></tr>
+  </table>
+
+  <h4>👪 家长角色转变</h4>
+  <ul>
+    <li>从「全程陪读」逐步过渡到「抽查式陪读」</li>
+    <li>培养孩子自查能力</li>
+  </ul>
+
+  <div class="danger"><strong>🚫 避坑：</strong>不要报「作文班」「奥数班」——太早，孩子还没准备好。</div>
+</div>
+
+
+<!-- ===== 三年级 ===== -->
+<h3 id="ch1-3">📕 三年级（8-9岁）——分水岭</h3>
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>三年级是「分水岭」——开始有正式考试，难度提升；同时也是「奥数」「英语PET」「作文」三大主线的<strong>启动年</strong>。</div>
+
+  <h4>📚 各科重点</h4>
+  <table>
+    <tr><th>科目</th><th>重点</th><th>时间节点</th></tr>
+    <tr><td>语文</td><td>二类字过关 + 作文起步 + 阅读理解初步训练</td><td>一整年</td></tr>
+    <tr><td>数学</td><td><strong>奥数正式启动</strong>，课内保持95+</td><td>三年级上启动</td></tr>
+    <tr><td>英语</td><td><strong>PET备考启动</strong></td><td>三年级上备考，三下或四上过</td></tr>
+  </table>
+
+  <div class="success"><strong>📋 三件大事：</strong>奥数 + 英语PET + 语文 = 三年级三大主线，不要加其他课外班。</div>
+  <div class="warn"><strong>👪 家长角色：</strong>从「陪读」转向「监督」；建立错题本、定期小测机制。</div>
+  <div class="danger"><strong>🚫 避坑：</strong>不要在三年级报太多课外班——三件大事已经够满。</div>
+</div>
+
+
+<!-- ===== 四/五年级 ===== -->
+<h3 id="ch1-4">📙 四年级 / 五年级（9-11岁）</h3>
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>四年级是「巩固期」，五年级是「冲刺期」——目标是「五年级结束时，孩子的成绩单/简历/能力三件套全部 ready」。</div>
+
+  <h4>四年级核心任务</h4>
+  <ul>
+    <li>🏆 奥数进入正式体系学习（目标：五年级拿到第一个有含金量的奖）</li>
+    <li>📘 英语完成 PET，开始备考 FCE</li>
+    <li>📝 语文阅读理解、作文进入系统训练</li>
+  </ul>
+
+  <h4>五年级核心任务</h4>
+  <ul>
+    <li>📄 小升初简历开始准备（详见专题篇）</li>
+    <li>🏅 课内成绩保持年级前列</li>
+    <li>👨‍👩‍👧‍👦 「和睦的一家人」页面所需的家庭活动素材要积累</li>
+  </ul>
+
+  <div class="danger"><strong>🚫 避坑：</strong>不要临时换赛道、不要因为「别人都在搞」就加项目。五年级下学期才开始准备简历——太晚。</div>
+
+  <details>
+    <summary>📋 五年级结束前的检查清单</summary>
+    <div class="detail-content">
+      <ul>
+        <li>✅ 奥数至少有一个有含金量的奖项</li>
+        <li>✅ FCE考试通过</li>
+        <li>✅ 课内成绩稳定年级前列</li>
+        <li>✅ 简历初稿已完成</li>
+        <li>✅ 初一部分内容已提前接触</li>
+      </ul>
+    </div>
+  </details>
+</div>
+
+
+<!-- ===== 小升初 ===== -->
+<h3 id="ch1-5">📔 小升初（11-12岁）</h3>
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>小升初是「路线的分叉口」——选公办对口还是择校走民办/重点班，决定了接下来三年的培养方案。</div>
+
+  <h4>路径选择</h4>
+  <ul>
+    <li><strong>择校：</strong>五升六寒假就要把简历/证书/面试全部准备好</li>
+    <li><strong>对口入学：</strong>也建议做简历（作为家庭成长档案）</li>
+  </ul>
+
+  <h4>学科准备要求</h4>
+  <table>
+    <tr><th>科目</th><th>要求</th></tr>
+    <tr><td>数学</td><td>奥数获奖是「敲门砖」；课内必须超前学完初一内容</td></tr>
+    <tr><td>英语</td><td>FCE通过；能听口面试基本交流</td></tr>
+    <tr><td>语文</td><td>阅读量大、作文稳定高分</td></tr>
+  </table>
+
+  <details>
+    <summary>📋 小升初时间表</summary>
+    <div class="detail-content">
+      <ul>
+        <li><strong>五升六暑假：</strong>复习初中内容（数学按中考中等难度学完七年级）</li>
+        <li><strong>六年级寒假：</strong>完成简历初稿</li>
+        <li><strong>六年级春季：</strong>面试准备 + 目标学校确定</li>
+        <li><strong>六年级暑假：</strong>按自招难度重学初一内容（不可直接往前学）</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="warn"><strong>💡 家长心态：</strong>不要把「择校失败」当成世界末日——公办重点班同样能出人才。</div>
+</div>
+
+
+<!-- ===== 初中三年 ===== -->
+<h3 id="ch1-6">🏫 初中三年（12-15岁）</h3>
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>初中是「赛道定型期」——三年决定高中档次，高中决定大学档次。</div>
+
+  <h4>分年级节奏</h4>
+  <table>
+    <tr><th>年级</th><th>核心任务</th><th>注意事项</th></tr>
+    <tr><td><strong>初一</strong></td><td>适应新学科（多出4-5门课）；数学和英语保持领先</td><td>初一暑假预习物理</td></tr>
+    <tr><td><strong>初二（分水岭）</strong></td><td>物理加入；数学难度陡升；开始出现「掉队」</td><td>八升九暑假电学攻坚</td></tr>
+    <tr><td><strong>初三</strong></td><td>中考冲刺；关注自招体系</td><td>初三暑假预习化学</td></tr>
+  </table>
+
+  <h4>学科平衡策略</h4>
+  <ul>
+    <li>语文：不补就掉（详见专题·语文抢救）</li>
+    <li>数学：按自招体系走（详见专题·自招体系）</li>
+    <li>英语：保持FCE水平，向高考水平冲刺</li>
+    <li>物理：初二必须重视，三遍法学习</li>
+    <li>化学：八升九暑假开始</li>
+  </ul>
+
+  <details>
+    <summary>📋 初中三年关键节点</summary>
+    <div class="detail-content">
+      <ul>
+        <li><strong>初一暑假：</strong>物理第一遍启蒙（通读课本，建立直觉) </li>
+        <li><strong>初二：</strong>物理第二遍（中等难度做题）</li>
+        <li><strong>八升九暑假：</strong>电学攻坚（必须学到高中难度）</li>
+        <li><strong>初三：</strong>物理第三遍（学校同步+方法课）</li>
+        <li><strong>初三暑假：</strong>化学预习 + 高一物理深度预习</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="danger"><strong>🚫 避坑：</strong>不要在初一就报「中考冲刺班」——太早；不要在初三放弃自招机会。</div>
+</div>
+
+
+<!-- ===== 高中三年 ===== -->
+<h3 id="ch1-7">🎓 高中三年（15-18岁）</h3>
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>高中是「终极冲刺期」——一切为了高考；高一打基础、高二定方向、高三拼冲刺。</div>
+
+  <h4>分年级节奏</h4>
+  <table>
+    <tr><th>年级</th><th>核心任务</th><th>关键动作</th></tr>
+    <tr><td><strong>高一</strong></td><td>9门课齐头并进，重点「语数英+选科三科」</td><td>竞赛/自招布局；暑假深度预习物理化学</td></tr>
+    <tr><td><strong>高二</strong></td><td>确定选科（3+1+2或3+3）；一轮复习早期准备</td><td>选科确定后不可更改；竞赛冲刺</td></tr>
+    <tr><td><strong>高三</strong></td><td>全面冲刺；一模二模三模节奏</td><td>心态调整 > 刷题量；志愿填报准备</td></tr>
+  </table>
+
+  <h4>选科策略</h4>
+  <ul>
+    <li>不要只看分数，要看「目标专业 + 大学选科要求」</li>
+    <li>物化双选已成趋势（好专业都要求物理化学）</li>
+    <li>物理学不好 → 与好大学好专业无缘</li>
+  </ul>
+
+  <div class="tip"><strong>📌 建议：</strong>家长买一本高考志愿填报小手册（二三十元），查看不同大学的选科要求。</div>
+  <div class="danger"><strong>🚫 避坑：</strong>高一就偏科；高二换选科（多数省份不允许）；高三临时换赛道。</div>
+</div>
+
+
+<!-- ==================== 第三章：科目篇 ==================== -->
+<h2 id="ch2">第三章 · 科目篇（语数英物化生）</h2>
+
+<div class="card">
+  <p>本章是课程的横向覆盖——六大主科，每一科的「路径」「节奏」「避坑点」。</p>
+  <p><strong>学科依赖关系：</strong>数学 → 物理 → 化学；识字 → 阅读 → 作文；语感启蒙 → 自然拼读 → PET → FCE</p>
+</div>
+
+<!-- ===== 语文 ===== -->
+<h3 id="ch2-1">📝 语文——最被忽视却最拉分的科目</h3>
+
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>语文靠的是<strong>长期积累</strong>，不是短期突击。它不是「玄学」，是方法问题。</div>
+
+  <h4>📊 语文成绩的四大决定因素</h4>
+  <table>
+    <tr><th>板块</th><th>内容</th><th>学习难度</th></tr>
+    <tr><td>语文基础</td><td>字词、拼音、成语、同反义词、近义词、时代背景</td><td>基础且关键</td></tr>
+    <tr><td>古诗词与古文</td><td>古代文体，传统文化，有专门考试板块</td><td>现代人较难</td></tr>
+    <tr><td>阅读理解</td><td>答题能否扣到点子上、能否少扣分</td><td>多数人头疼</td></tr>
+    <tr><td>作文</td><td>整体写作能力，分值占比大</td><td>需系统训练</td></tr>
+  </table>
+  <div class="warn"><strong>⚠️ 关键认知：</strong>四项相互影响——语文基础差影响阅读和作文；阅读差影响作文；古文影响写作；写作反过来影响古文。</div>
+
+  <h4>📚 阅读能力的两大支柱</h4>
+  <ol>
+    <li><strong>读懂文章的能力</strong>——通过精读课培养（三年级开始），逐字逐句做批注</li>
+    <li><strong>答题模板与技巧</strong>——四五年级加入</li>
+  </ol>
+  <div class="xinfa"><strong>💡 核心比喻——「练拳不练功，到头一场空」：</strong>套路（模板）= 拳法；读懂文章的能力 = 身体素质；只有套路没有身体素质 = 花拳绣腿。</div>
+
+  <h4>✏️ 作文的「结构为王」理念</h4>
+  <div class="xinfa"><strong>🏗️ 盖楼理论：</strong>结构=楼的框架；文采=房间的装修。框架搭好，装修不太差，分数就不会差。</div>
+  <p><strong>作文训练时间线：</strong>一年级下学期看图写话 → 二年级继续 → 三年级正式作文训练</p>
+  <p><strong>初中作文升级：</strong>记叙文→议论文；几段论套路；准备好自己的素材库</p>
+
+  <h4>📜 小古文与古诗词</h4>
+  <ul>
+    <li><strong>小古文：</strong>三年级以上可以开始，为初中打基础，积累常见实词虚词</li>
+    <li><strong>古诗词：</strong>不需要提前背，学校学到哪就背到哪</li>
+  </ul>
+
+  <h4>📖 课外泛读的正确打开方式</h4>
+  <ul>
+    <li>泛读是「副线」，不是「主线」</li>
+    <li>两个黄金期：学前阶段 + 三四年级（好奇心爆发）</li>
+    <li>泛读提升的是上限（从90分到95+），不是雪中送炭</li>
+  </ul>
+
+  <h4>🗺️ 语文完整规划时间线</h4>
+  <div class="timeline">
+    <div class="tl-item"><span class="year">学前</span><div>拼音 + 识字1200 + 控笔 + 多看图文书</div></div>
+    <div class="tl-item"><span class="year green">1-2年级</span><div><strong>只抓语文基础</strong>——字词听写是核心</div></div>
+    <div class="tl-item"><span class="year green">3年级</span><div>语文基础 + 精读课 + 小古文</div></div>
+    <div class="tl-item"><span class="year orange">4-5年级</span><div>语文基础 + 精读 + 阅读技巧课</div></div>
+    <div class="tl-item"><span class="year orange">5-6年级</span><div>加入作文结构训练</div></div>
+    <div class="tl-item"><span class="year purple">初中</span><div>阅读技巧 + 作文模板 + <strong>文言文逐字逐句</strong></div></div>
+  </div>
+
+  <h4>关键提醒</h4>
+  <ul>
+    <li>一二年级不需要大量课外阅读——字词基础是第一位的</li>
+    <li>「什么年级做什么事」——不要被"阅读很重要"的杂音带偏</li>
+    <li>不需要晨读、拼命读课外书</li>
+    <li>高中吃初中老本，无需特殊规划</li>
+  </ul>
+</div>
+
+
+<!-- ===== 数学 ===== -->
+<h3 id="ch2-2">🔢 数学——最需要超前学的科目</h3>
+
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>数学是「最需要超前学的科目」——校内进度太慢，校外必须抢跑。奥数是「数学能力的试金石」。</div>
+
+  <h4>整体路径</h4>
+  <div class="xinfa"><strong>核心路径：</strong>小学奥数 → 初中自招 → 高中校内紧跟</div>
+
+  <h4>🧮 小学阶段：双线并行</h4>
+  <table>
+    <tr><th>线路</th><th>定位</th><th>方法</th></tr>
+    <tr><td><strong>校内数学</strong></td><td>保持95+</td><td>寒暑假预习 + 每天练习册</td></tr>
+    <tr><td><strong>校外奥数</strong></td><td>思维训练 + 小升初硬通货</td><td>录播课 + 方法课，三年级启动</td></tr>
+  </table>
+  <div class="warn"><strong>⚠️ </strong>校内与奥数本质上是两套体系，交集不多。一年级就要决定是否学奥数——推荐学。</div>
+
+  <h4>🏆 初中阶段：自招体系</h4>
+  <p>进入初中，停止奥数，转向「自招体系」（详见专题·自招体系）。自招介于中考和竞赛之间，包含中考体系且范围更广更深。</p>
+  <ul>
+    <li>数学必须按自招体系走</li>
+    <li>自招包含部分高中知识，提前铺垫</li>
+  </ul>
+
+  <h4>🎓 高中阶段：校内紧跟</h4>
+  <ul>
+    <li>除竞赛生外，不必碰校外高难度内容</li>
+    <li>寒暑假一定要预习（高中数学太难，不预习跟不上）</li>
+  </ul>
+
+  <details>
+    <summary>📋 小升初过渡规划（垃圾时间的妙用）</summary>
+    <div class="detail-content">
+      <ol>
+        <li><strong>六年级寒假+春季：</strong>按中考中等难度，把初中第一年（七年级）内容学一遍</li>
+        <li><strong>暑假：</strong>回过头来，把初中第一学期按自招难度重学一遍</li>
+        <li><strong>秋季开学后：</strong>一炮而红→好学生标签→良性循环</li>
+        <li><strong>八升九：</strong>加快进度，八年级结束时基本学完九年级内容</li>
+      </ol>
+      <div class="warn"><strong>注意：</strong>这是数学的专有要求，英语和语文没有这个要求。</div>
+    </div>
+  </details>
+
+  <details>
+    <summary>📋 初升高过渡规划</summary>
+    <div class="detail-content">
+      <p>初升高数学跨度极大，中考结束暑假<strong>千万不能玩</strong>——必须深度预习一个学期。</p>
+      <ul>
+        <li>预习要学得深（物理化学也同样需要）</li>
+        <li>第一次考试决定信心→决定后续表现</li>
+        <li>高中正轨后：寒暑假预习 + 学期中紧跟老师</li>
+      </ul>
+    </div>
+  </details>
+
+  <h4>避坑清单</h4>
+  <ul>
+    <li>不要「只刷题不总结」</li>
+    <li>不要「题海战术」</li>
+    <li>不要因为校内成绩好就不学奥数</li>
+  </ul>
+</div>
+
+
+<!-- ===== 英语 ===== -->
+<h3 id="ch2-3">🔤 英语——最容易抢跑的科目</h3>
+
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>英语是「最容易抢跑的科目」——低投入高产出，必须提前学、超前学、超纲学。</div>
+
+  <h4>🎯 路径时间表（关键！）</h4>
+  <table>
+    <tr><th>阶段</th><th>时间</th><th>核心任务</th></tr>
+    <tr><td>启蒙期</td><td>幼儿园-1年级</td><td>看动画、听儿歌，培养语感（半年）</td></tr>
+    <tr><td>入门期</td><td>2年级</td><td>自然拼读（1-2个月略懂即可）+ 分级阅读（RAZ/牛津树）</td></tr>
+    <tr><td>原版期</td><td>1年级-6/7年级</td><td><strong>选一套原版体系课</strong>（Think/Unlock/Power Up）系统学习</td></tr>
+    <tr><td>PET阶段</td><td>3年级上备考，3下-4上通过</td><td>PET备考 + 考试</td></tr>
+    <tr><td>FCE阶段</td><td>4下-5年级启动，6年级通过</td><td>FCE备考 + 考试</td></tr>
+    <tr><td>应试期</td><td>初中+</td><td>吃老本 + 应试专项课（语法/翻译），向145+冲刺</td></tr>
+  </table>
+
+  <div class="xinfa"><strong>💡 最核心原则：</strong>校内撑死中等分数，校外才是主战场。校外学得好→校内随便应付也能高分。</div>
+
+  <h4>🔑 原版体系课的核心地位</h4>
+  <ul>
+    <li>选一套完整的原版体系课（Think、Unlock、Power Up等）</li>
+    <li>跟着体系不断往上走，学扎实、彻底掌握</li>
+    <li><strong>绝对不能东拼西凑</strong>——今天学自然拼读、明天学音标、后天报阅读班=毁了孩子</li>
+  </ul>
+  <div class="danger"><strong>🚫 错误做法：</strong>报三套分级阅读（牛津树+RAZ+其他）=重复训练，水平原地踏步。同时上两个体系课（新概念+Think）=混乱低效。</div>
+
+  <h4>🔄 补充策略</h4>
+  <table>
+    <tr><th>策略</th><th>含义</th><th>适用场景</th></tr>
+    <tr><td>以考代练</td><td>报名KET/PET短期备考班</td><td>体系课学4-5年，中间疲惫</td></tr>
+    <tr><td>大火猛攻</td><td>寒暑假集中追赶进度</td><td>学期中时间少，假期补上</td></tr>
+    <tr><td>灵活调整</td><td>根据孩子实际情况调整规划</td><td>不同孩子时间、基础不同</td></tr>
+  </table>
+
+  <h4>执行保障</h4>
+  <ul>
+    <li>录播小课需要家长深度参与监督</li>
+    <li>每天要求的学习内容必须落实、打卡</li>
+    <li>规划+方法+执行=英语起飞</li>
+  </ul>
+
+  <details>
+    <summary>📋 避坑清单</summary>
+    <div class="detail-content">
+      <ul>
+        <li>❌ 只紧盯校内→撑死中等分数</li>
+        <li>❌ 蹦跳课作为长期学习方法→效果差</li>
+        <li>❌ 自然拼读学两年→本末倒置（1-2个月即可）</li>
+        <li>❌ 三套分级阅读→原地踏步</li>
+        <li>❌ 两个体系课→混乱低效</li>
+        <li>❌ 报了班不管→录播课特别需要监督</li>
+      </ul>
+    </div>
+  </details>
+</div>
+
+
+<!-- ===== 物理 ===== -->
+<h3 id="ch2-4">⚡ 物理——初中最关键的理科</h3>
+
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>物理是「初中最关键的理科」——初二开始加入，决定中考和高中理科基础。</div>
+
+  <h4>🎯 物理「三遍法」学习路径</h4>
+  <table>
+    <tr><th>遍数</th><th>时间</th><th>内容</th><th>难度</th></tr>
+    <tr><td><strong>第一遍·启蒙</strong></td><td>六年级</td><td>只理解、记忆例子，不做题</td><td>补生活经验短板</td></tr>
+    <tr><td><strong>第二遍·做题</strong></td><td>七年级（必做）</td><td>踏实做中等/中考难度题</td><td>领先学校</td></tr>
+    <tr><td><strong>第三遍·同步</strong></td><td>八年级起</td><td>学校同步 + 方法课拿高分</td><td>八年级简单，九年级难</td></tr>
+  </table>
+
+  <h4>🔑 关键节点</h4>
+  <div class="xinfa"><strong>🔥 八升九暑假 = 电学攻坚：</strong>电学必须学到高中难度（不是初中难度），才能做初中题飞快。</div>
+  <div class="xinfa"><strong>⚡ 九升高一暑假 = 物理命运：</strong>必须报班深度预习，决定高中第一次考试成绩（极其重要）。</div>
+
+  <details>
+    <summary>📋 物理难学的两大原因</summary>
+    <div class="detail-content">
+      <ol>
+        <li><strong>客观原因：</strong>物理研究世界运行规律；用数学方法学物理是错误的</li>
+        <li><strong>主观原因：</strong>从小缺乏生活观察和自然科学积累</li>
+      </ol>
+      <div class="tip"><strong>解决办法：</strong>从小培养对自然科学的兴趣（科技杂志、十万个为什么等），六年级启蒙补短板。</div>
+    </div>
+  </details>
+
+  <h4>配套资源取舍</h4>
+  <ul>
+    <li>❌ 专门物理实验课：不要报（撑不了一年，重点是规律应用）</li>
+    <li>✅ 小学科学课：可报可不报</li>
+    <li>✅ 科学杂志（《万物》《好奇号》等）：可搞可不搞</li>
+  </ul>
+
+  <h4>启蒙时机</h4>
+  <div class="danger"><strong>🚫 铁律：不要三、四年级学物理</strong>——纯焦虑收割，最早物理启蒙=六年级。三四年级最多搞搞科学。</div>
+
+  <h4>🏫 高中物理的极端重要性</h4>
+  <ul>
+    <li>高考选科漏洞已补——好专业都要求物理</li>
+    <li>物理有强筛选作用：大学用物理筛人</li>
+    <li>物理学不好→与好大学好专业无缘</li>
+  </ul>
+</div>
+
+
+<!-- ===== 化学 ===== -->
+<h3 id="ch2-5">🧪 化学——初三才加入的科目</h3>
+
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>化学是「初三才加入的科目」——一年的学习时间，节奏紧，但比物理简单太多。</div>
+
+  <h4>核心定位</h4>
+  <ul>
+    <li>化学 = 理解 + 记忆</li>
+    <li>内容比物理少得多</li>
+    <li><strong>不要像物理那样学三遍</strong></li>
+  </ul>
+
+  <h4>🎯 时间线</h4>
+  <table>
+    <tr><th>阶段</th><th>关键任务</th></tr>
+    <tr><td><strong>八升九暑假</strong></td><td>正儿八经学一遍化学：该背的背会、该记的记好、该理解的理解好</td></tr>
+    <tr><td>九年级同步</td><td>跟住课内，重点抓化学方程式和实验题</td></tr>
+    <tr><td>初升高暑假</td><td>整个学完高一第一学期化学（高中一周=初中半学期内容量）</td></tr>
+  </table>
+
+  <div class="warn"><strong>⚠️ 化学不要太早学！</strong>七八年级就开始学不推荐——理解和记忆分不开，太早学容易「学了个热闹」。</div>
+
+  <h4>高中化学的两大支柱</h4>
+  <ol>
+    <li><strong>记忆：</strong>知识点又细又碎，需要大量时间</li>
+    <li><strong>理解：</strong>必须理解反应的实质，不能只靠记忆</li>
+  </ol>
+  <div class="xinfa">缺一不可！</div>
+
+  <h4>避坑清单</h4>
+  <ul>
+    <li>不要死记硬背元素周期表</li>
+    <li>不要忽视实验题</li>
+    <li>不要等到初三下学期才准备</li>
+  </ul>
+</div>
+
+
+<!-- ===== 生物 ===== -->
+<h3 id="ch2-6">🧬 生物——易被忽视的翻盘科目</h3>
+
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>生物是「初中最容易被忽视却能在高中选科中翻盘的科目」——背诵量大，但拿分稳定。</div>
+
+  <h4>学习建议</h4>
+  <ul>
+    <li>初一或初二开始（看地区版本）</li>
+    <li>课本为主，图示记忆</li>
+    <li>建立「知识框架」而非孤立记忆</li>
+    <li>高中选科包含生物→初三暑假要预习</li>
+  </ul>
+  <div class="danger"><strong>🚫 避坑：</strong>不要把生物当成「副科」忽视；不要死背而不理解。</div>
+</div>
+
+
+<!-- ==================== 第四章：观念与认知 ==================== -->
+<h2 id="ch3">第四章 · 观念与认知（心法篇）</h2>
+
+<div class="card">
+  <p>这是整套课程的「灵魂」——技术之外，决定成败的关键。共9篇核心观念，贯穿全周期。</p>
+</div>
+
+<!-- 观念篇SVG -->
+<div class="card">
+  <div class="card-title">🧠 观念篇知识图谱</div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 1200 420" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+      <!-- 连接线 -->
+      <path d="M 220,80 H 270 V 120 H 320" stroke="#9B6B9B" stroke-width="2" fill="none"/>
+      <path d="M 220,80 H 270 V 175 H 320" stroke="#9B6B9B" stroke-width="2" fill="none"/>
+      <path d="M 220,80 H 270 V 230 H 320" stroke="#9B6B9B" stroke-width="2" fill="none"/>
+      <path d="M 220,80 H 270 V 285 H 320" stroke="#9B6B9B" stroke-width="2" fill="none"/>
+      <path d="M 220,80 H 270 V 340 H 320" stroke="#9B6B9B" stroke-width="2" fill="none"/>
+      <path d="M 220,80 H 270 V 395 H 320" stroke="#9B6B9B" stroke-width="2" fill="none"/>
+
+      <!-- 右侧连接线 -->
+      <path d="M 460,120 H 510 V 150 H 560" stroke="#9B6B9B" stroke-width="1.5" fill="none"/>
+      <path d="M 460,175 H 510 V 205 H 560" stroke="#9B6B9B" stroke-width="1.5" fill="none"/>
+      <path d="M 460,230 H 510 V 260 H 560" stroke="#9B6B9B" stroke-width="1.5" fill="none"/>
+      <path d="M 460,285 H 510 V 315 H 560" stroke="#9B6B9B" stroke-width="1.5" fill="none"/>
+      <path d="M 460,340 H 510 V 370 H 560" stroke="#9B6B9B" stroke-width="1.5" fill="none"/>
+      <path d="M 460,395 H 510 V 425 H 560" stroke="#9B6B9B" stroke-width="1.5" fill="none"/>
+
+      <!-- 根 -->
+      <rect x="20" y="54" width="200" height="52" rx="10" fill="#2C3E50"/>
+      <text x="120" y="86" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">🧠 观念篇</text>
+
+      <!-- 观念节点 -->
+      <rect x="320" y="98" width="140" height="45" rx="7" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="390" y="126" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">⏳ 提前学</text>
+      <rect x="320" y="153" width="140" height="45" rx="7" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="390" y="181" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">📅 每日时间规划</text>
+      <rect x="320" y="208" width="140" height="45" rx="7" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="390" y="236" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">🌴 寒暑假预习</text>
+      <rect x="320" y="263" width="140" height="45" rx="7" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="390" y="291" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">👪 低年级陪读</text>
+      <rect x="320" y="318" width="140" height="45" rx="7" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="390" y="346" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">💰 省钱鸡娃</text>
+      <rect x="320" y="373" width="140" height="45" rx="7" fill="#EDE7F6" stroke="#9B6B9B"/>
+      <text x="390" y="401" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">🏆 小学奥数</text>
+
+      <!-- 右侧详情 -->
+      <rect x="560" y="125" width="200" height="45" rx="6" fill="#FAFBFD" stroke="#D0C0D8"/>
+      <text x="660" y="143" text-anchor="middle" fill="#3A5A6A" font-size="11">≠抢跑，用未来视角学今天</text>
+      <text x="660" y="161" text-anchor="middle" fill="#3A5A6A" font-size="11">英语必须、数学适当、语文不必要</text>
+
+      <rect x="560" y="180" width="200" height="45" rx="6" fill="#FAFBFD" stroke="#D0C0D8"/>
+      <text x="660" y="198" text-anchor="middle" fill="#3A5A6A" font-size="11">4-9点主战场，质量=成绩</text>
+      <text x="660" y="216" text-anchor="middle" fill="#3A5A6A" font-size="11">保证睡眠·户外1小时</text>
+
+      <rect x="560" y="235" width="200" height="45" rx="6" fill="#FAFBFD" stroke="#D0C0D8"/>
+      <text x="660" y="253" text-anchor="middle" fill="#3A5A6A" font-size="11">弯道超车唯一窗口</text>
+      <text x="660" y="271" text-anchor="middle" fill="#3A5A6A" font-size="11">平时节奏一致，假期拉开差距</text>
+
+      <rect x="560" y="290" width="200" height="45" rx="6" fill="#FAFBFD" stroke="#D0C0D8"/>
+      <text x="660" y="308" text-anchor="middle" fill="#3A5A6A" font-size="11">陪伴+观察+引导</text>
+      <text x="660" y="326" text-anchor="middle" fill="#3A5A6A" font-size="11">一年级全程→二年级半陪→三年级抽查</text>
+
+      <rect x="560" y="345" width="200" height="45" rx="6" fill="#FAFBFD" stroke="#D0C0D8"/>
+      <text x="660" y="363" text-anchor="middle" fill="#3A5A6A" font-size="11">录播课＞直播课</text>
+      <text x="660" y="381" text-anchor="middle" fill="#3A5A6A" font-size="11">99%优质资源免费/低成本</text>
+
+      <rect x="560" y="400" width="200" height="45" rx="6" fill="#FAFBFD" stroke="#D0C0D8"/>
+      <text x="660" y="418" text-anchor="middle" fill="#3A5A6A" font-size="11">思维的体操，不获奖也要学</text>
+      <text x="660" y="436" text-anchor="middle" fill="#3A5A6A" font-size="11">三年级启动·性价比最高的课外班</text>
+    </svg>
+  </div>
+</div>
+
+
+<h3 id="ch3-1">⏳ ① 提前学到底是怎么回事</h3>
+<div class="card">
+  <div class="xinfa"><strong>「提前学」≠「抢跑」</strong>——是用未来的视角学今天的内容，让孩子「站在高年级看低年级」。</div>
+
+  <table>
+    <tr><th>科目</th><th>提前学建议</th></tr>
+    <tr><td>英语</td><td>✅ 必须提前学（最容易抢跑的科目）</td></tr>
+    <tr><td>数学</td><td>✅ 适当提前，不超过1个年级</td></tr>
+    <tr><td>语文</td><td>❌ 不需要「提前学」课本——核心是积累</td></tr>
+    <tr><td>物理/化学</td><td>✅ 暑假预习是合理形式</td></tr>
+  </table>
+  <div class="warn"><strong>判断标准：</strong>提前学的目的是「让孩子在高年级时更轻松」——如果越学越累，就错了。</div>
+</div>
+
+<h3 id="ch3-2">🕐 ② 每日时间规划</h3>
+<div class="card">
+  <div class="xinfa"><strong>「每天晚上4点到9点」</strong>是孩子学习的主战场——这5个小时的质量决定了一年的成绩。</div>
+
+  <h4>典型时间表（小学高年级）</h4>
+  <table>
+    <tr><th>时间</th><th>内容</th></tr>
+    <tr><td>15:30-16:30</td><td>放学后自由活动（户外）</td></tr>
+    <tr><td>16:30-17:30</td><td>写作业（在校完成更好）</td></tr>
+    <tr><td>17:30-18:30</td><td>晚饭+休息</td></tr>
+    <tr><td>18:30-20:00</td><td>课外班/重点学科（数学/英语）</td></tr>
+    <tr><td>20:00-21:00</td><td>阅读/复习/错题整理</td></tr>
+    <tr><td>21:00</td><td>洗漱睡觉（保证9-10小时睡眠）</td></tr>
+  </table>
+
+  <h4>关键原则</h4>
+  <ul>
+    <li>保证睡眠——牺牲睡眠换学习=短期有效、长期崩盘</li>
+    <li>每天至少1小时户外活动，对学习效率正向</li>
+    <li>不要连续学习——每45分钟休息10分钟</li>
+    <li>家长帮孩子「规划」而不是「监督」</li>
+  </ul>
+</div>
+
+<h3 id="ch3-3">🌴 ③ 寒暑假必须预习</h3>
+<div class="card">
+  <div class="xinfa"><strong>「寒暑假」是弯道超车的唯一机会</strong>——平时大家节奏一样，寒假暑假是拉开差距的窗口。</div>
+
+  <h4>典型寒暑假任务</h4>
+  <table>
+    <tr><th>阶段</th><th>任务</th></tr>
+    <tr><td>小学寒假</td><td>预习下学期数学 + 英语分级阅读 + 课外阅读5本</td></tr>
+    <tr><td>小学暑假</td><td>预习下学期数学 + 奥数系统学习 + 英语FCE/CAE备考</td></tr>
+    <tr><td>初中寒假</td><td>预习下学期物理/化学 + 数学拔高</td></tr>
+    <tr><td>初中暑假</td><td>预习下学期物理/化学/数学 + 英语拔高</td></tr>
+    <tr><td>高中寒假</td><td>高考一轮复习提前启动</td></tr>
+    <tr><td>高中暑假</td><td>衔接下学期内容 + 竞赛/自招准备</td></tr>
+  </table>
+  <div class="warn"><strong>注意：</strong>不要把寒暑假变成「第三学期」——休息+预习结合，不要全填满。</div>
+</div>
+
+<h3 id="ch3-4">👪 ④ 低年级一定要陪读</h3>
+<div class="card">
+  <div class="xinfa"><strong>「陪读」不是「辅导」</strong>——是「陪伴+观察+引导」，核心是「让孩子养成习惯」。</div>
+
+  <h4>阶段性陪读策略</h4>
+  <table>
+    <tr><th>年级</th><th>陪读方式</th><th>重点</th></tr>
+    <tr><td>一年级</td><td>全程陪</td><td>坐得住、听指令、不拖拉</td></tr>
+    <tr><td>二年级</td><td>半陪</td><td>自查、时间管理</td></tr>
+    <tr><td>三年级起</td><td>抽查式陪</td><td>错题、总结</td></tr>
+  </table>
+  <div class="danger"><strong>🚫 避坑：</strong>不要把陪读变成「代做」；不要变成「监督员」——孩子写作业时家长不要刷手机。</div>
+</div>
+
+<h3 id="ch3-5">💰 ⑤ 省钱鸡娃的原则</h3>
+<div class="card">
+  <div class="xinfa"><strong>「鸡娃」不等于「砸钱」</strong>——99%的优质教育资源是「免费+低成本」的。</div>
+
+  <h4>核心原则</h4>
+  <ul>
+    <li>能用录播课解决的，不要用直播课（直播课贵10倍）</li>
+    <li>能用免费资源解决的，不要花钱（B站、YouTube等）</li>
+    <li>能在家学的，不要去线下（线下机构溢价高）</li>
+  </ul>
+
+  <h4>哪些值得花钱</h4>
+  <ul>
+    <li>一两次性的「诊断+规划」咨询</li>
+    <li>关键节点的「冲刺班」（小升初简历指导、中考冲刺）</li>
+  </ul>
+
+  <h4>哪些不值得花钱</h4>
+  <ul>
+    <li>日常辅导班（家长自己陪读即可）</li>
+    <li>「同步班」「提高班」（与课内重复）</li>
+  </ul>
+  <div class="danger"><strong>🚫 避坑：</strong>不要被「包过」「保过」忽悠；不要因为「贵=好」买单。</div>
+</div>
+
+<h3 id="ch3-6">🏆 ⑥ 小学奥数为什么一定要尽量学</h3>
+<div class="card">
+  <div class="xinfa"><strong>「奥数」不是「数学的延伸」</strong>——是「数学思维的体操」，不为了获奖也要学。</div>
+
+  <h4>为什么一定要学</h4>
+  <ol>
+    <li><strong>小升初简历的硬通货</strong>——奥数获奖是敲门砖</li>
+    <li><strong>初高中数学的底层能力</strong>——学过奥数，初高中数学轻松30%</li>
+    <li><strong>思维训练的不可替代性</strong>——拆解问题、多步推理，贯穿所有理科</li>
+  </ol>
+
+  <h4>怎么学</h4>
+  <ul>
+    <li><strong>三年级启动</strong>（详见三年级篇）</li>
+    <li>不强求获奖——把「奥数七大模块」（数论、几何、应用题、组合、行程、计数、构造）系统学一遍就够</li>
+    <li>录播课+刷题是主流路径</li>
+    <li>线下班仅适合需要强监督的孩子</li>
+  </ul>
+  <div class="danger"><strong>🚫 避坑：</strong>不要因为「不擅长」就放弃；不要因为「投入大」就放弃——奥数是性价比最高的课外班之一。</div>
+</div>
+
+<h3 id="ch3-7">💻 ⑦ 编程可以学，信奥千万别搞</h3>
+<div class="card">
+  <div class="xinfa"><strong>「编程」是兴趣+思维训练；「信奥」是极少数天才的游戏</strong>——99%的家庭不适合。</div>
+
+  <h4>编程可以学</h4>
+  <ul>
+    <li>小学低年级学Scratch，培养逻辑思维</li>
+    <li>小学高年级学Python，做有趣的项目</li>
+    <li>目的：兴趣+思维+简历亮点（非必填项）</li>
+  </ul>
+
+  <h4>信奥千万别搞的残酷真相</h4>
+  <table>
+    <tr><th>维度</th><th>数据</th></tr>
+    <tr><td>成功率</td><td>50（保送清北）÷ 50万（在搞信奥）= <strong>1‱（万分之一）</strong></td></tr>
+    <tr><td>政策变化</td><td>从「省奖保送」→「全国前50才能保送」</td></tr>
+    <tr><td>投入产出</td><td>信奥获奖概率<1%，投入时间是其他活动3倍</td></tr>
+    <tr><td>替代方案</td><td>同等时间投入奥数，性价比高10倍</td></tr>
+  </table>
+
+  <h4>信奥产业链的收割套路</h4>
+  <ol>
+    <li>包装焦虑：宣传「信奥可以保送清北」</li>
+    <li>规划路径：设计从小学到高中的「清晰路径」</li>
+    <li>持续投入：从幼儿园开始报启蒙班</li>
+    <li>中途劝退：学不出来=你家孩子问题</li>
+    <li>结果兜底：课已收、钱已赚</li>
+  </ol>
+
+  <div class="warn"><strong>💡 核心判断：</strong>竞赛不是「多一条路」，是「少一条路」。第50名保送清北，第51名没学上——实力差距极小，结果天壤之别。</div>
+  <div class="danger"><strong>🚫 铁律：</strong>除非孩子真有全国前50的天赋，否则不要把孩子的路走窄。</div>
+
+  <details>
+    <summary>📋 什么情况可以例外</summary>
+    <div class="detail-content">
+      <p>孩子表现出「对编程极度热情」+「数学成绩年级前列」时，可以谨慎尝试——但仍需清醒认知风险。</p>
+    </div>
+  </details>
+</div>
+
+<!-- ===== 传统预习复习伪命题 ===== -->
+<h3>📌 ⑧ 传统意义的每日预习复习其实是伪命题</h3>
+<div class="card">
+  <div class="xinfa">「每天预习+每天复习」是「看起来很努力其实效率很低」的反模式。</div>
+
+  <h4>为什么是伪命题</h4>
+  <ul>
+    <li><strong>预习：</strong>如果孩子理解力够，预习是浪费时间；如果不够，预习也看不懂</li>
+    <li><strong>复习：</strong>每天复习=把当天内容再学一遍——不如周末集中+月度大复习</li>
+  </ul>
+
+  <h4>正确的节奏</h4>
+  <ul>
+    <li><strong>周末：</strong>集中做错题回顾+单元总结</li>
+    <li><strong>月末：</strong>做月度测试+调整下月计划</li>
+    <li><strong>寒暑假：</strong>大块时间做系统性预习和复习</li>
+  </ul>
+  <div class="danger"><strong>🚫 避坑：</strong>不要把「每天预习复习」当成「勤奋的标志」——勤奋不等于有效。</div>
+</div>
+
+<!-- ===== 不要做无用动作 ===== -->
+<h3>📌 ⑨ 不要做很多无用的额外动作</h3>
+<div class="card">
+  <div class="xinfa"><strong>「做了很多事」≠「学到了很多东西」</strong>——很多动作是「心理安慰」而非「有效投入」。</div>
+
+  <h4>典型的无用动作</h4>
+  <ul>
+    <li>每天抄课文、生字抄10遍——形式主义</li>
+    <li>做完作业还要刷一套课外题——没时间总结，等于白做</li>
+    <li>上太多课外班——疲于应付，没有消化时间</li>
+  </ul>
+
+  <h4>判断标准</h4>
+  <p>一个动作如果「孩子做完后能说出学到了什么」就是有效的；说不出，就是无用的。</p>
+  <p><strong>正确做法：</strong>「少而精」——每天只做1-2件「高密度」动作，胜过5件「低密度」动作。</p>
+</div>
+
+
+<!-- ==================== 第五章：专题篇 ==================== -->
+<h2 id="ch4">第五章 · 专题篇（关键节点）</h2>
+
+<h3 id="ch4-1">📄 加餐：小升初简历讲座</h3>
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>一份极致实操的「小升初简历制作手册」，把简历升华为「家庭规划与亲子协作的项目」。</div>
+
+  <h4>简历形式硬规范</h4>
+  <ul>
+    <li>装订方式：必须<strong>胶装</strong>（像论文/书一样）</li>
+    <li>绝对避免夹子夹、铁丝环装——这些「很 low」</li>
+    <li>模板可网上找，不要让打印店设计</li>
+  </ul>
+
+  <h4>七大内容板块</h4>
+  <table>
+    <tr><th>#</th><th>板块</th><th>内容要求</th></tr>
+    <tr><td>1</td><td>封面</td><td>积极向上的照片；标明谁的简历、来自哪个小学；投哪所就改对应学校</td></tr>
+    <tr><td>2</td><td>第一页</td><td>可放目录+自我介绍信</td></tr>
+    <tr><td>3</td><td>自我介绍信</td><td>让孩子自己写，强调「匹配」与「倾慕」，家长修改。<strong>不要把奖项写进来</strong></td></tr>
+    <tr><td>4</td><td>学业展示</td><td>课内附成绩单（A4一页可放2-3张）；课外展示奥数课本/奖项、英语教材、作文比赛奖项</td></tr>
+    <tr><td>5</td><td>活动展示</td><td>校内：升旗手、大队长、小班干部；校外：公益、参观、活动</td></tr>
+    <tr><td>6</td><td>荣誉展示</td><td>奖状证书集中展示，可融入其他板块</td></tr>
+    <tr><td>7</td><td>和睦的一家人</td><td>写爸妈干什么的、如何教育你、家庭集体出游。<strong>学校非常在意家庭和谐度</strong></td></tr>
+  </table>
+
+  <h4>体量控制：</h4>
+  <p>理想20页，最多25页。</p>
+  <h4>准备时间：</h4>
+  <p>四年级或五年级就要开始准备——类比大学生求职，不能等到大四才写简历。</p>
+</div>
+
+
+<h3 id="ch4-2">🎯 初中自招体系</h3>
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>「自招」是「中考之外的另一条路」——为「学科特长」的孩子准备的提前录取通道，是初中规划的核心方法论。</div>
+
+  <h4>三条路径对比</h4>
+  <table>
+    <tr><th>路径</th><th>难度</th><th>范围</th><th>适合人群</th></tr>
+    <tr><td>只学中考</td><td>低</td><td>小</td><td>仅适合放弃升学的孩子</td></tr>
+    <tr><td style="background:#E6F4E6;"><strong>自招体系 ✅</strong></td><td>中（介于中考和奥数之间）</td><td>大（中考+拓展+先修）</td><td><strong>多数孩子</strong></td></tr>
+    <tr><td>初中奥数</td><td>极高</td><td>极大</td><td>千里挑一（绝大多数人不行）</td></tr>
+  </table>
+
+  <div class="xinfa"><strong>自招体系的三大作用：</strong>①校内提升（初中3年） ②高中衔接（高一开学即见效） ③升学选拔（初三自招考试拿offer）</div>
+
+  <h4>学科策略</h4>
+  <ul>
+    <li><strong>数学：必须</strong>按自招完整体系走（加深+拓展+高中先修）</li>
+    <li><strong>物理：尽量</strong>拓展（凹面镜、温度计计算等）</li>
+    <li><strong>化学：尽量</strong>拓展，可学到接近竞赛程度</li>
+  </ul>
+
+  <details>
+    <summary>📋 可操作清单</summary>
+    <div class="detail-content">
+      <ul>
+        <li>小学阶段：鼓励学奥数</li>
+        <li>小升初衔接：理解「自招」概念</li>
+        <li>初一：按自招体系学数学</li>
+        <li>初二：深化自招体系，接触高中简单内容</li>
+        <li>初三：自招体系+中考复习并行</li>
+        <li>了解目标高中的自招/自主选拔政策</li>
+      </ul>
+    </div>
+  </details>
+
+  <div class="danger"><strong>🚫 误区提醒：</strong>不要以为自招是少数天才的游戏——是多数孩子的最优路径。不要把自招当成「中考保底」。不要因为准备自招而忽视课内。</div>
+</div>
+
+
+<h3 id="ch4-3">🏥 初中语文成绩差怎么抢救</h3>
+<div class="card">
+  <div class="tip"><strong>一句话定位：</strong>「初中语文掉队」的根源在小学——抢救必须「回溯式补」，不能只盯着初中。</div>
+
+  <h4>诊断</h4>
+  <p>80%的「初中语文差」其实是「小学阅读量不够」+「作文没练过」。</p>
+
+  <h4>抢救路径</h4>
+  <ol>
+    <li>立即开始每天30分钟课外阅读（初中难度文本）</li>
+    <li>每周一篇命题作文+一篇自由作文</li>
+    <li>整理错题本（阅读理解错题、文言文错题）</li>
+    <li>每天15分钟写字训练</li>
+  </ol>
+  <div class="warn"><strong>⏰ 时间承诺：</strong>至少坚持一个学期才能见效。</div>
+  <div class="danger"><strong>🚫 避坑：</strong>不要寄希望于「中考冲刺班」；不要让孩子只刷题不读书。</div>
+</div>
+
+
+<!-- ==================== 跨课程依赖 ==================== -->
+<h2 id="ch4-4">📊 学科依赖与知识图谱</h2>
+
+<div class="card">
+  <div class="card-title">🔗 知识点依赖链路</div>
+  <pre style="background:#FAFBFD;padding:12px;border-radius:8px;font-size:13px;line-height:1.6;overflow-x:auto;">
+时间线依赖：
+幼升小 → 一年级 → 二年级 → 三年级 → 四/五年级 → 小升初 → 初中 → 高中
+
+学科依赖：
+[数学基础] → [数学进阶] → [奥数] → [自招]
+                ↓
+             [物理] → [化学]
+                ↓
+             [生物]
+
+[识字写字] → [阅读理解] → [作文] → [初中语文]
+[语感启蒙] → [自然拼读] → [PET] → [FCE]
+
+观念依赖：
+[提前学] + [寒暑假预习] + [奥数] → [小升初择校]
+[低年级陪读] → [学习习惯] → [长期成绩]
+[不要做无用动作] + [省钱鸡娃] + [每日时间规划] → [高效学习闭环]
+  </pre>
+</div>
+
+
+<!-- ==================== 12条核心心法 ==================== -->
+<h2>💎 最核心的12条心法</h2>
+
+<div class="card">
+  <ol style="font-size:15px;">
+    <li class="xinfa"><strong>年级越低看规划课越划算</strong>——一二年级看了终身受益</li>
+    <li class="xinfa"><strong>语文英语靠积累，数学物理靠提前</strong>——语言类不能突击，理科类必须抢跑</li>
+    <li class="xinfa"><strong>奥数不是数学的延伸，是思维的体操</strong>——不获奖也要学</li>
+    <li class="xinfa"><strong>陪读的核心是「陪伴」不是「辅导」</strong>——低年级必须陪，但不是代做</li>
+    <li class="xinfa"><strong>「每天预习复习」是伪命题</strong>——周末集中+寒暑假大块复习才是正道</li>
+    <li class="xinfa"><strong>寒暑假是弯道超车的唯一机会</strong>——平时大家节奏一样</li>
+    <li class="xinfa"><strong>「做了很多事」≠「学到了很多东西」</strong>——少而精，胜过多而杂</li>
+    <li class="xinfa"><strong>99%的优质教育资源是免费/低成本的</strong>——录播课>直播课，免费的资源先用起来</li>
+    <li class="xinfa"><strong>每天4-9点是主战场</strong>——这5小时的质量决定一年的成绩</li>
+    <li class="xinfa"><strong>小升初简历是「家庭项目」</strong>——不是孩子一个人的事，需要家长4年长跑</li>
+    <li class="xinfa"><strong>初中自招是「学科特长」的路</strong>——不是保底，是给真正有特长的孩子准备的</li>
+    <li class="xinfa"><strong>信奥99%的家庭不要碰</strong>——同等时间投入奥数性价比高10倍</li>
+  </ol>
+</div>
+
+
+<!-- ==================== 尾声 ==================== -->
+<div style="text-align:center;margin:40px 0 20px;padding:30px;background:linear-gradient(135deg,#E8F4F8,#F0F6FA);border-radius:16px;">
+  <h3 style="margin:0 0 10px;border:none;">🎯 从入门到精通</h3>
+  <p style="font-size:15px;color:#5a7a8a;">本手册涵盖了《学习全科规划》全部71份文档的完整知识体系。</p>
+  <p style="font-size:14px;color:#6a8a9a;">从幼升小到高考，从语数英到物化生，从方法论到实操清单，一册在手，全科无忧。</p>
+  <p style="margin-top:16px;font-size:13px;color:#8a9aaa;">— END —</p>
+  <p style="font-size:12px;color:#9aaa9a;">永久观看 · 12年陪伴到高考</p>
+</div>
+
+</body>
+</html>
