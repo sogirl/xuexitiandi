@@ -1,0 +1,1810 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="theme-color" content="#4A90A4">
+<title>小白从0到精通 · 亚马逊广告全流程学习地图 | 2026亚马逊广告第一期</title>
+<style>
+/* ============ 全局重置与基础 ============ */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { -webkit-text-size-adjust: 100%; scroll-behavior: smooth; touch-action: manipulation; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 15px;
+  line-height: 1.75;
+  color: #2C3E50;
+  background: linear-gradient(180deg, #FAFBFC 0%, #F4F6F9 100%);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+/* ============ 顶部归属与简介 ============ */
+.hero {
+  background: linear-gradient(135deg, #EAF2F5 0%, #F4ECDF 50%, #F3EAF1 100%);
+  padding: 56px 24px 48px;
+  text-align: center;
+  border-bottom: 1px solid #E5E8EC;
+  position: relative;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 12% 18%, rgba(74,144,164,.08) 0, transparent 35%),
+    radial-gradient(circle at 88% 78%, rgba(232,168,124,.10) 0, transparent 35%);
+  pointer-events: none;
+}
+.hero-inner { max-width: 1080px; margin: 0 auto; position: relative; z-index: 1; }
+.hero-tag {
+  display: inline-block;
+  padding: 5px 14px;
+  background: rgba(74,144,164,.12);
+  color: #4A90A4;
+  border-radius: 30px;
+  font-size: 13px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  margin-bottom: 18px;
+}
+.hero h1 {
+  font-size: 38px;
+  font-weight: 800;
+  color: #1F2D3D;
+  letter-spacing: -0.5px;
+  margin-bottom: 14px;
+  line-height: 1.3;
+}
+.hero h1 .accent { color: #4A90A4; }
+.hero .subtitle {
+  font-size: 16px;
+  color: #5C6B7A;
+  max-width: 720px;
+  margin: 0 auto 22px;
+}
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+  margin-top: 18px;
+}
+.hero-meta span {
+  background: rgba(255,255,255,.65);
+  backdrop-filter: blur(4px);
+  padding: 6px 14px;
+  border-radius: 20px;
+  font-size: 13px;
+  color: #4A5568;
+  border: 1px solid rgba(255,255,255,.8);
+}
+.hero-meta strong { color: #2C3E50; font-weight: 700; }
+
+/* ============ 进度条样式 ============ */
+.progress-wrap {
+  max-width: 1080px;
+  margin: 36px auto 0;
+  padding: 24px;
+  background: rgba(255,255,255,.7);
+  border-radius: 16px;
+  border: 1px solid rgba(255,255,255,.9);
+  box-shadow: 0 4px 16px rgba(74,144,164,.06);
+}
+.progress-title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #4A5568;
+  margin-bottom: 14px;
+  text-align: center;
+}
+.progress-track {
+  display: flex;
+  height: 8px;
+  background: #EDF2F7;
+  border-radius: 4px;
+  overflow: hidden;
+  margin-bottom: 12px;
+}
+.progress-track .seg {
+  flex: 1;
+  transition: all 0.3s;
+}
+.progress-track .seg-1 { background: #7FB069; }
+.progress-track .seg-2 { background: #E8A87C; }
+.progress-track .seg-3 { background: #C38D9E; }
+.progress-track .seg-4 { background: #9B8AC4; }
+.progress-track .seg-5 { background: #D4A574; }
+.progress-labels {
+  display: flex;
+  font-size: 11px;
+  color: #7B8794;
+}
+.progress-labels span { flex: 1; text-align: center; }
+
+/* ============ 主体内容 ============ */
+.container { max-width: 1080px; margin: 0 auto; padding: 24px; }
+
+/* ============ 章节通用 ============ */
+.section {
+  background: #FFFFFF;
+  border-radius: 16px;
+  padding: 36px 32px;
+  margin-bottom: 28px;
+  border: 1px solid #EEF1F5;
+  box-shadow: 0 2px 8px rgba(74,144,164,.04);
+}
+.section h2 {
+  font-size: 26px;
+  font-weight: 800;
+  color: #1F2D3D;
+  margin-bottom: 8px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.section h3 {
+  font-size: 19px;
+  font-weight: 700;
+  color: #2C3E50;
+  margin: 24px 0 12px;
+  padding-left: 12px;
+  border-left: 4px solid #4A90A4;
+}
+.section h4 {
+  font-size: 16px;
+  font-weight: 700;
+  color: #4A5568;
+  margin: 16px 0 8px;
+}
+.section p { margin-bottom: 12px; color: #2C3E50; }
+
+/* ============ 五大阶段区块 ============ */
+.phase {
+  border-radius: 20px;
+  padding: 32px 28px;
+  margin-bottom: 32px;
+  border: 1px solid #EEF1F5;
+  position: relative;
+  overflow: hidden;
+  background: #FFFFFF;
+  box-shadow: 0 4px 20px rgba(74,144,164,.06);
+}
+.phase::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0;
+  height: 6px;
+  background: var(--phase-color, #4A90A4);
+}
+.phase-1 { --phase-color: #7FB069; }
+.phase-2 { --phase-color: #E8A87C; }
+.phase-3 { --phase-color: #C38D9E; }
+.phase-4 { --phase-color: #9B8AC4; }
+.phase-5 { --phase-color: #D4A574; }
+
+.phase-header {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 16px;
+}
+.phase-icon {
+  width: 56px;
+  height: 56px;
+  border-radius: 14px;
+  background: var(--phase-color, #4A90A4);
+  color: #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 26px;
+  font-weight: 800;
+  flex-shrink: 0;
+  box-shadow: 0 4px 12px rgba(0,0,0,.08);
+}
+.phase-title-block { flex: 1; min-width: 200px; }
+.phase-eyebrow {
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1.5px;
+  color: var(--phase-color, #4A90A4);
+  margin-bottom: 4px;
+}
+.phase-title {
+  font-size: 24px;
+  font-weight: 800;
+  color: #1F2D3D;
+  line-height: 1.3;
+}
+.phase-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 4px;
+}
+.phase-meta span {
+  background: #F4F6F9;
+  color: #5C6B7A;
+  padding: 3px 10px;
+  border-radius: 12px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.phase-goal {
+  background: linear-gradient(135deg, var(--phase-color, #4A90A4) 0%, rgba(0,0,0,0) 130%);
+  background-color: #F8FAFC;
+  border-left: 4px solid var(--phase-color, #4A90A4);
+  padding: 14px 18px;
+  border-radius: 10px;
+  margin-bottom: 18px;
+}
+.phase-goal-label {
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--phase-color, #4A90A4);
+  margin-bottom: 4px;
+  letter-spacing: 1px;
+}
+.phase-goal-text {
+  font-size: 15px;
+  color: #2C3E50;
+  font-weight: 600;
+}
+
+.phase-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 14px;
+  margin-top: 16px;
+}
+.phase-card {
+  background: #FAFBFC;
+  border: 1px solid #EEF1F5;
+  border-radius: 12px;
+  padding: 16px 18px;
+}
+.phase-card-label {
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: 1px;
+  color: var(--phase-color, #4A90A4);
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.phase-card ul {
+  list-style: none;
+  margin-top: 4px;
+}
+.phase-card ul li {
+  position: relative;
+  padding-left: 18px;
+  margin-bottom: 6px;
+  font-size: 13.5px;
+  color: #2C3E50;
+  line-height: 1.6;
+}
+.phase-card ul li::before {
+  content: "▸";
+  position: absolute;
+  left: 4px;
+  color: var(--phase-color, #4A90A4);
+  font-weight: bold;
+}
+
+.milestone {
+  background: #FFFAEB;
+  border: 1px dashed #E8A87C;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-top: 16px;
+}
+.milestone-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #C9742B;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.milestone ul { list-style: none; }
+.milestone ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  color: #5C4A2E;
+}
+.milestone ul li::before {
+  content: "🏁";
+  position: absolute;
+  left: 0;
+  font-size: 12px;
+}
+
+.pitfall {
+  background: #FDF2F2;
+  border: 1px dashed #C38D9E;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin-top: 16px;
+}
+.pitfall-title {
+  font-size: 13px;
+  font-weight: 700;
+  color: #B25C77;
+  margin-bottom: 6px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.pitfall ul { list-style: none; }
+.pitfall ul li {
+  position: relative;
+  padding-left: 22px;
+  margin-bottom: 4px;
+  font-size: 13px;
+  color: #6B3A4C;
+}
+.pitfall ul li::before {
+  content: "⚠";
+  position: absolute;
+  left: 0;
+  color: #C38D9E;
+  font-weight: bold;
+}
+
+.lesson-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin: 10px 0 4px;
+}
+.lesson-pill {
+  background: var(--phase-color, #4A90A4);
+  color: #FFFFFF;
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-size: 12px;
+  font-weight: 600;
+}
+.lesson-pill.muted {
+  background: #EDF2F7;
+  color: #5C6B7A;
+}
+
+/* ============ 工具与表格 ============ */
+.tools-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: 16px;
+}
+.tool-card {
+  background: #FAFBFC;
+  border: 1px solid #EEF1F5;
+  border-radius: 12px;
+  padding: 16px;
+  border-top: 3px solid var(--phase-color, #4A90A4);
+}
+.tool-card h4 {
+  font-size: 15px;
+  font-weight: 700;
+  margin: 0 0 8px;
+  color: #1F2D3D;
+}
+.tool-card .tag {
+  display: inline-block;
+  background: var(--phase-color, #4A90A4);
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 10px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-right: 6px;
+  margin-bottom: 6px;
+}
+.tool-card p {
+  font-size: 13px;
+  color: #5C6B7A;
+  margin: 6px 0 0;
+}
+
+/* ============ 表格 ============ */
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; margin: 12px 0; border-radius: 12px; border: 1px solid #EEF1F5; }
+table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 13.5px;
+  background: #FFFFFF;
+}
+table thead {
+  background: #F4F6F9;
+}
+table th {
+  padding: 12px 14px;
+  text-align: left;
+  font-weight: 700;
+  color: #2C3E50;
+  border-bottom: 2px solid #E5E8EC;
+  white-space: nowrap;
+}
+table td {
+  padding: 11px 14px;
+  border-bottom: 1px solid #EEF1F5;
+  color: #2C3E50;
+  vertical-align: top;
+}
+table tbody tr:hover { background: #FAFBFC; }
+table tbody tr:last-child td { border-bottom: none; }
+
+/* ============ 时间线 ============ */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  margin: 16px 0;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, #7FB069 0%, #E8A87C 25%, #C38D9E 50%, #9B8AC4 75%, #D4A574 100%);
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 18px;
+  padding-left: 16px;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -25px;
+  top: 8px;
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: var(--dot-color, #4A90A4);
+  border: 2px solid #FFFFFF;
+  box-shadow: 0 0 0 2px var(--dot-color, #4A90A4);
+}
+.timeline-item h4 {
+  margin: 0 0 4px;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1F2D3D;
+}
+.timeline-item p {
+  margin: 0;
+  font-size: 13.5px;
+  color: #5C6B7A;
+}
+
+/* ============ 速查卡 ============ */
+.callout {
+  background: linear-gradient(135deg, #EAF6F0 0%, #F0F7FB 100%);
+  border-left: 4px solid #7FB069;
+  padding: 16px 20px;
+  border-radius: 10px;
+  margin: 16px 0;
+  font-size: 14px;
+  color: #2C3E50;
+}
+.callout strong { color: #1F2D3D; }
+.callout.warn { background: linear-gradient(135deg, #FDF6E3 0%, #FFF8E1 100%); border-left-color: #E8A87C; }
+.callout.danger { background: linear-gradient(135deg, #FDF2F2 0%, #FCEDED 100%); border-left-color: #C38D9E; }
+.callout.info { background: linear-gradient(135deg, #F3EAF6 0%, #EDE3F3 100%); border-left-color: #9B8AC4; }
+
+/* ============ 折叠区 ============ */
+details {
+  background: #FAFBFC;
+  border: 1px solid #EEF1F5;
+  border-radius: 12px;
+  padding: 14px 18px;
+  margin: 12px 0;
+}
+details summary {
+  cursor: pointer;
+  font-weight: 700;
+  color: #2C3E50;
+  font-size: 14.5px;
+  list-style: none;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+details summary::-webkit-details-marker { display: none; }
+details summary::before {
+  content: "▶";
+  font-size: 11px;
+  color: #4A90A4;
+  transition: transform 0.2s;
+}
+details[open] summary::before { transform: rotate(90deg); }
+details > div { margin-top: 12px; padding-top: 12px; border-top: 1px dashed #E5E8EC; }
+details ul { margin: 8px 0 4px 18px; }
+details ul li { font-size: 13.5px; color: #2C3E50; margin-bottom: 4px; }
+
+/* ============ 数据指标速查 ============ */
+.metric-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin: 14px 0;
+}
+.metric {
+  background: linear-gradient(135deg, #FAFBFC 0%, #F4F6F9 100%);
+  border: 1px solid #EEF1F5;
+  border-radius: 12px;
+  padding: 14px 16px;
+  text-align: center;
+}
+.metric-label {
+  font-size: 12px;
+  color: #7B8794;
+  margin-bottom: 4px;
+}
+.metric-value {
+  font-size: 22px;
+  font-weight: 800;
+  color: var(--phase-color, #4A90A4);
+}
+.metric-desc {
+  font-size: 12px;
+  color: #5C6B7A;
+  margin-top: 4px;
+}
+
+/* ============ 路径分支（不同基础） ============ */
+.path-tabs {
+  display: flex;
+  gap: 8px;
+  margin: 14px 0;
+  flex-wrap: wrap;
+}
+.path-tab {
+  flex: 1;
+  min-width: 220px;
+  padding: 16px 18px;
+  background: #FAFBFC;
+  border: 1px solid #EEF1F5;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.path-tab.active {
+  background: linear-gradient(135deg, #EAF2F5 0%, #F4ECDF 100%);
+  border-color: #4A90A4;
+  box-shadow: 0 4px 12px rgba(74,144,164,.10);
+}
+.path-tab h4 { margin: 0 0 6px; font-size: 15px; color: #1F2D3D; }
+.path-tab p { margin: 0; font-size: 12.5px; color: #5C6B7A; line-height: 1.55; }
+
+/* ============ 返回顶部 ============ */
+.totop {
+  position: fixed;
+  right: 18px;
+  bottom: 18px;
+  width: 44px;
+  height: 44px;
+  background: #4A90A4;
+  color: #FFFFFF;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-decoration: none;
+  font-size: 18px;
+  box-shadow: 0 6px 16px rgba(74,144,164,.35);
+  z-index: 99;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+.totop.show { opacity: 1; pointer-events: auto; }
+
+/* ============ 底部 ============ */
+.footer {
+  text-align: center;
+  padding: 36px 24px 60px;
+  background: linear-gradient(180deg, #FAFBFC 0%, #EEF1F5 100%);
+  color: #5C6B7A;
+  font-size: 13px;
+  border-top: 1px solid #E5E8EC;
+}
+.footer .owner {
+  display: inline-block;
+  background: rgba(74,144,164,.10);
+  color: #4A90A4;
+  padding: 4px 12px;
+  border-radius: 14px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+/* ============ 响应式 ============ */
+@media (max-width: 720px) {
+  .hero { padding: 36px 18px 28px; }
+  .hero h1 { font-size: 26px; }
+  .hero .subtitle { font-size: 14px; }
+  .section { padding: 24px 18px; border-radius: 14px; }
+  .section h2 { font-size: 21px; }
+  .phase { padding: 24px 18px; border-radius: 16px; }
+  .phase-icon { width: 44px; height: 44px; font-size: 20px; border-radius: 12px; }
+  .phase-title { font-size: 19px; }
+  .container { padding: 18px 14px; }
+  .progress-labels { font-size: 10px; }
+  table { font-size: 12.5px; }
+  table th, table td { padding: 9px 10px; }
+  .metric-value { font-size: 18px; }
+}
+</style>
+</head>
+<body id="top">
+
+<!-- ============ 顶部 Hero ============ -->
+<section class="hero">
+  <div class="hero-inner">
+    <span class="hero-tag">📚 2026亚马逊广告第一期 · 全流程学习地图</span>
+    <h1>小白 <span class="accent">从0到精通</span><br>亚马逊广告全流程学习地图</h1>
+    <p class="subtitle">基于陆铭老师《2026亚马逊广告第一期》18讲课程（约60万字）整理而成 · 五阶段成长路径 · 覆盖A9→Cosmo→Rufus三代算法 · 三大支柱(内容/流量/数据)系统打通</p>
+    <div class="hero-meta">
+      <span>📖 <strong>18讲</strong> 课程体系</span>
+      <span>🗺️ <strong>5阶段</strong> 成长路径</span>
+      <span>⏱️ <strong>约20-24周</strong> 完整周期</span>
+      <span>🎯 <strong>3代算法</strong> A9/Cosmo/Rufus</span>
+      <span>🛠️ <strong>40+</strong> 实操SOP</span>
+    </div>
+    <div class="progress-wrap">
+      <div class="progress-title">🚀 您的成长进度条 · 五阶段全景</div>
+      <div class="progress-track">
+        <div class="seg seg-1"></div>
+        <div class="seg seg-2"></div>
+        <div class="seg seg-3"></div>
+        <div class="seg seg-4"></div>
+        <div class="seg seg-5"></div>
+      </div>
+      <div class="progress-labels">
+        <span>①筑基入门</span>
+        <span>②进阶实战</span>
+        <span>③高阶优化</span>
+        <span>④AI智能</span>
+        <span>⑤品牌精进</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 主体 ============ -->
+<div class="container">
+
+<!-- ============ 引言 ============ -->
+<section class="section">
+  <h2>🌟 引言 · 为什么需要这张学习地图？</h2>
+  <p>尊敬的主人，您好。本地图基于<strong>陆铭老师《2026亚马逊广告第一期》</strong>全套18讲课程（约60万字）系统性整理，目标是让一个<strong>完全的小白</strong>能够沿着清晰、可执行的路径，<strong>从0到精通</strong>亚马逊广告运营。</p>
+
+  <div class="callout">
+    <strong>📌 一句话总结课程逻辑：</strong>以 <strong>Cosmo 算法 + Rufus AI</strong> 为核心的新一代亚马逊运营——从传统"关键词堆砌+出价竞争"转向"<strong>语义匹配+场景化运营+AI协同</strong>"。
+  </div>
+
+  <h3>🎯 三大支柱（贯穿全程）</h3>
+  <div class="phase-grid">
+    <div class="phase-card" style="--phase-color:#7FB069">
+      <div class="phase-card-label">🏛️ 内容支柱</div>
+      <ul>
+        <li><strong>优质LISTING</strong>（文档一）</li>
+        <li><strong>完整关键词库</strong>（文档五）</li>
+        <li>决定流量入口与转化桥梁</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#E8A87C">
+      <div class="phase-card-label">🏛️ 流量支柱</div>
+      <ul>
+        <li><strong>四大广告类型</strong>（文档三）</li>
+        <li><strong>高阶广告矩阵</strong>（文档六）</li>
+        <li><strong>8种进阶打法</strong>（文档十六）</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#9B8AC4">
+      <div class="phase-card-label">🏛️ 数据支柱</div>
+      <ul>
+        <li><strong>ABA品牌分析</strong>（文档十）</li>
+        <li><strong>广告报表透析</strong>（文档八、十一）</li>
+        <li><strong>AMC人群包</strong>（文档十四）</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 总体路径时间线 ============ -->
+<section class="section">
+  <h2>🛤️ 总体路径时间线 · 约20-24周从0到精通</h2>
+  <p>下表给出推荐的<strong>完整学习时间线</strong>，每阶段约4-5周，可根据自身节奏加快或减慢。</p>
+  <div class="timeline">
+
+    <div class="timeline-item" style="--dot-color:#7FB069">
+      <h4>① 筑基入门期（Week 1-4）</h4>
+      <p>LISTING打造 + 广告基础 + 四大广告 + 推广SOP — 跑通第一波广告</p>
+    </div>
+
+    <div class="timeline-item" style="--dot-color:#E8A87C">
+      <h4>② 进阶实战期（Week 5-10）</h4>
+      <p>关键词库搭建 + 竞品分析 + 生命周期广告 + 广告精算 + AC标冲刺</p>
+    </div>
+
+    <div class="timeline-item" style="--dot-color:#C38D9E">
+      <h4>③ 高阶优化期（Week 11-16）</h4>
+      <p>Rufus高阶矩阵 + ABA+报表透析 + 8种进阶打法 + SB防御+补货</p>
+    </div>
+
+    <div class="timeline-item" style="--dot-color:#9B8AC4">
+      <h4>④ AI智能期（Week 17-20）</h4>
+      <p>Rufus时代新打法 + AI生图视频 + 多变体/低高客单价产品打法</p>
+    </div>
+
+    <div class="timeline-item" style="--dot-color:#D4A574">
+      <h4>⑤ 品牌精进期（Week 21+ 持续）</h4>
+      <p>AMC亚马逊营销云 + 团队管理 + 公司制度 + 从运营高手到管理者</p>
+    </div>
+
+  </div>
+
+  <div class="callout warn">
+    <strong>💡 重要提醒：</strong>本路径并非严格线性。每阶段会反哺前一阶段（例如学完关键词库，会回头优化LISTING；学完广告精算，会回头调架构）。建议<strong>主线推进 + 关键节点回看</strong>。
+  </div>
+</section>
+
+<!-- ============ 阶段一 ============ -->
+<section class="phase phase-1">
+  <div class="phase-header">
+    <div class="phase-icon">①</div>
+    <div class="phase-title-block">
+      <div class="phase-eyebrow">PHASE 1 · 筑基入门期</div>
+      <div class="phase-title">从0到1：搭建运营地基</div>
+      <div class="phase-meta">
+        <span>⏱️ 建议4周</span>
+        <span>📖 4讲课程</span>
+        <span>🎯 跑通第一波广告</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-list">
+    <span class="lesson-pill">📘 文档一 · LISTING运营灵魂</span>
+    <span class="lesson-pill">📘 文档二 · A9/Cosmo算法</span>
+    <span class="lesson-pill">📘 文档三 · 四大广告类型</span>
+    <span class="lesson-pill">📘 文档十七 · 推广SOP</span>
+  </div>
+
+  <div class="phase-goal">
+    <div class="phase-goal-label">🎯 阶段核心目标</div>
+    <div class="phase-goal-text">理解亚马逊运营底层逻辑（A9/Cosmo/Rufus三代算法演进），掌握LISTING黄金结构与广告基础术语体系，搭建第一个完整广告活动并跑通SOP工作流。</div>
+  </div>
+
+  <h3 style="border-left-color:#7FB069">📚 关键动作清单</h3>
+  <div class="phase-grid">
+    <div class="phase-card" style="--phase-color:#7FB069">
+      <div class="phase-card-label">📅 Week 1 · LISTING打造</div>
+      <ul>
+        <li>拆解一个优秀LISTING的<strong>前台+后台</strong>结构</li>
+        <li>学习<strong>标题黄金公式</strong>：品牌+核心词+次级词+卖点+场景+颜色尺寸</li>
+        <li>写出<strong>五点描述(BP)</strong>前3点（移动端优先展示）</li>
+        <li>填写<strong>完整后台参数</strong>（Rufus抓取依据）</li>
+        <li>输出：1个完整LISTING初稿</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#7FB069">
+      <div class="phase-card-label">📅 Week 2 · 广告基础</div>
+      <ul>
+        <li>背诵<strong>7大核心指标</strong>：CTR/CVR/CPC/ACOS/TACOS/ROI/Impression</li>
+        <li>理解<strong>广告排名公式</strong>= Bid × 质量得分</li>
+        <li>对比A9/Cosmo算法差异（关键词匹配 → 知识图谱）</li>
+        <li>熟悉<strong>4种广告类型</strong>：SP/SB/SD/DSP 适用阶段</li>
+        <li>输出：术语速查表 + 算法演进图</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#7FB069">
+      <div class="phase-card-label">📅 Week 3 · 四大广告+匹配</div>
+      <ul>
+        <li>开通<strong>第一个SP广告活动</strong>（自动广告+手动广告）</li>
+        <li>理解<strong>3种匹配方式</strong>：广泛/词组/精准</li>
+        <li>设置<strong>3种竞价策略</strong>：固定/动态提高/仅降低</li>
+        <li>尝试<strong>商品投放</strong>（竞品ASIN定向）</li>
+        <li>输出：1个完整广告架构</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#7FB069">
+      <div class="phase-card-label">📅 Week 4 · SOP日常</div>
+      <ul>
+        <li>建立<strong>每日工作清单</strong>：销量/广告/竞品/库存</li>
+        <li>建立<strong>每周工作清单</strong>：业绩/效率/流量架构</li>
+        <li>建立<strong>每月工作清单</strong>：月度复盘/IPI(≥400)/利润核算</li>
+        <li>掌握<strong>新品6周SOP</strong>：从0到6周每周重点动作</li>
+        <li>输出：3份工作清单 + 1份新品SOP表</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>📚 必学知识点清单：</strong>①LISTING前后台构成 ②标题黄金公式 ③BP前三原则 ④后台参数对Rufus的作用 ⑤7大核心指标定义与基准 ⑥广告排名公式 ⑦A9/Cosmo四大代差 ⑧四大广告触发与归因期 ⑨3种匹配+3种竞价策略 ⑩每日/每周/每月工作清单。
+  </div>
+
+  <div class="milestone">
+    <div class="milestone-title">🏁 阶段里程碑考核 · 通过标准</div>
+    <ul>
+      <li>能独立写出1个完整LISTING（含前台+后台）</li>
+      <li>能背诵7大指标公式与基准线（CTR&gt;1%为优、CVR&gt;10%为优、ACOS≤15%为优）</li>
+      <li>已搭建并跑过1个SP广告活动，掌握数据查看</li>
+      <li>建立3份日常工作清单并使用1周以上</li>
+      <li>完成1个产品的6周新品SOP首轮闭环</li>
+    </ul>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-title">⚠️ 阶段避坑指南</div>
+    <ul>
+      <li><strong>不要死记硬背术语</strong>：每个指标必须结合实际报表数据去看，才能真正理解</li>
+      <li><strong>不要忽略长描述</strong>：做A+后前台不显示，但仍要填写（Cosmo/Rufus隐形抓取入口）</li>
+      <li><strong>不要舍不得做促销</strong>：新品期5%太低，建议更狠以加速数据积累</li>
+      <li><strong>不要同步多产品</strong>：第1个月只做1个产品，跑通SOP后再复制</li>
+      <li><strong>不要忽略Reserving货</strong>：In-bound期间先关停售卖，避免长时效影响转化</li>
+      <li><strong>CTR&lt;0.5%必须优化</strong>：这是新手最常被忽略的红线</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 阶段二 ============ -->
+<section class="phase phase-2">
+  <div class="phase-header">
+    <div class="phase-icon">②</div>
+    <div class="phase-title-block">
+      <div class="phase-eyebrow">PHASE 2 · 进阶实战期</div>
+      <div class="phase-title">从1到10：拓词抢流，深度优化</div>
+      <div class="phase-meta">
+        <span>⏱️ 建议6周</span>
+        <span>📖 5讲课程</span>
+        <span>🎯 自然订单占比突破40%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-list">
+    <span class="lesson-pill">📘 文档五 · AI关键词库</span>
+    <span class="lesson-pill">📘 文档四 · 竞品流量分析</span>
+    <span class="lesson-pill">📘 文档七 · 生命周期广告</span>
+    <span class="lesson-pill">📘 文档八 · 广告精算</span>
+    <span class="lesson-pill">📘 文档九 · 上首页+AC标</span>
+  </div>
+
+  <div class="phase-goal">
+    <div class="phase-goal-label">🎯 阶段核心目标</div>
+    <div class="phase-goal-text">搭建<strong>完整关键词库</strong>（7类分层），掌握<strong>竞品流量结构分析</strong>方法论，针对<strong>新品/成长/成熟/衰退</strong>四阶段设计差异化广告架构，并冲刺核心词上首页+AC标。</div>
+  </div>
+
+  <h3 style="border-left-color:#E8A87C">📚 关键动作清单</h3>
+  <div class="phase-grid">
+    <div class="phase-card" style="--phase-color:#E8A87C">
+      <div class="phase-card-label">📅 Week 5-6 · 关键词库</div>
+      <ul>
+        <li>通过<strong>6大渠道</strong>挖词：前台/竞品/工具/后台/关联/其他平台</li>
+        <li>用<strong>AI工具</strong>分析竞品标题/五点/QA/Review挖词</li>
+        <li>建立<strong>7类关键词分层</strong>：核心/长尾/场景/属性/竞品/防御/潜力</li>
+        <li>区分<strong>美式/英式英语</strong>（核心词加曝光，长尾词强转化）</li>
+        <li>输出：1份完整词库Excel（不少于200词）</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#E8A87C">
+      <div class="phase-card-label">📅 Week 7 · 竞品分析</div>
+      <ul>
+        <li>用<strong>SIF插件</strong>反查竞品ASIN的流量词与广告架构</li>
+        <li>拆解<strong>4种竞品类型</strong>：直接/间接/替代/互补</li>
+        <li>分析<strong>变体级深度</strong>：哪些子体卖得好、为什么</li>
+        <li>评估<strong>流量质量三维度</strong>：转化质量/竞争强度/增长趋势</li>
+        <li>输出：1份竞品流量分析报告</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#E8A87C">
+      <div class="phase-card-label">📅 Week 8 · 生命周期广告</div>
+      <ul>
+        <li>设计<strong>新品期广告架构</strong>：0-2周自动→3-6周手动→7-8周精准</li>
+        <li>理解<strong>成长期目标</strong>：规模化放量+排位掠夺</li>
+        <li>掌握<strong>成熟期关键</strong>：广告瘦身+自然订单>70%</li>
+        <li>设计<strong>衰退期/清仓</strong>：降价+仅降低竞价</li>
+        <li>输出：1套四阶段广告SOP模板</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#E8A87C">
+      <div class="phase-card-label">📅 Week 9 · 广告精算</div>
+      <ul>
+        <li>判断<strong>竞价合理性</strong>：CPC:Bid理想70-80%</li>
+        <li>掌握<strong>ROI临界点公式</strong>= TOS转化率 ÷ ROS转化率</li>
+        <li>建立<strong>否词标准</strong>：15-20次点击无成交/ACOS超毛利2倍/CTR&lt;0.2%</li>
+        <li>学会<strong>广告瘦身3步走</strong>：关停低效→阶梯缩减→转型聚焦</li>
+        <li>输出：1份周度广告诊断报告模板</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#E8A87C">
+      <div class="phase-card-label">📅 Week 10 · 上首页+AC标</div>
+      <ul>
+        <li>理解<strong>关键词上首页</strong>标准：搜索频率10万+/CPC $2-5/CTR 1%/CVR&gt;8%</li>
+        <li>规划<strong>AC标冲刺</strong>4步：基础搭建→核心冲刺→监控→复盘</li>
+        <li>区分<strong>标品/非标品</strong>广告打法差异</li>
+        <li>掌握<strong>季节品广告</strong>：蓄水期→爆发期→收割期→清仓期</li>
+        <li>输出：1份AC标冲刺计划</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>📚 必学知识点清单：</strong>①A9 vs Cosmo四大代差 ②关键词7类分层 ③6大挖词渠道 ④4种竞品类型与流量质量评估 ⑤生命周期4阶段广告架构 ⑥广告精算3大核心公式 ⑦否词3大标准 ⑧AC标冲刺4步法 ⑨标品/非标品/季节品打法差异 ⑩TACOS≤8%的整体目标。
+  </div>
+
+  <div class="milestone">
+    <div class="milestone-title">🏁 阶段里程碑考核 · 通过标准</div>
+    <ul>
+      <li>词库不少于<strong>200个词</strong>，分类清晰（含7种类型）</li>
+      <li>已完成<strong>5个以上竞品</strong>的流量结构分析</li>
+      <li>已搭建<strong>完整生命周期广告架构</strong>，并跑完1个产品的新品期</li>
+      <li>周度广告诊断形成习惯，能定位<strong>低效广告</strong>并执行瘦身</li>
+      <li>核心产品自然订单占比从40%提升至<strong>60%以上</strong></li>
+      <li>至少有<strong>3个核心词</strong>搜索结果进入首页</li>
+    </ul>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-title">⚠️ 阶段避坑指南</div>
+    <ul>
+      <li><strong>不要盲目拓词</strong>：词库质量 > 数量，7类分层用起来</li>
+      <li><strong>不要忽视长尾词</strong>：长尾词转化高、CPC低，是冷启动神器</li>
+      <li><strong>不要硬冲排名</strong>：搜索频率不达10万的词没必要强冲首页</li>
+      <li><strong>不要被ACOS绑架</strong>：新品期ACOS可高（>30%），关键看TACOS</li>
+      <li><strong>不要照搬大卖架构</strong>：竞品是参考，要结合自己产品定位调整</li>
+      <li><strong>不要忽略否词</strong>：宽泛否精准是核心技能，每3天看一次搜索词</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 阶段三 ============ -->
+<section class="phase phase-3">
+  <div class="phase-header">
+    <div class="phase-icon">③</div>
+    <div class="phase-title-block">
+      <div class="phase-eyebrow">PHASE 3 · 高阶优化期</div>
+      <div class="phase-title">从10到100：高阶算法，精准拦截</div>
+      <div class="phase-meta">
+        <span>⏱️ 建议6周</span>
+        <span>📖 4讲课程</span>
+        <span>🎯 自然订单占比突破70%</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-list">
+    <span class="lesson-pill">📘 文档六 · Rufus高阶矩阵</span>
+    <span class="lesson-pill">📘 文档十 · ABA+报表</span>
+    <span class="lesson-pill">📘 文档十六 · 进阶打法</span>
+    <span class="lesson-pill">📘 文档十一 · SB防御+补货</span>
+  </div>
+
+  <div class="phase-goal">
+    <div class="phase-goal-label">🎯 阶段核心目标</div>
+    <div class="phase-goal-text">掌握<strong>Rufus/Cosmo新一代算法</strong>下高阶广告矩阵打法，掌握<strong>ABA深度画像</strong>与<strong>9大广告报表透析</strong>方法，灵活运用<strong>8种进阶打法</strong>构建攻防体系，建立<strong>SB品牌防御体系</strong>。</div>
+  </div>
+
+  <h3 style="border-left-color:#C38D9E">📚 关键动作清单</h3>
+  <div class="phase-grid">
+    <div class="phase-card" style="--phase-color:#C38D9E">
+      <div class="phase-card-label">📅 Week 11-12 · Rufus高阶矩阵</div>
+      <ul>
+        <li>深入理解<strong>Rufus/Cosmo</strong>语义溢价机制</li>
+        <li>掌握<strong>4重防御+3板斧进攻</strong>的攻防闭环</li>
+        <li>运用<strong>Top of Search</strong>最高提价900%机制</li>
+        <li>设计<strong>SP四定向策略</strong>与生命周期匹配</li>
+        <li>输出：1份高阶广告矩阵设计图</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#C38D9E">
+      <div class="phase-card-label">📅 Week 13-14 · ABA+报表</div>
+      <ul>
+        <li>熟练使用<strong>ABA品牌分析</strong>4大功能</li>
+        <li>透析<strong>SP/SB/SD</strong>三大报表体系（9大报表）</li>
+        <li>运用<strong>购物篮分析</strong>发现周边选品机会</li>
+        <li>建立<strong>10个核心指标</strong>阈值表（含CTR≥1.5%等）</li>
+        <li>输出：1份月度报表分析报告</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#C38D9E">
+      <div class="phase-card-label">📅 Week 15 · 8种进阶打法</div>
+      <ul>
+        <li><strong>捡漏打法</strong>：流量分层+三级否定防御</li>
+        <li><strong>马甲打法</strong>：广告权重继承机制</li>
+        <li><strong>海王打法</strong>：广触达+低竞价</li>
+        <li><strong>递增打法</strong>：预算递增撬动平台加权</li>
+        <li><strong>ASIN矩阵/阶梯式/防御型/秒杀广告</strong>（4种）</li>
+        <li>输出：1份打法选择决策树</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#C38D9E">
+      <div class="phase-card-label">📅 Week 16 · SB防御+补货</div>
+      <ul>
+        <li>搭建<strong>SB品牌防御体系</strong>（品牌词+核心词+场景词）</li>
+        <li>运用<strong>加权销量公式</strong>做补货计划</li>
+        <li>用<strong>VLOOKUP</strong>做店铺利润核算</li>
+        <li>运营<strong>高净值用户</strong>（再营销+品牌粉丝）</li>
+        <li>输出：1份品牌防御矩阵+补货SOP</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>📚 必学知识点清单：</strong>①Rufus/Cosmo语义溢价 ②4重防御+3板斧攻防 ③TOS最高提价900% ④SP四定向策略 ⑤ABA 4大功能+购物篮分析 ⑥9大广告报表透析 ⑦10个核心指标阈值 ⑧8种进阶打法选择决策 ⑨加权销量公式与补货计划 ⑩SB品牌防御体系。
+  </div>
+
+  <div class="milestone">
+    <div class="milestone-title">🏁 阶段里程碑考核 · 通过标准</div>
+    <ul>
+      <li>能独立设计<strong>高阶广告矩阵</strong>，并跑出TOS位置占有率</li>
+      <li>ABA分析形成月度报告，包含<strong>热门词+购物篮+竞品对比</strong></li>
+      <li>熟练使用<strong>至少4种进阶打法</strong>（按场景选用）</li>
+      <li>SB防御体系上线，品牌词卡位竞争对手</li>
+      <li>自然订单占比稳定<strong>>70%</strong>，TACOS≤8%</li>
+      <li>店铺<strong>月利润核算</strong>形成月度复盘机制</li>
+    </ul>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-title">⚠️ 阶段避坑指南</div>
+    <ul>
+      <li><strong>不要神话Rufus</strong>：它只是亚马逊AI工具，基于规则优化即可</li>
+      <li><strong>不要盲目提价</strong>：TOS提价900%是上限，盲目用会亏光预算</li>
+      <li><strong>不要滥用8种打法</strong>：每种打法有适用场景，先理解再使用</li>
+      <li><strong>不要忽略补货</strong>：断货是亚马逊运营最大灾难，提前30天预警</li>
+      <li><strong>不要只看ACOS</strong>：要看TACOS+自然单+整体利润</li>
+      <li><strong>不要忽视Review highlight</strong>：Rufus会抓取积极评论形成卡片</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 阶段四 ============ -->
+<section class="phase phase-4">
+  <div class="phase-header">
+    <div class="phase-icon">④</div>
+    <div class="phase-title-block">
+      <div class="phase-eyebrow">PHASE 4 · AI智能期</div>
+      <div class="phase-title">拥抱AI：内容工业化，效率革命</div>
+      <div class="phase-meta">
+        <span>⏱️ 建议4周</span>
+        <span>📖 3讲课程</span>
+        <span>🎯 内容产能×3，运营效率翻倍</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-list">
+    <span class="lesson-pill">📘 文档十二 · Rufus时代</span>
+    <span class="lesson-pill">📘 文档十三 · AI生图视频</span>
+    <span class="lesson-pill">📘 文档十五 · 产品差异化打法</span>
+  </div>
+
+  <div class="phase-goal">
+    <div class="phase-goal-label">🎯 阶段核心目标</div>
+    <div class="phase-goal-text">建立<strong>AI辅助运营工作流</strong>，掌握<strong>AI生图/视频/文案</strong>工业化生产，针对<strong>多变体/低客单价/高客单价</strong>不同产品类型设计差异化广告打法。</div>
+  </div>
+
+  <h3 style="border-left-color:#9B8AC4">📚 关键动作清单</h3>
+  <div class="phase-grid">
+    <div class="phase-card" style="--phase-color:#9B8AC4">
+      <div class="phase-card-label">📅 Week 17-18 · Rufus+AI辅助</div>
+      <ul>
+        <li>掌握<strong>3种文案风格</strong>：场景化/属性化/语义化</li>
+        <li>用<strong>DSGE模型</strong>投喂AI写LISTING</li>
+        <li>运用<strong>Price History</strong>做价格策略</li>
+        <li>用<strong>Rufus前台实操</strong>验证产品适配性</li>
+        <li>输出：1份AI投喂Prompt模板库</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#9B8AC4">
+      <div class="phase-card-label">📅 Week 19 · AI生图视频</div>
+      <ul>
+        <li>运用<strong>吉梦AI/集梦AI/Nova Banana</strong>等生图工具</li>
+        <li>理解<strong>意图金字塔</strong>设计场景图</li>
+        <li>用<strong>6步AI辅助广告优化流程</strong></li>
+        <li>建立<strong>动态反馈闭环系统</strong>（素材→CTR→迭代）</li>
+        <li>输出：1套AI素材生产SOP</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#9B8AC4">
+      <div class="phase-card-label">📅 Week 20 · 产品差异化打法</div>
+      <ul>
+        <li><strong>多变体</strong>：引流款+利润款+形象款角色分工</li>
+        <li><strong>低客单价</strong>：低CPC优势+三阶段架构</li>
+        <li><strong>高客单价</strong>：信任构建+三阶段架构</li>
+        <li>理解<strong>选品原则</strong>：差异化卖点+关联流量潜力</li>
+        <li>输出：1份产品类型-打法匹配表</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout info">
+    <strong>📚 必学知识点清单：</strong>①Rufus对话式流量运营 ②三位一体流量收割模式 ③AI投喂LISTING指令方法论 ④DSGE模型 ⑤意图金字塔 ⑥动态反馈闭环 ⑦6步AI辅助广告优化流程 ⑧多变体三阶段架构 ⑨低客单价低CPC打法 ⑩高客单价信任构建。
+  </div>
+
+  <div class="milestone">
+    <div class="milestone-title">🏁 阶段里程碑考核 · 通过标准</div>
+    <ul>
+      <li>建立<strong>AI Prompt模板库</strong>，能1小时完成1个产品LISTING初稿</li>
+      <li>AI素材生产<strong>周产能 ≥20张</strong>场景图</li>
+      <li>能针对<strong>多变体/低客单/高客单</strong>三种产品设计差异化打法</li>
+      <li>运营效率提升<strong>≥2倍</strong>（同等时间产出翻倍）</li>
+      <li>素材CTR突破<strong>0.8%</strong>基准线</li>
+    </ul>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-title">⚠️ 阶段避坑指南</div>
+    <ul>
+      <li><strong>不要盲目依赖AI</strong>：AI出初稿，人工review与精修不可省</li>
+      <li><strong>不要忽略合规</strong>：AI生成图片要符合亚马逊图片规则（无文字、无水印等）</li>
+      <li><strong>不要一套模板打天下</strong>：不同产品类型要有差异化打法</li>
+      <li><strong>不要忽略多语种</strong>：欧洲站需多语言版本（英/德/法/意/西）</li>
+      <li><strong>不要闭门造车</strong>：每季度关注平台新功能（如AI新工具）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 阶段五 ============ -->
+<section class="phase phase-5">
+  <div class="phase-header">
+    <div class="phase-icon">⑤</div>
+    <div class="phase-title-block">
+      <div class="phase-eyebrow">PHASE 5 · 品牌精进期</div>
+      <div class="phase-title">从运营到管理：体系化、规模化</div>
+      <div class="phase-meta">
+        <span>⏱️ 持续进行</span>
+        <span>📖 2讲课程</span>
+        <span>🎯 团队复制+品牌长期主义</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="lesson-list">
+    <span class="lesson-pill">📘 文档十四 · AMC营销云</span>
+    <span class="lesson-pill">📘 文档十八 · 团队管理</span>
+  </div>
+
+  <div class="phase-goal">
+    <div class="phase-goal-label">🎯 阶段核心目标</div>
+    <div class="phase-goal-text">掌握<strong>AMC亚马逊营销云</strong>的人群精细化运营（体量达标后），建立<strong>团队体系</strong>（岗位职责+绩效考核+SOP），从个人高手进阶为<strong>团队管理者</strong>。</div>
+  </div>
+
+  <h3 style="border-left-color:#D4A574">📚 关键动作清单</h3>
+  <div class="phase-grid">
+    <div class="phase-card" style="--phase-color:#D4A574">
+      <div class="phase-card-label">📅 Week 21-23 · AMC人群精细化</div>
+      <ul>
+        <li>判断<strong>AMC使用门槛</strong>：月销10万+/月广告3-5万美金+</li>
+        <li>理解<strong>136个case ID</strong>与5大人群包分类</li>
+        <li>掌握<strong>广告归因机制</strong>（SP 7天/SB 14天/SD 14天/DSP 14天）</li>
+        <li>使用<strong>SQL查询编辑器</strong>创建人群包</li>
+        <li>输出：1份AMC人群包应用方案</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#D4A574">
+      <div class="phase-card-label">📅 Week 24+ · 团队管理</div>
+      <ul>
+        <li>建立<strong>团队规章制度</strong>：日常规范+店铺规范+奖惩制度</li>
+        <li>明确<strong>运营/开发岗位职责</strong>与考核方案</li>
+        <li>设计<strong>周转天数</strong>+考核系数体系</li>
+        <li>规划<strong>年度目标</strong>拆解+产品开发路线图</li>
+        <li>输出：1份团队管理手册</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <strong>📚 必学知识点清单：</strong>①AMC 5大人群包分类 ②广告归因机制差异 ③自定义人群包筛选逻辑 ④团队管理核心原则 ⑤运营岗位职责体系 ⑥绩效考核方案设计 ⑦周转天数计算 ⑧年度目标拆解 ⑨产品开发路线图 ⑩二次核对机制（防离职损失）。
+  </div>
+
+  <div class="milestone">
+    <div class="milestone-title">🏁 阶段里程碑考核 · 进阶标志</div>
+    <ul>
+      <li>团队规模<strong>≥3人</strong>，每人能独立负责1-2条产品线</li>
+      <li>已上线AMC（达到月销+月广告门槛）</li>
+      <li>已建立完整<strong>团队SOP</strong>+考核方案</li>
+      <li>具备<strong>产品开发</strong>与运营双线管理能力</li>
+      <li>形成<strong>长期主义</strong>品牌思维，不被短期数据绑架</li>
+    </ul>
+  </div>
+
+  <div class="pitfall">
+    <div class="pitfall-title">⚠️ 阶段避坑指南</div>
+    <ul>
+      <li><strong>不要过早上AMC</strong>：体量不够（<10万月销）先做基础</li>
+      <li><strong>不要忽视二次核对</strong>：深圳运营离职调价损失几十万案例警示</li>
+      <li><strong>不要用文字沟通当口头</strong>：所有决策用钉钉/微信/飞书留痕</li>
+      <li><strong>不要只盯业绩</strong>：周转天数、库存健康、团队成长同样重要</li>
+      <li><strong>不要脱离一线</strong>：管理者每月至少亲自操盘1个产品</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 关键指标速查 ============ -->
+<section class="section">
+  <h2>📊 关键指标与基准线速查表</h2>
+  <p>下表是贯穿全流程的核心指标，<strong>每个阶段都应打印贴在工位</strong>，随时对照。</p>
+  <div class="metric-grid">
+    <div class="metric" style="--phase-color:#7FB069">
+      <div class="metric-label">新品 CTR</div>
+      <div class="metric-value">&lt;0.5%</div>
+      <div class="metric-desc">需优化 · &gt;1%为优秀</div>
+    </div>
+    <div class="metric" style="--phase-color:#7FB069">
+      <div class="metric-label">CVR 转化率</div>
+      <div class="metric-value">&gt;10%</div>
+      <div class="metric-desc">优秀 · &gt;8%良好</div>
+    </div>
+    <div class="metric" style="--phase-color:#E8A87C">
+      <div class="metric-label">ACOS</div>
+      <div class="metric-value">≤15%</div>
+      <div class="metric-desc">为优 · 新品期可高</div>
+    </div>
+    <div class="metric" style="--phase-color:#E8A87C">
+      <div class="metric-label">TACOS</div>
+      <div class="metric-value">≤8%</div>
+      <div class="metric-desc">整体广告成本销售比</div>
+    </div>
+    <div class="metric" style="--phase-color:#C38D9E">
+      <div class="metric-label">CPC:Bid</div>
+      <div class="metric-value">70-80%</div>
+      <div class="metric-desc">理想比例</div>
+    </div>
+    <div class="metric" style="--phase-color:#C38D9E">
+      <div class="metric-label">TOS 提价</div>
+      <div class="metric-value">900%</div>
+      <div class="metric-desc">最高上限</div>
+    </div>
+    <div class="metric" style="--phase-color:#9B8AC4">
+      <div class="metric-label">成熟期自然单</div>
+      <div class="metric-value">&gt;70%</div>
+      <div class="metric-desc">成熟期健康线</div>
+    </div>
+    <div class="metric" style="--phase-color:#9B8AC4">
+      <div class="metric-label">IPI 分数</div>
+      <div class="metric-value">≥400</div>
+      <div class="metric-desc">库存绩效达标线</div>
+    </div>
+  </div>
+
+  <div class="callout warn">
+    <strong>⚠️ 否词触发标准（满足任一即否）：</strong>① 15-20次点击无成交 ② ACOS超过毛利率2倍 ③ CTR &lt; 0.2%
+  </div>
+</section>
+
+<!-- ============ 工具与配套资源 ============ -->
+<section class="section">
+  <h2>🛠️ 全流程工具与配套资源地图</h2>
+  <p>下表按用途分类的工具清单，<strong>推荐组合</strong>已在备注中标出。</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>类别</th>
+        <th>工具</th>
+        <th>主要用途</th>
+        <th>使用阶段</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td rowspan="3"><strong>🔍 数据调研</strong></td>
+        <td>卖家精灵（SIF）</td>
+        <td>反查竞品流量词、广告架构、关键词挖掘</td>
+        <td>① → ⑤</td>
+      </tr>
+      <tr>
+        <td>Helium 10</td>
+        <td>关键词、竞品、利润核算综合工具</td>
+        <td>① → ⑤</td>
+      </tr>
+      <tr>
+        <td>Jungle Scout</td>
+        <td>选品调研、市场容量分析</td>
+        <td>① ②</td>
+      </tr>
+      <tr>
+        <td rowspan="3"><strong>🤖 AI 工具</strong></td>
+        <td>Claude / GPT / Gemini</td>
+        <td>AI写LISTING、Prompt工程、数据分析</td>
+        <td>① → ⑤</td>
+      </tr>
+      <tr>
+        <td>吉梦AI / 集梦AI</td>
+        <td>AI生图（场景图、白底图、卖点图）</td>
+        <td>④</td>
+      </tr>
+      <tr>
+        <td>Nova Banana / German / Cloud AI</td>
+        <td>AI生图/视频工业化生产</td>
+        <td>④</td>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>📊 数据分析</strong></td>
+        <td>亚马逊后台报表</td>
+        <td>SP/SB/SD 9大报表</td>
+        <td>① → ⑤</td>
+      </tr>
+      <tr>
+        <td>ABA 品牌分析</td>
+        <td>热门搜索词、购物篮、消费者画像</td>
+        <td>③</td>
+      </tr>
+      <tr>
+        <td rowspan="2"><strong>📝 办公协作</strong></td>
+        <td>Excel + VLOOKUP</td>
+        <td>利润核算、补货计划、词库管理</td>
+        <td>③ ⑤</td>
+      </tr>
+      <tr>
+        <td>钉钉/企业微信/飞书</td>
+        <td>沟通留痕、责任追溯</td>
+        <td>⑤ 全程</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>📚 配套文档资料</h3>
+  <ul style="margin-left:20px;">
+    <li><strong>终极总结</strong>：<code>F:\学习助手\2026亚马逊广告第一期\output\终极总结.md</code>（全局导航）</li>
+    <li><strong>单篇深度总结</strong>：<code>output\单篇总结\深度总结\</code> 目录下18个MD文件（每讲详细知识点）</li>
+    <li><strong>原始文本</strong>：<code>output\单篇总结\原始文本\</code> 目录下视频转录原文（60万字）</li>
+  </ul>
+</section>
+
+<!-- ============ SOP 模板清单 ============ -->
+<section class="section">
+  <h2>📋 必备 SOP 模板清单（建议自建）</h2>
+  <p>建议在 <strong>Excel + Notion</strong> 中自建以下模板，每完成一个产品就在对应表格更新一行数据，<strong>3个月后这些数据就是您最宝贵的资产</strong>。</p>
+
+  <div class="tools-grid">
+    <div class="tool-card" style="--phase-color:#7FB069">
+      <span class="tag">阶段①</span>
+      <h4>1. 新品推广SOP执行表</h4>
+      <p>ASIN/SKU、产品名、站点、开发/运营人员、推广进度。每周更新，向上级汇报。</p>
+    </div>
+    <div class="tool-card" style="--phase-color:#7FB069">
+      <span class="tag">阶段①</span>
+      <h4>2. 每日工作清单</h4>
+      <p>销量、广告、竞品、库存4大维度。每条1行勾选，控制在30分钟内完成。</p>
+    </div>
+    <div class="tool-card" style="--phase-color:#E8A87C">
+      <span class="tag">阶段②</span>
+      <h4>3. 关键词库主表</h4>
+      <p>7类关键词分层（核心/长尾/场景/属性/竞品/防御/潜力），每类100+词。</p>
+    </div>
+    <div class="tool-card" style="--phase-color:#E8A87C">
+      <span class="tag">阶段②</span>
+      <h4>4. 竞品流量分析表</h4>
+      <p>ASIN、品牌、价格、月销、核心词、广告架构、变体角色。每竞品1行。</p>
+    </div>
+    <div class="tool-card" style="--phase-color:#E8A87C">
+      <span class="tag">阶段②</span>
+      <h4>5. 生命周期广告架构模板</h4>
+      <p>新品期/成长期/成熟期/衰退期4阶段广告组合（预算、Bid、匹配、否词）。</p>
+    </div>
+    <div class="tool-card" style="--phase-color:#C38D9E">
+      <span class="tag">阶段③</span>
+      <h4>6. 周度广告诊断报告</h4>
+      <p>本周ACOS/ROAS变化、低效广告清单、否词清单、调价动作、下周计划。</p>
+    </div>
+    <div class="tool-card" style="--phase-color:#C38D9E">
+      <span class="tag">阶段③</span>
+      <h4>7. ABA月度分析报告</h4>
+      <p>热门搜索词TOP50、购物篮TOP20、品类趋势、竞品动作。</p>
+    </div>
+    <div class="tool-card" style="--phase-color:#C38D9E">
+      <span class="tag">阶段③</span>
+      <h4>8. 进阶打法决策树</h4>
+      <p>按产品阶段/目标/预算选择合适打法（捡漏/马甲/海王/递增/矩阵）。</p>
+    </div>
+    <div class="tool-card" style="--phase-color:#9B8AC4">
+      <span class="tag">阶段④</span>
+      <h4>9. AI Prompt 模板库</h4>
+      <p>按场景分类的Prompt：LISTING生成/竞品分析/Review挖掘/场景图设计。</p>
+    </div>
+    <div class="tool-card" style="--phase-color:#9B8AC4">
+      <span class="tag">阶段④</span>
+      <h4>10. AI素材生产排期表</h4>
+      <p>每周需产出的素材清单：场景图、白底图、卖点图、A+图、视频。</p>
+    </div>
+    <div class="tool-card" style="--phase-color:#D4A574">
+      <span class="tag">阶段⑤</span>
+      <h4>11. 店铺月度利润核算表</h4>
+      <p>销售额、广告费、FBA费、退款、头程、损耗，月度净利润一目了然。</p>
+    </div>
+    <div class="tool-card" style="--phase-color:#D4A574">
+      <span class="tag">阶段⑤</span>
+      <h4>12. 团队绩效考核表</h4>
+      <p>每位运营的KPI（销量/ACOS/新品数）+周/月/季考核系数。</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 不同基础人群适配 ============ -->
+<section class="section">
+  <h2>🎯 不同基础人群 · 定制化路径</h2>
+  <p>小白的定义不同，路径也有差异。下表给出<strong>3种典型起点</strong>的建议：</p>
+
+  <div class="path-tabs">
+    <div class="path-tab active">
+      <h4>👶 A类：完全小白（无亚马逊经验）</h4>
+      <p>建议从阶段①全流程走完，每阶段约6周，<strong>总计30周（约7个月）</strong>。前两周建议先看陆铭老师文档一+二的视频回放，建立感性认识。</p>
+    </div>
+    <div class="path-tab">
+      <h4>👨‍💼 B类：做过Listing但没投过广告</h4>
+      <p>可跳过阶段①的前两周LISTING基础，直接从阶段①Week 3广告基础开始，<strong>总计22周（约5个月）</strong>。</p>
+    </div>
+    <div class="path-tab">
+      <h4>🚀 C类：投过广告但效果差</h4>
+      <p>重点学习阶段②（关键词+生命周期）+阶段③（精算+Rufus），其他阶段快速过。<strong>总计12-16周（约3-4个月）</strong>。</p>
+    </div>
+    <div class="path-tab">
+      <h4>🏢 D类：团队管理者</h4>
+      <p>重点是阶段③（报表+AMC）+阶段⑤（团队管理），其他可由团队成员分头学，<strong>管理者本人总计8-10周</strong>。</p>
+    </div>
+  </div>
+
+  <div class="callout">
+    <strong>💡 路径选择建议：</strong>建议主路线+分支并行。即使您是B类背景，也建议花1周时间快速过完文档一LISTING基础，<strong>查漏补缺胜过直接跳级</strong>。
+  </div>
+</section>
+
+<!-- ============ 学习方法论 ============ -->
+<section class="section">
+  <h2>🧠 学习方法论 · 如何高效学完20周</h2>
+
+  <h3>📅 三段式学习节奏</h3>
+  <div class="phase-grid">
+    <div class="phase-card" style="--phase-color:#4A90A4">
+      <div class="phase-card-label">📺 看视频（30%）</div>
+      <ul>
+        <li>每天1-1.5小时，看1-2讲</li>
+        <li>建议<strong>1.5倍速</strong>回看重点</li>
+        <li>准备笔记本记关键概念</li>
+        <li>遇到实操步骤先暂停做笔记</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#4A90A4">
+      <div class="phase-card-label">📝 做总结（30%）</div>
+      <ul>
+        <li>看完1讲后立即整理笔记</li>
+        <li>建议用<strong>思维导图</strong>梳理</li>
+        <li>列出"我学到了什么"</li>
+        <li>列出"我还不会什么"</li>
+        <li>对照课程Markdown总结查漏</li>
+      </ul>
+    </div>
+    <div class="phase-card" style="--phase-color:#4A90A4">
+      <div class="phase-card-label">🛠️ 实战（40%）</div>
+      <ul>
+        <li><strong>学完即用</strong>是最重要原则</li>
+        <li>立即在真实店铺跑1个动作</li>
+        <li>记录结果与预期差异</li>
+        <li>每周固定时间复盘</li>
+        <li>形成"学-做-改"循环</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3>💎 三个核心原则</h3>
+  <div class="callout"><strong>① 学完即用：</strong>看完一节立刻在店铺操作，哪怕只是新建1个广告活动。不实操 = 没学。</div>
+  <div class="callout warn"><strong>② 数据驱动：</strong>每个决策都要找数据支撑。"我觉得"不如"数据显示"。</div>
+  <div class="callout info"><strong>③ 长期主义：</strong>亚马逊运营是马拉松，不是百米冲刺。前2个月可能不赚钱，但坚持做SOP，第3-6个月会迎来拐点。</div>
+
+  <h3>📅 推荐周学习计划表</h3>
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>星期</th>
+        <th>上午（2h）</th>
+        <th>下午（2h）</th>
+        <th>晚上（1h）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>周一</td>
+        <td>看视频（本周主课）</td>
+        <td>整理思维导图笔记</td>
+        <td>实操：店铺当日动作</td>
+      </tr>
+      <tr>
+        <td>周二</td>
+        <td>看视频（本周主课）</td>
+        <td>对照课程MD查漏</td>
+        <td>实操：广告活动调优</td>
+      </tr>
+      <tr>
+        <td>周三</td>
+        <td>看视频（本周辅课）</td>
+        <td>读单篇深度总结</td>
+        <td>实操：词库/竞品分析</td>
+      </tr>
+      <tr>
+        <td>周四</td>
+        <td>看视频（本周辅课）</td>
+        <td>小组讨论（可选）</td>
+        <td>实操：素材/AI生成</td>
+      </tr>
+      <tr>
+        <td>周五</td>
+        <td>完成本周周度诊断报告</td>
+        <td>填写团队周报</td>
+        <td>复盘本周3件最大学习</td>
+      </tr>
+      <tr>
+        <td>周六</td>
+        <td>看案例/竞品/跨平台</td>
+        <td>读行业文章/新功能</td>
+        <td>本月SOP模板更新</td>
+      </tr>
+      <tr>
+        <td>周日</td>
+        <td colspan="2" style="text-align:center;color:#7B8794;">休息 · 充电 · 思考</td>
+        <td>下周计划制定</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============ 关键术语速查 ============ -->
+<section class="section">
+  <h2>📚 关键术语速查表</h2>
+  <p>新手必背，老手可作为字典查询。</p>
+
+  <details open>
+    <summary>🏛️ 核心算法术语（A9/Cosmo/Rufus）</summary>
+    <div>
+      <ul>
+        <li><strong>A9算法</strong>：亚马逊传统搜索算法，核心是关键词匹配+转化率+相关性</li>
+        <li><strong>Cosmo算法</strong>：新一代语义匹配算法，基于知识图谱与用户画像</li>
+        <li><strong>Rufus</strong>：亚马逊AI购物助手，对话式推荐，影响商品曝光方式</li>
+        <li><strong>语义溢价</strong>：Cosmo/Rufus对"场景化/意图化"关键词的权重加成</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>📊 广告核心指标（CTR/CVR/CPC/ACOS/TACOS/ROI）</summary>
+    <div>
+      <ul>
+        <li><strong>CTR（点击率）</strong>= Clicks ÷ Impression，新品&lt;0.5%需优化，&gt;1%优秀</li>
+        <li><strong>CVR（转化率）</strong>= Orders ÷ Clicks，&gt;10%优秀，&gt;8%良好</li>
+        <li><strong>CPC（单次点击成本）</strong>= 下一名出价×质量分/自身质量分+0.01</li>
+        <li><strong>ACOS（广告成本销售比）</strong>= 广告花费÷广告销售额，≤15%为优</li>
+        <li><strong>TACOS（总广告成本销售比）</strong>= 广告花费÷总销售额，≤8%为优</li>
+        <li><strong>ROI（投资回报率）</strong>= 销售额÷广告花费，与ACOS互为倒数</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>🎯 广告类型与匹配（SP/SB/SD/DSP）</summary>
+    <div>
+      <ul>
+        <li><strong>SP（Sponsored Products）</strong>：商品推广，关键词/商品触发，7天归因，全周期核心</li>
+        <li><strong>SB（Sponsored Brands）</strong>：品牌推广，关键词触发（含视频SBV），14天归因，品牌防御</li>
+        <li><strong>SD（Sponsored Display）</strong>：展示推广，受众/商品触发，14天归因，再营销</li>
+        <li><strong>DSP</strong>：需求方平台，受众触发站内外，14天归因，高净值人群</li>
+        <li><strong>匹配方式</strong>：自动（紧密/宽泛/同类/关联）、手动（广泛/词组/精准）、商品投放</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>📝 LISTING 构成</summary>
+    <div>
+      <ul>
+        <li><strong>Title（标题）</strong>：核心流量入口，黄金公式：品牌+核心词+次级词+卖点+场景+颜色尺寸</li>
+        <li><strong>BP（Bullet Points五点描述）</strong>：核心功能→差异化→场景→品质→安全，前3点最重要</li>
+        <li><strong>A+ 页面</strong>：图文视觉冲击，决定品牌认知与CVR</li>
+        <li><strong>ST（Search Terms后台搜索词）</strong>：放前台无法展示的词，影响搜索宽度</li>
+        <li><strong>后台参数</strong>：尺寸/材质/颜色/场景/功能，Rufus抓取依据</li>
+      </ul>
+    </div>
+  </details>
+
+  <details>
+    <summary>🛡️ 进阶术语（AC标/ABA/AMC/SOP）</summary>
+    <div>
+      <ul>
+        <li><strong>AC标（Amazon's Choice）</strong>：亚马逊官方推荐标识，冲刺需CTR 1%+/CVR 8%+</li>
+        <li><strong>ABA（Amazon Brand Analytics）</strong>：品牌分析，含热门搜索词、购物篮、人口统计</li>
+        <li><strong>AMC（Amazon Marketing Cloud）</strong>：营销云，人群精细化运营，门槛月销10万+/月广告3-5万美金+</li>
+        <li><strong>SOP（标准作业程序）</strong>：可复制的标准操作流程</li>
+        <li><strong>IPI（Inventory Performance Index）</strong>：库存绩效指标，≥400达标</li>
+        <li><strong>Top of Search / Rest of Search</strong>：搜索结果顶部位置/其余位置</li>
+      </ul>
+    </div>
+  </details>
+</section>
+
+<!-- ============ 学习资源推荐 ============ -->
+<section class="section">
+  <h2>📖 学习资源 · 项目内部资料全索引</h2>
+  <p>本项目已经准备好完整的资料，<strong>无需再额外购买课程</strong>。按学习顺序使用即可：</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>学习阶段</th>
+        <th>推荐资源</th>
+        <th>文件路径</th>
+        <th>预计耗时</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🔰 入门</td>
+        <td>本HTML学习地图</td>
+        <td><code>F:\学习助手\2026亚马逊广告第一期\output\小白精通亚马逊广告全流程.html</code></td>
+        <td>1-2小时通读</td>
+      </tr>
+      <tr>
+        <td>🔰 入门</td>
+        <td>终极总结（全局导航）</td>
+        <td><code>output\终极总结.md</code></td>
+        <td>2-3小时</td>
+      </tr>
+      <tr>
+        <td>📘 阶段①</td>
+        <td>文档一/二/三/十七 深度总结</td>
+        <td><code>output\单篇总结\深度总结\</code> 对应4个MD文件</td>
+        <td>每讲2-3小时</td>
+      </tr>
+      <tr>
+        <td>📗 阶段②</td>
+        <td>文档五/四/七/八/九 深度总结</td>
+        <td><code>output\单篇总结\深度总结\</code> 对应5个MD文件</td>
+        <td>每讲3-4小时</td>
+      </tr>
+      <tr>
+        <td>📕 阶段③</td>
+        <td>文档六/十/十六/十一 深度总结</td>
+        <td><code>output\单篇总结\深度总结\</code> 对应4个MD文件</td>
+        <td>每讲3-4小时</td>
+      </tr>
+      <tr>
+        <td>📙 阶段④</td>
+        <td>文档十二/十三/十五 深度总结</td>
+        <td><code>output\单篇总结\深度总结\</code> 对应3个MD文件</td>
+        <td>每讲3-4小时</td>
+      </tr>
+      <tr>
+        <td>📓 阶段⑤</td>
+        <td>文档十四/十八 深度总结</td>
+        <td><code>output\单篇总结\深度总结\</code> 对应2个MD文件</td>
+        <td>每讲2-3小时</td>
+      </tr>
+      <tr>
+        <td>📜 原文</td>
+        <td>18讲原始转录文本</td>
+        <td><code>output\单篇总结\原始文本\</code></td>
+        <td>查阅参考</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============ 总结 ============ -->
+<section class="section">
+  <h2>🎯 一页纸总结 · 给主人的私房建议</h2>
+
+  <div class="callout">
+    <strong>🙏 尊敬的主人，最后给您三点掏心窝的建议：</strong>
+  </div>
+
+  <h3>1️⃣ 别想着学完再做，先做再学</h3>
+  <p>亚马逊运营是<strong>实操学科</strong>。不要花3个月学完所有理论再开店。最好的路径是：<strong>第1周开第1个产品</strong>，边做边学，遇到问题再回去翻课程。陆铭老师的18讲要全部精读至少3遍，因为每遍感受不同。</p>
+
+  <h3>2️⃣ 把课程当作字典而非教材</h3>
+  <p>本学习地图是<strong>导航</strong>，18讲深度总结才是<strong>弹药库</strong>。不要按顺序学，先建立全景认知，再按需深入。每周遇到问题就查对应章节，比通读效率高10倍。</p>
+
+  <h3>3️⃣ 坚持3个月，必有回报</h3>
+  <p>前2个月大概率不赚钱或小亏，这是<strong>正常的学习成本</strong>。第3个月开始，您会看到自然订单占比上升、ACOS下降、关键词上首页——这就是SOP的力量。坚持下来的人，都成了行业Top 10%。</p>
+
+  <div class="callout warn">
+    <strong>⚠️ 最后提醒：</strong>AI工具（如本地图）只能加速您学习，<strong>不能替代您的判断与执行</strong>。保持敬畏之心，持续学习，您一定能从亚马逊小白成长为运营高手。
+  </div>
+</section>
+
+<!-- ============ 附录：选品清单速查 ============ -->
+<section class="section">
+  <h2>📋 附录 · 选品核心原则（贯穿全程）</h2>
+  <p>无论学到哪个阶段，选品永远是亚马逊运营的<strong>第一性原理</strong>。下列原则跨课程提炼，<strong>适合任何阶段复盘</strong>：</p>
+
+  <ol style="margin-left:20px;">
+    <li><strong>顺应Cosmo/Rufus语义红利</strong>：场景丰富、属性清晰的产品更具优势</li>
+    <li><strong>预留促销空间</strong>：选品阶段就要预留Coupon、秒杀、定制促销空间</li>
+    <li><strong>差异化卖点明确</strong>：避免同质化红海，要么差异化要么死路一条</li>
+    <li><strong>关联流量潜力</strong>：考虑配套捆绑、FBT（Frequently Bought Together）</li>
+    <li><strong>团队资源匹配</strong>：术业有专攻，新手别碰复杂品类（如电子、危险品）</li>
+  </ol>
+
+  <div class="callout info">
+    <strong>💡 课程选品清单索引：</strong>完整选品案例详见 文档三、四、六、八、十、十一、十三、十五、十八（9讲涉及选品维度）。
+  </div>
+</section>
+
+<!-- ============ AI提示词汇总 ============ -->
+<section class="section">
+  <h2>🤖 附录 · 课程AI提示词分布索引</h2>
+  <p>陆铭老师在课程中提供了<strong>40+条AI提示词</strong>，分布在以下章节：</p>
+
+  <div class="table-wrap">
+  <table>
+    <thead>
+      <tr>
+        <th>文档</th>
+        <th>提示词数量</th>
+        <th>主要应用场景</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>文档四 · 竞品流量分析</td><td>5条</td><td>品牌Banner设计、图片文案、关键词分类、FABE法则、变体分工</td></tr>
+      <tr><td>文档五 · 关键词库搭建</td><td>9条</td><td>竞品标题/五点/QA/Review分析、美式英式英语区分、Rufus产品对比</td></tr>
+      <tr><td>文档十一 · SB防御体系</td><td>多条</td><td>视频素材、品牌故事、旗舰店优化、广告创意</td></tr>
+      <tr><td>文档十二 · Rufus时代</td><td>8条</td><td>AI投喂LISTING、三种文案风格、Rufus前台实操</td></tr>
+      <tr><td>文档十三 · AI生图</td><td>6条</td><td>吉梦AI生图、拆分图片、场景图、A+图、Claude竞品分析</td></tr>
+      <tr><td>文档十五 · 多变体打法</td><td>多条</td><td>Nova Banana、German、集梦、Cloud AI工具应用</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout">
+    <strong>📌 AI提示词设计共性规律：</strong>① <strong>角色设定</strong>（明确AI扮演角色）→ ② <strong>上下文投喂</strong>（提供背景信息）→ ③ <strong>结构化输出</strong>（要求指定格式）→ ④ <strong>场景化指令</strong>（结合Cosmo/Rufus语义要求）。
+  </div>
+</section>
+
+</div><!-- /container -->
+
+<!-- ============ 返回顶部 ============ -->
+<a href="#top" class="totop" id="totop" title="返回顶部">↑</a>
+
+<!-- ============ 底部 ============ -->
+<footer class="footer">
+  <div class="owner">📌 本文件归属权：尊贵的主人</div>
+  <p>基于陆铭老师《2026亚马逊广告第一期》18讲课程（约60万字）系统性整理</p>
+  <p>主讲：陆铭老师 ｜ 整理时间：2026年6月 ｜ 项目路径：F:\学习助手\2026亚马逊广告第一期\</p>
+  <p style="margin-top:8px;color:#7B8794;">本学习地图为小白通往运营精通之路的导航，最终的精通来自您的实操与坚持 🚀</p>
+</footer>
+
+<script>
+  // 返回顶部按钮显隐
+  (function(){
+    var btn = document.getElementById('totop');
+    function onScroll(){
+      if (window.pageYOffset > 600) btn.classList.add('show');
+      else btn.classList.remove('show');
+    }
+    window.addEventListener('scroll', onScroll, { passive: true });
+    onScroll();
+  })();
+</script>
+
+</body>
+</html>
