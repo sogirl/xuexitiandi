@@ -1,0 +1,835 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+<title>走进985 · 全科万能学习方法 · 完整知识宝典</title>
+<style>
+  *{margin:0;padding:0;box-sizing:border-box}
+  body{background:#f7f5f0;color:#3a3a3a;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;line-height:1.8;padding:20px}
+  .wrapper{max-width:1100px;margin:0 auto}
+
+  /* Header */
+  .header{background:linear-gradient(135deg,#fefcf7,#f5f0e8);border-radius:24px;padding:50px 40px 40px;margin-bottom:30px;border:1px solid #e8e0d4;text-align:center}
+  .header h1{font-size:2.3em;color:#5b4636;font-weight:700;letter-spacing:3px;margin-bottom:8px}
+  .header .sub{color:#8b7a66;font-size:1.1em;margin-bottom:6px}
+  .header .tag{display:inline-block;background:#d4c9b8;color:#5b4636;padding:4px 16px;border-radius:20px;font-size:.85em;margin-top:6px}
+
+  /* MindMap */
+  .mindmap-wrap{background:#fff;border-radius:20px;padding:25px 15px 15px;margin-bottom:30px;border:1px solid #e8e0d4;overflow-x:auto;-webkit-overflow-scrolling:touch}
+  .mindmap-wrap h2{text-align:center;font-size:1.3em;color:#5b4636;margin-bottom:14px}
+  .mindmap-wrap svg{display:block;margin:0 auto;min-width:700px;width:100%;height:auto}
+
+  /* TOC */
+  .toc{background:#fff;border-radius:20px;padding:30px 35px;margin-bottom:30px;border:1px solid #e8e0d4}
+  .toc h2{font-size:1.3em;color:#5b4636;margin-bottom:16px;border-bottom:2px solid #ede7dc;padding-bottom:10px}
+  .toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:6px 20px}
+  .toc a{color:#6b5b4b;text-decoration:none;font-size:.93em;padding:4px 0;display:block;border-bottom:1px dashed #f0ebe3;transition:color .2s}
+  .toc a:hover{color:#a08060}
+  .toc .toc-l1{font-weight:600;color:#5b4636;margin-top:10px}
+
+  /* Sections */
+  section{background:#fff;border-radius:20px;padding:30px 35px;margin-bottom:24px;border:1px solid #e8e0d4}
+  section h2{font-size:1.5em;color:#5b4636;margin-bottom:18px;border-bottom:2px solid #ede7dc;padding-bottom:10px}
+  section h3{font-size:1.15em;color:#6b5b4b;margin:20px 0 10px;padding-left:12px;border-left:4px solid #d4c9b8}
+  section h4{font-size:1em;color:#7a6a5a;margin:14px 0 6px}
+  section p{margin:6px 0 10px;text-align:justify}
+  section ul,section ol{margin:6px 0 12px;padding-left:22px}
+  section li{margin:4px 0}
+
+  /* Cards */
+  .card-row{display:flex;flex-wrap:wrap;gap:14px;margin:12px 0}
+  .card{background:#faf8f4;border-radius:12px;padding:14px 18px;flex:1;min-width:180px;border:1px solid #ede7dc}
+  .card strong{color:#5b4636;display:block;margin-bottom:4px}
+  .card span{color:#7a6a5a;font-size:.92em}
+  .highlight{background:#f8f3ea;border-left:4px solid #b8a48c;padding:12px 16px;margin:12px 0;border-radius:0 8px 8px 0;font-size:.93em}
+  .tag-blue{display:inline-block;background:#e8edf2;color:#4a6a7a;padding:1px 10px;border-radius:10px;font-size:.8em;margin:2px 3px}
+  .tag-green{display:inline-block;background:#e6f0e6;color:#4a7a5a;padding:1px 10px;border-radius:10px;font-size:.8em;margin:2px 3px}
+  .tag-amber{display:inline-block;background:#f5ede0;color:#8a7050;padding:1px 10px;border-radius:10px;font-size:.8em;margin:2px 3px}
+
+  /* Tables */
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:.92em}
+  th,td{border:1px solid #e0d8cc;padding:8px 12px;text-align:left}
+  th{background:#f5f0e8;color:#5b4636;font-weight:600}
+  tr:nth-child(even){background:#faf8f4}
+
+  /* Markers */
+  .key{background:#f0e8dc;padding:1px 6px;border-radius:4px;font-size:.88em;color:#6b5b4b}
+  .warn{background:#fef6ee;padding:1px 6px;border-radius:4px;font-size:.88em;color:#b08050}
+  .good{background:#eaf0e6;padding:1px 6px;border-radius:4px;font-size:.88em;color:#4a7a5a}
+
+  hr{border:none;border-top:1px solid #ede7dc;margin:20px 0}
+
+  @media(max-width:600px){
+    body{padding:10px}
+    .header{padding:28px 18px}
+    .header h1{font-size:1.6em}
+    section{padding:20px 16px}
+    .toc{padding:20px 16px}
+    .toc-grid{grid-template-columns:1fr}
+  }
+</style>
+</head>
+<body>
+<div class="wrapper">
+
+<!-- Header -->
+<div class="header">
+  <h1>📚 走进985 · 全科万能学习方法</h1>
+  <div class="sub">从理论到实操 · 从小白到高手 · 54节完整知识体系</div>
+  <div class="tag">反复刷题法 + 闭眼回忆法 + 冥想法 + 脉冲学习法</div>
+</div>
+
+<!-- ========== 思维导图 SVG ========== -->
+<div class="mindmap-wrap">
+<h2>🧠 课程知识体系 · 全景思维导图</h2>
+<svg viewBox="0 0 1600 1400" xmlns="http://www.w3.org/2000/svg" style="max-width:100%;height:auto">
+<defs>
+  <marker id="arrow" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto"><polygon points="0 0, 10 3.5, 0 7" fill="#b8a48c"/></marker>
+  <style>
+    .rt{font-family:"PingFang SC","Microsoft YaHei",sans-serif;font-size:13px;fill:#3a3a3a}
+    .rtb{font-weight:700;font-size:14px}
+    .rts{font-size:11px;fill:#5b5b5b}
+    .rth{font-weight:700;font-size:15px;fill:#5b4636}
+    .box{fill:#faf8f4;stroke:#d4c9b8;stroke-width:1.5;rx:8;ry:8}
+    .box-root{fill:#5b4636;stroke:#4a3a2a;stroke-width:2;rx:10;ry:10}
+    .box-l1{fill:#f5f0e8;stroke:#c8bcac;stroke-width:1.5;rx:8;ry:8}
+    .box-l2{fill:#faf8f4;stroke:#d8d0c4;stroke-width:1;rx:6;ry:6}
+    .line{stroke:#b8a48c;stroke-width:1.5;fill:none}
+  </style>
+</defs>
+<!-- Root -->
+<rect class="box-root" x="20" y="660" width="100" height="40"/>
+<text class="rt rth" x="70" y="685" text-anchor="middle">走进985</text>
+<!-- Level 1 branches -->
+<!-- L1-1 理论篇 -->
+<rect class="box-l1" x="160" y="80" width="120" height="36"/>
+<text class="rt rtb" x="220" y="103" text-anchor="middle">第一章 理论篇</text>
+<path class="line" d="M120,680 L150,680 L150,98 L160,98" marker-end="url(#arrow)"/>
+<rect class="box-l2" x="310" y="30" width="150" height="30"/>
+<text class="rt" x="385" y="50" text-anchor="middle">① 熟练度理论</text>
+<rect class="box-l2" x="310" y="75" width="150" height="30"/>
+<text class="rt" x="385" y="95" text-anchor="middle">② 重复理论</text>
+<rect class="box-l2" x="310" y="120" width="150" height="30"/>
+<text class="rt" x="385" y="140" text-anchor="middle">③ 母题理论</text>
+<path class="line" d="M280,98 L310,45 L310,90 L310,135" marker-end="url(#arrow)"/>
+
+<!-- L1-2 实操篇 -->
+<rect class="box-l1" x="160" y="170" width="120" height="36"/>
+<text class="rt rtb" x="220" y="193" text-anchor="middle">第二章 实操篇</text>
+<path class="line" d="M120,680 L150,680 L150,188 L160,188" marker-end="url(#arrow)"/>
+<rect class="box-l2" x="310" y="150" width="160" height="30"/>
+<text class="rt" x="390" y="170" text-anchor="middle">① 刷什么（选材料）</text>
+<rect class="box-l2" x="310" y="195" width="160" height="30"/>
+<text class="rt" x="390" y="215" text-anchor="middle">② 怎么刷（五遍法）</text>
+<rect class="box-l2" x="310" y="240" width="160" height="30"/>
+<text class="rt" x="390" y="260" text-anchor="middle">③ 五刷法的妙处</text>
+<path class="line" d="M280,188 L310,165 L310,210 L310,255" marker-end="url(#arrow)"/>
+
+<!-- L1-3 加餐篇 -->
+<rect class="box-l1" x="160" y="270" width="120" height="36"/>
+<text class="rt rtb" x="220" y="293" text-anchor="middle">第三章 加餐篇</text>
+<path class="line" d="M120,680 L150,680 L150,288 L160,288" marker-end="url(#arrow)"/>
+<rect class="box-l2" x="310" y="260" width="170" height="26"/>
+<text class="rt rts" x="395" y="278" text-anchor="middle">① 错题本 ② 上课笔记</text>
+<rect class="box-l2" x="310" y="295" width="170" height="26"/>
+<text class="rt rts" x="395" y="313" text-anchor="middle">③ 强行记忆法 ④ 计算适用</text>
+<rect class="box-l2" x="310" y="330" width="170" height="26"/>
+<text class="rt rts" x="395" y="348" text-anchor="middle">⑤ 脉冲学习法 ⑥ 冥想法</text>
+<path class="line" d="M280,288 L310,273 L310,308 L310,343" marker-end="url(#arrow)"/>
+
+<!-- L1-4 答疑篇 -->
+<rect class="box-l1" x="160" y="370" width="120" height="36"/>
+<text class="rt rtb" x="220" y="393" text-anchor="middle">第四章 答疑篇</text>
+<path class="line" d="M120,680 L150,680 L150,388 L160,388" marker-end="url(#arrow)"/>
+<rect class="box-l2" x="310" y="360" width="170" height="26"/>
+<text class="rt rts" x="395" y="378" text-anchor="middle">1本不5本 / 时间不一致 / 挑书</text>
+<rect class="box-l2" x="310" y="395" width="170" height="26"/>
+<text class="rt rts" x="395" y="413" text-anchor="middle">第一次最重要 / 课内太简单</text>
+<rect class="box-l2" x="310" y="430" width="170" height="26"/>
+<text class="rt rts" x="395" y="448" text-anchor="middle">时间来得及吗 / 知识点要刷吗</text>
+<rect class="box-l2" x="310" y="465" width="170" height="26"/>
+<text class="rt rts" x="395" y="483" text-anchor="middle">题型变不会 / 不回滚 / 寒暑假</text>
+<rect class="box-l2" x="310" y="500" width="170" height="26"/>
+<text class="rt rts" x="395" y="518" text-anchor="middle">复现 / 卡片操作 / 改数据</text>
+<path class="line" d="M280,388 L310,373 L310,408 L310,443 L310,478 L310,513" marker-end="url(#arrow)"/>
+
+<!-- L1-5 文科方法 -->
+<rect class="box-l1" x="160" y="560" width="130" height="36"/>
+<text class="rt rtb" x="225" y="583" text-anchor="middle">第五章 文科方法</text>
+<path class="line" d="M120,680 L150,680 L150,578 L160,578" marker-end="url(#arrow)"/>
+<rect class="box-l2" x="320" y="550" width="150" height="30"/>
+<text class="rt" x="395" y="570" text-anchor="middle">闭眼回忆法</text>
+<path class="line" d="M290,578 L320,565" marker-end="url(#arrow)"/>
+
+<!-- L1-6 超越篇 -->
+<rect class="box-l1" x="160" y="660" width="120" height="36"/>
+<text class="rt rtb" x="220" y="683" text-anchor="middle">第六章 超越篇</text>
+<path class="line" d="M120,680 L150,680 L150,678 L160,678" marker-end="url(#arrow)"/>
+<rect class="box-l2" x="310" y="640" width="160" height="26"/>
+<text class="rt rts" x="390" y="658" text-anchor="middle">① 高考趋势分析</text>
+<rect class="box-l2" x="310" y="675" width="160" height="26"/>
+<text class="rt rts" x="390" y="693" text-anchor="middle">② 四点秘籍（优秀→卓越）</text>
+<rect class="box-l2" x="310" y="710" width="160" height="26"/>
+<text class="rt rts" x="390" y="728" text-anchor="middle">③ 一万小时+刻意练习</text>
+<path class="line" d="M280,678 L310,653 L310,688 L310,723" marker-end="url(#arrow)"/>
+
+<!-- L1-7 学科篇 -->
+<rect class="box-l1" x="155" y="790" width="130" height="36"/>
+<text class="rt rtb" x="220" y="813" text-anchor="middle">学科分类方法</text>
+<path class="line" d="M120,680 L150,680 L150,808 L155,808" marker-end="url(#arrow)"/>
+<rect class="box-l2" x="315" y="770" width="160" height="26"/>
+<text class="rt rts" x="395" y="788" text-anchor="middle">📖 语文学习方法</text>
+<rect class="box-l2" x="315" y="805" width="160" height="26"/>
+<text class="rt rts" x="395" y="823" text-anchor="middle">🇬🇧 英语学习方法</text>
+<rect class="box-l2" x="315" y="840" width="160" height="26"/>
+<text class="rt rts" x="395" y="858" text-anchor="middle">🔢 数学学习方法</text>
+<rect class="box-l2" x="315" y="875" width="160" height="26"/>
+<text class="rt rts" x="395" y="893" text-anchor="middle">⚡ 物理学习方法</text>
+<rect class="box-l2" x="315" y="910" width="160" height="26"/>
+<text class="rt rts" x="395" y="928" text-anchor="middle">🧪 化学学习方法</text>
+<rect class="box-l2" x="315" y="945" width="160" height="26"/>
+<text class="rt rts" x="395" y="963" text-anchor="middle">🧬 生物学习方法</text>
+<path class="line" d="M285,808 L315,783 L315,818 L315,853 L315,888 L315,923 L315,958" marker-end="url(#arrow)"/>
+
+<!-- L1-8 专题篇 -->
+<rect class="box-l1" x="155" y="1010" width="130" height="36"/>
+<text class="rt rtb" x="220" y="1033" text-anchor="middle">专题扩展</text>
+<path class="line" d="M120,680 L150,680 L150,1028 L155,1028" marker-end="url(#arrow)"/>
+<rect class="box-l2" x="315" y="990" width="170" height="26"/>
+<text class="rt rts" x="400" y="1008" text-anchor="middle">预习三板斧 / 寒假预习</text>
+<rect class="box-l2" x="315" y="1025" width="170" height="26"/>
+<text class="rt rts" x="400" y="1043" text-anchor="middle">暑假安排 / 预习复习刷题</text>
+<rect class="box-l2" x="315" y="1060" width="170" height="26"/>
+<text class="rt rts" x="400" y="1078" text-anchor="middle">划重点 / 卡片法 / 闭眼照相</text>
+<rect class="box-l2" x="315" y="1095" width="170" height="26"/>
+<text class="rt rts" x="400" y="1113" text-anchor="middle">语文字词听写 / 课外阅读</text>
+<rect class="box-l2" x="315" y="1130" width="170" height="26"/>
+<text class="rt rts" x="400" y="1148" text-anchor="middle">文言文 / 数学教辅 / 深度思考</text>
+<rect class="box-l2" x="315" y="1165" width="170" height="26"/>
+<text class="rt rts" x="400" y="1183" text-anchor="middle">边角角吸收 / 海绵学习法</text>
+<path class="line" d="M285,1028 L315,1003 L315,1038 L315,1073 L315,1108 L315,1143 L315,1178" marker-end="url(#arrow)"/>
+
+<!-- Core concepts vertical right -->
+<rect class="box" x="540" y="620" width="180" height="34"/>
+<text class="rt rtb" x="630" y="643" text-anchor="middle">💡 三大核心理论</text>
+<rect class="box" x="540" y="670" width="180" height="30"/>
+<text class="rt" x="630" y="690" text-anchor="middle">熟练度 → 目标</text>
+<rect class="box" x="540" y="715" width="180" height="30"/>
+<text class="rt" x="630" y="735" text-anchor="middle">重复 → 手段</text>
+<rect class="box" x="540" y="760" width="180" height="30"/>
+<text class="rt" x="630" y="780" text-anchor="middle">母题 → 对象</text>
+<path class="line" d="M280,680 L400,680 L400,637 L540,637" marker-end="url(#arrow)"/>
+<path class="line" d="M540,650 L540,685 L540,730 L540,775" marker-end="url(#arrow)"/>
+
+<!-- Flash Method detail right -->
+<rect class="box" x="760" y="540" width="200" height="34"/>
+<text class="rt rtb" x="860" y="563" text-anchor="middle">📝 五刷法时间节奏</text>
+<rect class="box" x="760" y="585" width="200" height="26"/>
+<text class="rt rts" x="860" y="603" text-anchor="middle">第1遍：当天弄会每一题</text>
+<rect class="box" x="760" y="620" width="200" height="26"/>
+<text class="rt rts" x="860" y="638" text-anchor="middle">第2遍：第2天趁热打铁</text>
+<rect class="box" x="760" y="655" width="200" height="26"/>
+<text class="rt rts" x="860" y="673" text-anchor="middle">第3遍：过2~3天比较熟</text>
+<rect class="box" x="760" y="690" width="200" height="26"/>
+<text class="rt rts" x="860" y="708" text-anchor="middle">第4遍：过1周很熟练</text>
+<rect class="box" x="760" y="725" width="200" height="26"/>
+<text class="rt rts" x="860" y="743" text-anchor="middle">第5遍：考试前烂熟</text>
+<path class="line" d="M720,637 L760,558 L760,598 L760,633 L760,668 L760,703 L760,738" marker-end="url(#arrow)"/>
+
+<!-- Additional methods right -->
+<rect class="box" x="760" y="810" width="200" height="30"/>
+<text class="rt rts" x="860" y="830" text-anchor="middle">🔁 全刷 > 只刷错题</text>
+<rect class="box" x="760" y="850" width="200" height="30"/>
+<text class="rt rts" x="860" y="870" text-anchor="middle">📇 卡片法（遮答案）</text>
+<rect class="box" x="760" y="890" width="200" height="30"/>
+<text class="rt rts" x="860" y="910" text-anchor="middle">🧘 冥想法（脑内模拟）</text>
+<rect class="box" x="760" y="930" width="200" height="30"/>
+<text class="rt rts" x="860" y="950" text-anchor="middle">⚡ 脉冲学习法（集中突破）</text>
+<path class="line" d="M720,800 L760,825 L760,865 L760,905 L760,945" marker-end="url(#arrow)"/>
+</svg>
+</div>
+
+<!-- ========== 目录 ========== -->
+<div class="toc">
+<h2>📑 课程目录 · 54节完整收录</h2>
+<div class="toc-grid">
+<a href="#c0" class="toc-l1">总章 · 课程简介</a>
+<a href="#c1">第一章 · 理论篇</a>
+<a href="#c1-1">1.1 熟练度理论</a>
+<a href="#c1-2">1.2 重复理论</a>
+<a href="#c1-3">1.3 母题理论</a>
+<a href="#c2" class="toc-l1">第二章 · 实操篇</a>
+<a href="#c2-1">2.1 刷什么（选材料）</a>
+<a href="#c2-2">2.2 怎么刷·上（五遍法）</a>
+<a href="#c2-3">2.3 怎么刷·下（全刷）</a>
+<a href="#c2-4">2.4 五刷法的妙处</a>
+<a href="#c3" class="toc-l1">第三章 · 加餐篇</a>
+<a href="#c3-1">3.1 错题本</a>
+<a href="#c3-2">3.2 上课笔记</a>
+<a href="#c3-3">3.3 强行记忆法</a>
+<a href="#c3-4">3.4 计算适用吗</a>
+<a href="#c3-5">3.5 脉冲学习法</a>
+<a href="#c3-6">3.6 冥想法</a>
+<a href="#c4" class="toc-l1">第四章 · 答疑篇</a>
+<a href="#c4-1">4.1 要一本不要五本</a>
+<a href="#c4-2">4.2 操作手册不一致</a>
+<a href="#c4-3">4.3 授之以渔挑参考书</a>
+<a href="#c4-4">4.4 第一次最重要</a>
+<a href="#c4-5">4.5 小学课内太简单</a>
+<a href="#c4-6">4.6 时间来得及吗</a>
+<a href="#c4-7">4.7 知识点要不要刷</a>
+<a href="#c4-8">4.8 题型一变就不会</a>
+<a href="#c4-9">4.9 立足现在不回滚</a>
+<a href="#c4-10">4.10 寒暑假刷题法</a>
+<a href="#c4-11">4.11 什么叫复现</a>
+<a href="#c4-12">4.12 卡片操作示范</a>
+<a href="#c4-13">4.13 改数据再刷？</a>
+<a href="#c5" class="toc-l1">第五章 · 文科方法</a>
+<a href="#c5-1">闭眼回忆法</a>
+<a href="#c6" class="toc-l1">第六章 · 超越篇</a>
+<a href="#c6-1">6.1 高考趋势锐评</a>
+<a href="#c6-2">6.2 四点秘籍</a>
+<a href="#c6-3">6.3 一万小时定律</a>
+<a href="#c7" class="toc-l1">学科分类方法</a>
+<a href="#c7-1">语文学习方法</a>
+<a href="#c7-2">英语学习方法</a>
+<a href="#c7-3">数学学习方法</a>
+<a href="#c7-4">物理学习方法</a>
+<a href="#c7-5">化学学习方法</a>
+<a href="#c7-6">生物学习方法</a>
+<a href="#c8" class="toc-l1">专题扩展</a>
+<a href="#c8-1">预习三板斧</a>
+<a href="#c8-2">寒假如何预习</a>
+<a href="#c8-3">暑假学习安排</a>
+<a href="#c8-4">预习复习刷题关系</a>
+<a href="#c8-5">划题目重点</a>
+<a href="#c8-6">卡片法背单词</a>
+<a href="#c8-7">英语单词迷思</a>
+<a href="#c8-8">听写法搞定字词</a>
+<a href="#c8-9">语文课外阅读</a>
+<a href="#c8-10">闭眼照相法背课文</a>
+<a href="#c8-11">文言文过关</a>
+<a href="#c8-12">小学数学教辅测评</a>
+<a href="#c8-13">初中数学教辅选择</a>
+<a href="#c8-14">刷题与深度思考</a>
+<a href="#c8-15">海绵学习法</a>
+</div>
+</div>
+
+<!-- ========== 正文开始 ========== -->
+
+<!-- 总章 -->
+<section id="c0">
+<h2>📖 总章 · 课程简介</h2>
+<h3>核心承诺</h3>
+<p>方法 + 执行 = 学霸。本课程名为"走进985·全科万能学习方法"，讲师宣称掌握并执行该方法后，学生必能成为学霸、进入985高校。985高校通常对应前1%~2%的学生水平。</p>
+<h3>学霸与学渣的本质差别</h3>
+<p>学习成功的核心归因于<span class="key">方法得当</span>而非"天资聪颖"。方法好则效率高、学得扎实、速度快，自然成为学霸。课程就是把学霸那套方法总结出来，不必靠运气。</p>
+<h3>方法论来源</h3>
+<ol>
+<li><strong>自身实践</strong>：讲师初中到高中就读于全省前列高中，后考入上海交大，自小爱琢磨学习方法。</li>
+<li><strong>横向印证</strong>：与交大同学交流发现大家的学习节奏与方法大同小异，存在一套"最科学的方法"。</li>
+<li><strong>教学验证</strong>：2014年进入学而思任教，高端班学霸都用这套方法；成绩一般的学生使用后也能快速提升。</li>
+</ol>
+<h3>三大学习要求</h3>
+<div class="card-row">
+  <div class="card"><strong>👀 共同观看</strong><span>三四年级起，学生与家长一起学</span></div>
+  <div class="card"><strong>💯 坚决执行</strong><span>100%无折扣，100步走100步</span></div>
+  <div class="card"><strong>🤫 严格保密</strong><span>建立先发优势，课程不可推荐</span></div>
+</div>
+<div class="highlight">💡 <strong>课程定位：</strong>一劳永逸的"底层操作系统"。一个周末学会整套学习流程，之后融入日常学习中，节省大量时间。</div>
+</section>
+
+<!-- 第一章 -->
+<section id="c1">
+<h2>📐 第一章 · 理论篇（三大理论）</h2>
+<p>第一章共包含三大理论：<span class="key">熟练度理论</span>、<span class="key">重复理论</span>、<span class="key">母题理论</span>。三者形成"目标—手段—对象"的完整闭环。</p>
+<div class="card-row">
+  <div class="card"><strong>🎯 熟练度理论</strong><span>目标：理科考试考的是熟练度</span></div>
+  <div class="card"><strong>🔄 重复理论</strong><span>手段：通过重复达到熟练度</span></div>
+  <div class="card"><strong>📦 母题理论</strong><span>对象：重复的具体对象是母题</span></div>
+</div>
+
+<h3 id="c1-1">1.1 熟练度理论</h3>
+<p><strong>核心命题：理科考试，本质上考的是"熟练度"三个字。</strong></p>
+<ul>
+<li><strong>理科考试是计时考试</strong>：一张试卷四页，最多一个半小时。学生没有"思考时间"，只有"书写时间"。</li>
+<li><strong>熟练度两层含义</strong>：<span class="good">速度</span>——扫一眼题就知道怎么做；<span class="good">准确度</span>——熟练才能避开易错点。</li>
+<li><strong>"会"≠"考高分"</strong>：会解题只是最开始的一步，到考满分之间还隔着熟练度。</li>
+<li><strong>熟练度达标的考试体验</strong>：拿到试卷如有神助，想不考班级第一都难。</li>
+</ul>
+<div class="highlight">💡 <strong>关键转变：</strong>从"学没学会"思维转向"熟不熟练"思维。把学习目标从"搞懂题目"调整为"搞熟题目"。</div>
+
+<h3 id="c1-2">1.2 重复理论</h3>
+<p><strong>核心命题：熟练度是目标，重复是达到目标的指导思想。</strong></p>
+<ul>
+<li><strong>真理两大特征</strong>：<span class="key">简单</span>（点破后觉得"我竟然没想到"） + <span class="key">反人性/反直觉</span>（真正的科学定律往往是反直觉的）</li>
+<li><strong>重复的双重收益</strong>：① 把以前的题搞熟练（直接收益）；② 面对新题也能快速解决（"读书百遍，其义自见"）</li>
+<li><strong>学不好的根本原因</strong>：没有和自己的"人性"做斗争——学生普遍"我都会了还重复什么？太烦了"</li>
+</ul>
+
+<h3 id="c1-3">1.3 母题理论</h3>
+<p><strong>核心命题：我们要重复的对象是"母题"。</strong></p>
+<ul>
+<li><strong>考试题目的四大来源</strong>：少量原题、<span class="warn">改编题</span>（改数字/条件）、<span class="warn">组合题</span>（合并多个母题）、创新题</li>
+<li><strong>母题定义</strong>：平时练习册和参考书里的"源头题"，对应生出"儿子题"（直接改编）和"孙子题"（组合或大改）</li>
+<li><strong>母题数量有限</strong>：只需要刷"少量的母题"，不需要题海战术</li>
+<li><strong>母题就在练习册里</strong>：平时练习册的题与考试题类型基本一致，只是改个数或改个问法</li>
+</ul>
+<div class="highlight">💡 <strong>三大理论关系：</strong>熟练度（目标）→ 重复（手段）→ 母题（对象），形成"目标—手段—对象"的完整三角。</div>
+</section>
+
+<!-- 第二章 -->
+<section id="c2">
+<h2>⚙️ 第二章 · 实操篇（反复刷题法）</h2>
+<p>第二章命名为<span class="key">"反复刷题法"</span>——"反复"对应重复理论，"刷题"对应母题理论，形成理论与实操的精准呼应。</p>
+
+<h3 id="c2-1">2.1 刷什么（选材料）</h3>
+<ul>
+<li><strong>校内学生材料</strong>：1本参考书 + 1本学校练习册（组合覆盖所有知识点和题型）</li>
+<li><strong>每节题量</strong>：20~40道为最佳区间</li>
+<li><strong>参考书选择标准</strong>：前面有讲解部分 + 后面有练习题 + 每节约20道题</li>
+<li><strong>校外机构学生</strong>：用校外机构配的讲义即可，一般每节也是20道左右</li>
+<li><strong>核心原则</strong>：<span class="warn">克制"多买几本更保险"的冲动</span>，相信"1本+反复 > 5本+泛泛"</li>
+</ul>
+
+<h3 id="c2-2">2.2 怎么刷·上（五遍法节奏）</h3>
+<p><strong>刷题前准备</strong>：先把参考书前面的讲解看完并做完，再开始刷后面的题目。</p>
+<table>
+<tr><th>遍数</th><th>时间节点</th><th>目标状态</th></tr>
+<tr><td>第1遍</td><td>当天</td><td><span class="good">慢——弄会每一道题</span>。可看视频、看解析、问同学老师，一鼓作气完成</td></tr>
+<tr><td>第2遍</td><td>第2天</td><td><span class="good">趁热打铁</span>。千万不能等忘掉再回来</td></tr>
+<tr><td>第3遍</td><td>过2~3天</td><td><span class="good">比较熟练</span>，但还没达到100%</td></tr>
+<tr><td>第4遍</td><td>过1周</td><td><span class="good">很熟练</span>，闭着眼睛都能做出来</td></tr>
+<tr><td>第5遍</td><td>考试前</td><td><span class="good">完全烂熟</span>，考试成绩一定是高分</td></tr>
+</table>
+<p><strong>次数标记法</strong>：每次刷一遍打一个笔画（横、竖、勾、叉），最终累积成"正"字。最低要求刷五遍，最推荐刷十遍。</p>
+
+<h3 id="c2-3">2.3 怎么刷·下（全刷 vs 刷错题）</h3>
+<p><strong>核心结论：全刷 > 刷错题</strong></p>
+<p>第一遍做对的题有三类：</p>
+<ul>
+<li><span class="tag-blue">简单题</span>：只是"会做"，未达到"熟练"。考试也考简单题，刷起来不占时间。</li>
+<li><span class="tag-amber">磕绊题</span>：不是特别会、磨磨唧唧做对。传统刷错题法会漏掉这类题！</li>
+<li><span class="tag-green">难题/错题</span>：第一遍就不会或做错。</li>
+</ul>
+<p><strong>标记符号体系</strong>：<span class="key">✓</span>简单题、<span class="key">✗</span>磕绊题、<span class="key">★</span>难题、"正"字记次数</p>
+
+<h4>坚持的关键：前两遍</h4>
+<ul>
+<li><strong>第1遍</strong>：很多题不会做，家长必须介入。让孩子把每个不会的题给你讲一遍</li>
+<li><strong>第2遍</strong>：学生觉得"我已经会了"就不想再刷，家长要耐下心思</li>
+<li><strong>第3遍是转折点</strong>：会感觉"非常顺畅"，信心大增</li>
+<li><strong>第4遍</strong>："非常高兴"，刷起来飞快</li>
+<li><strong>第5遍</strong>："有点恶心"——太熟了</li>
+</ul>
+
+<h4>时间是否很长？——其实在节约时间</h4>
+<p>学生反馈：使用该方法后，每天学习时间反而从4小时压缩到2~3小时。五遍法反而比传统方法节约时间。</p>
+
+<h3 id="c2-4">2.4 五刷法的四大妙处</h3>
+<div class="card-row">
+  <div class="card"><strong>🎯 效果好</strong><span>学习成绩好是核心好处</span></div>
+  <div class="card"><strong>⏱ 省时间</strong><span>只刷一本书+一本练习册，越刷越轻松</span></div>
+  <div class="card"><strong>👨‍👩‍👧 家长省心</strong><span>按五步让孩子刷五遍即可，不用焦虑</span></div>
+  <div class="card"><strong>🔄 正向循环</strong><span>成绩好之后进入正循环，拉都拉不住</span></div>
+</div>
+<div class="highlight">💡 <strong>多数学生差的根源：</strong>"不扎实"——半懂不懂，甚至当时懂了过两天又不懂了。反复刷题直接解决这个痛点。学完一章后烂熟于心，初三高三的复习从"全面补救"变成"画龙点睛"。</div>
+</section>
+
+<!-- 第三章 -->
+<section id="c3">
+<h2>🍱 第三章 · 加餐篇（6个加餐）</h2>
+
+<h3 id="c3-1">3.1 错题本</h3>
+<p><strong>核心结论：错题本不需要单独做。</strong>万能刷题法已完全覆盖错题本功能——不但会刷简单题，还会刷不熟练的中等题与错题。</p>
+<ul>
+<li><strong>学校要求做错题本的原因</strong>：本质是担心学生不更正错题，但很多人做了错题本后不会反复复习</li>
+<li><strong>正确做法</strong>：让"书"本身变成错题集——在原来的书上反复刷五遍以上</li>
+<li><strong>"先读厚再读薄"哲学</strong>：第一遍是加注释搞懂每道题（读厚）；第二~五遍反复刷后书在眼中变得很薄（读薄）</li>
+<li><strong>最终建议</strong>：学校要求就装样子做做，不要求就别做，直接在原书上反复刷</li>
+</ul>
+
+<h3 id="c3-2">3.2 上课笔记</h3>
+<p><strong>核心结论：笔记精美≠学习高效。</strong></p>
+<ul>
+<li>笔记本身只是一种形式，真正重要的是老师在讲知识点时的<span class="key">逻辑</span>——如何推导出知识点</li>
+<li>把笔记做得非常精美，说明把大多数精力花在记笔记上，没注意听讲</li>
+<li><strong>正确做法</strong>：上课听懂第一，笔记下课可以补，但上课过程的思维无法事后弥补</li>
+<li>笔记中不熟的知识点，可以纳入刷题材料，每天反复刷</li>
+<li>生物、化学等记忆密集型科目，知识点要刷十遍以上</li>
+</ul>
+
+<h3 id="c3-3">3.3 强行记忆法（最后一招）</h3>
+<div class="highlight">⚠️ <strong>慎用、少用、尽量不用！</strong>此方法属于"实在没办法的办法"，是最后的兜底策略。</div>
+<ul>
+<li><strong>适用情境</strong>：反复刷题五遍后仍不熟练的题（一章最多一两道）</li>
+<li><strong>操作方法</strong>：把这道题单独拿出来，将每一步骤像背书一样默写，直接记到脑海里</li>
+<li><strong>严格数量限制</strong>：一章一两道，一学期不超过五道</li>
+<li><strong>神奇效果</strong>：当时强行记住后，过一两个月会慢慢自己懂了——这是潜意识机制，大脑在后台慢慢加工</li>
+</ul>
+
+<h3 id="c3-4">3.4 计算适用吗</h3>
+<p><strong>核心结论：计算题非常适合反复刷题法，几乎是最适合的题型之一。</strong></p>
+<ul>
+<li><strong>计算错误的根因</strong>：错误具有高度重复性——每个人的易错点"从一而终"</li>
+<li><strong>方法</strong>：找100道经典错题 → 一遍一遍反复刷到恶心 → 形成条件反射和肌肉记忆</li>
+<li><strong>训练周期</strong>：先花一周训练，反复刷100道；刷完后下笔如有神</li>
+<li><strong>巧算</strong>：通过经典题掌握定死的技巧后，做新题马上就会</li>
+</ul>
+
+<h3 id="c3-5">3.5 脉冲学习法（不要乱用）</h3>
+<div class="highlight">⚠️ <strong>慎用、少用、有分寸！</strong></div>
+<p><strong>定义</strong>：集中突破——将大量时间集中在某一板块，快速攻克。</p>
+<ul>
+<li><strong>适用场景</strong>：阶段性突击（化学竞赛、集中背单词、集中搞计算等）</li>
+<li><strong>核心优势</strong>：避免分散学习导致的遗忘与状态切换损耗。每天钻得深→遗忘少→易突破关键点</li>
+<li><strong>重大代价</strong>：必然影响其他板块</li>
+<li><strong>合理应用</strong>：每天弄完学校东西后还有1小时，这个月集中突破单词/阅读/计算</li>
+<li><strong>反例警示</strong>：高中竞赛生停掉语英搞数学竞赛——多数人搞不定</li>
+</ul>
+
+<h3 id="c3-6">3.6 冥想法（高手的必会技能）</h3>
+<div class="highlight">💡 <strong>适用对象：</strong>成绩达到95%之后，冲刺100%的进阶技能。不适合新手。</div>
+<p><strong>定义</strong>：用大脑模拟题目解题过程，把每一步在脑中清晰浮现——"想清楚"比"写清楚"更重要。</p>
+<ul>
+<li><strong>怎么用</strong>：嵌入五刷法的第三、四、五遍——这个时候不动笔，在想</li>
+<li><strong>物理学习中的冥想</strong>：小球受力后怎么运动、运动到哪碰撞、碰撞后又怎么样——每一步在脑子里清晰浮现</li>
+<li><strong>三重门槛</strong>：<span class="key">能力门槛</span>（中等学生大脑没这种能力）+ <span class="key">自律门槛</span>（会走神）+ <span class="key">动力门槛</span>（真想突破95到100）</li>
+<li><strong>写一半想一半</strong>：学习数学物理化学时，写大概占一半，多数题目是在脑子里想的</li>
+<li><strong>与费曼学习法的区别</strong>：费曼是把东西给别人讲；冥想法是把每一步在脑子里想清楚，不一定有话语，更省时间</li>
+</ul>
+</section>
+
+<!-- 第四章 -->
+<section id="c4">
+<h2>❓ 第四章 · 答疑篇（13个答疑）</h2>
+
+<h3 id="c4-1">4.1 要一本不要五本！</h3>
+<p><strong>核心澄清</strong>：五刷法是在<span class="key">同一本书</span>上刷五遍，而非买五本新书各刷一遍。</p>
+<ul>
+<li><strong>小卡片遮盖法</strong>：用一张小卡片（银行卡、健身卡、A4纸）把答案盖住，五遍都在同一本书上进行</li>
+<li><strong>沧桑感心理建设</strong>：同一本书刷到后面变旧，给学生强烈的"我已经胸有成竹"的心理暗示</li>
+<li><strong>答案可追溯</strong>：遇到不会的题立即翻卡片查答案，五本新书则不知道去哪找</li>
+<li><strong>速度优势</strong>：五刷精髓是后面几遍要快，一本书五遍才能真正实现飞速提升</li>
+</ul>
+
+<h3 id="c4-2">4.2 操作手册与视频不一致</h3>
+<p><strong>根本原因</strong>：视频是三月中录的，目标让学员马上在期中考试显示威力（时间紧凑）；手册覆盖整个学期（时间拉长）。两者不矛盾，是针对不同场景的差异化设计。</p>
+<p><strong>核心理念</strong>：<span class="key">次数优先于时间，灵活优于死板</span>。不必严格按时间表执行，遇到急事顺延一天完全可以。</p>
+
+<h3 id="c4-3">4.3 授之以渔挑参考书</h3>
+<p><strong>核心方法：教会孩子自己挑参考书。</strong></p>
+<ul>
+<li><strong>"跳一跳够一够"理论</strong>：知识点"不太熟练但磕磕巴巴能做出来"的难度最合适</li>
+<li><strong>题目配比5:3:2</strong>：基础题50%（独立完成）+ 中等题30~40%（需思考）+ 难题10~20%（需讲解）</li>
+<li>带学生去实体书店实地翻阅，用一道题"试跳"测试难度</li>
+<li>选好一本坚持用下去，家长陪选1~2年后逐步放手</li>
+</ul>
+
+<h3 id="c4-4">4.4 第一次最重要！</h3>
+<p><strong>第一遍是五刷法的根基</strong>——核心目标是把每一道题搞懂。如果没人讲，可以用课外班讲义替代参考书（如乐读等，有配套视频讲解），预习时也一定要看视频。</p>
+
+<h3 id="c4-5">4.5 小学课内太简单如何解</h3>
+<p><strong>小学差异化方案</strong>：课内只刷错题、做不顺的题、不会的题（不全刷）；课外用五刷法主攻奥数。小学奥数≈初中课内难度，正是五刷法发挥威力的最佳场景。</p>
+
+<h3 id="c4-6">4.6 时间来得及吗</h3>
+<p><strong>核心建议：动起来试一试！</strong>不要空想——拿一节20道题让孩子实际刷一遍并计时。三刷之后"时间是白送的"，重复次数增加→熟练度提升→速度自然加快。</p>
+
+<h3 id="c4-7">4.7 知识点要不要刷</h3>
+<p><strong>分阶段处理</strong>：<span class="tag-blue">小学</span>只刷题即可，知识点太简单；<span class="tag-green">初高中</span>必须刷知识点（把每节知识点纳入五刷范围，用卡片法"会则翻过不会的标记"）。化学老师本人刷了十遍，细节掌握程度超越高中老师。</p>
+
+<h3 id="c4-8">4.8 题型一变就不会了？</h3>
+<p><strong>核心回应</strong>：这是对五刷法精神的误读。五刷法不是"背题"，而是通过反复把题目每一个细节、每一步骤之间的<span class="key">逻辑关系</span>都印在脑海里。题型变来变去，过程步骤还是那些——"豆腐三碗"和"三碗豆腐"没区别。</p>
+
+<h3 id="c4-9">4.9 立足现在不要回滚</h3>
+<p>学期中段购课不要从第一章补刷——<span class="key">立足现在</span>，紧跟学校进度。当天内容当天刷 > 周末补前章 > 寒暑假预习。预习是寒暑假专属任务。</p>
+
+<h3 id="c4-10">4.10 寒暑假如何使用刷题法</h3>
+<ul>
+<li>寒暑假特点：时间短、任务重，不可强求五刷</li>
+<li><strong>优化为两刷</strong>：预习只需刷两次，达到"中等难度会做"即可</li>
+<li><strong>买两份资料</strong>：第一份上课/自学用，第二份专门刷题</li>
+<li><strong>错题难题延期使用</strong>：寒暑假两刷中出现的错题和难题划出来，下学期用五刷法专项刷</li>
+<li>新学期再买一本更难的教辅做正常五刷</li>
+<li>小学奥数除外：继续五刷</li>
+</ul>
+
+<h3 id="c4-11">4.11 什么叫"复现"</h3>
+<p><strong>复现 = 合上书本后，在脑海中重现题目和解题过程。</strong>复现是检验是否真正掌握的核心标准——如果不能完整复现，说明还没真正掌握。</p>
+
+<h3 id="c4-12">4.12 卡片操作示范</h3>
+<ul>
+<li><strong>大题</strong>：直接整题遮住，在草稿纸上写</li>
+<li><strong>填空题</strong>：卡片逐行移动，露出当前空，想完再移下一行</li>
+<li><strong>高级技巧</strong>：两张卡片配合、斜着放</li>
+<li><strong>核心心态</strong>：卡片法是灵活的，关键在防止偷看答案。孩子尝到甜头后会自觉不去看答案</li>
+</ul>
+
+<h3 id="c4-13">4.13 要不要改数据再刷？</h3>
+<p><strong>完全没必要！</strong>题目的核心不是数字，而是数据之间的逻辑关系。改数据违反"高效"和"效果好"两大原则。检验掌握的正确方法是让孩子<span class="key">复述题目</span>，而不是改数据再做。</p>
+</section>
+
+<!-- 第五章 -->
+<section id="c5">
+<h2>🧠 第五章 · 文科学习方法（闭眼回忆法）</h2>
+<p><strong>文理方法论分工</strong>：理科用"五遍刷题法"，文科用"闭眼回忆法"——两招搭配，文科理科双开花。</p>
+
+<h3>闭眼回忆法完整操作步骤</h3>
+<ol>
+<li><strong>第一步：专心看一遍</strong>——把要背的内容专心看一遍，要求专注</li>
+<li><strong>第二步：合书粗回忆</strong>——立刻合上书本，闭上眼睛回忆大概讲了什么，建立模糊的框架感</li>
+<li><strong>第三步：分段精回忆</strong>——一段一段"填内容"：翻开看一段→快速看完合上→闭眼在脑海中精确回忆（主语是谁、什么时候、干了什么事、有什么意义、有几点）</li>
+<li><strong>第四步：循环强化</strong>——每段经过"翻开看→合上回忆→模糊处再翻看→再合上回忆"的循环。约1小时可搞定两页内容</li>
+</ol>
+<h4>效果</h4>
+<p>可以记住每一句话在书中的位置、每句话的主语、动作、时间、意义等关键信息，相当于把整本书"刻"在脑海里，形成知识网络。</p>
+<h4>神经科学原理</h4>
+<p>第一遍看书时大脑神经元建立弱连接，合书回忆时发现哪个连接弱（忘了），马上翻书再强化，反复强化后连接变得非常强。</p>
+<div class="highlight">💡 <strong>唯一要求：</strong>学生必须自己愿意学、能静下心来。思维上的懒惰者会拒绝这种方法——宁可身体累（凌晨起来死记硬背），也不愿意动脑。这是"战术上的勤奋掩盖战略上的懒惰"。</div>
+</section>
+
+<!-- 第六章 -->
+<section id="c6">
+<h2>🚀 第六章 · 超越篇</h2>
+
+<h3 id="c6-1">6.1 2022高考趋势锐评</h3>
+<table>
+<tr><th>趋势</th><th>影响</th></tr>
+<tr><td>时间变紧</td><td>一旦想反方向就绝对没时间改正</td></tr>
+<tr><td>套路题减少</td><td>灵活应用题变多</td></tr>
+<tr><td>计算量极大</td><td>每道题用时长</td></tr>
+</table>
+<p><strong>对中档和中上等优秀生不利</strong>：平时考130的被压到110，平时考110的考90，分差变小。未来趋势：<span class="key">"公考化"方向</span>——时间极紧、多数人答不完、必须学会选择。</p>
+
+<h3 id="c6-2">6.2 四点秘籍（从优秀到卓越）</h3>
+<div class="card-row">
+  <div class="card"><strong>秘籍一</strong><span>知识点推导加入刷题，不只看结论</span></div>
+  <div class="card"><strong>秘籍二</strong><span>研究题目（死磕详解），"要多想"</span></div>
+  <div class="card"><strong>秘籍三</strong><span>回归基础概念，"通常情况下"什么意思</span></div>
+  <div class="card"><strong>秘籍四</strong><span>反套路题勇于尝试，把每个条件能推出的式子都写出来</span></div>
+</div>
+<div class="highlight">💡 <strong>核心升华：</strong>从中等到优秀讲师可以帮，从优秀到卓越必须靠自己——"师傅领进门，修行靠个人"。</div>
+
+<h3 id="c6-3">6.3 一万小时定律 + 刻意练习</h3>
+<div class="card-row">
+  <div class="card"><strong>⏱ 一万小时</strong><span>任何领域投入一万小时能成专家。每天3小时×300天/年×11年≈10000小时</span></div>
+  <div class="card"><strong>🎯 刻意练习</strong><span>每一小时都要高效，学新东西后刻意去练。刷题法=刻意练习</span></div>
+  <div class="card"><strong>🏔 里程碑推进</strong><span>一万小时不是匀速跑，而是阶梯式爬升（月考/期中/期末）</span></div>
+</div>
+<p><strong>失败者的共同特征</strong>：浅尝辄止——"在水面上面搞事情"，没有把深度扎下去。成年人停滞的根因是"毕业后停止学习"。</p>
+<div class="highlight">🌳 <strong>"一棵树，最timing是十年前，其实就是现在。"</strong>——方向对了就埋头去做。</div>
+</section>
+
+<!-- 学科篇 -->
+<section id="c7">
+<h2>📚 学科分类学习方法</h2>
+
+<h3 id="c7-1">语文学习方法</h3>
+<table>
+<tr><th>板块</th><th>核心方法</th></tr>
+<tr><td>基础学习</td><td>紧跟校内 + 百分百掌握 + 适当加量（二类字也会写）。听写检验、背诵过关</td></tr>
+<tr><td>大语文/小古文</td><td>大语文对多数人没用（无内化机制）；小古文不必焦虑，初中重新学可赶上</td></tr>
+<tr><td>作文</td><td>结构套路（保下限）+ 素材积累（决定上限）+ 组装练习（关键）</td></tr>
+<tr><td>阅读理解</td><td>模板（保底分）+ 研究标准答案（提上限）+ 速读训练</td></tr>
+<tr><td>卷子复盘</td><td>榨干每张卷子的全部价值——成语题16个成语都要查、搞懂</td></tr>
+</table>
+<div class="highlight">💡 <strong>语文终极核心：</strong>"认真"二字。语文与天资关系最小，顶尖学生差距在语文（10-20分不可追回）。</div>
+
+<h3 id="c7-2">英语学习方法</h3>
+<p><strong>双轨逻辑</strong>：英语能力（听说读写）+ 应试契合（熟悉题型、掌握套路）。两者100%契合，成绩不可能差。</p>
+<table>
+<tr><th>优先级</th><th>方法</th></tr>
+<tr><td>🥇 单词</td><td>绝对核心！集中突破（不每天背5个，集中背100个）+ 反复回滚 + 使用中固化</td></tr>
+<tr><td>🥈 阅读</td><td>单词 + 长难句训练（卡片法专门练）</td></tr>
+<tr><td>🥉 作文</td><td>自己写3~5套华丽模板（不要背参考书的），灵活组合</td></tr>
+<tr><td>④ 语法/完形</td><td>分类刷题 + 集中突破，哪里差刷哪里</td></tr>
+</table>
+<div class="highlight">💡 <strong>与语文的本质区别：</strong>语文是"童子功"需长期积累；英语可以集中突击——原来很差的人也可以在短时间内提高。</div>
+
+<h3 id="c7-3">数学学习方法</h3>
+<ol>
+<li><strong>知识点学习</strong>：透而不必死记，拎出易错点 + 举正反例子 + 常考方式</li>
+<li><strong>自己推导</strong>：公式、定理、二级结论必须自己推——过程比结论重要</li>
+<li><strong>内化检验</strong>：能给自己讲清楚 = 真正掌握。把本子上的字遮住，凭记忆写推导过程</li>
+<li><strong>答题过程完整</strong>：逻辑完善不跳步，根在"讲题"这一步</li>
+<li><strong>看题与写题</strong>：前两遍必须写，后三遍可看可想过。学数学是"研究数学"而非"做题"</li>
+</ol>
+
+<h3 id="c7-4">物理学习方法</h3>
+<table>
+<tr><th>阶段</th><th>要点</th></tr>
+<tr><td>概念理解</td><td>物理概念比数学更重要——细节、例外、特殊情况就是出题点</td></tr>
+<tr><td>选择题</td><td>物理选择题=母题。四个选项都要搞清对错（不只看正确答案），错的地方就是考点</td></tr>
+<tr><td>大题</td><td>物理大题=组合题=简单套路一步步拼装，像拼积木一样</td></tr>
+<tr><td>高阶训练</td><td>物理后期"多想少写"——闭眼想大题，模型思维训练</td></tr>
+</table>
+<div class="highlight">💡 <strong>物理≠数学：</strong>不能用数学思维套物理。物理靠概念理解+情景建模，五刷法对物理百分百适用且最立竿见影。</div>
+
+<h3 id="c7-5">化学学习方法</h3>
+<p><strong>化学是"理科中的文科"</strong>——大量内容需要记忆。记忆保底80%，理解提到满分。</p>
+<ul>
+<li><strong>化学是一张大网+大量例外</strong>：各种知识互相联系，例外就是考点（如"活泼金属遇酸通常产生氢气，但硝酸例外"）</li>
+<li><strong>化学实验"无敌装置法"</strong>：刷完10套化学实验题→组合成一套无懈可击的装置→覆盖所有考点</li>
+<li><strong>五刷可能还不够</strong>：化学需要更高强度的反复，知识点要滚瓜烂熟</li>
+<li>老师水平差时，找外部名师课补理解</li>
+</ul>
+
+<h3 id="c7-6">生物学习方法</h3>
+<p><strong>生物最容易提高、最容易接近满分</strong>——"知识池子"非常小、范围非常有限。</p>
+<p>抓住三个点：</p>
+<ol>
+<li><strong>知识点事无巨细</strong>：反复阅读课本，课本里的图、各种细节都要去查、去用</li>
+<li><strong>集中刷题</strong>：15天集中刷完往年真题，开学后直接满分。寒假是刷生物的黄金窗口</li>
+<li><strong>培养识图能力</strong>：记知识点时一定要结合图去记，理想情况是自己能画出图来</li>
+</ol>
+</section>
+
+<!-- 专题扩展 -->
+<section id="c8">
+<h2>📎 专题扩展（15个专题）</h2>
+
+<h3 id="c8-1">预习三板斧</h3>
+<div class="card-row">
+  <div class="card"><strong>🪓 第一板斧</strong><span>知全貌：花一个下午翻完下学期的课本，克服畏难心理</span></div>
+  <div class="card"><strong>🪓 第二板斧</strong><span>分板块攻克：跟着视频课"照猫画猫"，预习刷2~3遍即可</span></div>
+  <div class="card"><strong>🪓 第三板斧</strong><span>总结讲给家长听：拿白纸写总结→讲给家长→发现盲点→回去补</span></div>
+</div>
+
+<h3 id="c8-2">寒假如何预习</h3>
+<p><strong>小学</strong>：校内用短小网课（如乐乐课堂）快速过一遍；英语不用管校内按体系继续；语文写生字词。</p>
+<p><strong>初高中</strong>：报寒假班+五刷讲义，不要自己看书（效率太低）。理科必预习，英语按体系继续，语文突击阅读作文。</p>
+
+<h3 id="c8-3">暑假学习安排</h3>
+<p><strong>小学尖子生</strong>：数学只搞奥数（暑假班五刷），不管校内；语文字词搞定；英语体系课继续。每天半天足矣。</p>
+<p><strong>初高中</strong>：暑假是补课黄金期，理科必预习（学到中等难度），英语背单词+查漏补缺，语文基本不管。</p>
+
+<h3 id="c8-4">预习、复习和刷题的辩证关系</h3>
+<p><strong>核心结论</strong>：预习在寒暑假搞定、复习融在刷题里——三者不是三个独立模块，而是同一套流程的不同侧面。</p>
+<ul>
+<li><strong>预习</strong>：只能在寒暑假搞，平时不能预习。预习是"五刷法的基础"</li>
+<li><strong>复习</strong>：五刷法本身就是复习。每天把当天的东西彻底搞懂，过一段时间再刷一次=复习</li>
+<li><strong>刷题</strong>：学期中的核心动作</li>
+</ul>
+<div class="highlight">💡 <strong>一体三面：</strong>五刷法是一套流程化的操作，把预习、复习、刷题、巩固都包进去了——流程走完，这些动作都自动完成了。</div>
+
+<h3 id="c8-5">划题目重点</h3>
+<ul>
+<li><strong>简单题</strong>：可不划或只划数据</li>
+<li><strong>代数题</strong>：划数据 + 划"易错词/多种情况标志词"</li>
+<li><strong>几何题</strong>：把题干标在图里（最关键第一步） + 卡住时回到题干找漏掉的条件</li>
+<li>划重点是<span class="key">个性化</span>的事情，风格由自己的做题习惯决定</li>
+</ul>
+
+<h3 id="c8-6">卡片法背英语单词</h3>
+<p><strong>核心前提</strong>：多数单词只需要"认识"不需要"会写"。词汇量=认识一万多个词，不是会写一万多个。</p>
+<ol>
+<li>第一遍：先裸看，对整张单词表留下整体印象</li>
+<li>第二遍起：拿一张卡片<span class="key">遮住中文意思，只露出英文</span></li>
+<li>看到英文时先在脑子里想中文意思，想不出来翻中文瞄一眼</li>
+<li>反复循环，不认识的词自然被挑出来</li>
+</ol>
+<p><strong>科学性</strong>：分布式重复 vs 一次性死记——每天让单词出现在你面前5秒钟，连续重复，比盯1小时效果更好。</p>
+
+<h3 id="c8-7">英语单词迷思</h3>
+<p><strong>两阶段路径</strong>：阶段一（卡片法解决"认识"）→ 阶段二（听写默写/自然拼读解决"会写"）。</p>
+<p><strong>集中背 vs 阅读积累</strong>：两者是辩证统一关系。先集中用卡片法背过（基础），再在阅读、刷题中反复应用（巩固）。</p>
+<p><strong>不要用背单词软件</strong>：卡片法=主动回忆（填空），软件=被动选择（ABCD四选一）。考试不给选项，必须精确回忆。</p>
+
+<h3 id="c8-8">听写法搞定语文字词</h3>
+<p><strong>标准化流程（以20个字词/天为例）</strong>：</p>
+<ul>
+<li><strong>上午/白天</strong>：每个字词抄写5遍（一边抄一边往心里记）</li>
+<li><strong>晚上</strong>：听写过关→会写的过关放旁边→不会的进入第二天任务</li>
+<li><strong>第二天</strong>：20个新词（抄5遍）+ 10个前一天的不会词（抄10遍）→ 晚上听写30个</li>
+<li><strong>滚动循环</strong>：每日新词+前日不会词+不断淘汰已掌握的词</li>
+<li><strong>周末攻坚</strong>：前5天滚动，后2天专门处理顽固字词</li>
+</ul>
+<div class="highlight">💡 <strong>听写不是作业是方法——"筛沙子"原理：</strong>听写本身不会让不会的词变会，必须配合"找出不会的词→反复练→再听写"的后续动作。</div>
+
+<h3 id="c8-9">语文课外阅读</h3>
+<p><strong>不同阶段不同策略</strong>：</p>
+<table>
+<tr><th>阶段</th><th>策略</th></tr>
+<tr><td>小学之前</td><td><span class="key">黄金期</span>：培养自主阅读能力，实现语文和数学全方位领先</td></tr>
+<tr><td>1~2年级</td><td>低效期，语文基础（字词）才是重点</td></tr>
+<tr><td>3~5年级</td><td><span class="key">次黄金期</span>：大量阅读，为初中文理科打基础</td></tr>
+<tr><td>小升初/初高中</td><td>被课内挤压，只能"偷着看"或精选书目</td></tr>
+</table>
+
+<h3 id="c8-10">闭眼照相法（背课文/文言文）</h3>
+<p><strong>核心思想</strong>：把课本当一张图片印到脑海里，用<span class="key">图像记忆</span>替代音频记忆。</p>
+<ol>
+<li>睡前操作：躺床→逐句闭眼输入→整体回忆→查漏补缺→入睡</li>
+<li>睡着后大脑潜意识继续背；第二天早上效果更好</li>
+<li>适用于初高中（需自觉），一周搞一次（别影响睡眠）</li>
+</ol>
+
+<h3 id="c8-11">文言文怎么过关</h3>
+<p><strong>核心方法：逐字逐句过关 + 背写结合</strong>。每天一两段，每段每一字的实词虚词、背景、课后题都要搞清楚。</p>
+<p><strong>过关标准</strong>：家长随便指一句，孩子能说清这句话什么意思、每个字什么意思、哪个是实词虚词、古文背景是什么。</p>
+
+<h3 id="c8-12">小学数学教辅测评</h3>
+<table>
+<tr><th>教辅</th><th>定位</th><th>适合人群</th></tr>
+<tr><td>尖子生题库 🥇</td><td>全能型：讲解+例题+易错诊断+练习</td><td>时间充裕、想系统学的学生</td></tr>
+<tr><td>实验班 🥈</td><td>练习型：简化讲解、大量练习</td><td>校内已掌握、想多刷题的学生</td></tr>
+<tr><td>学霸 🥉</td><td>拔高型：零基础题、每道都有难度</td><td>仅限尖子生拔高用</td></tr>
+<tr><td>拔尖特训</td><td>小众：彩图精美、题量少</td><td>讲者不特别推荐</td></tr>
+</table>
+
+<h3 id="c8-13">初中数学教辅选择</h3>
+<p><strong>核心结论</strong>：书店里的教辅"没有特别让人满意的"。初中数学要拿高分，必须学<span class="key">自招体系</span>。</p>
+<ul>
+<li><strong>最优解</strong>：选一套自招课程，把它的讲义（不是作业）用五刷法彻底刷透</li>
+<li>自招体系包含中考内容，无需另买参考书</li>
+<li>物理化学按现有课程跟学即可；数学是唯一必须五刷讲义的科目</li>
+</ul>
+
+<h3 id="c8-14">刷题法与深度思考</h3>
+<p><strong>核心逻辑链</strong>：小学靠记忆→初中靠套路→高中必须深度思考。</p>
+<p>刷题法的高效率→快速掌握+腾出空闲+反复翻看→<span class="key">深度思考自然涌现</span>。深度思考不是额外任务，而是"刷透一本书"之后的必然产物。</p>
+<p>实践一学期：成绩大幅提升；<span class="good">实践一年后</span>：刷题变成肌肉记忆，精力自然转向深度思考。</p>
+
+<h3 id="c8-15">海绵学习法（边边角角知识）</h3>
+<p><strong>学霸的核心特征</strong>：像海绵一样主动吸收所有"边边角角"的知识——教辅的阅读材料、课本里的生字、英语阅读的生词等。</p>
+<ul>
+<li>把每本教辅、每篇课文的"边边角角"都榨干吸收——<span class="key">"橙子榨汁"比喻</span>：一般人榨一杯，学霸能榨两杯</li>
+<li>必须学生自己主动（家长监督无法深入到边边角角）</li>
+<li>每次考试能避免"差一点点"的遗憾（98→100）</li>
+</ul>
+</section>
+
+<!-- 总结 -->
+<section style="background:linear-gradient(135deg,#fefcf7,#f5f0e8)">
+<h2 style="text-align:center">🎯 课程核心公式</h2>
+<div style="text-align:center;font-size:1.3em;padding:20px 0">
+  <span class="key">三大理论</span> + <span class="key">五刷法</span> + <span class="key">闭眼回忆法</span> + <span class="key">冥想法</span> + <span class="key">学科专项</span> = <strong style="color:#5b4636">走进985</strong>
+</div>
+<div style="display:flex;flex-wrap:wrap;justify-content:center;gap:10px;margin:10px 0">
+  <span class="tag-blue">熟练度（目标）</span>
+  <span class="tag-green">重复（手段）</span>
+  <span class="tag-amber">母题（对象）</span>
+  <span class="tag-blue">五遍刷题（操作）</span>
+  <span class="tag-green">全刷>刷错题</span>
+  <span class="tag-amber">卡片法</span>
+  <span class="tag-blue">闭眼回忆</span>
+  <span class="tag-green">冥想法</span>
+  <span class="tag-amber">脉冲学习</span>
+  <span class="tag-blue">一万小时</span>
+  <span class="tag-green">刻意练习</span>
+</div>
+<div class="highlight" style="text-align:center;margin-top:16px">
+  <strong>🔑 记住三点：</strong>① 方法+执行=学霸 ② 一本书刷五遍 > 五本书各刷一遍 ③ 相信方法，先做再说
+</div>
+</section>
+
+<div style="text-align:center;padding:30px 0 10px;color:#8b7a66;font-size:.85em">
+  📚 走进985 · 全科万能学习方法 · 完整知识宝典<br>
+  收录54节全部知识点 · 从小白到高手的一站式学习指南
+</div>
+
+</div>
+</body>
+</html>
