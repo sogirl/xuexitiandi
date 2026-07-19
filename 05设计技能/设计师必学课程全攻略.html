@@ -1,0 +1,1263 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>设计师必学 · GPT-image2 全场景实战 · 小白到精通全攻略</title>
+<style>
+:root{
+  --bg:#f4f6fa;
+  --bg-soft:#eef2f7;
+  --card:#ffffff;
+  --ink:#2b3445;
+  --ink-soft:#5a6678;
+  --ink-faint:#8a95a8;
+  --line:#e4e9f0;
+  --brand:#5b8def;
+  --brand-soft:#e8f0ff;
+  --brand-deep:#3b6fd6;
+  --accent:#7c6cd9;
+  --accent-soft:#efecfb;
+  --green:#3aa68b;
+  --green-soft:#e4f5ef;
+  --pink:#e8829b;
+  --pink-soft:#fceaf0;
+  --orange:#e8943a;
+  --orange-soft:#fdf1e2;
+  --red:#e0685a;
+  --red-soft:#fcebe7;
+  --code-bg:#f7f9fc;
+  --shadow:0 4px 18px rgba(60,80,120,.06);
+  --shadow-hover:0 8px 28px rgba(60,80,120,.12);
+  --radius:14px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{
+  margin:0;
+  font-family:"PingFang SC","Microsoft YaHei","Segoe UI",-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--ink);
+  line-height:1.8;
+  font-size:16px;
+  -webkit-font-smoothing:antialiased;
+}
+
+/* ===== 顶部进度条 ===== */
+#progress{position:fixed;top:0;left:0;height:3px;width:0;background:linear-gradient(90deg,var(--brand),var(--accent));z-index:200;transition:width .1s}
+
+/* ===== 布局 ===== */
+.layout{display:flex;max-width:1400px;margin:0 auto}
+
+/* ===== 侧边栏 ===== */
+.sidebar{
+  position:sticky;top:0;height:100vh;width:280px;flex-shrink:0;
+  overflow-y:auto;padding:26px 18px;
+  background:linear-gradient(180deg,#fbfcfe,#f0f4fa);
+  border-right:1px solid var(--line);
+}
+.sidebar::-webkit-scrollbar{width:6px}
+.sidebar::-webkit-scrollbar-thumb{background:#cdd6e4;border-radius:3px}
+.logo{display:flex;align-items:center;gap:10px;font-weight:800;font-size:18px;color:var(--brand-deep);margin-bottom:6px}
+.logo .dot{width:30px;height:30px;border-radius:9px;background:linear-gradient(135deg,var(--brand),var(--accent));display:flex;align-items:center;justify-content:center;color:#fff;font-size:16px}
+.logo-sub{font-size:11px;color:var(--ink-faint);font-weight:500;margin-bottom:18px;padding-left:40px}
+.nav-group-title{font-size:11px;letter-spacing:1px;color:var(--ink-faint);font-weight:700;margin:18px 0 8px;text-transform:uppercase;padding-left:10px}
+.nav a{
+  display:block;padding:7px 12px;border-radius:9px;
+  color:var(--ink-soft);text-decoration:none;font-size:14px;
+  transition:.18s;border-left:3px solid transparent;
+}
+.nav a:hover{background:#fff;color:var(--brand-deep)}
+.nav a.active{background:var(--brand-soft);color:var(--brand-deep);font-weight:700;border-left-color:var(--brand)}
+.nav a .num{display:inline-block;width:24px;height:20px;line-height:20px;text-align:center;font-size:11px;background:#dde5f0;color:var(--brand-deep);border-radius:5px;margin-right:6px}
+.nav a.active .num{background:var(--brand);color:#fff}
+
+/* ===== 主内容 ===== */
+.main{flex:1;min-width:0;padding:0 40px 80px;max-width:1080px}
+
+/* Hero */
+.hero{
+  background:linear-gradient(135deg,#5b8def 0%,#7c6cd9 100%);
+  border-radius:22px;padding:46px 42px;color:#fff;margin:30px 0 36px;
+  box-shadow:0 12px 36px rgba(91,141,239,.25);position:relative;overflow:hidden;
+}
+.hero::after{content:"";position:absolute;right:-60px;top:-60px;width:260px;height:260px;border-radius:50%;background:rgba(255,255,255,.1)}
+.hero::before{content:"";position:absolute;right:60px;bottom:-90px;width:200px;height:200px;border-radius:50%;background:rgba(255,255,255,.08)}
+.hero h1{margin:0 0 10px;font-size:32px;font-weight:800;position:relative}
+.hero p{margin:0 0 18px;font-size:16px;opacity:.95;position:relative;max-width:640px}
+.hero-badges{display:flex;flex-wrap:wrap;gap:8px;position:relative}
+.hero-badges span{background:rgba(255,255,255,.18);padding:5px 13px;border-radius:20px;font-size:13px;backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.2)}
+
+/* 章节通用 */
+section{margin-bottom:40px;scroll-margin-top:20px}
+.sec-title{display:flex;align-items:center;gap:12px;font-size:24px;font-weight:800;color:var(--ink);margin:0 0 6px}
+.sec-title .icon{width:38px;height:38px;border-radius:11px;background:var(--brand-soft);color:var(--brand-deep);display:flex;align-items:center;justify-content:center;font-size:20px;flex-shrink:0}
+.sec-desc{color:var(--ink-faint);font-size:14px;margin:0 0 22px;padding-left:50px}
+
+.card{
+  background:var(--card);border-radius:var(--radius);padding:24px 26px;
+  box-shadow:var(--shadow);margin-bottom:18px;border:1px solid var(--line);
+}
+
+/* 课节标题 */
+.lesson-head{display:flex;align-items:center;gap:14px;margin-bottom:16px;padding-bottom:16px;border-bottom:2px dashed var(--line)}
+.lesson-num{width:48px;height:48px;border-radius:13px;background:linear-gradient(135deg,var(--brand),var(--accent));color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:20px;flex-shrink:0;box-shadow:0 4px 12px rgba(91,141,239,.3)}
+.lesson-title{font-size:21px;font-weight:800;margin:0;line-height:1.4}
+.lesson-cat{display:inline-block;margin-top:5px;font-size:12px;padding:2px 10px;border-radius:12px;background:var(--accent-soft);color:var(--accent);font-weight:600}
+
+h3.sub{font-size:17px;font-weight:700;color:var(--brand-deep);margin:22px 0 12px;display:flex;align-items:center;gap:8px}
+h3.sub::before{content:"";width:4px;height:18px;background:linear-gradient(180deg,var(--brand),var(--accent));border-radius:2px}
+h4{font-size:15.5px;font-weight:700;color:var(--ink);margin:16px 0 8px}
+p{margin:8px 0}
+ul,ol{margin:8px 0;padding-left:22px}
+li{margin:5px 0}
+strong{color:var(--ink);font-weight:700}
+
+/* 信息条 */
+.meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:14px}
+.meta span{font-size:13px;background:var(--bg-soft);padding:4px 11px;border-radius:8px;color:var(--ink-soft)}
+.meta span b{color:var(--brand-deep)}
+
+/* 提示词块 */
+.prompt{position:relative;background:var(--code-bg);border:1px solid var(--line);border-left:4px solid var(--orange);border-radius:10px;padding:14px 16px;margin:12px 0;font-family:"SF Mono",Consolas,Menlo,monospace;font-size:14px;color:#3d4759;white-space:pre-wrap;word-break:break-word}
+.prompt .copy-btn{position:absolute;top:8px;right:8px;background:#fff;border:1px solid var(--line);border-radius:7px;padding:4px 11px;font-size:12px;color:var(--ink-soft);cursor:pointer;transition:.15s;font-family:inherit}
+.prompt .copy-btn:hover{background:var(--brand);color:#fff;border-color:var(--brand)}
+.prompt .copy-btn.copied{background:var(--green);color:#fff;border-color:var(--green)}
+.prompt-label{font-size:12px;color:var(--orange);font-weight:700;margin-bottom:4px;font-family:inherit;display:block}
+
+/* 提示框 */
+.callout{border-radius:11px;padding:14px 16px 14px 18px;margin:14px 0;font-size:14.5px}
+.callout.tip{background:var(--green-soft);border-left:4px solid var(--green)}
+.callout.warn{background:var(--orange-soft);border-left:4px solid var(--orange)}
+.callout.pit{background:var(--red-soft);border-left:4px solid var(--red)}
+.callout.info{background:var(--brand-soft);border-left:4px solid var(--brand)}
+.callout b{display:block;margin-bottom:4px;font-size:14px}
+
+/* 表格 */
+table{width:100%;border-collapse:collapse;margin:14px 0;font-size:14px;background:#fff;border-radius:10px;overflow:hidden;box-shadow:0 2px 8px rgba(60,80,120,.05)}
+th{background:linear-gradient(180deg,#eef3fb,#e6edf7);color:var(--brand-deep);font-weight:700;padding:11px 14px;text-align:left;border-bottom:2px solid var(--line)}
+td{padding:10px 14px;border-bottom:1px solid var(--line);color:var(--ink-soft);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#fafcff}
+
+/* 流程图 */
+.flow{background:var(--code-bg);border:1px solid var(--line);border-radius:12px;padding:18px;font-family:"SF Mono",Consolas,monospace;font-size:13.5px;line-height:1.7;color:#465068;overflow-x:auto;white-space:pre}
+.steps{counter-reset:step;margin:14px 0;padding:0;list-style:none}
+.steps li{position:relative;padding:12px 14px 12px 50px;margin-bottom:10px;background:var(--bg-soft);border-radius:11px;border-left:3px solid var(--brand);counter-increment:step}
+.steps li::before{content:counter(step);position:absolute;left:12px;top:12px;width:28px;height:28px;border-radius:50%;background:var(--brand);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:14px}
+.steps li b{color:var(--brand-deep)}
+
+/* 知识点卡片网格 */
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:14px;margin:16px 0}
+.mini{background:var(--bg-soft);border-radius:11px;padding:14px 16px;border-top:3px solid var(--brand)}
+.mini h4{margin:0 0 6px;color:var(--brand-deep)}
+.mini p{margin:0;font-size:13.5px;color:var(--ink-soft)}
+.mini.green{border-top-color:var(--green)}.mini.green h4{color:var(--green)}
+.mini.accent{border-top-color:var(--accent)}.mini.accent h4{color:var(--accent)}
+.mini.pink{border-top-color:var(--pink)}.mini.pink h4{color:var(--pink)}
+.mini.orange{border-top-color:var(--orange)}.mini.orange h4{color:var(--orange)}
+
+/* 标签 */
+.tag{display:inline-block;font-size:12px;padding:2px 9px;border-radius:6px;margin:0 4px 4px 0;font-weight:600}
+.tag.b{background:var(--brand-soft);color:var(--brand-deep)}
+.tag.g{background:var(--green-soft);color:var(--green)}
+.tag.a{background:var(--accent-soft);color:var(--accent)}
+.tag.o{background:var(--orange-soft);color:var(--orange)}
+
+/* 三件套大卡 */
+.trinity{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:16px 0}
+.trinity .t{background:linear-gradient(160deg,#fff,#f7faff);border:1px solid var(--line);border-radius:13px;padding:18px;text-align:center;box-shadow:var(--shadow)}
+.trinity .t .ic{font-size:28px;margin-bottom:8px}
+.trinity .t h4{margin:0 0 6px;color:var(--brand-deep)}
+.trinity .t p{margin:0;font-size:13px;color:var(--ink-soft)}
+
+/* 学习路径时间线 */
+.path{position:relative;padding-left:30px}
+.path::before{content:"";position:absolute;left:9px;top:8px;bottom:8px;width:2px;background:linear-gradient(180deg,var(--brand),var(--accent),var(--green))}
+.path .node{position:relative;margin-bottom:18px;padding:14px 18px;background:#fff;border-radius:12px;box-shadow:var(--shadow);border:1px solid var(--line)}
+.path .node::before{content:"";position:absolute;left:-26px;top:18px;width:16px;height:16px;border-radius:50%;background:#fff;border:3px solid var(--brand);box-shadow:0 0 0 3px var(--brand-soft)}
+.path .node.stage2::before{border-color:var(--accent);box-shadow:0 0 0 3px var(--accent-soft)}
+.path .node.stage3::before{border-color:var(--green);box-shadow:0 0 0 3px var(--green-soft)}
+.path .stage{font-size:11px;font-weight:700;letter-spacing:1px;color:var(--ink-faint);text-transform:uppercase}
+
+/* 页脚 */
+footer{text-align:center;padding:40px 20px;color:var(--ink-faint);font-size:13px;border-top:1px solid var(--line);margin-top:40px}
+
+/* 移动端 */
+.menu-btn{display:none}
+@media(max-width:980px){
+  .sidebar{position:fixed;left:-300px;z-index:150;transition:left .3s;box-shadow:2px 0 20px rgba(0,0,0,.1)}
+  .sidebar.open{left:0}
+  .main{padding:0 18px 60px}
+  .menu-btn{display:flex;position:sticky;top:14px;left:14px;z-index:120;width:44px;height:44px;border-radius:12px;background:#fff;border:1px solid var(--line);align-items:center;justify-content:center;font-size:20px;cursor:pointer;box-shadow:var(--shadow);margin-bottom:14px}
+  .hero{padding:30px 22px}
+  .hero h1{font-size:24px}
+  .trinity{grid-template-columns:1fr}
+}
+</style>
+</head>
+<body>
+
+<div id="progress"></div>
+
+<div class="layout">
+
+  <!-- ============ 侧边栏 ============ -->
+  <aside class="sidebar" id="sidebar">
+    <div class="logo"><span class="dot">🎨</span> 设计师必学</div>
+    <div class="logo-sub">GPT-image2 全场景实战 · 小白→精通</div>
+
+    <nav class="nav">
+      <div class="nav-group-title">入门基础</div>
+      <a href="#start"><span>🚀</span> 从这里开始</a>
+      <a href="#cognition"><span>💡</span> 小白前置认知</a>
+      <a href="#trinity"><span>⚙️</span> 必备三件套</a>
+      <a href="#tools"><span>🧰</span> 工具分工图</a>
+
+      <div class="nav-group-title">14 节核心课</div>
+      <a href="#l01"><span class="num">01</span>海报+分层PSD</a>
+      <a href="#l02"><span class="num">02</span>IP一致性海报</a>
+      <a href="#l03"><span class="num">03</span>Logo品牌全套</a>
+      <a href="#l04"><span class="num">04</span>老照片修复</a>
+      <a href="#l05"><span class="num">05</span>UI界面组件库</a>
+      <a href="#l06"><span class="num">06</span>自动生成PPT</a>
+      <a href="#l07"><span class="num">07</span>电商视觉大片</a>
+      <a href="#l08"><span class="num">08</span>八大好用提示词</a>
+      <a href="#l09"><span class="num">09</span>电商详情页</a>
+      <a href="#l10"><span class="num">10</span>16拍分镜视频</a>
+      <a href="#l11"><span class="num">11</span>电影级分镜</a>
+      <a href="#l12"><span class="num">12</span>360全景图</a>
+      <a href="#l13"><span class="num">13</span>室内设计</a>
+      <a href="#l14"><span class="num">14</span>3A游戏Demo</a>
+
+      <div class="nav-group-title">进阶精通</div>
+      <a href="#prompts"><span>📚</span> 提示词资产库</a>
+      <a href="#map"><span>🗺️</span> 跨课程知识图谱</a>
+      <a href="#path"><span>🛤️</span> 学习路径</a>
+      <a href="#pits"><span>⚠️</span> 十大踩坑点</a>
+      <a href="#final"><span>🏆</span> 终极总结</a>
+    </nav>
+  </aside>
+
+  <!-- ============ 主内容 ============ -->
+  <main class="main">
+
+    <button class="menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+
+    <!-- Hero -->
+    <div class="hero">
+      <h1>🎨 设计师必学 · GPT-image2 全场景实战</h1>
+      <p>这是一份让小白 0 基础成长为 AI 设计精通高手的全攻略。14 节核心案例 + 全部提示词原文 + 知识图谱 + 学习路径，一页打通。</p>
+      <div class="hero-badges">
+        <span>👨‍🏫 讲师：小月</span>
+        <span>📚 92 节系列（本卷 14 例）</span>
+        <span>🛠️ GPT-image2 / 即梦2.0 / 可灵</span>
+        <span>📅 2026/06/27</span>
+        <span>🎯 小白 → 精通</span>
+      </div>
+    </div>
+
+    <!-- ============ 从这里开始 ============ -->
+    <section id="start">
+      <div class="sec-title"><span class="icon">🚀</span>从这里开始（30 秒看懂）</div>
+      <p class="sec-desc">先别急着操作，用 30 秒建立全局认知——这套课到底在教你什么。</p>
+      <div class="card">
+        <p><strong>一句话概括整套课：</strong>用 <strong>GPT-image2（5.5 模型 + 进阶模式）</strong>当"出图机器"，用 <strong>Gemini/GPT/豆包</strong>当"提示词工厂"，用 <strong>即梦2.0/可灵</strong>把静态图变成视频，用 <strong>PS/KS</strong>做后期收口——这就是设计师的全场景 AI 生产力体系。</p>
+        <div class="grid">
+          <div class="mini"><h4>📷 静态视觉</h4><p>海报、Logo、品牌、老照片、电商主图、详情页（01-04、07、09）</p></div>
+          <div class="mini green"><h4>📄 页面化批量</h4><p>UI 组件库、PPT、电商详情页——一次出 8 张（05、06、09）</p></div>
+          <div class="mini accent"><h4>🎬 动态视频</h4><p>16 拍分镜、电影分镜、游戏 Demo——图转视频（10、11、14）</p></div>
+          <div class="mini pink"><h4>🌐 特殊形态</h4><p>360 全景图、室内设计全套图（12、13）</p></div>
+        </div>
+        <div class="callout info"><b>给你的学习建议</b>第一次看，按左侧目录从"小白前置认知"往下读；想速成某一类，直接跳到对应课节，提示词都能复制即用。</div>
+      </div>
+    </section>
+
+    <!-- ============ 小白前置认知 ============ -->
+    <section id="cognition">
+      <div class="sec-title"><span class="icon">💡</span>小白前置认知</div>
+      <p class="sec-desc">在动手之前，必须搞懂的 6 个基础概念——搞懂这些，后面 14 节课就不会懵。</p>
+
+      <div class="card">
+        <h3 class="sub">1. GPT-image2 到底是什么？</h3>
+        <p>GPT-image2（也叫 Image 2 / GPT Image 2）是 <strong>ChatGPT 的图片生成能力</strong>。本套课几乎所有"出图"动作都靠它。它最大的两个杀手锏：</p>
+        <ul>
+          <li><strong>文字渲染清晰</strong>——很多 AI 出图工具（如早期 Midjourney）生成的文字是糊的、乱码的，而 GPT-image2 生成的海报、PPT、UI 上的文字非常清晰可用（详见课 06、09）。</li>
+          <li><strong>能听懂"大白话"</strong>——你不用写复杂的英文提示词，一句"做一张天猫主图，细节多一点"就能出图（详见课 07、13）。</li>
+        </ul>
+        <div class="callout tip"><b>认知关键</b>GPT 不只是画图工具！它同样能回答问题、生成文字、反推提示词。很多人只用它画图，浪费了一大半能力（课 05 重点强调）。</div>
+      </div>
+
+      <div class="card">
+        <h3 class="sub">2. 为什么必须用"5.5 模型"？</h3>
+        <p>课程反复强调：<strong>必须选择最新的 5.5 模型</strong>（出现在 01、02、03、04、05、06、09、11、13 等几乎所有课）。</p>
+        <ul>
+          <li>旧模型<strong>无法拆分图层 / 无法导出 PSD</strong>（课 01 的核心痛点）。</li>
+          <li>旧模型在<strong>角色一致性、文字清晰度、细节丰富度</strong>上都明显更弱。</li>
+          <li>5.5 模型 + 进阶模式，才能挂上 PS 插件导出分层文件。</li>
+        </ul>
+        <div class="callout warn"><b>新手第一大坑</b>很多人卡在"分层失败""图糊""角色不一致"，根本原因就是<strong>没选 5.5 最新模型</strong>。</div>
+      </div>
+
+      <div class="card">
+        <h3 class="sub">3. 为什么必须选"进阶"思考模式？</h3>
+        <p>在 GPT 创建图片界面，"思考程度"有<strong>标准</strong>和<strong>进阶</strong>两档。课程几乎每一节都要求选<strong>进阶</strong>。</p>
+        <ul>
+          <li>进阶模式<strong>理解力更强</strong>：能更好保持角色一致性、风格统一、复杂构图。</li>
+          <li>标准模式下，角色容易"换脸"、风格容易漂移、细节不够。</li>
+        </ul>
+        <div class="callout pit"><b>新手第二大坑（最坑！）</b>每次<strong>刷新页面后，"进阶"会自动重置回"标准"</strong>！所以每一步操作前都要重新确认思考程度是"进阶"。这是 01、02 两节课反复强调的铁律。</div>
+      </div>
+
+      <div class="card">
+        <h3 class="sub">4. 比例（画幅）速查表</h3>
+        <p>不同场景要用不同比例，选错比例 = 出图方向全错。这套课里用到的所有比例：</p>
+        <table>
+          <tr><th>比例</th><th>用途</th><th>出处</th></tr>
+          <tr><td><strong>9:16</strong></td><td>手机端 UI、竖版分镜、短视频、舞蹈视频</td><td>课 05、09、10、14</td></tr>
+          <tr><td><strong>16:9</strong></td><td>横屏分镜、PPT、全景图初始、游戏 Demo</td><td>课 06、10、11、12、14</td></tr>
+          <tr><td><strong>4:3</strong></td><td>PPT、三视图、信息图</td><td>课 04、06、08</td></tr>
+          <tr><td><strong>3:4</strong></td><td>16 拍分镜网格、Y2K 海报</td><td>课 08、10</td></tr>
+          <tr><td><strong>1:2 / 2:1</strong></td><td>360 度全景图（必须！）</td><td>课 12</td></tr>
+        </table>
+        <div class="callout warn"><b>规则</b>不写比例，AI 会<strong>沿用上一次的比例</strong>（课 02）。需要 100% 锁定比例，用"创建图片"功能强制规定。</div>
+      </div>
+
+      <div class="card">
+        <h3 class="sub">5. "8 张"是硬上限</h3>
+        <p>GPT-image2 一次最多只能生成 <strong>8 张图片</strong>（课 02、05、06、09 反复提及）。这是工具的硬限制。</p>
+        <ul>
+          <li>需要超过 8 张？用<strong>"延展"</strong>指令突破：发一句"按照生成的图片延展说下面的另外 5 张内容"（课 05）。</li>
+          <li>详情页用"往下面文章五张画面内容"延展（课 09）。</li>
+          <li>建议一次生成 <strong>3~5 张</strong>做横向对比择优，不必每次顶满 8 张（课 03）。</li>
+        </ul>
+      </div>
+
+      <div class="card">
+        <h3 class="sub">6. 核心工作思路：让 AI 写提示词</h3>
+        <p>整套课最精髓的方法论（课 05 首次提出，贯穿后半程）：<strong>不要自己憋提示词，让 AI（Gemini/GPT/豆包）帮你写</strong>。</p>
+        <div class="flow">你的需求（一句话）
+   ↓ 丢给 Gemini/GPT/豆包
+专业的结构化提示词
+   ↓ 粘贴给 GPT-image2
+高质量出图</div>
+        <div class="callout tip"><b>这是从"会用工具"到"精通"的分水岭</b>新手自己写提示词又累又不出效果；高手让 AI 写提示词，自己只改"类目""风格"等关键字段。</div>
+      </div>
+    </section>
+
+    <!-- ============ 必备三件套 ============ -->
+    <section id="trinity">
+      <div class="sec-title"><span class="icon">⚙️</span>必备三件套（每次出图前默念）</div>
+      <p class="sec-desc">这三件事任何一件漏掉，都可能直接导致出图失败——把它刻进肌肉记忆。</p>
+      <div class="card">
+        <div class="trinity">
+          <div class="t"><div class="ic">🆕</div><h4>① 5.5 最新模型</h4><p>出图质量、分层能力、一致性的基础门槛。旧模型直接失败。</p></div>
+          <div class="t"><div class="ic">🧠</div><h4>② 进阶思考模式</h4><p>保持角色 / 风格一致性。刷新后会被重置，每次都要检查。</p></div>
+          <div class="t"><div class="ic">📐</div><h4>③ 正确比例</h4><p>9:16 / 16:9 / 4:3 / 3:4 / 1:2——按场景选，不写就沿用上次。</p></div>
+        </div>
+        <div class="callout pit"><b>导出 PSD 还要多一步</b>要做分层 PSD（课 01），三件套之外还必须<strong>挂上 Adobe Photoshop 插件链接</strong>，否则存不出真正的 PSD 格式。</div>
+      </div>
+    </section>
+
+    <!-- ============ 工具分工 ============ -->
+    <section id="tools">
+      <div class="sec-title"><span class="icon">🧰</span>核心工具分工图</div>
+      <p class="sec-desc">一套课用到 6 类工具，各司其职，别用错了。</p>
+      <div class="card">
+        <table>
+          <tr><th>工具</th><th>角色定位</th><th>核心用途</th><th>出处</th></tr>
+          <tr><td><strong>GPT-image2</strong>（5.5）</td><td>🥇 主力出图器</td><td>贯穿全部 14 节，生成图片 / 分层 / 大白话出图</td><td>01-14 全部</td></tr>
+          <tr><td><strong>Gemini</strong></td><td>✍️ 提示词工厂</td><td>帮你写 UI / PPT / 游戏提示词，反推提示词</td><td>05、06、10、14</td></tr>
+          <tr><td><strong>豆包</strong></td><td>✍️ 提示词工厂（备选）</td><td>同 Gemini，可替换使用</td><td>05、11、14</td></tr>
+          <tr><td><strong>即梦 2.0</strong></td><td>🎬 视频生成器</td><td>图转视频、扩图、角色一致性强（老师主推）</td><td>10、11、12、14</td></tr>
+          <tr><td><strong>可灵</strong>（VO/GVU）</td><td>🎬 视频生成器</td><td>VO 强制写实、GVU 保留原图风格</td><td>10</td></tr>
+          <tr><td><strong>PS / KS</strong></td><td>🛠️ 后期收口</td><td>分层 PSD 编辑、改字、删元素、调图层</td><td>01、09</td></tr>
+        </table>
+        <div class="flow">                ┌──────────────────────────────┐
+                │  GPT-image2 / 5.5 + 进阶      │ ← 贯穿全系列核心出图器
+                └──────────────┬───────────────┘
+       ┌──────────┬────────────┼────────────┬──────────┐
+       ▼          ▼            ▼            ▼          ▼
+   Gemini      豆包        即梦2.0       可灵       PS/KS
+   写提示词   写提示词     图转视频     图转视频    后期修图
+       └──────────┴────────────┴────────────┴──────────┘
+                        ▼
+            提示词工厂 + 出图 + 视频 + 后期 = 全场景生产力</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 01 ════════════ -->
+    <section id="l01">
+      <div class="sec-title"><span class="icon">🖼️</span>14 节核心实战课</div>
+      <p class="sec-desc">每一节都含：基本信息、核心工具、详细步骤、提示词原文、易踩坑、知识逻辑——可复制即用。</p>
+
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">01</div>
+          <div>
+            <div class="lesson-title">一键海报生成 + 分层 PSD 文件导出</div>
+            <span class="lesson-cat">海报类 · 基础工具型</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 1 节</b></span><span>🎯 学会 GPT-image2 基础 + PS 联动</span><span>🛠️ GPT-image2 / PS / KS</span></div>
+
+        <h3 class="sub">本节目标</h3>
+        <p>在 GPT-Image 2 里生成一张海报图后，导出为 <strong>可编辑的 PSD 分层文件</strong>——拿到 PS 里能随意调整图层顺序、文字颜色、字体。</p>
+
+        <h3 class="sub">核心工具</h3>
+        <ul>
+          <li><strong>主工具</strong>：GPT（GPT-image2 图像生成）</li>
+          <li><strong>辅助</strong>：Adobe Photoshop（PS）、KS（图层/素材工具）</li>
+          <li><strong>导出</strong>：PSD 分层文件 + ZIP 压缩包（含单独素材）</li>
+        </ul>
+
+        <h3 class="sub">详细操作步骤</h3>
+        <ol class="steps">
+          <li><b>新建窗口设参数</b>：复制课件提示词 → 新建窗口 → 模型选 <strong>5.5</strong> → 思考程度选 <strong>进阶</strong> → 选比例（3:4/9:16 等）→ 上传参考图点"生成"。</li>
+          <li><b>拆分图层</b>：把生成的海报复制进去，粘贴下面这段"拆分提示词"（见提示词 A），等待执行。</li>
+          <li><b>安装 PS 插件</b>：GPT 主界面 → "更多" → "应用" → 找到 <strong>Adobe Photoshop (add-on)</strong> → "加入链接"。</li>
+          <li><b>生成 PSD</b>：回到拆分好的图片 → "更多"打开 → 输入提示词 → <strong>勾选 logo</strong> → <strong>选进阶</strong> → 粘贴拆分提示词 → 生成。</li>
+          <li><b>下载编辑</b>：下载 PSD 分层文件 → 拖进 KS 或 PS → 调整图层顺序 / 文字颜色 / 字体。</li>
+        </ol>
+
+        <h3 class="sub">提示词原文</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">提示词 A · 拆分图层（核心）</span>把生成的海报拆成若干个图像，每个元素成分一样，不要更改对应的一个位置。</div>
+
+        <h3 class="sub">易踩坑</h3>
+        <div class="callout pit"><b>三大失败原因</b>① 没选 5.5 模型 → 无法分层；② 没选进阶模式 → 分层差或失败；③ PS 插件链接没挂 → 存不出真 PSD。</div>
+        <div class="callout warn"><b>刷新陷阱</b>刷新页面后"进阶"会自动变回"标准"，每一步都要重新确认。</div>
+
+        <h4>ZIP vs PSD 怎么选？</h4>
+        <table><tr><th>文件类型</th><th>用途</th></tr>
+        <tr><td>PSD 分层文件</td><td>需在 PS 精细编辑、调图层/颜色/字体时用</td></tr>
+        <tr><td>ZIP 压缩包</td><td>不需编辑、只要单独提取某个素材时用</td></tr></table>
+
+        <h3 class="sub">知识逻辑</h3>
+        <div class="flow">生成海报图（5.5 + 进阶 + 尺寸）
+        ↓
+提示词 A：拆分图层
+        ↓
+安装 PS 插件（Adobe Photoshop add-on）
+        ↓
+PS 插件输入提示词 + 勾选 logo + 进阶
+        ↓
+下载 PSD / ZIP → 拖入 PS/KS 编辑</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 02 ════════════ -->
+    <section id="l02">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">02</div>
+          <div>
+            <div class="lesson-title">10 分钟搞定角色一致性 IP 提案到场景海报</div>
+            <span class="lesson-cat">海报/IP 类 · 角色一致性</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 2 节</b></span><span>🎯 掌握"母版图 + 主题词"工作流</span><span>📦 一次最多 8 张</span></div>
+
+        <h3 class="sub">本节目标</h3>
+        <p>基于已有的 <strong>IP 角色母版图</strong>，10 分钟内快速生成多个主题场景海报，并衍生出三视图 / 表情包 / 手机壳 / 图标等整套 IP 物料。</p>
+
+        <h3 class="sub">核心思路：母版驱动</h3>
+        <p>先有一张 IP 母版图，<strong>所有延展都基于这张图</strong>。进阶模式比标准模式在保持一致性上更强。</p>
+
+        <h3 class="sub">详细操作步骤</h3>
+        <ol class="steps">
+          <li><b>准备 IP + 提示词</b>：起点是已有一张 IP 角色图。提示词要点——基于角色形象 + 角色名字（不要文字就<strong>不写名字</strong>）+ 场景主题。</li>
+          <li><b>上传 + 设参数</b>：角色图粘贴进 GPT → 选"创建图片" → 模型选最新 + <strong>进阶</strong> → 写主题词 → 选比例（9:16）→ 开启生成。</li>
+          <li><b>体验物料延展</b>：想切换成 IP 体验物料（三视图/表情包/手机壳/图标/徽章），用提示词 B + 改色调（亮/暗/绿色系）。</li>
+          <li><b>刷新卡住处理</b>：刷新后"进阶"会重置为"标准"，必须<strong>重新改为进阶</strong>。</li>
+          <li><b>比例控制</b>：100% 锁定比例用"创建图片"功能强制规定；不规定就沿用上次比例。</li>
+        </ol>
+
+        <h3 class="sub">主题词决定场景方向</h3>
+        <table><tr><th>提示词写法</th><th>效果</th></tr>
+        <tr><td>"刺激海报" / "主题海报"</td><td>一次生成 4 张多样化场景</td></tr>
+        <tr><td>"沙漠海报"</td><td>一次生成 1 张单一场景</td></tr>
+        <tr><td>不写角色名字</td><td>画面不出现文字</td></tr>
+        <tr><td>"亮色调" / "暗色调"</td><td>控制整体配色</td></tr></table>
+
+        <h3 class="sub">提示词原文</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">提示词 A · IP 主题海报</span>基于这一个角色形象，然后这个角色名字叫[名字]。
+（不要文字就不写名字；想要多场景写"刺激/主题海报"；指定单场景写"沙漠海报/雪地/森林"等）</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">提示词 B · IP 体验物料延展</span>亮色调（可改为暗色调/绿色系），可增删需要/不需要的内容。
+扩展：把这张图片做成手机壳封面 / 图标 / 徽章都可以。</div>
+
+        <div class="callout tip"><b>核心要点</b>三大控制维度：场景（沙漠/雪地/森林）+ 色调（亮/暗/绿）+ 比例（9:16/16:9/3:4）。进阶模式 = 一致性保障。</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 03 ════════════ -->
+    <section id="l03">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">03</div>
+          <div>
+            <div class="lesson-title">GPT-Image2 快速交付 Logo 到品牌整套视觉方案延展</div>
+            <span class="lesson-cat">品牌类 · 一体化生成</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 3-4 例</b></span><span>🎯 Logo + 字体 + 配色 + 视觉手册一套搞定</span><span>📦 推荐 3~5 张</span></div>
+
+        <h3 class="sub">整套方案能交付什么</h3>
+        <p>过去需要分开做的 Logo 设计、字体规范、配色规范，GPT-Image2 <strong>一次性输出</strong>：</p>
+        <div class="grid">
+          <div class="mini"><h4>Logo 标志本体</h4><p>品牌核心图形</p></div>
+          <div class="mini green"><h4>字体系统</h4><p>字体大小、粗细规范</p></div>
+          <div class="mini accent"><h4>配色方案</h4><p>品牌主辅色</p></div>
+          <div class="mini pink"><h4>视觉方案/手册</h4><p>整体风格 + 物料延展</p></div>
+        </div>
+
+        <h3 class="sub">提示词核心结构（可编辑字段）</h3>
+        <ol>
+          <li><b>品牌信息</b>：名字 + 品牌个性（专业/时尚/北方…）+ 额外要求</li>
+          <li><b>目标受众</b>：明确方向（如卖化妆品 → 15~35 岁女性；潮玩 → 年轻化）</li>
+          <li><b>Logo 方向偏好</b>：列举 3 个喜欢的方向 + 讨厌的方向 + 视觉风格偏好</li>
+          <li><b>生成数量</b>：默认 1，最多 8，推荐 <strong>3~5 个</strong></li>
+        </ol>
+
+        <h3 class="sub">两段提示词接力（核心工作流）</h3>
+        <ol class="steps">
+          <li><b>第一段 → Logo 视觉</b>：复制提示词 → GPT 创建图片（5.5 + 进阶）→ 粘贴 → 得到含 Logo+字体+配色的视觉方案图。</li>
+          <li><b>截图 Logo</b>：在 PS 打开方案图 → 选中想要的图标 → 复制。</li>
+          <li><b>第二段 → 品牌视觉手册</b>：新建 GPT 窗口 → Ctrl+V 粘贴图标 → 创建图片 → 粘贴第二段提示词 → 得到品牌视觉手册（物料/包装/模特延展）。</li>
+        </ol>
+
+        <h3 class="sub">后期调整（无需重新上传）</h3>
+        <div class="callout info"><b>自然语言微调</b>比例不喜欢 → 直接调比例；色调不喜欢 → 告诉 AI"换成深色系/简约时尚国际感"；要更多 → 要求"同样尺寸同样风格继续往下做"。换色时 <strong>Logo 主体保持不变</strong>，只切换色调风格。</div>
+
+        <div class="callout tip"><b>实战经验</b>给客户提方案，一次让 AI 输出 3~5 个版本横向对比择优；同一 Logo 可复用出横版/竖版/不同色调/不同延展，"图1+图2"堆叠即一整套品牌物料。</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 04 ════════════ -->
+    <section id="l04">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">04</div>
+          <div>
+            <div class="lesson-title">用 AI 重塑年代感照片 · 老照片修复案例实战</div>
+            <span class="lesson-cat">修图类 · 人物融合</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 5 例</b></span><span>🎯 年代感生成 + 老照片修复 + 人物融合</span><span>🔑 图一/图二顺序</span></div>
+
+        <h3 class="sub">能力一：年代感照片生成（门槛极低）</h3>
+        <p>适用：街头/教室/学校/家庭/山区/群像/老电影感。操作：<strong>5.5 + 标准进阶</strong> → 选比例（4:3/16:9）→ 写提示词 → 生成。</p>
+        <div class="callout tip"><b>关键技巧</b>给一个<strong>具体时间锚点</strong>（如"1996 年前后"），让 AI 有时代参考物。简单描述（"普通家庭的图片"）也能出效果。还可以<strong>反推提示词</strong>：给参考图让 AI 反推，再用反推提示词生成类似图，实现风格复用。</div>
+
+        <h3 class="sub">能力二：老照片修复（一句话搞定）</h3>
+        <p>复制任意老照片 → 选标准进阶 → 点击生成。用<strong>自然重建技术</strong>英文提示词，一键修复面部细节。</p>
+
+        <h3 class="sub">能力三：人物融合 / 替换（重点实操）</h3>
+        <p>想让图二人物融入图一场景、替换没到场的人、保持人物跨场景一致——核心就一句话：</p>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">核心 · 人物替换</span>将图二的人物融入到图一的场景</div>
+        <p>AI 会把图二人物"抠出来"替换到图一位置，<strong>自动匹配图一光源</strong>（光线/明暗/色彩氛围），融合自然。</p>
+
+        <div class="callout pit"><b>顺序非常重要！</b>参考图（目标场景）在第 1 张 → 写"将图二人物融入图一"；参考图在第 2 张 → 改为"将图一人物融入图二"。流程：先生成目标场景图 → 下载/截图 → 再上传人物源图 → 粘贴提示词 → 发送。</div>
+
+        <h3 class="sub">高阶玩法：保留原人物 + 新增人物</h3>
+        <p>不想完全替换，想保留图一原人物 + 新增图二人物？追加一句：</p>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">完整 · 保留+新增+指定位置</span>将图二的人物融入到图一的场景，图一人物保留不改变，坐在后面左侧</div>
+        <ul>
+          <li>"图一人物保留不改变" → 系统保留原图一人物原位置不动</li>
+          <li>"坐在后面左侧 / 在右侧 / 在左侧后面" → 指定图二人物位置动作</li>
+          <li><strong>不写</strong>位置 → AI 自动理解；<strong>写</strong>了 → 按指令摆放</li>
+        </ul>
+
+        <h3 class="sub">知识逻辑</h3>
+        <div class="flow">[年代感生成] 简单/详细/反推提示词 → 选比例 → 生成
+[老照片修复] 上传 → 英文修复提示词 → 自动重建面部
+[人物替换]   图一(场景) + 图二(人物) → "图二融入图一"
+[保留叠加]   + "图一人物保留不改变"
+[指定位置]   + "坐在后面左侧" 等自然语言</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 05 ════════════ -->
+    <section id="l05">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">05</div>
+          <div>
+            <div class="lesson-title">告别复杂提示词 · GPT-image2 快速生成专业 UI 界面</div>
+            <span class="lesson-cat">UI 类 · 方法论奠基课 ⭐</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 6 例</b></span><span>🎯 提出"让 AI 写提示词"核心方法论</span><span>📦 ≤8 张 + 延展</span></div>
+
+        <h3 class="sub">核心方法论（全套课的精髓！）</h3>
+        <p><strong>用 AI 写提示词，用 GPT-image2 出图</strong>，把用户从"自己写复杂 UI 提示词"中解放出来。</p>
+        <div class="flow">[ 类目想法 ]
+     ↓ 用 Gemini/GPT/豆包 生成 UI 提示词（一句话模板）
+[ 专业结构化提示词 ]
+     ↓ 粘到 GPT-image2（5.5/进阶/9:16/图片创建图片）
+[ 首张 UI 图 ]
+     ↓ 加"延展 N 张 / 色调一致"（N ≤ 8）
+[ 一套 UI 组件库 ]
+     ↓ 不够？再发"接着延展"
+[ 完整 UI Kit ]</div>
+
+        <h3 class="sub">端到端 SOP（四步法）</h3>
+        <ol class="steps">
+          <li><b>让 AI 写 UI 提示词</b>：把模板句式丢给 Gemini，替换类目词（健身/生活/电商/处方/天气预报）。AI 输出一段专业 UI 布局描述。</li>
+          <li><b>GPT-image2 出首图</b>：选 5.5 → <strong>进阶</strong> → 图片创建图片 → 比例 <strong>9:16</strong>（手机竖屏）→ 粘贴提示词 → 首张 UI 图。</li>
+          <li><b>延展整套 UI 组件</b>（最出彩）：基于首图，追加提示词 2 → 设数量（5~8 张）→ 比例选 <strong>"一致"</strong> → 得到风格统一的卡片/按钮/控件/图标。</li>
+          <li><b>突破 8 张限制</b>：不用重新上传，发提示词 3 → AI 接着延展，理论上无限扩展 UI Kit。</li>
+        </ol>
+
+        <h3 class="sub">提示词原文</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">提示词 1 · 让 AI 生成 UI 提示词（丢给 Gemini/GPT/豆包）</span>给我一份[健身]的 UI 界面布局详细信息，我要用来生成对应的画面
+（[健身] 可替换为：生活、电商、处方、天气预报、汽车、厨房 等任意类目）</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">提示词 2 · 延展 UI 组件（保持风格统一）</span>卡片控制按钮或者其他色调要保持一致
+（配套：选生成数量 5~8 张，比例必须选"一致"）</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">提示词 3 · 突破 8 张限制（二次延展）</span>按照生成的图片延展说下面的另外五张内容
+（不需要重新上传图片，AI 会接着往下延展）</div>
+
+        <div class="callout tip"><b>关键心法</b>① 模板化——提示词 1 是可换主题万能模板；② 一致性约束——"色调保持一致"是批量风格统一的关键；③ 迭代机制——"接着延展"突破数量限制；④ 工具组合——提示词工厂 + 图像生成器的组合拳。</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 06 ════════════ -->
+    <section id="l06">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">06</div>
+          <div>
+            <div class="lesson-title">生产力大爆发 · AI 自动化生成演示的 PPT</div>
+            <span class="lesson-cat">办公类 · 方法论迁移</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 7 例</b></span><span>🎯 把 UI 方法论迁移到 PPT</span><span>🔑 Branch 视觉锚点</span></div>
+
+        <h3 class="sub">核心价值</h3>
+        <p>把课 05 的"AI 写提示词 + GPT-image2 出图"方法论<strong>无缝迁移到 PPT</strong>：你不用自己做 PPT，直接得到一张张精美的 PPT 页面图，演讲直接用。</p>
+
+        <h3 class="sub">端到端 SOP（六步）</h3>
+        <ol class="steps">
+          <li><b>用 Gemini 写 PPT 文案</b>：用模板，明确"不要图片只要内容"+ 锁定主题 + 指定 8 页 + 说明用途。</li>
+          <li><b>内容自由修改</b>：AI 给的只是初稿，天气状态/配色/措辞/地点都可随意改。</li>
+          <li><b>复制 8 段文案</b>：因为 GPT 一次最多展示 8 张，8 是硬上限。</li>
+          <li><b>Branch 已有 UI 图作锚点</b>：选中之前生成的 UI 图 → 右键"分支(Branch)" → 复制到新窗口。这张图成为<strong>视觉锚点</strong>，保证整套 PPT 风格/颜色/图标一致。</li>
+          <li><b>GPT-image2 出 8 页 PPT</b>：创建图片 → 比例 <strong>4:3 或 16:9</strong> → 进阶 → <strong>明确写"一共生成 8 张图片"</strong>避免漏页。</li>
+          <li><b>检查质量</b>：文字非常清晰（GPT-image2 优势）、有页码、风格统一。不满意让 AI 重写重画。</li>
+        </ol>
+
+        <h3 class="sub">提示词原文</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">提示词 · 让 Gemini 生成 8 页 PPT 文案</span>我不需要你帮我生成图片，我只需要内容，可以以[天气预报]为内容来进行一个描述。内容一共八个页面，帮我想一下，我要用来生成对应的一个页面</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">提示词 · 生成 8 张 PPT（粘到 GPT-image2）</span>我要保持风格、颜色、图标内容一致。基于这张图，请生成共 8 张 PPT 页面：[粘贴 8 段文案]</div>
+
+        <div class="callout warn"><b>PPT 专属关键参数</b>比例是 <strong>4:3 或 16:9</strong>（不是 9:16 手机比例！）；数量<strong>明确写"8 张"</strong>，否则 AI 漏页；用 Branch 复用视觉锚点保证风格统一。</div>
+        <div class="callout info"><b>跨案例方法论链</b>课 05（UI）→ 课 06（PPT）：AI 写提示词 + GPT-image2 出图 + 视觉锚点复用 + 批量出图，构成完整"设计师 AI 生产力倍增链路"。</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 07 ════════════ -->
+    <section id="l07">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">07</div>
+          <div>
+            <div class="lesson-title">GPT-image2 一键专业级电商视觉大片 · 告别手动修图</div>
+            <span class="lesson-cat">电商类 · 主图/详情/换色</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 8 例</b></span><span>🎯 主图 + 详情图 + 爆炸图 + 风格化</span><span>🔑 "细节多一点"</span></div>
+
+        <h3 class="sub">两条生成路径</h3>
+        <div class="grid">
+          <div class="mini"><h4>路径 A：参考图替换法</h4><p>参考图（拆解素材）+ 产品图 → 参考风格替换生成。适合保留构图/版式。</p></div>
+          <div class="mini green"><h4>路径 B：纯提示词生成法</h4><p>仅产品图 + 文字提示词 → 直接设计。适合无参考、快速落地。</p></div>
+        </div>
+
+        <h3 class="sub">实战 1：天猫/淘宝主图</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">通用模板（必加"细节多一点"）</span>做一张天猫主图，细节多一点</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">结构化模板（精确控制构图）</span>为这个智能手表设计一款淘宝主图，背景是渐变。
+左上边是文案，
+左下边是功能的图片，
+产品放右边。</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">参考图+文字（风格复用）</span>图一是我的智能手表产品，图二是我要参考的一个对象，
+帮我按照图 2 的方式进行设计。淘宝主图。
+文案内容可以根据我的产品进行设计。</div>
+        <div class="callout tip"><b>最后一句很关键</b>"文案内容可以根据我的产品进行设计"——不加，AI 随机发挥文字；加上，AI 结合产品特性生成文案（如"24小时100个运动""防水"）。"色调也要参考图案"保证色调一致。</div>
+
+        <h3 class="sub">实战 2：换色 + 局部保护</h3>
+        <p>换色<strong>不用重新上传</strong>，直接在对话追加："换成黑色调""换成机械风格""想和某个东西联名""变成漫画风"。</p>
+        <div class="callout pit"><b>局部保护技巧（重点）</b>只想换风格、不想改变产品摆设，必须明确指定：</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">局部保护 · 换色不动产品</span>帮我换成一个黑色调的图片，产品本身摆设不需要改变，只需要改变风格。</div>
+
+        <h3 class="sub">三个关键提示词模式</h3>
+        <table><tr><th>模式</th><th>写法</th><th>作用</th></tr>
+        <tr><td>细节增强型</td><td>... 细节多一点</td><td>避免结果过简</td></tr>
+        <tr><td>结构规定型</td><td>背景 + 位置 + 元素</td><td>精确控制构图</td></tr>
+        <tr><td>参考对位型</td><td>图1...图2...文案要求</td><td>风格复用</td></tr></table>
+        <div class="callout warn"><b>实战要点</b>不必每次上传图片（对话追加即可）；必须给参考+提示词（仅提示词细节不够）；明确"不要改什么"保护产品；"细节多一点"是主图必加项。</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 08 ════════════ -->
+    <section id="l08">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">08</div>
+          <div>
+            <div class="lesson-title">核心好用提示词实战 · 视觉创作全场景应用</div>
+            <span class="lesson-cat">提示词资产 · 八大模板 ⭐</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 9 例</b></span><span>🎯 8 类高频可复用提示词</span><span>💡 所有提示词只改关键词即可用</span></div>
+
+        <h3 class="sub">八大好用提示词全景</h3>
+        <table>
+          <tr><th>#</th><th>类型</th><th>用途</th><th>核心变量</th><th>默认比例</th></tr>
+          <tr><td>1</td><td>手绘风</td><td>风格化绘图</td><td>参考图（任意）</td><td>-</td></tr>
+          <tr><td>2</td><td>Y2K 海报</td><td>复古港风海报</td><td>人物/发色</td><td>3:4</td></tr>
+          <tr><td>3</td><td>剪影/二重曝光</td><td>流行风格</td><td>主题（火影/海贼王等）</td><td>9:16</td></tr>
+          <tr><td>4</td><td>三视图/信息图</td><td>角色展示</td><td>是否动漫风</td><td>4:3</td></tr>
+          <tr><td>5</td><td>直播截图</td><td>营销素材</td><td>人物/产品/价格</td><td>-</td></tr>
+          <tr><td>6</td><td>APP 图标</td><td>图标设计</td><td>品类</td><td>-</td></tr>
+          <tr><td>7</td><td>爆炸图/拆解图</td><td>产品展示</td><td>产品名</td><td>-</td></tr>
+          <tr><td>8</td><td>分镜脚本</td><td>视频脚本（重头戏）</td><td>产品/比例</td><td>16:9</td></tr>
+        </table>
+
+        <h3 class="sub">提示词模板（替换关键词即用）</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">#1 手绘风格</span>上传任意一张图片（动漫/实物/随手拍均可），生成手绘的一个风格</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">#2 Y2K 海报</span>Y2K 复古海报风格，[男/女明星]，[粉色/蓝色]头发（推荐比例 3:4）</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">#3 剪影/二重曝光</span>剪影风格 + 二重曝光效果，主题：[火影忍者/鬼灭之刃/海贼王/修仙传]</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">#4 三视图/信息图</span>角色三视图（动漫风加"漫剧"二字；写实风去掉"漫剧"只用后半段）—— 推荐比例 4:3</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">#5 抖音直播截图</span>生成一个抖音直播的截图，[人物描述]在直播，[人物]拿着[产品]，价格 [XX] 元</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">#6 APP 图标</span>生成一套 [健身/体育运动/汽车/厨房/搜索] 类的 APP 的图标</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">#7 爆炸图/拆解图（自带材质说明表）</span>生成一张 [紫色 iPhone 17 Plus / 小米 17 / 小米汽车] 的一个拆解图</div>
+
+        <h3 class="sub">#8 分镜脚本（重头戏 · 两阶段）</h3>
+        <p>比传统九宫格分镜更统一、细节更多、故事性更强，特别适合配合即梦/可灵生成视频。</p>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">第一阶段 · 让 AI 重新生成分镜提示词（不要图）</span>根据我的这段提示词，参考我上传的图片帮我进行一个重新生成。
+提示词如下：[粘贴参考分镜提示词]
+（注意：不需要生成图片，因为接下来要自己重新生成分镜脚本）</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">第二阶段 · 用新提示词生成图</span>回到 GPT 创建图片窗口 → 选 16:9 → 上传分镜参考图 + 产品图 → 粘贴重新生成的提示词 → 发送</div>
+
+        <h4>优势对比</h4>
+        <table><tr><th>维度</th><th>传统九宫格分镜</th><th>本方法分镜</th></tr>
+        <tr><td>统一性/细节/连贯性</td><td>一般</td><td><strong>更优</strong></td></tr>
+        <tr><td>视频适配</td><td>一般</td><td>故事性强，适配即梦/可灵</td></tr></table>
+
+        <div class="callout tip"><b>三大通用工作模式</b>① 直接生成模式（上传图+提示词直接出图，#1~7）；② 模板替换模式（仅改关键词生成不同主题，#2/3/6/7）；③ 提示词再生模式（先让 AI 生成提示词再出图，#8 分镜专用）。</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 09 ════════════ -->
+    <section id="l09">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">09</div>
+          <div>
+            <div class="lesson-title">从产品图到电商详情页制作</div>
+            <span class="lesson-cat">电商类 · 批量化思维 ⭐</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 10 例</b></span><span>🎯 复杂版/简约版详情页 + 批量</span><span>📐 9:16 必填</span></div>
+
+        <h3 class="sub">两种方案（提示词 90% 相同）</h3>
+        <div class="grid">
+          <div class="mini"><h4>方案一 · 复杂版</h4><p>大量功能点图标、细节丰富，"卖点轰炸"式详情页</p></div>
+          <div class="mini green"><h4>方案二 · 简约版</h4><p>简洁、主体清晰，几乎不堆砌图标（仅多一句密度控制）</p></div>
+        </div>
+
+        <h3 class="sub">复杂版核心提示词（4 个要点）</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">详情页主提示词（要点拆解）</span>[场景图] + [参考图]（可跨类目，手表+打气筒都行）
+关键 1：输出的画面每一张每一屏的比例必须得是竖版（9:16）
+关键 2：生成 8 张（GPT 一次最多 8 张）
+关键 3：生成的图片不要出现页数（否则出现 1/8 水印）
+关键 4：写明产品名（手表/智能手表/手机/耳机…）
+配置：GPT-Image 2 + 5.5 思考模型 + 进阶 + 创建图片 + 9:16</div>
+
+        <h3 class="sub">延展 + 换色（不重传）</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">延展咒语（风格不漂移）</span>往下面文章五张画面内容
+（风格元素完全保持一致；不够再追加"再延展五张画面"，逐轮累加）</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">整体换色调（基础内容不变）</span>把一开始生成的图片（8 张图片）变成为亮色调
+后面延长的 5 张图片也变成亮色调
+（也可换紫色调、可爱风、粉色调）</div>
+
+        <h3 class="sub">简约版唯一差异</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">简约版控制密度（单屏单重点）</span>细节内容不需要太多，不用太多的图标，不用太多的功能介绍，尽量每一瓶只讲一个重点信息。</div>
+
+        <h3 class="sub">后期收口：筛选 + PSD + ZIP</h3>
+        <div class="callout info"><b>三大原则</b>① <strong>比例硬约束</strong>——竖版不写，GPT 不按竖版输出；② <strong>批量化思维</strong>——8 张起生成、5 张延展、ZIP 打包；③ <strong>二次编辑兜底</strong>——不完美单帧走 PSD 拆分改字删元素最稳。</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">批量下载（极实用）</span>把所有的图片打包成 ZIP 压缩格式给我。</div>
+        <div class="callout tip"><b>一句话方法论</b>GPT-Image 2 一次 8 张竖版分镜 + 一句"延展 5 张"，复杂版堆卖点、简约版单屏单重点，整体换色不重传，改字删元素走 PSD，批量下载一句 ZIP。</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 10 ════════════ -->
+    <section id="l10">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">10</div>
+          <div>
+            <div class="lesson-title">16 拍分镜实现精准动作分解与视频生成</div>
+            <span class="lesson-cat">分镜/视频类 · 动态分解 ⭐</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 11 例</b></span><span>🎯 舞蹈/动漫/运动动作分解 + 转视频</span><span>🎬 即梦/可灵</span></div>
+
+        <h3 class="sub">应用场景</h3>
+        <p>16 拍分镜 = <strong>通用动态动作分解工具</strong>，可做舞蹈、动漫、滑雪、足球等任意场景。</p>
+
+        <h3 class="sub">准备：模特图 + 三视图（建议）</h3>
+        <p>模特图可用自己生成的或任意现成图（人物/IP/漫画）。三视图不强制但有更好——分镜出现背面/侧面动作时，有三视图效果更佳。</p>
+
+        <h3 class="sub">方法一：直接输入舞蹈名称</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">16 拍分镜主提示词</span>[舞蹈名称/动作描述]
+16 拍动作分解
+四层四网格排版
+16 个连贯动作</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">不知道舞蹈名？让 AI 帮你改写</span>帮我修改提示词，换一个其他的 [国家/风格] 舞蹈。
+数量不用改动，只需要修改文档内容和名称。</div>
+        <div class="callout warn"><b>方法一限制</b>只适用于"知名舞蹈"——名字写不出，模型也编不准。</div>
+
+        <h3 class="sub">方法二：上传视频 → AI 拆解动作（适合任意自创动作）</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">视频动作拆解（方法二核心）</span>图一是我生成的图片分镜图，十六动作分解，四层四网格排版，16 个连贯动作。
+你不用管图一，图一只是给我看我生成的图片，
+我需要你帮我分析 [参考视频] 里面的动作，然后写出对应的提示词。
+我只需要生成动作描述，不需要生成图片，也不需要出现视频里面的其他元素。</div>
+        <p>拿到 16 拍动作描述后，回填到分镜 prompt——<strong>去掉原"舞蹈名称"字段</strong>（否则强行套回原舞蹈动态），下方追加视频拆解的动作描述。</p>
+
+        <h3 class="sub">分镜图转视频（核心参数）</h3>
+        <div class="callout info"><b>视频生成四必填项（铁律）</b>① 图 1（16 拍分镜图）= 动作蓝图；② 图 2/3/4/5（三视图）= 人物蓝图；③ "精准还原 [动作名]"——锁定动作；④ "9:16"——锁定竖版。时长 12 秒。</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">即梦视频生成（老师主推 · 角色一致性强）</span>参考图一（16 拍动作分镜图）的动作，结合图 2/3/4/5（三视图），
+[追加 16 拍具体动作内容 / 具体舞蹈名称]，
+作为蓝图进行 12 秒舞蹈演示。
+比例 9:16。</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">可灵（VO/GVU）视频生成</span>参考图一的动作，结合图 2/3/4/5，
+精准还原 [具体舞蹈/动作名称]，
+进行 12 秒演示。
+比例 9:16。</div>
+
+        <h4>三个视频模型对比</h4>
+        <table><tr><th>模型</th><th>特点</th></tr>
+        <tr><td><strong>即梦</strong>（推荐）</td><td>角色一致性强、姿态还原度高，人物/角色基本不变</td></tr>
+        <tr><td><strong>可灵 VO</strong></td><td>强制写实化（3D 也会变写实）</td></tr>
+        <tr><td><strong>可灵 GVU</strong></td><td>保留原图风格（3D 不变写实），适合风格化分镜</td></tr></table>
+
+        <div class="callout tip"><b>三大工程化技巧</b>① 提示词外包——拿 GPT 帮你改写舞蹈名+描述；② 蓝图+三视图双图输入——分镜给动作、三视图给人物，缺一不可；③ "精准还原[动作名]"必填。翻车兜底：太久就刷新一次重新拉取。</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 11 ════════════ -->
+    <section id="l11">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">11</div>
+          <div>
+            <div class="lesson-title">电影级分镜图生成与多视角角色一致性控制</div>
+            <span class="lesson-cat">分镜/视频类 · 一致性控制</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 12 例</b></span><span>🎯 电影分镜 + 多视角角色一致</span><span>🛠️ 即梦2.0/GPT5.5/豆包</span></div>
+
+        <h3 class="sub">两种用法（核心区别：是否提供参考素材）</h3>
+        <div class="grid">
+          <div class="mini"><h4>用法一 · 纯文字</h4><p>不提供任何素材，角色随机（男女老少、各种外观）。适合概念分镜、灵感验证。</p></div>
+          <div class="mini accent"><h4>用法二 · 三视图+参考图</h4><p>角色保持比例/外张/身高一致。适合 IP 角色、品牌故事、固定主角。</p></div>
+        </div>
+
+        <h3 class="sub">核心工作流（5 步）</h3>
+        <ol class="steps">
+          <li><b>打开提示词模板</b>：蓝/白/红分区——<strong>蓝色系统固定不改</strong>、白色可改、红色占位替换。</li>
+          <li><b>填写角色+动作</b>：模板"你帮我按照图片中的文案重新描述一个[角色]"，填宇航员/快递员/F1赛车手等 + 动作（"在窗外"）。</li>
+          <li><b>GPT5.5 生成分镜图</b>：5.5 + 进阶 + 创建图片 + 比例 <strong>16:9</strong> → 粘贴 → 发送。</li>
+          <li><b>用图生视频提示词转视频</b>：把图发回 GPT 生成视频提示词（正标题必填、副标题/负面可选、视频比例必填）。</li>
+          <li><b>即梦2.0 生成视频</b>：字数多只写正面提示词，字数少可加副标题/负面。</li>
+        </ol>
+
+        <h3 class="sub">提示词模板</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">模板 1 · 纯文字角色描述</span>你帮我按照图片中的文案重新描述一个[角色]
+（角色 = 宇航员/快递员/F1赛车手；可追加"这个宇航员在窗外"）</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">模板 3 · 三视图+游戏故事（用法二专用）</span>图2 TUBG的一个游戏（不知道具体游戏可写"图二"）
+让他去帮你生成一个宣传广告故事 / 游戏故事 / 某一个行业的一个内容</div>
+
+        <div class="callout pit"><b>避坑</b>① 即梦2.0 提示词有 <strong>2000 字上限</strong>，长提示词要精简；② 字数取舍优先级：正面提示词 &gt; 副标题 &gt; 负面提示词；③ 没有角色要求不要硬塞三视图，会适得其反；④ 模板蓝色部分（系统设定）不要改。</div>
+        <div class="callout tip"><b>一致性原理</b>三视图给 AI 角色多角度形态参考，AI 生成不同镜头时持续用同一套外形参数渲染，避免"换镜头就换脸"。</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 12 ════════════ -->
+    <section id="l12">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">12</div>
+          <div>
+            <div class="lesson-title">快速制作 360 度全景图与动态视频</div>
+            <span class="lesson-cat">特殊形态 · 全景图</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 13 例</b></span><span>🎯 全景图 + 旋转视频 + HTML 查看器</span><span>📐 16:9 → 1:2</span></div>
+
+        <h3 class="sub">核心价值</h3>
+        <p>一张图即可让用户从任意角度观察场景——适合室内展示、游戏环境、虚拟漫游、产品 360 展示。老师称这是"目前做全景图最简单最方便的方式"，无需 3D 建模能力。</p>
+
+        <h3 class="sub">标准流程（5 步）</h3>
+        <ol class="steps">
+          <li><b>准备提示词/参考图</b>：可用课件提示词，或大白话写，或用反推提示词。</li>
+          <li><b>GPT 生成 16:9 初始图</b>：上传提示词/参考图 → 选"创建图片" → 比例 <strong>16:9</strong> → 生成。（注：反推提示词时不要选创建图片）</li>
+          <li><b>反推提示词（可选推荐）</b>：上传图 → 选"我们的"（反推模式）→ 提交 → AI 返回对应提示词，可复用风格。</li>
+          <li><b>扩展为 360 全景比例</b>：加上核心扩图提示词，把图扩成 <strong>1:2（2:1）宽图</strong>，只有 1:2 才能形成 360 环视。</li>
+          <li><b>清晰度增强（可选）</b>：GPT 官网图偏糊时，用增强提示词基于原图重新生成更清晰版本。</li>
+        </ol>
+
+        <h3 class="sub">三段核心提示词</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">提示词 B · 扩图提示词（关键中的关键）</span>将此场景或者此图片转换为360度的据柱状投影图像
+（变体：将此场景转换为360度的一个柱状投影；比例改 2:1）</div>
+        <div class="callout warn"><b>关键避坑</b>① 初始生成用 <strong>16:9</strong>，不要一开始就 1:2（内容会被压扁）；② "360 度柱状投影"是触发全景的关键短语，没有它就是普通横图；③ 2:1 和 1:2 是同一比例不同写法，指横向长图。</div>
+
+        <h3 class="sub">查看 + 动态视频</h3>
+        <table><tr><th>查看方式</th><th>优点</th><th>缺点</th></tr>
+        <tr><td>GPT 在线全景查看</td><td>方便、支持缩放</td><td>角度控制突兀</td></tr>
+        <tr><td>本地 HTML 查看器</td><td>流畅、角度自然</td><td>不能缩放</td></tr></table>
+        <p><strong>动态视频制作极简</strong>：打开录屏软件 → 在全景查看器打开全景图 → 开始录屏 → <strong>移动鼠标</strong>让画面旋转 → 停止 → 得到 360 旋转视频。本地查看器代码文件另存为 <code>.html</code>，拖进浏览器即可。</p>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 13 ════════════ -->
+    <section id="l13">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">13</div>
+          <div>
+            <div class="lesson-title">室内设计与多风格效果图生成</div>
+            <span class="lesson-cat">特殊形态 · 装修全流程 ⭐</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 14 例</b></span><span>🎯 平面图 → 11 步装修全套图</span><span>🔑 风格作上下文变量</span></div>
+
+        <h3 class="sub">核心思想</h3>
+        <p><strong>一张平面图 + 一套流程 + 灵活切换风格 = 一整套装修设计</strong>。把过去需要 3D 建模、手动渲染、多软件协作的流程，简化为纯自然语言对话。所有图基于同一套流程：上传平面图 → GPT 分析 → 依次输出各类图。</p>
+
+        <h3 class="sub">前置设置</h3>
+        <div class="callout warn"><b>必须</b>① 选最新 <strong>5.5 模型</strong>；② 思考模式选<strong>进阶</strong>；③ 上传图时附一句"分析这个房子的户型"——模型会结合上下文分析采光/动线/功能区。</div>
+
+        <h3 class="sub">11 步完整工作流</h3>
+        <ol class="steps">
+          <li><b>户型分析图</b>："画一张户型分析图，标注采光动线功能区"——直观看到户型优缺点。</li>
+          <li><b>全套施工图</b>："生成一套全套的施工图"——简单描述即可。</li>
+          <li><b>风格效果图</b>："北欧/日式/新中式…风格效果图"——<strong>风格变量从此注入上下文</strong>，输出含外观/颜色/材质/瓷砖。</li>
+          <li><b>价格清单图</b>："基于 2025 年（指定年份）计算场景中所用价格"——<strong>显式声明年份</strong>（2026 未结束）。</li>
+          <li><b>分房间渲染图</b>："根据前面的 X 风格，对每个房间进行设计效果，需要 5 张"——风格一致。</li>
+          <li><b>元素/风格解析图</b>：<strong>"场景放左边，文案放右边"</strong>——明确写出布局要求，控制版式。</li>
+          <li><b>局部布局图</b>："设置局部布局图，室内家具和空间匹配"——知道买多大家具/预留位置。</li>
+          <li><b>3D 立体效果</b>："生成 3D 立体效果"——过去要 3D 建模，现在用 GPT。</li>
+          <li><b>爆炸图</b>："生成分析爆炸轴测图"——展示第一层/第二层/第三层及面积。</li>
+          <li><b>水电图</b>："水电基础工程布置示意图"——电路/智能家居，颜色标记清晰。</li>
+          <li><b>多风格切换（高阶）</b>：直接对话追加"根据前面的北欧风格，帮我换成另外 3 张风格（新中式、美式、地中海），一共需要 3 张"——<strong>风格完全不同，场景完全相同</strong>。</li>
+        </ol>
+
+        <h3 class="sub">风格清单</h3>
+        <p>北欧、日式、泰式、潮汕、中式、新中式、欧美、美式、地中海。切换时<strong>只替换"风格名称"字段</strong>，其他描述保持不变。</p>
+        <div class="callout tip"><b>核心技巧</b>风格作为<strong>上下文变量</strong>贯穿整轮对话；用"场景放左、文案放右"等明确版式指令控制版式；用"宽高比"控制画幅；用"指定年份"保证价格数据合理。</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 课 14 ════════════ -->
+    <section id="l14">
+      <div class="card">
+        <div class="lesson-head">
+          <div class="lesson-num">14</div>
+          <div>
+            <div class="lesson-title">GPT + 即梦 2.0 生成的 3A 级游戏交互 Demo</div>
+            <span class="lesson-cat">特殊形态 · 互动视频</span>
+          </div>
+        </div>
+        <div class="meta"><span>📍<b>系列第 15 例</b></span><span>🎯 几张静态图 → 3A 游戏交互 Demo</span><span>🎬 GPT + 即梦2.0</span></div>
+
+        <h3 class="sub">核心思想</h3>
+        <p><strong>不自己写提示词让 AI 写；不自己拍视频用静态图 + 即梦 2.0 合成</strong>。案例：PUBG 枪战 Demo，可替换为赛博朋克、仙侠、萌宠等任何风格。</p>
+
+        <h3 class="sub">Step 1：GPT 生成风格化场景图（分页式）</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">让 AI 帮你分析每个页面的提示词</span>我想要做一款上一级的 PUBG 游戏 demo 效果，我需要你帮我分析每一个页面的提示词，可以提供我参考
+（可选物料：角色图/模特图、参考视频、纯文案或纯图片）</div>
+        <ul>
+          <li><strong>前置设置</strong>：最新模型 + 进阶 + 16:9 横屏。</li>
+          <li><strong>分页生成</strong>：页面 1 → 2 → … → 6。<strong>每张都喂一张图（哪怕同一张）</strong>，让风格在上下文向下延展。建议 5~6 张。</li>
+          <li><strong>内容修正</strong>：自动生成的页面若偏向视频内容，要求"重新帮我描述，让它更偏向枪战类游戏场景"。</li>
+        </ul>
+
+        <h3 class="sub">Step 2：GPT 生成即梦 2.0 角色图提示词</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">生成即梦2.0 角色图提示词</span>根据我前面上传的 6 张图片生成的图片，我要来做视频，根据我第 7 张图片的文案来进行一个观看</div>
+        <div class="callout pit"><b>即梦2.0 硬限制</b>① 字数 ≤ <strong>2000 字</strong>（超了让 GPT 改短）；② 时长 ≤ <strong>15 秒</strong>（提示词出现"16"等数字要改成"15"）。</div>
+
+        <h3 class="sub">Step 3：即梦 2.0 合成视频</h3>
+        <ol class="steps">
+          <li><b>前期设置</b>：即梦 2.0 → 比例（竖 9:16/横 16:9）→ 秒数 15 秒。</li>
+          <li><b>上传参考图</b>：依次上传 6~7 张图，<strong>按顺序上传</strong>（系统自动识别顺序），手动逐张点击确保位置准确。</li>
+          <li><b>输入提示词</b>：直接复制粘贴，<strong>只需角色描述部分，删掉"角色开始"这行</strong>。</li>
+        </ol>
+        <div class="callout tip"><b>核心技巧</b>用 AI 反写提示词；每张图都喂给 GPT 维持风格统一；即梦2.0 字数≤2000、时长≤15 秒；按顺序上传；删掉模板头只留角色描述正文。</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 提示词资产库 ════════════ -->
+    <section id="prompts">
+      <div class="sec-title"><span class="icon">📚</span>提示词资产库（Top 20 可复用模板）</div>
+      <p class="sec-desc">按场景分类，每个都可直接复制使用——只改方括号内的关键词。</p>
+
+      <div class="card">
+        <h3 class="sub">一、基础工具类</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">拆分图层（课 01）</span>把生成的海报拆成若干个图像，每个元素成分一样，不要更改对应的一个位置。</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">三视图生成（课 10）</span>帮我生成三视图</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">ZIP 批量下载（课 09）</span>把所有的图片打包成 ZIP 压缩格式给我。</div>
+
+        <h3 class="sub">二、品牌/视觉类</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">IP 主题海报（课 02）</span>基于这一个角色形象，然后这个角色名字叫[名字]。（不要文字就不写名字；多场景写"刺激/主题海报"；单场景写"沙漠海报"）</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">人物融合（课 04）</span>将图二的人物融入到图一的场景，图一人物保留不改变，坐在后面左侧</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">老照片修复（课 04）</span>利用自然重建技术，修复面部细节或身体部分</div>
+
+        <h3 class="sub">三、UI/PPT 类（方法论核心）</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">UI 提示词工厂（课 05）</span>给我一份[健身]的 UI 界面布局详细信息，我要用来生成对应的画面</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">延展组件（课 05）</span>卡片控制按钮或者其他色调要保持一致</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">突破 8 张（课 05）</span>按照生成的图片延展说下面的另外五张内容</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">PPT 文案生成（课 06）</span>我不需要你帮我生成图片，我只需要内容，可以以[天气预报]为内容来进行一个描述。内容一共八个页面，帮我想一下，我要用来生成对应的一个页面</div>
+
+        <h3 class="sub">四、电商类</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">天猫主图（课 07）</span>做一张天猫主图，细节多一点</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">详情页延展（课 09）</span>往下面文章五张画面内容</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">详情页换色（课 09）</span>把一开始生成的图片（8 张图片）变成为亮色调</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">简约详情页（课 09）</span>细节内容不需要太多，不用太多的图标，不用太多的功能介绍，尽量每一瓶只讲一个重点信息。</div>
+
+        <h3 class="sub">五、分镜/视频类</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">16 拍分镜（课 10）</span>[舞蹈名称] 16 拍动作分解，四层四网格排版，16 个连贯动作</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">即梦视频生成（课 10）</span>参考图一（16 拍动作分镜图）的动作，结合图 2/3/4/5（三视图），[动作内容]，作为蓝图进行 12 秒舞蹈演示。比例 9:16。</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">可灵视频生成（课 10）</span>参考图一的动作，结合图 2/3/4/5，精准还原 [动作名称]，进行 12 秒演示。比例 9:16。</div>
+
+        <h3 class="sub">六、特殊形态类</h3>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">360 全景扩图（课 12）</span>将此场景或者此图片转换为360度的据柱状投影图像</div>
+        <div class="prompt"><button class="copy-btn" onclick="copyP(this)">复制</button><span class="prompt-label">室内风格切换（课 13）</span>根据前面的北欧风格，帮我换成另外 3 张风格（新中式、美式、地中海），一共需要 3 张</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 跨课程知识图谱 ════════════ -->
+    <section id="map">
+      <div class="sec-title"><span class="icon">🗺️</span>跨课程知识图谱</div>
+      <p class="sec-desc">哪些知识点在多节课重复出现？哪些课互为前置/互补？看这张图就懂。</p>
+
+      <div class="card">
+        <h3 class="sub">一、核心依赖链（学习顺序）</h3>
+        <div class="flow">[基础层]
+    01 海报+分层PSD ── 学会 GPT-image2 + PS 插件工作流
+        │
+        ▼
+[应用层 A：视觉物料]
+    02 IP一致性+场景海报 ── 角色一致性、批量场景生成
+    03 Logo+品牌全套视觉 ── Logo+字体+配色+延展
+    04 老照片修复+人物融合 ── 反推提示词、人物场景替换
+        │
+        ▼
+[应用层 B：UI/PPT]
+    05 UI界面+组件库 ── "AI写提示词+GPT出图"方法论（奠基课）
+        │
+        ▼
+    06 PPT自动生成 ── 在05基础上用Branch复用视觉锚点
+        │
+        ▼
+[应用层 C：电商]
+    07 电商视觉大片 ── 主图、详情图、爆炸图、风格化
+    09 详情页（8张分镜） ── 复杂版vs简约版、批量延展、ZIP打包
+        │
+        ▼
+[应用层 D：分镜/视频]
+    08 八大好用提示词 ── 手绘/Y2K/剪影/三视图/直播/图标/爆炸/分镜
+    10 16拍分镜+视频 ── 即梦、可灵等视频模型
+    11 电影级分镜+一致性 ── 提示词模板化、三视图一致性控制
+        │
+        ▼
+[应用层 E：特殊形态]
+    12 360全景图+视频 ── "柱状投影"扩图+HTML查看器+录屏
+    13 室内设计多风格 ── 平面图→分析/施工/风格/价格/3D/水电
+    14 3A游戏交互Demo ── 静态图→即梦2.0视频合成</div>
+
+        <h3 class="sub">二、跨课交叉知识点</h3>
+        <table>
+          <tr><th>知识点</th><th>首次提出</th><th>迁移/复用课</th><th>关系</th></tr>
+          <tr><td>"用 AI 写提示词"方法论</td><td>课 05</td><td>课 06、14</td><td>前置：先学 05 再学 06/14</td></tr>
+          <tr><td>"延展"突破 8 张</td><td>课 05</td><td>课 09</td><td>互补：提示词本质相同，场景不同</td></tr>
+          <tr><td>角色一致性</td><td>课 02（母版图）</td><td>课 11（三视图）</td><td>互补：02=场景延展，11=角度延展</td></tr>
+          <tr><td>爆炸图/拆解图</td><td>课 07</td><td>课 08#7、课 13</td><td>互补：同能力三场景，提示词各不同</td></tr>
+          <tr><td>图像推视频</td><td>课 10</td><td>课 11、14</td><td>互补：10=动作，11=叙事，14=交互</td></tr>
+          <tr><td>反推提示词</td><td>课 04</td><td>课 12、14</td><td>可复用技巧</td></tr>
+          <tr><td>ZIP 批量下载</td><td>课 09</td><td>课 07、14</td><td>通用触发 prompt</td></tr>
+          <tr><td>局部保护</td><td>课 07</td><td>课 11</td><td>换色不动元素</td></tr>
+        </table>
+
+        <h3 class="sub">三、工具出场频次</h3>
+        <div class="grid">
+          <div class="mini"><h4>GPT-image2</h4><p>14/14 节全出场</p></div>
+          <div class="mini green"><h4>即梦 2.0</h4><p>课 10、11、12、14</p></div>
+          <div class="mini accent"><h4>可灵</h4><p>课 10</p></div>
+          <div class="mini pink"><h4>PS/KS</h4><p>课 01、09</p></div>
+          <div class="mini orange"><h4>Gemini/豆包</h4><p>课 05、06、10、14</p></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ════════════ 学习路径 ════════════ -->
+    <section id="path">
+      <div class="sec-title"><span class="icon">🛤️</span>学习路径（按角色/阶段）</div>
+      <p class="sec-desc">你是谁？想成为什么？选一条路径，按顺序学。</p>
+
+      <div class="card">
+        <h3 class="sub">按角色选路径</h3>
+
+        <div class="path">
+          <div class="node"><div class="stage">入门 → 进阶 → 精通</div>
+            <h4>平面设计师 / 视觉物料设计师</h4>
+            <p><strong>入门</strong>：课 01 → 02<br><strong>进阶</strong>：课 03<br><strong>精通</strong>：课 08 的爆炸图/三视图/图标提示词</p>
+          </div>
+          <div class="node stage2"><div class="stage">入门 → 进阶 → 精通</div>
+            <h4>UI / 交互设计师</h4>
+            <p><strong>入门</strong>：课 05<br><strong>进阶</strong>：课 06（PPT 同方法论）<br><strong>精通</strong>：课 11 的提示词模板化思想</p>
+          </div>
+          <div class="node stage3"><div class="stage">入门 → 进阶 → 精通</div>
+            <h4>电商设计师 / 详情页设计师</h4>
+            <p><strong>入门</strong>：课 07<br><strong>进阶</strong>：课 09（8 张分镜、批量打包）<br><strong>精通</strong>：课 08 的直播/图标/爆炸提示词</p>
+          </div>
+          <div class="node"><div class="stage">入门 → 进阶 → 精通</div>
+            <h4>视频 / 动态内容创作者</h4>
+            <p><strong>入门</strong>：课 10<br><strong>进阶</strong>：课 11<br><strong>精通</strong>：课 14（互动 Demo）</p>
+          </div>
+          <div class="node stage2"><div class="stage">唯一路径</div>
+            <h4>室内 / 空间设计师</h4>
+            <p><strong>唯一路径</strong>：课 13（11 步全流程）</p>
+          </div>
+          <div class="node stage3"><div class="stage">入门 → 进阶 → 精通</div>
+            <h4>3D / 沉浸式内容创作者</h4>
+            <p><strong>入门</strong>：课 12<br><strong>进阶</strong>：课 11 的游戏故事分镜<br><strong>精通</strong>：课 14</p>
+          </div>
+        </div>
+
+        <h3 class="sub">按学习阶段</h3>
+        <div class="flow">[入门阶段 - 必须完成]
+    01 海报+分层PSD ← 学会 GPT-image2 基础操作与 PS 联动
+    02 IP一致性+场景海报 ← 掌握"母版图+主题词"工作流
+
+[进阶阶段 - 按需选择]
+    05 UI界面+组件库 ← 学会"AI写提示词"方法论
+    08 八大核心提示词 ← 沉淀高频可复用提示词
+    10 16拍分镜+视频 ← 进入动态内容生产
+
+[精通阶段 - 跨场景打通]
+    06 PPT自动生成 ← 用 Branch 功能复用视觉锚点
+    07/09 电商视觉+详情页 ← 商业化批量出图
+    11 电影级分镜+一致性 ← 掌握提示词模板化思想
+    12/13/14 特殊形态 ← 360/室内/游戏Demo</div>
+      </div>
+    </section>
+
+    <!-- ════════════ 十大踩坑点 ════════════ -->
+    <section id="pits">
+      <div class="sec-title"><span class="icon">⚠️</span>十大踩坑点（新手必背）</div>
+      <p class="sec-desc">这 10 个坑踩中任何一个，都可能直接导致出图失败——背下来，每次操作前默念一遍。</p>
+
+      <div class="card">
+        <ol class="steps">
+          <li><b>刷新页面会重置"进阶"为"标准"</b>——必须每次确认（课 01、02）。这是<strong>最坑的坑</strong>，没有之一。</li>
+          <li><b>不挂 PS 插件 = 无法导出 PSD</b>——要做分层 PSD，必须先在 GPT 应用里挂上 Adobe Photoshop 链接（课 01）。</li>
+          <li><b>不写比例 = AI 沿用上次比例</b>——想 100% 锁定比例，用"创建图片"功能强制规定（课 02、09）。</li>
+          <li><b>不写"细节多一点" = 主图过简</b>——生成电商主图时，这句是必加项（课 07）。</li>
+          <li><b>不写"5 张"或"8 张" = AI 漏页</b>——生成 UI/PPT/详情页，明确写数量避免漏页（课 05、06）。</li>
+          <li><b>不写"不要页数水印" = 详情页出现 1/8</b>——生成详情页分镜，必须显式写"生成的图片不要出现页数"（课 09）。</li>
+          <li><b>图片顺序与提示词不一致 = 人物融合失败</b>——图一/图二顺序要对，提示词中的指向要匹配（课 04）。</li>
+          <li><b>不写"蓝图"+"精准还原" = 视频生成动作失真</b>——图转视频时，这两个关键词必须出现（课 10）。</li>
+          <li><b>超过即梦 2.0 的 2000 字限制 = 视频生成失败</b>——长提示词要精简，或让 GPT 改短（课 11、14）。</li>
+          <li><b>全景图初始就用 1:2 = 内容被压扁</b>——先生成 16:9，再用扩图提示词转 1:2（课 12）。</li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ════════════ 终极总结 ════════════ -->
+    <section id="final">
+      <div class="sec-title"><span class="icon">🏆</span>终极总结</div>
+      <p class="sec-desc">一句话概括整套课，以及 14 节课的一句话回顾。</p>
+
+      <div class="card">
+        <h3 class="sub">一句话终极总结</h3>
+        <div class="callout info" style="font-size:17px"><b>核心公式</b>GPT-image2（5.5 模型 + 进阶模式）+ 即梦 2.0/可灵 + 提示词工厂（Gemini/GPT/豆包）+ 局部 PS 修图 + 录屏/H5 包装 = 设计师全场景 AI 生产力倍增体系。</div>
+
+        <h3 class="sub">具体拆解</h3>
+        <div class="grid">
+          <div class="mini"><h4>📷 静态视觉</h4><p>GPT-image2 + 进阶模式 → 一键出图（01、02、03、04、07、09）</p></div>
+          <div class="mini green"><h4>📄 页面化批量</h4><p>AI 写提示词 + GPT-image2 出图 + 延展机制（05、06、09）</p></div>
+          <div class="mini accent"><h4>🎬 动态视频</h4><p>分镜图 + 即梦/可灵（10、11、12、14）</p></div>
+          <div class="mini pink"><h4>🌐 特殊形态</h4><p>3D 思维 + 提示词组合（13 室内、14 游戏 Demo）</p></div>
+          <div class="mini orange"><h4>🛠️ 后期收口</h4><p>PSD 拆分 + 局部修改 + ZIP 打包（01、09）</p></div>
+          <div class="mini"><h4>📚 资产沉淀</h4><p>八大提示词 + 模板复用 + 反推提示词（08、04、12）</p></div>
+        </div>
+
+        <h3 class="sub">14 节课一句话回顾</h3>
+        <ol>
+          <li><strong>01</strong>：GPT-image2 一键海报 + PS 插件导出分层 PSD（必备三件套 + 拆分提示词）。</li>
+          <li><strong>02</strong>：上传 IP 母版 + 主题词 → 一次生成 4-8 张场景海报 + 体验物料延展。</li>
+          <li><strong>03</strong>：两段提示词接力 → Logo 一套 + 品牌视觉手册一套（字体/配色同步）。</li>
+          <li><strong>04</strong>：年代感照片生成（简单描述）+ 老照片修复 + 图二融入图一/保留原人物。</li>
+          <li><strong>05</strong>：AI 写 UI 提示词 + GPT-image2 出首图 + "色调保持一致"延展组件库（突破 8 张上限）。</li>
+          <li><strong>06</strong>：Branch 把已有 UI 作锚点 + AI 写 8 段文案 + GPT-image2 出 PPT（4:3 或 16:9）。</li>
+          <li><strong>07</strong>：主图生成 = "细节多一点" + 结构化提示词 + 局部保护换色。</li>
+          <li><strong>08</strong>：手绘/Y2K/剪影/三视图/直播/图标/爆炸/分镜脚本——八大可复用提示词模板。</li>
+          <li><strong>09</strong>：9:16 竖版 8 张分镜（复杂/简约）+ 延展 5 张 + 整体换色 + ZIP 打包 + PSD 拆分兜底。</li>
+          <li><strong>10</strong>：16 拍分镜（4×4 网格）+ 双图（分镜+三视图）+ 即梦/可灵 → 9:16 / 12 秒视频。</li>
+          <li><strong>11</strong>：电影级分镜（5 步流程）+ 即梦 2.0 + 2000 字提示词限制 + 三视图保一致性。</li>
+          <li><strong>12</strong>：16:9 初始图 + "360 度柱状投影"提示词扩成 1:2 + HTML 查看器 + 录屏出视频。</li>
+          <li><strong>13</strong>：平面图 → 11 步装修全流程图（户型/施工/风格/价格/3D/水电/多风格切换）。</li>
+          <li><strong>14</strong>：6 张图 + 即梦 2.0 → 3A 级游戏 Demo 视频（即梦 2.0：字数 ≤ 2000，时长 ≤ 15 秒）。</li>
+        </ol>
+
+        <div class="callout tip" style="font-size:16px"><b>最后送你一句话</b>这套课的精髓不是"会用工具"，而是<strong>"让 AI 帮你写提示词，让 AI 帮你出图，让 AI 帮你延展，你只做决策和收口"</strong>。掌握这个心法，你就从"会用 GPT-image2"升级到"精通 AI 设计生产力"。</div>
+      </div>
+    </section>
+
+    <footer>
+      <p>🎨 设计师必学 · GPT-image2 全场景实战 · 小白到精通全攻略</p>
+      <p>讲师：小月 | 系列规模：92 节（本卷 14 例）| 核心工具：GPT-image2 / 即梦 2.0 / 可灵 / PS / KS / Gemini / 豆包</p>
+      <p style="color:var(--brand-deep);font-weight:600">祝你从今天起，用 AI 把设计生产力拉满！</p>
+    </footer>
+
+  </main>
+</div>
+
+<script>
+// 进度条
+window.addEventListener('scroll',()=>{
+  const h=document.documentElement.scrollHeight-window.innerHeight;
+  document.getElementById('progress').style.width=(window.scrollY/h*100)+'%';
+});
+// 复制提示词
+function copyP(btn){
+  const p=btn.parentElement;
+  const t=p.innerText.replace(btn.innerText,'').replace(/^.*\n/,'');
+  navigator.clipboard.writeText(t).then(()=>{
+    btn.textContent='已复制';
+    btn.classList.add('copied');
+    setTimeout(()=>{btn.textContent='复制';btn.classList.remove('copied');},1500);
+  });
+}
+// 侧边栏高亮
+const navLinks=document.querySelectorAll('.nav a');
+const sections=document.querySelectorAll('section[id]');
+window.addEventListener('scroll',()=>{
+  let cur='';
+  sections.forEach(s=>{if(window.scrollY>=s.offsetTop-80)cur=s.id});
+  navLinks.forEach(a=>{
+    a.classList.toggle('active',a.getAttribute('href')===' #'+cur);
+  });
+});
+// 移动端点击链接关闭侧边栏
+navLinks.forEach(a=>{
+  a.addEventListener('click',()=>{
+    if(window.innerWidth<=980)document.getElementById('sidebar').classList.remove('open');
+  });
+});
+</script>
+
+</body>
+</html>
+
