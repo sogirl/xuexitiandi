@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,viewport-fit=cover">
+<meta name="theme-color" content="#0f172a">
+<meta name="description" content="主人学习天地 · 个人学习手册库。随时随地打开手机看你的整理成果。">
+<title>学习天地 · 主人学习手册库</title>
+<style>
+  :root{
+    --bg:#0f172a; --bg-elev:#1e293b; --bg-card:#1e293b;
+    --fg:#e2e8f0; --fg-mute:#94a3b8; --accent:#60a5fa; --accent-glow:rgba(96,165,250,.4);
+    --gold:#fbbf24; --border:#334155;
+    --c1:#fb923c; --c2:#34d399; --c3:#22d3ee; --c4:#f472b6; --c5:#a78bfa;
+    --r:14px; --r-sm:8px;
+  }
+  *{box-sizing:border-box; margin:0; padding:0}
+  html,body{background:var(--bg); color:var(--fg); font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei",sans-serif; min-height:100%}
+  body{padding:env(safe-area-inset-top) env(safe-area-inset-right) env(safe-area-inset-bottom) env(safe-area-inset-left)}
+  a{color:inherit; text-decoration:none}
+  button{font:inherit; cursor:pointer; border:none; background:none; color:inherit}
+
+  .header{
+    position:sticky; top:0; z-index:10; backdrop-filter:blur(14px); -webkit-backdrop-filter:blur(14px);
+    background:rgba(15,23,42,.85); border-bottom:1px solid var(--border);
+    padding:14px 18px;
+  }
+  .header-row{display:flex; align-items:center; gap:12px; max-width:1200px; margin:0 auto}
+  .logo{
+    width:38px; height:38px; border-radius:12px;
+    background:linear-gradient(135deg,#fbbf24,#f472b6 50%,#60a5fa);
+    display:flex; align-items:center; justify-content:center; font-weight:800; font-size:18px;
+    box-shadow:0 0 18px var(--accent-glow);
+  }
+  .title-area{flex:1; min-width:0}
+  h1{font-size:18px; font-weight:700; letter-spacing:-.01em}
+  .sub{font-size:12px; color:var(--fg-mute); margin-top:2px}
+  .refresh{padding:8px 14px; border-radius:10px; background:var(--bg-elev); border:1px solid var(--border); font-size:13px}
+  .refresh:active{transform:scale(.97)}
+
+  .search-wrap{padding:14px 18px 4px; max-width:1200px; margin:0 auto}
+  .search{
+    display:flex; align-items:center; gap:8px;
+    background:var(--bg-elev); border:1px solid var(--border); border-radius:12px;
+    padding:10px 14px;
+  }
+  .search input{
+    flex:1; background:transparent; border:none; outline:none; color:var(--fg); font-size:15px;
+  }
+  .search input::placeholder{color:var(--fg-mute)}
+
+  main{max-width:1200px; margin:0 auto; padding:8px 18px 60px}
+
+  .stats{
+    display:grid; grid-template-columns:repeat(4,minmax(0,1fr)); gap:10px; margin:14px 0 22px;
+  }
+  @media (max-width:520px){ .stats{grid-template-columns:repeat(2,1fr)} }
+  .stat{background:var(--bg-card); border:1px solid var(--border); border-radius:var(--r-sm); padding:12px 14px}
+  .stat-num{font-size:22px; font-weight:700; color:var(--gold)}
+  .stat-lbl{font-size:11px; color:var(--fg-mute); margin-top:2px}
+
+  .category{margin-top:26px; scroll-margin-top:80px}
+  .cat-head{
+    display:flex; align-items:center; gap:10px; margin-bottom:12px;
+  }
+  .cat-badge{
+    width:6px; height:24px; border-radius:3px;
+  }
+  .cat-title{font-size:17px; font-weight:700; letter-spacing:-.01em}
+  .cat-count{font-size:12px; color:var(--fg-mute); margin-left:auto; padding:3px 9px; border-radius:99px; background:var(--bg-elev); border:1px solid var(--border)}
+  .cat-desc{font-size:12px; color:var(--fg-mute); margin-top:-2px; margin-bottom:14px; padding-left:16px}
+
+  .grid{display:grid; grid-template-columns:repeat(auto-fill,minmax(260px,1fr)); gap:12px}
+  @media (max-width:520px){ .grid{grid-template-columns:1fr} }
+
+  .card{
+    display:block;
+    background:var(--bg-card); border:1px solid var(--border); border-radius:var(--r);
+    padding:16px; transition:transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+    cursor:pointer;
+  }
+  .card:hover{border-color:var(--accent); transform:translateY(-2px); box-shadow:0 6px 20px rgba(0,0,0,.4)}
+  .card:active{transform:translateY(0)}
+  .card-icon{
+    width:36px; height:36px; border-radius:10px; display:flex; align-items:center; justify-content:center;
+    background:rgba(96,165,250,.12); color:var(--accent); font-size:18px; margin-bottom:12px;
+  }
+  .card-name{
+    font-size:14.5px; font-weight:600; line-height:1.35; margin-bottom:8px;
+    display:-webkit-box; -webkit-line-clamp:2; -webkit-box-orient:vertical; overflow:hidden;
+    word-break:break-word;
+  }
+  .card-meta{display:flex; align-items:center; gap:10px; font-size:11.5px; color:var(--fg-mute)}
+  .card-meta .dot{width:3px; height:3px; border-radius:50%; background:var(--fg-mute)}
+
+  .empty{padding:60px 20px; text-align:center; color:var(--fg-mute); font-size:14px}
+
+  .toast{
+    position:fixed; left:50%; bottom:30px; transform:translateX(-50%);
+    background:var(--bg-elev); border:1px solid var(--border);
+    padding:10px 18px; border-radius:10px; font-size:13px; z-index:99;
+    box-shadow:0 6px 18px rgba(0,0,0,.4); opacity:0; pointer-events:none;
+    transition:opacity .25s ease;
+  }
+  .toast.show{opacity:1}
+
+  .footer{
+    text-align:center; color:var(--fg-mute); font-size:11px; padding:24px 14px 30px;
+  }
+  .footer a{color:var(--accent)}
+
+  .filter-empty{
+    grid-column:1 / -1; padding:30px; text-align:center; color:var(--fg-mute); font-size:13px;
+    background:var(--bg-card); border:1px dashed var(--border); border-radius:var(--r);
+  }
+
+  .loading{padding:40px 14px; text-align:center; color:var(--fg-mute); font-size:13px}
+  .spinner{
+    display:inline-block; width:18px; height:18px; border:2px solid var(--border);
+    border-top-color:var(--accent); border-radius:50%; animation:spin .8s linear infinite;
+    vertical-align:-4px; margin-right:8px;
+  }
+  @keyframes spin{to{transform:rotate(360deg)}}
+</style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-row">
+    <div class="logo">学</div>
+    <div class="title-area">
+      <h1>学习天地</h1>
+      <div class="sub" id="lastUpdated">主人学习手册库</div>
+    </div>
+    <button class="refresh" id="refreshBtn" title="重新从GitHub拉取最新列表">↻ 刷新</button>
+  </div>
+</header>
+
+<div class="search-wrap">
+  <div class="search">
+    <span style="color:var(--fg-mute)">🔍</span>
+    <input id="q" type="search" placeholder="搜索手册名（按文件名过滤）" autocomplete="off" autocorrect="off">
+  </div>
+</div>
+
+<main id="main">
+  <div class="loading"><span class="spinner"></span>正在从 GitHub 拉取仓库文件列表…</div>
+</main>
+
+<div class="toast" id="toast"></div>
+
+<footer class="footer">
+  <div>由 GitHub Pages 驱动 · 主人主人您的随身手册库</div>
+  <div style="margin-top:6px"><a href="https://github.com/sogirl/xuexitiandi" target="_blank" rel="noopener">在 GitHub 查看仓库</a></div>
+</footer>
+
+<script>
+"use strict";
+(function(){
+  // ---------- 配置 ----------
+  const OWNER = "sogirl";
+  const REPO  = "xuexitiandi";
+  const BRANCH = "main";
+  const API = `https://api.github.com/repos/${OWNER}/${REPO}`;
+
+  // 分类元信息（顺序即显示顺序，颜色一一对应CSS变量 --c1..c5）
+  const CATEGORIES = [
+    { id:"01", name:"亚马逊跨境电商", color:"var(--c1)", desc:"亚马逊运营、广告、选品、跨境平台（Etsy/速卖通/Shopee/TikTok Shop）、跨境 AI 应用、运营管理" },
+    { id:"02", name:"育儿教育",       color:"var(--c2)", desc:"孩子学习力、自驱力、内动力；数学/奥数/语文/英语启蒙；编程启蒙" },
+    { id:"03", name:"打磨自己-学习方法", color:"var(--c3)", desc:"学习方法、学习规划、自学法；自我管理、执行力、风轮系统；商业思维" },
+    { id:"04", name:"投资理财",       color:"var(--c4)", desc:"股票、基金、加密、短线交易" },
+    { id:"05", name:"设计技能",       color:"var(--c5)", desc:"平面设计、UI 设计、视觉设计等技能" },
+  ];
+  const FALLBACK_COLOR = "#94a3b8";
+
+  // 顶层兜底 HTML 文件（如 与某分类同名的根目录文件）
+  const FALLBACK_TO_CAT = {
+    "如何唤醒孩子的自驱力.html": "02",
+  };
+
+  // ---------- 工具函数 ----------
+  const $ = (sel, root=document) => root.querySelector(sel);
+  const $$ = (sel, root=document) => Array.from(root.querySelectorAll(sel));
+  const CACHE_KEY = "xuexitiandi.files.cache.v1";
+  const CACHE_TTL = 10 * 60 * 1000; // 10 分钟
+  const fmtBytes = n => {
+    if (n < 1024) return n + "B";
+    if (n < 1024*1024) return (n/1024).toFixed(1) + "KB";
+    return (n/1024/1024).toFixed(2) + "MB";
+  };
+  const fmtDate = iso => {
+    try {
+      const d = new Date(iso);
+      return `${d.getFullYear()}-${String(d.getMonth()+1).padStart(2,"0")}-${String(d.getDate()).padStart(2,"0")}`;
+    } catch { return ""; }
+  };
+  const escapeHtml = s => String(s)
+    .replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;");
+  const showToast = (msg) => {
+    const t = $("#toast"); t.textContent = msg; t.classList.add("show");
+    clearTimeout(showToast._t); showToast._t = setTimeout(()=>t.classList.remove("show"), 1800);
+  };
+
+  // ---------- 文件清单构建 ----------
+  async function fetchTree(forceFresh=false) {
+    // 优先尝试缓存
+    if (!forceFresh) {
+      try {
+        const cached = JSON.parse(localStorage.getItem(CACHE_KEY) || "null");
+        if (cached && (Date.now() - cached.t) < CACHE_TTL) return cached.data;
+      } catch {}
+    }
+
+    // 用 /git/trees?recursive=1 一次性获取仓库完整树（最高 100k 节点，足够）
+    // 注意：GitHub 公开仓库未认证限速 60 次/小时；authenticated 5000次/小时
+    const url = `${API}/git/trees/${BRANCH}?recursive=1`;
+    const resp = await fetch(url, { headers: { "Accept": "application/vnd.github+json" } });
+    if (!resp.ok) {
+      throw new Error(`GitHub API ${resp.status}: ${resp.statusText}`);
+    }
+    const json = await resp.json();
+    if (json.truncated) {
+      console.warn("Repo tree truncated; results incomplete.");
+    }
+    const files = (json.tree || [])
+      .filter(n => n.type === "blob" && n.path.toLowerCase().endsWith(".html")
+                    && n.path.toLowerCase() !== "index.html")
+      .map(n => ({
+        path: n.path,
+        size: n.size || 0,
+        url:  `https://raw.githubusercontent.com/${OWNER}/${REPO}/${BRANCH}/${n.path.split("/").map(encodeURIComponent).join("/")}`,
+        page: `https://github.com/${OWNER}/${REPO}/blob/${BRANCH}/${n.path.split("/").map(encodeURIComponent).join("/")}`,
+        sha:  n.sha
+      }));
+
+    const data = { files, fetchedAt: new Date().toISOString() };
+    try {
+      localStorage.setItem(CACHE_KEY, JSON.stringify({ t: Date.now(), data }));
+    } catch {}
+    return data;
+  }
+
+  function categorize(files) {
+    // 将文件按"路径前缀/文件名"归类到对应 category
+    const buckets = new Map(CATEGORIES.map(c => [c.id, []]));
+    buckets.set("__other", []);
+    for (const f of files) {
+      let catId = null;
+      // 1. 路径前缀（如 01亚马逊跨境电商/...html）
+      const prefix = f.path.split("/")[0];
+      const byPrefix = CATEGORIES.find(c => c.id === prefix.split(/[^0-9]/)[0]);
+      if (prefix.match(/^\d{2}/) && byPrefix) {
+        catId = byPrefix.id;
+      }
+      // 2. 兜底：根目录文件按已知表归类
+      if (!catId) {
+        const base = f.path.split("/").pop();
+        if (FALLBACK_TO_CAT[base]) catId = FALLBACK_TO_CAT[base];
+      }
+      if (catId) buckets.get(catId).push(f);
+      else buckets.get("__other").push(f);
+    }
+    return buckets;
+  }
+
+  // ---------- 渲染 ----------
+  function renderStats(buckets) {
+    let total = 0, totalSize = 0;
+    for (const arr of buckets.values()) {
+      total += arr.length;
+      totalSize += arr.reduce((s,x)=>s+(x.size||0), 0);
+    }
+    const topCount = Math.max(0, ...CATEGORIES.map(c => buckets.get(c.id).length));
+    const card = (n,l)=>`<div class="stat"><div class="stat-num">${n}</div><div class="stat-lbl">${l}</div></div>`;
+    return `
+      <div class="stats">
+        ${card(total, "总手册数")}
+        ${card(CATEGORIES.length, "分类数")}
+        ${card(fmtBytes(totalSize), "总大小")}
+        ${card(topCount, "最大分类")}
+      </div>`;
+  }
+
+  function renderCategory(cat, files) {
+    const sorted = [...files].sort((a,b)=> (a.path.localeCompare(b.path, "zh-CN")));
+    return `
+    <section class="category" id="cat-${cat.id}">
+      <div class="cat-head">
+        <span class="cat-badge" style="background:${cat.color}"></span>
+        <span class="cat-title">${escapeHtml(cat.name)}</span>
+        <span class="cat-count">${files.length} 个</span>
+      </div>
+      ${cat.desc ? `<div class="cat-desc">${escapeHtml(cat.desc)}</div>` : ""}
+      <div class="grid">
+        ${sorted.map(renderCard).join("")}
+      </div>
+    </section>`;
+  }
+
+  function renderCard(f) {
+    const name = f.path.split("/").pop().replace(/\.html$/i, "");
+    // 优先直接走 raw URL（浏览器内部渲染，保留原 HTML 完整样式）
+    const href = f.url;
+    return `<a class="card" href="${href}" target="_blank" rel="noopener">
+      <div class="card-icon">📘</div>
+      <div class="card-name">${escapeHtml(name)}</div>
+      <div class="card-meta">
+        <span>${fmtBytes(f.size || 0)}</span>
+        <span class="dot"></span>
+        <span>HTML</span>
+      </div>
+    </a>`;
+  }
+
+  function renderOther(bucket) {
+    if (!bucket.length) return "";
+    return `
+    <section class="category" id="cat-other">
+      <div class="cat-head">
+        <span class="cat-badge" style="background:${FALLBACK_COLOR}"></span>
+        <span class="cat-title">未分类</span>
+        <span class="cat-count">${bucket.length} 个</span>
+      </div>
+      <div class="grid">
+        ${bucket.map(renderCard).join("")}
+      </div>
+    </section>`;
+  }
+
+  function render(filterText="") {
+    const main = $("#main");
+    if (!render._buckets) {
+      main.innerHTML = `<div class="empty">暂无数据</div>`;
+      return;
+    }
+    const buckets = render._buckets;
+    const q = filterText.trim().toLowerCase();
+
+    // 统计 + 每个分类（如果分类有匹配文件才显示）
+    const parts = [];
+    parts.push(renderStats(buckets));
+
+    let anyMatch = false;
+    for (const cat of CATEGORIES) {
+      const list = buckets.get(cat.id) || [];
+      const filtered = q ? list.filter(f => f.path.toLowerCase().includes(q)) : list;
+      if (filtered.length || (!q && list.length)) {
+        anyMatch = true;
+        // 过滤时给每个分类套 grid；如果过滤为空显示提示
+        if (q && !filtered.length) {
+          parts.push(`
+            <section class="category" id="cat-${cat.id}">
+              <div class="cat-head">
+                <span class="cat-badge" style="background:${cat.color}"></span>
+                <span class="cat-title">${escapeHtml(cat.name)}</span>
+                <span class="cat-count">0 / ${list.length}</span>
+              </div>
+              <div class="grid"><div class="filter-empty">该分类下没有匹配项</div></div>
+            </section>`);
+        } else {
+          parts.push(renderCategoryFiltered(cat, filtered));
+        }
+      }
+    }
+    const other = (buckets.get("__other") || []).filter(f => q ? f.path.toLowerCase().includes(q) : true);
+    if (other.length) {
+      anyMatch = true;
+      parts.push(renderOther(new Map([["__other", other]])));
+    }
+
+    if (!anyMatch && q) {
+      parts.splice(0, 1); // remove stats
+      parts.push(`<div class="empty">没有找到包含 “${escapeHtml(filterText)}” 的手册</div>`);
+    }
+
+    main.innerHTML = parts.join("");
+
+    // 标题副标题显示总数 / 时间
+    $("#lastUpdated").textContent =
+      `共 ${render._total} 个手册 · 上次更新 ${render._updated}（10 分钟内缓存）`;
+  }
+
+  // 渲染单个分类，过滤后的列表
+  function renderCategoryFiltered(cat, files) {
+    const sorted = [...files].sort((a,b)=> (a.path.localeCompare(b.path, "zh-CN")));
+    return `
+    <section class="category" id="cat-${cat.id}">
+      <div class="cat-head">
+        <span class="cat-badge" style="background:${cat.color}"></span>
+        <span class="cat-title">${escapeHtml(cat.name)}</span>
+        <span class="cat-count">${files.length} 个</span>
+      </div>
+      ${cat.desc ? `<div class="cat-desc">${escapeHtml(cat.desc)}</div>` : ""}
+      <div class="grid">
+        ${sorted.map(renderCard).join("")}
+      </div>
+    </section>`;
+  }
+
+  // ---------- 启动 ----------
+  async function init(forceFresh=false) {
+    try {
+      const { files, fetchedAt } = await fetchTree(forceFresh);
+      const buckets = categorize(files);
+      render._buckets = buckets;
+      render._total = files.length;
+      render._updated = fmtDate(fetchedAt);
+      render("");
+    } catch (e) {
+      console.error(e);
+      $("#main").innerHTML = `
+        <div class="empty">
+          暂无法拉取 GitHub 文件列表（${escapeHtml(e.message || String(e))}）
+          <br><br>
+          <button class="refresh" onclick="window.__retry && window.__retry()">↻ 重试</button>
+        </div>`;
+    }
+  }
+
+  window.__retry = () => init(true);
+
+  // 事件
+  let searchTimer = null;
+  $("#q").addEventListener("input", (e)=>{
+    clearTimeout(searchTimer);
+    const v = e.target.value;
+    searchTimer = setTimeout(()=>render(v), 120);
+  });
+  $("#refreshBtn").addEventListener("click", ()=>{
+    localStorage.removeItem(CACHE_KEY);
+    showToast("正在刷新…");
+    init(true).then(()=>showToast("已刷新"));
+  });
+
+  // 预渲染 CATEGORIES 数据
+  render._buckets = new Map(CATEGORIES.map(c=>[c.id,[]]));
+  render._buckets.set("__other", []);
+  render._total = 0; render._updated = "—";
+
+  init(false);
+})();
+</script>
+</body>
+</html>
