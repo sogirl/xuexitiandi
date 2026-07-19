@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=3.0,user-scalable=yes">
+<title>天宫计划 · 亚马逊电商运营完整课程</title>
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;scroll-behavior:smooth}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;background:#f7f9fc;color:#2c3e50;line-height:1.7}
+/* Light theme palette */
+:root{--primary:#4a6c8f;--primary-light:#6b8db0;--accent:#d4a857;--accent-light:#f0e6d0;--bg:#f7f9fc;--card:#fff;--text:#2c3e50;--text-light:#6b7c8e;--border:#e8ecf1;--shadow:0 2px 12px rgba(0,0,0,0.06);--radius:12px;--radius-sm:8px}
+/* Header */
+.header{background:linear-gradient(135deg,#4a6c8f 0%,#3a5a7a 100%);color:#fff;padding:50px 20px 40px;text-align:center;position:relative;overflow:hidden}
+.header::after{content:'';position:absolute;bottom:0;left:0;right:0;height:4px;background:linear-gradient(90deg,#d4a857,#f0e6d0,#d4a857)}
+.header h1{font-size:clamp(1.6rem,4vw,2.6rem);font-weight:800;letter-spacing:2px;margin-bottom:8px}
+.header .subtitle{font-size:clamp(0.9rem,2vw,1.15rem);opacity:.88;margin-bottom:6px}
+.header .meta{font-size:0.82rem;opacity:.65;display:flex;flex-wrap:wrap;justify-content:center;gap:12px;margin-top:10px}
+.header .badge{display:inline-block;background:rgba(255,255,255,0.15);border-radius:20px;padding:3px 14px;font-size:0.75rem}
+/* Nav */
+.nav-bar{background:#fff;border-bottom:1px solid var(--border);position:sticky;top:0;z-index:100;box-shadow:0 1px 6px rgba(0,0,0,0.04);overflow-x:auto;white-space:nowrap;-webkit-overflow-scrolling:touch}
+.nav-bar::-webkit-scrollbar{height:0}
+.nav-inner{display:flex;padding:8px 16px;gap:4px;max-width:1200px;margin:0 auto}
+.nav-inner a{color:var(--text-light);text-decoration:none;font-size:0.78rem;padding:5px 12px;border-radius:20px;transition:all 0.2s;flex-shrink:0}
+.nav-inner a:hover,.nav-inner a.active{background:var(--primary);color:#fff}
+/* Container */
+.container{max-width:1100px;margin:0 auto;padding:20px 16px 60px}
+/* Section */
+.section{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:24px;padding:28px 24px;border:1px solid var(--border)}
+.section-title{font-size:clamp(1.2rem,3vw,1.6rem);font-weight:700;color:var(--primary);padding-bottom:12px;border-bottom:2px solid var(--accent-light);margin-bottom:20px;display:flex;align-items:center;gap:10px}
+.section-title .num{display:inline-flex;align-items:center;justify-content:center;width:34px;height:34px;border-radius:50%;background:var(--primary);color:#fff;font-size:0.85rem;flex-shrink:0}
+.sub-section{margin:18px 0 12px}
+.sub-title{font-size:1.05rem;font-weight:700;color:var(--primary-light);padding:8px 0 6px;border-left:3px solid var(--accent);padding-left:12px;margin-bottom:8px}
+.sub3-title{font-size:0.95rem;font-weight:600;color:#555;margin:10px 0 4px}
+/* Table */
+.table-wrap{overflow-x:auto;margin:12px 0 16px;border-radius:var(--radius-sm);border:1px solid var(--border)}
+table{width:100%;border-collapse:collapse;font-size:0.85rem;min-width:520px}
+th{background:#f0f4f9;color:var(--primary);font-weight:600;padding:9px 12px;text-align:left;border-bottom:2px solid var(--border)}
+td{padding:8px 12px;border-bottom:1px solid var(--border);vertical-align:top}
+tr:last-child td{border-bottom:none}
+tr:hover td{background:#f8fafc}
+/* Lists */
+ul,ol{padding-left:22px;margin:8px 0}
+li{margin:4px 0}
+/* Tags & Highlights */
+.tag{display:inline-block;font-size:0.72rem;padding:1px 10px;border-radius:12px;margin:2px 4px 2px 0;font-weight:500}
+.tag-blue{background:#e8f0fe;color:#1a73e8}
+.tag-green{background:#e6f4ea;color:#137333}
+.tag-orange{background:#fef7e0;color:#e37400}
+.tag-red{background:#fce8e6;color:#c5221f}
+.tag-purple{background:#f3e8fd;color:#7c3aed}
+.highlight{background:#fff8e1;padding:2px 6px;border-radius:4px;font-weight:500}
+.highlight-blue{background:#e3f2fd;padding:2px 6px;border-radius:4px}
+/* Cards grid */
+.card-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:14px;margin:12px 0}
+.card-item{background:#f8fafc;border:1px solid var(--border);border-radius:var(--radius-sm);padding:14px 16px;transition:all 0.2s}
+.card-item:hover{box-shadow:0 2px 10px rgba(0,0,0,0.06);transform:translateY(-1px)}
+.card-item .card-title{font-weight:600;color:var(--primary);font-size:0.9rem;margin-bottom:4px}
+.card-item .card-desc{font-size:0.82rem;color:var(--text-light)}
+/* Formula Box */
+.formula-box{background:#f0f4f9;border-left:4px solid var(--accent);border-radius:0 var(--radius-sm) var(--radius-sm) 0;padding:14px 18px;margin:12px 0;font-size:0.9rem;overflow-x:auto}
+.formula-box .label{font-weight:600;color:var(--primary);font-size:0.82rem}
+/* Alert Box */
+.alert{padding:14px 18px;border-radius:var(--radius-sm);margin:12px 0;font-size:0.88rem;border-left:4px solid}
+.alert-info{background:#e8f0fe;border-color:#1a73e8}
+.alert-warn{background:#fef7e0;border-color:#e37400}
+.alert-danger{background:#fce8e6;border-color:#c5221f}
+.alert-success{background:#e6f4ea;border-color:#137333}
+/* Key Points */
+.key-points{display:flex;flex-wrap:wrap;gap:8px;margin:8px 0 12px}
+.key-point{background:#fff;border:1px solid var(--border);border-radius:20px;padding:4px 14px;font-size:0.82rem;color:var(--text);box-shadow:0 1px 3px rgba(0,0,0,0.03)}
+.key-point::before{content:'✦ ';color:var(--accent)}
+/* Mind Map Section */
+.mindmap-wrap{background:var(--card);border-radius:var(--radius);box-shadow:var(--shadow);margin-bottom:24px;padding:20px;border:1px solid var(--border);overflow:hidden}
+.mindmap-wrap h2{font-size:clamp(1.1rem,2.5vw,1.4rem);font-weight:700;color:var(--primary);text-align:center;margin-bottom:12px}
+.mindmap-svg{width:100%;height:auto;display:block;touch-action:manipulation}
+/* Step flow */
+.steps{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0}
+.step{background:#fff;border:1px solid var(--border);border-radius:20px;padding:5px 14px;font-size:0.82rem;display:flex;align-items:center;gap:4px}
+.step .arrow{color:var(--accent);font-weight:700}
+/* Collapse for mobile */
+@media(max-width:640px){
+  .section{padding:18px 14px}
+  .container{padding:12px 8px 40px}
+  table{font-size:0.78rem}
+  th,td{padding:6px 8px}
+  .header{padding:36px 14px 28px}
+  .card-grid{grid-template-columns:1fr}
+}
+/* Print */
+@media print{body{background:#fff}.section{box-shadow:none;break-inside:avoid}.nav-bar{display:none}}
+/* Tree lines in content */
+.tree{font-family:'Courier New',monospace;font-size:0.78rem;line-height:1.5;white-space:pre-wrap;color:var(--text-light);background:#f8fafc;border-radius:var(--radius-sm);padding:12px 16px;margin:10px 0;overflow-x:auto}
+/* Footer */
+.footer{text-align:center;color:var(--text-light);font-size:0.8rem;padding:30px 16px;border-top:1px solid var(--border);margin-top:10px}
+</style>
+</head>
+<body>
+
+<!-- ===== HEADER ===== -->
+<header class="header">
+  <h1>🚀 天宫计划</h1>
+  <div class="subtitle">亚马逊电商运营 · 完整课程知识体系</div>
+  <div class="subtitle" style="font-size:0.9rem;opacity:.75">从业余到精通 · 从入门到Best Seller</div>
+  <div class="meta">
+    <span class="badge">📅 2026年06月29-30日</span>
+    <span class="badge">🔄 已迭代7次</span>
+    <span class="badge">📚 15节课程</span>
+    <span class="badge">🏆 覆盖标品+非标品+季节性产品</span>
+  </div>
+</header>
+
+<!-- ===== NAV ===== -->
+<nav class="nav-bar">
+  <div class="nav-inner">
+    <a href="#mindmap">🗺️ 知识图谱</a>
+    <a href="#p1">课程总览</a>
+    <a href="#p2">基础准备</a>
+    <a href="#p3">广告架构</a>
+    <a href="#p4">广告增量</a>
+    <a href="#p5">数据分析</a>
+    <a href="#p6">推品SOP</a>
+    <a href="#p7">专项SOP</a>
+    <a href="#p8">体系整合</a>
+    <a href="#data">📊 数据速查</a>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ===== MIND MAP ===== -->
+<div class="mindmap-wrap" id="mindmap">
+  <h2>🗺️ 天宫计划 · 知识体系全景思维导图</h2>
+  <p style="text-align:center;font-size:0.82rem;color:var(--text-light);margin-bottom:10px">横向树状结构 · 根在左逐层右展 · 可双指放大查看</p>
+  <svg class="mindmap-svg" viewBox="0 0 960 1080" xmlns="http://www.w3.org/2000/svg" style="touch-action:manipulation">
+    <defs>
+      <style>
+        .mr{font-family:"PingFang SC","Microsoft YaHei",sans-serif}
+        .mn0{fill:#4a6c8f;font-weight:800;font-size:17px}
+        .mn1{fill:#3a5a7a;font-weight:700;font-size:14px}
+        .mn2{fill:#555;font-size:13px}
+        .mn3{fill:#777;font-size:12px}
+        .ml{stroke:#c0c8d4;stroke-width:1.8;fill:none;stroke-linejoin:round}
+        .mhl{stroke:#d4a857;stroke-width:2.2;fill:none;stroke-linejoin:round}
+        .mrb{fill:#fff;stroke:#c0c8d4;stroke-width:1}
+        .mrb-act{fill:#e8f0fe;stroke:#4a6c8f;stroke-width:1.5}
+      </style>
+    </defs>
+    <!-- Root node -->
+    <rect class="mrb-act" x="14" y="510" width="180" height="34" rx="17"/>
+    <text class="mr mn0" x="104" y="533" text-anchor="middle">🚀 天宫计划完整课程</text>
+    <!-- ===== Branch 1: 课程总览 ===== -->
+    <rect class="mrb" x="220" y="20" width="140" height="28" rx="14"/>
+    <text class="mr mn1" x="290" y="39" text-anchor="middle">① 课程体系总览</text>
+    <path class="mhl" d="M194,527 L220,34"/>
+    <rect class="mrb" x="400" y="8" width="120" height="26" rx="13"/>
+    <text class="mr mn2" x="460" y="26" text-anchor="middle">三步法概念</text>
+    <path class="ml" d="M360,34 L400,21"/>
+    <rect class="mrb" x="400" y="40" width="120" height="26" rx="13"/>
+    <text class="mr mn2" x="460" y="58" text-anchor="middle">五大核心模块</text>
+    <path class="ml" d="M360,34 L400,53"/>
+    <rect class="mrb" x="400" y="72" width="120" height="26" rx="13"/>
+    <text class="mr mn2" x="460" y="90" text-anchor="middle">15节课程结构</text>
+    <path class="ml" d="M360,34 L400,85"/>
+    <rect class="mrb" x="400" y="104" width="120" height="26" rx="13"/>
+    <text class="mr mn2" x="460" y="122" text-anchor="middle">十大运营痛点</text>
+    <path class="ml" d="M360,34 L400,117"/>
+    <!-- ===== Branch 2: 基础准备 ===== -->
+    <rect class="mrb" x="220" y="180" width="140" height="28" rx="14"/>
+    <text class="mr mn1" x="290" y="199" text-anchor="middle">② 基础准备阶段</text>
+    <path class="mhl" d="M194,527 L220,194"/>
+    <rect class="mrb" x="400" y="160" width="112" height="26" rx="13"/>
+    <text class="mr mn2" x="456" y="178" text-anchor="middle">关键词表搭建</text>
+    <path class="ml" d="M360,194 L400,173"/>
+    <rect class="mrb" x="570" y="144" width="130" height="24" rx="12"/>
+    <text class="mr mn3" x="635" y="161" text-anchor="middle">关键词分类体系</text>
+    <path class="ml" d="M512,173 L570,156"/>
+    <rect class="mrb" x="570" y="174" width="130" height="24" rx="12"/>
+    <text class="mr mn3" x="635" y="191" text-anchor="middle">六大找词方法</text>
+    <path class="ml" d="M512,173 L570,186"/>
+    <rect class="mrb" x="570" y="204" width="130" height="24" rx="12"/>
+    <text class="mr mn3" x="635" y="221" text-anchor="middle">选竞品方法</text>
+    <path class="ml" d="M512,173 L570,216"/>
+    <rect class="mrb" x="570" y="234" width="150" height="24" rx="12"/>
+    <text class="mr mn3" x="645" y="251" text-anchor="middle">词表7维度+双率</text>
+    <path class="ml" d="M512,173 L570,246"/>
+    <rect class="mrb" x="400" y="210" width="112" height="26" rx="13"/>
+    <text class="mr mn2" x="456" y="228" text-anchor="middle">高转化率打造</text>
+    <path class="ml" d="M360,194 L400,223"/>
+    <rect class="mrb" x="570" y="264" width="130" height="24" rx="12"/>
+    <text class="mr mn3" x="635" y="281" text-anchor="middle">Listing 13维度</text>
+    <path class="ml" d="M512,223 L570,276"/>
+    <rect class="mrb" x="570" y="294" width="130" height="24" rx="12"/>
+    <text class="mr mn3" x="635" y="311" text-anchor="middle">标题撰写方法</text>
+    <path class="ml" d="M512,223 L570,306"/>
+    <rect class="mrb" x="570" y="324" width="130" height="24" rx="12"/>
+    <text class="mr mn3" x="635" y="341" text-anchor="middle">图片视频优化</text>
+    <path class="ml" d="M512,223 L570,336"/>
+    <rect class="mrb" x="570" y="354" width="150" height="24" rx="12"/>
+    <text class="mr mn3" x="645" y="371" text-anchor="middle">五点/A+/ST/QA/参数</text>
+    <path class="ml" d="M512,223 L570,366"/>
+    <!-- ===== Branch 3: 广告架构 ===== -->
+    <rect class="mrb" x="220" y="440" width="140" height="28" rx="14"/>
+    <text class="mr mn1" x="290" y="459" text-anchor="middle">③ 广告架构设计</text>
+    <path class="mhl" d="M194,527 L220,454"/>
+    <rect class="mrb" x="400" y="412" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="430" text-anchor="middle">品类分析(五大类目)</text>
+    <path class="ml" d="M360,454 L400,425"/>
+    <rect class="mrb" x="400" y="444" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="462" text-anchor="middle">出单词集中架构(标品)</text>
+    <path class="ml" d="M360,454 L400,457"/>
+    <rect class="mrb" x="580" y="432" width="134" height="24" rx="12"/>
+    <text class="mr mn3" x="647" y="449" text-anchor="middle">预算有限方案</text>
+    <path class="ml" d="M540,457 L580,444"/>
+    <rect class="mrb" x="580" y="462" width="134" height="24" rx="12"/>
+    <text class="mr mn3" x="647" y="479" text-anchor="middle">预算充足方案</text>
+    <path class="ml" d="M540,457 L580,474"/>
+    <rect class="mrb" x="580" y="492" width="134" height="24" rx="12"/>
+    <text class="mr mn3" x="647" y="509" text-anchor="middle">ASIN定位策略</text>
+    <path class="ml" d="M540,457 L580,504"/>
+    <rect class="mrb" x="400" y="476" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="494" text-anchor="middle">出单词分散架构(非标品)</text>
+    <path class="ml" d="M360,454 L400,489"/>
+    <rect class="mrb" x="580" y="522" width="134" height="24" rx="12"/>
+    <text class="mr mn3" x="647" y="539" text-anchor="middle">预算有限方案</text>
+    <path class="ml" d="M540,489 L580,534"/>
+    <rect class="mrb" x="580" y="552" width="134" height="24" rx="12"/>
+    <text class="mr mn3" x="647" y="569" text-anchor="middle">预算充足方案</text>
+    <path class="ml" d="M540,489 L580,564"/>
+    <rect class="mrb" x="580" y="582" width="134" height="24" rx="12"/>
+    <text class="mr mn3" x="647" y="599" text-anchor="middle">否定词策略</text>
+    <path class="ml" d="M540,489 L580,594"/>
+    <!-- ===== Branch 4: 广告增量 ===== -->
+    <rect class="mrb" x="220" y="660" width="140" height="28" rx="14"/>
+    <text class="mr mn1" x="290" y="679" text-anchor="middle">④ 广告增量与优化</text>
+    <path class="mhl" d="M194,527 L220,674"/>
+    <rect class="mrb" x="400" y="648" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="666" text-anchor="middle">快速翻量六大策略</text>
+    <path class="ml" d="M360,674 L400,661"/>
+    <rect class="mrb" x="400" y="680" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="698" text-anchor="middle">自动广告五种打法</text>
+    <path class="ml" d="M360,674 L400,693"/>
+    <rect class="mrb" x="400" y="712" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="730" text-anchor="middle">瀑布流竞价</text>
+    <path class="ml" d="M360,674 L400,725"/>
+    <!-- ===== Branch 5: 数据分析 ===== -->
+    <rect class="mrb" x="220" y="790" width="140" height="28" rx="14"/>
+    <text class="mr mn1" x="290" y="809" text-anchor="middle">⑤ 数据分析与优化</text>
+    <path class="mhl" d="M194,527 L220,804"/>
+    <rect class="mrb" x="400" y="778" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="796" text-anchor="middle">六大表格体系</text>
+    <path class="ml" d="M360,804 L400,791"/>
+    <rect class="mrb" x="400" y="810" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="828" text-anchor="middle">三大广告报告</text>
+    <path class="ml" d="M360,804 L400,823"/>
+    <rect class="mrb" x="400" y="842" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="860" text-anchor="middle">BUG表与合理ACOS</text>
+    <path class="ml" d="M360,804 L400,855"/>
+    <!-- ===== Branch 6: 推品SOP ===== -->
+    <rect class="mrb" x="220" y="920" width="140" height="28" rx="14"/>
+    <text class="mr mn1" x="290" y="939" text-anchor="middle">⑥ 推品SOP执行</text>
+    <path class="mhl" d="M194,527 L220,934"/>
+    <rect class="mrb" x="400" y="912" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="930" text-anchor="middle">标品9周推品SOP</text>
+    <path class="ml" d="M360,934 L400,925"/>
+    <rect class="mrb" x="400" y="944" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="962" text-anchor="middle">非标品9周推品SOP</text>
+    <path class="ml" d="M360,934 L400,957"/>
+    <!-- ===== Branch 7: 专项SOP ===== -->
+    <rect class="mrb" x="220" y="1030" width="140" height="28" rx="14"/>
+    <text class="mr mn1" x="290" y="1049" text-anchor="middle">⑦ 专项SOP突破</text>
+    <path class="mhl" d="M194,527 L220,1044"/>
+    <rect class="mrb" x="400" y="1020" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="1038" text-anchor="middle">关键词上首页SOP</text>
+    <path class="ml" d="M360,1044 L400,1033"/>
+    <rect class="mrb" x="400" y="1052" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="1070" text-anchor="middle">冲击Best Seller SOP</text>
+    <path class="ml" d="M360,1044 L400,1065"/>
+    <rect class="mrb" x="400" y="1084" width="140" height="26" rx="13"/>
+    <text class="mr mn2" x="470" y="1102" text-anchor="middle">季节性产品SOP</text>
+    <path class="ml" d="M360,1044 L400,1097"/>
+  </svg>
+</div>
+
+<!-- ======================================================================== -->
+<!-- PART 1: 课程体系总览 -->
+<!-- ======================================================================== -->
+<div class="section" id="p1">
+  <div class="section-title"><span class="num">1</span> 课程体系总览</div>
+
+  <div class="sub-title">课程背景与前置知识</div>
+  <p>天宫计划是一套<strong>体系化、迭代7次</strong>的亚马逊运营全流程课程。在正式课程前一天，姜总讲授了关于<strong>关键词整理</strong>的预备课，强调标品与非标品在关键词处理上的巨大差异。</p>
+  <div class="card-grid">
+    <div class="card-item"><div class="card-title">📌 标品特点</div><div class="card-desc">关键词相对集中，集中某几个词或类目下；部分卖家靠直达词就能推排名；操作相对简单</div></div>
+    <div class="card-item"><div class="card-title">⚠️ 非标品进阶挑战</div><div class="card-desc">靠几个核心词推到前100后想再突破，关键词表不完善则无从下手；只盯大词ROI会很低</div></div>
+  </div>
+
+  <div class="sub-title">讲师经验与课程迭代</div>
+  <ul>
+    <li>从事亚马逊约<strong>5年</strong>，从小白成长，操作过多个类目不同客单价产品</li>
+    <li>首个产品从日销几单→几十单→几百单→上千单，推至美国站<strong>Best Seller</strong></li>
+    <li>将旧类目经验复制到新类目时<strong>失败率高达80%</strong>（市场容量、转化率、ACOS、流量构成不同）</li>
+    <li>新品期<strong>前三个月</strong>最为关键，部分产品只有两个月甚至一个多月的机会窗口</li>
+    <li>爆款打造推品课程已<strong>迭代7次</strong>，更新至当下最适合的运营节奏</li>
+  </ul>
+
+  <div class="sub-title">十大运营痛点</div>
+  <div class="card-grid">
+    <div class="card-item"><div class="card-title">① 广告打法混乱</div><div class="card-desc">先自动还是先手动？先大词还是先小词？一组一词还是多词？何时打精准/词组/广泛？</div></div>
+    <div class="card-item"><div class="card-title">② 推广方法缺失</div><div class="card-desc">不知道类目怎么推广，一个类目成功经验换个类目就失败</div></div>
+    <div class="card-item"><div class="card-title">③ 不知道怎么增量</div><div class="card-desc">广告架构搭好后缺乏快速放量的方法</div></div>
+    <div class="card-item"><div class="card-title">④ 不知最赚钱位置</div><div class="card-desc">盲目推排名只看单量不看利润</div></div>
+    <div class="card-item"><div class="card-title">⑤ 不知产品天花板</div><div class="card-desc">无法预判最高位置和盈利边界</div></div>
+    <div class="card-item"><div class="card-title">⑥ 不知道推广节奏</div><div class="card-desc">价格/折扣/广告/秒杀/利润获取的节奏模糊</div></div>
+    <div class="card-item"><div class="card-title">⑦ 不知何时获取利润</div><div class="card-desc">可能在错误阶段继续冲量反而利润下降</div></div>
+    <div class="card-item"><div class="card-title">⑧ 不知联动分析报告</div><div class="card-desc">缺乏利用后台多种报告综合分析的能力</div></div>
+    <div class="card-item"><div class="card-title">⑨ 不知如何推关键词排名</div><div class="card-desc">不了解影响因素，找不到有效抓手</div></div>
+    <div class="card-item"><div class="card-title">⑩ 广告单占比过高</div><div class="card-desc">广告单占比超过50%，自然单过低</div></div>
+  </div>
+
+  <div class="sub-title">天宫计划的命名与体系</div>
+  <p>对标中国航天工程：<strong>三步法</strong>（链接优化 → 链接推广 → 数据优化）+ <strong>五大核心模块</strong>：</p>
+  <table>
+    <tr><th>模块</th><th>内容</th><th>对标航天部分</th></tr>
+    <tr><td>1</td><td>高转化率打造</td><td>天和核心舱</td></tr>
+    <tr><td>2</td><td>省钱高效的广告架构</td><td>问天实验舱</td></tr>
+    <tr><td>3</td><td>降低ACOS的结果打造</td><td>梦天实验舱</td></tr>
+    <tr><td>4</td><td>高效推品节奏的打造</td><td>货运飞船</td></tr>
+    <tr><td>5</td><td>运营技巧的打造</td><td>载人飞船</td></tr>
+  </table>
+
+  <div class="sub-title">15节课程结构</div>
+  <table>
+    <tr><th>模块</th><th>节次</th><th>内容</th><th>要点</th></tr>
+    <tr><td rowspan="2">模块一：基础准备</td><td>第1节</td><td>标品/非标品关键词表搭建</td><td>词表是第一步</td></tr>
+    <tr><td>第2节</td><td>高转化率打造</td><td>Listing极致SEO优化</td></tr>
+    <tr><td rowspan="3">模块二：广告架构</td><td>第3节</td><td>品类分析与布局</td><td>判断类目属性、预判天花板</td></tr>
+    <tr><td>第4节</td><td>出单词集中架构</td><td>标品广告框架</td></tr>
+    <tr><td>第5节</td><td>出单词分散架构</td><td>非标品广告框架</td></tr>
+    <tr><td>模块三：广告增量</td><td>第6节</td><td>快速翻量增量玩法</td><td>新品期快速放量</td></tr>
+    <tr><td rowspan="3">模块四：数据分析</td><td>第7-9节</td><td>数据分析模块</td><td>报告联动/ACOS优化/单量增长</td></tr>
+    <tr><td>（补充）</td><td>-</td><td>-</td></tr>
+    <tr><td>（补充）</td><td>-</td><td>-</td></tr>
+    <tr><td rowspan="5">模块五：推品SOP</td><td>第10节</td><td>标品9周推品SOP</td><td>按周节奏细化</td></tr>
+    <tr><td>第11节</td><td>非标品9周推品SOP</td><td>专属SOP</td></tr>
+    <tr><td>第12节</td><td>推品SOP补充</td><td>同上延续</td></tr>
+    <tr><td>第13节</td><td>关键词排名上首页</td><td>自然排名提升技巧</td></tr>
+    <tr><td>第14节</td><td>冲击Best Seller SOP</td><td>快速冲击头部</td></tr>
+    <tr><td>第15节</td><td>季节性产品SOP</td><td>节日/季节性产品专属</td></tr>
+  </table>
+
+  <div class="sub-title">课程逻辑结构</div>
+  <div class="tree">基础准备(1-2节): 关键词表 → 高转化率打造
+      ↓
+广告架构(3-5节): 品类分析 → 集中型框架 → 分散型框架
+      ↓
+广告增量(6节): 新品期快速起量
+      ↓
+数据分析(7-9节): 报告联动 / ACOS优化 / 单量增长
+      ↓
+推品SOP(10-12节): 标品SOP / 非标品SOP
+      ↓
+推广技巧(13-15节): 自然排名 / BS冲击 / 季节性产品</div>
+
+  <div class="alert alert-warn"><strong>⚠️ 重要警示：</strong>① 类目经验不可随意复制（失败率80%）；② 新品期前三个月是黄金窗口；③ 关键词表是运营第一步；④ 不要只看单量不看利润</div>
+</div>
+
+<!-- ======================================================================== -->
+<!-- PART 2: 基础准备阶段 -->
+<!-- ======================================================================== -->
+<div class="section" id="p2">
+  <div class="section-title"><span class="num">2</span> 基础准备阶段</div>
+
+  <!-- 2.1 关键词表 -->
+  <div class="sub-title">2.1 标品/非标品关键词表搭建实操</div>
+
+  <div class="sub3-title">核心逻辑：先起量，再要利润</div>
+  <ul>
+    <li>没有单量的利润是空利润（50%利润但没单量，盈利还是0）</li>
+    <li>最快盈利案例：约1个月；一般标准：日销30单算成功，约2个月盈利</li>
+  </ul>
+
+  <div class="sub3-title">增量 vs 存量</div>
+  <div class="card-grid">
+    <div class="card-item"><div class="card-title">📈 增量（增加流量）</div><div class="card-desc">站外流量、促销活动（LD/BD/Prime Day/黑五网一）、广告购买流量（PPC）、扩词</div></div>
+    <div class="card-item"><div class="card-title">💎 存量（提升转化率）</div><div class="card-desc">链接极致优化、有竞争力的价格、优惠力度足够、长尾词转化率高</div></div>
+  </div>
+  <div class="alert alert-info"><strong>🔑 核心数据：</strong>亚马逊75%客户通过搜索购买，前三页流量占70%。结论：重心放在搜索流量上，必须建立完善的关键词表。</div>
+
+  <div class="sub3-title">关键词分类体系</div>
+  <table>
+    <tr><th>分类维度</th><th>等级</th><th>标准</th><th>标签</th></tr>
+    <tr rowspan="3"><td rowspan="3"><strong>按流量</strong><br>（搜索频率排名）</td><td>大词</td><td>ABA排名 ≤ 20,000</td><td><span class="tag tag-blue">大流量</span></td></tr>
+    <tr><td>次级词</td><td>ABA排名 20,000 ~ 100,000</td><td><span class="tag tag-green">中流量</span></td></tr>
+    <tr><td>长尾词</td><td>ABA排名 > 100,000</td><td><span class="tag tag-orange">小流量</span></td></tr>
+    <tr rowspan="4"><td rowspan="4"><strong>按相关性</strong><br>（前10自然位同类数）</td><td>精准词（强相关）</td><td>前10自然位中 ≥ 6个同类</td><td><span class="tag tag-green">精准</span></td></tr>
+    <tr><td>相关词（中等相关）</td><td>前10自然位中 3~6个同类</td><td><span class="tag tag-blue">相关</span></td></tr>
+    <tr><td>弱相关</td><td>前10自然位中 0~3个同类</td><td><span class="tag tag-orange">弱相关</span></td></tr>
+    <tr><td>不相关</td><td>完全没有关联</td><td><span class="tag tag-red">不相关</span></td></tr>
+  </table>
+  <div class="alert alert-info"><strong>📌 同类商品判定三要素：</strong>受众群体一致 + 功能一致 + 适用场景一致。<strong>同赛道商品：</strong>同类 + 同价格段。</div>
+
+  <div class="sub3-title">六大关键词查找方法</div>
+  <table>
+    <tr><th>方法</th><th>说明</th><th>费用</th></tr>
+    <tr><td>① 前台搜索下拉框联想词</td><td>亚马逊自动推荐联想词，基于用户搜索行为记忆算法</td><td><span class="tag tag-green">免费</span></td></tr>
+    <tr><td>② 优秀竞品Listing文案提取</td><td>找10个竞品复制标题+五点+A+，用词频统计工具分析</td><td><span class="tag tag-green">免费</span></td></tr>
+    <tr><td>③ 关键词工具（词根扩展+竞品反查）</td><td>H10 Cerebro等工具反查流量词，按搜索频率排名排序</td><td><span class="tag tag-orange">付费（高效）</span></td></tr>
+    <tr><td>④ 后台ABA品牌分析</td><td>后台→品牌分析→亚马逊搜索词，输入词根扩展或ASIN反查</td><td><span class="tag tag-green">免费权威</span></td></tr>
+    <tr><td>⑤ 广告推荐词</td><td>创建广告时亚马逊自动推荐，不相关则说明文案埋词有问题</td><td><span class="tag tag-green">免费</span></td></tr>
+    <tr><td>⑥ 广告报告（搜索词报告）</td><td>对自动/手动广告报告数据透视，7天分析一次</td><td><span class="tag tag-green">免费补充</span></td></tr>
+  </table>
+
+  <div class="sub3-title">选优秀竞品方法</div>
+  <div class="key-points">
+    <span class="key-point">来源一：核心大词第一页前10名同类</span>
+    <span class="key-point">来源二：BSR榜单同类前10名</span>
+    <span class="key-point">来源三：新品榜(New Release)前5名同类</span>
+  </div>
+  <p>三个来源合并→去重→筛选→最终保留<strong>10个左右</strong>优秀竞品（至少10个，不超过20个）。</p>
+
+  <div class="sub3-title">关键词表7大维度</div>
+  <table>
+    <tr><th>序号</th><th>维度</th><th>说明</th></tr>
+    <tr><td>1</td><td>序号</td><td>编号</td></tr>
+    <tr><td>2</td><td>关键词</td><td>词本身</td></tr>
+    <tr><td>3</td><td>搜索频率排名</td><td>ABA官方数据，判断流量大小</td></tr>
+    <tr><td>4</td><td>月搜索量</td><td>作为对照参考</td></tr>
+    <tr><td>5</td><td>流量等级</td><td>大词/次级词/长尾词</td></tr>
+    <tr><td>6</td><td>相关性</td><td>精准/相关/弱相关/不相关</td></tr>
+    <tr><td>7</td><td>类目转化率</td><td>商品探测器获取（很多人忽略的关键维度）</td></tr>
+  </table>
+
+  <div class="sub3-title">标题撰写方法</div>
+  <div class="formula-box"><span class="label">📝 标题公式：</span>核心大词 + 高频属性词（按词频排序）+ 产品实际参数<br><span class="label">💡 原则：</span>标题是给搜索引擎看的，客户看的是大意+图片+视频+评分+评论</div>
+  <p><strong>三种写法：</strong></p>
+  <ul>
+    <li><strong>写法一（品牌优先）：</strong>品牌名 + 核心关键词 + 功能属性词 + 场景词 + 参数（品牌有知名度时）</li>
+    <li><strong>写法二（核心词优先/逗号分隔）：</strong>核心关键词1, 品牌名 + 核心关键词2 + 功能属性（品牌知名度不高时）</li>
+    <li><strong>写法三（短横杠分隔/权威链接法）：</strong>核心词 - 品牌名 + 核心词 + 属性（经常做站外引流时）</li>
+  </ul>
+
+  <div class="sub3-title">关键词上首页所需单量预测</div>
+  <table>
+    <tr><th>搜索频率排名</th><th>所需日均单量</th><th>连续天数</th><th>总计</th></tr>
+    <tr><td>300名左右</td><td>~50单/天</td><td>8天</td><td>~400单</td></tr>
+    <tr><td>5000名左右</td><td>~10单/天</td><td>7-8天</td><td>~80单</td></tr>
+    <tr><td>7000-10000名</td><td>~30单/天</td><td>8天</td><td>~240单</td></tr>
+    <tr><td>30000名左右</td><td>~30单/天</td><td>8天</td><td>~240单</td></tr>
+  </table>
+  <div class="formula-box"><span class="label">💰 预算公式：</span>预算 = CPC × 点击次数（点击次数 = 所需单量 ÷ 转化率）</div>
+
+  <div class="sub3-title">非标品关键词表搭建特殊难点</div>
+  <div class="card-grid">
+    <div class="card-item"><div class="card-title">纯非标品</div><div class="card-desc">属性极多，流量词分散，转化率普遍低（服装、假发、家纺等）</div></div>
+    <div class="card-item"><div class="card-title">半标品</div><div class="card-desc">差异仅在图案/规格/颜色/尺寸，流量集中转化好</div></div>
+    <div class="card-item"><div class="card-title">标品中的非标品</div><div class="card-desc">如左撇子键盘，必须同时符合两个属性</div></div>
+  </div>
+  <p><strong>核心原则：</strong>词上所有修饰词能不能和你的产品属性对上。<br><strong>非标品打法：</strong>先打精准词（强相关）→弱相关词不主打手动精准→通过自动扩展或定ASIN</p>
+
+  <hr style="margin:24px 0;border:none;border-top:1px solid var(--border)">
+
+  <!-- 2.2 高转化率打造 -->
+  <div class="sub-title">2.2 高转化率打造与链接拆解</div>
+
+  <div class="sub3-title">Listing 13个优化维度</div>
+  <div class="card-grid">
+    <div class="card-item"><div class="card-title">① 标题</div><div class="card-desc">不超过200字符，前80字符最重要</div></div>
+    <div class="card-item"><div class="card-title">② 品牌</div><div class="card-desc">判断知名度决定标题中位置</div></div>
+    <div class="card-item"><div class="card-title">③ 价格</div><div class="card-desc">参考市场定价，新品可开大额券</div></div>
+    <div class="card-item"><div class="card-title">④ 图片</div><div class="card-desc">主图占比≥85%，7~8张，手机端1200×1500</div></div>
+    <div class="card-item"><div class="card-title">⑤ 视频</div><div class="card-desc">主图视频+铺满相关视频第一屏(5个)</div></div>
+    <div class="card-item"><div class="card-title">⑥ 五点描述</div><div class="card-desc">5~10条，埋词+图文呼应+总分结构</div></div>
+    <div class="card-item"><div class="card-title">⑦ Search Terms</div><div class="card-desc">对买家不可见，空格分隔，不重复已有词</div></div>
+    <div class="card-item"><div class="card-title">⑧ 品牌故事</div><div class="card-desc">5板块，4个ASIN模块做关联引流</div></div>
+    <div class="card-item"><div class="card-title">⑨ A+页面</div><div class="card-desc">15模块可选，标准对比图可放3~5产品引流</div></div>
+    <div class="card-item"><div class="card-title">⑩ QA</div><div class="card-desc">新品至少5对（5问5答），可分3天上架</div></div>
+    <div class="card-item"><div class="card-title">⑪ Rating/Review</div><div class="card-desc">≥4.0星合格线，Vine计划200美金/次</div></div>
+    <div class="card-item"><div class="card-title">⑫ 参数</div><div class="card-desc">三大参数体系，参与A10算法筛选</div></div>
+    <div class="card-item"><div class="card-title">⑬ 流量入口</div><div class="card-desc">节点选择/优惠券/捆绑销售/Post等</div></div>
+  </div>
+
+  <div class="sub3-title">主图优化七大手法</div>
+  <div class="key-points">
+    <span class="key-point">无中生有（添加衬托元素）</span>
+    <span class="key-point">移形换影（摆放方式）</span>
+    <span class="key-point">配件/包装衬托</span>
+    <span class="key-point">阴影法（扩大视觉占比）</span>
+    <span class="key-point">场景背景法</span>
+    <span class="key-point">变色背景法（白色产品用深色背景）</span>
+    <span class="key-point">渲染出图（优先3D渲染）</span>
+  </div>
+
+  <div class="sub3-title">五点描述四原则</div>
+  <ul>
+    <li><strong>埋词：</strong>5~10个关键词，用具体关键词代替代词</li>
+    <li><strong>图文呼应：</strong>图片展示的内容，五点一一对应</li>
+    <li><strong>总分结构：</strong>每条先用【中括号】总说，再展开分述</li>
+    <li><strong>数字化+通俗化：</strong>数字化展示转化为客户能理解的语言</li>
+  </ul>
+
+  <div class="sub3-title">竞品链接拆解七步法</div>
+  <div class="steps">
+    <span class="step">定类目</span><span class="step arrow">→</span>
+    <span class="step">定参数</span><span class="step arrow">→</span>
+    <span class="step">选竞品</span><span class="step arrow">→</span>
+    <span class="step">看数据</span><span class="step arrow">→</span>
+    <span class="step">拆页面</span><span class="step arrow">→</span>
+    <span class="step">析策略</span><span class="step arrow">→</span>
+    <span class="step">借鉴优化</span>
+  </div>
+
+  <div class="sub3-title">Review获取方式安全等级</div>
+  <table>
+    <tr><th>方式</th><th>安全性</th><th>说明</th></tr>
+    <tr><td>Amazon Vine计划</td><td><span class="tag tag-green">高</span></td><td>美国站200美金/次</td></tr>
+    <tr><td>Top Reviewer</td><td><span class="tag tag-blue">较高</span></td><td>需店铺无违规历史</td></tr>
+    <tr><td>站内信索评/一键索评</td><td><span class="tag tag-green">合规</span></td><td>亚马逊官方功能</td></tr>
+    <tr><td>老客户资源</td><td><span class="tag tag-green">高</span></td><td>积累的WhatsApp等</td></tr>
+    <tr><td>普通测评</td><td><span class="tag tag-red">极低</span></td><td>一警二封三永久封店</td></tr>
+  </table>
+</div>
+
+<!-- ======================================================================== -->
+<!-- PART 3: 广告架构设计 -->
+<!-- ======================================================================== -->
+<div class="section" id="p3">
+  <div class="section-title"><span class="num">3</span> 广告架构设计</div>
+
+  <!-- 3.1 -->
+  <div class="sub-title">3.1 品类分析与广告布局</div>
+
+  <div class="sub3-title">标品/非标品/半标品的判断</div>
+  <p><strong>核心依据：</strong>查看核心大词自然排名前十名中有几个<strong>同款链接</strong>（同规格+同价格+同场景）。</p>
+
+  <div class="sub3-title">流量入口多少的判断</div>
+  <table>
+    <tr><th>关键词行数</th><th>流量入口等级</th><th>含义</th></tr>
+    <tr><td>几十个</td><td><span class="tag tag-blue">少</span></td><td>流量入口少，集中型</td></tr>
+    <tr><td>100多个</td><td><span class="tag tag-orange">中等</span></td><td>流量入口中等</td></tr>
+    <tr><td>300+个</td><td><span class="tag tag-green">多</span></td><td>流量入口多，分散型</td></tr>
+  </table>
+
+  <div class="sub3-title">五大类目属性分类及打法</div>
+  <table>
+    <tr><th>类目类型</th><th>特征</th><th>核心打法</th></tr>
+    <tr><td>① 大词相关+流量集中+入口多</td><td>流量入口多</td><td>实力强→大词卡位；实力弱→先次级词→再长尾→再大词</td></tr>
+    <tr><td>② 大词相关+流量集中+入口少+ABA靠前</td><td>断崖式流量分布</td><td>死磕大词，到头部后关广告</td></tr>
+    <tr><td>③ 大词相关+流量分散+入口少</td><td>市场容量不足</td><td><span class="tag tag-red">放弃</span></td></tr>
+    <tr><td>④ 大词相关+入口少+ABA靠后</td><td>市场容量不足</td><td><span class="tag tag-red">放弃</span></td></tr>
+    <tr><td>⑤ 大词弱相关+流量分散+入口多</td><td>标准非标品</td><td>第一波打强相关精准→第二波弱相关广泛→第三波ASIN定位</td></tr>
+  </table>
+
+  <div class="sub3-title">不同阶段的关键指标权重</div>
+  <table>
+    <tr><th>阶段</th><th>点击率权重</th><th>转化率权重</th><th>出单量权重</th><th>类目排名权重</th></tr>
+    <tr><td>新品期</td><td><span class="highlight">50%-60%</span></td><td>~20%</td><td>~20%</td><td>~10%</td></tr>
+    <tr><td>上升期</td><td>10%-20%</td><td><span class="highlight">50%-60%</span></td><td>10%-20%</td><td>10%-20%</td></tr>
+    <tr><td>稳定期</td><td>个位数%</td><td>20%-30%</td><td>30%+</td><td><span class="highlight">40%-50%</span></td></tr>
+  </table>
+
+  <hr style="margin:24px 0;border:none;border-top:1px solid var(--border)">
+
+  <!-- 3.2 -->
+  <div class="sub-title">3.2 出单词集中类目广告架构（标品）</div>
+  <p><strong>特征：</strong>出单词数量极少，流量高度集中，ABA排名差异巨大（第一个词1000名内，第二个可能10万后）。</p>
+
+  <div class="sub3-title">预算有限卖家广告架构</div>
+  <div class="card-grid">
+    <div class="card-item"><div class="card-title">① 自动广告</div><div class="card-desc">仅开「紧密」+「同类」两种匹配</div></div>
+    <div class="card-item"><div class="card-title">② 手动精准大词</div><div class="card-desc">单词单组、固定竞价、首行加成150%、建议竞价最低值</div></div>
+    <div class="card-item"><div class="card-title">③ 手动词组</div><div class="card-desc">精准大词开词组，预算10美金，否定已开精准的词</div></div>
+    <div class="card-item"><div class="card-title">④ ASIN定位</div><div class="card-desc">选自身有优势的ASIN，每组10~15个</div></div>
+  </div>
+  <div class="formula-box"><span class="label">📊 预算分配：</span>自动:手动 = <strong>4:6</strong></div>
+
+  <div class="sub3-title">预算充足卖家扩展</div>
+  <ul>
+    <li>手动精准次级词：多词单组(5~10个词)，快速测试</li>
+    <li>手动广泛：长尾词，10词一组</li>
+    <li>SD广告（品牌广告）：需有多链接布局</li>
+    <li>瀑布流竞价：同词高/中/低出价抢不同广告位</li>
+  </ul>
+
+  <div class="sub3-title">ASIN定位选择策略</div>
+  <table>
+    <tr><th>组别</th><th>选择标准</th><th>原理</th></tr>
+    <tr><td>组1</td><td>价格比我高的ASIN</td><td>价格优势转化</td></tr>
+    <tr><td>组2</td><td>评分比我低的ASIN</td><td>评分优势转化</td></tr>
+    <tr><td>组3</td><td>评论数比我少的ASIN</td><td>评论优势转化</td></tr>
+  </table>
+
+  <hr style="margin:24px 0;border:none;border-top:1px solid var(--border)">
+
+  <!-- 3.3 -->
+  <div class="sub-title">3.3 出单词分散广告架构（非标品）</div>
+  <p><strong>特征：</strong>出单词数量多，流量分散，ABA排名相近，与非标品对应。</p>
+
+  <div class="sub3-title">预算较少时架构</div>
+  <table>
+    <tr><th>广告类型</th><th>词数</th><th>预算</th><th>竞价</th></tr>
+    <tr><td>自动广告（紧密+同类）</td><td>-</td><td>15美金</td><td>建议竞价+固定</td></tr>
+    <tr><td>词组匹配</td><td>每组5个词</td><td>10次点击</td><td>建议竞价+固定</td></tr>
+    <tr><td>广泛匹配</td><td>每组5~10个词</td><td>10美金</td><td>建议竞价+固定</td></tr>
+    <tr><td>ASIN定位</td><td>每组约10个ASIN</td><td>10美金</td><td>建议竞价+固定</td></tr>
+  </table>
+  <div class="alert alert-info"><strong>🔑 核心区别：</strong>非标品前期<strong>不需要卡首位</strong>，采用词组+广泛+ASIN定位组合。必须<strong>提前否定完全不相关的词</strong>。</div>
+
+  <div class="sub3-title">标品 vs 非标品思维转变</div>
+  <div class="card-grid">
+    <div class="card-item"><div class="card-title">标品思维</div><div class="card-desc">集中火力打精准大词→卡首位→推排名→订单暴增</div></div>
+    <div class="card-item"><div class="card-title">非标品思维</div><div class="card-desc">广泛覆盖多词→筛选转化词→缓慢带动自然流量→订单渐进增长</div></div>
+  </div>
+</div>
+
+<!-- ======================================================================== -->
+<!-- PART 4: 广告增量与优化 -->
+<!-- ======================================================================== -->
+<div class="section" id="p4">
+  <div class="section-title"><span class="num">4</span> 广告增量与优化</div>
+
+  <!-- 4.1 -->
+  <div class="sub-title">4.1 快速翻量广告打法</div>
+
+  <p><strong>核心目标：</strong>让总订单（广告单+自然单）增加。关键指标是<strong>TACOS</strong>而非ACOS——只要TACOS &lt; 利润率，广告亏损也能通过自然单赚回。</p>
+
+  <div class="sub3-title">两条增量路径</div>
+  <ul>
+    <li><strong>路径一：</strong>通过广告带来更多自然订单</li>
+    <li><strong>路径二：</strong>在有限投入下获取更多广告订单</li>
+  </ul>
+
+  <div class="sub3-title">自然关键词排名四大因素（权重变化）</div>
+  <table>
+    <tr><th>阶段</th><th>点击率</th><th>转化率</th><th>关键词出单量</th><th>类目排名</th></tr>
+    <tr><td>新品期</td><td><span class="highlight">50%-60%</span></td><td>~20%</td><td>~20%</td><td>~10%</td></tr>
+    <tr><td>上升期</td><td>10%-20%</td><td><span class="highlight">50%-60%</span></td><td>10%-20%</td><td>10%-20%</td></tr>
+    <tr><td>稳定期</td><td>个位数%</td><td>20%-30%</td><td>30%+</td><td><span class="highlight">40%-50%</span></td></tr>
+  </table>
+
+  <div class="sub3-title">增加广告订单六大策略</div>
+  <table>
+    <tr><th>#</th><th>策略</th><th>操作要点</th></tr>
+    <tr><td>1</td><td>出单词再投放</td><td>从30天报告中找到出单&gt;2单的关键词再投放</td></tr>
+    <tr><td>2</td><td>优秀词加预算</td><td>CPA低+曝光排名低+出单达标→增加预算</td></tr>
+    <tr><td>3</td><td>扩充更多流量入口</td><td>SP表现好→同步投放SB/SSD/SBV</td></tr>
+    <tr><td>4</td><td>优秀ASIN多入口覆盖</td><td>对表现好的ASIN增加广告类型</td></tr>
+    <tr><td>5</td><td>测试新词</td><td>弱相关词需给高竞价+耐心等7-15天</td></tr>
+    <tr><td>6</td><td>同品牌ASIN互投</td><td>形成流量闭环</td></tr>
+  </table>
+
+  <div class="sub3-title">站外推排名原理</div>
+  <div class="tree">站外出单 → 类目排名上升 → 所有关键词自然排名上升 → 秒杀承接首页流量</div>
+  <p>正确做法：先站外爆单冲排名 → 再开秒杀承接流量 → 排名稳住</p>
+
+  <hr style="margin:24px 0;border:none;border-top:1px solid var(--border)">
+
+  <!-- 4.2 -->
+  <div class="sub-title">4.2 自动广告高阶打法与瀑布流</div>
+
+  <div class="sub3-title">自动广告独有广告位</div>
+  <div class="key-points">
+    <span class="key-point">大促秒杀专属广告位</span>
+    <span class="key-point">四星级以上商品广告位</span>
+    <span class="key-point">品牌主题性广告位</span>
+    <span class="key-point">同颜色更多产品广告位</span>
+  </div>
+
+  <div class="sub3-title">自动广告四种匹配类型</div>
+  <table>
+    <tr><th>匹配类型</th><th>匹配逻辑</th></tr>
+    <tr><td>紧密匹配</td><td>基于文案中埋入的关键词精准匹配</td></tr>
+    <tr><td>宽泛匹配</td><td>基于文案埋词进行扩展</td></tr>
+    <tr><td>同类商品</td><td>展示在竞品的详情页上</td></tr>
+    <tr><td>互补商品</td><td>广告打到互补产品的详情页上</td></tr>
+  </table>
+
+  <div class="sub3-title">自动广告五种高阶打法</div>
+  <table>
+    <tr><th>打法</th><th>策略</th></tr>
+    <tr><td>① 标品新品上架</td><td>先紧密后同类→先大词后小词→先收录后拓词</td></tr>
+    <tr><td>② 非标品新品上架</td><td>四种匹配全开，每天必须否定不相关词</td></tr>
+    <tr><td>③ 捡漏打法</td><td>竞价$0.02+TOS加成900%，极低成本钓鱼式获取高转化订单</td></tr>
+    <tr><td>④ 关键词打法</td><td>手动精准打不起来时，用自动代替手动，集中预算偏向核心词</td></tr>
+    <tr><td>⑤ 多变体打法</td><td>投个人喜好（花色/颜色），不投硬性需求（尺寸）</td></tr>
+  </table>
+
+  <div class="sub3-title">瀑布流竞价</div>
+  <table>
+    <tr><th>竞价级别</th><th>预期广告位</th></tr>
+    <tr><td><span class="tag tag-red">高竞价</span></td><td>搜索结果顶部（首行）</td></tr>
+    <tr><td><span class="tag tag-orange">中竞价</span></td><td>搜索结果其余位置</td></tr>
+    <tr><td><span class="tag tag-blue">低竞价</span></td><td>商品页面</td></tr>
+  </table>
+  <p><strong>两大作用：</strong>快速测试最合适竞价 + 实现流量全覆盖</p>
+  <div class="sub3-title">预算管理三字诀</div>
+  <p><strong>花得完、加得稳、调得准</strong>——每次加$5左右，在当地站点零点调整。3天微调，7天大调。</p>
+</div>
+
+<!-- ======================================================================== -->
+<!-- PART 5: 数据分析与优化 -->
+<!-- ======================================================================== -->
+<div class="section" id="p5">
+  <div class="section-title"><span class="num">5</span> 数据分析与优化</div>
+
+  <!-- 5.1 -->
+  <div class="sub-title">5.1 店铺数据表实操与优化（六大表格）</div>
+  <table>
+    <tr><th>表格</th><th>核心作用</th><th>统计频率</th></tr>
+    <tr><td>① 关键词表</td><td>监控关键词自然排名变化</td><td><span class="tag tag-red">每天</span></td></tr>
+    <tr><td>② 类目排名表</td><td>观察链接在类目中位置变化</td><td><span class="tag tag-red">每天</span></td></tr>
+    <tr><td>③ 竞品分析表</td><td>对标竞品的价格/券/秒杀</td><td><span class="tag tag-red">每天</span></td></tr>
+    <tr><td>④ 销量流量数据表</td><td>追踪访客量/订单量/转化率</td><td>每周1次</td></tr>
+    <tr><td>⑤ 广告数据表</td><td>核心指标监控</td><td>每周1次</td></tr>
+    <tr><td>⑥ 库存利润表</td><td>库存余量与单均利润</td><td>3~7天</td></tr>
+    <tr><td>⑦ 大促效果表</td><td>记录大促操作与效果</td><td>秒杀期间</td></tr>
+  </table>
+  <div class="alert alert-info"><strong>📌 健康标准：</strong>自然单:广告单 = <strong>7:3</strong>（广告订单占比&lt;30%良好）。盈亏平衡点是<strong>所有促销决策的底线</strong>。</div>
+
+  <hr style="margin:24px 0;border:none;border-top:1px solid var(--border)">
+
+  <!-- 5.2 -->
+  <div class="sub-title">5.2 广告报告数据透视分析</div>
+
+  <div class="sub3-title">三大广告报告优先级</div>
+  <table>
+    <tr><th>报告</th><th>优先级</th><th>说明</th></tr>
+    <tr><td>广告位报告(Placement Report)</td><td><span class="tag tag-red">⭐⭐⭐最高</span></td><td>SP广告为主</td></tr>
+    <tr><td>搜索词展示量份额报告</td><td><span class="tag tag-red">⭐⭐⭐最高</span></td><td>展示份额+排名维度</td></tr>
+    <tr><td>广告Bulk表</td><td><span class="tag tag-red">⭐⭐⭐最高</span></td><td>最详细，用于深度诊断</td></tr>
+  </table>
+
+  <div class="sub3-title">三大广告位</div>
+  <ul>
+    <li><strong>搜索结果顶部(TOS)：</strong>前4个广告位，可后台加成控制</li>
+    <li><strong>搜索结果其余位置：</strong>位置不固定，后台无法直接加成</li>
+    <li><strong>商品页面：</strong>详情页广告位</li>
+  </ul>
+
+  <div class="sub3-title">合理ACOS计算逻辑</div>
+  <div class="formula-box"><span class="label">🧮 公式：</span>合理ACOS = 建议竞价 × 出一单的平均点击次数 ÷ 客单价<br><span class="label">⚠️ 注意：</span>合理ACOS是<strong>动态值</strong>，必须每周重新分析一次。取合理ACOS与实际ACOS的<strong>较低值</strong>作为判断阈值。</div>
+
+  <div class="sub3-title">四类花费问题诊断</div>
+  <table>
+    <tr><th>类型</th><th>策略</th></tr>
+    <tr><td>出单花费高 + 高ACOS</td><td>降价10%~20%</td></tr>
+    <tr><td>出单花费高 + 低ACOS</td><td>增加预算，做增量</td></tr>
+    <tr><td>不出单花费 + 高点击</td><td>降价15%~20%或否定</td></tr>
+    <tr><td>不出单花费 + 低点击</td><td>加预算/提竞价/降预算</td></tr>
+  </table>
+  <div class="alert alert-warn"><strong>🚨 警戒线：</strong>不出单花费占比 ≥ <strong>30%</strong> 必须警惕</div>
+
+  <hr style="margin:24px 0;border:none;border-top:1px solid var(--border)">
+
+  <!-- 5.3 -->
+  <div class="sub-title">5.3 广告问题与优化方案</div>
+
+  <div class="sub3-title">七大指标诊断速查</div>
+  <table>
+    <tr><th>指标</th><th>关键标准</th></tr>
+    <tr><td>曝光</td><td>零→检查资格；少→提竞价20%；多→控制广告位</td></tr>
+    <tr><td>点击</td><td>少→提预算或提竞价20%</td></tr>
+    <tr><td>点击率(CTR)</td><td>&lt;0.3%差；0.3~0.7%合格；0.7~1%优秀；&gt;1%非常优秀</td></tr>
+    <tr><td>转化率(CVR)</td><td>&lt;类目均值=差；1.5~3倍均值=好</td></tr>
+    <tr><td>ACOS</td><td>取合理与实际ACOS较低值为阈值</td></tr>
+    <tr><td>CPC</td><td>高→降竞价10~20%；低→提竞价或降预算</td></tr>
+    <tr><td>TACOS</td><td><span class="highlight">10~20%合理，15%最佳</span></td></tr>
+  </table>
+  <div class="alert alert-info"><strong>💡 TACOS核心理念：</strong>TACOS过低不是好事——说明广告预算不足，没有发挥拓流增量作用。</div>
+
+  <div class="sub3-title">出单词再投放分组原则</div>
+  <table>
+    <tr><th>单量</th><th>每组词数</th></tr>
+    <tr><td>大</td><td>2~3个词</td></tr>
+    <tr><td>中等</td><td>4~5个词</td></tr>
+    <tr><td>小</td><td>10~20个词</td></tr>
+  </table>
+
+  <div class="sub3-title">亚马逊运营三大核心能力</div>
+  <div class="card-grid">
+    <div class="card-item"><div class="card-title">🏗️ 产品开发能力</div><div class="card-desc">产品好，运营就容易推</div></div>
+    <div class="card-item"><div class="card-title">🎯 运营能力</div><div class="card-desc">运营策略、广告打法要过硬</div></div>
+    <div class="card-item"><div class="card-title">🤝 资源积累</div><div class="card-desc">红人资源、站外资源、美工资源等</div></div>
+  </div>
+</div>
+
+<!-- ======================================================================== -->
+<!-- PART 6: 推品SOP执行 -->
+<!-- ======================================================================== -->
+<div class="section" id="p6">
+  <div class="section-title"><span class="num">6</span> 推品SOP执行</div>
+
+  <!-- 6.1 -->
+  <div class="sub-title">6.1 标品9周推品SOP</div>
+
+  <div class="sub3-title">三阶段总览</div>
+  <table>
+    <tr><th>阶段</th><th>名称</th><th>核心任务</th></tr>
+    <tr><td>第一阶段</td><td>上架前准备</td><td>查词→建表→埋词→优化Listing</td></tr>
+    <tr><td>第二阶段</td><td>推广准备</td><td>定目标→析竞品→安排QA/Review/Video</td></tr>
+    <tr><td>第三阶段</td><td>推广阶段（9周）</td><td>按时间节点执行</td></tr>
+  </table>
+
+  <div class="sub3-title">文案埋词标准</div>
+  <table>
+    <tr><th>位置</th><th>埋词要求</th></tr>
+    <tr><td>标题</td><td>至少3个核心词</td></tr>
+    <tr><td>五点描述</td><td>至少5~10个词（不用代词）</td></tr>
+    <tr><td>A+页面</td><td>5~10个不同词（不重复标题）</td></tr>
+    <tr><td>Search Term</td><td>字符写满</td></tr>
+  </table>
+
+  <div class="sub3-title">标品9周推广节奏</div>
+  <div class="table-wrap">
+  <table>
+    <tr><th>周次</th><th>链接操作</th><th>广告操作</th></tr>
+    <tr><td>W1 D1~3</td><td>中高价+20%券+Vine+QA/视频</td><td>自动+手动广告SKA精准卡首行</td></tr>
+    <tr><td>W1 D4~6</td><td>保持价格+券升至30%~40%</td><td>3天优化一次，检查卡位+否词</td></tr>
+    <tr><td>W2</td><td>降价&gt;10%冲红标</td><td>老组加预算+新开2万~10万词组</td></tr>
+    <tr><td>W3</td><td>券下调10%~15%</td><td>已上首页词降预算</td></tr>
+    <tr><td>W4</td><td>券调至10%~20%</td><td>&lt;2万词开词组，2万~10万多词精准</td></tr>
+    <tr><td>W5</td><td>不变</td><td>安排BD+7天优化周期+竞品定位</td></tr>
+    <tr><td>W6</td><td>7天秒杀效果最大化</td><td>预算翻倍+Day1爆单+开广泛</td></tr>
+    <tr><td>W7</td><td>券加至20%~30%维稳</td><td>30天报告分析+类目定位+竞价管理</td></tr>
+    <tr><td>W8</td><td>限时秒杀</td><td>同W7+SB/SD广告拓展</td></tr>
+    <tr><td>W9+</td><td>不变</td><td>常态化循环：分析→优化→拓展</td></tr>
+  </table>
+  </div>
+
+  <div class="sub3-title">核心指标速查</div>
+  <table>
+    <tr><th>指标</th><th>数值</th></tr>
+    <tr><td>第一周出单目标</td><td>≥20单</td></tr>
+    <tr><td>降价红标触发</td><td>≥20单 + ≥7天 + 降幅&gt;10%</td></tr>
+    <tr><td>手动广告结构</td><td>单词单组单活动(SKA)</td></tr>
+    <tr><td>首行加成</td><td>150%~200%</td></tr>
+    <tr><td>广告优化周期</td><td>前4周3天/次；第5周起7天/次</td></tr>
+    <tr><td>BD安排时间</td><td>第6周(Day 42)</td></tr>
+    <tr><td>最低备货量</td><td>月销量 × 3</td></tr>
+  </table>
+
+  <div class="sub3-title">核心策略思维</div>
+  <div class="key-points">
+    <span class="key-point">前期亏损是投资</span>
+    <span class="key-point">双目标制：排名+单量</span>
+    <span class="key-point">低竞价高加成卡首行</span>
+    <span class="key-point">渐进式优惠券下调</span>
+    <span class="key-point">BD/秒杀必做</span>
+    <span class="key-point">9周后常态化飞轮</span>
+  </div>
+
+  <hr style="margin:24px 0;border:none;border-top:1px solid var(--border)">
+
+  <!-- 6.2 -->
+  <div class="sub-title">6.2 非标品9周推品SOP</div>
+
+  <div class="sub3-title">标品与非标品核心差异</div>
+  <table>
+    <tr><th>维度</th><th>标品</th><th>非标品</th></tr>
+    <tr><td>流量分布</td><td>集中在有限几个大词</td><td>极度分散或大词不精准</td></tr>
+    <tr><td>大词特性</td><td>大词 = 精准词</td><td>大词 ≠ 精准词</td></tr>
+    <tr><td>推广目标</td><td>关键词上首页</td><td>不以大词上首页为目标</td></tr>
+    <tr><td>广告策略</td><td>精准词高竞价抢位</td><td>广泛匹配拓词+漏斗式筛选</td></tr>
+  </table>
+
+  <div class="sub3-title">非标品9周推广节奏</div>
+  <table>
+    <tr><th>周次</th><th>核心逻辑</th></tr>
+    <tr><td>W1</td><td>中高价格+分层优惠券(15%→40~50%)+自动全开+词根广泛</td></tr>
+    <tr><td>W2</td><td>筛出单词开词组+定位广告(10个ASIN)+每周看报告</td></tr>
+    <tr><td>W3</td><td>扩张期：优惠券下调+大词广泛+长尾广泛+定位广告</td></tr>
+    <tr><td>W4</td><td>收缩期：不开新活动+竞价/预算优化+出单词再投放</td></tr>
+    <tr><td>W5</td><td>精准期：头部5~10出单词开精准+自然位维护</td></tr>
+    <tr><td>W6</td><td>秒杀期：7天秒杀+第一天爆单+广告翻倍</td></tr>
+    <tr><td>W7</td><td>维稳期：秒杀后3天不动+优惠券20~30%</td></tr>
+    <tr><td>W8</td><td>二次秒杀：限时秒杀+前2小时爆单策略</td></tr>
+    <tr><td>W9</td><td>稳定期：ACOS持续管理+出单词精准投放</td></tr>
+  </table>
+
+  <div class="sub3-title">广告架构演进路径</div>
+  <table>
+    <tr><th>阶段</th><th>匹配方式</th><th>预算水平</th></tr>
+    <tr><td>第1-2周</td><td>全开+广泛</td><td>15-20美金/活动</td></tr>
+    <tr><td>第3周</td><td>广泛+广泛+ASIN</td><td>60-65美金总计</td></tr>
+    <tr><td>第4周</td><td>词组</td><td>25美金/活动</td></tr>
+    <tr><td>第5周</td><td>精准+词组</td><td>15美金/活动</td></tr>
+    <tr><td>第6-9周</td><td>混合</td><td>逐步优化</td></tr>
+  </table>
+  <p>最终可能开到<strong>20-30个广告活动</strong>，这是非标品的正常状态。</p>
+
+  <div class="sub3-title">非标品维稳三大支柱</div>
+  <div class="card-grid">
+    <div class="card-item"><div class="card-title">① 关联流量</div><div class="card-desc">自动广告广泛匹配打关联</div></div>
+    <div class="card-item"><div class="card-title">② 出单词再投放</div><div class="card-desc">不断做广告出单词再投放</div></div>
+    <div class="card-item"><div class="card-title">③ BD/秒杀</div><div class="card-desc">每月做一次BD</div></div>
+  </div>
+</div>
+
+<!-- ======================================================================== -->
+<!-- PART 7: 专项SOP -->
+<!-- ======================================================================== -->
+<div class="section" id="p7">
+  <div class="section-title"><span class="num">7</span> 专项SOP突破</div>
+
+  <!-- 7.1 -->
+  <div class="sub-title">7.1 关键词排名上首页SOP</div>
+  <div class="alert alert-warn"><strong>⚠️ 适用对象：</strong>仅限<strong>标品</strong>，非标品不适用。</div>
+
+  <div class="sub3-title">影响关键词排名四大因素</div>
+  <table>
+    <tr><th>因素</th><th>说明</th><th>操作性</th></tr>
+    <tr><td>点击率(CTR)</td><td>搜索结果中用户点击链接的比例</td><td>主图差异化、标题优化</td></tr>
+    <tr><td>转化率(CVR)</td><td>点击后购买的比例</td><td>链接优化、价格、相关性</td></tr>
+    <tr><td><span class="highlight">关键词下出单量(KOQ)</span></td><td>该关键词下的订单数量</td><td><strong>最关键指标</strong>，加大广告预算</td></tr>
+    <tr><td>类目排名(BSR)</td><td>受前三项驱动</td><td>站外、秒杀</td></tr>
+  </table>
+
+  <div class="sub3-title">六步上首页SOP</div>
+  <div class="steps">
+    <span class="step">① 选词（2个精准大词）</span><span class="step arrow">→</span>
+    <span class="step">② 搭建（精准+1.5倍竞价+10刀+TOS+30%）</span><span class="step arrow">→</span>
+    <span class="step">③ 优化（分时调预算）</span><span class="step arrow">→</span>
+    <span class="step">④ 加量（每天+5次点击预算，连加6天）</span><span class="step arrow">→</span>
+    <span class="step">⑤ 坚持（15天周期，排名上升是唯一指标）</span><span class="step arrow">→</span>
+    <span class="step">⑥ 收割（上首页后转盈利型策略）</span>
+  </div>
+
+  <div class="sub3-title">新品 vs 老品</div>
+  <table>
+    <tr><th>维度</th><th>新品</th><th>老品</th></tr>
+    <tr><td>适用性</td><td><span class="tag tag-green">非常适合，80%把握</span></td><td>效果有限，需配合BD</td></tr>
+    <tr><td>周期</td><td>15天左右</td><td>取决于BD配合</td></tr>
+  </table>
+
+  <div class="alert alert-danger"><strong>🚨 关键红线：</strong>不要大起大落调竞价（每次10%~20%）；不要用分时调竞价（破坏模型）；不要刷单导致转化率异常；关键词排名必须手动跟踪</div>
+
+  <hr style="margin:24px 0;border:none;border-top:1px solid var(--border)">
+
+  <!-- 7.2 -->
+  <div class="sub-title">7.2 冲击Best Seller SOP</div>
+  <div class="alert alert-warn"><strong>⚠️ 专门适用于欧洲站（英国站/德国站等），不适用于美国站。</strong></div>
+
+  <div class="sub3-title">欧洲站 vs 美国站BD区别</div>
+  <table>
+    <tr><th>维度</th><th>美国站</th><th>欧洲站(英国站)</th></tr>
+    <tr><td>BD费用</td><td>300美金</td><td>50英镑（约400元）</td></tr>
+    <tr><td>报名频率</td><td>一个月1次</td><td>14天1次</td></tr>
+    <tr><td>月度秒杀次数</td><td>1次</td><td><span class="highlight">2次</span></td></tr>
+  </table>
+
+  <div class="sub3-title">四大前提条件</div>
+  <div class="key-points">
+    <span class="key-point">有种子链接（最好从美国站同步）</span>
+    <span class="key-point">链接转化率没问题</span>
+    <span class="key-point">毛利率30%以上</span>
+    <span class="key-point">能快速进入头部</span>
+  </div>
+
+  <div class="sub3-title">两周秒杀循环体系</div>
+  <div class="tree">第1周: 七天秒杀（冲排名）
+  ↓
+第2周: 大优惠券保持 + 站外补量（稳住排名）
+  ↓
+第3周: 第二次七天秒杀（再冲排名）
+  ↓
+第4周: 保持排名，逐步回收利润
+  ↓
+后续: 持续每14天秒杀一次，直到稳定BS前3名</div>
+
+  <div class="sub3-title">站外放量时间规划</div>
+  <ul>
+    <li>第一次秒杀前：站外放<strong>100单</strong></li>
+    <li>第二次秒杀前：再放3~5天站外，每天约10单</li>
+    <li>第三次及以后：不再需要站外</li>
+  </ul>
+
+  <div class="alert alert-danger"><strong>🚨 风险警示：</strong>❌ 不要将此策略用于美国站冲BS；❌ 不要连续14天/30天跑秒杀；❌ 不要做利润率低于30%的产品；❌ 不要忽视库存管控</div>
+
+  <hr style="margin:24px 0;border:none;border-top:1px solid var(--border)">
+
+  <!-- 7.3 -->
+  <div class="sub-title">7.3 季节性产品打造SOP</div>
+
+  <div class="sub3-title">总体策略</div>
+  <ul>
+    <li>利润率 <strong>低于50%不</strong>做</li>
+    <li>销售周期 <strong>少于3个月</strong>不选</li>
+    <li>能卖半年（5~6个月）最佳</li>
+    <li>备货一次卖完，不再补货</li>
+  </ul>
+
+  <div class="sub3-title">选品判断方法</div>
+  <div class="card-grid">
+    <div class="card-item"><div class="card-title">BSR榜单曲线法</div><div class="card-desc">找小类目稳定头部产品，看大类排名周期性波动</div></div>
+    <div class="card-item"><div class="card-title">谷歌趋势法</div><div class="card-desc">用核心关键词搜索热度周期</div></div>
+  </div>
+
+  <div class="sub3-title">备货与定价</div>
+  <div class="formula-box"><span class="label">📦 备货公式：</span>提前2~2.5个月发货，备货量 = 销售周期 × 75%（无老链接）或100%（有老链接）<br><span class="label">💰 定价策略：</span>高价入场 + 大额优惠券 → 阶梯降价出红标</div>
+
+  <div class="sub3-title">清库存策略</div>
+  <table>
+    <tr><th>方式</th><th>折扣力度</th></tr>
+    <tr><td>社交媒体促销码</td><td>50%（盈亏平衡）~60%（微亏）</td></tr>
+    <tr><td>站外Deal</td><td>≤ 50%折扣</td></tr>
+  </table>
+  <div class="alert alert-warn"><strong>⏰ 节日性产品必须1周内清完！</strong>不留库存过年。</div>
+</div>
+
+<!-- ======================================================================== -->
+<!-- PART 8: 知识体系整合 -->
+<!-- ======================================================================== -->
+<div class="section" id="p8">
+  <div class="section-title"><span class="num">8</span> 知识体系整合</div>
+
+  <div class="sub-title">完整知识链路</div>
+  <div class="tree">课程体系总览
+    ↓
+关键词表 ← 所有后续课程的数据基础
+    ↓
+Listing优化 ← 转化率的基础
+    ↓
+品类分析 ← 决定广告架构方向
+    ↓ 分流
+    ├── 出单词集中(标品) → 标品广告架构 → 标品9周SOP
+    └── 出单词分散(非标品) → 非标品广告架构 → 非标品9周SOP
+         ↓
+    广告翻量 + 自动广告高阶
+         ↓
+    数据表 + 广告报告 + 广告优化
+         ↓
+    标品SOP / 非标品SOP
+         ↓
+    关键词上首页 / 冲BS / 季节性产品</div>
+
+  <div class="sub-title">核心概念跨文档关联</div>
+  <table>
+    <tr><th>核心概念</th><th>涉及文档</th></tr>
+    <tr><td>关键词分类（大词/次级词/长尾词）</td><td>贯穿全课程的基础概念</td></tr>
+    <tr><td>相关性判断（精准/相关/弱相关）</td><td>决定广告匹配方式</td></tr>
+    <tr><td>ABA搜索频率排名</td><td>唯一官方流量数据源</td></tr>
+    <tr><td>卡首行策略</td><td>标品核心广告打法</td></tr>
+    <tr><td>出单词再投放</td><td>广告增量核心循环</td></tr>
+    <tr><td>合理ACOS</td><td>广告优化判断标尺</td></tr>
+    <tr><td>瀑布流竞价</td><td>高中低三档全覆盖</td></tr>
+    <tr><td>四大排名因素</td><td>点击率/转化率/出单量/类目排名</td></tr>
+    <tr><td>TACOS</td><td>整体广告效率指标</td></tr>
+    <tr><td>秒杀节奏</td><td>推品关键时间节点</td></tr>
+  </table>
+
+  <div class="sub-title">10大核心要点</div>
+  <div class="key-points">
+    <span class="key-point">① 关键词表是运营第一步（7维度，类目转化率是关键）</span>
+    <span class="key-point">② 标品与非标品打法完全不同</span>
+    <span class="key-point">③ Listing 13维度优化缺一不可</span>
+    <span class="key-point">④ ABA是唯一官方数据源</span>
+    <span class="key-point">⑤ 广告架构因类目而异</span>
+    <span class="key-point">⑥ 自动广告不可或缺（独家广告位）</span>
+    <span class="key-point">⑦ 数据分析驱动决策</span>
+    <span class="key-point">⑧ 推品节奏严格按周执行</span>
+    <span class="key-point">⑨ TACOS &lt; 利润率即可持续</span>
+    <span class="key-point">⑩ 自然单:广告单 = 7:3</span>
+  </div>
+
+  <div class="sub-title">五条学习路径</div>
+  <table>
+    <tr><th>路径</th><th>适用场景</th><th>学习顺序</th></tr>
+    <tr><td>路径一</td><td>新品上架完整流程</td><td>体系→词表→Listing→品类分析→广告架构→SOP→数据监控</td></tr>
+    <tr><td>路径二</td><td>广告优化提升</td><td>品类分析→广告架构→自动广告高阶→报告分析→问题诊断</td></tr>
+    <tr><td>路径三</td><td>推品冲刺快速起量</td><td>翻量打法→推品SOP→关键词上首页→冲BS</td></tr>
+    <tr><td>路径四</td><td>数据驱动精细化</td><td>六表体系→三大报告→问题诊断与优化</td></tr>
+    <tr><td>路径五</td><td>特殊场景</td><td>季节性产品 / 欧洲站冲BS</td></tr>
+  </table>
+</div>
+
+<!-- ======================================================================== -->
+<!-- DATA SECTION -->
+<!-- ======================================================================== -->
+<div class="section" id="data">
+  <div class="section-title"><span class="num">📊</span> 核心数据速查</div>
+
+  <div class="sub-title">关键指标速查表</div>
+  <table>
+    <tr><th>指标</th><th>标准值</th></tr>
+    <tr><td>搜索流量占比</td><td>75%</td></tr>
+    <tr><td>前三页流量占比</td><td>70%</td></tr>
+    <tr><td>大词标准</td><td>ABA排名 ≤ 2万</td></tr>
+    <tr><td>精准词标准</td><td>前10自然位 ≥ 6个同类</td></tr>
+    <tr><td>新品期点击率权重</td><td>50%-60%</td></tr>
+    <tr><td>上升期转化率权重</td><td>50%-60%</td></tr>
+    <tr><td>稳定期类目排名权重</td><td>40%-50%</td></tr>
+    <tr><td>TACOS合理区间</td><td><span class="highlight">10%~20%，最佳15%</span></td></tr>
+    <tr><td>自然单 : 广告单</td><td><span class="highlight">7:3</span></td></tr>
+    <tr><td>广告订单占比目标</td><td>&lt; 30%</td></tr>
+    <tr><td>CTR合格线</td><td>&gt;0.3%；优秀 &gt;0.7%</td></tr>
+    <tr><td>CVR合格线</td><td>类目均值的1.5~3倍</td></tr>
+    <tr><td>不出单花费警戒线</td><td>≥ 30%</td></tr>
+    <tr><td>手机端购物占比</td><td>~60%</td></tr>
+    <tr><td>主图产品占比</td><td>≥ 85%</td></tr>
+    <tr><td>QA数量（新品）</td><td>≥ 5对</td></tr>
+    <tr><td>评分合格线</td><td>≥ 4.0星</td></tr>
+    <tr><td>图片尺寸（手机端）</td><td>1200 × 1500</td></tr>
+    <tr><td>图片尺寸（PC端）</td><td>1600 × 1600</td></tr>
+    <tr><td>高客单定义</td><td>≥ 80美金</td></tr>
+    <tr><td>低客单定义</td><td>≤ 15美金</td></tr>
+  </table>
+
+  <div class="sub-title">核心公式速查</div>
+  <div class="formula-box">📐 <strong>ACOS</strong> = 广告花费 ÷ 广告销售额 ≈ CPC ÷（客单价 × 转化率）</div>
+  <div class="formula-box">📐 <strong>TACOS</strong> = 总广告花费 ÷ 总销售额</div>
+  <div class="formula-box">📐 <strong>CPA</strong> = 花费 ÷ 订单</div>
+  <div class="formula-box">📐 <strong>合理ACOS</strong> = 建议竞价 × 出一单点击次数 ÷ 客单价</div>
+  <div class="formula-box">📐 <strong>预算</strong> = CPC × 点击次数（点击次数 = 所需单量 ÷ 转化率）</div>
+  <div class="formula-box">📐 <strong>最低备货量</strong> = 月销量 × 3</div>
+  <div class="formula-box">📐 <strong>可支撑天数</strong> = 剩余库存 ÷ 日均出单量</div>
+
+  <div class="sub-title">🚨 十大风险警示</div>
+  <div class="card-grid">
+    <div class="card-item"><div class="card-title tag-red">① 类目经验不可复制</div><div class="card-desc">失败率可达80%</div></div>
+    <div class="card-item"><div class="card-title tag-red">② 新品期极其宝贵</div><div class="card-desc">前三个月是黄金窗口</div></div>
+    <div class="card-item"><div class="card-title tag-red">③ 不要只看单量</div><div class="card-desc">盲目冲排名可能导致利润下降</div></div>
+    <div class="card-item"><div class="card-title tag-red">④ 断货=前功尽弃</div><div class="card-desc">库存管控是生死线</div></div>
+    <div class="card-item"><div class="card-title tag-red">⑤ 普通测评风险极高</div><div class="card-desc">一警二封三永久</div></div>
+    <div class="card-item"><div class="card-title tag-red">⑥ 不要每天调广告</div><div class="card-desc">3天微调，7天大调</div></div>
+    <div class="card-item"><div class="card-title tag-red">⑦ 不要机械执行</div><div class="card-desc">10%~20%之间灵活判断</div></div>
+    <div class="card-item"><div class="card-title tag-red">⑧ 季节性利润率门槛</div><div class="card-desc">&lt;50%不做</div></div>
+    <div class="card-item"><div class="card-title tag-red">⑨ 欧洲站≠美国站</div><div class="card-desc">策略不可照搬</div></div>
+    <div class="card-item"><div class="card-title tag-red">⑩ 通过服务商报大促</div><div class="card-desc">通过服务商=高风险</div></div>
+  </div>
+</div>
+
+</div><!-- /container -->
+
+<footer class="footer">
+  <p>🚀 天宫计划 · 亚马逊电商运营完整课程知识体系</p>
+  <p>课程时间：2026年06月29-30日 · 已迭代7次 · 整合于2026年07月01日</p>
+  <p style="margin-top:6px;font-size:0.72rem;opacity:.5">本HTML文档包含全部16节课程知识点，无需再翻阅原始md文件</p>
+</footer>
+
+</body>
+</html>
