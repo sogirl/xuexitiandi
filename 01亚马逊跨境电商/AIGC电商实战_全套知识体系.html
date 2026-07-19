@@ -1,0 +1,1582 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=3.0, user-scalable=yes">
+<title>AIGC电商实战班 — 全套知识体系百科全书</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: #f8f9fb; color: #2c3e50; line-height: 1.8; font-size: 15px;
+  }
+  a { color: #5b7fff; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+
+  /* ===== Hero ===== */
+  .hero {
+    background: linear-gradient(135deg, #e8edff 0%, #f0f4ff 50%, #f8faff 100%);
+    padding: 56px 24px 48px; text-align: center; border-bottom: 1px solid #eef2f7;
+  }
+  .hero h1 { font-size: 32px; font-weight: 700; color: #1a2744; letter-spacing: 2px; }
+  .hero .sub { font-size: 16px; color: #5a6e8a; margin-top: 10px; }
+  .hero .meta { font-size: 13px; color: #8a9bb5; margin-top: 8px; }
+
+  /* ===== Navigator ===== */
+  .nav-bar {
+    position: sticky; top: 0; z-index: 100;
+    background: rgba(255,255,255,0.96); backdrop-filter: blur(8px);
+    border-bottom: 1px solid #eef2f7; overflow-x: auto; white-space: nowrap;
+    padding: 10px 16px; display: flex; gap: 6px; flex-wrap: nowrap;
+    -webkit-overflow-scrolling: touch; scrollbar-width: none;
+  }
+  .nav-bar::-webkit-scrollbar { display: none; }
+  .nav-bar a {
+    display: inline-block; padding: 5px 14px; border-radius: 20px;
+    font-size: 13px; color: #4a5a7a; background: #f0f3f9; transition: .2s;
+    flex-shrink: 0;
+  }
+  .nav-bar a:hover { background: #dce3f0; text-decoration: none; }
+  .nav-bar a.act { background: #5b7fff; color: #fff; }
+
+  /* ===== Container ===== */
+  .wrap { max-width: 1024px; margin: 0 auto; padding: 0 16px; }
+  section { padding: 36px 0; }
+  section + section { border-top: 1px solid #eef2f7; }
+  h2 {
+    font-size: 24px; font-weight: 700; color: #1a2744;
+    padding-left: 14px; border-left: 4px solid #5b7fff; margin-bottom: 24px;
+  }
+  h3 {
+    font-size: 18px; font-weight: 600; color: #2c3e50;
+    margin: 28px 0 14px; padding-bottom: 6px; border-bottom: 1px dashed #e2e8f0;
+  }
+  h4 { font-size: 16px; font-weight: 600; color: #3d4f6a; margin: 20px 0 10px; }
+  p, li { color: #3d4f6a; }
+  ul, ol { padding-left: 20px; margin: 8px 0; }
+  li { margin: 4px 0; }
+
+  /* ===== Cards ===== */
+  .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; margin: 16px 0; }
+  .card {
+    background: #fff; border-radius: 12px; padding: 18px 20px;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.04), 0 2px 8px rgba(0,0,0,0.02);
+    border: 1px solid #edf0f5; transition: .2s;
+  }
+  .card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.06); border-color: #dce3f0; }
+  .card h4 { margin: 0 0 6px; font-size: 15px; color: #1a2744; }
+  .card .tag {
+    display: inline-block; font-size: 11px; padding: 1px 10px; border-radius: 12px;
+    margin-bottom: 6px; font-weight: 500;
+  }
+  .tag-basic { background: #e8edff; color: #4a6cf7; }
+  .tag-core { background: #fff2e0; color: #d4880f; }
+  .tag-jimeng { background: #e0f5ec; color: #0d8a5e; }
+  .tag-combo { background: #f0e6ff; color: #7c3aed; }
+  .tag-chatgpt { background: #ffe8e0; color: #d95c2b; }
+  .tag-adv { background: #fce4ec; color: #c62828; }
+  .card ul { font-size: 13px; padding-left: 16px; }
+  .card ul li { margin: 2px 0; }
+
+  /* ===== Tables ===== */
+  .tbl-wrap { overflow-x: auto; margin: 16px 0; border-radius: 10px; border: 1px solid #edf0f5; }
+  table {
+    width: 100%; border-collapse: collapse; font-size: 13px; min-width: 600px;
+  }
+  thead { background: #f0f4ff; }
+  th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid #edf0f5; vertical-align: top; }
+  th { font-weight: 600; color: #1a2744; white-space: nowrap; }
+  tr:last-child td { border-bottom: none; }
+  .hl-row { background: #f8faff; }
+
+  /* ===== Info Box ===== */
+  .info-box {
+    background: #f0f4ff; border-radius: 10px; padding: 16px 20px; margin: 16px 0;
+    border-left: 4px solid #5b7fff; font-size: 14px;
+  }
+  .info-box.warn { background: #fff8e8; border-left-color: #f0a030; }
+  .info-box.tip { background: #e8f8ee; border-left-color: #22a06b; }
+
+  /* ===== Flow ===== */
+  .flow {
+    display: flex; flex-wrap: wrap; align-items: center; gap: 6px 4px;
+    margin: 14px 0; padding: 14px 16px; background: #f8f9fb; border-radius: 10px;
+    font-size: 13px;
+  }
+  .flow-step {
+    display: inline-flex; align-items: center; gap: 4px;
+    padding: 4px 12px; background: #fff; border-radius: 6px;
+    border: 1px solid #e2e8f0; white-space: nowrap;
+  }
+  .flow-step .hl { color: #5b7fff; font-weight: 600; }
+  .flow-arrow { color: #b0c0d8; font-size: 16px; padding: 0 2px; }
+
+  /* ===== Code ===== */
+  code {
+    font-family: "SF Mono", "Fira Code", "Consolas", monospace;
+    font-size: 13px; background: #f0f3f9; padding: 2px 8px; border-radius: 4px;
+    word-break: break-word;
+  }
+  pre {
+    background: #f5f7fa; border: 1px solid #e2e8f0; border-radius: 8px;
+    padding: 14px 16px; font-size: 13px; overflow-x: auto; margin: 12px 0;
+    line-height: 1.6;
+  }
+
+  /* ===== SVG Mind Map ===== */
+  .mindmap-wrap {
+    background: #fff; border-radius: 14px; border: 1px solid #edf0f5;
+    padding: 10px; margin: 20px 0; overflow: auto; -webkit-overflow-scrolling: touch;
+    text-align: center;
+  }
+  .mindmap-wrap svg { max-width: 100%; height: auto; display: block; margin: 0 auto; }
+
+  /* ===== Badge ===== */
+  .badge {
+    display: inline-block; font-size: 11px; padding: 1px 10px; border-radius: 10px;
+    font-weight: 500; background: #e8edff; color: #4a6cf7; margin-left: 6px;
+  }
+
+  /* ===== Collapse ===== */
+  details { margin: 10px 0; background: #fff; border-radius: 8px; border: 1px solid #edf0f5; }
+  details summary {
+    padding: 12px 16px; cursor: pointer; font-weight: 600; font-size: 15px;
+    color: #1a2744; border-radius: 8px;
+  }
+  details[open] summary { border-bottom: 1px solid #edf0f5; }
+  details .body { padding: 14px 16px; }
+
+  /* ===== Footer ===== */
+  footer {
+    text-align: center; padding: 32px 16px; color: #8a9bb5; font-size: 13px;
+    border-top: 1px solid #eef2f7; margin-top: 20px;
+  }
+
+  /* ===== Responsive ===== */
+  @media (max-width: 640px) {
+    .hero h1 { font-size: 24px; }
+    .hero { padding: 36px 16px 32px; }
+    .card-grid { grid-template-columns: 1fr; }
+    .flow { font-size: 12px; gap: 4px; }
+    .flow-step { padding: 3px 8px; }
+    h2 { font-size: 20px; }
+    .nav-bar a { font-size: 12px; padding: 4px 10px; }
+  }
+
+  /* ===== Print ===== */
+  @media print {
+    .nav-bar { display: none; }
+    .card { break-inside: avoid; }
+  }
+
+  /* ===== Key Points ===== */
+  .key-points { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px,1fr)); gap: 12px; margin: 12px 0; }
+  .kp {
+    background: #fff; border-radius: 8px; padding: 12px 14px;
+    border: 1px solid #edf0f5; font-size: 13px;
+  }
+  .kp .num { font-weight: 700; color: #5b7fff; font-size: 18px; display: block; }
+</style>
+</head>
+<body>
+
+<!-- ====== HERO ====== -->
+<div class="hero">
+  <h1>📘 AIGC电商实战班</h1>
+  <p class="sub">全套知识体系百科全书 · 从入门到精通</p>
+  <p class="meta">涵盖 20 个实战文档 · 15+ 核心工具 · 4 大学习路径 · 2026年7月8日</p>
+</div>
+
+<!-- ====== NAV ====== -->
+<nav class="nav-bar" id="topNav">
+  <a href="#mindmap" class="act">🌳 知识图谱</a>
+  <a href="#p1">基础工具篇</a>
+  <a href="#p2">核心工作流篇</a>
+  <a href="#p3">即梦AI应用篇</a>
+  <a href="#p4">工具组合篇</a>
+  <a href="#p5">ChatGPT/Coze篇</a>
+  <a href="#p6">视频与高级篇</a>
+  <a href="#matrix">📊 工具矩阵</a>
+  <a href="#prompts">📝 提示词框架</a>
+  <a href="#cost">💰 成本指南</a>
+  <a href="#path">🎯 学习路径</a>
+</nav>
+
+<div class="wrap">
+
+<!-- ====== MIND MAP ====== -->
+<section id="mindmap">
+<h2>🌳 全局知识图谱</h2>
+<p style="margin-bottom:14px;color:#5a6e8a;">横向树状结构 · 根在左逐层向右 · 直角折线连接 · 可双指放大查看</p>
+<div class="mindmap-wrap">
+<svg viewBox="0 0 1040 1040" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;font-family:'PingFang SC','Microsoft YaHei',sans-serif;">
+  <defs>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="0" dy="1" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto">
+      <path d="M0,0 L10,5 L0,10 Z" fill="#a0b4d0"/>
+    </marker>
+  </defs>
+  <rect width="1040" height="1040" fill="#fafbfd" rx="8"/>
+
+  <!-- ===== CONNECTING LINES (drawn first so they're behind boxes) ===== -->
+  <!-- Root → Level1 groups -->
+  <!-- Part 1: from (200,52) → (220,52) → (220,85) → ...  -->
+  <!-- I'll draw all connector lines as horizontal-then-vertical (right-angle) paths -->
+
+  <!-- Root (200,520) to 6 main nodes -->
+  <!-- Part 1: root→(210,520)→(210,95)→(230,95) -->
+  <path d="M 200,520 H 210 V 95 H 230" fill="none" stroke="#b8c8e0" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Part 2: root→(210,520)→(210,215)→(230,215) -->
+  <path d="M 200,520 H 210 V 215 H 230" fill="none" stroke="#b8c8e0" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Part 3: root→(210,520)→(210,335)→(230,335) -->
+  <path d="M 200,520 H 210 V 335 H 230" fill="none" stroke="#b8c8e0" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Part 4: root→(210,520)→(210,485)→(230,485) -->
+  <path d="M 200,520 H 210 V 485 H 230" fill="none" stroke="#b8c8e0" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Part 5: root→(210,520)→(210,645)→(230,645) -->
+  <path d="M 200,520 H 210 V 645 H 230" fill="none" stroke="#b8c8e0" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Part 6: root→(210,520)→(210,785)→(230,785) -->
+  <path d="M 200,520 H 210 V 785 H 230" fill="none" stroke="#b8c8e0" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Cross: root→(210,520)→(210,920)→(230,920) -->
+  <path d="M 200,520 H 210 V 920 H 230" fill="none" stroke="#b8c8e0" stroke-width="1.5" marker-end="url(#arrow)"/>
+
+  <!-- Part 1 children (from main box at x=390 to sub-boxes at x=530) -->
+  <path d="M 390,68 H 400 V 68 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,103 H 400 V 103 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,138 H 400 V 138 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Part 2 children -->
+  <path d="M 390,188 H 400 V 188 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,223 H 400 V 223 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,258 H 400 V 258 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Part 3 children -->
+  <path d="M 390,308 H 400 V 308 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,343 H 400 V 343 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,378 H 400 V 378 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Part 4 children -->
+  <path d="M 390,450 H 400 V 428 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,450 H 400 V 463 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,450 H 400 V 498 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,450 H 400 V 533 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Part 5 children -->
+  <path d="M 390,610 H 400 V 610 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,610 H 400 V 645 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,610 H 400 V 680 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,610 H 400 V 715 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Part 6 children -->
+  <path d="M 390,758 H 400 V 758 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,758 H 400 V 793 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,758 H 400 V 828 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- Cross children -->
+  <path d="M 390,893 H 400 V 893 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,893 H 400 V 928 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,893 H 400 V 963 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+  <path d="M 390,893 H 400 V 998 H 530" fill="none" stroke="#c8d4e8" stroke-width="1" marker-end="url(#arrow)"/>
+
+  <!-- ===== ROOT NODE ===== -->
+  <rect x="16" y="490" width="184" height="60" rx="10" fill="#1a2744" filter="url(#shadow)"/>
+  <text x="108" y="518" fill="#fff" font-size="16" font-weight="700" text-anchor="middle">🎓 AIGC电商实战</text>
+  <text x="108" y="538" fill="#aabbd8" font-size="12" text-anchor="middle">20个实战文档全套体系</text>
+
+  <!-- ===== LEVEL 1: 6 Parts + Cross ===== -->
+
+  <!-- Part 1 -->
+  <rect x="230" y="70" width="160" height="36" rx="8" fill="#e8edff" stroke="#b8cce8" stroke-width="1" filter="url(#shadow)"/>
+  <text x="310" y="93" fill="#3a56c8" font-size="13" font-weight="600" text-anchor="middle">📦 基础工具篇</text>
+  <text x="310" y="123" fill="#8a9bc0" font-size="10" text-anchor="middle">3个文档</text>
+  <!-- Sub items -->
+  <rect x="530" y="54" width="175" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="617" y="73" fill="#3d4f6a" font-size="12" text-anchor="middle">Picset+即梦 一键出图</text>
+  <rect x="530" y="89" width="175" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="617" y="108" fill="#3d4f6a" font-size="12" text-anchor="middle">豆包+即梦+SD 动图全流程</text>
+  <rect x="530" y="124" width="175" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="617" y="143" fill="#3d4f6a" font-size="12" text-anchor="middle">即梦+SD智能体 全链路</text>
+
+  <!-- Part 2 -->
+  <rect x="230" y="190" width="160" height="36" rx="8" fill="#fff2e0" stroke="#e8d4b0" stroke-width="1" filter="url(#shadow)"/>
+  <text x="310" y="213" fill="#b87820" font-size="13" font-weight="600" text-anchor="middle">⚙️ 核心工作流篇</text>
+  <text x="310" y="243" fill="#8a9bc0" font-size="10" text-anchor="middle">3个文档</text>
+  <rect x="530" y="174" width="175" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="617" y="193" fill="#3d4f6a" font-size="12" text-anchor="middle">扫地机器人 智能体详解</text>
+  <rect x="530" y="209" width="175" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="617" y="228" fill="#3d4f6a" font-size="12" text-anchor="middle">猫粮详情页 零文案输入</text>
+  <rect x="530" y="244" width="175" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="617" y="263" fill="#3d4f6a" font-size="12" text-anchor="middle">护肤品 首尾帧动画</text>
+
+  <!-- Part 3 -->
+  <rect x="230" y="310" width="160" height="36" rx="8" fill="#e0f5ec" stroke="#b0d8c4" stroke-width="1" filter="url(#shadow)"/>
+  <text x="310" y="333" fill="#0d8a5e" font-size="13" font-weight="600" text-anchor="middle">🎨 即梦AI应用篇</text>
+  <text x="310" y="363" fill="#8a9bc0" font-size="10" text-anchor="middle">3个文档</text>
+  <rect x="530" y="294" width="175" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="617" y="313" fill="#3d4f6a" font-size="12" text-anchor="middle">音箱 场景复用技术</text>
+  <rect x="530" y="329" width="175" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="617" y="348" fill="#3d4f6a" font-size="12" text-anchor="middle">投影仪 六步法+PS光效</text>
+  <rect x="530" y="364" width="175" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="617" y="383" fill="#3d4f6a" font-size="12" text-anchor="middle">香薰/香蕉 关键词模板</text>
+
+  <!-- Part 4 -->
+  <rect x="230" y="435" width="160" height="36" rx="8" fill="#f0e6ff" stroke="#d0c0e8" stroke-width="1" filter="url(#shadow)"/>
+  <text x="310" y="458" fill="#7c3aed" font-size="13" font-weight="600" text-anchor="middle">🔧 工具组合篇</text>
+  <text x="310" y="488" fill="#8a9bc0" font-size="10" text-anchor="middle">4个文档</text>
+  <rect x="530" y="414" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="433" fill="#3d4f6a" font-size="12" text-anchor="middle">空气炸锅 豆包+稿定AI+即梦</text>
+  <rect x="530" y="449" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="468" fill="#3d4f6a" font-size="12" text-anchor="middle">蓝牙耳机 稿定AI改图技巧</text>
+  <rect x="530" y="484" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="503" fill="#3d4f6a" font-size="12" text-anchor="middle">毛球修剪器 产品精修</text>
+  <rect x="530" y="519" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="538" fill="#3d4f6a" font-size="12" text-anchor="middle">洗地机 参考图控制技巧</text>
+
+  <!-- Part 5 -->
+  <rect x="230" y="595" width="160" height="36" rx="8" fill="#ffe8e0" stroke="#e8c8b8" stroke-width="1" filter="url(#shadow)"/>
+  <text x="310" y="618" fill="#c84820" font-size="13" font-weight="600" text-anchor="middle">🤖 ChatGPT/Coze篇</text>
+  <text x="310" y="648" fill="#8a9bc0" font-size="10" text-anchor="middle">4个文档</text>
+  <rect x="530" y="596" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="615" fill="#3d4f6a" font-size="12" text-anchor="middle">防晒喷雾 审美能力+需求整理</text>
+  <rect x="530" y="631" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="650" fill="#3d4f6a" font-size="12" text-anchor="middle">加湿器 ChatGPT image2 出图</text>
+  <rect x="530" y="666" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="685" fill="#3d4f6a" font-size="12" text-anchor="middle">蓝牙音箱 Coze工作流搭建</text>
+  <rect x="530" y="701" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="720" fill="#3d4f6a" font-size="12" text-anchor="middle">电动牙刷 Coze批处理进阶</text>
+
+  <!-- Part 6 -->
+  <rect x="230" y="743" width="160" height="36" rx="8" fill="#fce4ec" stroke="#e8b8c4" stroke-width="1" filter="url(#shadow)"/>
+  <text x="310" y="766" fill="#b82040" font-size="13" font-weight="600" text-anchor="middle">🚀 视频与高级篇</text>
+  <text x="310" y="796" fill="#8a9bc0" font-size="10" text-anchor="middle">3个文档</text>
+  <rect x="530" y="744" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="763" fill="#3d4f6a" font-size="12" text-anchor="middle">洗发水 ComfyUI融合</text>
+  <rect x="530" y="779" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="798" fill="#3d4f6a" font-size="12" text-anchor="middle">洗发水 多关键词对比+蒙版</text>
+  <rect x="530" y="814" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="833" fill="#3d4f6a" font-size="12" text-anchor="middle">护肤水乳 Codex Skill自动化</text>
+
+  <!-- Cross -->
+  <rect x="230" y="878" width="160" height="36" rx="8" fill="#f0f4ff" stroke="#b8cce8" stroke-width="1" filter="url(#shadow)"/>
+  <text x="310" y="901" fill="#3a56c8" font-size="13" font-weight="600" text-anchor="middle">📐 跨课程知识图谱</text>
+  <text x="310" y="931" fill="#8a9bc0" font-size="10" text-anchor="middle">4个维度</text>
+  <rect x="530" y="879" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="898" fill="#3d4f6a" font-size="12" text-anchor="middle">核心工具矩阵对比</text>
+  <rect x="530" y="914" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="933" fill="#3d4f6a" font-size="12" text-anchor="middle">提示词框架全景汇总</text>
+  <rect x="530" y="949" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="968" fill="#3d4f6a" font-size="12" text-anchor="middle">成本与平台选型指南</text>
+  <rect x="530" y="984" width="190" height="28" rx="6" fill="#fff" stroke="#dce3f0" stroke-width="1"/>
+  <text x="625" y="1003" fill="#3d4f6a" font-size="12" text-anchor="middle">四条推荐学习路径</text>
+</svg>
+</div>
+</section>
+
+<!-- ================================================================ -->
+<!-- PART 1 -->
+<!-- ================================================================ -->
+<section id="p1">
+<h2>📦 第一部分：基础工具篇</h2>
+<p style="color:#5a6e8a;margin-bottom:16px;">从零突破，掌握AI电商详情页制作的核心工具操作</p>
+
+<h3>1.1 Picset+即梦 — 极致效率一键出图 <span class="badge">文档10</span></h3>
+<div class="info-box">
+  <strong>核心价值：</strong>全自动化路线——上传即出图，1分钟完成传统1天的工作量。不需要复杂的策划和多次迭代。
+</div>
+
+<h4>核心工具</h4>
+<table>
+  <thead><tr><th>工具</th><th>用途</th></tr></thead>
+  <tbody>
+    <tr><td><strong>Picset</strong></td><td>AI电商设计工具，上传产品图即可自动规划详情页方案，支持多国语言一键切换</td></tr>
+    <tr><td><strong>即梦AI</strong></td><td>用于海报图生成视频</td></tr>
+  </tbody>
+</table>
+
+<h4>操作流程</h4>
+<div class="flow">
+  <span class="flow-step">📸 上传产品图</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🤖 AI自动规划方案</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🌐 一键切换语言</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">⚡ 一键生成详情页</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎨 竞品风格复刻</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">📝 像改文档一样改文字</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎬 即梦转视频</span>
+</div>
+
+<h4>核心方法论</h4>
+<div class="card-grid">
+  <div class="card"><h4>一键出图法</h4><p style="font-size:13px;color:#5a6e8a;">Picset核心功能，输入产品信息即可自动生成全套详情页</p></div>
+  <div class="card"><h4>风格复刻法</h4><p style="font-size:13px;color:#5a6e8a;">通过参考图驱动AI模仿竞品视觉风格</p></div>
+  <div class="card"><h4>图文转视频</h4><p style="font-size:13px;color:#5a6e8a;">即梦AI接收海报图生成动态视频</p></div>
+</div>
+
+<div class="info-box tip"><strong>适用场景：</strong>快速测试多个产品、批量生成多语言版本详情页。效率极致但可控性较低。</div>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>1.2 豆包+即梦+SD — 动图制作全流程 <span class="badge">文档01</span></h3>
+<div class="info-box">
+  <strong>核心工具链：</strong><code>豆包（文案）→ 即梦（图像）→ SD/ComfyUI（产品融合）→ 即梦视频（动图）</code>
+</div>
+
+<h4>完整工作流</h4>
+
+<details>
+  <summary>📝 第一步：文案与背景图生成（豆包）</summary>
+  <div class="body">
+    <ul>
+      <li>告知豆包这是一个成品设计/手机海报文案</li>
+      <li>背景图可复用已有或由豆包新生成</li>
+      <li><strong>抽卡思维：</strong>豆包有一定随机性，需多次生成筛选最优结果</li>
+      <li>场景配图同样可由豆包生成</li>
+    </ul>
+  </div>
+</details>
+
+<details>
+  <summary>🖼️ 第二步：详情页视觉生成（即梦）</summary>
+  <div class="body">
+    <table>
+      <thead><tr><th>参数</th><th>设置值</th></tr></thead>
+      <tbody>
+        <tr><td>模型</td><td>3.1 版本</td></tr>
+        <tr><td>标签</td><td>1K</td></tr>
+        <tr><td>尺寸</td><td>512 × 2016（偏长条形，适配手机海报/详情页比例）</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top:8px;">即梦作用：提供灵感和基础框架，最终仍需手动精调。</p>
+  </div>
+</details>
+
+<details>
+  <summary>🎨 第三步：在线SD溶图 —— 替换产品</summary>
+  <div class="body">
+    <ol>
+      <li><strong>PS预处理：</strong>用Photoshop打开图片，裁剪不需要的部分，用移除工具移除原有产品</li>
+      <li><strong>放置新产品：</strong>把自己的产品图片放入合适位置</li>
+      <li><strong>保存：</strong>Ctrl+Shift+Alt+S 保存</li>
+      <li><strong>在线SD溶图：</strong>打开在线溶图工具，点击"在ComfyUI中运行"，上传处理好的图片，系统自动做图像融合处理</li>
+      <li><strong>保存融合结果</strong></li>
+    </ol>
+  </div>
+</details>
+
+<details>
+  <summary>🎬 第四步：即梦视频生成 —— 制作动图</summary>
+  <div class="body">
+    <ol>
+      <li>打开即梦 → 灵感 → 视频生成</li>
+      <li>上传融合好的产品图</li>
+      <li>输入关键词（提示词）</li>
+      <li>选择快速模式生成</li>
+      <li>查看生成的动图效果</li>
+    </ol>
+  </div>
+</details>
+
+<div class="info-box warn"><strong>⚠️ 关键认知：</strong>AI工具输出有随机性（抽卡思维），需多次生成筛选最优结果。手动调整不可避免——配图位置、图标数量、产品替换等环节都需要人工介入。</div>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>1.3 即梦+SD智能体 — 全链路详情页制作 <span class="badge">文档02</span></h3>
+<div class="info-box">
+  <strong>最大特色：</strong>两个AI智能体的分工协作——智能体①负责详情页策划，智能体②负责提示词生成。
+</div>
+
+<h4>核心工作流全景</h4>
+<div class="flow">
+  <span class="flow-step">📋 产品需求</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔍 竞品分析 <span class="hl">[智能体1]</span></span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">📐 策划架构 <span class="hl">[智能体1]</span></span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">✏️ 生成提示词 <span class="hl">[智能体2]</span></span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎨 即梦出图</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔧 PS替换+龙图融合</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎬 图生视频</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">✅ 成品交付</span>
+</div>
+
+<h4>四大板块详解</h4>
+
+<div class="card-grid">
+  <div class="card">
+    <h4>① 需求策划与智能体</h4>
+    <ul>
+      <li>智能体1：详情页需求文档——分析竞品、策划文案</li>
+      <li>智能体2：详情页提示词需求——自动编写AI绘画提示词</li>
+      <li>上传3张竞品图片用于分析</li>
+      <li>按"每一屏"输出详情页结构</li>
+      <li>输出到Excel表格管理，与客户确认</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>② 提示词与即梦出图</h4>
+    <ul>
+      <li>将策划表需求复制给智能体2</li>
+      <li>风格设定：上传参考图 + "简约风、米白色调"</li>
+      <li>通过豆包获取专业产品外观描述</li>
+      <li>即梦设置：模型3.1、标清1K、512×2016</li>
+      <li>提示词格式："产品名+详情页设计" + 画面描述</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>③ 后期处理与动图</h4>
+    <ul>
+      <li>PS内容识别填充移除原产品</li>
+      <li>钢笔工具或对象选择工具抠图</li>
+      <li>龙图工作流：自动光影融合+投影补齐</li>
+      <li>即梦图生视频：豆包辅助写提示词</li>
+    </ul>
+  </div>
+  <div class="card">
+    <h4>④ 自定义AI智能体创建</h4>
+    <ul>
+      <li>入口：AI平台→更多→智能体→创建</li>
+      <li>基本设置：名称、设定描述（系统提示词）、权限（私密）</li>
+      <li>系统提示词框架：角色定位、工作流程、技能说明、总体规则</li>
+      <li>创建完成后需要审核才能使用</li>
+    </ul>
+  </div>
+</div>
+
+<details>
+  <summary>📋 智能体系统提示词框架（模板）</summary>
+  <div class="body">
+    <pre>角色：你是一个详情页的策划师
+技能：分析竞品、策划文案、输出详情页架构
+工作流程：
+第一步：让用户上传详情页图片（三张竞品）
+第二步：上传完成后，进入文案策划环节，用户上传产品信息
+第三步：结合产品及竞品分析，写出对应文案
+第四步：输出详情页架构
+规则：按步骤一步一步执行</pre>
+  </div>
+</details>
+
+</section>
+
+<!-- ================================================================ -->
+<!-- PART 2 -->
+<!-- ================================================================ -->
+<section id="p2">
+<h2>⚙️ 第二部分：核心工作流篇 — 智能体驱动</h2>
+<p style="color:#5a6e8a;margin-bottom:16px;">深入智能体策划与提示词工程，掌握AI驱动的完整详情页制作工作流</p>
+
+<h3>2.1 AI+智能体扫地机器人详情页 <span class="badge">文档03</span></h3>
+<div class="info-box">
+  <strong>定位：</strong>全系列中最详尽的智能体设定教程之一，完整呈现"AI驱动型电商详情页制作工作流"。
+</div>
+
+<h4>双智能体分工</h4>
+<div class="flow">
+  <span class="flow-step">📋 客户需求</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🤖 智能体①：策划 <span class="hl">豆包</span></span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🤖 智能体②：提示词 <span class="hl">豆包</span></span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎨 即梦生图</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔧 PS+AI融合</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">✅ 成品交付</span>
+</div>
+
+<h4>智能体设定四部分结构</h4>
+<table>
+  <thead><tr><th>组成部分</th><th>内容示例</th><th>作用</th></tr></thead>
+  <tbody>
+    <tr><td><strong>角色设定</strong></td><td>你是一名资深的详情页策划师</td><td>明确身份与能力背景</td></tr>
+    <tr><td><strong>技能定义</strong></td><td>详情页设计、竞品分析、文案策划</td><td>告诉AI拥有哪些专业能力</td></tr>
+    <tr><td><strong>规则约束</strong></td><td>严格按照功能这一块去执行</td><td>限定AI的工作方向和边界</td></tr>
+    <tr><td><strong>工作流程</strong></td><td>先分析竞品，再结合产品策划文案</td><td>模拟真实工作中的完整链路</td></tr>
+  </tbody>
+</table>
+
+<h4>关键实操技巧</h4>
+<div class="key-points">
+  <div class="kp"><span class="num">1</span> <strong>竞品分析操作</strong><br>AI只支持单张上传，多张需额外加话说明</div>
+  <div class="kp"><span class="num">2</span> <strong>色调控制</strong><br>提示语加"整体色调采用米棕暖色调"，不知道色调名称时将图发给AI分析</div>
+  <div class="kp"><span class="num">3</span> <strong>后期合成链路</strong><br>极梦消除笔 → PS合成 → AI工作流投影 → 极梦视频</div>
+  <div class="kp"><span class="num">4</span> <strong>人机协作</strong><br>AI执行70~80%，人负责质检和微调</div>
+  <div class="kp"><span class="num">5</span> <strong>逐步迭代法</strong><br>先粗后精——先出框架再逐屏优化</div>
+  <div class="kp"><span class="num">6</span> <strong>产品后期替换</strong><br>前期不必苛求完美，产品可后期替换</div>
+</div>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>2.2 即梦AI+智能体猫粮详情页 <span class="badge">文档05</span></h3>
+<div class="info-box tip">
+  <strong>独特价值：</strong>完全不需要人工撰写文案，零文案输入，全由AI生成。
+</div>
+
+<h4>使用工具</h4>
+<table>
+  <thead><tr><th>工具</th><th>用途</th></tr></thead>
+  <tbody>
+    <tr><td><strong>豆包</strong></td><td>产品外观描述、创建详情页智能体、生成详情页文案</td></tr>
+    <tr><td><strong>即梦AI</strong></td><td>详情页图片生成、产品动图制作</td></tr>
+    <tr><td><strong>set（聊天式AI工具）</strong></td><td>发送竞品参考，辅助生成文案</td></tr>
+    <tr><td><strong>PS + 在线溶图</strong></td><td>产品替换与图像融合</td></tr>
+  </tbody>
+</table>
+
+<h4>操作流程</h4>
+<ol>
+  <li><strong>竞品参考：</strong>发送竞品参考给set，让AI理解行业风格和文案调性</li>
+  <li><strong>产品描述：</strong>将产品图片发送给豆包，使用提示词「从设计师的角度描述产品外观」</li>
+  <li><strong>生成文案：</strong>复制到表格，检查修改备用</li>
+  <li><strong>创建智能体：</strong>豆包平台创建 → 填写智能体描述文本 → 权限私密 → 发送需求文案</li>
+  <li><strong>即梦出图：</strong>模型3.1、512×2016、分屏每次2屏</li>
+  <li><strong>产品替换与动图制作</strong></li>
+</ol>
+
+<h4>核心方法论</h4>
+<table>
+  <thead><tr><th>方法论</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td><strong>竞品参考法</strong></td><td>先给AI看竞品，让AI理解品类风格和文案调性</td></tr>
+    <tr><td><strong>双工具联动</strong></td><td>豆包负责文案与智能体管理，即梦负责视觉生成</td></tr>
+    <tr><td><strong>分屏出图法</strong></td><td>每次只生成2屏，便于精细化控制和修改</td></tr>
+    <tr><td><strong>提示词迭代法</strong></td><td>先出初版，检查不足后修改提示词再刷新</td></tr>
+  </tbody>
+</table>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>2.3 即梦AI+豆包护肤品详情页 <span class="badge">文档06</span></h3>
+<div class="info-box">
+  <strong>核心链路：</strong>豆包策划文案 → 豆包智能体深化 → 即梦AI生图 → PS/融图后处理 → 动画/视频生成
+</div>
+
+<h4>详细工作流</h4>
+<table>
+  <thead><tr><th>阶段</th><th>工具</th><th>核心动作</th></tr></thead>
+  <tbody>
+    <tr><td>策划</td><td>豆包</td><td>设定策划师角色，获取详情页框架</td></tr>
+    <tr><td>产品描述</td><td>豆包</td><td>上传产品图获取外观描述</td></tr>
+    <tr><td>竞品分析</td><td>豆包</td><td>上传竞品图辅助差异化定位</td></tr>
+    <tr><td>智能体搭建</td><td>豆包</td><td>创建详情页专用智能体，导入提示词模板</td></tr>
+    <tr><td>文案确认</td><td>豆包智能体</td><td>逐屏确认主标题/副标题/画面需求</td></tr>
+    <tr><td>图片生成</td><td>即梦AI</td><td>模型3.1、比例512×2016、关键词拼装</td></tr>
+    <tr><td>迭代优化</td><td>即梦AI+豆包</td><td>调整色彩/构图/视角/关键词</td></tr>
+    <tr><td>产品替换</td><td>Photoshop</td><td>画笔/移除/图章/蒙版处理</td></tr>
+    <tr><td>融合</td><td>在线融图工具</td><td>自动投影与边缘融合</td></tr>
+    <tr><td>动画</td><td>即梦AI</td><td>首尾帧动画或视频生成</td></tr>
+  </tbody>
+</table>
+
+<h4>独特技巧</h4>
+<div class="card-grid">
+  <div class="card">
+    <h4>📐 俯视视角生成</h4>
+    <p style="font-size:13px;color:#5a6e8a;"><strong>方案一：</strong>让豆包AI生成俯视视角的产品描述词，用即梦AI生成</p>
+    <p style="font-size:13px;color:#5a6e8a;"><strong>方案二：</strong>将产品图片上传给即梦AI，选择智能处理功能，让AI将产品转换成俯视视角</p>
+  </div>
+  <div class="card">
+    <h4>🎞️ 首尾帧动画</h4>
+    <ol style="font-size:13px;color:#5a6e8a;padding-left:16px;">
+      <li>让AI生成一张只有水面的空白版图片（无产品无文字）</li>
+      <li>保持尺寸一致</li>
+      <li>即梦AI上传首帧（完整图）和尾帧（空白背景图）</li>
+      <li>AI自动生成平滑过渡动画</li>
+    </ol>
+  </div>
+</div>
+
+<div class="info-box warn"><strong>⚠️ 关键要点：</strong>AI描述词的精确度决定效果——产品颜色、材质、视角等细节描述越精准越好。双引号去除、叶子遮挡关系、投影融合等细节处理决定专业度。</div>
+
+</section>
+
+<!-- ================================================================ -->
+<!-- PART 3 -->
+<!-- ================================================================ -->
+<section id="p3">
+<h2>🎨 第三部分：即梦AI应用篇</h2>
+<p style="color:#5a6e8a;margin-bottom:16px;">专注于即梦AI在各品类中的应用技巧与实操经验</p>
+
+<h3>3.1 音箱详情页快速制作 <span class="badge">文档09</span></h3>
+<div class="info-box">
+  <strong>核心思路：</strong>"AI生成场景 + 自有产品替换 + 融合出图"——场景复用技术。
+</div>
+
+<h4>工具链</h4>
+<div class="flow">
+  <span class="flow-step">🎨 即梦AI生成</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔧 PS替换</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔄 ComfyUI融合</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎬 即梦视频动图</span>
+</div>
+
+<h4>场景复用技术</h4>
+<div class="flow">
+  <span class="flow-step">🎨 AI生成含替代产品场景图</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🧹 消除笔消除原产品保留背景</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔄 替换自有产品并融合</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">♻️ 实现高质量场景重复利用</span>
+</div>
+
+<h4>提示词迭代优化</h4>
+<ul>
+  <li><strong>首版生成：</strong>AI生成的产品与实际有差距（如金色麦克风 vs 实物米白色）→ 修改关键词</li>
+  <li><strong>关键词修改：</strong>将"金色的麦克风"改为"米白色的麦克风"</li>
+  <li><strong>视觉描述优化：</strong>增加"展示圆润的长方体造型""一字纹"等细节</li>
+  <li><strong>第二轮：</strong>修改后匹配度显著提升</li>
+</ul>
+
+<div class="info-box tip"><strong>抠图技巧：</strong>推荐使用<strong>钢笔工具</strong>而非快速选择工具，可获得更精确的选区。注意调整<strong>容差</strong>参数到较小值。</div>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>3.2 家用投影仪详情页 <span class="badge">文档07</span></h3>
+<div class="info-box">
+  <strong>"六步法"：</strong>需求分析 → DeepSeek生成提示词 → 即梦AI出图 → PS替换+溶图 → 即梦AI制作动图 → PS精修细节。
+</div>
+
+<h4>六步法详解</h4>
+<table>
+  <thead><tr><th>步骤</th><th>内容</th><th>工具/手段</th></tr></thead>
+  <tbody>
+    <tr><td>第一步</td><td>分析需求</td><td>解读白底图产品、文案需求、风格参考</td></tr>
+    <tr><td>第二步</td><td>DeepSeek生成提示词</td><td>模板填入产品信息+外观+分屏规划</td></tr>
+    <tr><td>第三步</td><td>即梦AI生成图片</td><td>提示词送入即梦出图，多轮筛选</td></tr>
+    <tr><td>第四步</td><td>PS替换产品+溶图</td><td>消除原产品、放置新产品；在线溶图光影融合</td></tr>
+    <tr><td>第五步</td><td>即梦AI制作动图</td><td>上传溶图后图片，加关键词生成视频动图</td></tr>
+    <tr><td>第六步</td><td>PS精修细节</td><td>仿制图章消除多余元素，画笔工具添加光效</td></tr>
+  </tbody>
+</table>
+
+<h4>PS光效处理技巧</h4>
+<ol>
+  <li>新建图层，用画笔工具选蓝色，点一个大光点</li>
+  <li>Ctrl+T → 右键 → 透视变形，调整光的角度</li>
+  <li>将光放到镜头位置</li>
+  <li>加图层蒙版，用画笔过渡</li>
+</ol>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>3.3 香薰/香蕉详情页 <span class="badge">文档08</span></h3>
+<div class="info-box">
+  <strong>核心工具链：</strong>豆包（文案策划+关键词生成）→ 即梦AI（视觉生成）→ PS（产品替换）→ 在线溶图（光影融合）→ 即梦视频（动图）
+</div>
+
+<h4>独特技巧：关键词模板</h4>
+<details>
+  <summary>📋 豆包关键词模板内容</summary>
+  <div class="body">
+    <ul>
+      <li>设定角色为"非常优秀的电商设计师"</li>
+      <li>告知需要设计的具体产品</li>
+      <li>要求结合表格内容和产品描述生成提示词</li>
+      <li>要求参考上传图片的排版风格</li>
+      <li>要求整体风格统一</li>
+    </ul>
+  </div>
+</details>
+
+<h4>操作要点</h4>
+<div class="key-points">
+  <div class="kp"><span class="num">1</span> <strong>分屏分批生成</strong><br>每批2屏，逐屏精控</div>
+  <div class="kp"><span class="num">2</span> <strong>多版抽卡法</strong><br>同一提示词多刷几次，从多个版本中选最优</div>
+  <div class="kp"><span class="num">3</span> <strong>统一色调法</strong><br>在豆包阶段预设整体色调</div>
+  <div class="kp"><span class="num">4</span> <strong>外观描述模板</strong><br>让豆包精准描绘产品外观</div>
+</div>
+
+</section>
+
+<!-- ================================================================ -->
+<!-- PART 4 -->
+<!-- ================================================================ -->
+<section id="p4">
+<h2>🔧 第四部分：工具组合篇</h2>
+<p style="color:#5a6e8a;margin-bottom:16px;">多工具组合协作，从策划到出图到精修的完整链路</p>
+
+<h3>4.1 豆包+稿定AI+即梦空气炸锅 <span class="badge">文档11</span></h3>
+<div class="flow">
+  <span class="flow-step">📝 豆包AI策划+竞品分析</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">📊 输出策划表格</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">✏️ AI生成每屏提示词</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🖼️ 即梦/生图平台批量出图</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔧 局部优化</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎬 视频生成</span>
+</div>
+
+<h4>差异化要点</h4>
+<ul>
+  <li>竞品分析提示词经过多次优化</li>
+  <li><strong>选择不给AI限定色调</strong>，给予更多发挥空间</li>
+  <li>如果只有一张产品图片，可要求AI联网搜索分析卖点</li>
+  <li>生图效果在小字细节上表现优秀（基本零错误）</li>
+  <li>AI生成的详情页建议仅作为参考底稿，最终仍需人工排版美化</li>
+</ul>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>4.2 豆包+稿定AI蓝牙耳机 <span class="badge">文档14</span></h3>
+<div class="info-box">
+  <strong>核心价值：</strong>将需要设计师、文案、策划多角色协作的流程，压缩为单人可完成的AI工作流。
+</div>
+
+<h4>四步核心工作流</h4>
+<div class="flow">
+  <span class="flow-step">📤 提取产品信息</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔍 分析竞品</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">📐 策划详情页</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🖼️ 生成详情页图片</span>
+</div>
+
+<h4>稿定AI特有图片修正技巧</h4>
+<div class="card-grid">
+  <div class="card"><h4>🔄 产品错误修正</h4><ul><li>将原始产品图拖入画布</li><li>选中生成错误的产品区域</li><li>使用"图片混合"功能</li><li>指令："将图二的产品换成图一的样子，尺寸保持9:16"</li><li>重新生成</li></ul></div>
+  <div class="card"><h4>🎨 颜色不搭修正</h4><ul><li>选中区域</li><li>直接改图指令："背景改为米白色"</li><li>重新生成</li></ul></div>
+</div>
+
+<h4>关键避坑指南</h4>
+<table>
+  <thead><tr><th>类型</th><th>技巧/避坑点</th></tr></thead>
+  <tbody>
+    <tr><td>竞品分析</td><td>一次只上传一张竞品详情页，避免AI分析不全</td></tr>
+    <tr><td>识别失败</td><td>切换思考模式或专家模式重试</td></tr>
+    <tr><td>字体描述</td><td>AI生成的字体描述（如"粗黑圆润"）需人工复核</td></tr>
+    <tr><td>生图策略</td><td>逐屏生成优于批量生成，质量更可控</td></tr>
+    <tr><td>输出格式</td><td>要求"不要表格"可获得纯文本格式便于复制</td></tr>
+  </tbody>
+</table>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>4.3 豆包+稿定AI+ChatGPT毛球修剪器 <span class="badge">文档17</span></h3>
+<div class="info-box">
+  <strong>新增核心内容：</strong>复杂产品多角度拍摄 + ChatGPT image2产品精修 + 逐屏优化策略。
+</div>
+
+<h4>新增核心技术</h4>
+<div class="card-grid">
+  <div class="card">
+    <h4>📸 复杂产品多角度拍摄</h4>
+    <p style="font-size:13px;color:#5a6e8a;">结构不对称或细节多的产品，需拍摄<strong>多角度照片</strong>（底部+顶部）供AI参考，避免AI生成错误的结构理解。</p>
+  </div>
+  <div class="card">
+    <h4>✨ AI精修产品图（ChatGPT image2）</h4>
+    <pre style="font-size:12px;margin:4px 0;">1. 严格还原上传的产品图
+2. 将产品处理为商业级电商精修图
+3. 产品完美无瑕，消除所有瑕疵杂质
+4. [细节模块 - 根据产品修改]</pre>
+  </div>
+  <div class="card">
+    <h4>🎯 逐屏优化策略</h4>
+    <p style="font-size:13px;color:#5a6e8a;">一次性批量生成15屏后，对不满意的屏进行<strong>逐屏单独生成优化</strong>。推荐做法：第1屏只需正面视角 → 只上传正面 + 修改对应提示词 → 单独生成。</p>
+  </div>
+</div>
+
+<h4>价格参考汇总</h4>
+<table>
+  <thead><tr><th>环节</th><th>方式</th><th>价格</th></tr></thead>
+  <tbody>
+    <tr><td>产品精修（普通）</td><td>ChatGPT image2普通渠道</td><td>约0.08元/张</td></tr>
+    <tr><td>产品精修（官方）</td><td>ChatGPT image2官方兜底</td><td>约0.2元/张</td></tr>
+    <tr><td>集成式平台出图</td><td>稿定AI</td><td>按平台积分计费</td></tr>
+    <tr><td>API调用</td><td>Coze工作流</td><td>低至约0.1元/张</td></tr>
+  </tbody>
+</table>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>4.4 稿定AI+ChatGPT洗地机 <span class="badge">文档18</span></h3>
+<div class="info-box">
+  <strong>关键改进：</strong>提示词中增加了"每一屏详细的画面元素及排版形式、视觉表达"维度，并引入了c dance 2.0视频模型。
+</div>
+
+<h4>提示词改进</h4>
+<p>在原有竞品分析维度基础上，增加了<strong>"每一屏详细的画面元素及排版形式、视觉表达"</strong>这一分析维度，使AI在视觉分析环节更多参考竞品的设计风格。</p>
+
+<h4>参考图控制技巧（核心技巧）</h4>
+<div class="card-grid">
+  <div class="card"><h4>✨ 特效控制</h4><p style="font-size:13px;color:#5a6e8a;">提示词中标注"参考图一的特效"→ AI生成结果会带有参考图中的光效</p></div>
+  <div class="card"><h4>📐 排版参考</h4><p style="font-size:13px;color:#5a6e8a;">提示词中标注"参考图几的对比样式"。如果想要稳定参考排版，提示词的描述应与参考图接近</p></div>
+</div>
+
+<h4>两套方案对比</h4>
+<table>
+  <thead><tr><th>对比维度</th><th>集成式平台（稿定AI）</th><th>低价API平台</th></tr></thead>
+  <tbody>
+    <tr><td>价格</td><td>约3~4元/张</td><td>几分钱/张</td></tr>
+    <tr><td>功能丰富度</td><td>支持改图、消除、扩图、改字</td><td>仅支持逐一生成</td></tr>
+    <tr><td>管理便利性</td><td>所有图片集中管理</td><td>关掉后一张一张查看</td></tr>
+    <tr><td>可控性</td><td>每屏独立可控，可逐屏精修</td><td>相对麻烦</td></tr>
+  </tbody>
+</table>
+
+<h4>c dance 2.0 视频模型调教方法</h4>
+<ol>
+  <li><strong>调教阶段：</strong>给AI设定规范——"我要根据这张图片做一个电商展示视频，给我对应的提示词"，规定时长15秒</li>
+  <li><strong>批量阶段：</strong>调教完成后只需发送产品海报即可获得提示词</li>
+</ol>
+
+</section>
+
+<!-- ================================================================ -->
+<!-- PART 5 -->
+<!-- ================================================================ -->
+<section id="p5">
+<h2>🤖 第五部分：ChatGPT/Coze工作流篇</h2>
+<p style="color:#5a6e8a;margin-bottom:16px;">掌握ChatGPT image2的高质量生图能力与Coze自动化工作流搭建</p>
+
+<h3>5.1 即梦+ChatGPT防晒喷雾 <span class="badge">文档19</span></h3>
+<div class="info-box tip">
+  <strong>核心观点：</strong>创作者的核心竞争力已从"技术操作"转向"审美判断"与"提示词工程能力"。
+</div>
+
+<h4>四个模块</h4>
+<div class="flow">
+  <span class="flow-step">📋 需求整理</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">✏️ 提示词生成</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎨 AI生图</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎬 AI生视频</span>
+</div>
+
+<h4>需求整理技巧</h4>
+<table>
+  <thead><tr><th>字段</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>主标题</td><td>核心卖点标题</td></tr>
+    <tr><td>副标题</td><td>辅助说明文案</td></tr>
+    <tr><td>画面内容</td><td>将其他文案归入此项，AI据此生成对应视觉</td></tr>
+    <tr><td>风格参考</td><td>收集竞品或对标展示方式</td></tr>
+  </tbody>
+</table>
+
+<h4>模型对比结论</h4>
+<table>
+  <thead><tr><th>模型</th><th>效果评价</th></tr></thead>
+  <tbody>
+    <tr><td><strong>GPT image 2</strong></td><td>最优，美感最强，推荐首选</td></tr>
+    <tr><td><strong>nano banana 2</strong></td><td>次优，整体美感不及GPT image 2</td></tr>
+    <tr><td><strong>Jimeng（即梦）</strong></td><td>差强人意，效果最不理想</td></tr>
+  </tbody>
+</table>
+
+<blockquote style="margin:14px 0;padding:12px 16px;background:#f8f9fb;border-left:3px solid #5b7fff;border-radius:6px;font-size:14px;color:#3d4f6a;">
+  "随着AI的发展，只要我们能够写好提示词，表达出自己想要的效果，AI基本能帮我们实现。我们现在最重要的是审美能力，以及学会如何去写提示词。"
+</blockquote>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>5.2 豆包+ChatGPT加湿器 <span class="badge">文档13</span></h3>
+<div class="info-box tip">
+  <strong>核心亮点：</strong>成本控制——约0.1元/张，先策划再出图可避免无效生成浪费。
+</div>
+
+<h4>完整工作流</h4>
+<ol>
+  <li><strong>AI策划：</strong>发送定位提示词将AI设定为"详情页策划师"</li>
+  <li><strong>竞品分析：</strong>上传竞品截图，AI从痛点切入、功能卖点、视觉风格、核心卖点差异等维度分析</li>
+  <li><strong>产品信息输入：</strong>上传产品图片+文案，AI生成设计方案</li>
+  <li><strong>图标风格迭代：</strong>支持极简风、2.5D风格、玻璃质感风格切换</li>
+  <li><strong>ChatGPT image2批量出图：</strong>比例9:16，分辨率2K</li>
+  <li><strong>视频生成：</strong>上传图片+广告风格提示词</li>
+</ol>
+
+<div class="info-box warn"><strong>建议：</strong>在生成前就指定好图标风格等细节，生成后再修改效果可能略差。</div>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>5.3 ChatGPT+Coze蓝牙音箱 <span class="badge">文档15</span></h3>
+<div class="info-box">
+  <strong>核心亮点：</strong>Coze（扣子）平台工作流搭建，以约0.1元/张的低成本输出详情页。这是全教程中搭建Coze工作流最详尽的讲解。
+</div>
+
+<h4>全流程链路</h4>
+<div class="flow">
+  <span class="flow-step">📸 随手拍产品图</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">✨ AI精修产品</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🤖 AI策划师角色设定</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔍 上传竞品分析</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">📊 输出15屏架构</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">✏️ 生成文生图提示词</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎨 搞定AI/Coze出图</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎬 AI生视频</span>
+</div>
+
+<h4>产品精修操作流程</h4>
+<ol>
+  <li>选择生图平台（搞定AI），上传随手拍的产品图</li>
+  <li>发送标准化AI精修提示词</li>
+  <li>核心要求：严格还原产品外观、商业级精修、消除所有瑕疵</li>
+  <li>精修模型选择：banana/banana2（早期模型，成本低）或 ChatGPT image2（最新模型，效果好）</li>
+</ol>
+
+<h4>Coze工作流搭建详解</h4>
+<div class="flow">
+  <span class="flow-step">🚀 开始节点<br><small>输入：产品图+密钥+提示词</small></span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔄 剪映小助手<br><small>图片转字符串</small></span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🧠 智能图像生成助手<br><small>对接ChatGPT image2</small></span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🏁 结束节点<br><small>输出图片</small></span>
+</div>
+
+<details>
+  <summary>📋 Coze工作流各节点详细配置</summary>
+  <div class="body">
+    <table>
+      <thead><tr><th>节点</th><th>参数设置</th></tr></thead>
+      <tbody>
+        <tr><td><strong>开始节点</strong></td><td>产品参考图(Image) → 变量名：产品图；密钥(String) → 变量名：K；提示词(String)</td></tr>
+        <tr><td><strong>剪映小助手</strong></td><td>搜索"剪映小助手"插件 → 选择字符串列表功能 → 将输入图片转换为字符串格式</td></tr>
+        <tr><td><strong>智能图像生成助手</strong></td><td>K=密钥, print=提示词, 尺寸=9:16, 参考图=转换后的图片字符串格式</td></tr>
+        <tr><td><strong>结束节点</strong></td><td>接收智能图像助手输出的图片</td></tr>
+      </tbody>
+    </table>
+  </div>
+</details>
+
+<h4>双方案对比</h4>
+<table>
+  <thead><tr><th>对比维度</th><th>搞定AI</th><th>Coze工作流</th></tr></thead>
+  <tbody>
+    <tr><td><strong>成本</strong></td><td>约4元/张</td><td>约0.1元/张</td></tr>
+    <tr><td><strong>便利性</strong></td><td>图片保留在平台，可在线改图改字</td><td>需搭建工作流，关掉后图片不保留</td></tr>
+    <tr><td><strong>适用场景</strong></td><td>临时修改多、需要在线编辑</td><td>大批量出图、预算有限</td></tr>
+  </tbody>
+</table>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>5.4 ChatGPT+Coze电动牙刷 <span class="badge">文档16</span></h3>
+<div class="info-box">
+  <strong>核心亮点：</strong>Coze工作流的<strong>批处理</strong>能力——一次性生成所有屏，无需逐条复制提示词。
+</div>
+
+<h4>Coze工作流新特性：批处理</h4>
+<p>工作流节点增加了一个<strong>大语言模型节点</strong>用于拆分提示词，以及一个<strong>批处理节点</strong>。</p>
+
+<div class="flow">
+  <span class="flow-step">🚀 开始节点</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔄 剪映小助手</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🧠 大模型拆分提示词</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">⚡ 批处理节点<br><small>并行数=3</small></span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🧠 智能图像生成助手</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🏁 输出节点</span>
+</div>
+
+<h4>批处理节点配置</h4>
+<ul>
+  <li><strong>并行数设为3：</strong>同时处理3张图，10屏则分4批完成</li>
+  <li>先处理3张，完成后自动处理后续</li>
+</ul>
+
+<h4>大语言模型节点</h4>
+<ul>
+  <li>选择<strong>豆包2.0大模型</strong></li>
+  <li>功能：将长提示词拆分为多屏</li>
+  <li>系统提示词告知AI拆解任务规则</li>
+  <li><strong>用户提示词必须使用英文</strong></li>
+</ul>
+
+<div class="info-box tip"><strong>产品信息获取方法：</strong>把产品图片直接发送给AI，配合引导提示词，要求AI搜索网页上与该产品相关的图片和信息，总结出产品的核心卖点。此方法适用于任何单品，是详情页策划的<strong>信息入口</strong>。</div>
+
+<h4>效果对比</h4>
+<table>
+  <thead><tr><th>对比项</th><th>搞定设计/猎户</th><th>Coze工作流</th></tr></thead>
+  <tbody>
+    <tr><td>价格</td><td>约4元/张</td><td>约0.1元/张</td></tr>
+    <tr><td>质量</td><td>文字零错误率</td><td>部分图片质量优于搞定设计</td></tr>
+    <tr><td>批量</td><td>逐张生成</td><td>一次性生成所有屏</td></tr>
+    <tr><td>修改</td><td>可直接在线修图改字</td><td>需重新生成</td></tr>
+  </tbody>
+</table>
+
+</section>
+
+<!-- ================================================================ -->
+<!-- PART 6 -->
+<!-- ================================================================ -->
+<section id="p6">
+<h2>🚀 第六部分：视频与高级篇</h2>
+<p style="color:#5a6e8a;margin-bottom:16px;">ComfyUI融合、SD高级技巧、Codex Skill封装等进阶技术</p>
+
+<h3>6.1 即梦+ComfyUI洗发水 <span class="badge">文档04</span></h3>
+<div class="info-box">
+  <strong>核心工具链：</strong>DeepSeek（文案与关键词）→ 豆包（外观描述）→ 即梦AI（出图）→ PS（替换）→ ComfyUI（在线溶图）→ 即梦AI（动画）
+</div>
+
+<h4>工具链</h4>
+<div class="flow">
+  <span class="flow-step">✏️ DeepSeek关键词</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">📝 豆包外观描述</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎨 即梦AI出图</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔧 PS产品替换</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🔄 ComfyUI在线溶图</span>
+  <span class="flow-arrow">→</span>
+  <span class="flow-step">🎬 即梦AI动画</span>
+</div>
+
+<h4>关键技巧</h4>
+<div class="card-grid">
+  <div class="card"><h4>📝 标题排版技巧</h4><p style="font-size:13px;color:#5a6e8a;">如果标题中有逗号，将逗号改为空格，即梦AI会自动换行，排版更美观</p></div>
+  <div class="card"><h4>🎨 多屏色调一致</h4><p style="font-size:13px;color:#5a6e8a;">采用逐屏替换的方式，保持统一整体色调</p></div>
+  <div class="card"><h4>🎬 动画提示词示例</h4><code>"加入一个小松鼠，让它露出个脑袋来"</code></div>
+</div>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>6.2 即梦+SD洗发水 <span class="badge">文档12</span></h3>
+<div class="info-box">
+  <strong>六款工具串联：</strong>豆包 + DSak + 在线SD + PS + 万物溶图工作流 + 即梦，从一张产品图到动态海报的全流程。
+</div>
+
+<h4>工具链</h4>
+<table>
+  <thead><tr><th>工具</th><th>用途</th></tr></thead>
+  <tbody>
+    <tr><td>豆包</td><td>产品外观描述生成</td></tr>
+    <tr><td>DSak</td><td>AI海报关键词撰写</td></tr>
+    <tr><td>在线SD</td><td>批量生成海报背景图</td></tr>
+    <tr><td>Photoshop</td><td>图层合成、蒙版精修</td></tr>
+    <tr><td>万物溶图工作流</td><td>产品与背景自动融合</td></tr>
+    <tr><td>即梦</td><td>静态图转动态海报</td></tr>
+  </tbody>
+</table>
+
+<h4>独特技巧</h4>
+<div class="card-grid">
+  <div class="card">
+    <h4>✂️ 提示词拆分策略</h4>
+    <p style="font-size:13px;color:#5a6e8a;">在DSak生成海报关键词时，要求将<strong>"文字"和"背景"分开描述</strong>，便于后续在SD中分别控制——提升电商海报设计可控性的关键技巧。</p>
+  </div>
+  <div class="card">
+    <h4>🃏 多关键词对比出图</h4>
+    <p style="font-size:13px;color:#5a6e8a;">DSak生成多组海报关键词后，<strong>每组都去SD出图对比效果</strong>，通过多轮生成筛选最优视觉方案（抽卡思维）。</p>
+  </div>
+  <div class="card">
+    <h4>🖌️ PS蒙版恢复技巧</h4>
+    <p style="font-size:13px;color:#5a6e8a;">原背景中的装饰元素（如花瓣）可能被遮挡。通过"图层蒙版 + 画笔工具 + 硬度调节 + X键切换前背景色"的方式精准恢复。</p>
+  </div>
+</div>
+
+<hr style="margin:30px 0;border:none;border-top:1px solid #eef2f7;">
+
+<h3>6.3 Codex+LibTV护肤水乳套装 <span class="badge">文档20</span></h3>
+<div class="info-box">
+  <strong>核心创新：</strong>Codex的<strong>Skill（技能）机制</strong>——将整套详情页制作流程封装成可复用的AI智能体模块，实现全自动化闭环。
+</div>
+
+<h4>核心概念：Skill（技能）机制</h4>
+<div class="card-grid">
+  <div class="card">
+    <h4>📦 Skill 的本质</h4>
+    <p style="font-size:13px;color:#5a6e8a;">将完整的详情页策划与提示词编写流程封装成可复用的AI智能体模块。每次做不同详情页时只需调用这个技能，无需重复发送大量提示词。</p>
+  </div>
+  <div class="card">
+    <h4>🎯 Skill 1：详情页策划技能</h4>
+    <p style="font-size:13px;color:#5a6e8a;">接收竞品和产品信息，输出详情页每屏文案和架构。定位：电商详情页策划师。流程：①分析竞品 → ②接收产品 → ③输出分屏文案</p>
+  </div>
+  <div class="card">
+    <h4>✏️ Skill 2：提示词编写技能</h4>
+    <p style="font-size:13px;color:#5a6e8a;">接收策划表格，输出每屏对应的AI生图提示词。定位：资深设计师及AI生图提示词工程师</p>
+  </div>
+  <div class="card">
+    <h4>⚙️ Skill 创建方法</h4>
+    <p style="font-size:13px;color:#5a6e8a;">直接通过对话让Codex根据需求写出。给AI设定角色定位，描述所需技能和执行流程，AI自动生成JSON/Skill格式的配置。</p>
+  </div>
+</div>
+
+<h4>关键经验</h4>
+<div class="key-points">
+  <div class="kp"><span class="num">1</span> 直接让AI生图效果不佳——仍需要"先策划、再写提示词、最后出图"的分步流程</div>
+  <div class="kp"><span class="num">2</span> Skill是复用核心——将流程封装成技能可大幅提升效率</div>
+  <div class="kp"><span class="num">3</span> 提示词也可由AI自动生成——智能体提示词本身也可通过对话获得</div>
+  <div class="kp"><span class="num">4</span> 权限安全需谨慎——不建议给予Codex完全操控电脑的权限</div>
+  <div class="kp"><span class="num">5</span> 替代方案——如果无法使用Codex，可用豆包完成类似效果</div>
+</div>
+
+</section>
+
+<!-- ================================================================ -->
+<!-- CROSS-COURSE KNOWLEDGE -->
+<!-- ================================================================ -->
+<section id="cross">
+<h2>📐 跨课程知识图谱</h2>
+
+<h3>核心四理念</h3>
+<div class="card-grid">
+  <div class="card"><h4>🤖 "AI提效、人工精控"</h4><p style="font-size:13px;color:#5a6e8a;">AI完成70%~80%的工作，人工负责质检、微调和品质把控。不是AI替代人，而是AI辅助人。</p></div>
+  <div class="card"><h4>📋 "先策划、后出图"</h4><p style="font-size:13px;color:#5a6e8a;">竞品分析是详情页策划的起点，AI出图前必须做好内容架构规划。</p></div>
+  <div class="card"><h4>🃏 "抽卡思维"</h4><p style="font-size:13px;color:#5a6e8a;">AI输出有随机性，同一提示词多刷新几次，从多个版本中选最优。</p></div>
+  <div class="card"><h4>🔧 "后期合成不可缺"</h4><p style="font-size:13px;color:#5a6e8a;">AI直接生成完美成品仍有难度，产品替换+投影融合+动图是完整后处理链路。</p></div>
+</div>
+
+<h3>通用工作流框架</h3>
+<div class="flow" style="flex-direction:column;align-items:stretch;">
+  <div class="flow-step" style="justify-content:center;"><strong>📤 输入层：</strong>产品图片 + 基本信息 + 竞品参考 + 风格参考</div>
+  <div class="flow-arrow" style="text-align:center;">↓</div>
+  <div class="flow-step" style="justify-content:center;"><strong>📐 策划层：</strong>AI智能体/大模型 → 竞品分析 → 详情页架构（表格）</div>
+  <div class="flow-arrow" style="text-align:center;">↓</div>
+  <div class="flow-step" style="justify-content:center;"><strong>✏️ 提示词层：</strong>AI智能体 → 分屏生图提示词</div>
+  <div class="flow-arrow" style="text-align:center;">↓</div>
+  <div class="flow-step" style="justify-content:center;"><strong>🎨 出图层：</strong>AI生图平台 → 批量生成/逐屏精修</div>
+  <div class="flow-arrow" style="text-align:center;">↓</div>
+  <div class="flow-step" style="justify-content:center;"><strong>🔧 后处理层：</strong>PS产品替换 → 在线溶图融合 → 细节修整</div>
+  <div class="flow-arrow" style="text-align:center;">↓</div>
+  <div class="flow-step" style="justify-content:center;"><strong>🎬 内容延伸层：</strong>即梦视频生成 → 产品广告视频</div>
+  <div class="flow-arrow" style="text-align:center;">↓</div>
+  <div class="flow-step" style="justify-content:center;"><strong>✅ 输出层：</strong>成品详情页 + 动图 + 广告视频</div>
+</div>
+
+<h3>AI工具五大核心能力</h3>
+<table>
+  <thead><tr><th>核心能力</th><th>代表工具</th><th>作用</th></tr></thead>
+  <tbody>
+    <tr><td><strong>内容策划与文案</strong></td><td>豆包、ChatGPT、DeepSeek</td><td>竞品分析、详情页架构、卖点提炼</td></tr>
+    <tr><td><strong>视觉生成</strong></td><td>即梦AI、ChatGPT image2、稿定AI</td><td>文生图、批量出图</td></tr>
+    <tr><td><strong>图片精修与融合</strong></td><td>SD、ComfyUI、万物溶图</td><td>产品替换、光影融合、投影生成</td></tr>
+    <tr><td><strong>动图与视频</strong></td><td>即梦视频、c dance 2.0、LibTV</td><td>首尾帧动画、广告视频</td></tr>
+    <tr><td><strong>流程自动化</strong></td><td>Coze、Codex Skill</td><td>工作流搭建、技能封装、批量处理</td></tr>
+  </tbody>
+</table>
+
+<h3>各文档依赖关系</h3>
+<div class="info-box">
+  <p style="font-size:13px;margin:0;">文档10（Picset+即梦）→ 文档01（标准工作流基础）→ 文档02（智能体概念入门）→ 文档03（智能体详细教程+完整流程）→ 依次延伸至文档05~20，形成从基础到高级的完整学习链。</p>
+</div>
+
+<div class="flow" style="flex-direction:column;align-items:flex-start;font-size:12px;">
+  <div><code>文档10</code> Picset+即梦 <span style="color:#b0c0d8;">→</span> <code>文档01</code> 豆包+即梦+SD <span style="color:#b0c0d8;">→</span> <code>文档02</code> 即梦+SD智能体</div>
+  <div><span style="color:#b0c0d8;">└─→</span> <code>文档03</code> 扫地机器人（核心基础） <span style="color:#b0c0d8;">→</span> 文档05/06/09/07/08</div>
+  <div><span style="color:#b0c0d8;">└─→</span> <code>文档11</code> 空气炸锅 <span style="color:#b0c0d8;">→</span> <code>文档14</code> 蓝牙耳机 <span style="color:#b0c0d8;">→</span> <code>文档17</code> 毛球修剪器 <span style="color:#b0c0d8;">→</span> <code>文档18</code> 洗地机</div>
+  <div><span style="color:#b0c0d8;">└─→</span> <code>文档19</code> 防晒喷雾 <span style="color:#b0c0d8;">→</span> <code>文档13</code> 加湿器 <span style="color:#b0c0d8;">→</span> <code>文档15</code> 蓝牙音箱 <span style="color:#b0c0d8;">→</span> <code>文档16</code> 电动牙刷</div>
+  <div><span style="color:#b0c0d8;">└─→</span> <code>文档04</code> 即梦+ComfyUI <span style="color:#b0c0d8;">→</span> <code>文档12</code> 即梦+SD <span style="color:#b0c0d8;">→</span> <code>文档20</code> Codex+LibTV（终极自动化）</div>
+</div>
+
+</section>
+
+<!-- ================================================================ -->
+<!-- TOOL MATRIX -->
+<!-- ================================================================ -->
+<section id="matrix">
+<h2>📊 核心工具矩阵对比表</h2>
+
+<h3>工具功能定位全景</h3>
+<div class="tbl-wrap">
+<table>
+  <thead><tr><th>工具</th><th>核心能力</th><th>使用难度</th><th>成本</th><th>最佳使用场景</th></tr></thead>
+  <tbody>
+    <tr><td><strong>豆包</strong></td><td>文案策划、AI智能体创建、产品描述</td><td>低</td><td>免费</td><td>详情页策划、竞品分析、提示词生成、智能体搭建</td></tr>
+    <tr class="hl-row"><td><strong>即梦AI</strong></td><td>文生图、图生视频</td><td>低</td><td>低</td><td>详情页视觉初稿、动图制作</td></tr>
+    <tr><td><strong>Picset</strong></td><td>一键生成完整详情页</td><td>极低</td><td>中等</td><td>快速批量出图、竞品风格复刻</td></tr>
+    <tr class="hl-row"><td><strong>稿定AI/搞定AI</strong></td><td>生图、精修、在线改图改字</td><td>低</td><td>较高（3~4元/张）</td><td>需要在线修图、改字的场景</td></tr>
+    <tr><td><strong>Stable Diffusion</strong></td><td>溶图、产品融合</td><td>中</td><td>低（开源）</td><td>产品替换后的光影融合</td></tr>
+    <tr class="hl-row"><td><strong>ComfyUI</strong></td><td>节点式工作流、溶图、融合</td><td>中高</td><td>低</td><td>复杂融合、自动化工作流</td></tr>
+    <tr><td><strong>ChatGPT image2</strong></td><td>高质量文生图、产品精修</td><td>低</td><td>0.08~4元/张</td><td>最高质量详情页出图、产品精修</td></tr>
+    <tr class="hl-row"><td><strong>banana/nano banana 2</strong></td><td>生图、精修</td><td>低</td><td>较低</td><td>备选生图模型、成本敏感场景</td></tr>
+    <tr><td><strong>Coze（扣子）</strong></td><td>工作流搭建、API调用</td><td>中</td><td>极低（0.1元/张）</td><td>批量出图、自动化工作流</td></tr>
+    <tr class="hl-row"><td><strong>DeepSeek</strong></td><td>关键词生成</td><td>低</td><td>低</td><td>快速生成生图关键词</td></tr>
+    <tr><td><strong>Codex</strong></td><td>对话+操作电脑、Skill技能</td><td>中高</td><td>中等</td><td>Skill封装复用、全流程自动化</td></tr>
+    <tr class="hl-row"><td><strong>万物溶图/龙图工作流</strong></td><td>自动产品光影融合</td><td>低</td><td>低</td><td>产品替换后自动投影融合</td></tr>
+    <tr><td><strong>c dance 2.0</strong></td><td>产品广告视频生成</td><td>低</td><td>中</td><td>产品展示视频</td></tr>
+    <tr class="hl-row"><td><strong>LibTV/FTV</strong></td><td>视频生成</td><td>低</td><td>中</td><td>电商广告视频</td></tr>
+    <tr><td><strong>Photoshop</strong></td><td>精细图片编辑</td><td>高</td><td>付费</td><td>产品替换、去水印、蒙版处理</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>常用工具组合方案</h3>
+<div class="tbl-wrap">
+<table>
+  <thead><tr><th>方案</th><th>工具组合</th><th>成本</th><th>效率</th><th>质量</th><th>适用场景</th></tr></thead>
+  <tbody>
+    <tr><td><strong>方案A</strong></td><td>Picset + 即梦</td><td>中等</td><td>★★★★★</td><td>★★★</td><td>快速出稿、多语言需求</td></tr>
+    <tr class="hl-row"><td><strong>方案B</strong></td><td>豆包 + 即梦 + PS + 在线溶图</td><td>低</td><td>★★★★</td><td>★★★★</td><td>标准详情页制作</td></tr>
+    <tr><td><strong>方案C</strong></td><td>豆包/DeepSeek + 即梦 + SD/ComfyUI + PS</td><td>低</td><td>★★★★</td><td>★★★★</td><td>需要产品替换融合</td></tr>
+    <tr class="hl-row"><td><strong>方案D</strong></td><td>豆包 + 稿定AI</td><td>中等</td><td>★★★★</td><td>★★★★</td><td>需要在线修图改字</td></tr>
+    <tr><td><strong>方案E</strong></td><td>豆包 + ChatGPT image2（搞定AI）</td><td>较高</td><td>★★★★</td><td>★★★★★</td><td>最高质量要求</td></tr>
+    <tr class="hl-row"><td><strong>方案F</strong></td><td>大语言模型 + Coze工作流</td><td>极低</td><td>★★★★</td><td>★★★★</td><td>批量出图、预算有限</td></tr>
+    <tr><td><strong>方案G</strong></td><td>Codex Skill</td><td>中等</td><td>★★★★★</td><td>★★★★</td><td>高度自动化、重复性高</td></tr>
+    <tr class="hl-row"><td><strong>方案H</strong></td><td>豆包/大语言模型 + 搞定AI + c dance 2.0</td><td>中高</td><td>★★★★</td><td>★★★★★</td><td>全链路（策划+生图+视频）</td></tr>
+  </tbody>
+</table>
+</div>
+
+</section>
+
+<!-- ================================================================ -->
+<!-- PROMPT FRAMEWORKS -->
+<!-- ================================================================ -->
+<section id="prompts">
+<h2>📝 提示词框架全景汇总</h2>
+
+<h3>角色设定类提示词</h3>
+<div class="tbl-wrap">
+<table>
+  <thead><tr><th>角色</th><th>用途</th></tr></thead>
+  <tbody>
+    <tr><td>详情页策划师</td><td>竞品分析、详情页架构策划</td></tr>
+    <tr class="hl-row"><td>详情页设计师 + AI文生图提示词工程师</td><td>分屏打包提示词</td></tr>
+    <tr><td>资深电商详情页策划师</td><td>竞品拆解、卖点提炼、文案策划</td></tr>
+    <tr class="hl-row"><td>非常优秀的电商设计师</td><td>结合产品外观生成提示词</td></tr>
+    <tr><td>AI文生图提示词工程师</td><td>根据产品和参考图生成提示词</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>三大核心提示词框架</h3>
+
+<div class="card-grid">
+  <div class="card">
+    <h4>框架一：详情页策划师（通用）</h4>
+    <pre style="font-size:12px;margin:6px 0;">1. 身份：[角色设定]
+2. 技能：[技能描述]
+3. 执行步骤：
+   - 第一步：竞品分析
+   - 第二步：产品接收
+   - 第三步：输出详情页架构
+4. 设计规则：
+   - 遵循电商转化逻辑
+   - 结合竞品分析
+   - 按屏输出
+5. 输出格式：表格（可下载）</pre>
+  </div>
+  <div class="card">
+    <h4>框架二：AI生图提示词生成</h4>
+    <pre style="font-size:12px;margin:6px 0;">1. 身份：[角色设定]
+2. 输入：产品信息 + 策划表格
+3. 输出：每屏对应的AI生图提示词
+4. 附加：如要求"不要表格，
+   直接给出提示词"</pre>
+  </div>
+  <div class="card">
+    <h4>框架三：产品精修（ChatGPT image2）</h4>
+    <pre style="font-size:12px;margin:6px 0;">1. 严格还原上传的产品图
+2. 将产品处理为商业级
+   电商精修图
+3. 产品完美无瑕，消除
+   所有瑕疵杂质
+4. [细节模块 - 根据
+   产品修改]</pre>
+  </div>
+</div>
+
+</section>
+
+<!-- ================================================================ -->
+<!-- COST GUIDE -->
+<!-- ================================================================ -->
+<section id="cost">
+<h2>💰 成本与平台选型指南</h2>
+
+<h3>按预算选择</h3>
+<div class="tbl-wrap">
+<table>
+  <thead><tr><th>预算</th><th>推荐方案</th><th>成本估算（15屏）</th><th>说明</th></tr></thead>
+  <tbody>
+    <tr><td>🟢 极低</td><td>豆包+即梦+免费溶图</td><td>几乎免费</td><td>质量可控，需要PS技能</td></tr>
+    <tr class="hl-row"><td>🟢 低</td><td>Coze工作流+ChatGPT image2 API</td><td>约1.5元</td><td>需要搭建工作流</td></tr>
+    <tr><td>🟡 中等</td><td>豆包+稿定AI</td><td>约60元（按4元/张）</td><td>方便在线修改</td></tr>
+    <tr class="hl-row"><td>🔴 高</td><td>搞定AI+ChatGPT image2+修改</td><td>约60元+</td><td>最高质量，最方便</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>按使用场景选择</h3>
+<div class="tbl-wrap">
+<table>
+  <thead><tr><th>场景</th><th>推荐</th><th>原因</th></tr></thead>
+  <tbody>
+    <tr><td>快速出稿、方案测试</td><td>Picset+即梦</td><td>1分钟出图</td></tr>
+    <tr class="hl-row"><td>标准详情页制作</td><td>豆包+即梦+PS+溶图</td><td>性价比最高</td></tr>
+    <tr><td>高质量要求</td><td>豆包+ChatGPT image2</td><td>美感最强</td></tr>
+    <tr class="hl-row"><td>批量出图、预算有限</td><td>Coze工作流</td><td>0.1元/张</td></tr>
+    <tr><td>需要频繁修图改字</td><td>稿定AI/搞定AI</td><td>在线修图方便</td></tr>
+    <tr class="hl-row"><td>高度自动化、高频重复</td><td>Codex Skill</td><td>一次性搭建，持续复用</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h3>成本控制核心技巧</h3>
+<div class="key-points">
+  <div class="kp"><span class="num">💰</span> Coze工作流是最低成本方案（约0.1元/张）</div>
+  <div class="kp"><span class="num">💰</span> ChatGPT image2普通渠道约0.08元/张，官方兜底约0.2元/张</div>
+  <div class="kp"><span class="num">💰</span> 搞定AI约3~4元/张，适合需要在线修改的场景</div>
+  <div class="kp"><span class="num">💰</span> 先策划再出图可避免无效生成浪费成本</div>
+  <div class="kp"><span class="num">💰</span> 关键屏用高质量模型，次要屏用低成本模型（混合策略）</div>
+</div>
+
+</section>
+
+<!-- ================================================================ -->
+<!-- TOP 10 TIPS & PITFALLS -->
+<!-- ================================================================ -->
+<section>
+<h2>🎯 核心操作技巧TOP10</h2>
+<ol style="font-size:14px;">
+  <li><strong>分屏生成：</strong>每次生成2~3屏，便于逐屏校对和精控</li>
+  <li><strong>色调统一：</strong>在提示词中预设整体色调，保持跨屏一致性</li>
+  <li><strong>逐屏生成优于批量：</strong>单屏优化可上传对应角度产品图 + 定制提示词</li>
+  <li><strong>参考图控制：</strong>提示词中标注"参考图X的特效/排版"实现精准风格引导</li>
+  <li><strong>竞品一张一张上传：</strong>避免AI分析不全</li>
+  <li><strong>逗号改空格：</strong>即梦AI中标题逗号改空格可实现自动换行</li>
+  <li><strong>不要表格：</strong>要求AI不要表格格式，获得纯文本提示词便于复制</li>
+  <li><strong>产品外观绑定：</strong>将产品外观描述加入提示词，使生成的产品与实物匹配</li>
+  <li><strong>多模型切换：</strong>不同模型效果不同，对比选择最佳</li>
+  <li><strong>产品多角度拍摄：</strong>复杂产品需拍摄底部+顶部等多角度供AI参考</li>
+</ol>
+
+<h3 style="margin-top:24px;">⚠️ 容易踩坑的细节</h3>
+<div class="key-points">
+  <div class="kp">竞品图片超过10MB AI可能无法识别（需在PS中压缩）</div>
+  <div class="kp">一次性上传多张竞品AI可能遗漏（需额外说明）</div>
+  <div class="kp">AI生成的字体风格描述（如"粗黑圆润"）可能效果不佳，需人工调整</div>
+  <div class="kp">产品颜色描述需精确，AI自动描述可能偏差</div>
+  <div class="kp">Coze工作流关掉后图片不保留</div>
+  <div class="kp">Codex不建议给予完全操控电脑的权限</div>
+  <div class="kp">AI输出的双引号在最终图片中会显示出来，需手动去掉</div>
+</div>
+
+</section>
+
+<!-- ================================================================ -->
+<!-- LEARNING PATHS -->
+<!-- ================================================================ -->
+<section id="path">
+<h2>🎯 四条推荐学习路径</h2>
+
+<div class="card-grid">
+  <div class="card">
+    <h4>⚡ 路径一：效率路线</h4>
+    <p style="font-size:12px;color:#5a6e8a;">适合追求快速产出</p>
+    <div style="font-size:12px;background:#f5f7fa;padding:8px 10px;border-radius:6px;margin-top:6px;">
+      <code>文档10</code> → <code>文档11</code> → <code>文档14</code> → <code>文档17</code> → <code>文档18</code> → <code>文档19</code>
+    </div>
+    <p style="font-size:12px;color:#8a9bb5;margin-top:6px;">聚焦集成式平台+在线修图，学习曲线平缓，快速上手。</p>
+  </div>
+  <div class="card">
+    <h4>🔧 路径二：技术路线</h4>
+    <p style="font-size:12px;color:#5a6e8a;">适合专业设计师</p>
+    <div style="font-size:12px;background:#f5f7fa;padding:8px 10px;border-radius:6px;margin-top:6px;">
+      <code>文档01</code> → <code>文档02</code> → <code>文档03</code> → <code>文档04</code> → <code>文档12</code> → <code>文档15</code> → <code>文档16</code>
+    </div>
+    <p style="font-size:12px;color:#8a9bb5;margin-top:6px;">涵盖SD/ComfyUI融合、智能体搭建、Coze工作流等进阶技能。</p>
+  </div>
+  <div class="card">
+    <h4>🤖 路径三：自动化路线</h4>
+    <p style="font-size:12px;color:#5a6e8a;">适合高频产出团队</p>
+    <div style="font-size:12px;background:#f5f7fa;padding:8px 10px;border-radius:6px;margin-top:6px;">
+      <code>文档02</code> → <code>文档03</code> → <code>文档05</code> → <code>文档15</code> → <code>文档16</code> → <code>文档20</code>
+    </div>
+    <p style="font-size:12px;color:#8a9bb5;margin-top:6px;">从智能体到工作流到Skill的自动化演进，适合批量化标准化产出。</p>
+  </div>
+  <div class="card">
+    <h4>🎨 路径四：质量路线</h4>
+    <p style="font-size:12px;color:#5a6e8a;">适合追求最高品质</p>
+    <div style="font-size:12px;background:#f5f7fa;padding:8px 10px;border-radius:6px;margin-top:6px;">
+      <code>文档06</code> → <code>文档08</code> → <code>文档09</code> → <code>文档13</code> → <code>文档17</code> → <code>文档19</code> → <code>文档18</code>
+    </div>
+    <p style="font-size:12px;color:#8a9bb5;margin-top:6px;">聚焦生成质量和审美提升，适合对视觉效果要求极高的品牌电商。</p>
+  </div>
+</div>
+
+<h3>推荐组合学习时长</h3>
+<div class="tbl-wrap">
+<table>
+  <thead><tr><th>学习目标</th><th>必学文档</th><th>学习时长建议</th></tr></thead>
+  <tbody>
+    <tr><td>快速了解全貌</td><td>文档10 + 文档01 + 文档02</td><td>1天</td></tr>
+    <tr class="hl-row"><td>掌握核心工作流</td><td>文档03 + 文档06 + 文档08</td><td>2天</td></tr>
+    <tr><td>学习ChatGPT image2</td><td>文档13 + 文档17 + 文档19</td><td>1.5天</td></tr>
+    <tr class="hl-row"><td>掌握Coze工作流</td><td>文档15 + 文档16</td><td>1.5天</td></tr>
+    <tr><td>学习稿定AI修图</td><td>文档14 + 文档18</td><td>1天</td></tr>
+    <tr class="hl-row"><td>Codex Skill进阶</td><td>文档20</td><td>0.5天</td></tr>
+    <tr><td><strong>全系列完整学习</strong></td><td><strong>全部20个文档</strong></td><td><strong>7~10天</strong></td></tr>
+  </tbody>
+</table>
+</div>
+
+</section>
+
+</div><!-- /wrap -->
+
+<footer>
+  <p>AIGC电商实战班 · 全套知识体系百科全书</p>
+  <p>涵盖 20 个实战文档 · 15+ 核心工具 · 4 大学习路径</p>
+  <p>生成日期：2026年7月8日</p>
+</footer>
+
+<script>
+// Nav highlight on scroll
+(function(){
+  const nav = document.getElementById('topNav');
+  const links = nav.querySelectorAll('a');
+  const sections = [];
+  links.forEach(a => {
+    const id = a.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if(el) sections.push({el, a});
+  });
+  function onScroll(){
+    let cur = 0;
+    const scrollY = window.scrollY + 120;
+    for(let i=0;i<sections.length;i++){
+      const off = sections[i].el.offsetTop;
+      if(off <= scrollY) cur = i;
+    }
+    links.forEach(a => a.classList.remove('act'));
+    if(sections[cur]) sections[cur].a.classList.add('act');
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+})();
+</script>
+
+</body>
+</html>
