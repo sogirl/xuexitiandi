@@ -1,0 +1,757 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>股票投资实战训练营 · 完整知识体系</title>
+<style>
+:root{--bg:#f8f6f0;--card:#fff;--border:#e0d8c8;--h1:#1a3a4a;--h2:#2c5f7c;--h3:#3d7ea6;--accent:#b8860b;--accent2:#8b4513;--red:#a0522d;--green:#2d6a4f;--tag-bg:#f0e6d3;--code-bg:#f5f0e0;--shadow:0 1px 4px rgba(0,0,0,0.06);--chart-bg:#fffef9}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;background:var(--bg);color:#333;line-height:1.75;font-size:15px}
+a{color:var(--h3);text-decoration:none}
+.container{max-width:960px;margin:0 auto;padding:16px}
+header{background:linear-gradient(135deg,#1a3a4a 0%,#2c5f7c 50%,#3d7ea6 100%);color:#fff;padding:32px 20px 24px;text-align:center;position:relative;overflow:hidden}
+header::after{content:'';position:absolute;top:0;left:0;right:0;bottom:0;background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 1200 200'%3E%3Cpath d='M0 100 Q300 20 600 100 T1200 100' fill='none' stroke='rgba(255,255,255,0.06)' stroke-width='2'/%3E%3C/svg%3E") center/cover}
+header h1{font-size:clamp(20px,4vw,28px);margin-bottom:8px;letter-spacing:1px;position:relative;z-index:1}
+header .sub{font-size:13px;opacity:.85;line-height:1.6;position:relative;z-index:1}
+.tag-row{display:flex;flex-wrap:wrap;justify-content:center;gap:8px;margin-top:14px;position:relative;z-index:1}
+.tag{background:rgba(255,255,255,.18);padding:3px 10px;border-radius:12px;font-size:12px}
+.nav-sticky{position:sticky;top:0;z-index:100;background:#fffef9;border-bottom:2px solid var(--accent);padding:6px 12px;display:flex;flex-wrap:wrap;gap:4px;justify-content:center;font-size:11px;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.nav-sticky a{color:var(--h2);text-decoration:none;padding:3px 7px;border-radius:4px;transition:.15s;white-space:nowrap}
+.nav-sticky a:hover{background:var(--accent);color:#fff}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:22px 20px;margin:18px 0;box-shadow:var(--shadow);page-break-inside:avoid}
+.card h2{color:var(--h2);font-size:19px;border-bottom:2px solid var(--accent);padding-bottom:8px;margin-bottom:14px}
+.card h3{color:var(--h3);font-size:16px;margin:16px 0 8px;padding-left:10px;border-left:3px solid var(--accent)}
+.card h4{color:#555;font-size:14px;margin:10px 0 6px;font-weight:700}
+.card p,.card li{margin:3px 0}
+.card ul,.card ol{padding-left:22px;margin:6px 0}
+.card blockquote{background:var(--code-bg);border-left:3px solid var(--accent);margin:10px 0;padding:8px 14px;color:#555;font-size:13px;border-radius:0 6px 6px 0}
+table{width:100%;border-collapse:collapse;font-size:12.5px;margin:10px 0;display:block;overflow-x:auto;-webkit-overflow-scrolling:touch}
+table thead th{background:#1a3a4a;color:#fff;padding:6px 9px;text-align:left;white-space:nowrap}
+table tbody td{border:1px solid var(--border);padding:6px 9px;vertical-align:top}
+table tbody tr:nth-child(even){background:#faf8f2}
+.warn{background:#fff8e7;border-left:4px solid #e6a817;padding:10px 14px;border-radius:0 6px 6px 0;margin:10px 0;font-size:13px}
+.info{background:#e8f4f8;border-left:4px solid #3d7ea6;padding:10px 14px;border-radius:0 6px 6px 0;margin:10px 0;font-size:13px}
+.danger{background:#fef0f0;border-left:4px solid #c0392b;padding:10px 14px;border-radius:0 6px 6px 0;margin:10px 0;font-size:13px;font-weight:700;color:var(--red)}
+.flow{display:flex;flex-wrap:wrap;align-items:center;gap:5px;font-size:12px;margin:8px 0;padding:8px 10px;background:var(--code-bg);border-radius:6px;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.flow .n{background:var(--card);border:1px solid var(--border);padding:5px 10px;border-radius:6px;white-space:nowrap;font-weight:600;font-size:11.5px;text-align:center;line-height:1.4}
+.flow .ar{color:var(--accent);font-weight:800;font-size:15px;flex-shrink:0}
+.rule-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:10px}
+.rc{background:linear-gradient(135deg,#faf8f2,#f0e6d3);border:1px solid var(--border);border-radius:8px;padding:12px;font-size:13px}
+.rc .rn{color:var(--accent2);font-weight:800;font-size:20px}
+.rc .rt{font-weight:700;color:var(--h2);margin:2px 0}
+.iron{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:8px}
+.ir{background:var(--danger);padding:10px 12px;border-radius:6px;font-size:12.5px;font-weight:700}
+.etf-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(125px,1fr));gap:6px}
+.etf-item{background:var(--code-bg);padding:6px 8px;border-radius:6px;font-size:11px;text-align:center;font-family:monospace;line-height:1.5}
+.etf-item .code{color:var(--accent2);font-weight:800;font-size:13px;display:block}
+.svg-wrap{background:var(--chart-bg);border:1px solid var(--border);border-radius:10px;overflow-x:auto;overflow-y:hidden;padding:16px;margin:18px 0;-webkit-overflow-scrolling:touch}
+.svg-wrap svg{display:block}
+.path-box{background:var(--code-bg);padding:10px 16px;border-radius:6px;font-family:monospace;font-size:12px;overflow-x:auto;white-space:pre;line-height:1.4}
+.step{display:inline-flex;align-items:center;gap:6px;margin:4px 0;font-size:13px}
+.step-num{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:26px;border-radius:50%;background:var(--accent);color:#fff;font-weight:800;font-size:13px;flex-shrink:0}
+.toc-links{padding:12px 16px;font-size:13px;line-height:2.2;columns:2}
+.toc-links a{color:var(--h3)}
+footer{text-align:center;padding:24px 16px;color:#999;font-size:12px;border-top:1px solid var(--border);margin-top:32px}
+.badge{display:inline-block;padding:1px 7px;border-radius:8px;font-size:10px;font-weight:700}
+.bg{background:#d4edda;color:#155724}.bb{background:#cce5ff;color:#004085}.by{background:#fff3cd;color:#856404}
+hr.divider{border:none;border-top:1px dashed var(--border);margin:16px 0}
+</style>
+</head>
+<body>
+
+<header>
+<h1>📈 股票投资实战训练营 · 完整知识体系</h1>
+<div class="sub">成都良泽教育科技有限公司<br>投资培训行业新东方 · 财富中国人的孵化器<br>2026年7月31日—8月1日 · 北京 · 刘老师主讲<br>两天九课 · 九大课程体系 · 23套盈利模式 · 75个知识板块</div>
+<div class="tag-row"><span class="tag">T+0工厂</span><span class="tag">成本均线</span><span class="tag">追板战法</span><span class="tag">二区定律</span><span class="tag">全球宏观</span><span class="tag">连板缩量</span><span class="tag">小琛仓位</span><span class="tag">ETF体系</span><span class="tag">十五五规划</span></div>
+</header>
+
+<nav class="nav-sticky">
+<a href="#overview">总览</a><a href="#s1">Day1①</a><a href="#s2">Day1②</a><a href="#s3">Day1③</a><a href="#s4">Day1④</a>
+<a href="#s5">Day2①</a><a href="#s6">Day2②</a><a href="#s7">Day2③</a><a href="#s8">Day2④</a><a href="#s9">Day2⑤</a>
+<a href="#graph">图谱</a><a href="#rules">22条规则</a><a href="#etf">ETF清单</a><a href="#path">学习路径</a>
+</nav>
+
+<div class="container">
+
+<!-- ====== 课程总览 ====== -->
+<div class="card" id="overview">
+<h2>📐 课程全景总览</h2>
+<div class="info">本课程由成都良泽教育科技有限公司创始人<strong>刘老师</strong>主讲（前东方财富副总裁、前国泰君安重庆分公司总经理、21年证券从业经验）。九大课程体系对应九张PPT——从K线技术到妖股战法，从ETF全球配置到十五五国家战略，构建完整投资方法论。</div>
+
+<h3>九大课程体系 · PPT架构</h3>
+<table><thead><tr><th>序</th><th>课程（PPT原标题）</th><th>核心内容</th></tr></thead><tbody>
+<tr><td>一</td><td><strong>《经典K线组合和有效技术分析》</strong></td><td>十大误区·六套经典K线·MACD实战·"由简到繁回归大道至简"</td></tr>
+<tr><td>二</td><td><strong>《炒股核心技术："预测"能力的提升》</strong></td><td>股市能否预测·预测范围·预测与实盘联系·变盘周期信号</td></tr>
+<tr><td>三</td><td><strong>《实用技术：最强支撑和最强压力》</strong></td><td>压力支撑辩证·斐波那契(菲普拉切)实战·无穷成本均线·画线技巧</td></tr>
+<tr><td>四</td><td><strong>《十套涨停板和跌停板战法》</strong></td><td>打板·追板·赌板·飘板·撬板·连板·横涨停·涨停起点·W型涨停·风险控制</td></tr>
+<tr><td>五</td><td><strong>《T+0工场模式及日内T+0投资技巧》</strong></td><td>二区·五区·刹车原理·三背离·真假突破·9:50-10:10战法</td></tr>
+<tr><td>六</td><td><strong>《期货·期权》</strong></td><td>期权魅力·时间价值·卖方策略·期权现货结合"以小博大"</td></tr>
+<tr><td>七</td><td><strong>《一辈子的ETF投资和择时定投》</strong></td><td>指数型/行业类ETF·股票定投·不定额不定时·美港股定投</td></tr>
+<tr><td>八</td><td><strong>《青蛙解套宝》</strong></td><td>解套逻辑·四种策略·注册制下自主解套·化解"仙股/退市"风险</td></tr>
+<tr><td>九</td><td><strong>《顶级策略："妖股"突破战法》</strong></td><td>牛市有效突破·后涨停跨越前涨停·主升浪卖出策略·"捉妖记"</td></tr>
+</tbody></table>
+
+<h3>两天课程时间线</h3>
+<div class="flow">
+<span class="n">📅 Day1 上午①<br>T+0+四大铁律</span><span class="ar">→</span><span class="n">Day1 上午②<br>成本均线</span><span class="ar">→</span><span class="n">Day1 下午①<br>盈利模式+追板</span><span class="ar">→</span><span class="n">Day1 下午②<br>二区定律+服务</span></div>
+<div class="flow" style="margin-top:4px">
+<span class="n">📅 Day2 上午①<br>全球宏观</span><span class="ar">→</span><span class="n">Day2 上午②<br>连板缩量</span><span class="ar">→</span><span class="n">Day2 上午③<br>小琛仓位</span><span class="ar">→</span><span class="n">Day2 下午①<br>ETF+黄金</span><span class="ar">→</span><span class="n">Day2 下午②<br>十五五规划</span></div>
+</div>
+
+<!-- ====== 第一天第一节 ====== -->
+<div class="card" id="s1">
+<h2>📖 第一课：T+0实战与炒股四大铁律「7.31 上午·第一节」</h2>
+<div class="info"><strong>前置：</strong>无——课程体系基础第一课 | <strong>对应PPT：</strong>八《青蛙解套宝》+ 课前准备 + 一《经典K线组合》</div>
+
+<h3>板块一：T+0自主解套 —— 真涨假涨判断</h3>
+<p><strong>T+0三大必要：</strong>① 被动等待不可取→完全自主解套 ② 增厚长线利润 ③ 注册制趋势：讲师预测"最多两年"688/300恢复T+0，散户T+1的制度不公平将消除。</p>
+<div class="info"><strong>PPT对应：</strong>《青蛙解套宝》"全面注册制下自我解套的迫切性"与课程完全一致。</div>
+
+<p><strong>🔑 真涨假涨三要素口诀：</strong></p>
+<table><thead><tr><th>要素</th><th>内容</th><th>详解</th></tr></thead><tbody>
+<tr><td><strong>一涨</strong></td><td>上涨中的股票</td><td>下跌不适用</td></tr>
+<tr><td><strong>二高</strong></td><td>五天以内有前期高点</td><td>限定时间范围</td></tr>
+<tr><td><strong>三无量</strong></td><td>成交量不够</td><td>当前量明显低于前期高点量→假涨</td></tr></tbody></table>
+<p><strong>核心逻辑：</strong>前期套牢盘解套抛出→庄家突破必须放更大成交量承接→量不够=假涨。</p>
+<p><strong>操作：</strong>假涨高点卖出→挂买单<strong>卖出价×0.99</strong>（跌1%买回）。每周1-2次×50周=50%-100%年收益。</p>
+<p><strong>实战：</strong>2023.6学员43只套牢股→一年熊市自主解套36只。</p>
+<p><strong>账户管理：</strong>100万内≤3只｜500万内≤5只｜1000万内≤8只</p>
+<p><strong>T+0渐进练习：</strong>前3月只做10%仓位→4-6月提至50%→6月后可全仓</p>
+
+<h3>板块二：炒股四大铁律（"炒股宪法"）</h3>
+<table><thead><tr><th>铁律</th><th>核心</th><th>要点</th></tr></thead><tbody>
+<tr><td><strong>① 右侧交易</strong></td><td>等底部确认后买入：W底/V型/N字型，"右底比左底高"</td><td>"做大概率事件"</td></tr>
+<tr><td><strong>② 多头排列</strong></td><td>均线向上发散且"打开"：5日→10日→20日→60日</td><td>"庄家上班我们上班"</td></tr>
+<tr><td><strong>③ 只做强势股</strong></td><td>五大标准筛选</td><td>只参与拉升+出货两阶段</td></tr>
+<tr><td><strong>④ 与涨停板交朋友</strong></td><td>涨停基因=主升浪前兆</td><td>庄家四阶段：吸→洗→拉→出</td></tr></tbody></table>
+<p><strong>🔄 庄家四阶段（核心！）：</strong>吸筹(需≥30%筹码)→洗盘(把散户洗出去)→<strong>拉升(学员唯一该参与的阶段)</strong>→出货(也有机会)</p>
+
+<h3>板块三：强势股甄选五大标准——十字口诀</h3>
+<div class="info"><strong>"放量 · 红肥绿瘦 · 绵阳 · 缺口 · 水上"</strong>——每晚睡前过一遍，21天终身难忘（讲师忠告）</div>
+<table><thead><tr><th>标准</th><th>含义</th><th>核心逻辑</th></tr></thead><tbody>
+<tr><td><strong>① 放量</strong></td><td>底部放巨量</td><td>庄家进场；"量在前价在后"</td></tr>
+<tr><td><strong>② 红肥绿瘦</strong></td><td>上涨有量·回撤缩量（成交量颜色！非K线）</td><td>庄家洗盘，介入良机</td></tr>
+<tr><td><strong>③ 绵阳</strong></td><td>≥5根连续阳线·每根涨幅≤3%</td><td>"偷偷摸摸"小阳线=庄家暗中吸筹，连续结束→主升浪</td></tr>
+<tr><td><strong>④ 缺口</strong></td><td>向上跳空缺口（今日最低价＞昨日最高价）</td><td>缺口越多庄家越强</td></tr>
+<tr><td><strong>⑤ MACD水上</strong></td><td>快慢线在零轴以上</td><td><strong>"零轴以下不准做股票！"</strong>适用所有周期/品种/市场</td></tr></tbody></table>
+<p><strong>为何不做价值投资（讲师三理由）：</strong>① 知识面缺陷（概念迭代太快）② 数据造假（5800只绝大多数造假，五粮液上市亲历）③ 数据滞后（散户看到季报时机构早已行动）。→ <strong>只信成交量</strong>——2010年后交易所监控体系让作假几乎不可能。</p>
+
+<h3>板块四：三波理论与MACD动能实战</h3>
+<p><strong>"三"的变盘规律：</strong>3/6/9/12/15最易转折，一而再再而三→三而竭。</p>
+<div class="flow"><span class="n">第一波<br>红柱高·动能强</span><span class="ar">→</span><span class="n">第二波<br>红柱明显降低<br>动能已错</span><span class="ar">→</span><span class="n">第三波<br>红柱几乎消失<br><strong>坚决卖出！</strong></span></div>
+<p>下跌同理逆向操作。关键时间点<strong>9:58</strong>常为全天阶段性高/低点。讲师当天股指期货实盘4笔全胜赚120点。</p>
+
+<h3>板块五 ⛔：严禁补仓的铁律</h3>
+<div class="danger">⛔ "炒股是绝对不允许补仓的"——补仓=左侧交易+放大错误</div>
+<p><strong>2400万血泪案例：</strong>夫妻成都起家→2014投20万→2015股灾后一路补仓→2022累计投入2400万，市值仅897万，<strong>净亏约1500万</strong>。</p>
+<p><strong>✅ 正确方式：</strong>① 找机会斩仓认错 ② 波段和T+0摊薄成本</p>
+<p><strong>澳门倍投类比：</strong>1→2→4→8万…澳门历史上连续27次同方向，"北京市的钱都输光"</p>
+<p><strong>⛔ 借钱炒个股禁令：</strong>与补仓并列为绝对禁止行为</p>
+</div>
+
+<!-- ====== 第一天第二节 ====== -->
+<div class="card" id="s2">
+<h2>📖 第二课：成本均线与无穷成本均线战法「7.31 上午·第二节」</h2>
+<div class="info"><strong>前置：</strong>第一课多头排列+成交量 | <strong>对应PPT：</strong>图2/3课前准备 + 图7《最强支撑和最强压力》全部6条</div>
+
+<h3>板块一：开场警示——女同学7.4亿归零</h3>
+<p>2013年投2300万→加杠杆至7000万→5元涨到16元→浮盈<strong>7.4亿</strong>→想凑10亿整数→拒绝止盈→<strong>亏完还倒欠32万</strong>。教训：① 杠杆一次错误归零 ② 人性"凑整"心理是大敌</p>
+
+<h3>板块二：两项关键技术工具准备</h3>
+<div class="info"><strong>PPT精确对应：</strong>图2改斐波那契参数 + 图3改成本均线——这是课程的"课前准备"核心实操。</div>
+<table><thead><tr><th>项目</th><th>从（散户）</th><th>到（机构）</th><th>原因</th></tr></thead><tbody>
+<tr><td>均线类型</td><td>移动平均线(MA)</td><td><strong>成本均线(CYC)</strong></td><td>MA基于收盘价简单平均→庄家操纵收盘价即可骗线；CYC基于每笔成交价×成交量加权，每天25000-40000笔数据参与计算→"怎么作假？做不了假"</td></tr>
+<tr><td>均线参数</td><td>5/10/20/60</td><td><strong>5/13/34/55</strong>（斐波那契/菲普拉切）</td><td>"所有机构私募券商自营操盘手都用这个"→散户用传统参数=韭菜</td></tr></tbody></table>
+<div class="warn"><strong>PPT注：</strong>PPT原文写"菲普拉切数列"——按原文保留。机构内部称"新度数"。</div>
+<p>CYC颜色：黄=CYC5 / 紫=CYC13 / 绿/灰=CYC34 / 蓝/土黄=CYC∞</p>
+
+<h3>板块三：无穷成本均线(CYC∞)——最强支撑与压力</h3>
+<p><strong>定义：</strong>从上市第一天到今天，所有买入该股票投资者的加权平均成本。</p>
+<table><thead><tr><th>市场状态</th><th>CYC∞作用</th><th>操作</th></tr></thead><tbody>
+<tr><td><strong>多头排列</strong></td><td>最强支撑</td><td>回调到CYC∞→买入</td></tr>
+<tr><td><strong>空头排列</strong></td><td>最强压力</td><td>反弹到CYC∞→卖出</td></tr></tbody></table>
+<p><strong>炒股三要素：</strong>均线配置+成交量+背离=全部依据。"只考虑这三个因素，其他通通不是。"</p>
+<p><strong>200亿分水岭：</strong>以下=庄票｜以上=机构票（如科大讯飞）</p>
+
+<h3>板块四：CYC∞选股三原则（"密码公式"）</h3>
+<p>火锅店老板——无文化、25年年年盈利从未亏损——就靠一个字："翻"（每天翻完2000+只股票×十年=盘感）</p>
+<ol><li><strong>跌够久</strong>：两年以上</li><li><strong>跌够深</strong>：腰斩/跌50%以上</li><li><strong>底部放巨量·空翻多</strong>→CYC∞=新庄家成本线</li></ol>
+<p>"我今天把这个密码告诉北京的同学们。"</p>
+
+<h3>板块五：顶部识别两大方法</h3>
+<table><thead><tr><th>方法</th><th>信号</th><th>操作</th></tr></thead><tbody>
+<tr><td><strong>背离法</strong></td><td>股价创新高但动能/成交量未同步放大</td><td>卖出</td></tr>
+<tr><td><strong>放巨量长上影线</strong></td><td>上涨末端放巨量+长上影线(阴阳不限)</td><td>阶段顶部</td></tr></tbody></table>
+<p><strong>案例：</strong>某股70→11.9元(踝斩)→底部放巨量空翻多→CYC∞=新庄家成本线→一年半7→63元，<strong>6倍</strong>。</p>
+</div>
+
+<!-- ====== 第一天第三节 ====== -->
+<div class="card" id="s3">
+<h2>📖 第三课：盈利模式建立与追板技术「7.31 下午·第一节」</h2>
+<div class="info"><strong>前置：</strong>第一课涨停基因+庄家四阶段 | <strong>对应PPT：</strong>图4/5/6《盈利模式的建立》+ 图4《十套涨停板和跌停板战法》</div>
+
+<h3>板块一：盈利模式三要素</h3>
+<div class="info"><strong>PPT精确对应：</strong>图4"盈利模式之思路"(适合自己的方法·深不在于广·一招鲜) + 图5"盈利模式之方法"(经过验证·天天复制) + 图6"盈利模式之规则"(止盈止损纪律·管买更管卖)——讲师用"思路-验证-纪律"三段论原样展开。</div>
+<table><thead><tr><th>要素</th><th>核心</th></tr></thead><tbody>
+<tr><td><strong>第一：思路</strong></td><td>适合自己的方法（与性格+时间匹配）。"每一种方法存在就是合理的"</td></tr>
+<tr><td><strong>第二：验证</strong></td><td>历史回测确认概率优势。"赚钱的时候多、亏钱的时候少"</td></tr>
+<tr><td><strong>第三：纪律</strong></td><td>严格止盈止损。"管买更管卖"</td></tr></tbody></table>
+<p><strong>讲师案例：</strong>茅台2002年约100多元买入100多万→24年反复波段→2026年成本降至<strong>负9006元</strong>(翻40+倍)。长江电力："AI核心是算力→算力支撑是电"→一辈子持有做波段。</p>
+<p><strong>时间匹配：</strong>有盯盘→短线；企业家/上班族→<strong>周线级别</strong>，周六花半天选股。</p>
+
+<h3>板块二：肖剑的追板技术</h3>
+<table><thead><tr><th>数据</th><th>数值</th></tr></thead><tbody>
+<tr><td>涨停次日赚钱概率(早年)</td><td><strong>88%</strong></td></tr>
+<tr><td>涨停次日赚钱概率(量化后)</td><td><strong>82%</strong></td></tr>
+<tr><td>统计跨度</td><td><strong>2000年至今26年</strong></td></tr>
+<tr><td>肖剑战绩</td><td>2万→20年→1亿(5000倍)无杠杆无权证无期货</td></tr></tbody></table>
+<div class="flow"><span class="n">涨到9%<br>查看K线</span><span class="ar">→</span><span class="n">评估板型<br>判可靠性</span><span class="ar">→</span><span class="n">输入涨停价<br>手放回车</span><span class="ar">→</span><span class="n">只剩卖一<br>涨停瞬间</span><span class="ar">→</span><span class="n">敲回车<br>排板买入</span></div>
+<p>追板="涨停以后追涨停"，赌板="赌它会涨停"——不同板型。</p>
+
+<h3>板块三：追板止盈止损纪律</h3>
+<table><thead><tr><th>场景</th><th>条件</th><th>操作</th></tr></thead><tbody>
+<tr><td>止损</td><td>炸板/烂板</td><td>次日竞价一刀斩</td></tr>
+<tr><td>止损</td><td>次日低开不翻红</td><td>9:50-10:10仍不翻红→斩</td></tr>
+<tr><td>止盈</td><td>+4%出现M头</td><td>半小时未创新高→止盈</td></tr>
+<tr><td>止盈</td><td>+7%冲涨停未封板</td><td>半小时未创新高→止盈</td></tr>
+<tr><td>止盈</td><td><strong>涨停后5分钟内</strong>开板</td><td><strong>立即止盈！</strong>庄家洗盘/出货</td></tr></tbody></table>
+
+<h3>板块四："五板买·跌停卖"策略</h3>
+<p>饺子连锁店老板(小白)→三个月手工Excel回测2017-2024所有五连板→<strong>2024全年2.3倍</strong>、季度70%、胜率79%。铁律：① 不见跌停板不操作 ② <strong>不加任何自己的判断</strong>。"该追必追——但追有规矩和逻辑。"</p>
+
+<h3>板块五：三波理论实盘验证</h3>
+<p>讲师当天中午用股指期货做4笔全胜，赚<strong>120个点</strong>(约24000元)。判断逻辑：第一波红柱高→第二波红柱增加→<strong>第三波红柱明显缩短</strong>→动能衰减→方向将转。十点半用二区定理判断当天大盘不会涨→收盘验证完全正确。"市场出现什么机会就执行，剩下时间等下一次机会出来就执行。"如果需止损也"一刀就斩，看都不看结果"。</p>
+
+<h3>板块六：弟子班九大课程体系（23套盈利模式）</h3>
+<div class="info">23套盈利模式——21套来自中国资本市场实战派大牛，2套来自刘老师自创。两年制培养确保学员经历完整牛熊周期（起步价两年）。核心观察："小白学员成功率反而高于老韭菜——因为小白师傅说他就做，执行力反而更高。"</div>
+<table><thead><tr><th>#</th><th>课程（PPT标题）</th><th>核心方法</th></tr></thead><tbody>
+<tr><td>一</td><td>《经典K线组合和有效技术分析》</td><td>不讲金叉死叉·讲庄家机构票形态·技术分析只是辅助</td></tr>
+<tr><td>二</td><td>《炒股核心技术："预测"能力提升》</td><td>长周期不可预测·短周期可预测(含二区定理等)</td></tr>
+<tr><td>三</td><td>《实用技术：最强支撑和最强压力》</td><td>无穷成本均线等五种方法·学会高抛低吸和波段</td></tr>
+<tr><td>四</td><td>《十套涨停板和跌停板战法》</td><td>打/追/赌/飘/撬/连板+横涨停+涨停起点+W型涨停</td></tr>
+<tr><td>五</td><td>《T+0工场模式及日内T+0》</td><td>真假突破·刹车原理·三背离原则等七套方法</td></tr>
+<tr><td>六</td><td>《期货·期权》</td><td>风险小于股票(T+0可纠错)·学会做空保住利润</td></tr>
+<tr><td>七</td><td>《一辈子的ETF投资和择时定投》</td><td>小白必须参与ETF·和机构平起平坐·可投全世界</td></tr>
+<tr><td>八</td><td>《青蛙解套宝》</td><td>全市场独有·培养"中国第一代职业解套师"</td></tr>
+<tr><td>九</td><td>《顶级策略："妖股"突破战法》</td><td>妖前→妖中→妖后·重点参与主升段和出货段</td></tr></tbody></table>
+<p><strong>ETF关键数据：</strong>30年期国债ETF 2024年实际收益率<strong>23.21%</strong>(非年化) | 纳斯达克ETF(513100) 2013年净值约0.186→13年涨<strong>1195%</strong>(约12倍) | 中国六大行一年期存款已降至<strong>0.95%</strong>(未来大概率0-0.5%)。"在北京自己的A股账户上，用人民币就可以投资全世界ETF。"</p>
+
+</div>
+
+<!-- ====== 第一天第四节 ====== -->
+<div class="card" id="s4">
+<h2>📖 第四课：二区定律与八大服务体系「7.31 下午·第二节」</h2>
+<div class="info"><strong>前置：</strong>第一课三波理论+MACD | <strong>对应PPT：</strong>五《T+0工场模式》"二区·五区"战法</div>
+
+<h3>板块一：二区定律核心数据</h3>
+<table><thead><tr><th>维度</th><th>数据</th></tr></thead><tbody>
+<tr><td>研究起点</td><td><strong>2005.8.26</strong></td></tr>
+<tr><td>时长</td><td><strong>21年</strong></td></tr>
+<tr><td>成功率</td><td><strong>约90%</strong>(月均仅2天不符合)</td></tr>
+<tr><td>适用范围</td><td><strong>仅上证指数</strong>/相关ETF（个股不适用！被人为操纵）</td></tr>
+<tr><td>悬赏</td><td>公开悬赏<strong>100万</strong>求更优方案，十多年无人应战</td></tr></tbody></table>
+
+<h3>板块二：两条黄金规则</h3>
+<table><thead><tr><th>规则</th><th>操作逻辑</th></tr></thead><tbody>
+<tr><td><strong>好二区→低点做多</strong></td><td>收盘大概率高于开盘，盘中低点都是相对低位</td></tr>
+<tr><td><strong>坏二区→高点做空</strong></td><td>收盘大概率低于开盘，盘中高点都是相对高位</td></tr></tbody></table>
+
+<h3>板块三：三大实战应用</h3>
+<table><thead><tr><th>应用</th><th>核心</th></tr></thead><tbody>
+<tr><td>① 买卖点优化</td><td>好二区+好五区全天扬→次日惯性冲高→推迟卖；坏二区+坏五区→次日惯性下坠→推迟买</td></tr>
+<tr><td>② 个股T+0</td><td>看着大盘做个股</td></tr>
+<tr><td><strong>③ 股指期货（最值钱）</strong></td><td>一手20万保证金/天只做一次→赚15-20pt≈3000-4000元→年化<strong>3-4倍</strong>→十手≈1000万/年</td></tr></tbody></table>
+
+<h3>每日训练：10:30闹钟→上证分时→判好坏二区→预测收盘→验证（坚持一年）</h3>
+
+<h3>八大服务体系</h3>
+<table><thead><tr><th>#</th><th>服务</th><th>核心</th></tr></thead><tbody>
+<tr><td>①</td><td><strong>小琛仓位</strong></td><td>私募仓位大数据16年·每日14:40发送·2026三次精准降仓(3.3/5.16/7.1)</td></tr>
+<tr><td>②</td><td><strong>新闻联播解读</strong></td><td><strong>2647期</strong>不间断·"每月至少一条帮赚10%+"·4.10乒乓贺信→判断特朗普访华→A股月涨15%</td></tr>
+<tr><td>③</td><td>复训</td><td>两年三免·零基础两次全掌握</td></tr>
+<tr><td>④</td><td>私募论坛</td><td>每季四位不同风格·曾邀但斌讲AI</td></tr>
+<tr><td>⑤</td><td>线上课</td><td>两年100期周二亲授</td></tr>
+<tr><td>⑥</td><td>资产配置</td><td>房产/黄金/美元/比特币/债券/海外保险</td></tr>
+<tr><td>⑦</td><td>青少年财商</td><td>小学3天(压岁钱管理·超市经济学·记账·财商游戏) + 中学3天(帮爸妈理财·新闻联播找投资·定投·保险·防骗) + <strong>大学/留学生5天</strong>(美元趋势·新闻联播·职业规划·上市公司考察·全球ETF·公募私募·数字货币·基金参观·海外保险·商业计划书+商赛·税务筹划·黄金投资·婚前财产保护·全球房地产·交易策略)</td></tr>
+<tr><td>⑧</td><td>全球游学</td><td>纽约·伦敦·法兰克福·新加坡·东京·香港</td></tr></tbody></table>
+</div>
+
+<!-- ====== 第二天第一节 ====== -->
+<div class="card" id="s5">
+<h2>📖 第五课：全球宏观视野与缩量追板「8.1 上午·第一节」</h2>
+<div class="info"><strong>前置：</strong>第一课成交量+第三课追板 | <strong>对应PPT：</strong>第二天幻灯片-核心ETF清单 + 幻灯片5"黄金投资"</div>
+
+<h3>板块一：全球指数早盘必修</h3>
+<table><thead><tr><th>市场</th><th>关键判断</th><th>A股联动</th></tr></thead><tbody>
+<tr><td>🇺🇸美国</td><td>"有钱就上没钱就地"·高科技支撑·每次回调上车</td><td><strong>美股跌A股必跌</strong>；板块跟涨</td></tr>
+<tr><td>🇭🇰香港</td><td>世界金融中心不变(上海无法替代·人民币不自由兑换)</td><td>全球投资中国第一站</td></tr>
+<tr><td>🇯🇵日本</td><td>全球第二金融帝国·华尔街备胎·波动性亚洲最好</td><td>早1h开盘引导A股</td></tr>
+<tr><td>🇰🇷韩国</td><td><strong>2026.6.19至今逐日完全同步</strong></td><td>早1h可预判A股当天</td></tr>
+</tbody></table>
+
+<h3>板块二：韩国A股逐日同步——6.19至7月底全对照</h3>
+<p>6.19同见顶→7.1同两根阴线→同连跌三天→同反弹阳线→同再跌两天→同涨两天→同连跌四天→前日同大跌。<strong>讲师原话："泱泱十四亿大国跟着韩国跑，这是中华民族的悲哀。"</strong>原因：① AI产业链(美国主导)是影响两国的共同因素 ② 三星+SK海力士占韩国总市值<strong>45%</strong>。实战价值：韩国早开盘1小时→每天观韩股即可预判A股当天。</p>
+
+<h3>板块三：黄金1600→5700美元全程回顾</h3>
+<p>2022.3.1美联储加息时黄金1600美元→讲师全国巡回(银行/证券/保险)公开预测涨到3000/3500/5000(无人相信)→实际最高<strong>5700美元</strong>。南宁房地产老板金价1900时买入<strong>1亿元</strong>黄金→5000多卖出→事后给讲师发<strong>180万元红包</strong>感谢。讲师与广西工行合作七年，每年一月在广西七个城市巡回讲课。</p>
+
+<h3>板块五：人民币汇率=A股指南针</h3>
+<div class="flow"><span class="n">人民币升值</span><span class="ar">→</span><span class="n">股票涨</span><span class="ar">|</span><span class="n">人民币贬值</span><span class="ar">→</span><span class="n">股票跌</span></div>
+<table><thead><tr><th>时间段</th><th>人民币</th><th>A股</th><th>事件</th></tr></thead><tbody>
+<tr><td>2022.2-5</td><td>6.3→6.8(贬)</td><td>暴跌</td><td>美联储加息</td></tr>
+<tr><td>2022.10-春节</td><td>7.37→6.69(升)</td><td>大涨</td><td>二十大</td></tr>
+<tr><td><strong>2024.4.7</strong></td><td>破7.37→7.11</td><td><strong>3049→4200(+40%)</strong></td><td>中国唯一未签关税协议</td></tr>
+</tbody></table>
+
+<h3>板块六：财富密码公式</h3>
+<div class="flow"><span class="n"><strong>加息周期</strong><br>美元走强</span><span class="ar">→</span><span class="n">人民币贬值</span><span class="ar">→</span><span class="n">股票📉</span><span class="ar">→</span><span class="n">债券📈</span></div>
+<div class="flow" style="margin-top:3px"><span class="n"><strong>降息周期</strong><br>美元走弱</span><span class="ar">→</span><span class="n">人民币升值</span><span class="ar">→</span><span class="n">股票📈</span><span class="ar">→</span><span class="n">债券📉</span></div>
+<p>美联储本质上是"全球央行"。中国一年期存款0.95%急需降息→但美联储不降中国完全无法独立降息。</p>
+<p><strong>中央经济工作会议研读法（"最新提法+再次强调"）：</strong>每年12月第一周最重要的一次→逐字研读5000字新华社通稿→与<strong>前两年</strong>对比→找出两个关键：① <strong>最新提法</strong>（新出现的政策方向）② <strong>再次强调的提法</strong>（前两年没干成·必须继续推进）→这两类就是来年投资方向。验证：2024年梳理出93只相关股票送给学员→最差一只最高涨20%，最好的<strong>翻了6倍</strong>。</p>
+
+<h3>板块七：512地震事件驱动——"世界驱动"投资思维</h3>
+<p>2008.5.12汶川大地震瞬间→讲师公司风控老总冲出办公楼→市场总监姚志强冲出后<strong>立即折返回办公室</strong>→在地震最惊慌的时刻→<strong>清空所有股票，全部换成水泥股和钢铁股</strong>→通过QQ群通知所有客户："成都大地震，卖掉手中股票，换成水泥和钢铁！"→讲师因此给予最高评价和奖金。核心方法论：每天看全球指数页，关键不是看正常涨跌而是看<strong>"异动"</strong>（不正常波动）→对异动保持敏感→逐步培养投资"预感"→这是一种无法精确讲解只能在长期观察中培养的"巧劲儿"。</p>
+
+<h3>板块四：原油"短多长空"</h3>
+<p><strong>短多：</strong>中东→霍尔木兹封锁→油价飙升 | <strong>长空：</strong>①美债40万亿×3.75%=年息1.5万亿+国防1.5万亿=无法承受 ②油价养俄罗斯 ③中国新能源发电占41%</p>
+
+<h3>板块八："三板定妖"缩量追板</h3>
+<table><thead><tr><th>状态</th><th>次日涨停概率</th><th>操作</th></tr></thead><tbody>
+<tr><td><strong>缩量涨停</strong></td><td>≈<strong>95%</strong></td><td><strong>追！</strong></td></tr>
+<tr><td>放量涨停</td><td>≈60%</td><td>不追</td></tr></tbody></table>
+<p>例外：ST不算/一字板过多小心/≥10板有风险。案例：艾艾精工(603580)2024.3.5起8缩量板→年度妖股。</p>
+</div>
+
+<!-- ====== 第二天第二节 ====== -->
+<div class="card" id="s6">
+<h2>📖 第六课：连板缩量战法与短线纪律「8.1 上午·第二节」</h2>
+<div class="info"><strong>前置：</strong>第三课追板+第五课三板定妖 | <strong>对应PPT：</strong>四《十套涨停板和跌停板战法》"连板"技术</div>
+
+<h3>板块一：策略来源</h3>
+<p>2003年徐翔策略·连板后缩量→次日涨停概率<strong>≈95%</strong>·起步≥2板</p>
+
+<h3>板块二：操作四步SOP</h3>
+<div class="flow"><span class="n"><strong>①T-1</strong>晚<br>复盘涨幅榜<br>筛连板股</span><span class="ar">→</span><span class="n"><strong>②T日9:25</strong><br>集合竞价<br>看跳空</span><span class="ar">→</span><span class="n"><strong>③9:25前</strong><br>预设涨停价<br>和数量</span><span class="ar">→</span><span class="n"><strong>④盘中</strong><br>只剩卖一<br>缩量→买！</span></div>
+
+<h3>板块三：涨停板卖票三件套 + 9:24:50斩仓术</h3>
+<table><thead><tr><th>类型</th><th>特征</th><th>操作</th></tr></thead><tbody>
+<tr><td>高开补缺口</td><td>昨涨停·次日高开补缺口下行</td><td><strong>一刀斩</strong></td></tr>
+<tr><td>平开(最危险)</td><td>平开后下行&lt;1-2%</td><td>9:20准备，跌即斩</td></tr>
+<tr><td>低开(正常)</td><td>低开后围绕均线震荡</td><td>不急，等收盘(常拉起)</td></tr></tbody></table>
+<p><strong>⏱️ 9:24:50秘笈：</strong>① 校时(秒级) ② 预输代码+数量<strong>只留价格空白</strong> ③ 9:24:50低挂(几元股低5分/十几元低1毛/二十多元低2毛) ④ 最终仍以开盘价成交</p>
+<p>盈亏比：亏损5-8%/次 vs 盈利≥2板起步→极划算</p>
+
+<h3>短线三大纪律</h3>
+<div class="danger">① "学不会斩仓，一辈子不做短线"<br>② "规则比策略重要得多"——交易纪律是生命线<br>③ "别把钱当自己的"——买入后按规则机械卖出</div>
+
+<h3>传奇案例：16岁抑郁少年→571亿欧元基金</h3>
+<p>2008年北京重度抑郁四年不出门→游戏全国第六→刘老师用"权证交易=打游戏"引导→三个月掌握→一年后考大学→见习基金经理助理→欧洲著名基金公司→2026年管理<strong>571亿欧元</strong>。后续带了十几个"问题孩子"，除一人全部成功。</p>
+</div>
+
+<!-- ====== 第二天第三节 ====== -->
+<div class="card" id="s7">
+<h2>📖 第七课：择时体系与小琛仓位「8.1 上午·第三节」</h2>
+<div class="info"><strong>前置：</strong>第四课五大服务 | <strong>对应PPT：</strong>第二天幻灯片2-5"小琛仓位"设计原理+应用原理</div>
+
+<h3>板块一：选股 vs 择时——"择时才是核心"</h3>
+<p>"行情好了什么股票都涨，行情没了什么都要跌，连贵州茅台都会跌停。"</p>
+
+<h3>板块二：警示——老太太22年0收益</h3>
+<p>刘老师母亲·四川电力设计院退休高工·1996年20万(≈300万购买力)炒股→22年每天清晨看电视记笔记→<strong>22年后本金仍是20万</strong>→给国泰君安贡献<strong>107万</strong>佣金和印花税→转学CYC无穷后→20万变87万。</p>
+
+<h3>板块三：刘老师职业背景——中国私募孵化第一人</h3>
+<p><strong>三阶段职业历程：</strong>① 国海证券时期(2006-2007)：分公司负责人，3名员工两年创造<strong>7.1亿</strong>利润 ② 西藏同信证券(后更名东方财富证券)副总裁时期(2007底起)：从全国最大券商跳至最小券商，因追求"客户资产保值增值"理念 ③ <strong>私募孵化先驱</strong>：自称"中国证券史上关于私募的第一个"——孵化了<strong>徐翔</strong>(前四个产品)、<strong>葛卫东</strong>(首个产品"上海混沌投资"2008.8.28发行)等知名投资人早期产品。认识全国约1200位投资高手。"中国早期的私募几乎都是我们孵化的。"</p>
+
+<h3>板块四：高手的两大核心特质</h3>
+<table><thead><tr><th>特质</th><th>核心</th></tr></thead><tbody>
+<tr><td><strong>① 完整盈利模式</strong></td><td>有标准流程·标准工序——而散户"凭感觉·听消息"是根本差距</td></tr>
+<tr><td><strong>② 牛熊转换保利润</strong></td><td>牛市里散户比高手赚得多(胆子大)→但利润全吐回去——因<strong>没有择时能力</strong></td></tr></tbody></table>
+<p><strong>核心数据：</strong>中国1万家证券营业部客户管理系统显示——散户"一年365天·270个交易日天天满仓"→"你不亏钱谁亏钱？"</p>
+
+<h3>板块五：小琛仓位五区间</h3>
+<div class="info"><strong>PPT精确对应：</strong>幻灯片2"小琛仓位的模型"——PPT与课程完全一致：0-20%=空仓→0 / 20-40%=轻仓→30% / 40-60%=半仓→50% / 60-80%=重仓→70% / 80-100%=满仓</div>
+<table><thead><tr><th>区间</th><th>私募仓位</th><th>建议仓位</th><th>心态</th></tr></thead><tbody>
+<tr><td>空仓</td><td>0-20%</td><td><strong>0%</strong></td><td>休息·旅游</td></tr>
+<tr><td>轻仓</td><td>20-40%</td><td><strong>30%</strong></td><td>谨慎参与</td></tr>
+<tr><td>半仓</td><td>40-60%</td><td><strong>50%</strong></td><td>正常操作</td></tr>
+<tr><td>重仓</td><td>60-80%</td><td><strong>70%</strong></td><td>积极做多</td></tr>
+<tr><td>满仓</td><td>80-100%</td><td><strong>满仓</strong></td><td>大牛市只管干</td></tr></tbody></table>
+<p><strong>核心原则：</strong>"买什么股票自己定，买多少跟着仓位走。高手在我们在，高手跑我们坚决撤。"（幻灯片3原文）</p>
+<p><strong>设计：</strong>每日统计10位短线私募高手平均仓位→简单算术平均→五区间。已获中国证券行业第一张仓位管理类知识产权和商标。运行16年(2010起)。</p>
+
+<h3>板块六：九大应用场景</h3>
+<table><thead><tr><th>#</th><th>场景</th><th>核心</th></tr></thead><tbody>
+<tr><td>①</td><td>择时+单票</td><td>升仓全买·降仓全卖·全年8-12次调仓·9年后成本负270元</td></tr>
+<tr><td>②</td><td>择时+组合</td><td>五只非科技股各20万·东方财富+中国平安+互联网+泸州老窖+云南白药</td></tr>
+<tr><td>③</td><td>择时+ETF养老金</td><td>随机34只ETF择时仅输2只</td></tr>
+<tr><td>④</td><td>择时+ETF解套</td><td>沪深300不动亏9.9%→择时盈22%·差32%</td></tr>
+<tr><td>⑤</td><td>随机解套</td><td>2025年5700+只测试仅失败156只</td></tr>
+<tr><td>⑥</td><td>股指期货</td><td>升仓做多·降仓做空</td></tr>
+<tr><td>⑦</td><td>期权</td><td>较复杂</td></tr>
+<tr><td>⑧</td><td>融资融券</td><td>降仓必须停融资·全国1700家营业部订购此数据</td></tr>
+<tr><td>⑨</td><td>ETF择时定投</td><td>每周200-300元·儿童财商·9年所有孩子收益高标准≥10%</td></tr></tbody></table>
+
+<h3>板块七：现场互动——随机股票解套演示</h3>
+<p>现场让学员随机喊数字确定股票代码<strong>300568</strong>→助理快速调取2023年全年数据→演示：持股不动从21元跌至15.14元<strong>亏近30%</strong>→严格按小琛仓位择时操作→反而<strong>盈利39000多元</strong>(收益率0.2%)→差距约28个百分点。2025年对<strong>5700+只</strong>股票的解套测算仅失败156只。关键提醒："不是每次都成功，要拉长周期看，时间越长效果越好。"</p>
+</div>
+
+<!-- ====== 第二天第四节 ====== -->
+<div class="card" id="s8">
+<h2>📖 第八课：ETF投资体系与黄金深度分析「8.1 下午·第一节」</h2>
+<div class="info"><strong>前置：</strong>第七课小琛仓位+第五课全球宏观 | <strong>对应PPT：</strong>幻灯片1/6/7/8/9/10全部ETF清单 + 幻灯片5"黄金投资"</div>
+
+<h3>板块一：开场——44位女学员全员盈利</h3>
+<p>2024年10月，44位女同学(除一位孕期持平、一位移民加拿大外)在讲师指导下独立开户→不推荐个股·只教方法→到2025年10月满一年→<strong>全员盈利</strong>。引出ETF核心理念：<strong>投资做减法</strong>——5800+只股票压缩到15只核心ETF→"这辈子只看几十只标的，依旧稳定赚钱"。</p>
+
+<h3>板块二：四大核心指数ETF</h3>
+<table><thead><tr><th>代码</th><th>ETF</th><th>对应股指期货</th><th>乘数</th></tr></thead><tbody>
+<tr><td>510050</td><td>上证50ETF</td><td>IH</td><td>300元/点</td></tr>
+<tr><td>510300</td><td>沪深300ETF(中国核心资产)</td><td>IF</td><td>300元/点</td></tr>
+<tr><td>510500</td><td>中证500ETF</td><td>IC</td><td>200元/点</td></tr>
+<tr><td>512100</td><td>中证1000ETF(活性最好)</td><td>IM</td><td>200元/点</td></tr></tbody></table>
+<p><strong>关键：</strong>学会ETF等于为股指期货奠基——"把ETF学会了，股指期货自然就会了"。中国只有四个股指期货品种(IH/IF/IC/IM)，分别对应四大ETF。</p>
+
+<h3>板块三：ETF与股指期货双向投资 + 终极五品种</h3>
+<p>ETF现货与对应股指期货K线几乎完全一致→先学ETF做现货→再学期货做双向→涨时做多ETF赚钱·见顶后做空期货同样赚钱。<strong>讲师"终极五品种"（80岁以后的极简组合）：</strong>① 股指期货(涨多做多·跌多做空) ② 黄金期货 ③ 原油期货 ④ 国债期货 ⑤ 汇率期货——五个品种有内在勾稽关系(正/负相关)，足以覆盖所有市场环境。</p>
+
+<h3>板块四：代际传承——女儿9年独立投资</h3>
+<p>女儿初一(12岁)开始学炒股→刘老师自编教程每周1小时×两年学完→初三给50万本金→此后9年无论牛熊中美市场独立操作→留学美国本科+英国硕士→除大一第一年外，大二至大四<strong>学费生活费全部自付(约150万)</strong>→本金未减少→毕业后从事博物馆专业工作，投资与事业并行。<strong>教育哲学：</strong>"教会孩子投资，她也会教她孩子，老刘家才有可能富过三代。"</p>
+
+<h3>板块五：结构化牛市数据</h3>
+<table><thead><tr><th>板块</th><th>当前涨幅</th><th>最高涨幅</th></tr></thead><tbody>
+<tr><td>科创板588000</td><td>154%</td><td><strong>253%</strong></td></tr>
+<tr><td>创业板159915</td><td>123%</td><td>192%</td></tr>
+<tr><td>沪深300</td><td>58%</td><td>67%</td></tr></tbody></table>
+<p>"未来中国股市就是科技股与非科技股的分化史。齐涨齐跌时代一去不复返。" 美国S&P 5(苹果/微软/谷歌/亚马逊/Facebook)过去5.5年累计涨超2.5倍，其余495只几乎无变化——<strong>"美国才是结构化牛市的鼻祖"</strong>。</p>
+<div class="info"><strong>PPT精确对应：</strong>幻灯片9"S&P5与S&P495总市值变化"——以2015.1.1各自总市值=1为基准的图表数据。</div>
+
+<h3>板块六：10只核心ETF（终极精选）</h3>
+<div class="info"><strong>PPT精确对应：</strong>幻灯片1(核心ETF) + 幻灯片7(指数ETF清单) + 幻灯片8(重复清单)——课程讲师的"10只精选"是PPT15只指数的进一步精简。</div>
+<div class="etf-grid">
+<div class="etf-item"><span class="code">510300</span>沪深300</div>
+<div class="etf-item"><span class="code">512100</span>中证1000</div>
+<div class="etf-item"><span class="code">159915</span>创业板</div>
+<div class="etf-item"><span class="code">588000</span>科创50</div>
+<div class="etf-item"><span class="code">159920</span>恒生ETF</div>
+<div class="etf-item"><span class="code">513100</span>纳指ETF</div>
+<div class="etf-item"><span class="code">513880</span>日经225</div>
+<div class="etf-item"><span class="code">513030</span>德国ETF</div>
+<div class="etf-item"><span class="code">518880</span>黄金ETF</div>
+<div class="etf-item"><span class="code">511090</span>30年国债</div>
+</div>
+
+<h3>板块十：黄金三大底层逻辑</h3>
+<div class="info"><strong>PPT精确对应：</strong>幻灯片5"黄金持续看好的逻辑"——① 地缘政治趋于紧张 ② 全球经济可能进入衰退 ③ 全球进入"去美元化时代"——课程讲师的三大逻辑与PPT三点完全一致，做了详细展开。</div>
+<p><strong>逻辑一·地缘政治：</strong>① 中美矛盾不可调和(美国130年灭5个老二·中国第6个)引奥巴马2015国情咨文"中国人过上美国人生活=地球灾难" ② 欧洲衰落("2+3"全瓦解) ③ 以色列大以色列国三步走 ④ 亚洲乱战(中国周边四方向不稳)</p>
+<p><strong>逻辑二·经济衰退：</strong>三年疫情+四年半俄乌+美联储两年半加息+特朗普全球加税</p>
+<p><strong>逻辑三·去美元化：</strong>中国沙特货币互换·全球央行增持黄金·"趋势才刚开始"</p>
+<p><strong>黄金投资方式(风险低→高)：</strong>实物定投→黄金ETF→黄金股票→黄金期货/期权。纪律："水下(均线下方)不准碰"。参考锚点：COMEX。</p>
+
+<h3>ETF五大优势 + 适度加杠杆</h3>
+<p>① 零/极低成本(无印花税·单边约万一) ② 无需基本面研究 ③ 可适度加杠杆(<strong>需先独立账户稳定盈利6个月+每月赚钱</strong>)——"ETF不会爆雷" ④ 无系统性个股风险 ⑤ 技术分析更有效(无庄家骗线)</p>
+
+<h3>ETF六大分类体系 + 选基方法论</h3>
+<table><thead><tr><th>类别</th><th>全市场数量</th><th>讲师精选</th><th>关键方法</th></tr></thead><tbody>
+<tr><td>指数ETF</td><td>368只</td><td>6只</td><td rowspan="3"><strong>"成交量为王"</strong>——同类中只选成交量最大的·"大同小异，代表这个行业就行"</td></tr>
+<tr><td>行业ETF</td><td>911只</td><td>59只</td></tr>
+<tr><td>外盘/商品/债券ETF</td><td>若干</td><td>若干</td></tr></tbody></table>
+<p><strong>代码记忆法：</strong>588开头=上海(科创板) | 159开头=深圳——深圳股东账户可无限开，ETF交易不受账户数量限制。外盘ETF和商品ETF是真正的<strong>T+0交易</strong>（买入一分钟后即可卖出）。</p>
+
+<h3>板块九：债券ETF——家庭现金管理替代方案</h3>
+<p><strong>城投债ETF 12年实际收益率（非年化）：</strong></p>
+<div class="flow"><span class="n">2015<br><strong>21.6%</strong></span><span class="ar">→</span><span class="n">2016<br>7.27%</span><span class="ar">→</span><span class="n">2017<br>0.8%</span><span class="ar">→</span><span class="n">2018<br><strong>10%</strong></span><span class="ar">→</span><span class="n">2019<br>5.96%</span><span class="ar">→</span><span class="n">2020<br>3.15%</span><span class="ar">→</span><span class="n">2021<br>6.28%</span><span class="ar">→</span><span class="n">2022<br>2.93%</span><span class="ar">→</span><span class="n">2023<br>6.26%</span><span class="ar">→</span><span class="n">2024<br>4.45%</span><span class="ar">→</span><span class="n">2025<br>1.75%</span><span class="ar">→</span><span class="n">2026半<br>1.77%</span></div>
+<p><strong>12年合计：本金翻了一倍以上——远超银行定存约30%增长。</strong>家庭现金管理层级：国债ETF→城投债ETF→企业债ETF→地方债ETF→可转债(另行教)→REITs。核心优势："随时要钱·随时卖掉·第二天钱到账"（流动性远超定期存款）。</p>
+
+<h3>MACD背离在ETF上的实战</h3>
+<p><strong>顶背离：</strong>股价创新高·MACD红柱未创新高→卖出 | <strong>底背离：</strong>股价创新低·MACD绿柱未创新低→买入</p>
+</div>
+
+<!-- ====== 第二天第五节 ====== -->
+<div class="card" id="s9">
+<h2>📖 第九课：新质生产力与十五五规划投资方向「8.1 下午·第二节」（收官）</h2>
+<div class="info"><strong>前置：</strong>第五课全球宏观/财富密码 + 第八课ETF体系 | <strong>对应PPT：</strong>第二天全部"十五五"专题PPT——图4-图10 + 结论二 + 全体前沿赛道方向</div>
+
+<h3>板块一：中国经济的第三次跃迁</h3>
+<div class="flow"><span class="n">人力资源红利<br>改革开放</span><span class="ar">→</span><span class="n">土地资源红利<br>1998房改</span><span class="ar">→</span><span class="n">互联网红利<br>2007-08</span><span class="ar">→</span><span class="n"><strong>新质生产力</strong><br>高科技博弈</span></div>
+<p>"现在和未来的高科技"——传统资源已释放完毕，中美竞争=科技进化。</p>
+<div class="info"><strong>PPT精确对应：</strong>图4主标题"拥抱新质生产力 迎接第二次科技国运"——这是第二天下午收官课的核心主题。</div>
+
+<h3>板块二：五年规划——中国特色的"集中力量办大事"</h3>
+<div class="info"><strong>PPT精确对应：</strong>图1"五年规划是国家战略级规划"——干什么·怎么干·怎么能干好。PPT中图文强调了这三个核心问题。</div>
+<p>1953年起十四个五年规划·<strong>高盛评估成功率99%</strong>·十四五验证：<strong>63只翻5倍+，24只翻10倍+</strong></p>
+<blockquote>"在中国做投资就是两个字：<strong>政策</strong>。在全球做投资就是<strong>周期</strong>——美联储的加息降息周期。"</blockquote>
+
+<h3>板块三：十五五五大方向</h3>
+<div class="info"><strong>PPT精确对应：</strong>图8/图10"十五五规划重点方向"——PPT原文"重点布局人工智能、量子信息、集成电路、生命健康、脑科学等前沿领域"+"推动传统产业数字化、智能化、绿色化转型"。</div>
+<p><strong>区域战略——"五个区、两个极、一个边疆"：</strong></p>
+<table><thead><tr><th>类型</th><th>名称</th><th>定位</th></tr></thead><tbody>
+<tr><td>极</td><td><strong>南海南</strong></td><td>远东最大自由贸易港+全球唯二商业航天基地</td></tr>
+<tr><td>极</td><td><strong>北雄安</strong></td><td>世界数字经济与数字金融中心（2029大爆发）</td></tr>
+<tr><td>区</td><td>京津冀·长三角·大湾区</td><td>三大世界级城市群</td></tr>
+<tr><td>区</td><td>成渝·中部(武汉中心)</td><td>国内城市群</td></tr>
+<tr><td>边疆</td><td><strong>西藏+新疆</strong></td><td>雅江水利·第三条铁路·藏水入疆(新增2亿亩耕地~12%)</td></tr>
+</tbody></table>
+<div class="info"><strong>PPT精确对应：</strong>图8/图10"十五五规划重点方向"——科技创新驱动发展+产业升级与结构优化+绿色发展+民生改善与共同富裕+区域协调发展——全部5个方向在PPT中有展开文本。</div>
+
+<h3>板块四：十大投资领域完整速查</h3>
+<div class="info"><strong>PPT精确对应：</strong>"前沿赛道方向"一-八全部在PPT中有明确文本——从AI全面升级到6G通信，每个领域都有具体的PPT原文描述。下面是课程讲师的完整展开。</div>
+<table><thead><tr><th>#</th><th>领域</th><th>关键细分</th><th>核心判断</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>人工智能</strong></td><td>具身智能·AGI·AI+科学</td><td>"一定要养AI"·跟AI交流惯性化·GPT5指明方向</td></tr>
+<tr><td>2</td><td><strong>芯片可控</strong></td><td>3nm制程·华为超导芯片</td><td>"光刻机卡脖子时代即将结束"</td></tr>
+<tr><td>3</td><td><strong>脑科学</strong></td><td>脑机接口·AR芯片</td><td>"这才是刚刚开始"</td></tr>
+<tr><td>4</td><td><strong>太空经济</strong></td><td>载人登月·月球基地·星链</td><td>2030前登月·讲师预测<strong>2029.10.1</strong></td></tr>
+<tr><td>5</td><td><strong>可控核聚变</strong></td><td>人造太阳</td><td>"改写全球能源格局·改变人类命运"</td></tr>
+<tr><td>6</td><td><strong>绿色技术</strong></td><td>钙钛矿光伏·固态电池</td><td>"变道超车非弯道超车"</td></tr>
+<tr><td>7</td><td><strong>人形机器人</strong></td><td>具身智能·纳米机器人</td><td>2035年100亿台机器人·柔性/纳米机器人</td></tr>
+<tr><td>8</td><td><strong>6G通信</strong></td><td>万物互联·感官穿戴</td><td>"6G中国一定领先全球"·2030商用</td></tr>
+<tr><td>9</td><td><strong>军工</strong></td><td>海军装备·导弹系统</td><td>"近海1000海里无敌"·50+艘055大驱</td></tr>
+<tr><td>10</td><td><strong>有色金属</strong></td><td>金+银+钨/钴/钼/稀土</td><td>AI时代需求大增·"掌握矿藏就致富"</td></tr></tbody></table>
+<p><strong>十大领域→约30+板块→约200+只龙头股。</strong>"未来五年十年围绕这200+只做就够了。跟着党的话做投资，在中国永远正确。"</p>
+
+<h3>板块五：投资者三大转型</h3>
+<div class="info"><strong>PPT精确对应：</strong>结论二——"单资产投资向多资产投资转型·单一市场向多市场转型·单向投资向双向投资转型"——PPT原文。</div>
+<table><thead><tr><th>转型</th><th>方向</th><th>关键词</th></tr></thead><tbody>
+<tr><td>单资产→多资产</td><td>股票+黄金+外汇+债券+保险+比特币</td><td>综合理财</td></tr>
+<tr><td>单一市场→多市场</td><td>通过ETF看全世界</td><td>"有鱼的地方钓鱼"(芒格)</td></tr>
+<tr><td>单向→双向</td><td>学会做空·学会止损</td><td>"天天满仓永远都是韭菜"</td></tr></tbody></table>
+</div>
+
+<!-- ====== 知识图谱 ====== -->
+<div class="card" id="graph">
+<h2>🗺️ 课程知识图谱</h2>
+<h3>九大课程体系全景</h3>
+<div class="svg-wrap">
+<svg viewBox="0 0 1800 620" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="ar" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto"><path d="M0,0 L8,3 L0,6 Z" fill="#8b4513"/></marker></defs>
+  <!-- Roots -->
+  <rect x="10" y="290" width="130" height="40" rx="6" fill="#1a3a4a"/><text x="75" y="316" fill="#fff" font-size="13" font-weight="700" text-anchor="middle">成都良泽教育</text>
+  <line x1="140" y1="310" x2="200" y2="50" stroke="#8b4513" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="140" y1="310" x2="200" y2="120" stroke="#8b4513" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="140" y1="310" x2="200" y2="190" stroke="#8b4513" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="140" y1="310" x2="200" y2="260" stroke="#8b4513" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="140" y1="310" x2="200" y2="330" stroke="#8b4513" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="140" y1="310" x2="200" y2="400" stroke="#8b4513" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="140" y1="310" x2="200" y2="470" stroke="#8b4513" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="140" y1="310" x2="200" y2="540" stroke="#8b4513" stroke-width="1.5" marker-end="url(#ar)"/>
+  <line x1="140" y1="310" x2="200" y2="600" stroke="#8b4513" stroke-width="1.5" marker-end="url(#ar)"/>
+
+  <!-- 9 curriculum nodes -->
+  <rect x="205" y="32" width="175" height="36" rx="6" fill="#2c5f7c"/><text x="292" y="56" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">一·经典K线+技术分析</text>
+  <rect x="205" y="102" width="175" height="36" rx="6" fill="#2c5f7c"/><text x="292" y="126" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">二·"预测"能力提升</text>
+  <rect x="205" y="172" width="175" height="36" rx="6" fill="#2c5f7c"/><text x="292" y="196" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">三·最强支撑和压力</text>
+  <rect x="205" y="242" width="175" height="36" rx="6" fill="#2c5f7c"/><text x="292" y="266" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">四·十套涨停+跌停板</text>
+  <rect x="205" y="312" width="175" height="36" rx="6" fill="#2c5f7c"/><text x="292" y="336" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">五·T+0工场模式</text>
+  <rect x="205" y="382" width="175" height="36" rx="6" fill="#2c5f7c"/><text x="292" y="406" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">六·期货·期权</text>
+  <rect x="205" y="452" width="175" height="36" rx="6" fill="#2c5f7c"/><text x="292" y="476" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">七·一辈子的ETF投资</text>
+  <rect x="205" y="522" width="175" height="36" rx="6" fill="#2c5f7c"/><text x="292" y="546" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">八·青蛙解套宝</text>
+  <rect x="205" y="582" width="175" height="36" rx="6" fill="#2c5f7c"/><text x="292" y="606" fill="#fff" font-size="12" font-weight="700" text-anchor="middle">九·15321妖股体系</text>
+
+  <!-- Level 2: sub-topics --><!-- 1 --><line x1="380" y1="50" x2="440" y2="20" stroke="#b8860b" stroke-width="1"/><rect x="445" y="8" width="110" height="24" rx="4" fill="#f0e6d3"/><text x="500" y="25" fill="#333" font-size="10" text-anchor="middle">十大误区·六套K线</text><line x1="380" y1="50" x2="440" y2="45" stroke="#b8860b" stroke-width="1"/><rect x="445" y="33" width="110" height="24" rx="4" fill="#f0e6d3"/><text x="500" y="50" fill="#333" font-size="10" text-anchor="middle">MACD零轴铁律</text><line x1="380" y1="50" x2="440" y2="70" stroke="#b8860b" stroke-width="1"/><rect x="445" y="58" width="110" height="24" rx="4" fill="#f0e6d3"/><text x="500" y="75" fill="#333" font-size="10" text-anchor="middle">量在前价在后</text>
+
+  <!-- 3 --><line x1="380" y1="190" x2="440" y2="160" stroke="#b8860b" stroke-width="1"/><rect x="445" y="148" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="165" fill="#333" font-size="10" text-anchor="middle">MA改CYC 防骗线</text><line x1="380" y1="190" x2="440" y2="185" stroke="#b8860b" stroke-width="1"/><rect x="445" y="173" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="190" fill="#333" font-size="10" text-anchor="middle">5/13/34 斐波那契</text><line x1="380" y1="190" x2="440" y2="210" stroke="#b8860b" stroke-width="1"/><rect x="445" y="198" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="215" fill="#333" font-size="10" text-anchor="middle">CYC∞ 最强支撑/压力</text>
+
+  <!-- 4 --><line x1="380" y1="260" x2="440" y2="230" stroke="#b8860b" stroke-width="1"/><rect x="445" y="218" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="235" fill="#333" font-size="10" text-anchor="middle">打·追·赌·飘·撬·连</text><line x1="380" y1="260" x2="440" y2="255" stroke="#b8860b" stroke-width="1"/><rect x="445" y="243" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="260" fill="#333" font-size="10" text-anchor="middle">横涨停·涨停起点</text><line x1="380" y1="260" x2="440" y2="280" stroke="#b8860b" stroke-width="1"/><rect x="445" y="268" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="285" fill="#333" font-size="10" text-anchor="middle">W型涨停·风控</text>
+
+  <!-- 5 --><line x1="380" y1="330" x2="440" y2="300" stroke="#b8860b" stroke-width="1"/><rect x="445" y="288" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="305" fill="#333" font-size="10" text-anchor="middle">二区·五区战法</text><line x1="380" y1="330" x2="440" y2="325" stroke="#b8860b" stroke-width="1"/><rect x="445" y="313" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="330" fill="#333" font-size="10" text-anchor="middle">刹车·三背离·真假突破</text><line x1="380" y1="330" x2="440" y2="350" stroke="#b8860b" stroke-width="1"/><rect x="445" y="338" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="355" fill="#333" font-size="10" text-anchor="middle">9:50-10:10战法</text>
+
+  <!-- 7 --><line x1="380" y1="470" x2="440" y2="440" stroke="#b8860b" stroke-width="1"/><rect x="445" y="428" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="445" fill="#333" font-size="10" text-anchor="middle">10只核心ETF</text><line x1="380" y1="470" x2="440" y2="465" stroke="#b8860b" stroke-width="1"/><rect x="445" y="453" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="470" fill="#333" font-size="10" text-anchor="middle">全球配置·T+0交易</text><line x1="380" y1="470" x2="440" y2="490" stroke="#b8860b" stroke-width="1"/><rect x="445" y="478" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="495" fill="#333" font-size="10" text-anchor="middle">择时定投·养老金</text>
+
+  <!-- 9 --><line x1="380" y1="600" x2="440" y2="570" stroke="#b8860b" stroke-width="1"/><rect x="445" y="558" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="575" fill="#333" font-size="10" text-anchor="middle">三板定妖·妖前中后</text><line x1="380" y1="600" x2="440" y2="595" stroke="#b8860b" stroke-width="1"/><rect x="445" y="583" width="130" height="24" rx="4" fill="#f0e6d3"/><text x="510" y="600" fill="#333" font-size="10" text-anchor="middle">牛市突破·五板策略</text>
+</svg>
+</div>
+
+<h3>知识点依赖链路</h3>
+<div class="svg-wrap">
+<svg viewBox="0 0 1760 480" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><marker id="ar2" markerWidth="6" markerHeight="5" refX="6" refY="2.5" orient="auto"><path d="M0,0 L6,2.5 L0,5 Z" fill="#2c5f7c"/></marker></defs>
+  <!-- Row 1: foundations --><rect x="10" y="10" width="115" height="30" rx="5" fill="#3d7ea6"/><text x="67" y="31" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">成交量基础</text><line x1="125" y1="25" x2="165" y2="25" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="170" y="10" width="130" height="30" rx="5" fill="#3d7ea6"/><text x="235" y="31" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">真涨假涨(T+0)</text><line x1="300" y1="25" x2="340" y2="25" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="345" y="10" width="100" height="30" rx="5" fill="#3d7ea6"/><text x="395" y="31" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">追板技术</text><line x1="445" y1="25" x2="485" y2="25" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="490" y="10" width="110" height="30" rx="5" fill="#3d7ea6"/><text x="545" y="31" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">连板缩量战法</text><!-- Row 1 branch --><line x1="235" y1="40" x2="235" y2="65" stroke="#2c5f7c" stroke-width="1" marker-end="url(#ar2)"/><rect x="180" y="68" width="110" height="26" rx="4" fill="#f0e6d3"/><text x="235" y="85" fill="#333" font-size="9" text-anchor="middle">红肥绿瘦(五大标准)</text><line x1="435" y1="40" x2="435" y2="65" stroke="#2c5f7c" stroke-width="1" marker-end="url(#ar2)"/><rect x="380" y="68" width="110" height="26" rx="4" fill="#f0e6d3"/><text x="435" y="85" fill="#333" font-size="9" text-anchor="middle">三板定妖(妖股体系)</text>
+
+  <!-- Row 2 --><line x1="67" y1="40" x2="67" y2="115" stroke="#2c5f7c" stroke-width="1" marker-end="url(#ar2)"/><rect x="10" y="118" width="115" height="30" rx="5" fill="#2c5f7c"/><text x="67" y="138" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">均线基础</text><line x1="125" y1="133" x2="165" y2="133" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="170" y="118" width="100" height="30" rx="5" fill="#2c5f7c"/><text x="220" y="138" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">多头排列</text><line x1="270" y1="133" x2="310" y2="133" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="315" y="118" width="140" height="30" rx="5" fill="#2c5f7c"/><text x="385" y="138" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">无穷成本均线CYC∞</text><line x1="175" y1="148" x2="175" y2="175" stroke="#2c5f7c" stroke-width="1" marker-end="url(#ar2)"/><rect x="130" y="178" width="90" height="26" rx="4" fill="#f0e6d3"/><text x="175" y="195" fill="#333" font-size="9" text-anchor="middle">斐波那契参数</text><line x1="430" y1="148" x2="430" y2="175" stroke="#2c5f7c" stroke-width="1" marker-end="url(#ar2)"/><rect x="385" y="178" width="90" height="26" rx="4" fill="#f0e6d3"/><text x="430" y="195" fill="#333" font-size="9" text-anchor="middle">选股三原则</text>
+
+  <!-- Row 3 --><line x1="67" y1="148" x2="67" y2="225" stroke="#2c5f7c" stroke-width="1" marker-end="url(#ar2)"/><rect x="10" y="228" width="100" height="30" rx="5" fill="#8b4513"/><text x="60" y="248" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">二区定律</text><line x1="110" y1="243" x2="150" y2="243" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="155" y="228" width="100" height="30" rx="5" fill="#8b4513"/><text x="205" y="248" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">三波理论</text><line x1="255" y1="243" x2="295" y2="243" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="300" y="228" width="120" height="30" rx="5" fill="#8b4513"/><text x="360" y="248" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">背离判断(MACD)</text>
+
+  <!-- Row 4 --><line x1="60" y1="258" x2="60" y2="320" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="10" y="323" width="120" height="30" rx="5" fill="#1a3a4a"/><text x="70" y="343" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">小琛仓位(择时)</text><line x1="130" y1="338" x2="170" y2="290" stroke="#2c5f7c" stroke-width="1"/><line x1="130" y1="338" x2="170" y2="338" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="175" y="323" width="130" height="30" rx="5" fill="#1a3a4a"/><text x="240" y="343" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">九大应用场景</text><line x1="305" y1="338" x2="345" y2="338" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="350" y="310" width="110" height="24" rx="4" fill="#e8f4f8"/><text x="405" y="326" fill="#333" font-size="9" text-anchor="middle">ETF择时</text><rect x="350" y="338" width="110" height="24" rx="4" fill="#e8f4f8"/><text x="405" y="354" fill="#333" font-size="9" text-anchor="middle">股票择时</text><rect x="350" y="366" width="110" height="24" rx="4" fill="#e8f4f8"/><text x="405" y="382" fill="#333" font-size="9" text-anchor="middle">期货期权·定投</text>
+
+  <!-- Row 5 --><line x1="240" y1="353" x2="240" y2="415" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="175" y="418" width="130" height="30" rx="5" fill="#2d6a4f"/><text x="240" y="438" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">ETF体系</text><line x1="305" y1="433" x2="345" y2="433" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="350" y="406" width="120" height="24" rx="4" fill="#e8f4f8"/><text x="410" y="422" fill="#333" font-size="9" text-anchor="middle">10只核心+59行业</text><rect x="350" y="434" width="120" height="24" rx="4" fill="#e8f4f8"/><text x="410" y="450" fill="#333" font-size="9" text-anchor="middle">19只20cm科创ETF</text><line x1="470" y1="433" x2="510" y2="433" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="515" y="418" width="120" height="30" rx="5" fill="#2d6a4f"/><text x="575" y="438" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">全球资产配置</text>
+
+  <!-- Row 6 --><line x1="575" y1="433" x2="635" y2="433" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="640" y="418" width="130" height="30" rx="5" fill="#b8860b"/><text x="705" y="438" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">宏观框架</text><line x1="770" y1="433" x2="810" y2="433" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="815" y="406" width="120" height="24" rx="4" fill="#f0e6d3"/><text x="875" y="422" fill="#333" font-size="9" text-anchor="middle">人民币汇率+美联储</text><rect x="815" y="434" width="120" height="24" rx="4" fill="#f0e6d3"/><text x="875" y="450" fill="#333" font-size="9" text-anchor="middle">中央经济工作会</text><line x1="935" y1="433" x2="975" y2="433" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="980" y="418" width="130" height="30" rx="5" fill="#b8860b"/><text x="1045" y="438" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">十五五规划</text><line x1="1110" y1="433" x2="1150" y2="433" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="1155" y="418" width="130" height="30" rx="5" fill="#a0522d"/><text x="1220" y="438" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">十大投资领域</text><line x1="1285" y1="433" x2="1325" y2="433" stroke="#2c5f7c" stroke-width="1.2" marker-end="url(#ar2)"/><rect x="1330" y="418" width="130" height="30" rx="5" fill="#a0522d"/><text x="1395" y="438" fill="#fff" font-size="10" font-weight="700" text-anchor="middle">200+标的股票池</text>
+</svg>
+</div>
+</div>
+
+<!-- ====== 22条核心规则 ====== -->
+<div class="card" id="rules">
+<h2>📋 核心规则体系</h2>
+<h3>方法层面——22条核心规则</h3>
+<div class="rule-grid">
+<div class="rc"><span class="rn">01</span><span class="rt">真涨假涨三要素</span>"一涨、二高、三无量"——成交量对比判断涨跌真假</div>
+<div class="rc"><span class="rn">02</span><span class="rt">四大铁律</span>右侧交易+多头排列+只做强势股+与涨停板交朋友</div>
+<div class="rc"><span class="rn">03</span><span class="rt">五大选股标准</span>十字口诀：放量·红肥绿瘦·绵阳·缺口·水上</div>
+<div class="rc"><span class="rn">04</span><span class="rt">三波理论</span>上升三波卖出·下跌三波买入·"三而竭"</div>
+<div class="rc"><span class="rn">05</span><span class="rt">均线升级</span>MA→CYC防骗线·参数5/10/20→5/13/34斐波那契</div>
+<div class="rc"><span class="rn">06</span><span class="rt">CYC∞选股三原则</span>跌够久(2年+)·跌够深(腰斩+)·底部放量空翻多</div>
+<div class="rc"><span class="rn">07</span><span class="rt">顶部识别</span>背离法(价创新高量未跟)+放巨量长上影线法</div>
+<div class="rc"><span class="rn">08</span><span class="rt">二区定律</span>好二区低点做多·坏二区高点做空·21年90%成功率</div>
+<div class="rc"><span class="rn">09</span><span class="rt">追板核心</span>涨停次日赚钱概率82-88%·涨停瞬间排板</div>
+<div class="rc"><span class="rn">10</span><span class="rt">涨停卖票三件套</span>高开补缺口斩·平开斩·低开等·9:24:50秘笈</div>
+<div class="rc"><span class="rn">11</span><span class="rt">9:24:50斩仓术</span>预输代码+数量只留价格·集合竞价优先成交</div>
+<div class="rc"><span class="rn">12</span><span class="rt">缩量追板</span>95%(缩量) vs 60%(放量)——缩量追放量不追</div>
+<div class="rc"><span class="rn">13</span><span class="rt">小琛仓位五区间</span>0/30%/50%/70%/满仓·"买多少跟仓位走"</div>
+<div class="rc"><span class="rn">14</span><span class="rt">10只核心ETF</span>沪深300+中证1000+创业+科创50+恒生+纳指+日经+德国+黄金+国债</div>
+<div class="rc"><span class="rn">15</span><span class="rt">选基方法论</span>"成交量为王"——同类中选成交量最大的</div>
+<div class="rc"><span class="rn">16</span><span class="rt">人民币汇率=A股指南针</span>升值买·贬值卖·强正相关</div>
+<div class="rc"><span class="rn">17</span><span class="rt">财富密码公式</span>加息→股票跌债券涨·降息→股票涨债券跌</div>
+<div class="rc"><span class="rn">18</span><span class="rt">黄金三大逻辑</span>地缘紧张+经济衰退+去美元化·"趋势才刚开始"</div>
+<div class="rc"><span class="rn">19</span><span class="rt">原油短多长空</span>美债40万亿承受不起高油价+新能源替代</div>
+<div class="rc"><span class="rn">20</span><span class="rt">十五五十大领域</span>AI/芯片/脑科学/太空/核聚变/绿色/机器人/6G/军工/有色</div>
+<div class="rc"><span class="rn">21</span><span class="rt">三大转型</span>多资产+多市场+双向投资·"有鱼的地方钓鱼"</div>
+<div class="rc"><span class="rn">22</span><span class="rt">投资核心逻辑</span>"在中国=政策·在全球=美联储周期"</div>
+</div>
+
+<h3>纪律层面——6条铁律</h3>
+<div class="iron">
+<div class="ir">⛔ 01 · "学不会斩仓就不要做短线"——斩仓是工作常态不是失败</div>
+<div class="ir">⛔ 02 · "补仓是标准准的韭菜"——补仓=左侧交易+放大错误</div>
+<div class="ir">⛔ 03 · "不准借钱炒股票"（个股）——与补仓并列禁止</div>
+<div class="ir">⛔ 04 · "天天满仓永远都是韭菜"——无择时能力必亏</div>
+<div class="ir">⛔ 05 · "零轴以下不准做股票"——适用所有品种/周期/市场</div>
+<div class="ir">⛔ 06 · "规则比策略重要得多"——交易纪律是生命线</div>
+</div>
+</div>
+
+<!-- ====== ETF完整清单 ====== -->
+<div class="card" id="etf">
+<h2>📊 完整ETF清单</h2>
+<h3>10只核心ETF（终极精选·一辈子足够）</h3>
+<div class="etf-grid">
+<div class="etf-item"><span class="code">510300</span>沪深300<br>中国核心资产</div>
+<div class="etf-item"><span class="code">512100</span>中证1000<br>中小盘(活性最好)</div>
+<div class="etf-item"><span class="code">159915</span>创业板<br>A股成长</div>
+<div class="etf-item"><span class="code">588000</span>科创50<br>A股科技</div>
+<div class="etf-item"><span class="code">159920</span>恒生ETF<br>港股</div>
+<div class="etf-item"><span class="code">513100</span>纳指ETF<br>美股科技</div>
+<div class="etf-item"><span class="code">513880</span>日经225<br>日本</div>
+<div class="etf-item"><span class="code">513030</span>德国ETF<br>欧洲</div>
+<div class="etf-item"><span class="code">518880</span>黄金ETF<br>商品</div>
+<div class="etf-item"><span class="code">511090</span>30年国债<br>债券</div>
+</div>
+
+<div class="info"><strong>PPT幻灯片1完整对应：</strong>510300沪深300ETF·512100中证1000ETF·159915创业板ETF·588000科创50ETF·159920恒生ETF·513100纳指ETF·513880日经225ETF·513030德国ETF·518880黄金ETF·511090 30年国债ETF —— 以上正是PPT幻灯片1的10只核心ETF清单。课程讲师的精简逻辑：上证50与沪深300合并→300；中证500与1000→选1000活性更好；美国三大指数→选纳斯达克；法国/巴西→剔除太小众。</div>
+
+<h3>扩展指数ETF清单（PPT幻灯片7完整数据）</h3>
+<div class="etf-grid">
+<div class="etf-item"><span class="code">510050</span>上证50</div>
+<div class="etf-item"><span class="code">510500</span>中证500</div>
+<div class="etf-item"><span class="code">510900</span>H股ETF</div>
+<div class="etf-item"><span class="code">513500</span>标普500</div>
+<div class="etf-item"><span class="code">513400</span>道琼斯</div>
+<div class="etf-item"><span class="code">513080</span>法国CAC40</div>
+<div class="etf-item"><span class="code">159329</span>沙特ETF</div>
+</div>
+
+<h3>20厘米科创板ETF（PPT图2——20comETF完整数据）</h3>
+<div class="etf-grid">
+<div class="etf-item"><span class="code">588010</span>科创新材料</div>
+<div class="etf-item"><span class="code">588200</span>科创芯片</div>
+<div class="etf-item"><span class="code">588100</span>科创信息技术</div>
+<div class="etf-item"><span class="code">588290</span>科创芯片基金</div>
+<div class="etf-item"><span class="code">588830</span>科创新能源</div>
+<div class="etf-item"><span class="code">588160</span>科创材料</div>
+<div class="etf-item"><span class="code">588260</span>科创信息</div>
+<div class="etf-item"><span class="code">588020</span>科创成长50</div>
+<div class="etf-item"><span class="code">588990</span>科创芯片博时</div>
+<div class="etf-item"><span class="code">588110</span>科创成长</div>
+<div class="etf-item"><span class="code">588860</span>科创医药</div>
+<div class="etf-item"><span class="code">588700</span>科创生物医药</div>
+<div class="etf-item"><span class="code">588890</span>创芯片南方</div>
+<div class="etf-item"><span class="code">159966</span>创业板价值</div>
+<div class="etf-item"><span class="code">159597</span>创业板成长</div>
+<div class="etf-item"><span class="code">159804</span>创中盘88</div>
+<div class="etf-item"><span class="code">159777</span>创科技</div>
+<div class="etf-item"><span class="code">159967</span>创业板成长</div>
+<div class="etf-item"><span class="code">159773</span>创业板科技</div>
+</div>
+<div class="info"><strong>策略：</strong>突发政策利好时优先买20厘米ETF——"一涨就是20%"。注意：外盘ETF和商品ETF是真正的<strong>T+0交易</strong>——买入一分钟后即可卖出。</div>
+
+<h3>行业ETF精选清单（PPT图3——行业ETF1 + 幻灯片10完整数据）</h3>
+<div class="etf-grid">
+<div class="etf-item"><span class="code">518880</span>黄金ETF</div>
+<div class="etf-item"><span class="code">159980</span>有色ETF</div>
+<div class="etf-item"><span class="code">159985</span>豆粕ETF</div>
+<div class="etf-item"><span class="code">513330</span>恒生互联网</div>
+<div class="etf-item"><span class="code">513180</span>恒生科技</div>
+<div class="etf-item"><span class="code">513050</span>中概互联</div>
+<div class="etf-item"><span class="code">513060</span>恒生医疗</div>
+<div class="etf-item"><span class="code">159605</span>港股创新药</div>
+<div class="etf-item"><span class="code">513310</span>中韩半导体</div>
+<div class="etf-item"><span class="code">159691</span>港股红利</div>
+<div class="etf-item"><span class="code">512880</span>证券ETF</div>
+<div class="etf-item"><span class="code">512200</span>房地产ETF</div>
+<div class="etf-item"><span class="code">512480</span>半导体ETF</div>
+<div class="etf-item"><span class="code">512010</span>医药ETF</div>
+<div class="etf-item"><span class="code">512690</span>酒ETF</div>
+<div class="etf-item"><span class="code">510880</span>红利ETF</div>
+<div class="etf-item"><span class="code">512170</span>医疗ETF</div>
+<div class="etf-item"><span class="code">159928</span>消费ETF</div>
+<div class="etf-item"><span class="code">159995</span>芯片ETF</div>
+<div class="etf-item"><span class="code">512660</span>军工ETF</div>
+<div class="etf-item"><span class="code">159869</span>游戏ETF</div>
+<div class="etf-item"><span class="code">512800</span>银行ETF</div>
+<div class="etf-item"><span class="code">159992</span>创新药</div>
+<div class="etf-item"><span class="code">515790</span>光伏ETF</div>
+<div class="etf-item"><span class="code">159819</span>人工智能</div>
+<div class="etf-item"><span class="code">512400</span>稀土ETF</div>
+<div class="etf-item"><span class="code">515400</span>大数据</div>
+<div class="etf-item"><span class="code">159867</span>畜牧ETF</div>
+<div class="etf-item"><span class="code">159667</span>工业母机</div>
+<div class="etf-item"><span class="code">516150</span>稀土基金</div>
+<div class="etf-item"><span class="code">159638</span>高端装备</div>
+<div class="etf-item"><span class="code">560280</span>工程机械</div>
+<div class="etf-item"><span class="code">560800</span>数字经济</div>
+<div class="etf-item"><span class="code">512580</span>环保ETF</div>
+<div class="etf-item"><span class="code">516520</span>智能驾驶</div>
+<div class="etf-item"><span class="code">159855</span>影视ETF</div>
+<div class="etf-item"><span class="code">515150</span>一带一路</div>
+<div class="etf-item"><span class="code">516910</span>物流ETF</div>
+<div class="etf-item"><span class="code">159698</span>粮食ETF</div>
+<div class="etf-item"><span class="code">159537</span>信创ETF</div>
+</div>
+
+<h3>债券ETF——家庭现金管理替代</h3>
+<p><strong>城投债ETF 12年实际收益率（非年化）：</strong>2015=21.6% | 2016=7.27% | 2017=0.8%(唯一低于定存) | 2018=10% | 2019=5.96% | 2020=3.15% | 2021=6.28% | 2022=2.93% | 2023=6.26% | 2024=4.45% | 2025=1.75% | 2026(半年)=1.77%。<strong>12年本金翻了一倍以上——远超银行定存的约30%增长。</strong></p>
+</div>
+
+<!-- ====== 学习路径 ====== -->
+<div class="card" id="path">
+<h2>🛤️ 完整学习路径</h2>
+<h3>入门（零基础→3个月）</h3>
+<div class="step"><span class="step-num">1</span>四大原则+五大选股标准 → 建立选股框架</div>
+<div class="step"><span class="step-num">2</span>T+0真涨假涨判断 → 第一个立即可用小技术</div>
+<div class="step"><span class="step-num">3</span>均线改CYC+斐波那契参数 → 工具全面升级</div>
+<div class="step"><span class="step-num">4</span>每天10:30闹钟训练二区定律 → 培养盘感(坚持一年)</div>
+<h3>进阶（3个月→1年）</h3>
+<div class="step"><span class="step-num">5</span>无穷成本均线+选股三原则 → 核心支撑压力判断</div>
+<div class="step"><span class="step-num">6</span>三波理论+MACD背离 → 买卖时点精准把握</div>
+<div class="step"><span class="step-num">7</span>追板技术 → 先回测验证→后小资金实战</div>
+<div class="step"><span class="step-num">8</span>小琛仓位 → 建立择时体系·"买多少跟仓位走"</div>
+<h3>高级（1年→2年）</h3>
+<div class="step"><span class="step-num">9</span>构建ETF组合 → 10只核心ETF+行业ETF+债券ETF</div>
+<div class="step"><span class="step-num">10</span>全球宏观分析习惯 → 每日全球指数+人民币汇率+两大会议</div>
+<div class="step"><span class="step-num">11</span>学会做空工具 → 股指期货/期权基础(T+0可纠错风险更小)</div>
+<div class="step"><span class="step-num">12</span>十五五十大领域作为长期股票池 → 建立自己的盈利模式</div>
+<h3>终身学习节奏</h3>
+<div class="path-box">每日：全球指数早盘 + 新闻联播 + 二区定律判断
+每周：线上课程复盘 + 周末周线级别选股
+每季：私募论坛 + 季度宏观分析
+每年：中央经济工作会议研读 → 更新年度投资方向</div>
+</div>
+
+<footer>
+<p>成都良泽教育科技有限公司 · 投资培训行业新东方 · 财富中国人的孵化器</p>
+<p>本文档基于2026年7月31日-8月1日北京站课程视频转录稿 + 全部PPT内容整理</p>
+<p>仅供学习研究参考，不构成任何投资建议。股票投资有风险，入市需谨慎。</p>
+</footer>
+
+</div></body></html>
