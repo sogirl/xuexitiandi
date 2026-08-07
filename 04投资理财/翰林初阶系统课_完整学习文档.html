@@ -1,0 +1,1752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>翰林初阶系统课 - 完整学习文档</title>
+<style>
+:root {
+  --bg-page:#FAF8F5;--bg-card:#FFFFFF;--bg-card-hover:#F7F4F0;--bg-sidebar:#F2EFEB;
+  --bg-navbar:#FFFFFF;--bg-code:#F5F2EE;--bg-highlight:#FFF8E1;--bg-warning:#FFF3E0;
+  --bg-quote:#F0F4F8;--bg-active-nav:#E8EFF7;
+  --text-primary:#2C2C2C;--text-secondary:#5F5F5F;--text-tertiary:#8C8C8C;
+  --text-heading:#1A1A1A;--text-link:#3A6EA5;--text-link-hover:#1E4D7B;--text-accent:#B8860B;
+  --border-card:#E6E0D8;--border-table:#DDD6CC;--border-divider:#EBE5DD;
+  --color-primary:#4A7FB5;--color-primary-l:#7BA5CC;--color-primary-d:#2C5A8C;
+  --color-gold:#B8860B;--color-gold-l:#D4A843;
+  --color-danger:#C0392B;--color-danger-l:#E6A8A3;
+  --color-success:#2E7D32;--color-success-l:#A5D6A7;
+  --color-info:#5C6BC0;--color-info-l:#C5CAE9;
+  --font-system:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
+  --font-mono:"SF Mono","Fira Code","Fira Mono","Roboto Mono","Menlo","Courier New",monospace;
+  --font-heading:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",sans-serif;
+  --fs-h1:28px;--fs-h2:22px;--fs-h3:18px;--fs-h4:16px;
+  --fs-body:15px;--fs-small:13px;--fs-xs:12px;--fs-nav:13px;--fs-code:14px;--fs-quote:15px;
+  --sp-xs:4px;--sp-sm:8px;--sp-md:16px;--sp-lg:24px;--sp-xl:32px;--sp-xxl:48px;
+  --radius-sm:4px;--radius-md:8px;--radius-lg:12px;--radius-xl:16px;
+  --shadow-sm:0 1px 3px rgba(0,0,0,0.06);--shadow-md:0 2px 8px rgba(0,0,0,0.08);
+  --shadow-lg:0 4px 16px rgba(0,0,0,0.10);--shadow-card:0 1px 4px rgba(0,0,0,0.05);
+  --sidebar-width:280px;--navbar-height:52px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{font-family:var(--font-system);font-size:var(--fs-body);color:var(--text-primary);background:var(--bg-page);line-height:1.85;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden}
+a{color:var(--text-link);text-decoration:none;transition:color .2s}
+a:hover{color:var(--text-link-hover);text-decoration:underline}
+img,svg{max-width:100%;height:auto}
+.page-wrapper{display:flex;min-height:100vh}
+.main-content{flex:1;max-width:860px;margin:0 auto;padding:var(--sp-xl) var(--sp-lg);padding-top:calc(var(--navbar-height) + var(--sp-lg))}
+.navbar{position:fixed;top:0;left:0;right:0;height:var(--navbar-height);background:var(--bg-navbar);border-bottom:1px solid var(--border-divider);display:flex;align-items:center;justify-content:space-between;padding:0 var(--sp-lg);z-index:1001;box-shadow:var(--shadow-sm)}
+.navbar-brand{font-family:var(--font-heading);font-size:16px;font-weight:600;color:var(--color-primary-d)}
+.navbar-toggle{display:none;background:none;border:none;font-size:24px;color:var(--text-primary);cursor:pointer;padding:var(--sp-xs)}
+.navbar-progress{height:3px;background:var(--color-primary);position:absolute;bottom:0;left:0;transition:width .1s linear}
+.sidebar{position:fixed;top:var(--navbar-height);left:0;width:var(--sidebar-width);height:calc(100vh - var(--navbar-height));background:var(--bg-sidebar);border-right:1px solid var(--border-divider);overflow-y:auto;overflow-x:hidden;padding:var(--sp-md) 0;z-index:999;scrollbar-width:thin;scrollbar-color:var(--border-card) transparent}
+.sidebar::-webkit-scrollbar{width:5px}
+.sidebar::-webkit-scrollbar-thumb{background:var(--border-card);border-radius:10px}
+.nav-group{margin-bottom:var(--sp-xs)}
+.nav-group-title{display:flex;align-items:center;justify-content:space-between;padding:10px var(--sp-md);font-size:var(--fs-nav);font-weight:600;color:var(--text-primary);cursor:pointer;border-left:3px solid transparent;transition:all .2s;user-select:none}
+.nav-group-title:hover{background:var(--bg-active-nav);color:var(--color-primary-d)}
+.nav-group-title .arrow{font-size:10px;transition:transform .2s}
+.nav-group.open .nav-group-title .arrow{transform:rotate(90deg)}
+.nav-sub-items{max-height:0;overflow:hidden;transition:max-height .3s}
+.nav-group.open .nav-sub-items{max-height:3000px}
+.nav-item-lesson{display:block;padding:7px var(--sp-md) 7px 28px;font-size:13px;color:var(--text-secondary);border-left:3px solid transparent;transition:all .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-item-lesson:hover{color:var(--color-primary-d);background:rgba(74,127,181,0.05)}
+.nav-item-lesson.active{color:var(--color-primary-d);font-weight:600;background:var(--bg-active-nav);border-left-color:var(--color-primary)}
+.nav-item-sub{display:block;padding:5px var(--sp-md) 5px 40px;font-size:12px;color:var(--text-tertiary);border-left:3px solid transparent;transition:all .15s;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.nav-item-sub:hover{color:var(--text-secondary)}
+.sidebar-overlay{display:none;position:fixed;top:var(--navbar-height);left:0;right:0;bottom:0;background:rgba(0,0,0,0.35);z-index:998}
+.page-title{font-family:var(--font-heading);font-size:var(--fs-h1);font-weight:700;color:var(--text-heading);line-height:1.4;letter-spacing:.02em;border-bottom:2px solid var(--color-primary);padding-bottom:var(--sp-md);margin-bottom:var(--sp-lg)}
+.section-title{font-family:var(--font-heading);font-size:var(--fs-h2);font-weight:600;color:var(--text-heading);line-height:1.5;margin-top:var(--sp-xxl);margin-bottom:var(--sp-md);padding-left:var(--sp-md);border-left:4px solid var(--color-primary)}
+.lesson-title{font-family:var(--font-heading);font-size:var(--fs-h3);font-weight:600;color:var(--text-heading);line-height:1.5;margin-top:var(--sp-xl);margin-bottom:var(--sp-md)}
+.card{background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius-lg);padding:var(--sp-lg);margin-bottom:var(--sp-lg);box-shadow:var(--shadow-card);transition:box-shadow .2s,border-color .2s}
+.card:hover{box-shadow:var(--shadow-md);border-color:var(--border-table)}
+.card-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:var(--sp-md);padding-bottom:var(--sp-sm);border-bottom:1px solid var(--border-divider)}
+.card-title{font-family:var(--font-heading);font-size:var(--fs-h4);font-weight:600;color:var(--color-primary-d);line-height:1.5;margin-bottom:var(--sp-sm)}
+.card-body{color:var(--text-primary);line-height:1.85}
+.card-body p{margin-bottom:var(--sp-sm)}
+.card-body p:last-child{margin-bottom:0}
+.card-footer{margin-top:var(--sp-md);padding-top:var(--sp-sm);border-top:1px solid var(--border-divider)}
+.card-meta{font-size:var(--fs-xs);color:var(--text-tertiary)}
+.card-diagram{margin:var(--sp-md) 0;padding:var(--sp-md);background:var(--bg-code);border-radius:var(--radius-md);text-align:center}
+.card-badge{display:inline-block;font-size:11px;font-weight:600;padding:2px 8px;border-radius:var(--radius-sm);letter-spacing:.04em}
+.badge-theory{background:#E8EAF6;color:#3F51B5}
+.badge-tool{background:#E0F2F1;color:#00796B}
+.badge-strategy{background:#FFF3E0;color:#E65100}
+.badge-tactic{background:#E8F5E9;color:#2E7D32}
+.badge-risk{background:#FCE4EC;color:#C62828}
+.badge-sell{background:#FFEBEE;color:#B71C1C}
+.badge-golden{background:#FFFDE7;color:#B8860B}
+.badge-case{background:#EDE7F6;color:#4527A0}
+.compare-table{width:100%;border-collapse:separate;border-spacing:0;margin:var(--sp-md) 0;font-size:var(--fs-body);background:var(--bg-card);border:1px solid var(--border-table);border-radius:var(--radius-md);overflow:hidden;box-shadow:var(--shadow-card)}
+.compare-table thead th{background:var(--bg-sidebar);color:var(--text-heading);font-weight:600;font-size:14px;padding:12px var(--sp-md);text-align:left;border-bottom:2px solid var(--border-table);white-space:nowrap}
+.compare-table tbody td{padding:10px var(--sp-md);border-bottom:1px solid var(--border-divider);color:var(--text-primary);vertical-align:top;line-height:1.6}
+.compare-table tbody tr:last-child td{border-bottom:none}
+.compare-table tbody tr:hover{background:var(--bg-card-hover)}
+.compare-table th:first-child,.compare-table td:first-child{font-weight:600;color:var(--color-primary-d)}
+.table-wrapper{margin:var(--sp-md) 0;border-radius:var(--radius-md);overflow:hidden;overflow-x:auto;-webkit-overflow-scrolling:touch}
+.mnemonic-block{background:linear-gradient(135deg,var(--bg-highlight),#FFFDF5);border:1px solid var(--color-gold-l);border-left:4px solid var(--color-gold);border-radius:var(--radius-md);padding:var(--sp-lg);margin:var(--sp-lg) 0;position:relative}
+.mnemonic-label{display:inline-block;font-size:var(--fs-xs);font-weight:700;text-transform:uppercase;letter-spacing:.08em;color:var(--color-gold);background:rgba(184,134,11,0.08);padding:2px 10px;border-radius:var(--radius-sm);margin-bottom:var(--sp-sm)}
+.mnemonic-text{font-family:var(--font-heading);font-size:var(--fs-quote);font-weight:600;color:var(--text-heading);line-height:1.7;margin:0}
+.quote-block{background:var(--bg-quote);border-left:4px solid var(--color-primary);border-radius:0 var(--radius-md) var(--radius-md) 0;padding:var(--sp-md) var(--sp-lg);margin:var(--sp-md) 0;font-style:italic;color:var(--text-secondary);line-height:1.7}
+.quote-block .quote-author{display:block;margin-top:var(--sp-sm);font-style:normal;font-size:var(--fs-small);color:var(--text-tertiary);text-align:right}
+.code-block{background:var(--bg-code);border:1px solid var(--border-card);border-radius:var(--radius-md);padding:var(--sp-md) var(--sp-lg);margin:var(--sp-md) 0;font-family:var(--font-mono);font-size:var(--fs-code);color:var(--text-primary);line-height:1.8;overflow-x:auto;white-space:pre-wrap;word-break:break-word}
+code{font-family:var(--font-mono);font-size:.9em;background:var(--bg-code);padding:1px 6px;border-radius:var(--radius-sm);color:var(--color-danger);border:1px solid var(--border-card)}
+.prerequisite-box{background:var(--bg-warning);border:1px solid var(--color-gold-l);border-left:4px solid var(--color-gold);border-radius:var(--radius-md);padding:var(--sp-md) var(--sp-lg);margin:var(--sp-md) 0 var(--sp-lg);font-size:var(--fs-small);display:flex;align-items:flex-start;gap:var(--sp-sm)}
+.prerequisite-box .prereq-icon{flex-shrink:0;font-size:18px;line-height:1;color:var(--color-gold)}
+.prerequisite-box .prereq-label{font-weight:700;color:var(--text-heading);margin-right:4px}
+.related-links{display:flex;flex-wrap:wrap;gap:var(--sp-sm);margin:var(--sp-md) 0}
+.related-link-tag{display:inline-flex;align-items:center;gap:4px;padding:4px 12px;font-size:var(--fs-xs);color:var(--color-primary-d);background:rgba(74,127,181,0.06);border:1px solid rgba(74,127,181,0.15);border-radius:20px;transition:all .2s;cursor:pointer;white-space:nowrap}
+.related-link-tag:hover{background:rgba(74,127,181,0.12);border-color:var(--color-primary);text-decoration:none}
+.case-block{background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius-lg);padding:var(--sp-lg);margin:var(--sp-lg) 0;box-shadow:var(--shadow-card);position:relative}
+.case-block .case-label{display:inline-block;font-size:var(--fs-xs);font-weight:700;color:var(--color-info);background:var(--color-info-l);padding:3px 12px;border-radius:var(--radius-sm);margin-bottom:var(--sp-sm);letter-spacing:.05em}
+.case-block .case-title{font-size:var(--fs-h4);font-weight:700;color:var(--text-heading);margin-bottom:var(--sp-sm)}
+.case-block .case-stock-name{font-size:var(--fs-small);color:var(--color-primary);font-weight:600;margin-bottom:var(--sp-sm)}
+.case-block .case-content{color:var(--text-primary);line-height:1.8}
+.case-block .case-highlight{color:var(--color-gold);font-weight:600}
+.step-list{list-style:none;counter-reset:step-counter;padding:0;margin:var(--sp-md) 0}
+.step-list li{counter-increment:step-counter;position:relative;padding:var(--sp-md) var(--sp-md) var(--sp-md) 56px;margin-bottom:var(--sp-sm);background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius-md);box-shadow:var(--shadow-card);transition:box-shadow .2s}
+.step-list li:hover{box-shadow:var(--shadow-md)}
+.step-list li::before{content:counter(step-counter);position:absolute;left:var(--sp-md);top:var(--sp-md);width:28px;height:28px;background:var(--color-primary);color:#fff;font-size:13px;font-weight:700;display:flex;align-items:center;justify-content:center;border-radius:50%}
+.step-list li .step-title{font-weight:600;color:var(--text-heading);font-size:var(--fs-body);margin-bottom:4px}
+.step-list li .step-desc{font-size:var(--fs-small);color:var(--text-secondary);line-height:1.6}
+.text-accent{color:var(--text-accent);font-weight:600}
+.text-strong{font-weight:700;color:var(--text-heading)}
+.text-buy{color:var(--color-success);font-weight:600}
+.text-sell{color:var(--color-danger);font-weight:600}
+.text-term{border-bottom:1px dashed var(--text-link);cursor:help}
+.text-formula{font-family:var(--font-mono);font-size:.95em;background:var(--bg-code);padding:1px 6px;border-radius:var(--radius-sm);border:1px solid var(--border-card)}
+.text-highlight{background:var(--bg-highlight);padding:1px 4px;border-radius:2px}
+.color-climax{color:#C62828;background:#FFEBEE}
+.color-ebb{color:#7B1FA2;background:#F3E5F5}
+.color-support{color:#E65100;background:#FFF3E0}
+.color-ice{color:#1565C0;background:#E3F2FD}
+.color-start{color:#2E7D32;background:#E8F5E9}
+.color-speed{color:#F9A825;background:#FFFDE7}
+.pillar-A{border-left:4px solid #C62828}
+.pillar-B{border-left:4px solid #7B1FA2}
+.pillar-C{border-left:4px solid #E65100}
+.pillar-D{border-left:4px solid #1565C0}
+.pillar-E{border-left:4px solid #2E7D32}
+.pillar-F{border-left:4px solid #F9A825}
+.toc-section{max-width:860px;margin:0 auto var(--sp-xxl);padding:var(--sp-xl);background:var(--bg-card);border:1px solid var(--border-card);border-radius:var(--radius-xl);box-shadow:var(--shadow-md)}
+.toc-title{font-size:22px;font-weight:700;color:var(--text-heading);text-align:center;margin-bottom:4px}
+.toc-subtitle{font-size:var(--fs-small);color:var(--text-tertiary);text-align:center;margin-bottom:var(--sp-xl)}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:var(--sp-md)}
+.toc-phase{background:var(--bg-page);border:1px solid var(--border-card);border-radius:var(--radius-md);padding:var(--sp-md);transition:box-shadow .2s}
+.toc-phase:hover{box-shadow:var(--shadow-md)}
+.toc-phase-header{display:flex;align-items:center;gap:var(--sp-sm);margin-bottom:var(--sp-sm);padding-bottom:var(--sp-sm);border-bottom:1px solid var(--border-divider)}
+.toc-phase-num{width:32px;height:32px;display:flex;align-items:center;justify-content:center;background:var(--color-primary);color:#fff;font-size:13px;font-weight:700;border-radius:var(--radius-md);flex-shrink:0}
+.toc-phase-header h3{font-size:15px;font-weight:600;color:var(--text-heading)}
+.toc-phase-list{list-style:none;padding:0}
+.toc-phase-list li{padding:3px 0}
+.toc-phase-list a{font-size:13px;color:var(--text-link);transition:color .15s}
+.toc-phase-list a:hover{color:var(--text-link-hover)}
+.toc-phase.phase-1 .toc-phase-num{background:#5C6BC0}
+.toc-phase.phase-2 .toc-phase-num{background:#26A69A}
+.toc-phase.phase-3 .toc-phase-num{background:#FF7043}
+.toc-phase.phase-4 .toc-phase-num{background:#42A5F5}
+.toc-phase.phase-5 .toc-phase-num{background:#EF5350}
+.toc-phase.phase-6 .toc-phase-num{background:#AB47BC}
+.back-to-top{position:fixed;bottom:30px;right:30px;width:44px;height:44px;background:var(--color-primary);color:#fff;border:none;border-radius:50%;font-size:20px;cursor:pointer;box-shadow:var(--shadow-md);z-index:1000;display:none;align-items:center;justify-content:center;transition:opacity .3s}
+.back-to-top.visible{display:flex}
+.back-to-top:hover{background:var(--color-primary-d)}
+.cycle-diagram{display:flex;align-items:center;justify-content:center;flex-wrap:wrap;gap:4px;font-size:var(--fs-small)}
+.cycle-node{padding:4px 10px;border-radius:var(--radius-sm);font-weight:600;font-size:12px}
+.cycle-arrow{color:var(--text-tertiary);margin:0 2px}
+.node-climax{background:#FFCDD2;color:#B71C1C}
+.node-ebb{background:#F3E5F5;color:#6A1B9A}
+.node-ice{background:#E3F2FD;color:#0D47A1}
+.node-start{background:#E8F5E9;color:#1B5E20}
+.node-speed{background:#FFF9C4;color:#F57F17}
+.section-divider{border:none;border-top:2px dashed var(--border-divider);margin:var(--sp-xxl) 0}
+.svg-container{width:100%;overflow-x:auto;margin:var(--sp-lg) 0;text-align:center}
+.svg-container svg{max-width:100%;height:auto;min-width:800px}
+.info-table{width:100%;border-collapse:collapse;margin:var(--sp-sm) 0;font-size:var(--fs-small)}
+.info-table th{text-align:left;font-weight:600;color:var(--text-secondary);padding:6px var(--sp-sm);width:120px;vertical-align:top}
+.info-table td{padding:6px var(--sp-sm);color:var(--text-primary)}
+ul.content-list,ol.content-list{padding-left:var(--sp-lg);margin:var(--sp-sm) 0}
+ul.content-list li,ol.content-list li{margin-bottom:var(--sp-xs);line-height:1.7}
+@media(max-width:1023px){:root{--sidebar-width:240px}.main-content{max-width:100%;padding:var(--sp-lg) var(--sp-md)}.section-title{font-size:20px}.lesson-title{font-size:17px}}
+@media(max-width:767px){
+  :root{--fs-h1:22px;--fs-h2:18px;--fs-h3:17px;--fs-h4:15px;--fs-body:14px;--fs-small:12px;--fs-code:13px;--sp-xl:20px;--sp-xxl:28px}
+  .page-wrapper{flex-direction:column}
+  .sidebar{position:fixed;top:var(--navbar-height);left:0;width:100%;height:calc(100vh - var(--navbar-height));transform:translateX(-100%);transition:transform .3s;z-index:1000;overflow-y:auto}
+  .sidebar.open{transform:translateX(0)}
+  .sidebar-overlay.visible{display:block}
+  .navbar-toggle{display:block}
+  .main-content{padding:var(--sp-md) var(--sp-sm);padding-top:calc(var(--navbar-height) + var(--sp-sm))}
+  .card{padding:var(--sp-md);margin-bottom:var(--sp-md)}
+  .compare-table{font-size:12px}
+  .compare-table th,.compare-table td{padding:6px 8px}
+  .table-wrapper{overflow-x:auto}
+  .mnemonic-block{padding:var(--sp-md);font-size:13px}
+  .svg-container svg{min-width:320px}
+}
+@media(max-width:374px){:root{--fs-h1:20px;--fs-h2:17px;--fs-h3:16px;--fs-body:13px;--sp-md:10px;--sp-lg:14px}}
+@media print{
+  :root{--bg-page:#fff;--bg-card:#fff;--bg-sidebar:#fff;--bg-code:#F9F9F9;--bg-highlight:#FFFDE8;--bg-warning:#FFF8F0;--bg-quote:#F5F5F5}
+  .navbar,.sidebar,.sidebar-overlay,.navbar-toggle,.navbar-progress,.back-to-top{display:none!important}
+  .page-wrapper{display:block}.main-content{max-width:100%;padding:0;margin:0}
+  .card,.case-block,.mnemonic-block{break-inside:avoid;page-break-inside:avoid}
+  .section-title{break-before:page;page-break-before:always}
+  .section-title:first-child,.no-page-break{break-before:auto;page-break-before:auto}
+  .compare-table{break-inside:avoid}
+  .card,.case-block,.compare-table{box-shadow:none;border:1px solid #DDD}
+  body{font-size:12pt;line-height:1.6;color:#000}
+  a[href^="#"]::after{content:none}
+}
+</style>
+</head>
+<body>
+<div class="sidebar-overlay" id="sidebarOverlay"></div>
+<nav class="navbar">
+  <span class="navbar-brand">&#x7FF0;&#x6797;&#x521D;&#x9636;&#x7CFB;&#x7EDF;&#x8BFE;</span>
+  <button class="navbar-toggle" id="navbarToggle" aria-label="&#x83DC;&#x5355;">&#9776;</button>
+  <div class="navbar-progress" id="navbarProgress"></div>
+</nav>
+<aside class="sidebar" id="sidebar">
+<div class="nav-group open"><div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span>阶段一：理论基础（第1课）</span><span class="arrow">&#9654;</span></div><div class="nav-sub-items"><a class="nav-item-sub" href="#sec-1">&#8226; 1. 极点战法情绪周期</a><a class="nav-item-sub" href="#sec-1-1">万物皆周期</a><a class="nav-item-sub" href="#sec-1-2">五大情绪周期</a><a class="nav-item-sub" href="#sec-1-3">散户误区</a><a class="nav-item-sub" href="#sec-1-4">极点战法定义</a><a class="nav-item-sub" href="#sec-1-5">买在启动而非冰点</a></div></div><div class="nav-group"><div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span>阶段二：识别工具（第2-4课）</span><span class="arrow">&#9654;</span></div><div class="nav-sub-items"><a class="nav-item-sub" href="#sec-2">&#8226; 2. 量柱结构</a><a class="nav-item-sub" href="#sec-2-1">ABCDEF六大支柱</a><a class="nav-item-sub" href="#sec-2-6">核心密码3121</a><a class="nav-item-sub" href="#sec-3">&#8226; 3. 形态分类</a><a class="nav-item-sub" href="#sec-4">&#8226; 4. 时间结构</a><a class="nav-item-sub" href="#sec-4-2">三八十原则</a></div></div><div class="nav-group"><div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span>阶段三：战略选股（第5课）</span><span class="arrow">&#9654;</span></div><div class="nav-sub-items"><a class="nav-item-sub" href="#sec-5">&#8226; 5. 城堡战法</a><a class="nav-item-sub" href="#sec-5-5">攻防三区</a></div></div><div class="nav-group"><div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span>阶段四：具体战法（第6-23课）</span><span class="arrow">&#9654;</span></div><div class="nav-sub-items"><a class="nav-item-sub" href="#sec-6">&#8226; 6. 一日极点</a><a class="nav-item-sub" href="#sec-7">&#8226; 7. 双阴极点</a><a class="nav-item-sub" href="#sec-8">&#8226; 8. 连阴极点</a><a class="nav-item-sub" href="#sec-9">&#8226; 9. 标准极点</a><a class="nav-item-sub" href="#sec-10">&#8226; 10. 完美极点</a><a class="nav-item-sub" href="#sec-11">&#8226; 11. 变异极点</a><a class="nav-item-sub" href="#sec-12">&#8226; 12. 涨停极点</a><a class="nav-item-sub" href="#sec-13">&#8226; 13. 飞天极点</a><a class="nav-item-sub" href="#sec-14">&#8226; 14. 双域极点</a><a class="nav-item-sub" href="#sec-15">&#8226; 15. 单枪极点</a><a class="nav-item-sub" href="#sec-16">&#8226; 16. 左峰极点</a><a class="nav-item-sub" href="#sec-17">&#8226; 17. 巅峰极点</a><a class="nav-item-sub" href="#sec-18">&#8226; 18. 命门极点</a><a class="nav-item-sub" href="#sec-19">&#8226; 19. 金钻涨停</a><a class="nav-item-sub" href="#sec-20">&#8226; 20. 合力涨停</a><a class="nav-item-sub" href="#sec-21">&#8226; 21. 接力涨停</a><a class="nav-item-sub" href="#sec-22">&#8226; 22. 分时极点擒涨停</a><a class="nav-item-sub" href="#sec-23">&#8226; 23. 冲天分时擒涨停</a></div></div><div class="nav-group"><div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span>阶段五：风险控制与实操（第24-25课）</span><span class="arrow">&#9654;</span></div><div class="nav-sub-items"><a class="nav-item-sub" href="#sec-24">&#8226; 24. 过滤法则</a><a class="nav-item-sub" href="#sec-25">&#8226; 25. 选股攻略</a></div></div><div class="nav-group"><div class="nav-group-title" onclick="this.parentElement.classList.toggle('open')"><span>阶段六：卖出体系（第26-28课）</span><span class="arrow">&#9654;</span></div><div class="nav-sub-items"><a class="nav-item-sub" href="#sec-26">&#8226; 26. 乌云盖顶</a><a class="nav-item-sub" href="#sec-27">&#8226; 27. 弃城而逃</a><a class="nav-item-sub" href="#sec-28">&#8226; 28. 巅峰跳崖</a></div></div></aside>
+<div class="page-wrapper">
+<main class="main-content">
+<h1 class="page-title">翰林初阶系统课 · 完整学习文档</h1><p style="color:var(--text-secondary);margin-bottom:var(--sp-xl);font-size:var(--fs-body);">28篇系统课程 · 选买持卖闭环 · 极点战法完整体系</p><section class="toc-section no-page-break" id="toc"><h2 class="toc-title">翰林初阶系统课 · 全28课总目</h2><p class="toc-subtitle">完整的"选-买-持-卖"闭环交易体系</p><div class="toc-grid"><div class="toc-phase phase-1"><div class="toc-phase-header"><span class="toc-phase-num">01</span><h3>理论基础</h3></div><ul class="toc-phase-list"><li><a href="#sec-1">1. 极点战法情绪周期</a></li></ul></div><div class="toc-phase phase-2"><div class="toc-phase-header"><span class="toc-phase-num">02</span><h3>识别工具</h3></div><ul class="toc-phase-list"><li><a href="#sec-2">2. 量柱结构</a></li><li><a href="#sec-3">3. 形态分类</a></li><li><a href="#sec-4">4. 时间结构</a></li></ul></div><div class="toc-phase phase-3"><div class="toc-phase-header"><span class="toc-phase-num">03</span><h3>战略选股</h3></div><ul class="toc-phase-list"><li><a href="#sec-5">5. 城堡战法</a></li></ul></div><div class="toc-phase phase-4"><div class="toc-phase-header"><span class="toc-phase-num">04</span><h3>具体战法</h3></div><ul class="toc-phase-list"><li><a href="#sec-6">6. 一日极点</a></li><li><a href="#sec-7">7. 双阴极点</a></li><li><a href="#sec-8">8. 连阴极点</a></li><li><a href="#sec-9">9. 标准极点</a></li><li><a href="#sec-10">10. 完美极点</a></li><li><a href="#sec-11">11. 变异极点</a></li><li><a href="#sec-12">12. 涨停极点</a></li><li><a href="#sec-13">13. 飞天极点</a></li><li><a href="#sec-14">14. 双域极点</a></li><li><a href="#sec-15">15. 单枪极点</a></li><li><a href="#sec-16">16. 左峰极点</a></li><li><a href="#sec-17">17. 巅峰极点</a></li><li><a href="#sec-18">18. 命门极点</a></li><li><a href="#sec-19">19. 金钻涨停</a></li><li><a href="#sec-20">20. 合力涨停</a></li><li><a href="#sec-21">21. 接力涨停</a></li><li><a href="#sec-22">22. 分时极点擒涨停</a></li><li><a href="#sec-23">23. 冲天分时擒涨停</a></li></ul></div><div class="toc-phase phase-5"><div class="toc-phase-header"><span class="toc-phase-num">05</span><h3>风险控制与实操</h3></div><ul class="toc-phase-list"><li><a href="#sec-24">24. 过滤法则</a></li><li><a href="#sec-25">25. 选股攻略</a></li></ul></div><div class="toc-phase phase-6"><div class="toc-phase-header"><span class="toc-phase-num">06</span><h3>卖出体系</h3></div><ul class="toc-phase-list"><li><a href="#sec-26">26. 乌云盖顶</a></li><li><a href="#sec-27">27. 弃城而逃</a></li><li><a href="#sec-28">28. 巅峰跳崖</a></li></ul></div></div></section><h2 class="section-title" id="sec-1-phase">阶段一：理论基础</h2><h3 class="lesson-title" id="sec-1">第1课：极点战法情绪周期</h3><div class="card" id="card-emotion-basis"><div class="card-header"><h4 class="card-title">万物皆周期</h4><span class="card-badge badge-theory">理论基础</span></div><div class="card-body"><p>翰林老师提出"<span class="text-accent">万物皆周期</span>"的核心理念——日出日落、潮起潮落、花开花谢、生老病死，无一不是周期现象。映射到股市，任何股票也无法逃离情绪周期。因为股票操作的本质是人，人必然有情绪周期。</p><p>情绪周期的根源是人性中两个根本驱动力：<span class="text-strong">贪婪与恐惧</span>。贪婪导致追高买入，恐惧导致恐慌割肉。这两种情绪使90%以上的交易者追涨杀跌，且不受控——这是人类上万年前原始社会形成的群体本能。</p></div></div><div class="card" id="card-emotion-cycle"><div class="card-header"><h4 class="card-title">五大情绪周期</h4><span class="card-badge badge-theory">核心框架</span></div><div class="card-body"><p>整个股价运行被划分为五个阶段，<span class="text-accent">周而复始、永恒循环</span>：</p><div class="card-diagram"><div class="cycle-diagram"><span class="cycle-node node-climax">高潮期</span><span class="cycle-arrow">&#8594;</span><span class="cycle-node node-ebb">退潮期</span><span class="cycle-arrow">&#8594;</span><span class="cycle-node node-ice">冰点期</span><span class="cycle-arrow">&#8594;</span><span class="cycle-node node-start">启动期</span><span class="cycle-arrow">&#8594;</span><span class="cycle-node node-speed">加速期</span><span class="cycle-arrow">&#8594;</span><span class="cycle-node node-climax">高潮期</span></div></div><ol class="content-list"><li><strong>高潮期</strong>：成交量最大，买的人疯狂，怕追不到。高潮是短暂的，往往是见顶信号。</li><li><strong>退潮期</strong>：高潮之后必然退潮，股价开始下跌调整。</li><li><strong>冰点期</strong>：成交量极其稀少，市场停滞，"极价+极量"——十字星配合低量柱。</li><li><strong>启动期</strong>：冰点之后慢慢恢复，<span class="text-buy">关键介入时机</span>。</li><li><strong>加速期</strong>：启动后加速上涨，往往以涨停方式加速，最终再次进入高潮。</li></ol></div></div><div class="card" id="card-misconception"><div class="card-header"><h4 class="card-title">散户常见误区</h4><span class="card-badge badge-theory">认知纠正</span></div><div class="card-body"><p>大部分人在<span class="text-sell">高潮期追进去</span>——高潮时成交量最大，买的人最疯狂，怕追不到。结果恰恰追在最高点，此后一路下跌进入退潮。</p><p>正确的做法：<span class="text-buy">在冰点之后的启动期买入</span>。在高潮之后调整到位，于启动期重新买入，才能"一买就涨"。</p></div></div><div class="card" id="card-pole-definition"><div class="card-header"><h4 class="card-title">极点战法的定义与三大核心要素</h4><span class="card-badge badge-theory">核心定义</span></div><div class="card-body"><p>极点战法是一套<span class="text-accent">极致低吸战法</span>。定义：<strong>主力取得绝对优势的前提下，刻意洗盘出现的极致低点。</strong></p><p>三个关键词（缺一不可）：</p><ol class="content-list"><li><strong>绝对优势</strong>：主力已取得优势地位。</li><li><strong>刻意洗盘</strong>：主力主动打压清洗不坚定筹码。</li><li><strong>极致低点</strong>：调整到最极限的位置。</li></ol></div></div><div class="mnemonic-block"><div class="mnemonic-label">操作口诀</div><p class="mnemonic-text">买在启动而非冰点。冰点虽是最低点，但"没有确认的时候它可能还会跌"。真正的买点在冰点之后的确认——必须有启动信号（涨停或中阳线确认），才能"一买就涨"。
+
+巴菲特："当别人恐惧的时候我贪婪，当别人贪婪的时候我恐惧。"</p></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">金科股份情绪周期分析</h5><div class="case-stock-name">金科股份</div><div class="case-content"><p><strong>高潮期（A、F）</strong>：最高的两根量柱。</p><p><strong>退潮期</strong>：紧跟着最高量柱开始的下跌调整。</p><p><strong>冰点期（C）</strong>：退潮之后的最低量柱，极价+极量，十字星+低量。出现连续三天可视为冰点期。</p><p><strong>启动期（D、I）</strong>：以涨停的方式启动，I本身既是启动又是加速。</p><p><strong>加速期（E）</strong>：涨停板加速。</p></div></div><hr class="section-divider"><h2 class="section-title" id="sec-2-phase">阶段二：识别工具——量柱结构、形态分类、时间结构</h2><h3 class="lesson-title" id="sec-2">第2课：极点战法量柱结构</h3><div class="card" id="card-pillars-overview"><div class="card-header"><h4 class="card-title">六大支柱体系总览</h4><span class="card-badge badge-tool">识别工具</span></div><div class="card-body"><p>翰林老师将五大周期对应到具体的量柱结构，形成<span class="text-accent">ABCDEF六大支柱体系</span>：</p></div></div><div class="table-wrapper"><table class="compare-table" id="table-pillars"><thead><tr><th>情绪周期</th><th>对应量柱</th><th>简写</th><th>核心判定标准 / 特征</th></tr></thead><tbody><tr><td>高潮期</td><td>高潮柱</td><td><code>A柱</code></td><td>最高量 + 最高价（不分阴阳线）</td></tr><tr><td>退潮期</td><td>恐吓柱</td><td><code>B柱</code></td><td>缩量阴线，1-6根（常见3根），假跌洗盘</td></tr><tr><td>(支撑)</td><td>支撑柱</td><td><code>C柱</code></td><td>高倍量大阳线，提供顶底腰缺支撑，独立于五大周期</td></tr><tr><td>冰点期</td><td>停止柱</td><td><code>D柱</code></td><td>极量（缩量1/2）+ 极价（十字星），需确认才正式成立</td></tr><tr><td>启动期</td><td>确认柱</td><td><code>E柱</code></td><td>涨3%+ 概括阴线，量平或量增，涨停确认最佳</td></tr><tr><td>加速期</td><td>反攻柱</td><td><code>F柱</code></td><td>三"为强"：倍量为强 / 跳空为强 / 涨停为强</td></tr></tbody></table></div><div class="card" id="card-pillar-detail"><div class="card-header"><h4 class="card-title">ABCDEF各柱详解</h4><span class="card-badge badge-tool">识别工具</span></div><div class="card-body"><p><strong class="pillar-A" style="padding-left:8px;">A 高潮柱</strong>：最高量 + 最高价 = 高潮柱。不分阴阳线。识别高潮柱是避免"追高买入"的前提。</p><p><strong class="pillar-B" style="padding-left:8px;">B 恐吓柱</strong>：主力刻意洗盘的"假跌"。缩量阴线，1-6根（常见3根）。最佳形态是"量价连缩"——量与价同时连续缩小。</p><p><strong class="pillar-C" style="padding-left:8px;">C 支撑柱</strong>：高倍量大阳线，最好涨停板。支撑位置"顶底腰缺"——顶（阳线顶部）、底（阳线底部）、腰（实体中间）、缺（跳空缺口）。有时与高潮柱合二为一，"又当爹又当妈"。</p><p><strong class="pillar-D" style="padding-left:8px;">D 停止柱</strong>：低量窄幅十字星（极量+极价），涨跌幅约1%。需被确认才能算正式极点。未被确认只能视为"潜在节点"。</p><p><strong class="pillar-E" style="padding-left:8px;">E 确认柱</strong>：涨3%以上（最低门槛），概括/吃掉停止柱左侧最近阴线。涨停板确认最佳（此时E与F合二为一）。</p><p><strong class="pillar-F" style="padding-left:8px;">F 反攻柱</strong>：三"为强"标准——倍量为强、跳空为强、涨停为强，涨幅大于5%为强。</p><p class="text-accent">双重极点（"俄罗斯套娃"）：调整结构内部嵌套小极点结构，往往是牛股启动点，爆发力极强。</p></div></div><div class="card" id="card-3121"><div class="card-header"><h4 class="card-title">核心密码：3121法则</h4><span class="card-badge badge-golden">核心公式</span></div><div class="card-body"><p><span class="text-accent">3121</span>是极点战法的量比关键参数：</p><p><strong>停止柱的量 &#247; 高潮柱的量</strong></p><ul class="content-list"><li><strong>1/2（二分之一）</strong>：缩至高潮柱量1/2以下，基本调整到位（<span class="text-accent">大多数情况</span>）</li><li><strong>1/3（三分之一）</strong>：缩至高潮柱量1/3，调整更充分（<span class="text-accent">少数情况</span>）</li></ul><p>达到1/2 + 十字星（极量+极价）= 调整到位，等待确认柱。</p></div></div><div class="card" id="card-buy-timing"><div class="card-header"><h4 class="card-title">五大买入时机</h4><span class="card-badge badge-tactic">操作指南</span></div><div class="card-body"><p>所有买点集中在D-E-F三根柱子上：</p></div></div><div class="table-wrapper"><table class="compare-table" id="table-buy-timing"><thead><tr><th>序号</th><th>买入时机</th><th>位置</th><th>适合人群</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>停止柱尾盘买入</td><td>D柱当天尾盘</td><td>仅老手</td><td>提前潜伏，风险较高</td></tr><tr><td>2</td><td>确认柱开盘买入</td><td>E柱当天开盘</td><td>通用 ★</td><td>跳空高开开盘买最佳</td></tr><tr><td>3</td><td>确认柱盘中买入</td><td>E柱当天盘中</td><td>通用</td><td>盘中确认后介入</td></tr><tr><td>4</td><td>确认柱尾盘买入</td><td>E柱当天尾盘</td><td>通用</td><td>非涨停中阳线时尾盘来得及</td></tr><tr><td>5</td><td>反攻柱买入</td><td>F柱（次日）</td><td>通用</td><td>错过确认时用</td></tr></tbody></table></div><div class="mnemonic-block"><div class="mnemonic-label">操作口诀</div><p class="mnemonic-text">新手不建议在D柱尾盘潜伏——未经确认存在继续下跌风险。
+优先使用确认柱(E柱)和反攻柱(F柱)的买入时机。
+确认柱三大买点（开盘/盘中/尾盘）是实战核心窗口。
+涨停板确认时E+F合二为一，是最强信号！</p></div><div class="svg-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 820" width="100%" height="100%">
+  <defs>
+    <style>
+      text { font-family: system-ui, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+      .title { font-size: 20px; font-weight: bold; fill: #1a1a2e; }
+      .pillar-label { font-size: 18px; font-weight: bold; fill: #fff; }
+      .pillar-sub { font-size: 12px; fill: #ccc; }
+      .info-title { font-size: 14px; font-weight: bold; fill: #1a1a2e; }
+      .info-text { font-size: 12px; fill: #333; }
+      .small-info { font-size: 11px; fill: #555; }
+      .connector { fill: none; stroke: #4a90d9; stroke-width: 2; }
+      .arrow-line { fill: none; stroke: #c8960c; stroke-width: 1.8; stroke-dasharray: 6,3; }
+    </style>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.15"/>
+    </filter>
+    <filter id="shadow-sm">
+      <feDropShadow dx="1" dy="1.5" stdDeviation="1.5" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1500" height="820" fill="#fafbfc" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="750" y="36" text-anchor="middle" class="title" font-size="22">ABCDEF六大量柱·关系与识图总览</text>
+  <line x1="520" y1="46" x2="980" y2="46" stroke="#4a90d9" stroke-width="2"/>
+
+  <!-- 副标题 -->
+  <text x="750" y="68" text-anchor="middle" style="font-size: 13px; fill: #888;">高潮→恐吓→(支撑)→停止→确认→反攻 — 极点战法核心操作手册</text>
+
+  <!-- ============ 六大主柱：横向排列 ============ -->
+
+  <!-- A柱：高潮柱 -->
+  <rect x="55" y="100" width="200" height="115" rx="12" fill="#e74c3c" filter="url(#shadow)"/>
+  <text x="155" y="130" text-anchor="middle" class="pillar-label">A 高潮柱</text>
+  <text x="155" y="150" text-anchor="middle" class="pillar-sub">High Tide Pillar</text>
+  <line x1="75" y1="158" x2="235" y2="158" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  <text x="155" y="176" text-anchor="middle" fill="#fff" style="font-size: 11px;">最高量 + 最高价</text>
+  <text x="155" y="194" text-anchor="middle" fill="#ffd4d4" style="font-size: 10px;">不分阴阳线</text>
+  <text x="155" y="210" text-anchor="middle" fill="#ffd4d4" style="font-size: 10px;">情绪：高潮期</text>
+
+  <!-- A → B 连接箭头 -->
+  <polyline points="255,157 290,157" class="connector" stroke="#e74c3c"/>
+  <polygon points="290,153 300,157 290,161" fill="#e74c3c"/>
+  <text x="275" y="148" text-anchor="middle" style="font-size: 10px; fill: #e74c3c;">退潮</text>
+
+  <!-- B柱：恐吓柱 -->
+  <rect x="305" y="100" width="200" height="115" rx="12" fill="#e67e22" filter="url(#shadow)"/>
+  <text x="405" y="130" text-anchor="middle" class="pillar-label">B 恐吓柱</text>
+  <text x="405" y="150" text-anchor="middle" class="pillar-sub">Intimidation Pillar</text>
+  <line x1="325" y1="158" x2="485" y2="158" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  <text x="405" y="176" text-anchor="middle" fill="#fff" style="font-size: 11px;">缩量阴线·假跌洗盘</text>
+  <text x="405" y="194" text-anchor="middle" fill="#ffe0c0" style="font-size: 10px;">1-6根（常见3根）</text>
+  <text x="405" y="210" text-anchor="middle" fill="#ffe0c0" style="font-size: 10px;">情绪：退潮期</text>
+
+  <!-- B → C/D 分叉 -->
+  <polyline points="505,120 540,120 540,88 575,88" class="connector" stroke="#e67e22"/>
+  <polyline points="505,157 540,157" class="connector" stroke="#e67e22"/>
+
+  <!-- C柱：支撑柱 -->
+  <rect x="580" y="55" width="200" height="105" rx="12" fill="#3498db" filter="url(#shadow)"/>
+  <text x="680" y="85" text-anchor="middle" class="pillar-label">C 支撑柱</text>
+  <text x="680" y="105" text-anchor="middle" class="pillar-sub">Support Pillar</text>
+  <line x1="600" y1="113" x2="760" y2="113" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  <text x="680" y="130" text-anchor="middle" fill="#fff" style="font-size: 11px;">高倍量大阳线</text>
+  <text x="680" y="150" text-anchor="middle" fill="#cce0ff" style="font-size: 10px;">顶底腰缺·四维支撑</text>
+
+  <!-- C柱说明框 -->
+  <rect x="580" y="165" width="200" height="78" rx="6" fill="#ebf5ff" stroke="#3498db" stroke-width="0.8"/>
+  <text x="680" y="185" text-anchor="middle" class="small-info" fill="#1a5276">⚠️ 独立于五大周期</text>
+  <text x="680" y="203" text-anchor="middle" class="small-info" fill="#1a5276">有时与A柱合二为一</text>
+  <text x="680" y="221" text-anchor="middle" class="small-info" fill="#1a5276">"又当爹来又当妈"</text>
+
+  <!-- B→D(停止柱) -->
+  <polyline points="555,157 555,250 580,250" class="connector" stroke="#e67e22"/>
+  <polygon points="575,246 580,250 575,254" fill="#e74c3c" transform="rotate(90,575,250)"/>
+
+  <!-- D柱：停止柱 -->
+  <rect x="305" y="278" width="200" height="115" rx="12" fill="#8e44ad" filter="url(#shadow)"/>
+  <text x="405" y="308" text-anchor="middle" class="pillar-label">D 停止柱</text>
+  <text x="405" y="328" text-anchor="middle" class="pillar-sub">Stop Pillar</text>
+  <line x1="325" y1="336" x2="485" y2="336" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  <text x="405" y="354" text-anchor="middle" fill="#fff" style="font-size: 11px;">极量 + 极价</text>
+  <text x="405" y="372" text-anchor="middle" fill="#e8d0ff" style="font-size: 10px;">缩量1/2 + 十字星</text>
+  <text x="405" y="390" text-anchor="middle" fill="#e8d0ff" style="font-size: 10px;">情绪：冰点期</text>
+
+  <!-- D → E 连接 -->
+  <polyline points="505,335 540,335 540,420 580,420" class="connector" stroke="#8e44ad"/>
+  <polygon points="575,416 580,420 575,424" fill="#27ae60"/>
+
+  <!-- E柱：确认柱 -->
+  <rect x="580" y="385" width="200" height="115" rx="12" fill="#27ae60" filter="url(#shadow)"/>
+  <text x="680" y="415" text-anchor="middle" class="pillar-label">E 确认柱</text>
+  <text x="680" y="435" text-anchor="middle" class="pillar-sub">Confirmation Pillar</text>
+  <line x1="600" y1="443" x2="760" y2="443" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  <text x="680" y="462" text-anchor="middle" fill="#fff" style="font-size: 11px;">涨3%+概括阴线</text>
+  <text x="680" y="480" text-anchor="middle" fill="#d4f5e0" style="font-size: 10px;">量平或量增·涨停最佳</text>
+  <text x="680" y="498" text-anchor="middle" fill="#d4f5e0" style="font-size: 10px;">情绪：启动期</text>
+
+  <!-- E → F 连接 -->
+  <polyline points="780,442 820,442 820,300 855,300" class="connector" stroke="#27ae60"/>
+  <polygon points="850,296 855,300 850,304" fill="#f39c12"/>
+
+  <!-- F柱：反攻柱 -->
+  <rect x="860" y="265" width="200" height="115" rx="12" fill="#f39c12" filter="url(#shadow)"/>
+  <text x="960" y="295" text-anchor="middle" class="pillar-label">F 反攻柱</text>
+  <text x="960" y="315" text-anchor="middle" class="pillar-sub">Counterattack Pillar</text>
+  <line x1="880" y1="323" x2="1040" y2="323" stroke="rgba(255,255,255,0.3)" stroke-width="0.5"/>
+  <text x="960" y="342" text-anchor="middle" fill="#fff" style="font-size: 11px;">三"为强"原则</text>
+  <text x="960" y="360" text-anchor="middle" fill="#fff3d0" style="font-size: 10px;">倍量/跳空/涨停为强</text>
+  <text x="960" y="378" text-anchor="middle" fill="#fff3d0" style="font-size: 10px;">情绪：加速期</text>
+
+  <!-- ============ 底部区域：3121密码 + 五大买入时机 + 关键关系 ============ -->
+
+  <!-- 3121密码区 -->
+  <rect x="55" y="430" width="400" height="170" rx="10" fill="#fff" stroke="#f39c12" stroke-width="2" filter="url(#shadow-sm)"/>
+  <rect x="55" y="430" width="400" height="34" rx="10" fill="#f39c12"/>
+  <rect x="55" y="450" width="400" height="14" fill="#f39c12"/>
+  <text x="255" y="454" text-anchor="middle" class="info-title" fill="#fff" font-size="16">核 心 密 码 ：3 1 2 1 法 则</text>
+
+  <text x="255" y="490" text-anchor="middle" class="info-title" fill="#c8960c" font-size="14">停止柱量 ÷ 高潮柱量</text>
+
+  <!-- 1/2 -->
+  <rect x="85" y="506" width="165" height="38" rx="6" fill="#fff8e1" stroke="#f39c12" stroke-width="0.8"/>
+  <text x="168" y="524" text-anchor="middle" style="font-size: 20px; font-weight: bold; fill: #c8960c;">缩量 1/2</text>
+  <text x="168" y="540" text-anchor="middle" class="small-info" fill="#8b6914">基本调到位（大多数情况）</text>
+
+  <rect x="270" y="506" width="165" height="38" rx="6" fill="#fff8e1" stroke="#f39c12" stroke-width="0.8"/>
+  <text x="353" y="524" text-anchor="middle" style="font-size: 20px; font-weight: bold; fill: #c8960c;">缩量 1/3</text>
+  <text x="353" y="540" text-anchor="middle" class="small-info" fill="#8b6914">调整更充分（少数情况）</text>
+
+  <text x="255" y="580" text-anchor="middle" class="small-info" fill="#c8960c">★ 达到1/2 + 十字星 = 调整到位，等待确认柱</text>
+
+  <!-- 五大买入时机 -->
+  <rect x="480" y="430" width="595" height="170" rx="10" fill="#fff" stroke="#27ae60" stroke-width="2" filter="url(#shadow-sm)"/>
+  <rect x="480" y="430" width="595" height="34" rx="10" fill="#27ae60"/>
+  <rect x="480" y="450" width="595" height="14" fill="#27ae60"/>
+  <text x="778" y="454" text-anchor="middle" class="info-title" fill="#fff" font-size="16">五 大 买 入 时 机</text>
+
+  <!-- 五个时机 -->
+  <rect x="495" y="476" width="108" height="52" rx="5" fill="#e8faf0" stroke="#27ae60" stroke-width="0.5"/>
+  <text x="549" y="495" text-anchor="middle" class="small-info" font-weight="bold">时机一</text>
+  <text x="549" y="512" text-anchor="middle" class="small-info">D柱尾盘潜伏</text>
+  <text x="549" y="525" text-anchor="middle" style="font-size: 9px; fill: #888;">仅建议老手</text>
+
+  <rect x="611" y="476" width="108" height="52" rx="5" fill="#e8faf0" stroke="#27ae60" stroke-width="0.5"/>
+  <text x="665" y="495" text-anchor="middle" class="small-info" font-weight="bold">时机二</text>
+  <text x="665" y="512" text-anchor="middle" class="small-info">E柱开盘买入</text>
+  <text x="665" y="525" text-anchor="middle" style="font-size: 9px; fill: #888;">跳空高开最佳</text>
+
+  <rect x="727" y="476" width="108" height="52" rx="5" fill="#e8faf0" stroke="#27ae60" stroke-width="0.5"/>
+  <text x="781" y="495" text-anchor="middle" class="small-info" font-weight="bold">时机三</text>
+  <text x="781" y="512" text-anchor="middle" class="small-info">E柱盘中确认</text>
+  <text x="781" y="525" text-anchor="middle" style="font-size: 9px; fill: #888;">通用</text>
+
+  <rect x="843" y="476" width="108" height="52" rx="5" fill="#e8faf0" stroke="#27ae60" stroke-width="0.5"/>
+  <text x="897" y="495" text-anchor="middle" class="small-info" font-weight="bold">时机四</text>
+  <text x="897" y="512" text-anchor="middle" class="small-info">E柱尾盘买入</text>
+  <text x="897" y="525" text-anchor="middle" style="font-size: 9px; fill: #888;">非涨停中阳线</text>
+
+  <rect x="959" y="476" width="108" height="52" rx="5" fill="#e8faf0" stroke="#27ae60" stroke-width="0.5"/>
+  <text x="1013" y="495" text-anchor="middle" class="small-info" font-weight="bold">时机五</text>
+  <text x="1013" y="512" text-anchor="middle" class="small-info">F柱次日买入</text>
+  <text x="1013" y="525" text-anchor="middle" style="font-size: 9px; fill: #888;">错过确认时用</text>
+
+  <!-- 箭头连接时机 -->
+  <line x1="603" y1="502" x2="611" y2="502" stroke="#27ae60" stroke-width="1"/>
+  <polygon points="609,499 611,502 609,505" fill="#27ae60"/>
+  <line x1="719" y1="502" x2="727" y2="502" stroke="#27ae60" stroke-width="1"/>
+  <polygon points="725,499 727,502 725,505" fill="#27ae60"/>
+  <line x1="835" y1="502" x2="843" y2="502" stroke="#27ae60" stroke-width="1"/>
+  <polygon points="841,499 843,502 841,505" fill="#27ae60"/>
+  <line x1="951" y1="502" x2="959" y2="502" stroke="#27ae60" stroke-width="1"/>
+  <polygon points="957,499 959,502 957,505" fill="#27ae60"/>
+
+  <text x="778" y="560" text-anchor="middle" class="small-info" fill="#1e5c1e">优先使用确认柱(E柱)和反攻柱(F柱)的买入时机，新手不建议在D柱尾盘潜伏</text>
+  <text x="778" y="580" text-anchor="middle" class="small-info" fill="#1e5c1e">最佳确认：涨停板确认（此时确认柱(E)与反攻柱(F)合二为一）</text>
+
+  <!-- ============ 关键关系连线 ============ -->
+
+  <!-- C→D 虚线关系 -->
+  <polyline points="680,243 680,278" class="arrow-line" stroke="#3498db"/>
+  <text x="690" y="265" text-anchor="start" style="font-size: 10px; fill: #3498db;">顶底腰缺支撑</text>
+
+  <!-- C→A 合二为一关系 -->
+  <polyline points="580,100 305,100 305,85 580,85" class="arrow-line" stroke="#3498db" stroke-dasharray="4,3"/>
+  <text x="410" y="98" text-anchor="middle" style="font-size: 10px; fill: #3498db;">C与A可能合二为一</text>
+
+  <!-- E→A 周期循环 -->
+  <path d="M 960 378 C 1050 420, 1200 200, 1085 140" class="arrow-line" marker-end="none" stroke="#c8960c" stroke-width="1.5"/>
+  <text x="1110" y="260" text-anchor="middle" style="font-size: 10px; fill: #c8960c;" transform="rotate(-40,1110,260)">循环往复</text>
+
+  <!-- 情绪周期循环标注 -->
+  <rect x="1100" y="90" width="200" height="155" rx="8" fill="#fff" stroke="#c8960c" stroke-width="1.5" filter="url(#shadow-sm)"/>
+  <text x="1200" y="115" text-anchor="middle" class="info-title" fill="#c8960c">情绪周期循环</text>
+  <line x1="1120" y1="123" x2="1280" y2="123" stroke="#c8960c" stroke-width="0.3"/>
+  <text x="1200" y="142" text-anchor="middle" class="small-info">高潮 → 退潮 → 冰点</text>
+  <text x="1200" y="160" text-anchor="middle" class="small-info">→ 启动 → 加速 → 高潮</text>
+  <text x="1200" y="180" text-anchor="middle" class="small-info" fill="#c8960c">周而复始 · 永恒循环</text>
+  <text x="1200" y="200" text-anchor="middle" class="small-info">万物皆周期</text>
+  <text x="1200" y="220" text-anchor="middle" style="font-size: 10px; fill: #999;">人性贪婪与恐惧驱动</text>
+
+  <!-- 底部总计 -->
+  <rect x="480" y="615" width="595" height="45" rx="8" fill="#1a1a2e"/>
+  <text x="778" y="635" text-anchor="middle" fill="#ffd700" style="font-size: 14px; font-weight: bold;">万变不离其宗：高潮柱 + 支撑柱 + 停止柱 = 极点本质</text>
+  <text x="778" y="653" text-anchor="middle" fill="#aaa" style="font-size: 11px;">所有极点类型共享同一底层结构，3121密码是量价关系的核心解码工具</text>
+
+  <!-- 支撑柱位置标注 -->
+  <rect x="55" y="615" width="400" height="45" rx="6" fill="#ebf5ff" stroke="#3498db" stroke-width="1"/>
+  <text x="255" y="635" text-anchor="middle" class="info-title" fill="#1a5276">支撑位置·顶底腰缺</text>
+  <text x="255" y="653" text-anchor="middle" class="small-info" fill="#1a5276">顶=阳线顶部 | 底=阳线底部 | 腰=实体中间 | 缺=跳空缺口</text>
+
+  <!-- 底部分类关键 -->
+  <rect x="55" y="673" width="940" height="65" rx="6" fill="#f8f9fa" stroke="#ddd" stroke-width="0.5"/>
+  <text x="525" y="693" text-anchor="middle" class="small-info" fill="#555">按恐吓柱分类：一日极点(B=1天) / 双阴极点(B=2天) / 连阴极点(B=3-5天)</text>
+  <text x="525" y="713" text-anchor="middle" class="small-info" fill="#555">按停止柱分类：完美(≈10%) / 标准(≈20%) / 变异(≈70%)</text>
+  <text x="525" y="731" text-anchor="middle" class="small-info" fill="#555">首跌缩量判断假跌：高潮柱后第一根阴线缩量1/3以上 → 高概率假跌</text>
+
+  <!-- 右侧C到停止柱的关联标注 -->
+  <rect x="1100" y="290" width="200" height="100" rx="8" fill="#fff" stroke="#8e44ad" stroke-width="1" filter="url(#shadow-sm)"/>
+  <text x="1200" y="315" text-anchor="middle" class="info-title" fill="#8e44ad">停止柱关键判定</text>
+  <line x1="1120" y1="323" x2="1280" y2="323" stroke="#8e44ad" stroke-width="0.3"/>
+  <text x="1200" y="345" text-anchor="middle" class="small-info">1. 极量：缩至高潮1/2</text>
+  <text x="1200" y="363" text-anchor="middle" class="small-info">2. 极价：十字星/小阴线</text>
+  <text x="1200" y="381" text-anchor="middle" class="small-info">3. 需要确认柱才能成立</text>
+
+  <!-- E+F合一标注 -->
+  <rect x="1100" y="410" width="200" height="80" rx="8" fill="#fff" stroke="#27ae60" stroke-width="1.5" filter="url(#shadow-sm)"/>
+  <text x="1200" y="435" text-anchor="middle" class="info-title" fill="#27ae60">E+F 合二为一</text>
+  <line x1="1120" y1="443" x2="1280" y2="443" stroke="#27ae60" stroke-width="0.3"/>
+  <text x="1200" y="463" text-anchor="middle" class="small-info">涨停板确认时</text>
+  <text x="1200" y="481" text-anchor="middle" class="small-info">确认柱与反攻柱重合</text>
+
+  <!-- 从B到D的虚线箭头 -->
+  <line x1="405" y1="215" x2="405" y2="278" stroke="#8e44ad" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="422" y="252" text-anchor="start" style="font-size: 10px; fill: #8e44ad;">量价连缩</text>
+
+  <!-- E→C反馈连线 -->
+  <polyline points="580,442 510,442 510,110 580,110" class="arrow-line" stroke="#27ae60"/>
+  <text x="520" y="280" text-anchor="middle" style="font-size: 10px; fill: #27ae60;" transform="rotate(-90,520,280)">连环极点效应</text>
+
+</svg></div><hr class="section-divider"><h3 class="lesson-title" id="sec-3">第3课：极点战法形态分类</h3><div class="card" id="card-5d-classify"><div class="card-header"><h4 class="card-title">五维分类逻辑框架</h4><span class="card-badge badge-tool">识别工具</span></div><div class="card-body"><p>形态分类依据量柱结构中<strong>不同柱子的特征变化</strong>，共有五个维度。同一个节点可以同时属于多个分类（多标签共存），分类目的是一眼识别每个节点属于哪个分类，快速判断主力行为模式。</p><p><strong>五大分类维度：</strong></p><ol class="content-list"><li>按<strong>恐吓柱</strong>分类：一日极点 / 双阴极点 / 连阴极点</li><li>按<strong>停止柱</strong>分类：标准极点 / 完美极点 / 变异极点</li><li>按<strong>支撑柱</strong>分类：涨停极点 / 大阳极点 / 连阳极点</li><li>按<strong>确认柱</strong>分类：飞天极点 / 空点极点</li><li>按<strong>反攻柱</strong>分类：（进阶内容）</li></ol></div></div><div class="table-wrapper"><table class="compare-table" id="table-pole-types"><thead><tr><th>分类维度</th><th>类型</th><th>占比/频率</th><th>核心特征</th></tr></thead><tbody><tr><td>按恐吓柱(B)</td><td>一日极点</td><td>极低·最强</td><td>调整1天，恐吓柱=停止柱，爆发力最强</td></tr><tr><td>按恐吓柱(B)</td><td>双阴极点</td><td>最常见</td><td>连续2根缩量阴线，最常见形态</td></tr><tr><td>按恐吓柱(B)</td><td>连阴极点</td><td>稳健</td><td>3-5根阴线，调整更充分，确认后爆发力强</td></tr><tr><td>按停止柱(D)</td><td>完美极点</td><td>&#8776;10%</td><td>最标准，四大铁律，送分题·起爆点</td></tr><tr><td>按停止柱(D)</td><td>标准极点</td><td>&#8776;20%</td><td>首尾框架：首阴缩量+尾十字星缩1/2</td></tr><tr><td>按停止柱(D)</td><td>变异极点</td><td>&#8776;70%</td><td>三变异：高潮柱/恐吓柱/停止柱变异</td></tr><tr><td>按支撑柱(C)</td><td>涨停极点</td><td></td><td>以涨停板为支撑柱，支撑最强</td></tr><tr><td>按支撑柱(C)</td><td>大阳/连阳极点</td><td></td><td>大阳线或2-3根小阳合并支撑</td></tr><tr><td>按确认柱(E)</td><td>飞天极点</td><td></td><td>跳空高开过阴顶，主力迫不及待拉升</td></tr><tr><td>按确认柱(E)</td><td>空点极点</td><td></td><td>二阶课程详讲</td></tr></tbody></table></div><div class="mnemonic-block"><div class="mnemonic-label">分类总纲</div><p class="mnemonic-text">万变不离其宗：高潮柱 + 支撑柱 + 停止柱 = 极点本质。
+分类的目的是让交易者在不同"马甲"下识别出同一个本质结构。
+多标签共存：一个极点可同时是"左峰+完美+单枪+一日"。</p></div><hr class="section-divider"><h3 class="lesson-title" id="sec-4">第4课：极点战法时间结构</h3><div class="card" id="card-time-rules"><div class="card-header"><h4 class="card-title">"三八十"时间约束</h4><span class="card-badge badge-tool">识别工具</span></div><div class="card-body"><p>时间结构是支撑柱、高潮柱、停止柱之间相隔的天数，是决定极点爆发力的<strong>第三维度</strong>：</p></div></div><div class="table-wrapper"><table class="compare-table" id="table-time"><thead><tr><th>时间区间</th><th>约束</th><th>说明</th></tr></thead><tbody><tr><td>支撑柱 &#8594; 高潮柱</td><td><strong>最多3天</strong></td><td>三种模式：合二为一（最理想）> 相邻紧挨 > 相隔一天（上限）</td></tr><tr><td>高潮柱 &#8594; 停止柱</td><td><strong>最多8天</strong></td><td>以2、3、5天为最佳（235最佳），8天为上限，"调整不过八，过了主力差"</td></tr><tr><td>支撑柱 &#8594; 停止柱</td><td><strong>总计不超过10天</strong></td><td>"十天是红线，超过就失效"，能量散了，可能演变成另一周期的节点</td></tr><tr><td>时间与爆发力</td><td><strong>越短爆发越强</strong></td><td>1天=一日极点（最强）> 2天=双阴极点 > 3天+=连阴极点</td></tr></tbody></table></div><div class="mnemonic-block"><div class="mnemonic-label">时间口诀</div><p class="mnemonic-text">高潮支撑合二为一最理想，相邻一天也可以，隔了一天是上限。
+调整不过八，过了主力差。
+十天是红线，超过就失效。
+时间越短爆发越强（黄金公式）。</p></div><hr class="section-divider"><div class="svg-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1240" width="100%" height="100%">
+  <defs>
+    <style>
+      text { font-family: system-ui, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+      .title { font-size: 20px; font-weight: bold; fill: #1a1a2e; }
+      .layer-title { font-size: 16px; font-weight: bold; fill: #16213e; }
+      .node-title { font-size: 14px; font-weight: bold; fill: #1a1a2e; }
+      .node-text { font-size: 12px; fill: #333; }
+      .node-sub { font-size: 11px; fill: #555; }
+      .small-text { font-size: 10px; fill: #666; }
+      .connector { fill: none; stroke: #4a90d9; stroke-width: 1.5; }
+      .connector-gold { fill: none; stroke: #c8960c; stroke-width: 1.5; }
+    </style>
+    <linearGradient id="rootGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#1a1a2e"/>
+      <stop offset="100%" stop-color="#16213e"/>
+    </linearGradient>
+    <linearGradient id="layer1Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8f4f8"/>
+      <stop offset="100%" stop-color="#d4ebf2"/>
+    </linearGradient>
+    <linearGradient id="layer2Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8f0fe"/>
+      <stop offset="100%" stop-color="#d4e4fc"/>
+    </linearGradient>
+    <linearGradient id="layer3Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#fef3e8"/>
+      <stop offset="100%" stop-color="#fce8d4"/>
+    </linearGradient>
+    <linearGradient id="layer4bg" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#f5f0ff"/>
+      <stop offset="100%" stop-color="#e8dff5"/>
+    </linearGradient>
+    <linearGradient id="layer5Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#e8faf0"/>
+      <stop offset="100%" stop-color="#d4f5e2"/>
+    </linearGradient>
+    <linearGradient id="layer6Grad" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0%" stop-color="#ffe8e8"/>
+      <stop offset="100%" stop-color="#ffd4d4"/>
+    </linearGradient>
+    <filter id="shadow" x="-2%" y="-2%" width="104%" height="104%">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.1"/>
+    </filter>
+  </defs>
+
+  <!-- 背景 -->
+  <rect width="1600" height="1240" fill="#fafbfc" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="800" y="36" text-anchor="middle" class="title" font-size="22">翰林初阶系统课 · 六层知识体系总图</text>
+  <line x1="550" y1="46" x2="1050" y2="46" stroke="#4a90d9" stroke-width="2"/>
+
+  <!-- ===== 根节点 ===== -->
+  <rect x="30" y="570" width="170" height="56" rx="10" fill="url(#rootGrad)" filter="url(#shadow)"/>
+  <text x="115" y="596" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">翰林初阶系统课</text>
+  <text x="115" y="614" text-anchor="middle" fill="#ccc" font-size="11">27篇·选买持卖闭环</text>
+
+  <!-- 根节点到第一层的水平线 -->
+  <polyline points="200,598 260,598" class="connector" stroke-width="2"/>
+
+  <!-- ============ 第一层：理论基础 ============ -->
+  <rect x="260" y="70" width="210" height="100" rx="8" fill="url(#layer1Grad)" filter="url(#shadow)" stroke="#87ceeb" stroke-width="1"/>
+  <text x="365" y="94" text-anchor="middle" class="layer-title" fill="#0d4f8b">第一层：理论基础</text>
+  <line x1="280" y1="102" x2="450" y2="102" stroke="#87ceeb" stroke-width="0.5"/>
+  <text x="365" y="118" text-anchor="middle" class="node-text">情绪周期理论</text>
+  <text x="365" y="136" text-anchor="middle" class="node-sub">万物皆周期 · 贪婪与恐惧</text>
+  <text x="365" y="154" text-anchor="middle" class="small-text">高潮→退潮→冰点→启动→加速</text>
+
+  <!-- 第一层到第二层 -->
+  <polyline points="470,120 520,120 520,210 560,210" class="connector" stroke-width="1.5"/>
+
+  <!-- ============ 第二层：核心工具 ============ -->
+  <rect x="560" y="160" width="230" height="135" rx="8" fill="url(#layer2Grad)" filter="url(#shadow)" stroke="#6ea8fe" stroke-width="1"/>
+  <text x="675" y="184" text-anchor="middle" class="layer-title" fill="#0d3b6e">第二层：核心工具</text>
+  <line x1="580" y1="192" x2="770" y2="192" stroke="#6ea8fe" stroke-width="0.5"/>
+  <text x="675" y="210" text-anchor="middle" class="node-text">量柱结构 · ABCDEF六柱识别</text>
+  <text x="675" y="228" text-anchor="middle" class="node-sub">高潮→恐吓→支撑→停止→确认→反攻</text>
+  <text x="675" y="246" text-anchor="middle" class="small-text">核心密码：3121法则</text>
+  <text x="675" y="264" text-anchor="middle" class="small-text">五大买入时机</text>
+
+  <!-- 第二层分支连线 -->
+  <polyline points="790,200 840,200 840,130 880,130" class="connector"/>
+  <polyline points="790,228 840,228 840,348 880,348" class="connector"/>
+
+  <!-- ============ 第三层：三维框架 (顶部) ============ -->
+  <!-- 形态分类 -->
+  <rect x="880" y="65" width="195" height="130" rx="8" fill="url(#layer3Grad)" filter="url(#shadow)" stroke="#e8b84b" stroke-width="1"/>
+  <text x="978" y="89" text-anchor="middle" class="layer-title" fill="#8b6914">形态分类（五维）</text>
+  <line x1="898" y1="97" x2="1058" y2="97" stroke="#e8b84b" stroke-width="0.5"/>
+  <text x="978" y="114" text-anchor="middle" class="node-sub">按恐吓柱: 一日/双阴/连阴</text>
+  <text x="978" y="132" text-anchor="middle" class="node-sub">按停止柱: 标准/完美/变异</text>
+  <text x="978" y="150" text-anchor="middle" class="node-sub">按支撑柱: 涨停/大阳/连阳</text>
+  <text x="978" y="168" text-anchor="middle" class="node-sub">按确认柱: 飞天/空点</text>
+  <text x="978" y="186" text-anchor="middle" class="small-text">多维度交叉识别</text>
+
+  <!-- 时间结构 (中部第三层) -->
+  <rect x="880" y="270" width="195" height="155" rx="8" fill="url(#layer3Grad)" filter="url(#shadow)" stroke="#e8b84b" stroke-width="1"/>
+  <text x="978" y="294" text-anchor="middle" class="layer-title" fill="#8b6914">时间结构</text>
+  <line x1="898" y1="302" x2="1058" y2="302" stroke="#e8b84b" stroke-width="0.5"/>
+  <text x="978" y="322" text-anchor="middle" class="node-sub" fill="#c00">"三八十"约束原则</text>
+  <text x="978" y="342" text-anchor="middle" class="small-text">支撑→高潮 ≤ 3天</text>
+  <text x="978" y="360" text-anchor="middle" class="small-text">调整不过八，过了主力差</text>
+  <text x="978" y="378" text-anchor="middle" class="small-text">十天是红线，超过就失效</text>
+  <text x="978" y="398" text-anchor="middle" class="small-text">越短爆发越强</text>
+
+  <!-- 第三层用虚线盒框起来 -->
+  <rect x="870" y="55" width="215" height="385" rx="12" fill="none" stroke="#e8b84b" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <text x="978" y="52" text-anchor="middle" class="small-text" fill="#8b6914" font-weight="bold">三维框架（第三层）</text>
+
+  <!-- 城堡战法 -->
+  <rect x="560" y="448" width="230" height="105" rx="8" fill="url(#layer3Grad)" filter="url(#shadow)" stroke="#e8b84b" stroke-width="1"/>
+  <text x="675" y="472" text-anchor="middle" class="layer-title" fill="#8b6914">第三层：城堡战法</text>
+  <line x1="580" y1="480" x2="770" y2="480" stroke="#e8b84b" stroke-width="0.5"/>
+  <text x="675" y="500" text-anchor="middle" class="node-sub">"城堡选股，极点择时"</text>
+  <text x="675" y="520" text-anchor="middle" class="small-text">攻防三区：进攻区/防守区/撤退区</text>
+  <text x="675" y="540" text-anchor="middle" class="small-text">高倍中大型阳线 + 3日不破底线</text>
+
+  <!-- 根节点→城堡战法(下分支) -->
+  <polyline points="200,598 240,598 240,500 560,500" class="connector" stroke-width="1.5"/>
+  <!-- 第一层→第二层上下连 -->
+  <polyline points="470,140 510,140 510,295 560,295" class="connector" stroke-width="1"/>
+
+  <!-- ============ 第三层 → 第四层 连接 ============ -->
+  <polyline points="1075,130 1110,130 1110,295 1130,295" class="connector"/>
+  <polyline points="1075,348 1110,348 1110,295 1130,295" class="connector"/>
+  <polyline points="790,500 820,500 820,295 880,295" class="connector"/>
+
+  <!-- 从城堡到第四层的下连接 -->
+  <polyline points="790,500 820,500 820,730 1130,730" class="connector"/>
+
+  <!-- ============ 第四层：极点战法体系 ============ -->
+  <rect x="1130" y="175" width="440" height="260" rx="8" fill="url(#layer4bg)" filter="url(#shadow)" stroke="#b09cdd" stroke-width="1.5"/>
+  <text x="1350" y="200" text-anchor="middle" class="layer-title" fill="#4a2d8f" font-size="17">第四层：极点战法体系</text>
+  <line x1="1150" y1="210" x2="1550" y2="210" stroke="#b09cdd" stroke-width="0.5"/>
+
+  <!-- 四大维度子节点 -->
+  <!-- 按调整天数 -->
+  <rect x="1145" y="222" width="200" height="92" rx="6" fill="#fff" stroke="#b09cdd" stroke-width="0.8"/>
+  <text x="1245" y="242" text-anchor="middle" class="node-title" fill="#4a2d8f" font-size="12">按调整天数</text>
+  <text x="1245" y="262" text-anchor="middle" class="small-text">一日极点（1天·最强）</text>
+  <text x="1245" y="280" text-anchor="middle" class="small-text">双阴极点（2天·最常见）</text>
+  <text x="1245" y="298" text-anchor="middle" class="small-text">连阴极点（3-5天·最稳健）</text>
+
+  <!-- 按标准程度 -->
+  <rect x="1355" y="222" width="200" height="92" rx="6" fill="#fff" stroke="#b09cdd" stroke-width="0.8"/>
+  <text x="1455" y="242" text-anchor="middle" class="node-title" fill="#4a2d8f" font-size="12">按标准程度</text>
+  <text x="1455" y="262" text-anchor="middle" class="small-text">完美极点（≈10%·送分题）</text>
+  <text x="1455" y="280" text-anchor="middle" class="small-text">标准极点（≈20%·基准）</text>
+  <text x="1455" y="298" text-anchor="middle" class="small-text">变异极点（≈70%·实战主体）</text>
+
+  <!-- 按支撑确认 -->
+  <rect x="1145" y="322" width="200" height="92" rx="6" fill="#fff" stroke="#b09cdd" stroke-width="0.8"/>
+  <text x="1245" y="342" text-anchor="middle" class="node-title" fill="#4a2d8f" font-size="12">按支撑确认</text>
+  <text x="1245" y="362" text-anchor="middle" class="small-text">涨停极点（涨停板支撑）</text>
+  <text x="1245" y="380" text-anchor="middle" class="small-text">飞天极点（跳空确认）</text>
+  <text x="1245" y="398" text-anchor="middle" class="small-text">双域极点（连续城堡·合力/接力）</text>
+
+  <!-- 按位置筹码 -->
+  <rect x="1355" y="322" width="200" height="92" rx="6" fill="#fff" stroke="#b09cdd" stroke-width="0.8"/>
+  <text x="1455" y="342" text-anchor="middle" class="node-title" fill="#4a2d8f" font-size="12">按位置筹码</text>
+  <text x="1455" y="362" text-anchor="middle" class="small-text">单枪极点（长上影试探）</text>
+  <text x="1455" y="380" text-anchor="middle" class="small-text">左峰极点（前期高点）</text>
+  <text x="1455" y="398" text-anchor="middle" class="small-text">巅峰极点（创新高回调）</text>
+  <text x="1455" y="409" text-anchor="middle" class="small-text" font-size="9">命门极点（金钻筹码·主力成本）</text>
+
+  <!-- 第四层→第五层连接 -->
+  <polyline points="1350,435 1350,490 560,490" class="connector" stroke-width="1"/>
+  <polyline points="1570,295 1600,295" class="connector" stroke-width="1" style="display:none"/>
+
+  <!-- ============ 第五层：涨停+分时+整合 ============ -->
+  <rect x="80" y="688" width="1440" height="215" rx="8" fill="url(#layer5Grad)" filter="url(#shadow)" stroke="#5cb85c" stroke-width="1.5"/>
+  <text x="800" y="716" text-anchor="middle" class="layer-title" fill="#1e5c1e" font-size="17">第五层：涨停战法 + 分时进阶 + 系统整合</text>
+  <line x1="300" y1="726" x2="1300" y2="726" stroke="#5cb85c" stroke-width="0.5"/>
+
+  <!-- 涨停战法模块 -->
+  <rect x="105" y="738" width="420" height="145" rx="6" fill="#fff" stroke="#5cb85c" stroke-width="0.8"/>
+  <text x="315" y="760" text-anchor="middle" class="node-title" fill="#1e5c1e">涨停战法</text>
+  <line x1="125" y1="768" x2="505" y2="768" stroke="#5cb85c" stroke-width="0.3"/>
+
+  <rect x="115" y="778" width="125" height="65" rx="4" fill="#e8faf0" stroke="#5cb85c" stroke-width="0.5"/>
+  <text x="178" y="800" text-anchor="middle" class="node-sub" font-weight="bold">金钻涨停</text>
+  <text x="178" y="818" text-anchor="middle" class="small-text">筹码集中突破</text>
+  <text x="178" y="834" text-anchor="middle" class="small-text">黄金/钻石筹码</text>
+
+  <rect x="252" y="778" width="125" height="65" rx="4" fill="#e8faf0" stroke="#5cb85c" stroke-width="0.5"/>
+  <text x="315" y="800" text-anchor="middle" class="node-sub" font-weight="bold">合力涨停</text>
+  <text x="315" y="818" text-anchor="middle" class="small-text">有重叠区域</text>
+  <text x="315" y="834" text-anchor="middle" class="small-text">2-8天调整</text>
+
+  <rect x="389" y="778" width="125" height="65" rx="4" fill="#e8faf0" stroke="#5cb85c" stroke-width="0.5"/>
+  <text x="452" y="800" text-anchor="middle" class="node-sub" font-weight="bold">接力涨停</text>
+  <text x="452" y="818" text-anchor="middle" class="small-text">无重叠区域</text>
+  <text x="452" y="834" text-anchor="middle" class="small-text">1-3天调整</text>
+
+  <text x="315" y="870" text-anchor="middle" class="small-text" fill="#1e5c1e">核心理念："在涨停板里找涨停板"——在鱼多的地方钓鱼</text>
+
+  <!-- 分时战法模块 -->
+  <rect x="545" y="738" width="360" height="145" rx="6" fill="#fff" stroke="#5cb85c" stroke-width="0.8"/>
+  <text x="725" y="760" text-anchor="middle" class="node-title" fill="#1e5c1e">分时战法</text>
+  <line x1="565" y1="768" x2="885" y2="768" stroke="#5cb85c" stroke-width="0.3"/>
+
+  <rect x="555" y="778" width="165" height="65" rx="4" fill="#e8faf0" stroke="#5cb85c" stroke-width="0.5"/>
+  <text x="638" y="800" text-anchor="middle" class="node-sub" font-weight="bold">分时极点擒涨停</text>
+  <text x="638" y="818" text-anchor="middle" class="small-text">三段式/五段式N字</text>
+  <text x="638" y="834" text-anchor="middle" class="small-text">8247分时23121法则</text>
+
+  <rect x="732" y="778" width="162" height="65" rx="4" fill="#e8faf0" stroke="#5cb85c" stroke-width="0.5"/>
+  <text x="813" y="800" text-anchor="middle" class="node-sub" font-weight="bold">冲天分时擒涨停</text>
+  <text x="813" y="818" text-anchor="middle" class="small-text">冲涨停→缩量回调</text>
+  <text x="813" y="834" text-anchor="middle" class="small-text">→再次涨停</text>
+
+  <text x="725" y="870" text-anchor="middle" class="small-text" fill="#1e5c1e">叠加共振：日线极点+分时极点=必打信号</text>
+
+  <!-- 系统整合模块 -->
+  <rect x="925" y="738" width="582" height="145" rx="6" fill="#fff" stroke="#5cb85c" stroke-width="0.8"/>
+  <text x="1216" y="760" text-anchor="middle" class="node-title" fill="#1e5c1e">系统整合</text>
+  <line x1="945" y1="768" x2="1487" y2="768" stroke="#5cb85c" stroke-width="0.3"/>
+
+  <rect x="935" y="778" width="272" height="65" rx="4" fill="#e8faf0" stroke="#5cb85c" stroke-width="0.5"/>
+  <text x="1071" y="798" text-anchor="middle" class="node-sub" font-weight="bold">过滤法则（四大法则）</text>
+  <text x="1071" y="816" text-anchor="middle" class="small-text">①没有确认无极点 ②跌破前低无极点</text>
+  <text x="1071" y="834" text-anchor="middle" class="small-text">③下降趋势无极点 ④主升浪后无极点</text>
+
+  <rect x="1219" y="778" width="276" height="65" rx="4" fill="#e8faf0" stroke="#5cb85c" stroke-width="0.5"/>
+  <text x="1357" y="798" text-anchor="middle" class="node-sub" font-weight="bold">选股攻略（C128公式）</text>
+  <text x="1357" y="816" text-anchor="middle" class="small-text">N天内涨停收盘·5天周期</text>
+  <text x="1357" y="834" text-anchor="middle" class="small-text">每日200只标的·一网打尽</text>
+
+  <text x="1216" y="870" text-anchor="middle" class="small-text" fill="#1e5c1e">六层滤网：趋势→位置→前低→城堡→确认→环境</text>
+
+  <!-- 第五层→第六层连接 -->
+  <polyline points="800,903 800,940 800,970" class="connector" stroke-width="2" stroke="#c0392b"/>
+
+  <!-- ============ 第六层：卖出体系 ============ -->
+  <rect x="100" y="970" width="1400" height="185" rx="8" fill="url(#layer6Grad)" filter="url(#shadow)" stroke="#e74c3c" stroke-width="1.5"/>
+  <text x="800" y="1000" text-anchor="middle" class="layer-title" fill="#8b0000" font-size="17">第六层：卖出体系——头顶三绝</text>
+  <line x1="300" y1="1010" x2="1300" y2="1010" stroke="#e74c3c" stroke-width="0.5"/>
+
+  <!-- 乌云盖顶 -->
+  <rect x="130" y="1022" width="360" height="115" rx="8" fill="#fff" stroke="#e74c3c" stroke-width="1"/>
+  <text x="310" y="1048" text-anchor="middle" class="node-title" fill="#8b0000" font-size="15">乌云盖顶（第一信号·量信号）</text>
+  <line x1="150" y1="1058" x2="470" y2="1058" stroke="#e74c3c" stroke-width="0.3"/>
+  <text x="310" y="1078" text-anchor="middle" class="node-sub">高量阴盖阳 · 单盖/双盖</text>
+  <text x="310" y="1098" text-anchor="middle" class="small-text">量必须盖住——供应远大于需求</text>
+  <text x="310" y="1120" text-anchor="middle" class="small-text">口诀：高位放量阴盖阳，先卖了再说</text>
+
+  <!-- 弃城而逃 -->
+  <rect x="530" y="1022" width="360" height="115" rx="8" fill="#fff" stroke="#e74c3c" stroke-width="1"/>
+  <text x="710" y="1048" text-anchor="middle" class="node-title" fill="#8b0000" font-size="15">弃城而逃（第二信号·价信号）</text>
+  <line x1="550" y1="1058" x2="870" y2="1058" stroke="#e74c3c" stroke-width="0.3"/>
+  <text x="710" y="1078" text-anchor="middle" class="node-sub">大阴线跌破城堡底</text>
+  <text x="710" y="1098" text-anchor="middle" class="small-text">主力自己弃城→溃不成军</text>
+  <text x="710" y="1120" text-anchor="middle" class="small-text">口诀：城堡底破位，马上跟着逃</text>
+
+  <!-- 巅峰跳崖 -->
+  <rect x="930" y="1022" width="360" height="115" rx="8" fill="#fff" stroke="#e74c3c" stroke-width="1"/>
+  <text x="1110" y="1048" text-anchor="middle" class="node-title" fill="#8b0000" font-size="15">巅峰跳崖（第三信号·跳空信号）</text>
+  <line x1="950" y1="1058" x2="1270" y2="1058" stroke="#e74c3c" stroke-width="0.3"/>
+  <text x="1110" y="1078" text-anchor="middle" class="node-sub">巨量阳线+次日跳空低开阴</text>
+  <text x="1110" y="1098" text-anchor="middle" class="small-text">跳空锁死追高者·集合竞价就要跑</text>
+  <text x="1110" y="1120" text-anchor="middle" class="small-text">口诀：巅峰跳崖，粉身碎骨，一秒不犹豫</text>
+
+  <!-- 箭头递进 -->
+  <polygon points="492,1150 510,1080 500,1080 500,1125 492,1125 492,1150" fill="#e74c3c"/>
+  <polygon points="892,1150 910,1080 900,1080 900,1125 892,1125 892,1150" fill="#e74c3c"/>
+
+  <!-- 底部图例 -->
+  <rect x="1350" y="1050" width="130" height="80" rx="6" fill="none" stroke="#999" stroke-width="0.5"/>
+  <text x="1415" y="1070" text-anchor="middle" class="small-text" fill="#888">三种信号常叠加出现</text>
+  <text x="1415" y="1088" text-anchor="middle" class="small-text" fill="#c00">复合型卖点</text>
+  <text x="1415" y="1106" text-anchor="middle" class="small-text" fill="#c00">= 确定性最高</text>
+  <text x="1415" y="1124" text-anchor="middle" class="small-text" fill="#c00">必须无条件出逃!</text>
+
+  <!-- 底部总口诀 -->
+  <rect x="550" y="1170" width="500" height="28" rx="6" fill="url(#rootGrad)"/>
+  <text x="800" y="1190" text-anchor="middle" fill="#ffd700" font-size="13" font-weight="bold">选·买·持·卖 闭环：城堡选股 → 极点择时 → 城堡持有 → 头顶三绝卖出</text>
+</svg></div><h2 class="section-title" id="sec-5-phase">阶段三：战略选股——城堡战法</h2><h3 class="lesson-title" id="sec-5">第5课：城堡战法</h3><div class="card" id="card-castle-origin"><div class="card-header"><h4 class="card-title">城堡的来源与核心比喻</h4><span class="card-badge badge-strategy">战略选股</span></div><div class="card-body"><p>翰林老师以欧洲中世纪（1066-1400年）城堡为引子：城堡作为<strong>军事基地</strong>修建，既用来发动攻击，也用来防守。股票中主力同样通过构建"城堡"作为进攻和防守的基地。</p><p class="text-accent">核心口诀：城堡选股，极点择时。</p><p>城堡战法用于选股和判断主力动向，极点战法用于确定精准买卖时机。</p></div></div><div class="card" id="card-castle-define"><div class="card-header"><h4 class="card-title">城堡的定义与分类</h4><span class="card-badge badge-strategy">战略选股</span></div><div class="card-body"><p>城堡 = <span class="text-accent">高倍量中大阳线</span>，根据涨幅分为四等：</p></div></div><div class="table-wrapper"><table class="compare-table"><thead><tr><th>类型</th><th>涨幅范围</th><th>说明</th></tr></thead><tbody><tr><td>小城堡</td><td>3%-5%以内</td><td>中小级别城堡</td></tr><tr><td>大城堡</td><td>5%-10%</td><td>加速阶段主力阵地</td></tr><tr><td>超大城堡</td><td>10%以上（含20cm/30cm）</td><td>最强级别城堡</td></tr></tbody></table></div><div class="card" id="card-castle-elements"><div class="card-header"><h4 class="card-title">城堡的两大要素</h4><span class="card-badge badge-strategy">战略选股</span></div><div class="card-body"><p><strong>要素一：高倍中大型阳线</strong>——量柱为高量或倍量（放量明显），K线为中大阳线（涨幅至少3%以上）。</p><p><strong>要素二：3日内不破顶或不破底</strong>——守住顶线=进攻状态（强势）；守住底线=防守状态（蓄力）。</p></div></div><div class="card" id="card-castle-types"><div class="card-header"><h4 class="card-title">进攻型 vs 防守型城堡</h4><span class="card-badge badge-strategy">核心分类</span></div><div class="card-body"><p><strong>防守型城堡</strong>：高倍中大阳后股价连续回调，但<span class="text-accent">始终不破底线</span>。主力洗盘整理，城堡底部支撑有效。</p><p><strong>进攻型城堡</strong>：高倍中大阳后股价连续上涨，<span class="text-accent">始终不破顶线</span>。主力强势上攻，持续上涨。</p><p><strong>失效城堡</strong>：股价跌破底线——该城堡失效，不破底是城堡存在的底线条件。</p></div></div><div class="card" id="card-attack-defend"><div class="card-header"><h4 class="card-title">攻防三区</h4><span class="card-badge badge-strategy">操作体系</span></div><div class="card-body"><p>以城堡的顶线（收盘价）和底线（开盘价）为界，划分三个区域：</p></div></div><div class="table-wrapper"><table class="compare-table"><thead><tr><th>区域</th><th>位置</th><th>操作策略</th><th>信号</th></tr></thead><tbody><tr><td><span class="text-buy">进攻区</span></td><td>顶线之上</td><td>可以持有，安心拿住</td><td>多头强势</td></tr><tr><td>防守区</td><td>顶线与底线之间</td><td>观察等待，看能否站上顶线</td><td>蓄力阶段</td></tr><tr><td><span class="text-sell">撤退区</span></td><td>底线之下</td><td>跌破底线就止损！弃城而逃</td><td>主力出逃</td></tr></tbody></table></div><div class="card" id="card-castle-size-diff"><div class="card-header"><h4 class="card-title">大小城堡支撑位置差异</h4><span class="card-badge badge-strategy">补充要点</span></div><div class="card-body"><ul class="content-list"><li><strong>大城堡（5%以上）</strong>：支撑在顶、底、腰、缺（四个位置都可能成为支撑点）。</li><li><strong>小城堡（3%-5%）</strong>：支撑主要在顶（也可在底）。</li></ul><p>大城堡阳线实体足够大，内部有足够支撑空间；小城堡实体较小，支撑位置相对集中。</p></div></div><div class="mnemonic-block"><div class="mnemonic-label">城堡战法口诀</div><p class="mnemonic-text">高倍中大阳，三日不破底，城堡成立。
+顶之上进攻可拿住，顶底间防守需观望，底之下撤退快止损。
+城堡选股，极点择时。
+跌破城堡，弃城而逃。
+没有城堡的股票不能碰——下跌中无城堡=无主力护盘。</p></div><div class="prerequisite-box"><span class="prereq-icon">&#9888;</span><div><span class="prereq-label">前置知识：</span>城堡战法需要先掌握<a href="#sec-1">1.情绪周期</a>和<a href="#sec-2">2.量柱结构</a>（ABC柱识别），尤其是支撑柱（C柱）的顶底腰缺概念。</div></div><hr class="section-divider"><h2 class="section-title" id="sec-4-phase">阶段四：具体战法——十大极点类型 + 涨停战法 + 分时战法</h2><div class="svg-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1550 1100" width="100%" height="100%">
+  <defs>
+    <style>
+      text { font-family: system-ui, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+      .title { font-size: 20px; font-weight: bold; fill: #1a1a2e; }
+      .dim-title { font-size: 15px; font-weight: bold; fill: #fff; }
+      .pole-name { font-size: 14px; font-weight: bold; }
+      .pole-desc { font-size: 11px; fill: #555; }
+      .pole-def { font-size: 10px; fill: #666; }
+      .tag-text { font-size: 9px; fill: #888; }
+    </style>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <rect width="1550" height="1100" fill="#fafbfc" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="775" y="36" text-anchor="middle" class="title" font-size="22">十种极点·完整分类体系</text>
+  <line x1="550" y1="46" x2="1000" y2="46" stroke="#4a90d9" stroke-width="2"/>
+  <text x="775" y="65" text-anchor="middle" style="font-size: 13px; fill: #888;">四大维度交叉分类 · 万变不离其宗 · 多标签共存</text>
+
+  <!-- 根节点 -->
+  <rect x="30" y="515" width="140" height="50" rx="10" fill="#1a1a2e" filter="url(#shadow)"/>
+  <text x="100" y="538" text-anchor="middle" fill="#ffd700" font-size="15" font-weight="bold">极点战法</text>
+  <text x="100" y="556" text-anchor="middle" fill="#ccc" font-size="10">十大类型</text>
+
+  <!-- 根→四大维度连接 -->
+  <polyline points="170,540 210,540 210,110 260,110" fill="none" stroke="#4a90d9" stroke-width="1.8"/>
+  <polyline points="170,540 210,540 210,380 260,380" fill="none" stroke="#4a90d9" stroke-width="1.8"/>
+  <polyline points="170,540 210,540 210,650 260,650" fill="none" stroke="#4a90d9" stroke-width="1.8"/>
+  <polyline points="170,540 210,540 210,920 260,920" fill="none" stroke="#4a90d9" stroke-width="1.8"/>
+
+  <!-- ============ 维度一：调整天数 ============ -->
+  <rect x="260" y="40" width="1260" height="170" rx="10" fill="#ebf5ff" stroke="#3498db" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="260" y="40" width="1260" height="42" rx="10" fill="#3498db"/>
+  <rect x="260" y="62" width="1260" height="20" fill="#3498db"/>
+  <text x="270" y="68" class="dim-title">维度一：按调整天数分类</text>
+  <text x="1350" y="68" text-anchor="end" fill="#cce0ff" font-size="11">调整时间越短 → 爆发力越强 (B柱数量)</text>
+
+  <!-- 一日极点 -->
+  <rect x="280" y="92" width="390" height="106" rx="8" fill="#fff" stroke="#3498db" stroke-width="0.8"/>
+  <rect x="280" y="92" width="390" height="30" rx="8" fill="#dbeafe" stroke="none"/>
+  <rect x="280" y="108" width="390" height="14" fill="#dbeafe"/>
+  <text x="310" y="113" class="pole-name" fill="#1e40af">一日极点（调整1天·最强）</text>
+  <text x="680" y="113" text-anchor="end" fill="#888" font-size="10">第6课</text>
+  <text x="300" y="136" class="pole-def">防守型：恐吓柱与停止柱合二为一（跳空低开十字星）</text>
+  <text x="300" y="154" class="pole-def">进攻型：高倍量次日价涨量缩（价涨量缩停止缩21）</text>
+  <text x="300" y="172" class="pole-def">关键：极量加极价=调整到位 | 缩量涨停过前高=主力控盘极高</text>
+  <text x="300" y="190" class="tag-text">出现频率极低 | 最具爆发力 | 案例：新五丰 · 九安医疗</text>
+
+  <!-- 双阴极点 -->
+  <rect x="690" y="92" width="390" height="106" rx="8" fill="#fff" stroke="#3498db" stroke-width="0.8"/>
+  <rect x="690" y="92" width="390" height="30" rx="8" fill="#dbeafe" stroke="none"/>
+  <rect x="690" y="108" width="390" height="14" fill="#dbeafe"/>
+  <text x="720" y="113" class="pole-name" fill="#1e40af">双阴极点（调整2天·最常见）</text>
+  <text x="1090" y="113" text-anchor="end" fill="#888" font-size="10">第7课</text>
+  <text x="720" y="136" class="pole-def">高潮柱与支撑柱一体 | 连续两根缩量阴线</text>
+  <text x="720" y="154" class="pole-def">第二根恐吓柱量更小 → 判断假跌关键</text>
+  <text x="720" y="172" class="pole-def">买入：跳空高开竞价买 / 盘中过阴顶买 / 确认尾盘买</text>
+  <text x="720" y="190" class="tag-text">最常见形态 | 案例：九七软件 · 三变科技 · 宏润建设</text>
+
+  <!-- 连阴极点 -->
+  <rect x="1100" y="92" width="400" height="106" rx="8" fill="#fff" stroke="#3498db" stroke-width="0.8"/>
+  <rect x="1100" y="92" width="400" height="30" rx="8" fill="#dbeafe" stroke="none"/>
+  <rect x="1100" y="108" width="400" height="14" fill="#dbeafe"/>
+  <text x="1130" y="113" class="pole-name" fill="#1e40af">连阴极点（3-5天·最稳健）</text>
+  <text x="1510" y="113" text-anchor="end" fill="#888" font-size="10">第8课</text>
+  <text x="1120" y="136" class="pole-def">恐吓柱3-5根 | 完美缩量连阴（价量同缩）</text>
+  <text x="1120" y="154" class="pole-def">停止柱：极量+极价统一标准</text>
+  <text x="1120" y="172" class="pole-def">警告：潜伏风险更高，最佳买点一定是确认柱</text>
+  <text x="1120" y="190" class="tag-text">潜伏底线=前一个涨停板开盘价 | 案例：润和·中青宝·中百集团</text>
+
+  <!-- ============ 维度二：标准程度 ============ -->
+  <rect x="260" y="240" width="1260" height="170" rx="10" fill="#fefce8" stroke="#e8b84b" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="260" y="240" width="1260" height="42" rx="10" fill="#e8b84b"/>
+  <rect x="260" y="262" width="1260" height="20" fill="#e8b84b"/>
+  <text x="270" y="268" class="dim-title">维度二：按标准程度分类</text>
+  <text x="1350" y="268" text-anchor="end" fill="#fff3d0" font-size="11">以停止柱(D)形态判定 | "越标准越完美，确定性越强"</text>
+
+  <!-- 完美极点 -->
+  <rect x="280" y="292" width="390" height="106" rx="8" fill="#fff" stroke="#e8b84b" stroke-width="0.8"/>
+  <rect x="280" y="292" width="390" height="30" rx="8" fill="#fef9c3" stroke="none"/>
+  <rect x="280" y="308" width="390" height="14" fill="#fef9c3"/>
+  <text x="310" y="313" class="pole-name" fill="#8b6914">完美极点（≈10% · 送分题）</text>
+  <text x="680" y="313" text-anchor="end" fill="#888" font-size="10">第10课 ★★★</text>
+  <text x="300" y="336" class="pole-def">四大铁律：①高潮与支撑一体 ②恐吓1-2根 ③相隔2-3天 ④标准十字星+缩1/2</text>
+  <text x="300" y="354" class="pole-def">少数明确允许潜伏的极点 | 五次买入机会 | 牛股起爆点</text>
+  <text x="300" y="372" class="pole-def">仓位策略：潜伏小仓位→确认柱跳空加满仓</text>
+  <text x="300" y="390" class="tag-text">"机会难得，一定要敢于抓住" | 案例：先锋电子·三变科技·上海电影</text>
+
+  <!-- 标准极点 -->
+  <rect x="690" y="292" width="390" height="106" rx="8" fill="#fff" stroke="#e8b84b" stroke-width="0.8"/>
+  <rect x="690" y="292" width="390" height="30" rx="8" fill="#fef9c3" stroke="none"/>
+  <rect x="690" y="308" width="390" height="14" fill="#fef9c3"/>
+  <text x="720" y="313" class="pole-name" fill="#8b6914">标准极点（≈20% · 基准坐标）</text>
+  <text x="1090" y="313" text-anchor="end" fill="#888" font-size="10">第9课</text>
+  <text x="720" y="336" class="pole-def">首尾框架法：首阴缩量 + 尾阴缩量1/2十字星</text>
+  <text x="720" y="354" class="pole-def">首跌缩量1/3以上 → 高概率假跌（先验指标）</text>
+  <text x="720" y="372" class="pole-def">量价线位四维分析 | 精准回踩最强（一分钱不差）</text>
+  <text x="720" y="390" class="tag-text">总纲领：高潮柱+支撑柱+停止柱=极点本质 | 万变不离其宗</text>
+
+  <!-- 变异极点 -->
+  <rect x="1100" y="292" width="400" height="106" rx="8" fill="#fff" stroke="#e8b84b" stroke-width="0.8"/>
+  <rect x="1100" y="292" width="400" height="30" rx="8" fill="#fef9c3" stroke="none"/>
+  <rect x="1100" y="308" width="400" height="14" fill="#fef9c3"/>
+  <text x="1130" y="313" class="pole-name" fill="#8b6914">变异极点（≈70%·实战主体）</text>
+  <text x="1510" y="313" text-anchor="end" fill="#888" font-size="10">第11课</text>
+  <text x="1120" y="336" class="pole-def">三种变异：高潮柱变异(放量阴) / 恐吓柱变异(夹杂阳线) / 停止柱变异(中小阴)</text>
+  <text x="1120" y="354" class="pole-def">核心原则：形态可伪装，量价关系不骗人</text>
+  <text x="1120" y="372" class="pole-def">关键：极量+极价才是根本，任何变异后必须出现标准停止柱</text>
+  <text x="1120" y="390" class="tag-text">"换马甲不变本质" | 案例：大连重工·金科股份</text>
+
+  <!-- ============ 维度三：支撑确认 ============ -->
+  <rect x="260" y="440" width="1260" height="170" rx="10" fill="#f0fdf4" stroke="#27ae60" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="260" y="440" width="1260" height="42" rx="10" fill="#27ae60"/>
+  <rect x="260" y="462" width="1260" height="20" fill="#27ae60"/>
+  <text x="270" y="468" class="dim-title">维度三：按支撑确认分类</text>
+  <text x="1350" y="468" text-anchor="end" fill="#d4f5e0" font-size="11">按C柱(支撑)和E柱(确认)特性分类</text>
+
+  <!-- 涨停极点 -->
+  <rect x="280" y="492" width="390" height="106" rx="8" fill="#fff" stroke="#27ae60" stroke-width="0.8"/>
+  <rect x="280" y="492" width="390" height="30" rx="8" fill="#dcfce7" stroke="none"/>
+  <rect x="280" y="508" width="390" height="14" fill="#dcfce7"/>
+  <text x="310" y="513" class="pole-name" fill="#166534">涨停极点（涨停板支撑）</text>
+  <text x="680" y="513" text-anchor="end" fill="#888" font-size="10">第12课</text>
+  <text x="300" y="536" class="pole-def">以涨停板作为C柱支撑 | 强主力资金背书</text>
+  <text x="300" y="554" class="pole-def">连环涨停极点效应：一个涨停可为多个后续涨停供支撑</text>
+  <text x="300" y="572" class="pole-def">核心理念：在涨停板里找涨停板——在有鱼的地方钓鱼</text>
+  <text x="300" y="590" class="tag-text">五大买入时机通用 | 跌时缩量=主力没逃</text>
+
+  <!-- 飞天极点 -->
+  <rect x="690" y="492" width="390" height="106" rx="8" fill="#fff" stroke="#27ae60" stroke-width="0.8"/>
+  <rect x="690" y="492" width="390" height="30" rx="8" fill="#dcfce7" stroke="none"/>
+  <rect x="690" y="508" width="390" height="14" fill="#dcfce7"/>
+  <text x="720" y="513" class="pole-name" fill="#166534">飞天极点（跳空确认·最强E柱）</text>
+  <text x="1090" y="513" text-anchor="end" fill="#888" font-size="10">第13课</text>
+  <text x="720" y="536" class="pole-def">停止柱后次日跳空高开越过最后阴线顶部</text>
+  <text x="720" y="554" class="pole-def">标准飞天：跳空直接过阴顶（可直接买）</text>
+  <text x="720" y="572" class="pole-def">变异飞天：跳空未过阴顶（等盘中过顶再买）</text>
+  <text x="720" y="590" class="tag-text">高开=主力迫不及待拉升 | 竞价精准度越高越好</text>
+
+  <!-- 双域极点 -->
+  <rect x="1100" y="492" width="400" height="106" rx="8" fill="#fff" stroke="#27ae60" stroke-width="0.8"/>
+  <rect x="1100" y="492" width="400" height="30" rx="8" fill="#dcfce7" stroke="none"/>
+  <rect x="1100" y="508" width="400" height="14" fill="#dcfce7"/>
+  <text x="1130" y="513" class="pole-name" fill="#166534">双域极点（连续城堡·进阶）</text>
+  <text x="1510" y="513" text-anchor="end" fill="#888" font-size="10">第14课</text>
+  <text x="1120" y="536" class="pole-def">合力双域：两城堡有重叠（确认柱身兼两职）→ 更强</text>
+  <text x="1120" y="554" class="pole-def">接力双域：两城堡无重叠（阶梯式上行）→ 较强</text>
+  <text x="1120" y="572" class="pole-def">关键：第二极点量比第一更低 = 上涨确定性更高</text>
+  <text x="1120" y="590" class="tag-text">"错过第一个不要紧，第二个千万别错过"</text>
+
+  <!-- ============ 维度四：位置筹码 ============ -->
+  <rect x="260" y="640" width="1260" height="220" rx="10" fill="#fef2f2" stroke="#e74c3c" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="260" y="640" width="1260" height="42" rx="10" fill="#e74c3c"/>
+  <rect x="260" y="662" width="1260" height="20" fill="#e74c3c"/>
+  <text x="270" y="668" class="dim-title">维度四：按位置筹码分类</text>
+  <text x="1350" y="668" text-anchor="end" fill="#ffd4d4" font-size="11">位置命名·可与前三维度叠加（多标签共存）</text>
+
+  <!-- 单枪极点 -->
+  <rect x="280" y="692" width="300" height="98" rx="8" fill="#fff" stroke="#e74c3c" stroke-width="0.8"/>
+  <rect x="280" y="692" width="300" height="28" rx="8" fill="#fee2e2" stroke="none"/>
+  <rect x="280" y="706" width="300" height="14" fill="#fee2e2"/>
+  <text x="310" y="711" class="pole-name" fill="#991b1b">单枪极点（第15课）</text>
+  <text x="570" y="711" text-anchor="end" fill="#888" font-size="9">长上影阳线·主力试探</text>
+  <text x="300" y="737" class="pole-def">单枪：上影线 &gt; 3%的阳线</text>
+  <text x="300" y="755" class="pole-def">本质：主动试探左侧压力位消耗供应</text>
+  <text x="300" y="773" class="pole-def">子类：单枪一日/单枪标准 两种</text>
+  <text x="300" y="788" class="tag-text">图形记忆法 → 条件反射 → 一眼花开</text>
+
+  <!-- 左峰极点 -->
+  <rect x="600" y="692" width="300" height="98" rx="8" fill="#fff" stroke="#e74c3c" stroke-width="0.8"/>
+  <rect x="600" y="692" width="300" height="28" rx="8" fill="#fee2e2" stroke="none"/>
+  <rect x="600" y="706" width="300" height="14" fill="#fee2e2"/>
+  <text x="630" y="711" class="pole-name" fill="#991b1b">左峰极点（第16课）</text>
+  <text x="890" y="711" text-anchor="end" fill="#888" font-size="9">左侧前期高点处·1-3月调整</text>
+  <text x="620" y="737" class="pole-def">以位置命名，可与其他极点叠加</text>
+  <text x="620" y="755" class="pole-def">调整越长=主力准备越充分</text>
+  <text x="620" y="773" class="pole-def">"所有牛股必然都经过左峰"</text>
+  <text x="620" y="788" class="tag-text">左峰单枪=万般宠爱集一身</text>
+
+  <!-- 巅峰极点 -->
+  <rect x="920" y="692" width="290" height="98" rx="8" fill="#fff" stroke="#e74c3c" stroke-width="0.8"/>
+  <rect x="920" y="692" width="290" height="28" rx="8" fill="#fee2e2" stroke="none"/>
+  <rect x="920" y="706" width="290" height="14" fill="#fee2e2"/>
+  <text x="950" y="711" class="pole-name" fill="#991b1b">巅峰极点（第17课）</text>
+  <text x="1200" y="711" text-anchor="end" fill="#888" font-size="9">创新高回调·数天到两周</text>
+  <text x="940" y="737" class="pole-def">高点更高、低点更高特征</text>
+  <text x="940" y="755" class="pole-def">vs左峰：调整时间短、回调浅</text>
+  <text x="940" y="773" class="pole-def">极点(阴·低吸)+空点(阳·追涨)</text>
+  <text x="940" y="788" class="tag-text">有低吸优先低吸，安全高效</text>
+
+  <!-- 命门极点 -->
+  <rect x="1230" y="692" width="270" height="98" rx="8" fill="#fff" stroke="#e74c3c" stroke-width="0.8"/>
+  <rect x="1230" y="692" width="270" height="28" rx="8" fill="#fee2e2" stroke="none"/>
+  <rect x="1230" y="706" width="270" height="14" fill="#fee2e2"/>
+  <text x="1260" y="711" class="pole-name" fill="#991b1b">命门极点（第18课）</text>
+  <text x="1490" y="711" text-anchor="end" fill="#888" font-size="9">金钻筹码·主力成本</text>
+  <text x="1250" y="737" class="pole-def">命门=主力成本价=立于不败之地</text>
+  <text x="1250" y="755" class="pole-def">黄金筹码(5-10%) / 钻石筹码(≤5%)</text>
+  <text x="1250" y="773" class="pole-def">三大条件：区间震荡+供应耗尽+金钻筹码</text>
+  <text x="1250" y="788" class="tag-text">往往是主升浪起点 | 天龙·真视通</text>
+
+  <!-- 底部分割线下的补充 -->
+  <rect x="260" y="870" width="1260" height="40" rx="6" fill="#f8f9fa" stroke="#ddd" stroke-width="0.5"/>
+  <text x="280" y="893" class="pole-desc" fill="#666">金钻涨停（第19课）：突破平台+金钻筹码=起爆信号 | 合力涨停（第20课）：调整2-8天不留底线缩量再涨停</text>
+  <text x="280" y="908" class="pole-desc" fill="#666">接力涨停（第21课）：调整1-3天不破前收盘缩量再涨停 | 分时极点（第22课）：日K线下沉至分时·三段式/五段式N字</text>
+
+  <!-- 底部总结条 -->
+  <rect x="260" y="925" width="1260" height="42" rx="8" fill="#1a1a2e"/>
+  <text x="500" y="945" text-anchor="middle" fill="#ffd700" font-size="12" font-weight="bold">本质总纲：高潮柱 + 支撑柱 + 停止柱 = 极点本质</text>
+  <text x="890" y="945" text-anchor="middle" fill="#aaa" font-size="11">同一节点可同时属于多个分类（多标签共存）</text>
+  <text x="1270" y="945" text-anchor="middle" fill="#aaa" font-size="11">万变不离其宗 — 形态可变，本质不变</text>
+
+  <!-- 极点叠加说明 -->
+  <rect x="30" y="925" width="210" height="42" rx="6" fill="#f3e8ff" stroke="#b09cdd" stroke-width="1"/>
+  <text x="135" y="945" text-anchor="middle" class="pole-def" fill="#6b21a8">四维度交叉组合示例</text>
+  <text x="135" y="961" text-anchor="middle" class="tag-text" fill="#6b21a8">左峰+完美+单枪+一日</text>
+
+  <!-- 左峰极点 vs 巅峰极点说明 -->
+  <rect x="30" y="880" width="210" height="35" rx="6" fill="#f8f9fa" stroke="#ddd" stroke-width="0.5"/>
+  <text x="135" y="895" text-anchor="middle" class="pole-def" fill="#555">冲天分时（第23课）</text>
+  <text x="135" y="910" text-anchor="middle" class="tag-text" fill="#888">冲涨停→缩量回调→再涨停</text>
+
+</svg></div><h4 style="color:var(--color-primary);margin-top:var(--sp-xl);">子板块A：按调整天数分类（第6-8课）</h4><h3 class="lesson-title" id="sec-6">第6课：一日极点</h3><div class="card" id="card-one-day"><div class="card-header"><h4 class="card-title">一日极点的两种类型</h4><span class="card-badge badge-tactic">调整1天·最强</span></div><div class="card-body"><p>调整时间<span class="text-accent">仅一天</span>的特殊极点形态。阳线次日缩量1/2十字星/小阴线，第三天即上涨。极其稀缺，是最佳介入时机之一。</p><p><strong>防守型</strong>：恐吓柱与停止柱合二为一——前一天阳线，次日跳空低开收十字星（缩量1/2），第三天上涨。<span class="text-accent">极量+极价=调整到位</span>。</p><p><strong>进攻型</strong>：高倍量次日<span class="text-accent">价涨量缩</span>——前一天高量/倍量阳线，次日价涨量缩十字星（缩至1/2）。"非常神奇，价格涨了量居然是缩的"——往往是牛股爆发点。</p><p><strong>缩量涨停过前高</strong>：说明"主力可以用很少的力量创造新高"，意味着主力已牢牢控制局面。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">新五丰（防守型一日极点）</h5><div class="case-stock-name">新五丰·2023年4月4日</div><div class="case-content"><p>涨停板后出现放量中阳十字星（A柱），次日缩量1/2小阴线，次日以缩量涨停突破前高，随后连续大涨。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">九安医疗（进攻型一日极点）</h5><div class="case-stock-name">九安医疗·2021年</div><div class="case-content"><p>D柱为倍量柱大阳线，次日跳空高开收十字星，成交量缩1/2——经典的极量+极价到位。之后连续5个涨停板，从起涨点（3元多）最终涨到90多元，涨幅近<span class="case-highlight">30倍</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">汇成科技（过渡案例）</h5><div class="case-stock-name">汇成科技·2020年</div><div class="case-content"><p>放量大阳线后第三天缩量1/2+十字星（极量+极价），第四天缩量突破前高，随后连续5个涨停板。翰林老师比喻为"起飞之前的下蹲动作——起跳之前先下蹲，然后弹跳起来"。</p></div></div><hr class="section-divider"><h3 class="lesson-title" id="sec-7">第7课：双阴极点</h3><div class="card" id="card-double-yin"><div class="card-header"><h4 class="card-title">双阴极点五个核心条件</h4><span class="card-badge badge-tactic">调整2天·最常见</span></div><div class="card-body"><p>全称"双阴极点涨停"。高潮柱后连续<strong>两根缩量阴线</strong>（恐吓柱），停止柱缩量1/2十字星确认调整到位，确认柱开启新一轮上涨。</p><ol class="content-list"><li><strong>高潮柱与支撑柱一体</strong>：同一根K线，"又当爹又当妈"。允许相邻的变异形态。</li><li><strong>恐吓柱两根</strong>：连续两阴。如停止柱是十字星可不包含在阴线内，最标准形态："一根阴线 + 一根小阴线"。</li><li><strong>连续缩量</strong>：第二根量比第一根更小——假跌判断依据，主力出货不会缩量。</li><li><strong>停止柱缩量1/2</strong>：极量+极价的统一标准。</li><li><strong>停止柱以十字星为佳</strong>：标准十字星为最优。</li></ol></div></div><div class="card" id="card-double-buy"><div class="card-header"><h4 class="card-title">三种买入时机</h4><span class="card-badge badge-tactic">操作指南</span></div><div class="card-body"><ul class="content-list"><li><strong>时机一：跳空高开竞价买入</strong>——9:25集合竞价确认后直接买入，结合大盘热点板块。</li><li><strong>时机二：盘中过尾阴买入</strong>——价格突破两根阴线最后一根的最高点（阴顶）时买入。</li><li><strong>时机三：确认柱收盘前买入</strong>——确认柱为中阳线（3-6个点）时尾盘买入，期待次日溢价。</li></ul></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">九七软件（变异双阴极点）</h5><div class="case-stock-name">九七软件</div><div class="case-content"><p>高潮柱与支撑柱相邻（变异），连续两根阴线后D柱量缩至高潮柱1/2以上——"量上出卖了它"，说明洗盘而非出货。次日跳空高开涨停，<span class="case-highlight">连续三个涨停板</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">三变科技</h5><div class="case-stock-name">三变科技·2022年</div><div class="case-content"><p>A柱一体（高潮+支撑），双阴由两根小十字星阴线组成。C柱十字星+缩量1/2到位，D柱确认后<span class="case-highlight">连续四个涨停板</span>。同时符合完美极点特征。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">宏润建设（两次双阴极点）</h5><div class="case-stock-name">宏润建设</div><div class="case-content"><p>展示同一股票两次运用双阴极点：第一次获得两个涨停板，第二次潜伏后获得10%利润。翰林老师强调<strong>城堡原则</strong>：只要不破城堡就继续持有。</p></div></div><hr class="section-divider"><h3 class="lesson-title" id="sec-8">第8课：连阴极点</h3><div class="card" id="card-triple-yin"><div class="card-header"><h4 class="card-title">连阴极点核心要点</h4><span class="card-badge badge-tactic">调整3-5天·最稳健</span></div><div class="card-body"><p>调整时间超过两根阴线，<strong>3至5根</strong>阴线的极点形态。恐吓柱数量：通常3-5根，过多则形态走弱，过少则归为双阴极点。</p><p><strong>完美缩量连阴</strong>：价与量同时缩——阴线跌幅逐日减小+成交量逐日递减。"量也缩，价也缩，这种是完美的"。</p><p><strong>统一标准</strong>：停止柱仍须满足极量+极价（缩量1/2+十字星）。</p><p><span class="text-sell">重要：潜伏风险更高</span>——连阴情况下即使出现极量+极价，还可能继续跌。<span class="text-buy">最佳买点一定是确认柱</span>，以牺牲少量利润换取更高确定性。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">润和软件（四年极点）</h5><div class="case-stock-name">润和软件·2021年5月</div><div class="case-content"><p>连续四天调整（四阴），量价连缩。C柱十字星+缩量1/2到位，D柱确认后连续大涨。<span class="text-sell">关键教训：C柱前一日量未到位，"量没到位就是量价不到位，所以继续跌，直到量到位才出现真正的极阴"</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">中青宝（翻倍连阴极点）</h5><div class="case-stock-name">中青宝·2021年11月11日</div><div class="case-content"><p>涨停板后连跌三天，B柱缩量1/2+十字星。次日跳空高开——"最完美的入场信号"。从起涨点约18元到最高42元，涨幅<span class="case-highlight">直接翻倍</span>（创业板20cm）。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">中百集团（潜伏底线案例）</h5><div class="case-stock-name">中百集团</div><div class="case-content"><p>涨停板后连调三天，十字星量价到位可潜伏。<span class="text-accent">潜伏底线原则</span>：前一个涨停板的开盘价作为止损底线——跌破就止损，不破就持有。最终<span class="case-highlight">连续四个涨停板</span>。</p></div></div><hr class="section-divider"><h4 style="color:var(--color-primary);margin-top:var(--sp-xl);">子板块B：按标准程度分类（第9-11课）</h4><h3 class="lesson-title" id="sec-9">第9课：标准极点</h3><div class="card" id="card-standard-pole"><div class="card-header"><h4 class="card-title">标准极点——基准坐标</h4><span class="card-badge badge-tactic">约20%</span></div><div class="card-body"><p>标准极点是所有极点的<strong>基准坐标系</strong>。核心方法：<strong>"首尾框架法"</strong>。</p><ul class="content-list"><li><strong>首阴缩量</strong>：高潮柱后第一根阴线应缩量1/3以上——"首跌缩越多，假跌概率越高"。</li><li><strong>尾十字星缩量1/2</strong>：停止柱须是缩量1/2的十字星。</li></ul><p>只要首尾两个端点满足，中间的变化（三阴、双阴、变异等）都可归入标准极点范畴。</p><p><strong>量价线位四维分析法</strong>：量（缩1/2）、价（十字星）、线（顶/底/腰/缺四种支撑线）、位（停止柱在关键线上的精确位置）。精准回踩（一分不差或差一两分钱）是最强信号。</p></div></div><div class="mnemonic-block"><div class="mnemonic-label">总纲领</div><p class="mnemonic-text">万变不离其宗：高潮柱 + 支撑柱 + 停止柱 = 极点本质。
+分类意义：让交易者在一眼就能看清楚——"他只是换了个马甲而已"。
+离标准越近，确定性越强。</p></div><hr class="section-divider"><h3 class="lesson-title" id="sec-10">第10课：完美极点</h3><div class="card" id="card-perfect-pole"><div class="card-header"><h4 class="card-title">完美极点——送分题与起爆点</h4><span class="card-badge badge-tactic badge-golden">约10%·最重要</span></div><div class="card-body"><p>极点体系中<span class="text-accent">确定性最高</span>的形态，翰林老师多次用"送分题"、"主力送钱的"来形容。四大铁律：</p><ol class="content-list"><li><strong>高潮柱与支撑柱必须一体（一极）</strong>：同一根K线，"这是核心，这是重点"。</li><li><strong>恐吓柱最多1至2根</strong>：只能是一根阴线或两根阴线，超过即不符。</li><li><strong>支撑柱与确认柱相隔2天或3天</strong>：两日完美极点=一阴+十字星；三日完美极点=两阴+十字星。"完美极点只有两种情况，没有其他的"。</li><li><strong>停止柱必须是标准十字星 + 缩量1/2</strong>：不允许任何形态变异。</li></ol></div></div><div class="card" id="card-perfect-buy"><div class="card-header"><h4 class="card-title">五次买入机会</h4><span class="card-badge badge-tactic">多重窗口</span></div><div class="card-body"><p>翰林老师明确列举完美极点提供的<strong>五次买入机会</strong>：</p><ol class="content-list"><li><strong>停止柱尾盘潜伏</strong>——完美极点是少数明确允许潜伏的类型</li><li><strong>确认柱跳空高开竞价买入</strong>——9:25后直接买</li><li><strong>确认柱盘中追买</strong></li><li><strong>确认柱尾盘买入</strong>——非涨停板时的选择</li><li><strong>确认柱次日买入</strong>——以上全错过仍可入场</li></ol></div></div><div class="mnemonic-block"><div class="mnemonic-label">翰林老师的心智训练要求</div><p class="mnemonic-text">把这个完美节点刻画在你的脑海里面。
+做梦都能够出现完美节点的形态。
+闭上眼睛能够立刻跳出完美极点形态出来。
+在梦中能够梦见出来——就代表你已经进入家境了。
+给了你五次机会，如果你都没买，一定要检讨！</p></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">先锋电子（两日完美极点）</h5><div class="case-stock-name">先锋电子·2023年</div><div class="case-content"><p>A柱冲高回落大阳线（高量柱），次日跳空低开中阴十字星，第三天标准十字星+缩量到位——"一阴加十字星"标准两日完美极点。确认后<span class="case-highlight">连续三个涨停板</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">三变科技（三日完美极点+潜伏）</h5><div class="case-stock-name">三变科技·2022年</div><div class="case-content"><p>A柱涨停板高潮支撑一体，B柱量未到位需等待，C柱标准十字星+缩量1/2——"一看就是送分题"。<span class="text-buy">完美极点可以潜伏</span>——C柱当天可买入。确认后<span class="case-highlight">连续四个涨停板</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">上海电影（封底行情）</h5><div class="case-stock-name">上海电影·2023年</div><div class="case-content"><p>经多日等待量价到位，D柱潜伏+次日跳空加仓——<span class="text-accent">潜伏小仓位+确认跳空加满仓</span>的组合策略。随后走出接近翻倍行情。</p></div></div><hr class="section-divider"><h3 class="lesson-title" id="sec-11">第11课：变异极点</h3><div class="card" id="card-variant-pole"><div class="card-header"><h4 class="card-title">变异极点——实战主体</h4><span class="card-badge badge-tactic">约70%·最重要</span></div><div class="card-body"><p>变异极点占市场所有极点的<span class="text-accent">约70%</span>。形态可伪装，量价关系不骗人。</p><p><strong>三种变异类型：</strong></p><ul class="content-list"><li><strong>高潮柱变异</strong>：放量阴线作为高潮柱——K线同时具备高潮柱（放量）和恐吓柱（阴线）双重属性。</li><li><strong>恐吓柱变异</strong>：下跌中夹杂阳线——不是连续阴线，而是阴阳交替。</li><li><strong>停止柱变异</strong>：中小阴线代替十字星——跌幅比前一天大，但量没放大。</li></ul><p class="text-accent">核心原则：极量+极价才是根本，任何变异后必须出现标准停止柱。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">大连重工（复合变异）</h5><div class="case-stock-name">大连重工</div><div class="case-content"><p>高潮柱变异（放量阴线）+ 恐吓柱变异（夹杂阳线），连续跌四天后停止柱到位——极量+极价十字星。确认后<span class="case-highlight">连续六个涨停板接近翻倍</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">金科股份（大涨高潮变异）</h5><div class="case-stock-name">金科股份</div><div class="case-content"><p>大阴高潮柱，调整三天出现标准缩量十字星+精准支撑。确认后<span class="case-highlight">连续三个涨停板</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">安利股份（停止柱变异）</h5><div class="case-stock-name">安利股份</div><div class="case-content"><p>B柱为中阴线（停止柱变异），跌幅比前一天大3倍，但成交量与前一天几乎一样——"量价关系出卖了它"。价格在跌但真正卖出的人很少，洗盘已到位。次日过阴顶即买点。</p></div></div><hr class="section-divider"><h4 style="color:var(--color-primary);margin-top:var(--sp-xl);">子板块C：按支撑/确认方式分类（第12-14课）</h4><h3 class="lesson-title" id="sec-12">第12课：涨停极点</h3><div class="card" id="card-limit-up-pole"><div class="card-header"><h4 class="card-title">涨停极点的投资逻辑</h4><span class="card-badge badge-tactic">涨停板支撑</span></div><div class="card-body"><p>以<strong>涨停板作为支撑柱</strong>的极点形态。核心选股思路：<span class="text-accent">"在涨停板里面抓涨停"</span>——"在有鱼的地方去钓鱼，而且是有大鱼的地方去钓鱼"。</p><p><strong>连环涨停极点效应</strong>：同一个涨停板可以为多个后续涨停提供支撑——一个涨停确认柱可同时成为下一个极点的支撑柱，形成连续涨停机会链。</p><p><strong>跌时缩量 = 主力没逃</strong>：调整期间缩量是关键信号，说明主力没有出逃。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">天房股份（连环涨停）</h5><div class="case-stock-name">天房股份</div><div class="case-content"><p>展示多层次涨停极点逻辑：第一个极点缩量1/3次日涨停；第二个极点十字星量价到位+C柱跳空高开涨停。<span class="case-highlight">C柱涨停板既是前一极点确认柱，又是后续极点支撑柱——连环效应。</span></p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">翰林老师亲历（2019年2月26日）</h5><div class="case-stock-name">(老师女儿生日当天)</div><div class="case-content"><p>涨停板后连调四天（超过标准三天但极量极价到位），次日跳空形成一日极点，确认后<span class="case-highlight">五连板</span>。次日跳空低开跌七八个点很多人恐慌，但老师观察到量是缩的（尤其尾盘），果断让大家加仓！<span class="text-accent">量在价先</span>——跌时缩量=主力没逃。</p></div></div><div class="mnemonic-block"><div class="mnemonic-label">涨停极点口诀</div><p class="mnemonic-text">在涨停板里找涨停板——先去有大鱼的池塘再下网。
+涨停板是"大鱼"信号，有涨停=有强主力资金。
+跌时缩量不惧——缩量说明主力没逃。</p></div><hr class="section-divider"><h3 class="lesson-title" id="sec-13">第13课：飞天极点</h3><div class="card" id="card-flying-pole"><div class="card-header"><h4 class="card-title">飞天极点——最强确认形态</h4><span class="card-badge badge-tactic">跳空确认</span></div><div class="card-body"><p>前一天标准极点（停止柱中小阴/十字星+缩量到位），次日<strong>跳空高开过最后阴线顶部</strong>。命名含义——股价像"直接升天"一样跳空飞出。<span class="text-accent">高开是主力行为，散户做不到</span>——主力迫不及待拉升的强烈做多信号。</p><p><strong>标准飞天</strong>：跳空直接过阴顶，可直接买入。</p><p><strong>变异飞天</strong>：跳空但未过阴顶——等盘中过顶再买。</p><p><strong>精准度要求</strong>：越精准越好，精确到一分钱的跳空最说明主力刻意行为。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">纯净精工</h5><div class="case-stock-name">纯净精工</div><div class="case-content"><p>C柱当天直接跳空过最后阴线顶——标准飞天极点。虽然当天收中阴线，但跳空确认信号足够强，<span class="case-highlight">紧接着连续两个涨停板</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">莱美药业</h5><div class="case-stock-name">莱美药业</div><div class="case-content"><p>B柱标准十字星+缩量到位，C柱跳空过阴顶当天<span class="case-highlight">直接20厘米涨停</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">荣盛发展</h5><div class="case-stock-name">荣盛发展</div><div class="case-content"><p>连续调整+高潮柱变异+极量极价到位，C柱跳空高开过最后阴顶，<span class="case-highlight">连续四个涨停板</span>。</p></div></div><hr class="section-divider"><h3 class="lesson-title" id="sec-14">第14课：双域极点</h3><div class="card" id="card-heli-pole"><div class="card-header"><h4 class="card-title">合力双域极点</h4><span class="card-badge badge-tactic">有重叠·更强</span></div><div class="card-body"><p>连续两座城堡加极点，且两座城堡<strong>有价格重叠区域</strong>。</p><p><strong>关键信号</strong>：第二个极点的成交量比第一个极点更低（缩量）——上涨确定性更强，<span class="text-buy">可直接潜伏</span>。</p><p><strong>标志特征</strong>：确认柱身兼两职——既是前极点确认柱，又是后极点支撑柱。</p><p><strong>水平双极点</strong>：合力极致形态——两城堡几乎完全重合，两极点在统一水平线上。</p></div></div><div class="card" id="card-jieli-pole"><div class="card-header"><h4 class="card-title">接力双域极点</h4><span class="card-badge badge-tactic">无重叠·较强</span></div><div class="card-body"><p>连续两座城堡加极点，但两座城堡之间<strong>没有价格重叠</strong>——阶梯式上行。</p><p>第一极点启动，第二极点加速。第一波是前奏，第二波往往是<strong>主升浪</strong>。</p><p>合力与接力在同一图中是相对关系——有重叠=合力，无重叠=接力。</p></div></div><div class="mnemonic-block"><div class="mnemonic-label">双域极点口诀</div><p class="mnemonic-text">错过第一个不要紧，第二个千万别错过——它可能是主升浪的开始。
+第二极量比第一更低 = 上涨确定性更高。
+第二波涨幅往往大于第一波。</p></div><hr class="section-divider"><h4 style="color:var(--color-primary);margin-top:var(--sp-xl);">子板块D：按位置/筹码/节奏分类（第15-21课）</h4><h3 class="lesson-title" id="sec-15">第15课：单枪极点</h3><div class="card" id="card-single-spear"><div class="card-header"><h4 class="card-title">单枪极点的定义与本质</h4><span class="card-badge badge-tactic">长上影试探</span></div><div class="card-body"><p><strong>单枪</strong>：上涨途中的长上影线阳线，上影线幅度<span class="text-formula">>3%</span>。</p><p><strong>本质</strong>：主力主动试探左侧压力位，消耗套牢盘供应，为后续拉升扫清障碍。形成过程：主动拉升到压力位后冲高回落，让解套者和微利者卖出，洗掉不坚定筹码。</p><p><strong>两大子类</strong>：单枪一日极点（次日缩量十字星即止跌）和单枪标准极点（调整2-3天后出现极点）。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">北京君正（单枪一日极点）</h5><div class="case-stock-name">北京君正·2023年4月4日</div><div class="case-content"><p>A柱单枪（冲高回落长上影），B柱阳十字星+缩量1/2——经典单枪一日极点。当天可潜伏，次日高开仍可买入，<span class="case-highlight">第三天大涨</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">新五峰（单枪一日+过左峰）</h5><div class="case-stock-name">新五峰</div><div class="case-content"><p>A柱高量柱+单枪（碰左侧峰值），B柱小阴线缩量1/2——"有戏了"。C柱过B柱阴线顶即买点，<span class="case-highlight">连续大涨超20%</span>。老师特别提醒：这个图要深深印在脑海。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">单枪完美极点</h5><div class="case-content"><p>B柱标准单枪遇左峰压力，顺势再调整两天（假跌），C柱十字星量价到位——单枪完美极点。D柱涨停确认后<span class="case-highlight">连续三个涨停板</span>。</p></div></div><div class="mnemonic-block"><div class="mnemonic-label">学习方法论</div><p class="mnemonic-text">把核心案例截图存电脑和手机，睡前看一遍、早上看一遍。
+形成条件反射和肌肉记忆——一眼花开（看一眼就知道是买点）。
+图形记忆 > 文字理解，条件反射 > 理性分析。</p></div><hr class="section-divider"><h3 class="lesson-title" id="sec-16">第16课：左峰极点</h3><div class="card" id="card-left-peak"><div class="card-header"><h4 class="card-title">左峰极点的命名与特征</h4><span class="card-badge badge-tactic">前期高点处</span></div><div class="card-body"><p>以<strong>位置</strong>命名——股价经过前期大涨调整后重新涨回左侧前期高点（左峰）附近，受压回调，在回调中产生极点。</p><p><strong>调整周期</strong>：通常<strong>1到3个月</strong>最理想。调整时间越长，主力准备越充分，后续上涨潜力越大。</p><p>与单枪极点可叠加——"左峰单枪极点" = 万般宠爱集一身。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">左峰单枪极点</h5><div class="case-content"><p>A柱左侧重大压力位，中间调整近两个月。B柱触达左峰形成单枪，后面出现完美极点。当多种极点集于一身（左峰+单枪+完美）时，称为"万般宠爱集一身"，<span class="case-highlight">股票开始爆炸性生长</span>。</p></div></div><div class="mnemonic-block"><div class="mnemonic-label">左峰极点口诀</div><p class="mnemonic-text">所有牛股必然都会经过左峰——这是必经之路。
+调整时间越长，主力准备越充分。
+每节课至少找50个案例验证，找到越多信心越强。</p></div><hr class="section-divider"><h3 class="lesson-title" id="sec-17">第17课：巅峰极点</h3><div class="card" id="card-peak-pole"><div class="card-header"><h4 class="card-title">巅峰极点的循环特征</h4><span class="card-badge badge-tactic">创新高回调</span></div><div class="card-body"><p>上升趋势中每次<strong>创新高之后回调</strong>形成的极点，呈现"高点更高、低点更高"的特征。</p><p><strong>vs 左峰极点</strong>：调整时间偏短（数天到两周），左峰极点调整长（1-3个月）。</p><p><strong>交易价值</strong>：主升浪中不断重复"上去-下来-上去-下来"，每次新高后出现极点就是买点。</p><p><strong>极点与空点</strong>：极点=阴属性（低吸），空点=阳属性（追涨）。<span class="text-accent">有低吸机会一定首先低吸</span>——安全、成本低、风险小、利润大。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">姚记科技（多买点实例）</h5><div class="case-stock-name">姚记科技·从17元涨至36元翻倍</div><div class="case-content"><p>整个上涨过程中出现<strong>五次入场机会</strong>：B柱极点、D柱极点、非标准极点、F柱极点、H柱极点。每次买点都买在洗盘的极致地点，可潜伏可次日确认买入，确认后每次都是"一买就涨"。</p></div></div><hr class="section-divider"><h3 class="lesson-title" id="sec-18">第18课：命门极点</h3><div class="card" id="card-mingmen-basis"><div class="card-header"><h4 class="card-title">命门极点的底层逻辑</h4><span class="card-badge badge-tactic badge-golden">主力成本·核心</span></div><div class="card-body"><p><strong>命门 = 主力成本价</strong>。与主力成本一致甚至更低=立于不败之地。</p><p><strong>核心预备知识——筹码集中度：</strong></p><ul class="content-list"><li><strong>黄金筹码</strong>：90%和70%成本集中度<strong>同时</strong>在5%-10%之间。</li><li><strong>钻石筹码</strong>：两个集中度都<strong>同时</strong>≤5%。</li><li>两者合称"金钻筹码"，钻石比黄金更具价值。</li></ul></div></div><div class="card" id="card-mingmen-conditions"><div class="card-header"><h4 class="card-title">命门极点三大条件</h4><span class="card-badge badge-tactic">判定标准</span></div><div class="card-body"><ol class="content-list"><li><strong>股价区间震荡20%以内</strong>，同时回到震荡区间下沿。</li><li><strong>供应耗尽</strong>：出现极点信号（缩量十字星等），卖盘枯竭。</li><li><strong>筹码为金钻筹码</strong>，且套牢比例在50%以上。</li></ol><p class="text-accent">三个条件同时满足 = 命门极点成立。往往是主升浪的起点！</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">天龙股份（大牛股案例）</h5><div class="case-stock-name">天龙股份·2023年</div><div class="case-content"><p>黄金筹码（90%=9.6%, 70%=7.6%）+ 套牢超50% + 涨停极点。精准达到涨停板底线，低量+十字星。确认后<span class="case-highlight">连续涨停九天（1-9连板）</span>，底部起涨近三倍。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">真视通（翻倍案例）</h5><div class="case-stock-name">真视通</div><div class="case-content"><p>接近钻石筹码（90%=7.1%, 70%=4.6%）+ 套牢64% + 双星极点。第二天涨停确认后<span class="case-highlight">连续九个涨停板，直接翻倍</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">经典命门极点</h5><div class="case-content"><p>钻石筹码（90%=4.3%, 70%=2.8%·超级集中）+ 套牢65% + 连阳回调极点。确认后<span class="case-highlight">股价涨30%</span>。</p></div></div><hr class="section-divider"><h3 class="lesson-title" id="sec-19">第19课：金钻涨停</h3><div class="card" id="card-golden-diamond"><div class="card-header"><h4 class="card-title">金钻涨停——牛股起爆点</h4><span class="card-badge badge-tactic badge-golden">筹码+涨停</span></div><div class="card-body"><p>命门极点课程的延伸应用，将筹码集中度与涨停板结合：</p><ul class="content-list"><li><strong>黄金涨停（金条）</strong>：突破平台的涨停板 + 黄金筹码（集中度5%-10%）。</li><li><strong>钻石涨停</strong>：突破平台的涨停板 + 钻石筹码（集中度≤5%）。价值大于金条。</li><li><strong>合称"金钻涨停"</strong>：主力集中集结发起冲锋号的信号，往往是牛股的起爆点。叠加热点题材时起爆概率更高。</li></ul></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">凯华材料（史上涨幅纪录）</h5><div class="case-stock-name">凯华材料·2023年11月27日</div><div class="case-content"><p>钻石筹码（90%=5.3%, 70%=3.7%）涨停板过前高。因为是30cm品种，<span class="case-highlight">七个交易日涨了八倍</span>——创造了有史以来七个交易日内涨幅最大的个股纪录。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">大众交通（翻三倍）</h5><div class="case-stock-name">大众交通·2024年7月26日</div><div class="case-content"><p>一字板+超级钻石筹码（90%=3.0%, 70%=1.5%）+ 热点题材"萝卜快跑"。<span class="case-highlight">股价翻了近三倍</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">邵阳液压（三天超60%）</h5><div class="case-stock-name">邵阳液压·2024年7月26日</div><div class="case-content"><p>20cm涨停板+钻石筹码（90%=5.4%, 70%=3.0%）。<span class="case-highlight">三天涨幅超60%</span>。即使没买到当天涨停，第二天买入仍有约30%空间。</p></div></div><hr class="section-divider"><h3 class="lesson-title" id="sec-20">第20课：合力涨停</h3><div class="card" id="card-heli-limitup"><div class="card-header"><h4 class="card-title">合力涨停的形态与条件</h4><span class="card-badge badge-tactic">有重叠·2-8天</span></div><div class="card-body"><p>首板/二板/三板 -> 调整<strong>2-8天</strong>（不破底线）-> <strong>再次缩量涨停</strong>。两个涨停板之间<strong>有重叠区域</strong>。</p><p><strong>最核心条件：第二个涨停板必须缩量。</strong>缩量打板入场，次日通常至少五个点溢价，甚至连板。</p><p><strong>本质</strong>：主力涨停后洗盘再蓄势进攻。涨停板是主力给自己的"加油"信号。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">剑桥科技（经典合力接力交替）</h5><div class="case-stock-name">剑桥科技</div><div class="case-content"><p>展示主力如何反复用合力和接力交替推高股价：连续涨停板休息一天是接力，接力完合力，合力完再合力——连续不断。<span class="text-accent">核心启示：在涨停板里面去找涨停。</span></p></div></div><div class="mnemonic-block"><div class="mnemonic-label">合力涨停操作口诀</div><p class="mnemonic-text">最佳买入：涨停板当天打板。
+次选：第二天竞价择机买入（需结合竞价、大盘、板块、题材）。
+涨停=主力进攻信号，不是风险。
+要在涨停板里面找涨停——在有鱼的地方钓鱼。</p></div><hr class="section-divider"><h3 class="lesson-title" id="sec-21">第21课：接力涨停</h3><div class="card" id="card-jieli-limitup"><div class="card-header"><h4 class="card-title">合力 vs 接力核心区别</h4><span class="card-badge badge-tactic">无重叠·1-3天</span></div><div class="card-body"><p>涨停板 -> 1-3天缩量调整（<strong>不破前涨停板收盘价</strong>）-> 再次缩量涨停。两个涨停板之间<strong>没有重叠</strong>。</p></div></div><div class="table-wrapper"><table class="compare-table"><thead><tr><th>对比维度</th><th>接力涨停</th><th>合力涨停</th></tr></thead><tbody><tr><td>两个涨停板之间</td><td><strong>没有重叠</strong></td><td><strong>有重叠部分</strong></td></tr><tr><td>调整方式</td><td>短暂暂停·快速洗盘1-3天</td><td>阴线回调·回撤稍深</td></tr><tr><td>调整天数</td><td>1-3天</td><td>2-8天</td></tr><tr><td>走势强度</td><td><strong>更强</strong>（主力基本没休息）</td><td>较强（主力有回调休息）</td></tr><tr><td>本质</td><td>主力不停歇继续推进</td><td>主力休整后再进攻</td></tr></tbody></table></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">铭普光磁</h5><div class="case-stock-name">铭普光磁·2023年6月7日</div><div class="case-content"><p>涨停板后出现放量十字星（多空分歧），次日竞价高开即接力形态确认信号，可在集合竞价直接买入。<span class="case-highlight">随后连续大涨。</span></p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">首创证券（合力转接力）</h5><div class="case-stock-name">首创证券·2023年8月7日</div><div class="case-content"><p>A-B之间是合力（有重叠），B-C之间是接力（调整三天不破收盘价）。主力交替使用合力与接力将股价推向高位。<span class="case-highlight">连续三个板。</span></p></div></div><div class="mnemonic-block"><div class="mnemonic-label">接力涨停口诀</div><p class="mnemonic-text">接力与买法一模一样：要么当天买，要么第二天买。
+涨停板后放量十字星+次日竞价跳空高开=接力确认·集合竞价直接买。
+主力交替使用接力与合力是常规操盘手法。</p></div><hr class="section-divider"><h4 style="color:var(--color-primary);margin-top:var(--sp-xl);">子板块E：分时层面（第22-23课）</h4><h3 class="lesson-title" id="sec-22">第22课：分时极点擒涨停</h3><div class="card" id="card-timeshare-pole"><div class="card-header"><h4 class="card-title">完美涨停分时的核心结构</h4><span class="card-badge badge-tactic">分时层面</span></div><div class="card-body"><p>在分钟级分时走势图中寻找极点信号来捕捉涨停板。<strong>完美涨停分时三条件：</strong></p><ol class="content-list"><li><strong>第一笔拉升幅度超过3%</strong></li><li><strong>回落不破1/2或1/3</strong>（3121法则的分时版本）</li><li><strong>呈现N字型结构</strong>（上下上）</li></ol><p><strong>三段式</strong>：3段完成即涨停（一个N字）。<strong>五段式</strong>：5段完成（更复杂N字）。<strong>一段式（秒板）</strong>：直接开盘秒拉涨停，最难买到。</p><p><span class="text-accent">关键：分时回落段缩量1/3或1/2（3121法则分时版）</span>——缩量达标才是极点。</p></div></div><div class="card" id="card-overlap-resonance"><div class="card-header"><h4 class="card-title">叠加共振效应</h4><span class="card-badge badge-golden">最强信号</span></div><div class="card-body"><p><strong>日线出现极点 + 分时出现极点 = "叠加共振效应"</strong>——这是"必打信号"，溢价率非常高，成功率极高。</p><p>尤其是合力涨停极点或标准极点在首板中出现三段式完美极点时——威力最大。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">海鸥住工（七段式·三个极点）</h5><div class="case-stock-name">海鸥住工·2022年9月26日</div><div class="case-content"><p>实际为七段式上涨，共有三个回调极点，每个缩量达1/3。日线上是合力涨停极点。<span class="case-highlight">无论在第几个极点打入，后面都涨停了，连续四个板。</span>完美展示了分时极点的魅力。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">襄阳轴承（叠加共振范例）</h5><div class="case-stock-name">襄阳轴承·2022年7月22日</div><div class="case-content"><p>日线：倍量大中阳后调整两天（缩量十字星）= 完美极点。分时：三段式+涨停板上给极点机会（缩量达标）。<span class="case-highlight">日线极点+分时极点=叠加共振，是极佳的爆发时机。</span></p></div></div><hr class="section-divider"><h3 class="lesson-title" id="sec-23">第23课：冲天分时擒涨停</h3><div class="card" id="card-skyrocket"><div class="card-header"><h4 class="card-title">冲天分时五大要素</h4><span class="card-badge badge-tactic">分时层面</span></div><div class="card-body"><p>盘中快速放量冲击涨停后回落，缩量调整后再次涨停：</p><ol class="content-list"><li><strong>快速冲涨停</strong>：盘中突然放量冲击涨停板</li><li><strong>回调缩量</strong>：冲高后回调缩量</li><li><strong>回调时间</strong>：15-60分钟（最少15分钟，最长可达2小时）</li><li><strong>在分时均线之上</strong>：全回调过程不破均线</li><li><strong>再次涨停</strong>：调整后重新封板</li></ol></div></div><div class="card" id="card-skyrocket-advantages"><div class="card-header"><h4 class="card-title">冲天分时四大优点</h4><span class="card-badge badge-golden">独特优势</span></div><div class="card-body"><ol class="content-list"><li><strong>看得到</strong>：快速冲涨停+回落15-60分钟，有充足时间分析</li><li><strong>买得着</strong>：等待和决策时间充分</li><li><strong>溢价高</strong>：第二天连板概率高，"搞不好连板，最差也有三个点溢价"</li><li><strong>频率高</strong>：同一主力反复使用，同一标的多次出现买卖机会</li></ol></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">上海电影（三次冲天分时）</h5><div class="case-stock-name">上海电影·2023年3月</div><div class="case-content"><p>一个月内三次标准冲天分时——3月8日（后两天连板）、3月20日（涨超30%）、3月31日（涨近50%）。<span class="text-accent">"很多主力反复用冲天分时"——这是主力经典动作。</span></p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">多伦科技（两次冲天分时+接力）</h5><div class="case-stock-name">多伦科技·2023年11月</div><div class="case-content"><p>两次教科书级冲天分时相隔10天。日线对照：冲天分时后无卖点反而是加仓/潜伏机会，中间形成接力涨停，<span class="case-highlight">总共涨了五个板。</span></p></div></div><div class="mnemonic-block"><div class="mnemonic-label">冲天分时四前提</div><p class="mnemonic-text">1. 板位限制：最好三连板以内（四板五板以上风险大）
+2. 板块要求：最好是当下热点板块
+3. 主力蓄势：极点之后的冲天分时效果更好
+4. 行情环境：强势上午打、弱势下午打</p></div><hr class="section-divider"><div class="svg-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1400 900" width="100%" height="100%">
+  <defs>
+    <style>
+      text { font-family: system-ui, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+      .title { font-size: 20px; font-weight: bold; fill: #1a1a2e; }
+      .war-name { font-size: 17px; font-weight: bold; fill: #fff; }
+      .war-sub { font-size: 12px; fill: #ccc; }
+      .info-label { font-size: 13px; font-weight: bold; }
+      .info-text { font-size: 11px; fill: #444; }
+      .info-sub { font-size: 10px; fill: #777; }
+      .tag { font-size: 10px; fill: #fff; }
+    </style>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="4" stdDeviation="4" flood-opacity="0.15"/>
+    </filter>
+    <filter id="shadow-sm">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+  </defs>
+
+  <rect width="1400" height="900" fill="#fafbfc" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="700" y="36" text-anchor="middle" class="title" font-size="22">四大涨停战法·关系图谱</text>
+  <line x1="520" y1="46" x2="880" y2="46" stroke="#4a90d9" stroke-width="2"/>
+  <text x="700" y="65" text-anchor="middle" style="font-size: 13px; fill: #888;">金钻起爆 → 合力节奏 → 接力推进 → 分时精确 · 涨停维度全覆盖</text>
+
+  <!-- ============ 中央核心理念 ============ -->
+  <rect x="500" y="90" width="400" height="46" rx="23" fill="#1a1a2e" filter="url(#shadow)"/>
+  <text x="700" y="112" text-anchor="middle" fill="#ffd700" font-size="15" font-weight="bold">核心理念："在涨停板里找涨停板"</text>
+  <text x="700" y="130" text-anchor="middle" fill="#aaa" font-size="11">在有大鱼的池塘里钓鱼 · C128公式一网打尽</text>
+
+  <!-- 从中心分发到四个战法 -->
+  <polyline points="550,136 550,190 350,190 350,230" fill="none" stroke="#4a90d9" stroke-width="1.8"/>
+  <polyline points="650,136 650,190 650,230" fill="none" stroke="#4a90d9" stroke-width="1.8"/>
+  <polyline points="750,136 750,190 950,190 950,230" fill="none" stroke="#4a90d9" stroke-width="1.8"/>
+  <polyline points="850,136 850,190 1050,190 1050,230" fill="none" stroke="#4a90d9" stroke-width="1.8"/>
+
+  <!-- ============ 四根柱子：四大涨停战法 ============ -->
+
+  <!-- 战法一：金钻涨停 (左上) -->
+  <rect x="215" y="230" width="270" height="260" rx="12" fill="#e74c3c" filter="url(#shadow)"/>
+  <text x="350" y="260" text-anchor="middle" class="war-name">金钻涨停</text>
+  <text x="350" y="280" text-anchor="middle" class="war-sub">起爆信号 · 第19课</text>
+  <line x1="235" y1="290" x2="465" y2="290" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+
+  <!-- 金钻内部分类 -->
+  <rect x="230" y="298" width="240" height="42" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="350" y="316" text-anchor="middle" fill="#ffd4d4" style="font-size: 11px;">
+    <tspan x="350" dy="0">黄金涨停（金条）</tspan>
+    <tspan x="350" dy="14">筹码集中度 5%-10%</tspan>
+  </text>
+
+  <rect x="230" y="348" width="240" height="42" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="350" y="366" text-anchor="middle" fill="#ffd4d4" style="font-size: 11px;">
+    <tspan x="350" dy="0">钻石涨停</tspan>
+    <tspan x="350" dy="14">筹码集中度 ≤5%</tspan>
+  </text>
+
+  <text x="350" y="420" text-anchor="middle" fill="#fff" style="font-size: 11px;">合称"金钻"——主力集结冲锋号</text>
+  <text x="350" y="440" text-anchor="middle" fill="#ffd4d4" style="font-size: 10px;">突破平台+金钻筹码=牛股起爆点</text>
+
+  <!-- 案例 -->
+  <rect x="230" y="450" width="240" height="30" rx="4" fill="rgba(0,0,0,0.15)"/>
+  <text x="350" y="469" text-anchor="middle" fill="#ffcccc" style="font-size: 9px;">凯华材料(7日8倍) · 大众交通(翻3倍)</text>
+
+  <!-- 战法二：合力涨停 (中上) -->
+  <rect x="515" y="230" width="270" height="260" rx="12" fill="#e67e22" filter="url(#shadow)"/>
+  <text x="650" y="260" text-anchor="middle" class="war-name">合力涨停</text>
+  <text x="650" y="280" text-anchor="middle" class="war-sub">节奏信号 · 第20课</text>
+  <line x1="535" y1="290" x2="765" y2="290" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+
+  <rect x="530" y="298" width="240" height="72" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="650" y="316" text-anchor="middle" fill="#ffe0c0" style="font-size: 11px;">
+    <tspan x="650" dy="0">形态定义</tspan>
+    <tspan x="650" dy="14">首板/二板/三板 → 调整2-8天</tspan>
+    <tspan x="650" dy="14">（不破底线）→ 再次缩量涨停</tspan>
+    <tspan x="650" dy="14">两涨停之间"有重叠"</tspan>
+  </text>
+
+  <text x="650" y="395" text-anchor="middle" fill="#fff" style="font-size: 11px;">最核心条件：第二板必须缩量</text>
+  <text x="650" y="415" text-anchor="middle" fill="#ffe0c0" style="font-size: 10px;">缩量打板→高溢价（≥5%利润）</text>
+
+  <text x="650" y="445" text-anchor="middle" fill="#ffe0c0" style="font-size: 10px;">主力涨停后洗盘，再次蓄势进攻</text>
+  <text x="650" y="462" text-anchor="middle" fill="#ffe0c0" style="font-size: 10px;">涨停板是主力给自己的"加油"信号</text>
+
+  <rect x="530" y="470" width="240" height="14" rx="4" fill="rgba(0,0,0,0.15)"/>
+  <text x="650" y="480" text-anchor="middle" fill="#ffd4a0" style="font-size: 9px;">案例：剑桥科技(反复合力)·20cm合力</text>
+
+  <!-- 战法三：接力涨停 (右上) -->
+  <rect x="915" y="230" width="270" height="260" rx="12" fill="#f39c12" filter="url(#shadow)"/>
+  <text x="1050" y="260" text-anchor="middle" class="war-name">接力涨停</text>
+  <text x="1050" y="280" text-anchor="middle" class="war-sub">推进信号 · 第21课</text>
+  <line x1="935" y1="290" x2="1165" y2="290" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+
+  <rect x="930" y="298" width="240" height="72" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="1050" y="316" text-anchor="middle" fill="#fff3d0" style="font-size: 11px;">
+    <tspan x="1050" dy="0">形态定义</tspan>
+    <tspan x="1050" dy="14">涨停板 → 1-3天缩量调整</tspan>
+    <tspan x="1050" dy="14">（不破前收盘价）→ 再次缩量涨停</tspan>
+    <tspan x="1050" dy="14">两涨停之间"无重叠"</tspan>
+  </text>
+
+  <text x="1050" y="395" text-anchor="middle" fill="#fff" style="font-size: 11px;">走势更强（主力基本没休息）</text>
+  <text x="1050" y="415" text-anchor="middle" fill="#fff3d0" style="font-size: 10px;">游资最擅长使用的两种模式之一</text>
+
+  <text x="1050" y="445" text-anchor="middle" fill="#fff3d0" style="font-size: 10px;">放量十字星+次日竞价跳空高开</text>
+  <text x="1050" y="462" text-anchor="middle" fill="#fff3d0" style="font-size: 10px;">持有：不破涨停板底线就持有</text>
+
+  <rect x="930" y="470" width="240" height="14" rx="4" fill="rgba(0,0,0,0.15)"/>
+  <text x="1050" y="480" text-anchor="middle" fill="#ffe8a0" style="font-size: 9px;">铭普光磁·首创证券·剑桥科技</text>
+
+  <!-- 战法四：分时涨停 (中下) -->
+  <rect x="565" y="530" width="270" height="260" rx="12" fill="#27ae60" filter="url(#shadow)"/>
+  <text x="700" y="560" text-anchor="middle" class="war-name">分时涨停</text>
+  <text x="700" y="580" text-anchor="middle" class="war-sub">精确信号 · 第22-23课</text>
+  <line x1="585" y1="590" x2="815" y2="590" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+
+  <!-- 分时极点 -->
+  <rect x="580" y="598" width="240" height="64" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="700" y="616" text-anchor="middle" fill="#d4f5e0" style="font-size: 11px;">
+    <tspan x="700" dy="0">分时极点擒涨停（第22课）</tspan>
+    <tspan x="700" dy="14">第一笔拉升&gt;3% → 缩量回调</tspan>
+    <tspan x="700" dy="14">三段式/五段式N字结构</tspan>
+    <tspan x="700" dy="14">回落不破1/2或1/3(3121分时版)</tspan>
+  </text>
+
+  <!-- 冲天分时 -->
+  <rect x="580" y="672" width="240" height="64" rx="5" fill="rgba(255,255,255,0.15)"/>
+  <text x="700" y="690" text-anchor="middle" fill="#d4f5e0" style="font-size: 11px;">
+    <tspan x="700" dy="0">冲天分时擒涨停（第23课）</tspan>
+    <tspan x="700" dy="14">快速冲涨停 → 缩量回调15-60分钟</tspan>
+    <tspan x="700" dy="14">始终在分时均线之上</tspan>
+    <tspan x="700" dy="14">→ 再次封板</tspan>
+  </text>
+
+  <text x="700" y="765" text-anchor="middle" fill="#d4f5e0" style="font-size: 10px;">叠加共振：日线极点+分时极点=必打信号</text>
+
+  <!-- ============ 关系连线 ============ -->
+
+  <!-- 金钻 ↔ 合力 -->
+  <rect x="487" y="310" width="26" height="20" rx="4" fill="#fff" stroke="#e67e22" stroke-width="0.5"/>
+  <text x="500" y="324" text-anchor="middle" style="font-size: 9px; fill: #e67e22;">⬌</text>
+  <text x="500" y="350" text-anchor="middle" style="font-size: 9px; fill: #e67e22;">筹</text>
+  <text x="500" y="362" text-anchor="middle" style="font-size: 9px; fill: #e67e22;">码</text>
+  <text x="500" y="374" text-anchor="middle" style="font-size: 9px; fill: #e67e22;">贯</text>
+  <text x="500" y="386" text-anchor="middle" style="font-size: 9px; fill: #e67e22;">通</text>
+
+  <!-- 合力 ↔ 接力 -->
+  <polyline points="785,360 845,360" fill="none" stroke="#f39c12" stroke-width="1.5" stroke-dasharray="5,3"/>
+  <line x1="845" y1="355" x2="845" y2="365" stroke="#f39c12" stroke-width="1"/>
+  <line x1="845" y1="355" x2="840" y2="358" stroke="#f39c12" stroke-width="0.5"/>
+  <line x1="845" y1="365" x2="840" y2="362" stroke="#f39c12" stroke-width="0.5"/>
+
+  <rect x="796" y="338" width="100" height="16" rx="3" fill="#fff8e1" stroke="#f39c12" stroke-width="0.5"/>
+  <text x="846" y="350" text-anchor="middle" style="font-size: 8px; fill: #c8960c;">有无重叠</text>
+
+  <!-- 金钻+合力 ↔ 分时 (下连) -->
+  <polyline points="350,490 350,560 480,560 480,660 565,660" fill="none" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="5,3"/>
+  <text x="400" y="555" text-anchor="start" style="font-size: 9px; fill: #27ae60;">日线层面</text>
+
+  <polyline points="835,490 835,530 920,530 920,660 1050,660 1050,490" fill="none" stroke="#27ae60" stroke-width="1.2" stroke-dasharray="5,3"/>
+
+  <polyline points="700,530 700,520" fill="none" stroke="#27ae60" stroke-width="1.5"/>
+  <text x="700" y="518" text-anchor="middle" style="font-size: 10px; fill: #27ae60;">↑ 分时层面精确信号 ↑</text>
+
+  <!-- ============ 底部：关系总览与口诀 ============ -->
+  <rect x="30" y="810" width="1340" height="78" rx="10" fill="#f8f9fa" stroke="#ddd" stroke-width="1" filter="url(#shadow-sm)"/>
+
+  <!-- 四个维度连线 -->
+  <text x="180" y="840" text-anchor="middle" class="info-label" fill="#c0392b">金钻涨停</text>
+  <text x="180" y="860" text-anchor="middle" style="font-size: 11px; fill: #666;">起爆（筹码维度）</text>
+  <text x="180" y="878" text-anchor="middle" style="font-size: 10px; fill: #888;">"哪里起爆"</text>
+
+  <line x1="245" y1="855" x2="290" y2="855" stroke="#4a90d9" stroke-width="1.5"/>
+  <polygon points="290,851 295,855 290,859" fill="#4a90d9"/>
+
+  <text x="380" y="840" text-anchor="middle" class="info-label" fill="#e67e22">合力涨停</text>
+  <text x="380" y="860" text-anchor="middle" style="font-size: 11px; fill: #666;">节奏（调整维度）</text>
+  <text x="380" y="878" text-anchor="middle" style="font-size: 10px; fill: #888;">"什么节奏"</text>
+
+  <line x1="445" y1="855" x2="490" y2="855" stroke="#4a90d9" stroke-width="1.5"/>
+  <polygon points="490,851 495,855 490,859" fill="#4a90d9"/>
+
+  <text x="580" y="840" text-anchor="middle" class="info-label" fill="#f39c12">接力涨停</text>
+  <text x="580" y="860" text-anchor="middle" style="font-size: 11px; fill: #666;">推进（强度维度）</text>
+  <text x="580" y="878" text-anchor="middle" style="font-size: 10px; fill: #888;">"怎么接力"</text>
+
+  <line x1="645" y1="855" x2="690" y2="855" stroke="#4a90d9" stroke-width="1.5"/>
+  <polygon points="690,851 695,855 690,859" fill="#4a90d9"/>
+
+  <text x="780" y="840" text-anchor="middle" class="info-label" fill="#27ae60">分时涨停</text>
+  <text x="780" y="860" text-anchor="middle" style="font-size: 11px; fill: #666;">精确（分钟维度）</text>
+  <text x="780" y="878" text-anchor="middle" style="font-size: 10px; fill: #888;">"何时精准介入"</text>
+
+  <!-- 底部横向完整口诀 -->
+  <rect x="50" y="827" width="36" height="46" rx="6" fill="#1a1a2e"/>
+  <text x="68" y="855" text-anchor="middle" fill="#ffd700" font-size="14" font-weight="bold">四</text>
+  <text x="68" y="870" text-anchor="middle" fill="#ffd700" font-size="10">维</text>
+  <text x="68" y="880" text-anchor="middle" fill="#ffd700" font-size="10">闭</text>
+  <text x="68" y="890" text-anchor="middle" fill="#ffd700" font-size="10">环</text>
+
+  <!-- 底部横向口诀 -->
+  <text x="915" y="845" text-anchor="middle" class="info-label" fill="#1a1a2e">四大维度形成完整涨停闭环</text>
+  <text x="915" y="865" text-anchor="middle" style="font-size: 10px; fill: #888;">金钻=起爆点识别 | 合力+接力=节奏把握 | 分时=精确买点 | 四大战法 = 涨停维度全覆盖</text>
+
+  <!-- 右侧交替使用说明 -->
+  <rect x="1140" y="230" width="230" height="100" rx="8" fill="#fff" stroke="#c8960c" stroke-width="1.2" filter="url(#shadow-sm)"/>
+  <text x="1255" y="255" text-anchor="middle" class="info-label" fill="#c8960c">主力交替使用规律</text>
+  <line x1="1160" y1="263" x2="1350" y2="263" stroke="#c8960c" stroke-width="0.3"/>
+  <text x="1255" y="282" text-anchor="middle" style="font-size: 10px; fill: #555;">合力 → 接力 → 合力</text>
+  <text x="1255" y="298" text-anchor="middle" style="font-size: 10px; fill: #555;">或 接力 → 合力 → 接力</text>
+  <text x="1255" y="316" text-anchor="middle" style="font-size: 10px; fill: #888;">交替使用 · 配合操盘</text>
+
+  <!-- 底部对比表 -->
+  <rect x="1140" y="345" width="230" height="125" rx="8" fill="#fff" stroke="#c8960c" stroke-width="1.2" filter="url(#shadow-sm)"/>
+  <text x="1255" y="370" text-anchor="middle" class="info-label" fill="#c8960c">合力 vs 接力 对比</text>
+  <line x1="1160" y1="378" x2="1350" y2="378" stroke="#c8960c" stroke-width="0.3"/>
+  <text x="1255" y="398" text-anchor="middle" style="font-size: 10px; fill: #555;">合力：有重叠 · 2-8天 · 回调深</text>
+  <text x="1255" y="416" text-anchor="middle" style="font-size: 10px; fill: #555;">接力：无重叠 · 1-3天 · 主力不休息</text>
+  <text x="1255" y="436" text-anchor="middle" style="font-size: 10px; fill: #c8960c;" font-weight="bold">接力 ＞ 合力（走势强度）</text>
+  <text x="1255" y="456" text-anchor="middle" style="font-size: 10px; fill: #888;">但两者常交替出现，不应孤立看待</text>
+
+  <!-- 右侧双域极点说明 -->
+  <rect x="1140" y="490" width="230" height="85" rx="8" fill="#fff" stroke="#b09cdd" stroke-width="1.2" filter="url(#shadow-sm)"/>
+  <text x="1255" y="515" text-anchor="middle" class="info-label" fill="#4a2d8f">双域极点概念交叉</text>
+  <line x1="1160" y1="523" x2="1350" y2="523" stroke="#b09cdd" stroke-width="0.3"/>
+  <text x="1255" y="542" text-anchor="middle" style="font-size: 10px; fill: #555;">合力双域极点 = 有重叠</text>
+  <text x="1255" y="558" text-anchor="middle" style="font-size: 10px; fill: #555;">接力双域极点 = 无重叠</text>
+  <text x="1255" y="574" text-anchor="middle" style="font-size: 9px; fill: #888;">日线城堡层面 vs 涨停板节奏层面</text>
+
+</svg></div><h2 class="section-title" id="sec-5-phase">阶段五：风险控制与实操</h2><div class="svg-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1520 950" width="100%" height="100%">
+  <defs>
+    <style>
+      text { font-family: system-ui, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+      .title { font-size: 21px; font-weight: bold; fill: #1a1a2e; }
+      .phase-title { font-size: 16px; font-weight: bold; fill: #fff; }
+      .phase-num { font-size: 28px; font-weight: bold; fill: rgba(255,255,255,0.3); }
+      .step-title { font-size: 14px; font-weight: bold; }
+      .step-desc { font-size: 11px; fill: #555; }
+      .step-sub { font-size: 10px; fill: #888; }
+      .mantra { font-size: 12px; font-weight: bold; fill: #c8960c; }
+      .flow-arrow { fill: none; stroke: #4a90d9; stroke-width: 2; }
+    </style>
+    <filter id="shadow">
+      <feDropShadow dx="2" dy="3" stdDeviation="3" flood-opacity="0.12"/>
+    </filter>
+    <!-- 箭头定义 -->
+    <marker id="arrowBlue" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#4a90d9"/>
+    </marker>
+    <marker id="arrowGreen" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#27ae60"/>
+    </marker>
+    <marker id="arrowRed" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#e74c3c"/>
+    </marker>
+    <marker id="arrowGold" markerWidth="8" markerHeight="6" refX="8" refY="3" orient="auto">
+      <polygon points="0,0 8,3 0,6" fill="#c8960c"/>
+    </marker>
+  </defs>
+
+  <rect width="1520" height="950" fill="#fafbfc" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="760" y="34" text-anchor="middle" class="title" font-size="22">买入 · 持有 · 卖出 完整操盘流程</text>
+  <line x1="530" y1="44" x2="990" y2="44" stroke="#4a90d9" stroke-width="2"/>
+  <text x="760" y="64" text-anchor="middle" style="font-size: 13px; fill: #888;">选 → 买 → 持 → 卖 四步闭环 · 极简操盘手册</text>
+
+  <!-- ===== 阶段一：选股 ===== -->
+  <rect x="30" y="88" width="1460" height="155" rx="10" fill="#ebf5ff" stroke="#3498db" stroke-width="1.2" filter="url(#shadow)"/>
+  <rect x="30" y="88" width="210" height="155" rx="10" fill="#3498db"/>
+  <rect x="220" y="88" width="20" height="155" fill="#3498db"/>
+  <text x="135" y="148" text-anchor="middle" class="phase-title" font-size="18">阶段一</text>
+  <text x="135" y="178" text-anchor="middle" class="phase-title" font-size="20">选 股</text>
+  <text x="135" y="205" text-anchor="middle" fill="#cce0ff" font-size="11">战略层</text>
+  <text x="135" y="230" text-anchor="middle" fill="#cce0ff" font-size="13">STEP 1</text>
+
+  <!-- 选股步骤 -->
+  <rect x="255" y="100" width="290" height="55" rx="6" fill="#fff" stroke="#3498db" stroke-width="0.8"/>
+  <text x="400" y="120" text-anchor="middle" class="step-title" fill="#1e40af">C128涨停板选股</text>
+  <text x="400" y="140" text-anchor="middle" class="step-sub">Ctrl+T → 公式C128 → 5天周期 → 约200只标的</text>
+  <text x="600" y="128" text-anchor="middle" class="mantra">"在涨停板里找涨停板"</text>
+
+  <!-- 城堡战法选股 -->
+  <rect x="255" y="165" width="290" height="55" rx="6" fill="#fff" stroke="#3498db" stroke-width="0.8"/>
+  <text x="400" y="185" text-anchor="middle" class="step-title" fill="#1e40af">城堡战法过滤</text>
+  <text x="400" y="205" text-anchor="middle" class="step-sub">需要3-5个城堡 | 第一次城堡要放弃 | 城堡依次抬高</text>
+  <text x="600" y="193" text-anchor="middle" class="mantra">"城堡选股，极点择时"</text>
+
+  <!-- 五种战法 -->
+  <rect x="870" y="100" width="300" height="28" rx="4" fill="#dbeafe"/>
+  <text x="1020" y="119" text-anchor="middle" class="step-sub" fill="#1e40af" font-weight="bold">五种战法标的统一在涨停板池中识别</text>
+
+  <text x="870" y="155" class="step-sub" fill="#555">• 守株待兔：收藏高潮柱→恐吓柱→停止柱，等确认</text>
+  <text x="870" y="175" class="step-sub" fill="#555">• 主动进攻：下午2:30找停止柱(±1%) / 尾盘找确认柱(3%-5%)</text>
+  <text x="870" y="195" class="step-sub" fill="#555">• 大盘涨&gt;1%找确认柱 | 大盘跌/十字星找停止柱</text>
+  <text x="870" y="220" class="step-sub" fill="#555">• 收盘→C128选股→逐只翻阅→识别模式→收藏→设预警(Ctrl+Y)</text>
+
+  <!-- 箭头 -->
+  <line x1="760" y1="243" x2="760" y2="278" stroke="#4a90d9" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- ===== 阶段二：识别极点 ===== -->
+  <rect x="30" y="285" width="1460" height="155" rx="10" fill="#f0fdf4" stroke="#27ae60" stroke-width="1.2" filter="url(#shadow)"/>
+  <rect x="30" y="285" width="210" height="155" rx="10" fill="#27ae60"/>
+  <rect x="220" y="285" width="20" height="155" fill="#27ae60"/>
+  <text x="135" y="345" text-anchor="middle" class="phase-title" font-size="18">阶段二</text>
+  <text x="135" y="375" text-anchor="middle" class="phase-title" font-size="20">识 别 极 点</text>
+  <text x="135" y="405" text-anchor="middle" fill="#d4f5e0" font-size="11">工具层</text>
+  <text x="135" y="430" text-anchor="middle" fill="#d4f5e0" font-size="13">STEP 2</text>
+
+  <!-- ABCDEF识别 -->
+  <rect x="255" y="297" width="420" height="50" rx="6" fill="#fff" stroke="#27ae60" stroke-width="0.8"/>
+  <text x="465" y="317" text-anchor="middle" class="step-title" fill="#166534">ABCDEF六柱识别（一眼看出每根K线的柱子身份）</text>
+  <text x="465" y="337" text-anchor="middle" class="step-sub">A高潮柱(最高量+最高价)→B恐吓柱(缩量阴)→C支撑柱→D停止柱(极量+极价)→E确认柱→F反攻柱</text>
+
+  <!-- 3121密码 + 时间约束 -->
+  <rect x="255" y="357" width="200" height="70" rx="6" fill="#fff" stroke="#27ae60" stroke-width="0.8"/>
+  <text x="355" y="377" text-anchor="middle" class="step-title" fill="#166534">3121密码验证</text>
+  <text x="355" y="397" text-anchor="middle" class="step-sub">D柱量÷A柱量≤1/2</text>
+  <text x="355" y="413" text-anchor="middle" class="step-sub">1/2基本调到位 | 1/3更充分</text>
+
+  <rect x="475" y="357" width="200" height="70" rx="6" fill="#fff" stroke="#27ae60" stroke-width="0.8"/>
+  <text x="575" y="377" text-anchor="middle" class="step-title" fill="#166534">三八十时间约束</text>
+  <text x="575" y="397" text-anchor="middle" class="step-sub">支撑→高潮≤3天</text>
+  <text x="575" y="413" text-anchor="middle" class="step-sub">高潮→停止≤8天 | 总计≤10天</text>
+
+  <!-- 五维分类快速对号 -->
+  <rect x="695" y="297" width="320" height="40" rx="6" fill="#dcfce7" stroke="#27ae60" stroke-width="0.5"/>
+  <text x="855" y="312" text-anchor="middle" class="step-title" fill="#166534">五维形态分类 → 快速对号入座</text>
+  <text x="855" y="330" text-anchor="middle" class="step-sub">按调整天数/标准程度/支撑确认/位置筹码 多维标注</text>
+
+  <rect x="695" y="347" width="320" height="40" rx="6" fill="#dcfce7" stroke="#27ae60" stroke-width="0.5"/>
+  <text x="855" y="362" text-anchor="middle" class="step-title" fill="#166534">支撑位确认：顶底腰缺 四维定位</text>
+  <text x="855" y="380" text-anchor="middle" class="step-sub">顶=阳线顶 | 底=阳线底 | 腰=实体中间 | 缺=跳空缺口</text>
+
+  <!-- 右侧口诀 -->
+  <text x="1070" y="320" text-anchor="start" class="mantra" fill="#166534">口诀："极量加极价 = 调整到位"</text>
+  <text x="1070" y="345" text-anchor="start" class="step-sub" fill="#555">首跌缩量≥1/3 → 高概率假跌</text>
+  <text x="1070" y="370" text-anchor="start" class="step-sub" fill="#555">调整不过八，过了主力差</text>
+  <text x="1070" y="395" text-anchor="start" class="step-sub" fill="#555">越短爆发越强（黄金公式）</text>
+  <text x="1070" y="420" text-anchor="start" class="mantra" fill="#166534">"高潮量缩至1/2"</text>
+
+  <!-- 箭头 -->
+  <line x1="760" y1="440" x2="760" y2="475" stroke="#4a90d9" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- ===== 阶段三：过滤审核 ===== -->
+  <rect x="30" y="482" width="1460" height="115" rx="10" fill="#fef3e8" stroke="#f39c12" stroke-width="1.2" filter="url(#shadow)"/>
+  <rect x="30" y="482" width="210" height="115" rx="10" fill="#f39c12"/>
+  <rect x="220" y="482" width="20" height="115" fill="#f39c12"/>
+  <text x="135" y="525" text-anchor="middle" class="phase-title" font-size="18">阶段三</text>
+  <text x="135" y="555" text-anchor="middle" class="phase-title" font-size="20">过 滤 审 核</text>
+  <text x="135" y="585" text-anchor="middle" fill="#fff3d0" font-size="11">风控层</text>
+
+  <!-- 六层滤网 -->
+  <text x="255" y="505" class="step-title" fill="#c8960c">六层滤网审核（全部通过 → 有效极点）</text>
+
+  <rect x="255" y="515" width="160" height="30" rx="4" fill="#fff8e1" stroke="#f39c12" stroke-width="0.5"/>
+  <text x="335" y="535" text-anchor="middle" class="step-sub" fill="#8b6914">① 趋势滤网</text>
+
+  <rect x="425" y="515" width="160" height="30" rx="4" fill="#fff8e1" stroke="#f39c12" stroke-width="0.5"/>
+  <text x="505" y="535" text-anchor="middle" class="step-sub" fill="#8b6914">② 位置滤网</text>
+
+  <rect x="595" y="515" width="160" height="30" rx="4" fill="#fff8e1" stroke="#f39c12" stroke-width="0.5"/>
+  <text x="675" y="535" text-anchor="middle" class="step-sub" fill="#8b6914">③ 前低滤网</text>
+
+  <rect x="765" y="515" width="160" height="30" rx="4" fill="#fff8e1" stroke="#f39c12" stroke-width="0.5"/>
+  <text x="845" y="535" text-anchor="middle" class="step-sub" fill="#8b6914">④ 城堡滤网</text>
+
+  <rect x="935" y="515" width="160" height="30" rx="4" fill="#fff8e1" stroke="#f39c12" stroke-width="0.5"/>
+  <text x="1015" y="535" text-anchor="middle" class="step-sub" fill="#8b6914">⑤ 确认滤网</text>
+
+  <rect x="1105" y="515" width="160" height="30" rx="4" fill="#fff8e1" stroke="#f39c12" stroke-width="0.5"/>
+  <text x="1185" y="535" text-anchor="middle" class="step-sub" fill="#8b6914">⑥ 环境滤网</text>
+
+  <!-- 四大法则 -->
+  <rect x="255" y="555" width="345" height="32" rx="4" fill="#fef9c3" stroke="#e8b84b" stroke-width="0.5"/>
+  <text x="428" y="575" text-anchor="middle" class="step-sub" fill="#8b6914">四大过滤法则：没有确认无极点 | 跌破前低无极点 | 下降趋势无极点 | 主升浪后无极点</text>
+
+  <!-- 箭头 -->
+  <line x1="760" y1="597" x2="760" y2="632" stroke="#4a90d9" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- ===== 阶段四：买入 ===== -->
+  <rect x="30" y="639" width="1460" height="108" rx="10" fill="#e8faf0" stroke="#27ae60" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="639" width="210" height="108" rx="10" fill="#16a34a"/>
+  <rect x="220" y="639" width="20" height="108" fill="#16a34a"/>
+  <text x="135" y="678" text-anchor="middle" class="phase-title" font-size="18">阶段四</text>
+  <text x="135" y="708" text-anchor="middle" class="phase-title" font-size="20">买 入</text>
+  <text x="135" y="735" text-anchor="middle" fill="#d4f5e0" font-size="11">执行层</text>
+
+  <!-- 潜伏买入 -->
+  <rect x="260" y="650" width="340" height="86" rx="8" fill="#fff" stroke="#27ae60" stroke-width="1"/>
+  <rect x="260" y="650" width="340" height="28" rx="8" fill="#dcfce7"/>
+  <rect x="260" y="666" width="340" height="12" fill="#dcfce7"/>
+  <text x="280" y="671" class="step-title" fill="#166534">路径A：潜伏买入（老手/完美极点）</text>
+  <text x="280" y="696" class="step-desc">D柱(停止柱)尾盘提前潜伏 → 少量仓位试探</text>
+  <text x="280" y="714" class="step-desc">条件：极量+极价+城堡支撑明确 | 止损线：前涨停板开盘价</text>
+  <text x="280" y="730" class="step-sub">完美极点明确允许潜伏 → 五次买入机会（翰林老师："五次都没买，要检讨"）</text>
+
+  <!-- 确认买入 -->
+  <rect x="620" y="650" width="400" height="86" rx="8" fill="#fff" stroke="#27ae60" stroke-width="1"/>
+  <rect x="620" y="650" width="400" height="28" rx="8" fill="#dcfce7"/>
+  <rect x="620" y="666" width="400" height="12" fill="#dcfce7"/>
+  <text x="640" y="671" class="step-title" fill="#166534">路径B：确认买入（通用·推荐新手）</text>
+  <text x="640" y="696" class="step-desc">时机①：E柱开盘买入（跳空高开最佳）  时机②：E柱盘中确认买入</text>
+  <text x="640" y="714" class="step-desc">时机③：E柱尾盘买入（中阳非涨停）  时机④：F柱次日买入（错过确认时用）</text>
+  <text x="640" y="730" class="step-sub">最佳：涨停板确认(E柱)；优先确认柱和反攻柱的买入时机</text>
+
+  <!-- 右侧秘诀 -->
+  <text x="1070" y="675" text-anchor="start" class="mantra">"没有确认无极点（完美除外）"</text>
+  <text x="1070" y="700" text-anchor="start" class="step-sub" fill="#555">确认柱：涨3%+概括阴线+量平/量增</text>
+  <text x="1070" y="720" text-anchor="start" class="step-sub" fill="#555">3%是主力行为最低门槛</text>
+  <text x="1070" y="740" text-anchor="start" class="step-sub" fill="#555">涨停确认 = E+F合二为一（最强）</text>
+
+  <!-- 箭头 -->
+  <line x1="760" y1="747" x2="760" y2="780" stroke="#4a90d9" stroke-width="2.5" marker-end="url(#arrowBlue)"/>
+
+  <!-- ===== 阶段五：持有 ===== -->
+  <rect x="30" y="785" width="1460" height="68" rx="10" fill="#f5f0ff" stroke="#8e44ad" stroke-width="1.2" filter="url(#shadow)"/>
+  <rect x="30" y="785" width="210" height="68" rx="10" fill="#8e44ad"/>
+  <rect x="220" y="785" width="20" height="68" fill="#8e44ad"/>
+  <text x="135" y="815" text-anchor="middle" class="phase-title" font-size="18">阶段五</text>
+  <text x="135" y="840" text-anchor="middle" class="phase-title" font-size="18">持 有</text>
+
+  <text x="280" y="810" class="step-title" fill="#4a2d8f">城堡持有原则（攻防三区体系）</text>
+
+  <rect x="280" y="820" width="280" height="26" rx="4" fill="#ede9fe"/>
+  <text x="420" y="838" text-anchor="middle" class="step-sub" fill="#6b21a8">进攻区（顶线之上）：安心持有</text>
+
+  <rect x="575" y="820" width="280" height="26" rx="4" fill="#ede9fe"/>
+  <text x="715" y="838" text-anchor="middle" class="step-sub" fill="#6b21a8">防守区（顶线-底线之间）：观察等待</text>
+
+  <rect x="870" y="820" width="280" height="26" rx="4" fill="#ede9fe"/>
+  <text x="1010" y="838" text-anchor="middle" class="step-sub" fill="#6b21a8">撤退区（底线之下）：跌破止损</text>
+
+  <text x="1280" y="830" text-anchor="start" class="mantra" fill="#4a2d8f">"城堡底不破就拿住"</text>
+
+  <!-- 箭头 -->
+  <line x1="760" y1="853" x2="760" y2="882" stroke="#e74c3c" stroke-width="2.5" marker-end="url(#arrowRed)"/>
+
+  <!-- ===== 阶段六：卖出 ===== -->
+  <rect x="30" y="888" width="1460" height="52" rx="10" fill="#fef2f2" stroke="#e74c3c" stroke-width="1.5" filter="url(#shadow)"/>
+  <rect x="30" y="888" width="210" height="52" rx="10" fill="#e74c3c"/>
+  <rect x="220" y="888" width="20" height="52" fill="#e74c3c"/>
+  <text x="135" y="915" text-anchor="middle" class="phase-title" font-size="18">阶段六</text>
+  <text x="135" y="932" text-anchor="middle" class="phase-title" font-size="15">卖 出</text>
+
+  <rect x="260" y="896" width="340" height="36" rx="6" fill="#fff" stroke="#e74c3c" stroke-width="0.8"/>
+  <text x="430" y="912" text-anchor="middle" class="step-title" fill="#991b1b">头顶三绝：乌云盖顶(量信号)</text>
+  <text x="430" y="928" text-anchor="middle" class="step-sub">高位放量阴盖阳 → "先卖了再说"</text>
+
+  <polyline points="600,914 620,914" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+  <rect x="625" y="896" width="300" height="36" rx="6" fill="#fff" stroke="#e74c3c" stroke-width="0.8"/>
+  <text x="775" y="912" text-anchor="middle" class="step-title" fill="#991b1b">弃城而逃(价信号)</text>
+  <text x="775" y="928" text-anchor="middle" class="step-sub">大阴线破城堡底 → "马上跟着逃"</text>
+
+  <polyline points="925,914 945,914" stroke="#e74c3c" stroke-width="2" marker-end="url(#arrowRed)"/>
+
+  <rect x="950" y="896" width="320" height="36" rx="6" fill="#fff" stroke="#e74c3c" stroke-width="0.8"/>
+  <text x="1110" y="912" text-anchor="middle" class="step-title" fill="#991b1b">巅峰跳崖(跳空信号)</text>
+  <text x="1110" y="928" text-anchor="middle" class="step-sub">巨量阳+次日跳空阴 → 集合竞价就逃!</text>
+
+  <text x="1330" y="916" text-anchor="start" class="mantra" fill="#c00">任一信号出现→无条件出逃</text>
+
+  <!-- 反馈回路箭头：从卖出回到选股 -->
+  <path d="M 1520 914 C 1540 914, 1540 540, 1520 540" fill="none" stroke="#c8960c" stroke-width="2" stroke-dasharray="6,3"/>
+  <polygon points="1512,540 1520,530 1520,550" fill="#c8960c"/>
+  <text x="1535" y="720" text-anchor="middle" fill="#c8960c" font-size="11" font-weight="bold" transform="rotate(90,1535,720)">循环 → 执行下一个周期</text>
+
+</svg></div><h3 class="lesson-title" id="sec-24">第24课：极点战法过滤法则</h3><div class="card" id="card-filter-rules"><div class="card-header"><h4 class="card-title">四大核心过滤法则</h4><span class="card-badge badge-risk">风险控制</span></div><div class="card-body"><p>过滤法则直接关系交易成败：</p></div></div><div class="table-wrapper"><table class="compare-table"><thead><tr><th>法则</th><th>核心内容</th><th>关键逻辑</th></tr></thead><tbody><tr><td><strong>法则一</strong></td><td><strong>没有确认无极点</strong></td><td>除完美极点外，所有极点都须确认柱确认。未确认=只是"潜在极点"，不能买。</td></tr><tr><td><strong>法则二</strong></td><td><strong>跌破前低无极点</strong></td><td>两个极点只能抬高或水平，不能一高一低。跌破前低=下降趋势，不存在极点。</td></tr><tr><td><strong>法则三</strong></td><td><strong>下降趋势无极点</strong></td><td>所有反弹都不能做，"下降趋势中的低量柱是多方衰竭信号"。只做主升浪。</td></tr><tr><td><strong>法则四</strong></td><td><strong>主升浪之后无极点</strong></td><td>大涨翻倍后的回调不能当极点。"这种的不是极点"——充分调整后才安全。</td></tr></tbody></table></div><div class="card" id="card-four-errors"><div class="card-header"><h4 class="card-title">四大易犯错误</h4><span class="card-badge badge-risk">风险意识</span></div><div class="card-body"><ol class="content-list"><li><strong>只看极点，忽视大盘环境</strong>：大盘不好时个股极点很容易失败，尽可能休息。</li><li><strong>只看极点，忽视题材效应</strong>：没有题材就没资金追捧，很难产生确认柱。</li><li><strong>忽视城堡建构</strong>：至少需要3-5个城堡，第一次阳线城堡要放弃——"第一次可能是下跌中继"。城堡应依次抬高。</li><li><strong>只看极点，忽视左侧压力</strong>：左侧巨大阴线压制时空间太小，就算出现极点也不买。</li></ol></div></div><div class="card" id="card-six-filters"><div class="card-header"><h4 class="card-title">六层滤网审核</h4><span class="card-badge badge-risk">买入前必审</span></div><div class="card-body"><p>只有当六个滤网全部通过，才构成<strong>有效极点</strong>，才可以考虑买入：</p></div></div><ol class="step-list"><li><div class="step-title">趋势滤网</div><div class="step-desc">是否在上升趋势中？下降趋势中不存在极点，直接排除。</div></li><li><div class="step-title">位置滤网</div><div class="step-desc">是否在主升浪之前而非之后？大涨翻倍后的回调不能当极点。</div></li><li><div class="step-title">前低滤网</div><div class="step-desc">当前低点是否高于前低？跌破前低的反弹处不存在极点。</div></li><li><div class="step-title">城堡滤网</div><div class="step-desc">是否为第二次以上阳线形成的城堡？第一次城堡要放弃，需要3-5个城堡。</div></li><li><div class="step-title">确认滤网</div><div class="step-desc">是否有确认柱？没有确认的十字星只是"潜在极点"，不能买。</div></li><li><div class="step-title">环境滤网</div><div class="step-desc">大盘、题材、左侧压力是否配合？孤立极点不能买。</div></li></ol><hr class="section-divider"><h3 class="lesson-title" id="sec-25">第25课：极点战法选股攻略</h3><div class="card" id="card-stock-pick-methods"><div class="card-header"><h4 class="card-title">两种选股方式</h4><span class="card-badge badge-risk">实战操作</span></div><div class="card-body"><p><strong>方式一：守株待兔式（被动等待）</strong>——平时收藏看好的股票，跟踪高潮柱/恐吓柱/停止柱，等确认柱出现再买入。优点：主动提前布局；缺点：等待周期长（三五天甚至七八天）。</p><p><strong>方式二：积极主动型（当天找机会）</strong>——两个途径：</p><ul class="content-list"><li><strong>找停止柱</strong>：下午2:30开始，在涨幅±1%中找十字星+有支撑柱的个股，等明天确认。</li><li><strong>找确认柱</strong>：当天尾盘在涨幅3%-5%中找确认柱（大阳线），回溯前一天十字星+城堡，尾盘买入抢次日溢价。</li></ul></div></div><div class="card" id="card-market-match"><div class="card-header"><h4 class="card-title">大盘环境配合法则</h4><span class="card-badge badge-risk">操作技巧</span></div><div class="card-body"><p><strong>大盘涨1%以上</strong>：主要找<strong>确认柱</strong>（好股票已涨上去了）。</p><p><strong>大盘跌或十字星</strong>：主要找<strong>停止柱</strong>（"大盘跌时提前出现停止柱的股票强于大盘"）。</p></div></div><div class="card" id="card-c128"><div class="card-header"><h4 class="card-title">C128涨停板选股法（最高效）</h4><span class="card-badge badge-golden">核心方法</span></div><div class="card-body"><p><strong>核心理念</strong>："在涨停板里找涨停板"——在有大鱼的池塘里钓鱼。</p><p><strong>步骤：</strong></p><ol class="content-list"><li><strong>Ctrl+T</strong> 打开条件选股</li><li>选择公式 <strong>C128</strong>（N天内以涨停收盘）</li><li>设置统计周期为 <strong>5天</strong></li><li>保存方案（如"五天涨停选股"），以后直接引入</li><li>选股结果入自定义板块</li></ol><p>每天40个涨停板 x 5天 = <strong>约200只标的</strong>。逐只翻一遍即可覆盖所有涨停相关战法（极点/合力/接力/冲天分时）。</p><p><strong>预警设置</strong>：Ctrl+Y设置上破/下破价格预警。</p></div></div><div class="mnemonic-block"><div class="mnemonic-label">选股攻略口诀</div><p class="mnemonic-text">每天收盘后第一件事：Ctrl+T C128 五天涨停选股。
+在200只股票中逐只翻阅——识别所有潜在模式。
+配合预警系统："一网打尽"——你只需要这一个动作。
+选买持卖四步闭环：选股是第一步，选不到好股票后面全白费。</p></div><hr class="section-divider"><h2 class="section-title" id="sec-6-phase">阶段六：卖出体系——头顶三绝</h2><div class="svg-container"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 900" width="100%" height="100%">
+  <defs>
+    <style>
+      text { font-family: system-ui, 'PingFang SC', 'Microsoft YaHei', sans-serif; }
+      .title { font-size: 21px; font-weight: bold; fill: #1a1a2e; }
+      .jue-name { font-size: 17px; font-weight: bold; fill: #fff; }
+      .jue-sub { font-size: 11px; fill: #ccc; }
+      .info-title { font-size: 13px; font-weight: bold; }
+      .info-text { font-size: 11px; fill: #444; }
+      .info-sub { font-size: 10px; fill: #666; }
+      .mantra { font-size: 14px; font-weight: bold; fill: #c00; }
+      .small-mantra { font-size: 11px; font-weight: bold; fill: #c8960c; }
+      .connector { fill: none; stroke: #e74c3c; stroke-width: 2.5; }
+      .connector-thin { fill: none; stroke: #e74c3c; stroke-width: 1.5; }
+      .overlap-line { fill: none; stroke: #c00; stroke-width: 2; stroke-dasharray: 6,4; }
+    </style>
+    <filter id="shadow">
+      <feDropShadow dx="3" dy="4" stdDeviation="4" flood-opacity="0.15"/>
+    </filter>
+    <filter id="shadow-sm">
+      <feDropShadow dx="1" dy="2" stdDeviation="2" flood-opacity="0.08"/>
+    </filter>
+    <!-- 箭头 -->
+    <marker id="arrowRed" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0,0 10,3.5 0,7" fill="#e74c3c"/>
+    </marker>
+    <marker id="arrowDark" markerWidth="10" markerHeight="7" refX="10" refY="3.5" orient="auto">
+      <polygon points="0,0 10,3.5 0,7" fill="#1a1a2e"/>
+    </marker>
+  </defs>
+
+  <rect width="1500" height="900" fill="#fafbfc" rx="8"/>
+
+  <!-- 标题 -->
+  <text x="750" y="36" text-anchor="middle" class="title" font-size="22">头顶三绝·卖点信号递进图</text>
+  <line x1="530" y1="46" x2="970" y2="46" stroke="#e74c3c" stroke-width="2"/>
+  <text x="750" y="65" text-anchor="middle" style="font-size: 13px; fill: #888;">翰林老师二十年实战经验精华 · 三大逃顶绝招覆盖主力90%以上出货形态</text>
+
+  <!-- ===== 根节点 ===== -->
+  <rect x="600" y="88" width="300" height="54" rx="27" fill="#1a1a2e" filter="url(#shadow)"/>
+  <text x="750" y="114" text-anchor="middle" fill="#ffd700" font-size="17" font-weight="bold">头顶三绝 · 卖出体系</text>
+  <text x="750" y="134" text-anchor="middle" fill="#aaa" font-size="11">捕捉机会靠买点 · 锁定利润靠卖点</text>
+
+  <!-- 三路分支 -->
+  <polyline points="700,142 700,190 250,190 250,230" class="connector"/>
+  <polyline points="750,142 750,190 750,230" class="connector"/>
+  <polyline points="800,142 800,190 1250,190 1250,230" class="connector"/>
+
+  <!-- 标注 -->
+  <text x="250" y="222" text-anchor="middle" style="font-size: 9px; fill: #e74c3c;">最先出现</text>
+  <text x="750" y="222" text-anchor="middle" style="font-size: 9px; fill: #e74c3c;">紧随其后</text>
+  <text x="1250" y="222" text-anchor="middle" style="font-size: 9px; fill: #e74c3c;">最后窗口</text>
+
+  <!-- ============ 绝招一：乌云盖顶 ============ -->
+  <rect x="70" y="230" width="360" height="280" rx="12" fill="#c0392b" filter="url(#shadow)"/>
+  <text x="250" y="262" text-anchor="middle" class="jue-name" font-size="19">乌云盖顶</text>
+  <text x="250" y="284" text-anchor="middle" class="jue-sub">第一信号 · 量信号 · 第26课</text>
+  <line x1="90" y1="294" x2="410" y2="294" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+
+  <!-- 定义 -->
+  <rect x="85" y="302" width="330" height="52" rx="6" fill="rgba(255,255,255,0.12)"/>
+  <text x="250" y="320" text-anchor="middle" fill="#fff" style="font-size: 12px; font-weight: bold;">本质定义</text>
+  <text x="250" y="340" text-anchor="middle" fill="#ffcccc" style="font-size: 11px;">高量阴盖阳：连续大涨后先大阳线(高量)</text>
+  <text x="250" y="354" text-anchor="middle" fill="#ffcccc" style="font-size: 11px;">→ 次日更大阴线(量比前日更大)</text>
+
+  <!-- 双类型 -->
+  <rect x="85" y="360" width="160" height="52" rx="5" fill="rgba(255,255,255,0.1)"/>
+  <text x="165" y="378" text-anchor="middle" fill="#ffd4d4" style="font-size: 11px;">单盖（量盖价不盖）</text>
+  <text x="165" y="396" text-anchor="middle" fill="#ffaaaa" style="font-size: 9px;">量盖住但阴线未完全破阳底</text>
+
+  <rect x="255" y="360" width="160" height="52" rx="5" fill="rgba(255,255,255,0.1)"/>
+  <text x="335" y="378" text-anchor="middle" fill="#ffd4d4" style="font-size: 11px;">双盖（量价双盖）</text>
+  <text x="335" y="396" text-anchor="middle" fill="#ffaaaa" style="font-size: 9px;">量盖 + 价格跌破昨日最低价</text>
+
+  <!-- 核心判据 -->
+  <rect x="85" y="420" width="330" height="34" rx="5" fill="rgba(0,0,0,0.15)"/>
+  <text x="250" y="436" text-anchor="middle" fill="#ffd700" style="font-size: 11px; font-weight: bold;">核心判据：量必须盖住 → 八九不离十就是顶部</text>
+  <text x="250" y="450" text-anchor="middle" fill="#ffaaaa" style="font-size: 9px;">底层逻辑：供应远大于需求 · 主力清仓大甩卖</text>
+
+  <!-- 口诀 -->
+  <rect x="85" y="462" width="330" height="32" rx="5" fill="rgba(0,0,0,0.2)"/>
+  <text x="250" y="484" text-anchor="middle" class="mantra" fill="#ffd700" font-size="15">"先卖了再说"</text>
+
+  <!-- 案例 -->
+  <text x="250" y="508" text-anchor="middle" fill="#ffcccc" style="font-size: 9px;">天元智能(6连板后巨量) · 三柏硕(10连板双盖) · 我乐家居(8连板翻倍)</text>
+
+  <!-- ============ 绝招二：弃城而逃 ============ -->
+  <rect x="570" y="230" width="360" height="280" rx="12" fill="#e67e22" filter="url(#shadow)"/>
+  <text x="750" y="262" text-anchor="middle" class="jue-name" font-size="19">弃城而逃</text>
+  <text x="750" y="284" text-anchor="middle" class="jue-sub">第二信号 · 价信号 · 第27课</text>
+  <line x1="590" y1="294" x2="910" y2="294" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+
+  <!-- 定义 -->
+  <rect x="585" y="302" width="330" height="52" rx="6" fill="rgba(255,255,255,0.12)"/>
+  <text x="750" y="320" text-anchor="middle" fill="#fff" style="font-size: 12px; font-weight: bold;">本质定义</text>
+  <text x="750" y="340" text-anchor="middle" fill="#ffe0c0" style="font-size: 11px;">城堡底破位：主力用大阳线搭建城堡往上推</text>
+  <text x="750" y="354" text-anchor="middle" fill="#ffe0c0" style="font-size: 11px;">→ 某天大阴线跌破最后城堡底线 → 到头</text>
+
+  <!-- 关键含义 -->
+  <rect x="585" y="360" width="330" height="52" rx="5" fill="rgba(255,255,255,0.1)"/>
+  <text x="750" y="378" text-anchor="middle" fill="#fff3d0" style="font-size: 11px;">军事命名：主力连城池都放弃了</text>
+  <text x="750" y="396" text-anchor="middle" fill="#ffe0a0" style="font-size: 10px;">溃不成军 · 散户更应马上跟着逃</text>
+  <text x="750" y="410" text-anchor="middle" fill="#ffe0a0" style="font-size: 9px;">底层逻辑：主力自己不要城了，散户不能守</text>
+
+  <!-- 诱多陷阱 -->
+  <rect x="585" y="420" width="330" height="35" rx="5" fill="rgba(0,0,0,0.15)"/>
+  <text x="750" y="436" text-anchor="middle" fill="#ffd700" style="font-size: 11px; font-weight: bold;">⚠ 诱多陷阱：主力反复利用反弹出货</text>
+  <text x="750" y="450" text-anchor="middle" fill="#ffe0a0" style="font-size: 9px;">开开实业·中国银河·节能技术</text>
+
+  <!-- 口诀 -->
+  <rect x="585" y="462" width="330" height="32" rx="5" fill="rgba(0,0,0,0.2)"/>
+  <text x="750" y="484" text-anchor="middle" class="mantra" fill="#ffd700" font-size="15">"破了就卖，马上跟着逃"</text>
+
+  <!-- 城堡关联 -->
+  <text x="750" y="508" text-anchor="middle" fill="#ffe0c0" style="font-size: 9px;">与城堡战法"撤退区"一脉相承：跌破底线=弃城而逃</text>
+
+  <!-- ============ 绝招三：巅峰跳崖 ============ -->
+  <rect x="1070" y="230" width="360" height="280" rx="12" fill="#e74c3c" filter="url(#shadow)"/>
+  <text x="1250" y="262" text-anchor="middle" class="jue-name" font-size="19">巅峰跳崖</text>
+  <text x="1250" y="284" text-anchor="middle" class="jue-sub">第三信号 · 跳空信号 · 第28课</text>
+  <line x1="1090" y1="294" x2="1410" y2="294" stroke="rgba(255,255,255,0.2)" stroke-width="0.5"/>
+
+  <!-- 定义 -->
+  <rect x="1085" y="302" width="330" height="52" rx="6" fill="rgba(255,255,255,0.12)"/>
+  <text x="1250" y="320" text-anchor="middle" fill="#fff" style="font-size: 12px; font-weight: bold;">本质定义</text>
+  <text x="1250" y="340" text-anchor="middle" fill="#ffd4d4" style="font-size: 11px;">巨量阳线(巅峰) + 次日跳空低开收阴(跳崖)</text>
+  <text x="1250" y="354" text-anchor="middle" fill="#ffd4d4" style="font-size: 11px;">两个条件缺一不可</text>
+
+  <!-- 重要误区 -->
+  <rect x="1085" y="360" width="330" height="52" rx="5" fill="rgba(255,255,255,0.1)"/>
+  <text x="1250" y="378" text-anchor="middle" fill="#ffcccc" style="font-size: 11px;">⚠ 次日阴线往往缩量 ≠ 安全!</text>
+  <text x="1250" y="396" text-anchor="middle" fill="#ffaaaa" style="font-size: 10px;">真相：不是没人跑，而是根本跑不出来</text>
+  <text x="1250" y="410" text-anchor="middle" fill="#ffaaaa" style="font-size: 9px;">前一天主力已完成出货，跳空锁死追高者</text>
+
+  <!-- 操作要求 -->
+  <rect x="1085" y="420" width="330" height="35" rx="5" fill="rgba(0,0,0,0.15)"/>
+  <text x="1250" y="436" text-anchor="middle" fill="#ffd700" style="font-size: 11px; font-weight: bold;">⚡ 最猛烈信号！集合竞价就要开始跑</text>
+  <text x="1250" y="450" text-anchor="middle" fill="#ffaaaa" style="font-size: 9px;">不要等跌停，第二天可能继续低开</text>
+
+  <!-- 口诀 -->
+  <rect x="1085" y="462" width="330" height="32" rx="5" fill="rgba(0,0,0,0.2)"/>
+  <text x="1250" y="484" text-anchor="middle" class="mantra" fill="#ffd700" font-size="15">"粉身碎骨，一秒不犹豫"</text>
+
+  <!-- 命名 -->
+  <text x="1250" y="508" text-anchor="middle" fill="#ffcccc" style="font-size: 9px;">深圳梧桐山顶巨石：最高处风光 → 跳下去粉身碎骨</text>
+
+  <!-- ============ 递进关系线 ============ -->
+  <polyline points="430,370 475,370 475,555 570,555" class="connector-thin" stroke="#e67e22" stroke-width="2"/>
+  <polyline points="930,370 980,370 980,555 1070,555" class="connector-thin" stroke="#e74c3c" stroke-width="2"/>
+
+  <!-- 递进标签 -->
+  <rect x="438" y="355" width="120" height="22" rx="4" fill="#fff" stroke="#e67e22" stroke-width="1"/>
+  <text x="498" y="371" text-anchor="middle" style="font-size: 10px; fill: #e67e22;" font-weight="bold">信号递进 →</text>
+
+  <rect x="938" y="355" width="120" height="22" rx="4" fill="#fff" stroke="#e74c3c" stroke-width="1"/>
+  <text x="998" y="371" text-anchor="middle" style="font-size: 10px; fill: #e74c3c;" font-weight="bold">信号递进 →</text>
+
+  <!-- ============ 复合型卖点 交叉区 ============ -->
+  <rect x="50" y="560" width="1400" height="180" rx="12" fill="#fef2f2" stroke="#e74c3c" stroke-width="1.5" filter="url(#shadow-sm)"/>
+  <rect x="50" y="560" width="1400" height="36" rx="12" fill="#e74c3c"/>
+  <rect x="50" y="580" width="1400" height="16" fill="#e74c3c"/>
+  <text x="750" y="585" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">复 合 型 卖 点 · 信 号 叠 加 关 系</text>
+
+  <!-- 重叠关系1 -->
+  <rect x="80" y="603" width="400" height="56" rx="8" fill="#fff" stroke="#e74c3c" stroke-width="1"/>
+  <text x="280" y="623" text-anchor="middle" class="info-title" fill="#c0392b">乌云盖顶(双盖) + 弃城而逃</text>
+  <text x="280" y="643" text-anchor="middle" class="info-sub">量价双盖的同时也跌破了城堡底</text>
+  <text x="280" y="658" text-anchor="middle" class="info-sub" fill="#c00">量信号 + 价信号 同时触发</text>
+
+  <!-- 重叠关系2 -->
+  <rect x="510" y="603" width="480" height="56" rx="8" fill="#fff" stroke="#e74c3c" stroke-width="1"/>
+  <text x="750" y="623" text-anchor="middle" class="info-title" fill="#c0392b">弃城而逃 + 巅峰跳崖</text>
+  <text x="750" y="643" text-anchor="middle" class="info-sub">同一根K线上：既跌破城堡底(弃城)又跳空低开(跳崖)</text>
+  <text x="750" y="658" text-anchor="middle" class="info-sub" fill="#c00">价信号 + 跳空信号 同时触发 · 最常叠加</text>
+
+  <!-- 重叠关系3 -->
+  <rect x="1020" y="603" width="400" height="56" rx="8" fill="#fff" stroke="#e74c3c" stroke-width="1"/>
+  <text x="1220" y="623" text-anchor="middle" class="info-title" fill="#c0392b">乌云盖顶 + 弃城 + 巅峰跳崖</text>
+  <text x="1220" y="643" text-anchor="middle" class="info-sub">三大绝招同时叠加（极端少见但存在）</text>
+  <text x="1220" y="658" text-anchor="middle" class="info-sub" fill="#c00">量+价+跳空 三重信号叠加</text>
+
+  <!-- 结论 -->
+  <rect x="350" y="672" width="800" height="45" rx="8" fill="#c0392b"/>
+  <text x="750" y="694" text-anchor="middle" fill="#ffd700" style="font-size: 15px; font-weight: bold;">复合型卖点 = 见顶确定性最高 = 必须无条件出逃！</text>
+  <text x="750" y="712" text-anchor="middle" fill="#ffd4d4" style="font-size: 11px;">任一信号单独出现 → 出逃 | 两种及以上叠加 → 一秒不犹豫</text>
+
+  <!-- ============ 底部总结 ============ -->
+  <rect x="50" y="753" width="1400" height="135" rx="10" fill="#1a1a2e" filter="url(#shadow)"/>
+
+  <!-- 对比表 -->
+  <text x="750" y="778" text-anchor="middle" fill="#ffd700" font-size="15" font-weight="bold">头顶三绝·综合对比</text>
+
+  <rect x="80" y="790" width="400" height="28" rx="4" fill="rgba(255,255,255,0.08)"/>
+  <text x="280" y="809" text-anchor="middle" fill="#ffd4d4" style="font-size: 11px;">乌云盖顶：高量阴盖阳 | 最先出现 | 量信号 | 稳健</text>
+
+  <rect x="510" y="790" width="480" height="28" rx="4" fill="rgba(255,255,255,0.08)"/>
+  <text x="750" y="809" text-anchor="middle" fill="#ffe0c0" style="font-size: 11px;">弃城而逃：城堡底破位 | 紧随其后 | 价信号 | 直观</text>
+
+  <rect x="1020" y="790" width="400" height="28" rx="4" fill="rgba(255,255,255,0.08)"/>
+  <text x="1220" y="809" text-anchor="middle" fill="#ffcccc" style="font-size: 11px;">巅峰跳崖：高量跳空阴 | 最后窗口 | 跳空锁死 | 最猛烈</text>
+
+  <!-- 核心原则 -->
+  <rect x="80" y="830" width="400" height="48" rx="6" fill="rgba(255,215,0,0.15)"/>
+  <text x="280" y="848" text-anchor="middle" fill="#ffd700" style="font-size: 12px; font-weight: bold;">操 作 口 诀</text>
+  <text x="280" y="868" text-anchor="middle" fill="#ffd700" style="font-size: 13px; font-weight: bold;">头顶三绝，一出现就跑</text>
+
+  <rect x="510" y="830" width="480" height="48" rx="6" fill="rgba(255,215,0,0.15)"/>
+  <text x="750" y="848" text-anchor="middle" fill="#ffd700" style="font-size: 12px; font-weight: bold;">学 习 要 求</text>
+  <text x="750" y="868" text-anchor="middle" fill="#ffd700" style="font-size: 13px; font-weight: bold;">每个绝招至少找100个案例验证 · 形成条件反射</text>
+
+  <rect x="1020" y="830" width="400" height="48" rx="6" fill="rgba(255,215,0,0.15)"/>
+  <text x="1220" y="848" text-anchor="middle" fill="#ffd700" style="font-size: 12px; font-weight: bold;">终 极 法 则</text>
+  <text x="1220" y="868" text-anchor="middle" fill="#ffd700" style="font-size: 13px; font-weight: bold;">会买是徒弟 · 会卖是师傅 · 会空仓是祖师爷</text>
+
+</svg></div><h3 class="lesson-title" id="sec-26">第26课：乌云盖顶</h3><div class="card" id="card-sell-importance"><div class="card-header"><h4 class="card-title">卖点的重要性</h4><span class="card-badge badge-sell">核心理念</span></div><div class="card-body"><p class="quote-block">"会买的是徒弟，会卖的是师傅，会空仓的才是祖师爷。"<span class="quote-author">——交易老话</span></p><p>核心公式：<span class="text-accent">捕捉机会靠买点，锁定利润靠卖点</span>。不会卖出=小亏变大亏、大赚变小赚，所有盈利只是"纸上富贵"。</p></div></div><div class="card" id="card-dark-cloud"><div class="card-header"><h4 class="card-title">乌云盖顶——本质与分类</h4><span class="card-badge badge-sell">第一信号·量信号</span></div><div class="card-body"><p><strong>本质定义</strong>：<span class="text-sell">高量阴盖阳</span>——连续大涨后大阳线（高量）-> 次日更大阴线（量比前日更大）。</p><p><strong>单盖（量盖价不盖）</strong>：量盖住了但阴线未完全破阳底。</p><p><strong>双盖（量价双盖）</strong>：量盖住 + 价格跌破昨日最低价。</p><p><strong>核心判据</strong>：量必须盖住！只要高位放量阴线出现，无论单盖双盖，<span class="text-sell">"先卖了再说"</span>。八九不离十就是顶部。</p><p><strong>底层逻辑</strong>：供应远大于需求，主力清仓大甩卖——不计成本往下砸盘。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">天元智能（6连板后乌云盖顶）</h5><div class="case-stock-name">天元智能·2024年4月16日</div><div class="case-content"><p>连续6个涨停板后冲击第7板高开低走，形成巨大阴线+近期最高量——经典乌云盖顶（单盖）。当天收盘前必须跑，<span class="case-highlight">后面一路暴跌，再也不给机会</span>。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">三柏硕（10连板双盖）</h5><div class="case-stock-name">三柏硕·2024年1月2日</div><div class="case-content"><p>从11元涨到30多元翻三倍（近10个板），结束点在那根巨大阴线上——量价双盖（量比昨日高+价格破昨日底）。<span class="case-highlight">标准双盖见顶</span>，此后连续大跌。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">我乐家居（8连板双盖）</h5><div class="case-stock-name">我乐家居</div><div class="case-content"><p>8个涨停板翻倍后出现巨量阴线+破最后一根涨停板底——经典双盖。持仓策略：没有出现大阴之前一直持有，直到最后城堡底被破就卖。</p></div></div><hr class="section-divider"><h3 class="lesson-title" id="sec-27">第27课：弃城而逃</h3><div class="card" id="card-abandon-castle"><div class="card-header"><h4 class="card-title">弃城而逃的本质</h4><span class="card-badge badge-sell">第二信号·价信号</span></div><div class="card-body"><p><strong>军事命名</strong>：主力连城池都放弃了——溃不成军。散户更应马上跟着逃。</p><p><strong>本质定义</strong>：<span class="text-sell">城堡底破位</span>——主力用大阳线搭建城堡往上推，某天大阴线跌破最后城堡底线=到头了。</p><p><strong>底层逻辑</strong>：主力自己亲手打造的城堡底线都放弃了、跌破了——空军力量太强大，主力自己都撑不住了。<span class="text-accent">"主力自己都不要城了，散户更不能留下来守城"。</span></p></div></div><div class="card" id="card-combined-sell"><div class="card-header"><h4 class="card-title">复合型卖点</h4><span class="card-badge badge-sell">信号叠加</span></div><div class="card-body"><p>头顶三绝往往不是孤立出现的，同一根K线上出现两种信号叠加=复合型卖点=见顶确定性最高：</p><ul class="content-list"><li>弃城而逃 + 巅峰跳崖：同一K线破底+跳空阴（最常叠加）</li><li>乌云盖顶 + 弃城而逃：量价双盖同时破城堡底</li><li>乌云盖顶双盖=同时满足两个卖点</li></ul></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">开开实业</h5><div class="case-stock-name">开开实业·2023年9月</div><div class="case-content"><p>从9元多连续涨停上涨，高位出现乌云盖顶，反弹很弱（首次阴线量太大）。C柱城堡底跌破——弃城而逃。<span class="text-sell">后面一小波反弹是诱多信号</span>——主力无法一次出完货，需震荡区间完成出货后一路下跌。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">中国银河</h5><div class="case-stock-name">中国银河·2023年5月26日</div><div class="case-content"><p>连续5根大阳线后A柱历史级别巨量，B柱跳空低开+破A柱底=弃城而逃。也同时满足巅峰跳崖条件。不卖=一路跌跌不休无翻身之日。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">节能技术（三次乌云+一次弃城）</h5><div class="case-stock-name">节能技术·2024年</div><div class="case-content"><p>下跌过程中A/B/C柱三次乌云盖顶双盖，每次出现后必跌。最后一次诱多打到空方城堡关键压力位，出现跳空阴线破底——弃城而逃+乌云盖顶同时触发。<span class="text-accent">主力反复诱多但无法创新高——重要辅助信号。</span></p></div></div><hr class="section-divider"><h3 class="lesson-title" id="sec-28">第28课：巅峰跳崖</h3><div class="card" id="card-peak-jump"><div class="card-header"><h4 class="card-title">巅峰跳崖的命名与本质</h4><span class="card-badge badge-sell">第三信号·跳空信号</span></div><div class="card-body"><p><strong>命名喻义</strong>：深圳梧桐山顶巨石——最高处风光无限，跳下去粉身碎骨。</p><p><strong>本质定义</strong>：<span class="text-sell">高量跳空阴</span>——巨量阳线（巅峰）+ 次日跳空低开收阴（跳崖）。两个条件缺一不可。</p><p><strong>底层逻辑</strong>：前一天巨量阳线=主力边拉边出（将筹码转移给接盘散户）；次日跳空阴=主力不再维护股价，直接清仓大甩卖，跳空锁死追高者。</p></div></div><div class="card" id="card-peak-misunderstanding"><div class="card-header"><h4 class="card-title">重要误区：缩量安全假象</h4><span class="card-badge badge-sell">关键提醒</span></div><div class="card-body"><p>巅峰跳崖次日阴线<strong>往往缩量</strong>——初学者可能误判"缩量=安全"。</p><p><strong>真相恰恰相反：不是没人跑，而是根本跑不出来！</strong>前一天主力已完成出货，跳空直接锁死所有追高资金。</p><p><strong>操作要求（最猛烈）</strong>：<span class="text-sell">集合竞价阶段就要开始跑！</span>不要等跌停板！第二天可能继续低开——损失进一步扩大。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">长传媒（复合型卖点）</h5><div class="case-stock-name">长传媒</div><div class="case-content"><p>连续4个涨停板（含一字板）后A柱历史最高量，次日跳空低开+破最后涨停板底。<span class="text-sell">同一天既有巅峰跳崖又有弃城而逃</span>——复合型卖点。不跑"可能连爹妈都不认识了"。</p></div></div><div class="case-block"><div class="case-label">经典案例</div><h5 class="case-title">丽影光电（缩量假象案例）</h5><div class="case-stock-name">丽影光电·2024年2月</div><div class="case-content"><p>5连板后A柱历史最高量，次日跳空+缩量阴线破底。<span class="text-sell">缩量不是没人跑，而是跑不出来</span>。第三天快速跌停后才放量。巅峰跳崖是真正的<span class="case-highlight">最后逃命机会</span>。</p></div></div><div class="card" id="card-three-jue-summary"><div class="card-header"><h4 class="card-title">头顶三绝综合总汇</h4><span class="card-badge badge-sell badge-golden">终极汇总</span></div><div class="card-body"><p><strong>三大绝招覆盖主力90%以上出货形态</strong>：</p></div></div><div class="table-wrapper"><table class="compare-table"><thead><tr><th>绝招</th><th>本质</th><th>类型</th><th>口诀</th><th>特点</th></tr></thead><tbody><tr><td><strong>乌云盖顶</strong></td><td>高量阴盖阳</td><td>量信号</td><td><span class="text-sell">"先卖了再说"</span></td><td>最先出现·最基础·最高频</td></tr><tr><td><strong>弃城而逃</strong></td><td>城堡底破位</td><td>价信号</td><td><span class="text-sell">"破了就卖，马上跟着逃"</span></td><td>紧随其后·最直观·城堡理论直接体现</td></tr><tr><td><strong>巅峰跳崖</strong></td><td>高量跳空阴</td><td>跳空信号</td><td><span class="text-sell">"粉身碎骨，一秒不犹豫"</span></td><td>最后窗口·最猛烈·锁死追高者</td></tr></tbody></table></div><div class="mnemonic-block"><div class="mnemonic-label">终极卖出法则</div><p class="mnemonic-text">头顶三绝，一出现就跑！
+复合型卖点 = 见顶确定性最高 = 必须无条件出逃！
+任一信号单独出现 → 出逃
+两种及以上叠加 → 一秒不犹豫
+每个绝招至少找100个案例验证·形成条件反射
+会买是徒弟 · 会卖是师傅 · 会空仓是祖师爷</p></div><hr class="section-divider"><h2 class="section-title" id="appendix">附录：终极系统总结</h2><div class="card" id="card-six-layer-summary"><div class="card-header"><h4 class="card-title">六层核心知识体系</h4><span class="card-badge badge-golden">体系总览</span></div><div class="card-body"><p><strong>第一层·理论基础</strong>：情绪周期——万物皆周期，贪婪与恐惧驱动。五阶段循环：高潮→退潮→冰点→启动→加速。</p><p><strong>第二层·核心工具</strong>：ABCDEF量柱结构+3121法则+五大买入时机+三八十时间约束。</p><p><strong>第三层·三维框架+城堡战法</strong>：形态分类五维+时间结构+城堡选股（攻防三区体系）。</p><p><strong>第四层·极点战法体系</strong>：十大极点类型——一日/双阴/连阴/标准/完美/变异/涨停/飞天/双域/单枪/左峰/巅峰/命门。</p><p><strong>第五层·涨停+分时+整合</strong>：金钻/合力/接力涨停+分时极点/冲天分时+过滤法则+选股攻略（C128）。</p><p><strong>第六层·卖出体系</strong>：头顶三绝——乌云盖顶（量信号）+弃城而逃（价信号）+巅峰跳崖（跳空信号）。</p></div></div><div class="card" id="card-close-loop"><div class="card-header"><h4 class="card-title">选·买·持·卖完整闭环</h4><span class="card-badge badge-golden">闭环体系</span></div><div class="card-body"><p><strong>选</strong>：C128涨停选股 + 城堡战法过滤 → 选出标的池</p><p><strong>买</strong>：ABCDEF量柱识别 + 3121验证 + 六层滤网审核 + 五大买入时机</p><p><strong>持</strong>：城堡持有原则——进攻区安心持有/防守区观察等待/撤退区止损</p><p><strong>卖</strong>：头顶三绝——乌云盖顶→弃城而逃→巅峰跳崖，任一出现无条件出逃</p></div></div><div class="mnemonic-block"><div class="mnemonic-label">终极口诀汇总</div><p class="mnemonic-text">城堡选股，极点择时。
+极量加极价 = 调整到位。
+没有确认无极点。
+跌破城堡，弃城而逃。
+头顶三绝，一出现就跑。
+选·买·持·卖，完整闭环。
+在涨停板里找涨停板。</p></div></main>
+</div>
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#9650;</button>
+<script>
+(function(){
+  var sb = document.getElementById('sidebar');
+  var ov = document.getElementById('sidebarOverlay');
+  var tg = document.getElementById('navbarToggle');
+  var btt = document.getElementById('backToTop');
+  var prg = document.getElementById('navbarProgress');
+
+  // Mobile toggle
+  function toggleSidebar(){
+    sb.classList.toggle('open');
+    ov.classList.toggle('visible');
+  }
+  tg.addEventListener('click', toggleSidebar);
+  ov.addEventListener('click', toggleSidebar);
+
+  // Close sidebar on nav click (mobile)
+  sb.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(){
+      if(window.innerWidth <= 767) toggleSidebar();
+    });
+  });
+
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(function(a){
+    a.addEventListener('click', function(e){
+      e.preventDefault();
+      var t = document.querySelector(this.getAttribute('href'));
+      if(t){ t.scrollIntoView({behavior:'smooth',block:'start'}); }
+    });
+  });
+
+  // Progress bar + Back to top
+  window.addEventListener('scroll', function(){
+    var st = window.scrollY;
+    var dh = document.documentElement.scrollHeight - window.innerHeight;
+    if(dh > 0) prg.style.width = (st / dh * 100) + '%';
+    if(st > 500) btt.classList.add('visible');
+    else btt.classList.remove('visible');
+
+    // Active nav highlighting
+    var secs = document.querySelectorAll('.section-title, .lesson-title');
+    var navItems = sb.querySelectorAll('a[href^="#"]');
+    var current = '';
+    secs.forEach(function(s){
+      if(s.getBoundingClientRect().top <= 100) current = s.id;
+    });
+    navItems.forEach(function(n){
+      n.classList.remove('active');
+      if(n.getAttribute('href') === '#' + current) n.classList.add('active');
+    });
+  });
+
+  // Open sidebar groups by default
+  // Already set via 'open' class in HTML generation
+})();
+</script>
+</body>
+</html>
