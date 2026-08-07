@@ -1,0 +1,1208 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>靳良雄高阶系统课·小白到精通（终极版）</title>
+<style>
+  /* ===================== 浅色系全局样式 ===================== */
+  :root{
+    --bg:#f7f8fb;
+    --bg-card:#ffffff;
+    --bg-soft:#eef3fb;
+    --bg-tip:#fff8e6;
+    --bg-warn:#fff0f0;
+    --text:#1f2937;
+    --text-soft:#4b5563;
+    --text-mute:#6b7280;
+    --primary:#2c5fa3;       /* 主蓝 */
+    --primary-soft:#dbe7f5;
+    --accent:#0e8c6a;        /* 战略绿 */
+    --accent-soft:#d6f0e6;
+    --warn:#c0392b;          /* 警示红 */
+    --warn-soft:#fde6e3;
+    --gold:#b8860b;          /* 口诀金 */
+    --gold-soft:#fcf4d9;
+    --purple:#6c4ab6;        /* 游资紫 */
+    --purple-soft:#e7dff7;
+    --border:#e5e7eb;
+    --shadow:0 2px 10px rgba(20,30,55,.06);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;background:var(--bg);color:var(--text);font-family:"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;font-size:15px;line-height:1.75;-webkit-text-size-adjust:100%;}
+  body{padding:14px;}
+  h1,h2,h3,h4{color:var(--text);margin:0 0 10px;line-height:1.4;}
+  h1{font-size:22px;}
+  h2{font-size:19px;border-left:4px solid var(--primary);padding-left:10px;margin:26px 0 12px;}
+  h3{font-size:17px;color:var(--primary);margin:18px 0 8px;}
+  h4{font-size:15px;color:var(--text-soft);margin:12px 0 6px;}
+  p{margin:6px 0;}
+  ul,ol{margin:6px 0;padding-left:22px;}
+  li{margin:4px 0;}
+
+  /* ===================== 头部 ===================== */
+  .header{background:linear-gradient(135deg,var(--primary) 0%,#4778b8 100%);color:#fff;padding:20px 18px;border-radius:14px;box-shadow:var(--shadow);margin-bottom:18px;}
+  .header h1{color:#fff;font-size:22px;margin-bottom:6px;}
+  .header .sub{opacity:.92;font-size:13px;line-height:1.6;}
+  .header .meta{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;}
+  .header .meta span{background:rgba(255,255,255,.18);padding:3px 10px;border-radius:10px;font-size:12px;}
+
+  /* ===================== 思维导图区 ===================== */
+  .mindmap-box{background:var(--bg-card);border-radius:14px;padding:14px 10px 8px;box-shadow:var(--shadow);margin-bottom:20px;border:1px solid var(--border);}
+  .mindmap-title{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;padding:0 4px;}
+  .mindmap-title h2{border:none;margin:0;font-size:16px;color:var(--primary);}
+  .mindmap-hint{font-size:11px;color:var(--text-mute);}
+  .mindmap-scroll{overflow-x:auto;overflow-y:hidden;-webkit-overflow-scrolling:touch;touch-action:pan-x pan-y pinch-zoom;border-radius:8px;background:#fafbfe;}
+  .mindmap-scroll svg{display:block;}
+
+  /* ===================== 卡片 ===================== */
+  .card{background:var(--bg-card);border-radius:14px;padding:16px 16px;box-shadow:var(--shadow);margin-bottom:14px;border:1px solid var(--border);}
+  .module-card{border-left:5px solid var(--primary);}
+  .module-1{border-left-color:#2c5fa3;}
+  .module-2{border-left-color:#0e8c6a;}
+  .module-3{border-left-color:#6c4ab6;}
+  .module-4{border-left-color:#c0732b;}
+  .module-5{border-left-color:#0b8a8a;}
+  .module-6{border-left-color:#c0392b;}
+  .module-7{border-left-color:#b8860b;}
+  .module-8{border-left-color:#374151;}
+  .module-head{display:flex;align-items:center;gap:8px;margin-bottom:10px;flex-wrap:wrap;}
+  .module-tag{background:var(--primary);color:#fff;padding:2px 8px;border-radius:6px;font-size:12px;font-weight:bold;}
+  .module-1 .module-tag{background:#2c5fa3;}
+  .module-2 .module-tag{background:#0e8c6a;}
+  .module-3 .module-tag{background:#6c4ab6;}
+  .module-4 .module-tag{background:#c0732b;}
+  .module-5 .module-tag{background:#0b8a8a;}
+  .module-6 .module-tag{background:#c0392b;}
+  .module-7 .module-tag{background:#b8860b;}
+  .module-8 .module-tag{background:#374151;}
+
+  /* ===================== 口诀 ===================== */
+  .saying{background:var(--gold-soft);border-left:4px solid var(--gold);padding:10px 12px;border-radius:6px;margin:8px 0;font-size:14px;color:#5b4500;}
+  .saying::before{content:"⚡ 口诀：";font-weight:bold;color:var(--gold);}
+
+  /* ===================== 关键点 ===================== */
+  .points{background:var(--bg-soft);border-radius:8px;padding:10px 14px;margin:8px 0;}
+  .points li{font-size:14px;color:var(--text-soft);}
+
+  /* ===================== 警示/提示 ===================== */
+  .tip{background:var(--bg-tip);border-left:4px solid var(--gold);padding:9px 12px;border-radius:6px;margin:8px 0;font-size:13px;}
+  .warn{background:var(--warn-soft);border-left:4px solid var(--warn);padding:9px 12px;border-radius:6px;margin:8px 0;font-size:13px;color:#7d1f12;}
+
+  /* ===================== 表格 ===================== */
+  table{width:100%;border-collapse:collapse;margin:8px 0;font-size:13px;}
+  th,td{border:1px solid var(--border);padding:7px 8px;text-align:left;vertical-align:top;}
+  th{background:var(--bg-soft);color:var(--primary);font-weight:bold;}
+  tr:nth-child(even) td{background:#fafbfe;}
+  /* 表格横向滚动包装（防超窄屏溢出） */
+  .tbl-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;border-radius:6px;}
+  .tbl-scroll table{min-width:480px;}
+
+  /* ===================== 三大资金徽章 ===================== */
+  .badge{display:inline-block;padding:1px 8px;border-radius:10px;font-size:12px;font-weight:bold;margin-right:4px;}
+  .badge-youzi{background:var(--purple-soft);color:var(--purple);}
+  .badge-zhuli{background:var(--primary-soft);color:var(--primary);}
+  .badge-zhanlue{background:var(--accent-soft);color:var(--accent);}
+
+  /* ===================== 课程索引卡 ===================== */
+  .course-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:10px;margin-top:8px;}
+  .course-card{background:#fafbfe;border:1px solid var(--border);border-radius:10px;padding:10px 12px;}
+  .course-card .no{color:var(--primary);font-weight:bold;font-size:14px;}
+  .course-card .ct{font-size:13px;color:var(--text-soft);font-weight:bold;margin:4px 0;}
+  .course-card .cs{font-size:12px;color:var(--gold);font-style:italic;line-height:1.5;}
+
+  /* ===================== 折叠/锚点 ===================== */
+  .toc{background:var(--bg-card);border-radius:14px;padding:12px 16px;box-shadow:var(--shadow);margin-bottom:14px;border:1px solid var(--border);}
+  .toc ol{margin:6px 0;padding-left:22px;columns:2;column-gap:18px;}
+  .toc li{margin:3px 0;font-size:13px;break-inside:avoid;}
+  .toc a{color:var(--primary);text-decoration:none;}
+  .toc a:hover{text-decoration:underline;}
+
+  /* ===================== 移动端适配 ===================== */
+  @media (max-width:720px){
+    body{padding:8px;font-size:14px;}
+    .header{padding:14px 12px;}
+    .header h1{font-size:18px;}
+    .toc ol{columns:1;}
+    .course-grid{grid-template-columns:1fr;}
+    h2{font-size:17px;}
+    h3{font-size:15px;}
+    table{font-size:12px;}
+    th,td{padding:6px 6px;}
+    /* 移动端SVG最大高度限制，避免占用过长页面 */
+    .mindmap-scroll svg{max-height:480px;}
+    /* 移动端双指放大提示更醒目 */
+    .zoom-hint{font-size:12px;padding:10px;background:var(--gold-soft);border-radius:6px;margin:8px 4px;}
+  }
+  /* WPS/微信双指放大提示 */
+  .zoom-hint{text-align:center;color:var(--text-mute);font-size:11px;padding:6px;}
+</style>
+</head>
+<body>
+
+<!-- ===================== 头部 ===================== -->
+<div class="header">
+  <h1>📚 靳良雄高阶系统课 · 小白到精通（终极版）</h1>
+  <div class="sub">零基础→精通 递进路径 · 8大模块 · 30节正课精粹 · 三大盈利模式 · 万马奔腾核要 · 横向树状知识图谱</div>
+  <div class="meta">
+    <span>📖 30节正课</span>
+    <span>💎 三大盈利模式</span>
+    <span>🐎 万马奔腾技战</span>
+    <span>🎯 八六三体系</span>
+    <span>⚠️ 风险控制</span>
+  </div>
+</div>
+
+<!-- ===================== 目录 ===================== -->
+<div class="toc">
+  <h3 style="margin-top:0;">📑 学习目录（小白请按顺序学习）</h3>
+  <ol>
+    <li><a href="#mindmap">🗺️ 知识图谱总览</a></li>
+    <li><a href="#m1">① 宏观大势与四季轮动</a></li>
+    <li><a href="#m2">② 板块研究方法论</a></li>
+    <li><a href="#m3">③ 三大资金性质识别</a></li>
+    <li><a href="#m4">④ 均线与K线核心技术</a></li>
+    <li><a href="#m5">⑤ 成交量+分时技术</a></li>
+    <li><a href="#m6">⑥ 三大盈利模式（核心）</a></li>
+    <li><a href="#m7">⑦ 战略资金与主升浪</a></li>
+    <li><a href="#m8">⑧ 风险控制与独立体系</a></li>
+    <li><a href="#modes">🎯 三大盈利模式速查表</a></li>
+    <li><a href="#wanma">🐎 万马奔腾核要</a></li>
+    <li><a href="#course-index">📖 30节课程精粹索引</a></li>
+    <li><a href="#bible">🧰 实战速查手册</a></li>
+  </ol>
+</div>
+
+<!-- ===================== 知识图谱 SVG ===================== -->
+<div class="mindmap-box" id="mindmap">
+  <div class="mindmap-title">
+    <h2>🗺️ 全课程知识图谱（横向树状 · 根在左→逐层向右 · 双指可放大）</h2>
+    <span class="mindmap-hint">📱 双指可放大 · 左右滑动 · 直角折线</span>
+  </div>
+  <div class="mindmap-scroll">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3000 1700" preserveAspectRatio="xMidYMid meet" style="width:3000px;max-width:none;height:auto;background:#fafbfe;">
+  <defs>
+    <style>
+      .rootRect{fill:#2c5fa3;stroke:#1e4378;stroke-width:2;}
+      .l1Rect{fill:#4778b8;stroke:#2c5fa3;stroke-width:1.5;}
+      .l2Rect{fill:#dbe7f5;stroke:#2c5fa3;stroke-width:1;}
+      .l3Rect{fill:#ffffff;stroke:#9bb6d3;stroke-width:1;}
+      .rootT{fill:#ffffff;font-weight:bold;font-size:22px;}
+      .l1T{fill:#ffffff;font-weight:bold;font-size:17px;}
+      .l2T{fill:#1f2937;font-weight:bold;font-size:14px;}
+      .l3T{fill:#374151;font-size:12px;}
+      .ln{fill:none;stroke:#9bb6d3;stroke-width:1.4;}
+      .lnl{fill:none;stroke:#2c5fa3;stroke-width:1.8;}
+    </style>
+    <marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto">
+      <path d="M0,0 L6,3 L0,6 Z" fill="#9bb6d3"/>
+    </marker>
+  </defs>
+
+  <!-- ============= 根节点 ============= -->
+  <g>
+    <rect class="rootRect" x="20" y="760" width="220" height="170" rx="12"/>
+    <text class="rootT" x="130" y="810" text-anchor="middle">靳良雄</text>
+    <text class="rootT" x="130" y="838" text-anchor="middle">高阶系统课</text>
+    <text class="rootT" x="130" y="866" text-anchor="middle" style="font-size:14px;">小白→精通</text>
+    <text class="rootT" x="130" y="894" text-anchor="middle" style="font-size:13px;font-weight:normal;opacity:.85;">八六三体系</text>
+  </g>
+
+  <!-- ============= 8大一级节点 ============= -->
+  <!-- Y 坐标均匀分布在 100~1620 -->
+  <!-- Module 1: y=80 -->
+  <g>
+    <path class="lnl" d="M240,810 L290,810 L290,140 L420,140" marker-end="url(#arr)"/>
+    <rect class="l1Rect" x="420" y="100" width="240" height="80" rx="10"/>
+    <text class="l1T" x="540" y="135" text-anchor="middle">① 宏观大势</text>
+    <text class="l1T" x="540" y="160" text-anchor="middle" style="font-size:13px;">四季轮动大智慧</text>
+  </g>
+  <!-- Module 2: y=270 -->
+  <g>
+    <path class="lnl" d="M240,820 L290,820 L290,310 L420,310" marker-end="url(#arr)"/>
+    <rect class="l1Rect" x="420" y="270" width="240" height="80" rx="10"/>
+    <text class="l1T" x="540" y="305" text-anchor="middle">② 板块研究</text>
+    <text class="l1T" x="540" y="330" text-anchor="middle" style="font-size:13px;">6大核心维度</text>
+  </g>
+  <!-- Module 3: y=460 -->
+  <g>
+    <path class="lnl" d="M240,830 L290,830 L290,500 L420,500" marker-end="url(#arr)"/>
+    <rect class="l1Rect" x="420" y="460" width="240" height="80" rx="10" style="fill:#6c4ab6;stroke:#4f359a;"/>
+    <text class="l1T" x="540" y="495" text-anchor="middle">③ 三大资金</text>
+    <text class="l1T" x="540" y="520" text-anchor="middle" style="font-size:13px;">游资/主力/战略</text>
+  </g>
+  <!-- Module 4: y=650 -->
+  <g>
+    <path class="lnl" d="M240,840 L290,840 L290,690 L420,690" marker-end="url(#arr)"/>
+    <rect class="l1Rect" x="420" y="650" width="240" height="80" rx="10" style="fill:#c0732b;stroke:#8d521c;"/>
+    <text class="l1T" x="540" y="685" text-anchor="middle">④ 均线+K线</text>
+    <text class="l1T" x="540" y="710" text-anchor="middle" style="font-size:13px;">技术基础工具</text>
+  </g>
+  <!-- Module 5: y=830 (核心模块，居中) -->
+  <g>
+    <path class="lnl" d="M240,845 L290,845 L290,870 L420,870" marker-end="url(#arr)"/>
+    <rect class="l1Rect" x="420" y="830" width="240" height="80" rx="10" style="fill:#0b8a8a;stroke:#06666a;"/>
+    <text class="l1T" x="540" y="865" text-anchor="middle">⑤ 量价+分时</text>
+    <text class="l1T" x="540" y="890" text-anchor="middle" style="font-size:13px;">验证主力意图</text>
+  </g>
+  <!-- Module 6: y=1020 -->
+  <g>
+    <path class="lnl" d="M240,850 L290,850 L290,1060 L420,1060" marker-end="url(#arr)"/>
+    <rect class="l1Rect" x="420" y="1020" width="240" height="80" rx="10" style="fill:#c0392b;stroke:#8a2618;"/>
+    <text class="l1T" x="540" y="1055" text-anchor="middle">⑥ 三大盈利模式</text>
+    <text class="l1T" x="540" y="1080" text-anchor="middle" style="font-size:13px;">出手见红/卧薪尝胆/一骑绝尘</text>
+  </g>
+  <!-- Module 7: y=1210 -->
+  <g>
+    <path class="lnl" d="M240,860 L290,860 L290,1250 L420,1250" marker-end="url(#arr)"/>
+    <rect class="l1Rect" x="420" y="1210" width="240" height="80" rx="10" style="fill:#b8860b;stroke:#7e5b08;"/>
+    <text class="l1T" x="540" y="1245" text-anchor="middle">⑦ 战略主升浪</text>
+    <text class="l1T" x="540" y="1270" text-anchor="middle" style="font-size:13px;">机构资金进阶</text>
+  </g>
+  <!-- Module 8: y=1400 -->
+  <g>
+    <path class="lnl" d="M240,870 L290,870 L290,1440 L420,1440" marker-end="url(#arr)"/>
+    <rect class="l1Rect" x="420" y="1400" width="240" height="80" rx="10" style="fill:#374151;stroke:#1f2937;"/>
+    <text class="l1T" x="540" y="1435" text-anchor="middle">⑧ 风险+独立体系</text>
+    <text class="l1T" x="540" y="1460" text-anchor="middle" style="font-size:13px;">三大风险+5步法</text>
+  </g>
+
+  <!-- ============= 二级节点（L2） ============= -->
+  <!-- Module1 二级 -->
+  <g>
+    <path class="ln" d="M660,140 L720,140 L720,90 L820,90" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="60" width="220" height="60" rx="8"/>
+    <text class="l2T" x="930" y="95" text-anchor="middle">先因后果定律</text>
+    <path class="ln" d="M660,140 L720,140 L720,160 L820,160" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="135" width="220" height="50" rx="8"/>
+    <text class="l2T" x="930" y="167" text-anchor="middle">三大轮动周期</text>
+  </g>
+  <!-- Module2 二级 -->
+  <g>
+    <path class="ln" d="M660,290 L720,290 L720,250 L820,250" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="225" width="220" height="50" rx="8"/>
+    <text class="l2T" x="930" y="257" text-anchor="middle">板块三种状态</text>
+    <path class="ln" d="M660,310 L720,310 L720,310 L820,310" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="285" width="220" height="50" rx="8"/>
+    <text class="l2T" x="930" y="317" text-anchor="middle">6大维度共振</text>
+    <path class="ln" d="M660,330 L720,330 L720,370 L820,370" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="345" width="220" height="50" rx="8"/>
+    <text class="l2T" x="930" y="377" text-anchor="middle">新旧切换4要素</text>
+  </g>
+  <!-- Module3 二级 -->
+  <g>
+    <path class="ln" d="M660,480 L720,480 L720,440 L820,440" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="415" width="220" height="50" rx="8" style="fill:#e7dff7;stroke:#6c4ab6;"/>
+    <text class="l2T" x="930" y="447" text-anchor="middle" style="fill:#6c4ab6;">游资 换手&gt;20%</text>
+    <path class="ln" d="M660,500 L720,500 L720,500 L820,500" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="475" width="220" height="50" rx="8" style="fill:#dbe7f5;stroke:#2c5fa3;"/>
+    <text class="l2T" x="930" y="507" text-anchor="middle" style="fill:#2c5fa3;">主力 换手&lt;10%</text>
+    <path class="ln" d="M660,520 L720,520 L720,560 L820,560" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="535" width="220" height="50" rx="8" style="fill:#d6f0e6;stroke:#0e8c6a;"/>
+    <text class="l2T" x="930" y="567" text-anchor="middle" style="fill:#0e8c6a;">战略 换手≤5%</text>
+  </g>
+  <!-- Module4 二级 -->
+  <g>
+    <path class="ln" d="M660,670 L720,670 L720,630 L820,630" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="605" width="220" height="50" rx="8"/>
+    <text class="l2T" x="930" y="637" text-anchor="middle">5/10/30/60/120/360</text>
+    <path class="ln" d="M660,690 L720,690 L720,690 L820,690" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="665" width="220" height="50" rx="8"/>
+    <text class="l2T" x="930" y="697" text-anchor="middle">均线粘散口诀</text>
+    <path class="ln" d="M660,710 L720,710 L720,750 L820,750" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="725" width="220" height="50" rx="8"/>
+    <text class="l2T" x="930" y="757" text-anchor="middle">K线封闭/振幅</text>
+  </g>
+  <!-- Module5 二级 -->
+  <g>
+    <path class="ln" d="M660,850 L720,850 L720,810 L820,810" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="785" width="220" height="50" rx="8"/>
+    <text class="l2T" x="930" y="817" text-anchor="middle">量价健康形态</text>
+    <path class="ln" d="M660,870 L720,870 L720,870 L820,870" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="845" width="220" height="50" rx="8"/>
+    <text class="l2T" x="930" y="877" text-anchor="middle">主力意图4维验证</text>
+    <path class="ln" d="M660,890 L720,890 L720,930 L820,930" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="905" width="220" height="50" rx="8"/>
+    <text class="l2T" x="930" y="937" text-anchor="middle">分时3大作用</text>
+  </g>
+  <!-- Module6 二级 -->
+  <g>
+    <path class="ln" d="M660,1040 L720,1040 L720,1000 L820,1000" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="975" width="220" height="50" rx="8" style="fill:#fde6e3;stroke:#c0392b;"/>
+    <text class="l2T" x="930" y="1007" text-anchor="middle" style="fill:#c0392b;">出手见红·超短线</text>
+    <path class="ln" d="M660,1060 L720,1060 L720,1060 L820,1060" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="1035" width="220" height="50" rx="8" style="fill:#fde6e3;stroke:#c0392b;"/>
+    <text class="l2T" x="930" y="1067" text-anchor="middle" style="fill:#c0392b;">卧薪尝胆·大波段</text>
+    <path class="ln" d="M660,1080 L720,1080 L720,1120 L820,1120" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="1095" width="220" height="50" rx="8" style="fill:#fde6e3;stroke:#c0392b;"/>
+    <text class="l2T" x="930" y="1127" text-anchor="middle" style="fill:#c0392b;">一骑绝尘·主升浪</text>
+  </g>
+  <!-- Module7 二级 -->
+  <g>
+    <path class="ln" d="M660,1230 L720,1230 L720,1190 L820,1190" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="1165" width="220" height="50" rx="8" style="fill:#fcf4d9;stroke:#b8860b;"/>
+    <text class="l2T" x="930" y="1197" text-anchor="middle" style="fill:#b8860b;">双启动点·起点+起涨</text>
+    <path class="ln" d="M660,1250 L720,1250 L720,1250 L820,1250" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="1225" width="220" height="50" rx="8" style="fill:#fcf4d9;stroke:#b8860b;"/>
+    <text class="l2T" x="930" y="1257" text-anchor="middle" style="fill:#b8860b;">三轮拉升+三次探底</text>
+    <path class="ln" d="M660,1270 L720,1270 L720,1310 L820,1310" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="1285" width="220" height="50" rx="8" style="fill:#fcf4d9;stroke:#b8860b;"/>
+    <text class="l2T" x="930" y="1317" text-anchor="middle" style="fill:#b8860b;">结构性vs系统性</text>
+  </g>
+  <!-- Module8 二级 -->
+  <g>
+    <path class="ln" d="M660,1420 L720,1420 L720,1380 L820,1380" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="1355" width="220" height="50" rx="8" style="fill:#e5e7eb;stroke:#374151;"/>
+    <text class="l2T" x="930" y="1387" text-anchor="middle" style="fill:#374151;">系统性风险(5年一遇)</text>
+    <path class="ln" d="M660,1440 L720,1440 L720,1440 L820,1440" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="1415" width="220" height="50" rx="8" style="fill:#e5e7eb;stroke:#374151;"/>
+    <text class="l2T" x="930" y="1447" text-anchor="middle" style="fill:#374151;">结构性风险(波段机会)</text>
+    <path class="ln" d="M660,1460 L720,1460 L720,1500 L820,1500" marker-end="url(#arr)"/>
+    <rect class="l2Rect" x="820" y="1475" width="220" height="50" rx="8" style="fill:#e5e7eb;stroke:#374151;"/>
+    <text class="l2T" x="930" y="1507" text-anchor="middle" style="fill:#374151;">5步独立体系+5秒看盘</text>
+  </g>
+
+  <!-- ============= 三级节点（精选口诀/买卖点） ============= -->
+  <!-- M1 -->
+  <g>
+    <path class="ln" d="M1040,90 L1090,90 L1090,70 L1190,70" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="50" width="320" height="40" rx="6" style="fill:#eef3fb;"/>
+    <text class="l3T" x="1350" y="76" text-anchor="middle">建仓→拉高→兑现→下跌（永不变）</text>
+    <path class="ln" d="M1040,160 L1090,160 L1090,200 L1190,200" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="180" width="320" height="40" rx="6" style="fill:#eef3fb;"/>
+    <text class="l3T" x="1350" y="206" text-anchor="middle">经济→行业→个股 三层轮动</text>
+  </g>
+  <!-- M2 -->
+  <g>
+    <path class="ln" d="M1040,250 L1090,250 L1090,230 L1190,230" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="210" width="320" height="40" rx="6" style="fill:#eef3fb;"/>
+    <text class="l3T" x="1350" y="236" text-anchor="middle">集体建仓=大级别；分化=行业；非主流=不参与</text>
+    <path class="ln" d="M1040,310 L1090,310 L1090,290 L1190,290" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="270" width="320" height="40" rx="6" style="fill:#eef3fb;"/>
+    <text class="l3T" x="1350" y="296" text-anchor="middle">一致性+分化+非主流+资金+新旧+政策</text>
+    <path class="ln" d="M1040,370 L1090,370 L1090,360 L1190,360" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="340" width="320" height="40" rx="6" style="fill:#eef3fb;"/>
+    <text class="l3T" x="1350" y="366" text-anchor="middle">顶底+个股阶段+政策+时间=4要素</text>
+  </g>
+  <!-- M3 -->
+  <g>
+    <path class="ln" d="M1040,440 L1090,440 L1090,420 L1190,420" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="400" width="320" height="40" rx="6" style="fill:#f3eef9;"/>
+    <text class="l3T" x="1350" y="426" text-anchor="middle">&lt;50亿 严守5日线 9式涨停阵</text>
+    <path class="ln" d="M1040,500 L1090,500 L1090,490 L1190,490" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="470" width="320" height="40" rx="6" style="fill:#f3eef9;"/>
+    <text class="l3T" x="1350" y="496" text-anchor="middle">50-100亿 完整轨迹 2-8月建仓</text>
+    <path class="ln" d="M1040,560 L1090,560 L1090,560 L1190,560" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="540" width="320" height="40" rx="6" style="fill:#f3eef9;"/>
+    <text class="l3T" x="1350" y="566" text-anchor="middle">≥500亿 1年+建仓 5倍涨幅</text>
+  </g>
+  <!-- M4 -->
+  <g>
+    <path class="ln" d="M1040,630 L1090,630 L1090,610 L1190,610" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="590" width="320" height="40" rx="6" style="fill:#fbf0e4;"/>
+    <text class="l3T" x="1350" y="616" text-anchor="middle">多头盘列一根不能错</text>
+    <path class="ln" d="M1040,690 L1090,690 L1090,680 L1190,680" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="660" width="320" height="40" rx="6" style="fill:#fbf0e4;"/>
+    <text class="l3T" x="1350" y="686" text-anchor="middle">粘=变盘 散=主升 多头=大牛</text>
+    <path class="ln" d="M1040,750 L1090,750 L1090,750 L1190,750" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="730" width="320" height="40" rx="6" style="fill:#fbf0e4;"/>
+    <text class="l3T" x="1350" y="756" text-anchor="middle">上行封=卖 下行封=1-2%博反弹</text>
+  </g>
+  <!-- M5 -->
+  <g>
+    <path class="ln" d="M1040,810 L1090,810 L1090,790 L1190,790" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="770" width="320" height="40" rx="6" style="fill:#e6f3f3;"/>
+    <text class="l3T" x="1350" y="796" text-anchor="middle">上涨带量+调整缩量=健康</text>
+    <path class="ln" d="M1040,870 L1090,870 L1090,860 L1190,860" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="840" width="320" height="40" rx="6" style="fill:#e6f3f3;"/>
+    <text class="l3T" x="1350" y="866" text-anchor="middle">K线+结构+量能+分时 4维同步</text>
+    <path class="ln" d="M1040,930 L1090,930 L1090,930 L1190,930" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="910" width="320" height="40" rx="6" style="fill:#e6f3f3;"/>
+    <text class="l3T" x="1350" y="936" text-anchor="middle">低打就买 拉高就卖</text>
+  </g>
+  <!-- M6 -->
+  <g>
+    <path class="ln" d="M1040,1000 L1090,1000 L1090,980 L1190,980" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="960" width="320" height="40" rx="6" style="fill:#fde6e3;"/>
+    <text class="l3T" x="1350" y="986" text-anchor="middle">只买阴 不到振幅不撒鹰 (准确率≥75%)</text>
+    <path class="ln" d="M1040,1060 L1090,1060 L1090,1050 L1190,1050" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="1030" width="320" height="40" rx="6" style="fill:#fde6e3;"/>
+    <text class="l3T" x="1350" y="1056" text-anchor="middle">善蹲坑 不到跌幅不进坑 (≥70%)</text>
+    <path class="ln" d="M1040,1120 L1090,1120 L1090,1120 L1190,1120" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="1100" width="320" height="40" rx="6" style="fill:#fde6e3;"/>
+    <text class="l3T" x="1350" y="1126" text-anchor="middle">等起暴 不到突破不能跳 (≥60%)</text>
+  </g>
+  <!-- M7 -->
+  <g>
+    <path class="ln" d="M1040,1190 L1090,1190 L1090,1170 L1190,1170" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="1150" width="320" height="40" rx="6" style="fill:#fcf4d9;"/>
+    <text class="l3T" x="1350" y="1176" text-anchor="middle">左侧起点+右侧起涨点 6-12月建仓</text>
+    <path class="ln" d="M1040,1250 L1090,1250 L1090,1240 L1190,1240" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="1220" width="320" height="40" rx="6" style="fill:#fcf4d9;"/>
+    <text class="l3T" x="1350" y="1246" text-anchor="middle">1/2次最大 第3波顶部清仓</text>
+    <path class="ln" d="M1040,1310 L1090,1310 L1090,1310 L1190,1310" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="1290" width="320" height="40" rx="6" style="fill:#fcf4d9;"/>
+    <text class="l3T" x="1350" y="1316" text-anchor="middle">360年线牛熊分界</text>
+  </g>
+  <!-- M8 -->
+  <g>
+    <path class="ln" d="M1040,1380 L1090,1380 L1090,1360 L1190,1360" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="1340" width="320" height="40" rx="6" style="fill:#f0f1f4;"/>
+    <text class="l3T" x="1350" y="1366" text-anchor="middle">大顶=清仓远离 5年一遇</text>
+    <path class="ln" d="M1040,1440 L1090,1440 L1090,1430 L1190,1430" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="1410" width="320" height="40" rx="6" style="fill:#f0f1f4;"/>
+    <text class="l3T" x="1350" y="1436" text-anchor="middle">结构性顶=波段机会 减仓操作</text>
+    <path class="ln" d="M1040,1500 L1090,1500 L1090,1500 L1190,1500" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1190" y="1480" width="320" height="40" rx="6" style="fill:#f0f1f4;"/>
+    <text class="l3T" x="1350" y="1506" text-anchor="middle">买入前先想亏多少 卖出时想赚多少</text>
+  </g>
+
+  <!-- ============= 第四级：精选买卖点/案例 ============= -->
+  <!-- 精选第3级节点的延伸 -->
+  <g>
+    <path class="ln" d="M1510,70 L1570,70 L1570,50 L1670,50" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1670" y="30" width="430" height="40" rx="6" style="fill:#f9eec7;"/>
+    <text class="l3T" x="1885" y="56" text-anchor="middle" style="font-weight:bold;fill:#7d5d04;">📌 抛弃看大盘炒个股思维</text>
+
+    <path class="ln" d="M1510,420 L1570,420 L1570,400 L1670,400" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1670" y="380" width="430" height="40" rx="6" style="fill:#f9eec7;"/>
+    <text class="l3T" x="1885" y="406" text-anchor="middle" style="font-weight:bold;fill:#7d5d04;">📌 9式涨停阵 一次性重仓 1-2天见顶</text>
+
+    <path class="ln" d="M1510,610 L1570,610 L1570,590 L1670,590" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1670" y="570" width="430" height="40" rx="6" style="fill:#f9eec7;"/>
+    <text class="l3T" x="1885" y="596" text-anchor="middle" style="font-weight:bold;fill:#7d5d04;">📌 360年线=牛熊分界 一年等一回</text>
+
+    <path class="ln" d="M1510,790 L1570,790 L1570,770 L1670,770" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1670" y="750" width="430" height="40" rx="6" style="fill:#f9eec7;"/>
+    <text class="l3T" x="1885" y="776" text-anchor="middle" style="font-weight:bold;fill:#7d5d04;">📌 诱多=缩量上涨+放量滞涨</text>
+
+    <path class="ln" d="M1510,1000 L1570,1000 L1570,980 L1670,980" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1670" y="960" width="430" height="40" rx="6" style="fill:#f9eec7;"/>
+    <text class="l3T" x="1885" y="986" text-anchor="middle" style="font-weight:bold;fill:#7d5d04;">📌 阴线买入+分时均线加仓+T+0</text>
+
+    <path class="ln" d="M1510,1190 L1570,1190 L1570,1170 L1670,1170" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1670" y="1150" width="430" height="40" rx="6" style="fill:#f9eec7;"/>
+    <text class="l3T" x="1885" y="1176" text-anchor="middle" style="font-weight:bold;fill:#7d5d04;">📌 先知先觉→后知后觉→不知不觉</text>
+
+    <path class="ln" d="M1510,1380 L1570,1380 L1570,1360 L1670,1360" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1670" y="1340" width="430" height="40" rx="6" style="fill:#f9eec7;"/>
+    <text class="l3T" x="1885" y="1366" text-anchor="middle" style="font-weight:bold;fill:#7d5d04;">📌 80%亏损+万众疯狂=历史大顶</text>
+
+    <path class="ln" d="M1510,1500 L1570,1500 L1570,1500 L1670,1500" marker-end="url(#arr)"/>
+    <rect class="l3Rect" x="1670" y="1480" width="430" height="40" rx="6" style="fill:#f9eec7;"/>
+    <text class="l3T" x="1885" y="1506" text-anchor="middle" style="font-weight:bold;fill:#7d5d04;">📌 5秒定乾坤+半小时复盘=功力</text>
+  </g>
+
+  <!-- 终极核心：八六三体系底部横条 -->
+  <g>
+    <rect x="1670" y="1560" width="430" height="100" rx="10" style="fill:#2c5fa3;stroke:#1e4378;stroke-width:2;"/>
+    <text x="1885" y="1595" text-anchor="middle" fill="#fff" font-size="17" font-weight="bold">🎯 八六三体系=</text>
+    <text x="1885" y="1620" text-anchor="middle" fill="#fff" font-size="13">3大盈利模式 × 3大资金性质</text>
+    <text x="1885" y="1645" text-anchor="middle" fill="#fcf4d9" font-size="13" font-weight="bold">出手见红 · 卧薪尝胆 · 一骑绝尘</text>
+  </g>
+
+</svg>
+  </div>
+  <div class="zoom-hint">📱 在WPS/微信中可用<strong>双指放大</strong>查看 · 长按可保存图片</div>
+</div><!-- ===================== 模块1：宏观大势与四季轮动 ===================== -->
+<div class="card module-card module-1" id="m1">
+  <div class="module-head">
+    <span class="module-tag">模块 1</span>
+    <h2 style="border:none;margin:0;">📖 宏观大势与四季轮动（小白第一课）</h2>
+  </div>
+  <p><strong>📚 对应原课程</strong>：第1节 春夏秋冬 · 第3节 时代机遇 · 第4节 黑马基因 · 第5节 大盘研判</p>
+  <p><strong>🎯 学习目标</strong>：建立股市底层世界观——理解A股不是全面大牛市，而是结构性行情；学会从时代、行业、政策三个维度锁定大方向。</p>
+
+  <h3>一、先因后果定律（股市永恒定律）</h3>
+  <div class="saying">建仓 → 拉高 → 获利兑现 → 下跌，循环不变；无因无果（无涨停基因=无强势行情）。</div>
+  <ul class="points">
+    <li><strong>个股 24 小时都在轮动</strong>——任何一只股票都遵循这个周期，没有例外</li>
+    <li><strong>无涨停基因无强势行情</strong>——没有涨停板的股票不值得参与</li>
+    <li><strong>三大轮动</strong>：①经济大周期（2007/5178全面大牛→当前结构性调整）；②主流行业大周期（地产→新能源→AI）；③行业内个股小周期</li>
+  </ul>
+
+  <h3>二、当前A股定性：结构性行情</h3>
+  <div class="tip">💡 <strong>关键认知转变</strong>：当前<strong>不是全面大牛市</strong>，是<strong>结构性行情</strong>。指数可能横盘甚至下跌，但行业/个股可能涨10倍（如19年新能源、23年AI）。抛弃"看大盘点位炒个股"的传统思维！</div>
+  <ul class="points">
+    <li><strong>结构性行情定义</strong>：经济结构性调整阶段=行业内外大轮动</li>
+    <li><strong>传统vs科技板块</strong>：传统板块（酒/医药/资源/银行/地产/家电）=中长线价值；科技板块（芯片/AI/新能源/汽车/军工/通讯/AR）=中线活跃+弹性大+政策多</li>
+    <li><strong>当前行情性质</strong>：360年线=牛熊分界线（一年等一回）；结构性弱势震荡行情（无系统性风险/无大行情）</li>
+  </ul>
+
+  <h3>三、黑马土壤基因（找黑马先找土壤）</h3>
+  <div class="saying">黑马基因 = 时代大背景 + 行业属性 + 战略政策（三要素缺一不可）</div>
+  <ul class="points">
+    <li><strong>科技行业6大特点</strong>（孕育黑马的土壤）：①历史性科技大变革 ②全球竞争 ③支柱产业 ④广泛大市场 ⑤产业资本大量进入 ⑥能容纳大量资金</li>
+    <li><strong>未来方向清单</strong>：无人驾驶/核聚变/元宇宙/AI/脑机接口/万物互联/生物工程</li>
+    <li><strong>聪明资金先知先觉</strong>：看到PDF-B的智能机器人/智能自动化等行业提示</li>
+  </ul>
+
+  <h3>四、大盘研判：360年线定牛熊</h3>
+  <div class="points">
+    <li>360年线（年线）=牛熊分界（上方=多头，下方=空头），<strong>一年等一回</strong></li>
+    <li>5/10/30/60/120/360<strong>多头盘列顺序一根都不能错</strong></li>
+    <li>战略资金分散与集中度决定中长期：全行业集中=全面大牛市，行业内集中=板块牛市</li>
+  </ul>
+
+  <div class="tip">⚠️ <strong>小白核心认知</strong>：进入股市前，先问自己三个问题——是不是结构性行情？我选的行业是否符合时代？是不是有政策支持？想清楚再下手。</div>
+</div>
+
+<!-- ===================== 模块2：板块研究方法论 ===================== -->
+<div class="card module-card module-2" id="m2">
+  <div class="module-head">
+    <span class="module-tag">模块 2</span>
+    <h2 style="border:none;margin:0;">📖 板块研究方法论（如何选对方向）</h2>
+  </div>
+  <p><strong>📚 对应原课程</strong>：第6节 主流板块行业属性 · 第7节 6大核心维度 · 第26节 战略性大级别行情</p>
+  <p><strong>🎯 学习目标</strong>：掌握板块研究的核心方法——会看板块所处阶段、判断板块行情级别、把握板块切换时机。</p>
+
+  <h3>一、主流板块三种状态</h3>
+  <table>
+    <tr><th>状态</th><th>特征</th><th>对应行情</th></tr>
+    <tr><td><strong>一致性集体建仓</strong></td><td>板块内多只龙头同步建仓，资金统一部署</td><td>大级别长周期（19年新能源/23年AI涨10倍）</td></tr>
+    <tr><td><strong>分化与内部一致性</strong></td><td>板块内部分龙头独立上涨（如AI中际旭创/新易盛 vs 昆仑万维）</td><td>行业性行情（中等级别）</td></tr>
+    <tr><td><strong>非主流板块</strong></td><td>无集体建仓，仅个别游资炒作</td><td>交易性行情（不考虑）</td></tr>
+  </table>
+
+  <h3>二、6大核心维度（板块轮动研判）</h3>
+  <div class="saying">一致性 + 分化 + 非主流 + 资金性质 + 新旧结构级别 + 政策与重大事件 = 共振</div>
+  <ol class="points">
+    <li><strong>一致性维度</strong>：板块多只个股同步启动=大级别；分化=行业性；非主流=不考虑</li>
+    <li><strong>资金性质维度</strong>：传统=中长线价值；科技=中线活跃</li>
+    <li><strong>新旧结构级别维度</strong>：新旧板块核心个股结构级别=切换信号</li>
+    <li><strong>政策催化维度</strong>：战略政策（央企36领域/40家央企/52个原创技术策源地）是孕育黑马的关键；行业顶部政策利空=真正见顶；行业底部政策利好=真正见底</li>
+    <li><strong>估值水平维度</strong>：不符合时代=估值再低也贵；符合时代=估值再贵也合理中段</li>
+    <li><strong>消息面维度</strong>：政策接力+板块接力=切换时点</li>
+  </ol>
+
+  <h3>三、新旧板块轮动4要素</h3>
+  <div class="tip">⚠️ 4要素<strong>必须同步</strong>，缺一不可：①准确研判顶底性质 + ②分析个股演化阶段 + ③行业政策催化 + ④准确研判时间</div>
+
+  <div class="warn">⚠️ <strong>小白易错</strong>：板块指数失真，必须看核心个股（PDF-A P4-5）。传统板块耐心持股做底仓，科技板块快进快出结合热点。</div>
+</div>
+
+<!-- ===================== 模块3：三大资金性质识别 ===================== -->
+<div class="card module-card module-3" id="m3">
+  <div class="module-head">
+    <span class="module-tag">模块 3</span>
+    <h2 style="border:none;margin:0;">📖 三大资金性质识别（看盘的灵魂）</h2>
+  </div>
+  <p><strong>📚 对应原课程</strong>：第9节 三大资金性质 · 第10节 主力强弱与做盘紧迫性</p>
+  <p><strong>🎯 学习目标</strong>：<strong>资金是看盘的灵魂</strong>——3大资金性质决定可执行盈利模式。学会用"换手率+市值+涨停板数量"三要素公式识别资金性质。</p>
+
+  <h3>一、三要素识别公式</h3>
+  <div class="saying">换手率 + 市值 + 涨停板数量 = 锁定资金性质</div>
+
+  <table>
+    <tr><th>资金性质</th><th>换手率</th><th>市值</th><th>涨停板</th><th>口诀</th></tr>
+    <tr>
+      <td><span class="badge badge-youzi">游资</span></td>
+      <td>&gt; 20%</td>
+      <td>&lt; 50亿</td>
+      <td>≥ 3板</td>
+      <td>严守5日线 · 9式涨停阵</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-zhuli">主力</span></td>
+      <td>&lt; 10%</td>
+      <td>50-100亿</td>
+      <td>≤ 3板</td>
+      <td>完整轨迹 · 2-8月建仓</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-zhanlue">战略</span></td>
+      <td>≤ 5%</td>
+      <td>≥ 500亿</td>
+      <td>少涨停</td>
+      <td>1年+建仓 · 5倍涨幅</td>
+    </tr>
+  </table>
+
+  <h3>二、游资（紫）— 短平快</h3>
+  <ul class="points">
+    <li><strong>资金量级</strong>：几千万到几亿</li>
+    <li><strong>操作风格</strong>：时间短、行情快、暴涨暴跌、不涨停非龙头</li>
+    <li><strong>K线特征</strong>：高开迅速拉涨停+大振幅阴线+一字板/十字星</li>
+    <li><strong>操盘周期</strong>：几天-几周；顶部形成1-2天（最快）</li>
+    <li><strong>均线看什么</strong>：<strong>只看5日线</strong>，其他均线无效</li>
+  </ul>
+  <div class="saying">游资看5日线；不涨停就不是龙头；9式连续涨停</div>
+
+  <h3>三、主力资金（蓝）— 中长线代表</h3>
+  <ul class="points">
+    <li><strong>资金量级</strong>：10亿-100亿</li>
+    <li><strong>操作风格</strong>：隐蔽建仓/突击涨停建仓+最完整轨迹（建仓→震荡→洗盘→突破→拉升）</li>
+    <li><strong>K线特征</strong>：少涨停+沿5日/10日线推升+缩量止跌+大振幅止跌</li>
+    <li><strong>操盘周期</strong>：建仓2-8个月；上涨15天-3个月；涨幅≥1倍</li>
+    <li><strong>涨停基因上限3板</strong>：主力吃货超过3板就归游资</li>
+  </ul>
+  <div class="saying">强势主力三维度 = 建仓强度 + 控盘强度 + 紧迫性（3天之内必须涨）</div>
+
+  <h3>四、战略资金（绿）— 顶级玩家</h3>
+  <ul class="points">
+    <li><strong>资金量级</strong>：百亿-千亿+（机构、社保、公募）</li>
+    <li><strong>操作风格</strong>：建仓形式=单日涨停（最强）或连续大阳线（次强）；少涨停+持续性长+每天都有覆盖但沿5/10日线推升+小波段调整</li>
+    <li><strong>操盘周期</strong>：建仓6-12月甚至8月-1年；上涨9-15个月甚至1年+；涨幅≥2倍（全行业布局≥5倍）</li>
+    <li><strong>重要认知</strong>：战略资金可以跌破成本≠拉高出货（建仓期洗盘）</li>
+  </ul>
+  <div class="saying">战略资金 = 先知先觉；运作越成熟，成长空间越大</div>
+
+  <h3>五、不同资金的买卖逻辑</h3>
+  <table>
+    <tr><th>资金</th><th>买点</th><th>卖点</th></tr>
+    <tr>
+      <td><span class="badge badge-youzi">游资</span></td>
+      <td>5日线 + 分时强势吃货 + 一次性重仓</td>
+      <td>破5日线 + 顶部1-2天</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-zhuli">主力</span></td>
+      <td>缩量止跌 + 大振幅 + 涨停建仓 + 大阳</td>
+      <td>放量滞涨 + 缩量上涨 + 低开低走</td>
+    </tr>
+    <tr>
+      <td><span class="badge badge-zhanlue">战略</span></td>
+      <td>60/120/360日线支撑 + 大阳止跌 + 战略资金布局确认</td>
+      <td>加速大阳 + K线覆盖 + 缩量 = 顶部预警</td>
+    </tr>
+  </table>
+
+  <div class="tip">💡 <strong>小白核心认知</strong>：看一只股票，先看<strong>三要素</strong>判断是什么资金，再决定用什么策略。游资快进快出，主力波段持有，战略资金长线锁仓。</div>
+</div>
+
+<!-- ===================== 模块4：均线与K线核心技术 ===================== -->
+<div class="card module-card module-4" id="m4">
+  <div class="module-head">
+    <span class="module-tag">模块 4</span>
+    <h2 style="border:none;margin:0;">📖 均线与K线核心技术（基础工具）</h2>
+  </div>
+  <p><strong>📚 对应原课程</strong>：第8节 级别与结构 · 第11节 均线 · 第12节 K线振幅 · 第13节 顶底确认</p>
+  <p><strong>🎯 学习目标</strong>：掌握均线+K线的核心应用口诀，学会用"9宫格定位"判断个股所处阶段。</p>
+
+  <h3>一、均线核心口诀（资金决定均线）</h3>
+  <div class="warn">⚠️ <strong>核心认知</strong>：均线有效性<strong>取决于资金性质</strong>！游资看5日线（其他均线无效）；主力/战略看360年线+日+周+月（最有效）。</div>
+  <div class="saying">均线粘 = 变盘；均线散 = 主升；均线多头 = 大牛必经之路</div>
+  <table>
+    <tr><th>均线</th><th>意义</th><th>口诀</th></tr>
+    <tr><td>360年线</td><td>牛熊分界</td><td>一年等一回</td></tr>
+    <tr><td>60日线</td><td>多头调整极限</td><td>半年等一回</td></tr>
+    <tr><td>30日线</td><td>中长线主力下限</td><td>中长线生命线</td></tr>
+    <tr><td>20日线</td><td>推升线</td><td>波段操作参考</td></tr>
+    <tr><td>10日线</td><td>波段买点</td><td>强势回调买点</td></tr>
+    <tr><td>5日线</td><td>高速跑道</td><td>加速单边+游资唯一均线</td></tr>
+  </table>
+  <div class="tip">💡 5/10/30/60/120/360<strong>多头盘列顺序一根都不能错</strong>；<strong>完全发散 = 主升浪正式启动</strong>。</div>
+
+  <h3>二、级别与结构 9宫格定位</h3>
+  <p><strong>3种结构 × 3种级别 = 9宫格定位个股阶段</strong></p>
+  <table>
+    <tr><th>结构\级别</th><th>初级（种子）</th><th>中级（开花）</th><th>高阶（结果）</th></tr>
+    <tr><td><strong>牛市</strong></td><td>年线下方震荡</td><td>突破年线试盘</td><td>沿5日线加速</td></tr>
+    <tr><td><strong>熊市</strong></td><td>破年线下行</td><td>中级反弹</td><td>末期诱多</td></tr>
+    <tr><td><strong>结构市</strong></td><td>底部区域</td><td>震荡向上</td><td>主升加速</td></tr>
+  </table>
+
+  <h3>三、K线核心：振幅封闭锁定</h3>
+  <ul class="points">
+    <li><strong>5类基础K线</strong>：涨停板、大阳线、十字星、上下影线、一字板</li>
+    <li><strong>涨停K两种分时</strong>：①开盘后高开迅速拉升（最强）；②放量一波再放量一波直到涨停（吃货分时）</li>
+    <li><strong>跌停K两种情形</strong>：①上行空间封闭=顶部风险；②下行空间封闭=跌停板附近抄底（1-2%风险博反弹）</li>
+    <li><strong>K线覆盖</strong>：相邻K线重叠 = 力量转变信号</li>
+    <li><strong>-8%阴线次日</strong>：高开跟进 / 低开警惕</li>
+  </ul>
+  <div class="saying">K线越长，振幅越大，攻击性越强；高开=强势；低开=弱势（除吃货分时例外）</div>
+
+  <h3>四、顶底高效确认</h3>
+  <h4>主力3顶3底</h4>
+  <table>
+    <tr><th>主力顶</th><th>主力底</th></tr>
+    <tr><td>放量滞涨顶</td><td>缩量止跌底</td></tr>
+    <tr><td>缩量上涨顶</td><td>单阳止跌（金针探底）</td></tr>
+    <tr><td>低开低走顶</td><td>双线止跌（双阳探底）</td></tr>
+  </table>
+  <h4>战略3顶2底</h4>
+  <table>
+    <tr><th>战略顶</th><th>战略底</th></tr>
+    <tr><td>高位缩量顶</td><td>缩量底</td></tr>
+    <tr><td>单阳后下跌顶</td><td>连阳底</td></tr>
+    <tr><td>M顶</td><td>—</td></tr>
+  </table>
+
+  <div class="saying">游资看5日线；缩量上涨是诱多；放量滞涨是出货；金针探底是买点；历史大顶要清仓；历史大底敢加仓；第三波是顶部；结构性顶后还新高</div>
+</div>
+
+<!-- ===================== 模块5：量价分时 ===================== -->
+<div class="card module-card module-5" id="m5">
+  <div class="module-head">
+    <span class="module-tag">模块 5</span>
+    <h2 style="border:none;margin:0;">📖 成交量+分时技术（验证主力意图）</h2>
+  </div>
+  <p><strong>📚 对应原课程</strong>：第14节 主力意图验证 · 第15节 量价换手率 · 第16节 分时技术</p>
+  <p><strong>🎯 学习目标</strong>：学会用"4维验证"判断主力真实意图，避免被诱多诱空欺骗。</p>
+
+  <h3>一、主力意图验证 4维同步（最重要！）</h3>
+  <div class="saying">4维同步才执行：①连续2日K线+振幅 ②运行结构和级别 ③成交量和换手率 ④分时走势</div>
+  <div class="tip">💡 这是整个课程<strong>最核心的操作纪律</strong>。三大资金的确认时间差异：游资1-2天 + 主力稍慢 + 战略最长（按资金性质留出观察期）。第一买点=重仓买点=4维验证通过+底部区域+互相验证。</div>
+
+  <h3>二、量价核心口诀</h3>
+  <div class="saying">上涨带量 + 调整缩量 = 主力无出货迹象 = 健康</div>
+  <table>
+    <tr><th>形态</th><th>含义</th><th>对策</th></tr>
+    <tr><td>缩量上涨 + 放量滞涨</td><td><strong>诱多</strong>（骗进来）</td><td>不追高</td></tr>
+    <tr><td>放量上涨 + 缩量下跌</td><td><strong>诱空</strong>（洗出去）</td><td>坚定持有</td></tr>
+    <tr><td>放量突破高点</td><td>健康</td><td>跟进</td></tr>
+    <tr><td>缩量上涨</td><td>不健康</td><td>警惕</td></tr>
+  </table>
+  <div class="warn">⚠️ <strong>主力出货换手 = 建仓期3倍以上</strong>；<strong>战略出货成交量 = 建仓期5倍以上</strong>（核心识别标准）</div>
+
+  <h3>三、换手率三档应用</h3>
+  <ul class="points">
+    <li><strong>游资建仓双场景</strong>：①低位小换手吃货（最健康）；②高位大换手持货（警惕）</li>
+    <li><strong>T字板/一字板</strong>：低位突击建仓 = 最健康吃货</li>
+    <li><strong>换手点不做买入</strong>；等缩量+高开带量涨停 = 第二波分水岭</li>
+  </ul>
+
+  <h3>四、分时3大作用</h3>
+  <ol class="points">
+    <li>判定主力计划性</li>
+    <li>买卖点位（如何做T）</li>
+    <li>分时强弱互转（吃货还是出货）</li>
+  </ol>
+
+  <h3>五、4维分时分析</h3>
+  <table>
+    <tr><th>维度</th><th>要点</th></tr>
+    <tr><td>量的大小和持续性</td><td>持续放量 = 真攻；脉冲式 = 诱多</td></tr>
+    <tr><td>量价时间</td><td>10点前涨停最强；尾盘涨停=做盘建仓；下午秒板=突击热点刺激</td></tr>
+    <tr><td>价的斜率</td><td>陡峭拉升=主力；缓慢爬升=跟风</td></tr>
+    <tr><td>量价配比</td><td>价涨量增=健康；价涨量缩=虚涨</td></tr>
+  </table>
+
+  <h3>六、分时典型形态</h3>
+  <ul class="points">
+    <li><strong>高开放量下打</strong> = 出货分时</li>
+    <li><strong>跌停板开盘迅速放量拉高</strong> = 强势吃货</li>
+    <li><strong>上午涨停</strong> = 主力</li>
+    <li><strong>下午涨停</strong> = 战略/游资偏弱</li>
+  </ul>
+  <div class="saying">分时线必须看——低打就买，拉高就卖；向上冲击取利润，向下封闭堵风险</div>
+
+  <div class="warn">⚠️ <strong>小白禁区</strong>：涨5%追高后跌2%当日浮亏7% = <strong>禁止追高</strong>！必须等分时回踩+4维同步验证后再介入。</div>
+</div>
+
+<!-- ===================== 模块6：三大盈利模式 ===================== -->
+<div class="card module-card module-6" id="m6">
+  <div class="module-head">
+    <span class="module-tag">模块 6 ⭐</span>
+    <h2 style="border:none;margin:0;">📖 三大盈利模式（操作技术核心）</h2>
+  </div>
+  <p><strong>📚 对应原课程</strong>：第17-23节（7节连讲）</p>
+  <p><strong>🎯 学习目标</strong>：掌握"出手见红/卧薪尝胆/一骑绝尘"三大盈利模式，匹配对应资金性质，形成完整的操作技术。</p>
+
+  <h3>① 出手见红·超短线（游资专属）</h3>
+  <div class="saying">超短线只买阴，不到振幅不撒鹰（准确率目标 ≥ 75%）</div>
+  <ul class="points">
+    <li><strong>严守5日线</strong>：破5日线即清仓</li>
+    <li><strong>5种模式</strong>：底部横盘放量 / 次高位横盘 / 突发异动攻击 / 大波段背景超短线 / 单边行情超短线</li>
+    <li><strong>阴线买入</strong>+ 分时均线加仓 + 振幅≥5%</li>
+    <li><strong>操作要点</strong>：分批半仓 + 滚动T+0 + 短线卖出三条件（振幅/盈利/时间三选一）</li>
+    <li><strong>典型案例</strong>：A陕国投 / B罗平锌电 / C嘉麟杰 / D浙江世宝 / E天赐材料</li>
+  </ul>
+
+  <h3>② 卧薪尝胆·大波段（主力专属）</h3>
+  <div class="saying">大波段善蹲坑，不到跌幅不进坑（准确率目标 ≥ 70%）</div>
+  <ul class="points">
+    <li><strong>底部做大顶部做小</strong>——核心仓位管理原则</li>
+    <li><strong>跌幅20-30%相对底部</strong>= 极限位买入</li>
+    <li><strong>5步仓位</strong>：首次六成以上 + 滞涨卖1/4 + 止跌买半仓 + 趋势确立满仓 + 压力位半仓 + 高位全清</li>
+    <li><strong>3类成功模式</strong>：①主力突击暴力介入（突破360年线）；②大波段运作主力（摩登大道涨87%跌38%）；③主力介入+大波动结合（中南建设）</li>
+    <li><strong>5类买点</strong>：连续阳线止跌 / 大振幅止跌 / 大阳线止跌 / 涨停板分时上拉 / 高开分时往上打</li>
+    <li><strong>大波段卖出两点</strong>：动态验证 + 技术压力位</li>
+  </ul>
+
+  <h3>③ 一骑绝尘·主升浪（战略专属）</h3>
+  <div class="saying">主升浪等起暴，不到突破不能跳（准确率目标 ≥ 60%）</div>
+  <ul class="points">
+    <li><strong>5字诀仓位管理</strong>：底部重仓 + 右侧加仓 + 启动满仓 + 拉高调仓 + 顶部清仓</li>
+    <li><strong>4类形态</strong>：空头市场主升浪（中国软件）/ 60日均线主升浪（山东黄金）/ 360年线主升浪（浦东金桥）/ 单边形态主升浪（科恒股份）</li>
+    <li><strong>主升浪8大维度</strong>：①主力布局 ②完整轨迹 ③结构级别 ④均线完全多头 ⑤运作时间 ⑥异动 ⑦事件政策 ⑧板块轮动共振</li>
+    <li><strong>主升浪时间空间规律</strong>：突击建仓2个月+控盘区1倍；单日涨停/推升6个月以上+控盘区2倍以上</li>
+    <li><strong>三次拉升结构</strong>：第一/二次最大最快（主升段）+ 第三波顶部区域（涨幅小风险大）</li>
+    <li><strong>主升浪卖出三点</strong>：启动初期不卖 + 中途不卖 + 末端清仓</li>
+    <li><strong>果子模型</strong>：播种（建仓）→ 发芽（洗盘）→ 开花（震荡）→ 结果（主升浪）</li>
+  </ul>
+  <div class="saying">主升浪没启动之前只买不卖</div>
+
+  <h3>三大模式对照速查</h3>
+  <table>
+    <tr><th>维度</th><th>出手见红（超短线）</th><th>卧薪尝胆（大波段）</th><th>一骑绝尘（主升浪）</th></tr>
+    <tr><td>对应资金</td><td><span class="badge badge-youzi">游资</span></td><td><span class="badge badge-zhuli">主力</span></td><td><span class="badge badge-zhanlue">战略</span></td></tr>
+    <tr><td>核心均线</td><td>5日线</td><td>5/10/30/60</td><td>360年线+完全多头</td></tr>
+    <tr><td>持仓周期</td><td>1-2天</td><td>1-3个月</td><td>9-15个月</td></tr>
+    <tr><td>准确率目标</td><td>≥ 75%</td><td>≥ 70%</td><td>≥ 60%</td></tr>
+    <tr><td>核心口诀</td><td>只买阴，不到振幅不撒鹰</td><td>善蹲坑，不到跌幅不进坑</td><td>等起暴，不到突破不能跳</td></tr>
+    <tr><td>关键工具</td><td>分时技术+涨停基因</td><td>止跌技术+板块效应</td><td>三次探底+三次拉升</td></tr>
+  </table>
+
+  <div class="tip">💡 <strong>小白核心认知</strong>：先看资金性质，再选盈利模式。<strong>游资用出手见红，主力用卧薪尝胆，战略用一骑绝尘</strong>——三者不混用。</div>
+</div><!-- ===================== 模块7：战略资金与主升浪 ===================== -->
+<div class="card module-card module-7" id="m7">
+  <div class="module-head">
+    <span class="module-tag">模块 7</span>
+    <h2 style="border:none;margin:0;">📖 战略资金与主升浪（进阶必修）</h2>
+  </div>
+  <p><strong>📚 对应原课程</strong>：第24节 战略资金启动 · 第25节 战略资金顶部 · 第26节 战略性大级别行情</p>
+  <p><strong>🎯 学习目标</strong>：掌握战略资金个股的双启动点研判和顶部性质研判，把握最确定的大级别机会。</p>
+
+  <h3>一、战略资金双启动点（最重要）</h3>
+  <table>
+    <tr><th>启动点</th><th>位置</th><th>信号</th><th>意义</th></tr>
+    <tr>
+      <td><strong>起点（左侧）</strong></td>
+      <td>年线下方</td>
+      <td>底部涨停板 + 连续大阳线</td>
+      <td>底部建仓信号，超前预判半年到一年</td>
+    </tr>
+    <tr>
+      <td><strong>起涨点（右侧）</strong></td>
+      <td>年线上方</td>
+      <td>平台突破 + 均线完全多头 + 放大量</td>
+      <td>主升浪正式启动，重仓信号</td>
+    </tr>
+  </table>
+  <div class="saying">凡有大级别行情均有长达一年时间左右的运作周期；盘面一般形成三次拉升结构，涨幅在建仓成本5倍以上</div>
+
+  <h3>二、战略资金识别标准</h3>
+  <ul class="points">
+    <li><strong>三要素</strong>：换手率 ≤ 5% + 市值 ≥ 500亿 + 少涨停</li>
+    <li><strong>时代特征行业</strong>：先知先觉 + 布局完成 + 1年+ 上涨</li>
+    <li><strong>建仓分散与集中度</strong>：
+      <ul>
+        <li>分散 = 板块性牛市（行业内集中）</li>
+        <li>集中（全局） = 全面大牛市</li>
+      </ul>
+    </li>
+    <li><strong>历史案例</strong>：2015地产/资源、2021锂电池/光伏、2023芯片/通讯</li>
+  </ul>
+
+  <h3>三、三轮拉升结构（战略资金典型形态）</h3>
+  <ol class="points">
+    <li><strong>第一轮</strong>：初级阶段 → 中级突破（沿60/120日线推升）</li>
+    <li><strong>第二轮</strong>：中级 → 高级别（沿5日/10日线加速，最大最快）</li>
+    <li><strong>第三轮</strong>：高级别 → 大顶进入熊市（涨幅小风险大，<strong>顶部清仓</strong>）</li>
+  </ol>
+  <div class="tip">💡 5日线在战略资金运作中是<strong>减仓线</strong>——破5日线意味着加速段结束。</div>
+
+  <h3>四、战略资金顶部性质</h3>
+  <div class="warn">⚠️ <strong>结构顶 vs 历史大顶 区别对待</strong>：
+    <ul>
+      <li><strong>结构性顶</strong>：中级行情波段盘整后回调，单次跌幅 ≤ 30% → 可波段操作</li>
+      <li><strong>历史大顶</strong>：最高阶后大顶，5年一遇，80%股民亏损 → <strong>必须清仓远离，不能抄底</strong></li>
+    </ul>
+  </div>
+
+  <h3>五、战略性大级别行情结构级别</h3>
+  <table>
+    <tr><th>结构</th><th>级别</th><th>技术特征</th><th>操作</th></tr>
+    <tr><td rowspan="3"><strong>牛市</strong></td><td>初级</td><td>年线下方震荡</td><td>潜伏</td></tr>
+    <tr><td>中级</td><td>突破年线</td><td>试仓</td></tr>
+    <tr><td>高阶</td><td>沿5日线加速</td><td>持有</td></tr>
+    <tr><td rowspan="3"><strong>熊市</strong></td><td>初级</td><td>大顶出现</td><td><strong>清仓</strong></td></tr>
+    <tr><td>中级</td><td>中级反弹</td><td>不参与</td></tr>
+    <tr><td>高阶</td><td>末期诱多</td><td>远离</td></tr>
+  </table>
+  <div class="saying">熊市的初级阶段是风险最大的地方；历史大底后每一次结构顶都是起点，会被新高突破</div>
+</div>
+
+<!-- ===================== 模块8：风险控制与独立体系 ===================== -->
+<div class="card module-card module-8" id="m8">
+  <div class="module-head">
+    <span class="module-tag">模块 8 ⚠️</span>
+    <h2 style="border:none;margin:0;">📖 风险控制与独立体系（最后必修）</h2>
+  </div>
+  <p><strong>📚 对应原课程</strong>：第2节 四大痛点 · 第27节 构建独立体系 · 第28-30节 三大风险</p>
+  <p><strong>🎯 学习目标</strong>：建立"5成仓位风控基准"+ "5步独立体系"，把上面的知识变成可重复执行的操作系统。</p>
+
+  <h3>一、八六三体系（课程哲学根）</h3>
+  <div class="tip">💡 <strong>三大盈利模式 × 三大资金性质 = 八六三体系</strong>（3×3=9宫格）——这是整套课程的哲学根。</div>
+  <table>
+    <tr><th></th><th><span class="badge badge-youzi">游资</span></th><th><span class="badge badge-zhuli">主力</span></th><th><span class="badge badge-zhanlue">战略</span></th></tr>
+    <tr><td><strong>出手见红</strong></td><td>短线游资 9式</td><td>主力试盘</td><td>战略试仓</td></tr>
+    <tr><td><strong>卧薪尝胆</strong></td><td>游资波段</td><td>主力大波段</td><td>战略波段</td></tr>
+    <tr><td><strong>一骑绝尘</strong></td><td>游资主升</td><td>主力主升</td><td>战略主升</td></tr>
+  </table>
+
+  <h3>二、三大风险分类与对策</h3>
+  <table>
+    <tr><th>风险类型</th><th>特征</th><th>频率</th><th>应对</th></tr>
+    <tr>
+      <td><strong>系统性风险</strong></td>
+      <td>最高阶后大顶，5年一遇，80%亏损</td>
+      <td>罕见</td>
+      <td><strong>彻底清仓远离，不抄底</strong></td>
+    </tr>
+    <tr>
+      <td><strong>结构性风险</strong></td>
+      <td>中级行情波段盘整回调，单次≤30%</td>
+      <td>常见</td>
+      <td>波段操作，20-30%跌幅底部再加仓</td>
+    </tr>
+    <tr>
+      <td><strong>操作风险</strong></td>
+      <td>个人执行错误（8类）</td>
+      <td>频繁</td>
+      <td>动态验证4维 + 严守标准</td>
+    </tr>
+  </table>
+  <div class="saying">大跌进，大涨出，风险机会同步走</div>
+
+  <h3>三、5成仓位风控基准</h3>
+  <ul class="points">
+    <li><strong>5字诀仓位</strong>：底部重仓 + 右侧加仓 + 启动满仓 + 拉高调仓 + 顶部清仓</li>
+    <li><strong>风控原则</strong>：账户有空仓，心中不发慌；大顶空仓 / 底部重仓 / 拉高调仓 / 高位轻仓</li>
+    <li><strong>硬性纪律</strong>：普通投资者不超过3支股票；除大牛市外<strong>不要举债操作</strong></li>
+  </ul>
+
+  <h3>四、8类操作风险（必避）</h3>
+  <ol class="points">
+    <li><strong>追高抄底</strong>——5%追高后跌2%当日浮亏7%</li>
+    <li><strong>错误止损</strong>——破位不止损/未破位乱止损</li>
+    <li><strong>高位长期被套</strong>——大顶不清仓</li>
+    <li><strong>止盈错误</strong>——小盈就卖大盈死守</li>
+    <li><strong>由盈转亏</strong>——赚钱后麻痹大意</li>
+    <li><strong>短线中线长线错位</strong>——用短线心态做长线/用长线心态做短线</li>
+    <li><strong>主力突击拉升追高</strong>——异动时冲动</li>
+    <li><strong>主力运作周期误判</strong>——把游资当主力/把主力当战略</li>
+  </ol>
+
+  <h3>五、3类操作纪律</h3>
+  <div class="saying">买入前先考虑会亏多少而不是赚多少；卖出时考虑已经赚了多少而不是还能赚多少</div>
+  <ul class="points">
+    <li><strong>止损不看账户看标准</strong>——按技术标准止损，不按盈亏</li>
+    <li><strong>不以盈亏定买卖</strong>——盈了不止盈，亏了不止损 = 错</li>
+    <li><strong>机会只有在风险释放过程中产生</strong>——大跌后才有大机会</li>
+  </ul>
+
+  <h3>六、5步建立独立操作体系</h3>
+  <div class="tip">💡 这是<strong>小白→高手</strong>的最终路径！</div>
+  <ol class="points">
+    <li><strong>政策与主流板块</strong> → 确定方向大方向</li>
+    <li><strong>K线和均线</strong> → 分析运行的结构和级别</li>
+    <li><strong>成交量换手率</strong> → 分析资金的性质</li>
+    <li><strong>资金性质</strong> → 分析盘面运行特征 → 预判</li>
+    <li><strong>盘面特征</strong> → 分析盈利模式 → 确定操作和买卖技术</li>
+  </ol>
+
+  <h3>七、盘面8大维度（显性+隐性）</h3>
+  <table>
+    <tr><th>显性4维</th><th>隐性4维</th></tr>
+    <tr>
+      <td>K线 + 均线 + 分时 + 成交量</td>
+      <td>换手率 + 结构级别 + 大盘趋势 + 板块轮动</td>
+    </tr>
+  </table>
+  <div class="saying">5秒定乾坤 = 条件反射式看盘（像呼吸一样自然）；半小时复盘法（只看自己的黑马个股）</div>
+
+  <div class="warn">⚠️ <strong>小白终极认知</strong>：四大投资痛点=大盘分析+方向研判+个股/盈利模式+买卖时机（环环相扣）。系统性学习是唯一出路——<strong>买入前先想亏多少</strong>。</div>
+</div>
+
+<!-- ===================== 三大盈利模式速查表 ===================== -->
+<div class="card" id="modes">
+  <h2>🎯 三大盈利模式速查表（操作黄金表）</h2>
+  <p>这是整个课程最浓缩的操作精华，请务必打印背诵。</p>
+
+  <table>
+    <tr><th>维度</th><th>🟣 出手见红（超短线）</th><th>🔵 卧薪尝胆（大波段）</th><th>🟢 一骑绝尘（主升浪）</th></tr>
+    <tr><td><strong>资金性质</strong></td><td>游资</td><td>主力</td><td>战略资金</td></tr>
+    <tr><td><strong>核心均线</strong></td><td>5日线</td><td>5/10/30/60</td><td>360年线+完全多头</td></tr>
+    <tr><td><strong>核心指标</strong></td><td>换手&gt;20% 市值&lt;50亿 ≥3涨停</td><td>换手&lt;10% 市值50-100亿 ≤3板</td><td>换手≤5% 市值≥500亿 少涨停</td></tr>
+    <tr><td><strong>持仓周期</strong></td><td>1-2天</td><td>1-3个月</td><td>9-15个月</td></tr>
+    <tr><td><strong>准确率目标</strong></td><td>≥75%</td><td>≥70%</td><td>≥60%</td></tr>
+    <tr><td><strong>建仓特征</strong></td><td>涨停基因+9式</td><td>完整轨迹2-8月</td><td>单日涨停/连续大阳 1年</td></tr>
+    <tr><td><strong>买点信号</strong></td><td>阴线+分时强势+振幅≥5%</td><td>缩量止跌+大振幅+涨停+均线粘合</td><td>高开涨停/大阴洗盘+8维共振</td></tr>
+    <tr><td><strong>卖点信号</strong></td><td>破5日线/振幅/盈利/时间三选一</td><td>前期波段顶部压力位半仓+全清</td><td>第三波+末端清仓</td></tr>
+    <tr><td><strong>核心口诀</strong></td><td>只买阴，不到振幅不撒鹰</td><td>善蹲坑，不到跌幅不进坑</td><td>等起暴，不到突破不能跳</td></tr>
+    <tr><td><strong>典型案例</strong></td><td>陕国投/罗平锌电/嘉麟杰</td><td>摩登大道/中南建设</td><td>中国软件/山东黄金/浦东金桥/科恒股份</td></tr>
+  </table>
+
+  <div class="saying">80%个股在80%时间存在波段（B+++普适规则）；5字诀=底部重仓+右侧加仓+启动满仓+拉高调仓+顶部清仓</div>
+</div>
+
+<!-- ===================== 万马奔腾核要 ===================== -->
+<div class="card" id="wanma">
+  <h2>🐎 万马奔腾核要（PDF-A 22页浓缩）</h2>
+  <p><strong>核心主题</strong>：结构性行情下的万物轮动+三大资金识别+黑马土壤+系统性思维</p>
+
+  <h3>1. 结构性行情与万物轮动</h3>
+  <ul class="points">
+    <li>经济大周期 + 主流行业大周期 + 行业内个股小周期 = <strong>三层轮动</strong></li>
+    <li>当前是<strong>结构性行情</strong>，不是全面大牛市</li>
+    <li>先因后果是股市的<strong>永恒定律</strong>（建仓→拉高→兑现→下跌循环不变）</li>
+  </ul>
+
+  <h3>2. 9宫格定位个股阶段</h3>
+  <p>3种结构（熊/牛/结构市）× 3种级别（初/中/高阶）= 9宫格</p>
+  <ul class="points">
+    <li>初级（年线下方种子）→ 中级（突破开花）→ 高阶（沿5日线加速结果）</li>
+    <li>主力=2-8月建仓+涨幅1倍+3月内</li>
+    <li>战略=6-12月建仓+9-15月上涨+5倍涨幅</li>
+    <li>游资=5日线为准</li>
+  </ul>
+
+  <h3>3. 三大资金量化标准（再强调）</h3>
+  <table>
+    <tr><th>资金</th><th>换手</th><th>市值</th><th>涨停</th><th>均线</th><th>涨幅</th></tr>
+    <tr><td>🟣 游资</td><td>&gt;20%</td><td>&lt;50亿</td><td>≥3板</td><td>5日线</td><td>几倍</td></tr>
+    <tr><td>🔵 主力</td><td>&lt;10%</td><td>50-100亿</td><td>≤3板</td><td>5/10/30/60</td><td>≥1倍</td></tr>
+    <tr><td>🟢 战略</td><td>≤5%</td><td>≥500亿</td><td>少涨停</td><td>5/10/120/360</td><td>≥5倍</td></tr>
+  </table>
+
+  <h3>4. 科技行业6大特点+黑马基因</h3>
+  <div class="saying">①历史性科技大变革 ②全球竞争 ③支柱产业 ④广泛大市场 ⑤产业资本大量进入 ⑥能容纳大量资金 = 孕育黑马</div>
+
+  <h3>5. 4类系统性vs结构性风险+2种建仓=5大核心工具</h3>
+  <ul class="points">
+    <li><strong>360年线</strong> = 牛熊分界</li>
+    <li><strong>3种结构+3种级别</strong> = 9宫格</li>
+    <li><strong>建仓强度4类</strong>：单日涨停 / 连续涨停 / 长时间推高 / 多次间接式涨停（最强）</li>
+    <li><strong>5日线</strong> = 减仓线</li>
+    <li><strong>下行封闭</strong> = 1-2%风险博反弹</li>
+  </ul>
+</div><!-- ===================== 30节课程精粹索引 ===================== -->
+<div class="card" id="course-index">
+  <h2>📖 30节课程精粹索引（小白查漏补缺用）</h2>
+  <p>每节课一句话口诀+三条核心要点。主人忘记某节内容时可以快速回查。</p>
+
+  <div class="course-grid">
+    <div class="course-card"><div class="no">第1节</div><div class="ct">股市的春夏秋冬</div><div class="cs">日月轮回，先因后果是股市的永恒定律</div></div>
+    <div class="course-card"><div class="no">第2节</div><div class="ct">四大投资痛点+八六三体系</div><div class="cs">超短线只买阴；大波段善蹲坑；主升浪等起暴</div></div>
+    <div class="course-card"><div class="no">第3节</div><div class="ct">强国之路与历史性机遇</div><div class="cs">未来汽车2-3年换一次；AI与现代文明高度融合</div></div>
+    <div class="course-card"><div class="no">第4节</div><div class="ct">新时代孕育黑马的土壤基因</div><div class="cs">找黑马先找土壤——时代+政策+6大特点</div></div>
+    <div class="course-card"><div class="no">第5节</div><div class="ct">大盘运行短中长期研判</div><div class="cs">机会在结构，结构表现在行业</div></div>
+    <div class="course-card"><div class="no">第6节</div><div class="ct">主流板块行业属性与分类</div><div class="cs">研究主流板块=研究板块轮动的前提</div></div>
+    <div class="course-card"><div class="no">第7节</div><div class="ct">板块轮动的6大核心维度</div><div class="cs">战略资金集体深度布局=大级别行情</div></div>
+    <div class="course-card"><div class="no">第8节</div><div class="ct">级别与结构的盘面成熟度</div><div class="cs">中级做波段，高级逃大顶</div></div>
+    <div class="course-card"><div class="no">第9节</div><div class="ct">三大资金性质研判</div><div class="cs">资金是看盘的灵魂</div></div>
+    <div class="course-card"><div class="no">第10节</div><div class="ct">主力强弱与做盘紧迫性</div><div class="cs">突击连板涨停建仓=最强主力</div></div>
+    <div class="course-card"><div class="no">第11节</div><div class="ct">均线支撑压力技术</div><div class="cs">均线粘，均线散，均线多头要留意</div></div>
+    <div class="course-card"><div class="no">第12节</div><div class="ct">K线与振幅封闭锁定</div><div class="cs">建仓期和震荡期长阳做T；拉升期不做T</div></div>
+    <div class="course-card"><div class="no">第13节</div><div class="ct">顶底高效确认分析</div><div class="cs">金针探底是买点；历史大顶要清仓</div></div>
+    <div class="course-card"><div class="no">第14节</div><div class="ct">主力意图验证与确认</div><div class="cs">4维同步才执行</div></div>
+    <div class="course-card"><div class="no">第15节</div><div class="ct">成交量换手率破解主力</div><div class="cs">换手点不做买入；等缩量高开=第二波</div></div>
+    <div class="course-card"><div class="no">第16节</div><div class="ct">分时涨停与买卖点位</div><div class="cs">低打就买，拉高就卖</div></div>
+    <div class="course-card"><div class="no">第17节</div><div class="ct">游资第二波大波段</div><div class="cs">干干脆脆做波段</div></div>
+    <div class="course-card"><div class="no">第18节</div><div class="ct">主力运作股大波段</div><div class="cs">阴阳定乾坤——单根大阳/涨停板止跌=开启</div></div>
+    <div class="course-card"><div class="no">第19节</div><div class="ct">战略资金大波段</div><div class="cs">重要均线支撑位即底部</div></div>
+    <div class="course-card"><div class="no">第20节</div><div class="ct">3类盘面轨迹洞悉</div><div class="cs">横有多高，竖有多长</div></div>
+    <div class="course-card"><div class="no">第21节</div><div class="ct">主力盘面全轨迹</div><div class="cs">强势建仓+控盘性=主力建仓典型形态</div></div>
+    <div class="course-card"><div class="no">第22节</div><div class="ct">主升浪起爆点验证</div><div class="cs">主升浪等起暴，不到突破不能跳</div></div>
+    <div class="course-card"><div class="no">第23节</div><div class="ct">主升浪运行周期与空间</div><div class="cs">运作时间越长，准备越充分，涨幅越大</div></div>
+    <div class="course-card"><div class="no">第24节</div><div class="ct">战略资金个股启动</div><div class="cs">凡有大级别行情均有长达一年时间左右的运作周期</div></div>
+    <div class="course-card"><div class="no">第25节</div><div class="ct">战略资金顶部风险</div><div class="cs">大跌进，大涨出，风险机会同步走</div></div>
+    <div class="course-card"><div class="no">第26节</div><div class="ct">战略性大级别行情结构</div><div class="cs">熊市的初级阶段是风险最大的地方</div></div>
+    <div class="course-card"><div class="no">第27节</div><div class="ct">构建独立适配操作体系</div><div class="cs">5秒看盘的功力=条件反射</div></div>
+    <div class="course-card"><div class="no">第28节</div><div class="ct">系统性风险洞悉与规避</div><div class="cs">大顶=系统性风险，每一次反弹都是高点</div></div>
+    <div class="course-card"><div class="no">第29节</div><div class="ct">结构性风险洞悉</div><div class="cs">结构性风险=波段操作机会</div></div>
+    <div class="course-card"><div class="no">第30节</div><div class="ct">操作风险动态验证规避</div><div class="cs">动态验证+5秒定乾坤=30节收官总钥</div></div>
+  </div>
+</div>
+
+<!-- ===================== 实战速查手册 ===================== -->
+<div class="card" id="bible">
+  <h2>🧰 实战速查手册（日常盘面看这一张就够）</h2>
+
+  <h3>一、三大资金 5 秒速判表</h3>
+  <table>
+    <tr><th>资金</th><th>换手</th><th>市值</th><th>涨停</th><th>5日线</th><th>操作策略</th></tr>
+    <tr><td><span class="badge badge-youzi">游资</span></td><td>&gt;20%</td><td>&lt;50亿</td><td>≥3板</td><td>破就跑</td><td>快进快出</td></tr>
+    <tr><td><span class="badge badge-zhuli">主力</span></td><td>&lt;10%</td><td>50-100亿</td><td>≤3板</td><td>回踩买</td><td>波段持有</td></tr>
+    <tr><td><span class="badge badge-zhanlue">战略</span></td><td>≤5%</td><td>≥500亿</td><td>少涨停</td><td>减仓线</td><td>长线锁仓</td></tr>
+  </table>
+
+  <h3>二、均线口诀速查</h3>
+  <table>
+    <tr><th>口诀</th><th>含义</th></tr>
+    <tr><td>均线粘 = 变盘</td><td>均线纠缠时即将选择方向</td></tr>
+    <tr><td>均线散 = 主升</td><td>均线完全发散 = 主升浪正式启动</td></tr>
+    <tr><td>均线多头 = 大牛</td><td>5/10/30/60/120/360 多头排列</td></tr>
+    <tr><td>360年线 = 牛熊分界</td><td>一年等一回</td></tr>
+    <tr><td>60日线 = 多头调整极限</td><td>半年等一回</td></tr>
+    <tr><td>30日线 = 中长线主力下限</td><td>中长线生命线</td></tr>
+    <tr><td>5日线 = 高速跑道</td><td>加速单边+游资唯一均线</td></tr>
+  </table>
+
+  <h3>三、量价口诀速查</h3>
+  <table>
+    <tr><th>形态</th><th>含义</th><th>对策</th></tr>
+    <tr><td>上涨带量 + 调整缩量</td><td>主力无出货迹象 = 健康</td><td>坚定持有</td></tr>
+    <tr><td>缩量上涨 + 放量滞涨</td><td><strong>诱多</strong></td><td>不追高</td></tr>
+    <tr><td>放量上涨 + 缩量下跌</td><td><strong>诱空</strong></td><td>坚定持有</td></tr>
+    <tr><td>放量突破高点</td><td>健康突破</td><td>跟进</td></tr>
+    <tr><td>缩量上涨</td><td>不健康</td><td>警惕</td></tr>
+    <tr><td>主力出货换手</td><td>= 建仓期3倍以上</td><td>出货信号</td></tr>
+    <tr><td>战略出货成交量</td><td>= 建仓期5倍以上</td><td>出货信号</td></tr>
+  </table>
+
+  <h3>四、K线 + 分时口诀速查</h3>
+  <table>
+    <tr><th>形态</th><th>含义</th></tr>
+    <tr><td>K线越长，振幅越大</td><td>攻击性越强</td></tr>
+    <tr><td>高开 = 强势</td><td>低开 = 弱势（吃货分时例外）</td></tr>
+    <tr><td>上行空间封闭</td><td>= 顶部风险（卖）</td></tr>
+    <tr><td>下行空间封闭</td><td>= 1-2%风险博反弹（买）</td></tr>
+    <tr><td>K线覆盖</td><td>= 相邻K线重叠 = 力量转变信号</td></tr>
+    <tr><td>-8%阴线次日高开</td><td>跟进</td></tr>
+    <tr><td>-8%阴线次日低开</td><td>警惕</td></tr>
+    <tr><td>高开放量下打</td><td>= 出货分时</td></tr>
+    <tr><td>跌停板开盘迅速放量拉高</td><td>= 强势吃货</td></tr>
+    <tr><td>10点前涨停</td><td>最强（主力真攻）</td></tr>
+    <tr><td>尾盘涨停</td><td>= 做盘建仓（偏弱）</td></tr>
+    <tr><td>下午秒板</td><td>= 突击热点（游资偏弱）</td></tr>
+  </table>
+
+  <h3>五、主力意图验证 4维（核心纪律）</h3>
+  <div class="saying">连续2日K线+振幅 + 运行结构+级别 + 成交量+换手率 + 分时走势 = 4维同步才执行</div>
+
+  <h3>六、5 字诀仓位管理（贯穿三大模式）</h3>
+  <div class="saying">底部重仓 → 右侧加仓 → 启动满仓 → 拉高调仓 → 顶部清仓</div>
+
+  <h3>七、三大风险对策口诀</h3>
+  <table>
+    <tr><th>风险</th><th>口诀</th></tr>
+    <tr><td>系统性风险</td><td>必须清仓，远离，不抄底</td></tr>
+    <tr><td>结构性风险</td><td>波段操作，20-30%底部再加仓</td></tr>
+    <tr><td>操作风险</td><td>动态验证4维 + 严守标准 + 5秒定乾坤</td></tr>
+  </table>
+
+  <h3>八、三大纪律（30节收官）</h3>
+  <div class="warn">⚠️ ①买入前先考虑会亏多少而不是赚多少 ②卖出时考虑已经赚了多少而不是还能赚多少 ③止损不看账户看标准，不以盈亏定买卖</div>
+
+  <h3>九、小白学完这课必须记住的 5 条</h3>
+  <ol class="points">
+    <li><strong>先看资金再选策略</strong>——换手+市值+涨停板三要素</li>
+    <li><strong>再选板块看方向</strong>——6大维度+时代基因</li>
+    <li><strong>均线服从资金</strong>——游资5日线/主力10-60/战略360</li>
+    <li><strong>量价验证主力意图</strong>——4维同步才执行</li>
+    <li><strong>5字诀管仓位</strong>——底大顶小，分批进出</li>
+  </ol>
+</div>
+
+<!-- ===================== 页脚 ===================== -->
+<div class="header" style="margin-top:20px;">
+  <h1 style="font-size:18px;">🎓 主人学完这课，您已经是A股的"高手"了</h1>
+  <div class="sub" style="margin-top:6px;">
+    📚 30节正课精粹 · 🐎 万马奔腾技战 · 🎯 三大盈利模式 · ⚠️ 风险控制体系<br>
+    📐 横向树状知识图谱 · 📱 WPS/微信/手机Chrome 全兼容 · 🔍 双指可放大<br>
+    <strong style="margin-top:8px;display:block;">🎯 终极心法：买入前先想亏多少；卖出时想赚多少；系统性学习是唯一出路。</strong>
+  </div>
+  <div class="meta">
+    <span>📖 8大模块</span>
+    <span>💎 30节精粹</span>
+    <span>🧰 9张速查表</span>
+    <span>⚡ 100+实战口诀</span>
+    <span>🌳 知识图谱SVG</span>
+  </div>
+</div>
+
+</body>
+</html>
