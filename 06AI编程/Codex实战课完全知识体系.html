@@ -1,0 +1,1545 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,user-scalable=yes,maximum-scale=5.0">
+<title>2026一人公司Codex实战课 · 完整知识体系</title>
+<style>
+:root{
+  --bg:#fafaf9; --card:#fff; --text:#1e293b; --text2:#475569; --text3:#64748b;
+  --blue:#2563eb; --blue2:#3b82f6; --blue3:#eff6ff; --green:#10b981; --green2:#059669;
+  --green3:#f0fdf4; --amber:#f59e0b; --amber2:#fffbeb; --red:#ef4444; --red2:#fef2f2;
+  --border:#e2e8f0; --codebg:#f1f5f9; --shadow:0 1px 3px rgba(0,0,0,.06),0 1px 2px rgba(0,0,0,.04);
+  --radius:10px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Hiragino Sans GB","Microsoft YaHei","Helvetica Neue",sans-serif;
+  background:var(--bg);color:var(--text);line-height:1.75;-webkit-font-smoothing:antialiased;
+  padding:0;max-width:960px;margin:0 auto
+}
+/* Header */
+.hero{
+  background:linear-gradient(135deg,#eff6ff 0%,#f0fdf4 50%,#fffbeb 100%);
+  padding:48px 24px 40px;text-align:center;border-bottom:1px solid var(--border);
+  margin-bottom:32px
+}
+.hero .badge{
+  display:inline-block;background:var(--blue);color:#fff;font-size:13px;font-weight:600;
+  padding:4px 14px;border-radius:99px;letter-spacing:.5px;margin-bottom:16px
+}
+.hero h1{font-size:clamp(22px,4vw,32px);font-weight:800;color:var(--text);margin-bottom:8px;letter-spacing:-.5px}
+.hero .sub{font-size:15px;color:var(--text3);margin-bottom:4px}
+.hero .meta{font-size:13px;color:var(--text3);margin-top:12px;display:flex;gap:16px;justify-content:center;flex-wrap:wrap}
+.hero .meta span{background:var(--card);padding:3px 10px;border-radius:6px;border:1px solid var(--border)}
+/* TOC */
+.toc-wrap{background:var(--card);border-radius:var(--radius);padding:24px 28px;margin:0 16px 32px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.toc-wrap h2{font-size:17px;color:var(--blue);margin-bottom:16px;display:flex;align-items:center;gap:8px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:6px 16px}
+.toc-grid a{display:block;padding:6px 10px;font-size:14px;color:var(--text2);text-decoration:none;border-radius:6px;transition:all .15s;border-left:2px solid transparent}
+.toc-grid a:hover{background:var(--blue3);color:var(--blue);border-left-color:var(--blue)}
+/* Container */
+.container{padding:0 16px 40px}
+/* Section */
+.section{margin-bottom:36px}
+.section-title{
+  font-size:clamp(18px,3vw,22px);font-weight:700;color:var(--text);
+  padding-bottom:10px;border-bottom:2px solid var(--border);margin-bottom:20px;
+  display:flex;align-items:center;gap:10px
+}
+.section-title .num{
+  background:var(--blue);color:#fff;font-size:14px;font-weight:700;width:30px;height:30px;
+  display:flex;align-items:center;justify-content:center;border-radius:8px;flex-shrink:0
+}
+/* Cards */
+.card{background:var(--card);border-radius:var(--radius);padding:22px 24px;margin-bottom:16px;box-shadow:var(--shadow);border:1px solid var(--border)}
+.card h3{font-size:16px;color:var(--blue);margin-bottom:10px;font-weight:700}
+.card h4{font-size:15px;color:var(--text);margin:12px 0 6px;font-weight:600}
+.card p,.card li{font-size:14.5px;color:var(--text2);line-height:1.8}
+.card ul,.card ol{padding-left:20px;margin:6px 0}
+.card li{margin-bottom:3px}
+/* Tables */
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;margin:12px 0}
+table{width:100%;border-collapse:collapse;font-size:13.5px;min-width:500px}
+thead th{background:var(--blue3);color:var(--blue);font-weight:600;padding:10px 12px;text-align:left;border:1px solid var(--border);white-space:nowrap}
+tbody td{padding:9px 12px;border:1px solid var(--border);color:var(--text2);vertical-align:top}
+tbody tr:nth-child(even){background:#fafbfc}
+tbody tr:hover{background:var(--blue3)}
+/* Code/Pre */
+code{background:var(--codebg);color:var(--red);padding:2px 6px;border-radius:4px;font-size:13px;font-family:"Cascadia Code","Fira Code","JetBrains Mono",Consolas,monospace}
+pre{background:#1e293b;color:#e2e8f0;padding:16px 20px;border-radius:var(--radius);overflow-x:auto;font-size:13px;line-height:1.7;margin:12px 0;-webkit-overflow-scrolling:touch}
+pre code{background:transparent;color:inherit;padding:0;font-size:inherit}
+/* Alert boxes */
+.tip{background:var(--green3);border-left:4px solid var(--green);padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14px;color:var(--green2)}
+.warn{background:var(--amber2);border-left:4px solid var(--amber);padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14px;color:#92400e}
+.danger{background:var(--red2);border-left:4px solid var(--red);padding:12px 16px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14px;color:#b91c1c}
+.quote{background:var(--blue3);border-left:4px solid var(--blue2);padding:14px 18px;border-radius:0 8px 8px 0;margin:12px 0;font-size:14px;color:var(--text2);font-style:italic}
+/* Flow chart text */
+.flow{background:var(--codebg);padding:14px 18px;border-radius:8px;font-family:"Cascadia Code","Fira Code",Consolas,monospace;font-size:13px;line-height:1.9;white-space:pre;overflow-x:auto;margin:10px 0;color:var(--text2)}
+/* SVG container */
+.svg-wrap{background:var(--card);border-radius:var(--radius);padding:16px;margin:20px 0;box-shadow:var(--shadow);border:1px solid var(--border);overflow-x:auto;-webkit-overflow-scrolling:touch}
+.svg-wrap svg{display:block;min-width:100%;height:auto}
+/* Anchor offset */
+[id]{scroll-margin-top:70px}
+/* Back to top */
+.back-top{position:fixed;bottom:24px;right:24px;background:var(--blue);color:#fff;width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;text-decoration:none;font-size:20px;box-shadow:0 2px 8px rgba(37,99,235,.3);z-index:100;opacity:.85}
+.back-top:hover{opacity:1}
+/* KBD */
+kbd{background:var(--codebg);border:1px solid var(--border);border-radius:4px;padding:1px 6px;font-size:12px;font-family:inherit}
+/* Responsive */
+@media(max-width:640px){
+  body{font-size:15px}
+  .hero{padding:32px 16px 28px}
+  .card{padding:16px}
+  .toc-grid{grid-template-columns:1fr}
+  .section-title{font-size:17px}
+  pre{font-size:12px;padding:12px}
+  table{font-size:12px}
+}
+/* Print */
+@media print{
+  body{background:#fff;max-width:100%}
+  .card{box-shadow:none;border:1px solid #ddd;break-inside:avoid}
+  .hero{background:#fff;border-bottom:2px solid #000}
+  .back-top{display:none}
+}
+/* SVG node styles overridden inline */
+</style>
+</head>
+<body>
+
+<!-- ======== HERO ======== -->
+<header class="hero">
+<div class="badge">📚 完整知识体系</div>
+<h1>2026 一人公司 Codex 实战课</h1>
+<p class="sub">何老师 + 黄老师 双师授课 · 37节实战课 · 12大篇章</p>
+<p class="sub" style="font-size:13px;margin-top:4px">用 Codex 串起"个人/一人公司"的所有业务场景，实现 AI 自动化生产</p>
+<div class="meta">
+<span>🎯 适用人群：不会编程的创业者与运营人</span><span>🛠 核心工具：Codex + API中转站</span><span>📖 约50,000字</span>
+</div>
+</header>
+
+<!-- ======== TOC ======== -->
+<nav class="toc-wrap">
+<h2>📑 全局目录</h2>
+<div class="toc-grid">
+<a href="#p1">📀 第一篇：基础与入门（3节）</a>
+<a href="#p2">🎬 第二篇：视频自动化剪辑（5节）</a>
+<a href="#p3">🛒 第三篇：电商图复刻（4节）</a>
+<a href="#p4">👗 第四篇：女装视频复刻（4节）</a>
+<a href="#p5">📊 第五篇：数据整理与分析（1节）</a>
+<a href="#p6">📽 第六篇：PPT系列（3节）</a>
+<a href="#p7">🔗 第七篇：飞书CLI接入（1节）</a>
+<a href="#p8">🎞 第八篇：故事板视频（3节）</a>
+<a href="#p9">🤖 第九篇：数字人系列（3节）</a>
+<a href="#p10">✨ 第十篇：特效视频（2节）</a>
+<a href="#p11">📱 第十一篇：小程序开发（4节）</a>
+<a href="#p12">📝 第十二篇：Obsidian与公众号（4节）</a>
+<a href="#knowledge-graph">🗺 跨课程知识图谱</a>
+<a href="#methodology">🧠 七大核心方法论</a>
+<a href="#learning-path">🛤 学习路径建议</a>
+<a href="#cheatsheet">📋 提示词速查手册</a>
+</div>
+</nav>
+
+<div class="container">
+
+<!-- ======== OVERVIEW SVG MIND MAP ======== -->
+<div class="svg-wrap">
+<svg viewBox="0 0 1400 1020" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <filter id="sh"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-opacity=".08"/></filter>
+  </defs>
+  <rect width="1400" height="1020" fill="#fff" rx="10"/>
+  <!-- Root -->
+  <rect x="20" y="470" width="180" height="80" rx="12" fill="#2563eb" filter="url(#sh)"/>
+  <text x="110" y="505" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">2026一人公司</text>
+  <text x="110" y="528" fill="#fff" font-size="15" font-weight="700" text-anchor="middle">Codex实战课</text>
+  <!-- Level 1 branches -->
+  <g font-size="12" fill="#1e293b">
+    <!-- Branch 1: 基础入门 -->
+    <path d="M200,490 L240,490 L240,130 L260,130" stroke="#3b82f6" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="112" width="160" height="36" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="340" y="135" text-anchor="middle" font-weight="600" fill="#2563eb">第一篇：基础与入门</text>
+    <path d="M420,130 L440,130 L440,100 L460,100" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="86" width="195" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="557" y="105" text-anchor="middle" font-size="11" fill="#475569">安装与模型配置 · 界面UI · 第一技能包</text>
+    <!-- Branch 2: 视频自动化 -->
+    <path d="M200,490 L240,490 L240,190 L260,190" stroke="#3b82f6" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="172" width="160" height="36" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="340" y="195" text-anchor="middle" font-weight="600" fill="#2563eb">第二篇：视频自动化剪辑</text>
+    <path d="M420,190 L440,190 L440,160 L460,160" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="146" width="280" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="600" y="165" text-anchor="middle" font-size="11" fill="#475569">原理 → 标题字幕 → 分镜图 → 视频素材 → 自动剪辑+封装</text>
+    <!-- Branch 3: 电商图 -->
+    <path d="M200,490 L240,490 L240,250 L260,250" stroke="#3b82f6" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="232" width="160" height="36" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="340" y="255" text-anchor="middle" font-weight="600" fill="#2563eb">第三篇：电商图复刻</text>
+    <path d="M420,250 L440,250 L440,220 L460,220" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="206" width="280" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="600" y="225" text-anchor="middle" font-size="11" fill="#475569">六步流程 → API调用 → 提示词设计 → 技能包封装</text>
+    <!-- Branch 4: 女装视频 -->
+    <path d="M200,490 L240,490 L240,310 L260,310" stroke="#3b82f6" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="292" width="160" height="36" rx="6" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.2"/>
+    <text x="340" y="315" text-anchor="middle" font-weight="600" fill="#2563eb">第四篇：女装视频复刻</text>
+    <path d="M420,310 L440,310 L440,280 L460,280" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="266" width="295" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="607" y="285" text-anchor="middle" font-size="11" fill="#475569">拆解替换重组封装 → 反推抽帧 → 白底三视图 → 即梦2.0+封装</text>
+    <!-- Branch 5: 数据 -->
+    <path d="M200,490 L240,490 L240,370 L260,370" stroke="#10b981" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="352" width="160" height="36" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="1.2"/>
+    <text x="340" y="375" text-anchor="middle" font-weight="600" fill="#059669">第五篇：数据整理与分析</text>
+    <path d="M420,370 L440,370 L440,340 L460,340" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="326" width="250" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="585" y="345" text-anchor="middle" font-size="11" fill="#475569">需求明确 → 数据插件 → 可视化图表/看板</text>
+    <!-- Branch 6: PPT -->
+    <path d="M200,490 L240,490 L240,430 L260,430" stroke="#10b981" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="412" width="160" height="36" rx="6" fill="#f0fdf4" stroke="#10b981" stroke-width="1.2"/>
+    <text x="340" y="435" text-anchor="middle" font-weight="600" fill="#059669">第六篇：PPT系列</text>
+    <path d="M420,430 L440,430 L440,400 L460,400" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="386" width="290" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="605" y="405" text-anchor="middle" font-size="11" fill="#475569">流程详解 → Pinterest找对标 → ppt-master Skill可编辑PPT</text>
+    <!-- Branch 7: 飞书 -->
+    <path d="M200,490 L240,490 L240,490 L260,490" stroke="#f59e0b" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="472" width="160" height="36" rx="6" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.2"/>
+    <text x="340" y="495" text-anchor="middle" font-weight="600" fill="#92400e">第七篇：飞书CLI接入</text>
+    <path d="M420,490 L440,490 L440,460 L460,460" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="446" width="290" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="605" y="465" text-anchor="middle" font-size="11" fill="#475569">CLI接入 → 多维表格 · 思维导图 · 二创写入飞书</text>
+    <!-- Branch 8: 故事板 -->
+    <path d="M200,490 L240,490 L240,550 L260,550" stroke="#8b5cf6" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="532" width="160" height="36" rx="6" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.2"/>
+    <text x="340" y="555" text-anchor="middle" font-weight="600" fill="#7c3aed">第八篇：故事板视频</text>
+    <path d="M420,550 L440,550 L440,520 L460,520" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="506" width="290" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="605" y="525" text-anchor="middle" font-size="11" fill="#475569">剧本 → 角色卡 → 故事板图 → Sora2.0视频 → 封装</text>
+    <!-- Branch 9: 数字人 -->
+    <path d="M200,490 L240,490 L240,610 L260,610" stroke="#8b5cf6" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="592" width="160" height="36" rx="6" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.2"/>
+    <text x="340" y="615" text-anchor="middle" font-weight="600" fill="#7c3aed">第九篇：数字人系列</text>
+    <path d="M420,610 L440,610 L440,580 L460,580" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="566" width="310" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="615" y="585" text-anchor="middle" font-size="11" fill="#475569">文案提取 → 改写 → 语音克隆 → 数字人合成 → 字幕+封装</text>
+    <!-- Branch 10: 特效 -->
+    <path d="M200,490 L240,490 L240,670 L260,670" stroke="#ec4899" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="652" width="160" height="36" rx="6" fill="#fdf2f8" stroke="#ec4899" stroke-width="1.2"/>
+    <text x="340" y="675" text-anchor="middle" font-weight="600" fill="#be185d">第十篇：特效视频</text>
+    <path d="M420,670 L440,670 L440,640 L460,640" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="626" width="310" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="615" y="645" text-anchor="middle" font-size="11" fill="#475569">剪映初剪 → FasterWhisper字幕 → Hyperframes特效 → 导出</text>
+    <!-- Branch 11: 小程序 -->
+    <path d="M200,490 L240,490 L240,730 L260,730" stroke="#ec4899" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="712" width="160" height="36" rx="6" fill="#fdf2f8" stroke="#ec4899" stroke-width="1.2"/>
+    <text x="340" y="735" text-anchor="middle" font-weight="600" fill="#be185d">第十一篇：小程序开发</text>
+    <path d="M420,730 L440,730 L440,700 L460,700" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="686" width="310" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="615" y="705" text-anchor="middle" font-size="11" fill="#475569">找对标 → 注册云开发 → 四段式指令 → API → 真机上线</text>
+    <!-- Branch 12: Obsidian -->
+    <path d="M200,490 L240,490 L240,790 L260,790" stroke="#14b8a6" stroke-width="1.8" fill="none"/>
+    <rect x="260" y="772" width="160" height="36" rx="6" fill="#f0fdfa" stroke="#14b8a6" stroke-width="1.2"/>
+    <text x="340" y="795" text-anchor="middle" font-weight="600" fill="#0f766e">第十二篇：Obsidian与公众号</text>
+    <path d="M420,790 L440,790 L440,760 L460,760" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+    <rect x="460" y="746" width="310" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+    <text x="615" y="765" text-anchor="middle" font-size="11" fill="#475569">知识库搭建 → CLI打通 → 每日热点 → 6分钟一篇公众号</text>
+  </g>
+  <!-- Legend -->
+  <g transform="translate(20,870)">
+    <text x="0" y="0" font-size="11" fill="#94a3b8">图例：</text>
+    <rect x="40" y="-10" width="30" height="18" rx="4" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+    <text x="80" y="5" font-size="11" fill="#64748b">内容生产类</text>
+    <rect x="170" y="-10" width="30" height="18" rx="4" fill="#f0fdf4" stroke="#10b981" stroke-width="1"/>
+    <text x="210" y="5" font-size="11" fill="#64748b">办公自动化类</text>
+    <rect x="310" y="-10" width="30" height="18" rx="4" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1"/>
+    <text x="350" y="5" font-size="11" fill="#64748b">AI视频进阶类</text>
+    <rect x="460" y="-10" width="30" height="18" rx="4" fill="#fdf2f8" stroke="#ec4899" stroke-width="1"/>
+    <text x="500" y="5" font-size="11" fill="#64748b">产品开发类</text>
+    <rect x="600" y="-10" width="30" height="18" rx="4" fill="#f0fdfa" stroke="#14b8a6" stroke-width="1"/>
+    <text x="640" y="5" font-size="11" fill="#64748b">知识管理类</text>
+  </g>
+</svg>
+</div>
+
+<!-- ================================================================ -->
+<!-- PART 1: 基础与入门 -->
+<!-- ================================================================ -->
+<div class="section" id="p1">
+<div class="section-title"><span class="num">1</span> 第一篇：基础与入门</div>
+
+<!-- 1.1 -->
+<div class="card">
+<h3>📀 第一部分：Codex 安装与模型配置教学</h3>
+<p style="color:var(--text3);font-size:13px;margin-bottom:8px">何老师主讲 · 约5782字 · 核心目标：让无GPT会员账号的学员用Codex CLI调用大模型</p>
+<h4>一、课程定位与人群</h4>
+<ul><li><strong>核心受众</strong>：零基础 / 无GPT付费账号用户</li><li><strong>底层逻辑</strong>：不依赖官方会员，通过"中转站 + API Key"调用大模型</li></ul>
+<h4>二、Codex 工具下载与安装</h4>
+<ul><li><strong>Codex主程序</strong>：微软应用商店 / App Store 搜索 <code>codex</code> → 安装</li><li><strong>Codex+中转工具</strong>：官网下载 或 老师提供的备用离线安装包（速度更快）</li></ul>
+<h4>三、Codex+ 启动与重置（⚠️最容易踩坑）</h4>
+<div class="warn"><strong>核心原则</strong>：始终保持"先启动 Codex+，再启动 Codex"的顺序。每次配置模型前必须彻底退出Codex主程序（右下角系统托盘→退出），否则模型参数会被缓存覆盖。</div>
+<h4>四、GPT 模型接入（中转API方案）</h4>
+<table>
+<thead><tr><th>步骤</th><th>位置</th><th>关键动作</th></tr></thead>
+<tbody>
+<tr><td>1.添加供应商</td><td>Codex+ → 供应商配置 → 添加</td><td>名称随意，<strong>兼容模式必须选"纯API"</strong></td></tr>
+<tr><td>2.填URL</td><td>供应商详情</td><td>复制老师文档里的中转站地址</td></tr>
+<tr><td>3.充值</td><td>中转站 → 钱包</td><td>最低1元起</td></tr>
+<tr><td>4.创建令牌</td><td>中转站 → 添加令牌</td><td>分组选"codex专属"→ 复制Key</td></tr>
+<tr><td>5.粘贴Key</td><td>Codex+ 供应商详情</td><td>模型留空，直接保存</td></tr>
+<tr><td>6.启用</td><td>供应商列表 → 使用</td><td>重启Codex → 验证对话</td></tr>
+</tbody></table>
+<h4>五、DeepSeek 模型接入（直连API方案）</h4>
+<table>
+<thead><tr><th>对比项</th><th>GPT中转</th><th>DeepSeek官方</th></tr></thead>
+<tbody>
+<tr><td>是否需要中转站</td><td>是</td><td>否，直连</td></tr>
+<tr><td>充值门槛</td><td>最低1元</td><td>最低约10元</td></tr>
+<tr><td>协议选择</td><td>默认</td><td><strong>必须选DeepSeek专属</strong></td></tr>
+<tr><td>Key保存</td><td>中转站列表可复制</td><td><strong>创建后只显示一次</strong></td></tr>
+<tr><td>模态能力</td><td>多模态（识图/视频/做图）</td><td>仅文本</td></tr>
+<tr><td>推荐场景</td><td>开发、做图、多模态</td><td>纯文本对话、性价比优先</td></tr>
+</tbody></table>
+<div class="tip"><strong>选型建议</strong>：优先用GPT，DeepSeek作为不能用GPT时的备选。</div>
+<div class="danger"><strong>易踩坑Top5</strong>：①顺序错乱（先开Codex再配置）②协议选错（DeepSeek用默认协议）③Key丢失（DeepSeek Key没保存）④模式选错（兼容模式选了"官方"）⑤充值漏掉</div>
+</div>
+
+<!-- 1.2 -->
+<div class="card">
+<h3>🖥 第二部分：初识 Codex 界面 UI 和功能模板</h3>
+<p style="color:var(--text3);font-size:13px;margin-bottom:8px">黄老师主讲 · 约5800字 · 核心目标：建立Codex全局认知——后续所有实操的"地图课"</p>
+<h4>板块一：常规与外观设置</h4>
+<ul><li>主题切换：浅色/深色/自定义主题色</li><li>字体放大：UI字体可手动填数（如填20）</li><li>入口：左下角"设置"图标 或"文件→设置"</li></ul>
+<h4>板块二：插件模块</h4>
+<p>插件 = 别人封装好的技能包 = 复用现成能力。与"自己写技能"形成互补。</p>
+<h4>板块三：项目管理（⭐核心范式）</h4>
+<div class="quote">"用 Codex 不是跟豆包聊天"——聊天没有记忆、文件散落，无法承载长期任务。</div>
+<p><strong>创建步骤</strong>：左上角"加号" → "使用现有文件" → 选定本地文件夹 → 所有产出自动归档。</p>
+<p><strong>核心优势</strong>：隔离工作区、文件不乱跑、支持同时跑多个项目。</p>
+<h4>板块四-五：附件上传 · 计划模式 · 压缩</h4>
+<table>
+<thead><tr><th>功能</th><th>作用</th></tr></thead>
+<tbody>
+<tr><td><strong>附件上传</strong></td><td>三种方式：点击上传/拖拽/复制粘贴；注意纯文本模型丢图片会报错</td></tr>
+<tr><td><strong>目标</strong></td><td>让AI持续朝一个方向执行</td></tr>
+<tr><td><strong>计划模式</strong></td><td>AI拆解任务为多步骤，每步给1-3个方案让你选（⭐重点掌握）</td></tr>
+<tr><td><strong>压缩</strong></td><td>文本过长时手动压缩上下文</td></tr>
+</tbody></table>
+<h4>板块六：技能封装（⭐重点）</h4>
+<div class="quote">"教 Codex 干活，只教一遍。"——把流程封装成技能，下次输入触发条件自动跑完。</div>
+<h4>板块七：权限等级三档</h4>
+<table>
+<thead><tr><th>等级</th><th>权限范围</th><th>适合场景</th></tr></thead>
+<tbody><tr><td>一级</td><td>每步都问询</td><td>极度谨慎</td></tr><tr><td>二级</td><td>关键节点问询</td><td>新手推荐</td></tr><tr><td>三级</td><td>全部权限放开</td><td>老手/批量任务（⭐老师推荐）</td></tr></tbody></table>
+<h4>板块八-十：模型选择 · Canvas · 多模态限制</h4>
+<ul>
+<li><strong>模型+推理强度</strong>：日常"中高"是性价比最优点</li>
+<li><strong>Canvas</strong>：所见即所得网页编辑器，前端开发强力加速器</li>
+<li><strong>模型选型 = 任务类型 × 预算</strong>：GPT多模态能力强但贵；DeepSeek纯文本但便宜，混合使用是常态</li>
+</ul>
+</div>
+
+<!-- 1.3 -->
+<div class="card">
+<h3>🎯 第三部分：完成 CODEX 的第一技能包</h3>
+<p style="color:var(--text3);font-size:13px;margin-bottom:8px">何老师主讲 · 约6200字 · 核心目标：把"技能封装"概念落到具体可跑通的最小案例上</p>
+
+<h4>一、技能与技能包概念</h4>
+<p><strong>技能（Skill）= 可复用的AI流程封装</strong>。类比：人会编程、做饭、扫地 = 每项技能 → 打包 = 全能员工。实战案例：视频自动化剪辑 = 剧本→文案→图片→视频→剪辑 = 一个技能包。</p>
+
+<h4>二、本期小目标</h4>
+<p>输入历史人物名字 → 自动输出<strong>三件套</strong>：①标题（如"千古才女李清照的一生"）②字幕（生平经历，按年龄段划分）③画面描述（每个字幕对应的画面提示词）</p>
+
+<h4>三、三大技能详解</h4>
+<table>
+<thead><tr><th>技能</th><th>提示词核心</th><th>关键设计</th></tr></thead>
+<tbody>
+<tr><td><strong>写标题</strong></td><td>"给一个历史人物名字，返回标题" + 模板参考</td><td>模板 = "风格锚点"（如"秦始皇——统一天下的一生"）</td></tr>
+<tr><td><strong>写字幕</strong></td><td>"返回8段生平经历，格式按年龄+事件"</td><td>段数可调（7/8/10）、格式可换</td></tr>
+<tr><td><strong>写画面描述</strong></td><td>"每个字幕对应的画面描述≥50字，末尾加'真实古代纪录片风格'"</td><td>详细度保证出图质量 + 风格统一防止画面跳跃</td></tr>
+</tbody></table>
+
+<h4>四、DeepSeek防错提示词（⭐关键）</h4>
+<div class="danger">DeepSeek是纯文本模型——必须加防错提示词！<br><code>接下来这个对话窗口一定不要给我返回图片、视频或出现视频或图片的配图和视频。所有内容，一定要直接保存到文件夹中，不要直接展示。</code><br>用GPT则无需加此句。</div>
+
+<h4>五、技能包封装指令</h4>
+<pre><code>帮我把整个流程封装成一个技能包。后续用户只需要输入一个历史人物的名字，你就自动输出标题、字幕、生平经历、画面描述。</code></pre>
+<div class="quote">"Codex 教他只教一遍。"——一次封装→永久复用。</div>
+
+<h4>六、提示词五要素结构</h4>
+<div class="flow">任何任务型提示词都包含：
+① 任务定义（做什么）
+② 格式/模板（按什么范式）
+③ 数量/边界（多少字/多少段）
+④ 风格/约束（统一性要求）
+⑤ 封装指令（是否固化为Skill）</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- PART 2: 视频自动化 -->
+<!-- ================================================================ -->
+<div class="section" id="p2">
+<div class="section-title"><span class="num">2</span> 第二篇：视频自动化剪辑系列</div>
+
+<div class="card">
+<h3>🎬 第四部分：视频自动化剪辑原理讲解</h3>
+<div class="flow">输入历史人物名字
+    ↓
+① 生成标题 + 生平经历 + 画面描述（技能包）
+    ↓
+② 做图（分镜图）— 即梦5.0 或 Image2
+    ↓
+③ 做视频 — 即梦1.5 Pro（首尾帧逻辑）
+    ↓
+④ 自动化剪辑 — 剪映小助手（开源免费）
+    ↓
+⑤ 封装为完整技能包</div>
+<table>
+<thead><tr><th>环节</th><th>模型选择</th><th>选择理由</th></tr></thead>
+<tbody>
+<tr><td>做图</td><td>Image2（推荐）/ 即梦5.0</td><td>Image2成本低、效果更好；即梦5.0国产合规</td></tr>
+<tr><td>做视频</td><td>即梦1.5 Pro（不用2.0）</td><td>成本更低、支持首尾帧</td></tr>
+<tr><td>剪辑</td><td>剪映小助手</td><td>开源、免费、API自动上传素材</td></tr>
+</tbody></table>
+<div class="warn"><strong>首尾帧逻辑</strong>：每张分镜图之间必须相互关联（第一张↔第二张、第二张↔第三张），否则视频不连贯。如断裂可用运镜提示词后期优化。</div>
+</div>
+
+<div class="card">
+<h3>📝 第五部分：历史人物标题字幕制作教程</h3>
+<p style="color:var(--text3);font-size:13px;margin-bottom:8px">文档5之后的实操第一课 · 三步准备动作</p>
+<h4>操作前准备</h4>
+<ol><li>打开Codex + 创建项目文件夹</li><li><strong>下载并导入技能包</strong>（把技能包文件丢给Codex，提示"严格执行我"）</li><li>DeepSeek用户追加"不要展示图和视频，直接保存"的防错指令</li></ol>
+<h4>技能包测试</h4>
+<ol><li>给Codex一个历史人物名字</li><li>让Codex测试技能包，看能否按照最早设定的要求输出</li><li><strong>验证通过后</strong>→下一步进入"做图→做视频→做剪辑"三步</li></ol>
+<div class="tip">这是视频自动化剪辑系列的实操第一课，承接第三部分的第一技能包。只有技能包测试通过，才能进入后续的API调用环节。</div>
+</div>
+
+<div class="card">
+<h3>🖼 第六部分：调用即梦 API 分镜图批量制作</h3>
+<p style="color:var(--text3);font-size:13px;margin-bottom:8px">约9000字 · 含完整AI提示词汇总</p>
+<h4>分镜图模型选择</h4>
+<table>
+<thead><tr><th>模型</th><th>特点</th></tr></thead>
+<tbody><tr><td><strong>Image2</strong></td><td>中转调用便宜，效果比即梦好（⭐推荐）</td></tr><tr><td>即梦5.0 快速版</td><td>速度快、价格低，单张约0.2元</td></tr></tbody></table>
+<h4>火山引擎接入流程（关键步骤）</h4>
+<ol>
+<li>进入火山引擎 → 大模型页面 → 5.0快速版</li>
+<li><strong>API文档获取</strong>：模型页面→API接入→快速测试→<strong>复制全文</strong>（不需要看懂——都是给Codex看）</li>
+<li><strong>文件保存</strong>：新建文本文件→<strong>必须改后缀为.md</strong>（Markdown格式，Codex更容易识别）</li>
+<li>关键参数：API Key、图片比例（9:16/16:9/1:1）、<strong>编码必须UTF-8</strong></li>
+</ol>
+<h4>批量并行做图</h4>
+<div class="tip"><strong>测试驱动</strong>：任何API调用前必须先单条测试→再批量→并行提速。串行7张图=7分钟；并行=1分钟。</div>
+<h4>核心提示词</h4>
+<pre><code>参考这个文档，帮我测试一下做图的API。图像比例9:16，编码UTF-8，结果保存到本地文件夹。
+
+按照刚才的做图流程，把剩下的7张图并行给我做出来，全部保存到本地文件夹。</code></pre>
+</div>
+
+<div class="card">
+<h3>🎥 第七部分：调用即梦 API 制作视频素材</h3>
+<h4>首尾帧 = 视频连贯性保障</h4>
+<table>
+<thead><tr><th>平台</th><th>价格</th></tr></thead>
+<tbody><tr><td>火山引擎官方 480P</td><td>约0.25元/秒</td></tr><tr><td>中转 480P</td><td>约0.23元/秒</td></tr><tr><td>720P</td><td>约0.5元/秒</td></tr></tbody></table>
+<h4>关键参数</h4>
+<ul><li>分辨率：480P（省token）/ 720P / 1080P</li><li><strong>时长：5秒一段</strong></li><li><strong>声音：必须无声</strong>（后面要自动配音）</li><li><strong>首尾帧模式：明确告诉Codex用首尾帧</strong></li></ul>
+<div class="danger"><strong>强制指定模型的坑</strong>：火山引擎默认是2.0模型，必须加 <code>model: jimeng-1.5-pro</code>，否则被收2.0费用（成本高几倍）。中转默认就是1.5 Pro，不用额外指定。</div>
+<h4>核心提示词</h4>
+<pre><code>请仔细阅读这个文档，根据我的一张图生成一段5秒的视频。使用首尾帧模式，分辨率480P，无声音。用1.5 Pro模型。测试API是否可用。
+
+刚才的视频能以MP4格式保存到本地文件吗？
+
+按照刚才的流程，把剩下的图片依次并行生成视频，每个视频单独保存为MP4。</code></pre>
+</div>
+
+<div class="card">
+<h3>✂ 第八部分：剪映小助手自动剪辑 + 技能Skill封装</h3>
+<h4>剪映小助手三种下载方式</h4>
+<ol><li>GitHub手动下载 → Releases选版本</li><li>老师提供的安装包</li><li><strong>让Codex安装</strong>（最简单）："please帮我安装这个软件"</li></ol>
+<h4>6步自动剪辑指令模板</h4>
+<pre><code>1. 创建一个草稿，比例9:16（1080×1920）
+2. 视频按照生成的顺序帮我添加（从出生到死亡的时间线）
+3. 添加标题（用生成的标题文案）
+4. 添加字幕（用生平经历，每段字幕带时间线，总时长与视频一致）
+5. 添加音频（MP3链接是XX，时长与视频一致）
+6. 最后生成草稿链接，把链接告诉我</code></pre>
+<div class="tip"><strong>注意</strong>：音频不能直接给文件，必须给MP3链接。字幕本质是分"对"结构，每对有自己的时间线。</div>
+<h4>最终技能包封装</h4>
+<pre><code>帮我把整套流程封装成一个完整的技能包。后续只需要用户输入一个历史人物名字，你就可以自动做出：标题、生平经历、画面描述、图片、视频、剪映草稿。所有结果直接保存到本地文件夹。做图和做视频必须并行去做，提高效率。</code></pre>
+<div class="quote"><strong>终极测试结果</strong>：武则天案例全流程约4分35秒完成（相比首次17分钟提速3-4倍）。</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- PART 3: 电商图复刻 -->
+<!-- ================================================================ -->
+<div class="section" id="p3">
+<div class="section-title"><span class="num">3</span> 第三篇：电商图复刻系列</div>
+
+<div class="card">
+<h3>🛒 第九部分：Codex 复刻电商图底层原理</h3>
+<h4>六步流程全景（核心骨架）</h4>
+<table>
+<thead><tr><th>步骤</th><th>动作</th><th>关键产出</th></tr></thead>
+<tbody>
+<tr><td>第1步</td><td>创建项目+准备图片</td><td>Codex项目文件夹+素材图+对标图</td></tr>
+<tr><td>第2步</td><td>看图分析</td><td>多模态模型读懂对标图（背景/卖点/模板/光效/风格）</td></tr>
+<tr><td>第3步</td><td>锁定产品特性</td><td>logo、外观、比例、接口、布局固化</td></tr>
+<tr><td>第4步</td><td>编写复刻提示词</td><td>由Codex协助生成完整prompt</td></tr>
+<tr><td>第5步</td><td>调用作图模型</td><td>接入GPT image-2-image的API</td></tr>
+<tr><td>第6步</td><td>封装为技能包</td><td>一键复用</td></tr>
+</tbody></table>
+<div class="quote"><strong>核心心法</strong>：降本（API替代GPT会员）· 降难（扣子多节点压缩成一次对话）· 增效（训练一次永久复用）<br><strong>底层逻辑</strong>：复刻不是抄，而是"骨架借鉴 + 血肉替换"。</div>
+</div>
+
+<div class="card">
+<h3>🔌 第十部分：Codex 调用 API 复刻出详情图</h3>
+<h4>API文档创建流程</h4>
+<p>路径：风控站→API文档→绘画管理→绘画模式→<strong>gpt-image-2-image</strong>→复制→在Codex文件夹创建MD文档→粘贴→格式改为"大模式"</p>
+<h4>四大关键参数</h4>
+<table>
+<thead><tr><th>参数</th><th>取值</th></tr></thead>
+<tbody><tr><td>调用接口</td><td>必须显式指定用API接口</td></tr><tr><td>画质</td><td>选最低（<strong>1K</strong>）</td></tr><tr><td>清晰度</td><td>1K（GPT模型当前只支持1K）</td></tr><tr><td>API密钥</td><td>用自己的（不能共用老师的）</td></tr></tbody></table>
+<h4>调用指令模板</h4>
+<pre><code>参考这个文档 [MD文档地址]
+输入1：我的素材地址 [产品图]
+输入2：复刻的提示词
+输入3：对标图
+对标几张图就做几张图，最后把生成的结果保存到文件。</code></pre>
+</div>
+
+<div class="card">
+<h3>💬 第十一部分：Codex 复刻电商图提示词输入</h3>
+<h4>完整提示词模板</h4>
+<pre><code>这是我（对标）的同行产品逻辑。同行的产品详情图。我需要高细节复刻，单独复刻。确保每个细节都必须完整复刻。
+
+还有一个细节：在每段提示词的后面都必须加一句。
+
+必须先把我自己的产品细节和logo全部整理出来。再去复刻对标产品的背景细节和结构细节。以及对标logo去除。最后把完整的提示词保存到文档。</code></pre>
+<h4>提示词设计哲学</h4>
+<ul><li><strong>大白话即可</strong>：不必专业术语</li><li><strong>强措辞</strong>："必须""全部""完整复刻"</li><li><strong>结构化输入</strong>：用分段分隔逻辑</li><li><strong>文件必传</strong>：素材地址、提示词文档、对标图路径必须给到位</li><li><strong>关键洞察</strong>：表达越详细AI加得越多；Codex能补全你的想法</li></ul>
+</div>
+
+<div class="card">
+<h3>📦 第十二部分：封装 Codex 复刻详情图技能包</h3>
+<h4>封装指令（核心模板）</h4>
+<pre><code>帮我把整个流程封装成一个技能包。当用户只需要输入一个自己的素材 + 对标的电商详情图，就按照顺序生成对应的图。最后把生成的结果保存到文件。</code></pre>
+<h4>封装前后对比</h4>
+<table>
+<thead><tr><th>维度</th><th>封装前</th><th>封装后</th></tr></thead>
+<tbody><tr><td>重新整理提示词</td><td>✅必须</td><td>❌不需要</td></tr><tr><td>调用API接口</td><td>✅手动</td><td>❌自动</td></tr><tr><td>喂素材和对标图</td><td>✅手动</td><td>✅手动（仅此一步）</td></tr><tr><td>时间成本</td><td>几十分钟</td><td>几分钟</td></tr></tbody></table>
+</div>
+</div>
+
+<!-- SVG: 电商图复刻流程 -->
+<div class="svg-wrap">
+<svg viewBox="0 0 820 210" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><filter id="sh2"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-opacity=".06"/></filter></defs>
+  <rect width="820" height="210" fill="#fff" rx="8"/>
+  <text x="20" y="24" font-size="13" fill="#94a3b8" font-weight="600">电商图复刻 · 六步流程</text>
+  <!-- Step 1 -->
+  <rect x="20" y="44" width="110" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="75" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb">① 创建项目</text>
+  <text x="75" y="84" text-anchor="middle" font-size="10" fill="#64748b">文件夹+素材+对标图</text>
+  <path d="M130,70 L155,70" stroke="#94a3b8" stroke-width="1.5" marker-end="url(#arrow)"/>
+  <!-- Step 2 -->
+  <rect x="160" y="44" width="110" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="215" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb">② 看图分析</text>
+  <text x="215" y="84" text-anchor="middle" font-size="10" fill="#64748b">多模态读懂对标图</text>
+  <path d="M270,70 L295,70" stroke="#94a3b8" stroke-width="1.5"/>
+  <!-- Step 3 -->
+  <rect x="300" y="44" width="110" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="355" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb">③ 锁定产品</text>
+  <text x="355" y="84" text-anchor="middle" font-size="10" fill="#64748b">logo·外观·比例</text>
+  <path d="M410,70 L435,70" stroke="#94a3b8" stroke-width="1.5"/>
+  <!-- Step 4 -->
+  <rect x="440" y="44" width="110" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="495" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb">④ 编写提示词</text>
+  <text x="495" y="84" text-anchor="middle" font-size="10" fill="#64748b">骨架借鉴+血肉替换</text>
+  <path d="M550,70 L575,70" stroke="#94a3b8" stroke-width="1.5"/>
+  <!-- Step 5 -->
+  <rect x="580" y="44" width="110" height="52" rx="8" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="635" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#2563eb">⑤ 调用API</text>
+  <text x="635" y="84" text-anchor="middle" font-size="10" fill="#64748b">image-2-image出图</text>
+  <path d="M690,70 L715,70" stroke="#94a3b8" stroke-width="1.5"/>
+  <!-- Step 6 -->
+  <rect x="720" y="44" width="90" height="52" rx="8" fill="#dcfce7" stroke="#10b981" stroke-width="1.5" filter="url(#sh2)"/>
+  <text x="765" y="66" text-anchor="middle" font-size="12" font-weight="700" fill="#059669">⑥ 封装</text>
+  <text x="765" y="84" text-anchor="middle" font-size="10" fill="#059669">技能包一键复用</text>
+  <!-- Key points -->
+  <g transform="translate(20,120)">
+    <rect x="0" y="0" width="790" height="70" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+    <text x="15" y="22" font-size="11" fill="#475569" font-weight="600">关键要点：</text>
+    <text x="15" y="40" font-size="11" fill="#64748b">• API文档必须保存为.md格式（Codex识别更稳定）  • 参数：画质1K、编码UTF-8  • API密钥用自己的</text>
+    <text x="15" y="56" font-size="11" fill="#64748b">• 先单张测试→再批量并行  • 对标N张图就生成N张  • 提示词必须给定位置、结果必须落盘</text>
+  </g>
+  <defs><marker id="arrow" markerWidth="6" markerHeight="6" refX="5" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6" fill="#94a3b8"/></marker></defs>
+</svg>
+</div>
+
+<!-- ================================================================ -->
+<!-- PART 4: 女装视频复刻 -->
+<!-- ================================================================ -->
+<div class="section" id="p4">
+<div class="section-title"><span class="num">4</span> 第四篇：女装视频复刻系列</div>
+
+<div class="card">
+<h3>👗 第十三部分：Codex 复刻女装视频逻辑讲解</h3>
+<h4>核心：拆解-替换-重组-封装 四字诀</h4>
+<table>
+<thead><tr><th>步骤</th><th>动作</th><th>关键工具/模型</th><th>输出物</th></tr></thead>
+<tbody>
+<tr><td>第1步</td><td>上传原视频，反推提示词+全程抽帧</td><td>Codex+抽帧插件</td><td>视频提示词文档+抽帧图集</td></tr>
+<tr><td>第2步</td><td>上传产品图，抠图成白底图</td><td>Codex+GPT-4o image2</td><td>白底三视图</td></tr>
+<tr><td>第3步</td><td>结合场景/运镜+产品，生成新视频提示词</td><td>Codex</td><td>新视频提示词</td></tr>
+<tr><td>第4步</td><td>调用视频生成模型做视频</td><td>即梦2.0 API</td><td>全新视频</td></tr>
+<tr><td>第5步</td><td>封装成技能包</td><td>Codex技能包</td><td>一次性配置</td></tr>
+</tbody></table>
+<div class="warn"><strong>最容易混淆的步骤</strong>：第3步"重新生成提示词"是必需的！第1步反推的是"别人视频的提示词"（包括别人的衣服/风格/机位），直接使用会违反原创。第3步核心：保留"场景+运镜+光线+风格"，只替换服装为自家产品。</div>
+<div class="tip"><strong>业务可迁移性</strong>：本逻辑不限于女装，可迁移至跨境电商视频复刻、食品/饮料带货视频等。</div>
+</div>
+
+<div class="card">
+<h3>🔍 第十四部分：Codex 反推视频提示词 + 抽帧图</h3>
+<h4>核心提示词（最重要的一句话）</h4>
+<pre><code>帮我去反推这个视频的提示，注意每一个细节，并使用视频抽帧。新的抽帧图保存到咱们新的文件夹里面。</code></pre>
+<p><strong>提示词拆解</strong>：①动作：反推+抽帧（双动词并行）②要素：每一个细节 ③工具：使用视频抽帧 ④输出：提示词文档+抽帧图 ⑤存储：保存到新建文件夹</p>
+<div class="warn"><strong>关键依赖</strong>：Codex自身没有抽帧能力，必须借助外部插件。让Codex自动安装即可。</div>
+</div>
+
+<div class="card">
+<h3>📷 第十五部分：调用 image2 做白底三视图</h3>
+<h4>第2步提示词（抠白底三视图）</h4>
+<pre><code>参考这个文档，帮我把这个图的服装、鞋子、首饰给我抠图出来，最后以3:0的白底图给我保存的文件。</code></pre>
+<h4>第3步提示词（生成新视频提示词）</h4>
+<pre><code>参考刚才的抽帧图以及反馈提示，帮我生成一个新的提示，三视图要作为唯一的服装参考。</code></pre>
+<h4>提示词设计三层架构</h4>
+<div class="flow">第1层：参考/输入源（Where）——"参考这个文档""参考抽帧图"
+第2层：动作动词（What）——"抠图出来""生成新提示"
+第3层：要素+输出格式+存储位置（How）——"服装/鞋子/首饰""3:0白底图""保存的文件"</div>
+<div class="tip">三视图提供多角度服装信息，让后续视频生成模型准确还原款式。白底图避免背景干扰。</div>
+</div>
+
+<div class="card">
+<h3>🎬 第十六部分：调用即梦 2.0 API 做视频 + 技能包封装</h3>
+<h4>模型选择：即梦 Jimeng 2.0</h4>
+<table>
+<thead><tr><th>维度</th><th>配置</th></tr></thead>
+<tbody><tr><td>模型定位</td><td>国内AI视频生成第一梯队</td></tr><tr><td>档位选择</td><td><strong>Fast档</strong>（性价比首选，1秒约4毛钱）</td></tr><tr><td>清晰度</td><td>测试阶段选480P（省积分）</td></tr></tbody></table>
+<div class="danger"><strong>为什么不直接用火山引擎的即梦？</strong>火山引擎的即梦2.0强制检测人脸，出现真人脸就会失败。解决方案：使用第三方中转接口，支持真人脸。市面上几乎找不到支持真人脸的即梦2.0接口。</div>
+<h4>第4步提示词（最核心）</h4>
+<pre><code>调用即梦2.0接口，根据三视图（标红路径）、抽帧图（标红路径），生成与参考视频风格一致的同款女装带货视频，模型选择2.0 best，清晰度480P，保存到项目文件夹。</code></pre>
+<h4>五步提示词全景图</h4>
+<table>
+<thead><tr><th>步骤</th><th>输入素材</th><th>提示词核心</th><th>产出</th></tr></thead>
+<tbody>
+<tr><td>第1步</td><td>对标视频+服装图</td><td>反推+抽帧+细节+保存</td><td>提示词+抽帧图</td></tr>
+<tr><td>第2步</td><td>产品图+GPT文档</td><td>抠图+要素+3:0白底+保存</td><td>白底三视图</td></tr>
+<tr><td>第3步</td><td>三视图+抽帧图+反推提示</td><td>参考+生成+三视图为唯一服装</td><td>新视频提示词</td></tr>
+<tr><td>第4步</td><td>三视图+抽帧图+即梦文档</td><td>调用+生成+模型参数+保存</td><td>视频成品</td></tr>
+<tr><td>第5步</td><td>第1-4步流程</td><td>上传2素材+按流程生成+保存</td><td>Codex技能包</td></tr>
+</tbody></table>
+<div class="quote"><strong>业务的终极价值</strong>：不在于视频本身，而在于思维迁移（从女装扩展到任何产品）、流程封装（从重复劳动到一键复用）、AI平权（大白话指挥AI完成复杂任务）、一人公司（用技能包武装个体创业者）。</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- PART 5: 数据分析 -->
+<!-- ================================================================ -->
+<div class="section" id="p5">
+<div class="section-title"><span class="num">5</span> 第五篇：数据整理与分析</div>
+
+<div class="card">
+<h3>📊 第十七部分：Codex 做数据整理与分析</h3>
+<p style="color:var(--text3);font-size:13px;margin-bottom:8px">黄老师主讲 · 约6798字 · 核心：Excel/CSV数据清洗+核心指标提取+可视化图表+汇报报表生成</p>
+<h4>三大步骤</h4>
+<ol>
+<li><strong>明确自己的需求</strong>：数据分析难的不是工具，而是"自己想分析什么"。必须先明确：手里有什么表？分析哪些指标？汇报给谁看？</li>
+<li><strong>调用数据整理插件</strong>（DataFrog/DataAgent类）：
+<pre><code>先简单帮我看一下这份表格，它的字段和数据。
+
+通过这份表格帮我做：核心指标提取、分类对比、趋势变化、异常值识别、相关业务建议，调用你的数据整理插件完成。</code></pre>
+</li>
+<li><strong>补充可视化图表</strong>：
+<pre><code>把刚才的结果再生成一个全面的可视化版本，每一个分析都保留到对应表格，并在右侧或下方加上图表、热力图、数据条。</code></pre>
+</li>
+</ol>
+<h4>可拓展方向</h4>
+<ul><li>可编辑PPT：把分析结果做成可编辑PPT汇报</li><li>本地预览：生成HTML数据看板</li><li>云端服务器：把看板部署到云端</li></ul>
+<h4>操作要点与坑点</h4>
+<table>
+<thead><tr><th>要点</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>不用会编程</td><td>Codex+内置数据插件，普通办公族可直接上手</td></tr>
+<tr><td>插件要找对</td><td>没看到插件就丢名字给Codex，它会自己调用</td></tr>
+<tr><td>表格先看后析</td><td>第一步一定要让Codex"先看表格"</td></tr>
+<tr><td>提示词要具体</td><td>"分析每个平台对比+趋势变化"比"分析一下"强100倍</td></tr>
+<tr><td>可视化可手动</td><td>生成的图表位置、颜色、比例都可手动微调</td></tr>
+</tbody></table>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- PART 6: PPT -->
+<!-- ================================================================ -->
+<div class="section" id="p6">
+<div class="section-title"><span class="num">6</span> 第六篇：PPT 系列</div>
+
+<div class="card">
+<h3>📽 第十八部分：制作 PPT 的流程详解</h3>
+<div class="warn"><strong>核心结论</strong>：市面上的"AI做PPT"大多是生成不可编辑的固定图片——没法改字、换图、拉长柱状图。<br><strong>真正可编辑PPT的完整流程</strong> = 模板做参考 + Codex重做 + Skill打包</div>
+<h4>三大步骤</h4>
+<ol>
+<li><strong>让Codex梳理行业PPT大纲</strong>：<code>你是做什么行业的？给我做一个X行业的PPT大纲，6页，简单明了就行。</code></li>
+<li><strong>去Pinterest找对标模板</strong>（不用花瓣——国内素材库单一、容易撞款）：Pinterest全球素材库、AI推荐相似模板、框选局部找相似图</li>
+<li><strong>调用Codex参考模板重做图</strong>：让Codex参考模板图，生成同风格但内容是你的图</li>
+</ol>
+<h4>PPT设计原则</h4>
+<p>不要长篇大论 · 简单精炼图文并茂 · 一目了然数据可视化 · <strong>避免纯文字PPT</strong></p>
+<h4>进阶：安装Skill让PPT可编辑</h4>
+<p>只让Codex做图产物是不可编辑的图片。真正可编辑PPT需要安装ppt-master类工具（开源项目30K+ Star）。</p>
+</div>
+
+<div class="card">
+<h3>🔍 第十九部分：实操去 Pinterest 找对标模板做同款</h3>
+<h4>五步实操流程</h4>
+<ol>
+<li>新建项目+挂载文件夹</li>
+<li>在Pinterest选模板图（找有多个板块的参考图）</li>
+<li>让Codex根据模板图写大纲：
+<pre><code>帮我去做一个关于Codex的PPT大纲。下一步我要根据里面的9大板块，做对应的PPT（做6张）。现在帮我把生成的大纲内容列出来，确保这6大板块的图形能完美填充。这一步只要大纲就行。</code></pre></li>
+<li>调用imagine API生成板块图（先单页测试→再批量并行）</li>
+<li>返回提示词检查是否跑偏</li>
+</ol>
+<div class="tip"><strong>为什么要求返回提示词</strong>：让Codex暴露它写的提示词→你能判断它有没有"跑偏"。提示词写得好不好，直接决定图的风格对不对。</div>
+</div>
+
+<div class="card">
+<h3>📦 第二十部分：安装 Skill 制作可编辑的 PPT</h3>
+<h4>Skill安装方法（推荐让Codex自动安装）</h4>
+<pre><code>帮我按照这个思路（ppt-master开源项目）安装这个Skill，第一次安装会需要安装很多依赖，可能需要10-20分钟。</code></pre>
+<h4>生成可编辑PPT</h4>
+<pre><code>调用ppt-master这个Skill，把刚才生成的第一张截图，做成可编辑的PPT，先看效果。</code></pre>
+<div class="tip"><strong>先做1张测试</strong>：第一次用Skill可能要6-7分钟。一次做完6张万一效果不好时间浪费。先做1张→看效果→OK后再批量。</div>
+<h4>可编辑PPT的特性</h4>
+<p>最终产物：<code>.pptx</code>文件，WPS可直接打开。文字、图表、图片、位置、版式全部可编辑。</p>
+<div class="quote">"AI这个东西你不说清楚，不讲他不知道你心中想啥，你讲越细他做的越好。Codex这个东西，你一定要会教他，你教他他才聪明，你不教他他真的很笨。"</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- PART 7: 飞书 -->
+<!-- ================================================================ -->
+<div class="section" id="p7">
+<div class="section-title"><span class="num">7</span> 第七篇：飞书 CLI 接入</div>
+
+<div class="card">
+<h3>🔗 第二十一部分：Codex 如何接入飞书 CLI</h3>
+<h4>为什么要接入飞书CLI</h4>
+<p>CLI是智能体执行操作的接口。Codex之所以能创建文件、处理图片视频，是因为它能调用命令行工具。同理，要让Codex操作飞书也需要接入飞书CLI。</p>
+<h4>飞书支持能力</h4>
+<p>创建整理文档 · 多维表格 · 可视化图表 · 发送读取消息 · 管理群聊 · 读取整理邮件 · 管理日历 · 处理考勤等企业办公数据</p>
+<h4>接入流程</h4>
+<ol><li>打开飞书CLI开源项目（飞书官方）</li><li>创建本地项目文件夹</li><li>在Codex中打开该文件夹</li><li><strong>让Codex执行安装</strong>（不是手工逐项配置）</li><li>完成飞书开放平台授权（首次会出现授权链接/二维码）</li><li>确认安装完成（轻量测试）</li></ol>
+<h4>典型应用</h4>
+<p>案例1：生成思维导图→写入飞书 | 案例2：整理成多维表格+可视化图表 | 案例3：旅游内容二创并写入飞书</p>
+<div class="warn"><strong>操作要点</strong>：第一次安装必须关注授权提示；优先采用官方CLI；不要一次开放不必要权限；先连接再做业务自动化；用测试数据验证。</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- PART 8-12: Continuing with all remaining parts -->
+<!-- ================================================================ -->
+
+<!-- PART 8 -->
+<div class="section" id="p8">
+<div class="section-title"><span class="num">8</span> 第八篇：故事板视频系列</div>
+
+<div class="card">
+<h3>🎞 第二十二部分：故事板视频制作流程详解</h3>
+<div class="warn"><strong>故事板 ≠ 简单分镜九宫格</strong>。是包含角色风格、场景、机位、灯光、分镜头和情节的统一"导演级"脚本。AI不缺能力，难的是决策卡和故事板的设计——这部分人必须想清楚。</div>
+<h4>完整制作流程</h4>
+<div class="flow">步骤1：写分镜（剧本）
+步骤2：制作角色卡
+步骤3：用Codex生成故事板图
+步骤4：生成新的视频提示词
+步骤5：调用Sora 2.0生成视频
+步骤6：把整套流程封装成技能包</div>
+<h4>Sora 2.0出片参数</h4>
+<ul><li>画质：高质量（必要时4K）</li><li>比例：16:9</li><li>时长：单段15秒（当前版本上限）</li><li>多段拼接：15秒一段，后续用剪辑工具拼接</li></ul>
+<h4>贯穿全程的关键原则</h4>
+<ol><li>先想清楚，再让AI跑</li><li>描述越细，效果越稳</li><li>顺序不可乱：剧本→角色卡→故事板→视频提示词→Sora2.0视频</li><li>模型能力决定上限：必须使用Sora 2.0级别强模型</li><li>用工程化收尾：整套流程封装为可复用技能</li></ol>
+</div>
+
+<div class="card">
+<h3>🎭 第二十三部分：制作人物角色卡</h3>
+<h4>角色卡的作用</h4>
+<p>保证长视频中人物形象一致——每集、每段的人物长相、穿衣、神态必须统一。角色卡就是"演员登记表"。</p>
+<h4>生成角色卡提示词</h4>
+<pre><code>请根据以下故事情节，帮我设计一个男主和女主的人物角色卡，必须符合故事风格及人物特性。
+
+【故事情节】（在此粘贴剧本）
+
+【输出要求】
+- 包含：角色设定、外貌特征、服饰风格、性格特点、表情神态
+- 必须生成两张图：男主角色卡、女主角色卡
+- 风格：白底图，包含正面、侧面、背面、面部特写</code></pre>
+<h4>出图参数</h4>
+<table>
+<thead><tr><th>用途</th><th>推荐画质</th><th>比例</th></tr></thead>
+<tbody><tr><td>人物角色卡</td><td>2K</td><td>16:9</td></tr><tr><td>故事板图</td><td>4K</td><td>16:9</td></tr></tbody></table>
+<div class="tip">必须加入硬性要求：白底图（背景简单AI易识别）+面部特写（后续做故事板时需要识别面部特征）。</div>
+</div>
+
+<div class="card">
+<h3>🎬 第二十四部分：故事板做成品短视频</h3>
+<h4>Sora 2.0 接入</h4>
+<div class="danger"><strong>重要结论</strong>：用火山引擎调用Sora 2.0会卡人脸、直接报错，几乎100%失败。Sora 2.0优势：不卡人脸、真人脸和类真人脸都可生成、现阶段做电影感短片的最优选择。</div>
+<h4>给Codex的最终指令</h4>
+<pre><code>帮我生成一段视频。
+参数：画质480、模型Sora 2.0（不卡人脸版）、比例16:9、时长15秒、背景音乐带。
+参考：两张人物角色卡、故事板图、上一轮生成的视频提示词。</code></pre>
+<h4>技能包内部执行顺序</h4>
+<div class="flow">1.读入剧情/分镜 → 2.生成角色卡提示词 → 3.调Imagine2出角色卡图
+→ 4.生成故事板提示词 → 5.出故事板图 → 6.生成Sora2.0视频提示词
+→ 7.调Sora2.0出片 → 8.输出最终视频</div>
+</div>
+</div>
+
+<!-- PART 9 -->
+<div class="section" id="p9">
+<div class="section-title"><span class="num">9</span> 第九篇：数字人系列</div>
+
+<div class="card">
+<h3>🤖 第二十五部分：详解数字人智能体功能底层逻辑</h3>
+<h4>完整五步流程</h4>
+<div class="flow">① 提取文案（B站/小红书/抖音/视频号/快手）
+② 改写文案（接入deep大模型 + 行业标签页）
+③ 语音克隆（自录声音 → 训练克隆 → 保存ID）
+④ 数字人生成（音频 + 无声视频 → 一键合成）
+⑤ 字幕 + 背景音乐（火山引擎字幕校准 + SRT文件 + 混音）
+⑥ 导出成片</div>
+<table>
+<thead><tr><th>步骤</th><th>关键要点</th></tr></thead>
+<tbody>
+<tr><td>提取文案</td><td>支持放任意视频链接，覆盖国内主流短视频平台</td></tr>
+<tr><td>改写文案</td><td>两个标签页：知识口播/产品讲解；接入deep模型深度改写；扩写到近300字</td></tr>
+<tr><td>语音克隆</td><td>找安静房间自己录一段话；一次克隆永久有效；强烈建议保存ID到本地文档</td></tr>
+<tr><td>数字人生成</td><td><strong>不需要背台词、不需要讲话</strong>——只需对着产品比划动作即可；拍摄时不用出声</td></tr>
+<tr><td>字幕合成</td><td>开源模型全对不齐→最终选用火山引擎大模型；字幕格式必须是SRT（带时间戳）</td></tr>
+</tbody></table>
+<div class="quote"><strong>效率对比</strong>：真人写代码开发完一个完整功能"没个半个月、一周两周下不来"。用AI自然语言编程：效率提升不是几十倍，可能是上百倍。</div>
+</div>
+
+<div class="card">
+<h3>🔊 第二十六部分：获取视频文案、语音合成</h3>
+<h4>五步主线流程（接入API）</h4>
+<ol><li>找对标软件UI界面（设计页面）</li><li>二创短视频链接&二创文案</li><li>声音克隆+语音合成</li><li>视频剪辑+字幕</li><li>文案改写等环节</li></ol>
+<div class="warn"><strong>关键判断</strong>：讲师明确放弃"本地化部署"路线，统一走API调用。学员多为Windows 10老旧电脑，本地部署又卡又吃配置。课程目标："做能拿得出手、能发出去、能找流量的成品"。</div>
+<h4>各模块接入</h4>
+<table>
+<thead><tr><th>模块</th><th>接入API</th></tr></thead>
+<tbody><tr><td>提取短视频文案</td><td>短视频文案提取API</td></tr><tr><td>文案改写</td><td>DeepSeek大模型</td></tr><tr><td>声音克隆+语音合成</td><td>语音克隆+TTS API</td></tr><tr><td>视频剪辑+字幕</td><td>视频处理API</td></tr></tbody></table>
+<h4>AI提示词通用模板</h4>
+<pre><code>角色：你是[某个AI/Code协作者]
+输入：截图 + MD文档 + 当前任务
+指令：参考[文档/截图]，完成[具体功能]，确保[输入/输出]正常。
+约束：
+  - 使用我自己的API Key（[填入]）
+  - 不要改动UI主体布局，仅在[指定区域]内新增功能
+  - 完成后告诉我接入了哪些API、参数是什么、调用顺序是什么</code></pre>
+</div>
+
+<div class="card">
+<h3>📦 第二十七部分：字幕视频合成、封装本地软件</h3>
+<h4>数字人合成（对口型）</h4>
+<p>准备两个元素：音频（语音合成输出）+ 人物出镜视频（自己拍摄的<strong>无声</strong>视频）。接入中转站对口型模型。</p>
+<h4>字幕与音频合成</h4>
+<div class="danger"><strong>为什么不用开源字幕方案</strong>：开源模型做不到"每一句话与时间轴精确对应"——要么整段挤在一起，要么对位不准。最终选用火山引擎做字幕校准。</div>
+<p>接入流程：火山引擎控制台开通"语音转字幕"→API文档丢给Codex→提供APP ID+Token→回填→完成接入。</p>
+<div class="warn">火山引擎的API Key/ID和之前调ChatGPT用的那一套不是同一套，必须在火山引擎自家控制台单独开通、单独拿Key。</div>
+<h4>封装为Windows本地软件</h4>
+<p>用 <strong>Python Qt（PyQt/PySide）</strong>做桌面GUI。产物：EXE文件+依赖文件夹。</p>
+<h4>方法论总结</h4>
+<ol><li>"每个对话只让他完成一部分"——不要让Codex一次性做完整个项目</li><li>"遇到问题就丢回给Codex"——把报错/现象直接复制给Codex</li><li>"要么做好，要么别做"——效果不好的开源方案直接放弃</li><li>MD文档是Codex最好的"上下文载体"</li><li>老师故意不直接给成品软件——自己动手>直接用成品</li></ol>
+</div>
+</div>
+
+<!-- PART 10 -->
+<div class="section" id="p10">
+<div class="section-title"><span class="num">10</span> 第十篇：特效视频系列</div>
+
+<div class="card">
+<h3>✨ 第二十八部分：Codex 特效视频剪辑底层逻辑</h3>
+<div class="warn"><strong>核心主旨</strong>：AI目前做不到端到端全自动完成口播特效视频，必须有人工介入。市面上"全自动出特效视频"一定经过了"剪映粗剪"这一步。</div>
+<h4>四个关键步骤</h4>
+<div class="flow">录制口播素材
+    ↓
+[第一步·人工+AI] 剪映「智能剪口播」初剪（删口水话/错字/卡顿/数字口误）
+    ↓
+[第二步·插件] FasterWhisper 自动转SRT字幕
+    ↓
+[第三步·插件] Happy Fans（Hyperframes）做动画特效
+    ↓
+[第四步·人工] Studio预览→人工精修→导出</div>
+</div>
+
+<div class="card">
+<h3>🎨 第二十九部分：Hyperframes 完成动画特效视频</h3>
+<h4>整体工作流全景图（7步）</h4>
+<div class="flow">[素材口播视频] → [Step1剪映初剪] → [Step2 Faster-Whisper生成SRT字幕]
+→ [Step3 Codex做内容重点拆解] → [Step4 生成3套HTML风格预览]
+→ [Step5 Hyperframes生成10秒Demo] → [Step6 超高模型回炉修复]
+→ [Step7 完整版预览→导出MP4]</div>
+<h4>最容易踩坑的地方</h4>
+<div class="danger">拿到视频就想让Codex直接调Hyperframes做动画→这是错的！必须先经过"内容拆解+HTML预览"两道工序。</div>
+<h4>关键提示词</h4>
+<pre><code>请根据这个视频和SRT字幕，帮我拆解内容的重点。告诉我哪些地方适合做动画，哪些地方只需要保留字幕。
+
+请基于视频画面和内容重点，帮我生成3种可视化HTML风格预览。不要只给我文字描述，我要能在里面直接看到效果。每一种风格都要有展示的标题、重点词、卡片、贴片、流程数据等常见元素。</code></pre>
+<h4>10条避坑提醒</h4>
+<table>
+<thead><tr><th>#</th><th>雷区</th><th>规避策略</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>一上来就调Hyperframes做动画</td><td>必须先经过"内容拆解+HTML预览"</td></tr>
+<tr><td>2</td><td>单独一种HTML风格就开干</td><td>必须一次出3套，挑一套再改局部</td></tr>
+<tr><td>3</td><td>第一次就上"中"模型</td><td>细节型问题，超高模型效果更好</td></tr>
+<tr><td>4</td><td>直接做完整长视频</td><td>必须先做10秒Demo</td></tr>
+<tr><td>5</td><td>任意位置乱放动画</td><td>一开始就要约定"右上角/右侧空白"</td></tr>
+<tr><td>6</td><td>不给Codex表达反馈机制</td><td>把每条问题写清楚</td></tr>
+<tr><td>7</td><td>数字人+真人混用初剪</td><td>数字人可跳过初剪，真人必须初剪</td></tr>
+<tr><td>8</td><td>不动手只看</td><td>必须动手实操</td></tr>
+<tr><td>9</td><td>录完视频不导出到对应文件夹</td><td>必须存到项目文件夹</td></tr>
+<tr><td>10</td><td>剪映自动字幕与Faster-Whisper混淆</td><td>剪映需要SVIP，Faster-Whisper免费但首次较慢</td></tr>
+</tbody></table>
+</div>
+</div>
+
+<!-- PART 11 -->
+<div class="section" id="p11">
+<div class="section-title"><span class="num">11</span> 第十一篇：小程序开发系列</div>
+
+<div class="card">
+<h3>📱 第三十部分：开发小程序底层逻辑梳理</h3>
+<h4>6步开发流程（底层逻辑）</h4>
+<div class="flow">Step1·找对标产品 → Step2·注册小程序号+安装云开发工具
+→ Step3·创建项目+计划模式+生成MD开发文档（⭐灵魂步骤）
+→ Step4·参考对标UI设计 → Step5·接入API接口 → Step6·测试上线</div>
+<h4>Step3 灵魂步骤的三个子任务</h4>
+<table>
+<thead><tr><th>子任务</th><th>作用</th></tr></thead>
+<tbody>
+<tr><td>打开Codex创建项目文件</td><td>给AI一个独立的工程空间</td></tr>
+<tr><td>定制"计划模式"</td><td>AI在每个关键节点给你方案1/2/3让你选</td></tr>
+<tr><td>生成MD开发文档</td><td>给AI一份"开发规范"，防止任务越做越跑偏</td></tr>
+</tbody></table>
+<h4>关键概念速查</h4>
+<table>
+<thead><tr><th>概念</th><th>一句话解释</th></tr></thead>
+<tbody>
+<tr><td>对标产品</td><td>你要"抄"来参考的同行小程序</td></tr>
+<tr><td>小程序号</td><td>微信官方给你小程序的"身份证"</td></tr>
+<tr><td>微信云开发</td><td>微信官方提供的云端后端服务，免服务器免备案</td></tr>
+<tr><td>Codex计划模式</td><td>让AI在每个关键节点给你列方案让你挑</td></tr>
+<tr><td>MD开发文档</td><td>.md格式的项目说明书</td></tr>
+<tr><td>API接口</td><td>让小程序能真正干活的"外部能力"</td></tr>
+</tbody></table>
+</div>
+
+<div class="card">
+<h3>🔧 第三十一部分：找对标、云端服务创建流程</h3>
+<h4>选定对标：去水印小工具</h4>
+<p>功能定位：一键解析抖音/视频号/B站/知乎视频→自动去除水印→输出无水印视频+链接+封面图+标题文案</p>
+<h4>注册小程序号</h4>
+<ol><li>打开官方注册链接→用邮箱登录→得到<strong>AppID</strong></li></ol>
+<h4>在云开发工具里创建项目库</h4>
+<table>
+<thead><tr><th>字段</th><th>填写内容</th></tr></thead>
+<tbody>
+<tr><td>项目名称</td><td>随意</td></tr><tr><td>项目目录</td><td>选新建的文件夹</td></tr><tr><td>AppID</td><td>从小程序后台→开发管理→复制</td></tr>
+<tr><td>后端服务</td><td><strong>云开发</strong>（不要选自己的服务器）</td></tr>
+<tr><td>开发模式</td><td><strong>小程序</strong>（不是网页插件）</td></tr>
+</tbody></table>
+<div class="warn">黄老师反复强调：<strong>一定要先建项目库，再开始对话。</strong></div>
+</div>
+
+<div class="card">
+<h3>🏗 第三十二部分：小程序搭建实战环节</h3>
+<h4>模型选择：必须选GPT（多模态）</h4>
+<table>
+<thead><tr><th>维度</th><th>GPT（多模态）</th><th>DeepSeek（单模态）</th></tr></thead>
+<tbody>
+<tr><td>图片识别</td><td>✅直接截图丢给它</td><td>❌报错</td></tr>
+<tr><td>实时改UI</td><td>✅看图就改</td><td>❌只能改文字</td></tr></tbody></table>
+<p><strong>模型版本</strong>：本次小工具用GPT-5.4够用；大型项目升级到GPT-5.5。</p>
+<h4>"四段式指令"</h4>
+<pre><code>第一段：参考这个UI界面，[截图]，这就是我要做的同款。
+第二段：我接下来要做一个同类型的微信小程序。
+第三段：使用微信云开发的开发方式。
+第四段：先帮我编写一份MD格式的开发文档，简单明了即可。</code></pre>
+<h4>MD开发文档自动生成结构</h4>
+<p>①项目目标 ②规划计划（迭代节奏）③技术方案 ④云函数设计 ⑤开发顺序 ⑥使用说明</p>
+<h4>3轮"丢图→修"迭代</h4>
+<table>
+<thead><tr><th>轮次</th><th>操作</th><th>结果</th></tr></thead>
+<tbody>
+<tr><td>第1轮</td><td>截图说"修复功能模块"</td><td>框架出现，但全乱码</td></tr>
+<tr><td>第2轮</td><td>截图说"清缓存重编译"</td><td>乱码解决，部分功能可用</td></tr>
+<tr><td>第3轮</td><td>截图标注"字没居中"</td><td>UI达标</td></tr>
+</tbody></table>
+<div class="tip"><strong>调试技巧</strong>："清除缓存→重新编译"能解决80%的显示异常。</div>
+</div>
+
+<div class="card">
+<h3>🚀 第三十三部分：API 接入、小程序测试、部署上线</h3>
+<h4>准备API文档</h4>
+<div class="danger"><strong>不能把API Key直接暴露在对话里</strong>（有泄漏风险）。采用"MD文档+中转地址"方式：把API文档整理成.md文件，API Key放在文档里、不暴露给Codex对话上下文。</div>
+<h4>真机调试（手机扫码预览）</h4>
+<p>云开发工具右上角→真机调试→弹出二维码→手机扫码→自动跳转预览模式</p>
+<h4>部署上线步骤</h4>
+<ol>
+<li><strong>上传代码</strong>：云开发工具右上角→上传→填写版本号+备注</li>
+<li><strong>配置服务器域名（重点）</strong>：接入了第三方API必须填，否则接口调不通。不知道填什么直接问Codex：<code>我这个项目合法运营，还需要填哪几个域名？</code></li>
+<li><strong>提交审核+发布</strong>：版本管理中查看上传版本→提交审核→填写实名认证→等待官方审核（一般1天左右）</li>
+</ol>
+<h4>关键经验总结</h4>
+<ol><li>API Key绝不裸露在对话里→必须用MD文档承载</li><li>云函数必须部署才能用</li><li>真机调试≠模拟器→上线前必须真机过一遍</li><li>服务器域名要配→调第三方API必填</li><li>不知道填什么就问Codex</li></ol>
+</div>
+</div>
+
+<!-- PART 12 -->
+<div class="section" id="p12">
+<div class="section-title"><span class="num">12</span> 第十二篇：Obsidian 与公众号系列</div>
+
+<div class="card">
+<h3>📝 第三十四部分：搭建 Obsidian 知识库基础知识</h3>
+<h4>为什么需要个人知识库</h4>
+<p><strong>日常痛点</strong>：点赞收藏上千篇文章，事后找不到、记不住。<strong>未来价值</strong>：Obsidian=你的"第二大脑"，文档越多知识面越全，与Codex交互时输出越精准。</p>
+<h4>Obsidian核心优势</h4>
+<table>
+<thead><tr><th>优势</th><th>含义</th></tr></thead>
+<tbody>
+<tr><td>MD格式存储</td><td>所有文档存为Markdown，大模型天然能读</td></tr>
+<tr><td>联通Codex</td><td>配置好CLI后，Codex可直接检索知识库内容生成文章</td></tr>
+<tr><td>自动归档</td><td>让Codex帮你分类整理本机文件</td></tr>
+<tr><td>外部抓取</td><td>通过插件一键保存小红书、公众号、抖音的好文章</td></tr>
+<tr><td>代替收藏夹</td><td>几百上千个收藏"找不到记不住"，知识库可以精准检索</td></tr>
+</tbody></table>
+<h4>4步搭建流程</h4>
+<ol><li>下载Obsidian+创建仓库</li><li>配置Codex的CLI（路径/接口）</li><li>安装第三方插件（抓取公众号、小红书、浏览器扩展）</li><li><strong>接入开源项目获取每日热点（⭐核心亮点）</strong></li></ol>
+</div>
+
+<div class="card">
+<h3>⚙ 第三十五部分：Obsidian 构造知识库实操</h3>
+<h4>关键操作9步</h4>
+<ol><li>关闭安全模式（设置→第三方插件→关闭安全模式）</li><li>装Claude插件（社区插件→搜索"Claude"→安装→启用）</li><li>获取CLI路径——<strong>直接问Codex</strong>：<code>请告诉我本机的Codex CLI路径是什么？</code></li><li>填路径</li><li>验证（看是否显示GPT模型头像）</li><li>自动归档：<code>帮我把本机值得存的文件整理到Obsidian</code></li><li>装Web Clipper浏览器扩展（搜索Obsidian Web Clipper→一键安装）</li><li>设置保存路径（建议按来源分文件夹：公众号/、小红书/、抖音/……）</li><li>装小红书插件（Obsidian设置→第三方插件→搜索"小红书"→安装启用）</li></ol>
+</div>
+
+<div class="card">
+<h3>🔥 第三十六部分：调用技能获取每日热点</h3>
+<h4>开源项目能力</h4>
+<ul><li>实时抓取行业各平台热点</li><li>按热度排序，可自定义Top N</li><li>支持发布渠道：飞书、网页、邮件、Obsidian</li><li>每天定时自动推送</li><li>GitHub 8.3K Star</li></ul>
+<h4>安装中会索取的两样东西</h4>
+<table>
+<thead><tr><th>项目</th><th>用途</th><th>必要性</th></tr></thead>
+<tbody>
+<tr><td><strong>DeepSeek API Key</strong></td><td>给抓到的文章打分筛选</td><td>必给（没有它抓到的文章会很水）</td></tr>
+<tr><td>GPT API Token</td><td>提升抓取深度/文章质量</td><td>可选，但给了效果更好</td></tr>
+</tbody></table>
+<h4>阈值（Score Threshold）的含义与调节</h4>
+<p>阈值=大模型给文章打分的最低分。AI/自媒体/旅游/装修行业推荐6.5。养生/大健康行业6.5偏严（需下调或让Codex多抓一轮）。</p>
+<div class="tip">项目自带智能兜底：阈值过严抓不到时，会自动降级抓取。</div>
+</div>
+
+<div class="card">
+<h3>📰 第三十七部分：Codex + Obsidian 做公众号</h3>
+<h4>核心方法论</h4>
+<div class="quote">不会写公众号？找同行对标，仿他的风格+换你的内容。没有热点？用日报里的今日热点当素材。不会做图？让AI做，封面/配图/分割线全自动。最终效果：<strong>6分钟一篇原创公众号，全程只动嘴</strong>。</div>
+<h4>核心提示词模板</h4>
+<pre><code>你调用这个[GPT图像接口文档]，参考我Obsidian里的公众号对标文章[文章名.md]的作图与写作风格，详细地做一篇同款公众号文案。
+
+- 作图要求：真实、没有AI痕迹、实景/外景/真实拍摄场景
+- 内容来源：参考AI行业日报里的[具体文章标题]
+- 排版风格：参考对标文的蓝色分割线、字号、行间距</code></pre>
+<h4>耗时统计（全程6-8分钟）</h4>
+<table>
+<thead><tr><th>步骤</th><th>操作</th><th>耗时</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>选热点+选对标文</td><td>1分钟</td></tr><tr><td>2</td><td>调出图像接口MD文档</td><td>10秒</td></tr>
+<tr><td>3</td><td>发主提示词给Codex</td><td>10秒</td></tr><tr><td>4</td><td>等Codex出文+出图</td><td>3分钟</td></tr><tr><td>5</td><td>微调分割线/署名</td><td>1分钟</td></tr><tr><td>6</td><td>复制到公众号</td><td>30秒</td></tr><tr><td>7</td><td>手动粘贴配图</td><td>1分钟</td></tr><tr><td>8</td><td>image-2出封面</td><td>1分钟</td></tr><tr><td>9</td><td>上传封面+发布</td><td>30秒</td></tr>
+</tbody></table>
+<h4>可复用场景</h4>
+<p>小红书图文 · 短视频口播稿 · 抖音图文 · 多平台分发（一篇公众号→改写成小红书/抖音→同一天发）</p>
+<div class="quote"><strong>终极闭环</strong>：Obsidian存资料 + 日报给热点 + Codex写文章 + AI出图 → 全平台内容生产流水线。</div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- SVG: 模型选型决策树 -->
+<!-- ================================================================ -->
+<div class="svg-wrap">
+<svg viewBox="0 0 860 520" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><filter id="sh3"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-opacity=".06"/></filter></defs>
+  <rect width="860" height="520" fill="#fff" rx="8"/>
+  <text x="20" y="26" font-size="14" fill="#94a3b8" font-weight="700">模型选型决策树</text>
+
+  <!-- Root question -->
+  <rect x="30" y="50" width="200" height="44" rx="10" fill="#2563eb" filter="url(#sh3)"/>
+  <text x="130" y="77" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">要做什么任务？</text>
+
+  <!-- Branch: 纯文本 -->
+  <path d="M230,72 L285,72 L285,100 L305,100" stroke="#10b981" stroke-width="1.8" fill="none"/>
+  <rect x="310" y="82" width="180" height="36" rx="7" fill="#f0fdf4" stroke="#10b981" stroke-width="1.2"/>
+  <text x="400" y="105" text-anchor="middle" font-size="13" font-weight="600" fill="#059669">纯文本/文案改写</text>
+  <path d="M490,100 L515,100 L515,70 L530,70" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <rect x="535" y="56" width="220" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="645" y="75" text-anchor="middle" font-size="11" fill="#475569">DeepSeek（便宜、纯文本）</text>
+
+  <!-- Branch: 做图 -->
+  <path d="M230,72 L285,72 L285,160 L305,160" stroke="#f59e0b" stroke-width="1.8" fill="none"/>
+  <rect x="310" y="142" width="180" height="36" rx="7" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.2"/>
+  <text x="400" y="165" text-anchor="middle" font-size="13" font-weight="600" fill="#92400e">做图（电商/PPT/配图）</text>
+  <path d="M490,160 L515,160 L515,125 L530,125" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <rect x="535" y="111" width="250" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="660" y="130" text-anchor="middle" font-size="11" fill="#475569">GPT（多模态）+ API · image-2-image</text>
+
+  <!-- Branch: 抠图 -->
+  <path d="M490,160 L515,160 L515,160 L530,160" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <rect x="535" y="146" width="210" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="640" y="165" text-anchor="middle" font-size="11" fill="#475569">GPT-4o image2 · 白底三视图</text>
+
+  <!-- Branch: 做视频 -->
+  <path d="M230,72 L285,72 L285,230 L305,230" stroke="#8b5cf6" stroke-width="1.8" fill="none"/>
+  <rect x="310" y="212" width="180" height="36" rx="7" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1.2"/>
+  <text x="400" y="235" text-anchor="middle" font-size="13" font-weight="600" fill="#7c3aed">做视频</text>
+
+  <!-- Video sub-branches -->
+  <path d="M490,230 L515,230 L515,200 L530,200" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <rect x="535" y="186" width="290" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="680" y="205" text-anchor="middle" font-size="11" fill="#475569">即梦1.5 Pro（首尾帧·便宜）· 视频自动化首选</text>
+
+  <path d="M490,230 L515,230 L515,235 L530,235" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <rect x="535" y="221" width="300" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="685" y="240" text-anchor="middle" font-size="11" fill="#475569">即梦2.0（效果好·支持真人脸需中转）· 女装带货首选</text>
+
+  <path d="M490,230 L515,230 L515,270 L530,270" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <rect x="535" y="256" width="260" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="665" y="275" text-anchor="middle" font-size="11" fill="#475569">Sora 2.0（电影级·不卡人脸）· 故事板首选</text>
+
+  <!-- Branch: 数字人 -->
+  <path d="M230,72 L285,72 L285,310 L305,310" stroke="#ec4899" stroke-width="1.8" fill="none"/>
+  <rect x="310" y="292" width="180" height="36" rx="7" fill="#fdf2f8" stroke="#ec4899" stroke-width="1.2"/>
+  <text x="400" y="315" text-anchor="middle" font-size="13" font-weight="600" fill="#be185d">数字人/字幕</text>
+  <path d="M490,310 L515,310 L515,285 L530,285" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <rect x="535" y="271" width="280" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="675" y="290" text-anchor="middle" font-size="11" fill="#475569">对口型→中转站模型 · 字幕对齐→火山引擎</text>
+
+  <!-- Branch: 编程开发 -->
+  <path d="M230,72 L285,72 L285,380 L305,380" stroke="#3b82f6" stroke-width="1.8" fill="none"/>
+  <rect x="310" y="362" width="180" height="36" rx="7" fill="#eff6ff" stroke="#3b82f6" stroke-width="1.2"/>
+  <text x="400" y="385" text-anchor="middle" font-size="13" font-weight="600" fill="#2563eb">编程开发</text>
+  <path d="M490,380 L515,380 L515,355 L530,355" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <rect x="535" y="341" width="280" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="675" y="360" text-anchor="middle" font-size="11" fill="#475569">GPT-5.4/5.5（多模态·截图改UI）· 首选</text>
+
+  <!-- Branch: 抓取/筛选 -->
+  <path d="M230,72 L285,72 L285,440 L305,440" stroke="#14b8a6" stroke-width="1.8" fill="none"/>
+  <rect x="310" y="422" width="180" height="36" rx="7" fill="#f0fdfa" stroke="#14b8a6" stroke-width="1.2"/>
+  <text x="400" y="445" text-anchor="middle" font-size="13" font-weight="600" fill="#0f766e">热点抓取/打分筛选</text>
+  <path d="M490,440 L515,440 L515,415 L530,415" stroke="#94a3b8" stroke-width="1.2" fill="none"/>
+  <rect x="535" y="401" width="260" height="28" rx="5" fill="#f8fafc" stroke="#cbd5e1" stroke-width="1"/>
+  <text x="665" y="420" text-anchor="middle" font-size="11" fill="#475569">DeepSeek（打分筛选·必给Key）</text>
+
+  <!-- Summary bar -->
+  <rect x="30" y="478" width="800" height="32" rx="6" fill="#f8fafc" stroke="#e2e8f0" stroke-width="1"/>
+  <text x="430" y="499" text-anchor="middle" font-size="11" fill="#64748b">💡 混合使用是常态：日常开发用GPT，纯文本用DeepSeek，做图走GPT API，做视频按场景选即梦/Sora</text>
+</svg>
+</div>
+
+<!-- ================================================================ -->
+<!-- 跨课程知识图谱 -->
+<!-- ================================================================ -->
+<div class="section" id="knowledge-graph">
+<div class="section-title"><span class="num">★</span> 跨课程知识图谱</div>
+
+<div class="card">
+<h3>🗺 七大核心概念关系</h3>
+
+<h4>1. Codex工作流核心范式</h4>
+<div class="flow">项目文件夹（隔离工作区）
+    ↓
+挂载文件夹到Codex项目
+    ↓
+附件投喂（图片/视频/文件）
+    ↓
+下达提示词（任务定义 + 格式/模板 + 数量/边界 + 风格/约束）
+    ↓
+测试驱动（先单条 → 再批量 → 并行提速）
+    ↓
+封装技能包（输入→输出固化）
+    ↓
+后续一键调用技能包</div>
+
+<h4>2. 技能包（Skill）封装机制</h4>
+<p>核心思想：把"想做的一套流程"封装成一个技能；下次只需输入触发条件，技能自动跑完全部流程。</p>
+<pre><code>帮我把[整套流程]封装成一个完整的技能包。后续只需要[输入触发条件]，你就可以自动[完整输出]。所有结果直接保存到本地文件夹。</code></pre>
+<p><strong>封装价值</strong>：一次封装→永久复用 · 团队/客户复用→标准化产出 · "Codex教他只教一遍"</p>
+
+<h4>3. API调用方法体系</h4>
+<div class="flow">通用模式：
+① 在中转站找模型 → 复制MD文档
+② 在项目文件夹新建.md文件 → 粘贴
+③ 填入自己的API Key
+④ 下达提示词："参考这个文档 + 输入素材 + 保存到本地"
+⑤ 先单测，再批量</div>
+<div class="warn"><strong>必须用Markdown格式（.md）保存</strong>：Codex识别更稳定。<strong>必须UTF-8编码</strong>：避免乱码。</div>
+
+<h4>4. 提示词设计五要素（贯穿所有课程）</h4>
+<ol><li><strong>任务定义</strong>（做什么）</li><li><strong>格式/模板</strong>（按什么范式）</li><li><strong>数量/边界</strong>（多少字/多少段）</li><li><strong>风格/约束</strong>（统一性要求）</li><li><strong>输出/存储要求</strong>（保存位置、格式）</li></ol>
+
+<h4>5. "拆解-替换-重组-封装"四字诀</h4>
+<p>适用场景：女装视频复刻、跨境电商、食品饮料、公众号写作</p>
+<ul><li><strong>拆解</strong>：用Codex反推原视频的全部要素</li><li><strong>替换</strong>：把服装/产品替换为自己产品</li><li><strong>重组</strong>：在保留原风格前提下，用自家素材生成新提示词</li><li><strong>封装</strong>：将流程固化为Codex技能包</li></ul>
+
+<h4>6. "参考对标"信息差打法</h4>
+<div class="flow">找对标（同行爆款）
+    ↓
+参考对标（截图/视频/文章）
+    ↓
+拆解对标（场景/风格/排版）
+    ↓
+替换为我（产品/内容/数据）
+    ↓
+AI出图/写文/做视频</div>
+
+<h4>7. 知识点依赖链路</h4>
+<div class="table-wrap"><table>
+<thead><tr><th>链路</th><th>路径</th><th>关键文档</th></tr></thead>
+<tbody>
+<tr><td>Codex基础入门链路</td><td>安装→界面→第一技能包→技能封装进阶</td><td>2→3→4→9/13/17</td></tr>
+<tr><td>视频自动化剪辑链路</td><td>技能包→原理→测试→分镜图→视频→剪辑→封装</td><td>4→5→6→7→8→9</td></tr>
+<tr><td>电商图复刻链路</td><td>原理→API调用→提示词→技能包封装</td><td>10→11→12→13</td></tr>
+<tr><td>女装视频复刻链路</td><td>逻辑梳理→反推抽帧→三视图→即梦2.0→封装</td><td>14→15→16→17</td></tr>
+<tr><td>故事板视频链路</td><td>流程→角色卡→成品短视频</td><td>23→24→25</td></tr>
+<tr><td>数字人软件开发链路</td><td>底层逻辑→文案+语音+UI→字幕+合成+封装</td><td>26→27→28</td></tr>
+<tr><td>小程序开发链路</td><td>6步流程→注册+云开发→实战→API+上线</td><td>31→32→33→34</td></tr>
+<tr><td>Obsidian+公众号链路</td><td>基础知识→实操→热点→公众号</td><td>35→36→37→38</td></tr>
+</tbody></table></div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- 七大核心方法论 -->
+<!-- ================================================================ -->
+<div class="section" id="methodology">
+<div class="section-title"><span class="num">★</span> 七大核心方法论</div>
+
+<div class="card">
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>方法论</th><th>核心要点</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>"Codex教他只教一遍"</strong></td><td>给任务+模板+格式+约束→一次说清楚，技能封装后永久复用</td></tr>
+<tr><td>2</td><td><strong>"测试驱动"</strong></td><td>任何API调用前先单测，再批量。避免浪费token和成本</td></tr>
+<tr><td>3</td><td><strong>"并行提速"</strong></td><td>能用并行就别串行——Codex的批处理能力。7张图串行7分钟→并行1分钟</td></tr>
+<tr><td>4</td><td><strong>"大白话"</strong></td><td>不需要华丽措辞，把做什么、避免什么说清楚就行。零编程基础也能操作</td></tr>
+<tr><td>5</td><td><strong>"风格可仿、内容必换"</strong></td><td>借势（场景/运镜/排版）+自有（产品/内容）——原创合规的底层逻辑</td></tr>
+<tr><td>6</td><td><strong>"项目化思维"</strong></td><td>所有对话必须挂载到项目文件夹——文件不散落、便于迁移复用</td></tr>
+<tr><td>7</td><td><strong>"工程化收尾"</strong></td><td>任何流程跑通后必须封装为技能包——一次性配置永久复用</td></tr>
+</tbody></table></div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- 一条主线 + 四大业务场景 + 工程化必做4件事 + 课程三阶段 -->
+<!-- ================================================================ -->
+<div class="section" id="core-system">
+<div class="section-title"><span class="num">★</span> 一条主线：Codex × AI 自动化生产</div>
+
+<div class="card">
+<h3>🧵 核心理念</h3>
+<div class="quote">用 Codex 把人从"重复劳动"中解放出来，一人 = 一支团队。</div>
+<h4>四大实现路径</h4>
+<table>
+<thead><tr><th>路径</th><th>核心</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><strong>技能封装</strong></td><td>流程跑一遍→固化Skill→一键调用</td><td>"Codex教他只教一遍"</td></tr>
+<tr><td><strong>API 化</strong></td><td>所有外部能力（图/视频/字幕/声音）都通过API调用</td><td>不依赖单一模型，灵活组合</td></tr>
+<tr><td><strong>项目化</strong></td><td>所有对话、文件、产物都归档到项目文件夹</td><td>隔离工作区、文件不乱跑</td></tr>
+<tr><td><strong>跨平台延伸</strong></td><td>同样的逻辑可应用到小程序、软件、智能体</td><td>从"用Codex"到"做产品"</td></tr>
+</tbody></table></div>
+
+<div class="card">
+<h3>📊 四大业务场景</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>场景</th><th>关键文档</th><th>核心工具</th></tr></thead>
+<tbody>
+<tr><td><strong>视频内容生产</strong></td><td>4-9（历史人物）、14-17（女装）、23-25（故事板）、29-30（特效）</td><td>即梦1.5/2.0、Sora 2.0、剪映小助手、Hyperframes</td></tr>
+<tr><td><strong>电商内容生产</strong></td><td>10-13（电商图复刻）</td><td>GPT image-2-image</td></tr>
+<tr><td><strong>数据/办公自动化</strong></td><td>18（数据分析）、19-21（PPT）、22（飞书CLI）</td><td>DataFrog、ppt-master、飞书CLI</td></tr>
+<tr><td><strong>小程序/软件开发</strong></td><td>26-28（数字人软件）、31-34（小程序）</td><td>GPT-5.4/5.5、Python Qt、微信云开发</td></tr>
+<tr><td><strong>内容生产全链路</strong></td><td>35-38（Obsidian+公众号）</td><td>Obsidian+每日热点+GPT出图</td></tr>
+</tbody></table></div>
+</div>
+
+<div class="card">
+<h3>🔧 工程化必做的 4 件事（⭐每次操作必须执行）</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>#</th><th>事项</th><th>为什么必须做</th><th>不做的后果</th></tr></thead>
+<tbody>
+<tr><td><strong>1</strong></td><td><strong>建项目文件夹</strong></td><td>一切工作的起点——隔离工作区、文件不散落</td><td>产物散落各处，找不到文件，无法复用</td></tr>
+<tr><td><strong>2</strong></td><td><strong>写 MD 开发文档</strong></td><td>大项目的"进度条"——AI的上下文载体，防止跑偏</td><td>对话越长AI越容易"忘记"，任务越做越偏</td></tr>
+<tr><td><strong>3</strong></td><td><strong>启用计划模式</strong></td><td>让AI在关键节点给你方案1/2/3让你选，而不是盲走</td><td>AI按默认方案走到黑，万一是错的方向全白做</td></tr>
+<tr><td><strong>4</strong></td><td><strong>封装技能包</strong></td><td>一次配置永久复用——流程跑通后必须固化</td><td>每次都要从头教AI，浪费大量时间和token</td></tr>
+</tbody></table></div>
+<div class="tip"><strong>记住</strong>：这4件事是所有37节课的"共同基因"。无论是做视频、做电商图、做PPT还是开发小程序，这4步永远在流程的最前面。</div>
+</div>
+
+<div class="card">
+<h3>📐 课程结构的三个阶段</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>阶段</th><th>文档范围</th><th>核心定位</th><th>核心产出</th></tr></thead>
+<tbody>
+<tr><td><strong>第一阶段</strong></td><td>文档 2-4</td><td>基础入门</td><td>会用Codex、懂技能封装、理解项目管理</td></tr>
+<tr><td><strong>第二阶段</strong></td><td>文档 5-30</td><td>业务实操</td><td>能在视频/电商/数据/PPT/飞书/故事板/数字人/特效等8个业务场景跑通流程</td></tr>
+<tr><td><strong>第三阶段</strong></td><td>文档 31-38</td><td>应用收官</td><td>能用Codex武装自己的完整业务闭环——小程序+Obsidian+公众号</td></tr>
+</tbody></table></div>
+<h4>递进逻辑</h4>
+<div class="flow">基础能力（2-4）→ 视频自动化（5-9）第一个完整闭环
+→ 电商图（10-13）复用技能包思路到电商
+→ 女装视频（14-17）视频+电商进阶融合
+→ 数据/办公自动化（18-22）从内容到办公
+→ 故事板+数字人+特效（23-30）视频生产的不同形态
+→ 小程序（31-34）从"用Codex"到"做产品"
+→ Obsidian+公众号（35-38）全平台内容生产工作台</div>
+</div>
+
+<div class="card">
+<h3>🎯 6大关键工具与选择要点</h3>
+<div class="table-wrap"><table>
+<thead><tr><th>工具</th><th>用途</th><th>选择要点</th></tr></thead>
+<tbody>
+<tr><td><strong>GPT（GPT-5.4/5.5）</strong></td><td>综合开发、多模态、做图</td><td>首选——能力最强，支持识图/视频/做图</td></tr>
+<tr><td><strong>DeepSeek</strong></td><td>纯文本、文案改写、性价比</td><td>备用+打分筛选——便宜但仅文本</td></tr>
+<tr><td><strong>即梦 1.5 Pro</strong></td><td>视频生成（首尾帧、便宜）</td><td>视频自动化首选——成本低、支持首尾帧</td></tr>
+<tr><td><strong>即梦 2.0</strong></td><td>视频生成（效果好、真人脸需中转）</td><td>女装带货视频首选——效果比1.5明显提升</td></tr>
+<tr><td><strong>Sora 2.0</strong></td><td>电影级视频、不卡人脸</td><td>故事板/数字人首选——现阶段做电影感短片最优</td></tr>
+<tr><td><strong>GPT-4o image2 / image-2</strong></td><td>抠图、白底三视图、AI出图</td><td>电商图首选——成本低、效果好</td></tr>
+<tr><td><strong>火山引擎</strong></td><td>字幕对齐、SRT输出</td><td>字幕校准必选——开源方案全部对不齐</td></tr>
+<tr><td><strong>剪映小助手/Hyperframes</strong></td><td>自动剪辑、动画特效</td><td>视频后期必选——开源免费</td></tr>
+</tbody></table></div>
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- SVG: 八大知识点依赖链路 -->
+<!-- ================================================================ -->
+<div class="svg-wrap">
+<svg viewBox="0 0 1000 680" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs><filter id="sh4"><feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-opacity=".05"/></filter></defs>
+  <rect width="1000" height="680" fill="#fff" rx="8"/>
+  <text x="20" y="24" font-size="14" fill="#94a3b8" font-weight="700">八大知识点依赖链路 · 完整学习地图</text>
+
+  <!-- Row 1: 基础入门 -->
+  <rect x="20" y="45" width="110" height="30" rx="5" fill="#2563eb" filter="url(#sh4)"/>
+  <text x="75" y="65" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">基础入门</text>
+  <path d="M130,60 L155,60" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="160" y="45" width="130" height="30" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="225" y="65" text-anchor="middle" font-size="11" fill="#2563eb">安装→界面→第一技能包</text>
+
+  <!-- Row 2: 视频自动化 -->
+  <rect x="20" y="95" width="110" height="30" rx="5" fill="#3b82f6" filter="url(#sh4)"/>
+  <text x="75" y="115" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">视频自动化</text>
+  <path d="M130,110 L155,110" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="160" y="95" width="290" height="30" rx="5" fill="#eff6ff" stroke="#3b82f6" stroke-width="1"/>
+  <text x="305" y="115" text-anchor="middle" font-size="11" fill="#2563eb">原理→标题字幕→即梦分镜图→视频素材→剪映自动剪辑+封装</text>
+
+  <!-- Row 3: 电商图 -->
+  <rect x="20" y="145" width="110" height="30" rx="5" fill="#10b981" filter="url(#sh4)"/>
+  <text x="75" y="165" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">电商图复刻</text>
+  <path d="M130,160 L155,160" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="160" y="145" width="280" height="30" rx="5" fill="#f0fdf4" stroke="#10b981" stroke-width="1"/>
+  <text x="300" y="165" text-anchor="middle" font-size="11" fill="#059669">六步流程→API调用→提示词设计→技能包封装</text>
+
+  <!-- Row 4: 女装视频 -->
+  <rect x="20" y="195" width="110" height="30" rx="5" fill="#10b981" filter="url(#sh4)"/>
+  <text x="75" y="215" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">女装视频复刻</text>
+  <path d="M130,210 L155,210" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="160" y="195" width="300" height="30" rx="5" fill="#f0fdf4" stroke="#10b981" stroke-width="1"/>
+  <text x="310" y="215" text-anchor="middle" font-size="11" fill="#059669">拆解替换重组→反推抽帧→三视图→即梦2.0+封装</text>
+
+  <!-- Row 5: 数据/办公 -->
+  <rect x="20" y="245" width="110" height="30" rx="5" fill="#f59e0b" filter="url(#sh4)"/>
+  <text x="75" y="265" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">数据+PPT+飞书</text>
+  <path d="M130,260 L155,260" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="160" y="245" width="310" height="30" rx="5" fill="#fffbeb" stroke="#f59e0b" stroke-width="1"/>
+  <text x="315" y="265" text-anchor="middle" font-size="11" fill="#92400e">DataFrog数据分析→Pinterest找对标→ppt-master可编辑PPT→飞书CLI</text>
+
+  <!-- Row 6: 故事板 -->
+  <rect x="20" y="295" width="110" height="30" rx="5" fill="#8b5cf6" filter="url(#sh4)"/>
+  <text x="75" y="315" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">故事板视频</text>
+  <path d="M130,310 L155,310" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="160" y="295" width="300" height="30" rx="5" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="310" y="315" text-anchor="middle" font-size="11" fill="#7c3aed">剧本→角色卡→故事板图→Sora2.0视频→封装</text>
+
+  <!-- Row 7: 数字人 -->
+  <rect x="20" y="345" width="110" height="30" rx="5" fill="#8b5cf6" filter="url(#sh4)"/>
+  <text x="75" y="365" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">数字人软件</text>
+  <path d="M130,360 L155,360" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="160" y="345" width="310" height="30" rx="5" fill="#f5f3ff" stroke="#8b5cf6" stroke-width="1"/>
+  <text x="315" y="365" text-anchor="middle" font-size="11" fill="#7c3aed">文案→改写→语音克隆→数字人合成→字幕+PythonQt封装</text>
+
+  <!-- Row 8: 小程序+Obsidian -->
+  <rect x="20" y="395" width="110" height="30" rx="5" fill="#ec4899" filter="url(#sh4)"/>
+  <text x="75" y="415" text-anchor="middle" fill="#fff" font-size="12" font-weight="700">小程序+Obsidian</text>
+  <path d="M130,410 L155,410" stroke="#94a3b8" stroke-width="1.2"/>
+  <rect x="160" y="395" width="340" height="30" rx="5" fill="#fdf2f8" stroke="#ec4899" stroke-width="1"/>
+  <text x="330" y="415" text-anchor="middle" font-size="11" fill="#be185d">小程序6步开发→Obsidian知识库→每日热点→6分钟公众号</text>
+
+  <!-- Progression arrows on left -->
+  <path d="M75,75 L75,90" stroke="#cbd5e1" stroke-width="1.2" marker-end="url(#arrDown)"/>
+  <path d="M75,125 L75,140" stroke="#cbd5e1" stroke-width="1.2" marker-end="url(#arrDown)"/>
+  <path d="M75,175 L75,190" stroke="#cbd5e1" stroke-width="1.2" marker-end="url(#arrDown)"/>
+  <path d="M75,225 L75,240" stroke="#cbd5e1" stroke-width="1.2" marker-end="url(#arrDown)"/>
+  <path d="M75,275 L75,290" stroke="#cbd5e1" stroke-width="1.2" marker-end="url(#arrDown)"/>
+  <path d="M75,325 L75,340" stroke="#cbd5e1" stroke-width="1.2" marker-end="url(#arrDown)"/>
+  <path d="M75,375 L75,390" stroke="#cbd5e1" stroke-width="1.2" marker-end="url(#arrDown)"/>
+
+  <defs><marker id="arrDown" markerWidth="6" markerHeight="6" refX="3" refY="5" orient="auto"><path d="M0,0 L6,0 L3,6" fill="#cbd5e1"/></marker></defs>
+
+  <!-- Bottom: 终极闭环 -->
+  <defs><linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" stop-color="#eff6ff"/><stop offset="100%" stop-color="#f0fdf4"/></linearGradient></defs>
+  <rect x="20" y="460" width="960" height="60" rx="10" fill="url(#grad1)" stroke="#3b82f6" stroke-width="1.5" stroke-dasharray="6,3"/>
+  <text x="500" y="485" text-anchor="middle" font-size="14" font-weight="700" fill="#2563eb">终极闭环：一人公司操作系统</text>
+  <text x="500" y="507" text-anchor="middle" font-size="12" fill="#475569">Obsidian存资料 → 日报给热点 → Codex写文章 → AI出图 → 全平台内容生产流水线 | 37节课 = 1套操作系统</text>
+
+  <!-- Phase labels -->
+  <rect x="20" y="540" width="180" height="26" rx="5" fill="#dbeafe"/>
+  <text x="110" y="558" text-anchor="middle" font-size="11" fill="#2563eb" font-weight="600">第一阶段：基础入门（2-4节）</text>
+  <rect x="215" y="540" width="280" height="26" rx="5" fill="#d1fae5"/>
+  <text x="355" y="558" text-anchor="middle" font-size="11" fill="#059669" font-weight="600">第二阶段：业务实操（5-30节）</text>
+  <rect x="510" y="540" width="240" height="26" rx="5" fill="#fce7f3"/>
+  <text x="630" y="558" text-anchor="middle" font-size="11" fill="#be185d" font-weight="600">第三阶段：应用收官（31-38节）</text>
+</svg>
+</div>
+
+<!-- ================================================================ -->
+<!-- 学习路径建议 -->
+<!-- ================================================================ -->
+<div class="section" id="learning-path">
+<div class="section-title"><span class="num">★</span> 学习路径建议（四种路径）</div>
+
+<div class="card">
+<h3>🛤 路径A：内容创作者（视频/图文博主）</h3>
+<div class="flow">第一周：基础（2-4）→ 第二周：视频自动化（5-9）→ 第三周：故事板/数字人（23-28）→ 第四周：Obsidian+公众号（35-38）</div>
+</div>
+
+<div class="card">
+<h3>🛒 路径B：电商卖家</h3>
+<div class="flow">第一周：基础（2-4）→ 第二周：电商图复刻（10-13）→ 第三周：女装视频复刻（14-17）→ 第四周：特效视频+小程序（29-34）</div>
+</div>
+
+<div class="card">
+<h3>💼 路径C：创业者/一人公司</h3>
+<div class="flow">第一周：基础（2-4）→ 第二周：视频自动化（5-9）→ 第三周：数据+PPT+飞书（18-22）→ 第四周：小程序+Obsidian（31-38）</div>
+</div>
+
+<div class="card">
+<h3>🚀 路径D：快速上手型（一个月精通）</h3>
+<div class="flow">Week1：基础（2-4）+视频自动化（5-9）
+Week2：电商图（10-13）+女装视频（14-17）
+Week3：故事板（23-25）+数字人（26-28）+特效（29-30）
+Week4：小程序（31-34）+Obsidian（35-38）</div>
+</div>
+
+<div class="quote" style="margin-top:16px">
+<strong>终极心法</strong><br>
+"Codex教他只教一遍"——所有的工序都是一次配置、永久复用。<br>
+不要把Codex当聊天玩具，而是当员工来训练。<br>
+不要相信一键全自动，而是人+AI协作的正确流程。<br>
+这37节课不是37个独立技能，而是1套"一人公司操作系统"。学会Codex这个操作系统，你就拥有了AI时代个体创业的核心武器。
+</div>
+</div>
+
+<!-- ================================================================ -->
+<!-- 提示词速查手册 -->
+<!-- ================================================================ -->
+<div class="section" id="cheatsheet">
+<div class="section-title"><span class="num">★</span> 提示词速查手册（万能模板）</div>
+
+<div class="card">
+<h3>📋 通用API调用提示词</h3>
+<pre><code>参考这个文档 [MD文档路径]
+输入：[素材1/参数1]
+[可选：输入2/输入3]
+[具体操作描述]
+最后把生成的结果保存到 [项目文件夹]。</code></pre>
+</div>
+
+<div class="card">
+<h3>📋 通用批量并行提示词</h3>
+<pre><code>按照刚才的做图/视频流程，把剩下的 [N-1] 个 [素材] 并行给我做出来，全部保存到本地文件夹。</code></pre>
+</div>
+
+<div class="card">
+<h3>📋 通用技能包封装提示词</h3>
+<pre><code>帮我把整套流程封装成一个完整的技能包。后续只需要 [触发条件]，你就可以自动 [完整输出]。所有结果直接保存到本地文件夹。[可选] 过程中必须并行去做，提高效率。</code></pre>
+</div>
+
+<div class="card">
+<h3>📋 通用风格复刻提示词</h3>
+<pre><code>参考 [对标素材] 的 [场景/风格/排版/写作风格]，详细地做一篇/一组同款 [产出物]。
+- 内容来源：[我的素材/热点]
+- 排版/作图要求：[具体约束]
+- 输出格式：[MD/PDF/...]</code></pre>
+</div>
+
+<div class="card">
+<h3>📋 DeepSeek防错提示词（⭐每次必加）</h3>
+<pre><code>接下来这个对话窗口一定不要给我返回图片、视频或出现视频或图片的配图和视频。所有内容，一定要直接保存到文件夹中，直接给到文件夹中，不要直接展示。</code></pre>
+</div>
+
+<div class="card">
+<h3>📋 Codex安装Skill提示词</h3>
+<pre><code>帮我按照这个思路（[Skill GitHub链接]）安装这个Skill，第一次安装会需要安装很多依赖，可能需要10-20分钟。</code></pre>
+</div>
+
+<div class="card">
+<h3>📋 找对标提示词</h3>
+<pre><code>我是做[XX行业]的，参考这张[图/视频/文章]，帮我做一篇/一组同款[产出物]。- 作图/写作要求：[具体约束]</code></pre>
+</div>
+
+<div class="card">
+<h3>📋 视频提示词生成提示词</h3>
+<pre><code>现在你参考：1.两张人物角色卡 2.故事板图 3.完整故事的情节
+
+帮我生成一段15秒的Sora 2.0视频提示词，包含画面、动作、对白、情绪、镜头语言。</code></pre>
+</div>
+
+<div class="card" style="background:linear-gradient(135deg,#eff6ff,#f0fdf4);border:2px solid #3b82f6">
+<h3 style="color:#2563eb">🎓 学好Codex的终极秘诀</h3>
+<div class="flow" style="background:transparent;font-size:14px">1. 先建项目文件夹——一切工作的起点
+2. 写MD开发文档——大项目的"进度条"
+3. 启用计划模式——让AI在关键节点问你
+4. 封装技能包——一次配置，永久复用
+5. 教得越细，做得越好——Codex"你教他才聪明，不教他真的很笨"
+6. 先单测再批量——永远的铁律
+7. 并行提速——效率翻倍的秘诀
+8. 不懂就问Codex——它比你更懂技术</div>
+</div>
+
+</div>
+
+</div><!-- /.container -->
+
+<!-- Footer -->
+<footer style="text-align:center;padding:40px 16px;color:var(--text3);font-size:13px;border-top:1px solid var(--border);margin-top:40px">
+<p>📚 2026一人公司Codex实战课 · 完整知识体系</p>
+<p style="margin-top:4px">何老师 + 黄老师 双师授课 | 37节实战课 | 约50,000字 | 从零基础到精通高手</p>
+<p style="margin-top:4px">资料来源：F:\学习助手\2026一人公司Codex实战课\output\ 单篇总结 + 终极总结</p>
+<p style="margin-top:8px;color:var(--text2)">✨ 用 Codex 串起"个人/一人公司"的所有业务场景，实现 AI 自动化生产 ✨</p>
+</footer>
+
+<a href="#" class="back-top" title="回到顶部">↑</a>
+
+</body>
+</html>
