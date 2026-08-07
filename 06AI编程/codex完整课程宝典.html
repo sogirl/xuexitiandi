@@ -1,0 +1,1410 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="theme-color" content="#f7f8fb">
+<meta name="format-detection" content="telephone=no">
+<title>Codex 零基础训练营 · 完整课程宝典（小白→精通）</title>
+<style>
+/* ========== 浅色系基础 ========== */
+:root{
+  --bg:#f7f8fb;
+  --card:#ffffff;
+  --ink:#1f2937;
+  --ink-soft:#4b5563;
+  --muted:#6b7280;
+  --line:#e6e8ee;
+  --line-strong:#d4d8e0;
+  --brand:#2563eb;
+  --brand-soft:#dbeafe;
+  --green:#059669;
+  --green-soft:#d1fae5;
+  --orange:#ea580c;
+  --orange-soft:#ffedd5;
+  --pink:#db2777;
+  --pink-soft:#fce7f3;
+  --purple:#7c3aed;
+  --purple-soft:#ede9fe;
+  --yellow:#ca8a04;
+  --yellow-soft:#fef3c7;
+  --shadow:0 1px 2px rgba(15,23,42,.04), 0 4px 16px rgba(15,23,42,.06);
+  --radius:14px;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--ink);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  font-size:16px;line-height:1.75;-webkit-text-size-adjust:100%;
+  word-break:break-word;overflow-wrap:break-word}
+img,svg{max-width:100%;height:auto}
+a{color:var(--brand);text-decoration:none}
+a:hover{text-decoration:underline}
+.wrap{max-width:1100px;margin:0 auto;padding:0 18px}
+
+/* ========== 顶部封面 ========== */
+.hero{
+  background:linear-gradient(135deg,#eef2ff 0%, #ecfeff 50%, #fef3c7 100%);
+  border-bottom:1px solid var(--line);
+  padding:38px 0 32px;
+}
+.hero h1{
+  margin:0 0 8px;font-size:30px;line-height:1.3;color:#111827;
+  letter-spacing:.5px;
+}
+.hero .sub{color:var(--ink-soft);font-size:15px;margin:0 0 18px}
+.hero .meta{
+  display:flex;flex-wrap:wrap;gap:8px;margin:0 0 12px;
+}
+.hero .meta span{
+  background:#fff;border:1px solid var(--line-strong);
+  border-radius:999px;padding:5px 12px;font-size:13px;color:#374151;
+}
+.hero p{margin:6px 0;color:#374151;font-size:15px}
+.hero .quote{
+  background:#fff;border-left:4px solid var(--brand);
+  border-radius:8px;padding:12px 16px;margin-top:16px;
+  box-shadow:var(--shadow);color:#374151;font-size:14.5px;
+}
+
+/* ========== 目录 ========== */
+.toc{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:18px 20px;margin:24px 0;box-shadow:var(--shadow);
+}
+.toc h2{margin:0 0 12px;font-size:18px;color:#111827}
+.toc ol{margin:0;padding-left:22px;column-count:1}
+.toc li{margin:4px 0;line-height:1.55}
+@media(min-width:760px){.toc ol{column-count:2}}
+@media(min-width:1020px){.toc ol{column-count:3}}
+.toc li a{color:#1f2937}
+.toc .grp{font-weight:600;color:#111827;margin-top:8px;display:inline-block}
+
+/* ========== 大标题 ========== */
+.section{margin:36px 0 12px}
+.section h2{
+  font-size:24px;color:#111827;margin:0 0 10px;
+  border-left:5px solid var(--brand);padding-left:12px;
+}
+.section h3{
+  font-size:19px;color:#1f2937;margin:22px 0 10px;
+  border-bottom:1px dashed var(--line-strong);padding-bottom:6px;
+}
+.section h4{
+  font-size:16.5px;color:#374151;margin:18px 0 8px;
+}
+.section .lead{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:12px 16px;color:#374151;font-size:14.5px;margin:0 0 18px;
+}
+
+/* ========== 卡片 / 表格 ========== */
+.card{
+  background:#fff;border:1px solid var(--line);border-radius:var(--radius);
+  padding:16px 18px;margin:14px 0;box-shadow:var(--shadow);
+}
+.grid2{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}}
+.grid3{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:760px){.grid3{grid-template-columns:repeat(3,1fr)}}
+.kv{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:12px 14px;margin:10px 0;
+}
+.kv b{color:#111827}
+.tag{
+  display:inline-block;padding:2px 10px;border-radius:999px;
+  font-size:12.5px;background:#eef2ff;color:#3730a3;margin-right:6px;
+}
+.tag.green{background:var(--green-soft);color:#065f46}
+.tag.orange{background:var(--orange-soft);color:#9a3412}
+.tag.pink{background:var(--pink-soft);color:#9d174d}
+.tag.purple{background:var(--purple-soft);color:#5b21b6}
+.tag.yellow{background:var(--yellow-soft);color:#854d0e}
+
+table{
+  width:100%;border-collapse:separate;border-spacing:0;
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  overflow:hidden;margin:10px 0;font-size:14.5px;
+  box-shadow:var(--shadow);
+}
+table th,table td{
+  padding:10px 12px;border-bottom:1px solid var(--line);
+  text-align:left;vertical-align:top;
+}
+table th{background:#f1f5f9;color:#111827;font-weight:600}
+table tr:last-child td{border-bottom:none}
+table tr:nth-child(2n) td{background:#fafbfd}
+
+ul,ol{padding-left:22px}
+ul li,ol li{margin:4px 0}
+hr{border:none;border-top:1px dashed var(--line-strong);margin:20px 0}
+
+code,kbd{
+  background:#f1f5f9;border:1px solid var(--line);border-radius:6px;
+  padding:1px 7px;font-size:13.5px;color:#be185d;font-family:Menlo,Consolas,monospace;
+}
+pre{
+  background:#0f172a;color:#e2e8f0;border-radius:12px;
+  padding:14px 16px;overflow:auto;margin:10px 0;font-size:13.5px;
+  line-height:1.6;-webkit-overflow-scrolling:touch;
+}
+pre code{background:transparent;border:none;color:inherit;padding:0;font-size:inherit}
+blockquote{
+  margin:10px 0;padding:10px 14px;border-left:4px solid var(--orange);
+  background:#fff7ed;border-radius:8px;color:#7c2d12;font-size:14.5px;
+}
+
+/* ========== 强调盒 ========== */
+.note,.warn,.key{
+  border-radius:10px;padding:12px 14px;margin:12px 0;font-size:14.5px;
+}
+.note{background:#eff6ff;border:1px solid #bfdbfe;color:#1e40af}
+.warn{background:#fff7ed;border:1px solid #fed7aa;color:#9a3412}
+.key{background:#ecfdf5;border:1px solid #a7f3d0;color:#065f46}
+
+/* ========== 顶部阶段卡片 ========== */
+.stages{display:grid;grid-template-columns:1fr;gap:12px;margin:14px 0}
+@media(min-width:760px){.stages{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:1020px){.stages{grid-template-columns:repeat(4,1fr)}}
+.stage{
+  background:#fff;border:1px solid var(--line);border-radius:12px;
+  padding:14px;box-shadow:var(--shadow);
+}
+.stage .h{font-size:14px;color:#6b7280;margin:0 0 4px}
+.stage .t{font-size:17px;color:#111827;font-weight:600;margin:0 0 6px}
+.stage .d{font-size:14px;color:#4b5563;margin:0}
+
+/* ========== 知识图谱外壳 ========== */
+.tree-wrap{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:12px;margin:10px 0 20px;box-shadow:var(--shadow);
+  overflow:auto;-webkit-overflow-scrolling:touch;
+}
+.tree-wrap svg{display:block;min-width:1200px;height:auto}
+.legend{font-size:12.5px;color:#6b7280;margin:0 0 8px}
+.legend i{font-style:normal;margin-right:10px}
+.legend i::before{content:"";display:inline-block;width:10px;height:10px;border-radius:2px;vertical-align:middle;margin-right:4px}
+.l1::before{background:#2563eb}
+.l2::before{background:#059669}
+.l3::before{background:#ea580c}
+.l4::before{background:#7c3aed}
+.l5::before{background:#db2777}
+.l6::before{background:#ca8a04}
+
+/* ========== 点回顶部 ========== */
+.to-top{
+  position:fixed;right:14px;bottom:14px;width:42px;height:42px;
+  border-radius:50%;background:#fff;border:1px solid var(--line-strong);
+  box-shadow:var(--shadow);display:flex;align-items:center;justify-content:center;
+  color:#374151;font-weight:700;text-decoration:none;font-size:18px;
+}
+.to-top:hover{background:#f1f5f9;color:var(--brand)}
+
+/* ========== 课程卡片 ========== */
+.lesson{
+  background:#fff;border:1px solid var(--line);border-radius:14px;
+  padding:16px 18px;margin:14px 0;box-shadow:var(--shadow);
+}
+.lesson .num{
+  display:inline-block;background:var(--brand);color:#fff;
+  border-radius:6px;padding:2px 8px;font-size:13px;margin-right:8px;
+}
+.lesson .title{font-size:18px;color:#111827;font-weight:600;margin:0 0 6px}
+.lesson .desc{color:#4b5563;font-size:14.5px;margin:0 0 6px}
+
+.prompt{
+  background:#0f172a;color:#e2e8f0;border-radius:10px;
+  padding:12px 14px;margin:10px 0;font-size:13.5px;line-height:1.6;
+  white-space:pre-wrap;word-break:break-word;
+}
+
+.split{display:grid;grid-template-columns:1fr;gap:12px}
+@media(min-width:760px){.split{grid-template-columns:1fr 1fr}}
+
+/* ========== 底部 ========== */
+.foot{
+  text-align:center;color:#9ca3af;font-size:13px;padding:24px 0 60px;
+}
+
+/* ========== SVG 节点交互 ========== */
+svg .node rect{filter:drop-shadow(0 1px 2px rgba(15,23,42,.06))}
+svg .node text{font-size:13px;fill:#1f2937;font-family:inherit}
+svg .edge{fill:none;stroke:#cbd5e1;stroke-width:1.4}
+svg .root rect{fill:#2563eb}
+svg .root text{fill:#fff;font-weight:600}
+svg text{dominant-baseline:central;text-anchor:start}
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部封面 ========== -->
+<header class="hero">
+  <div class="wrap">
+    <h1>🧭 Codex 零基础训练营 · 完整课程宝典</h1>
+    <p class="sub">14 节课 · 从"装上软件"到"造出自己的 AI 技能" · 一篇打通小白→精通高手</p>
+    <div class="meta">
+      <span>📚 14 节课程</span>
+      <span>🧠 6 大能力层次</span>
+      <span>🛠️ 5 套核心方法论</span>
+      <span>📒 50+ 直接可抄提示词</span>
+      <span>📱 手机/微信/WPS 通吃</span>
+    </div>
+    <p>这份宝典由 14 节单篇课程 + 跨课知识图谱合并而成。你不用再去翻任何一份单个 MD 文件——从环境搭建到算力优化，**所有知识点都已在这一页里写全**。打开它，对照练，每一节都能让你从"不会"变成"会"，从"会"变成"精通"。</p>
+    <div class="quote">
+      <b>贯穿全课的三句心法：</b><br>
+      ① 你（老板）→ 制定方向 · 选方案 · 验收结果；Codex（员工）→ 自己想办法实现。<br>
+      ② 永远先沟通再执行；先出样例再批量；复杂任务先开启计划模式。<br>
+      ③ 算力最大的浪费不是多问一句，而是方向错了整轮返工。
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+
+<!-- ========== 6 大阶段速览 ========== -->
+<section class="section">
+  <h2>🚀 学习路径总览（一张图看懂 6 大阶段）</h2>
+  <div class="stages">
+    <div class="stage"><p class="h">阶段 1</p><p class="t">环境入门</p><p class="d">001 安装 → 002 界面，建立"能打开、能用"的基础。</p></div>
+    <div class="stage"><p class="h">阶段 2</p><p class="t">思维建立</p><p class="d">003 老板-员工模型，把 Codex 当成可以分活的高智商员工。</p></div>
+    <div class="stage"><p class="h">阶段 3</p><p class="t">安全+扩展</p><p class="d">004 技能包 / 005 权限 / 006 计划模式，三条控制线全到位。</p></div>
+    <div class="stage"><p class="h">阶段 4</p><p class="t">编程与办公</p><p class="d">007 Python 一键安装；008 Excel / 009 Word / 010 PPT 三大办公自动化。</p></div>
+    <div class="stage"><p class="h">阶段 5</p><p class="t">电商设计</p><p class="d">011 详情图 / 012 换品 / 013 Cover 精修，做出能复用的设计 Skill。</p></div>
+    <div class="stage"><p class="h">阶段 6</p><p class="t">效率优化</p><p class="d">014 算力优化五法，把所有方法论升华为"少返工才是真省"。</p></div>
+  </div>
+</section>
+
+<!-- ========== 跨课程知识图谱（横向树状静态 SVG） ========== -->
+<section class="section">
+  <h2>🗺️ 跨课程知识图谱（横向树状 · 根在左逐层向右）</h2>
+  <p class="lead">提示：SVG 默认被设为更宽尺寸以避免字体重叠；用双指在手机微信里可放大查看，竖向会变成横向滚动；PC 浏览器可横向滚动查看完整图谱。</p>
+  <div class="tree-wrap">
+    <p class="legend">
+      <i class="l1">L1 基础</i><i class="l2">L2 思维</i><i class="l3">L3 扩展</i>
+      <i class="l4">L4 办公</i><i class="l5">L5 设计</i><i class="l6">L6 优化</i>
+    </p>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 1180" width="100%" height="auto" preserveAspectRatio="xMinYMin meet">
+  <!-- 根 -->
+  <g class="node root">
+    <rect x="20" y="540" width="240" height="100" rx="14" fill="#2563eb"/>
+    <text x="140" y="580" text-anchor="middle" fill="#fff" font-size="16" font-weight="700">Codex 零基础训练营</text>
+    <text x="140" y="610" text-anchor="middle" fill="#dbeafe" font-size="13">14 节课 · 全部知识体系</text>
+  </g>
+
+  <!-- L1 基础搭建 -->
+  <g class="node">
+    <rect x="320" y="80" width="220" height="80" rx="12" fill="#dbeafe"/>
+    <text x="430" y="120" fill="#1e3a8a">L1 基础搭建</text>
+    <text x="430" y="148" fill="#1e40af" font-size="12">工具能装、界面能看</text>
+  </g>
+  <path class="edge" d="M260 540 L320 120"/>
+  <g class="node">
+    <rect x="600" y="40" width="200" height="60" rx="12" fill="#fff" stroke="#1d4ed8"/>
+    <text x="700" y="78" fill="#1e3a8a">001 安装部署</text>
+  </g>
+  <path class="edge" d="M540 120 L600 70"/>
+  <g class="node">
+    <rect x="600" y="120" width="200" height="60" rx="12" fill="#fff" stroke="#1d4ed8"/>
+    <text x="700" y="158" fill="#1e3a8a">002 认识界面</text>
+  </g>
+  <path class="edge" d="M540 120 L600 150"/>
+
+  <!-- L2 思维建立 -->
+  <g class="node">
+    <rect x="320" y="280" width="220" height="80" rx="12" fill="#d1fae5"/>
+    <text x="430" y="320" fill="#064e3b">L2 思维建立</text>
+    <text x="430" y="348" fill="#065f46" font-size="12">核心心智：员工模型</text>
+  </g>
+  <path class="edge" d="M260 550 L320 320"/>
+  <g class="node">
+    <rect x="600" y="280" width="200" height="60" rx="12" fill="#fff" stroke="#059669"/>
+    <text x="700" y="318" fill="#064e3b">003 四步指挥法</text>
+  </g>
+  <path class="edge" d="M540 320 L600 310"/>
+  <g class="node">
+    <rect x="860" y="240" width="220" height="60" rx="12" fill="#ecfdf5" stroke="#10b981"/>
+    <text x="970" y="278" fill="#065f46" font-size="13">老板：方向+选方案+验收</text>
+  </g>
+  <path class="edge" d="M800 310 L860 270"/>
+  <g class="node">
+    <rect x="860" y="320" width="220" height="60" rx="12" fill="#ecfdf5" stroke="#10b981"/>
+    <text x="970" y="358" fill="#065f46" font-size="13">员工：执行+反问+请示</text>
+  </g>
+  <path class="edge" d="M800 310 L860 350"/>
+
+  <!-- L3 能力扩展 -->
+  <g class="node">
+    <rect x="320" y="480" width="220" height="80" rx="12" fill="#ffedd5"/>
+    <text x="430" y="520" fill="#7c2d12">L3 能力扩展</text>
+    <text x="430" y="548" fill="#9a3412" font-size="12">技能+权限+规划</text>
+  </g>
+  <path class="edge" d="M260 580 L320 520"/>
+  <g class="node">
+    <rect x="600" y="440" width="200" height="60" rx="12" fill="#fff" stroke="#ea580c"/>
+    <text x="700" y="478" fill="#7c2d12">004 技能包</text>
+  </g>
+  <path class="edge" d="M540 520 L600 470"/>
+  <g class="node">
+    <rect x="600" y="520" width="200" height="60" rx="12" fill="#fff" stroke="#ea580c"/>
+    <text x="700" y="558" fill="#7c2d12">005 权限与安全</text>
+  </g>
+  <path class="edge" d="M540 520 L600 550"/>
+  <g class="node">
+    <rect x="600" y="600" width="200" height="60" rx="12" fill="#fff" stroke="#ea580c"/>
+    <text x="700" y="638" fill="#7c2d12">006 计划模式</text>
+  </g>
+  <path class="edge" d="M540 520 L600 630"/>
+
+  <!-- L4 编程办公 -->
+  <g class="node">
+    <rect x="320" y="680" width="220" height="80" rx="12" fill="#ede9fe"/>
+    <text x="430" y="720" fill="#4c1d95">L4 编程办公</text>
+    <text x="430" y="748" fill="#5b21b6" font-size="12">会说人话就会编程</text>
+  </g>
+  <path class="edge" d="M260 600 L320 720"/>
+  <g class="node">
+    <rect x="600" y="680" width="200" height="60" rx="12" fill="#fff" stroke="#7c3aed"/>
+    <text x="700" y="718" fill="#4c1d95">007 Python</text>
+  </g>
+  <path class="edge" d="M540 720 L600 710"/>
+  <g class="node">
+    <rect x="600" y="760" width="200" height="60" rx="12" fill="#fff" stroke="#7c3aed"/>
+    <text x="700" y="798" fill="#4c1d95">008 Excel</text>
+  </g>
+  <path class="edge" d="M540 720 L600 790"/>
+  <g class="node">
+    <rect x="600" y="840" width="200" height="60" rx="12" fill="#fff" stroke="#7c3aed"/>
+    <text x="700" y="878" fill="#4c1d95">009 Word</text>
+  </g>
+  <path class="edge" d="M540 720 L600 870"/>
+  <g class="node">
+    <rect x="600" y="920" width="200" height="60" rx="12" fill="#fff" stroke="#7c3aed"/>
+    <text x="700" y="958" fill="#4c1d95">010 PPT</text>
+  </g>
+  <path class="edge" d="M540 720 L600 950"/>
+
+  <!-- L5 电商设计 -->
+  <g class="node">
+    <rect x="1140" y="480" width="240" height="80" rx="12" fill="#fce7f3"/>
+    <text x="1260" y="520" fill="#831843">L5 电商设计</text>
+    <text x="1260" y="548" fill="#9d174d" font-size="12">造 Skill + 模板复用</text>
+  </g>
+  <path class="edge" d="M260 600 L1140 500"/>
+  <g class="node">
+    <rect x="1440" y="420" width="220" height="60" rx="12" fill="#fff" stroke="#db2777"/>
+    <text x="1550" y="458" fill="#831843">011 电商详情图</text>
+  </g>
+  <path class="edge" d="M1380 500 L1440 450"/>
+  <g class="node">
+    <rect x="1440" y="500" width="220" height="60" rx="12" fill="#fff" stroke="#db2777"/>
+    <text x="1550" y="538" fill="#831843">012 商品图换品</text>
+  </g>
+  <path class="edge" d="M1380 520 L1440 530"/>
+  <g class="node">
+    <rect x="1440" y="580" width="220" height="60" rx="12" fill="#fff" stroke="#db2777"/>
+    <text x="1550" y="618" fill="#831843">013 Cover 精修</text>
+  </g>
+  <path class="edge" d="M1380 540 L1440 610"/>
+
+  <!-- L6 算力优化 -->
+  <g class="node">
+    <rect x="1140" y="780" width="240" height="80" rx="12" fill="#fef3c7"/>
+    <text x="1260" y="820" fill="#713f12">L6 算力优化</text>
+    <text x="1260" y="848" fill="#854d0e" font-size="12">少返工才是真省</text>
+  </g>
+  <path class="edge" d="M260 610 L1140 800"/>
+  <g class="node">
+    <rect x="1440" y="720" width="220" height="60" rx="12" fill="#fff" stroke="#ca8a04"/>
+    <text x="1550" y="758" fill="#713f12">014 五法合一</text>
+  </g>
+  <path class="edge" d="M1380 800 L1440 750"/>
+  <g class="node">
+    <rect x="1720" y="660" width="240" height="60" rx="12" fill="#fffbeb" stroke="#eab308"/>
+    <text x="1840" y="698" fill="#713f12" font-size="12">① 四要素</text>
+  </g>
+  <path class="edge" d="M1660 750 L1720 690"/>
+  <g class="node">
+    <rect x="1720" y="730" width="240" height="60" rx="12" fill="#fffbeb" stroke="#eab308"/>
+    <text x="1840" y="768" fill="#713f12" font-size="12">② 计划模式</text>
+  </g>
+  <path class="edge" d="M1660 750 L1720 760"/>
+  <g class="node">
+    <rect x="1720" y="800" width="240" height="60" rx="12" fill="#fffbeb" stroke="#eab308"/>
+    <text x="1840" y="838" fill="#713f12" font-size="12">③ 拆小任务</text>
+  </g>
+  <path class="edge" d="M1660 750 L1720 830"/>
+  <g class="node">
+    <rect x="1720" y="870" width="240" height="60" rx="12" fill="#fffbeb" stroke="#eab308"/>
+    <text x="1840" y="908" fill="#713f12" font-size="12">④ 选模式</text>
+  </g>
+  <path class="edge" d="M1660 750 L1720 900"/>
+  <g class="node">
+    <rect x="1720" y="940" width="240" height="60" rx="12" fill="#fffbeb" stroke="#eab308"/>
+    <text x="1840" y="978" fill="#713f12" font-size="12">⑤ 固化 agents.md</text>
+  </g>
+  <path class="edge" d="M1660 750 L1720 970"/>
+
+  <!-- 核心方法论子图（008~010 的演进） -->
+  <g class="node">
+    <rect x="860" y="700" width="240" height="60" rx="10" fill="#fef3c7" stroke="#ca8a04"/>
+    <text x="980" y="738" fill="#854d0e" font-size="13">008→009→010 演进</text>
+  </g>
+  <path class="edge" d="M800 790 L860 720"/>
+  <g class="node">
+    <rect x="1140" y="960" width="240" height="60" rx="10" fill="#fef3c7" stroke="#ca8a04"/>
+    <text x="1260" y="998" fill="#854d0e" font-size="12">分步→四步→五步</text>
+  </g>
+  <path class="edge" d="M1100 760 L1140 990"/>
+
+  <!-- 011→012 姊妹篇 -->
+  <g class="node">
+    <rect x="1720" y="420" width="240" height="60" rx="10" fill="#fce7f3" stroke="#db2777"/>
+    <text x="1840" y="458" fill="#9d174d" font-size="12">从零生成 → 模板复用</text>
+  </g>
+  <path class="edge" d="M1660 450 L1720 450"/>
+
+  <!-- 老板-员工 上传贯穿到 014 -->
+  <g class="node">
+    <rect x="860" y="1000" width="240" height="60" rx="10" fill="#ecfdf5" stroke="#059669"/>
+    <text x="980" y="1038" fill="#065f46" font-size="12">员工模型贯穿全课</text>
+  </g>
+  <path class="edge" d="M700 340 L860 1020"/>
+</svg>
+  </div>
+</section>
+
+<!-- ========== 目录 ========== -->
+<section class="section">
+  <h2>📑 目录</h2>
+  <div class="toc">
+    <ol>
+      <li><a href="#L001">001 安装部署与模型接入</a></li>
+      <li><a href="#L002">002 认识界面，完成第一个任务</a></li>
+      <li><a href="#L003">003 把想法变成可执行任务</a></li>
+      <li><a href="#L004">004 用技能包扩展能力</a></li>
+      <li><a href="#L005">005 权限与安全边界</a></li>
+      <li><a href="#L006">006 复杂任务先规划：计划模式</a></li>
+      <li><a href="#L007">007 一键安装 Python 环境</a></li>
+      <li><a href="#L008">008 自动生成 Excel</a></li>
+      <li><a href="#L009">009 自动生成 Word（四步生成法）</a></li>
+      <li><a href="#L010">010 自动生成 PPT（五步生成法）</a></li>
+      <li><a href="#L011">011 一键生成整套电商详情图</a></li>
+      <li><a href="#L012">012 商品图换品：一键替换</a></li>
+      <li><a href="#L013">013 智能作图与可视化局部精修</a></li>
+      <li><a href="#L014">014 算力优化与高效工作流</a></li>
+      <li><a href="#cross">🧠 跨课程概念索引</a></li>
+      <li><a href="#golden">🥇 10 条黄金法则</a></li>
+      <li><a href="#prompt">📒 50+ Prompt 速查大全</a></li>
+      <li><a href="#path">🗓️ 7 天学习路径</a></li>
+    </ol>
+  </div>
+</section>
+
+<!-- ========== 001 ========== -->
+<section class="section" id="L001">
+  <h2>第 1 课 · 001 安装部署与模型接入</h2>
+  <p class="lead">本节聚焦"装上、能用"，不讲原理，目标：完成 Codex 安装并能正常对话。</p>
+
+  <div class="lesson">
+    <p class="title"><span class="num">A</span>Codex 安装流程</p>
+    <ol>
+      <li>确认操作系统：Windows 下载 <code>.exe</code>；Mac 下载 <code>.dmg</code>。</li>
+      <li>双击安装包，一路"下一步（Next）"完成安装。</li>
+      <li>桌面出现 Codex 图标 = 安装成功。</li>
+    </ol>
+  </div>
+
+  <div class="lesson">
+    <p class="title"><span class="num">B</span>首次登录与 API 密钥</p>
+    <ul>
+      <li>首次登录必须选择"使用其他方式登录"——国内网络可直接使用，不依赖 OpenAI 官方。</li>
+      <li>API Key 通过中转网站购买，按需购买（如 10 元 / 58 元对应 10/158 额度），价格浮动以购买时为准。</li>
+      <li>购买步骤：<code>立即开通</code> → 填邮箱 → 默认支付宝 → 确认购买。</li>
+      <li>初学建议先买低额度试用；日常使用多再买高额度。</li>
+    </ul>
+  </div>
+
+  <div class="lesson">
+    <p class="title"><span class="num">C</span>密钥保存（一次性关键！）</p>
+    <div class="warn">支付成功后，API Key <b>仅展示一次</b>，系统提示"此密钥仅展示一次，请务必复制保存"。丢失后无法找回。</div>
+    <ol>
+      <li>立即点击"复制 APIK"。</li>
+      <li>新建记事本（如 <code>codex APIK</code>）粘贴保存。</li>
+      <li>确认保存后再关闭浏览器。</li>
+    </ol>
+  </div>
+
+  <div class="lesson">
+    <p class="title"><span class="num">D</span>完成登录与验证</p>
+    <ol>
+      <li>把 Key 粘贴到 Codex 输入框，点"继续"。</li>
+      <li>进入主界面后，发送 <code>你是谁？</code>。</li>
+      <li>Codex 回复"我是 Codex，一个结对工程师" → 安装和配置全部就绪。</li>
+    </ol>
+  </div>
+
+  <div class="key">
+    <b>关键知识点：</b>登录方式（必须"其他方式"）· 中转网站（不是 OpenAI 官网）· 密钥一次性 · 按需付费 · 验证标准（"我是 Codex"）。
+  </div>
+</section>
+
+<!-- ========== 002 ========== -->
+<section class="section" id="L002">
+  <h2>第 2 课 · 002 认识界面，完成第一个任务</h2>
+  <p class="lead">前置：001 安装完成。掌握 4 个区域 + 2 种工作模式。</p>
+
+  <h3>一、四大区域</h3>
+  <table>
+    <tr><th>区域</th><th>位置</th><th>功能</th></tr>
+    <tr><td>左侧侧边栏</td><td>左</td><td>新对话、项目、搜索、历史、设置</td></tr>
+    <tr><td>中间主区域</td><td>中央</td><td>发送问题、接收回复（含思考过程）</td></tr>
+    <tr><td>右侧侧边栏</td><td>右</td><td>文件预览、内置浏览器</td></tr>
+    <tr><td>底部面板</td><td>底</td><td>终端</td></tr>
+  </table>
+
+  <h3>二、左侧栏详解</h3>
+  <table>
+    <tr><th>入口</th><th>用法</th></tr>
+    <tr><td>新对话</td><td>一次性、临时性简单任务</td></tr>
+    <tr><td>项目（+）</td><td>复杂、持续性任务；可"新建空白"或"使用现有文件夹"（如桌面简历库）</td></tr>
+    <tr><td>搜索</td><td>关键词（Codex/PPT）检索所有历史对话</td></tr>
+    <tr><td>历史记录</td><td>回顾与继续之前的对话</td></tr>
+    <tr><td>设置（齿轮）</td><td>工作模式 / 权限 / 常规 / 外观 / 快捷键</td></tr>
+  </table>
+
+  <h3>三、设置中的关键决策</h3>
+  <ul>
+    <li><b>工作模式：</b>编程用户选"适用编程模式"；非编程用户选"适用日常工作"（推荐）。</li>
+    <li><b>外观：</b>浅色 / 深色 / 随系统。</li>
+  </ul>
+
+  <h3>四、2 种工作模式心法</h3>
+  <div class="card">
+    <p>简单任务 → <b>新对话</b>（不关联项目，临时交互）<br>
+       复杂任务 → <b>项目</b>（关联文件夹，持续管理）</p>
+  </div>
+
+  <div class="note">右侧预览功能在 008 Excel / 009 Word / 010 PPT 中被反复使用——做 PPT / 网页时，无需离开 Codex 即可看到效果。</div>
+</section>
+
+<!-- ========== 003 ========== -->
+<section class="section" id="L003">
+  <h2>第 3 课 · 003 把想法变成可执行任务</h2>
+  <p class="lead">本节建立贯穿全课的核心心智模型——"老板-员工"。后续 004-014 全都基于此展开。</p>
+
+  <h3>一、核心心智：你面对的是一个高智商 AI 员工</h3>
+  <table>
+    <tr><th>维度</th><th>普通聊天 AI</th><th>Codex</th></tr>
+    <tr><td>交互方式</td><td>一问一答</td><td>持续执行、多轮协作</td></tr>
+    <tr><td>能力边界</td><td>只能生成文字</td><td>看项目、操作文件、跑命令</td></tr>
+    <tr><td>角色定位</td><td>信息提供者</td><td>实干型执行者</td></tr>
+  </table>
+
+  <h3>二、协作法则：反问不是刁难</h3>
+  <p>Codex 反问（如"你想怎么处理？"）= 员工在请示方向，不是让你替他写代码。</p>
+  <table>
+    <tr><th>角色</th><th>职责</th></tr>
+    <tr><td>你（老板）</td><td>制定方向 · 挑选方案 · 验收结果</td></tr>
+    <tr><td>Codex（员工）</td><td>具体技术实现 · 自行想办法完成</td></tr>
+  </table>
+
+  <h3>三、实战案例：客户礼物分配</h3>
+  <ol>
+    <li><b>读取并汇报：</b><code>读取桌面上的客户礼物文件，向我汇报没有领取礼物的客户名单</code> → 找出 15 人未领取。</li>
+    <li><b>分析并提案：</b><code>根据他们的积分情况给他们分配礼物，给两个合适的解决方案</code>。</li>
+    <li><b>选择方案并执行：</b><code>根据方案二新建表格填写好，另存到桌面，命名为客户礼物分配</code>。</li>
+    <li><b>验收结果：</b>桌面是否出现新文件？原文件是否未被修改？</li>
+  </ol>
+
+  <h3>四、关键原则</h3>
+  <ul>
+    <li><b>反问不是刁难：</b>员工请示方向，你做决策。</li>
+    <li><b>不关心技术细节：</b>脚本、命令、沙箱都由 Codex 处理。</li>
+    <li><b>多方案选择：</b>不确定时让 AI 先出多方案再选。</li>
+    <li><b>逐层推进：</b>先信息 → 再分析 → 再执行 → 后验收。</li>
+  </ul>
+
+  <h3>AI 提示词汇总</h3>
+  <div class="prompt"># 信息获取
+读取[文件路径]的[文件名]，向我汇报[需要获取的具体信息]。
+
+# 分析提案
+根据[条件/数据字段]给他们[执行操作]，给[N]个合适的解决方案。
+
+# 选择执行
+根据方案[N][具体操作要求]，另存到[目标路径]，命名为[文件名]。</div>
+
+  <div class="key"><b>提示词设计 5 原则：</b>明确位置 · 明确输出 · 明确数量 · 明确保存 · 逐层推进。</div>
+</section>
+
+<!-- ========== 004 ========== -->
+<section class="section" id="L004">
+  <h2>第 4 课 · 004 用技能包扩展能力</h2>
+  <p class="lead">前置：003 任务执行模型。本节让你把"反复用的指令"做成永久工具。</p>
+
+  <h3>一、技能包 vs 提示词</h3>
+  <table>
+    <tr><th>类型</th><th>作用</th><th>有效期</th></tr>
+    <tr><td>提示词 Prompt</td><td>单次对话内的指令</td><td>当前对话有效</td></tr>
+    <tr><td>技能包 Skill</td><td>把整套流程打包</td><td>跨对话永久复用</td></tr>
+  </table>
+
+  <h3>二、三种获取方式</h3>
+
+  <div class="card">
+    <h4>方式一：导入文件（最简单）</h4>
+    <ol>
+      <li>点新对话，把技能包压缩文件粘贴到对话框。</li>
+      <li>输入：<code>把这个附件导入成技能包，并检查导入的结果</code>。</li>
+      <li>新开对话 → 切换英文 → 输入 <code>/</code> 搜名称 → 调用 → 放材料 → 发送。</li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h4>方式二：seq hub 仓库搜索（推荐正规渠道）</h4>
+    <p>不要在网上随意下载！推荐 <b>seq hub</b>（国内用户，技能经过检测）。按推荐精选 / 近期飙升 / 下载量 / 收藏量 / 最近上新筛选；按场景分（办公效率、内容创作）。</p>
+    <p>评估顺序：概述 → 处理原则 → 示例。安装：复制指令 → 新对话粘贴 → 等待完成 → 可改名 <code>请把这个技能名称改为XXX</code>。</p>
+  </div>
+
+  <div class="card">
+    <h4>方式三：自己创建（实战课展开）</h4>
+    <p>本课不做详细讲解。详见 <a href="#L011">011 电商详情图</a> 和 <a href="#L012">012 商品图换品</a> 中的完整 Skill 打造流程。</p>
+  </div>
+
+  <h3>三、关键操作要点</h3>
+  <ul>
+    <li><b>每次任务新对话：</b>导入、测试都新开。</li>
+    <li><b>先阅读说明：</b>每个 Skill 写明了功能与材料。</li>
+    <li><b>改名+测试：</b>装完改名便于查找，测试确保可用。</li>
+    <li><b>调用方式：</b>英文模式 <code>/</code> + 名称。</li>
+  </ul>
+
+  <div class="warn">安全提醒：不要下载来路不明的技能包，应通过 seq hub 等正规渠道获取。</div>
+</section>
+
+<!-- ========== 005 ========== -->
+<section class="section" id="L005">
+  <h2>第 5 课 · 005 权限与安全边界</h2>
+  <p class="lead">前置：002 界面（设置面板位置）。本节决定 Codex 能不能做、要不要问你。</p>
+
+  <h3>板块一：三种内置权限模式</h3>
+  <table>
+    <tr><th>模式</th><th>机制</th><th>风险</th><th>适用人群</th><th>建议</th></tr>
+    <tr><td>请求批准</td><td>敏感操作弹窗确认</td><td>低</td><td>新手</td><td>推荐日常</td></tr>
+    <tr><td>替我审批</td><td>自动审核，低风险放行、高风险拦截</td><td>中</td><td>中级用户</td><td>嫌手动繁琐时</td></tr>
+    <tr><td>完全访问</td><td>几乎无限制</td><td>高</td><td>高级用户</td><td>临时开启，用完即关</td></tr>
+  </table>
+
+  <h4>隐藏危险模式</h4>
+  <p>设置 → 常规 → 权限：可关闭"自动审核"和"完全访问权限"的显示，避免误选。</p>
+
+  <h3>板块二：自定义权限模式（设置 → 配置）</h3>
+  <p>自定义 = <b>批准策略</b>（问不问）+ <b>沙盒设置</b>（能不能做）。</p>
+
+  <h4>批准策略（4 档）</h4>
+  <table>
+    <tr><th>策略</th><th>含义</th><th>严格度</th></tr>
+    <tr><td>不可信</td><td>几乎什么都要先问</td><td>最严</td></tr>
+    <tr><td>失败时</td><td>普通执行，失败再问</td><td>中</td></tr>
+    <tr><td>按请求</td><td>需要额外权限时问</td><td>常用</td></tr>
+    <tr><td>从不</td><td>尽量不问</td><td>最宽</td></tr>
+  </table>
+
+  <h4>沙盒设置（3 档）</h4>
+  <table>
+    <tr><th>沙盒</th><th>含义</th><th>场景</th></tr>
+    <tr><td>只读</td><td>只能看不能改</td><td>分析、审查、看代码</td></tr>
+    <tr><td>工作区写入</td><td>只能改当前项目</td><td>日常（推荐）</td></tr>
+    <tr><td>完全访问</td><td>可操作项目外</td><td>临时，谨慎</td></tr>
+  </table>
+
+  <div class="key">
+    <b>一句话：</b>沙盒管"能不能做"，批准策略管"做之前要不要问"。<br>
+    <b>推荐组合：</b>日常 = 工作区写入 + 按请求；代码审查 = 只读 + 按请求；信任任务 = 工作区写入 + 失败时/从不。
+  </div>
+
+  <h3>板块三：提示词 vs 权限</h3>
+  <table>
+    <tr><th>概念</th><th>性质</th><th>作用</th></tr>
+    <tr><td>权限设置</td><td>系统级门禁</td><td>决定能不能做、要不要问</td></tr>
+    <tr><td>提示词</td><td>行为约定</td><td>让 AI 执行前先说明</td></tr>
+  </table>
+
+  <p>让 AI 变谨慎的提示词模板：</p>
+  <div class="prompt">接下来你在修改文件、运行命令、联网、安装依赖之前，请先说明一下你要做什么，为什么要这样做，以及可能有什么风险，并且等待我的确认。</div>
+
+  <h3>看不懂批准请求？五步询问法</h3>
+  <ol>
+    <li>先选择"否"，不给权限。</li>
+    <li>发送：</li>
+  </ol>
+  <div class="prompt">我看不懂这个批准请求，请用小白能听懂的话解释一下：
+第一，这个操作要做什么。
+第二，为什么需要这个权限。
+第三，会影响到哪些文件或账号。
+第四，如果我拒绝会不会影响任务继续。
+第五，你（Codex）是推荐我批准还是拒绝。</div>
+</section>
+
+<!-- ========== 006 ========== -->
+<section class="section" id="L006">
+  <h2>第 6 课 · 006 复杂任务先规划：计划模式</h2>
+  <p class="lead">前置：003 模型。是"老板-员工"协作的深化。<br>
+  关联：014 方法二再次强调计划模式节省算力的关键作用。</p>
+
+  <h3>一、为什么用计划模式</h3>
+  <table>
+    <tr><th>维度</th><th>普通模式</th><th>计划模式</th></tr>
+    <tr><td>启动</td><td>直接描述需求</td><td>开启计划模式后描述需求</td></tr>
+    <tr><td>交互</td><td>无中间对话，直接出结果</td><td>先提问澄清 → 出计划 → 确认 → 执行</td></tr>
+    <tr><td>纠错时机</td><td>结果出来后</td><td>计划阶段（成本极低）</td></tr>
+    <tr><td>修改成本</td><td>方向错了全部推倒</td><td>只需改错细节</td></tr>
+    <tr><td>适用</td><td>简单任务</td><td>条件多、步骤多、复杂任务</td></tr>
+  </table>
+
+  <h3>二、进入方式</h3>
+  <ul>
+    <li>菜单：点击 <code>+</code> → 找到"计划模式" → 开关。</li>
+    <li>快捷键：<code>Shift + Tab</code> 切换。</li>
+  </ul>
+
+  <h3>三、实战：一周晚餐计划</h3>
+  <ol>
+    <li><b>澄清：</b>Codex 问饮食方式 / 做饭时间 / 用餐人数。</li>
+    <li><b>计划：</b>Codex 出方案，问"是否实施？"</li>
+    <li><b>修正：</b>点"否"+ 反馈（如"不喜欢菌菇"），自动重出。</li>
+    <li><b>执行：</b>确认后提交。</li>
+    <li><b>后续微调：</b>已生成也可继续小修（如"周一晚餐番茄鸡蛋豆腐煲改成番茄炒鸡蛋"）。</li>
+  </ol>
+
+  <div class="key"><b>核心原则：先规划、后执行</b>——任务多条件、多步骤、复杂 → 必开计划模式。</div>
+</section>
+
+<!-- ========== 007 ========== -->
+<section class="section" id="L007">
+  <h2>第 7 课 · 007 一键安装 Python 环境</h2>
+  <p class="lead">前置：005 权限（需"完全访问"）+ 003 任务执行。<br>
+  关联：后续课程反复使用"自然语言驱动系统级操作"的方法。</p>
+
+  <h3>为什么需要</h3>
+  <p>Windows 默认没装 Python，但 Codex 经常需要跑脚本，必须先装环境。</p>
+
+  <h3>安装步骤</h3>
+  <ol>
+    <li>打开 Codex，输入：<code>请帮我安装 python 环境</code>。</li>
+    <li>给 Codex 授予"完全访问权限"。</li>
+    <li>点发送，耐心等待完成。</li>
+  </ol>
+  <p>验证：PowerShell 中运行 Codex 提供的版本检查命令，看到 Python + pip 版本号 = 成功。整过程无需自己下载/配环境变量。</p>
+
+  <h3>实战：贪吃蛇小游戏</h3>
+  <ol>
+    <li>发送：<code>请用 python 帮我做一个贪吃蛇小游戏</code>。</li>
+    <li>Codex 自动写完。</li>
+    <li>继续：<code>帮我把这个程序在桌面上创建一个快捷方式</code>。</li>
+    <li>运行：<b>空格键</b>开始。</li>
+  </ol>
+
+  <div class="key">完整流程从编程到桌面上出现可点图标，<b>几分钟即可完成</b>。</div>
+</section>
+
+<!-- ========== 008 ========== -->
+<section class="section" id="L008">
+  <h2>第 8 课 · 008 自动生成 Excel</h2>
+  <p class="lead">前置：003 四步指挥法 + 002 界面预览。<br> 关联：009 Word 四步法 + 010 PPT 五步法。</p>
+
+  <h3>插件概念</h3>
+  <p>左侧"插件"面板与"技能"不同。默认已安装 Word/PDF/Excel/PPT 插件，办公自动化依赖这些插件。国内网络可能插件显示少，但默认已够用。</p>
+
+  <h3>实操场景</h3>
+  <p>把出差消费凭证（打车票/高铁票/餐饮截图）整理成 Excel。</p>
+
+  <h3>核心原则：不要一次性生成</h3>
+  <ol>
+    <li><b>沟通需求：</b><code>我有一些出差的支付材料，想整理成 excel 格式，你先帮我整理一下，先梳理出相关的支付费用，等我确定之后再做成 excel。</code></li>
+    <li><b>精简列：</b><code>只保留序号、日期、费用类型、金额、支付方式、备注就可以了。</code></li>
+    <li><b>上传素材：</b>粘贴消费截图，Codex 逐条提取并汇总、自动合计。</li>
+    <li><b>先关后修：</b>"T3 出行"应是"在线支付"等小问题后续统一改。</li>
+    <li><b>生成 Excel：</b><code>现在你按照这个内容整理成 excel。</code></li>
+    <li><b>引导追加：</b>执行中突然想加"票据单号"列 → 输入新需求 → 点 <b>"引导"</b> 按钮（不中断当前任务合并处理）。</li>
+    <li><b>查看定位：</b>点预览按钮 / "资源管理器"打开复制。</li>
+  </ol>
+
+  <h3>单元格级精准修改（Ask Codex）</h3>
+  <ol>
+    <li>选中目标单元格 → 弹出"Ask Codex"。</li>
+    <li>对话框描述修改要求。</li>
+    <li>示例：<code>把合计金额放在第七行的后边，开头的这个就去掉</code>（合并行移到末尾）。</li>
+  </ol>
+  <p>可同时选多处、改多处，按编号顺序执行；改失败直接让 Codex 重做（覆盖修复）。生成的文件是标准 .xlsx，支持排序等原生功能。</p>
+
+  <h3>核心要点</h3>
+  <table>
+    <tr><th>要点</th><th>做法</th></tr>
+    <tr><td>沟通策略</td><td>先探讨、先协商，再生成</td></tr>
+    <tr><td>引导功能</td><td>执行中追加不中断</td></tr>
+    <tr><td>单元格级修改</td><td>Ask Codex 精准改</td></tr>
+    <tr><td>多处修改</td><td>多位置编号顺序执行</td></tr>
+    <tr><td>容错</td><td>改失败要求重做</td></tr>
+  </table>
+
+  <h3>Prompt 速查</h3>
+  <div class="prompt">1. 我有一些出差的支付材料，想整理成 excel 格式，你先帮我整理一下，先梳理出相关的支付费用，等我确定之后再做成 excel。
+2. 只保留序号、日期、费用类型、金额、支付方式、备注就可以了。
+3. 现在你按照这个内容整理成 excel。
+4. 增加一个票据单号。（执行中用引导追加）
+5. 把合计金额放在第七行的后边，开头的这个就去掉。
+6. 改成线上支付。</div>
+</section>
+
+<!-- ========== 009 ========== -->
+<section class="section" id="L009">
+  <h2>第 9 课 · 009 自动生成 Word（四步生成法）</h2>
+  <p class="lead">前置：003 四步指挥法 + 008 分步流程。010 的五步法是它的进化。</p>
+
+  <h3>场景</h3>
+  <p>"健康减肥食谱" Word 饮食手册。</p>
+
+  <h3>四步生成法</h3>
+  <ol>
+    <li><b>初步沟通：</b><code>我想做一个健康减肥的食谱 word 版，用于指导自己日常饮食。你有什么建议？</code>（Codex 给出五部分目录：目标页/原则/食谱/替换表/避坑清单）</li>
+    <li><b>调整大纲：</b>指定三部分：健康饮食原则 + 早/午/晚各 8 道食谱 + 打卡表。</li>
+    <li><b>确认单样例（最关键）：</b><code>你先帮我生成一个晚餐的搭配表，只生成一个，我看一下样式是什么样的，确定没问题了，你再整体去生成。</code>
+      <br>迭代从表格 → 图+文字（仍表格）→ 图在上、纯文字列表在下，三次才满意。</li>
+    <li><b>整体生成：</b><code>这次的效果非常满意。你按照这样的效果去做一个完整的 word 版。</code>（28 页完整 Word）</li>
+  </ol>
+
+  <h3>局部修改与图片替换</h3>
+  <ul>
+    <li>点击目标位置右侧"问问 Codex"→ 描述修改。</li>
+    <li>批量替换：<code>把所有的图片改成真实的食材图片</code>。</li>
+    <li>图片未换：<code>图片没有更换，请检查一下</code>（Codex 会生成新文件名避免缓存）。</li>
+  </ul>
+
+  <h3>核心要点</h3>
+  <table>
+    <tr><th>要点</th><th>说明</th></tr>
+    <tr><td>四步生成法</td><td>沟通 → 大纲 → 单例 → 整体</td></tr>
+    <tr><td>先出样例再批量</td><td>用"只生成一个"验证</td></tr>
+    <tr><td>持续细化排版</td><td>图位置、表格 vs 纯文本反复迭代</td></tr>
+    <tr><td>算力节省</td><td>不一次性生成</td></tr>
+    <tr><td>缓存处理</td><td>不生效让 Codex 改文件名</td></tr>
+  </table>
+
+  <h3>Prompt 速查</h3>
+  <div class="prompt">1. 我想做一个健康减肥的食谱 word 版，用于指导自己日常饮食。你有什么建议？
+2. 先把目录结构改一下，改成三部分……（按早午晚各 8 道+打卡表）
+3. 你先帮我生成一个晚餐的搭配表，只生成一个，我看一下样式是什么样的，确定没问题了，你再整体去生成。
+4. 我不喜欢这个样式，我希望你能在上面显示一个图片，下面显示文字……（深入细化）
+5. 在 word 排版里边，我希望图片在上面，下方不要用表格的形式……（继续细化）
+6. 这次的效果非常满意。你按照这样的效果去做一个完整的 word 版。
+7. 把图片中的食材更换成对应的实物图片。比如鸡蛋、番茄、生菜。
+8. 图片没有更换，请检查一下。</div>
+</section>
+
+<!-- ========== 010 ========== -->
+<section class="section" id="L010">
+  <h2>第 10 课 · 010 自动生成 PPT（五步生成法）</h2>
+  <p class="lead">前置：009 四步法 + 008 引导功能。<br>关联：006 计划模式（"先大纲后做"是计划模式思维）。</p>
+
+  <h3>场景与素材复用</h3>
+  <p>承接 009 的 Word 文档。Codex 输入 <code>@</code> + 文档名（如"健康减肥"）→ 自动匹配前次生成结果 → 选中 → 无需重复上传。</p>
+
+  <h3>五步生成法</h3>
+  <ol>
+    <li><b>先出大纲：</b><code>根据这份文档我需要做一个 PPT，你先不要着急帮我做，先根据我的要求做一个目录。</code></li>
+    <li><b>调大纲：</b><code>只用展示 8 页就可以。PPT 的风格要符合健康的主题……你帮我重新出一个大纲。</code></li>
+    <li><b>追加视觉+启动：</b><code>这次的目录很满意，我希望你在制作 PPT 的时候，多增加一些视觉上的体验……现在你可以制作这个 PPT 了。</code>（先肯定+再补充+最后启动）</li>
+    <li><b>等待自动纠错：</b>编码溢出自动修，绿色主色调健康主题。</li>
+    <li><b>预览与局部修改：</b>预览面板 / 资源管理器放大；Ask Codex 改图；多指令用"引导"按序号排队不中断。</li>
+  </ol>
+
+  <h3>方法论复盘</h3>
+  <ol>
+    <li>先谈需求 → 从目录验证理解。</li>
+    <li>调整大纲 → 反复修改直到满意。</li>
+    <li>传递视觉意图 → 清晰描述（颜色、氛围、对比）。</li>
+    <li>细节微调 → 在版式基础上针对细节。</li>
+    <li>中间等就行 → Codex 自动处理编码/溢出。</li>
+  </ol>
+  <div class="warn">切记：不要希望通过一句话生成 PPT，效果肯定不好。</div>
+
+  <h3>Prompt 速查</h3>
+  <div class="prompt">1. 根据这份文档我需要做一个 PPT，你先不要着急帮我做，先根据我的要求做一个目录。
+2. 只用展示 8 页就可以。PPT 的风格要符合健康的主题……你帮我重新出一个大纲。
+3. 这次的目录很满意，我希望你在制作 PPT 的时候，多增加一些视觉上的体验……现在你可以制作这个 PPT 了。
+4. 换成真实的实物图片。</div>
+</section>
+
+<!-- ========== 011 ========== -->
+<section class="section" id="L011">
+  <h2>第 11 课 · 011 一键生成整套电商详情图</h2>
+  <p class="lead">前置：004 技能包 + 003 老板-员工模型 + 006 计划模式。<br>关联：012 姊妹篇（从零生成 vs 模板复用）。</p>
+
+  <h3>最终效果</h3>
+  <p>输入 1 张产品图 → 输出 5 张完整电商图（2 主图 1:1 + 3 详情图竖版）。儿童碗/服装两类已验证。亮点：<b>模特由 AI 自动生成</b>，无需真人拍摄。</p>
+
+  <h3>四阶段工作流</h3>
+  <table>
+    <tr><th>阶段</th><th>核心动作</th><th>关键技巧</th></tr>
+    <tr><td>需求沟通</td><td>告知输入/输出/约束，让 AI 出规划</td><td>"先探讨再确认"</td></tr>
+    <tr><td>初步验证</td><td>上传真实产品，发现第一轮问题</td><td>提供具体卖点</td></tr>
+    <tr><td>深度迭代</td><td>问题 → 链接 → 方案</td><td>参考链接比文字有效</td></tr>
+    <tr><td>固化复用</td><td>满意后封装 Skill，<code>/</code> 调用</td><td>中文命名便于查找</td></tr>
+  </table>
+
+  <h3>关键方法论</h3>
+  <ul>
+    <li><b>五点补充要求：</b>①产品图必填 ②卖点选填（不夸张不编造） ③默认平台某宝/某东/某多 ④风格 AI 自定（食品/服装/日用品色调不同） ⑤禁止修改产品（logo/不变形）。</li>
+    <li><b>第一版 4 大问题：</b>文案缺失 → 给同类参考链接；人物不一致 → 显式约束统一形象；画质模糊 → 用"4K 高清摄影风格"；每张都出人物 → 按场景决定。</li>
+    <li><b>关键转折：</b>改用 <b>GPT Image 2 一次性生成完整图文</b>，解决中文文案稳定性。</li>
+    <li><b>样板验证法：</b>大批量前先出一张样板确认方向。</li>
+  </ul>
+
+  <h3>封装与日常调用</h3>
+  <div class="prompt"># 封装
+你这次做的非常的棒，你帮我把这个做电商产品整套详情图的流程写成一个 skill，面对人的名称为"电商产品详情图"，方便我后边可以直接使用这个命令。
+
+# 日常调用
+/电商产品详情图  → 上传产品图（可选卖点）→ 发送 → 约 8 分钟</div>
+  <p>复杂 Skill 封装 ~10 分钟；错误会被 Codex 自动修复。</p>
+
+  <div class="key">完整流程耗时：需求沟通 + 第一轮 + 第二轮 + 批量 8 分钟 + 封装 10 分钟 ≈ <b>30-40 分钟</b>造一个专属 Skill。</div>
+</section>
+
+<!-- ========== 012 ========== -->
+<section class="section" id="L012">
+  <h2>第 12 课 · 012 商品图换品：一键替换，复用模板</h2>
+  <p class="lead">前置：004 技能包 + 011 详情图 + 003 老板-员工模型。<br>定位：011 姊妹篇——从零生成 vs 模板复用。</p>
+
+  <h3>核心场景</h3>
+  <p>电商设计图已做好，但产品更新换代。希望<b>版式/文字/光影/背景全不变</b>，只换中间产品主体。</p>
+
+  <h3>两课对比</h3>
+  <table>
+    <tr><th>维度</th><th>011 详情图</th><th>012 换品</th></tr>
+    <tr><td>核心</td><td>从零生成整套</td><td>复用模板仅换产品</td></tr>
+    <tr><td>输入</td><td>1 张产品图 + 可选卖点</td><td>2 张图（模板 + 新品）</td></tr>
+    <tr><td>输出</td><td>5 张完整设计图</td><td>1 张替换后的图</td></tr>
+    <tr><td>封装</td><td>~10 分钟</td><td>~3 分钟</td></tr>
+    <tr><td>执行</td><td>~8 分钟（5 张）</td><td>~1-2 分钟</td></tr>
+    <tr><td>技术点</td><td>文案/人物一致性/画质</td><td>透视/光源/服装自然替换</td></tr>
+  </table>
+
+  <h3>Case 演示</h3>
+  <ul>
+    <li><b>碗具：</b>除碗外一切不变，约 1 分钟。</li>
+    <li><b>服装：</b>模特不变，新服装穿到模特身上，约 2 分钟（"非常自然"）。</li>
+  </ul>
+
+  <h3>AI 自主拆解的 5 步流程</h3>
+  <ol>
+    <li>读两张图</li>
+    <li>拆图一（位置/光线/大小/保留内容）</li>
+    <li>提取新产品特点（正面/侧面/细节）</li>
+    <li>执行替换（透视/光源/阴影匹配）</li>
+    <li>质量检查（新产品像图二？整体像图一？）</li>
+  </ol>
+
+  <h3>补充约束</h3>
+  <div class="prompt">只用将图一中的产品替换成图二的新产品，不修改图一的版式、文字卖点等等。除非我提出具体的修改内容。</div>
+
+  <h3>封装与日常调用</h3>
+  <div class="prompt"># 封装
+把这个流程做成一个 skill，面对人的名称为更换产品图，方便我后边使用。
+
+# 日常调用
+/更换产品图
+（先传 模板原图 → 再传 新产品图）→ 发送 → 约 1-2 分钟</div>
+  <div class="warn">输入顺序是硬约束：第一张必须是模板原图，第二张必须是新产品图，顺序错就替换错。</div>
+
+  <h3>关键知识点清单</h3>
+  <ol>
+    <li>"先沟通再执行"是 Skill 打造铁律。</li>
+    <li>两图输入：图一模板（保留项来源）+ 图二新品（替换项来源）。</li>
+    <li>替换范围：仅产品主体。</li>
+    <li>AI 自动拆解透视/光源/阴影等用户不必懂的专业能力。</li>
+    <li>AI 主动提问（如"勺子是否保留"）是能力不是缺陷。</li>
+    <li>至少 2 个以上品类交叉验证。</li>
+    <li>输入顺序不可颠倒。</li>
+  </ol>
+</section>
+
+<!-- ========== 013 ========== -->
+<section class="section" id="L013">
+  <h2>第 13 课 · 013 智能作图与可视化局部精修</h2>
+  <p class="lead">前置：004 技能包安装（与本课插件安装互补）。<br>关联：011/012 生成的电商图可在此精准精修。</p>
+
+  <h3>核心问题：文字描述天然不准确</h3>
+  <p>"左上角的人"是哪个角？"那条线"是哪条？文字描述模糊，AI 改不准。</p>
+
+  <h3>解决方案：Cover 可视画布插件</h3>
+  <p>本地运行画布工具：画圈/画箭头/标注 → 截图 → 发给 Codex → <b>看图改图一次性到位</b>。</p>
+
+  <h3>插件安装 5 步</h3>
+  <ol>
+    <li>获取 GitHub 链接（无需理解内容）。</li>
+    <li>安全性评估：<code>查看一下这个插件是否可信，告诉我这个插件它主要是做什么的，用最简单的语言总结给我。</code></li>
+    <li>判断安装（Cover = 本地画布，无恶意）。</li>
+    <li>执行安装：<code>帮我安装这个插件并启动。</code></li>
+    <li>打开 Codex 侧边栏，浏览器访问本地地址使用。</li>
+  </ol>
+
+  <h3>Cover 画布使用流程</h3>
+  <ol>
+    <li>创建画板与占位框（AI 图片按钮 → 自定义尺寸/比例，如 2:3 = 512×768）。</li>
+    <li>生成图片：<code>根据我画布里选中的占位框生成一张 codex 海报并直接插入进去。</code></li>
+    <li>标注并修改：标注工具画线/圈 → 截图 → <code>按照我截图里的标注修改这张图片。</code></li>
+  </ol>
+
+  <h3>Cover 优势</h3>
+  <ul>
+    <li>视觉标注替代语言描述。</li>
+    <li>数据存项目本地 cover/，不进代码仓库。</li>
+    <li>原图不动，迭代方便。</li>
+    <li>故障排查：装完没出来 → 新开对话；遇到错误 → <code>为什么有这样的一个错误，你来解决。</code></li>
+  </ul>
+
+  <div class="key">公式：<b>安全性评估 → 安装 → 遇到问题让 Codex 自己解决</b>。全程不懂代码也能搞定。</div>
+</section>
+
+<!-- ========== 014 ========== -->
+<section class="section" id="L014">
+  <h2>第 14 课 · 014 算力优化与高效工作流</h2>
+  <p class="lead">收官课。综合 003/006/008/009/010 的方法论，升华为"算力优化"统一框架。</p>
+
+  <h3>核心认知：算力浪费的真正来源</h3>
+  <div class="warn">算力浪费不是多问一句，而是：需求没说清 / 读了一堆无关文件 / 改了一堆不想改的 / 方向错了整轮返工。</div>
+  <p class="key">核心口诀：<b>先定范围，再选模式，最后验证交付</b>。</p>
+
+  <h3>方法一：四要素（任务开始前写清）</h3>
+  <table>
+    <tr><th>要素</th><th>说明</th><th>示例</th></tr>
+    <tr><td>目标</td><td>要做什么</td><td>让活动方案变成顾客看得懂的周末说明</td></tr>
+    <tr><td>上下文</td><td>读哪些文件</td><td>只看活动方案</td></tr>
+    <tr><td>约束</td><td>不能做什么</td><td>不改日期、不扩大优惠、不承诺每人赠品</td></tr>
+    <tr><td>完成标准</td><td>做到什么程度</td><td>检查格式 + 总结改了哪里/没改哪里</td></tr>
+  </table>
+
+  <h3>方法二：复杂任务先开计划模式</h3>
+  <div class="prompt">请先不要修改文件，请先阅读活动方案草稿，然后告诉我：
+你理解的修改目标是什么？你准备保留哪些内容？你准备删减哪些内容？你需要修改哪些文件？哪些地方需要我确认？等我确认后再执行。</div>
+  <p>关键句：<b>先不要修改文件</b>。执行阶段也收紧范围：<code>现在只修改活动方案草稿，不要修改其他文件，完成后再总结改动和风险。</code></p>
+
+  <h3>方法三：把大任务拆小</h3>
+  <table>
+    <tr><th>轮次</th><th>任务</th><th>关键点</th></tr>
+    <tr><td>1</td><td>只定位问题</td><td>不改文件</td></tr>
+    <tr><td>2</td><td>只改一个明确问题</td><td>单点修改</td></tr>
+    <tr><td>3</td><td>必要检查</td><td>验证</td></tr>
+    <tr><td>4</td><td>总结改动和风险</td><td>交付</td></tr>
+  </table>
+  <p>判断：同一文件同一目标 → 同一对话分轮做；不同模块 → 新建对话分别做。</p>
+
+  <h3>方法四：选模式</h3>
+  <table>
+    <tr><th>任务</th><th>推荐</th></tr>
+    <tr><td>改错别字 / 改文案 / 解释内容</td><td>更快更省</td></tr>
+    <tr><td>整理文档 / 小范围修改</td><td>标准模式</td></tr>
+    <tr><td>复杂架构 / 疑难 bug / 跨文件重构</td><td>更强模型 + 高推理强度</td></tr>
+  </table>
+  <div class="warn">快速模式响应更快，但<b>比标准模式更耗算力</b>。赶时间才开，日常学习保持标准。</div>
+
+  <h3>方法五：agents.md 固化规则</h3>
+  <p>把"面向顾客/不夸大/不改日期"等常用规则写到项目目录的 <code>agents.md</code>。新开对话即便不写，Codex 也会自动遵守。</p>
+
+  <h3>算力消耗全貌</h3>
+  <p>模型选择 + 推理强度 + 上下文长度 + 工具调用次数 + 重复返工 + 快速模式 = 总算力。</p>
+  <p class="key"><b>最终口诀：</b>小任务直接做，大任务先计划；范围说清楚，上下文少而准；做完要验证，少返工才是真正省。</p>
+</section>
+
+<!-- ========== 跨课程概念索引 ========== -->
+<section class="section" id="cross">
+  <h2>🧠 跨课程核心概念索引</h2>
+  <table>
+    <tr><th>核心概念</th><th>首次出现</th><th>深化/应用</th><th>总结升华</th></tr>
+    <tr><td>老板-员工心智模型</td><td>003</td><td>008-012 全部</td><td>014（四要素）</td></tr>
+    <tr><td>先沟通再执行</td><td>003</td><td>008/009/010/011/012</td><td>014 方法一</td></tr>
+    <tr><td>计划模式</td><td>006</td><td>011/012 变体</td><td>014 方法二</td></tr>
+    <tr><td>技能包 Skill</td><td>004</td><td>011/012 实战封装</td><td>—</td></tr>
+    <tr><td>分步/分轮次</td><td>003</td><td>008/009/010/014</td><td>014 方法三</td></tr>
+    <tr><td>引导功能</td><td>008</td><td>010 扩展</td><td>—</td></tr>
+    <tr><td>Ask Codex 局部修改</td><td>008</td><td>009/010</td><td>—</td></tr>
+    <tr><td>@ 引用素材复用</td><td>010</td><td>—</td><td>—</td></tr>
+    <tr><td>五步询问法</td><td>005</td><td>—</td><td>—</td></tr>
+    <tr><td>四要素模板</td><td>014</td><td>—</td><td>014 终极方法论</td></tr>
+    <tr><td>agents.md 固化规则</td><td>014</td><td>—</td><td>014</td></tr>
+    <tr><td>安全性评估流程</td><td>013</td><td>—</td><td>—</td></tr>
+  </table>
+
+  <h3>方法论演进图谱</h3>
+  <div class="card">
+    <p>003 四步指挥法（信息获取 → 分析提案 → 选择执行 → 验收成果）</p>
+    <ul>
+      <li>→ 006 计划模式（先规划后执行，纠偏前置）</li>
+      <li>→ 008 分步流程（分析材料 → 确认结构 → 上传素材 → 确认结果 → 生成）</li>
+      <li>→ 009 四步生成法（沟通 → 大纲 → 单例 → 整体）→ 010 五步生成法（大纲 → 调大纲 → 补视觉 → 生成 → 修改）</li>
+      <li>→ 011 四阶段工作流（沟通 → 验证 → 迭代 → 固化）→ 012 简化版（沟通 → 验证 → 固化）</li>
+      <li>→ 014 五法合一（四要素 + 计划模式 + 拆小 + 选模式 + 固化规则）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ========== 10 条黄金法则 ========== -->
+<section class="section" id="golden">
+  <h2>🥇 必须记住的 10 条黄金法则</h2>
+  <ol>
+    <li><b>Codex 是 AI 员工，你是老板</b>（003）—— 制定方向、挑选方案、验收结果。</li>
+    <li><b>先沟通再执行</b>（003/008-012）—— 永远不要让 Codex 一次性出最终结果。</li>
+    <li><b>样例驱动确认</b>（009/010/011）—— 不确定时先出一个样例，满意后再批量。</li>
+    <li><b>复杂任务开计划模式</b>（006/014）—— <code>Shift + Tab</code>，动手之前先纠偏。</li>
+    <li><b>权限是门禁，提示词是约定</b>（005）—— 安全靠权限设置，不靠提示词。</li>
+    <li><b>看不懂的批准请求先拒绝</b>（005）—— 用五步询问法搞清楚再决定。</li>
+    <li><b>引导功能不中断当前任务</b>（008/010）—— 执行中追加需求时使用。</li>
+    <li><b>用 <code>@</code> 引用复用素材</b>（010）—— 跨格式输出不重新上传。</li>
+    <li><b>算力浪费的本质是返工</b>（014）—— 四要素写清楚比什么都重要。</li>
+    <li><b>常用规则固化到 agents.md</b>（014）—— 一次写入，永久生效。</li>
+  </ol>
+</section>
+
+<!-- ========== Prompt 速查大全 ========== -->
+<section class="section" id="prompt">
+  <h2>📒 50+ Prompt 速查大全</h2>
+  <p>把全课用过的提示词整理成速查表，按场景分类，可直接复制使用。</p>
+
+  <h3>🔰 入门（001-003）</h3>
+  <div class="prompt"># 验证安装
+你是谁？
+
+# 信息获取
+读取[文件路径]的[文件名]，向我汇报[需要获取的具体信息]。
+
+# 分析提案
+根据[条件/数据字段]给他们[执行操作]，给[N]个合适的解决方案。
+
+# 选择执行
+根据方案[N][具体操作要求]，另存到[目标路径]，命名为[文件名]。</div>
+
+  <h3>🛠️ 技能包与权限（004-005）</h3>
+  <div class="prompt"># 导入技能包
+把这个附件导入成技能包，并检查导入的结果。
+
+# 改名
+请把这个技能名称改为XXX。
+
+# 评估插件
+查看一下这个插件是否可信，告诉我这个插件它主要是做什么的，用最简单的语言总结给我。
+
+# 安装并启动
+帮我安装这个插件并启动。
+
+# 遇到错误让AI自修复
+为什么有这样的一个错误，你来解决。
+
+# 谨慎操作
+接下来你在修改文件、运行命令、联网、安装依赖之前，请先说明一下你要做什么，为什么这样做、以及可能有什么风险，并且等待我的确认。
+
+# 看不懂批准请求（五步询问）
+我看不懂这个批准请求，请用小白能听懂的话解释一下：
+第一，这个操作要做什么。
+第二，为什么需要这个权限。
+第三，会影响到哪些文件或账号。
+第四，如果我拒绝会不会影响任务继续。
+第五，你（Codex）是推荐我批准还是拒绝。</div>
+
+  <h3>🧮 Python & 计划模式（006-007）</h3>
+  <div class="prompt"># 安装 Python
+请帮我安装 python 环境。
+
+# 写小游戏
+请用 python 帮我做一个贪吃蛇小游戏。
+
+# 桌面快捷方式
+帮我把这个程序在桌面上创建一个快捷方式。
+
+# 计划模式通用
+请先不要修改文件，请先阅读[目标文件]，然后告诉我：
+你理解的修改目标是什么？你准备保留哪些内容？你准备删减哪些内容？你需要修改哪些文件？哪些地方需要我确认？等我确认后再执行。</div>
+
+  <h3>📊 办公三件套（008-010）</h3>
+  <div class="prompt"># Excel 初始沟通
+我有一些出差的支付材料，想整理成 excel 格式，你先帮我整理一下，先梳理出相关的支付费用，等我确定之后再做成 excel。
+
+# Excel 精简列
+只保留序号、日期、费用类型、金额、支付方式、备注就可以了。
+
+# Excel 生成
+现在你按照这个内容整理成 excel。
+
+# Excel 引导追加
+增加一个票据单号。
+
+# Excel 单元格级
+把合计金额放在第七行的后边，开头的这个就去掉。
+改成线上支付。
+
+# Word 初始
+我想做一个健康减肥的食谱 word 版，用于指导自己日常饮食。你有什么建议？
+
+# Word 调大纲
+先把目录结构改一下，改成三部分……（按早午晚各 8 道+打卡表）
+
+# Word 单样例
+你先帮我生成一个晚餐的搭配表，只生成一个，我看一下样式是什么样的，确定没问题了，你再整体去生成。
+
+# Word 排版细化
+我不喜欢这个样式，我希望你能在上面显示一个图片，下面显示文字……
+
+# Word 大图修改
+在 word 排版里边，我希望图片在上面，下方不要用表格的形式……
+
+# Word 整体生成
+这次的效果非常满意。你按照这样的效果去做一个完整的 word 版。
+
+# Word 换图
+把图片中的食材更换成对应的实物图片。比如鸡蛋、番茄、生菜。
+
+# Word 缓存修复
+图片没有更换，请检查一下。
+
+# PPT 首步
+根据这份文档我需要做一个 PPT，你先不要着急帮我做，先根据我的要求做一个目录。
+
+# PPT 调大纲
+只用展示 8 页就可以。PPT 的风格要符合健康的主题……你帮我重新出一个大纲。
+
+# PPT 启动
+这次的目录很满意，我希望你在制作 PPT 的时候，多增加一些视觉上的体验……现在你可以制作这个 PPT 了。
+
+# PPT 换图
+换成真实的实物图片。</div>
+
+  <h3>🛍️ 电商设计（011-013）</h3>
+  <div class="prompt"># 详情图初始
+我生成的是电商产品图片，主要用一张产品主图加上产品的一些卖点，生成一套完整的电商详情图，包含两张主图和 3 张详情图。我们先探讨一下你的规划，我确定之后你再设计。
+
+# 详情图五点补充
+规划的很好。但是我需要做以下的补充：
+第一点：用户必须输入项是产品图片……
+第二点：如果用户没有输入产品卖点，你自己总结，但不要夸张，不能自己瞎编。
+第三点：目标平台如果用户没有说，你就默认为某宝、某东、某多。
+第四点：风格根据产品的类型你来决定。
+第五点：设计图片时保持同一产品，禁止修改产品的信息。
+
+# 详情图人物策略
+我希望有一个儿童出镜，能使用 Image 2 去生图。
+
+# 详情图四点反馈
+图片整体做的不满意。
+第一点：图片上没有文字，我希望是直接做好文案……（附参考链接）
+第二点：如果有人物出镜，人物要保持一致。
+第三点：所有的图片都要清晰，可选用 4K 高清摄影风格。
+第四点：不用每张都有人物出现，可根据场景决定是否有人物出镜。
+
+# 一次性出图
+我确实要用这个 Image 2 一次性生成。你可以参考这种风格（附参考截图）。
+
+# 详情图封装
+你这次做的非常的棒，你帮我把这个做电商产品整套详情图的流程写成一个 skill，面对人的名称为"电商产品详情图"，方便我后边可以直接使用这个命令。
+
+# 详情图调用
+/电商产品详情图 → 上传图片 → 发送
+
+# 换品初始
+我需要修改电商产品图中的产品，给他替换成新的产品。我会给你两张图，图一为电商产品设计图，图二为新产品的图片。你先给我出个流程的方案，我们来确认一下。
+
+# 换品约束
+只用将图一中的产品替换成图二的新产品，不修改图一的版式、文字卖点等等。除非我提出具体的修改内容。
+
+# 换品小细节确认
+保留（针对 AI 问"勺子是否保留"等）
+
+# 换品封装
+把这个流程做成一个 skill，面对人的名称为更换产品图，方便我后边使用。
+
+# 换品调用
+/更换产品图（先传模板原图 → 再传新产品图）
+
+# Cover 占位框出图
+根据我画布里选中的占位框生成一张 codex 海报并直接插入进去。
+
+# Cover 标注修改
+按照我截图里的标注修改这张图片。</div>
+
+  <h3>⚡ 算力优化（014）</h3>
+  <div class="prompt"># 四要素
+目标：                ____
+上下文（读哪些文件）：____
+约束（不能做什么）：   ____
+完成标准：             ____
+
+# 计划模式复杂任务
+请先不要修改文件，请先阅读[目标文件]，然后告诉我：你理解的修改目标是什么？你准备保留哪些内容？你准备删减哪些内容？你需要修改哪些文件？哪些地方需要我确认？等我确认后再执行。
+
+# 执行阶段收紧范围
+现在只修改[目标文件]，不要修改其他文件，完成后再总结改动和风险。
+
+# 分轮定位问题
+请先检查[目标文件]里最影响[目标]的[数量]个问题，不要修改文件。
+
+# 固化规则后精简
+请检查活动方案是否适合直接发给顾客看。先不要修改文件，只列出三条最需要调整的地方。</div>
+</section>
+
+<!-- ========== 学习路径 ========== -->
+<section class="section" id="path">
+  <h2>🗓️ 7 天学习路径</h2>
+  <table>
+    <tr><th>天数</th><th>内容</th><th>时长</th><th>目标</th></tr>
+    <tr><td>Day 1</td><td>001 安装 + 002 界面</td><td>~1h</td><td>完成安装、能对话、熟悉布局</td></tr>
+    <tr><td>Day 2</td><td>003 任务执行 + 005 权限</td><td>~1.5h</td><td>建立老板-员工心智、设置合理权限</td></tr>
+    <tr><td>Day 3</td><td>006 计划模式 + 004 技能包</td><td>~1.5h</td><td>复杂任务处理 + 学会安装使用 Skill</td></tr>
+    <tr><td>Day 4</td><td>007 Python + 008 Excel</td><td>~2h</td><td>体验编程 + 文档自动化第一步</td></tr>
+    <tr><td>Day 5</td><td>009 Word + 010 PPT</td><td>~2h</td><td>多格式文档完整方法论</td></tr>
+    <tr><td>Day 6</td><td>011 详情图 + 012 换品</td><td>~2.5h</td><td>打造自己的 Skill + 模板复用</td></tr>
+    <tr><td>Day 7</td><td>013 Cover + 014 算力优化</td><td>~1.5h</td><td>精修工具 + 全局算力优化</td></tr>
+  </table>
+
+  <h3>实践建议</h3>
+  <ul>
+    <li>每节学完立即动手操作，不只看不练。</li>
+    <li>001-003 是整个训练营的基石，务必透彻。</li>
+    <li>008-010 的方法论可复用到任何文档类任务。</li>
+    <li>011-012 展示了完整 Skill 打造流程，学完应自己造一个。</li>
+    <li>014 是"总纲"，建议学完全部后回头精读一遍。</li>
+  </ul>
+</section>
+
+<!-- ========== 术语小词典 ========== -->
+<section class="section">
+  <h2>📖 术语小词典（小白速查）</h2>
+  <table>
+    <tr><th>术语</th><th>含义</th></tr>
+    <tr><td>Codex</td><td>本课 AI 工具，可写文件、改项目、跑命令</td></tr>
+    <tr><td>API Key</td><td>调用 AI 的"钥匙"，一次显示、务必保存</td></tr>
+    <tr><td>中转网站</td><td>面向国内用户的 API 购买平台</td></tr>
+    <tr><td>工作区</td><td>项目关联的文件夹范围</td></tr>
+    <tr><td>沙盒 Sandbox</td><td>Codex 能操作的范围（只读/工作区/完全访问）</td></tr>
+    <tr><td>批准策略</td><td>Codex 什么时候需要问你（不可信/失败时/按请求/从不）</td></tr>
+    <tr><td>技能包 Skill</td><td>把提示词打包的永久工具包，<code>/</code> 调用</td></tr>
+    <tr><td>插件 Plugin</td><td>扩展 Codex 能力的工具（Word/Excel/PPT/Cover）</td></tr>
+    <tr><td>计划模式 Plan Mode</td><td>先出方案再执行，<code>Shift+Tab</code> 切换</td></tr>
+    <tr><td>引导功能</td><td>执行中追加需求不中断</td></tr>
+    <tr><td>Ask Codex</td><td>单元格/位置级精准修改</td></tr>
+    <tr><td><code>@</code> 引用</td><td>复用以生成的素材，无需重新上传</td></tr>
+    <tr><td>GPT Image 2</td><td>可一次性生成完整图文（含中文文案）</td></tr>
+    <tr><td>四要素</td><td>目标/上下文/约束/完成标准</td></tr>
+    <tr><td>agents.md</td><td>项目级规则文件，Codex 自动遵守</td></tr>
+    <tr><td>返工</td><td>方向错了整轮重做，最大算力浪费</td></tr>
+  </table>
+</section>
+
+<div class="foot">
+  <p>本宝典由 14 节单篇课程 + 跨课知识图谱合并而成，掌握以上全部内容即可从 Codex 小白成长为精通高手。<br>
+  学习助手 · 整套课程一站贯通 · 浅色系手写 HTML</p>
+</div>
+
+<a class="to-top" href="#" aria-label="回到顶部">↑</a>
+</div>
+</body>
+</html>
