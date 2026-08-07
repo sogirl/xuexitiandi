@@ -1,0 +1,1823 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="format-detection" content="telephone=no">
+<title>Codex 进阶实战课 · 全套知识体系（小白 → 精通）</title>
+<style>
+/* ========== 浅色系基础 ========== */
+:root{
+  --bg:#f7f8fb;
+  --card:#ffffff;
+  --card-2:#f1f5f9;
+  --primary:#2563eb;
+  --primary-soft:#dbeafe;
+  --success:#16a34a;
+  --success-soft:#dcfce7;
+  --warning:#ea580c;
+  --warning-soft:#ffedd5;
+  --purple:#7c3aed;
+  --purple-soft:#ede9fe;
+  --pink:#db2777;
+  --pink-soft:#fce7f3;
+  --teal:#0d9488;
+  --teal-soft:#ccfbf1;
+  --text:#1f2937;
+  --sub:#64748b;
+  --line:#e5e7eb;
+  --line-2:#cbd5e1;
+  --radius:14px;
+  --shadow:0 2px 8px rgba(15,23,42,.06);
+  --shadow-h:0 8px 24px rgba(15,23,42,.10);
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent;}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Helvetica Neue",Arial,sans-serif;
+  line-height:1.75;font-size:15px;-webkit-text-size-adjust:100%;}
+img{max-width:100%;height:auto;}
+
+/* ========== 顶部 ========== */
+header.hero{
+  background:linear-gradient(135deg,#dbeafe 0%,#ede9fe 50%,#fce7f3 100%);
+  padding:28px 18px 22px;
+  text-align:center;
+  border-bottom:1px solid var(--line);
+}
+header.hero h1{font-size:22px;margin:0 0 8px;color:#0f172a;letter-spacing:.5px;}
+header.hero p{margin:0;color:#475569;font-size:14px;}
+header.hero .badges{margin-top:10px;font-size:12px;color:#334155;}
+header.hero .badges span{display:inline-block;background:rgba(255,255,255,.7);
+  border:1px solid #cbd5e1;border-radius:999px;padding:3px 10px;margin:3px;}
+
+/* ========== 目录导航 ========== */
+nav.toc{
+  position:sticky;top:0;z-index:50;
+  background:rgba(255,255,255,.96);
+  backdrop-filter:saturate(180%) blur(10px);
+  -webkit-backdrop-filter:saturate(180%) blur(10px);
+  border-bottom:1px solid var(--line);
+  padding:8px 12px;
+  overflow-x:auto;
+  white-space:nowrap;
+  font-size:13px;
+  box-shadow:0 1px 3px rgba(0,0,0,.04);
+}
+nav.toc a{
+  display:inline-block;
+  padding:4px 10px;
+  margin-right:6px;
+  color:var(--primary);
+  text-decoration:none;
+  border-radius:999px;
+  background:var(--primary-soft);
+}
+nav.toc a:active{background:var(--primary);color:#fff;}
+
+/* ========== 通用容器 ========== */
+section.stage{padding:22px 16px;max-width:960px;margin:0 auto;}
+section.stage h2{
+  font-size:20px;
+  margin:0 0 4px;
+  color:#0f172a;
+  display:flex;align-items:center;gap:8px;
+}
+section.stage h2 .num{
+  display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:10px;
+  background:var(--primary);color:#fff;font-size:15px;font-weight:600;
+}
+section.stage .stage-sub{
+  color:var(--sub);font-size:13px;margin-bottom:14px;
+}
+
+/* ========== 卡片 ========== */
+.card{
+  background:var(--card);
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:16px 16px 14px;
+  margin-bottom:14px;
+  box-shadow:var(--shadow);
+}
+.card h3{
+  margin:0 0 6px;
+  font-size:16px;
+  color:#0f172a;
+  display:flex;align-items:center;gap:6px;
+  flex-wrap:wrap;
+}
+.card h3 .tag{
+  font-size:11px;padding:2px 8px;border-radius:999px;
+  background:var(--primary-soft);color:var(--primary);
+}
+.card h4{
+  margin:14px 0 4px;font-size:14px;color:#1e293b;
+  padding-left:8px;border-left:3px solid var(--primary);
+}
+.card p{margin:6px 0;color:#334155;font-size:14px;}
+.card ul,.card ol{margin:6px 0 6px 18px;padding:0;color:#334155;font-size:14px;}
+.card li{margin:3px 0;}
+.card .tip{
+  background:var(--warning-soft);
+  border-left:3px solid var(--warning);
+  padding:8px 12px;border-radius:6px;
+  margin:8px 0;font-size:13px;color:#7c2d12;
+}
+.card .key{
+  background:var(--success-soft);
+  border-left:3px solid var(--success);
+  padding:8px 12px;border-radius:6px;
+  margin:8px 0;font-size:13px;color:#14532d;
+}
+.card .note{
+  background:var(--purple-soft);
+  border-left:3px solid var(--purple);
+  padding:8px 12px;border-radius:6px;
+  margin:8px 0;font-size:13px;color:#4c1d95;
+}
+.card code{
+  background:#f1f5f9;border:1px solid var(--line);
+  padding:1px 6px;border-radius:4px;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  font-size:13px;color:#0f172a;
+}
+.card pre{
+  background:#0f172a;color:#e2e8f0;
+  padding:12px 14px;border-radius:10px;
+  overflow-x:auto;font-size:13px;
+  font-family:"SFMono-Regular",Consolas,"Liberation Mono",Menlo,monospace;
+  line-height:1.55;
+  white-space:pre-wrap;word-break:break-word;
+}
+.card pre code{background:transparent;border:0;color:inherit;padding:0;font-size:inherit;}
+
+/* 阶段色块 */
+.stage-1 .num{background:var(--primary);}
+.stage-2 .num{background:var(--success);}
+.stage-3 .num{background:var(--purple);}
+.stage-4 .num{background:var(--warning);}
+.stage-5 .num{background:var(--pink);}
+.stage-6 .num{background:var(--teal);}
+
+/* 表格 */
+table{
+  width:100%;border-collapse:collapse;
+  margin:8px 0;font-size:13px;
+  background:var(--card);
+}
+table th,table td{
+  border:1px solid var(--line);
+  padding:6px 8px;text-align:left;
+  vertical-align:top;
+}
+table th{background:var(--card-2);color:#0f172a;font-weight:600;}
+
+/* ========== 知识图谱：横向树状 SVG ========== */
+.mindmap-wrap{
+  background:#fff;
+  border:1px solid var(--line);
+  border-radius:var(--radius);
+  padding:10px;
+  margin-bottom:18px;
+  box-shadow:var(--shadow);
+  overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-x pan-y pinch-zoom;
+}
+.mindmap-wrap svg{display:block;}
+.mindmap-tip{
+  font-size:12px;color:var(--sub);
+  margin:0 0 8px 4px;
+}
+
+/* ========== 折叠区 ========== */
+details{
+  background:var(--card-2);
+  border:1px solid var(--line);
+  border-radius:10px;
+  padding:6px 12px;
+  margin:8px 0;
+  font-size:13px;
+}
+details summary{cursor:pointer;font-weight:600;color:#1e293b;outline:none;}
+details[open] summary{margin-bottom:6px;}
+details p{margin:4px 0;}
+
+/* ========== 高亮关键词 ========== */
+.kw{color:var(--primary);font-weight:600;}
+.kw2{color:var(--success);font-weight:600;}
+.kw3{color:var(--warning);font-weight:600;}
+.kw4{color:var(--purple);font-weight:600;}
+.kw5{color:var(--teal);font-weight:600;}
+
+/* ========== 步骤条 ========== */
+.steps{display:flex;flex-direction:column;gap:8px;margin:8px 0;}
+.step{
+  display:flex;gap:10px;align-items:flex-start;
+  background:var(--card-2);
+  padding:10px 12px;border-radius:10px;
+  border-left:4px solid var(--primary);
+}
+.step .s{
+  flex:0 0 24px;height:24px;border-radius:50%;
+  background:var(--primary);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:12px;font-weight:600;
+}
+.step .c{flex:1;font-size:14px;color:#334155;}
+
+/* ========== 流程图 ========== */
+.flow{
+  display:flex;flex-wrap:wrap;gap:6px;margin:8px 0;
+  font-size:13px;color:#334155;
+}
+.flow .node{
+  background:#fff;border:1px solid var(--line);
+  padding:4px 10px;border-radius:8px;
+}
+.flow .arr{color:var(--primary);font-weight:600;}
+
+/* ========== 底部 ========== */
+footer{
+  padding:24px 16px;text-align:center;
+  color:var(--sub);font-size:12px;
+  border-top:1px solid var(--line);
+  background:#fff;
+}
+
+/* ========== 响应式 ========== */
+@media (min-width:720px){
+  header.hero h1{font-size:26px;}
+  .card{padding:18px 20px 16px;}
+  .card h3{font-size:17px;}
+  section.stage h2{font-size:22px;}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>📘 Codex 进阶实战课 · 全套知识体系</h1>
+  <p>AI Native 原生工作法 · 22 节真实任务落地 · 从配置到 AI 自动化交付</p>
+  <div class="badges">
+    <span>小白 → 精通</span>
+    <span>浅色系</span>
+    <span>移动端友好</span>
+    <span>WPS / 微信兼容</span>
+    <span>双指放大</span>
+  </div>
+</header>
+
+<nav class="toc">
+  <a href="#map">🗺️ 知识图谱</a>
+  <a href="#s0">0️⃣ 小白入门</a>
+  <a href="#s1">① 环境搭建</a>
+  <a href="#s2">② 核心操作</a>
+  <a href="#s3">③ 平台扩展</a>
+  <a href="#s4">④ 内容创作</a>
+  <a href="#s5">⑤ 数据采集</a>
+  <a href="#s6">⑥ 综合案例</a>
+  <a href="#faq">❓ FAQ</a>
+</nav>
+
+<!-- ============ 知识图谱：横向树状 SVG ============ -->
+<section class="stage" id="map">
+  <h2>🗺️ 全课程知识图谱（横向树状）</h2>
+  <p class="stage-sub">根在左，逐层向右展开 · 直角折线连接 · 整张图可双指放大/拖动查看</p>
+
+  <div class="mindmap-wrap" id="mindmap">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3200 1640" preserveAspectRatio="xMinYMin meet" style="width:3200px;max-width:none;height:auto;background:#fafbfc;">
+  <defs>
+    <style>
+      .r{font:600 18px -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#fff;}
+      .l1{font:600 16px -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#0f172a;}
+      .l2{font:500 14px -apple-system,"PingFang SC","Microsoft YaHei",sans-serif;fill:#334155;}
+      .ln{fill:none;stroke:#cbd5e1;stroke-width:1.6;}
+      .lb{fill:#fff;stroke:#cbd5e1;stroke-width:1.4;}
+    </style>
+  </defs>
+
+  <!-- L0 根节点 -->
+  <g>
+    <rect x="20" y="780" width="240" height="80" rx="14" fill="#0f172a"/>
+    <text x="140" y="816" text-anchor="middle" class="r">Codex 进阶</text>
+    <text x="140" y="842" text-anchor="middle" class="r" style="font-weight:500;font-size:14px;fill:#cbd5e1;">22节 · 全套知识</text>
+  </g>
+
+  <!-- L1 六阶段 -->
+  <g>
+    <line x1="260" y1="820" x2="380" y2="820" class="ln"/>
+    <line x1="380" y1="160" x2="380" y2="1490" class="ln"/>
+
+    <!-- 阶段1：环境搭建 -->
+    <line x1="380" y1="160" x2="500" y2="160" class="ln"/>
+    <rect x="500" y="120" width="180" height="80" rx="12" fill="#2563eb"/>
+    <text x="590" y="156" text-anchor="middle" class="r">① 环境搭建</text>
+    <text x="590" y="180" text-anchor="middle" class="r" style="font-weight:500;font-size:13px;fill:#dbeafe;">入门 4 课</text>
+
+    <!-- 阶段2：核心操作 -->
+    <line x1="380" y1="440" x2="500" y2="440" class="ln"/>
+    <rect x="500" y="400" width="180" height="80" rx="12" fill="#16a34a"/>
+    <text x="590" y="436" text-anchor="middle" class="r">② 核心操作</text>
+    <text x="590" y="460" text-anchor="middle" class="r" style="font-weight:500;font-size:13px;fill:#dcfce7;">能力 3 课</text>
+
+    <!-- 阶段3：平台扩展 -->
+    <line x1="380" y1="720" x2="500" y2="720" class="ln"/>
+    <rect x="500" y="680" width="180" height="80" rx="12" fill="#7c3aed"/>
+    <text x="590" y="716" text-anchor="middle" class="r">③ 平台扩展</text>
+    <text x="590" y="740" text-anchor="middle" class="r" style="font-weight:500;font-size:13px;fill:#ede9fe;">集成 5 课</text>
+
+    <!-- 阶段4：内容创作 -->
+    <line x1="380" y1="1000" x2="500" y2="1000" class="ln"/>
+    <rect x="500" y="960" width="180" height="80" rx="12" fill="#ea580c"/>
+    <text x="590" y="996" text-anchor="middle" class="r">④ 内容创作</text>
+    <text x="590" y="1020" text-anchor="middle" class="r" style="font-weight:500;font-size:13px;fill:#ffedd5;">产出 4 课</text>
+
+    <!-- 阶段5：数据采集 -->
+    <line x1="380" y1="1240" x2="500" y2="1240" class="ln"/>
+    <rect x="500" y="1200" width="180" height="80" rx="12" fill="#db2777"/>
+    <text x="590" y="1236" text-anchor="middle" class="r">⑤ 数据采集</text>
+    <text x="590" y="1260" text-anchor="middle" class="r" style="font-weight:500;font-size:13px;fill:#fce7f3;">获客 3 课</text>
+
+    <!-- 阶段6：综合案例 -->
+    <line x1="380" y1="1480" x2="500" y2="1480" class="ln"/>
+    <rect x="500" y="1440" width="180" height="80" rx="12" fill="#0d9488"/>
+    <text x="590" y="1476" text-anchor="middle" class="r">⑥ 综合案例</text>
+    <text x="590" y="1500" text-anchor="middle" class="r" style="font-weight:500;font-size:13px;fill:#ccfbf1;">GEO 1 课</text>
+  </g>
+
+  <!-- L2 各课与核心概念 -->
+  <!-- ===== 阶段1：环境搭建 ===== -->
+  <g>
+    <line x1="680" y1="160" x2="780" y2="160" class="ln"/>
+    <line x1="780" y1="60" x2="780" y2="260" class="ln"/>
+
+    <line x1="780" y1="60" x2="880" y2="60" class="ln"/>
+    <rect x="880" y="40" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="65" class="l1">1. 中转站安装</text>
+    <text x="1060" y="65" class="l2">API Key / config.TOML</text>
+
+    <line x1="780" y1="110" x2="880" y2="110" class="ln"/>
+    <rect x="880" y="90" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="115" class="l1">2. 中文版</text>
+    <text x="1060" y="115" class="l2">梯子 + 重启</text>
+
+    <line x1="780" y1="160" x2="880" y2="160" class="ln"/>
+    <rect x="880" y="140" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="165" class="l1">3. 基础配置</text>
+    <text x="1060" y="165" class="l2">权限 / 外观 / MCP</text>
+
+    <line x1="780" y1="210" x2="880" y2="210" class="ln"/>
+    <rect x="880" y="190" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="215" class="l1">4. 语音输入法</text>
+    <text x="1060" y="215" class="l2">微信输入法 Ctrl+Alt+T</text>
+
+    <!-- 阶段1的L3 关键词 -->
+    <line x1="1160" y1="60" x2="1240" y2="60" class="ln"/>
+    <rect x="1240" y="40" width="260" height="40" rx="8" fill="#dbeafe"/>
+    <text x="1275" y="65" class="l1" style="fill:#1e3a8a;">按量 10元起</text>
+    <text x="1380" y="65" class="l2" style="fill:#1e3a8a;">小额防跑路</text>
+
+    <line x1="1160" y1="110" x2="1240" y2="110" class="ln"/>
+    <rect x="1240" y="90" width="260" height="40" rx="8" fill="#dbeafe"/>
+    <text x="1275" y="115" class="l1" style="fill:#1e3a8a;">完全退出</text>
+    <text x="1380" y="115" class="l2" style="fill:#1e3a8a;">非最小化</text>
+
+    <line x1="1160" y1="160" x2="1240" y2="160" class="ln"/>
+    <rect x="1240" y="140" width="260" height="40" rx="8" fill="#dbeafe"/>
+    <text x="1275" y="165" class="l1" style="fill:#1e3a8a;">chrome-devtools</text>
+    <text x="1380" y="165" class="l2" style="fill:#1e3a8a;">浏览器自动化</text>
+
+    <line x1="1160" y1="210" x2="1240" y2="210" class="ln"/>
+    <rect x="1240" y="190" width="260" height="40" rx="8" fill="#dbeafe"/>
+    <text x="1275" y="215" class="l1" style="fill:#1e3a8a;">持按说话</text>
+    <text x="1380" y="215" class="l2" style="fill:#1e3a8a;">松开出字</text>
+  </g>
+
+  <!-- ===== 阶段2：核心操作 ===== -->
+  <g>
+    <line x1="680" y1="440" x2="780" y2="440" class="ln"/>
+    <line x1="780" y1="380" x2="780" y2="500" class="ln"/>
+
+    <line x1="780" y1="380" x2="880" y2="380" class="ln"/>
+    <rect x="880" y="360" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="385" class="l1">5. 斜杠命令 /</text>
+    <text x="1060" y="385" class="l2">Plan / Goal / Chat</text>
+
+    <line x1="780" y1="440" x2="880" y2="440" class="ln"/>
+    <rect x="880" y="420" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="445" class="l1">6. 自制 Skill</text>
+    <text x="1060" y="445" class="l2">SOP 沉淀</text>
+
+    <line x1="780" y1="500" x2="880" y2="500" class="ln"/>
+    <rect x="880" y="480" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="505" class="l1">7. GitHub Skill</text>
+    <text x="1060" y="505" class="l2">女娲 / 段永平</text>
+
+    <!-- L3 -->
+    <line x1="1160" y1="380" x2="1240" y2="380" class="ln"/>
+    <rect x="1240" y="360" width="260" height="40" rx="8" fill="#dcfce7"/>
+    <text x="1275" y="385" class="l1" style="fill:#14532d;">记忆仅本线程</text>
+    <text x="1380" y="385" class="l2" style="fill:#14532d;">非全局长期</text>
+
+    <line x1="1160" y1="440" x2="1240" y2="440" class="ln"/>
+    <rect x="1240" y="420" width="260" height="40" rx="8" fill="#dcfce7"/>
+    <text x="1275" y="445" class="l1" style="fill:#14532d;">先跑通再沉淀</text>
+    <text x="1380" y="445" class="l2" style="fill:#14532d;">skills-create</text>
+
+    <line x1="1160" y1="500" x2="1240" y2="500" class="ln"/>
+    <rect x="1240" y="480" width="260" height="40" rx="8" fill="#dcfce7"/>
+    <text x="1275" y="505" class="l1" style="fill:#14532d;">蒸馏名人</text>
+    <text x="1380" y="505" class="l2" style="fill:#14532d;">思维方式</text>
+  </g>
+
+  <!-- ===== 阶段3：平台扩展 ===== -->
+  <g>
+    <line x1="680" y1="720" x2="780" y2="720" class="ln"/>
+    <line x1="780" y1="600" x2="780" y2="840" class="ln"/>
+
+    <line x1="780" y1="600" x2="880" y2="600" class="ln"/>
+    <rect x="880" y="580" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="605" class="l1">8. GitHub 打通</text>
+    <text x="1060" y="605" class="l2">找项目 / 量化工具</text>
+
+    <line x1="780" y1="660" x2="880" y2="660" class="ln"/>
+    <rect x="880" y="640" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="665" class="l1">9. Obsidian 知识库</text>
+    <text x="1060" y="665" class="l2">MD 本地 / AI 友好</text>
+
+    <line x1="780" y1="720" x2="880" y2="720" class="ln"/>
+    <rect x="880" y="700" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="725" class="l1">10. 微信 + Hermes</text>
+    <text x="1060" y="725" class="l2">CloudBot + GPT</text>
+
+    <line x1="780" y1="780" x2="880" y2="780" class="ln"/>
+    <rect x="880" y="760" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="785" class="l1">11. 飞书 + Hermes</text>
+    <text x="1060" y="785" class="l2">办公侧集成</text>
+
+    <line x1="780" y1="840" x2="880" y2="840" class="ln"/>
+    <rect x="880" y="820" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="845" class="l1">12. DeepSeek 接入</text>
+    <text x="1060" y="845" class="l2">Plus Plus / Claude Code</text>
+
+    <!-- L3 -->
+    <line x1="1160" y1="600" x2="1240" y2="600" class="ln"/>
+    <rect x="1240" y="580" width="260" height="40" rx="8" fill="#ede9fe"/>
+    <text x="1275" y="605" class="l1" style="fill:#4c1d95;">Star 判断安全</text>
+    <text x="1380" y="605" class="l2" style="fill:#4c1d95;">万级相对可信</text>
+
+    <line x1="1160" y1="660" x2="1240" y2="660" class="ln"/>
+    <rect x="1240" y="640" width="260" height="40" rx="8" fill="#ede9fe"/>
+    <text x="1275" y="665" class="l1" style="fill:#4c1d95;">上下文积累</text>
+    <text x="1380" y="665" class="l2" style="fill:#4c1d95;">AI 时代护城河</text>
+
+    <line x1="1160" y1="720" x2="1240" y2="720" class="ln"/>
+    <rect x="1240" y="700" width="260" height="40" rx="8" fill="#ede9fe"/>
+    <text x="1275" y="725" class="l1" style="fill:#4c1d95;">电脑保持开机</text>
+    <text x="1380" y="725" class="l2" style="fill:#4c1d95;">本机服务</text>
+
+    <line x1="1160" y1="780" x2="1240" y2="780" class="ln"/>
+    <rect x="1240" y="760" width="260" height="40" rx="8" fill="#ede9fe"/>
+    <text x="1275" y="785" class="l1" style="fill:#4c1d95;">稳定性优于微信</text>
+    <text x="1380" y="785" class="l2" style="fill:#4c1d95;">小白领首选</text>
+
+    <line x1="1160" y1="840" x2="1240" y2="840" class="ln"/>
+    <rect x="1240" y="820" width="260" height="40" rx="8" fill="#ede9fe"/>
+    <text x="1275" y="845" class="l1" style="fill:#4c1d95;">Base URL 要 OpenAI 协议</text>
+    <text x="1380" y="845" class="l2" style="fill:#4c1d95;">30 元/月</text>
+  </g>
+
+  <!-- ===== 阶段4：内容创作 ===== -->
+  <g>
+    <line x1="680" y1="1000" x2="780" y2="1000" class="ln"/>
+    <line x1="780" y1="920" x2="780" y2="1080" class="ln"/>
+
+    <line x1="780" y1="920" x2="880" y2="920" class="ln"/>
+    <rect x="880" y="900" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="925" class="l1">13. PPT 三件套</text>
+    <text x="1060" y="925" class="l2">Codex + Imagine 2 + Presentation</text>
+
+    <line x1="780" y1="980" x2="880" y2="980" class="ln"/>
+    <rect x="880" y="960" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="985" class="l1">14. Hyperform 视频</text>
+    <text x="1060" y="985" class="l2">HTML → 帧 → MP4</text>
+
+    <line x1="780" y1="1040" x2="880" y2="1040" class="ln"/>
+    <rect x="880" y="1020" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="1045" class="l1">15. 公众号自动发布</text>
+    <text x="1060" y="1045" class="l2">API + IP 白名单</text>
+
+    <line x1="780" y1="1080" x2="880" y2="1080" class="ln"/>
+    <rect x="880" y="1060" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="1085" class="l1">16. Cloudflare 上线</text>
+    <text x="1060" y="1085" class="l2">一句话部署网站</text>
+
+    <!-- L3 -->
+    <line x1="1160" y1="920" x2="1240" y2="920" class="ln"/>
+    <rect x="1240" y="900" width="260" height="40" rx="8" fill="#ffedd5"/>
+    <text x="1275" y="925" class="l1" style="fill:#7c2d12;">真正 PPTX 可编辑</text>
+    <text x="1380" y="925" class="l2" style="fill:#7c2d12;">半小完成</text>
+
+    <line x1="1160" y1="980" x2="1240" y2="980" class="ln"/>
+    <rect x="1240" y="960" width="260" height="40" rx="8" fill="#ffedd5"/>
+    <text x="1275" y="985" class="l1" style="fill:#7c2d12;">13 分钟一条</text>
+    <text x="1380" y="985" class="l2" style="fill:#7c2d12;">快速试错</text>
+
+    <line x1="1160" y1="1040" x2="1240" y2="1040" class="ln"/>
+    <rect x="1240" y="1020" width="260" height="40" rx="8" fill="#ffedd5"/>
+    <text x="1275" y="1045" class="l1" style="fill:#7c2d12;">APPID / Secret / IP</text>
+    <text x="1380" y="1045" class="l2" style="fill:#7c2d12;">三要素必备</text>
+
+    <line x1="1160" y1="1080" x2="1240" y2="1080" class="ln"/>
+    <rect x="1240" y="1060" width="260" height="40" rx="8" fill="#ffedd5"/>
+    <text x="1275" y="1085" class="l1" style="fill:#7c2d12;">借鉴优于原创</text>
+    <text x="1380" y="1085" class="l2" style="fill:#7c2d12;">PUA 策略</text>
+  </g>
+
+  <!-- ===== 阶段5：数据采集 ===== -->
+  <g>
+    <line x1="680" y1="1240" x2="780" y2="1240" class="ln"/>
+    <line x1="780" y1="1180" x2="780" y2="1300" class="ln"/>
+
+    <line x1="780" y1="1180" x2="880" y2="1180" class="ln"/>
+    <rect x="880" y="1160" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="1185" class="l1">17. 抖音客户采集</text>
+    <text x="1060" y="1185" class="l2">Skill · Excel 整理</text>
+
+    <line x1="780" y1="1240" x2="880" y2="1240" class="ln"/>
+    <rect x="880" y="1220" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="1245" class="l1">18. 小红书内置浏览器</text>
+    <text x="1060" y="1245" class="l2">Shift + @ 调出</text>
+
+    <line x1="780" y1="1300" x2="880" y2="1300" class="ln"/>
+    <rect x="880" y="1280" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="1305" class="l1">19. 得到内容导入</text>
+    <text x="1060" y="1305" class="l2">逐字稿 / 录音转写</text>
+
+    <!-- L3 -->
+    <line x1="1160" y1="1180" x2="1240" y2="1180" class="ln"/>
+    <rect x="1240" y="1160" width="260" height="40" rx="8" fill="#fce7f3"/>
+    <text x="1275" y="1185" class="l1" style="fill:#831843;">不能自动私信</text>
+    <text x="1380" y="1185" class="l2" style="fill:#831843;">人工触达</text>
+
+    <line x1="1160" y1="1240" x2="1240" y2="1240" class="ln"/>
+    <rect x="1240" y="1220" width="260" height="40" rx="8" fill="#fce7f3"/>
+    <text x="1275" y="1245" class="l1" style="fill:#831843;">仅低频搜索</text>
+    <text x="1380" y="1245" class="l2" style="fill:#831843;">禁高频</text>
+
+    <line x1="1160" y1="1300" x2="1240" y2="1300" class="ln"/>
+    <rect x="1240" y="1280" width="260" height="40" rx="8" fill="#fce7f3"/>
+    <text x="1275" y="1305" class="l1" style="fill:#831843;">录屏合法</text>
+    <text x="1380" y="1305" class="l2" style="fill:#831843;">不爬取</text>
+  </g>
+
+  <!-- ===== 阶段6：综合案例 ===== -->
+  <g>
+    <line x1="680" y1="1480" x2="780" y2="1480" class="ln"/>
+    <line x1="780" y1="1440" x2="780" y2="1520" class="ln"/>
+
+    <line x1="780" y1="1440" x2="880" y2="1440" class="ln"/>
+    <rect x="880" y="1420" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="1445" class="l1">20. GEO 上篇</text>
+    <text x="1060" y="1445" class="l2">交叉验证 / Title</text>
+
+    <line x1="780" y1="1500" x2="880" y2="1500" class="ln"/>
+    <rect x="880" y="1480" width="280" height="40" rx="8" class="lb"/>
+    <text x="920" y="1505" class="l1">20. GEO 下篇</text>
+    <text x="1060" y="1505" class="l2">七大维度</text>
+
+    <!-- L3 -->
+    <line x1="1160" y1="1440" x2="1240" y2="1440" class="ln"/>
+    <rect x="1240" y="1420" width="260" height="40" rx="8" fill="#ccfbf1"/>
+    <text x="1275" y="1445" class="l1" style="fill:#134e4a;">10 篇参考 6 个推荐</text>
+    <text x="1380" y="1445" class="l2" style="fill:#134e4a;">多平台共识</text>
+
+    <line x1="1160" y1="1500" x2="1240" y2="1500" class="ln"/>
+    <rect x="1240" y="1480" width="260" height="40" rx="8" fill="#ccfbf1"/>
+    <text x="1275" y="1505" class="l1" style="fill:#134e4a;">1 周内时效</text>
+    <text x="1380" y="1505" class="l2" style="fill:#134e4a;">垂类平台</text>
+  </g>
+
+  <!-- 右下角：方法论小尾巴 -->
+  <g>
+    <line x1="260" y1="820" x2="380" y2="820" class="ln"/>
+    <line x1="260" y1="860" x2="380" y2="860" class="ln"/>
+    <line x1="380" y1="820" x2="380" y2="1560" class="ln"/>
+    <line x1="380" y1="1560" x2="500" y2="1560" class="ln"/>
+    <rect x="500" y="1540" width="280" height="40" rx="8" fill="#fef3c7"/>
+    <text x="540" y="1565" class="l1" style="fill:#78350f;">贯穿方法论</text>
+    <text x="660" y="1565" class="l2" style="fill:#78350f;">不懂就问 AI · 让 AI 对抗 AI</text>
+  </g>
+
+</svg>
+  </div>
+  <p class="mindmap-tip">💡 <b>操作提示</b>：用双指张合可在手机上放大缩小；左右拖动查看完整内容；WPS/微信内置浏览器均能正常显示。</p>
+</section>
+
+<!-- ============ 阶段0：小白入门准备 ============ -->
+<section class="stage stage-1" id="s0">
+  <h2><span class="num">0</span> 小白入门准备 · 学习心法</h2>
+  <p class="stage-sub">在学任何一节课之前，请把这一章读三遍。它能让你少走 80% 的弯路。</p>
+
+  <div class="card">
+    <h3>🧠 三个必须相信的"心法"</h3>
+    <div class="key">
+      <b>① 用嘴巴解决问题</b>：你不需要懂英文、不需要懂代码、不需要读技术文档。把你想做什么用<b>大白话</b>告诉 Codex 就行。
+    </div>
+    <div class="key">
+      <b>② 不懂就问 AI</b>：遇到任何新工具、新功能、新报错 —— <span class="kw">截图发给 Codex</span> 或粘贴相关链接，直接问它"这是啥？有什么用？怎么用？"。
+    </div>
+    <div class="key">
+      <b>③ 让 AI 对抗 AI</b>：一个 AI 工具出问题时，用另一个 AI（如 Codex）来诊断和修复 —— 这叫"让 AI 对抗 AI"，是最高效的排错方式。
+    </div>
+  </div>
+
+  <div class="card">
+    <h3>📍 三条学习路径，按时间选</h3>
+
+    <h4>路径一：零基础 2-3 天速通（目标：能用起来）</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c">Day 1：第 1 课（中转站安装）→ 第 2 课（中文版）→ 第 4 课（语音输入法）</div></div>
+      <div class="step"><span class="s">2</span><div class="c">Day 2：第 3 课（基础配置）→ 第 5 课（斜杠命令）→ 第 18 课（内置浏览器）</div></div>
+      <div class="step"><span class="s">3</span><div class="c">Day 3：第 7 课 Skill 安装体验 → 第 13 课 PPT 三件套快速跑一遍</div></div>
+    </div>
+
+    <h4>路径二：进阶深度 1-2 周（目标：建立完整工作流）</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c">Week 1：路径一全部 + 第 6 课（自制 Skill）→ 第 8 课（GitHub 打通）→ 第 9 课（Obsidian 知识库）</div></div>
+      <div class="step"><span class="s">2</span><div class="c">Week 2：第 10/11 课（微信/飞书集成）→ 第 12 课（DeepSeek 接入）→ 第 15 课（公众号发布）→ 第 16 课（网站上线）→ 第 20 课（GEO 案例）</div></div>
+    </div>
+
+    <h4>路径三：按业务场景（目标：解决具体问题）</h4>
+    <ul>
+      <li><b>自媒体创作者</b>：第 9（知识库）→ 第 13（PPT）→ 第 14（视频）→ 第 15（公众号）→ 第 17/18（采集）→ 第 19（得到导入）</li>
+      <li><b>实体店老板/销售</b>：第 17（抖音获客）→ 第 18（小红书获客）→ 第 20（GEO 优化）</li>
+      <li><b>职场办公人群</b>：第 10/11（微信/飞书）→ 第 13（PPT）→ 第 6（自制 Skill 重复工作流）</li>
+      <li><b>技术探索者</b>：第 8（GitHub 探索）→ 第 12（DeepSeek 接入）→ 第 16（网站上线）→ 第 6（Skill 开发）</li>
+    </ul>
+  </div>
+
+  <div class="card">
+    <h3>⚠️ 学习中常见误区</h3>
+    <ul>
+      <li>❌ 把 Codex 当聊天玩具 → ✅ 它是<span class="kw">能动手干活</span>的 AI 智能体，能操控你电脑</li>
+      <li>❌ 想把所有功能一次学完 → ✅ 先跑通一个场景，再扩</li>
+      <li>❌ 报错就放弃 → ✅ <span class="kw3">截图发给 Codex，让它自己修</span></li>
+      <li>❌ 觉得 Memory 能跨对话记住一切 → ✅ 实测结论：仅当前线程有效</li>
+      <li>❌ 追求一键魔法 → ✅ 多数工作流需要 1-3 轮迭代</li>
+      <li>❌ 想记住所有提示词 → ✅ 关键句式记住即可，其他交给 AI 生成</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 阶段1：环境搭建 ============ -->
+<section class="stage stage-1" id="s1">
+  <h2><span class="num">1</span> 第一阶段 · 环境搭建（4 课）</h2>
+  <p class="stage-sub">这一阶段的目的是：让你的 Codex 能跑起来、用起来、说得动。</p>
+
+  <!-- 第 1 课 -->
+  <div class="card" id="l1">
+    <h3>📘 第 1 课：Codex 安装部署（中转站方案，不需梯子） <span class="tag">基础必学</span></h3>
+
+    <h4>为什么必须学这课</h4>
+    <p>直接用 ChatGPT 官方订阅有三大门槛：需要<b>国外信用卡</b>、需要<b>国外手机号</b>（这个会难倒 99% 的同学）、需要<b>魔法上网</b>。这会难倒 90% 的人。<span class="kw">中转站方案</span>完全绕开这些限制。</p>
+
+    <h4>完整安装流程</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c"><b>注册与充值</b>：访问中转站网址（已提供给学生），注册账号。充值方式二选一：<br>• 按量付费（10 元、20 元起，适合新手）<br>• 订阅模式（109 元/月）<br>👉 <span class="kw3">建议路径：先小额按量付费体验，玩明白了再考虑订阅</span></div></div>
+      <div class="step"><span class="s">2</span><div class="c"><b>创建 API 密钥</b>：进入 API 管理面板 → 左侧"API 密钥" → 创建密钥（名称随意如 123）<br>👉 <span class="kw3">分组选择关键</span>：按量付费选"公开使用余额"，包月选对应分组。分组不对会导致 Codex 使用出问题</div></div>
+      <div class="step"><span class="s">3</span><div class="c"><b>找到配置文件</b>：Windows 系统下打开 <code>C:\Users\[你的用户名]\.codex\config.TOML</code>，用记事本打开</div></div>
+      <div class="step"><span class="s">4</span><div class="c"><b>填入配置</b>：把中转站提供的配置代码（包含 <code>model</code>、<code>OpenAI</code>、<code>base URL</code> 等信息）复制到文件开头，API 密钥填入 Codex 客户端界面指定位置</div></div>
+      <div class="step"><span class="s">5</span><div class="c"><b>首次启动</b>：Codex 会经历约 20-30 秒的"正在设置空间"等待时间，耐心等待即可</div></div>
+    </div>
+
+    <div class="tip">
+      <b>⚠️ 防跑路提示</b>：不要买季卡或超过 150 元的长期套餐 —— 中转站有跑路风险。充 10、20、50 元不心疼即可。
+    </div>
+
+    <h4>Windows vs Mac</h4>
+    <p>Codex 在 Windows 上运行偶尔会出现命令适配问题，处理速度偏慢。Mac 的原生环境对 AI 工具更友好。建议有条件上 Mac，但 Windows 最终也能跑通。</p>
+
+    <div class="key">
+      <b>核心知识点</b>：通过 API 中转站实现 Codex 安装部署，绕开梯子、国外手机号和国外信用卡三大障碍。<br>
+      <b>难点</b>：找到并正确编辑 config.TOML（路径 <code>C:\Users\[用户名]\.codex\</code>）。
+    </div>
+  </div>
+
+  <!-- 第 2 课 -->
+  <div class="card" id="l2">
+    <h3>📘 第 2 课：Codex 设置成中文版（需要梯子） <span class="tag">基础必学</span></h3>
+
+    <h4>两个核心前提</h4>
+    <div class="tip"><b>前提 1</b>：必须准备科学上网工具（梯子/VPN），节点配置方法讲师无法展开，需学员自行解决</div>
+    <div class="tip"><b>前提 2</b>：通过 File → Settings → Language 选"中文（中国）"</div>
+
+    <h4>核心两步走</h4>
+    <table>
+      <tr><th>步骤</th><th>操作</th><th>关键</th></tr>
+      <tr><td>第一步</td><td>把 VPN 节点切换到<b>海外节点</b></td><td>语言包下载依赖海外节点</td></tr>
+      <tr><td>第二步</td><td><b>完全退出</b> Codex 后重新启动</td><td>必须杀掉进程，不能最小化</td></tr>
+    </table>
+
+    <div class="key">
+      <b>关键细节</b>：必须"完全退出"Codex（杀掉进程），而非最小化或关闭窗口。只有彻底退出并重启才能触发语言包的自动下载和切换。
+    </div>
+
+    <h4>方案优先级</h4>
+    <ol>
+      <li>🥇 从 OpenAI 官方渠道下载 Codex（最佳）</li>
+      <li>🥈 上述两步切换为中文</li>
+      <li>🥉 第三方汉化包（体验不如官方）</li>
+      <li>🏅 直接适应英文界面（核心功能"新对话"不受影响）</li>
+    </ol>
+  </div>
+
+  <!-- 第 3 课 -->
+  <div class="card" id="l3">
+    <h3>📘 第 3 课：Codex 基础配置（不是重点，简单了解） <span class="tag">配置</span></h3>
+
+    <h4>板块一：工作模式</h4>
+    <ul>
+      <li><b>编程模式 Programming Mode</b>：显示较多技术细节（命令行调用、底层操作）。讲师偏好，能看清"它是怎么整的"</li>
+      <li><b>日常工作模式 Daily Work Mode</b>：不显示用户看不懂的命令行操作，界面更简洁，非技术用户首选</li>
+    </ul>
+
+    <h4>板块二：权限管理（重要！）</h4>
+    <table>
+      <tr><th>模式</th><th>行为</th><th>风险</th></tr>
+      <tr><td>默认权限</td><td>只能读取和编辑<b>工作区目录</b>下的文件</td><td>主要限制<b>写入</b>，读取仍可跨盘</td></tr>
+      <tr><td>请求额外权限</td><td>需要时 Codex 主动申请</td><td>每次操作都会弹窗确认</td></tr>
+      <tr><td><b>完全访问权限</b></td><td>不再经过允许，直接操控整个电脑</td><td>⚠️ 银行卡密码等敏感信息也可能被读取</td></tr>
+    </table>
+    <div class="note">
+      <b>讲师建议</b>：普通用户保持默认权限；信任度高且电脑无敏感信息的用户可考虑完全访问（讲师本人使用完全访问）。
+    </div>
+
+    <h4>板块三：外观个性化</h4>
+    <ul>
+      <li><b>主题模式</b>：Dark / Light（讲师偏好浅色）</li>
+      <li><b>Codex 主题</b>：可切换 GitHub 主题等</li>
+      <li><b>UI 字体字号</b>：最大 16</li>
+      <li><b>代码字体大小</b>：默认 12</li>
+      <li><b>宠物 Pet</b>：任务完成提醒功能（"小火苗"、"Rocky 岩石"等）</li>
+    </ul>
+
+    <h4>板块四：配置页核心功能（Config）</h4>
+    <p>所有配置信息保存在 <code>codex-config.toml</code> 文件中。</p>
+    <ul>
+      <li><b>个性化/语气</b>：亲和（Friendly）/ 务实（Concise/Professional）</li>
+      <li><b>自定义命令 Custom Commands</b>：Codex 的"灵魂"设定，本质是自定义 System Prompt</li>
+      <li><b>记忆功能 / 重置</b>：有记忆功能，一般不用重置</li>
+      <li><b>键盘快捷键</b>：玩熟了记一下</li>
+    </ul>
+
+    <h4>板块五：MCP 服务器（Model Context Protocol）</h4>
+    <p>MCP 是 Codex 连接外部工具和服务的协议。讲师比喻为"<b>U盘插件</b>"，即插即用。</p>
+    <div class="key">
+      <b>核心案例：chrome-devtools MCP</b><br>
+      让 Codex 直接控制一个 Chrome 浏览器页面，实现浏览器自动化操作。<br>
+      <b>应用场景</b>：打开抖音、小红书、百度、企业 ERP 系统；自动化搜索、数据采集。
+    </div>
+
+    <h4>板块六：连接、Git、环境与归档</h4>
+    <ul>
+      <li><b>手机端连接</b>：手机下载 ChatGPT 应用连接电脑 Codex。Windows 尚未跑通，部分 Mac 用户已成功</li>
+      <li><b>Git 版本管理</b>：非当前刚需，核心价值"写代码不怕写坏"。<span class="kw">可以在 Codex 里学 Git</span></li>
+      <li><b>环境与项目管理</b>：支持添加多个项目，适合多工作区场景</li>
+      <li><b>对话归档</b>：归档后对话不会丢失，可重新查看</li>
+    </ul>
+  </div>
+
+  <!-- 第 4 课 -->
+  <div class="card" id="l4">
+    <h3>📘 第 4 课：语音输入法（微信输入法） <span class="tag">效率神器</span></h3>
+
+    <h4>为什么必学</h4>
+    <p>"学习任何新鲜事物时，不应一上来就给自己设定难度，而应该选择最符合直觉、最轻而易举能够完成的方式去互动。" —— 语音输入消除了打字的<b>心理负担</b>。</p>
+
+    <h4>安装步骤</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c">浏览器搜索"微信输入法"，找到 qq.com 域名下的官方页面</div></div>
+      <div class="step"><span class="s">2</span><div class="c">根据操作系统下载对应版本（Windows / Mac）</div></div>
+      <div class="step"><span class="s">3</span><div class="c">下载后安装部署</div></div>
+    </div>
+
+    <h4>语音输入使用方法</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c">打开微信输入法 → 点击左侧<b>三条横杠</b> → 选择"插件"</div></div>
+      <div class="step"><span class="s">2</span><div class="c">找到"<b>语音输入文字</b>"选项</div></div>
+      <div class="step"><span class="s">3</span><div class="c">默认快捷键：<code>Ctrl + Alt + T</code>（三个键挨在一起）</div></div>
+      <div class="step"><span class="s">4</span><div class="c">在 Codex 对话框<b>先点击一下</b>鼠标 → 按住 Ctrl+Alt+T → 弹出绿色小框 → <b>开始说话</b> → 松开按键 → 文字自动打出</div></div>
+    </div>
+
+    <div class="key">
+      <b>💡 讲师建议</b>：每一位安装完 Codex 的朋友，都应该下载一个微信输入法 —— 它能让你和 AI 对话时心理负担降到 0。
+    </div>
+  </div>
+</section>
+
+<!-- ============ 阶段2：核心操作 ============ -->
+<section class="stage stage-2" id="s2">
+  <h2><span class="num">2</span> 第二阶段 · 核心操作能力（3 课）</h2>
+  <p class="stage-sub">这一阶段的目的是：把 Codex 的核心交互体系玩明白，跨过"能用"到"会用"的门槛。</p>
+
+  <!-- 第 5 课 -->
+  <div class="card" id="l5">
+    <h3>📘 第 5 课：保姆级斜杠命令（一定要使用） <span class="tag">核心入口</span></h3>
+
+    <p>斜杠命令是 Codex 中通过输入 <code>/</code> 触发的功能菜单，包含大量实用功能入口。</p>
+
+    <h4>命令分类详解</h4>
+
+    <h4>① 模型与工具层</h4>
+    <ul>
+      <li><b>MCP</b>：外接工具连接机制（浏览器自动化等）→ 详见第 3 课板块五</li>
+      <li><b>推理模型</b>：可设置低/中/高等级，也可在界面右侧直接设置</li>
+      <li><b>状态 Status</b>：查询账户余额。<span class="kw3">使用 API 密钥登录的用户无法使用此功能</span></li>
+    </ul>
+
+    <h4>② 行为模式层</h4>
+    <table>
+      <tr><th>模式</th><th>特点</th><th>适用场景</th></tr>
+      <tr><td><b>个性 Personality</b></td><td>亲和 vs 务实</td><td>务实模式更简洁、专注、直接</td></tr>
+      <tr><td><b>聊天 Chat</b></td><td>脱离项目工作</td><td>切到纯 Chat 环境，不再"在项目中工作"</td></tr>
+      <tr><td><b>计划 Plan</b></td><td>会议式规划</td><td>不立即执行，列出 1234 待办事项，反复确认细节</td></tr>
+      <tr><td><b>目标 Goal</b></td><td>"需求推土机"</td><td>调用更多算力自动完成目标，不需反复对话推进</td></tr>
+    </table>
+
+    <h4>③ 辅助功能层</h4>
+    <ul>
+      <li><b>代码审查 Code Review</b>：检查复杂代码项目中的 bug，无代码经验也能用</li>
+      <li><b>记忆 Memory</b>：详见下方 ⚠️ 重要发现</li>
+    </ul>
+
+    <h4>④ 扩展层</h4>
+    <ul>
+      <li><b>技能 Skills</b>：Skill 功能入口，可安装和调用各类自动化技能</li>
+    </ul>
+
+    <div class="tip">
+      <b>⚠️ 记忆功能边界（重要发现）</b>：<br>
+      ① 当前对话有效：在当前对话框（线程/Thread）内可以记住聊天内容<br>
+      ② 跨对话无效：在新对话中，Codex 无法记住上一对话中的偏好<br>
+      ③ 不生成全局记忆：Codex 不会把每一句闲聊变成全局个人记忆<br>
+      ④ 明确要求也不行：即使说"请把我喜欢吃西瓜作为长期偏好的记忆"，也无法跨新对话永久生效<br><br>
+      这正是许多用户对记忆功能的常见误解。<b>记忆仅在当前会话（线程）内部有效</b>。
+    </div>
+  </div>
+
+  <!-- 第 6 课 -->
+  <div class="card" id="l6">
+    <h3>📘 第 6 课：Codex Skill 技能（全网最简单制作一个技能） <span class="tag">核心方法论</span></h3>
+
+    <h4>Skill 的本质</h4>
+    <p>Skill 是一套 <span class="kw2">SOP（标准操作流程）</span>，是一套 12345678 的流程。它把工作流程节点固化下来，每一步要做什么非常清晰。</p>
+
+    <h4>什么时候适合封装成 Skill</h4>
+    <ul>
+      <li>✅ 工作流程 SOP 化需求：步骤清晰，没有歧义</li>
+      <li>✅ 具有可复用性：一旦存在可复用的环节，就可以封装</li>
+      <li>✅ 即使流程很简单（只有一个环节），只要环节清晰，也符合封装条件</li>
+    </ul>
+
+    <h4>核心方法论：先跑通，再沉淀（三步法）</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c">遇到不懂的直接问 AI"<b>这是啥？有什么用？</b>"</div></div>
+      <div class="step"><span class="s">2</span><div class="c">在对话中<b>先跑通流程</b></div></div>
+      <div class="step"><span class="s">3</span><div class="c">说一句话"<b>请把这一套流程沉淀为技能</b>"</div></div>
+    </div>
+    <div class="key">
+      <b>🎯 讲师金句</b>：做 Skill 的前提是这个流程得先跑通。它能够实际完成你的工作流之后，再说把它沉淀成技能。
+    </div>
+
+    <h4>实操案例：短视频稿润色技能</h4>
+
+    <p><b>Step 1</b>：在对话中建立工作流</p>
+    <pre><code>我想让你做一个工作流程。我每次会给你发布一个原始的文稿，
+因为我是一个自媒体的博主。请把这个原始的文稿润色成一个更
+符合短视频风格的逐字稿。</code></pre>
+
+    <p><b>Step 2</b>：用实际文稿测试流程（测试文稿）</p>
+    <pre><code>我觉得Codex是这个世界上老少皆宜的智能体工具，不管是一线高管、
+老板还是员工都在使用。我希望每个同学都能认真地去把这些技能、
+这些对话、这些项目都至少跑一遍。</code></pre>
+
+    <p><b>Step 3</b>：将流程沉淀为 Skill</p>
+    <pre><code>谢谢你，你刚刚润色的那个版本非常好，我希望你把咱们刚刚跑通
+了的这个版本沉淀成一个技能Skill，方便我下次调用，然后给我润色。</code></pre>
+    <p>AI 会自动调用 <code>skills-create</code> 工具，将流程固化到本地 Skills 目录（<code>C:\Users\用户名\.codex\Skills\</code>）。</p>
+
+    <p><b>Step 4（可选）</b>：修改技能名称为中文</p>
+    <pre><code>你的技能名称能不能设置成中文的，我好找到。</code></pre>
+
+    <h4>调用 Skill 的两种方式</h4>
+    <table>
+      <tr><th>方式</th><th>操作</th><th>适用</th></tr>
+      <tr><td><b>手动点击</b></td><td>技能面板 → 找到 Skill → "在对话中使用"</td><td>初次使用或确认</td></tr>
+      <tr><td><b>自动触发</b></td><td>对话中说触发话术（如"帮我润色成短视频稿"）</td><td>日常频繁使用（零操作）</td></tr>
+    </table>
+
+    <h4>补充建议</h4>
+    <ul>
+      <li>如果目标是让它<b>产生结果、产生效益</b>：只需要会用即可</li>
+      <li>如果是<b>做研发、做工程、做设计</b>：才需要琢磨工程化内容</li>
+      <li>Mac 下做 AI 工作流更丝滑（编码识别问题少），Windows 也可用</li>
+      <li>完全访问权限可减少确认弹窗提升操作流畅度</li>
+    </ul>
+  </div>
+
+  <!-- 第 7 课 -->
+  <div class="card" id="l7">
+    <h3>📘 第 7 课：GitHub+Skill · 沉淀一个段永平 Skill <span class="tag">蒸馏名人</span></h3>
+
+    <h4>核心方法论：不懂就问 AI</h4>
+    <p>遇到看不懂的技术内容（密密麻麻的英文/代码），不要硬读 —— <span class="kw">直接复制链接粘贴给 Codex</span>，用大白话问它"这是什么、怎么用"。</p>
+    <div class="key">
+      <b>核心思维方式</b>：让 AI 去告诉你它是什么东西，而不是自己费力去理解。
+    </div>
+
+    <h4>寻找 Skill 的两种方式</h4>
+    <ul>
+      <li><b>方式一</b>：GitHub 上搜索关键词"skill"，通过<b>星数（Star）</b>判断受欢迎程度和可信度</li>
+      <li><b>方式二</b>：通过博主/他人分享的 GitHub 链接访问</li>
+    </ul>
+
+    <h4>女娲（Nvwa）Skill 详解</h4>
+    <p><b>功能定位</b>：一个帮你打造 AI 思维顾问的工具。</p>
+    <p><b>核心能力</b>：输入一个人名，研究该人物的公开资料，提炼出一个可调用的 Skill（即 AI 思维顾问）。</p>
+    <p><b>关键术语</b>："蒸馏"的本质就是把别人的好处/优点/思维方式提炼出来。</p>
+
+    <p><b>应用示例</b>：</p>
+    <ul>
+      <li>用芒格的视角拆解投资策略</li>
+      <li>用费曼方式解释复杂概念</li>
+      <li>用乔布斯的产品品味审视你的 APP</li>
+      <li>蒸馏任意名人的思维方式</li>
+    </ul>
+
+    <p><b>一次性可安装的明星 Skill</b>：马斯克、费曼、Sam Altman、乔布斯、张一鸣、张雪峰、纳瓦尔、野兽先生、塔勒布、孙宇晨、川普、段永平……</p>
+
+    <h4>蒸馏段永平思维方式的完整流程</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c">说"<b>女娲帮我蒸馏一个段永平的思维方式</b>"</div></div>
+      <div class="step"><span class="s">2</span><div class="c">女娲自动搜索公开资料 → 提取关键思维模式 → 整理成 Skill 文件</div></div>
+      <div class="step"><span class="s">3</span><div class="c">检查安装结果（如果 Skill 没出现，可截图+自然语言告知 Codex）</div></div>
+      <div class="step"><span class="s">4</span><div class="c">刷新界面，"段永平思维方式"Skill 出现在技能列表中</div></div>
+    </div>
+
+    <h4>安装 Skill 的标准操作（最简单方式）</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c">说"<b>帮我安装这个 Skill</b>"</div></div>
+      <div class="step"><span class="s">2</span><div class="c">粘贴 GitHub 链接</div></div>
+      <div class="step"><span class="s">3</span><div class="c">Codex 自动使用 skills 插件完成安装</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ 阶段3：平台扩展 ============ -->
+<section class="stage stage-3" id="s3">
+  <h2><span class="num">3</span> 第三阶段 · 平台扩展（5 课）</h2>
+  <p class="stage-sub">这一阶段的目的是：把 Codex 与外部世界打通，让它能取数据、能发消息、能连平台。</p>
+
+  <!-- 第 8 课 -->
+  <div class="card" id="l8">
+    <h3>📘 第 8 课：Codex 打通 GitHub 平台 <span class="tag">开源宝库</span></h3>
+
+    <h4>GitHub 的重新认识</h4>
+    <p>GitHub 本质上是 <span class="kw4">项目托管平台</span>，而非单纯的代码托管平台。上面不仅有程序员开源的项目，还有攻略教程、APP 软件、网站项目。现在非程序员也可以在 GitHub 上推送和分享项目。</p>
+
+    <h4>用 Codex 打通 GitHub 的"四步法"</h4>
+    <table>
+      <tr><th>步骤</th><th>操作</th></tr>
+      <tr><td>1</td><td>用 Codex 在 GitHub 上<b>搜索推荐项目</b>（按活跃度和 Star 筛选）</td></tr>
+      <tr><td>2</td><td>让 Codex <b>解释项目</b>（功能和适用场景）</td></tr>
+      <tr><td>3</td><td>让 Codex <b>教你使用</b>（获取安装和使用教程）</td></tr>
+      <tr><td>4</td><td>在项目基础上<b>满足自己的需求</b>（二次开发或定制）</td></tr>
+    </table>
+    <div class="key">
+      <b>核心原则</b>：从头到尾不需要直接打开 GitHub 网址搜索，全部流程借助 Codex 完成。
+    </div>
+
+    <h4>实操案例：寻找量化交易工具</h4>
+    <p>在 Codex 中输入"请在 GitHub 上找到辅助我炒股的项目和软件"，Codex 按活跃度和 Star 数量筛选。</p>
+    <ul>
+      <li><b>Star</b>：相当于"点赞"，越多说明需求越大、项目越受欢迎（本次案例最热门项目 Star 数 41.4K）</li>
+      <li><b>最终选择</b>：<code>vnpy</code> —— Python 开源量化交易平台框架（4 万+ Star）</li>
+      <li><b>注意</b>：vnpy 不是"一键推荐股票"的软件，而是搭建完整量化交易的工具箱</li>
+    </ul>
+
+    <div class="tip">
+      <b>⚠️ 安全提示</b>：通过 Star 数量判断项目安全风险<br>
+      • 高 Star 项目（如 vnpy 4 万+ Star）：大量用户已安装，风险相对较低<br>
+      • 低 Star 项目（仅几个 Star）：可能存在病毒等安全风险，不建议下载
+    </div>
+  </div>
+
+  <!-- 第 9 课 -->
+  <div class="card" id="l9">
+    <h3>📘 第 9 课：Codex 打通知识库（Obsidian） <span class="tag">战略价值</span></h3>
+
+    <h4>为什么要做私人知识库</h4>
+    <ul>
+      <li>作为自媒体创作者，大量内容散布在互联网上（抖音 225 条视频、视频号、公众号等）</li>
+      <li>需要一个<b>统一的本地知识库</b>来管理</li>
+      <li>Obsidian 的 MD 格式文本极其容易被 AI 工具连接和解析</li>
+      <li>一旦 Codex 能连接到知识库，用户就拥有了"<b>私人知识分身</b>"</li>
+    </ul>
+
+    <h4>为什么用 Obsidian</h4>
+    <ul>
+      <li>本地私人笔记知识库，文件存储在用户本地电脑</li>
+      <li>文本采用 MD（Markdown）格式，极其容易被 AI 工具连接和读取</li>
+      <li>备选方案：Notion、微信收藏笔记等也可以使用</li>
+    </ul>
+
+    <h4>核心操作流程</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c"><b>发送截图</b>：给 Codex 发一张抖音主页的截图</div></div>
+      <div class="step"><span class="s">2</span><div class="c"><b>附上指令</b>：告诉 Codex 把视频文案提取出来存到 Obsidian 里</div></div>
+      <div class="step"><span class="s">3</span><div class="c"><b>让 Codex 自动执行</b>：Codex 自动提取视频逐字稿并写入 Obsidian</div></div>
+      <div class="step"><span class="s">4</span><div class="c"><b>注意监控</b>：实时关注，转写方式可能出现错误需人工检查</div></div>
+    </div>
+
+    <div class="key">
+      <b>🎯 实际效果</b>：从晚上 11 点运行到第二天，Codex 自动提取了 225 条抖音视频的逐字稿。
+    </div>
+
+    <h4>工作流核心理念：AI Agent 时代的信息处理模式</h4>
+    <div class="note">
+      <b>💡 范式转变</b>：<br>
+      • Obsidian 不是给人看的，是给 Codex、给 AI Agent 看的<br>
+      • 你不需要自己从头到尾阅读笔记内容，而是让 AI 帮你解读<br>
+      • 电脑里的任何文件夹、文件内容都不需要亲自看，借助 Codex 智能体工具即可<br>
+      • 只要 Obsidian 文件在本地电脑上，Codex 就有权限访问
+    </div>
+
+    <h4>路径配置的关键细节</h4>
+    <ol>
+      <li>在 Obsidian 中<b>复制知识库的绝对路径</b>发送给 Codex</li>
+      <li>确保知识库路径指向 <b>Obsidian 文件夹的根目录</b>，而非子文件夹</li>
+      <li>验证方法：问 Codex "<b>你确定只看到这些文件夹吗？</b>" 来引导重新检查</li>
+    </ol>
+
+    <h4>Codex 提炼的核心思想</h4>
+    <div class="key">
+      <b>"AI 时代真正的机会不是使用工具，而是把人的目标、经验、业务总结成一个可以被 AI 放大的生产系统。"</b>
+    </div>
+
+    <h4>经典提示词模板</h4>
+    <pre><code>这是我的抖音账号，下边有这么多的视频，我希望你把视频的文案
+提取出来，放到我的本地，也就是存到我的Obsidian里面。
+
+你确定只有这三个文件夹吗？我怎么看到还有其他的知识库内容呢？
+
+请完整读取我的知识库内容。
+
+你认为我应该怎么充分利用这个Obsidian知识库内容？
+
+总结我的知识库的核心思想。</code></pre>
+  </div>
+
+  <!-- 第 10 课 -->
+  <div class="card" id="l10">
+    <h3>📘 第 10 课：微信 + Hermes Agent + GPT 5.5 <span class="tag">含排错</span></h3>
+
+    <h4>技术方案全景</h4>
+    <p>四个组件串联：<span class="kw">微信客户端 + CloudBot 插件 + Hermes Agent + GPT 5.5 模型</span>。全程通过在 Codex 中执行一条命令自动完成部署。</p>
+
+    <table>
+      <tr><th>组件</th><th>角色</th></tr>
+      <tr><td>微信客户端（PC 端）</td><td>用户交互入口</td></tr>
+      <tr><td>CloudBot 插件</td><td>微信内置插件（左侧菜单"插件"中安装）</td></tr>
+      <tr><td>Hermes Agent</td><td>开源智能体项目，命令行安装到本地</td></tr>
+      <tr><td>GPT 5.5 模型</td><td>通过 Codex 配置的本机模型接口</td></tr>
+    </table>
+
+    <h4>核心安装命令的三大组成</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c"><b>在当前文件夹安装 Hermes Agent</b> —— 下载开源智能体项目</div></div>
+      <div class="step"><span class="s">2</span><div class="c"><b>使用系统本机的 GPT 5.5 模型</b> —— 指定调用本机配置好的模型接口<br>⚠️ 不加这句话系统会自动走 OpenAI 官方接口导致需额外授权</div></div>
+      <div class="step"><span class="s">3</span><div class="c"><b>配置好后测试通过</b> —— 自动完成配置和连通性测试</div></div>
+    </div>
+
+    <h4>关键注意事项</h4>
+    <ul>
+      <li><b>必须在命令中指定本机模型</b>：否则会走 OpenAI 官方直连接口</li>
+      <li><b>电脑必须保持开机</b>：Hermes Agent 运行在用户本机上，关机后微信无法使用智能体服务</li>
+      <li><b>不需要手动配置</b>：整条命令执行后全自动完成</li>
+    </ul>
+
+    <h4>🛠️ "让 AI 对抗 AI"的排错思路</h4>
+    <p>当 Hermes Agent 在微信里没有回复消息时，讲师采用的解决方法是：<b>将问题截图发给 Codex，让它来诊断和修复</b>。</p>
+    <div class="key">
+      <b>核心方法论</b>：遇到 AI 工具故障时，最有效的方法是"让 AI 对抗 AI" —— 将错误信息和日志截图发送给另一个 AI，让它来诊断和修复问题。
+    </div>
+
+    <h4>使用评估</h4>
+    <ul>
+      <li><b>延迟较大</b>：在微信中问"今天星期几"，GPT 5.5 花了一分钟才给出答案</li>
+      <li><b>稳定性不足</b>：微信端响应速度和稳定性不如桌面端 Codex</li>
+      <li><b>官方建议</b>："能在办公位上干活，就不要在微信里面干活"</li>
+    </ul>
+  </div>
+
+  <!-- 第 11 课 -->
+  <div class="card" id="l11">
+    <h3>📘 第 11 课：飞书 + Hermes Agent + GPT 5.5 <span class="tag">小白领首选</span></h3>
+
+    <h4>为什么选飞书</h4>
+    <p>微信是普通用户最常用的工具，而飞书是"<b>小白领</b>"（职场办公人群）最常用的办公工具。稳定性优于微信。</p>
+
+    <h4>三层架构</h4>
+    <table>
+      <tr><th>层级</th><th>组件</th><th>角色</th></tr>
+      <tr><td>终端</td><td>飞书</td><td>办公协作工具，用户交互入口</td></tr>
+      <tr><td>智能体</td><td>Hermes Agent</td><td>中间调度层，承载数据记忆和逻辑处理</td></tr>
+      <tr><td>模型</td><td>GPT-5.5</td><td>底层大语言模型，提供推理能力</td></tr>
+    </table>
+
+    <h4>与微信方案的关键差异</h4>
+    <div class="key">
+      <b>稳定性对比：微信不如飞书</b>。讲师建议学员把飞书这套流程跑通，因为飞书的稳定性更好。
+    </div>
+
+    <h4>配置操作要点（与微信方案逻辑一致）</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c">在当前文件夹安装 Hermes Agents</div></div>
+      <div class="step"><span class="s">2</span><div class="c">使用本机 Codex 环境执行</div></div>
+      <div class="step"><span class="s">3</span><div class="c">使用第三方中转的 API Key 和 Base URL（非官方订阅模式）</div></div>
+      <div class="step"><span class="s">4</span><div class="c">配置好后通过飞书直接调用 Hermes 机器人</div></div>
+      <div class="step"><span class="s">5</span><div class="c">模型推理开到"<b>高等</b>"</div></div>
+      <div class="step"><span class="s">6</span><div class="c">配置完成后直接运行</div></div>
+    </div>
+
+    <div class="key">
+      <b>🎯 成功率保证</b>：讲师表示他用这串命令给很多朋友和同学配置过，<b>百分百能搞定</b>。
+    </div>
+  </div>
+
+  <!-- 第 12 课 -->
+  <div class="card" id="l12">
+    <h3>📘 第 12 课：Codex + DeepSeek 搭配方案（有风险） <span class="tag">成本替代</span></h3>
+
+    <p>使用 Codex 作为外壳，配合国产 DeepSeek 模型。这是针对 GPT 5.5 的<b>成本/风险替代方案</b>。两种实现路径：</p>
+
+    <h4>方案一：Codex Plus Plus（GUI 工具方式）</h4>
+
+    <p><b>Codex Plus Plus 是什么</b>：面向 Codex APP 端外部的<b>增强启动器和管理工具</b>。不修改原始文件，只通过外部启动方式注入脚本，实现多模型切换。</p>
+
+    <h4>操作步骤</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c">GitHub 搜索"codex plus plus"，下载最新版（选 Star 最高的 7.5k 星版本，Windows 下载 .exe）</div></div>
+      <div class="step"><span class="s">2</span><div class="c">安装后打开 → 找到"<b>供应商配置</b>"</div></div>
+      <div class="step"><span class="s">3</span><div class="c">添加 DeepSeek 供应商：名称填"DeepSeek"，接入模式选"API 接入"</div></div>
+      <div class="step"><span class="s">4</span><div class="c">在 DeepSeek 官网注册/充值/创建 API Key<br>⚠️ <span class="kw3">API Key 仅显示一次，必须立即复制保存</span></div></div>
+      <div class="step"><span class="s">5</span><div class="c">在接口文档中找到 <b>OpenAI 协议下的 Base URL</b>（关键！Codex 基于 OpenAI 协议）</div></div>
+      <div class="step"><span class="s">6</span><div class="c">填入 API Key 和 Base URL → 保存 → 切换供应商 → 重启 → 选择模型（V4 Flash / V4 Pro）</div></div>
+    </div>
+
+    <div class="tip">
+      <b>⚠️ 风险提示</b>：切换模型供应商可能清除之前的聊天对话记录。
+    </div>
+
+    <h4>方案二：Claude Code 终端方式</h4>
+
+    <p>采用 Claude Code 作为交互框架（命令行终端式 AI 交互体验），底层推理模型使用 DeepSeek V4 Pro。<b>费用更低，可低至每月 30 元左右</b>。</p>
+
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c">获取 DeepSeek API 密钥：访问官网 → API 开放平台 → 实名认证 → 充值（建议先小额 10 元）→ 创建 API 密钥（SK 开头，仅显示一次）</div></div>
+      <div class="step"><span class="s">2</span><div class="c">进入 Codex 终端：Codex → 右侧"显示侧边栏" → 终端 → 输入"Claude"命令</div></div>
+      <div class="step"><span class="s">3</span><div class="c">首次运行排错：输入 <code>Claude</code> 会出现红色错误代码。解决方案：截图发给左侧 Codex，让它自主解决</div></div>
+      <div class="step"><span class="s">4</span><div class="c">提供 API 密钥：Codex 主动索要时提供 SK 开头的密钥</div></div>
+      <div class="step"><span class="s">5</span><div class="c">重启与迭代调试：关闭终端 → 重新打开 → 再次输入 Claude 命令。通常需要反复 <b>3 到 4 次迭代</b>才能完全打通</div></div>
+    </div>
+
+    <h4>DeepSeek 与 GPT 5.5 的关键差异</h4>
+    <ul>
+      <li><b>多模态能力</b>：GPT 5.5 是<b>多模态模型</b>（可识别图片），DeepSeek V4 Pro <b>不是多模态模型</b>（无法识别图片）</li>
+      <li>这是两者最根本的功能差距</li>
+    </ul>
+
+    <div class="key">
+      <b>🎯 核心结论</b>：二选一的话，讲师毫不犹豫选择 GPT 5.5，DeepSeek 方案仅作为备选方案给有成本/风险顾虑的同学。
+    </div>
+
+    <h4>两种方案的适用场景</h4>
+    <table>
+      <tr><th>维度</th><th>方案一（Plus Plus）</th><th>方案二（Claude Code）</th></tr>
+      <tr><td>操作方式</td><td>GUI 图形界面</td><td>终端命令行</td></tr>
+      <tr><td>复杂度</td><td>较低</td><td>较高（需多次排错迭代）</td></tr>
+      <tr><td>模型切换</td><td>随时切换回 GPT 5.5</td><td>终端内使用</td></tr>
+      <tr><td>附加效果</td><td>解锁插件入口、可删除对话</td><td>纯文本终端式交互</td></tr>
+      <tr><td>风险</td><td>可能清除聊天记录</td><td>配置过程较折腾</td></tr>
+    </table>
+  </div>
+</section>
+
+<!-- ============ 阶段4：内容创作 ============ -->
+<section class="stage stage-4" id="s4">
+  <h2><span class="num">4</span> 第四阶段 · 内容创作（4 课）</h2>
+  <p class="stage-sub">这一阶段的目的是：让 Codex 帮你做出可发布的内容（PPT、视频、文章、网站）。</p>
+
+  <!-- 第 13 课 -->
+  <div class="card" id="l13">
+    <h3>📘 第 13 课：最强 PPT 三件套 <span class="tag">PPT 神器</span></h3>
+
+    <h4>三件套角色分工</h4>
+    <table>
+      <tr><th>工具</th><th>角色</th><th>职责</th></tr>
+      <tr><td><b>Codex</b></td><td>任务拆解引擎</td><td>确定 PPT 整体架构、拆解主题为细节、确定每页内容和表达方式</td></tr>
+      <tr><td><b>Imagine 2</b></td><td>素材生成器</td><td>生成产品图、页面图、图标、插画、背景图等 PPT 元素级素材</td></tr>
+      <tr><td><b>Presentation</b></td><td>排版成片工具</td><td>真正生成 PPT/PPTX 格式文件，负责排版和成片</td></tr>
+    </table>
+
+    <h4>完整操作流程</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c"><b>声明三件套方案</b>：重新开一个对话，直接复制三件套说明给 Codex<br>👉 <span class="kw3">推荐直接粘贴，这是 Codex 最能听懂的方式</span></div></div>
+      <div class="step"><span class="s">2</span><div class="c"><b>进入计划模式（Plan 模式）</b>：Codex 会先规划框架，与用户确认呈现方式、PPT 质量、素材方式等<br>⏱️ <span class="kw3">时间预估</span>：完整一整套 PPT 至少需要半个小时</div></div>
+      <div class="step"><span class="s">3</span><div class="c"><b>发送主题</b>：最简单的开始方式：发一个主题，其他信息 Codex 会默认对齐<br>📝 实战示例：主题"关于 Codex 培训的 PPT"，4 页，指令"你先给我生成"</div></div>
+    </div>
+
+    <div class="key">
+      <b>💎 最大亮点</b>：生成的不是一张不可修改的静态图，而是<b>真正的 PPT/PPTX 文件</b>。可以随时修改文字内容、排版和设计。
+    </div>
+
+    <h4>总结公式</h4>
+    <div class="flow">
+      <span class="node">Codex</span>
+      <span class="arr">→</span>
+      <span class="node">拆解任务（逻辑/架构）</span>
+      <span class="arr">→</span>
+      <span class="node">Imagine 2</span>
+      <span class="arr">→</span>
+      <span class="node">生图（好看/视觉）</span>
+      <span class="arr">→</span>
+      <span class="node">Presentation</span>
+      <span class="arr">→</span>
+      <span class="node">做 PPT（排版/出片）</span>
+    </div>
+
+    <div class="note">
+      <b>💡 最简单使用方式</b>：把三件套的说明直接复制粘贴给 Codex，让它按照三件套模式、按照你的主题去生成 PPT。
+    </div>
+  </div>
+
+  <!-- 第 14 课 -->
+  <div class="card" id="l14">
+    <h3>📘 第 14 课：Codex 做简单小视频（Hyperform） <span class="tag">快速试错</span></h3>
+
+    <h4>Hyperform 视频工具的认知与定位</h4>
+    <div class="tip">
+      <b>⚠️ 正确认知</b>：用 Codex 做视频并没有网上宣传的那么神奇。如果真正想做视频，应该使用专业的生视频模型（<b>C-Dance</b>、<b>小云雀 AI</b>、<b>极梦剪映</b>）。
+    </div>
+
+    <p><b>Hyperform 是什么</b>："用代码替代剪辑"的视频生成工具。</p>
+    <p><b>底层原理</b>：HTML/CSS/JS 渲染 → 转化为帧序列 → 导出 MP4</p>
+
+    <div class="key">
+      <b>🎯 正确认知</b>：Codex + Hyperform 是视频制作的<b>"快速试错工具"</b>，而非替代专业软件的方案。
+    </div>
+
+    <h4>安装与配置</h4>
+    <ul>
+      <li>Windows 上安装耗时约 8-10 分钟</li>
+      <li>关键是让<b>命令行（CLI）能跑起来</b>，而非仅仅下载文件</li>
+      <li>⚠️ Windows 对 AI 工具的原生支持不如 Mac，命令容易"抽风"</li>
+    </ul>
+
+    <h4>实操演示：从文案到视频</h4>
+
+    <p><b>提示词策略</b>：用自然语言下达指令</p>
+    <pre><code>用Hyperform把这段文案做成宣传片，竖屏15秒。</code></pre>
+
+    <p><b>生成过程</b>：Codex 将口述文案压缩为分镜、字幕和动画 → HTML 网页 → 帧序列 → 导出 MP4。总耗时约 13 分钟（一般预估 20 分钟以上）。</p>
+
+    <h4>Token 消耗理念</h4>
+    <div class="key">
+      <b>🎯 重要观点</b>：现在要趁着 token 便宜大量使用。<br>
+      当天消耗了约三千多万 token。<br>
+      核心策略是"<b>趁着便宜大量用，培养肌肉记忆</b>"，未来价格上涨时才不会被动。<br>
+      <b>投资建议</b>：每月投入约 100 元，每天争取大量消耗 token 来练习和积累。
+    </div>
+
+    <h4>本章还讲到的 Obsidian 实操（详细见第 9 课）</h4>
+    <ul>
+      <li>抖音逐字稿批量提取（截图 + 指令，Cookie 授权）</li>
+      <li>公众号文章批量导入（一句话搞定 90+ 篇）</li>
+      <li>上下文（Context）的战略价值</li>
+    </ul>
+  </div>
+
+  <!-- 第 15 课 -->
+  <div class="card" id="l15">
+    <h3>📘 第 15 课：Codex 公众号自动发布 <span class="tag">API 自动</span></h3>
+
+    <h4>核心逻辑</h4>
+    <p>通过 Codex 编写 Python 脚本，调用微信公众号官方 API 接口，将 AI 生成的文章自动推送到公众号<b>草稿箱</b>，最终由用户手动点击发布。</p>
+
+    <h4>核心操作步骤</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c"><b>Codex 配置</b>：打开 Codex，权限设为"<b>完全访问权限</b>"，推理模型开至"<b>高等</b>"。向 Codex 下达自然语言指令：自动生成一篇 AI 热点公众号文章，调用公众号 API 接口发布到草稿箱。Codex 在约五分钟内生成完整的自动化脚本</div></div>
+      <div class="step"><span class="s">2</span><div class="c"><b>获取公众号三要素</b>（整个流程中最困难的一步）：<br>
+        • <b>APPID</b>：在微信开放社区（mp.weixin.qq.com）登录与公众号绑定的微信账号获取<br>
+        • <b>APP Secret</b>：需重新扫码获取（如已重置）<br>
+        • <b>IP 白名单</b>：向 Codex 询问本机公网 IP，将该 IP 填入公众号后台"设置与开发 - 基本配置 - IP 白名单"</div></div>
+      <div class="step"><span class="s">3</span><div class="c"><b>执行发布</b>：三个条件具备后，向 Codex 下达发布指令。Codex 通过 Python 代码调用公众号 API，将文章发送至草稿箱</div></div>
+      <div class="step"><span class="s">4</span><div class="c"><b>处理乱码与优化</b>：首次运行可能出现乱码问题，将草稿箱截图发给 Codex，它会自动重新检查并修复</div></div>
+    </div>
+
+    <div class="key">
+      <b>✅ 三个必要条件</b>：APPID、APP Secret、IP 白名单，<b>缺一不可</b>。
+    </div>
+
+    <h4>核心价值</h4>
+    <ul>
+      <li>非技术用户也能运行 Python 脚本实现自动化工作流，不再需要手写代码</li>
+      <li>使用微信公众号官方提供的 API 接口，<b>完全合规</b></li>
+      <li>整个过程用户只需最终手动点击"发表"即可</li>
+    </ul>
+
+    <div class="tip">
+      <b>⚠️ 适用限制</b>：仅限微信公众号（官方提供 API 接口），抖音等平台不支持此类 API 接口。
+    </div>
+  </div>
+
+  <!-- 第 16 课 -->
+  <div class="card" id="l16">
+    <h3>📘 第 16 课：Codex + Cloudflare 上线一个网站 <span class="tag">一句话部署</span></h3>
+
+    <h4>核心公式</h4>
+    <div class="key">
+      <b>一句话即可做出一个网站网页并部署到互联网上，所有人都能访问。</b>
+    </div>
+
+    <h4>需要的工具</h4>
+    <ol>
+      <li><b>Cloudflare Skill</b>：在斜杠命令中找"cloudflare deploy"，找不到就问 Codex 下载</li>
+      <li><b>GitHub Skill</b>：同样通过斜杠命令安装</li>
+    </ol>
+
+    <h4>本地网站 vs 线上网站</h4>
+    <table>
+      <tr><th>类型</th><th>特征</th></tr>
+      <tr><td><b>本地网站</b></td><td>Codex 只生成本地文件，只能自己打开看，链接发给别人打不开</td></tr>
+      <tr><td><b>线上网站</b></td><td>加了"部署到 Cloudflare"指令后，部署到 Cloudflare 全球基础设施，任何人可通过公开 URL 访问，<b>不取消部署则永久在线</b></td></tr>
+    </table>
+
+    <h4>实际案例操作（三轮迭代）</h4>
+
+    <h4>第一轮：首次生成（约 7 分钟）</h4>
+    <pre><code>我想要做一个个人网页，部署到Cloudflare</code></pre>
+    <p>Codex 花了 7 分钟生成并部署，什么都没给就完成了。</p>
+
+    <h4>第二轮：优化设计（借鉴参考链接）</h4>
+    <pre><code>我觉得你给我发送的这个网址的排版比较好看，我希望你给我换一个
+暗黑风格的，比较酷比较帅气一点的页面风格。但是内容排版就按
+照我上传这个链接去做。把刚刚我们做的那个网址给改一下。我觉得
+你刚刚做的太丑了。</code></pre>
+    <p>👉 把参考网址和刚生成的网址都贴上</p>
+
+    <h4>第三轮：借鉴世界级设计</h4>
+    <pre><code>我觉得你应该借鉴的是这个世界上最优秀的网站的设计，你要参考
+人家的。我相信有很多资深的UI设计师或者是产品经理已经把好的
+排版格式已经上线了，为什么咱们不去借鉴呢？所以说我希望咱们
+这个页面也需要去借鉴一下。</code></pre>
+
+    <div class="key">
+      <b>💎 核心技巧：借鉴优于原创</b>：让 AI 参考已有优秀设计比让它自己从零设计更高效。这是"<b>PUA 策略</b>" —— 核心逻辑是让 AI 去看好的作品、借鉴好的作品，不要自己瞎想。
+    </div>
+
+    <h4>注意事项</h4>
+    <ul>
+      <li>首次部署可能不会很快</li>
+      <li>可能需要注册 Cloudflare 网站（需要谷歌账号/谷歌邮箱）</li>
+      <li>中间可能遇到各种问题 —— <span class="kw">耐心处理，不懂就新开对话去问</span></li>
+      <li>遇到问题截图问 Codex</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============ 阶段5：数据采集 ============ -->
+<section class="stage stage-5" id="s5">
+  <h2><span class="num">5</span> 第五阶段 · 数据采集（3 课）</h2>
+  <p class="stage-sub">这一阶段的目的是：让 Codex 帮你从抖音、小红书、得到等平台采集你需要的信息。</p>
+
+  <!-- 第 17 课 -->
+  <div class="card" id="l17">
+    <h3>📘 第 17 课：抖音高意向客户评论区信息搜集 <span class="tag">实体店获客</span></h3>
+
+    <h4>Skill 完整工作流程</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c"><b>搜索抖音视频</b>：根据用户指定的客户类型（装修老板、餐饮老板、门窗老板等），在抖音内搜索相关视频</div></div>
+      <div class="step"><span class="s">2</span><div class="c"><b>筛选高质量视频</b>：从中找出高播放量、高互动量、评论区活跃的视频</div></div>
+      <div class="step"><span class="s">3</span><div class="c"><b>识别高意向评论</b>：在评论区中筛选出有购买意向的评论</div></div>
+      <div class="step"><span class="s">4</span><div class="c"><b>验证目标客户</b>：打开评论者的抖音主页，判断其是否真正符合目标客户画像</div></div>
+      <div class="step"><span class="s">5</span><div class="c"><b>执行触达动作</b>：整理数据写入 Excel<br>⚠️ <span class="kw3">Codex 不能自动私信</span>（平台会判定为"扰乱互联网秩序"），需<b>人工手动发送私信</b></div></div>
+    </div>
+
+    <h4>实战演示：完整工作指令（可作为模板复用）</h4>
+    <pre><code>帮我在抖音里找餐饮招商加盟行业的客户，在评论区筛选10个潜在
+客户。把客户的抖音链接、客户评论、进入的爆款视频是哪个，写入
+到Excel表格里面。我直接打开Excel，就能点击抖音链接进入对方
+主页，我自己主动去给他发优惠。</code></pre>
+
+    <h4>执行过程与结果</h4>
+    <p>整个过程持续约 20 多分钟。Codex 自动打开浏览器进入抖音 → 搜索关键词 → 打开评论区 → 识别高意向评论（如"预算 9 万做餐饮求带"、"预算 10 万不加盟确实没经验"） → 自动创建并填写 Excel 表格。</p>
+
+    <p><b>输出的 Excel 表格包含</b>：客户名称、客户主页链接、客户评论内容、爆款短视频来源、发布时间、地区等。</p>
+
+    <h4>通用提示词模板</h4>
+    <pre><code>帮我在[平台]找[行业]的客户，在评论区筛选[N]个潜在客户。
+把客户的[链接]、[评论]、[来源视频]写入到Excel表格里面。
+我直接打开Excel就能[后续操作]，我自己主动去[人工动作]。</code></pre>
+    <p>替换其中的行业和数量即可复用。</p>
+  </div>
+
+  <!-- 第 18 课 -->
+  <div class="card" id="l18">
+    <h3>📘 第 18 课：Codex + 内置浏览器打开小红书 <span class="tag">浏览器自动化</span></h3>
+
+    <h4>浏览器功能详解</h4>
+    <p>Codex 内置了一个浏览器功能（Skill/插件），通过快捷键 <code>Shift + @</code> 即可调出。</p>
+    <ul>
+      <li>可以直接操作 Codex 里的内置浏览器功能</li>
+      <li>适合做：网页查看和交互</li>
+      <li>可以帮你：直接看浏览器里的网页内容并进行交互</li>
+      <li>可以帮你：直接点击按钮、输入内容、截屏、切换网页等</li>
+    </ul>
+
+    <h4>实际案例：采集小红书选题</h4>
+    <p><b>目标</b>：从小红书博主"小王 AI 课"的主页找到最近 50 条选题用于分析。</p>
+
+    <table>
+      <tr><th>步骤</th><th>操作</th><th>耗时</th></tr>
+      <tr><td>1</td><td>告诉 Codex"打开小红书"</td><td>约 3 分钟</td></tr>
+      <tr><td>2</td><td>发需求"了解普通人玩 AI 的真实需求"</td><td>--</td></tr>
+      <tr><td>3</td><td>Codex 在小红书内搜索"小白 AI 怎么样"</td><td>--</td></tr>
+      <tr><td>4</td><td>要求"找到最近 50 条选题"</td><td>--</td></tr>
+      <tr><td>5</td><td>Codex 整理输出 50 条选题列表</td><td>--</td></tr>
+      <tr><td><b>总计</b></td><td></td><td><b>约 10 分钟</b></td></tr>
+    </table>
+
+    <h4>⚠️ 重要安全警告：慎用自动化发布</h4>
+
+    <table>
+      <tr><th>可以做（低风险）</th><th>不建议做（高风险）</th></tr>
+      <tr><td>低频搜索功能</td><td>批量发布小红书帖子</td></tr>
+      <tr><td>查看和分析内容</td><td>高频操作（如一天发 10 条、8 条）</td></tr>
+      <tr><td>调研资料</td><td>任何违反小红书安全规定的操作</td></tr>
+      <tr><td>低频率的自动化工作</td><td></td></tr>
+    </table>
+
+    <div class="tip">
+      <b>⚠️ 风险原因</b>：小红书对爬虫和自动化工具的限制非常严格，高频操作会被认定为违反安全规定，可能导致账号被封禁。<b>低频搜索目前问题不大</b>。
+    </div>
+  </div>
+
+  <!-- 第 19 课 -->
+  <div class="card" id="l19">
+    <h3>📘 第 19 课：Codex + 得到 —— 让得到老师成为我的大脑 <span class="tag">知识沉淀</span></h3>
+
+    <h4>核心价值</h4>
+    <div class="key">
+      <b>"以后的写作和短视频创作，不是让 AI 泛泛地帮你写，而是先提炼得到老师们已有的观点和表述方式。"</b>作者评价其价值为"<b>10 万块钱不止</b>"。
+    </div>
+
+    <h4>具体技术方案</h4>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c"><b>截图得到 Live Home</b>（回看列表页面）</div></div>
+      <div class="step"><span class="s">2</span><div class="c"><b>将截图发给 Codex</b></div></div>
+      <div class="step"><span class="s">3</span><div class="c"><b>配合提示词指令让 Codex 执行任务</b></div></div>
+    </div>
+
+    <h4>关键策略：从单个视频入手而非批量处理</h4>
+    <ul>
+      <li>作者明确建议先不要让 Codex 直接把 1558 个视频全部导入</li>
+      <li>策略是先让它从<b>最近的一个视频入手</b>，逐步扩展</li>
+      <li>理由：逐个解决更实际，一次性全部导入"不切实际"</li>
+    </ul>
+
+    <h4>技术障碍与解决方案</h4>
+    <ul>
+      <li><b>问题</b>：Codex 无法直接下载得到视频，因为得到 App 有加密保护</li>
+      <li><b>解决方案</b>：采用<b>录屏/录音</b>方式 —— 主动录制播放的视频音频，而非爬取下载</li>
+      <li><b>法律考量</b>：这是"合法的方式"，录音而非爬取</li>
+      <li><b>后续处理</b>：录音完成后，再由 AI 转写成逐字稿</li>
+    </ul>
+
+    <h4>成本与效率实测</h4>
+    <table>
+      <tr><th>项目</th><th>数据</th></tr>
+      <tr><td>测试期间运行花费</td><td>约 85 元人民币（从早晨到录制时）</td></tr>
+      <tr><td>中转站每日限额</td><td>约 150 元</td></tr>
+      <tr><td>第一次运行耗时</td><td>较长，因为 Codex 正在"探索"和"训练"</td></tr>
+    </table>
+
+    <div class="note">
+      <b>📌 作者核心观点</b>：<br>
+      • 知识库搭建方法论：用 Codex 把得到的内容变成自己的大脑<br>
+      • 务实态度：不追求一键魔法解决方案，承认需要逐步迭代<br>
+      • 开放精神：将自己正在跑的工作流"毫不掩饰地开源出来"
+    </div>
+  </div>
+</section>
+
+<!-- ============ 阶段6：综合案例 ============ -->
+<section class="stage stage-6" id="s6">
+  <h2><span class="num">6</span> 第六阶段 · 综合案例（1 课含上下）</h2>
+  <p class="stage-sub">这一阶段的目的是：把前面所有知识融会贯通，理解 AI 时代"<b>被 AI 推荐</b>"的底层逻辑。</p>
+
+  <!-- 第 20 课 -->
+  <div class="card" id="l20">
+    <h3>📘 第 20 课：GEO 医美豆包搜索案例拆解（上下集） <span class="tag">GEO 方法论</span></h3>
+
+    <h4>什么是 GEO</h4>
+    <p><b>GEO（Generative Engine Optimization，生成引擎优化）</b>是面向 AI 搜索引擎（而非传统搜索引擎）的内容优化策略，本质是通过影响 AI 的语料来源来影响搜索排名。</p>
+
+    <div class="key">
+      <b>🎯 核心态度</b>：如果预算不充足，应该先理解 GEO 的底层概念然后手动操作。只有年营收达到几个亿级别时，才值得花十几万、二十几万购买 GEO SaaS 专业服务。
+    </div>
+
+    <h4>豆包搜索结果结构分析</h4>
+    <p>模拟搜索"北京热玛吉机构推荐"后，豆包给出结构化推荐结果：<b>公立三甲和私立精品两个类别，总共六个推荐位置</b>。</p>
+    <ul>
+      <li><b>公立三甲</b>：北京大学第三医院、中国医学科学院（八大处）、北京协和医院 —— "地位似乎无法撼动"</li>
+      <li><b>私立精品</b>：北京美天医疗美容、华晨医美、伊美尔 —— <span class="kw5">这才是"动脑筋的地方"</span></li>
+    </ul>
+
+    <p>搜索结果仅参考 <b>10 篇文章</b>，10 个参考位置极其珍贵。</p>
+
+    <h4>案例一：三九健康网陈丽娟院长文章</h4>
+    <p><b>标题精准度分析</b>：标题"北京热玛吉排名前十的医院"极其精准，四个关键词全部命中。<b>豆包搜索出的标题实质上就是用户问题的"翻译版本"</b>。</p>
+    <p><b>发布者身份分析</b>：陈丽娟的"院长"头衔是 AI 判断内容权威性的关键信号。</p>
+    <div class="note">
+      <b>逻辑链条</b>：AI 面对海量网络信息 → 无法逐一核实每条信息的真实来源 → 只能依赖<b>标题/头衔/Tag 等显性信号</b>做判断 → "院长"头衔暗示专业背景 → 内容被赋予高可靠性。
+    </div>
+
+    <h4>案例二：红商网文章与"<b>交叉验证</b>"机制（全文最核心发现）</h4>
+
+    <p><b>时效性原理</b>：标题中"2026 年"非常关键 —— 所有被收录的文章都没有超过一个月。<b>"豆包的潜台词是搜索出来的内容全部都是相对实时的，要么本周，要么本月。不可能把一年前的东西推荐出来。"</b></p>
+
+    <p><b>"交叉验证"机制</b>：</p>
+    <div class="steps">
+      <div class="step"><span class="s">1</span><div class="c">文章 A 将"北京大学第三医院整形外科"排名第一</div></div>
+      <div class="step"><span class="s">2</span><div class="c">文章 B 也将同一机构排名第一</div></div>
+      <div class="step"><span class="s">3</span><div class="c">多篇文章在同一机构上形成<b>共识</b> → 豆包将其视为"<b>被多方验证的事实</b>" → AI 以最高置信度输出</div></div>
+    </div>
+    <p><b>反面案例</b>：某机构在单篇文章中排名第二，但其他 9 篇均未提及 → 缺乏交叉验证 → 被豆包 pass 掉。</p>
+
+    <h4>案例三：搜狐网文章</h4>
+    <p>验证了同一套逻辑：精准标题 + 时效性控制 + 权威引用 + 结构化内容 + 交叉验证协同。以"美天医疗"为成功案例 —— 红商网（结构化详细展开）+ 搜狐网（排名第一）= <b>交叉验证成功</b> → 被豆包收录推荐。</p>
+
+    <h4>GEO 优化七大维度</h4>
+    <table>
+      <tr><th>#</th><th>维度</th><th>核心要点</th></tr>
+      <tr><td>1</td><td><b>平台维度</b></td><td>垂类平台优先，老牌机构平台次之，自媒体平台补充</td></tr>
+      <tr><td>2</td><td><b>标题维度</b></td><td>必须有精确结构，包含用户搜索关键词（如地区+项目+排名/推荐）</td></tr>
+      <tr><td>3</td><td><b>时间维度</b></td><td>发布时间在最近一个月内，最好是本周。AI 偏好实时/近期内容</td></tr>
+      <tr><td>4</td><td><b>内容结构化</b></td><td>文章内容有清晰结构，便于 AI 读取和理解</td></tr>
+      <tr><td>5</td><td><b>权威引用</b></td><td>内容中引用权威机构的数据/报告（如白皮书、官方公布）</td></tr>
+      <tr><td>6</td><td><b>渠道类型</b></td><td>找垂类平台、老牌机构平台、自媒体平台多渠道发布，形成矩阵覆盖</td></tr>
+      <tr><td>7</td><td><b>发布者身份（Title）</b></td><td>院长、主任医师等高级 title 能显著提高 AI 对内容权威性的认可。<b>AI 相信 title</b></td></tr>
+    </table>
+
+    <h4>关键数据总结</h4>
+    <div class="key">
+      • 豆包单次结果参考 <b>10 篇文章</b><br>
+      • 仅 <b>6 个推荐位置</b>（公立三甲 3 个 + 私立精品 3 个）<br>
+      • 内容时效不超过 <b>1 个月，最好 1 周内</b><br>
+      • 需要至少 <b>2 篇文章在不同平台的交叉验证</b>
+    </div>
+
+    <h4>可迁移性</h4>
+    <div class="note">
+      <b>本方法论不限于医美行业</b>。任何行业的从业者可通过搜索自己行业的关键词（如"北京水光针""上海牙齿矫正"），参照七大维度反向分析当前的搜索结果来源，然后制定自己的 GEO 优化策略。
+    </div>
+
+    <h4>七大维度提示词模板</h4>
+    <pre><code>我在[城市]做[行业/项目]，请帮我搜索"[城市] [项目] 推荐/排名"
+等关键词，分析豆包/文心一言/通义千问等AI搜索的前10条结果，
+按照GEO七大维度（平台、标题、时间、内容、权威、渠道、身份）
+告诉我当前竞争格局，我应该在哪几个维度发力。</code></pre>
+  </div>
+</section>
+
+<!-- ============ 附录：高频术语 / 提示词库 / 路线图 / FAQ ============ -->
+<section class="stage" id="faq">
+  <h2><span class="num">📚</span> 附录 · 速查手册</h2>
+  <p class="stage-sub">所有课讲完后，请把这一章加到收藏夹 —— 平时查一查能省你 1 小时。</p>
+
+  <!-- 高频术语 -->
+  <div class="card">
+    <h3>📖 高频术语索引</h3>
+    <table>
+      <tr><th>术语</th><th>定义</th><th>出处</th></tr>
+      <tr><td><b>Codex</b></td><td>OpenAI 出品的 AI 智能体工具/IDE，是本课程的核心平台</td><td>全部</td></tr>
+      <tr><td><b>Skill / 技能</b></td><td>Codex 中可复用的自动化工作流程（SOP），支持内置、GitHub 下载、自定义创建</td><td>第 6/7/17 课</td></tr>
+      <tr><td><b>MCP</b></td><td>Model Context Protocol，Codex 连接外部工具和服务的协议，如 chrome-devtools</td><td>第 3/5 课</td></tr>
+      <tr><td><b>Obsidian</b></td><td>本地 Markdown 知识库软件，AI 友好的个人知识管理工具</td><td>第 9/14 课</td></tr>
+      <tr><td><b>Hermes Agent</b></td><td>开源智能体中间层，连接终端（微信/飞书）和底层大模型</td><td>第 10/11 课</td></tr>
+      <tr><td><b>API 中转站</b></td><td>第三方 API 服务商，绕过 OpenAI 官方订阅的门槛（梯子/国外卡/手机号）</td><td>第 1/10/12 课</td></tr>
+      <tr><td><b>API Key</b></td><td>调用大模型 API 所需的密钥，创建后仅显示一次</td><td>第 1/10/12/15 课</td></tr>
+      <tr><td><b>Base URL</b></td><td>API 接口的基础地址，DeepSeek 配置时需选择 OpenAI 协议版本</td><td>第 1/12 课</td></tr>
+      <tr><td><b>Star / 星数</b></td><td>GitHub 项目的"点赞"数，用于判断项目受欢迎程度和安全可信度</td><td>第 7/8 课</td></tr>
+      <tr><td><b>蒸馏</b></td><td>从名人公开资料中提炼思维方式，封装为可调用的 AI 思维顾问</td><td>第 7 课</td></tr>
+      <tr><td><b>Cloudflare</b></td><td>全球网站基础设施平台，Codex 可通过其 Skill 实现网站一键上线</td><td>第 16 课</td></tr>
+      <tr><td><b>Hyperform</b></td><td>Codex 的视频生成插件，以 HTML/CSS/JS 驱动视频制作</td><td>第 14 课</td></tr>
+      <tr><td><b>CloudBot</b></td><td>微信内置插件，用于连接 Hermes Agent</td><td>第 10 课</td></tr>
+      <tr><td><b>GEO</b></td><td>Generative Engine Optimization，面向 AI 搜索引擎的内容优化策略</td><td>第 20 课</td></tr>
+      <tr><td><b>交叉验证</b></td><td>GEO 核心机制：多篇文章在不同平台对同一对象形成共识</td><td>第 20 课</td></tr>
+      <tr><td><b>上下文 Context</b></td><td>个人历史内容（视频/文章/音频），作为 AI 协作时的"认知锚点"</td><td>第 9/14 课</td></tr>
+      <tr><td><b>Token</b></td><td>AI 模型的计费单位，也是 AI 算力消耗的度量</td><td>第 14 课</td></tr>
+      <tr><td><b>完全访问权限</b></td><td>Codex 的权限模式，允许 AI 自由操控整个电脑，便捷但有安全风险</td><td>第 3/6 课</td></tr>
+      <tr><td><b>计划模式 Plan</b></td><td>Codex 的行为模式，先规划再执行</td><td>第 5/13 课</td></tr>
+      <tr><td><b>目标模式 Goal</b></td><td>Codex 的行为模式，"需求推土机"，自动持续完成目标</td><td>第 5 课</td></tr>
+      <tr><td><b>config.TOML</b></td><td>Codex 配置文件路径 <code>C:\Users\[用户名]\.codex\config.TOML</code></td><td>第 1 课</td></tr>
+      <tr><td><b>自定义命令 Custom Commands</b></td><td>Codex 的"灵魂"设定，相当于自定义 System Prompt</td><td>第 3 课</td></tr>
+    </table>
+  </div>
+
+  <!-- 万能提示词库 -->
+  <div class="card">
+    <h3>💬 万能提示词模板库（复制即用）</h3>
+
+    <h4>1. 不懂就问</h4>
+    <pre><code>这是啥？有什么用？怎么用？</code></pre>
+
+    <h4>2. 自制 Skill 的标准三步</h4>
+    <pre><code>① 我想让你做一个工作流程。我每次会给你发布一个[原始素材类型]，
+   请把它处理成[目标产出]。
+
+② [测试数据]
+
+③ 谢谢你，把刚才跑通的流程沉淀为一个 Skill。</code></pre>
+
+    <h4>3. 让 AI 对抗 AI（排错）</h4>
+    <pre><code>[附报错截图]
+这是什么错误？怎么修？</code></pre>
+
+    <h4>4. 知识库导入</h4>
+    <pre><code>这是我[平台]的主页截图。请把所有内容提取出来，存到我的
+Obsidian 知识库里（路径是[绝对路径]）。</code></pre>
+
+    <h4>5. 借鉴优于原创（PUA 策略）</h4>
+    <pre><code>我希望这个页面去借鉴世界上最优秀的[类型]网站的设计，
+不要自己凭空想象。请参考：[链接1][链接2]</code></pre>
+
+    <h4>6. 客户采集万能模板</h4>
+    <pre><code>帮我在[平台]找[行业]的客户，在评论区筛选[N]个潜在客户。
+把客户的[链接]、[评论]、[来源视频]写入到 Excel 表格里面。
+我直接打开 Excel 就能点击链接进入对方主页，我自己主动去
+给他发[优惠/消息]。</code></pre>
+
+    <h4>7. PPT 三件套启动</h4>
+    <pre><code>我想用 Codex + Imagine 2 + Presentation 三件套做一个 PPT。
+主题是：[你的主题]
+页数：[N] 页
+请先进入 Plan 模式跟我确认大纲。</code></pre>
+
+    <h4>8. GEO 反向分析</h4>
+    <pre><code>我在[城市]做[行业/项目]，请帮我搜索"[城市] [项目] 推荐"
+等关键词，分析豆包/文心一言 AI 搜索的前 10 条结果，按照
+GEO 七大维度（平台、标题、时间、内容、权威、渠道、身份）
+告诉我当前竞争格局。</code></pre>
+  </div>
+
+  <!-- 全课最重要的 20 个要点 -->
+  <div class="card">
+    <h3>🏆 全课程最重要的 20 个关键要点</h3>
+    <ol>
+      <li><b>API 中转站</b>是零门槛入门的关键：不需要梯子、不需要国外信用卡/手机号</li>
+      <li><b>Skill 的本质是 SOP</b>：将可复用的工作流程固化为"技能"</li>
+      <li>"<b>先跑通再沉淀</b>"是制作 Skill 的唯一正确方法</li>
+      <li>"<b>不懂就问 AI</b>"是贯穿全课程的核心方法论</li>
+      <li>"<b>让 AI 对抗 AI</b>"是排错的最佳策略</li>
+      <li><b>记忆功能仅在当前线程有效</b>：经实测验证，不要误以为有全局长期记忆</li>
+      <li><b>上下文积累是 AI 时代的核心竞争力</b>：谁积累足够的上下文，谁就能产生更精准的答案</li>
+      <li><b>Obsidian 不是给人看的，是给 AI 看的</b>：笔记让 AI 帮你读</li>
+      <li><b>权限管理是安全的底线</b>：默认权限限制写入，完全访问权限便捷但有风险</li>
+      <li><b>GitHub 是"打开新世界"的钥匙</b>：不仅是代码托管平台，更是攻略/软件/项目的宝库</li>
+      <li><b>Star 数量是 GitHub 项目可信度的重要参考</b>：万级相对安全，个位数有风险</li>
+      <li><b>"借鉴优于原创"</b>是 AI 内容创作的核心策略</li>
+      <li><b>Plan 模式</b>是复杂任务的安全网：先规划再执行</li>
+      <li><b>GEO 交叉验证</b>是 AI 搜索排名的核心机制</li>
+      <li><b>标题必须精确包含搜索关键词</b>：AI 不看粉丝量、不看阅读量，只看标题</li>
+      <li><b>发布者身份对 AI 判断的影响远超预期</b>："院长"头衔比"普通作者"更易被采信</li>
+      <li><b>时效性是 AI 搜索的硬门槛</b>：超过一个月的内容几乎不会被采纳</li>
+      <li><b>Windows 可以用但 Mac 更适合 AI 工作流</b></li>
+      <li><b>token 消耗是投资而非消费</b>：趁着算力便宜大量使用</li>
+      <li><b>平台安全边界必须遵守</b>：能做搜索分析，不能做批量发布/高频操作</li>
+    </ol>
+  </div>
+
+  <!-- 常见问题 FAQ -->
+  <div class="card">
+    <h3>❓ 常见问题 FAQ</h3>
+
+    <details>
+      <summary>Q1：Codex 一定要梯子才能用吗？</summary>
+      <p><b>A</b>：不一定要。用 API 中转站方案完全不需要梯子（详见第 1 课）。只有"设置成中文版"和"官方订阅"才需要梯子。</p>
+    </details>
+
+    <details>
+      <summary>Q2：Codex 的记忆功能能跨对话记住我吗？</summary>
+      <p><b>A</b>：<b>不能</b>。实测结论：记忆仅在当前会话（线程）内部有效，跨对话无效（详见第 5 课）。需要长期记忆请用 Obsidian 知识库。</p>
+    </details>
+
+    <details>
+      <summary>Q3：我不会写代码，能用 Codex 吗？</summary>
+      <p><b>A</b>：完全可以。本课程的所有案例都不需要写代码 —— 用大白话告诉 Codex 你的需求即可。</p>
+    </details>
+
+    <details>
+      <summary>Q4：Codex + DeepSeek 和 GPT 5.5 哪个好？</summary>
+      <p><b>A</b>：讲师毫不犹豫选择 GPT 5.5。DeepSeek 便宜但不是多模态（无法识别图片），适合作为成本/风险备选（详见第 12 课）。</p>
+    </details>
+
+    <details>
+      <summary>Q5：Windows 还是 Mac？</summary>
+      <p><b>A</b>：Mac 更丝滑（编码识别、命令兼容性），Windows 也能跑通但更折腾（详见第 14 课）。建议有条件上 Mac。</p>
+    </details>
+
+    <details>
+      <summary>Q6：Codex 安全吗？我应该开"完全访问权限"吗？</summary>
+      <p><b>A</b>：默认权限更安全（限制写入）。完全访问权限便捷但 Codex 可能读取到敏感信息。建议普通用户保持默认。</p>
+    </details>
+
+    <details>
+      <summary>Q7：做 Skill 一定要先懂代码吗？</summary>
+      <p><b>A</b>：不需要。"先在对话中跑通流程 → 说一句话'沉淀为技能'"即可（详见第 6 课）。</p>
+    </details>
+
+    <details>
+      <summary>Q8：抖音/小红书能自动发布吗？</summary>
+      <p><b>A</b>：<b>不能也不建议</b>。这些平台对自动化操作限制严格，违规会被封号。Codex 只能做"低频搜索 + 数据采集"，最后一步人工操作（详见第 17/18 课）。</p>
+    </details>
+
+    <details>
+      <summary>Q9：公众号能自动发布吗？</summary>
+      <p><b>A</b>：<b>可以</b>。微信公众号官方提供 API 接口，可通过 Codex 调用自动发布到草稿箱，最后手动点发表（详见第 15 课）。</p>
+    </details>
+
+    <details>
+      <summary>Q10：什么是 GEO？我也能做吗？</summary>
+      <p><b>A</b>：GEO（生成引擎优化）是面向 AI 搜索的内容优化策略，本质是影响 AI 的语料来源。任何行业的从业者都可参照七大维度做（详见第 20 课）。</p>
+    </details>
+
+    <details>
+      <summary>Q11：怎么获取 Codex 的最新资讯？</summary>
+      <p><b>A</b>：<br>
+      ① 关注 OpenAI 官方公告<br>
+      ② 关注中转站公告<br>
+      ③ 让 Codex 自己告诉你：直接问"<b>Codex 最近有什么新功能？</b>"<br>
+      ④ 用 context7 MCP 拉取最新文档</p>
+    </details>
+
+    <details>
+      <summary>Q12：token 太贵怎么办？</summary>
+      <p><b>A</b>：讲师建议每月 100 元，每天消耗大量 token 练习肌肉记忆。如果觉得贵，可以用 DeepSeek 方案（月 30 元），但功能会受限。</p>
+    </details>
+
+    <details>
+      <summary>Q13：学习中遇到报错怎么办？</summary>
+      <p><b>A</b>：<b>让 AI 对抗 AI</b> —— 把报错截图发给 Codex，让它自己修（详见第 10 课排错思路）。</p>
+    </details>
+  </div>
+
+  <!-- 学习路线图 -->
+  <div class="card">
+    <h3>🗺️ 学习路线图（小白 → 精通）</h3>
+    <div class="flow">
+      <span class="node">① 速通：第 1+2+4 课</span>
+      <span class="arr">→</span>
+      <span class="node">② 配置：第 3+5 课</span>
+      <span class="arr">→</span>
+      <span class="node">③ 能力：第 6+7 课</span>
+      <span class="arr">→</span>
+      <span class="node">④ 扩展：第 8+9+10/11+12 课</span>
+      <span class="arr">→</span>
+      <span class="node">⑤ 创作：第 13+14+15+16 课</span>
+      <span class="arr">→</span>
+      <span class="node">⑥ 采集：第 17+18+19 课</span>
+      <span class="arr">→</span>
+      <span class="node">⑦ 案例：第 20 课</span>
+      <span class="arr">→</span>
+      <span class="node">精通高手 🎓</span>
+    </div>
+
+    <div class="key">
+      <b>🎯 终极目标</b>：从"会用 Codex"升级到"用 Codex 构建可被 AI 放大的生产系统"（Codex 提炼的核心思想）。
+    </div>
+  </div>
+</section>
+
+<footer>
+  📘 Codex 进阶实战课 · 全套知识体系 · 由 Professor Synapse 团队汇编<br>
+  📅 2026-08-02 · 基于 22 节单篇深度总结 + 终极总结 · 浅色系 · 双指放大 · WPS/微信兼容<br>
+  <span style="color:#94a3b8;">© 小王 AI 课系列 · 全部内容仅供学习</span>
+</footer>
+
+</body>
+</html>
