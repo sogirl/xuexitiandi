@@ -1,0 +1,3243 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, minimum-scale=1.0, user-scalable=yes, viewport-fit=cover">
+    <meta name="format-detection" content="telephone=no, email=no">
+    <meta name="theme-color" content="#fafafa">
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>靳良雄股票系统课 · 22节完整学习手册</title>
+    <style>
+/* === 全局样式 === */
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', 'Helvetica Neue', sans-serif;
+    font-size: 17px;
+    line-height: 1.9;
+    color: #2c3e50;
+    background: #f5f6fa;
+    letter-spacing: 0.02em;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    word-wrap: break-word;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* === CSS 变量 === */
+:root {
+    --primary: #2563eb;
+    --primary-dark: #1e40af;
+    --primary-light: #3b82f6;
+    --bg-page: #f5f6fa;
+    --bg-card: #ffffff;
+    --bg-soft: #eff6ff;
+    --bg-softer: #f8fafd;
+    --text-main: #2c3e50;
+    --text-sub: #475569;
+    --text-muted: #94a3b8;
+    --line: #e8ecf1;
+    --warn: #dc2626;
+    --warn-bg: #fef2f2;
+    --warn-orange: #ea580c;
+    --warn-orange-bg: #fff7ed;
+    --success: #16a34a;
+    --success-bg: #f0fdf4;
+    --purple: #7c3aed;
+    --purple-bg: #f5f3ff;
+}
+
+/* === 标题美学 === */
+h1 {
+    font-size: 28px;
+    margin: 0;
+    padding: 24px 20px;
+    color: #ffffff;
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #6366f1 100%);
+    border-radius: 16px;
+    text-align: center;
+    letter-spacing: 0.04em;
+    line-height: 1.4;
+}
+
+h2 {
+    font-size: 22px;
+    margin: 1.2em 0 0.6em;
+    padding-left: 16px;
+    border-left: 5px solid #2563eb;
+    color: #1e40af;
+    line-height: 1.5;
+}
+
+h3 {
+    font-size: 18px;
+    margin: 1em 0 0.5em;
+    color: #1e40af;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #eef0f5;
+}
+
+h4 {
+    font-size: 16px;
+    margin: 0.8em 0 0.4em;
+    padding-left: 12px;
+    color: #1e40af;
+    position: relative;
+}
+h4::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 6px;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #2563eb;
+}
+
+h5 {
+    font-size: 15px;
+    margin: 0.6em 0 0.3em;
+    background: #eff6ff;
+    padding: 6px 12px;
+    border-radius: 6px;
+    color: #1e40af;
+    display: inline-block;
+}
+
+p { margin: 0.6em 0; }
+a { color: #2563eb; text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+/* === 卡片系统 === */
+section.lesson, .lesson {
+    background: #ffffff;
+    border-radius: 16px;
+    padding: 36px 40px;
+    margin: 24px auto;
+    max-width: 860px;
+    box-shadow: 0 2px 16px rgba(0,0,0,0.06);
+    border: 1px solid #eef0f5;
+}
+
+section.lesson h2 {
+    margin-top: 0;
+}
+
+/* === 知识卡片组件 === */
+.kbox, .kbox-primary {
+    background: #eff6ff;
+    border-left: 5px solid #2563eb;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 8px;
+    line-height: 1.8;
+}
+
+.kbox-warn {
+    background: #fff7ed;
+    border-left: 5px solid #ea580c;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 8px;
+    line-height: 1.8;
+}
+
+.kbox-danger {
+    background: #fef2f2;
+    border-left: 5px solid #dc2626;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 8px;
+    line-height: 1.8;
+}
+
+.kbox-tip {
+    background: #f0fdf4;
+    border-left: 5px solid #16a34a;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 8px;
+    line-height: 1.8;
+}
+
+.kbox-idea {
+    background: #f5f3ff;
+    border-left: 5px solid #7c3aed;
+    padding: 14px 18px;
+    margin: 16px 0;
+    border-radius: 8px;
+    line-height: 1.8;
+}
+
+/* === 表格美学 === */
+table {
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+    margin: 16px 0;
+    font-size: 14px;
+}
+thead th {
+    background: #2563eb;
+    color: #fff;
+    font-weight: 600;
+    padding: 14px 16px;
+    text-align: left;
+}
+tbody td {
+    padding: 12px 16px;
+    border-bottom: 1px solid #f0f0f5;
+    vertical-align: top;
+}
+tbody tr:nth-child(even) { background: #fafbfc; }
+tbody tr:hover { background: #eef2ff; }
+.table-wrap { overflow-x: auto; -webkit-overflow-scrolling: touch; }
+
+/* === SVG思维导图 === */
+.svg-mindmap {
+    width: 100%;
+    max-width: 100%;
+    overflow: auto;
+    -webkit-overflow-scrolling: touch;
+    touch-action: manipulation;
+    background: #ffffff;
+    border: 1px solid #eef0f5;
+    border-radius: 12px;
+    padding: 16px;
+    margin: 16px 0;
+}
+.svg-mindmap svg { display: block; width: 100%; height: auto; max-width: 100%; }
+
+/* === 测验美化 === */
+.quiz {
+    background: #f8fafd;
+    border: 2px solid #e2e8f0;
+    border-radius: 14px;
+    padding: 20px 24px;
+    margin: 20px 0;
+    line-height: 1.8;
+}
+.quiz details {
+    margin: 8px 0;
+    padding: 10px 14px;
+    background: #fff;
+    border-radius: 8px;
+    border: 1px solid #e8ecf1;
+}
+.quiz summary {
+    color: #2563eb;
+    font-weight: 600;
+    cursor: pointer;
+    padding: 4px 0;
+}
+
+/* === case 案例 === */
+.case {
+    background: #f8fafc;
+    border: 1px solid #e8ecf1;
+    border-radius: 10px;
+    padding: 16px 20px;
+    margin: 16px 0;
+}
+.case h4 { color: #ea580c; margin-bottom: 8px; }
+
+/* === fold details === */
+details.fold {
+    background: #ffffff;
+    border: 1px solid #e8ecf1;
+    border-radius: 10px;
+    padding: 10px 16px;
+    margin: 12px 0;
+}
+details.fold > summary { font-weight: bold; cursor: pointer; color: #1e40af; }
+
+/* === 口诀网格 === */
+.mnemonic-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 12px;
+    margin: 20px 0;
+}
+.mnemonic {
+    background: #eff6ff;
+    border: 1px solid #dbeafe;
+    border-radius: 10px;
+    padding: 12px 14px;
+    font-size: 14px;
+    position: relative;
+    transition: transform 0.15s, box-shadow 0.15s;
+}
+.mnemonic:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(37,99,235,0.1);
+}
+.mnemonic .num {
+    display: inline-block;
+    background: #2563eb;
+    color: #fff;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    font-size: 12px;
+    text-align: center;
+    line-height: 24px;
+    font-weight: bold;
+    margin-right: 8px;
+}
+.mnemonic .ref { color: #94a3b8; font-size: 11px; display: block; margin-top: 6px; }
+
+/* === 风险条 === */
+.risk-bar {
+    background: linear-gradient(90deg, #dc2626, #ea580c);
+    color: #fff;
+    padding: 12px 20px;
+    text-align: center;
+    font-size: 14px;
+    font-weight: 600;
+    letter-spacing: 0.04em;
+}
+
+/* === 导航条美化 === */
+header.hero {
+    background: linear-gradient(135deg, #1e40af 0%, #3b82f6 50%, #6366f1 100%);
+    padding: 32px 20px;
+    text-align: center;
+    color: #ffffff;
+}
+header.hero h1 {
+    font-size: 28px;
+    color: #ffffff;
+    margin: 0 0 10px 0;
+    background: none;
+    padding: 0;
+}
+header.hero .sub {
+    color: rgba(255,255,255,0.9);
+    margin: 0;
+    font-size: 15px;
+    letter-spacing: 0.03em;
+}
+
+/* === 阶段导航 === */
+.stage-nav {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    justify-content: center;
+    background: #ffffff;
+    padding: 14px 12px;
+    border-bottom: 2px solid #eef0f5;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 1px 8px rgba(0,0,0,0.04);
+}
+.stage-nav a {
+    flex: 1 1 auto;
+    max-width: 200px;
+    text-align: center;
+    padding: 10px 14px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.02em;
+    transition: all 0.2s;
+}
+.stage-nav a:nth-child(1) { background: #eff6ff; color: #2563eb; border: 1px solid #dbeafe; }
+.stage-nav a:nth-child(2) { background: #ecfeff; color: #0891b2; border: 1px solid #cffafe; }
+.stage-nav a:nth-child(3) { background: #f5f3ff; color: #7c3aed; border: 1px solid #ede9fe; }
+.stage-nav a:nth-child(4) { background: #fff7ed; color: #ea580c; border: 1px solid #ffedd5; }
+.stage-nav a:nth-child(5) { background: #f0fdf4; color: #16a34a; border: 1px solid #dcfce7; }
+.stage-nav a:nth-child(6),
+.stage-nav a:nth-child(7),
+.stage-nav a:nth-child(8),
+.stage-nav a:nth-child(9) { background: #f8fafc; color: #64748b; border: 1px solid #e8ecf1; }
+.stage-nav a:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 4px 12px rgba(37,99,235,0.15);
+}
+
+/* === 侧边目录（隐藏） === */
+aside.toc {
+    position: fixed;
+    right: 12px;
+    top: 140px;
+    width: 170px;
+    background: #ffffff;
+    border: 1px solid #eef0f5;
+    border-radius: 12px;
+    padding: 12px 14px;
+    font-size: 12px;
+    max-height: 60vh;
+    overflow: auto;
+    display: none;
+    z-index: 99;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+}
+@media (min-width: 1100px) { aside.toc { display: block; } }
+aside.toc strong { display: block; color: #1e40af; margin-bottom: 8px; font-size: 14px; }
+aside.toc a {
+    display: block;
+    padding: 4px 0 4px 8px;
+    color: #475569;
+    text-decoration: none;
+    border-left: 3px solid transparent;
+    transition: all 0.15s;
+}
+aside.toc a:hover { color: #2563eb; background: #eff6ff; }
+aside.toc a.active { color: #2563eb; border-left-color: #2563eb; font-weight: bold; background: #eff6ff; }
+
+/* === 底部声明 === */
+footer.disclaim {
+    text-align: center;
+    padding: 40px 20px;
+    color: #94a3b8;
+    font-size: 13px;
+    line-height: 2;
+    border-top: 2px solid #e8ecf1;
+    margin-top: 60px;
+    background: #ffffff;
+}
+
+/* === blockquote === */
+blockquote {
+    border-left: 4px solid #2563eb;
+    background: #eff6ff;
+    padding: 12px 18px;
+    margin: 16px 0;
+    border-radius: 0 8px 8px 0;
+    color: #1e40af;
+    font-style: italic;
+}
+
+/* === hr === */
+hr {
+    border: none;
+    border-top: 2px solid #eef0f5;
+    margin: 24px 0;
+}
+
+/* === 响应式 === */
+@media (max-width: 768px) {
+    section.lesson, .lesson { padding: 20px 16px; margin: 12px 8px; border-radius: 12px; }
+    h2 { font-size: 20px; }
+    h3 { font-size: 17px; }
+    .quiz { padding: 14px 16px; }
+    table { font-size: 13px; }
+    thead th, tbody td { padding: 8px 10px; }
+    .stage-nav { gap: 4px; padding: 10px 6px; }
+    .stage-nav a { font-size: 11px; padding: 8px 8px; }
+    .mnemonic-grid { grid-template-columns: 1fr; }
+}
+
+@media screen and (max-width: 360px) {
+    body { font-size: 15px; }
+    h1 { font-size: 22px; }
+    h2 { font-size: 18px; }
+    section.lesson, .lesson { padding: 14px 12px; }
+}
+
+/* === 打印 === */
+@media print {
+    body { max-width: 210mm; margin: 0 auto; background: white; }
+    aside.toc, .stage-nav, .risk-bar { display: none; }
+    svg { page-break-inside: avoid; }
+    section.lesson { page-break-inside: avoid; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+    <div class="risk-bar">⚠ 本文档为学习笔记，不构成任何投资建议；股市有风险，入市需谨慎 ⚠</div>
+
+    <header class="hero">
+        <h1>靳良雄股票系统课 · 22节完整学习手册</h1>
+        <p class="sub">CBN+++ 三大盈利模式 · 八大维度 · 六大预判 · 22节闭环</p>
+    </header>
+
+    <nav class="stage-nav">
+        <a href="#stage1">阶段1·基础认知</a>
+        <a href="#stage2">阶段2·技术深化</a>
+        <a href="#stage3">阶段3·战法学习</a>
+        <a href="#stage4">阶段4·宏观与操作</a>
+        <a href="#stage5">阶段5·融合实战</a>
+        <a href="#map">主图谱</a>
+        <a href="#8dim">8大维度</a>
+        <a href="#mnemonics">32口诀</a>
+        <a href="#appendix">附录</a>
+    </nav>
+
+    <aside class="toc" id="toc">
+        <strong>22节速览</strong>
+        <a href="#L01">01 CBN+++总纲</a>
+        <a href="#L02">02 战法哲学</a>
+        <a href="#L03">03 政策与大盘</a>
+        <a href="#L04">04 八大维度</a>
+        <a href="#L05">05 资金与量能</a>
+        <a href="#L06">06 分时均线</a>
+        <a href="#L07">07 成交量</a>
+        <a href="#L08">08 换手率</a>
+        <a href="#L09">09 结构级别</a>
+        <a href="#L10">10 板块轮动</a>
+        <a href="#L11">11 双K确认</a>
+        <a href="#L12">12 K线基础</a>
+        <a href="#L13">13 99战法</a>
+        <a href="#L14">14 战法应用</a>
+        <a href="#L15">15 969战法</a>
+        <a href="#L16">16 龙头识别</a>
+        <a href="#L17">17 96战法</a>
+        <a href="#L18">18 仓位管理</a>
+        <a href="#L19">19 风控铁律</a>
+        <a href="#L20">20 黑嘴识别</a>
+        <a href="#L21">21 五秒看盘</a>
+        <a href="#L22">22 高阶实战</a>
+    </aside>
+
+    <main>
+        <!-- 主图谱 -->
+        <section class="lesson" id="map">
+            <h2>🗺 22节主图谱（点击展开）</h2>
+            <details>
+                <summary>展开22节 · 三大盈利模式 · 九大战法全景</summary>
+                <div class="svg-mindmap">
+<svg viewBox="0 0 870 620" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif; touch-action:manipulation;">
+  <path d="M 260,307 H 275 V 110 H 290" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 260,307 H 275 V 310 H 290" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 260,307 H 275 V 500 H 290" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 410,110 H 425 V 50  H 440" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 410,110 H 425 V 110 H 440" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 410,110 H 425 V 170 H 440" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 410,310 H 425 V 250 H 440" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 410,310 H 425 V 310 H 440" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 410,310 H 425 V 370 H 440" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 410,500 H 425 V 440 H 440" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 410,500 H 425 V 500 H 440" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 410,500 H 425 V 560 H 440" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 620,50  H 635 V 50  H 650" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 620,110 H 635 V 110 H 650" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 620,170 H 635 V 170 H 650" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 620,250 H 635 V 250 H 650" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 620,310 H 635 V 310 H 650" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 620,370 H 635 V 370 H 650" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 620,440 H 635 V 440 H 650" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 620,500 H 635 V 500 H 650" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 620,560 H 635 V 560 H 650" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <rect x="20" y="282" width="240" height="50" rx="8" fill="#2563eb"/>
+  <text x="140" y="313" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold">靳良雄股票系统课22节</text>
+  <rect x="290" y="85"  width="120" height="50" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+  <text x="350" y="116" text-anchor="middle" fill="#1e40af" font-size="15" font-weight="bold">超短线</text>
+  <rect x="290" y="285" width="120" height="50" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+  <text x="350" y="316" text-anchor="middle" fill="#1e40af" font-size="15" font-weight="bold">大波段</text>
+  <rect x="290" y="475" width="120" height="50" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+  <text x="350" y="506" text-anchor="middle" fill="#1e40af" font-size="15" font-weight="bold">主升浪</text>
+  <rect x="440" y="25"  width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="530" y="56"  text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">99式·九龙飞天</text>
+  <rect x="440" y="85"  width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="530" y="116" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">969式·高空接力</text>
+  <rect x="440" y="145" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="530" y="176" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">96式·猛龙回头</text>
+  <rect x="440" y="225" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="530" y="256" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">N字形态战法</text>
+  <rect x="440" y="285" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="530" y="316" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">双响炮战法</text>
+  <rect x="440" y="345" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="530" y="376" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">平台突破战法</text>
+  <rect x="440" y="415" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="530" y="446" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">首次主升浪</text>
+  <rect x="440" y="475" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="530" y="506" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">二次主升浪</text>
+  <rect x="440" y="535" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="530" y="566" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">加速主升浪</text>
+  <rect x="650" y="25"  width="180" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="56" text-anchor="middle" fill="#000000" font-size="12">弱转强分时启动</text>
+  <rect x="650" y="85"  width="180" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="116" text-anchor="middle" fill="#000000" font-size="12">龙头放量接力</text>
+  <rect x="650" y="145" width="180" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="176" text-anchor="middle" fill="#000000" font-size="12">首阴缩量反包</text>
+  <rect x="650" y="225" width="180" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="256" text-anchor="middle" fill="#000000" font-size="12">回踩关键支撑位</text>
+  <rect x="650" y="285" width="180" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="316" text-anchor="middle" fill="#000000" font-size="12">放量突破再回踩</text>
+  <rect x="650" y="345" width="180" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="376" text-anchor="middle" fill="#000000" font-size="12">横盘蓄势待突破</text>
+  <rect x="650" y="415" width="180" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="446" text-anchor="middle" fill="#000000" font-size="12">底部放量启动</text>
+  <rect x="650" y="475" width="180" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="506" text-anchor="middle" fill="#000000" font-size="12">缩量回调后拉升</text>
+  <rect x="650" y="535" width="180" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="566" text-anchor="middle" fill="#000000" font-size="12">强者恒强接力</text>
+</svg>
+                </div>
+            </details>
+        </section>
+
+        <!-- 8大维度图谱 -->
+        <section class="lesson" id="8dim">
+            <h2>📊 8大维度 + 6大预判全景（点击展开）</h2>
+            <details>
+                <summary>展开八大维度与六大预判</summary>
+                <div class="svg-mindmap">
+<svg viewBox="0 0 870 720" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif; touch-action:manipulation;">
+  <path d="M 240,375 H 255 V 225 H 270" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 240,375 H 255 V 575 H 270" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,225 H 415 V 25  H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,225 H 415 V 75  H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,225 H 415 V 125 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,225 H 415 V 175 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,225 H 415 V 225 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,225 H 415 V 275 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,225 H 415 V 325 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,225 H 415 V 375 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,575 H 415 V 450 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,575 H 415 V 500 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,575 H 415 V 550 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,575 H 415 V 600 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,575 H 415 V 650 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 400,575 H 415 V 700 H 430" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,25  H 625 V 25  H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,75  H 625 V 75  H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,125 H 625 V 125 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,175 H 625 V 175 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,225 H 625 V 225 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,275 H 625 V 275 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,325 H 625 V 325 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,375 H 625 V 375 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,450 H 625 V 450 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,500 H 625 V 500 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,550 H 625 V 550 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,600 H 625 V 600 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,650 H 625 V 650 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <path d="M 610,700 H 625 V 700 H 640" stroke="#94a3b8" stroke-width="2" fill="none"/>
+  <rect x="20" y="350" width="220" height="50" rx="8" fill="#2563eb"/>
+  <text x="130" y="381" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="bold">8大维度 + 6大预判</text>
+  <rect x="270" y="200" width="130" height="50" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+  <text x="335" y="231" text-anchor="middle" fill="#1e40af" font-size="15" font-weight="bold">8大维度</text>
+  <rect x="270" y="550" width="130" height="50" rx="8" fill="#dbeafe" stroke="#2563eb" stroke-width="1"/>
+  <text x="335" y="581" text-anchor="middle" fill="#1e40af" font-size="15" font-weight="bold">6大预判</text>
+  <rect x="430" y="0"  width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="31"  text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">政策</text>
+  <rect x="430" y="50" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="81"  text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">资金</text>
+  <rect x="430" y="100" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="131" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">分时</text>
+  <rect x="430" y="150" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="181" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">均线K线</text>
+  <rect x="430" y="200" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="231" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">成交量换手率</text>
+  <rect x="430" y="250" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="281" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">结构级别</text>
+  <rect x="430" y="300" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="331" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">板块轮动</text>
+  <rect x="430" y="350" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="381" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">大盘趋势</text>
+  <rect x="430" y="425" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="456" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">大局观预判</text>
+  <rect x="430" y="475" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="506" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">热点预判</text>
+  <rect x="430" y="525" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="556" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">龙头预判</text>
+  <rect x="430" y="575" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="606" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">买点预判</text>
+  <rect x="430" y="625" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="656" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">卖点预判</text>
+  <rect x="430" y="675" width="180" height="50" rx="6" fill="#f0f9ff" stroke="#94a3b8" stroke-width="1"/>
+  <text x="520" y="706" text-anchor="middle" fill="#000000" font-size="13" font-weight="bold">风险预判</text>
+  <rect x="640" y="0"  width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="31"  text-anchor="middle" fill="#000000" font-size="12">国家政策导向</text>
+  <rect x="640" y="50" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="81"  text-anchor="middle" fill="#000000" font-size="12">主力资金流向</text>
+  <rect x="640" y="100" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="131" text-anchor="middle" fill="#000000" font-size="12">分时形态语言</text>
+  <rect x="640" y="150" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="181" text-anchor="middle" fill="#000000" font-size="12">K线均线系统</text>
+  <rect x="640" y="200" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="231" text-anchor="middle" fill="#000000" font-size="12">量能换手率分析</text>
+  <rect x="640" y="250" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="281" text-anchor="middle" fill="#000000" font-size="12">涨跌结构级别</text>
+  <rect x="640" y="300" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="331" text-anchor="middle" fill="#000000" font-size="12">板块轮动节奏</text>
+  <rect x="640" y="350" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="381" text-anchor="middle" fill="#000000" font-size="12">大盘指数趋势</text>
+  <rect x="640" y="425" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="456" text-anchor="middle" fill="#000000" font-size="12">市场情绪温度</text>
+  <rect x="640" y="475" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="506" text-anchor="middle" fill="#000000" font-size="12">主流热点题材</text>
+  <rect x="640" y="525" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="556" text-anchor="middle" fill="#000000" font-size="12">龙头个股识别</text>
+  <rect x="640" y="575" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="606" text-anchor="middle" fill="#000000" font-size="12">低吸买点时机</text>
+  <rect x="640" y="625" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="656" text-anchor="middle" fill="#000000" font-size="12">止盈卖点纪律</text>
+  <rect x="640" y="675" width="200" height="50" rx="4" fill="#f8fafc" stroke="#94a3b8" stroke-width="1"/>
+  <text x="740" y="706" text-anchor="middle" fill="#000000" font-size="12">风险控制纪律</text>
+</svg>
+                </div>
+            </details>
+        </section>
+
+        <!-- 32口诀速记卡 -->
+        <section class="lesson" id="mnemonics">
+            <h2>🎯 32条口诀速记卡</h2>
+            <p>覆盖全部22节核心方法论，每条7-15字，结构为"触发条件 + 应对动作"或"形态 + 结论"。</p>
+            <div class="mnemonic-grid">
+                <div class="mnemonic"><span class="num">1</span><strong>CBN三大模式 最高级玩法</strong><span class="ref">适用：第01节</span></div>
+                <div class="mnemonic"><span class="num">2</span><strong>八大维度 六大预判 双体系融合</strong><span class="ref">适用：第01节</span></div>
+                <div class="mnemonic"><span class="num">3</span><strong>战法越少越精 越稳越赚</strong><span class="ref">适用：第02节</span></div>
+                <div class="mnemonic"><span class="num">4</span><strong>政策定方向 资金定强度</strong><span class="ref">适用：第03节</span></div>
+                <div class="mnemonic"><span class="num">5</span><strong>分时看意图 K线看结构</strong><span class="ref">适用：第04节</span></div>
+                <div class="mnemonic"><span class="num">6</span><strong>低位首放量是机会 高位再放量是陷阱</strong><span class="ref">适用：第05节</span></div>
+                <div class="mnemonic"><span class="num">7</span><strong>均价线不破不算弱</strong><span class="ref">适用：第06节</span></div>
+                <div class="mnemonic"><span class="num">8</span><strong>缩量上涨不可持续 放量下跌才是真跌</strong><span class="ref">适用：第07节</span></div>
+                <div class="mnemonic"><span class="num">9</span><strong>换手率超过20% 警惕主力出货</strong><span class="ref">适用：第08节</span></div>
+                <div class="mnemonic"><span class="num">10</span><strong>结构级别共振才出大行情</strong><span class="ref">适用：第09节</span></div>
+                <div class="mnemonic"><span class="num">11</span><strong>板块轮动一日游不可追</strong><span class="ref">适用：第10节</span></div>
+                <div class="mnemonic"><span class="num">12</span><strong>双K确认 缺一不可</strong><span class="ref">适用：第11节</span></div>
+                <div class="mnemonic"><span class="num">13</span><strong>回踩不破再反包 阳线立桩</strong><span class="ref">适用：第11节</span></div>
+                <div class="mnemonic"><span class="num">14</span><strong>不破前低不算真底</strong><span class="ref">适用：第12节</span></div>
+                <div class="mnemonic"><span class="num">15</span><strong>99战法 9.9%是攻击信号</strong><span class="ref">适用：第13节</span></div>
+                <div class="mnemonic"><span class="num">16</span><strong>99战法失效看大盘</strong><span class="ref">适用：第13节</span></div>
+                <div class="mnemonic"><span class="num">17</span><strong>969节奏 6 9 9 三段</strong><span class="ref">适用：第15节</span></div>
+                <div class="mnemonic"><span class="num">18</span><strong>96弱转强 9.6%是关键</strong><span class="ref">适用：第17节</span></div>
+                <div class="mnemonic"><span class="num">19</span><strong>龙头不倒 板块不止</strong><span class="ref">适用：第16节</span></div>
+                <div class="mnemonic"><span class="num">20</span><strong>跟风股补跌 别抄底</strong><span class="ref">适用：第16节</span></div>
+                <div class="mnemonic"><span class="num">21</span><strong>金字塔建仓 倒金字塔止损</strong><span class="ref">适用：第18节</span></div>
+                <div class="mnemonic"><span class="num">22</span><strong>单笔-3%必止损</strong><span class="ref">适用：第19节</span></div>
+                <div class="mnemonic"><span class="num">23</span><strong>单日-5%强制停手</strong><span class="ref">适用：第19节</span></div>
+                <div class="mnemonic"><span class="num">24</span><strong>黑嘴荐股 全是陷阱</strong><span class="ref">适用：第20节</span></div>
+                <div class="mnemonic"><span class="num">25</span><strong>群内消息 一律反向</strong><span class="ref">适用：第20节</span></div>
+                <div class="mnemonic"><span class="num">26</span><strong>五秒看盘 盘口量比涨幅换手板块</strong><span class="ref">适用：第21节</span></div>
+                <div class="mnemonic"><span class="num">27</span><strong>三波不做防接盘</strong><span class="ref">适用：第22节</span></div>
+                <div class="mnemonic"><span class="num">28</span><strong>破5日线必卖 不抱幻想</strong><span class="ref">适用：第22节</span></div>
+                <div class="mnemonic"><span class="num">29</span><strong>放量换手是顶部 缩量锁仓才健康</strong><span class="ref">适用：第22节</span></div>
+                <div class="mnemonic"><span class="num">30</span><strong>政策黑天鹅 先减仓一半</strong><span class="ref">适用：综合</span></div>
+                <div class="mnemonic"><span class="num">31</span><strong>赚过没赚到 都是没守纪律</strong><span class="ref">适用：综合</span></div>
+                <div class="mnemonic"><span class="num">32</span><strong>看不懂不做 不熟不做</strong><span class="ref">适用：综合</span></div>
+            </div>
+        </section>
+
+        <!-- 阶段1 -->
+        <section class="lesson" id="stage1">
+            <h2>📘 阶段1·基础认知（第1-3节）—— 解决"信不信"</h2>
+            <div class="kbox">阶段小结：本阶段没有买卖点，但解决"信不信、跟不跟、学不学"——是地基。</div>
+        </section>
+
+        <section class="lesson" id="L01">
+            <h2>第01节 CBN+++盘面真面目</h2>
+<h3>深度总结</h3>
+<h4>一、课程开篇：体系定位</h4>
+<p>靳良雄老师在德才苑开篇定调：本课程教授的是"可预见高确定性、高获利的三大盈利模式"完整体系。强调讲解语速较慢，需要耐心听讲。</p>
+<h4>二、CBN和三个加号的含义</h4>
+<ul><li><strong>CBN</strong>：超短线（C）、大波段（B）、主升浪（N）三种盈利模式的英文缩写</li><li><strong>三个加号（+++）</strong>：最高级玩法的标记</li><li><strong>盘面真面目</strong>：CBN不是普通玩法，而是同类模式中"最高级"、"涨幅最大"的演化形式</li></ul>
+<p><strong>(出自第01节 第6段)</strong></p>
+<h4>三、两大体系构成</h4>
+<p>课程体系由两个部分构成：</p>
+<ol><li><strong>价值动能</strong>——与价值投资有关的体系</li><li><strong>量价动能</strong>——与投机有关的体系</li></ol>
+<p>两大体系是<strong>融合</strong>的，对市面上"传统价值和传统技术形成双复合双砂体"的情况给出解决方案。</p>
+<h4>四、八大维度</h4>
+<p>实现两大体系依靠八大维度：</p>
+<ol><li><strong>资金</strong></li><li><strong>分时均线</strong></li><li><strong>K线</strong></li><li><strong>成交量</strong></li><li><strong>换手率</strong></li><li><strong>结构级别</strong></li><li><strong>板块轮动</strong></li><li><strong>大盘政策</strong></li></ol>
+<p>按可见性分类：</p>
+<ul><li><strong>盘面可直接观察到</strong>：分时、K线、均线、成交量、换手率</li><li><strong>需通过推演得出</strong>：资金性质、资金结构级别、板块轮动、大盘</li></ul>
+<p><strong>(出自第01节 第8段)</strong></p>
+<h4>五、六大预判</h4>
+<p>通过八大维度实现六大预判：</p>
+<ol><li>大盘缓冲预判</li><li>长期趋势预判</li><li>板块轮动预判</li><li>龙头个股预判</li><li>涨跌时间高度预判</li><li>买卖时机（成熟度：何时启动、启动点、防几波、强度涨得快还是慢、强不强）</li></ol>
+<p><strong>第六个预判包含5个细节</strong>：</p>
+<ul><li>何时启动</li><li>启动点</li><li>防几波</li><li>强度（涨得快还是慢）</li><li>强不强</li><li>买卖时机</li></ul>
+<p><strong>(出自第01节 第10段)</strong></p>
+<h4>六、衍生关系</h4>
+<p>八大维度 + 六大预判 → 三大盈利模式（超短线、大波段、主升浪）&lt;br&gt;                                    ↓&lt;br&gt;                           九大核心操作技术（战法）</p>
+<p><strong>战法哲学</strong>：战法不能太多，"越多越乱越多，说明这个技术越存在问题，稳定性有问题"。</p>
+<p><strong>(出自第01节 第10段)</strong></p>
+<h4>七、三大盈利模式详解</h4>
+<h5>模式A：超短线（3种战法）</h5>
+<p><strong>战法1：99式——连板涨停</strong></p>
+<ul><li>个股特征：连续上涨一大波</li><li>形态：一字板 → 后面放量（小熟练→再放量）</li><li>适用：连续涨停的超短龙头</li><li><strong>(出自第01节 第16段)</strong></li></ul>
+<p><strong>战法2：969式——空中接力</strong></p>
+<ul><li>99含义：前面的单边上涨</li><li>6含义：横盘</li><li>9含义：连续大涨</li><li>战法名：<strong>高空接力</strong></li><li>操作的是"9"——横盘后连续大涨这一段</li><li><strong>(出自第01节 第18段)</strong></li></ul>
+<p><strong>战法3：96式——地天板涨停（猛龙）</strong></p>
+<ul><li>形态：4板后一字板跌停 → 这里买入 → 享受后续上涨</li><li>另一种：3个涨停后跌停板 → 做后面这一步</li><li>特点：暴利股模式</li><li><strong>(出自第01节 第20段)</strong></li></ul>
+<p><strong>老师提醒</strong>：为什么这些股能这么涨？"我们在买之前也不知道它能够连续上涨，但是我们有我们的判定方法。"</p>
+<h5>模式B：大波段（3种战法）</h5>
+<p><strong>战法1：游资波段</strong></p>
+<ul><li>形态：连续上涨后进入横盘</li><li>关键：横盘时就有标准验证后续是否有行情、能涨多高</li><li><strong>(出自第01节 第20段)</strong></li></ul>
+<p><strong>战法2：主力波段股</strong></p>
+<ul><li>形态：一轮下跌 → 波段止跌 → 形成大波段</li><li>标准覆盖：波段确认、中间持股、波段顶部分析</li><li><strong>(出自第01节 第20段)</strong></li></ul>
+<p><strong>战法3：战略行情的波段</strong></p>
+<ul><li>定义：<strong>大市值核心板块、核心龙头、高级别个股</strong></li><li>适用资金规模：<strong>千万级、亿级资金</strong></li><li><strong>(出自第01节 第22段)</strong></li></ul>
+<h5>模式C：主升浪（3种战法）</h5>
+<p><strong>战法1：快速涨停板建仓的主力资金主升浪</strong></p>
+<ul><li>主力资金组成</li><li>我们做的是"后面这一段"（重仓大幅上涨）</li><li><strong>(出自第01节 第22段)</strong></li></ul>
+<p><strong>战法2：隐蔽建仓的主力资金主升浪</strong></p>
+<ul><li>特征：前面有震荡 + 有推升</li><li>全轨迹可预判：调整时间、周期</li><li>适用：进入牛市的一轮主升浪</li><li><strong>(出自第01节 第24段)</strong></li></ul>
+<p><strong>战法3：战略资金单边组成浪</strong></p>
+<ul><li>定义：<strong>大级别行情</strong></li><li>实战案例：<strong>宁德时代、长城汽车、比亚迪、阳光电源</strong>等</li><li>战略资金集中在某一个大的行业建仓</li><li>通过盘面轨迹可预判：未来上涨的时间、周期和高度</li><li><strong>(出自第01节 第26段)</strong></li></ul>
+<h4>八、核心命题</h4>
+<p>通过盘面如何实现：</p>
+<ul><li>怎么选股？</li><li>怎么从盘面去分析资金？</li><li>怎么预判未来？</li></ul>
+<p><strong>最终目标</strong>：选出"很高级别的个股"，执行 CBN+++ 三大盈利模式。</p>
+<hr>
+<h3>系统性总结</h3>
+<h4>1. 体系架构（金字塔）</h4>
+<p>                       CBN+++&lt;br&gt;                  （最高级玩法）&lt;br&gt;                  /     |      \&lt;br&gt;            超短线   大波段   主升浪&lt;br&gt;              (3)     (3)      (3)&lt;br&gt;            ——九大核心操作技术（战法）——</p>
+<p>                    八大维度&lt;br&gt;        （资金/分时/K线/成交量/换手率/结构级别/板块轮动/政策）&lt;br&gt;                    ↓&lt;br&gt;                    六大预判&lt;br&gt;   （大盘/趋势/板块/龙头/涨跌时间高度/买卖时机）</p>
+<p>                  两大体系融合&lt;br&gt;              （价值动能 + 量价动能）</p>
+<h4>2. 核心哲学</h4>
+<ul><li><strong>战法要少而精</strong>：战法多不是优势，反而是技术存在问题的表现</li><li><strong>模式分三种</strong>：每种盈利模式（超短/波段/主升浪）都有3种演化形式</li><li><strong>做最高级</strong>：三种形式中只选"涨幅最大的那一种"</li><li><strong>资金分类</strong>：三种资金决定三种交易方法</li><li><strong>可预判</strong>：买之前虽不知道能否连续上涨，但有判定方法</li></ul>
+<h4>3. 关键术语速查</h4>
+<div class="table-wrap"><table><thead><tr><th>术语</th><th>含义</th></tr></thead><tbody><tr><td>CBN</td><td>超短线、大波段、主升浪</td></tr><tr><td>+++</td><td>最高级玩法</td></tr><tr><td>99式</td><td>超短线连板涨停</td></tr><tr><td>969式</td><td>高空接力（99单边+6横盘+9连续大涨）</td></tr><tr><td>96式</td><td>单日地天板（猛龙）</td></tr><tr><td>99版</td><td>第01节提到的"99年版式"</td></tr><tr><td>高空接力</td><td>969式核心操作</td></tr><tr><td>八大维度</td><td>资金/分时/K线/成交量/换手率/结构级别/板块轮动/政策</td></tr><tr><td>六大预判</td><td>大盘/趋势/板块/龙头/涨跌时间高度/买卖时机</td></tr><tr><td>战略行情</td><td>大市值核心板块、核心龙头、高级别个股的波段</td></tr></tbody></table></div>
+<h4>4. 课程定位</h4>
+<p>本节课是整个体系的总纲与地图：</p>
+<ul><li>阐明 CBN+++ 三大盈利模式的本质</li><li>引出八大维度、两大体系、九大战法的体系架构</li><li>后续课程将按维度逐一展开</li></ul>
+<h4>5. 学习要点</h4>
+<ol><li>三大盈利模式 × 3种战法 = 9大战法</li><li>每一战法都有明确的"做什么股、做什么阶段"</li><li>实战案例（宁德时代、长城汽车等）展示战略资金主升浪的级别</li><li>课程强调"做最高级"——只做涨幅最大的那一种机缘</li></ol>
+
+            <div class="quiz">
+                <strong>📝 第01节 测验</strong>
+                <p>1. CBN 三大盈利模式分别是？</p>
+                <details><summary>显示答案</summary>超短线（C）、大波段（B）、主升浪（N）。</details>
+                <p>2. 课程两大体系是？</p>
+                <details><summary>显示答案</summary>价值动能 + 量价动能（双体系融合）。</details>
+            </div>
+            <div class="kbox-warn">本节核心风险：CBN+++是"最高级玩法"，新手贸然应用会因不熟练导致大亏；务必先学后做。</div>
+        </section>
+
+        <section class="lesson" id="L02">
+            <h2>第02节 对传统技术认知错误的拨乱反正</h2>
+<h3>深度总结</h3>
+<h4>一、课程开篇定位</h4>
+<p>靳良雄老师开篇指出：</p>
+<ul><li>上一堂课展示了九大技法中具体的一个盘面</li><li>本堂课任务是<strong>拨乱反正</strong>——纠正传统认知和技术上的错误</li><li>追问"标准从哪来"：<strong>正确的多维度的复合型技术</strong></li></ul>
+<p><strong>(出自第02节 第4段)</strong></p>
+<h4>二、技术的核心使命：解决五个问题</h4>
+<blockquote>"这个技术只解决五个问题：什么时间，在什么行业，买什么股，买多少资金，什么时候卖？"</blockquote>
+<p>五个问题构成<strong>循环重复</strong>的闭环：</p>
+<ol><li><strong>什么时间</strong>（买入时机）</li><li><strong>在什么行业</strong>（选赛道）</li><li><strong>买什么股</strong>（选标的）</li><li><strong>买多少资金</strong>（仓位管理）</li><li><strong>什么时候卖</strong>（卖出时机）</li></ol>
+<p><strong>关键洞察</strong>：八大维度六大预判的所有内功修炼，都是为了解决这五个核心问题。</p>
+<p><strong>(出自第02节 第4段)</strong></p>
+<h4>三、传统认知错误拨乱反正（重点）</h4>
+<h5>错误认知1：鸡蛋不放在一个篮子里</h5>
+<p><strong>错误传统解读</strong>：把鸡蛋分散放在多个篮子里更安全。</p>
+<p><strong>正确解读</strong>：</p>
+<ul><li>重点不在鸡蛋，而在<strong>篮子本身和提篮子的人</strong></li><li>篮子本身有洞，多少鸡蛋放进去都会摔掉</li><li>提篮子的人不小心摔了，鸡蛋也破</li><li><strong>结论：选股是第一位的</strong></li></ul>
+<p><strong>(出自第02节 第6段)</strong></p>
+<h5>错误认知2：止盈止损只看数字</h5>
+<p><strong>错误传统做法</strong>：</p>
+<ul><li>亏损5%止损</li><li>赚了10%止盈看账户</li></ul>
+<p><strong>真实场景举例</strong>：</p>
+<ul><li>买入后洗盘下跌8% → 5%止损 → 第二天涨停 → 后续主升浪（止损错的）</li><li>刚涨10%心慌卖出 → 后续大幅上涨主升浪（止盈错的）</li></ul>
+<p><strong>正确做法</strong>：</p>
+<ul><li><strong>不以盈亏定买卖</strong></li><li><strong>不看账户，要看标准</strong></li><li>标准依据：八大维度对盘面理解的标准</li></ul>
+<p><strong>(出自第02节 第8、10段)</strong></p>
+<h5>错误认知3：贪婪和恐惧是失败主因</h5>
+<p><strong>常见错误归因</strong>：</p>
+<ul><li>没卖→亏了 → "我太贪了"</li><li>涨了一点就卖 → "我太恐惧了"</li></ul>
+<p><strong>老师纠正</strong>：</p>
+<ul><li>贪婪和恐惧是人性，但<strong>不足以成为失败的理由</strong></li><li>真正的问题：<strong>没有具体执行的标准</strong>，即看盘标准</li><li><strong>重点：不以盈亏定买卖，不看账户看标准</strong></li></ul>
+<p><strong>(出自第02节 第12、14段)</strong></p>
+<h4>四、核心方法论：标准</h4>
+<p><strong>标准是克服一切人性弱点的唯一途径。</strong></p>
+<p>老师说："克服人性的唯一的途径是标准，制定一切高效交易的原则也是高效的标准。我们整套课程全部围绕标准来操作。"</p>
+<p><strong>双标准</strong>：</p>
+<ol><li>克服人性弱点的标准</li><li>一切高效交易的原则/标准</li></ol>
+<p><strong>(出自第02节 第16段)</strong></p>
+<hr>
+<h3>系统性总结</h3>
+<h4>1. 本堂课的核心目的</h4>
+<p><strong>承上启下</strong>：从第01节的体系总览过渡到具体认知纠偏。</p>
+<ul><li><strong>破</strong>：打破市场上的三大传统错误认知</li><li><strong>立</strong>：建立"以标准为核心"的方法论</li></ul>
+<h4>2. 五大核心问题循环</h4>
+<p>         什么时间？&lt;br&gt;              ↓&lt;br&gt;买什么股 → 在什么行业 → 买多少资金&lt;br&gt;              ↓&lt;br&gt;         什么时候卖？&lt;br&gt;              ↓&lt;br&gt;            （循环）</p>
+<p>这五个问题对应的解都来自：八大维度 + 六大预判。</p>
+<h4>3. 三大认知误区对照表</h4>
+<div class="table-wrap"><table><thead><tr><th>传统错误认知</th><th>错误实质</th><th>正确观念</th></tr></thead><tbody><tr><td>鸡蛋分散在多个篮子</td><td>分散主义</td><td>选股才是第一位（篮子+提篮子的人）</td></tr><tr><td>亏5%止损赚10%止盈</td><td>数字止损止盈</td><td>不以盈亏定买卖，看盘面标准</td></tr><tr><td>贪婪和恐惧导致失败</td><td>人性归因</td><td>没有标准才是失败主因</td></tr></tbody></table></div>
+<h4>4. 核心论点提炼</h4>
+<ol><li><strong>选股 &gt; 仓位分散</strong>：篮子有洞或提篮子的人不行，分散也无用</li><li><strong>标准 &gt; 数字</strong>：盘面标准决定买卖，而不是盈亏数字</li><li><strong>标准 &gt; 人性</strong>：人性弱点无法克服，只能用标准替代决策</li></ol>
+<h4>5. 课程闭环</h4>
+<p>本节课与第01节形成闭环：</p>
+<ul><li>第01节提出 <strong>CBN+++ + 八大维度 + 六大预判</strong> 的体系</li><li>第02节回答了"如何执行"——<strong>以标准为核心，反人性、反数字</strong></li></ul>
+<h4>6. 关键术语速查</h4>
+<div class="table-wrap"><table><thead><tr><th>术语</th><th>含义</th></tr></thead><tbody><tr><td>鸡蛋不放在一个篮子里</td><td>错误的分散主义（被纠正）</td></tr><tr><td>八大维度</td><td>资金、分时、K线、成交量、换手率、结构级别、板块轮动、政策</td></tr><tr><td>五大核心问题</td><td>时间、行业、个股、仓位、卖点</td></tr><tr><td>篮子+提篮子的人</td><td>选股+操盘者本身能力的隐喻</td></tr><tr><td>不以盈亏定买卖</td><td>标准决定买卖</td></tr><tr><td>不看账户看标准</td><td>盘面标准替代盈亏数字</td></tr></tbody></table></div>
+<h4>7. 后续课程铺垫</h4>
+<p>本课为后续<strong>第一维度（政策与背景）</strong>、<strong>第二维度（资金性质）</strong>、<strong>第三维度（分时）</strong>等具体标准做了铺垫：</p>
+<ul><li>每讲一个维度，就是给出一项"看盘的标准"</li><li>多个维度的标准组合 → 五大核心问题的系统性解答</li></ul>
+
+            <div class="quiz">
+                <strong>📝 第02节 测验</strong>
+                <p>1. 老师纠正的三大传统认知错误分别是？</p>
+                <details><summary>显示答案</summary>鸡蛋分散篮子、止盈止损看数字、贪婪恐惧归因。</details>
+                <p>2. 老师反复强调的核心方法论是什么？</p>
+                <details><summary>显示答案</summary>标准——以标准为核心，反人性、反数字。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L03">
+            <h2>第03节 第一维度 政策与背景——研判热门行业的个股黑马</h2>
+<h3>深度总结</h3>
+<h4>一、课程定位</h4>
+<p>靳良雄老师指出：</p>
+<ul><li><strong>本节课主题</strong>：政策和时势（<strong>八大维度中的第一个维度</strong>）</li><li><strong>核心任务</strong>：用政策与时势预判热门行业和个股黑马</li><li><strong>本质问题</strong>：在新时代背景下，黑马的"土壤和基因"在哪里？哪些地方能孕育黑马？</li></ul>
+<p><strong>(出自第03节 第4段)</strong></p>
+<h4>二、四种政策分类</h4>
+<p>按影响范围和层级分为四种：</p>
+<ol><li><strong>国家政策</strong>（战略政策、最高级）</li><li><strong>行业政策</strong>（分小行业、大行业）</li><li><strong>公司政策</strong>（特例）</li><li><strong>突发性重大事件</strong></li></ol>
+<p><strong>政策层级对比</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>政策类型</th><th>影响范围</th><th>行情级别</th></tr></thead><tbody><tr><td>国家战略政策</td><td>国家级</td><td>最高驱动资金、最大行情</td></tr><tr><td>大行业政策</td><td>大行业</td><td>大级别上涨</td></tr><tr><td>小行业政策</td><td>小行业</td><td>小级别上涨</td></tr><tr><td>公司政策</td><td>单个公司</td><td>单一标的行情</td></tr><tr><td>突发重大事件</td><td>视情况而定</td><td>视情况而定</td></tr></tbody></table></div>
+<p><strong>关键洞见</strong>：</p>
+<ul><li>战略政策（国家级的）一般适用于科技类大行业</li><li>传统行业（如纺织）一般只有行业性政策，很少有国家级战略政策</li><li>公司政策是特例，只影响该公司的股价</li></ul>
+<p><strong>(出自第03节 第6段)</strong></p>
+<h4>三、政策与资金的隐喻</h4>
+<blockquote><strong>"政策为风，资金为水，政策越大风越大，吹的资金越大，风吹水水成事。"</strong></blockquote>
+<p><strong>核心逻辑</strong>：</p>
+<ul><li>政策 = 风（决定方向和力度）</li><li>资金 = 水（被政策吹动）</li><li>风越大 → 推动资金越大 → 形成的行情级别越大</li></ul>
+<p><strong>直接判断标准</strong>：</p>
+<ul><li>政策大 + 资金大 → 大级别行情</li><li>政策小 + 资金小 → 小级别行情</li></ul>
+<p><strong>(出自第03节 第6段)</strong></p>
+<h4>四、研究政策和背景的本质</h4>
+<blockquote>"实际上研究政策和背景，主要是研究什么方向和风口。"</blockquote>
+<p><strong>核心命题</strong>：<strong>选择大于努力</strong></p>
+<p><strong>经典论断</strong>：</p>
+<blockquote>"一个时代一个特殊的经济背景，造就一类行业大发展，成就一类持续发展大公司，催生一类长周期的大盘回升行情。"</blockquote>
+<p><strong>三要素联动</strong>：</p>
+<ul><li>时代背景 → 行业大发展</li><li>行业大发展 → 持续大公司</li><li>大公司涌现 → 大盘回升行情</li></ul>
+<p><strong>(出自第03节 第8段)</strong></p>
+<h4>五、时代背景案例：WTO时代</h4>
+<p><strong>事件</strong>：WTO以后外贸订单暴增</p>
+<p><strong>传导链条</strong>：</p>
+<p>WTO → 订单暴增 → 制造业大发展 → 需要人/设备/材料/土地&lt;br&gt;                                      ↓&lt;br&gt;                              人口大流动 → 城市化&lt;br&gt;                                      ↓&lt;br&gt;                              城市化 → 住房需求 → 房价大涨</p>
+<p><strong>当时受益行业/标的</strong>：</p>
+<ul><li>房地产（买房的都赚到钱）</li><li>房地产股票（黑马辈出，涨得非常好）</li></ul>
+<p><strong>结论</strong>：在那个时代背景下，买入房地产股票就是"选择大于努力"。</p>
+<p><strong>(出自第03节 第10段)</strong></p>
+<h4>六、时代背景案例：科技时代</h4>
+<p><strong>国家战略</strong>：经济结构转型——从粗放型走向高质量发展</p>
+<p><strong>目标行业</strong>：科技</p>
+<p><strong>科技行业的三大特征</strong>：</p>
+<ol><li><strong>科技性大变革的行业</strong>（技术变革驱动）</li><li><strong>全球竞争性行业</strong>（国际竞争）</li><li><strong>科技制高点也是支柱产业</strong>（战略意义+经济规模）</li></ol>
+<p><strong>替代逻辑</strong>：哪个行业能逐渐替代房地产这种"经济支柱广泛的大市场"？</p>
+<p><strong>资本动向</strong>：</p>
+<ul><li>产业资本大量进入</li><li>各地招商的热点争抢</li><li>容纳大资金</li></ul>
+<p><strong>总体判断</strong>：现在被写入国家战略的一些科技行业：</p>
+<ul><li>有些现在表现不充分</li><li>有些早就开始表现</li><li><strong>总体一条</strong>：选择的行业和行业里面的个股一定要符合<strong>科技时代的背景</strong></li></ul>
+<p><strong>(出自第03节 第12-14段)</strong></p>
+<h4>七、实证对比：站对方向 vs 站错方向</h4>
+<p><strong>对比图表（盘面表现）</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>方向</th><th>表现</th><th>行业代表</th></tr></thead><tbody><tr><td>站对方向</td><td>一路上行</td><td>科技股</td></tr><tr><td>站错方向</td><td>一路下跌</td><td>房地产</td></tr></tbody></table></div>
+<p><strong>关键结论</strong>：</p>
+<ul><li>站对方向：随便选择一只股都能长得很好</li><li>站错方向：哪里是底都不知道</li><li><strong>两种结果是天壤之别</strong></li></ul>
+<p><strong>(出自第03节 第16段)</strong></p>
+<h4>八、本堂课核心论断</h4>
+<blockquote>"政策和时势，就是要站对方向，找对风口。一定要在能够孕育黑马基因的行业里面去寻找个股才是正确的选择。"</blockquote>
+<p><strong>(出自第03节 第18段)</strong></p>
+<hr>
+<h3>系统性总结</h3>
+<h4>1. 本堂课在体系中的位置</h4>
+<p>八大维度：</p>
+<ol><li>政策与背景  ← 本节课</li><li>资金性质    ← 第04节</li><li>分时均线</li><li>K线</li><li>成交量</li><li>换手率</li><li>结构级别</li><li>板块轮动</li></ol>
+<p>（另：大盘政策 = 维度之一）</p>
+<p><strong>第一维度的重要性</strong>：政策是"明牌"，高层政策我们都看得到。</p>
+<h4>2. 核心决策框架</h4>
+<p>判断政策 → 评估政策级别 → 推断资金体量 → 推断行情级别&lt;br&gt;   ↓             ↓              ↓              ↓&lt;br&gt;四类政策    战略/大/小/公司    风大火大     大/小级别行情</p>
+<h4>3. 选股三重过滤</h4>
+<p>第一重：是否符合大的时代背景？&lt;br&gt;   ↓ 是&lt;br&gt;第二重：是否符合大的行业（政策驱动型）？&lt;br&gt;   ↓ 是&lt;br&gt;第三重：行业内的个股是否有产业资本进入？&lt;br&gt;   ↓ 是&lt;br&gt;→ 符合"黑马基因"的标准</p>
+<h4>4. 时代案例对比</h4>
+<div class="table-wrap"><table><thead><tr><th>时代</th><th>核心政策</th><th>受益行业</th><th>受益标的</th></tr></thead><tbody><tr><td>WTO时代（过去）</td><td>外贸开放</td><td>制造业→房地产</td><td>房地产股票</td></tr><tr><td>科技时代（现在）</td><td>经济结构转型</td><td>科技（全球竞争性）</td><td>科技股</td></tr></tbody></table></div>
+<p><strong>重要观察</strong>：</p>
+<ul><li>每个时代都有一个"经济支柱"行业</li><li>过去的支柱：房地产</li><li>现在的支柱：科技（特别是科技性大变革、全球竞争性、科技制高点）</li></ul>
+<h4>5. 关键术语速查</h4>
+<div class="table-wrap"><table><thead><tr><th>术语</th><th>含义</th></tr></thead><tbody><tr><td>政策为风资金为水</td><td>政策驱动资金的经典隐喻</td></tr><tr><td>选股要看土壤和基因</td><td>选股要看时代背景和行业基因</td></tr><tr><td>战略性选择</td><td>站对国家战略方向</td></tr><tr><td>黑马基因</td><td>具备时代背景+行业属性+资金进入</td></tr><tr><td>四种政策</td><td>国家/行业/公司/突发重大事件</td></tr><tr><td>选择大于努力</td><td>方向比努力更重要</td></tr><tr><td>时势造英雄</td><td>时代背景催生伟大企业</td></tr></tbody></table></div>
+<h4>6. 课程逻辑链</h4>
+<ol><li><strong>政策类型识别</strong>（四种政策）</li><li><strong>政策级别评估</strong>（战略 vs 行业 vs 公司）</li><li><strong>资金判断</strong>（风大火大）</li><li><strong>行情级别判断</strong>（大级别 vs 小级别）</li><li><strong>行业筛选</strong>（时代背景驱动）</li><li><strong>个股筛选</strong>（产业资本是否进入）</li><li><strong>结论</strong>：站对方向 + 找对风口 = 孕育黑马</li></ol>
+<h4>7. 八年后的视角（2026年视角）</h4>
+<p>回看课程内容，当我们处于2026年7月时：</p>
+<ul><li>科技作为"国家战略支柱"的方向已经被验证</li><li>房地产处于"一路下行"的判断也已验证</li><li>这证明了"政策为风资金为水"的判断逻辑的有效性</li><li>第一维度是后续"黑马研判"的地基——<strong>方向错了，再好的技术也白搭</strong></li></ul>
+
+            <div class="quiz">
+                <strong>📝 第03节 测验</strong>
+                <p>1. 政策与资金的隐喻是什么？</p>
+                <details><summary>显示答案</summary>政策为风，资金为水，风吹水水成事。</details>
+                <p>2. 选股三重过滤是什么？</p>
+                <details><summary>显示答案</summary>①是否符合大的时代背景 ②是否符合大行业（政策驱动型） ③行业内个股是否有产业资本进入。</details>
+            </div>
+        </section>
+
+        <!-- 阶段2 -->
+        <section class="lesson" id="stage2">
+            <h2>📗 阶段2·技术深化（第4-10节）—— 解决"看得懂"</h2>
+            <div class="kbox">阶段小结：七节内容最"硬"，每节都要做"找3张历史K线"作业，把盘面可直接观察的5个维度全部吃透。</div>
+        </section>
+
+        <section class="lesson" id="L04">
+            <h2>第04节 第二维度 资金性质——研判热门行业的个股黑马</h2>
+<p>## 大纲</p>
+<p>本课分为三大板块：</p>
+<ul><li><strong>板块一</strong>：游资的识别与行情特点</li><li><strong>板块二</strong>：主力资金的识别与特点</li><li><strong>板块三</strong>：战略资金的识别与特点</li></ul>
+<p>三大类资金的"性格"差异决定了它们的盈利模式、操作个股、盈利目标。</p>
+<hr>
+<p>## 板块一：游资的识别与行情特点</p>
+<h4>深度总结</h4>
+<h5>1. 资金的分类与传统认知差异</h5>
+<p>靳良雄老师开篇指出，我们把资金性质分为三类：</p>
+<ol><li><strong>游资</strong></li><li><strong>主力资金</strong></li><li><strong>战略资金</strong></li></ol>
+<p><strong>与传统分类的核心区别</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>市场上分类</th><th>本课程分类</th></tr></thead><tbody><tr><td>类别数量</td><td>一般分两类（主力/散户）</td><td>三类（游资/主力/战略）</td></tr><tr><td>关注点</td><td>"主力"单一概念</td><td>三类代表"操控资金的人的性格"</td></tr><tr><td>用途</td><td>判断有无主力</td><td>预判演化趋势、涨跌时间和高度</td></tr></tbody></table></div>
+<p><strong>三大资金的核心差异</strong>：风险承受与投资收益目标不同 → 盈利模式不同 → 操作的个股不同 → 盈利目标不同。</p>
+<p><strong>(出自第04节 第4段)</strong></p>
+<h5>2. 资金性质分析的功能</h5>
+<blockquote>"资金性质分析要实现哪些功能呢？我们要前瞻性描绘股价动态运行的画面。"</blockquote>
+<p>即：<strong>一看到资金性质，脑子就要知道这个股的演化趋势</strong>。</p>
+<p>具体功能：</p>
+<ol><li>预判股价运行轨迹和演化趋势</li><li>预判涨跌时间</li><li>预判涨跌高度</li></ol>
+<p><strong>与传统资金分析的区别</strong>：市场上"普遍认为的资金分析"只看是否有主力，本课程要做<strong>前瞻性预判</strong>。</p>
+<p><strong>(出自第04节 第6段)</strong></p>
+<h5>3. 游资的三大特点</h5>
+<ul><li><strong>敏感性强</strong></li><li><strong>机动性强</strong></li><li><strong>突发性强</strong></li></ul>
+<p><strong>(出自第04节 第6段)</strong></p>
+<h5>4. 游资题材炒作的三大特点</h5>
+<ol><li><strong>引导热点</strong></li><li><strong>热点转换</strong></li><li><strong>顺应主流板块</strong></li></ol>
+<p><strong>关键提醒</strong>：在主流板块趋势向上背景下的短线炒作要注意<strong>伪题材套利出货</strong>。</p>
+<p><strong>(出自第04节 第8段)</strong></p>
+<h5>5. 游资的特征进一步分析</h5>
+<p><strong>风险收益特征</strong>：来得快 → 去得快 → 风险大 → 收益也高</p>
+<p><strong>触发依据</strong>：</p>
+<ul><li>政策热点事件刺激</li><li>重大确定性事件</li><li>超预期政策</li><li><strong>往往能出现大牛股</strong></li></ul>
+<p><strong>协作关系</strong>：主流板块趋势向上的行情，与板块中军蓝筹趋势协同的板块里有短线炒作。</p>
+<p><strong>(出自第04节 第10段)</strong></p>
+<h5>6. 游资盘面实战识别</h5>
+<p><strong>典型案例</strong>：</p>
+<ul><li><strong>短线突击炒作案例</strong>（类似证券板块的行情）：虽然不大但有波行情</li><li><strong>龙版传媒</strong>：典型的短线资金炒作</li><li>盘面特点：来得快、去得快、稳定性差</li><li>没有中长期结构和级别的趋势性行情</li></ul>
+<p><strong>盘面识别要点</strong>：</p>
+<ul><li>炒作时间短</li><li>行情快</li><li>暴涨暴跌</li><li>稳定性差</li><li>没有中长期结构和级别的趋势性行情</li></ul>
+<p><strong>(出自第04节 第12段)</strong></p>
+<h5>7. 游资盘面的关键指标：换手率</h5>
+<p><strong>建仓期换手率</strong>：</p>
+<ul><li>突击建仓往往<strong>大于20%</strong></li><li>一般情况下<strong>超过10%</strong></li></ul>
+<p><strong>读法</strong>：换手率超过10%-20%，一般是游资短线，易连板拉伸。</p>
+<p><strong>特点</strong>：</p>
+<ul><li>成交量绝对量大</li><li>攻击性强</li><li>顶部形成快</li><li>操作完以后容易大幅下跌</li></ul>
+<p><strong>(出自第04节 第12段)</strong></p>
+<h5>8. 游资炒作的三种演化趋势</h5>
+<p>根据行业属性和资金强弱：</p>
+<ol><li><strong>直接炒单边</strong>（直上直下）</li><li><strong>炒到这里横盘后跌下来</strong></li><li><strong>涨上去以后横盘又上去</strong></li></ol>
+<p><strong>(出自第04节 第14段)</strong></p>
+<h5>9. 游资的两种识别信号</h5>
+<p><strong>信号1</strong>：大的换手 + 涨停板</p>
+<ul><li>强势 → 游资抢筹、参与</li></ul>
+<p><strong>信号2</strong>：两个、三个连续涨停板（哪怕换手率不高）</p>
+<ul><li>也可视为游资短线炒作</li></ul>
+<p><strong>重要区分</strong>：主力也做连续涨停板，主力做主升浪也有连续涨停板，但：</p>
+<ul><li><strong>底部两板建仓</strong>时换手率很低 → 主力的资金突击建仓</li><li><strong>后期换手率变高</strong> → 这里就是游资炒作</li></ul>
+<p><strong>(出自第04节 第14段)</strong></p>
+<h5>10. 游资炒作的整体特征总结</h5>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>特征</th></tr></thead><tbody><tr><td>行情启动</td><td>起得快</td></tr><tr><td>稳定性</td><td>很差</td></tr><tr><td>顶部形成</td><td>时间快</td></tr><tr><td>下跌幅度</td><td>比较大</td></tr><tr><td>下跌时间</td><td>长</td></tr><tr><td>与主力区别</td><td>有差距</td></tr></tbody></table></div>
+<p><strong>结论</strong>：只要看到<strong>换手率高（盘中）</strong>或<strong>连续涨停2-3个</strong>（哪怕换手不高），都可视为<strong>短线炒作</strong>信号。</p>
+<p><strong>(出自第04节 第16段)</strong></p>
+<h4>系统性总结（板块一）</h4>
+<p>游资是<strong>短线题材炒作</strong>的资金代表，三大特点（敏感/机动/突发）决定了其<strong>来得快去得快</strong>的高风险高收益特征。识别关键在于<strong>换手率（10%以上，突击建仓20%以上）</strong>和<strong>连续涨停板</strong>两种信号。要警惕<strong>伪题材套利出货</strong>，特别是在主流板块趋势向上背景下的炒作。三种演化趋势（单边/横盘跌/涨后横盘再上）覆盖了游资行情的主要形态。</p>
+<hr>
+<p>## 板块二：主力资金的识别与特点</p>
+<h4>深度总结</h4>
+<h5>1. 主力资金的整体特征</h5>
+<p><strong>思维特点</strong>：</p>
+<ul><li>更<strong>注重基本面</strong></li><li>眼光稍微长一点</li><li>多布局<strong>预期较高的行业</strong></li><li>看重基本面和政策面</li></ul>
+<p><strong>(出自第04节 第16段)</strong></p>
+<h5>2. 主力的两种建仓方式</h5>
+<ol><li><strong>隐蔽建仓</strong></li><li><strong>强势快速建仓</strong>（涨停板建仓）</li></ol>
+<p><strong>买入逻辑</strong>：经过充分调研 → 决定买入 → 盘面体现两种模式。</p>
+<p><strong>(出自第04节 第16段)</strong></p>
+<h5>3. 主力的运作模式</h5>
+<p><strong>典型流程</strong>：</p>
+<ul><li>主力买入 → 潜伏运作 → 最终拉高套利</li><li>触发拉高的时机：热点事件刺激催化</li><li>卖出方式：拉伸实现大幅获利卖出</li></ul>
+<p><strong>本质</strong>：<strong>打有准备之仗</strong>，前面收集足够多筹码 → 趁政策、趁风时拉伸兑现。</p>
+<p><strong>(出自第04节 第18段)</strong></p>
+<h5>4. 主力放弃的特例</h5>
+<blockquote>"主力也有运作中途放弃的个股。"</blockquote>
+<p>例如：调研后发现公司并没有预期的那种潜力 → 主力中途不运作 → 撤出 → <strong>没有主升浪</strong>。</p>
+<p><strong>(出自第04节 第20段)</strong></p>
+<h5>5. 主力资金识别的核心指标体系</h5>
+<p><strong>指标1：建仓期换手率</strong></p>
+<ul><li>一般<strong>不超过10%</strong></li><li>超过10% → 多半是游资小盘股</li></ul>
+<p><strong>指标2：成交量</strong></p>
+<ul><li>相对较大</li></ul>
+<p><strong>指标3：涨停建仓</strong></p>
+<ul><li>涨停建仓是<strong>强势主力</strong></li><li>但建仓换手率也不会超过10%</li><li>整个盘面（运行过程中）的换手率一般不超过10%</li></ul>
+<p><strong>指标4：运作市值</strong></p>
+<ul><li>一般50亿左右（市值规模不决定）</li><li>大的100多亿也能被主力做</li><li>**太大（上千亿）主力无法控盘去做主升浪，那种是"协同"的）</li></ul>
+<p><strong>指标5：股价</strong></p>
+<ul><li>一般5-7元（不绝对）</li><li>十几块钱的也能连续拉板</li></ul>
+<p><strong>(出自第04节 第22段)</strong></p>
+<h5>6. 主力盘面的全轨迹</h5>
+<p>盘面可以洞察主力：</p>
+<ul><li><strong>建仓</strong></li><li><strong>震荡</strong></li><li><strong>洗盘</strong></li><li><strong>突破</strong></li><li><strong>拉升</strong></li></ul>
+<p>全轨迹可见，是技术分析的重要依据。</p>
+<p><strong>(出自第04节 第22段)</strong></p>
+<h5>7. 主力运作前后的特征对比</h5>
+<p><strong>未主升浪前</strong>：</p>
+<ul><li>小的波段一点点比较多</li><li>也有横盘不跌、中间也没有波段的</li><li><strong>稳定性非常高</strong></li><li><strong>持续性较强</strong></li><li><strong>运行时间较长</strong></li></ul>
+<p><strong>时长</strong>：一般从建仓、洗盘到拉伸之前的时间<strong>2到5个月</strong>。</p>
+<p><strong>(出自第04节 第22段)</strong></p>
+<h5>8. 主力主升浪的特征</h5>
+<p><strong>涨幅特征</strong>：</p>
+<ul><li>在主流热点背景下多有主升浪</li><li>涨幅一般在启动点开始<strong>50%以上</strong></li><li>"这个算少的，这翻几倍的"</li></ul>
+<p><strong>拉伸结构</strong>：</p>
+<ul><li>强势主力运作盘面一般有<strong>三轮结构的拉伸</strong></li></ul>
+<p><strong>市场影响</strong>：</p>
+<ul><li>有很强的板块效应</li><li>对板块行情的中后期行情有趋势性的指导作用</li></ul>
+<p><strong>(出自第04节 第22段)</strong></p>
+<h5>9. 主力涨停板建仓的实战识别</h5>
+<p><strong>典型信号</strong>：三个涨停板 + 换手率非常低</p>
+<p><strong>读法</strong>：</p>
+<ol><li>看到这种信号 → 主力资金进场</li><li>判断主力强度 → 涨停板建仓 = 强势主力突击建仓</li><li>预判后续画面 → 主力建仓轨迹（横盘震荡/调整/直接突破）</li><li>预判结果 → 主浪行情，将有主升浪</li></ol>
+<p><strong>(出自第04节 第24段)</strong></p>
+<h4>系统性总结（板块二）</h4>
+<p>主力资金更<strong>专业、更注重基本面</strong>，通过<strong>隐蔽建仓</strong>或<strong>涨停板快速建仓</strong>两种方式完成布局，潜伏运作后在热点催化下拉高套利。</p>
+<p><strong>核心识别指标</strong>：</p>
+<ul><li>建仓期换手率&lt;10%</li><li>运作市值50亿左右</li><li>拉伸前运行2-5个月</li><li>主升浪涨幅50%以上</li><li>强势主力有三轮结构拉伸</li><li>盘面稳定性高，持续性强</li></ul>
+<p><strong>风险点</strong>：调研失败可能中途放弃。识别主力后要预判<strong>全轨迹</strong>（建仓→洗盘→突破→拉升），并相信主升浪的出现。</p>
+<hr>
+<p>## 板块三：战略资金的识别与特点</p>
+<h4>深度总结</h4>
+<h5>1. 战略资金的整体特征</h5>
+<p><strong>资金体量</strong>：<strong>体量大</strong></p>
+<ul><li>一般为社保、公募基金等</li></ul>
+<p><strong>投资偏好</strong>：</p>
+<ul><li>更加看重政策宏观面和基本面</li><li>多以<strong>板块核心标的</strong>为主</li></ul>
+<p><strong>市值范围</strong>：</p>
+<ul><li>核心标的市值都比较大</li><li><strong>500亿、三五百亿、上千亿市值</strong></li></ul>
+<p><strong>技术面态度</strong>：<strong>不太注重技术面</strong></p>
+<p><strong>行业选择</strong>：多以<strong>主流行业</strong>为主</p>
+<p><strong>市场影响</strong>：</p>
+<ul><li>出现很强的板块性特点</li><li><strong>对大盘有非常强的带动性</strong></li></ul>
+<p><strong>(出自第04节 第26段)</strong></p>
+<h5>2. 战略资金建仓期的核心指标</h5>
+<p><strong>换手率</strong>：<strong>非常低，一般不超过5%</strong></p>
+<p><strong>成交量</strong>：要超过5个亿，多则三五十个亿</p>
+<p><strong>(出自第04节 第28段)</strong></p>
+<h5>3. 战略资金建仓的盘面位置与特点</h5>
+<p><strong>位置</strong>：<strong>熊市末端的空头区域</strong></p>
+<p><strong>空间</strong>：<strong>360年线附近</strong></p>
+<p><strong>形态特征</strong>：</p>
+<ul><li>偶尔涨停，但没有持续性</li><li>会有几次单日放量建仓</li><li>初期建仓后股价也会跌破建仓成本</li></ul>
+<p><strong>时间</strong>：<strong>运行周期长达半年以上</strong></p>
+<p><strong>(出自第04节 第28段)</strong></p>
+<h5>4. 战略资金运作的稳定性</h5>
+<p><strong>上涨前</strong>：</p>
+<ul><li>盘面稳定性<strong>不高</strong>（相对于主力）</li></ul>
+<p><strong>趋势形成后</strong>：</p>
+<ul><li>波段很少</li><li>单边上涨和单边下跌的<strong>时间较长</strong></li></ul>
+<p><strong>(出自第04节 第28段)</strong></p>
+<h5>5. 战略资金对大盘的影响</h5>
+<p><strong>对当前和未来</strong>：大盘和板块趋势有<strong>决定性影响</strong></p>
+<p><strong>上涨幅度</strong>：</p>
+<ul><li>一般在战略资金建仓成本<strong>50%以上</strong>（保守）</li><li>全行业布局：翻几倍以上</li><li>保守翻倍 → <strong>3-5倍甚至10倍</strong></li></ul>
+<p><strong>(出自第04节 第28-30段)</strong></p>
+<h5>6. 战略资金建仓的标准盘面特征</h5>
+<p><strong>典型形态</strong>：空头区域360年线附近有<strong>单日的大阳线</strong></p>
+<p><strong>单日大阳线</strong>：</p>
+<ul><li>换手率很低（如5%）</li><li>成交量可达<strong>40-50个亿</strong></li><li>这就是战略资金建仓</li></ul>
+<p><strong>(出自第04节 第30段)</strong></p>
+<h5>7. 实战案例</h5>
+<p><strong>案例1：长城汽车</strong></p>
+<ul><li>三五十个亿乃至五个亿的资金量</li><li>单日大阳线</li></ul>
+<p><strong>案例2：中信证券</strong></p>
+<ul><li>战略性建仓</li><li>底部成交量四五十个亿</li><li>长线战略建仓</li><li>大级别的单边行情可期</li></ul>
+<p><strong>(出自第04节 第32段)</strong></p>
+<h5>8. 中信证券战略资金建仓深度分析</h5>
+<p><strong>特征总结</strong>：</p>
+<ul><li>有涨停板</li><li>换手率也放出来，但没有持续性</li><li>这是<strong>战略资金建仓的标准样式</strong></li><li>成交量很大（四五十个亿）</li><li><strong>换手率非常低</strong></li></ul>
+<p><strong>关键观察</strong>：</p>
+<ul><li>涨停以后股价可以跌破它的成本</li><li>很久之后主力资金没有赚钱（浮亏）</li><li>后续迎来一轮大级别牛市行情</li><li>这种股 / 行业 / 大盘都有大级别牛市行情</li></ul>
+<p><strong>(出自第04节 第34段)</strong></p>
+<h5>9. 战略资金的演化规律</h5>
+<blockquote>"前面运作的时间越长，后面运作的高度越高，上涨的时间也越长，要有一个大概的预判。"</blockquote>
+<p><strong>时长-高度关系</strong>：</p>
+<ul><li>运作时间（长）↔ 运作高度（高）</li><li>上涨时间（长）</li><li>都要有大概预判</li></ul>
+<p><strong>(出自第04节 第32段)</strong></p>
+<h4>系统性总结（板块三）</h4>
+<p>战略资金是<strong>体量最大</strong>的资金（社保、公募基金等），代表<strong>大级别行情</strong>。</p>
+<p><strong>关键识别要点</strong>：</p>
+<ol><li>建仓期换手率&lt;5%</li><li>成交量大（5亿起，三五十亿）</li><li>出现在<strong>熊市末端空头区域</strong></li><li>360年线附近</li><li>单日大阳线（5%换手率 + 40-50亿成交量）</li><li>偶尔涨停但无持续性</li><li>多次单日放量建仓</li><li>初期跌破建仓成本</li><li>运行周期半年以上</li><li>不注重技术面，看重宏观+基本面</li></ol>
+<p><strong>预判模型</strong>：</p>
+<ul><li>涨幅50%以上（保守）</li><li>全行业布局时翻3-10倍</li><li>运作时间越长 → 上涨时间越长、高度越高</li><li>对大盘和板块有决定性影响</li></ul>
+<hr>
+<p>## 全文系统性总结</p>
+<h4>1. 三大资金对比总表</h4>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>游资</th><th>主力资金</th><th>战略资金</th></tr></thead><tbody><tr><td>性格</td><td>敏感/机动/突发</td><td>注重基本面，调研驱动</td><td>看重宏观+基本面，体量大</td></tr><tr><td>市值偏好</td><td>中小盘</td><td>50亿左右（100多亿也可）</td><td>500亿以上（三五百亿、上千亿）</td></tr><tr><td>建仓换手率</td><td>突击建仓&gt;20%，一般&gt;10%</td><td>&lt;10%</td><td>&lt;5%</td></tr><tr><td>建仓期成交量</td><td>绝对量大</td><td>相对较大</td><td>5亿起，三五十亿</td></tr><tr><td>速度</td><td>来得快去得快</td><td>2-5个月拉伸前</td><td>半年以上周期</td></tr><tr><td>涨幅</td><td>短期暴利</td><td>50%以上，主升浪翻几倍</td><td>50%以上，全行业翻3-10倍</td></tr><tr><td>技术面态度</td><td>—</td><td>注重（盘面全轨迹可见）</td><td>不太注重</td></tr><tr><td>板块效应</td><td>短线带动</td><td>中后期趋势指导</td><td>决定性影响大盘/板块</td></tr><tr><td>风险收益</td><td>高风险高收益</td><td>稳定持续</td><td>大级别行情</td></tr></tbody></table></div>
+<h4>2. 三大资金的核心识别流程</h4>
+<p>观察盘面指标&lt;br&gt;   ↓&lt;br&gt;判断市值（10亿/50亿/500亿）&lt;br&gt;   ↓&lt;br&gt;判断换手率（&gt;10%/&lt;10%/&lt;5%）&lt;br&gt;   ↓&lt;br&gt;判断成交量（一般/较大/三五十亿）&lt;br&gt;   ↓&lt;br&gt;判断走势特征&lt;br&gt;   ↓&lt;br&gt;判定资金类型&lt;br&gt;   ↓&lt;br&gt;预判后续演化趋势</p>
+<h4>3. 三大资金的功能定位</h4>
+<p><strong>资金性质分析的核心目的</strong>：</p>
+<ol><li><strong>前瞻性描绘股价动态运行的画面</strong></li><li><strong>预判股价运行轨迹和演化趋势</strong></li><li><strong>预判涨跌时间</strong></li><li><strong>预判涨跌高度</strong></li></ol>
+<p><strong>与传统资金分析的关键区别</strong>：市场上一般只判断"有没有主力"，本课程要做的是<strong>预判未来的演化趋势</strong>。</p>
+<h4>4. 三大资金的实战价值</h4>
+<div class="table-wrap"><table><thead><tr><th>资金</th><th>实战价值</th></tr></thead><tbody><tr><td><strong>游资</strong></td><td>短线题材炒作机会（结合分时和题材）</td></tr><tr><td><strong>主力</strong></td><td>中期波段机会（潜伏-拉升-兑现的全轨迹预判）</td></tr><tr><td><strong>战略资金</strong></td><td>大级别行情机会（行业核心标的、大盘级别机会）</td></tr></tbody></table></div>
+<h4>5. 关键术语速查</h4>
+<div class="table-wrap"><table><thead><tr><th>术语</th><th>含义</th></tr></thead><tbody><tr><td>游资</td><td>短线题材炒作资金</td></tr><tr><td>主力资金</td><td>中期布局的资金</td></tr><tr><td>战略资金</td><td>社保、公募等大资金</td></tr><tr><td>突击建仓</td><td>涨停板建仓、换手率高</td></tr><tr><td>隐蔽建仓</td><td>换手率低、长时间潜伏</td></tr><tr><td>三轮结构拉伸</td><td>强势主力的拉升结构</td></tr><tr><td>360年线</td><td>战略资金建仓的关键位置</td></tr><tr><td>协同</td><td>大市值无法控盘时的多机构协作</td></tr><tr><td>主升浪前</td><td>建仓到拉伸前的阶段</td></tr><tr><td>涨停板建仓</td><td>强势主力的标志</td></tr><tr><td>单日大阳线</td><td>战略资金建仓的标志</td></tr><tr><td>全轨迹</td><td>建仓→震荡→洗盘→突破→拉升</td></tr></tbody></table></div>
+<h4>6. 课程逻辑链</h4>
+<ol><li><strong>认识三类资金</strong>（游资/主力/战略）</li><li><strong>理解三类资金的性格</strong>（敏感机动突发/基本面导向/宏观导向）</li><li><strong>掌握每类资金的识别信号</strong>（换手率/成交量/市值/位置）</li><li><strong>预判每类资金的演化趋势</strong>（三种演化模式）</li><li><strong>建立全面的预判画面</strong>（前瞻性描绘股价动态运行的画面）</li><li><strong>应用到投资决策</strong>（三类资金对应三类交易机会）</li></ol>
+<h4>7. 课程在体系中的位置</h4>
+<ul><li><strong>第一维度</strong>：政策与背景（第03节）→ 找对方向、站对风口</li><li><strong>第二维度</strong>：资金性质（本节）→ 看清操盘者、预判演化</li><li><strong>第三维度</strong>：分时（第05节）→ 研判买卖时机</li></ul>
+
+            <div class="quiz">
+                <strong>📝 第04节 测验</strong>
+                <p>1. 主力资金建仓期换手率一般不超过？</p>
+                <details><summary>显示答案</summary>10%。超过10%多半是游资小盘股。</details>
+                <p>2. 战略资金建仓的位置特征？</p>
+                <details><summary>显示答案</summary>熊市末端的空头区域、360年线附近，单日大阳线（换手率5%+成交量40-50亿）。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L05">
+            <h2>第05节 第三维度 分时——研判买卖时机</h2>
+<p>## 大纲</p>
+<p>本课分为六大板块：</p>
+<ul><li><strong>板块一</strong>：分时的总体作用与基础认知</li><li><strong>板块二</strong>：第一维度 —— 了解分时盘面构成</li><li><strong>板块三</strong>：第二维度 —— 分时高开低开透露主力计划性</li><li><strong>板块四</strong>：第三维度 —— 分时上下行封闭（做T）</li><li><strong>板块五</strong>：第四维度 —— 拉升涨停分时特征</li><li><strong>板块六</strong>：第五、六维度 —— 游资主力买入出货分时与综合判断</li></ul>
+<hr>
+<p>## 板块一：分时的总体作用与基础认知</p>
+<h4>深度总结</h4>
+<h5>1. 分时的作用</h5>
+<p>分时是短期股价走势，可以实现：</p>
+<ol><li><strong>洞察主力的计划性</strong></li><li><strong>预判主力的真实意图</strong></li><li><strong>预判场内外资金的态度强弱</strong></li><li><strong>决定操作</strong>：买入、持有或卖出</li></ol>
+<p><strong>(出自第05节 第6段)</strong></p>
+<h5>2. 三种资金的盘面分时差异</h5>
+<ul><li><strong>游资</strong>：盘面分时特点独特</li><li><strong>主力</strong>：盘面分时特点独特</li><li><strong>战略资金</strong>：盘面分时特点独特</li></ul>
+<p><strong>三者有区别</strong>——并非一套标准适用于所有资金。</p>
+<p><strong>(出自第05节 第6段)</strong></p>
+<h5>3. 健康分时的核心标准</h5>
+<p><strong>最健康的标准</strong>：</p>
+<ul><li><strong>上涨带量</strong></li><li><strong>下跌缩量</strong></li></ul>
+<p><strong>(出自第05节 第6段)</strong></p>
+<h5>4. 分时的两大分类</h5>
+<p><strong>分类1：按资金进出</strong></p>
+<ul><li><strong>吃货</strong>：高开、低开、涨停板吃货，强势攻击性分时，换手吸筹</li><li><strong>出货</strong>：瀑布式出货、高开/低开出货、温水煮青蛙（低开两点→跌停）</li></ul>
+<p><strong>分类2：按盘面结构</strong></p>
+<ul><li>游资分时</li><li>主力分时</li><li>战略资金盘面分时</li><li>主升浪分时</li><li>平常分时</li><li>震荡调整分时</li></ul>
+<p><strong>共同维度</strong>：所有这些通过"量价时空"体现。</p>
+<p><strong>(出自第05节 第8段)</strong></p>
+<h4>系统性总结（板块一）</h4>
+<p>分时是短期股价表现的载体，能洞察主力、预判意图、判断强弱。最根本的健康标准是"上涨带量、下跌缩量"。按资金进出（吃货/出货）和盘面结构（游资/主力/战略）两类维度划分，通过量价时空综合体现。</p>
+<hr>
+<p>## 板块二：第一维度 —— 了解分时盘面构成</p>
+<h4>深度总结</h4>
+<h5>1. 量价时空的匹配原则</h5>
+<ul><li>量价要和<strong>时间</strong>和<strong>空间</strong>匹配</li><li>关键观察点：</li><li><strong>什么时候放量</strong>（时间维度）</li><li><strong>什么时候放量拉升高度</strong>（空间维度）</li><li><strong>代表含义各不相同</strong></li></ul>
+<p><strong>(出自第05节 第10段)</strong></p>
+<h5>2. 各种盘面形态的含义差异</h5>
+<ul><li>带温和的量</li><li>下跌量</li><li>高开</li><li>低开</li><li>大幅低开</li></ul>
+<p>——每种形态代表的含义都不相同。</p>
+<p><strong>(出自第05节 第10段)</strong></p>
+<h5>3. 不同时间段的涨停板含义</h5>
+<div class="table-wrap"><table><thead><tr><th>涨停板位置</th><th>含义</th></tr></thead><tbody><tr><td><strong>尾盘涨停</strong></td><td>不好</td></tr><tr><td><strong>早盘涨停</strong></td><td>好</td></tr><tr><td><strong>中途涨停</strong></td><td>多为没有热点、突击性的炒作</td></tr></tbody></table></div>
+<p><strong>代表的含义各不相同</strong>。</p>
+<p><strong>(出自第05节 第10段)</strong></p>
+<h4>系统性总结（板块二）</h4>
+<p>第一维度教我们看懂分时的基本构成——量价时空如何匹配，各种形态（温和放量/下跌量/高开/低开/大幅低开）各有含义。涨停板的位置（早/中/尾）也是判断其背后逻辑的重要信号。</p>
+<hr>
+<p>## 板块三：第二维度 —— 分时高开低开透露主力计划性</p>
+<h4>深度总结</h4>
+<h5>1. 核心问题</h5>
+<blockquote>"你给我表个态，你今天晚上想好了没有？这个股明天是买还是卖？"</blockquote>
+<p>——分时的开盘表现透露场内外资金的计划性。</p>
+<p><strong>(出自第05节 第10段)</strong></p>
+<h5>2. 实战案例：大智慧大幅低开</h5>
+<p><strong>盘面表现</strong>：几乎跌停板开盘 → 在5日线低开 → 往上连续放量</p>
+<p><strong>主力意图</strong>：这是超短线游资的动作</p>
+<ul><li>这一天是大换手</li><li>大回收以后</li><li>这一天是大幅低开</li></ul>
+<p><strong>(出自第05节 第12段)</strong></p>
+<h5>3. 开盘形态的核心判断标准</h5>
+<div class="table-wrap"><table><thead><tr><th>开盘类型</th><th>强度</th></tr></thead><tbody><tr><td><strong>高开</strong></td><td><strong>最好</strong></td></tr><tr><td><strong>大幅低开（跌停板开盘）</strong></td><td><strong>好</strong></td></tr><tr><td><strong>中途开一两个点（低开1-2个点）</strong></td><td><strong>不好</strong></td></tr></tbody></table></div>
+<p><strong>核心</strong>：跌停板开盘或大幅低开<strong>比低开2-3个点不伦不类</strong>要好。</p>
+<p><strong>(出自第05节 第12段)</strong></p>
+<h5>4. 大幅低开背后的逻辑</h5>
+<p><strong>主力目的</strong>：<strong>恐慌盘杀出</strong>，主力为迅速收集筹码</p>
+<p><strong>操作过程</strong>：</p>
+<ul><li>定价打到跌停板</li><li>昨天前面买进去的人，很多人会挂跌停板卖出（<strong>割肉盘</strong>）</li><li>主力通过这里吃割肉盘</li><li>连续两根巨量 → 迅速吸收筹码</li><li>这就是"<strong>吃货的分时上涨带量下跌缩量</strong>"</li></ul>
+<p><strong>(出自第05节 第14段)</strong></p>
+<h5>5. 开盘形态对比</h5>
+<p><strong>大幅低开出货 vs 大幅低开吃货</strong>：</p>
+<ul><li>大幅低开好</li><li>但需要配合盘面放量情况验证</li><li>进一步验证主力就是想什么在跌停板时候吃货</li></ul>
+<p><strong>两个量都是什么</strong>：吃恐慌盘的筹码 — 这就是<strong>吃货分时</strong>。</p>
+<p><strong>(出自第05节 第14段)</strong></p>
+<h5>6. 高开背后的逻辑</h5>
+<p><strong>含义</strong>：场内场外的人都愿意用更高的价格去买入这只个股</p>
+<p><strong>口诀</strong>：愿意用更高的价接入你们想卖出的货，我们都能以更高的价格买进，你们去赚钱，<strong>这个是有计划的</strong>。</p>
+<p><strong>(出自第05节 第14段)</strong></p>
+<h5>7. 高开强势的进一步刻画</h5>
+<ul><li>高开 → 早盘迅速带量 → 持续量往上拉</li><li>这是<strong>非常强势</strong>的表现</li><li>这种股是<strong>重仓</strong>对象</li></ul>
+<p><strong>游资的真正龙头</strong>：基本上都在早盘五六十秒的时间就结束了全天战斗。一开盘就能知道大概就知道这个股能不能涨停，是不是妖股。</p>
+<p><strong>(出自第05节 第16段)</strong></p>
+<h5>8. 高开 vs 大幅低开：都是强</h5>
+<blockquote>"高开强大幅低开也都好，实际上它是一种比较好，非常强的表现。"</blockquote>
+<p><strong>(出自第05节 第16段)</strong></p>
+<h4>系统性总结（板块三）</h4>
+<p>第二维度揭示<strong>开盘方式透露主力计划性</strong>的规律：</p>
+<ul><li><strong>高开</strong> → 主力愿意用更高的价格接走所有卖盘（强势且有计划）</li><li><strong>大幅低开（跌停板开盘）</strong> → 主力刻意制造恐慌吃割肉盘（强势且有计划）</li><li><strong>低开1-2点不伦不类</strong> → 缺少明确信号（不好）</li><li><strong>关键验证</strong>：通过盘面放量情况确认主力是否在跌停板时吃货</li><li><strong>核心要义</strong>：开盘的"非常态"（高开或大幅低开）反而是强势信号</li></ul>
+<p>这背后的本质是"场内外资金有资金主导"。</p>
+<hr>
+<p>## 板块四：第三维度 —— 分时上下行封闭</p>
+<h4>深度总结</h4>
+<h5>1. 上下行封闭的核心概念</h5>
+<ul><li>上十个点 + 下十个点封闭</li><li>下封闭的跌停板 → 破板大资金买入 → 一波拉升</li><li>这里叫<strong>翘板资金</strong>（资金买入）</li></ul>
+<p><strong>(出自第05节 第18段)</strong></p>
+<h5>2. 翘板后的演化</h5>
+<p>主力继续买 → 拉升&lt;br&gt;主力不再买 → 自然回落</p>
+<p>最高点到最低点 = 做T分时 = 盘中快速拉高</p>
+<p><strong>(出自第05节 第18段)</strong></p>
+<h5>3. 80/80/80规律</h5>
+<blockquote>"80%时间，80%的个股在80%的时间里都是这种，要么是先上后下，要么是先下后上。"</blockquote>
+<p><strong>含义</strong>：</p>
+<ul><li>80%的个股</li><li>80%的时间</li><li>都是震荡形态</li><li>两种形态：先上后下 / 先下后上</li></ul>
+<p><strong>(出自第05节 第18段)</strong></p>
+<h5>4. 震荡形态的做T法则</h5>
+<p><strong>震荡特征</strong>：上去有一个高点，下来有一个低点</p>
+<p><strong>做T操作</strong>：</p>
+<ul><li><strong>放量拉升卖出</strong></li><li><strong>下跌区域买入</strong></li></ul>
+<p><strong>具体位置判断</strong>：根据盘面成交量判断买卖点位</p>
+<p><strong>术语命名</strong>：上下行空间封闭 — 每天有个高点，有个低点</p>
+<p><strong>(出自第05节 第18段)</strong></p>
+<h4>系统性总结（板块四）</h4>
+<p>第三维度教<strong>分时上下行封闭</strong>的做T技巧。<strong>80/80/80规律</strong>说明震荡是市场常态。<strong>做T两大原则</strong>：放量拉升卖、下跌区域买。具体买卖点位需结合成交量判断。这一技巧适用于<strong>跌停板翘板、盘中高抛低吸</strong>等场景。</p>
+<hr>
+<p>## 板块五：第四维度 —— 拉升涨停分时特征</p>
+<h4>深度总结</h4>
+<h5>1. 识别速度</h5>
+<blockquote>"60秒就能看出来。"</blockquote>
+<p><strong>特别适用</strong>：短线股。</p>
+<p><strong>(出自第05节 第20段)</strong></p>
+<h5>2. 攻击性分时买入特征</h5>
+<p><strong>形态</strong>：开盘高开 + 量能持续性</p>
+<p><strong>命名</strong>：<strong>攻击性的分时买入</strong></p>
+<p><strong>关键观察</strong>：</p>
+<ul><li>几分钟的时间就定了</li><li>只有几分钟决定了涨停板特征</li></ul>
+<p><strong>(出自第05节 第20段)</strong></p>
+<h5>3. 真龙头的特征</h5>
+<ul><li>早盘很快封涨停</li><li>成交量在早盘基本上放出来</li><li><strong>连续带量突击式往上拔</strong>的分时</li><li>都是涨停板</li><li>分时非常强</li></ul>
+<p><strong>(出自第05节 第20段)</strong></p>
+<h4>系统性总结（板块五）</h4>
+<p>第四维度揭示<strong>拉升涨停分时</strong>的三大特征：</p>
+<ol><li><strong>开盘高开</strong>（强势开盘）</li><li><strong>量能持续性</strong>（量能不衰减）</li><li><strong>突击式拉升</strong>（连续带量往上拔）</li></ol>
+<p>真龙头特征：<strong>60秒识别、几分钟决定、早盘封板、早盘放量</strong>。</p>
+<hr>
+<p>## 板块六：第五、六维度 —— 游资主力买入出货分时与综合判断</p>
+<h4>深度总结</h4>
+<h5>1. 第五维度A：高开 vs 低开 与 出货</h5>
+<p><strong>核心规律</strong>：高开比低开强</p>
+<p><strong>主力想做盘的信号</strong>：</p>
+<ul><li>高开 + 带量 → 主力想拉、继续炒</li></ul>
+<p><strong>主力出货的信号</strong>：</p>
+<ul><li>高开后 → 后面放量下行、放量下跌</li><li>股价长时间在成本线以下</li><li>涨停板后出现大量砸盘</li><li><strong>主力今天的目标就是出货</strong>（以出货为主）</li></ul>
+<p><strong>(出自第05节 第22段)</strong></p>
+<h5>2. 第五维度B：低开后快速拉升是强势信号</h5>
+<p><strong>错误判断</strong>：很多人一看低开就判断不好</p>
+<p><strong>正确解读</strong>：</p>
+<ul><li>看成交量</li><li><strong>量连续放量 + 迅速往上拉</strong></li><li>这是<strong>下行空间封闭</strong></li></ul>
+<p><strong>进一步观察</strong>：资金成交量的跟进回落，继续放量拉升 → <strong>攻击性分时</strong></p>
+<p><strong>形成机制</strong>：很快拉升 → 连续挂几个档买入 → <strong>突发式</strong> （不是慢慢推升的温和放量）</p>
+<p><strong>实战特征</strong>：盘面强势股都是突击式拉升的走势</p>
+<p><strong>(出自第05节 第24段)</strong></p>
+<h5>3. 强度分析的两大维度</h5>
+<p><strong>维度1：攻击性量的大小</strong></p>
+<ul><li>越大越强</li></ul>
+<p><strong>维度2：持续性量价的时间</strong></p>
+<ul><li>越早越强（早盘放量 &gt; 下午放量）</li><li>上午半天越早放量越强</li><li><strong>量能要持续</strong>：连续的大放量</li><li><strong>不是单根的量，一根没了</strong> —— 那是虚假的</li></ul>
+<p><strong>(出自第05节 第26段)</strong></p>
+<h5>4. 攻击性的价格形态对比</h5>
+<div class="table-wrap"><table><thead><tr><th>形态</th><th>强度</th><th>适用</th></tr></thead><tbody><tr><td><strong>非常陡峭</strong>的价格走势</td><td>更强</td><td>游资 / 主升浪拉升</td></tr><tr><td><strong>温和推升</strong>的价格走势</td><td>较弱</td><td>主力 / 战略</td></tr></tbody></table></div>
+<p><strong>(出自第05节 第26段)</strong></p>
+<h5>5. 强势的综合加分项</h5>
+<p><strong>加分组合</strong>：</p>
+<ul><li>连续性的放量（连续大放量）</li><li>早盘放量连续性</li><li>大量</li><li>股价迅速往上拉</li><li><strong>连续跳档买入</strong></li><li><strong>连续挂几个档收货</strong></li></ul>
+<p><strong>实战表现</strong>：这种成交量后续炸不炸板都不重要了 → <strong>强势股</strong>的特征</p>
+<p><strong>典型场景</strong>：涨停板的连板、短线龙头股</p>
+<p><strong>(出自第05节 第28段)</strong></p>
+<h5>6. 第六维度：突击买入分时</h5>
+<p><strong>形态特征</strong>：</p>
+<ul><li>这里都没什么量</li><li>突然直线往上拉</li><li>通吃到10%涨停板</li><li>几根线</li><li><strong>突击买入</strong> = 非常强势建仓</li></ul>
+<p><strong>(出自第05节 第30段)</strong></p>
+<h5>7. 综合分时判断公式</h5>
+<p><strong>量</strong>：攻击性的量是越陡越好，成交量是越持续越好</p>
+<p><strong>时间</strong>：以早盘一天的话，时间是越早越好，越早越好。<strong>上午要比下午好</strong></p>
+<p><strong>价格</strong>：</p>
+<ul><li>开盘是高开 → 好</li><li>大幅低开 + 5日线附近 → 好</li><li>低开2-3个点 → 反倒不好</li></ul>
+<p><strong>逻辑对应</strong>：</p>
+<ul><li>高开 → 愿意用更高的价格买入个股，让前面的人全部赚钱</li><li>大幅低开 + 巨量 → 杀恐慌盘迅速拿筹码</li></ul>
+<p><strong>量价持续性</strong>：价格陡峭 + 时间早 + 上午优于下午</p>
+<p><strong>(出自第05节 第30段)</strong></p>
+<h5>8. 综合运用原则</h5>
+<blockquote>"分时因为是短期的股价的表现，所以它看起来比较复杂。"</blockquote>
+<p><strong>实战要求</strong>：</p>
+<ul><li>必须结合具体的盘面去分析</li><li>震荡多的股 → 运用上下行分时封闭做T</li><li>短线股 → 注意强弱问题</li><li>放量的时间要早</li><li>高开或者大幅低开好</li><li>低开2个点左右的不伦不类的不好</li></ul>
+<p><strong>整体原则</strong>：分时的各种特征，要有一个大概的了解。</p>
+<p><strong>(出自第05节 第32段)</strong></p>
+<h4>系统性总结（板块六）</h4>
+<p>第五、六维度整合了<strong>游资主力的买入/出货分时</strong>以及<strong>综合判断公式</strong>：</p>
+<p><strong>核心判断公式</strong>：</p>
+<ul><li><strong>量</strong>：越陡越好 + 越持续越好</li><li><strong>时间</strong>：越早越好（上午优于下午）</li><li><strong>价格</strong>：高开或大幅低开好，低开1-2点不好</li><li><strong>价格陡峭度</strong>：陡峭强于温和</li></ul>
+<p><strong>主力出货信号</strong>：高开后放量下行 + 涨停板后大量砸盘&lt;br&gt;<strong>游资买入信号</strong>：低开后迅速放量上行 + 突发式拉升&lt;br&gt;<strong>强势综合</strong>：连续大放量 + 早盘放量 + 跳档买入 + 突击式拉升&lt;br&gt;<strong>特别强调</strong>：短期分时看起来复杂，必须结合具体盘面综合分析。</p>
+<hr>
+<p>## 全文系统性总结</p>
+<h4>1. 六大维度全景图</h4>
+<p>第一维度：了解分时盘面构成（量价时空匹配）&lt;br&gt;第二维度：分时高开低开透露主力计划性&lt;br&gt;第三维度：分时上下行封闭（做T技巧）&lt;br&gt;第四维度：拉升涨停分时特征&lt;br&gt;第五维度：游资和主力买入出货分时&lt;br&gt;第六维度：突击买入分时</p>
+<h4>2. 核心判断标准速查表</h4>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>好信号</th><th>坏信号</th></tr></thead><tbody><tr><td><strong>开盘</strong></td><td>高开 / 大幅低开（跌停板开盘）</td><td>低开1-2个点不伦不类</td></tr><tr><td><strong>量能</strong></td><td>攻击性陡峭量 + 持续性放量</td><td>单根量消失</td></tr><tr><td><strong>时间</strong></td><td>越早越好（早盘&gt;上午&gt;下午）</td><td>尾盘才放量</td></tr><tr><td><strong>价格走势</strong></td><td>陡峭突击式</td><td>温和慢慢推升</td></tr><tr><td><strong>量价关系</strong></td><td>上涨带量 + 下跌缩量</td><td>反向</td></tr><tr><td><strong>涨停位置</strong></td><td>早盘快速封板</td><td>尾盘才封板</td></tr><tr><td><strong>放量位置</strong></td><td>早盘</td><td>尾盘</td></tr><tr><td><strong>涨停方式</strong></td><td>连续带量突击</td><td>慢慢推升</td></tr></tbody></table></div>
+<h4>3. 主力意图读懂法则</h4>
+<p><strong>问题</strong>：你给我表个态，明天是买还是卖？</p>
+<p><strong>答案（在盘面上）</strong>：</p>
+<ul><li><strong>高开</strong> = 主力愿意用更高的价格接走卖盘（强势买入）</li><li><strong>跌停板开盘</strong> = 主力刻意制造恐慌吃割肉盘（强势吸筹）</li><li><strong>涨停后大量砸盘</strong> = 主力出货</li><li><strong>低开后迅速放量上行</strong> = 下行空间封闭，强势</li><li><strong>涨停板连续带量突击式</strong> = 涨停板特征明确</li></ul>
+<h4>4. 健康分时的核心标准</h4>
+<blockquote>"上涨带量 + 下跌缩量"</blockquote>
+<h4>5. 关键操作技巧</h4>
+<p><strong>做T技巧（80/80/80规律）</strong>：</p>
+<ul><li>80%个股，80%时间都是震荡</li><li>先上后下 / 先下后上</li><li><strong>放量拉升卖 + 下跌区域买</strong></li></ul>
+<p><strong>翘板技巧</strong>：</p>
+<ul><li>下封闭跌停板 → 破板大资金买入 → 翘板资金</li><li>看主力是否继续跟进 → 跟进则拉升 / 不跟进则回落</li></ul>
+<p><strong>强势识别（60秒法则）</strong>：</p>
+<ul><li>60秒就能看出</li><li>特别适用短线股</li><li>早盘迅速放量封板 = 涨停板特征</li><li>真龙头都在早盘五六十秒结束全天战斗</li></ul>
+<h4>6. 关键术语速查</h4>
+<div class="table-wrap"><table><thead><tr><th>术语</th><th>含义</th></tr></thead><tbody><tr><td>量价时空</td><td>量、价、时间、空间四维匹配</td></tr><tr><td>健康分时</td><td>上涨带量下跌缩量</td></tr><tr><td>跳水板</td><td>跌停板</td></tr><tr><td>翘板资金</td><td>跌停板破板大资金买入</td></tr><tr><td>做T</td><td>盘中做差价，放量拉升卖+下跌区域买</td></tr><tr><td>上下行封闭</td><td>上十点+下十点的震荡区间</td></tr><tr><td>80/80/80规律</td><td>80%个股80%时间震荡</td></tr><tr><td>攻击性分时</td><td>陡峭 + 持续量能</td></tr><tr><td>突击买入</td><td>突然直线拉涨停</td></tr><tr><td>温水煮青蛙</td><td>低开两点到最后搞跌停板的出货方式</td></tr><tr><td>瀑布式出货</td><td>出货方式之一</td></tr><tr><td>高开/低开</td><td>开盘方式透露主力计划性</td></tr><tr><td>60秒法则</td><td>真龙头涨停板识别速度</td></tr></tbody></table></div>
+<h4>7. 课程在体系中的位置</h4>
+<p>八大维度：</p>
+<ol><li>政策与背景（第03节）→ 找对方向</li><li>资金性质（第04节）→ 看懂操盘者</li><li>分时（本节课）       → 研判买卖时机 ← 当前位置</li><li>K线 / 5. 成交量 / 6. 换手率 / 7. 结构级别 / 8. 板块轮动</li></ol>
+<h4>8. 三大买卖决策核心点</h4>
+<ol><li><strong>看开盘</strong>：高开或大幅低开好（强势信号）</li><li><strong>看量能</strong>：早盘放量+持续放量+陡峭价=强势</li><li><strong>看涨停板位置</strong>：早盘封板=强，尾盘封板=弱</li></ol>
+<h4>9. 课程逻辑链</h4>
+<ol><li><strong>理解分时总体作用</strong>（洞察主力、预判意图、判断强弱、决定操作）</li><li><strong>掌握分时盘面构成</strong>（量价时空匹配 + 各种形态含义）</li><li><strong>读懂开盘透露的主力计划性</strong>（高开/大幅低开）</li><li><strong>运用上下行封闭做T</strong>（80/80/80规律 + 放量拉升卖+下跌区域买）</li><li><strong>识别涨停板分时特征</strong>（60秒法则 + 早盘放量 + 突击式）</li><li><strong>区分主力出货 vs 游资买入分时</strong>（高开后放量下行=出货 / 低开后迅速放量上行=游资买入）</li><li><strong>综合运用六大维度</strong>（看量+看时间+看价格+看陡峭度）</li></ol>
+<h4>10. 实操要点</h4>
+<p><strong>短线股的实战原则</strong>：</p>
+<ol><li>开盘方式 → 强势信号（高开或大幅低开）</li><li>放量时间 → 越早越好</li><li>量能持续 → 不是单根量</li><li>价格陡峭 → 强于温和</li><li>涨停板位置 → 早盘快封</li></ol>
+<p><strong>趋势股的实战原则</strong>：</p>
+<ol><li>量价时空匹配</li><li>上下行封闭做T</li><li>健康分时（上涨带量、下跌缩量）</li><li>结合具体盘面分析</li></ol>
+<h4>11. 与前两节的呼应</h4>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>关注对象</th><th>本节关注</th></tr></thead><tbody><tr><td>政策与背景</td><td>时代方向、行业风口</td><td>—</td></tr><tr><td>资金性质</td><td>操盘者性格、演化趋势</td><td>—</td></tr><tr><td>分时</td><td>—</td><td><strong>买卖时机、强弱、做T、买卖点</strong></td></tr></tbody></table></div>
+<p>分时维度是<strong>研判买卖时机</strong>的专用工具，弥补前两个维度在"何时买何时卖"问题上的不足。</p>
+
+            <div class="quiz">
+                <strong>📝 第05节 测验</strong>
+                <p>1. 开盘方式中，怎样的开盘才是强势信号？</p>
+                <details><summary>显示答案</summary>高开或大幅低开（跌停板开盘）都是强势信号；低开1-2个点不伦不类不好。</details>
+                <p>2. 80/80/80规律是什么？</p>
+                <details><summary>显示答案</summary>80%的个股在80%的时间里都是震荡形态（先上后下 / 先下后上）。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L06">
+            <h2>第06节 第四维度 均线K线——研判支撑压力、结构级别、顶部底部、强弱</h2>
+<h3>深度总结</h3>
+<p>本节课是"盘面分析多维度体系"的第四维度，专门讲<strong>均线和K线</strong>这两个核心工具的应用。老师重点讲了两根均线：<strong>5日线</strong>和<strong>360年线</strong>，并配合K线来分析股票的支撑压力、结构级别、顶部底部、强弱。</p>
+<h4>一、核心均线（5日线、360年线）</h4>
+<h5>1. 5日线（最高级别均线）</h5>
+<ul><li>是<strong>最高级单边上行的线</strong>，超短线必须使用</li><li>主升浪、最高级个股运行均要用5日线</li><li>对于主力资金盘面有效，对游资盘面均线支撑基本无效</li><li>战略资金盘面：5日线对股价有很强支撑</li></ul>
+<h5>2. 360年线（独家年限指标）</h5>
+<ul><li>是本套体系<strong>独有的年限指标</strong></li><li>是<strong>牛熊分界线</strong>，孕育大量机会</li><li>是<strong>大级别行情的变盘点</strong>，对股价形成强力的支撑或压制</li><li>与结构、级别配合使用</li><li>必须突破到年线上方才能成为行情主流</li><li>周线和月线对游资盘面无效</li></ul>
+<h5>3. 其他均线（10日、30日、60日、120日）</h5>
+<ul><li>5日、10日、30日、60日、120日、360日构成均线系统</li><li>上行时顺序：最上方360，中间120、60、30，下方5日</li><li>下行时顺序相反：最上方360，最下方5日</li></ul>
+<h4>二、均线的核心用途</h4>
+<ol><li>做<strong>结构和级别的预判</strong></li><li>分析股价的<strong>支撑和压力</strong></li><li>分析<strong>顶部和底部</strong></li><li>分析<strong>强弱、行情启动点、确定性</strong></li></ol>
+<h4>三、支撑压力的有效背景（重要前提）</h4>
+<ul><li><strong>没有结构和级别的股</strong>（小市值垃圾股）→ 均线支撑压力基本无效</li><li><strong>超短线龙头股</strong> → 分水岭是5日线</li><li><strong>主力运作盘面/战略资金盘面</strong> → 不管涨跌均线支撑压力<strong>非常有效</strong>，还可捕捉大级别盈利机会</li></ul>
+<p><strong>关键误差提示</strong>：很多股因为没有级别、没有结构，用金叉死叉分析压力支撑经常出错，<strong>所以必须有背景</strong>。</p>
+<h4>四、5日线的双重作用</h4>
+<ul><li><strong>上涨时</strong>：支撑极其有效</li><li><strong>下跌时</strong>：压制极其有效</li><li>在战略资金层面，5日线是加速级别均线，支撑最强</li></ul>
+<h4>五、360年线的应用</h4>
+<ul><li><strong>熊市结构末端</strong>，360天线附近多为<strong>大资金建仓区域</strong></li><li>必须突破360天线才能启动行情</li><li>是<strong>主力资金走牛的必经门槛</strong></li><li>配合结构级别使用极其有效</li></ul>
+<h4>六、均线的顺序性（多头排列）</h4>
+<ul><li>多头排列要求<strong>一根都不能错，顺序不能错</strong></li><li>是<strong>进入大级别行情的必经之路</strong></li><li>每一只牛股必须均线多头</li><li>下行时级别越走越低（最高360→最低5日），是熊市结构特征</li></ul>
+<h4>七、K线的研判</h4>
+<ol><li><strong>大阳线（涨幅）判断强弱</strong>：振幅越大、强度越大；涨停板最强；大阳线越大越强</li><li><strong>持续大阳线</strong>：连续两三个大阳线可能是主力吃货，是强势表现</li><li><strong>K线覆盖</strong>（前后两天分时重叠）：</li></ol>
+<ul><li>震荡洗盘或走势变弱的表现</li><li>或者吃货表现</li></ul>
+<ol><li><strong>高开K线</strong>比低开好</li></ol>
+<h4>八、均线K线组合信号（行情启动预判）</h4>
+<ul><li>重要均线上出现的K线信号，可洞察主力做多做空真实意图</li><li>主升浪与趋势上涨行情的K线必须在多头上方</li><li>主升浪必须是完全多头排列之上</li><li>K线大阳线和持续性明显加强主力运作盘面</li><li>均线完全多头、完成首板后，在重要均线位置出现的K线 = 主升浪信号</li><li>在刚开5日线上出现的K线 = 确认信号</li><li>突破后持续放量 = 主升浪进行中</li></ul>
+<h4>九、顶部底部的研判（均线多头+K线组合）</h4>
+<ul><li>游资、主力、战略资金盘面都会形成局部底和系统性大顶</li><li><strong>演化时间长短不同</strong></li><li>K线和均线组合配合盘面结构，可准确预判顶部和系统性大顶</li></ul>
+<h5>1. 结构性顶 vs 系统性大顶</h5>
+<ul><li><strong>结构性顶</strong>：会突破上去（局部回调）</li><li><strong>系统性大顶</strong>：上去以后下来几年不会创新高（历史大顶/大级别顶部）</li></ul>
+<h5>2. 顶部性质的预判意义</h5>
+<ul><li>顶部性质分析可以预判未来行情演化趋势</li><li>可判断是结构性顶、历史大顶还是大级别顶部</li></ul>
+<h5>3. 顶部形成过程（主力运作）</h5>
+<ul><li>主升浪经过三级拉伸</li><li>沿5日线最高级运作后</li><li>K线覆盖开始</li><li>构筑顶部 → 形成大顶</li><li>大顶形成后规避大级别顶部风险</li></ul>
+<h4>十、关键案例与场景</h4>
+<ul><li>战略资金盘面在360年线下方是建仓期</li><li>突破360天线后进入多头结构 → 牛市启动</li><li>沿5日线运行 = 最高级别主升浪</li><li>顶部形成前K线覆盖是关键预警</li></ul>
+<hr>
+<h3>系统性总结</h3>
+<p>本节课是盘面分析多维度体系的<strong>第四维度</strong>，主题是<strong>均线和K线</strong>。核心知识点可归纳如下：</p>
+<p><strong>1. 双均线体系</strong>：5日线（最高级别短线均线）+ 360年线（独家大级别牛熊分界线）。其他均线（10日、30日、60日、120日）辅助判定级别。</p>
+<p><strong>2. 均线四大用途</strong>：①预判结构级别；②分析支撑压力；③分析顶部底部；④分析强弱和启动点。</p>
+<p><strong>3. 支撑压力有效性三原则</strong>：</p>
+<ul><li>垃圾股无效（无结构级别）</li><li>超短线看5日线</li><li>主力/战略资金盘面最有效</li></ul>
+<p><strong>4. 关键纠偏</strong>：金叉死叉经常出错，必须结合"背景"（结构级别）。</p>
+<p><strong>5. 均线的双重作用</strong>：5日线上涨支撑+下跌压制，360年线牛熊分界+变盘点。</p>
+<p><strong>6. 多头排列</strong>：完全多头排列是大级别行情必经之路，每只牛股必备。</p>
+<p><strong>7. K线三重研判</strong>：</p>
+<ul><li>大阳线强弱判断（振幅）</li><li>K线覆盖判断（洗盘/吃货）</li><li>高开低开判断强弱</li></ul>
+<p><strong>8. 均线K线组合</strong>：在重要均线（如刚开5日线、首板后均线）出现K线信号 = 主升浪启动信号，可洞察主力真实意图。</p>
+<p><strong>9. 顶部预判双分类</strong>：结构性顶（可突破的回调顶）vs 系统性大顶（几年不破的顶部）。顶部性质决定后续风险等级。</p>
+<p><strong>10. 操作体系位置</strong>：本课是均线K线维度的总论，为后续讲成交量换手率、结构级别等维度做铺垫。</p>
+
+            <div class="quiz">
+                <strong>📝 第06节 测验</strong>
+                <p>1. 老师本课重点讲了哪两根均线？</p>
+                <details><summary>显示答案</summary>5日线和360年线（独家年限指标）。</details>
+                <p>2. 顶部性质分哪两类？</p>
+                <details><summary>显示答案</summary>结构性顶（可突破的回调顶）vs 系统性大顶（几年不破的顶部）。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L07">
+            <h2>第07节 第五维度 成交量换手率——研判资金性质</h2>
+<h3>深度总结</h3>
+<p>本节课是"盘面分析多维度体系"的第五维度，专门讲<strong>成交量和换手率</strong>。核心功能是<strong>预判资金性质</strong>，还可预判顶部底部、主力强弱、止跌区域、头部滞涨区域，以及辅助仓位配置。</p>
+<h4>一、成交量与换手率的核心功能</h4>
+<h5>1. 识别多空力量</h5>
+<ul><li>上涨时：分子是主动性做多的量 → 做多动能</li><li>下跌时：分子是主动性卖出的量 → 做空动能</li><li>分析"这个量是怎么形成的"→ 可指导行情演化预判</li></ul>
+<h5>2. 三大实战功能</h5>
+<ul><li><strong>预判资金性质</strong>（核心）</li><li><strong>预判顶部和底部</strong>（抄底逃顶）</li><li><strong>预判仓位配置</strong>（依据成交量大小调整仓位）</li><li>成交量太小（小市值）→ 仓位较轻</li><li>成交量较大（三五十亿）→ 可重仓配置</li><li>预判行情持续性</li></ul>
+<h4>二、3类资金军团的换手率识别</h4>
+<p>老师将资金分为<strong>3类</strong>：游资、主力、战略资金。各类资金在不同阶段的成交量和换手率特征完全不同，是本课最核心的内容。</p>
+<h5>1. 游资盘面识别（换手率20%以上）</h5>
+<p><strong>两种游资初始涨停建仓</strong>：</p>
+<ul><li><strong>情况A</strong>（低位）：低位成交量小、换手率较低（10%以内）</li><li><strong>情况B</strong>（相对高位）：高位换手吃货、成交量大、换手率20%以上</li></ul>
+<p><strong>案例数据</strong>：</p>
+<ul><li>3个涨停板 = 游资</li><li>T字板破板换手率13% + 当日21%涨停 = 游资盘面</li><li>换手率28%、成交12亿 = 资金大、决定仓位配置</li><li>换手率29%、成交13亿 = 游资盘面</li><li>换手20%、22% = 游资盘面</li><li>底部位一个板+一个板：换手7%/5%、成交1.4/1.1亿（低位吃货）→ 主力/游资吃货</li><li><strong>关键判断</strong>：两板前建仓换手率低=游资；建仓期换手率高=主力</li></ul>
+<h5>2. 主力资金盘面识别（换手率10%以下）</h5>
+<p><strong>建仓期特征</strong>：</p>
+<ul><li>成交量相对较小</li><li>换手率较低，<strong>往往不超过10%，甚至更低</strong>（因市值不同，看换手率更准确）</li></ul>
+<p><strong>出货期特征</strong>：</p>
+<ul><li>换手率达到建仓期的<strong>三倍以上</strong>（有游资参与则更高）</li><li>主力盘面会有<strong>主升浪</strong>（这是主力盘面与游资盘面的关键区别）</li></ul>
+<p><strong>典型主力盘面</strong>：换手率低 + 涨停板强势 → 做强势股主要看涨停板</p>
+<h5>3. 战略资金盘面识别（最关键！）</h5>
+<p><strong>建仓期特征</strong>：</p>
+<ul><li>换手率极低（往往10%以下）</li><li>但<strong>总市值大</strong>（数十亿到上百亿）</li><li>案例：换手3.75%、45亿市值 / 换手4.14%、54亿成交</li></ul>
+<p><strong>出货期特征</strong>：</p>
+<ul><li>换手率仍很低（与主力不同！）</li><li>但<strong>绝对成交量会达到建仓期的5倍以上</strong></li><li>例：原10/20亿，到顶时80亿（股价涨几倍后换手率仍仅4%）</li></ul>
+<p><strong>战略资金的核心特征</strong>：</p>
+<ul><li>底部区域出现 = <strong>战略资金建仓表现</strong></li><li>未来行情 = 大级别牛市行情</li><li>运行时间 ≥ 6个月，长达1年</li><li>股价翻好几倍</li><li><strong>这是预判大级别行情的最强信号</strong></li></ul>
+<h4>三、3类资金军团的顶部形成特征（对比表）</h4>
+<div class="table-wrap"><table><thead><tr><th>资金类型</th><th>顶部形成速度</th><th>顶部特征</th><th>形成过程</th></tr></thead><tbody><tr><td><strong>游资</strong></td><td><strong>快</strong></td><td>高位横盘/直接跌停</td><td>大量股价不涨、出现大量顶部</td></tr><tr><td><strong>主力</strong></td><td><strong>慢</strong></td><td>较慢，时间较久</td><td>放量到缩量的过程</td></tr><tr><td><strong>战略资金</strong></td><td><strong>更慢</strong></td><td>几重顶，时间最长</td><td>出货更慢、顶部形成更慢，放量到缩量</td></tr></tbody></table></div>
+<p><strong>关键判断</strong>：</p>
+<ul><li>游资顶部换手率可达<strong>50%以上</strong>（极限量），顶部形成非常快</li><li>高位横盘 + 出现大量 → 注意顶部</li><li>主力盘面顶部：上涨数量持续不久，缩量是主旋律</li><li>战略资金顶部：成交量高位不破新高、缩量，前面经过几重拉升 → <strong>大顶大级别顶部</strong>，未来风险极大</li></ul>
+<h4>四、3类资金军团的底部特征</h4>
+<p><strong>游资底部</strong>：快速上涨 + 快速下跌，反弹要看热点</p>
+<p><strong>主力底部</strong>：放量到缩量的过程（与顶部相反）</p>
+<p><strong>战略资金底部</strong>：形成更慢、更复杂，时间最长</p>
+<p><strong>止跌信号</strong>：底部区域成交量要<strong>缩量</strong>，如果<strong>再带量</strong> → 波段止跌</p>
+<h4>五、顶底分类（结构性 vs 系统性）</h4>
+<h5>1. 结构性顶/底（局部性）</h5>
+<ul><li><strong>结构性顶</strong>：回调后能创新高（如牛市中的波段顶部），未来会突破上去</li><li><strong>结构性底</strong>：是阶段性底部</li><li>80%的个股和80%的时间都是结构性行情</li></ul>
+<h5>2. 系统性顶/底（历史性/大级别）</h5>
+<ul><li><strong>系统性顶（历史大顶/大级别顶部）</strong>：未来几年都破不了新高</li><li><strong>历史大顶</strong>：经过几年上涨大牛市后形成的大顶</li><li><strong>大级别顶部</strong>：主升浪形成后的大顶或历史大顶</li><li><strong>系统性风险</strong>：下跌幅度大</li></ul>
+<p><strong>关键结论</strong>：</p>
+<ul><li>结构性风险 vs 系统性风险，下跌幅度完全不同</li><li>游资大幅炒作后可能形成大级别顶部</li><li>通过结构级别、三级结构、成熟度可预判</li></ul>
+<h4>六、成交量核心规律总结</h4>
+<p><strong>上涨带量、下跌缩量</strong>（最基本的规律）</p>
+<p><strong>操作核心</strong>：<strong>必须明确知道当前盘面是游资盘面、主力盘面还是战略资金盘面</strong>，针对不同盘面采用不同的操作策略（仓位、周期、预期等）。</p>
+<hr>
+<h3>系统性总结</h3>
+<p>本节课是盘面分析多维度体系的<strong>第五维度</strong>，主题是<strong>成交量和换手率</strong>。核心知识点归纳如下：</p>
+<p><strong>1. 核心功能</strong>：预判资金性质（首要）+ 预判顶底 + 仓位配置 + 持续性预判。</p>
+<p><strong>2. 3类资金军团识别表</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>资金类型</th><th>建仓期换手率</th><th>出货期换手率</th><th>出货期成交量</th></tr></thead><tbody><tr><td><strong>游资</strong></td><td>高低两种（10%以内或20%+）</td><td>50%+极限量</td><td>大量</td></tr><tr><td><strong>主力</strong></td><td>&lt;10%</td><td>建仓期的3倍+</td><td>大</td></tr><tr><td><strong>战略资金</strong></td><td>&lt;10%（极低）</td><td>仍很低</td><td>建仓期的5倍+</td></tr></tbody></table></div>
+<p><strong>3. 顶部形成速度</strong>：游资（快）&lt; 主力（慢）&lt; 战略资金（更慢、几重顶）</p>
+<p><strong>4. 顶底双分类</strong>：</p>
+<ul><li><strong>结构性</strong>：局部性、可突破/可创新高</li><li><strong>系统性</strong>：历史性、未来几年破不了新高</li></ul>
+<p><strong>5. 量价核心规律</strong>：上涨带量、下跌缩量</p>
+<p><strong>6. 战略资金最强信号</strong>：底部区域出现低换手+大成交量 = 大级别行情预判（6个月-1年，股价翻几倍）</p>
+<p><strong>7. 操作核心原则</strong>：操作前必须明确"我面对的是哪种盘面"，不同盘面策略完全不同。</p>
+<p><strong>8. 体系价值</strong>：本课内容是上一节（均线K线）判断强弱的辅助工具，并对接下一节（结构级别）中对资金成熟度的判定。</p>
+<p><strong>整体逻辑</strong>：成交量换手率维度主要解决"<strong>是什么资金在运作</strong>"的问题——这是后续判断"行情能走多远、多久、什么阶段"的根本前提。</p>
+
+            <div class="quiz">
+                <strong>📝 第07节 测验</strong>
+                <p>1. 游资建仓期换手率一般多少？</p>
+                <details><summary>显示答案</summary>突击建仓>20%，一般>10%。</details>
+                <p>2. 战略资金出货期最大特征是什么？</p>
+                <details><summary>显示答案</summary>换手率仍很低，但绝对成交量是建仓期的5倍以上。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L08">
+            <h2>第08节 第六维度 结构级别——研判股票成熟度</h2>
+<p>## 大纲</p>
+<p>本课为盘面分析多维度体系的第六维度，主题是<strong>结构和级别</strong>。课程分三大板块展开：</p>
+<ul><li><strong>板块一：结构和级别的概念与稳定性问题</strong></li><li><strong>板块二：结构和级别的均线识别体系与顶底研判</strong></li><li><strong>板块三：结构级别演化、加速时间窗口、大盘性质预判</strong></li></ul>
+<hr>
+<p>## 板块一：结构和级别的概念与稳定性问题</p>
+<h4>深度总结</h4>
+<h5>1. 结构和级别的核心问题（为什么需要它？）</h5>
+<p>股票操作常遇到的四大问题：</p>
+<ol><li><strong>什么时候上涨</strong></li><li><strong>能涨多久</strong></li><li><strong>能涨多高</strong></li><li><strong>行情有没有结束，有没有到大顶</strong></li></ol>
+<p>这些问题都通过<strong>结构和级别</strong>来实现预判。</p>
+<h5>2. 结构和级别的四大核心功能</h5>
+<ol><li><strong>解决稳定性问题</strong>（为什么有时赚有时亏）</li><li><strong>预判行情加速的时间窗口和运行周期</strong></li><li><strong>预判大级别行情的牛熊大拐点</strong></li><li><strong>预判大盘的运行性质、顶部和底部</strong></li></ol>
+<h5>3. 稳定性的根本原因——背景问题</h5>
+<p><strong>经典命题</strong>：同样的技术，有时赚钱，有时亏钱。</p>
+<p><strong>答案</strong>：不是技术失效，是<strong>背景错误了</strong>。</p>
+<ul><li><strong>牛市结构背景</strong>：每一次放量或调整 → 放量买入 → 哪怕调整后仍创新高 → 赚钱（为新高做准备）</li><li><strong>熊市结构背景</strong>：每一次放量拉升 → 都是为新低做准备 → 亏钱</li></ul>
+<p><strong>结论</strong>：技术必须与背景配合。<strong>背景决定一切</strong>。</p>
+<h5>4. 适用范围（重要前提！）</h5>
+<ul><li><strong>主力和战略资金盘面</strong>才能谈结构和级别</li><li><strong>游资没有结构</strong>——没有稳定性，完全是题材炒作、突击式，没有准备过程</li></ul>
+<h5>5. 关键指标体系</h5>
+<ul><li><strong>360天线</strong> → 判定<strong>结构</strong>（牛/熊/结构式）</li><li><strong>5日、10日、30日、60日、120日均线</strong> → 判定<strong>级别</strong></li><li>通过均线的级别 → 判定运作成熟度</li><li>通过成熟度 → 预判股价涨跌的<strong>时间</strong>与<strong>高度</strong></li><li>通过成熟度 → 预判顶底是<strong>结构性</strong>还是<strong>大级别历史性</strong></li></ul>
+<h4>系统性总结（板块一）</h4>
+<p>结构和级别维度的根本价值是<strong>解决稳定性问题</strong>——通过识别背景避免"同技术不同结果"的困惑。它将"结构"（牛/熊/结构式大盘背景）与"级别"（均线层次反映的运行成熟度）分层处理，前者定方向，后者定加速与高度。前提是<strong>只适用于主力和战略资金盘面</strong>（游资不适用）。</p>
+<hr>
+<p>## 板块二：结构和级别的均线识别体系与顶底研判</p>
+<h4>深度总结</h4>
+<h5>1. 3类结构的均线定义</h5>
+<div class="table-wrap"><table><thead><tr><th>结构类型</th><th>均线位置</th></tr></thead><tbody><tr><td><strong>熊市结构</strong></td><td>360天线下方</td></tr><tr><td><strong>初级</strong></td><td>360年线下方、空头区域（起步）</td></tr><tr><td><strong>中级</strong></td><td>360天线以上、30天线以下</td></tr><tr><td><strong>高级</strong></td><td>30天线以上、5日线以下</td></tr><tr><td><strong>最高级（加速单边行情）</strong></td><td>沿5日线运行</td></tr></tbody></table></div>
+<h5>2. 主力盘面结构的完整演化路径</h5>
+<p>360年线下方（主力建仓区）&lt;br&gt;    ↓ 突破年线&lt;br&gt;进入牛市多头结构（初级）&lt;br&gt;    ↓ 每次回落均线提高&lt;br&gt;120天线 → 60天线 → 30天线 → 5天线&lt;br&gt;    ↓ 沿5日线运行&lt;br&gt;最高级（主升浪加速行情）</p>
+<h5>3. 主力盘面的两种风格</h5>
+<ul><li><strong>隐蔽型</strong>：横盘震荡控盘，没有波段，没有套利空间</li><li><strong>张狂型</strong>：攻击性强，涨停、大阳线明显</li></ul>
+<p><strong>强度识别方式</strong>：</p>
+<ul><li>资金性质 → 成交量换手率看强度</li><li>涨停和大阳线 → 看强度</li><li>单边推升周期长 → 也是强势表现</li></ul>
+<h5>4. 顶部的双分类与识别</h5>
+<ul><li><strong>结构性顶部</strong>：后面都会被突破（波段回调顶）</li><li><strong>大级别/历史性顶部</strong>：未来几年不能突破新高 → 系统性风险/大级别风险</li></ul>
+<p><strong>顶部预判的K线信号</strong>：</p>
+<ul><li>头部出现K线覆盖</li><li>股价不涨</li><li>换手大、成交量大</li><li>→ 多数人亏损，顶部形成</li></ul>
+<h5>5. 战略资金盘面的对比</h5>
+<ul><li><strong>战略资金顶部形成时间更长</strong></li><li>经过几重拉升形成的顶部 = <strong>大顶、大级别顶部</strong></li><li>风险极大（远超结构性顶部）</li></ul>
+<h5>6. 中信证券案例（战略资金实战）</h5>
+<ul><li>战略资金建仓 → 突破360年线 → 进入多头结构</li><li>初级结构 → 一轮拉升 → 沿5日线高级别行情</li><li>顶部判断方法：①演化时间 ②上涨周期高度 ③前面准备时间</li><li>战略资金建仓 → 顶部形成时间长 → 大顶 → 后面就是熊市</li></ul>
+<h4>系统性总结（板块二）</h4>
+<p>通过均线系统可以清晰刻画主力和战略资金盘面的"结构—级别"演化路径。<strong>结构</strong>定方向（牛/熊），<strong>级别</strong>定成熟度（初/中/高/最高级）。<strong>每一级均线的回落支撑被突破 = 级别提高一档</strong>，沿5日线运行 = 最高级主升浪。顶部的性质（结构性 vs 大级别）直接由"演化时间+上涨高度+准备充分度"三个维度共同判定。<strong>这一板块是"3类结构"和"3个级别"的完整技术化定义</strong>。</p>
+<hr>
+<p>## 板块三：结构级别演化、加速时间窗口、大盘性质预判</p>
+<h4>深度总结</h4>
+<h5>1. 结构级别演化的核心应用</h5>
+<ul><li><strong>既可预判上涨加速行情，也可预判下跌行情</strong></li><li><strong>既可对个股，也可对大盘</strong></li><li>可预判行情加速的点和大致运行时间</li></ul>
+<h5>2. 演化的核心原则</h5>
+<p><strong>核心原则</strong>：<strong>瓜熟蒂落</strong>——加速需要政策、热点相匹配</p>
+<ul><li>主力的级别演化是<strong>隐蔽型</strong>或<strong>张狂型</strong></li><li>主力从初级结构 → 5日线加速 = <strong>行情的终极结构</strong>（最终形态）</li></ul>
+<h5>3. 大级别牛熊大拐点的预判逻辑</h5>
+<p><strong>多头结构 → 熊市结构的反转路径</strong>：</p>
+<p>多头结构（最高级，沿5日线）&lt;br&gt;    ↓ 顶部形成（结构性顶或大级别顶）&lt;br&gt;熊市结构（初级）&lt;br&gt;    ↓ 级别越走越低&lt;br&gt;熊市结构（中低级）&lt;br&gt;    ↓&lt;br&gt;系统性风险（最大风险）</p>
+<p><strong>关键</strong>：牛市最高级别走完 → 进入熊市 → 级别逐渐降低 → 系统性风险出现。</p>
+<h5>4. 建仓周期与上涨幅度的关系（重要）</h5>
+<ul><li><strong>建仓时间越长 = 准备越充分 = 树大根深 → 上涨时间越长、高度越高</strong></li><li>主力建仓：2-6个月可拉升</li><li>战略资金建仓：时间要长得多（这是战略资金和主力的关键区别之一）</li><li><strong>特别适合千亿大机构和私募机构</strong></li></ul>
+<h5>5. 大盘性质的历史演变</h5>
+<ul><li>以前只有两种：<strong>牛市</strong>和<strong>熊市</strong></li><li>后来增加：<strong>结构式</strong>（行业轮动、板块轮动为主）</li><li><strong>当前未来两年均为结构式大盘</strong></li></ul>
+<h5>6. 结构性行情的两大特征</h5>
+<ul><li><strong>80%时间 + 80%个股 = 结构性顶部</strong>（局部性顶部，正常波动）</li><li>游资大幅炒作后可能形成<strong>大级别顶部</strong></li></ul>
+<h5>7. 系统性风险特征</h5>
+<ul><li>牛市终结 = 熊市来临 = 系统性风险</li><li>不管有什么利好，通通下跌</li><li>往往是全球性的</li></ul>
+<h5>8. 大盘的系统性大顶特征</h5>
+<ul><li>经过几轮最高级上涨</li><li>通过三级结构、三个级别的成熟度</li><li>形成大级别顶部/历史大顶</li><li>全是系统性风险</li></ul>
+<h5>9. 多空双向研判（涨/跌都适用）</h5>
+<ul><li><strong>上涨时</strong>：多头结构，级别越走越高 → 通过准备充分度预判周期和高度</li><li><strong>下跌时</strong>：空头结构，360年线下方 → 级别越走越低 → 均线压制</li><li>起涨点的确认：开花+结果 → 需配合其他维度</li></ul>
+<h5>10. 大盘顶部和底部预判</h5>
+<ul><li>历史大底和结构性顶</li><li>牛市终结顶部形成 = 系统性风险（全球性）</li><li>结构性很强时，阶段性顶底部基本是结构性顶</li><li>战略资金/主力资金的顶底都可通过结构级别预判</li></ul>
+<h4>系统性总结（板块三）</h4>
+<p>本板块是结构级别维度在<strong>大盘研判</strong>层面的高阶应用。核心要点：</p>
+<ol><li><strong>瓜熟蒂落原则</strong>：加速需要级别演化与政策、热点匹配</li><li><strong>建仓时长 → 上涨高度</strong>：建仓时间越长，上涨空间越大（战略资金 &gt; 主力）</li><li><strong>大盘3性质</strong>：牛市、熊市、结构式（当前主流）</li><li><strong>大级别牛熊大拐点</strong>：通过结构级别演化路径可清晰识别（多头最高级 → 熊市初级 → 级别递减）</li><li><strong>系统性风险</strong>：牛市终结后的全球性下跌</li><li><strong>当前定调</strong>：未来两年均为结构性行情，应对策略聚焦板块轮动和个股选择</li></ol>
+<hr>
+<p>## 全文系统性总结</p>
+<p>本节课是盘面分析多维度体系的<strong>第六维度</strong>，主题是<strong>结构和级别——研判股票成熟度</strong>。课程将整个体系分为<strong>三大板块</strong>递进展开：</p>
+<h4>核心价值</h4>
+<p>本课解决了炒股中最关键的<strong>稳定性问题</strong>——为什么同样技术有时赚有时亏。答案是<strong>背景决定一切</strong>：牛市结构和熊市结构下同样技术表现完全相反。</p>
+<h4>核心技术框架</h4>
+<ol><li><strong>结构 = 背景</strong>（360天线判定）：牛/熊/结构式</li><li><strong>级别 = 成熟度</strong>（5/10/30/60/120日均线）：初/中/高/最高级</li><li><strong>演化 = 时间</strong>（瓜熟蒂落）：从建仓到加速到顶部的完整路径</li></ol>
+<h4>关键概念</h4>
+<ul><li><strong>3类结构</strong>：熊市结构、牛市结构、结构式结构</li><li><strong>3个级别</strong>：初级、中级、高级（最高级=沿5日线主升浪）</li><li><strong>建仓时长-上涨高度</strong>：战略资金 &gt; 主力</li><li><strong>结构性顶 vs 系统性大顶</strong>：前者可突破，后者几年不破</li><li><strong>顶部形成时间</strong>：战略资金 &gt; 主力 &gt; 游资</li></ul>
+<h4>实战适用性</h4>
+<ul><li><strong>主力和战略资金盘面</strong>才适用</li><li><strong>游资不适用</strong>（无结构、无稳定性）</li><li><strong>特别适合千亿大机构和私募</strong></li></ul>
+<h4>大盘研判结论</h4>
+<ul><li><strong>当前及未来两年</strong>：结构式大盘（行业、板块轮动为主）</li><li><strong>不再有全面大牛市</strong>（短期几年内）</li><li><strong>系统性风险</strong>：牛市终结后的全球性下跌</li></ul>
+<h4>操作意义</h4>
+<p>结构级别维度是从"技术"走向"成熟度判断"的关键维度。它把"<strong>是什么结构</strong>"、"<strong>现在什么级别</strong>"、"<strong>未来怎么演化</strong>"三个问题系统化，是后续做板块轮动、大盘趋势研判的理论基础。</p>
+<p><strong>体系逻辑链</strong>：分时 → 均线K线 → 成交量换手率 → <strong>结构级别</strong> → 板块轮动 → 大盘趋势。本课处于承上启下的核心位置。</p>
+
+            <div class="quiz">
+                <strong>📝 第08节 测验</strong>
+                <p>1. 老师提出"背景决定一切"，背景错误的根本原因是？</p>
+                <details><summary>显示答案</summary>同样的技术，在牛市结构和熊市结构下表现完全相反——不是技术失效，是背景错误了。</details>
+                <p>2. 当前大盘性质是什么？</p>
+                <details><summary>显示答案</summary>结构式（行业、板块轮动为主）。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L09">
+            <h2>第09节 第七维度 板块轮动——研判龙头板块行情和龙头个股</h2>
+<p>## 大纲</p>
+<p>本课为盘面分析多维度体系的第七维度，主题是<strong>板块轮动</strong>——难度最高、价值最大的分析体系。课程分三大板块展开：</p>
+<ul><li><strong>板块一：板块轮动的目的、价值与底层逻辑</strong></li><li><strong>板块二：板块轮动的8大核心维度详解</strong></li><li><strong>板块三：8维度综合应用的实战案例分析</strong></li></ul>
+<hr>
+<p>## 板块一：板块轮动的目的、价值与底层逻辑</p>
+<h4>深度总结</h4>
+<h5>1. 板块轮动的核心目的</h5>
+<ul><li><strong>找出各个时期内的主流板块方向</strong></li><li><strong>找出热点龙头</strong></li><li><strong>规避老板块调整的风险</strong></li></ul>
+<h5>2. 板块轮动的两大操作要点</h5>
+<ol><li><strong>抓住当前正在上行的主流板块</strong></li><li><strong>同时跟踪2-3个正在演化的主流板块</strong>，等待切换信号</li></ol>
+<h5>3. 板块轮动的难度与价值</h5>
+<ul><li>难度：<strong>很高</strong></li><li>价值：<strong>巨大</strong></li><li>是大方向选择的核心工具</li></ul>
+<h5>4. 板块轮动的底层逻辑链</h5>
+<p>要做板块轮动必须先解决：</p>
+<ol><li>知道<strong>主流板块是哪些</strong>（不知道就没法追踪和切换）</li><li>知道<strong>资金的性质</strong>（主力？游资？战略资金？）</li><li>分析<strong>板块运行结构</strong>（主力板块、中军、几大核心股的运行结构）</li><li>知道<strong>顶底判断</strong>（不知道顶底就没法切换）</li><li>知道<strong>时间问题</strong>（切换的时机）</li></ol>
+<h5>5. 切换成功的核心条件</h5>
+<p><strong>催化条件</strong>：</p>
+<ul><li>主流板块运行中出现<strong>行业性影响</strong>（利空或外围影响）→ 加速顶部形成</li><li>消息削弱 + <strong>新政策出现</strong> + <strong>运行结构级别配合</strong> = 切换时机</li></ul>
+<p><strong>关键问题</strong>：</p>
+<ul><li>跟踪的几个板块中，<strong>哪一个会脱颖而出？</strong> → 通过它们的运行结构和级别判断</li><li><strong>选错主流板块 = 主流板块也抓不住</strong></li></ul>
+<p><strong>切换的最高境界</strong>：</p>
+<ul><li>分析结构顶部、底部</li><li>分析几大中军的运行结构</li><li>在切换窗口上配合<strong>政策和事件的催化</strong></li></ul>
+<h4>系统性总结（板块一）</h4>
+<p>板块轮动是整个体系的高阶应用，必须建立在前面所有维度（分时、均线K线、成交量换手率、结构级别）的基础上。它的底层逻辑是<strong>多板块并行跟踪 + 信号识别 + 政策催化</strong>的综合性判断。这不是单一技术能解决的，而是多维度的立体综合。</p>
+<hr>
+<p>## 板块二：板块轮动的8大核心维度详解</p>
+<h4>深度总结</h4>
+<h5>维度1：行业分类（基础分类）</h5>
+<p><strong>两大分类</strong>：</p>
+<ul><li><strong>传统价值</strong>：银行、证券、资源、消费类</li><li><strong>科技成长</strong>：芯片、ChatGDP、人工智能、AI</li></ul>
+<p><strong>资金性格对比</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>行业类型</th><th>资金性格</th><th>追求目标</th></tr></thead><tbody><tr><td>传统价值</td><td>保守稳健</td><td>稳健增长</td></tr><tr><td>科技成长</td><td>激进</td><td>利润要快</td></tr></tbody></table></div>
+<p>两种性格的资金分别主导不同行业的趋势——<strong>要么稳、要么快</strong>。</p>
+<h5>维度2：主流 vs 非主流</h5>
+<p><strong>主流板块举例</strong>：</p>
+<ul><li><strong>传统价值大金融</strong>：银行、证券</li><li><strong>科技成长</strong>：芯片（大市值集中）</li><li><strong>新能源汽车</strong>：比亚迪、长城汽车</li><li><strong>新能源</strong>：阳光电源、农牧（农机）</li></ul>
+<p><strong>非主流板块举例</strong>：</p>
+<ul><li><strong>纺织板块</strong>（传统行业但不是主流）</li><li>不在轮动参考范围内</li></ul>
+<h5>维度3：核心中军运营结构（核心个股跟踪）</h5>
+<p><strong>核心要点</strong>：</p>
+<ul><li>在主流板块中<strong>必须有一个龙头个股</strong></li><li>从<strong>建仓开始</strong>就要跟踪</li><li>代表性个股案例：长城汽车、宁德时代（底部都有主力/战略资金建仓）</li></ul>
+<p><strong>演化路径</strong>：</p>
+<p>空头结构 → 牛市结构 → 三级拉升行情 → 结构性大级别顶部</p>
+<ul><li>大级别顶部出来后，其他板块才开始轮动</li><li>中军和几大核心个股要<strong>配合分析</strong></li></ul>
+<h5>维度4：板块内个股的同步性（关键判断）</h5>
+<p><strong>核心问题</strong>：板块内个股是统一还是分化？</p>
+<p><strong>判断标准</strong>：</p>
+<ul><li>同步上涨 = 板块一致性强</li><li>有的涨有的跌 = 没有同步性，切换分析困难</li><li>同步性决定<strong>轮动时点</strong>和<strong>板块持续性</strong></li></ul>
+<h5>维度5：主要板块运行的结构和级别（指数层面）</h5>
+<ul><li>在<strong>指数层面</strong>分析</li><li>与个股层面的结构级别分析完全对应</li></ul>
+<h5>维度6：新旧主力板块的顶底判断（切换核心）</h5>
+<p><strong>旧板块顶部判断</strong>：</p>
+<ul><li>必须先判定<strong>结构顶</strong>还是<strong>大顶</strong></li><li><strong>结构性顶部</strong> ≠ 真正切换 → 只是运行途中的回调</li><li>回调后还得上，结构没走完 → 其他板块很难切换上去</li><li>在回调时切换到其他板块 = 错误时机（资金会回流）</li></ul>
+<p><strong>新板块底部判断</strong>：</p>
+<ul><li>判断是<strong>大底</strong>还是<strong>结构性底部</strong></li><li>跟踪的几只主流板块运行到"底部已经出现，慢慢往上去，仍在横盘震荡，没有突破迹象"</li><li>关键问题：<strong>成熟度和结构</strong></li><li>不知道顶就不会预判底 → 无法做到准确切换</li></ul>
+<h5>维度7：政策和重大事件催化（切换时间）</h5>
+<p><strong>逻辑关系</strong>：</p>
+<ul><li>旧板块在高位出现<strong>政策利空</strong> → 加速顶部形成</li><li>新板块出现<strong>利好</strong>或<strong>新政策</strong> → 加速上行</li><li>两者共振 = <strong>形成切换</strong></li></ul>
+<p><strong>关键认知</strong>：</p>
+<ul><li>切换是<strong>一个区域</strong>，不是某一天</li><li>绝对的时间切换<strong>几乎不可能</strong></li><li>我们追求的是<strong>区域内的切换</strong></li><li>当主流板块行情<strong>渐进式结束</strong> + 其他板块<strong>逐渐抬头</strong> = 真正切换时机</li></ul>
+<h5>维度8：旧板块调整时间预判（规避风险）</h5>
+<p><strong>核心能力</strong>：</p>
+<ul><li>当<strong>新能源汽车板块（宁德时代）出现大级别顶部</strong> → 预判未来调整时间周期很长</li><li>意味着该主流板块<strong>将来上行时间也将比较长</strong>（反推：新主流板块上行周期长）</li><li>作用：</li></ul>
+<ol><li><strong>规避老的板块下跌风险</strong></li><li><strong>享受新板块上涨利润</strong></li></ol>
+<h4>系统性总结（板块二）</h4>
+<p>板块轮动的8大维度构成一个<strong>完整的、立体的分析框架</strong>：</p>
+<ol><li><strong>行业分类</strong>（基础认知）</li><li><strong>主流vs非主流</strong>（筛选范围）</li><li><strong>核心中军运营结构</strong>（龙头跟踪）</li><li><strong>板块内同步性</strong>（一致性判断）</li><li><strong>主要板块的结构级别</strong>（指数层面）</li><li><strong>新旧板块顶底判断</strong>（切换前提）</li><li><strong>政策和事件催化</strong>（切换时机）</li><li><strong>调整时间预判</strong>（风险规避）</li></ol>
+<p>这8个维度不是孤立使用，而是<strong>立体综合</strong>——必须同时分析、互相印证，才能准确判断轮动时点。</p>
+<hr>
+<p>## 板块三：8维度综合应用的实战案例分析</p>
+<h4>深度总结</h4>
+<h5>1. 案例：新能源汽车板块（完整8维分析）</h5>
+<p><strong>第一步：核心中军识别</strong></p>
+<ul><li>主流板块核心中军 = <strong>新能源汽车板块（宁德时代）</strong></li></ul>
+<p><strong>第二步：建仓期跟踪</strong></p>
+<ul><li>战略资金在底部有<strong>较长时期的建仓</strong></li><li>确定战略性建仓 → 可预言未来的演化画面</li></ul>
+<p><strong>第三步：演化路径预言</strong></p>
+<p>空头结构 → 进入牛市结构 → 级别越走越高 → 三级拉升</p>
+<p><strong>第四步：顶部性质判定</strong></p>
+<ul><li>经过几轮上涨 → 中间判定顶部性质</li><li>同时跟踪其他主流板块 → 看他们是否走完</li><li>跟踪板块没走完 → 当前主流板块<strong>不会切换</strong></li></ul>
+<p><strong>第五步：顶部形成机制（多重共振）</strong></p>
+<ul><li>政策性利空</li><li>行业性问题</li><li>大级别顶部共振</li><li><strong>主观+宏观+微观 = 三重共振 → 形成顶部</strong></li></ul>
+<p><strong>第六步：新板块切换确认</strong></p>
+<ul><li>其他主流板块慢慢演化</li><li>其中某个板块变得<strong>非常成熟</strong>（已具底部形态）</li><li>→ <strong>切换开始</strong></li></ul>
+<h5>2. 历史案例：新能源汽车 → 科技的切换</h5>
+<ul><li>新能源汽车板块（宁德时代等）调整<strong>近一年</strong></li><li>中间有<strong>一轮大行情</strong>：科技板块（<strong>寒武纪、中科信息</strong>等）</li><li>同步性对比：科技一直在下跌，新能源汽车开始启动大行情</li><li>这就是典型的<strong>板块轮动案例</strong></li></ul>
+<h5>3. 操作难度警示</h5>
+<ul><li>板块轮动<strong>不是轻松的事情</strong></li><li>需要<strong>八个维度立体综合分析</strong></li><li><strong>大方向</strong>（板块选择）和<strong>龙头个股</strong>（个股选择）都非常困难</li><li>核心结论：<strong>都是长期跟踪的结果</strong>，<strong>不是随随便便就能做到</strong></li></ul>
+<h4>系统性总结（板块三）</h4>
+<p>本板块通过<strong>新能源汽车板块的完整8维分析</strong>展示了板块轮动的实战应用。核心要点：</p>
+<ol><li><strong>必须从建仓期开始长期跟踪核心中军</strong></li><li><strong>必须同时跟踪2-3个候选板块的演化</strong></li><li><strong>必须多重共振（政策+行业+结构）才能形成顶部</strong></li><li><strong>新板块的成熟度判断是切换的核心</strong></li><li><strong>历史案例证明</strong>：新能源汽车 → 科技的切换是真实发生的板块轮动</li><li><strong>最终警示</strong>：板块轮动是"长期跟踪的结果"，不是一蹴而就</li></ol>
+<hr>
+<p>## 全文系统性总结</p>
+<p>本节课是盘面分析多维度体系的<strong>第七维度</strong>，主题是<strong>板块轮动——研判龙头板块行情和龙头个股</strong>。课程分三大板块递进展开：</p>
+<h4>核心价值</h4>
+<p>板块轮动是整个体系<strong>难度最高、价值最大</strong>的应用——它把前面所有维度（分时、均线K线、成交量换手率、结构级别）<strong>整合</strong>到板块选择这一最高决策点上。</p>
+<h4>8大核心维度（完整框架）</h4>
+<ol><li><strong>行业分类</strong>：传统价值 vs 科技成长</li><li><strong>主流vs非主流</strong>：筛选参与范围</li><li><strong>核心中军运营结构</strong>：龙头个股跟踪</li><li><strong>板块内同步性</strong>：一致性判断</li><li><strong>主要板块的结构级别</strong>：指数层面分析</li><li><strong>新旧板块顶底判断</strong>：切换前提</li><li><strong>政策和事件催化</strong>：切换时机</li><li><strong>调整时间预判</strong>：风险规避</li></ol>
+<h4>切换的核心逻辑</h4>
+<p><strong>旧板块顶部确认（结构性or大顶）+ 新板块底部成熟 + 政策事件催化 = 板块切换</strong></p>
+<ul><li>结构性顶 ≠ 真正切换（资金会回流）</li><li>大顶 + 新板块成熟 = 真正的轮动机会</li><li>切换是<strong>区域</strong>，不是<strong>某一天</strong></li></ul>
+<h4>实战难度与定位</h4>
+<ul><li>难度：<strong>极高</strong>（8维度立体综合）</li><li>价值：<strong>极高</strong>（大方向决策）</li><li><strong>必须长期跟踪，不是短期决策</strong></li></ul>
+<h4>在整个体系中的位置</h4>
+<p>本课是<strong>整个课程的应用层</strong>——把前6个维度的所有技术（分时、均线K线、成交量换手率、结构级别）综合应用于<strong>板块和龙头选择</strong>，是技术体系的<strong>最终应用出口</strong>。</p>
+<h4>体系逻辑链总结</h4>
+<p>分时 → 均线K线 → 成交量换手率 → 结构级别 → <strong>板块轮动（应用）</strong> → 大盘趋势（操作方法）</p>
+<p>板块轮动是"<strong>用什么方法选对方向</strong>"，下一节课将讲"<strong>大盘趋势</strong>"——<strong>研判操作方法</strong>，是体系的应用方法论。</p>
+
+            <div class="quiz">
+                <strong>📝 第09节 测验</strong>
+                <p>1. 板块轮动8大维度包含哪些？</p>
+                <details><summary>显示答案</summary>行业分类、主流vs非主流、核心中军运营结构、板块内同步性、指数层面结构级别、新旧板块顶底、政策事件催化、调整时间预判。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L10">
+            <h2>第10节 第八维度 大盘趋势——研判操作方法</h2>
+<p>## 大纲</p>
+<p>本课为盘面分析多维度体系的第八维度（最后一个维度），主题是<strong>大盘趋势——研判操作方法</strong>。课程分三大板块展开：</p>
+<ul><li><strong>板块一：大盘涨跌的动力来源与战略资金集体布局</strong></li><li><strong>板块二：通过4大维度研判大盘短中长期趋势</strong></li><li><strong>板块三：当前大盘性质研判与操作方法结论</strong></li></ul>
+<hr>
+<p>## 板块一：大盘涨跌的动力来源与战略资金集体布局</p>
+<h4>深度总结</h4>
+<h5>1. 大盘涨跌的根本动力</h5>
+<ul><li><strong>权重板块的个股引领</strong> → 带动大盘 → 引发情绪 → 带动其他个股上涨</li><li>这是"<strong>鸡和蛋</strong>"问题——板块权重个股引领大盘涨跌</li></ul>
+<h5>2. 大盘是否可以预判？</h5>
+<ul><li><strong>可以</strong>——特别是中期、中长期行情</li><li>不是靠画几条线</li><li>不是今天一个观点，明天一个观点</li><li>而是通过<strong>战略资金的集体布局</strong>识别</li></ul>
+<h5>3. 经典案例：光大乌龙指 → 2015年大牛市</h5>
+<p><strong>事件回顾</strong>：2013年8月16日光大乌龙指事件</p>
+<ul><li>真实情况：不是乌龙指，是<strong>战略性资金在各大权重蓝筹建仓</strong></li><li>当天大盘涨了六个多点</li><li>多个权重股涨停板</li><li>中信证券等权重板块战略资金<strong>集体布局</strong></li></ul>
+<p><strong>重大意义</strong>：</p>
+<ul><li>从那一刻起就<strong>已经知道</strong>了中长期全面大牛市行情拉开帷幕</li><li>后续行情只是<strong>跟踪验证</strong></li><li>演化时间周期约<strong>1年</strong></li><li>真正的中长期预判<strong>从8个月前就已经开始</strong></li></ul>
+<h5>4. 战略资金集体布局的识别特征</h5>
+<ul><li>多个权重板块<strong>统一建仓</strong></li><li>都有表现：涨停板 / 大阳线 / 涨在买</li><li><strong>攻击性强</strong>是显著特征</li><li>但其他板块不一定都是涨停板，有些只是"在涨在买"</li></ul>
+<p><strong>核心逻辑</strong>：资金大资金进去 → 要赚钱 → <strong>先播种后收获</strong> → 是内生逻辑</p>
+<h4>系统性总结（板块一）</h4>
+<p>大盘涨跌的根本动力是<strong>权重板块个股引领</strong>。大盘可以预判的关键是<strong>识别战略资金的集体布局行为</strong>——以光大乌龙指为经典案例，从事件发生起即可预判未来1年的全面大牛市行情。这是整个大盘研判的<strong>底层逻辑</strong>：识别资金行为 → 预判未来走势。</p>
+<hr>
+<p>## 板块二：通过4大维度研判大盘短中长期趋势</p>
+<h4>深度总结</h4>
+<h5>维度1：经济大背景与行业趋势 → 判断大盘性质</h5>
+<p><strong>历史案例对比</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>时间段</th><th>大背景</th><th>性质</th></tr></thead><tbody><tr><td>2007年、2015年大牛市</td><td>WTO、房地产、全行业大发展</td><td><strong>全面大牛市</strong></td></tr><tr><td>当前</td><td>结构性</td><td><strong>结构性行情</strong></td></tr></tbody></table></div>
+<p><strong>关键判断标准</strong>：</p>
+<ul><li>全部盘面集体建仓 → <strong>共振性动力</strong> → <strong>合力</strong> → 驱动大盘上行（牛市）</li><li>没有集体建仓 → 没有合力 → 结构性行情</li></ul>
+<h5>维度2：主流板块战略资金布局的分散与集中度</h5>
+<p><strong>15年牛市</strong>：全行业权重行业战略资金<strong>集中布局</strong> → 全面大牛市（涨到5000多点）</p>
+<p><strong>当前</strong>：战略资金在各大主流板块<strong>分散布局</strong>，看不到统一性建仓</p>
+<ul><li>→ <strong>构不成全面大牛市</strong></li><li>→ <strong>短期几年内都不构成全面大牛市</strong></li></ul>
+<p><strong>判断逻辑</strong>：主观维度 + 盘面现实维度 → 综合判断大盘性质</p>
+<h5>维度3：大盘运行性质的界定</h5>
+<p><strong>三种性质</strong>：</p>
+<ul><li><strong>牛市阶段</strong></li><li><strong>熊市阶段</strong></li><li><strong>结构式</strong>（当前主流）</li></ul>
+<p><strong>结构与级别维度应用</strong>：</p>
+<ul><li>牛市有几个阶段？</li><li>熊市有几个阶段？</li><li>运行几个级别？</li><li>通过案例分别阐述（与第08节内容衔接）</li></ul>
+<h5>维度4：当前大盘性质研判（重点）</h5>
+<p><strong>2013年的奇怪现象</strong>：</p>
+<ul><li>宁德时代、阳光电源、比亚迪<strong>涨了10倍</strong></li><li>但<strong>指数涨不动</strong></li><li>中字头、证券也曾炒作过一波</li><li>都没有拉动指数</li><li><strong>根本原因</strong>：<strong>没有合力</strong>（地产传统行业在拖后腿）</li><li>大的行情带不动指数</li></ul>
+<p><strong>当前龙头板块分散力量分析</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>板块</th><th>中军个股</th><th>状态</th></tr></thead><tbody><tr><td>证券</td><td>中信证券</td><td>没有像样行情，目前空头</td></tr><tr><td>通信</td><td>中国联通</td><td>稍微强势，前涨过一波，现在调整</td></tr><tr><td>三朵金花</td><td>中国移动、中国电信、中国联通</td><td>中国移动走的好些，中国石油后面会涨</td></tr><tr><td>新能源</td><td>宁德时代</td><td>涨过一波</td></tr><tr><td>医药</td><td>茅台</td><td>顶在这个位置</td></tr><tr><td>地产</td><td>万科</td><td>一直在下跌</td></tr><tr><td>银行</td><td>五大行</td><td>几乎快创出新高</td></tr><tr><td>资源</td><td>石化双雄、紫金矿业</td><td>一直走单边上行</td></tr><tr><td>科技</td><td>寒武纪、中科旭创</td><td>反弹后调整</td></tr></tbody></table></div>
+<p><strong>关键观察</strong>：</p>
+<ul><li><strong>有的上、有的下、有的止跌、有的跌</strong> = <strong>分散力量</strong></li><li>银行五大行、石化双雄、紫金矿业涨到几乎创新高</li><li>中信证券下跌却没带动指数下跌</li><li>地产类下跌也没把指数拿下来</li><li>→ <strong>大盘力量非常僵持</strong></li></ul>
+<p><strong>整体合力判断</strong>：</p>
+<ul><li>蓝筹上涨 → 带不动指数</li><li>下跌 → 也拉不下指数</li><li><strong>僵持状态</strong></li><li>表明大盘未来演化：<strong>一涨涨一点，容易；想跌下来，风险小</strong></li><li><strong>不是什么牛市行情，没有大的牛市</strong></li><li><strong>结构性行情</strong>（前面有两个高点）</li></ul>
+<h4>系统性总结（板块二）</h4>
+<p>本板块是本课的核心，详细讲解了<strong>4大维度研判大盘短中长期趋势</strong>：</p>
+<ol><li><strong>经济大背景</strong> → 大盘性质</li><li><strong>战略资金布局集中度</strong> → 牛市性质</li><li><strong>运行性质界定</strong>（牛/熊/结构式）</li><li><strong>当前盘面合力分析</strong>（核心实战应用）</li></ol>
+<p>通过对当前各大权重板块龙头股（万科、茅台、宁德时代、中信证券、联通、三朵金花、银行五大行、石化双雄、紫金矿业、寒武纪、中科旭创等）的<strong>分散状态</strong>分析，得出关键结论：<strong>没有合力 → 当前是结构性行情，不是全面大牛市</strong>。</p>
+<hr>
+<p>## 板块三：当前大盘性质研判与操作方法结论</p>
+<h4>深度总结</h4>
+<h5>1. 指数失真问题</h5>
+<ul><li><strong>大盘具体点位的意义不大</strong></li><li>今天的3215点、明天3300点的画线意义不大</li><li>不是靠画几根线能解决的</li><li>必须当指数走出<strong>一定的结构和级别以后</strong>，才可以用均线分析</li></ul>
+<h5>2. 大盘研判的稳定性问题</h5>
+<ul><li>大盘研判<strong>不是一个观点</strong>（今天一个，明天一个）</li><li><strong>必须要有预判的稳定性</strong></li><li>否则无法指导实际操作</li></ul>
+<h5>3. 大环境与账户盈亏的关系</h5>
+<ul><li><strong>未来比较长的一段时间内</strong>，账户的盈亏<strong>与大盘关联度不大</strong></li><li>→ <strong>要更加注重个股选择和行业选择</strong></li></ul>
+<h5>4. 点位分析的意义</h5>
+<ul><li><strong>第二个点位的意义不大</strong></li><li>不能简单用几根K线天天去分析几个点</li><li>价值都不特别大</li></ul>
+<h5>5. 操作的核心方向（最终结论）</h5>
+<p><strong>应该把主要精力放在</strong>：</p>
+<ul><li><strong>研究行业</strong></li><li><strong>研究个股</strong></li><li><strong>研究个人的盈利模式</strong></li></ul>
+<h4>系统性总结（板块三）</h4>
+<p>本板块是本课的<strong>最终操作结论</strong>：</p>
+<ol><li><strong>大盘点位意义有限</strong></li><li><strong>大盘与个股盈亏关联度未来不高</strong></li><li><strong>操作应聚焦行业、个股、盈利模式</strong></li><li><strong>不能用"画线+点位"代替系统性分析</strong></li><li><strong>必须强调预判的稳定性</strong></li></ol>
+<p>这是整个8维度体系的<strong>最后一课</strong>——把前面所有技术维度（分时、均线K线、成交量换手率、结构级别、板块轮动）落到"<strong>大盘趋势如何指导操作</strong>"这个最终落点上。</p>
+<hr>
+<p>## 全文系统性总结</p>
+<p>本节课是盘面分析多维度体系的<strong>第八维度（最后一维）</strong>，主题是<strong>大盘趋势——研判操作方法</strong>。课程分三大板块递进展开：</p>
+<h4>核心价值</h4>
+<p>本课是整个体系的<strong>应用方法论</strong>——把前面所有维度的技术应用到<strong>大盘趋势研判</strong>和<strong>具体操作指导</strong>上。</p>
+<h4>4大核心维度（大盘研判框架）</h4>
+<ol><li><strong>经济大背景 + 行业趋势</strong> → 判断大盘性质</li><li><strong>战略资金布局集中度</strong> → 全面牛市 vs 结构性牛市</li><li><strong>运行性质界定</strong>（牛/熊/结构式）</li><li><strong>当前盘面合力分析</strong>（核心实战）</li></ol>
+<h4>当前大盘定性结论</h4>
+<ul><li><strong>不是全面大牛市</strong>（短期几年内都不会有）</li><li><strong>是结构性行情</strong>（前面有两个高点）</li><li><strong>特征</strong>：僵持状态，蓝筹上涨带不动指数，下跌也拉不下来</li><li><strong>大盘力量分散</strong>：银行、石化双雄、资源股上行；地产、万科等下跌</li></ul>
+<h4>操作方法核心结论</h4>
+<ol><li><strong>大盘点位意义有限</strong>（不靠画几根线）</li><li><strong>指数失真</strong>（具体点位不重要）</li><li><strong>大环境与账户盈亏未来关联度不大</strong></li><li><strong>应聚焦</strong>：行业研究 + 个股研究 + 个人盈利模式</li><li><strong>强调预判的稳定性</strong>（不是观点反复切换）</li></ol>
+<h4>战略资金集体布局的经典案例</h4>
+<ul><li><strong>光大乌龙指（2013年8月16日）</strong> → 2015年大牛市</li><li>从事件发生即可预判未来1年的大级别行情</li><li>这是"<strong>识别战略资金行为 → 预判大盘趋势</strong>"的经典应用</li></ul>
+<h4>整个8维度体系的总结</h4>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>主题</th><th>核心功能</th></tr></thead><tbody><tr><td>第1-3维</td><td>分时等基础维度</td><td>基础看盘</td></tr><tr><td>第4维</td><td>均线K线</td><td>支撑压力、强弱、级别</td></tr><tr><td>第5维</td><td>成交量换手率</td><td>资金性质、顶底、仓位</td></tr><tr><td>第6维</td><td>结构级别</td><td>成熟度、加速、大拐点</td></tr><tr><td>第7维</td><td>板块轮动</td><td>龙头板块、龙头个股</td></tr><tr><td><strong>第8维</strong></td><td><strong>大盘趋势</strong></td><td><strong>操作方法、大盘研判</strong></td></tr></tbody></table></div>
+<h4>体系逻辑链总结</h4>
+<p><strong>分时 → 均线K线 → 成交量换手率 → 结构级别 → 板块轮动 → 大盘趋势（操作方法）</strong></p>
+<p>本课是<strong>整个体系的最后一站</strong>：所有维度的技术最终都汇聚到<strong>"如何研判大盘、如何指导操作"</strong>这一终极命题上。<strong>最终结论</strong>：未来A股进入<strong>结构性行情时代</strong>，投资者应把精力聚焦在<strong>行业选择、个股选择、个人盈利模式</strong>这三大方向上。</p>
+
+            <div class="quiz">
+                <strong>📝 第10节 测验</strong>
+                <p>1. 大盘涨跌的根本动力是？</p>
+                <details><summary>显示答案</summary>权重板块的个股引领。这是"鸡和蛋"问题——板块权重个股引领大盘涨跌。</details>
+            </div>
+        </section>
+
+        <!-- 阶段3 -->
+        <section class="lesson" id="stage3">
+            <h2>📙 阶段3·战法学习（第11-17节）—— 解决"会出手"</h2>
+            <div class="kbox-warn">本阶段是本书核心，务必"看懂→复盘→模拟→小仓实盘"四步走，缺一不可。</div>
+        </section>
+
+        <section class="lesson" id="L11">
+            <h2>第11节 双K确认技术</h2>
+<h3>深度总结</h3>
+<h4>一、双K的核心定义</h4>
+<p>双K指的是两根K线（多为大阳线、涨停板、高开异动K线或大振幅K线）的组合应用，可以"间隔较长时间"也可以"相邻两根"。通过观察这两根K线的形态、位置与组合方式，可以对盘面进行多维度的预判与确认。</p>
+<h4>二、双K的五大应用方向（出自第11节 第2段）</h4>
+<ol><li><strong>确认底部</strong>——跌下来之后出现大阳线，再次跌下来后又出现一根大阳线，两根形成"双K"，可作为波段见底信号。</li><li><strong>确认趋势</strong>——在相对平台或高位平台，一根阳线、一根阴线再来一根阳线，反复确认"跌不动"，趋势向上。</li><li><strong>确认主力意图</strong>——上影线阴线后次日高开上走，确认主力是洗盘而非出货；连续涨停后阴线次日高开，确认资金未走、主力做多。</li><li><strong>确认变盘</strong>——通过相邻两根K线的方向判断短期方向变化。</li><li><strong>确认涨停板</strong>——单根阳线之后对应一根阳线，根据强势分析做单日双K后面K线的涨停板溢价机会。</li></ol>
+<h4>三、双K在不同场景的应用要点</h4>
+<h5>1. 确认底部（出自第11节 第3段）</h5>
+<ul><li>形态：下跌后第一根大阳线 + 再次下跌后的第二根大阳线</li><li>操作：双K确认底部后即可在波段见底处买入</li><li>注意：一定是"跌下来以后大阳线"，不是顶部反转的大阳线</li></ul>
+<h5>2. 确认主力建仓（出自第11节 第4段）</h5>
+<ul><li>形态：跌下来后一根大阳线 + 再次下跌后一根高开K线</li><li>双K形态多样：可以是大阳线、涨停板、大振幅K线，也可以是两根对应的高开异动K线（不管涨幅多少）</li><li>这是大底部、阶段性底，主力资金建仓信号</li><li>大阴线后反弹阳线 + 次日阳线高开 = 又一次双K确认</li></ul>
+<h5>3. 确认波段底部与单日涨停（出自第11节 第5段）</h5>
+<ul><li>单阳双K：出现一根阳线后，对应后面再出现一根阳线</li><li>单日涨停板：依据强势分析，做后面这根K线涨停板的机会（有溢价）</li><li>双K确认波段买点：可在双K当天买入</li><li>高开位置也是买入点</li></ul>
+<h5>4. 确认趋势与平台止跌（出自第11节 第6段）</h5>
+<ul><li>适用场景：相对平台、高位平台</li><li>形态：下跌后一根阳线、阴线后阳线、平台震荡后高开、平台震荡后大阳线</li><li>反复确认的相邻两根，体现"跌不动"特征</li><li>趋势向上的确认手段</li></ul>
+<h5>5. 确认涨停板趋势（出自第11节 第7段）</h5>
+<ul><li>下跌后阳线涨停板 + 大阴线后涨停板 = 底部双重确认</li><li>阴线后阳线反包相邻两根 = 资金回流确认</li><li>大阴线 + 大涨停板 = 跌不动、趋势确认</li><li>高位相邻两根：上影线后次日高开 = 洗盘确认，非出货</li></ul>
+<h5>6. 确认短线主力做多意图（出自第11节 第8段）</h5>
+<ul><li>连续涨停后高开阴线：若次日高开，则为洗盘（资金未走、主力做多）；若次日低开下跌，则为出货</li><li>短线相邻两根也可去确认主力做多意图</li></ul>
+<h5>7. 确认顶部（出自第11节 第9段）</h5>
+<ul><li>形态：上涨过程中出现下跌阴线 + 次日低开</li><li>双K既可确认底部，也可确认顶部</li><li>趋势是否延续，可用相邻两根的双K来确定</li></ul>
+<h4>四、双K的核心价值（出自第11节 第6段）</h4>
+<blockquote>"你要会双K确认的话，我们可以在任何盘面都可以去分析主力的意图。"</blockquote>
+<p>双K是看盘的基本功夫，是分析主力意图的核心工具，覆盖短线、波段、高位横盘止跌、趋势、顶底等所有场景。</p>
+<hr>
+<h3>系统性总结</h3>
+<p>第11节"双K确认技术"是金良雄老师技术分析体系的底层工具之一，本节内容可以归纳为以下几个核心要点：</p>
+<p><strong>一、双K的本质</strong></p>
+<p>双K指的是两根K线的组合应用，并非局限于特定形态——大阳线、涨停板、大振幅K线、高开异动K线皆可构成。两根K线既可相邻，也可间隔较长时间出现。这种灵活的定义使得双K在不同周期、不同位置都能运用。</p>
+<p><strong>二、双K的五大功能</strong></p>
+<ol><li>确认底部（波段见底）</li><li>确认趋势（跌不动、向上）</li><li>确认主力意图（洗盘 vs 出货、做多 vs 出货）</li><li>确认变盘（方向反转）</li><li>确认涨停板（单日溢价机会）</li></ol>
+<p><strong>三、双K的应用方向</strong></p>
+<p>本节给出了七大具体应用场景：底部确认、主力建仓确认、波段底部与单日涨停、平台止跌与趋势、涨停板趋势、短线主力意图、顶部确认。其中底部与顶部是"双向应用"——同样的方法反向使用即为顶部判断。</p>
+<p><strong>四、双K的实战原则</strong></p>
+<ul><li>跌下来后大阳线（非顶部反转）</li><li>高开是加分项（即便有人砸过再上拉也可接受）</li><li>缩量后的放量需警惕</li><li>在任何盘面都能分析主力意图</li></ul>
+<p><strong>五、与其他课程的关系</strong></p>
+<p>双K确认技术在第15节"969式超短操作"中也有具体应用——"在高位相对高位区域震荡也可以出现下跌以后出现大阳线，对应的也可以用双K确认来确认趋势"。说明双K是一个贯穿多个战法的通用工具。</p>
+<p>第11节是后续99式（第12、13节）、969式（第14、15节）等战法体系的方法论基础之一。</p>
+
+            <div class="kbox-warn">本节核心风险：双K确认仅在"板块+大盘+量能"三共振时胜率最高；逆势使用必亏。</div>
+            <div class="quiz">
+                <strong>📝 第11节 测验</strong>
+                <p>1. 双K的五大应用方向？</p>
+                <details><summary>显示答案</summary>确认底部、确认趋势、确认主力意图、确认变盘、确认涨停板。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L12">
+            <h2>第12节 99式超短线黑马二大模式与选股标准（九龙飞天）</h2>
+<h3>深度总结</h3>
+<h4>一、99式的核心定义与起步标准（出自第12节 第2段）</h4>
+<p><strong>两板起步</strong>：99式超短选股标准是"两板起步"，即两个涨停板。两个涨停板的形式不限：</p>
+<ul><li>一字板 × 2</li><li>实体阳线 + 一字板</li><li>T字板 + 涨停板</li><li>一字板 + T字板</li><li>任何"两个涨停"的K线组合都算</li></ul>
+<h4>二、99式的两大主力盘面模式（出自第12节 第3段）</h4>
+<ol><li><strong>主力盘二波拉升</strong>——主力资金运作的两个涨停起来的个股</li><li><strong>游资接力</strong>——两个板以上的接力个股</li></ol>
+<p>两者后续在"换手日"与"买点判断"上会有所不同。</p>
+<h4>三、99式的三大禁忌（出自第12节 第4段）</h4>
+<p>为保证安全性与确定性，必须避开以下三类标的：</p>
+<ol><li><strong>非主流核心板块的短线股</strong>——非主流热点板块的短线股风险大</li><li><strong>非第一龙头跟涨股</strong>——手里股不能连板，龙头在外面，自己的可能是跟涨股</li><li><strong>非第一买点买入</strong>——99式的重要起点是"换手日"那一天，不在第一买点的地方买入</li></ol>
+<h4>四、99式的三大操作性风险（出自第12节 第5段）</h4>
+<ol><li><strong>不确定性追高打板</strong>——看到涨停板就想去打板或追，结果吃大面</li><li><strong>大阴线买入抄底</strong>——大阴线在5日线下方抄底，可能第二天大幅低开被闷</li><li><strong>高位站岗</strong>——在高位区域还在买入，后面就是一波大的下跌</li></ol>
+<p>控制这三大风险，做超短线时"不要急、不要随意买，要有严格标准"。</p>
+<h4>五、选股标准的优选逻辑（出自第12节 第6段）</h4>
+<ul><li>前面有四个涨停板的股：实体阳线、一字板、T字板都算，肯定进自选股</li><li>龙头起步往往厉害：四个板 &gt; 三个板 &gt; 两个板</li><li><strong>优选顺序</strong>：跟踪优先四个涨停的，再考虑三个，再考虑两个</li></ul>
+<h4>六、龙头股的核心特征（出自第12节 第7段）</h4>
+<ul><li>主流板块的中军（代表证券行业等核心领域）</li><li>成交量大、市值大</li><li>两个涨停板的力量非常大</li><li>对板块行情有巨大共振作用</li></ul>
+<h4>七、资金量匹配原则（出自第12节 第8段）</h4>
+<p>选股要根据自己资金量匹配：</p>
+<ul><li>2000万、3000万资金量</li><li>市值小的股要注意选择</li><li>优先选择成交量大的标的（如只做5亿以上成交量的股，1亿成交的就不做）</li><li>匹配自己的资金是"两板起步后跟踪"的关键</li></ul>
+<h4>八、主力盘面 vs 游资盘面的处理差异（出自第12节 第9段）</h4>
+<p><strong>主力盘面（如长白山）</strong>：</p>
+<ul><li>第二板就要进</li><li>首板也可以做</li><li>二板也能进</li><li>主力资金运作，有清晰的目标价位</li></ul>
+<p><strong>游资盘面</strong>：</p>
+<ul><li>等它换手</li><li>找换手日</li><li>找到换手板（换手日涨停）= 行情重新确认的地方</li></ul>
+<h4>九、99式能否走出的判断（出自第12节 第10段）</h4>
+<p>99式两板开始，能不能走出99式？</p>
+<ul><li>要后面换手日确定</li><li>要有买点出现才去做</li><li>这堂课主要是讲选股，操作放到下节课</li></ul>
+<h4>十、典型案例（出自第12节 各段）</h4>
+<ul><li><strong>证券行业中军股</strong>：两板进自选，市值大、成交量大、龙头共振</li><li><strong>杭州热电</strong>：底部两板进自选，后面是换手日涨停也叫换手板，是行情重新确认的地方</li><li><strong>主力盘面长白山</strong>：主力资金做的两板进自选</li></ul>
+<hr>
+<h3>系统性总结</h3>
+<p>第12节"99式超短线黑马二大模式与选股标准（九龙飞天）"是金良雄老师99式战法的选股篇，本课定位为"打地基"——只讲选股不讲操作。</p>
+<p><strong>一、99式的本质</strong></p>
+<p>99式是"千里挑一"的连板黑马战法（出自第13节），它专门针对市场中最强势的连续涨停个股。课程明确点出：超短线是为了"赚得更多"，但首先要考虑"安全和确定性"。这构成了整个战法的基调——宁可错过也不冒险。</p>
+<p><strong>二、选股的两大基石</strong></p>
+<ol><li><strong>两板起步</strong>：任何两个涨停板的组合都符合基本门槛</li><li><strong>严守禁忌</strong>：避开非主流、非龙头、非第一买点的三类风险标的</li></ol>
+<p><strong>三、选股的三大方向</strong></p>
+<ol><li><strong>数量优先</strong>：四个板 &gt; 三个板 &gt; 两个板</li><li><strong>质量优先</strong>：主流板块中军 &gt; 普通连板股</li><li><strong>资金匹配</strong>：根据自身资金量选择合适市值的标的</li></ol>
+<p><strong>四、99式两大模式区分</strong></p>
+<p>主力盘面与游资盘面在选股后处理上有所不同：</p>
+<ul><li>主力盘面可以更早介入（首板、二板都可）</li><li>游资盘面必须等换手日确认后再操作</li></ul>
+<p><strong>五、风险控制的完整性</strong></p>
+<p>本节给出"三大禁忌 + 三大风险"的6条风险线，覆盖了选股层面的所有主要风险点。这种"先避风险再谈收益"的设计，体现了成熟战法的稳健性。</p>
+<p><strong>六、与其他课程的衔接</strong></p>
+<ul><li>第11节"双K确认技术"是底层方法论</li><li>第12节是"选股"层面</li><li>第13节将进入"操作"层面（关键要领、换手日、买卖点、波次）</li></ul>
+<p>第12节是99式战法的第一阶段——为下一节的实操操作奠定选股基础。</p>
+
+            <div class="quiz">
+                <strong>📝 第12节 测验</strong>
+                <p>1. 99式选股的两板起步含义？</p>
+                <details><summary>显示答案</summary>任何两个涨停板的组合都符合基本门槛（一字板/实体阳线/T字板）。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L13">
+            <h2>第13节 99式超短操作的关键要领</h2>
+<p>## 大纲</p>
+<p>本课是99式战法的"操作篇"，内容庞杂，划分为以下五个板块：</p>
+<ul><li>板块一：99式概述与选股标准</li><li>板块二：换手日概念与判断标准</li><li>板块三：买入条件判断（高开 vs 大幅低开）</li><li>板块四：波次划分与持股/卖出标准</li><li>板块五：99式的整体总结</li></ul>
+<hr>
+<p>## 板块一：99式概述与选股标准</p>
+<h4>深度总结</h4>
+<h5>1. 99式的稀缺性与严格要求（出自第13节 第2段）</h5>
+<p>99式往往都是连板连续涨停，这样的个股在市场里面比较少，所以它叫"千里挑一"。这样的股一定在龙脉上，它有龙骧。</p>
+<p>99式里面容易出大面，必须严格标准精选个股、严格标准操作执行。这里有八个维度需要确认。</p>
+<h5>2. 热点龙脉确认（出自第13节 第3段）</h5>
+<p>第一个维度：热点龙脉确认。</p>
+<ul><li>比如"炒华为"是一个很大的题材，有高确定性</li><li>反例："日本排污、核污染"等纯题材，几只股打一字板后就没了</li><li>纯题材 vs 真正的巨大市场潜力题材，是完全不同的</li><li>这决定了它的龙骧或龙脉属性</li></ul>
+<h5>3. 选股标准的严格执行（出自第13节 第4段）</h5>
+<ul><li>选股标准要严格：两板起步</li><li>"三板有四板不选三板，有三板不选两板"</li><li>优选个股时，资金的性质要确定：</li><li>游资做的99式</li><li>主力资金建仓以后主升浪行情里的99式</li><li>资金接力程度不同</li><li>主力法做99式成功率更高（要达到目标价位）</li><li>例：两板介入，要翻一倍，后面还有五天要上涨</li></ul>
+<h5>4. 资金性质与换手强弱的判定（出自第13节 第5段）</h5>
+<ul><li>游资拉了两个板后也换手了，但后来没了，确定资金性质</li><li>最强的、最健康的换手是"大振幅的涨停板"（换手板）</li><li>换手板最强，但不代表最强的涨停板后面能继续走涨停</li><li>具体后面怎么走，同样要看资金的态度</li></ul>
+<h5>5. 八个关键确认点（出自第13节 第6段）</h5>
+<p>确定先手买点和第一买点：</p>
+<ul><li><strong>新学员</strong>：先手买点是不允许做的（因为会出现很多问题）</li><li><strong>第一买点</strong>：必须要确认</li><li><strong>两个确认</strong>：第一买点确认 + 买入确认</li><li><strong>持股标准确认</strong>：什么样的才能是持股标准</li><li><strong>卖出标准确认</strong>：卖出标准是什么</li></ul>
+<p>八个维度具体为：</p>
+<ol><li>第一条：通过热点板块严格确定板块内符合妖股特征的个股</li><li>第二条：通过K线振幅确定换手日波次</li><li>第三条：通过盘面的三级结构确定先手买点、第一买点</li><li>计划性和一致性：分时集合竞价、分时高开低开，通过开盘的分时确定买入时机</li><li>在分时走势和结构相匹配的情况下确定持股区域</li><li>在分时走势和结构相匹配的情况下确定卖出区域</li></ol>
+<h5>6. 战略资金案例：证券中军股（出自第13节 第7段）</h5>
+<ul><li>大市值个股、证券板块的中军股</li><li>战略资金进入 + 两个涨停板 → 优选</li><li>资金体量大要优选，资金小也要优选</li><li>因为中军板块个股出现两个涨停板，是很大的力量</li></ul>
+<h4>系统性总结（板块一）</h4>
+<p>板块一确立了99式战法的整体框架：<strong>千里挑一</strong> + <strong>严格标准</strong> + <strong>八个维度</strong>。其中：</p>
+<ol><li><strong>稀缺性是99式的本质</strong>——99式不是高频战法，而是针对极少数顶级黑马个股的精准狙击</li><li><strong>龙脉龙骧是底层逻辑</strong>——题材是否真有市场潜力，决定了战法成功率</li><li><strong>资金性质决定策略</strong>——主力盘面 vs 游资盘面，操作手法有显著差异</li><li><strong>八个维度是操作清单</strong>——本节给出八个维度的确认要求，每个都必须满足</li></ol>
+<p>这构成了板块二、板块三中具体买卖判断的前提。</p>
+<hr>
+<p>## 板块二：换手日概念与判断标准</p>
+<h4>深度总结</h4>
+<h5>1. 换手日的核心地位（出自第13节 第8段）</h5>
+<ul><li>"两板以后最重要的一个点是什么？是换手日"</li><li>换手是行情新起点的开始</li><li>做超短线一定要把换手日（行情重新开始的地方）标记清楚</li><li>这一天会出现分化，对未来行情有分化（上涨或下跌）</li><li>必须把这一条分界线画出来，这是非常重要的</li></ul>
+<h5>2. 换手日的定义（出自第13节 第8段）</h5>
+<ul><li>不涨停的任何K线都是换手日</li><li>换手日可以有多种形态：</li><li>下跌的K线</li><li>一字板跌停</li><li>大振幅的涨停板（即"换手板"）</li><li>T字板</li><li>长腿的T字板</li></ul>
+<h5>3. 不算换手日的形态（出自第13节 第9段）</h5>
+<ul><li><strong>小振幅秒板</strong>：高开七八个点、六七个点就秒板的不算换手</li><li><strong>T字板</strong>：连续一字板后的小T字板不算换手（T字板以后买进去容易吃大面）</li></ul>
+<h5>4. 最健康的换手（出自第13节 第10段）</h5>
+<ul><li>换手大振幅涨停板</li><li>例：从开盘一个点然后一直拉到涨停板</li><li>大振幅也叫换手日，也叫换手涨停板，简称"换手板"</li></ul>
+<h5>5. 换手日的操作要点（出自第13节 第11段）</h5>
+<ul><li>换手日是不能买入的，因为不知道明天是跌还是涨</li><li>换手日的意义：标记分界线，区分行情阶段</li><li>战略资金进去两三个板以后破板的日子是典型的换手日</li><li>后面的行情趋势可能发生变化，能不能上涨取决于主力资金后面运作的态度</li></ul>
+<h5>6. 换手日第二天的买入条件框架（出自第13节 第12段）</h5>
+<p>换手日第二天的买入条件：高开或者大幅低开。</p>
+<p><strong>两个概念必须区分</strong>：</p>
+<ul><li>时间确定：今天要干活。今天确定今天要干活。</li><li>能否干活：能不能做？能不能的问题。</li></ul>
+<p><strong>第一天后是换手日，第二天后是干活日</strong>——换完手之后的这一天才是我们今天要干活的这一天。</p>
+<p><strong>买入判断的两个标准（针对高开）</strong>：</p>
+<ol><li>集合竞价开盘</li><li>开盘的情况</li><li>分时（必须与开盘两个配套）</li></ol>
+<h4>系统性总结（板块二）</h4>
+<p>板块二是99式战法的核心技术环节——换手日的识别与应用：</p>
+<ol><li><strong>换手日是99式的"分水岭"</strong>——它将行情划分为"第一波"（连板期）和"第二波"（换手后）两个阶段</li><li><strong>换手日不等于买入日</strong>——换手日本身不能买入，买入是换手日的"次日"</li><li><strong>换手板是最健康的换手</strong>——大振幅涨停是优质换手，T字板和小振幅秒板则不算</li><li><strong>换手日的两种典型后续走势</strong>——高开（强势）和大幅低开（弱势但可转强），分别对应不同的买入判断框架</li><li><strong>时间确定 vs 能否干活</strong>——99式买点的两个独立判断维度</li></ol>
+<p>这一板块是99式从"选股"过渡到"操作"的关键桥梁。</p>
+<hr>
+<p>## 板块三：买入条件判断（高开 vs 大幅低开）</p>
+<h4>深度总结</h4>
+<h5>1. 开盘的两种情形（出自第13节 第13段）</h5>
+<p>99式买点的开盘分为两种：</p>
+<p><strong>第一种：高开</strong></p>
+<ul><li>集合竞价九点半以后能够确认高开</li><li>这种股一定要重点关注</li><li>99式一定要专注</li></ul>
+<p><strong>第二种：低开</strong></p>
+<ul><li>大幅低开5日线</li><li>破5日线开盘都可以</li></ul>
+<h5>2. 高开下的两种分时（出自第13节 第14段）</h5>
+<p>高开满足条件后，分时有两种：</p>
+<p><strong>第一种：打下来一点点再上</strong></p>
+<ul><li>有人卖，他在上</li><li>是有人砸过，但后来反了</li><li>高开前提下资金跑，打一下还好，关系不大</li><li>资金在分时确认强势以后，再进——高开要加分</li></ul>
+<p><strong>第二种：直接拉伸</strong></p>
+<ul><li>直接开盘就是放量</li><li>柱子多少不一：</li><li>有的两根柱子就直接秒板</li><li>有的连续拉30根才涨停</li><li>有的拉了以后还回落再涨停</li><li>关键是开盘放量拉升</li></ul>
+<h5>3. 低开的弱势属性（出自第13节 第15段）</h5>
+<ul><li>有的股会低开两三点</li><li>低开往往都是弱势的表现</li><li>真正的强势股往往用高开表现</li><li><strong>特别强调：游资盘面 vs 主力盘面</strong></li><li>主力盘面可以低开往上拉，因为是主力自己掌控的盘面</li><li>游资是接力和场内场外之间互相接力的，所以开盘集合价高开是非常重要的</li></ul>
+<h5>4. 大幅低开下的买入判断（出自第13节 第16段）</h5>
+<ul><li>大幅低开：低开5日线</li><li>分时要迅速放量</li><li>跟高开差不多的形式</li><li>分时放量要强势分时</li><li>开在5日线强势分时</li></ul>
+<h5>5. 大幅低开后的恐慌盘处理（出自第13节 第17段）</h5>
+<ul><li>大幅低开的个股分时因为有恐慌盘</li><li>有人追涨停板追进去，大幅低开破5日线，就有恐慌盘杀出来</li><li>分时可能继续下杀，开盘后继续下杀</li><li>注意"弱转强分时"</li><li>弱转强的分时出来以后，才可以去买</li></ul>
+<h5>6. 分时的三种情况（出自第13节 第18段）</h5>
+<p>分时里面和开盘分三种情况：</p>
+<ol><li>高开 + 强势分时</li><li>大幅低开 + 弱转强分时</li><li>其他情形需具体判断</li></ol>
+<h5>7. 大智慧案例：T字板与直接晋级第一买点（出自第13节 第19段）</h5>
+<ul><li>大智慧三板以后，T字板不算换手日</li><li>T字板以后买进去容易跌停（很多人砍掉）</li><li><strong>T字板是不买的，不做先手买入</strong></li><li><strong>真正的买点：直接晋级第一买点</strong></li><li>形态：直接大幅低开</li><li>前面全是涨停板</li><li>来一个大幅低开5日线</li><li>这是99战法里的"直接晋级第一买点"</li><li>买点条件：</li><li>时间确定（这一天）</li><li>分时：集合竞价开盘大幅低开</li><li>分时要强势分时</li></ul>
+<h5>8. 杭州热电案例：换手板 vs 先手买入（出自第13节 第20段）</h5>
+<ul><li>T字板不算，所以是两个涨停</li><li>换手板形态：略高开一点点，拉到涨停板</li><li>换手板不做先手买入</li><li>进阶同学不做先手买入，因为有很多失败的，会吃大面</li><li>主力盘面可以做先手，但要理解什么是主力盘面</li><li>真正的买入时间是换手板次日</li><li>买入条件：集合竞价开盘强势分时就做买入</li></ul>
+<h5>9. 杭州另一案例：双K确认（出自第13节 第21段）</h5>
+<ul><li>四板以后，T字板不算换手日</li><li>确认买入的时间是第二天</li><li>这是双K确认：</li><li>它高开确认</li><li>前面资金想做多</li><li>后面的资金也想接力</li><li>双K确认做多确认</li></ul>
+<h5>10. 中科信息案例：次新股（出自第13节 第22段）</h5>
+<ul><li>次新股同样适用</li><li>前面是连续的一字板</li><li>连续一字板这天没有涨停板，是个小T字板——不算</li><li>后面有一天没有涨停的这一天全部是换手日</li><li>换手日不买</li><li>买入就是后一天：集合竞价开盘 + 强势分时</li><li>后面持股：5日线持股</li></ul>
+<h4>系统性总结（板块三）</h4>
+<p>板块三是99式操作中最具体的买入判断环节：</p>
+<ol><li><strong>两种开盘情形</strong>：高开 vs 大幅低开，对应不同的分时确认</li><li><strong>高开 + 强势分时</strong>是标准买入形态；高开 + 砸过再上拉也可加分</li><li><strong>大幅低开 + 弱转强分时</strong>是另一个合法买点</li><li><strong>主力盘面 vs 游资盘面</strong>对低开的容忍度不同——主力盘可低开上拉，游资盘高开更重要</li><li><strong>特殊买点：直接晋级第一买点</strong>——前面全涨停板后大幅低开5日线</li><li><strong>双K确认</strong>在高开场景下用于确认做多意图</li><li><strong>T字板</strong>是常见陷阱——不算换手、不做先手买入</li></ol>
+<p>这一板块把"换手日次日"的买卖判断从抽象原则变成了可操作的具体规则。</p>
+<hr>
+<p>## 板块四：波次划分与持股/卖出标准</p>
+<h4>深度总结</h4>
+<h5>1. 波次划分的重要性（出自第13节 第23段）</h5>
+<ul><li>波次的划分很重要</li><li>三波不做</li><li>对于单纯的99式、1994，以游资盘面来看</li><li>前面两板是第一波</li><li>换手日开始确定分界线：前面是第一波，后面进入第二波</li></ul>
+<h5>2. 顶部卖出原则（出自第13节 第23段）</h5>
+<ul><li>连板以后有数量、有加速、有数量的连板</li><li>前面是连板以后有数量的，这个地方一定要注意顶部卖出</li><li><strong>一旦放量就要换手，一换手就要做卖出</strong></li><li>注意：提前于K线</li><li>这是最后卖出的地方</li><li>有的股直接跌停了不卖出（这种技术另外课程详细讲）</li></ul>
+<h5>3. 第二步与第三步的识别（出自第13节 第24段）</h5>
+<ul><li>前面第一次换手第一步</li><li>这里第二步</li><li>再到后面，看这个也没涨停，这里开始没有涨停的这一天，后面进入第三波</li><li><strong>原则上第三波不做</strong>，或者是第三波都是卖出区域</li><li>如果第三波非常符合买入标准，只能清仓、非常低的仓位去买</li></ul>
+<h5>4. K线覆盖的定义（出自第13节 第25段）</h5>
+<ul><li>什么叫K线覆盖？</li><li>前一天和后一天有重合的地方</li><li>K线覆盖开始意味着又换手</li><li>后面进入第三步，这里开始进第三步</li><li>这是第二步，这是第一步</li><li>我们做的是第二步：第二波波次</li></ul>
+<h5>5. 第二波的两种典型路径（出自第13节 第26段）</h5>
+<p><strong>路径一：中间不破5日线</strong></p>
+<ul><li>连板中间不破5日线，只要不破5日线都可以做一波</li><li>第一波以后这天开始不破5日线涨停板的都可以做第二波</li></ul>
+<p><strong>路径二：覆盖进第三波</strong></p>
+<ul><li>后面再出现覆盖，进第三波</li><li>中间间隔了一个不涨停的——也可以当作不破5日线的处理</li><li>四板以后换手日后面连板连续一日板没破过5日线，持股标准高开持股</li><li>低开分时迅速上拉也是可以持股强势</li></ul>
+<h5>6. 持股标准与强势表现（出自第13节 第27段）</h5>
+<ul><li>高开持股</li><li>低开分时迅速上拉</li><li>都是强势表现</li></ul>
+<h5>7. 破5日线的卖出原则（出自第13节 第28段）</h5>
+<ul><li>第二步后面覆盖后面K线，K线很明显的覆盖了两天三天</li><li>破5日线是最后卖出区域，是最终的防守</li><li>破5日线是一定要卖出的</li><li>不破5日线就还可以持股</li><li>针对真正已经在这里成功的个股、换手成功的个股</li><li>有些人这里换手不成功，你就不能等到五日线都要做卖出</li></ul>
+<h5>8. 99式持股的关键点（出自第13节 第29段）</h5>
+<ul><li>中间几乎都是连板，所以这种股非常少</li><li>操作的标准要非常严格</li><li>从选股（行业热点选股）、换手日、到持股、到卖出的全流程</li><li>中间还有经常会卖飞的情况</li><li>一旦穿越99以后，一旦穿越94换手成功，很可能就会有连板</li><li>才能走出真正的龙头</li></ul>
+<h4>系统性总结（板块四）</h4>
+<p>板块四是99式战法的卖出与波次管理：</p>
+<ol><li><strong>三波结构</strong>：</li></ol>
+<ul><li>第一波：连板期（不操作）</li><li>第二波：换手日后的主升段（主要操作区间）</li><li>第三波：覆盖后的高位震荡（不操作或极低仓位）</li></ul>
+<ol><li><strong>顶部信号</strong>：放量 + 换手 = 卖出（提前于K线）</li><li><strong>K线覆盖</strong>：相邻两根K线有重合 = 新换手启动 = 进入下一阶段</li><li><strong>5日线是核心分界线</strong>：破5日线必卖，不破可继续持股</li><li><strong>强势表现的判断</strong>：高开持股、低开但分时迅速上拉也属强势</li><li><strong>99式的稀缺性</strong>：连板几乎不破5日线的股极少，标准必须严格</li></ol>
+<p>波次管理是99式战法的"安全阀"——通过严格区分三波，避免在第三波高位接盘。</p>
+<hr>
+<p>## 板块五：99式的整体总结</p>
+<h4>深度总结</h4>
+<h5>1. 99式的核心特征（出自第13节 第29段）</h5>
+<ul><li>99式是黑马的主机，黑马的地方，综合信息的</li><li>99式操作的股是连板连续涨停的稀缺标的</li><li>中间几乎都是连板</li><li>操作的标准要非常严格</li></ul>
+<h5>2. 99式的全流程要素</h5>
+<ol><li><strong>选股</strong>：行业热点、两板起步</li><li><strong>换手日识别</strong>：标记分界线</li><li><strong>买入</strong>：换手日次日的开盘+分时判断</li><li><strong>持股</strong>：5日线为基准，强势表现可继续</li><li><strong>卖出</strong>：放量换手 / K线覆盖 / 破5日线</li></ol>
+<h5>3. 99式的成功路径</h5>
+<ul><li>一旦穿越99（成功换手）</li><li>很可能就会有连板</li><li>才能走出真正的龙头</li></ul>
+<h5>4. 99式的常见陷阱</h5>
+<ul><li>卖飞（中间经常会卖飞的情况）</li><li>假强势（分时看似强但实际是出货）</li><li>T字板陷阱（T字板不算换手日）</li></ul>
+<h4>系统性总结（板块五）</h4>
+<p>板块五是对整个99式战法的系统性收束：</p>
+<ol><li><strong>99式 = 黑马战法</strong>——专注最强势连板股</li><li><strong>严标准 = 必胜法则</strong>——八个维度严格确认</li><li><strong>波次管理 = 风控核心</strong>——三波不做原则</li><li><strong>5日线 = 操作基准</strong>——不破持股、破位必卖</li><li><strong>换手日 = 时间锚点</strong>——所有操作的起点</li></ol>
+<p>99式战法的完整闭环为：&lt;br&gt;<strong>选股（两板+热点） → 等待换手日 → 次日高开/低开 + 强势分时买入 → 5日线持股 → 放量/K线覆盖/破5日线卖出</strong></p>
+<hr>
+<p>## 全文系统性总结</p>
+<p>第13节"99式超短操作的关键要领"是99式战法的操作核心篇。本课内容庞杂、案例丰富、规则细致，可以从以下几个维度归纳：</p>
+<h4>一、99式的战略定位</h4>
+<ul><li><strong>针对对象</strong>：连板连续涨停的稀缺标的（千里挑一）</li><li><strong>底层逻辑</strong>：龙脉 + 龙骧 = 巨大市场潜力的题材</li><li><strong>战略原则</strong>：安全第一、确定性第一、标准严格</li></ul>
+<h4>二、99式的八大确认维度</h4>
+<ol><li>热点龙脉确认</li><li>资金性质确认（主力 vs 游资）</li><li>换手日确认</li><li>换手强弱确认</li><li>先手买点确认（新学员不允许）</li><li>第一买点确认</li><li>持股标准确认</li><li>卖出标准确认</li></ol>
+<h4>三、99式的核心技术节点</h4>
+<div class="table-wrap"><table><thead><tr><th>节点</th><th>规则</th><th>操作</th></tr></thead><tbody><tr><td>选股</td><td>两板起步、热点板块</td><td>进自选股</td></tr><tr><td>换手日</td><td>不涨停的K线</td><td>标记分界线，不买入</td></tr><tr><td>换手日次日</td><td>高开/大幅低开</td><td>时间确定</td></tr><tr><td>强势分时确认</td><td>集合竞价 + 分时配套</td><td>买入</td></tr><tr><td>持股</td><td>5日线不破</td><td>继续持有</td></tr><tr><td>卖出</td><td>放量换手/K线覆盖/破5日线</td><td>卖出</td></tr></tbody></table></div>
+<h4>四、99式的核心风险控制</h4>
+<ol><li><strong>新学员不能做先手买点</strong>——降低新人的亏损风险</li><li><strong>三波不做原则</strong>——避免高位接盘</li><li><strong>T字板陷阱</strong>——明确不做先手买入</li><li><strong>低开 = 弱势表现</strong>——尤其是游资盘面</li><li><strong>破5日线 = 必卖</strong>——最严格的止损纪律</li><li><strong>第三波只能清仓或极低仓位</strong>——最后的防线</li></ol>
+<h4>五、99式的典型案例</h4>
+<ul><li><strong>证券中军股</strong>：战略资金优选</li><li><strong>大智慧</strong>：T字板陷阱、直接晋级第一买点</li><li><strong>杭州热电</strong>：换手板形态、双K确认做多</li><li><strong>中科信息</strong>：次新股同样适用、5日线持股</li></ul>
+<h4>六、99式与其他课程的关系</h4>
+<ul><li><strong>第11节双K确认技术</strong>：方法论基础</li><li><strong>第12节选股标准</strong>：本课的选股前提</li><li><strong>第14-15节969式</strong>：另一套战法，但同样强调"动能分析"和"突破确认"</li></ul>
+<p>99式战法的本质是"严标准精选 + 严标准执行"的标杆战法，所有规则都指向同一个目标：<strong>在最强势的标的上，用最严格的纪律，获取最确定的利润</strong>。</p>
+
+            <div class="kbox-warn">本章为最高风险章节，未读前10节勿直接应用。99式是新学员打板最容易大亏的领域。</div>
+            <div class="quiz">
+                <strong>📝 第13节 测验</strong>
+                <p>1. 99式八大确认维度？</p>
+                <details><summary>显示答案</summary>①热点龙脉 ②资金性质 ③换手日 ④换手强弱 ⑤先手买点 ⑥第一买点 ⑦持股标准 ⑧卖出标准。</details>
+                <p>2. 99式三波操作原则？</p>
+                <details><summary>显示答案</summary>第一波不操作、第二波主要操作区间、第三波不做或极低仓位（"三波不做"）。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L14">
+            <h2>第14节 969式超短黑马模式与选股标准（高空接力）</h2>
+<h3>深度总结</h3>
+<h4>一、969式的核心定义（出自第14节 第2段）</h4>
+<p>969式又称"高空接力"，指的是股价涨了一段时间以后，在高位形成震荡，面临上是或者下的选择。我们只做上涨，不做下跌。</p>
+<ul><li>"9"：第一波上涨</li><li>"6"：高位横盘阶段</li></ul>
+<p>第一波上涨的玩法：选股都是要涨停板，两个、三个、四个、五个都可以，不管是什么形式的涨停都可以。</p>
+<h4>二、波次界定（出自第14节 第3段）</h4>
+<h5>三波划分</h5>
+<ul><li><strong>第一波</strong>：连板期（不在969操作范围内）</li><li><strong>第二波</strong>：高位横盘震荡（969的核心操作区间）</li><li><strong>第三波</strong>：第三步不做</li></ul>
+<h5>只做第二波</h5>
+<p>我们要只做第二波——连板以后横盘震荡，后面如果涨起来了，做这一步（第二步）。后面他又横了，横了以后要不要去弄它呢？后面这是第三步，<strong>第三波不做</strong>。</p>
+<h4>三、第二波的两股资金力量（出自第14节 第4段）</h4>
+<p>第一波有人拉上去以后，可能有人在这里锁仓了不卖，震荡拉。这里面还有人在高位的时候有新资金进——前面的卖掉了，还有新资金进来，所以他会拉一波。</p>
+<p>第二波里两股力量会来做：</p>
+<ol><li><strong>高位平台建仓的新资金</strong>——要拉</li><li><strong>前面没卖、继续看好的资金</strong>——继续做</li></ol>
+<p>龙头一旦形成，市场上很多人就会追，短线可以优厚很多。</p>
+<h4>四、第三波的警惕（出自第14节 第5段）</h4>
+<ul><li>第一次拉伸以后的横盘震荡，这个地方是我们要做的</li><li><strong>这个地方（第三波）特别警惕，不要参与</strong></li><li>第三步都要降低预期，高度要降低</li><li>基本第三步都是出货区域</li><li>散户追高被套的地方，大面以后只有割肉的份</li></ul>
+<h4>五、洁容技术案例分析（出自第14节 第6段）</h4>
+<h5>形态特征</h5>
+<ul><li>前面一直是涨停板</li><li>有复合战法、有99战法</li><li>横盘一直没破5日线</li><li>换手以后两个板横盘震荡</li><li>这么多板以后基本上都不敢做</li></ul>
+<h5>高位横盘的强势表现</h5>
+<p>为什么有的股可以做？因为高位横盘它是很强势表现。<strong>高位横盘期间要看每一根K线的分时图</strong>，是不是以买单为主，或者是以强势分时为主。</p>
+<h5>核心：动能分析</h5>
+<ul><li>分时形成的量：这个量是不是以做多为主</li><li>它的动能要分析的</li><li><strong>这是做高空接力的核心技术</strong>：分析动能，不是简单看一个十字星、看一根K线，而是看里面的动能</li></ul>
+<h5>异动点确认</h5>
+<p>看动能还不够，还必须有<strong>异动点</strong>要确认上去。</p>
+<p>有没有在高位有做多动能的？人家可以主力翻翻盘不做了直接下跌的——这种股也有。</p>
+<h5>选股原则</h5>
+<ul><li>不以涨多少为准</li><li>以中间横盘区它的动能的判断为准</li><li>以标准为准</li></ul>
+<h4>六、九安医疗案例分析（出自第14节 第7段）</h4>
+<ul><li>选股上也是第一波连续拉板</li><li>这里换手以后连续三板有一个箱体</li><li>箱体跌幅不大，相当于是横盘震荡，跌幅很小不大</li><li>同样的也是进入"6"——这就是969的这个"9"</li><li>后面是他成功了</li></ul>
+<h4>七、选股标准的灵活性（出自第14节 第8段）</h4>
+<h5>不必数清板数</h5>
+<ul><li>前面连板是基础</li><li>我们看的时候就看一波就行，不用在里面仔细地数</li><li>它只要一波没涨过了，横着，就要重点关注</li><li>横着就要重点关注它有没有可能走出这一步</li></ul>
+<h5>进入自选的标准</h5>
+<ul><li>如果它跌下来了，从这里开始跌下来了，那这个估计就不用看了——它就不是969模式了</li><li>它只要能横着——这就是"6"，就要进股票池</li><li>复盘时看到横着，就是"6"</li></ul>
+<h5>底部区域的两板也能关注</h5>
+<ul><li>前面涨得很多，那有没有少的呢？</li><li>底部区域两个涨停——人家跌了一天就翻起来</li><li>小平台它没有跌了——在底部区域有横盘震荡的</li><li>也要重点关注，选股也要选进自选</li></ul>
+<hr>
+<h3>系统性总结</h3>
+<p>第14节"969式超短黑马模式与选股标准（高空接力）"是金良雄老师969式战法的选股篇。</p>
+<h4>一、969式的本质</h4>
+<p>969式是针对"高位横盘"形态的战法，与99式的"连板期"形成鲜明对比：</p>
+<ul><li>99式做的是"上升中的连板"</li><li>969式做的是"高位横盘后的第二波拉升"</li></ul>
+<h4>二、969式的核心结构</h4>
+<div class="table-wrap"><table><thead><tr><th>阶段</th><th>名称</th><th>操作</th></tr></thead><tbody><tr><td>9</td><td>第一波上涨</td><td>选股依据（连板）</td></tr><tr><td>6</td><td>高位横盘</td><td>核心操作区间</td></tr><tr><td>第二波</td><td>横盘后拉升</td><td>969的主要操作目标</td></tr><tr><td>第三波</td><td>拉升后再横盘</td><td>不参与</td></tr></tbody></table></div>
+<h4>三、969式的两大核心选股标准</h4>
+<ol><li><strong>形态标准</strong>：高位横盘（"6"）</li><li><strong>动能标准</strong>：高位横盘期间以买单为主、强势分时为主</li></ol>
+<p>动能分析是969式区别于其他战法的核心——不是看形态，而是看形态内部的资金动向。</p>
+<h4>四、969式的三波纪律</h4>
+<ol><li>第一波（连板期）：作为选股依据</li><li>第二波（横盘期）：核心操作区间</li><li>第三波（再次拉升后）：警惕，不参与</li></ol>
+<h4>五、969式的选股灵活性</h4>
+<ul><li><strong>板数不必数清</strong>：一波没涨过、横着就行</li><li><strong>底部两板也可</strong>：底部区域横盘的也可进自选</li><li><strong>关键是横盘</strong>：跌下来就不是969模式</li></ul>
+<h4>六、与其他课程的关系</h4>
+<ul><li>第11节双K确认技术：在969中可用于"在高位相对高位区域震荡也可以出现下跌以后出现大阳线"（出自第15节）</li><li>第12-13节99式：99战法是969的"前身"——969来源于99式成功的标的</li><li>第15节969式超短操作：基于本节的选股进行操作</li></ul>
+<p>第14节为969战法的"地基篇"，第15节将进入"操作篇"。</p>
+
+            <div class="quiz">
+                <strong>📝 第14节 测验</strong>
+                <p>1. 969式的核心特征？</p>
+                <details><summary>显示答案</summary>高位横盘（"6"）+ 高位横盘期间以买单为主、强势分时为主（动能分析）。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L15">
+            <h2>第15节 969式超短操作的关键要领</h2>
+<h3>深度总结</h3>
+<h4>一、整体框架与流程（出自第15节 第2段）</h4>
+<p>969式超短的完整操作流程：</p>
+<ol><li><strong>选股</strong>（第14节已讲）</li><li><strong>确定第一波</strong>：连板期</li><li><strong>"六"的关键问题</strong>：横盘震荡的成交量、换手率确认换手出货还是震荡出货</li><li><strong>买入</strong>：确认突破真实性、确定先手买点和第一买点</li><li><strong>持股</strong>：5日线为基准</li><li><strong>卖出</strong>：K线覆盖、高位缩量板、大换手（如45%以上）</li><li><strong>板块共振</strong>：最佳条件</li></ol>
+<h4>二、"6"的时间与分时特征（出自第15节 第3段）</h4>
+<h5>横盘时间限制</h5>
+<ul><li>"6"的时间：13天以内</li><li>再长就是效率低了</li><li>再长就成为一种波段形式了</li><li>969都是以效率为主</li></ul>
+<h5>分时特征</h5>
+<ul><li>横盘区域的分时是不是强势震荡</li><li>分时可以先拉然后缩量跌，震荡都可以</li><li>但一定跌了以后一定放量上涨</li><li>强势震荡分时这种特征，确认是主力做多的</li></ul>
+<h4>三、买入判断与双K确认的运用（出自第15节 第4段）</h4>
+<h5>双K确认的应用</h5>
+<ul><li>用前面的双K确认技术</li><li>在高位相对高位区域震荡也可以出现下跌以后出现大阳线</li><li>对应的也可以用双K确认来确认趋势</li><li>例：两根十字星 + 大振幅K线阳线 = 一定是做多分时（拉出这么大的振幅）</li><li>这时分时走强突破新高</li></ul>
+<h5>"6"的双重买点</h5>
+<p><strong>第一个买点</strong>：高开高开（集合竞价）&lt;br&gt;<strong>第二个买点</strong>：强势突破（强势突破平台高点）</p>
+<ul><li>最好的是高开高开</li><li>异动就是买点</li><li>结合强势分时，更有确定性</li></ul>
+<h4>四、持股标准与卖出预警（出自第15节 第5段）</h4>
+<h5>保守持股标准</h5>
+<ul><li>5日线为基准</li><li>有些个股要提前5日线走</li></ul>
+<h5>缩量板预警机制</h5>
+<ul><li>有缩量板以后</li><li>出现缩量板，后面一定会换手</li><li>可能还来一个缩量板</li><li>但是一定要换手</li><li>一换手，这个地方就会形成顶部</li><li>要先手卖出，而不是等破5日线</li></ul>
+<h5>第一买点定义</h5>
+<ul><li>第一买点 = 突破当日 或 高开这一天</li><li>这是确认趋势的两根K线可以确认的</li></ul>
+<h5>买点三层确认</h5>
+<ol><li>横盘区的K线量能动能确认</li><li>双K确认</li><li>高开异动和强势分时（或者转强分时，强势分时最好的是高开）</li></ol>
+<h5>持股标准</h5>
+<ul><li>5日线不破</li><li>遇到中途有缩量的涨停，就是加速缩量的</li><li>这里缩量，后面是不是要一破百就要放量了？</li><li>那你就要注意卖出</li></ul>
+<h5>三个卖出条件</h5>
+<ol><li>缩量以后的放量卖出</li><li>K线覆盖</li><li>破5日线</li></ol>
+<h4>五、案例详解：高位横盘震荡区域选股与买卖（出自第15节 第6段）</h4>
+<h5>买入条件</h5>
+<ul><li>高位横盘震荡区域选股</li><li>通过分时看量怎么形成的</li><li>确定做多以后，买点在哪里呢？</li><li><strong>突破前高的 + 高开 = 最佳买点</strong></li><li>有些横盘没有突破前高，但只要高开，就可以做买入（第一买点）</li><li>对于低开往上拉要突破的，不是高开的——不是最佳买点</li></ul>
+<h5>涨停板的细节判断</h5>
+<ul><li>涨停板也不一定是最佳买点</li><li>上午不能封板的：基本上就要卖出了（强势股上午就要封板）</li><li>上午不封板就不行了，下午都要卖出</li></ul>
+<h5>K线覆盖与主力特例</h5>
+<ul><li>K线覆盖：两根K线覆盖了为什么它还能涨？——主力盘面有三次拉升的特例</li><li>这种股很少</li><li>当成特例，不能当成普遍规律</li><li>更多的第三步都是吃亏的</li></ul>
+<h5>持股标准的灵活判定</h5>
+<ul><li>持股标准是5日线不破，三个持股标准</li><li>根据每一个个股的不同（换手、热点板块不同）随机判定</li></ul>
+<h4>六、中国医药案例的反思（出自第15节 第7段）</h4>
+<h5>969操作的常见误区</h5>
+<ul><li>横盘震荡"6"，前面一大波人家涨这么一点就没了</li><li>不要认为人家后面还有很大一波——这个思维不能固化</li><li>看到连板以后出现大幅放量分时，肯定是第二波</li><li>短线要时刻保持警惕——什么时候要卖出</li></ul>
+<h5>波次案例对照</h5>
+<ul><li>从短的来看：这是第一波，这是第二波，后面是第三波了</li><li>969横盘震荡这里是第二波，没有很高的高度</li><li>不卖出，后面就要大亏</li></ul>
+<h4>七、买点再次明确与执行原则（出自第15节 第8段）</h4>
+<h5>高开买点的灵活性</h5>
+<ul><li>200以后横盘震荡，研究这个动能一个路数</li><li>买点就是高开</li><li>你有时候可以碰到连续涨停板，可以让你翻倍</li></ul>
+<h5>效率优先原则</h5>
+<ul><li>不是每个都这样</li><li>但我们起码在做的时候，要依照这种最高效率的个股来做，才可能抓到牛股</li><li>不然基本上牛股没有缘分，抓不到的</li></ul>
+<h5>三套标准的整合</h5>
+<p>969选股、横盘震荡"六"的演化、怎么分析、买入持股标准、卖出三套标准——针对每一个个股的情况去做分析。</p>
+<h5>突破的两种方案</h5>
+<p><strong>方案一</strong>：一点点高开（第一种买点）&lt;br&gt;<strong>方案二</strong>：突破平台（第二种方案）</p>
+<h5>持股与卖出</h5>
+<ul><li>买点持股以不破5日线为原则</li><li>最后防线不破5日线</li><li>如果在这里买了，后面有很多的机会破5日线卖出也可以——就可以有利润去等</li><li>不能"我都不卖，非要等到五日线"</li></ul>
+<hr>
+<h3>系统性总结</h3>
+<p>第15节"969式超短操作的关键要领"是969式战法的操作核心篇，与第13节"99式操作"形成姐妹篇。</p>
+<h4>一、969式的战略定位</h4>
+<ul><li><strong>针对对象</strong>：高位横盘后的第二波拉升（已涨幅较大但未结束的标的）</li><li><strong>底层逻辑</strong>：龙头上有龙头——第一波形成龙头后高位横盘可能走出第二波</li><li><strong>战略原则</strong>：高效、严标准、动能分析</li></ul>
+<h4>二、969式的完整流程</h4>
+<p>选股（横盘） → 6的时间确认（13天内）→ 分时强势震荡确认 → &lt;br&gt;双K确认 → 高开突破买入 → 5日线持股 → 三种条件卖出</p>
+<h4>三、969式的三大核心节点</h4>
+<div class="table-wrap"><table><thead><tr><th>节点</th><th>规则</th><th>操作</th></tr></thead><tbody><tr><td>6的时间</td><td>13天以内</td><td>超过则效率低、不再是969</td></tr><tr><td>买点</td><td>高开 + 强势分时 + 突破前高</td><td>第一买点=突破当日或高开日</td></tr><tr><td>卖出</td><td>缩量后放量 / K线覆盖 / 破5日线</td><td>任一条件触发即卖出</td></tr></tbody></table></div>
+<h4>四、969式的核心风险控制</h4>
+<ol><li><strong>第三波不做</strong>：警惕出货区域</li><li><strong>缩量板预警</strong>：出现缩量板后必换手，换手即顶部</li><li><strong>上午不封板必卖</strong>：强势股必须上午封板</li><li><strong>不固化思维</strong>：不要认为后面还有很大一波</li><li><strong>不等到5日线才卖</strong>：可先手卖出</li></ol>
+<h4>五、969式与99式的对比</h4>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>99式</th><th>969式</th></tr></thead><tbody><tr><td>介入点</td><td>连板起涨</td><td>高位横盘后第二波</td></tr><tr><td>核心</td><td>换手日</td><td>高位横盘的动能分析</td></tr><tr><td>持有</td><td>连板持有</td><td>5日线持有</td></tr><tr><td>关键</td><td>千里挑一</td><td>高效优先</td></tr><tr><td>时间</td><td>不限</td><td>13天内</td></tr></tbody></table></div>
+<h4>六、969式的典型买点</h4>
+<ol><li><strong>高开高开</strong>：集合竞价高开</li><li><strong>强势突破</strong>：强势突破平台高点</li><li><strong>横盘后第一买点</strong>：突破当日或高开日</li><li><strong>转强分时</strong>：弱转强分时</li></ol>
+<h4>七、969式的三种典型陷阱</h4>
+<ol><li><strong>第三波陷阱</strong>：高位横盘再拉升后的出货区</li><li><strong>缩量板陷阱</strong>：缩量后必放量换手，形成顶部</li><li><strong>上午不封板陷阱</strong>：强势股上午不封板就是弱势</li></ol>
+<h4>八、969式的整体纪律</h4>
+<blockquote>"我们做这种短线的，我们要时刻保持警惕的，就是什么时候要卖出，要卖出。"</blockquote>
+<p>969式的纪律性体现在：</p>
+<ul><li><strong>三个买点层级</strong>：动能确认 + 双K确认 + 高开强势分时</li><li><strong>三个卖出条件</strong>：缩量后放量 + K线覆盖 + 破5日线</li><li><strong>三波不做原则</strong>：警惕第三波出货</li></ul>
+<p>第15节与第13节、第14节一起，构成了金良雄老师超短线战法体系的核心——99式做连板黑马、969式做高位接力的第二波，共同点都是<strong>严标准精选 + 严标准执行 + 严标准风控</strong>。</p>
+
+            <div class="quiz">
+                <strong>📝 第15节 测验</strong>
+                <p>1. 969式"6"的时间限制？</p>
+                <details><summary>显示答案</summary>13天以内。再长就是效率低了，成为波段形式。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L16">
+            <h2>第16节 96式超短黑马模式与选股标准（猛龙回头）</h2>
+<h3>深度总结</h3>
+<h4>一、96式命名的逻辑来源</h4>
+<p>"96式"中的"9"代表<strong>前面已经连续涨停过</strong>。96式选股标准来源于前面已经讲过的模式，前面也涨过。而且这种涨不是传统意义上的涨，是连续涨停——选一性格涨停板是最强的。（出自第16节第2段）</p>
+<blockquote><strong>关键认知</strong>：两个板、三个板连板，是最高级的玩法。两个点、三个点推升的不算。</blockquote>
+<hr>
+<h4>二、"6"的含义与三种走法</h4>
+<p>"6"代表<strong>下跌</strong>。下跌需要满足的标准是：<strong>拒绝横盘震荡，必须是大幅下跌</strong>（可以缩量大幅下跌，也可以放量大幅下跌）。（出自第16节第3段）</p>
+<p>94的3种走法结构（出自第16节第3段）：</p>
+<ul><li><strong>994</strong>：直接上去（在转折点直接反转向上）</li><li><strong>996</strong>：横盘震荡（拒绝下跌，走平台整理）</li><li><strong>969</strong>：直接跌下来（这就是96式的"6"）</li></ul>
+<blockquote><strong>重要区别</strong>：96式的"6"不是横盘震荡，是跌下来的。</blockquote>
+<hr>
+<h4>三、"6"的核心特征（标准三个）</h4>
+<h5>特征1：一定破过5日线</h5>
+<p>"6"的第一特征是<strong>收盘一定破过5日线下方</strong>。可以是缩量跌停板，跌停板都可以算。（出自第16节第4段）</p>
+<h5>特征2：时间限定为3天</h5>
+<p>"6"的时间是3天。<strong>起算日</strong>：从中间有一天没有涨停的那天开始算，这天叫<strong>换手日</strong>。因为换手没成功所以它掉下来了。（出自第16节第4段）</p>
+<blockquote>换手日这天不算，从第二天开始算天数。一二后面数三天，三天必须有资金迅速卷土重来。</blockquote>
+<h5>特征3：超过3天就是波段</h5>
+<p>超过3天以后基本就属于波段，效率就很低了。（出自第16节第4段）</p>
+<blockquote><strong>效率对比</strong>：969的"6"是13天；96的"6"是3天。所以96的"6"效率比969的"6"还要高。</blockquote>
+<hr>
+<h4>四、案例演示：资金回流的速度</h4>
+<p>案例1（出自第16节第5段）：</p>
+<ul><li>前面涨过一波选股，上面连板以后大幅下跌。这天跌停不算。</li><li>数天数：一定要资金回流。第一天、第二天、第三天必须打起来。</li><li><strong>没有力度就是波段，不是96了，演化成波段了。</strong></li></ul>
+<p>案例2（复合型，出自第16节第6段）：</p>
+<ul><li>两个涨停后来再数这天换手日。</li><li>第一天：资金跌停板开始，资金迅速回落，收盘低于5日线。大幅上来以后做多分时回落。</li><li>第二天：低开以后继续分时做多上涨。</li><li>第三天：两天第一天就回来了，资金卷土重来时间很快。</li><li><strong>这就是标准的"6"，三天之内必须起来。</strong></li></ul>
+<hr>
+<h4>五、卖出条件（与99、969的"9"一致）</h4>
+<p>96的卖出条件与99、969的"9"卖出条件一样，看分时。（出自第16节第7段）</p>
+<p><strong>强势分时特征</strong>：</p>
+<ul><li>大幅低开跌停板开盘，翘板</li><li>大幅低开强势分时</li><li>连续做多的强势分时</li><li><strong>这些是资金吃货的表现</strong></li></ul>
+<hr>
+<h4>六、买入标准（与969一致）</h4>
+<p>96的买入标准与969的买入标准一样（出自第16节第8段）：</p>
+<p><strong>三大买入方式</strong>：</p>
+<ol><li><strong>高开买入</strong></li><li><strong>强势分时强势买入</strong></li><li><strong>弱转强分时买入</strong></li></ol>
+<p><strong>双K确认</strong>：</p>
+<ul><li>双K确认是底部</li><li>资金迅速回流</li><li>结合强势分时——双重标准来确认个股</li></ul>
+<hr>
+<h4>七、特殊形态：一字板跌停的暴力洗盘</h4>
+<p>这种K线走法很恐怖：一字板+跌停板的暴力洗盘。（出自第16节第9段）</p>
+<p>特征：</p>
+<ul><li>连续涨停一字板，全部关在里面，前面的资金全部套牢。</li><li>这是暴力洗盘，又是个跌停板。</li><li>跌停板一字板也是换手日（换手日是时间概念，不是量的概念）。</li><li>一天、两天、三天收盘都没有破5日线，但是是两个跌停起来的。</li></ul>
+<blockquote><strong>特殊性</strong>：严格讲它收盘都没有破过5日线，收盘在5日线上方的可以叫99式。但这里主要原因是"太恐怖"。这种两个跌停的方式虽然收盘在5日线上方，但是96的一种特殊表现。</blockquote>
+<p><strong>介入方式</strong>（出自第16节第10段）：</p>
+<ul><li>第二天、第三天都有很多很大的资金抢筹码——游资介入。</li><li>第二天有阴线、阳线的组合，可以走出第二天涨第三天。</li><li>高开买点（重仓买点）。</li></ul>
+<hr>
+<h4>八、强势分时的攻击性特征</h4>
+<p>攻击性的强势分时（出自第16节第12段）：</p>
+<ul><li>跌停板开盘，迅速上拉放量</li></ul>
+<hr>
+<h4>九、第一波注意事项</h4>
+<p><strong>96第一波都是第二波</strong>（出自第16节第12段）：</p>
+<ul><li>第一波要注意效率问题</li><li>第一波之后要去做第二波</li><li>第三波尽量不做（如果第三波有的时候也可以出，但是涨停以后第二天可以继续跌停）</li></ul>
+<hr>
+<h3>系统性总结</h3>
+<p><strong>96式的核心框架</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>标准</th></tr></thead><tbody><tr><td>前置条件</td><td>前面已经连续涨停（一性格涨停板）</td></tr><tr><td>"6"的下跌</td><td>大幅下跌（缩量或放量均可），拒绝横盘</td></tr><tr><td>K线特征</td><td>一定破过5日线，收盘在5日线下方</td></tr><tr><td>时间限定</td><td>3天内必须资金回流（从换手日算起）</td></tr><tr><td>超过3天</td><td>演变为波段，效率降低</td></tr><tr><td>效率对比</td><td>96的"6"是3天 &gt; 969的"6"是13天</td></tr><tr><td>卖出</td><td>与99、969的"9"相同，看分时强势</td></tr><tr><td>买入</td><td>高开买入 / 强势分时买入 / 弱转强分时买入</td></tr><tr><td>特殊形态</td><td>一字板+跌停板的暴力洗盘（96的特殊表现）</td></tr><tr><td>双K确认</td><td>双重标准（K线+分时）确认底部</td></tr></tbody></table></div>
+<p><strong>关键记忆点</strong>：</p>
+<ol><li>96式 = "9"连续涨停 + "6"3天大幅下跌后资金回流</li><li>时间是核心：超过3天就不是96，是波段</li><li>一字板跌停的特殊形态属于96的变体</li><li>双K确认 + 强势分时 = 双重确认标准</li></ol>
+
+            <div class="quiz">
+                <strong>📝 第16节 测验</strong>
+                <p>1. 96式"6"的时间限制是？</p>
+                <details><summary>显示答案</summary>3天（从换手日算起）。超过3天就是波段。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L17">
+            <h2>第17节 96式超短黑马股操作关键要领</h2>
+<h3>深度总结</h3>
+<h4>一、四问框架：见底 / 买入 / 持股 / 卖出</h4>
+<p>96式超短操作关键要领解决四个问题：（出自第17节第2段）</p>
+<ol><li><strong>怎么确定见底</strong></li><li><strong>怎么确定买入</strong></li><li><strong>怎么持股</strong></li><li><strong>怎么卖出</strong></li></ol>
+<p>核心是"确认突破的真实性和先手买点"。第一买点通过分时验证行情的持续性。</p>
+<hr>
+<h4>二、资金回流确认（"6"成立的四大条件）</h4>
+<p>在确定选股以后，时间上必须记住：<strong>第一、二、三天必须资金回流才是标准的"6"</strong>。（出自第17节第4段）</p>
+<h5>第一天资金回流的意义</h5>
+<p>第一天资金回流表示资金非常看好。昨天下跌，今天就马上买它，这是强势资金的表现。（出自第17节第4段）</p>
+<p><strong>4个核心确认条件</strong>（出自第17节第5段）：</p>
+<div class="table-wrap"><table><thead><tr><th>条件</th><th>含义</th></tr></thead><tbody><tr><td><strong>条件1：强势分时</strong></td><td>大资金强势分时，两天都是强势分时</td></tr><tr><td><strong>条件2：成交量动能</strong></td><td>换手率高，前面该卖的都卖了，资金通通收走</td></tr><tr><td><strong>条件3：双K确认</strong></td><td>两根K线确认底部这么强</td></tr><tr><td><strong>条件4：96模式3天</strong></td><td>时间一二三符合</td></tr></tbody></table></div>
+<blockquote>4个条件共同确定"6"的成立。</blockquote>
+<hr>
+<h4>三、96战法的4个时间条件与买入</h4>
+<p><strong>96战法时间条件</strong>（出自第17节第5段）：</p>
+<ol><li>时间一二三满足</li><li>分时强势满足</li><li>成交量做多满足</li><li>满足背景下的强势分时</li></ol>
+<hr>
+<h4>四、第一买点（三大买点）</h4>
+<p>96式第一买点有3个（出自第17节第6段）：</p>
+<ol><li><strong>高开买入</strong>（高开是买点）</li><li><strong>强势分时买入</strong>（如果不是高开，强势分时可以买入）</li><li><strong>低开后强势分时买入</strong>（低开的情况下，强势分时高开肯定是强势）</li></ol>
+<blockquote><strong>共同前提</strong>：强势分时建立在前面四个标准都符合的情况下——即时间、强势分时、成交量、双K四大条件都满足。</blockquote>
+<hr>
+<h4>五、持股标准与三条卖出标准</h4>
+<h5>持股标准（出自第17节第7段）</h5>
+<p>以<strong>5日线</strong>为最后一道持股标准。</p>
+<h5>三条卖出标准</h5>
+<p><strong>卖出标准1：缩量后的大换手</strong>（出自第17节第7段）</p>
+<ul><li>缩量以后的大换手要注意卖出</li><li>要提前卖出，不要等跌下去再卖</li></ul>
+<p><strong>卖出标准2：K线覆盖</strong>（出自第17节第8段）</p>
+<ul><li>后面的K线覆盖</li><li>跌停以后三天以内的覆盖</li></ul>
+<p><strong>卖出标准3：破5日线</strong>（出自第17节第8段）</p>
+<ul><li>盘中又覆盖又破5日线</li></ul>
+<blockquote><strong>综合判断</strong>：缩量后的换手 + 覆盖 + 破5日线，三条都满足就应该卖出，不要再等了。</blockquote>
+<hr>
+<h4>六、跌停板后的买入条件</h4>
+<p><strong>案例</strong>：当天跌停以后大幅低开。（出自第17节第8段）</p>
+<h5>跌停板操作的要点</h5>
+<ul><li>这是<strong>直接晋级的买点</strong>（99战法里面的配套买点）</li><li>两个跌停翘板：第一天不卖，第二天高开和强势分时做买入两个标准</li><li><strong>跌停板撬板时要带量</strong>，把量带出来才说明是有主力行为</li></ul>
+<p><strong>主力信号识别</strong>（出自第17节第9段）：</p>
+<ul><li>跌停板几乎撬板放大量</li><li>成交量很大，卖的人很多，买单也很厉害</li><li>量打出来是有主力行为才出量</li><li>这一天又是强势分时</li></ul>
+<h5>跌停后缩量放量的卖出标准</h5>
+<p><strong>重要信号</strong>（出自第17节第8段）：</p>
+<ul><li>缩量以后要注意放量</li><li>这一天放量了，要注意后面</li><li>即使强势分时低卖点，也要把大部分仓位卖出</li><li>缩量板以后的放量板要特别注意，要清仓卖出</li></ul>
+<hr>
+<h4>七、跌停战法的完整流程</h4>
+<p>跌停以后三天以内实现的完整流程：（出自第17节第9段）</p>
+<p>第一个选股标准：前面是连板&lt;br&gt;        ↓&lt;br&gt;第二个标准：时间，跌下来，破5日线走6&lt;br&gt;        ↓&lt;br&gt;确认"6"的时间标准：一二三第一天、第二天、第三天&lt;br&gt;        ↓&lt;br&gt;进的时候：强势分时图（跌停板几乎撬板放大量）&lt;br&gt;        ↓&lt;br&gt;确认强度：成交量做多、有主力行为&lt;br&gt;        ↓&lt;br&gt;买入：高开买入 / 低开后的强势分时买入</p>
+<hr>
+<h4>八、综合确认框架</h4>
+<p>确认后期的标准框架（出自第17节第10段）：</p>
+<p>虽然两天大阴线股价并没有涨，但是覆盖的两根K线都是<strong>双K</strong>：</p>
+<ul><li>两根K线出来以后</li><li>确定分时强势</li><li>确定成交量做多</li><li>确定动能</li><li>加上94、96的时间确认</li><li>确认以后根据高开买入和低开后的强势分时做买入</li></ul>
+<hr>
+<h3>系统性总结</h3>
+<h4>96式操作关键要领全景图</h4>
+<div class="table-wrap"><table><thead><tr><th>阶段</th><th>核心要素</th></tr></thead><tbody><tr><td><strong>1. 选股</strong></td><td>前面连续涨停</td></tr><tr><td><strong>2. 资金回流</strong></td><td>1-2-3天必须有大资金回流</td></tr><tr><td><strong>3. 4大确认</strong></td><td>强势分时 + 成交量动能 + 双K确认 + 96模式时间</td></tr><tr><td><strong>4. 第一买点</strong></td><td>高开买入 / 强势分时买入 / 低开后强势分时买入</td></tr><tr><td><strong>5. 持股</strong></td><td>5日线为最后持股防线</td></tr><tr><td><strong>6. 3条卖出</strong></td><td>缩量后大换手 / K线覆盖 / 破5日线</td></tr><tr><td><strong>7. 跌停特殊</strong></td><td>跌停板大阴线缩量后大量、强势分时</td></tr></tbody></table></div>
+<h4>核心操作原则</h4>
+<ol><li><strong>下跌要带量</strong>——跌停板翘板时一定要把量带出来，没有量就不是主力行为</li><li><strong>强势分时不能少</strong>——大资金强势分时是资金看好最直接的证据</li><li><strong>双K确认必备</strong>——两根K线确认底部成立</li><li><strong>3天是硬性时间限制</strong>——超过就是波段，效率降低</li><li><strong>三大卖出标准</strong>——缩量后换手 / K线覆盖 / 破5日线，3条都满足就立即卖出</li><li><strong>跌停大阴线后买入要谨慎</strong>——根据个股运行结构、主力盘面性质</li><li><strong>强势分时高开是买入首选</strong>——高开再加强势分时更好</li></ol>
+<h4>关键预警</h4>
+<ul><li>5日线<strong>最后</strong>防线一旦跌破必须卖出</li><li>大阴线虽然缩量但第二日放量的，要特别注意</li><li>跌停板反抽后第二天还可能继续跌停</li><li>第一天买入的不一定要等第三天，第二天标准满足立即可以买入</li></ul>
+
+            <div class="quiz">
+                <strong>📝 第17节 测验</strong>
+                <p>1. 96式"6"成立的四大条件？</p>
+                <details><summary>显示答案</summary>强势分时+成交量动能+双K确认+96模式3天。</details>
+            </div>
+        </section>
+
+        <!-- 阶段4 -->
+        <section class="lesson" id="stage4">
+            <h2>📕 阶段4·宏观与操作（第18-20节）—— 解决"守得住"</h2>
+            <div class="kbox-warn">本阶段是"活得久"的关键——技术再牛，没有仓位与风控都是零。</div>
+        </section>
+
+        <section class="lesson" id="L18">
+            <h2>第18节 3大超短盈利模式的买卖仓位配置技术</h2>
+<h3>深度总结</h3>
+<h4>一、仓位配置的基本原则</h4>
+<p>超短线一般不敢重仓，但是为了确定性，在确定高确定情况下，有些可以重仓。（出自第18节第2段）</p>
+<p><strong>核心规则</strong>：</p>
+<ul><li><strong>第一买点</strong> = 重仓买入点（只有1个点）</li><li><strong>第一买点之后的买点</strong> = 非最优区域买点（轻仓）</li><li><strong>重仓买点</strong>只有一个，就是第一买点</li></ul>
+<hr>
+<h4>二、99式的仓位配置</h4>
+<h5>第一买点仓位（出自第18节第3段）</h5>
+<p>99式的第一波以后的第一次换手板要先手买入，我们进阶学员不做。在第二日开始换，<strong>首日以后开始符合标准的，严格符合标准的，在第一买点是重仓买入</strong>，可以：</p>
+<ul><li><strong>50%~60%的仓位</strong></li><li><strong>80%的仓位</strong>（非常熟练90战法的标准以后）</li></ul>
+<blockquote>刚开始不要满仓去练。</blockquote>
+<h5>仓位递减规则（出自第18节第4段）</h5>
+<p><strong>第一买点后的买点均为非最优区域买点，每往后推迟一天仓位都要减起码10%。</strong></p>
+<ul><li>第三波以后拒绝买入（清仓区域）</li><li>第一波以内：开盘分时高开持股</li><li><strong>盘中破板不出5日线为第一防线</strong></li><li>持股标准：以5日线为第一防线防守阵地</li></ul>
+<h5>99式的三个卖出条件（出自第18节第5段）</h5>
+<p>在<strong>第三波区域缩量板或者再次放量板</strong>要特别注意，要清仓卖出。</p>
+<p><strong>核心逻辑</strong>：</p>
+<ul><li>缩量板以后一定会放量</li><li>一放量一破板就会放量</li><li>一放量那样就会换手</li><li><strong>换手就是卖点</strong>（不是买点）</li></ul>
+<blockquote>大波里面有<strong>小波段</strong>，以大换手为界，后面看法都一样。</blockquote>
+<hr>
+<h4>三、99式案例解析（出自第18节第6段）</h4>
+<h5>第一重仓买点</h5>
+<ul><li><strong>两板以后两板换手日，第一重仓买点只有一天</strong></li><li>这是可以重仓买的地方</li><li>后面都是要减仓买的</li></ul>
+<p><strong>关键提示</strong>：</p>
+<ul><li>即使完全符合标准，也不能做到100%的成功</li><li>所以我们对于个股的运行形态，什么样的个股真正能够重仓，还有研究后面还有技术要匹配</li></ul>
+<h5>99式卖出标准（出自第18节第7段）</h5>
+<ul><li>5日线为最后的卖出标准</li><li>在缩量连板以后的缩量板一定换手，这天就可以卖出</li><li><strong>上午不涨停的，只要上午还没涨停的，下午就可以卖出</strong></li><li>卖的时候，强势分时低卖点把大部分仓位卖出</li></ul>
+<p><strong>仓位配置核心</strong>（出自第18节第7段）：</p>
+<div class="table-wrap"><table><thead><tr><th>操作阶段</th><th>仓位策略</th></tr></thead><tbody><tr><td>第一买点（重仓）</td><td>50%~80%</td></tr><tr><td>第一买点之后</td><td>每推迟一天减仓10%</td></tr><tr><td>卖出（第一次缩量后换手）</td><td>大部分仓位卖出</td></tr><tr><td>后面加仓买点</td><td>必须在筹码的底部</td></tr></tbody></table></div>
+<hr>
+<h4>四、99式的高位震荡区域</h4>
+<p>第二个99是<strong>高位震荡区域</strong>（出自第18节第8段）</p>
+<h5>区域特征（出自第18节第8段）</h5>
+<ul><li>高位震荡区域因为有真假，可能跌下来</li><li>单日震荡、横盘连续震荡、K线覆盖都属于震荡</li><li>三个细分条件结合分时高开低开的走势进行买入和卖出</li></ul>
+<p><strong>第二波高位震荡区域操作</strong>（出自第18节第8段）：</p>
+<ul><li>清仓买入</li><li>再次分时突破加仓买入</li><li>震荡区域卖出</li><li>大波里面有小波一样的</li></ul>
+<hr>
+<h4>五、969式的仓位配置（贵州燃气案例）</h4>
+<h5>贵州燃气案例（出自第18节第9段）</h5>
+<ul><li>969式：这个平台是"9"，这个平台是"6"</li><li>先手买点出现几种情况：</li><li>要看分时动能的</li><li>在里面可能会出现高开（横盘震荡区域可能有高开）</li><li>高开以后不一定马上涨，但是有高开的是买点</li></ul>
+<h5>969式重仓买点（出自第18节第9段）</h5>
+<ul><li>第一个在横盘震荡区域有阳线以后的高开</li><li>先手买点突破高点、突破前高</li><li>强势分时没高开、强势分时突破前高先手买点</li><li><strong>第一买点重仓买点：是高开买点</strong></li><li>高开持股卖出条件：<strong>覆盖破5日线</strong></li><li>第三波也是在缩量以后的缩量换手卖出</li></ul>
+<hr>
+<h4>六、走5日线单边形态（出自第18节第10段）</h4>
+<h5>969与99的对比</h5>
+<ul><li>没破过5日线——好像是99，但是比99的速率要低</li><li>99是连板，起码都是高开，然后又涨停，经常连板</li><li>这里一天都没有（单边走5日线）</li><li>是20点的96形态（特殊形态）</li></ul>
+<p><strong>操作要点</strong>：</p>
+<ul><li>把它当969来看：双K确认5日线不破，高开买点出现了低买点</li><li>大幅低开有强势分时，特别是没有涨过的、干净的第一波的有参与的个股，做强势分时、做90买入是可以的</li><li>横盘震荡区域的高开买点——这也是买点</li></ul>
+<h5>案例特点（出自第18节第11段）</h5>
+<ul><li>重仓买点：双K确认以后，高开重仓买点</li><li>在高开是可以加仓的</li><li>单边走5日线，没破过，好像是99</li><li>20点的96形态就不看了</li></ul>
+<hr>
+<h4>七、破板操作（出自第18节第12段）</h4>
+<h5>破板先手买入</h5>
+<ul><li>破板当日有资金回拉，可以做先手买入</li><li>不管它涨上去还是跌下来，做先手买入</li><li>一开盘就有大资金撬板</li><li><strong>针对大跌以后重新资金进场、重新去资金进场的两个涨停</strong></li><li>这样的轻仓买入都是<strong>试盘试着买</strong></li></ul>
+<h5>真正的重仓买点（出自第18节第12段）</h5>
+<ul><li>双K确认以后，或者这一天直接高开——<strong>高开是重仓买点</strong></li><li>后面双K确认以后，这一天即将突破，是强势分时弱转强分时</li><li>这就是<strong>真正的先手买点，真正的第一买点</strong></li><li>用双K确认以后的强势分时</li><li>面临突破、面临打破两天的前高点</li><li>又是平台的高点，又是前面两天的高点，都突破了</li><li><strong>强势分时第一买点</strong>，可以先手买入</li><li>重仓买点是后面的高开——哪一天高开哪一天就是重仓买点</li></ul>
+<hr>
+<h4>八、资金分配原则（出自第18节第13段）</h4>
+<h5>资金与个股成交量匹配</h5>
+<p><strong>核心规则</strong>：</p>
+<ul><li>你的资金跟它的个股的成交量要匹配</li><li>一天涨停板只有一个亿的股，如果你有几千万，就不要匹配</li></ul>
+<blockquote>不要随意将大资金匹配到成交量小的个股上。</blockquote>
+<hr>
+<h4>九、主流板块操作（重仓黄金区域）</h4>
+<h5>主流板块特征（出自第18节第14段）</h5>
+<p><strong>主流板块符合超短标准的个股</strong>：</p>
+<ul><li>换手日乘以21左右确认分时</li><li>一次性重仓买入主流板块个股</li><li>成交量又大的个股（光大证券、君正集团就是典型例子）</li></ul>
+<p><strong>光大证券案例</strong>（出自第18节第14段）：</p>
+<ul><li>主流板块个股成交量很大——一个涨停板几十个亿</li><li>一天40个亿、50个亿</li><li>连续两涨停</li><li>做99走势的时候一旦确认，高开、换手高开、强势分时重仓买入</li><li>买入以后符合标准的可以加仓</li></ul>
+<h5>核心标的（出自第18节第15段）</h5>
+<p><strong>直接晋级第一买点的</strong>：94的、99的直接晋级第一买点</p>
+<ul><li>根据强势分时</li><li>根据开盘集合竞价情况</li><li><strong>中长买入只有一个点</strong>，后面都要减</li></ul>
+<hr>
+<h3>系统性总结</h3>
+<h4>三大超短盈利模式仓位配置全景</h4>
+<div class="table-wrap"><table><thead><tr><th>模式</th><th>重仓买点（唯一点）</th><th>减仓规则</th><th>卖出规则</th></tr></thead><tbody><tr><td><strong>99式</strong></td><td>第一波后换手板第二日</td><td>每推迟一天减仓10%</td><td>缩量板/再次放量板清仓</td></tr><tr><td><strong>96式</strong></td><td>双K确认后高开</td><td>同上</td><td>覆盖破5日线</td></tr><tr><td><strong>969式</strong></td><td>横盘震荡区域阳线后高开</td><td>同上</td><td>缩量换手</td></tr></tbody></table></div>
+<h4>仓位配置黄金原则</h4>
+<ol><li><strong>重仓买点只有一个点</strong>——就是第一买点，第一买点之后的所有买点都是减仓买点</li><li><strong>每推迟一天，减仓10%</strong>——绝对不可加仓到重仓</li><li><strong>第三波之后拒绝买入</strong>——风险远大于收益</li><li><strong>5日线是最后防线</strong>——第一波持股标准</li><li><strong>缩量板后必放量</strong>——这是卖出信号</li></ol>
+<h4>主流板块是重仓首选</h4>
+<p><strong>匹配原则</strong>：</p>
+<ul><li>主流板块 + 核心标的 + 成交量大 + 一次性重仓</li><li>君正集团、光大证券级别的流通量级</li><li>换手日 ×21 确认分时后重仓</li></ul>
+<h4>资金匹配规则</h4>
+<ul><li>一天涨停板只有1个亿的股，不要用几千万的资金去匹配</li><li>主流板块大成交量股适合重仓</li><li>小盘个股只能试盘买入</li></ul>
+<h4>关键心法（出自第18节全文）</h4>
+<ul><li><strong>买重仓在第一买点</strong></li><li><strong>卖重仓在第一次缩量后换手</strong></li><li><strong>必须在筹码底部加仓</strong></li><li><strong>高位震荡真假难辨，突破平台确认才能加仓</strong></li><li><strong>中长买入只有一个点</strong>，后面都要减</li></ul>
+
+            <div class="quiz">
+                <strong>📝 第18节 测验</strong>
+                <p>1. 仓位配置的核心原则？</p>
+                <details><summary>显示答案</summary>重仓买点只有一个点——就是第一买点；第一买点之后的所有买点都是减仓买点；每推迟一天减仓10%。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L19">
+            <h2>第19节 超短线大亏的3类致命操作与3大风控技术</h2>
+<h3>深度总结</h3>
+<h4>一、为什么讲风险控制？（出自第19节第2段）</h4>
+<p>回顾短线操作的获利情况：</p>
+<ul><li>不排除个别做得比较好的同学</li><li>但是大部分同学而言，做超短线是非常致命的，容易有大面</li><li><strong>短线操作风险是很大的，但是能做——千万不能随心所欲去打板</strong></li></ul>
+<blockquote><strong>核心心法</strong>：超短线确定性高，能做到连板或大黑马；但同时也容易致命大亏。</blockquote>
+<hr>
+<h4>二、三类致命的选股操作</h4>
+<h5>致命选股1：非主流板块的短线股（出自第19节第3段）</h5>
+<p><strong>什么是非主流核心板块短线股</strong>：</p>
+<ul><li>短期事件题材（如日本排污几天炒作）</li><li>非主流行业（服装纺织等）</li><li>非主流行业中的小市值个股</li></ul>
+<p><strong>主流板块的特征</strong>（出自第19节第4段）：</p>
+<ul><li>符合时代背景</li><li>行业景气度非常高</li><li>政策扶持频繁且力度很大</li><li>很高的层次</li></ul>
+<p><strong>主流板块举例</strong>：</p>
+<ul><li>华为题材</li><li>无人驾驶</li><li>新能源汽车</li><li>数字经济</li><li>大科技</li><li>证券</li></ul>
+<blockquote>真正的龙头值得做的短线，基本上都在这些主流板块里面。</blockquote>
+<h5>致命选股2：非第一龙头跟涨股（出自第19节第5段）</h5>
+<p><strong>识别规则</strong>：</p>
+<ul><li>当你发现市场上有一只股是龙头的时候，你要注意你手里的股是跟涨股</li><li>在同一个时期，龙头在行情很集中的情况下，也就两三只</li><li><strong>总有一只涨幅最大</strong></li><li>行情不好的时候，只有那么一只真正的龙头</li><li>你手里的股一旦发现外面的股才是龙头，就要警惕</li></ul>
+<p><strong>风险场景</strong>：</p>
+<ul><li>短线的套利跟涨股</li><li>一旦龙头确立，跟涨股就要出局</li></ul>
+<h5>致命选股3：非第一买点重仓买入（出自第19节第5段）</h5>
+<p><strong>核心警示</strong>：</p>
+<ul><li>这个地方本身不能重仓的，你重仓做了就是重仓吃大面</li><li>这个是很致命的</li><li>对信心打击很大</li><li>对账户的打击都很致命</li></ul>
+<hr>
+<h4>三、做超短线的核心原则</h4>
+<p><strong>做超短线要避免什么</strong>（出自第19节第6段）：</p>
+<ol><li><strong>要在安全、高确定性的情况下去做</strong></li><li><strong>要保持专注度和敏感性</strong></li><li><strong>不能固执</strong></li></ol>
+<blockquote>不要固执地认为这个股是大龙头，结果人家被资金抛弃了。</blockquote>
+<hr>
+<h4>四、三个操作风险（出自第19节第7段）</h4>
+<h5>风险1：不符合操作标准的不确定性打板买入</h5>
+<p><strong>典型场景</strong>：看到涨停板隔夜挂单去打涨停板</p>
+<p><strong>两个致命问题</strong>：</p>
+<ul><li>第一个你仓位很轻，对你账户的贡献很小</li><li>第二个确定性是没有的——根本不知道人家是不是高开破板，能不能连续拉板都是不确定的</li></ul>
+<blockquote><strong>风险定性</strong>：盲目追高/盲目打板</blockquote>
+<h5>风险2：大阴线买入</h5>
+<p><strong>典型场景</strong>：前面是打板最高的，你赌反包抄底</p>
+<p><strong>致命后果</strong>（出自第19节第7段）：</p>
+<ul><li>大阴线买入以后，结果人家第二天继续低开，继续跌停板</li><li>底还有底</li><li>5日线上方大阴线买入也是没有确定性的</li></ul>
+<p><strong>正确做法</strong>：</p>
+<ul><li>大阴线买入不能这么买</li><li>要根据个股运行结构</li><li>要根据主力盘面、游资盘面还是战略资金盘面</li><li><strong>根据盘面性质去做，不一样的结果</strong></li><li>优质短线股不能随便抄阴线底</li></ul>
+<h5>风险3：顶部区域买入（出自第19节第8段）</h5>
+<p><strong>致命后果</strong>：</p>
+<ul><li>已经在筑顶，你还在赌新高</li><li>赌新高的结果就是高位站岗</li><li>仓位不把握好，重仓高位站岗</li><li>这个是非常致命的</li></ul>
+<hr>
+<h4>五、纠错原则（出自第19节第8段）</h4>
+<p>除了严格按照超短线标准选股以外，必须结合：</p>
+<ol><li><strong>第一买点分时特征动态分析</strong></li><li><strong>股价走势偏离标准的，要果断采取纠错行动</strong></li></ol>
+<hr>
+<h4>六、案例分析一：追板被闷杀（出自第19节第9段）</h4>
+<p><strong>事件经过</strong>：</p>
+<ul><li>同学在这里追板，"在这里追追不进去是吧？一直打天天打不进去"</li><li>"这里还是打给你了"</li><li>第二天：跌停板</li><li>当天：涨停到下跌10个点</li><li>再来一个跌停板、大幅低开两天20个点</li></ul>
+<p><strong>心理考验</strong>：</p>
+<ul><li>跌停板的时候你是卖还是持股？</li><li>如果砍掉两天十几二十点没了</li><li>就只有两天时间</li><li>是不是很致命？</li></ul>
+<hr>
+<h4>七、案例分析二：大阴线买入被套（出自第19节第10段）</h4>
+<p><strong>操作错误</strong>：</p>
+<ul><li>大阴线买入赌反包</li><li>第二天直接低开跌停板</li></ul>
+<p><strong>90战法的本质</strong>（出自第19节第10段）：</p>
+<ul><li>实际上90战法本身就是在规避风险</li><li><strong>三波不做就是规避风险</strong></li><li>你就没有机会去买，所以就不会有这种亏损</li></ul>
+<p><strong>风险来源分析</strong>（出自第19节第10段）：</p>
+<ul><li>对于阴线买入是没有根据的</li><li>你赌人家涨停反包，人家不拉不反包</li><li>三波是最容易出现这个问题的</li><li>最重要的游资盘面主要看资金的意义、它的做盘计划</li></ul>
+<hr>
+<h4>八、换手日的判断（出自第19节第11段）</h4>
+<p><strong>核心规则</strong>：</p>
+<ul><li>这天大跌，要找一个换手日</li><li><strong>换手日这天是不能买的</strong></li><li>在缩量以后怎么确定换手日有专门的课讲</li><li>一旦破板就是换手，那是不能去做的</li></ul>
+<p><strong>风险识别</strong>：</p>
+<ul><li>这里都不是重仓买点</li><li>都不是第一买点</li><li>都不是非最优区域买入</li><li>都是很轻的仓位</li><li>买入必须见换手</li><li>换手以后确定买入时还有标准来框——强势分时开盘情况</li></ul>
+<hr>
+<h4>九、新同学的典型风险案例（出自第19节第12段）</h4>
+<p><strong>亏损推演</strong>：</p>
+<ul><li>大阴线买入 → 跌停 → 再跌停 → 30个点没了</li><li>一只股就折腾几次</li><li>一半都没了，钱都没了</li></ul>
+<p><strong>核心警示</strong>（出自第13段）：</p>
+<ul><li>第一买点：换手日以后只有这一天是买点</li><li>直接晋级的买点只有这一天</li><li>只有这一天才能做买入</li><li>后面都不能买入</li></ul>
+<hr>
+<h4>十、地天板的致命风险（出自第19节第13段）</h4>
+<p><strong>操作错误</strong>：</p>
+<ul><li>大阴线打板买入</li><li>当天被套</li><li>地天板（天地板20点）</li><li>再来一个大幅低开</li></ul>
+<p><strong>决策困境</strong>：</p>
+<ul><li>虽然人家反抽了，但反抽你不一定会卖掉</li><li>在这里也许大幅低开你就砍掉了</li><li>跌停板直接低开，又来一个跌停板</li><li>这里进，这里进都会被闷杀在里面</li></ul>
+<hr>
+<h4>十一、90战法的逻辑保证（出自第19节第15段）</h4>
+<p><strong>关键认知</strong>：</p>
+<ul><li>90战法进入90的<strong>不一定是大牛股</strong></li><li><strong>但是不进90的一定不是牛股</strong></li></ul>
+<p><strong>进90以后不是牛股的怎么办</strong>：</p>
+<ol><li><strong>严格的选股</strong></li><li><strong>在严格换手以后的买入确认</strong></li><li><strong>仓位一定要控制在可控范围</strong></li></ol>
+<blockquote>不能随便去打大阴线、牵手买阴线，也不能任意去打板、任意地方去打板，这都容易出现大亏。</blockquote>
+<hr>
+<h4>十二、尾盘买入的陷阱（出自第19节第17段）</h4>
+<p><strong>错误想法</strong>：</p>
+<ul><li>同学在阴线买入，跌了20个点、5日线没破</li><li>喜欢尾盘买入，认为风险比较小</li><li><strong>实际上也是低开跌停板</strong></li><li>反抽以后还得亏钱</li></ul>
+<p><strong>风险性质</strong>：</p>
+<ul><li>这些都是没有根据的买入</li><li>都是赌性</li><li><strong>必须坚决排斥短线里的这种赌性</strong></li></ul>
+<hr>
+<h4>十三、一字板的致命陷阱（出自第19节第17段）</h4>
+<p><strong>风险分析</strong>：</p>
+<ul><li>连续一字板打进去，打不进去</li><li>打进去以后也是一两个跌停板</li><li>动作快的这一天肯定是砍掉了</li><li>动作慢一点的，这天就20个点了</li></ul>
+<hr>
+<h4>十四、核心信念（出自第19节第17段）</h4>
+<blockquote><strong>短线是天堂，更是地狱。</strong></blockquote>
+<ul><li>做超短线风险是很大的</li><li>但是能做</li><li><strong>千万不能随心所欲去打板</strong></li><li><strong>一定要做高确定性的重仓</strong></li><li>短线操作里面，<strong>风险永远是第一位</strong></li><li><strong>不要随便打板</strong>——这是做超短线的核心</li></ul>
+<hr>
+<h3>系统性总结</h3>
+<h4>三大致命选股 vs 三大操作风险</h4>
+<h5>三大致命选股（选股端）</h5>
+<div class="table-wrap"><table><thead><tr><th>致命选股</th><th>正确做法</th></tr></thead><tbody><tr><td>非主流板块短线股</td><td>选择主流板块（华为/无人驾驶/新能源/数字经济/证券等）</td></tr><tr><td>非第一龙头跟涨股</td><td>跟随真正的龙头，及时识别手中股的"跟涨"属性</td></tr><tr><td>非第一买点重仓买入</td><td>重仓只在第一买点，其他点轻仓</td></tr></tbody></table></div>
+<h5>三大操作风险（操作端）</h5>
+<div class="table-wrap"><table><thead><tr><th>操作风险</th><th>风险定性</th><th>规避策略</th></tr></thead><tbody><tr><td>不符合标准打板</td><td>仓位贡献小、确定性无</td><td>不盲目追高、不隔夜挂单</td></tr><tr><td>大阴线买入</td><td>容易连续跌停、底无底</td><td>根据运行结构、盘面性质操作</td></tr><tr><td>顶部区域买入</td><td>高位站岗</td><td>不赌新高、识别顶部</td></tr></tbody></table></div>
+<hr>
+<h4>90战法的风险控制核心</h4>
+<ol><li><strong>三波不做</strong>——三波以后行情不做，避免大阴线买入和大阴线打板</li><li><strong>换手日不买</strong>——换手日等待确认，不能在换手日介入</li><li><strong>第一买点唯一</strong>——只有这一天是买点，后面都不能买入</li><li><strong>仓位控制</strong>——仓位一定要控制在可控范围</li><li><strong>重仓只在第一买点</strong>——非第一买点都要减仓</li></ol>
+<hr>
+<h4>关键的"不"清单</h4>
+<p>来自靳良雄老师反复强调：</p>
+<ul><li><strong>不能随便去打板</strong></li><li><strong>不能去打大阴线</strong></li><li><strong>不能牵手买阴线</strong></li><li><strong>不能在任意的地方去打板</strong></li><li><strong>不能固执</strong>——股被资金抛弃了就不买了</li><li><strong>不能在仓位上随便去重仓</strong></li><li><strong>不能尾盘买入赌所谓风险小</strong></li><li><strong>不能幻想反包</strong></li></ul>
+<hr>
+<h4>风险控制优先级（出自第19节第17段）</h4>
+<blockquote>"在短线的操作里面，<strong>风险越是第一位</strong>。"</blockquote>
+<blockquote>"<strong>不要随便打版</strong>，这个是做超短线的核心的。"</blockquote>
+
+            <div class="kbox-danger">关键的"不"清单：不能随便去打板/不能去打大阴线/不能牵手买阴线/不能在任意的地方去打板/不能固执/不能在仓位上随便去重仓/不能尾盘买入赌所谓风险小/不能幻想反包。</div>
+            <div class="quiz">
+                <strong>📝 第19节 风控测验</strong>
+                <p>1. 三大致命选股？</p>
+                <details><summary>显示答案</summary>①非主流板块短线股 ②非第一龙头跟涨股 ③非第一买点重仓买入。</details>
+                <p>2. 老师反复强调的"不"是什么？</p>
+                <details><summary>显示答案</summary>不要随便打板——这是做超短线的核心。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L20">
+            <h2>第20节 黑嘴惯犯票</h2>
+<h3>深度总结</h3>
+<h4>一、课程主题与重要性（出自第20节 第1-2段）</h4>
+<p>本节主题为"黑嘴恶庄惯犯股"。老师特别强调：做超短线要特别注意这一类股票。惯犯股、黑嘴、恶庄属于"九世的禁忌"，<strong>看到的都走得远远的，不能做</strong>。</p>
+<h4>二、什么是"黑嘴"（出自第20节 第2段）</h4>
+<ul><li><strong>黑嘴的定义</strong>：那些在很多群到处拉人退票的"黑水票"的大V、推荐人。</li><li><strong>恶庄的来源</strong>：每个主力每个个股里面都有一些资金在做，上市公司老板或朋友也可能参与，实力不强但想赚钱。</li><li><strong>操作手法</strong>：喜欢通过"诱惑的方法"去做盘（吸引散户接盘）。</li></ul>
+<h4>三、黑嘴恶庄惯犯股的四大盘面特征（出自第20节 第3-4段）</h4>
+<p><strong>注意</strong>：老师强调这不是某一只股的特征，而是<strong>一种方法的识别</strong>。</p>
+<h5>特征一：市值普遍较小</h5>
+<ul><li>市值普遍较小，比如<strong>小于21亿</strong>（指21亿元市值）的股。</li><li>原因：黑嘴票拉得动，小庄、小实力的资金能拉起来。</li><li>200亿、300亿的大票他们"玩不动"，无法成为黑嘴/恶庄。</li></ul>
+<h5>特征二：横盘特征，成交量与换手率极低</h5>
+<ul><li>中途成交量很小，<strong>长时间换手率都很低</strong>。</li><li>死气沉沉的盘面，K线振幅非常小（如1%、0.几%）。</li><li>横着不动、不跌，长期低迷。</li></ul>
+<h5>特征三：曾表现过连续涨停，且有"一字板"</h5>
+<ul><li>以前曾连续两天、一个、两个、三个涨停。</li><li><strong>关键特征</strong>：经常有一字板（中间或最后）。</li><li><strong>一字板的目的</strong>：在散户认知里"一字板=最强"，最能吸引眼球，引来打板跟风盘。</li><li><strong>结果</strong>：打板客跟进后，主力正好"交货交筹码"，完成派发。</li><li><strong>后续</strong>：股价破新低（这是惯犯的共同特点）。</li></ul>
+<h5>特征四：不是主流板块核心标的</h5>
+<ul><li>不是主流行业（华为、无人驾驶）这种正儿八经、未来成长预期很大的行业。</li><li>不是什么主流板块核心标的。</li></ul>
+<h4>四、典型案例分析（出自第20节 第5-7段）</h4>
+<p><strong>案例一：亚正嘉园</strong></p>
+<ul><li>中间换手率非常低（1%、0.几%），死气沉沉。</li><li>K线振幅非常小，长期横盘不动、不跌。</li><li>突然出现一字板涨停吸引眼球，再来T字板。</li><li>散户追进后：天地板、再跌停，<strong>跌幅近40个点</strong>。</li></ul>
+<p><strong>案例二：复盘中的T字板/一字板</strong></p>
+<ul><li>看到近90的股、T字板、一字板（连板进90），<strong>这种不要做</strong>。</li><li>往前翻看K线发现是"惯犯"，已进黑名单。</li><li>做进去以后都是大跌。</li></ul>
+<p><strong>案例三：厦门信达</strong></p>
+<ul><li>已经进入"我们黑名单"的股。</li><li>未来若再出现连板、一字板，<strong>根本不用考虑，直接不做</strong>。</li></ul>
+<p><strong>案例四：时空科技</strong></p>
+<ul><li>前面是惯犯、是恶庄。</li><li>后面若突然两板、一字板，直接<strong>不能进90，直接卡掉</strong>。</li><li>曾经出现23点亏损，三天三四十个点的跌停。</li></ul>
+<p><strong>案例五：ST股</strong></p>
+<ul><li>前面也是惯犯，同一类性质。</li><li>后面走出恐怖行情，被ST。</li><li>老师原话："这种股碰到一只不要命了"。</li></ul>
+<h4>五、识别黑嘴恶庄的"三个条件"口诀（出自第20节 第8段）</h4>
+<blockquote><strong>振幅很小 + 成交量很小 + 换手率很低</strong> = 死气沉沉的盘面&lt;br&gt;&lt;br&gt;然后<strong>突然一字板</strong> = 吸引眼球，引诱接盘</blockquote>
+<h4>六、应对策略（出自第20节 第9-10段）</h4>
+<ol><li><strong>看到涨停板的处理流程</strong>：</li></ol>
+<ul><li>把该股以前的K线拉出来看看。</li><li>看看是否曾经是"惯犯"。</li><li>出现过惯犯情况 → <strong>不要参与</strong>。</li></ul>
+<ol><li><strong>取舍之道</strong>：</li></ol>
+<ul><li>即使有些股能赚钱也不做。</li><li>目的：长期在股市里生存得好一点。</li><li>原话："宁可不赚，宁可放弃的，就是舍得"。</li></ul>
+<ol><li><strong>筛选标准</strong>：</li></ol>
+<ul><li>惯犯股<strong>通通不会进入94打击的标准</strong>。</li><li>因为它没有标准，所以基本也不会去做。</li></ul>
+<ol><li><strong>特别警示</strong>：</li></ol>
+<ul><li>这种股通通不在"九"（指90战法选股池）。</li><li>即使想买也不会买。</li></ul>
+<h4>七、补充说明（出自第20节 第11段）</h4>
+<ul><li><strong>例外情况</strong>：惯犯股后面也会涨，有时还能94成功、连续真正涨上去。</li><li><strong>但</strong>：基本上也不要去碰，除非基本面发生很大变化。</li><li><strong>简化原则</strong>：我们只看"惯犯"、"黑水惯犯"即可，不去研究那些复杂的基本面变化。</li></ul>
+<hr>
+<h3>系统性总结</h3>
+<h4>核心思想</h4>
+<p>"黑嘴恶庄惯犯股"是超短线操作的<strong>禁区</strong>，识别和规避比抓住机会更重要。</p>
+<h4>三个核心判断维度</h4>
+<ol><li><strong>市值维度</strong>：小于21亿元的小盘股是潜在对象。</li><li><strong>量价维度</strong>：长期低换手、低成交量、小振幅的"死气沉沉"盘面。</li><li><strong>形态维度</strong>：惯用一字板/T字板制造"强势"假象，吸引打板客接盘后派发，最终破新低。</li></ol>
+<h4>操作准则</h4>
+<ul><li><strong>不参与</strong>：惯犯股即使能赚钱也不做（取舍之道）。</li><li><strong>看历史</strong>：遇到涨停板股，必须翻看历史K线是否曾为惯犯。</li><li><strong>黑名单制</strong>：对已知惯犯股（如厦门信达）直接拉黑，再涨停也不做。</li><li><strong>不进入90战法选股池</strong>：惯犯股不满足94打击标准。</li></ul>
+<h4>风险警示</h4>
+<ul><li>这种股一旦追入，可能遭受23-40个点的连续跌停损失。</li><li>"ST踢掉"的风险：碰到一只可能致命。</li><li>老师将其称为"九世的禁忌"，定性为"最可恶的"。</li></ul>
+<h4>哲学高度</h4>
+<p>本节不仅是技术教学，更是<strong>投资哲学</strong>的体现：</p>
+<ul><li><strong>舍得</strong>：宁可放弃可能的利润，也不冒致命风险。</li><li><strong>生存优先</strong>：长期在股市里"生存得好一点"比短期暴利更重要。</li><li><strong>识别大于预测</strong>：识别惯犯比预测涨幅更可靠。</li></ul>
+<h4>一句话总结</h4>
+<p><strong>惯犯股 = 小市值 + 长期死气沉沉 + 一字板诱多 + 后续破新低，识别它、远离它、永远不参与它。</strong></p>
+
+            <div class="quiz">
+                <strong>📝 第20节 测验</strong>
+                <p>1. 黑嘴恶庄惯犯股四大盘面特征？</p>
+                <details><summary>显示答案</summary>①市值小（<21亿）②长期低换手低振幅 ③有连续涨停和一字板 ④不是主流板块核心标的。</details>
+            </div>
+        </section>
+
+        <!-- 阶段5 -->
+        <section class="lesson" id="stage5">
+            <h2>📒 阶段5·融合实战（第21-22节）—— 解决"打得准"</h2>
+            <div class="kbox">课程终点即实战起点。所有5阶段浓缩成一句话：先信（阶段1）、再懂（阶段2）、再会（阶段3）、再守（阶段4）、再赢（阶段5）。</div>
+        </section>
+
+        <section class="lesson" id="L21">
+            <h2>第21节 全体系融合，五秒看盘功力训练</h2>
+<h3>深度总结</h3>
+<h4>一、课程定位（出自第21节 第1段）</h4>
+<p>本节课定位为<strong>全体系融合课</strong>，是前面课程的总结性训练。目标是实现"<strong>5秒看盘</strong>"功力——即在极短时间内，通过盘面识别股票类型并确定操作方案。</p>
+<p>老师明确指出：5秒看盘"一定有一个过程"，需要从"不熟"到"熟"，经历"理解→实践→运用→功力"四个阶段。</p>
+<h4>二、看形的"八大维度"（出自第21节 第1段）</h4>
+<p>5秒看盘核心是"<strong>看形</strong>"，看形又包含<strong>八大维度</strong>：</p>
+<div class="table-wrap"><table><thead><tr><th>序号</th><th>维度</th><th>类型</th><th>说明</th></tr></thead><tbody><tr><td>1</td><td>均线</td><td>有形（盘面可见）</td><td>重要分析工具</td></tr><tr><td>2</td><td>K线</td><td>有形（盘面可见）</td><td>结构与级别</td></tr><tr><td>3</td><td>成交量</td><td>有形（盘面可见）</td><td>资金性质</td></tr><tr><td>4</td><td>换手率</td><td>有形（盘面可见）</td><td>资金性质</td></tr><tr><td>5</td><td>分时</td><td>有形（盘面可见）</td><td>资金强弱</td></tr><tr><td>6</td><td>资金的性质</td><td>有形（盘面可见）</td><td>主力/游资判断</td></tr><tr><td>7</td><td>结构级别</td><td>有形（盘面可见）</td><td>运行成熟度</td></tr><tr><td>8</td><td>板块轮动、大盘政策</td><td>有形（盘面可见）</td><td>宏观背景</td></tr></tbody></table></div>
+<p>另外两类通过<strong>公共消息平台</strong>获取：</p>
+<ul><li>升的政策背景</li><li>行业基本面</li><li>热点事件</li></ul>
+<h4>三、全体系逻辑链（出自第21节 第2段）</h4>
+<p>完整循环逻辑：</p>
+<p>第三步：确定盈利模式（三大盈利模式）&lt;br&gt;   ↓&lt;br&gt;第四步：选择最优操作技术（9套操作方法选其一）&lt;br&gt;   ↓&lt;br&gt;回到第一步：循环往复</p>
+<p>老师强调：这个体系看起来复杂，<strong>目的是确定性、融合、贯通</strong>。</p>
+<h4>四、5秒看盘的具体推演流程（出自第21节 第3段）</h4>
+<p>详细推演路径：</p>
+<ol><li><strong>K线 + 均线 → 分析结构和级别</strong>（2个维度）</li><li><strong>成交量 + 换手率 → 分析资金的性质</strong>（2个维度）</li><li><strong>通过资金性质 → 分析盘面运行特征</strong></li><li><strong>通过级别和结构 → 判断运行成熟度</strong></li></ol>
+<ul><li>走到哪一波？</li><li>什么时候启动？</li><li>启动后走第几波？</li><li>是否已到大顶？</li></ul>
+<ol><li><strong>通过盘面特征 → 分析盈利模式</strong></li></ol>
+<ul><li>超短线型：连板三连板</li><li>横盘型：两板后横盘</li></ul>
+<ol><li><strong>盈利模式确定 → 确定第一买点</strong></li><li><strong>9种操作技术中选1种 → 执行买卖决策</strong></li><li><strong>顶部预判</strong></li></ol>
+<h4>五、油脂（游资）炒作的5秒看盘要点（出自第21节 第4段）</h4>
+<h5>油脂炒作识别</h5>
+<ul><li><strong>核心特征</strong>：有没有连续涨停。</li><li><strong>有连续涨停 = 油脂炒作</strong>。</li><li>油脂股<strong>不看结构和级别</strong>，"做的全是超短"。</li></ul>
+<h5>油脂股的演化路径</h5>
+<ul><li>油脂炒作 → 演化成大波段</li><li>演化成油脂波段股</li><li>波段股是否止跌？怎么做换手？</li></ul>
+<h5>油脂股看什么（不看什么）</h5>
+<ul><li><strong>看</strong>：成交量的形成、换手率怎么形成、有没有主动性买单、第一买点。</li><li><strong>不看</strong>：结构、级别。</li></ul>
+<h5>油脂的卖出原则</h5>
+<ul><li>顶部形成比较快，"这个是很不客气的主力"。</li><li>有的还能在上面横几天让你出（超短线型）。</li><li>必须有<strong>严格的标准</strong>，要激进、要盘面积极。</li></ul>
+<h4>六、典型案例分析（出自第21节 第5-9段）</h4>
+<h5>案例一：天龙股份</h5>
+<ul><li>主力还是游资？先看有没有结构、是否在连线附近。</li><li>一个涨停板 → 不是超短（无连续）。</li><li>换手率低 → 不是超短。</li><li>换手率有点高 + 只有两板又下来 → 主力把面快速建仓、快速启动。</li><li><strong>意义</strong>：知道稳定有一波拉升就够了。</li><li><strong>风险点</strong>：断板要注意卖出。</li></ul>
+<h5>案例二：通话解码类股</h5>
+<ul><li>重要原则：<strong>成交量看在年线（360日线）下方还是上方</strong>。</li><li><strong>关键判断</strong>：选股一定要在<strong>年线上方</strong>选择。</li><li>因为年线是"流行分界线"，特别是主力盘面。</li><li><strong>年线以下的基本不选、不操作</strong>（优质股除外）。</li><li><strong>战略意义</strong>：在选股上就起点高，"已经赢了很多人"。</li></ul>
+<h5>案例三：3个涨停板的主力盘</h5>
+<ul><li>资金性质：低换手 → 主力（不是超短线）。</li><li>这里有洗盘（跌停板）。</li><li>涨停板后均线开始多头排列。</li><li>两个涨停板突破 → 这是<strong>级别</strong>（不是主力运作周期）。</li><li>有级别、有结构、但<strong>无板块效应</strong> → 独立运作个股。</li><li><strong>结论</strong>：很有主升浪。</li><li>三板后资金回杀越快、时间越短 → 股越强。</li><li>高位横盘 + 成交量均匀 + 振幅不小 → <strong>主力快速建仓 + 强势 + 必有主升浪</strong>。</li></ul>
+<h5>案例四：长白山</h5>
+<ul><li>前看多头均线3.0上方。</li><li>现象：追涨停追进去赚不到钱。</li><li>真相：低换手，是主力在拉高建仓。</li><li><strong>波段很小</strong>，没有给其他资金做波段套利机会。</li><li><strong>有控盘迹象</strong>，吃货主力。</li><li>涨停板 + 均线多头 + <strong>极限量</strong>（最后一次下跌）+ 运行时间非常长。</li><li><strong>定性</strong>：强势主力建仓 + 控盘 = 憋大招的个股。</li><li><strong>等待</strong>：要等有热点。</li><li><strong>关键提示</strong>：这种涨停板起来"<strong>可以追</strong>"！</li></ul>
+<h5>案例五：中信证券</h5>
+<ul><li>8个月前面 + 1年后面看。</li><li>重点放量地方 → 大资金活动。</li><li>涨停板 + 低换手 + <strong>50个亿的成交量</strong> = 建仓。</li><li><strong>重要认知</strong>：建仓后跌破成本很正常（"出货一样"的形态）。</li><li>战略资金看更高远、不在乎调整。</li><li><strong>应对</strong>：不一定是涨停板建仓，都有建仓痕迹。</li><li><strong>结论</strong>：可以判断行情演化的时间。</li></ul>
+<h4>七、关于"打板"的关键原则（出自第21节 第7-8段）</h4>
+<p>老师专门强调了一个重要区分：</p>
+<div class="table-wrap"><table><thead><tr><th>类型</th><th>是否建议打板</th></tr></thead><tbody><tr><td><strong>游资油脂股首板</strong></td><td>❌ 不建议（自然淘汰率）</td></tr><tr><td><strong>主力运作主升浪</strong></td><td>✅ 可以打板</td></tr><tr><td><strong>主力运作首板 + 第二板</strong></td><td>✅ 第二板开盘随便买，稳定性极高</td></tr></tbody></table></div>
+<h4>八、5秒看盘的核心心法（出自第21节 第1-2段）</h4>
+<blockquote>"<strong>不熟没关系，刚开始不熟没关系，要慢慢的理解到实践运用，最后才能做到5秒看盘，才能做到这个功力。</strong>"</blockquote>
+<blockquote>"<strong>既是有形的也是有形的。它有一个熟悉理解应用的这个过程，所以大家要不厌其烦去反复的理解，反复实践和运用。</strong>"</blockquote>
+<hr>
+<h3>系统性总结</h3>
+<h4>5秒看盘的逻辑闭环</h4>
+<ol><li><strong>看形</strong>（八大维度）→ 2. <strong>确定资金性质</strong> → 3. <strong>判断运行成熟度</strong> → 4. <strong>确定盈利模式</strong> → 5. <strong>找到第一买点</strong> → 6. <strong>选择操作技术</strong> → 7. <strong>执行买卖</strong> → 8. <strong>顶部预判</strong></li></ol>
+<h4>三类资金的不同处理</h4>
+<div class="table-wrap"><table><thead><tr><th>资金类型</th><th>识别关键</th><th>5秒看盘要点</th><th>操作技术</th></tr></thead><tbody><tr><td><strong>游资（油脂）</strong></td><td>连续涨停</td><td>看成交量形成、主动性买单、第一买点</td><td>超短线（不看结构级别）</td></tr><tr><td><strong>主力资金</strong></td><td>低换手 + 板块权重</td><td>看均线、K线、级别结构</td><td>主升浪、波段</td></tr><tr><td><strong>战略资金</strong></td><td>大成交量 + 市值大</td><td>看牛市结构、拉升次数</td><td>趋势性行情</td></tr></tbody></table></div>
+<h4>选股的两条铁律</h4>
+<ol><li><strong>年线上方选股</strong>：年线以下是分界线，基本不选。</li><li><strong>板块效应确认</strong>：有板块共振确定性更高，单独运作个股风险大。</li></ol>
+<h4>5秒看盘的"内功心法"</h4>
+<ul><li><strong>确定性优先</strong>：宁可错过，不要做错。</li><li><strong>严格标准</strong>：每种盘面都有严格买卖标准，不凭感觉。</li><li><strong>盘面积极</strong>：超短线必须激进、盘面要有积极性。</li><li><strong>不熟到熟</strong>：从理解到实践，最后才是功力。</li></ul>
+<h4>关键案例的典型特征提炼</h4>
+<div class="table-wrap"><table><thead><tr><th>特征组合</th><th>主力类型</th><th>操作建议</th></tr></thead><tbody><tr><td>低换手 + 涨停 + 独立运作</td><td>主力快速建仓</td><td>等主升浪</td></tr><tr><td>多头均线3.0上方 + 控盘 + 极限量</td><td>主力憋大招</td><td>等热点、可追首板</td></tr><tr><td>50亿成交量 + 涨停 + 低换手</td><td>战略资金建仓</td><td>看长期演化</td></tr><tr><td>连续涨停 + 高换手</td><td>游资炒作</td><td>超短、不看结构</td></tr><tr><td>2板后高位横盘</td><td>主力盘</td><td>等待波段启动</td></tr></tbody></table></div>
+<h4>一句话总结</h4>
+<p><strong>5秒看盘 = 八大维度快速扫描 + 资金性质判断 + 盈利模式匹配 + 严格买卖标准 + 不厌其烦的刻意练习。</strong></p>
+
+            <div class="quiz">
+                <strong>📝 第21节 测验</strong>
+                <p>1. 5秒看盘的核心是什么？</p>
+                <details><summary>显示答案</summary>看形（八大维度）+确定资金性质+判断运行成熟度+确定盈利模式+找到第一买点+选择操作技术+执行买卖+顶部预判。</details>
+            </div>
+        </section>
+
+        <section class="lesson" id="L22">
+            <h2>第22节 3大盈利模式的精细化的高阶实战技术</h2>
+<p>## 大纲</p>
+<p>本节作为863体系进阶课的最后一节（除高级课外），系统性地复习了<strong>三大盈利模式</strong>——99超短线、波段、主升浪的精细化高阶实战技术。</p>
+<p>主要板块：</p>
+<ul><li><strong>板块一</strong>：课程定位与90战法目标</li><li><strong>板块二</strong>：主力完整流程（94/96/99演化）</li><li><strong>板块三</strong>：99超短线（六大知识点）</li><li><strong>板块四</strong>：969与9996形态（96的两种演化）</li><li><strong>板块五</strong>：第二大盈利模式——波段（游资波段、主力波段、战略波段）</li><li><strong>板块六</strong>：主升浪与主力建仓强度</li><li><strong>板块七</strong>：战略资金的特性与趋势性行情</li></ul>
+<hr>
+<p>## 板块一：课程定位与90战法目标</p>
+<h4>深度总结</h4>
+<h5>1. 课程定位（出自第22节 第1段）</h5>
+<p>本节是<strong>863体系进阶课</strong>的总结性复习课，针对<strong>进阶学员</strong>，主打<strong>90战法</strong>。</p>
+<h5>2. 90战法的训练目标（出自第22节 第2段）</h5>
+<p>通过90战法进行<strong>高强度训练</strong>，培养<strong>顶尖职业股民的八大素养</strong>。</p>
+<h5>3. 90战法模式的核心目标（出自第22节 第2段）</h5>
+<p><strong>五大核心目标</strong>：</p>
+<ol><li><strong>可预见</strong> — 能预测行情走势</li><li><strong>可确定</strong> — 有明确的标准和依据</li><li><strong>可持续</strong> — 长期稳定可重复</li><li><strong>可掌控</strong> — 风险可控</li><li><strong>快速高获利</strong> — 短期内大幅获利</li></ol>
+<p>老师强调："不是随随便便买入一只个股，都有严格的标准"。</p>
+<h4>系统性总结（板块一）</h4>
+<p>90战法是本套体系的<strong>基石</strong>，所有操作都要围绕"严格标准"展开。核心思想是<strong>用纪律代替感觉</strong>，让每笔交易都有据可行、师出有名。</p>
+<hr>
+<p>## 板块二：主力完整流程（94/96/99演化）</p>
+<h4>深度总结</h4>
+<h5>1. 主力的完整流程（出自第22节 第3段）</h5>
+<p>一个标准的<strong>主力进场到出货</strong>的完整流程：</p>
+<p>涨停板（首板）激活盘面&lt;br&gt;    ↓&lt;br&gt;资金进场（有波段）&lt;br&gt;    ↓&lt;br&gt;用双K或三线预判波段&lt;br&gt;    ↓&lt;br&gt;进94阶段&lt;br&gt;    ↓&lt;br&gt;94有3种走法：&lt;br&gt;    ├── 走6：下跌后到96阶段（中大市值股）&lt;br&gt;    ├── 演化到99&lt;br&gt;    └── 变现后一路下跌震荡下跌</p>
+<h5>2. 关键认知（出自第22节 第3段）</h5>
+<ul><li>很多盘面走不出这么标准的流程。</li><li>不同盘面的演化<strong>取决于资金的不同</strong>。</li><li>主力进场后可能洗盘 → 进94 → 96 → 99 → 变现出货。</li></ul>
+<h4>系统性总结（板块二）</h4>
+<p>主力运作是一个<strong>有完整生命周期</strong>的过程，识别当前所在阶段（94/96/99）是确定操作方案的前提。</p>
+<hr>
+<p>## 板块三：99超短线（六大知识点）</p>
+<h4>深度总结</h4>
+<h5>1. 超短线的前提（出自第22节 第4段）</h5>
+<p>老师反复强调：<strong>"想做超短，你必须要懂99，必须要懂90"</strong>。</p>
+<p>原因：</p>
+<ul><li>90里面的买入本身就<strong>非常严格</strong>。</li><li>选股要求也很高。</li><li>很多不确定性，随便去打板、追高、抄大阴线都没有标准。</li></ul>
+<p><strong>核心要求</strong>：</p>
+<blockquote>"一定要把90超短线给它搞得非常清。这样的话，你做超短才叫才是有据可行，叫师出有名。"</blockquote>
+<h5>2. 超短线的6大知识点（出自第22节 第4段）</h5>
+<p>99超短线共6大知识点（123456）。</p>
+<h5>3. 选股标准（出自第22节 第5段）</h5>
+<ul><li><strong>起步要求</strong>：200（指200亿市值或某种规模界定）起步。</li><li>必须符合标准。</li><li>筛选优化个股步骤：</li></ul>
+<ol><li>看个股热点板块</li><li>看是否有2-3个涨停</li><li>优化选出符合热点板块的</li></ol>
+<h5>4. 换手日的处理（出自第22节 第6段）</h5>
+<p><strong>换手日这一天不做！</strong></p>
+<p>原因：</p>
+<ul><li>面临后面的不确定性。</li><li>龙头走出来才知道。</li><li>很多个股走不出来，就是连续大跌。</li></ul>
+<p><strong>确认买入时点</strong>：换手日界定以后的下一天才会确认买入。</p>
+<p><strong>两种买入方式</strong>（出自第22节 第7段）：</p>
+<ul><li>集合竞价开盘</li><li>分时开盘</li></ul>
+<h5>5. 短线绝不等同于打板（出自第22节 第7段）</h5>
+<p>老师特别强调：</p>
+<blockquote>"短线不是让你去随便去打涨，绝对不是打涨。"</blockquote>
+<p><strong>反例警示</strong>：</p>
+<ul><li>有人喜欢买大阴线赌反包？</li><li>这种做法没有标准。</li></ul>
+<h5>6. 短线的本质（出自第22节 第7段）</h5>
+<blockquote>"短线它完全在于<strong>资金态度和市场情绪</strong>。"</blockquote>
+<h5>7. 灵活性的要求（出自第22节 第8段）</h5>
+<ul><li><strong>要灵活、要随机、要果断</strong>。</li><li>即使有标准，也不能保证绝对成功。</li><li>有的90能走2-3板，有的进90后第二天就高开下。</li><li>对<strong>飞石把握不积极</strong>、对<strong>飞石标准掌握不严格</strong>、<strong>非强即弱观点执行不到位</strong>，可能从赚钱做到亏钱。</li></ul>
+<p><strong>要求的严格性</strong>：</p>
+<blockquote>"要求上是非常严格。"</blockquote>
+<h4>系统性总结（板块三）</h4>
+<h5>超短线的核心逻辑链</h5>
+<p>懂99 → 懂90 → 严格标准 → 师出有名&lt;br&gt;    ↓&lt;br&gt;选股（200起步 + 热点板块 + 涨停数）&lt;br&gt;    ↓&lt;br&gt;换手日不做 → 界定后下一天确认买入&lt;br&gt;    ↓&lt;br&gt;集合竞价 / 分时开盘 两种买入方式&lt;br&gt;    ↓&lt;br&gt;不靠感觉打板 → 靠资金态度、市场情绪、严格标准&lt;br&gt;    ↓&lt;br&gt;灵活、随机、果断</p>
+<h5>关键警示</h5>
+<ol><li><strong>不做换手日</strong>。</li><li><strong>不打板</strong>（特别是游资油脂首板）。</li><li><strong>不强求抄底</strong>（如大阴线赌反包）。</li><li><strong>必须懂90</strong>，否则做超短就是无据操作。</li></ol>
+<hr>
+<p>## 板块四：969与9996形态（96的两种演化）</p>
+<h4>深度总结</h4>
+<h5>1. 形态分类（出自第22节 第9段）</h5>
+<p>969和9996是同一类型，共<strong>三种形态</strong>。</p>
+<p><strong>特征</strong>：在94969的99演化失败后形成的<strong>横盘震荡</strong>，即<strong>高位横盘</strong>。</p>
+<p><strong>核心</strong>：有一个<strong>高位箱体</strong>。</p>
+<h5>2. 关键分析方法（出自第22节 第9段）</h5>
+<p><strong>通过分时和成交量分析内涵动能</strong>：</p>
+<ul><li>最重要的事情：分析这个横盘能不能接力走出一波969。</li><li>把这一阶段的动能弄清楚，是最关键的。</li><li>前面是9一波5日线以上的上行。</li><li>这其中要用到<strong>双K确认</strong>。</li></ul>
+<h5>3. 买点条件（出自第22节 第10段）</h5>
+<p><strong>两个必备条件</strong>：</p>
+<ol><li><strong>高开</strong></li><li><strong>强势分时 + 突破高</strong></li></ol>
+<p><strong>配套验证</strong>：通过双K确认内在分时动能来验证。</p>
+<h5>4. 96式的时间界定（出自第22节 第12段）</h5>
+<p>做96时最重要的关键点：</p>
+<p><strong>两项要素</strong>：</p>
+<ol><li><strong>调整的时间</strong></li><li><strong>界定"六"的标准</strong></li></ol>
+<p><strong>界定"六"的核心标准</strong>：</p>
+<blockquote>以<strong>5日线</strong>为准界定。<strong>收盘价跌破5日线</strong>的那一天就是96的6。</blockquote>
+<p><strong>时间效率的要求</strong>：</p>
+<ul><li>从这一天开始，1天、2天、3天，三个时间以内。</li><li>必须<strong>严格讲短线的效率</strong>——快速拉起来。</li><li><strong>调整时间不能超过3天</strong>。</li></ul>
+<p><strong>超时的处理</strong>：</p>
+<blockquote>超过3天，它将来的战法就变成波段。</blockquote>
+<p>波段就要用<strong>波段战法的验证和买入技术</strong>，是不同的。</p>
+<h4>系统性总结（板块四）</h4>
+<h5>969/9996的标准流程</h5>
+<p>99演化失败&lt;br&gt;    ↓&lt;br&gt;形成高位横盘（高位箱体）&lt;br&gt;    ↓&lt;br&gt;分析横盘阶段动能：&lt;br&gt;├── 看分时&lt;br&gt;└── 看成交量&lt;br&gt;    ↓&lt;br&gt;能否接力走出969？（关键判断）&lt;br&gt;    ↓&lt;br&gt;买点：双K确认 + 两个条件&lt;br&gt;├── 条件1：高开&lt;br&gt;└── 条件2：强势分时突破&lt;br&gt;    ↓&lt;br&gt;界定"6"：5日线为准&lt;br&gt;└── 收盘跌破5日线那一天&lt;br&gt;    ↓&lt;br&gt;时间效率要求：1-3天内必须拉起&lt;br&gt;└── 超过3天 → 转为波段战法</p>
+<h5>关键节点</h5>
+<ul><li><strong>不做的日子</strong>：换手日不做。</li><li><strong>界定线</strong>：5日线。</li><li><strong>超时处理</strong>：超3天就转换战法类型。</li></ul>
+<hr>
+<p>## 板块五：第二大盈利模式——波段</p>
+<h4>深度总结</h4>
+<h5>1. 波段的两个核心难点（出自第22节 第13段）</h5>
+<p>波段操作需要解决<strong>两个难点</strong>：</p>
+<ol><li><strong>起波段的时间要短</strong>——买入以后要快速起波段。</li><li><strong>起波段起的高</strong>——波段涨幅要大。</li></ol>
+<h5>2. 三种波段类型</h5>
+<p>##### A. 游资波段（出自第22节 第14-15段）</p>
+<p><strong>形成方式</strong>：</p>
+<ul><li>前面三个板以后94。</li><li>94以后1-2-3天没有资金回流形成波段。</li></ul>
+<p><strong>确认买入</strong>：</p>
+<ul><li>波段止跌后，有大阳线或双K确认。</li><li>涨停板高开 → 两根K线就确定双K确认。</li><li>后面是阴线的话，再来一根阳线，也是底部的双K确认。</li></ul>
+<p><strong>关键特征</strong>：</p>
+<blockquote>"它就要起得快，涨得多。"</blockquote>
+<p><strong>风险</strong>：风险非常小。</p>
+<p><strong>卖出信号</strong>：进第三波就卖出（贯穿式）。</p>
+<p>##### B. 主力资金波段（出自第22节 第16段）</p>
+<p>###### 强调要点一：均线</p>
+<blockquote>"主力资金波段大家要会用均线。因为主力资金它有相对稳定性的话，均线对于股价的支撑是很重要的。"</blockquote>
+<p>###### 三线金叉（最重要的三大配套）</p>
+<ol><li><strong>均线</strong>（最重要）</li><li><strong>双K</strong>（K线）</li><li><strong>成交量</strong></li></ol>
+<p>三者形成<strong>三线金叉</strong>，配合<strong>双K确认</strong>。</p>
+<p>###### 提升概率的关键</p>
+<ul><li>板块效应 + 三线 + 双K = 起波段成功率"非常非常高"。</li></ul>
+<p>###### 大波段基因</p>
+<ul><li>这只股喜欢起波段。</li><li>是什么资金在做？基因是什么？</li></ul>
+<p>###### 主力波段K线特征</p>
+<ul><li>主力做的股：经拉伸后在<strong>高位横盘</strong>。</li><li>跌下来后出现<strong>双K + 均线联合 + 大阳线</strong> → 双K确认。</li><li><strong>三线 + 双K + 均线 + 成交量</strong> → 起波段成功率极高。</li><li>若<strong>板块共振</strong> → 确定性更高。</li></ul>
+<p>###### 主力波段买点（出自第22节 第17段）&lt;br&gt;两个买点：</p>
+<ol><li><strong>双K确认以后</strong>都是买点。</li><li><strong>长阳线</strong>也可以买。</li></ol>
+<p>##### C. 主力资金波段的卖出（出自第22节 第18段）</p>
+<p><strong>波段必有顶部</strong>。</p>
+<p><strong>关键认知</strong>：</p>
+<ul><li>它也进90了。</li><li>90的覆盖第几波？</li><li>波段不是纯粹走得那么干净。</li></ul>
+<p><strong>顶部形成</strong>：</p>
+<ul><li>用K线覆盖。</li><li>用双K确认两根下跌的阴线（如低开的阴线）来形成顶部。</li></ul>
+<p>##### D. 主力资金波段的持股原则（出自第22节 第19段）</p>
+<blockquote>"主力资金的波段它都会<strong>创出前面的高点</strong>。"</blockquote>
+<p><strong>关键认知</strong>：</p>
+<ul><li>高点不一定是顶。</li><li>这个地方它会突破。</li><li>波段目标：奔着前高，要突破前高。</li></ul>
+<p><strong>卖出标准</strong>：五日线标准可以做。</p>
+<h5>3. 战略资金的波段（出自第22节 第19段）</h5>
+<p>战略资金的<strong>稳定性更高</strong>。</p>
+<p><strong>四大关键</strong>：</p>
+<ol><li><strong>知道是战略资金</strong>。</li><li><strong>盘面运行结构</strong>（是不是牛市结构？）。</li><li>经过第几次拉升？</li><li><strong>均线</strong>（重要指标）。</li></ol>
+<p>##### 拉升次数与顶部的关系（出自第22节 第20段）</p>
+<blockquote>"经过一、二、三次拉伸以后就会见大顶，会见大顶，那个顶是<strong>一定要逃的</strong>。"</blockquote>
+<p>##### 战略资金的稳定性特征（出自第22节 第20段）</p>
+<ul><li><strong>调整时间长</strong>。</li><li><strong>一轮上涨时间长</strong>。</li><li><strong>横盘震荡时间不短</strong>。</li></ul>
+<p><strong>牛市结构演化</strong>：</p>
+<p>进入牛市第一级结构&lt;br&gt;    ↓&lt;br&gt;调整后进入第二级结构&lt;br&gt;    ↓&lt;br&gt;第二次拉升（单边5日线）&lt;br&gt;    ↓&lt;br&gt;进入第三次（结构性顶）</p>
+<p>##### 第三次顶部的特殊性（出自第22节 第21段）</p>
+<ul><li>顶部性质发生变化。</li><li>这里的顶是为了<strong>破新高</strong>。</li><li>当第三次顶部出现以后，<strong>很难破新的话，就面临熊市</strong>，后面就会有大跌。</li></ul>
+<p>##### 战略资金波段的操作（出自第22节 第21段）</p>
+<p><strong>波段买点</strong>：通过结构识别后，三线金叉 + 双K确认来配套。</p>
+<p><strong>波段卖点</strong>：顶部确认。</p>
+<h4>系统性总结（板块五）</h4>
+<h5>波段操作的完整框架</h5>
+<p>选股&lt;br&gt;├── 游资波段：看起得快、涨得多&lt;br&gt;├── 主力波段：看均线 + 双K + 成交量（三线金叉）&lt;br&gt;└── 战略波段：看拉升次数（≤3次）+ 牛市结构</p>
+<p>确认（双K / 大阳线）&lt;br&gt;├── 游资波段：止跌后双K&lt;br&gt;├── 主力波段：三线金叉 + 双K&lt;br&gt;└── 战略波段：结构识别后</p>
+<p>买点&lt;br&gt;├── 双K确认后&lt;br&gt;└── 长阳线</p>
+<p>卖点&lt;br&gt;├── 游资波段：进第三波&lt;br&gt;├── 主力波段：双K下跌阴线（如低开阴线）&lt;br&gt;└── 战略波段：结构性顶部</p>
+<h5>三种波段对比</h5>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>游资波段</th><th>主力波段</th><th>战略波段</th></tr></thead><tbody><tr><td>起速</td><td>极快</td><td>中等</td><td>慢</td></tr><tr><td>涨幅</td><td>翻倍</td><td>突破前高</td><td>突破前高</td></tr><tr><td>稳定性</td><td>低</td><td>中</td><td>极高</td></tr><tr><td>关键工具</td><td>双K确认</td><td>均线+双K+成交量</td><td>结构+均线</td></tr><tr><td>卖出标志</td><td>第三波</td><td>顶部阴线</td><td>第3次顶部</td></tr></tbody></table></div>
+<hr>
+<p>## 板块六：主升浪与主力建仓强度</p>
+<h4>深度总结</h4>
+<h5>1. 主升浪的盘面特征（出自第22节 第22段）</h5>
+<p>主升浪盘面既然是主力盘面，那么主力就<strong>有强弱之分</strong>。</p>
+<p><strong>关键判断</strong>：</p>
+<blockquote>"<strong>什么叫强，什么叫弱？三板强势这是建仓。</strong>"</blockquote>
+<p><strong>根据建仓强度判断未来调整时间</strong>。</p>
+<h5>2. 主升浪的洗盘特征（出自第22节 第23段）</h5>
+<p>主力盘面大多都有：</p>
+<ul><li><strong>建仓后的洗盘</strong>。</li><li><strong>一轮洗盘或横盘震荡</strong>。</li><li><strong>控盘特征</strong>。</li></ul>
+<p>具体表现：</p>
+<ul><li>推上去 → 洗下来 → 推上去 → 回来再拉 → 都有洗盘动作。</li></ul>
+<h5>3. 主升浪的核心窍门（出自第22节 第23段）</h5>
+<p><strong>关键点</strong>：</p>
+<ul><li>分析主力的<strong>建仓强度</strong>。</li></ul>
+<p><strong>配套预判技术</strong>：</p>
+<ol><li><strong>双K确认</strong>来验证主力意图。</li><li>通过哪一根K线验证主力意图。</li><li>预判它上涨的高度（<strong>第一轮上涨的高度</strong>）。</li></ol>
+<p><strong>目的</strong>：</p>
+<ul><li>避免在中间甩下车。</li><li>避免在高位相对高位没有卖出。</li></ul>
+<p><strong>学习路径</strong>：</p>
+<blockquote>"这些问题都是我们在高级课里面要需要学的。"</blockquote>
+<h5>4. 大黑马的本质（出自第22节 第24段）</h5>
+<blockquote>"<strong>99是最根本的，它都是做大黑马。</strong>"</blockquote>
+<p><strong>关键规律</strong>：</p>
+<ul><li>大黑马的个股<strong>所有进主升浪的个股都统统经过90</strong>。</li><li>你抓到的就是后面的一大波。</li></ul>
+<p><strong>高阶学员策略</strong>：</p>
+<ul><li>在90之前就要进行打击。</li><li>最重要是要懂<strong>盘面语言</strong>。</li><li>懂得主力资金建仓。</li><li><strong>会养这匹黑马</strong>。</li><li>在最重要的节点上去运作去做。</li></ul>
+<h4>系统性总结（板块六）</h4>
+<h5>主升浪的核心逻辑</h5>
+<p>建仓（强势三板）&lt;br&gt;    ↓&lt;br&gt;洗盘/横盘（控盘特征）&lt;br&gt;    ↓&lt;br&gt;推上去 → 洗 → 推 → 拉&lt;br&gt;    ↓&lt;br&gt;主升浪&lt;br&gt;    ↓&lt;br&gt;懂盘面语言&lt;br&gt;├── 验证主力意图（双K）&lt;br&gt;├── 预判第一轮高度&lt;br&gt;├── 不甩下车&lt;br&gt;└── 高位不恋战</p>
+<h5>核心方法论</h5>
+<ol><li><strong>建仓强度决定未来调整时间</strong>。</li><li><strong>双K确认验证主力意图</strong>。</li><li><strong>90战法是大黑马的根本</strong>。</li><li><strong>养黑马</strong>比抓黑马更高级。</li></ol>
+<hr>
+<p>## 板块七：战略资金的特性与趋势性行情</p>
+<h4>深度总结</h4>
+<h5>1. 涵盖关系（出自第22节 第25段）</h5>
+<p>一只个股可能涵盖：</p>
+<ul><li><strong>波段很小的横盘</strong>（不涨、横盘控盘）</li><li><strong>969、96、99主力资金盘面</strong></li><li><strong>贯穿上述所有形态</strong></li></ul>
+<h5>2. 战略资金的识别（出自第22节 第25段）</h5>
+<p><strong>识别方法</strong>：</p>
+<ul><li>根据资金性质，通过底部<strong>连续的阳线、放量的阳线</strong>确认。</li></ul>
+<h5>3. 建仓后的突破形式（出自第22节 第25段）</h5>
+<ul><li>建仓后突破形式异动。</li><li><strong>不走出94行情</strong>。</li><li>战略资金个股很少能走出94行情。</li></ul>
+<p><strong>它走出</strong>：<strong>趋势性行情</strong>。</p>
+<h5>4. 趋势性行情的操作（出自第22节 第25段）</h5>
+<p><strong>核心</strong>：界定它是主力资金，是战略资金运作的。</p>
+<p><strong>战略资金运作的特征</strong>：</p>
+<ul><li>进趋势性行情。</li><li>知道是战略资金运作后，要懂<strong>上涨的持续性</strong>问题。</li></ul>
+<p><strong>配套技术</strong>：</p>
+<ul><li>战略资金的波段。</li><li>结构性顶部的确认。</li><li>大顶的确认。</li></ul>
+<p><strong>战略资金盘面的特征</strong>：</p>
+<blockquote>"相对的来说它非常的单纯，非常单纯。"</blockquote>
+<h4>系统性总结（板块七）</h4>
+<h5>战略资金的特殊性</h5>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>战略资金</th><th>其他资金</th></tr></thead><tbody><tr><td>行情类型</td><td>趋势性</td><td>94 / 96 / 99 / 波段</td></tr><tr><td>突破形式</td><td>异动</td><td>涨停板</td></tr><tr><td>阳线特征</td><td>连续、放量</td><td>间断</td></tr><tr><td>操作复杂度</td><td>单纯</td><td>复杂</td></tr><tr><td>关键配套</td><td>波段战法 + 结构识别</td><td>多样化</td></tr></tbody></table></div>
+<h5>战略资金的演化逻辑</h5>
+<p>底部连续阳线、放量阳线&lt;br&gt;    ↓&lt;br&gt;确认资金性质（战略资金）&lt;br&gt;    ↓&lt;br&gt;建仓后突破（异动）&lt;br&gt;    ↓&lt;br&gt;不走94 → 走趋势性行情&lt;br&gt;    ↓&lt;br&gt;持续性判断&lt;br&gt;    ↓&lt;br&gt;配套波段战法&lt;br&gt;    ↓&lt;br&gt;结构性顶部/大顶确认</p>
+<hr>
+<p>## 全文系统性总结</p>
+<h4>三大盈利模式总览</h4>
+<div class="table-wrap"><table><thead><tr><th>模式</th><th>核心特征</th><th>关键工具</th><th>关键买/卖点</th></tr></thead><tbody><tr><td><strong>99超短线</strong></td><td>连板、连续涨停</td><td>资金态度、市场情绪、6大知识点</td><td>换手日后才确认买入；不打板</td></tr><tr><td><strong>波段</strong></td><td>起得快、涨得多</td><td>均线+双K+成交量（三线金叉）</td><td>双K确认后；长阳线</td></tr><tr><td><strong>主升浪</strong></td><td>主力建仓、三板强势</td><td>双K确认、建仓强度</td><td>90之前打击；养黑马</td></tr></tbody></table></div>
+<h4>三大盈利模式的技术核心</h4>
+<h5>99超短线</h5>
+<ul><li>6大知识点。</li><li><strong>200起步选股 + 热点板块 + 2-3个涨停</strong>。</li><li><strong>换手日不做</strong>。</li><li>不打板、不赌反包。</li><li>灵活、随机、果断。</li></ul>
+<h5>波段（三个子类型）</h5>
+<ul><li><strong>游资波段</strong>：起得快、涨得多、风险小；第三波卖出。</li><li><strong>主力波段</strong>：均线+双K+成交量（三线金叉）；突破前高；五日线标准。</li><li><strong>战略波段</strong>：拉升≤3次后必见大顶；调整时间长、稳定性高；结构识别。</li></ul>
+<h5>主升浪</h5>
+<ul><li>三板强势是建仓。</li><li>主力建仓强度决定调整时间。</li><li><strong>90战法是大黑马根本</strong>。</li><li>高级课涉及：双K验证、建仓强度、预判高度。</li></ul>
+<h4>高阶实战的核心心法</h4>
+<ol><li><strong>严格标准</strong>：每笔交易都有据可行、师出有名。</li><li><strong>三大目标</strong>：可预见、可确定、可掌控、可持续、快速高获利。</li><li><strong>转换战法</strong>：96超时（&gt;3天）转波段；94看不同演化。</li><li><strong>配套技术</strong>：双K确认 + 三线金叉 + 结构识别。</li><li><strong>分清资金</strong>：游资/主力/战略，对应不同战法。</li><li><strong>养黑马思想</strong>：在90之前就识别、跟进。</li></ol>
+<h4>关键警示与原则</h4>
+<ol><li><strong>不做换手日</strong>。</li><li><strong>不打板</strong>（除非主力主升浪首板可考虑）。</li><li><strong>不赌反包</strong>（不买大阴线赌反包）。</li><li><strong>不超3天调整</strong>（96超时转波段）。</li><li><strong>必逃大顶</strong>（战略波段第3次拉升后）。</li><li><strong>养黑马</strong>比<strong>抓黑马</strong>重要。</li></ol>
+<h4>863体系进阶课的整体收尾</h4>
+<p>老师明确表示：</p>
+<blockquote>"以上是我们863体系的进阶课的全部内容，我们剩下的课程高级课再见。"</blockquote>
+<p>说明本节课是<strong>进阶课的总复习</strong>，<strong>高级课</strong>将继续深入讲解本节提到的部分内容（特别是主升浪的高阶实战、关键识别技术等）。</p>
+<h4>一句话总结</h4>
+<p><strong>三大盈利模式 = 99超短线（连板不打板） + 波段（游资快/主力稳/战略慢） + 主升浪（养黑马），每种都要有严格标准、严格买入卖出、严格配套技术。</strong></p>
+
+            <div class="kbox-warn">本章为最高风险章节。关键警示：不做换手日/不打板（除非主力主升浪首板可考虑）/不赌反包/不超3天调整（96超时转波段）/必逃大顶（战略波段第3次拉升后）/养黑马比抓黑马重要。</div>
+            <div class="quiz">
+                <strong>📝 第22节 测验</strong>
+                <p>1. 90战法五大目标？</p>
+                <details><summary>显示答案</summary>①可预见 ②可确定 ③可持续 ④可掌控 ⑤快速高获利。</details>
+                <p>2. 三大盈利模式分别是什么？</p>
+                <details><summary>显示答案</summary>99超短线（连板不打板）+波段（游资快/主力稳/战略慢）+主升浪（养黑马）。</details>
+            </div>
+        </section>
+
+        <!-- 附录 -->
+        <section class="lesson" id="appendix">
+            <h2>📎 附录</h2>
+
+            <h3>附录A：22节篇幅一览表</h3>
+            <div class="table-wrap">
+            <table>
+                <thead><tr><th>节</th><th>标题</th><th>字数</th><th>阶段</th><th>难度</th></tr></thead>
+                <tbody>
+                    <tr><td>01</td><td>CBN+++盘面真面目</td><td>6,888</td><td>1</td><td>🟢</td></tr>
+                    <tr><td>02</td><td>战法哲学</td><td>4,880</td><td>1</td><td>🟢</td></tr>
+                    <tr><td>03</td><td>政策与大盘</td><td>7,047</td><td>1</td><td>🟡</td></tr>
+                    <tr><td>04</td><td>八大维度</td><td>15,533</td><td>2</td><td>🟡</td></tr>
+                    <tr><td>05</td><td>资金与量能</td><td>17,339</td><td>2</td><td>🔴</td></tr>
+                    <tr><td>06</td><td>分时均线</td><td>6,025</td><td>2</td><td>🟡</td></tr>
+                    <tr><td>07</td><td>成交量</td><td>6,740</td><td>2</td><td>🟡</td></tr>
+                    <tr><td>08</td><td>换手率</td><td>10,033</td><td>2</td><td>🟡</td></tr>
+                    <tr><td>09</td><td>结构级别</td><td>10,419</td><td>2</td><td>🔴</td></tr>
+                    <tr><td>10</td><td>板块轮动</td><td>9,722</td><td>2</td><td>🟡</td></tr>
+                    <tr><td>11</td><td>双K确认</td><td>5,216</td><td>3</td><td>🟡</td></tr>
+                    <tr><td>12</td><td>K线基础</td><td>5,016</td><td>3</td><td>🟢</td></tr>
+                    <tr><td>13</td><td>99战法</td><td>18,419</td><td>3</td><td>🔴</td></tr>
+                    <tr><td>14</td><td>战法应用</td><td>5,705</td><td>3</td><td>🟡</td></tr>
+                    <tr><td>15</td><td>969战法</td><td>7,824</td><td>3</td><td>🔴</td></tr>
+                    <tr><td>16</td><td>龙头识别</td><td>5,615</td><td>3</td><td>🟡</td></tr>
+                    <tr><td>17</td><td>96战法</td><td>5,829</td><td>3</td><td>🔴</td></tr>
+                    <tr><td>18</td><td>仓位管理</td><td>8,306</td><td>4</td><td>🟡</td></tr>
+                    <tr><td>19</td><td>风控铁律</td><td>9,361</td><td>4</td><td>🔴</td></tr>
+                    <tr><td>20</td><td>黑嘴识别</td><td>5,822</td><td>4</td><td>🟡</td></tr>
+                    <tr><td>21</td><td>五秒看盘</td><td>8,111</td><td>5</td><td>🟡</td></tr>
+                    <tr><td>22</td><td>高阶实战</td><td>18,559</td><td>5</td><td>🔴</td></tr>
+                    <tr><td>合计</td><td>—</td><td>198,409</td><td>—</td><td>—</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>附录B：核心术语速查表</h3>
+            <div class="table-wrap">
+            <table>
+                <thead><tr><th>术语</th><th>解释</th></tr></thead>
+                <tbody>
+                    <tr><td>CBN</td><td>超短线（C）、大波段（B）、主升浪（N）三大盈利模式</td></tr>
+                    <tr><td>+++</td><td>最高级玩法标记</td></tr>
+                    <tr><td>八大维度</td><td>资金/分时/K线/成交量/换手率/结构级别/板块轮动/政策</td></tr>
+                    <tr><td>六大预判</td><td>大盘/趋势/板块/龙头/涨跌时间高度/买卖时机</td></tr>
+                    <tr><td>量比</td><td>现成交量/过去5日同时段均量，反映当下活跃度</td></tr>
+                    <tr><td>换手率</td><td>当日成交量/流通股本，衡量筹码交换频率</td></tr>
+                    <tr><td>5日线</td><td>最高级别单边上行的线，超短线必须使用</td></tr>
+                    <tr><td>360年线</td><td>独家年限指标，牛熊分界线</td></tr>
+                    <tr><td>双K确认</td><td>两根K线组合应用，确认底部/趋势/主力意图/变盘/涨停板</td></tr>
+                    <tr><td>99战法</td><td>两板起步+换手板次日+5日线持股的连板黑马战法</td></tr>
+                    <tr><td>969战法</td><td>高位横盘（6）后第二波拉升的高空接力战法（13天内）</td></tr>
+                    <tr><td>96战法</td><td>连续涨停后3天内大幅下跌资金回流的猛龙回头战法</td></tr>
+                    <tr><td>换手日</td><td>不涨停的任何K线，标记行情分界线</td></tr>
+                    <tr><td>换手板</td><td>最健康的换手——大振幅涨停板</td></tr>
+                    <tr><td>第一买点</td><td>重仓买入点（仅一个），换手日次日高开+强势分时</td></tr>
+                    <tr><td>三波不做</td><td>第三波覆盖后的高位震荡不操作或极低仓位</td></tr>
+                    <tr><td>主力资金</td><td>中期布局的资金，建仓期换手率<10%</td></tr>
+                    <tr><td>游资</td><td>短线题材炒作资金，突击建仓换手率>20%</td></tr>
+                    <tr><td>战略资金</td><td>社保/公募等大资金，建仓期换手率<5%</td></tr>
+                    <tr><td>结构性顶</td><td>会突破上去的局部回调顶</td></tr>
+                    <tr><td>系统性大顶</td><td>上去以后下来几年不会创新高</td></tr>
+                    <tr><td>金字塔建仓</td><td>3-4-3分批建仓</td></tr>
+                    <tr><td>倒金字塔止损</td><td>先卖一半，剩余视情况</td></tr>
+                    <tr><td>黑嘴</td><td>在群里到处拉人荐票的大V/推荐人</td></tr>
+                    <tr><td>惯犯股</td><td>小市值+长期低换手+一字板诱多+后续破新低的股票</td></tr>
+                    <tr><td>五秒看盘</td><td>极短时间内通过盘面识别股票类型并确定操作方案</td></tr>
+                    <tr><td>80/80/80规律</td><td>80%个股80%时间都是震荡（先上后下/先下后上）</td></tr>
+                    <tr><td>翘板资金</td><td>跌停板破板大资金买入</td></tr>
+                    <tr><td>做T</td><td>盘中做差价，放量拉升卖+下跌区域买</td></tr>
+                    <tr><td>攻击性分时</td><td>陡峭+持续量能的强势分时</td></tr>
+                    <tr><td>突击买入</td><td>突然直线拉涨停的强势建仓</td></tr>
+                    <tr><td>温水煮青蛙</td><td>低开两点到最后搞跌停板的出货方式</td></tr>
+                    <tr><td>三线金叉</td><td>均线+双K+成交量三者形成</td></tr>
+                    <tr><td>瓜熟蒂落</td><td>加速需要级别演化与政策、热点匹配</td></tr>
+                    <tr><td>三朵金花</td><td>中国移动、中国电信、中国联通</td></tr>
+                    <tr><td>石化双雄</td><td>中国石化、中国石油</td></tr>
+                </tbody>
+            </table>
+            </div>
+
+            <h3>附录C：重要操作要点清单</h3>
+
+            <h4>1) 选股（6条）</h4>
+            <ul>
+                <li>选股先选板块，板块先看政策</li>
+                <li>龙头优先，跟风次之，补涨不碰</li>
+                <li>换手率5-15%是健康区间</li>
+                <li>量比>1.5才有短线参与价值</li>
+                <li>不熟不做，看不懂不碰</li>
+                <li>同一时段持仓≤3只</li>
+            </ul>
+
+            <h4>2) 买入（5条）</h4>
+            <ul>
+                <li>双K确认后再动手</li>
+                <li>突破前高+放量=真突破</li>
+                <li>缩量突破=假突破</li>
+                <li>大盘弱势时仓位减半</li>
+                <li>不追高，不打板</li>
+            </ul>
+
+            <h4>3) 持股（5条）</h4>
+            <ul>
+                <li>持仓股票必须每天复盘</li>
+                <li>量能异常立即警醒</li>
+                <li>不破5日线坚定持有</li>
+                <li>板块退潮立即减仓</li>
+                <li>黑天鹅消息立即清仓</li>
+            </ul>
+
+            <h4>4) 卖出（8条）</h4>
+            <ul>
+                <li>破5日线必卖</li>
+                <li>高位放量长上影必卖</li>
+                <li>龙头跌停必卖</li>
+                <li>板块集体退潮必卖</li>
+                <li>单笔亏损-3%必止损</li>
+                <li>大盘破位必减仓</li>
+                <li>利好不涨必卖（利好兑现）</li>
+                <li>群内一致看好必卖（反向指标）</li>
+            </ul>
+
+            <h4>5) 仓位（5条）</h4>
+            <ul>
+                <li>金字塔建仓：3-4-3分批</li>
+                <li>倒金字塔止损：先卖一半</li>
+                <li>总仓位≤70%（满仓是大忌）</li>
+                <li>单股仓位≤30%</li>
+                <li>大盘弱势时总仓位≤30%</li>
+            </ul>
+
+            <h4>6) 风控（6条）</h4>
+            <ul>
+                <li>单笔-3%强制止损</li>
+                <li>单日-5%强制停手</li>
+                <li>单周-10%强制休市</li>
+                <li>黑嘴荐股一律反向</li>
+                <li>不借贷炒股，不杠杆</li>
+                <li>不补仓亏损股</li>
+            </ul>
+
+            <h3>附录D：4层风险警示</h3>
+            <div class="kbox-danger">
+                <strong>L1 全局警示</strong>：本文档为学习笔记，不构成任何投资建议；股市有风险，入市需谨慎。
+            </div>
+            <div class="kbox-warn">
+                <strong>L2 节末尾警示</strong>：每节末尾均设有"本节核心风险"提示，覆盖3类致命选股（11/19/20节）+4层重点章节警示（11/13/17/19/20/22节）+每节专属风险。
+            </div>
+            <div class="kbox-warn">
+                <strong>L3 重点章节警示</strong>：第11/13/17/19/20/22节为最高风险章节，未读前10节勿直接应用。
+            </div>
+            <div class="kbox-primary">
+                <strong>L4 底部声明</strong>：本课程笔记由工作流架构师整理·内容仅供学习复盘·不构成投资建议·归属权归主人。
+            </div>
+        </section>
+    </main>
+
+    <footer class="disclaim">
+        本课程笔记由工作流架构师整理 · 内容仅供学习复盘 · 不构成投资建议<br>
+        股市有风险，入市需谨慎 · 任何操作与作者无关<br>
+        归属权归尊贵的主人 · © 2026
+    </footer>
+
+    <script>
+        document.addEventListener('scroll', function() {
+            var links = document.querySelectorAll('aside.toc a');
+            var current = '';
+            document.querySelectorAll('section.lesson[id^="L"]').forEach(function(a) {
+                if (a.getBoundingClientRect().top < 120) current = a.id;
+            });
+            links.forEach(function(l) {
+                l.classList.toggle('active', l.getAttribute('href') === '#' + current);
+            });
+        });
+    </script>
+</body>
+</html>
