@@ -1,0 +1,1233 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes, viewport-fit=cover">
+<title>Codex智能体应用实战 — 从小白到精通完全指南</title>
+<style>
+:root {
+  --bg: #fafaf8;
+  --card: #ffffff;
+  --border: #e8e5e0;
+  --text: #2c2c2c;
+  --sub: #6b6b6b;
+  --accent: #5b7fff;
+  --accent-light: #eef1ff;
+  --tag-bg: #f3f0eb;
+  --tag-text: #5c5c5c;
+  --code-bg: #f5f4f0;
+  --warn-bg: #fff8e6;
+  --warn-border: #f0d060;
+  --success-bg: #eaf7ea;
+  --h1: #1a1a1a;
+  --h2: #2c3e6b;
+  --h3: #3d5a80;
+  --shadow: 0 1px 3px rgba(0,0,0,.06), 0 1px 5px rgba(0,0,0,.04);
+  --radius: 12px;
+  --radius-sm: 8px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{
+  font-family:"PingFang SC","Hiragino Sans GB","Microsoft YaHei","Noto Sans SC",system-ui,-apple-system,sans-serif;
+  background:var(--bg);
+  color:var(--text);
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ── 顶部导航 ── */
+.hero{
+  background:linear-gradient(135deg,#f0f4ff 0%,#faf8ff 50%,#fff8f0 100%);
+  border-bottom:1px solid var(--border);
+  padding:48px 24px 36px;
+  text-align:center;
+}
+.hero h1{font-size:2rem;font-weight:800;color:var(--h1);letter-spacing:.02em;margin-bottom:8px}
+.hero .sub{font-size:1.05rem;color:var(--sub);margin-bottom:6px}
+.hero .meta{font-size:.85rem;color:#999;margin-top:8px}
+.hero .badge-row{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-top:18px}
+.badge{
+  display:inline-block;padding:4px 14px;border-radius:99px;
+  font-size:.78rem;font-weight:600;background:var(--accent-light);color:var(--accent);
+  white-space:nowrap;
+}
+
+/* ── 容器 ── */
+.wrap{max-width:960px;margin:0 auto;padding:0 20px 60px}
+
+/* ── 思维导图容器 ── */
+.mindmap-box{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);margin:32px 0;padding:20px 16px;overflow:auto;
+  -webkit-overflow-scrolling:touch;
+  touch-action:pan-x pan-y pinch-zoom;
+}
+.mindmap-box h2{font-size:1.3rem;color:var(--h2);margin-bottom:12px;text-align:center}
+.mindmap-box svg{display:block;min-width:1800px;height:auto}
+
+/* ── 章节目录 ── */
+.toc{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);padding:28px 24px;margin:32px 0;
+}
+.toc h2{font-size:1.25rem;color:var(--h2);margin-bottom:16px}
+.toc-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(200px,1fr));gap:6px}
+.toc-grid a{
+  display:block;padding:6px 12px;border-radius:var(--radius-sm);font-size:.88rem;
+  color:var(--text);background:transparent;transition:background .15s;
+}
+.toc-grid a:hover{background:var(--accent-light);color:var(--accent);text-decoration:none}
+
+/* ── 章节卡片 ── */
+.chapter{
+  background:var(--card);border:1px solid var(--border);border-radius:var(--radius);
+  box-shadow:var(--shadow);margin:36px 0;overflow:hidden;
+}
+.chapter-header{
+  padding:22px 28px;border-bottom:1px solid var(--border);
+  background:linear-gradient(135deg,#fafcff,#fdfaf5);
+}
+.chapter-header h2{font-size:1.35rem;color:var(--h2);font-weight:700}
+.chapter-header .ch-num{font-size:.8rem;color:var(--accent);font-weight:600;text-transform:uppercase;letter-spacing:.06em}
+.chapter-body{padding:24px 28px}
+
+.section{margin-bottom:28px}
+.section:last-child{margin-bottom:0}
+.section h3{font-size:1.1rem;color:var(--h3);margin-bottom:10px;font-weight:700}
+.section h3 .sec-tag{
+  display:inline-block;background:var(--accent-light);color:var(--accent);
+  font-size:.72rem;padding:1px 8px;border-radius:99px;margin-right:6px;vertical-align:middle;font-weight:600;
+}
+
+/* ── 内容块 ── */
+p{margin-bottom:10px;font-size:.95rem}
+ul,ol{margin:6px 0 14px 20px;font-size:.94rem}
+li{margin-bottom:4px}
+strong{color:#1a1a1a}
+.highlight{background:linear-gradient(to top,#fff3b0 40%,transparent 40%)}
+
+table{width:100%;border-collapse:collapse;margin:12px 0 18px;font-size:.9rem}
+th,td{padding:8px 14px;border:1px solid var(--border);text-align:left;vertical-align:top}
+th{background:#f8f7f4;font-weight:700;color:var(--h3);font-size:.82rem}
+tr:nth-child(even) td{background:#fcfcf9}
+
+/* ── 步骤列表 ── */
+.step-list{counter-reset:step;list-style:none;margin-left:0}
+.step-list li{counter-increment:step;position:relative;padding-left:36px;margin-bottom:10px}
+.step-list li::before{
+  content:counter(step);position:absolute;left:0;top:2px;
+  width:22px;height:22px;border-radius:50%;background:var(--accent);
+  color:#fff;font-size:.7rem;font-weight:700;text-align:center;line-height:22px;
+}
+
+/* ── 提示框 ── */
+.tip{
+  padding:14px 18px;border-radius:var(--radius-sm);margin:14px 0;font-size:.9rem;
+  border-left:4px solid var(--accent);background:var(--accent-light);
+}
+.tip.warn{border-left-color:#e8a020;background:var(--warn-bg)}
+.tip.success{border-left-color:#3aac5c;background:var(--success-bg)}
+.tip strong{display:block;margin-bottom:4px}
+
+/* ── 代码/关键字 ── */
+code{
+  background:var(--code-bg);padding:1px 6px;border-radius:3px;font-size:.88em;
+  font-family:"SF Mono","Cascadia Code","Fira Code",Consolas,monospace;
+  color:#c7254e;
+}
+pre{
+  background:var(--code-bg);padding:14px 18px;border-radius:var(--radius-sm);
+  overflow-x:auto;font-size:.84rem;line-height:1.6;margin:10px 0 16px;
+  -webkit-overflow-scrolling:touch;
+}
+pre code{background:transparent;padding:0;color:var(--text)}
+
+/* ── 路径/文件 ── */
+.path{font-family:"SF Mono",Consolas,monospace;font-size:.85em;background:#f0efe9;padding:1px 6px;border-radius:3px}
+
+/* ── 分割线 ── */
+hr{border:none;border-top:1px solid var(--border);margin:24px 0}
+
+/* ── 公式卡片 ── */
+.formula-card{
+  background:linear-gradient(135deg,#fafcff,#f5f6ff);border:1px solid #dde3f0;
+  border-radius:var(--radius);padding:18px 22px;margin:16px 0;text-align:center;
+  font-size:1.05rem;font-weight:600;color:var(--h3);
+}
+
+/* ── 返回顶部 ── */
+.back-top{position:fixed;bottom:24px;right:24px;width:40px;height:40px;border-radius:50%;
+  background:var(--accent);color:#fff;display:flex;align-items:center;justify-content:center;
+  font-size:1.2rem;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.15);z-index:99;
+  transition:transform .2s,opacity .2s;opacity:.7;text-decoration:none;
+}
+.back-top:hover{opacity:1;transform:translateY(-2px)}
+
+/* ── 响应式 ── */
+@media(max-width:768px){
+  .hero h1{font-size:1.45rem}
+  .hero{padding:32px 16px 24px}
+  .wrap{padding:0 12px 40px}
+  .chapter-header{padding:16px 18px}
+  .chapter-body{padding:16px 18px}
+  .toc-grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr))}
+  th,td{padding:6px 8px;font-size:.8rem}
+}
+@media(max-width:480px){
+  html{font-size:15px}
+  .hero h1{font-size:1.25rem}
+  .chapter-header h2{font-size:1.15rem}
+  .toc-grid{grid-template-columns:1fr 1fr}
+}
+</style>
+</head>
+<body>
+
+<!-- ════════════ 顶部 ════════════ -->
+<div class="hero">
+  <h1>🤖 Codex智能体应用实战</h1>
+  <p class="sub">从小白到精通 · 完全指南</p>
+  <p class="meta">唐宇迪 · 2026 | 20章91节 · 全部知识点一页尽览</p>
+  <div class="badge-row">
+    <span class="badge">📦 CODEX安装配置</span>
+    <span class="badge">🧠 智能体理论</span>
+    <span class="badge">🎬 自动化短视频</span>
+    <span class="badge">📊 Excel/PPT</span>
+    <span class="badge">🎨 设计图</span>
+    <span class="badge">📱 小程序</span>
+    <span class="badge">🤖 数字人</span>
+    <span class="badge">🔧 模型微调</span>
+    <span class="badge">📚 RAG知识库</span>
+    <span class="badge">🤝 飞书/多维表格</span>
+  </div>
+</div>
+
+<div class="wrap">
+
+<!-- ════════════ SVG 横向树状思维导图 ════════════ -->
+<div class="mindmap-box">
+<h2>📐 课程知识图谱 · 横向树状全景图（可双指放大查看）</h2>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 3600 1100" width="3600" height="1100" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <defs>
+    <linearGradient id="gRoot" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#5b7fff"/><stop offset="100%" stop-color="#3d5ce5"/></linearGradient>
+    <linearGradient id="gCh" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#667eea"/><stop offset="100%" stop-color="#764ba2"/></linearGradient>
+    <linearGradient id="gSec" x1="0" y1="0" x2="1" y2="0"><stop offset="0%" stop-color="#43e97b"/><stop offset="100%" stop-color="#38f9d7"/></linearGradient>
+  </defs>
+  <style>
+    text{font-size:11px;fill:#333}
+    text.root{font-size:15px;font-weight:700;fill:#fff}
+    text.ch{font-size:12px;font-weight:700;fill:#3d3d3d}
+    text.leaf{font-size:9.5px;fill:#555}
+  </style>
+
+  <!-- ═══ 根节点 ═══ -->
+  <rect x="10" y="510" width="170" height="66" rx="10" fill="url(#gRoot)" opacity=".95"/>
+  <text x="95" y="538" text-anchor="middle" class="root">Codex智能体</text>
+  <text x="95" y="558" text-anchor="middle" class="root" font-size="11">应用实战(20章91节)</text>
+
+  <!-- ═══ 第一层：4大模块 ═══ -->
+  <!-- 模块1:基础入门 -->
+  <path d="M180 532 L200 532 L200 160 L230 160" stroke="#667eea" stroke-width="2" fill="none"/>
+  <rect x="230" y="138" width="160" height="44" rx="8" fill="url(#gCh)" opacity=".9"/>
+  <text x="310" y="159" text-anchor="middle" class="root" font-size="12">🛠 基础入门与理论</text>
+  <text x="310" y="174" text-anchor="middle" class="root" font-size="9">第1-2章 · 8节</text>
+
+  <!-- 模块2:办公自动化 -->
+  <path d="M180 543 L200 543 L200 340 L230 340" stroke="#667eea" stroke-width="1.8" fill="none"/>
+  <rect x="230" y="318" width="160" height="44" rx="8" fill="url(#gCh)" opacity=".85"/>
+  <text x="310" y="339" text-anchor="middle" class="root" font-size="12">📊 办公自动化实战</text>
+  <text x="310" y="354" text-anchor="middle" class="root" font-size="9">第3-5章 · 17节</text>
+
+  <!-- 模块3:多媒体与开发 -->
+  <path d="M180 554 L200 554 L200 520 L230 520" stroke="#667eea" stroke-width="1.8" fill="none"/>
+  <rect x="230" y="498" width="160" height="44" rx="8" fill="url(#gCh)" opacity=".85"/>
+  <text x="310" y="519" text-anchor="middle" class="root" font-size="12">🎬 多媒体与开发</text>
+  <text x="310" y="534" text-anchor="middle" class="root" font-size="9">第6-12章 · 34节</text>
+
+  <!-- 模块4:高级进阶 -->
+  <path d="M180 565 L200 565 L200 700 L230 700" stroke="#667eea" stroke-width="1.8" fill="none"/>
+  <rect x="230" y="678" width="160" height="44" rx="8" fill="url(#gCh)" opacity=".85"/>
+  <text x="310" y="699" text-anchor="middle" class="root" font-size="12">🚀 高级进阶生态</text>
+  <text x="310" y="714" text-anchor="middle" class="root" font-size="9">第13-20章 · 32节</text>
+
+  <!-- ═══ 第二层：章节展开 ═══ -->
+
+  <!-- 模块1-第1章：安装配置  y≈120-200 -->
+  <path d="M390 160 L410 160 L410 60 L440 60" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="42" width="200" height="36" rx="7" fill="#f0f4ff" stroke="#c4d4f0" stroke-width="1"/>
+  <text x="540" y="59" text-anchor="middle" class="ch">第1章 安装与配置 (4节)</text>
+  <text x="540" y="73" text-anchor="middle" class="leaf">CODEX安装→DeepSeek替代→界面设置→中文问题</text>
+
+  <!-- 模块1-第2章：智能体理论 -->
+  <path d="M390 160 L410 160 L410 140 L440 140" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="122" width="200" height="36" rx="7" fill="#f0f4ff" stroke="#c4d4f0" stroke-width="1"/>
+  <text x="540" y="139" text-anchor="middle" class="ch">第2章 智能体理论 (4节)</text>
+  <text x="540" y="153" text-anchor="middle" class="leaf">CLI+API→规划记忆反馈→第一个技能→技能组成</text>
+
+  <!-- 模块2-第3章：自动化短视频 -->
+  <path d="M390 340 L410 340 L410 220 L440 220" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="202" width="220" height="36" rx="7" fill="#f0f4ff" stroke="#c4d4f0" stroke-width="1"/>
+  <text x="550" y="219" text-anchor="middle" class="ch">第3章 自动化短视频 (8节)</text>
+  <text x="550" y="233" text-anchor="middle" class="leaf">剧本→做图→视频→剪辑→全自动流水线</text>
+
+  <!-- 模块2-第4章：Excel/PPT -->
+  <path d="M390 340 L410 340 L410 290 L440 290" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="272" width="220" height="36" rx="7" fill="#f0f4ff" stroke="#c4d4f0" stroke-width="1"/>
+  <text x="550" y="289" text-anchor="middle" class="ch">第4章 Excel/PPT自动化 (5节)</text>
+  <text x="550" y="303" text-anchor="middle" class="leaf">数据分析→关联规则挖掘→PPT自动生成</text>
+
+  <!-- 模块2-第5章：设计图 -->
+  <path d="M390 340 L410 340 L410 360 L440 360" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="342" width="220" height="36" rx="7" fill="#f0f4ff" stroke="#c4d4f0" stroke-width="1"/>
+  <text x="550" y="359" text-anchor="middle" class="ch">第5章 设计图制作 (4节)</text>
+  <text x="550" y="373" text-anchor="middle" class="leaf">API选择→设计流程→技能封装</text>
+
+  <!-- 模块3-第6章：视频复刻 -->
+  <path d="M390 520 L410 520 L410 380 L440 380" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="362" width="200" height="36" rx="7" fill="#f5f0ff" stroke="#d4c8f0" stroke-width="1"/>
+  <text x="540" y="379" text-anchor="middle" class="ch">第6章 视频复刻 (4节)</text>
+  <text x="540" y="393" text-anchor="middle" class="leaf">九宫格图→运镜→旁白→完整复刻</text>
+
+  <!-- 模块3-第7章：故事板·穿搭 -->
+  <path d="M390 520 L410 520 L410 430 L440 430" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="412" width="200" height="36" rx="7" fill="#f5f0ff" stroke="#d4c8f0" stroke-width="1"/>
+  <text x="540" y="429" text-anchor="middle" class="ch">第7章 故事板·穿搭 (4节)</text>
+  <text x="540" y="443" text-anchor="middle" class="leaf">白底素材→模特效果→运镜视频</text>
+
+  <!-- 模块3-第8章：故事板·进阶 -->
+  <path d="M390 520 L410 520 L410 480 L440 480" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="462" width="200" height="36" rx="7" fill="#f5f0ff" stroke="#d4c8f0" stroke-width="1"/>
+  <text x="540" y="479" text-anchor="middle" class="ch">第8章 故事板·进阶 (3节)</text>
+  <text x="540" y="493" text-anchor="middle" class="leaf">故事板设计→填充→视频制作</text>
+
+  <!-- 模块3-第9章：小程序 -->
+  <path d="M390 520 L410 520 L410 540 L440 540" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="522" width="200" height="36" rx="7" fill="#f5f0ff" stroke="#d4c8f0" stroke-width="1"/>
+  <text x="540" y="539" text-anchor="middle" class="ch">第9章 小程序开发 (5节)</text>
+  <text x="540" y="553" text-anchor="middle" class="leaf">注册→需求→UI→代码→发布</text>
+
+  <!-- 模块3-第10章：剪辑特效 -->
+  <path d="M390 520 L410 520 L410 590 L440 590" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="572" width="200" height="36" rx="7" fill="#f5f0ff" stroke="#d4c8f0" stroke-width="1"/>
+  <text x="540" y="589" text-anchor="middle" class="ch">第10章 剪辑与特效 (5节)</text>
+  <text x="540" y="603" text-anchor="middle" class="leaf">开源模型配置→故事板→HyperFrames</text>
+
+  <!-- 模块3-第11章：数字人 -->
+  <path d="M390 520 L410 520 L410 640 L440 640" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="622" width="200" height="36" rx="7" fill="#f5f0ff" stroke="#d4c8f0" stroke-width="1"/>
+  <text x="540" y="639" text-anchor="middle" class="ch">第11章 开源数字人 (4节)</text>
+  <text x="540" y="653" text-anchor="middle" class="leaf">Docker部署→音色定制→自动化剪辑</text>
+
+  <!-- 模块3-第12章：数字人实战 -->
+  <path d="M390 520 L410 520 L410 690 L440 690" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="672" width="200" height="36" rx="7" fill="#f5f0ff" stroke="#d4c8f0" stroke-width="1"/>
+  <text x="540" y="689" text-anchor="middle" class="ch">第12章 数字人实战 (5节)</text>
+  <text x="540" y="703" text-anchor="middle" class="leaf">口播视频→语音克隆→文案接口→软件配置</text>
+
+  <!-- 模块4-第13章：Git/GitHub -->
+  <path d="M390 700 L410 700 L410 740 L440 740" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="722" width="200" height="36" rx="7" fill="#fff8f0" stroke="#f0dcc0" stroke-width="1"/>
+  <text x="540" y="739" text-anchor="middle" class="ch">第13章 Git与GitHub (4节)</text>
+  <text x="540" y="753" text-anchor="middle" class="leaf">版本管理→仓库操作→项目移植</text>
+
+  <!-- 模块4-第14章：飞书集成 -->
+  <path d="M390 700 L410 700 L410 790 L440 790" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="772" width="200" height="36" rx="7" fill="#fff8f0" stroke="#f0dcc0" stroke-width="1"/>
+  <text x="540" y="789" text-anchor="middle" class="ch">第14章 飞书集成 (3节)</text>
+  <text x="540" y="803" text-anchor="middle" class="leaf">多维表格→CLI技能包→智能体接入</text>
+
+  <!-- 模块4-第15章：Obsidian -->
+  <path d="M390 700 L410 700 L410 840 L440 840" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="822" width="210" height="36" rx="7" fill="#fff8f0" stroke="#f0dcc0" stroke-width="1"/>
+  <text x="545" y="839" text-anchor="middle" class="ch">第15章 Obsidian知识库 (5节)</text>
+  <text x="545" y="853" text-anchor="middle" class="leaf">本地知识库→行业分析→小红书图文</text>
+
+  <!-- 模块4-第16-17章：科研+微调 -->
+  <path d="M390 700 L410 700 L410 890 L440 890" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="872" width="210" height="36" rx="7" fill="#fff8f0" stroke="#f0dcc0" stroke-width="1"/>
+  <text x="545" y="889" text-anchor="middle" class="ch">第16-17章 科研+微调 (4节)</text>
+  <text x="545" y="903" text-anchor="middle" class="leaf">Nature-Skill→LLaMA-Factory→LoRA量化</text>
+
+  <!-- 模块4-第18章：RAGFLOW -->
+  <path d="M390 700 L410 700 L410 940 L440 940" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="922" width="220" height="36" rx="7" fill="#fff8f0" stroke="#f0dcc0" stroke-width="1"/>
+  <text x="550" y="939" text-anchor="middle" class="ch">第18章 RAGFLOW知识库 (5节)</text>
+  <text x="550" y="953" text-anchor="middle" class="leaf">本地RAG→Embedding→构建→API封装</text>
+
+  <!-- 模块4-第19章：影刀RPA -->
+  <path d="M390 700 L410 700 L410 990 L440 990" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="972" width="200" height="36" rx="7" fill="#fff8f0" stroke="#f0dcc0" stroke-width="1"/>
+  <text x="540" y="989" text-anchor="middle" class="ch">第19章 影刀RPA (5节)</text>
+  <text x="540" y="1003" text-anchor="middle" class="leaf">自动化流程→浏览器操控→文案采集</text>
+
+  <!-- 模块4-第20章：Agent论文 -->
+  <path d="M390 700 L410 700 L410 1040 L440 1040" stroke="#8ab4f8" stroke-width="1.4" fill="none"/>
+  <rect x="440" y="1022" width="250" height="36" rx="7" fill="#fff8f0" stroke="#f0dcc0" stroke-width="1"/>
+  <text x="565" y="1039" text-anchor="middle" class="ch">第20章 Agent论文解读 (10节)</text>
+  <text x="565" y="1053" text-anchor="middle" class="leaf">斯坦福AI小镇→感知反思→计划记忆→框架设计</text>
+
+  <!-- ═══ 第三层：关键细节展开 ═══ -->
+
+  <!-- 第1章细节 -->
+  <path d="M640 60 L660 60 L660 20 L680 20" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="18" class="leaf">🔑 CODEX++绕过GPT登录限制</text>
+  <path d="M640 60 L660 60 L660 40 L680 40" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="38" class="leaf">🔑 DeepSeek纯API模式接入</text>
+  <path d="M640 60 L660 60 L660 60 L680 60" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="58" class="leaf">🔑 权限三模式→完全访问推荐</text>
+  <path d="M640 60 L660 60 L660 80 L680 80" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="78" class="leaf">🔑 工作区文件夹关联</text>
+
+  <!-- 第2章细节 -->
+  <path d="M640 140 L660 140 L660 100 L680 100" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="98" class="leaf">💡 CLI=命令行操控电脑</text>
+  <path d="M640 140 L660 140 L660 120 L680 120" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="118" class="leaf">💡 API=外接工具调用能力</text>
+  <path d="M640 140 L660 140 L660 140 L680 140" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="138" class="leaf">💡 智能体=CLI+API+规划+记忆+反馈+大模型</text>
+  <path d="M640 140 L660 140 L660 160 L680 160" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="158" class="leaf">💡 SKILL.md=技能的核心入口</text>
+
+  <!-- 第3章细节 -->
+  <path d="M660 220 L680 220 L680 200 L700 200" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="702" y="198" class="leaf">📝 scale.md剧本技能模板</text>
+  <path d="M660 220 L680 220 L680 220 L700 220" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="702" y="218" class="leaf">🖼 并行生成8张图+7段视频</text>
+  <path d="M660 220 L680 220 L680 240 L700 240" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="702" y="238" class="leaf">✂ 剪映小助手自动整合草稿</text>
+
+  <!-- 第4章细节 -->
+  <path d="M660 290 L680 290 L680 270 L700 270" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="702" y="268" class="leaf">📊 pandas+15K数据分析</text>
+  <path d="M660 290 L680 290 L680 290 L700 290" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="702" y="288" class="leaf">🔗 GitHub开源→关联规则挖掘</text>
+  <path d="M660 290 L680 290 L680 310 L700 310" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="702" y="308" class="leaf">📑 python-pptx→PPT自动生成</text>
+
+  <!-- 第9-10章细节 -->
+  <path d="M640 540 L660 540 L660 510 L680 510" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="508" class="leaf">📱 微信云开发→6个月免费</text>
+  <path d="M640 540 L660 540 L660 530 L680 530" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="528" class="leaf">📱 计划模式=产品经理协作</text>
+  <path d="M640 590 L660 590 L660 570 L680 570" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="568" class="leaf">🎬 faster-whisper语音识别</text>
+  <path d="M640 590 L660 590 L660 590 L680 590" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="588" class="leaf">🎬 HyperFrames自动加特效</text>
+
+  <!-- 第11-12章细节 -->
+  <path d="M640 640 L660 640 L660 620 L680 620" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="618" class="leaf">🐳 Docker一键配置数字人</text>
+  <path d="M640 690 L660 690 L660 670 L680 670" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="668" class="leaf">🎙 语音克隆接口配置</text>
+
+  <!-- 第13-15章细节 -->
+  <path d="M640 740 L660 740 L660 730 L680 730" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="728" class="leaf">🗂 Git=存档系统 GitHub=云存档柜</text>
+  <path d="M640 790 L660 790 L660 780 L680 780" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="778" class="leaf">📋 飞书多维表格自动创建+优先级</text>
+  <path d="M650 840 L670 840 L670 830 L690 830" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="692" y="828" class="leaf">📓 Obsidian+Codex=个人AI中枢</text>
+
+  <!-- 第18-20章细节 -->
+  <path d="M660 940 L680 940 L680 920 L700 920" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="702" y="918" class="leaf">🔍 RAG=Parse→Embed→Retrieve→Re-rank</text>
+  <path d="M660 940 L680 940 L680 940 L700 940" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="702" y="938" class="leaf">🔍 RAGFLOW全本地+零成本</text>
+  <path d="M640 990 L660 990 L660 980 L680 980" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="682" y="978" class="leaf">🤖 影刀拖拽式→循环+IF+浏览器</text>
+  <path d="M690 1040 L710 1040 L710 1020 L730 1020" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="732" y="1018" class="leaf">🏘 斯坦福AI小镇→25角色自主交互</text>
+  <path d="M690 1040 L710 1040 L710 1040 L730 1040" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="732" y="1038" class="leaf">🧠 感知→检索→思考→计划→记忆→递归</text>
+  <path d="M690 1040 L710 1040 L710 1060 L730 1060" stroke="#c4d4f0" stroke-width="1" fill="none"/>
+  <text x="732" y="1058" class="leaf">🔁 全部LLM驱动·零传统算法</text>
+</svg>
+</div>
+
+<!-- ════════════ 章节目录 ════════════ -->
+<div class="toc">
+<h2>📑 课程章节速览（点击跳转）</h2>
+<div class="toc-grid">
+<a href="#ch01">第1章 · 安装配置</a>
+<a href="#ch02">第2章 · 智能体理论</a>
+<a href="#ch03">第3章 · 自动化短视频</a>
+<a href="#ch04">第4章 · Excel/PPT</a>
+<a href="#ch05">第5章 · 设计图</a>
+<a href="#ch06">第6章 · 视频复刻</a>
+<a href="#ch07">第7章 · 故事板·穿搭</a>
+<a href="#ch08">第8章 · 故事板·进阶</a>
+<a href="#ch09">第9章 · 小程序</a>
+<a href="#ch10">第10章 · 剪辑特效</a>
+<a href="#ch11">第11章 · 开源数字人</a>
+<a href="#ch12">第12章 · 数字人实战</a>
+<a href="#ch13">第13章 · Git/GitHub</a>
+<a href="#ch14">第14章 · 飞书集成</a>
+<a href="#ch15">第15章 · Obsidian</a>
+<a href="#ch16">第16章 · Nature Skill</a>
+<a href="#ch17">第17章 · 模型微调</a>
+<a href="#ch18">第18章 · RAGFLOW</a>
+<a href="#ch19">第19章 · 影刀RPA</a>
+<a href="#ch20">第20章 · Agent论文</a>
+</div>
+</div>
+
+<!-- ════════════ 第1章 课程须知与CODEX安装配置 ════════════ -->
+<div class="chapter" id="ch01">
+<div class="chapter-header"><span class="ch-num">Chapter 1</span><h2>🛠 课程须知与CODEX安装配置（4节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">1.1</span> 课程须知</h3>
+<p>本课程须知围绕<strong>"学习环境搭建"</strong>展开，三件事项层层递进：<strong>找人（助教）→ 找资料（飞书）→ 找入口（小鹅通）</strong>。</p>
+<ul>
+<li><strong>助教</strong>：课程第一章有助教微信二维码，仅用于答疑，学员需主动添加</li>
+<li><strong>飞书文档</strong>：配套教程，永久链接，持续更新课时内容和飞书文档。⚠️ <strong>绝对不要用微信内置浏览器打开</strong>，必须用Chrome/Edge</li>
+<li><strong>电脑端看课</strong>：百度搜索"小鹅通"→ 官网→ 学员登录→ 微信绑定手机号验证码登录</li>
+</ul>
+<div class="tip warn"><strong>⚠️ 防坑</strong>微信内置浏览器会导致链接显示不全；找不到课程直接找助教，不要找客服。</div>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">1.2</span> CODEX安装与配置方法</h3>
+<p>讲解如何在<strong>国内网络环境</strong>下安装配置CODEX，使用国产大模型替代ChatGPT登录。</p>
+
+<div class="formula-card">两条路径：有GPT Plus账号 → 直接登录 | 无GPT账号 → 国产大模型（DeepSeek/豆包）+ CODEX++管理工具</div>
+
+<ol class="step-list">
+<li><strong>安装CODEX主程序</strong>：Windows商店/Mac App Store搜索"CODEX"下载。⚠️ 安装完<strong>千万不要打开</strong>——默认要求ChatGPT Plus登录</li>
+<li><strong>安装CODEX++管理工具</strong>：从GitHub Release或讲师飞书提供的安装包下载。开始菜单会出现三个东西，选<strong>"CODEX++管理工具"</strong></li>
+<li><strong>配置国产大模型（以DeepSeek为例）</strong>：点击"模型供应商"→ "添加供应商"→ 名称随意 → 接入模式<strong>必须选"纯API"</strong>→ 填写Base URL和API Key</li>
+</ol>
+
+<table>
+<tr><th>配置项</th><th>说明</th></tr>
+<tr><td>名称</td><td>随意起（如"my deepseek"）</td></tr>
+<tr><td>接入模式</td><td><strong>必须选"纯API"</strong>（其他模式不通）</td></tr>
+<tr><td>Base URL</td><td>DeepSeek API请求链接（飞书文档中有）</td></tr>
+<tr><td>API Key</td><td>DeepSeek官网 → API开放平台 → API Keys → 创建。⚠️ <strong>只显示一次，必须立刻保存！</strong></td></tr>
+<tr><td>协议</td><td>选"差"协议</td></tr>
+<tr><td>推荐模型</td><td><code>DeepSeek V4 Pro</code>（效果好、价格便宜）</td></tr>
+</table>
+
+<div class="tip"><strong>💰 充值建议</strong>学习用户充<strong>10元足够</strong>（DeepSeek token是白菜价）；讲师高强度使用充100元/月</div>
+
+<p><strong>登录CODEX</strong>：通过CODEX++管理工具右上角"重启CODEX++"启动 → 选择"使用其他方式登录"→ 输入API Key → 右下角切换到DeepSeek V4 Pro → 能选到即成功。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">1.3</span> CODEX界面基础使用</h3>
+<table>
+<tr><th>设置项</th><th>操作</th><th>推荐值</th></tr>
+<tr><td>语言</td><td>设置→常规→语言→中文</td><td>改不了也无所谓，英文界面不影响使用</td></tr>
+<tr><td>字体</td><td>设置→外观→UI大小/代码字体</td><td>菜单20，回复18</td></tr>
+<tr><td>工作区</td><td>新建文件夹→项目→使用现有文件夹</td><td>必须先建文件夹再关联</td></tr>
+<tr><td>文件上传</td><td>Ctrl+C/V（推荐）或点"+"号</td><td>复制粘贴最方便</td></tr>
+<tr><td>权限模式</td><td>三种：请求批准/替我审批/完全访问</td><td>新手用"替我审批"，老手用"完全访问"</td></tr>
+<tr><td>推理程度</td><td>模型选择旁的推理设置</td><td>默认"中"，特别复杂任务才调高</td></tr>
+</table>
+<p><strong>斜杠"/"命令</strong>：压缩上下文、调用技能等。两种工作模式：<strong>计划模式</strong>（一步步交互确认）和<strong>目标模式</strong>（设定目标自动优化）。</p>
+<p><strong>插件</strong>：CODEX官方封装的开箱即用工具（上网搜索、Office全家桶、数据分析、HyperFrames等），<strong>前期不用管插件</strong>，用到了再装。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">1.4</span> 中文设置补充说明</h3>
+<p>中文设置失败<strong>不影响实际使用</strong>。输入仍是中文，回复仍是中文，仅部分UI菜单保持英文。必须记住的英文界面位置：<strong>Permission</strong>（权限设置，General文件中）和<strong>Appearance</strong>（外观/字体调整，第二个A开头）。</p>
+<div class="tip success"><strong>✅ 核心心态</strong>中英文不影响使用 → 不要纠结 → 跟着教程例子走。</div>
+</div>
+</div></div>
+
+<!-- ════════════ 第2章 智能体基础与技能开发 ════════════ -->
+<div class="chapter" id="ch02">
+<div class="chapter-header"><span class="ch-num">Chapter 2</span><h2>🧠 智能体基础与技能开发（4节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">2.1</span> 智能体基础知识（CLI与API）</h3>
+<p><strong>智能体相比大模型多出来的能力</strong>：操控电脑、调用外部工具软件、任务规划、记忆理解。</p>
+
+<table>
+<tr><th>概念</th><th>本质</th><th>类比</th><th>典型应用</th></tr>
+<tr><td><strong>CLI</strong></td><td>命令行接口</td><td>智能体的"手脚"</td><td>创建文件夹、执行代码</td></tr>
+<tr><td><strong>API</strong></td><td>远程调用接口</td><td>智能体的"外接工具"</td><td>调极梦做视频、调剪映剪辑</td></tr>
+<tr><td><strong>权限</strong></td><td>安全边界</td><td>"老板签字"机制</td><td>放权/限权</td></tr>
+</table>
+
+<p><strong>CLI核心认知</strong>：智能体看不见UI，只认识命令行指令（DIR、mkdir等），<strong>所以它能做的事=命令行能做的事</strong>。</p>
+<p><strong>API核心认知</strong>：本机能力有限→通过API让远程服务器帮做→返回结果。请求中必须包含<strong>API Key（账号唯一标识符）</strong>，按账号扣费。</p>
+<div class="formula-card">智能体能干活 = CLI（操控本机）+ API（调用外部）+ 大模型（理解指令）+ 规划（拆解业务）+ 记忆（保持上下文）+ 反馈（自我修正）</div>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">2.2</span> 规划-记忆-大模型在智能体中的作用</h3>
+
+<p><strong>规划（最重要）</strong>：人确定业务流程，智能体按流程执行。规划只做一次→封装成技能→后续只需调用技能+输入参数。<strong>核心价值</strong>：把办事流程不断封装，做成标准化流程，只需要教一遍。</p>
+
+<p><strong>记忆</strong>：对话框中上下文窗口=智能体的记忆。窗口有限（底层大模型上下文有限），超过阈值自动压缩（500字→50字摘要）。<strong>实操建议</strong>：不要在一个窗口测太多东西；测一个→封装成技能→开新窗口测下一个。</p>
+
+<p><strong>反馈优化</strong>：智能体写代码→自己测试→遇到报错→自己想原因改代码→再测试。<strong>这是CODEX最核心的差异优势</strong>——豆包/DeepSeek只有一次性输出，CODEX有反馈优化和自我修正能力。</p>
+
+<p><strong>大模型与智能体的关系</strong>：大模型=智能体的底座（生成指令/代码），智能体=逻辑框架（规划/记忆/反馈）。<strong>没有大模型的智能体=空壳；没有智能体的大模型=一次性工具</strong>。两者相辅相成。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">2.3</span> 使用CODEX做第一个技能</h3>
+<p><strong>技能封装三要素</strong>：输入（用户给什么）→ 中间过程（按什么流程做）→ 输出（产出什么）。</p>
+<ol class="step-list">
+<li>创建工作文件夹，CODEX中关联</li>
+<li>一步步教智能体：做标题（不超过10字）→ 做字幕（8段生平）→ 做画面描述（≥100字/段）</li>
+<li><strong>封装关键提示词</strong>："把这个流程封装成一个技能。后续我只输入一个人物名字，你帮我做三件事：<strong>标题、生平经历、画面描述</strong>。"</li>
+</ol>
+<p><strong>技能存储路径</strong>：<code>C:\Users\[用户名]\.codex\skills\</code></p>
+<div class="tip warn"><strong>⚠️ 已知Bug</strong>DeepSeek调用技能列表可能找不到。绕开方法：复制技能包路径，直接指定路径使用。</div>
+<p><strong>技能可以随时改</strong>：直接对话说"重新修改这个技能"，智能体会自动帮你改。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">2.4</span> 技能的组成解读</h3>
+<p><strong>技能文件夹标准结构</strong>：</p>
+<pre><code>[技能名]/
+├── SKILL.md       ← 主文件（技能定义，最重要！）
+├── scripts/       ← 可执行脚本
+├── reference/     ← 参考资料
+└── agent.json     ← CODEX特有（展示名）</code></pre>
+<table>
+<tr><th>文件</th><th>重要性</th><th>作用</th></tr>
+<tr><td><strong>SKILL.md</strong></td><td>⭐⭐⭐⭐⭐ 最重要</td><td>技能定义：名字+描述+正文（输入/流程/输出）</td></tr>
+<tr><td>scripts/</td><td>⭐⭐⭐ 复杂技能必备</td><td>可执行代码（工具，能直接干活）</td></tr>
+<tr><td>reference/</td><td>⭐⭐⭐ 进阶用</td><td>参考文档和示例（说明书）</td></tr>
+<tr><td>agent.json</td><td>⭐ CODEX特有</td><td>界面展示名称</td></tr>
+</table>
+<p><strong>描述最重要</strong>：不是给你看的，是<strong>给智能体检索用的</strong>。当有200个技能时，智能体靠描述判断该用哪个。<strong>描述像论文摘要，不是越长越好</strong>。</p>
+<div class="tip"><strong>💡 核心心法</strong>前期用智能体自动生成技能，不要自己手写；只记SKILL.md即可；格式无强制要求，写清楚输入/中间/输出就行。</div>
+</div>
+</div></div>
+
+<!-- ════════════ 第3章 自动化短视频生成全流程 ════════════ -->
+<div class="chapter" id="ch03">
+<div class="chapter-header"><span class="ch-num">Chapter 3</span><h2>🎬 自动化短视频生成全流程（8节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">3.1</span> 整体业务流程与效果展示</h3>
+<p>搭建<strong>标准化流水线</strong>实现<strong>批量生产短视频</strong>。核心哲学：<strong>"你不需要会，你让CodeX会就行"</strong>。</p>
+<table>
+<tr><th>环节</th><th>输入</th><th>处理工具</th><th>输出</th></tr>
+<tr><td>剧本</td><td>人物名字</td><td>CodeX + scale.md技能</td><td>标题+字幕+画面描述</td></tr>
+<tr><td>做图</td><td>画面描述</td><td>第三方作图API（火山引擎等）</td><td>8张配图（9:16竖版）</td></tr>
+<tr><td>做视频</td><td>配图+首尾帧</td><td>视频生成API</td><td>7段过渡视频</td></tr>
+<tr><td>剪辑</td><td>所有素材</td><td>剪映+剪映小助手</td><td>完整视频草稿</td></tr>
+</table>
+<p>整体效率：约<strong>4分钟</strong>完成，实现"给100个人物名字→产出100个视频"。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">3.2</span> 自动化剧本创作</h3>
+<p><strong>scale.md 技能模板法</strong>：把任务描述、参数约束、输出格式封装到一个md文件中，实现标准化复用。</p>
+<p><strong>3W1H提示词原则</strong>：What（生成什么：标题+字幕+画面描述）、How many（8条，练手改4条）、How detailed（画面描述≥100字，中文）、Style（真实中国古代历史纪录片风格）。</p>
+<div class="tip warn"><strong>⚠️ 非多模态模型注意</strong>用DBC V4时必须在对话开头加"不要返回或展示配图/视频，把内容保存到文件夹中"。GPT（多模态）不需要。</div>
+<p>结果保存到本地<code>output</code>文件夹，便于后续做图做视频复用。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">3.3</span> 配置做图技能并并行生成</h3>
+<p><strong>两条路径</strong>：GPT Imagine（需GPT账号）vs 自己配API（火山引擎/任意第三方模型）。</p>
+<p><strong>火山引擎</strong>：字节旗下算力平台，封装豆包/极梦等模型，新用户送大量免费测试额度。方法可迁移至所有算力平台。</p>
+<p><strong>"文档+示例"双驱动法</strong>：给CodeX API文档（PDF/MD/复制全文）+ 完整调用指南 + <strong>参考示例（关键中的关键）</strong>。只给文档不给示例→CodeX反复猜参数跑不通。</p>
+<div class="tip"><strong>🔑 关键参数</strong>图比例9:16竖版；API Key绝对不能泄露；中文提示词必须UTF-8编码；风格统一（历史纪录片风格）</div>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">3.4</span> 自动化做视频功能</h3>
+<p><strong>首尾帧图生视频</strong>：给首帧图+尾帧图，生成过渡视频（8张图=7段过渡视频）。<strong>必须并行调用API和并行下载</strong>——同时提交多个请求耗时几乎一样。</p>
+<p>测试用极梦1.5（免费够用），5秒无声480P。Codex自检自修：检测违规词→自动替换重试。完整提示词："按照这个方法帮我去并行做视频，当前文件夹里有八个图，帮我做首尾帧格式。"</p>
+
+<h3><span class="sec-tag">3.5</span> 测试视频接口与分析</h3>
+<p><strong>异步任务的轮询模式</strong>：本机提交请求→服务器返回唯一task_id→每隔N秒查询进度→完成返回链接。Codex默认10秒查一次，可改5秒加快响应。</p>
+<p>"链接"是Codex自动化流水线的通用接口：作图产物=图片链接、做视频输入=图片链接+视频链接、做剪辑输入=视频链接+标题字幕。过渡提示词关键要素："一镜到底"、"慢慢变"。</p>
+<p>练手阶段只做4张图（3段视频），生产阶段才做8张（7段）。</p>
+
+<h3><span class="sec-tag">3.6</span> 配置自动化剪辑插件</h3>
+<p><strong>剪映小助手（JianyingDraft）</strong>：CodeX与剪映之间的桥梁——纯开源、纯免费、可本地化。剪映不提供直接API，但草稿是文件形式，可通过文件I/O组装。</p>
+<p>剪辑流程骨架：创建草稿（固定开头）→添加素材（灵活中间）→保存草稿（固定结尾）。参数：草稿比例1080×1920、视频总长35秒（7×5秒）、标题白色顶部、字幕黄色底部。</p>
+<p>工具选择四原则：开源、免费、活跃维护、可本地化。<strong>参数固化的工程化思路</strong>：一旦试出合适参数就固化，保持批量产出视觉统一。</p>
+
+<h3><span class="sec-tag">3.7</span> 剪映小助手插件草稿</h3>
+<p><strong>"草稿链接"是接口</strong>：CodeX输出草稿链接→小助手下载素材→组装草稿→写入剪映目录。<strong>"路径一致"是核心前提</strong>——剪映草稿路径与小助手草稿路径必须完全一致（差一个字符都不行）。</p>
+<p>操作：安装剪映→全局设置→记下"草稿位置"→复制路径→小助手配置中心粘贴路径→在CodeX输出草稿链接后→粘贴到小助手→点"创建剪映草稿"→剪映中打开。</p>
+<p>异常处理四步：截图/文字描述问题→CodeX分析→局部重做（只重做草稿不重做素材）→重新运行。</p>
+
+<h3><span class="sec-tag">3.8</span> 完成测试例子</h3>
+<p><strong>"四步流水线"标准化完成</strong>：剧本生成→并行作图→并行做视频→剪辑整合。刘邦案例跑通，验证端到端可靠性。</p>
+<p>封装指令："把整个流程封装成一个技能...后续只需要输入一个历史人物名字，按顺序最终生成剪辑好的链接。"CodeX自动封装为History Video技能。</p>
+<p>两种调用方式：<code>/技能名</code>调用 vs 链接调用（兜底）。做事顺序强制：一剧本→二做图→三做视频→四做剪辑（避免上下文混乱）。并行需同时并行调用API和并行下载。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第4章 Excel/PPT自动化 ════════════ -->
+<div class="chapter" id="ch04">
+<div class="chapter-header"><span class="ch-num">Chapter 4</span><h2>📊 Excel/PPT自动化与做图技能（5节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">4.1</span> Excel表格处理与数据分析</h3>
+<p><strong>Codex内置fresh技能</strong>覆盖Excel完整场景：创建/修改/分析/图表/格式化/公式计算。核心亮点：可直接把表格渲染为图片。</p>
+<p><strong>数据分析范式</strong>：自己写代码+自己执行+自己分析+自己展示，用户只需用自然语言描述需求。</p>
+<p><strong>能力三段论</strong>：基本操作层（增删改查）→ 分析可视化层（统计图表）→ <strong>业务智能层</strong>（跑算法、关联规则挖掘）。</p>
+<div class="tip"><strong>🔑 关键方法论</strong>业务智能化要给算法参考——给AI一个<strong>GitHub开源项目链接</strong>（包含文档+代码），不是论文/文章链接。AI可直接学习并实现算法（如关联规则：置信度、支持度、频繁项集）。</div>
+<p>15,000条电商数据测试→仪表盘+月度走势+商品分析+城市分析+用户行为+排行+洞察。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">4.2</span> 自动化做PPT：理解业务逻辑</h3>
+<p><strong>"一句话做PPT"是误导</strong>：必须有具体业务场景（给谁汇报、什么数据、参考哪些资料）。不能空泛说"我想做个PPT"（AI会胡编）。</p>
+<p><strong>PPT的本质是"文+图"双模态任务</strong>：生图能力是命门。模型选型：GPT image 2是目前最稳定的中文生图模型（豆包不能做图配文字、Gemini英文好中文不行）。</p>
+
+<h3><span class="sec-tag">4.3</span> 定义模板与大纲编辑</h3>
+<p><strong>"模板化统一、提示词先行、人工校对在前"三大原则</strong>。先确定完整内容列大纲（约10页），再做模板预览图。预览图是"一张大图（竖版9:16）预览10页PPT全部内容"，目的是一次性整体浏览所有页面布局。</p>
+<p>从3张预览图中选择模板→<strong>先写提示词再生成图</strong>："先帮我把作图所需要的提示词全部都写好，我来核对"→人工核对提示词→批量生图。一次性生成保证一致性：让AI在一个图中同时画多页，确保字体/形状/风格统一。</p>
+
+<h3><span class="sec-tag">4.4</span> 得到基于图的完整PPT</h3>
+<p><strong>PPT合成方式对比</strong>：不可编辑版本（图片直插，内容统一、字体配色一致但不能修改，<strong>推荐</strong>）vs 可编辑版本（元素抠出，可独立编辑但字号变小、位置跑偏、需大量返工，不推荐）。</p>
+<p>操作：用GPT image生成十页16:9配图→调用presentation技能将十张图按顺序组合→AI自动操作本地文件完成合成→生成PPT链接。</p>
+<div class="tip warn"><strong>⚠️</strong>不建议使用WPS等AI改图工具（字体大概率对不上）。讲师实际做法：永远不用可编辑版本，需要修改就重做原图。</div>
+
+<h3><span class="sec-tag">4.5</span> 可编辑版本并做成技能</h3>
+<p><strong>"从对话到技能"的关键跃迁</strong>：做完第一轮PPT后→"你能不能把做事的流程总结成一套标准化流程"→AI自动找到"创建技能"插件→整理执行过的代码逻辑→写入SKILL.md→自动起名。</p>
+<p>技能测试：输入新Excel数据，AI按SKILL.md规则自动分析、决定结构、生成图、合成PPT。可调参数把页数等做成变量。重要：提示模型技能总结为中文（默认GPT会写英文）；中间停顿检查点保留（让用户确认再继续）。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第5章 设计图制作 ════════════ -->
+<div class="chapter" id="ch05">
+<div class="chapter-header"><span class="ch-num">Chapter 5</span><h2>🎨 设计图制作（4节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">5.1</span> 做设计图的通用逻辑</h3>
+<p><strong>核心范式</strong>："找对标→模仿→换主体"。无论做什么图（电商详情页/装修设计图/PPT配图），通用思路基本一致。拍产品照→去淘宝/京东搜同类详情页→让AI按对标页风格做同款，把产品换成自己的。</p>
+<p>两个关键API：图像理解API（多模态视觉模型，上传图片→AI说出图上内容）+ 图生图API（产品原图+对标参考图+结构化提示词→生成新成品图）。</p>
+
+<h3><span class="sec-tag">5.2</span> 选择合适的API</h3>
+<p><strong>"测试先行"是API集成的金科玉律</strong>：先单个API测试，跑通再串流程。中转站选型三角平衡：价格、速度、稳定性。</p>
+<p>图像理解API选<strong>豆包vision</strong>（火山引擎方舟平台→模型广场→多模态→视觉理解→选带vision标识的模型，32K上下文）。</p>
+<p>图生图API选<strong>GPT image 2</strong>（通过中转站，一毛多一张）。中转站选型：不要太便宜（不稳定）/不要太贵（没必要），选价格+速度折中方案。通用三件套：API令牌、钱包充值、使用日志。</p>
+<div class="tip warn"><strong>⚠️ 注意</strong>DeepSeek V4绝不能上传图片（不支持多模态会卡死）。路径全用英文。</div>
+
+<h3><span class="sec-tag">5.3</span> 设计图制作流程</h3>
+<p><strong>三步走核心流程</strong>：视觉理解分析对标页（输入对标详情页文件夹→输出提示词，含布局/配色/文字位置/产品形状）→ 图生图生成新详情页（自己的产品图+提示词→数量对应→新详情页图）→ 本地归档保存。</p>
+<p><strong>每一步先存本地再走下一步</strong>：保证流程可回溯、可中断、可调试。提示词工程本质："人机协作，业务为主"——AI给第一版，业务人员基于领域知识逐步打磨。实测约9分钟完成5张图（串行），并行可更快。</p>
+
+<h3><span class="sec-tag">5.4</span> 做成技能并测试</h3>
+<p><strong>Codex"创建技能"插件</strong>：自动封装整套流程为标准化技能，约2分钟完成。输入：文件夹1（参考详情页）+文件夹2（产品图），输出：对应全部详情页图。</p>
+<p><strong>跨模型技能迁移</strong>：技能本质是"文件+入口"，找到SKILL.md就能用（模型切换不影响存在，只影响UI可见性）。AI第一次可能没参考产品图→加约束"必须参考输入的产品图"。</p>
+<p><strong>白底图预处理</strong>是经典工程化思路（把杂质问题前置解决）。方法比工具重要：流程不变，工具可换。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第6章 视频复刻 ════════════ -->
+<div class="chapter" id="ch06">
+<div class="chapter-header"><span class="ch-num">Chapter 6</span><h2>🎥 视频复刻（4节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">6.1</span> 视频复刻业务逻辑</h3>
+<p><strong>视频分析三要素</strong>：静态信息（产品形态/环境/道具/光线）、动态信息（手动作/打开/展示/转圈等）、声音信息（旁白/背景音乐/音效）。视频与图的本质差异：做图参考一张图，做视频要分析完整视频。</p>
+<p><strong>核心警告</strong>：不要把视频、语音分开做，一口气做完所有东西AI能完美对齐。任何"分步生成"都会破坏对齐性。没有模型能直接"输入视频→输出分析结果"，必须先拆成多张图。</p>
+<p><strong>四步走流程</strong>：拆解原视频（多帧+视觉理解）→ 制作运镜剧本（合并多帧为时序）→ 生成九宫格图（一次性保一致性）→ 极梦二生成视频。</p>
+
+<h3><span class="sec-tag">6.2</span> 视频创作九宫格图</h3>
+<p><strong>FFmpeg关键作用</strong>：视频处理软件，帧提取+音频提取，还能合成完整视频。AI遇到没有的工具会自己装（在干净笔记本上测试过能装FFmpeg）。</p>
+<p><strong>场景分析四要素</strong>：整体风格、拍摄手法、场景分镜描述、旁白语音描述。提示词模板核心结构：任务角色定义→风格描述→摄影要求→机位描述→场景示例。</p>
+<p><strong>九宫格图本质</strong>：一张图包含9个片段，AI一次性生成，产品一致性保持非常好。<strong>9宫格最稳定（推荐）</strong>，4/9/16/24宫格都可以。路径规范：尽量用英文路径，避免编码bug。</p>
+<div class="tip warn"><strong>⚠️</strong>必须先告诉AI"一定不能展示任何图和视频素材、所有内容保存在本地文件夹中"。</div>
+
+<h3><span class="sec-tag">6.3</span> 运镜逻辑与旁白素材</h3>
+<p>拆帧结果输出"视频分析最终结果报告"：整体风格+拍摄手法+场景描述（时间点+动作+画面内容）+旁白配音。</p>
+<p><strong>AI自动调试能力</strong>：网络连接错误自动重试、中文路径报错自动改路径、API调用失败自动换方法。<strong>base64编码方案</strong>：API文档推荐多文件同时上传的最稳定方式。</p>
+<p><strong>四大约束条件</strong>：①绝对禁止人物镜头影像（尤其人脸，出现人脸大概率违规）②不做美化和添油加醋，必须一比一还原原图纹理/形状③上传参考图时禁止压缩，否则字迹不清楚④产品放在中心位置（不要放边角）。AI会自作主张把9张图拼成一张，必须明确禁止。</p>
+
+<h3><span class="sec-tag">6.4</span> 输出视频复刻结果</h3>
+<p><strong>极梦二API多版本</strong>：fast/pro/mini。<strong>视频为什么贵</strong>：1秒20帧，15秒=300帧，视频本质是大量静态图的时序组合。</p>
+<p>参数：15秒（极梦2.0最大支持）、480P（便宜，手机看够用）、竖版9:16。参考图必须是公网可访问URL。中转站→模型广场→找视频生成→极梦2.0→参考图上传用URL。</p>
+<table>
+<tr><th>步骤</th><th>工具</th><th>成本</th></tr>
+<tr><td>视觉理解</td><td>豆包</td><td>几乎免费</td></tr>
+<tr><td>运镜分析</td><td>大模型</td><td>几乎免费</td></tr>
+<tr><td>九宫格作图</td><td>GPT Image</td><td>几分钱</td></tr>
+<tr><td>极梦二视频（15秒）</td><td>极梦2.0</td><td>10-12元</td></tr>
+</table>
+<p>实测约7分57秒完成15秒视频。没需求时别瞎用（成本高），方法学会就行。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第7章 故事板做视频（模特穿搭） ════════════ -->
+<div class="chapter" id="ch07">
+<div class="chapter-header"><span class="ch-num">Chapter 7</span><h2>👗 故事板做视频——模特穿搭（4节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">7.1</span> 故事板做视频逻辑分析</h3>
+<p><strong>核心四步流程</strong>：制作多视角白底模特图（用AI抠图工具处理为干净多角度白底图）→ 制作服装/配饰白底素材（从购物网站/短视频截图抠出元素）→ 合成模特穿搭效果图（用参考图合成技术，"1+2=3"的干净合成）→ 生成视频运镜（基于穿搭效果图使用极梦2制作运镜视频）。</p>
+<p><strong>关键设计原则</strong>：素材干净化（任何有背景/服装干扰的素材都会严重影响后续合成）；组合爆炸（4模特×4服装×2场景=32种搭配，必须借助AI流水线）；技能封装（把整套流程做成Codex标准技能）。</p>
+
+<h3><span class="sec-tag">7.2</span> 拆解白底素材</h3>
+<p>素材来源两条安全路径：AI生成素材（极梦灵感广场，免费无版权）优于网络下载。</p>
+<table>
+<tr><th>素材类型</th><th>推荐比例</th><th>原因</th></tr>
+<tr><td>模特四视图</td><td>16:9</td><td>横排能装4个视角</td></tr>
+<tr><td>产品四视图</td><td>9:16</td><td>竖排更紧凑</td></tr>
+<tr><td>服装元素</td><td>3:4</td><td>16:9太宽，9:16太窄</td></tr>
+</table>
+<p>Codex提示词模板：输入文件夹路径+输出文件夹路径+任务（抠图+多视角）+比例要求。绝对不能用"显示图片"指令，必须让AI保存到文件夹。<strong>白底图要足够干净</strong>：模特身上最好不要有任何东西，否则后续换装会变形。</p>
+
+<h3><span class="sec-tag">7.3</span> 合并模特穿搭效果图</h3>
+<p><strong>参考图合成技术</strong>：白底模特图+白底服装图作为参考图→API自动合成穿搭效果图。模特比例控制：5/2（1/2）较合适，5/3偏大，1/5太小不实用。比例：3:4。</p>
+<p><strong>极梦卡脸问题的解决方案</strong>：合成时让模特"假装自拍，用手挡住脸10-30%"，遮挡20%通过率较高。</p>
+<div class="tip"><strong>⚠️ 不要考虑本地化部署大模型做图/做视频</strong>：开源模型与GPT/Doubao差距巨大；语音类本地模型做得很好。并发限制受API Key账户等级限制：普通会员1并发、高级4并发、SVIP 100并发。</div>
+
+<h3><span class="sec-tag">7.4</span> 运镜与视频制作</h3>
+<p><strong>简单运镜提示词结构</strong>：参考图+一致性约束（五官+服装）+动作描述+镜头语言+参数。提示词要素：参考穿搭图、保持人物五官立体一致、室内场景大幅度穿搭展示动作、动作连贯、镜头轻微跟随带真实记录感、9:16、10秒、480P。</p>
+<p><strong>任务轮询机制</strong>：提交任务→获得task_id→循环查询状态(in_progress/completed/failed)→下载视频文件。轮询间隔：10-20秒够用。超时处理：默认3-5秒远不够视频生成（需4分钟），Codex自动改超时+重试。</p>
+<p>成本控制：1080P比480P贵约4倍，时长从5秒→15秒成本涨3倍。先做测试再做生产：5秒480P测试→15秒480P测试→批量15秒1080P生产。全程无需人工干预——让AI遇到问题自己解决。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第8章 故事板做视频（进阶） ════════════ -->
+<div class="chapter" id="ch08">
+<div class="chapter-header"><span class="ch-num">Chapter 8</span><h2>🎬 故事板做视频——进阶（3节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">8.1</span> 故事板做视频逻辑分析</h3>
+<p><strong>故事板的本质</strong>：类比导演带演员到现场直接示范动作，把"想象"变成"看得见摸得着的图"。故事板=一张完整的图，所有信息都在图里，镜头间一致性远高于文字提示词。</p>
+<table>
+<tr><th>维度</th><th>文字提示词</th><th>故事板</th></tr>
+<tr><td>描述方式</td><td>文字描述，AI靠猜</td><td>一张完整的图，信息密度高</td></tr>
+<tr><td>一致性</td><td>镜头间人物会变</td><td>全局一致</td></tr>
+<tr><td>抽卡成本</td><td>高</td><td>低</td></tr>
+</table>
+<p><strong>故事板构成要素</strong>：模特（四视图）+服装（穿搭）+场景+镜头分镜（8个左右）+口播文案+运镜要求+关键特写点。比例16:9横版，15秒视频8个镜头合适，清晰度4K>2K>1K。</p>
+
+<h3><span class="sec-tag">8.2</span> 故事板设计与填充方法</h3>
+<p><strong>"留白"模板艺术</strong>：故事板不能写死，用占位符替代具体内容。模板设计哲学：不写死细节，模板只定结构（16:9、4K、8镜头），具体内容由AI根据素材填充。</p>
+<p>操作步骤：准备素材（模特图白底+多视角、服装图白底+3:4、场景图AI生成按角度定制）→设计模板（固定框架+可变占位符）→视觉理解模型分析每张图特征→形成结构化描述→填入模板占位符→组装完整提示词。</p>
+<div class="tip"><strong>💡</strong>场景图要AI生成，不要用网上找的（质量/角度/内饰都能定制）。调试过程中保存所有版本（v1/v2/v3...），方便对比分析。全程中文，不出现英文。</div>
+
+<h3><span class="sec-tag">8.3</span> 根据故事完成视频制作</h3>
+<p><strong>极简提示词</strong>："使用极梦做视频，完全参考故事板，按故事板结构演绎顺序做视频。"</p>
+<div class="formula-card">批量生产方法论：固定输入（模特+服装文件夹）→ 变换故事板模板（20种不同风格）→ 每种风格生成完整视频。故事板是工业化的关键——把"创意"变成"可复制的工序"。</div>
+<table>
+<tr><th>参数</th><th>测试期</th><th>生产期</th></tr>
+<tr><td>时长</td><td>5秒</td><td>15秒</td></tr>
+<tr><td>清晰度</td><td>480P</td><td>1080P/4K</td></tr>
+<tr><td>镜头数</td><td>2-3个</td><td>8个左右</td></tr>
+</table>
+<p><strong>极梦2过审策略</strong>：故事板提示词加限制"模特形象全部用侧脸方式展示，不得出现全脸"。故事板比例和视频比例可以不同（16:9参考用，9:16视频用）。时长/清晰度参数从低往高调。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第9章 小程序开发全流程 ════════════ -->
+<div class="chapter" id="ch09">
+<div class="chapter-header"><span class="ch-num">Chapter 9</span><h2>📱 小程序开发全流程（5节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">9.1</span> 准备工作</h3>
+<p><strong>5步开发流程</strong>：注册账号 → AI写需求文档 → 做UI界面（HTML预览）→ 写代码+调试 → 提交审核+发布。</p>
+<p><strong>准备清单</strong>：注册微信小程序（mp.weixin.qq.com，必须新邮箱）→ 获取APPID → 下载微信开发者工具（常用版本）→ 创建本地项目（空文件夹+APPID+微信云开发）→ 开通云开发（6个月免费）→ Codex接入（完全访问+计划模式）。</p>
+<div class="tip"><strong>📌 核心定位</strong>微信开发者工具只用来预览和测试，<strong>写代码让Codex做</strong>。计划模式必须开启——AI当产品经理，用户是客户，共同决策。</div>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">9.2</span> 完成需求文档制作</h3>
+<p><strong>提示词设计三要素</strong>：角色定位（高级产品经理+高级程序员，角色叠加让AI既考虑产品又考虑实现）、业务逻辑（清楚描述"我是谁、我要什么、要达到什么效果"）、保存要求（本地.md文件）。</p>
+<p><strong>计划模式协作</strong>：AI启动计划→列出需求项→逐项推荐→用户决策（接受/修改/推翻）。不要让AI一口气做完所有事——逐项核对、逐步推进。界面数量：简洁版2个，复杂项目可10+个。关键词3-5个排序按点赞量取前10个。</p>
+<div class="tip"><strong>💡</strong>文档保存在本地，对话崩了也不怕。AI主动加的功能往往是合理的。</div>
+
+<h3><span class="sec-tag">9.3</span> UI界面制作与预览</h3>
+<p><strong>HTML预览策略</strong>：用HTML方式直接弹出看效果，不需要装Figma/即时设计等。逐个做界面而非一口气全做→改的地方少、调试成本低。提示词："用HTML展示方式直接弹出来给我看，一个个做，每个界面确定后保存到文件夹"。</p>
+<p>保存路径：<code>UI_preview</code>文件夹，每个界面一个HTML文件。修改要精确描述，不要笼统说"做得好看点"。数据API：github开源项目（LastSunday_Scale）+第三方API站点按调用次数计费。<strong>让AI测试API</strong>：把API文档链接+key发给CodeX，让AI自己测试。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">9.4</span> 小程序代码功能调试</h3>
+<p><strong>云函数概念</strong>：微信云开发自带的<strong>后端代码运行环境</strong>，不需要自建服务器。前端不能直接调外部API（微信限制），云函数就是"后端代理"。</p>
+<p>CodeX自动写代码：读API文档→设计代码结构→创建云函数→写前端→集成测试（约3分钟）。需要2个业务API（搜索+视频详情）+1个AI API（DeepSeek生成标题大纲）。部署：右键cloudfunctions文件夹→"创建并部署：云端安装依赖"。</p>
+<table>
+<tr><th>错误现象</th><th>原因</th><th>解决方案</th></tr>
+<tr><td>网络开小差</td><td>云函数没部署</td><td>右键部署云函数</td></tr>
+<tr><td>超时3秒</td><td>API调用需要更长时间</td><td>改超时到20秒</td></tr>
+<tr><td>API返回空</td><td>参数不对或数据为空</td><td>检查参数+重新测试</td></tr>
+<tr><td>排序不对</td><td>API默认综合排序</td><td>查API文档改排序参数</td></tr>
+</table>
+<div class="tip warn"><strong>⚠️</strong>调试占80%时间——代码3分钟写完，调试可能2-3天。每次修改前保存版本，调试出错能回滚。</div>
+
+<h3><span class="sec-tag">9.5</span> 测试与上传发布</h3>
+<p><strong>发布流程</strong>：本地测试→真机调试（开发者工具右上角→二维码→微信扫码）→上传代码（点"上传"→给版本起名1.0/1.1/2.0→填写版本备注→系统打包上传）→<strong>配置合法域名（最常见卡点！不配置所有API调用失败）</strong>→提交审核（半天到一天）→添加体验成员（最多15人，免备案可用）。</p>
+<p>配置合法域名：公众平台→开发管理→开发设置→服务器域名→request合法域名填所有API域名。每个域名每月可修改48次。没备案别人搜不到，只能通过体验码进入。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第10章 自动化剪辑与特效 ════════════ -->
+<div class="chapter" id="ch10">
+<div class="chapter-header"><span class="ch-num">Chapter 10</span><h2>✂ 自动化剪辑与特效（5节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">10.1</span> 自动化剪辑插件介绍与分析</h3>
+<p><strong>HyperFrames定位</strong>：出自HeyGen，基于HTML动画实现视频特效（非真正视频剪辑）。擅长知识博主类口播视频（留白处添加文字标题/关键词/配图/动画）。不擅长复杂场景/搞笑类/日常生活向视频。</p>
+<p><strong>完整工作流</strong>：录制口播视频（15秒，人靠左或靠右留空白）→字幕与时间线获取（faster-whisper本地化方案）→运镜脚本设计（先做运镜脚本图，看图说话远比文字描述稳定）→故事板制作（GPT-Image-1或nano-banana，4×4或3×3）→HyperFrames执行。</p>
+<p>首选下载站点：<strong>ModelScope（魔搭）</strong>——HuggingFace中国区严重限速。必须明确告诉Codex"所有模型都用ModelScope下载"。文字描述运镜极其不稳定，必须用故事板图作为参考。</p>
+
+<h3><span class="sec-tag">10.2</span> Codex配置开源模型及其应用方法</h3>
+<p><strong>原始素材准备标准</strong>：<strong>留白+重点+短时长</strong>三要素。时长15秒左右；人居中偏左或偏右留出空白区域；手机像素尽量清晰；每句话必须有重点（寒暄废话无法添加对应元素）；不要人走来走去、场景频繁切换。</p>
+<p><strong>faster-whisper语音识别</strong>：不是最强但几乎所有电脑都能跑（最低CPU 4核+8G内存）。模型版本：tiny→base→small→medium→large。选型思路"够用就好"——选最快能跑、占空间最小的。</p>
+<p><strong>HuggingFace vs ModelScope</strong>：HuggingFace全球最大开源模型站但国内严重限速。ModelScope（魔搭）是国内镜像站，内容同步、下载极快。<strong>必须明确告诉Codex"所有模型都用ModelScope下载"</strong>——这是新手最容易踩的坑。本地化vs API边界：语音识别适合本地化；图像/视频生成不适合本地化。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">10.3</span> 配置语音与时间线本地化</h3>
+<p><strong>选型思路</strong>："够用就好"——选最快能跑、占空间最小的版本，不是选效果最强但跑不动的。问Codex电脑配置→让它推荐合适模型→<strong>明确要求ModelScope下载</strong>→用15秒视频实测→看到时间线+文字输出确认地基稳了。</p>
+<p><strong>最关键两句话</strong>：①"请帮我配置好ModelScope，所有模型都用ModelScope下载。"②"帮我安装faster-whisper，装好后用这个15秒视频测试一下。"输出格式：时间线+文字（逐字带时间戳），如"3-5秒:Hello各位小伙伴大家好"。</p>
+<p>配置过程：安装modelscope包+写CI脚本，之后默认走国内源。下载路径别瞎改（缓存机制是设计好的）。API替代方案：不想用本地模型可直接配API（如火山引擎）。</p>
+
+<h3><span class="sec-tag">10.4</span> 制作剪辑动画故事板</h3>
+<p><strong>模型不可替代性</strong>：首选<strong>GPT-Image-1</strong>（系统自带"gen"技能），只有它能把运镜效果图做好。次选nano-banana（中文支持太差），不推荐DALL-E（非多模态）。<strong>故事板是确定性锚点</strong>：让模型知道东西该放什么位置、不会遮挡人脸。</p>
+<p>操作：选GPT-Image-1→传参考图（1张固定口播或N张走播多场景）→定网格3×3或4×4（15秒对应3~5个动画）→写提示词（参考场景画面+时间线内容+行业重点+网格要求）→快速验证（1分钟出图不满意立刻改）→沉淀故事板后才让HyperFrames执行。</p>
+<div class="tip"><strong>💡</strong>先看图满意再做下一步——HyperFrames执行1次要20分钟，故事板错了后面全白做。</div>
+
+<h3><span class="sec-tag">10.5</span> HyperFrames完成特效制作</h3>
+<p><strong>"三个慢"与"三个快"</strong>：慢→录视频质量、第一次装环境、HyperFrames第一次执行（半小时+）。快→故事板图改图、提示词调优、HyperFrames后续运行（约13分钟）。<strong>核心策略：用快的环节约束慢的环节</strong>。</p>
+<p>安装HyperFrames插件：Codex左侧"插件"→搜索"hyper frames"→安装+授权。提示词模板："根据这个设计图使用HyperFrames完成视频特效，主要围绕重点是口播知识讲解，内容丰富一些，突出重点。"输入：原视频+故事板图+时间线字幕+重点关键词。</p>
+<p>动画密度：15秒3~4个动画（非8个），每个停3~4秒。第一版通常动画太密/太花哨→反复优化"按关键词突出、动画不要太多"。依赖项：FFMPEG+各帧动画渲染库+Python依赖包。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第11章 开源数字人项目 ════════════ -->
+<div class="chapter" id="ch11">
+<div class="chapter-header"><span class="ch-num">Chapter 11</span><h2>🤖 开源数字人项目（4节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">11.1</span> 整体流程与开源项目分析</h3>
+<p><strong>本地化本质</strong>：源码（流程框架）+ 模型（内在能力），两者缺一不可。商业效果好的模型一般不会开源，开源多是经典模型。</p>
+<p><strong>GitHub项目筛选三大指标</strong>：Star数（至少10K+，几百Star不要看）、Issue数+讨论内容（看活跃度）、README文档（看推荐配置/依赖/坑）。<strong>先筛选再动手</strong>是开源项目铁律。</p>
+<p><strong>Vidnoz数字人项目</strong>：13.7K Star，经典项目，官方推荐Docker部署方式。选型原则：<strong>求稳不求新</strong>——"能跑通"比"最新最强"重要。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">11.2</span> Docker自动化配置数字人</h3>
+<p><strong>Docker比喻</strong>："婚庆外包公司"——把项目所有依赖/环境/配置打包成镜像，一键安装。各项目独立装在各自容器里，互不冲突。</p>
+<p>下载总量约50G（模型文件是大头），下载时间约56分钟（RTX 5090+千兆网）。<strong>必须放C盘Docker默认目录（不要改）</strong>。要求至少12G显存。</p>
+<div class="tip"><strong>本地化 vs API</strong> 本地化：一次部署长期免费、数据不外传、可改源码。API：按调用付费、数据上传、只能用现成功能。</div>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">11.3</span> 修改开源项目加入自己的音色</h3>
+<p><strong>核心原则</strong>：<strong>不要自己改源码</strong>——复制报错信息→粘贴给CodeX→让它改。"开源项目的代码不是你写的，你没看过底层"——这是调试的核心约束。</p>
+<p>操作：上传自己拍的视频（约1分钟，横屏16:9）→点击"快速定制"→失败→报错给CodeX→CodeX调试约18分钟→实际制作3-5分钟生成数字人视频。发现默认语音差→选替代方案。</p>
+<p><strong>两条替代语音路线</strong>：路线A本地化（GPT-SoVITS开源+源码+模型，要求12G显存推荐24G）vs 路线B付费API（火山引擎豆包语音合成2.0，免费额度多，可自定义音色）。豆包API接入：火山引擎→模型广场→语音合成2.0→体验中心→声音复刻→获得音色ID→API调试→创建Key→复制调用指南粘贴给CodeX。</p>
+<div class="tip"><strong>💡</strong>PowerShell请求中文必须UTF-8编码。让Codex不要做分句（避免片段拼接）。客户端UI功能有限，用命令行/脚本才是正解。</div>
+
+<h3><span class="sec-tag">11.4</span> 口播视频自动化剪辑</h3>
+<p><strong>端到端流程</strong>：参考视频链接→数字人API生成口播视频→HyperFrames加字幕/关键词/动画→最终视频。<strong>Skill复用</strong>：把HyperFrames流程封装成Skill，一键调用。</p>
+<p>Codex调用数字人API：随机生成4段稿子，每段1分钟左右。HyperFrames技能：上传视频→识别字幕→做运镜图→故事板→加动画。Codex还会做"抽帧检查"，自动判断哪些位置不能加元素（避免遮挡人脸）。处理1分钟视频约9分钟。</p>
+<p><strong>Codex使用技巧</strong>："少问能不能，多说帮我做"——目标说清楚→Codex帮你完成。录制规范：手不要在嘴附近遮挡（否则出现模糊伪影）。项目选型标准：经典+Docker+高Star优于最新但难配。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第12章 数字人口播视频项目实战 ════════════ -->
+<div class="chapter" id="ch12">
+<div class="chapter-header"><span class="ch-num">Chapter 12</span><h2>🎙 数字人口播视频项目实战（5节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">12.1</span> 项目效果演示与流程分析</h3>
+<p><strong>第12章全面转向API路线</strong>（降低门槛、加快速度）。API路线核心：选型+调通+封装+软件化。</p>
+<p><strong>三大核心API协同</strong>：数字人（禅境/国产，文案+形象ID→口播视频）+ 语音合成（MiniMax，文本+音色ID→自己声音音频）+ 文案提取（抖音文案API，视频链接→文案文本）。</p>
+<p>封装三个Skill（digvideo/douyin/MiniMax），给CodeX视频链接→CodeX按顺序调用3个Skill→AI改写（情感型/专业讲解型/钩子型）→做成EXE软件（2小时+，7-8轮迭代）。</p>
+
+<h3><span class="sec-tag">12.2</span> 数字人口播视频接口配置</h3>
+<p>市面数字人API同质化严重，选型关键是"免费额度+价格"。标准三段式：token+定制+合成。<strong>语音驱动优于文本驱动</strong>：自己的声音+自己的形象=个人IP化。</p>
+<p><strong>录制数字人形象规范</strong>：至少1分钟，建议2-3分钟；横屏/竖屏随意，MP4/MOV都行；分辨率1080P起步；手势不要做太复杂。</p>
+<p>API选型对比：HeyGen（老外声音好但不支持中文）、极梦/可灵（效果好但成本极高约20倍价格）、飞影/讯飞/禅境（底层逻辑都一样，套开源模型微调）。关键API参数：access_token 24小时有效，PowerShell调API必须UTF-8编码。</p>
+
+<h3><span class="sec-tag">12.3</span> 刻录自己语音接口配置</h3>
+<p>数字人API自带语音质量差，必须自定义音色。"音频驱动"是数字人API的"隐藏功能"。音色克隆是"以小博大"：花1分钟读3段话，得到永久可用音色ID。</p>
+<p><strong>MiniMax音色克隆流程</strong>：MiniMax官网→语音色库→克隆音色→<strong>现场朗读3段指定文字</strong>（不能上传音频文件，防止盗用）→等待生成（几分钟）→复制音色ID。</p>
+<p>关键参数调优：语速1.1倍速（默认偏慢），情感级别可调，长文本处理让Codex"不要分句"直接给完整音频。语音API对比：豆包免费额度多但效果一般、MiniMax效果较好价格适中、ElevenLabs效果好但要充值。</p>
+
+<h3><span class="sec-tag">12.4</span> 获取短视频文案接口配置</h3>
+<p>三大API最后一块拼图：文案提取API串联整个管线。<strong>三大Skill协同全景</strong>：抖音文案提取→MiniMax语音合成→数字人API→口播视频。</p>
+<p>操作：进入API控制台→创建API Key→文档中心→复制"视频提取文案"接口文档→粘贴给CodeX→CodeX测试→封装成Skill。价格约几十元/月，频繁用办会员，偶尔用手动写即可。</p>
+
+<h3><span class="sec-tag">12.5</span> 软件开发流程与配置方法</h3>
+<p><strong>"图先于代码"</strong>：文字描述布局有歧义，图像描述一目了然。用GPT-Image-1做界面原型图（反复改到满意，约5分钟）→把图+详细功能描述给CodeX→严格按图实现UI。</p>
+<p><strong>"Skill先于软件"</strong>：先调通每个Skill（原子），再组合成软件（分子）。技术选型<strong>PyQt</strong>（简单、稳定、好调）。软件化四步标准流程：做图→做软件→调试→打包。2小时+7-8轮迭代：第1版基础功能→第2版加进度条→第3版修比例→第4版加背景图/保存按钮→第5版可用。</p>
+<div class="tip"><strong>AI转型路径建议</strong>不要追算法方向（岗位少），奔大模型智能体方向（需求大、门槛适中）。</div>
+</div>
+</div></div>
+
+<!-- ════════════ 第13章 GIT与GITHUB版本管理 ════════════ -->
+<div class="chapter" id="ch13">
+<div class="chapter-header"><span class="ch-num">Chapter 13</span><h2>🗂 GIT与GITHUB版本管理（4节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">13.1</span> GIT与GITHUB介绍</h3>
+<p><strong>GIT=代码世界的"存档系统"</strong>（类比游戏存档）。<strong>GITHUB="云存档柜"</strong>（远端代码托管平台）。GIT是软件/协议，GITHUB是服务器。</p>
+<p><strong>为什么非程序员也要学</strong>：改错后无法回退→GIT能随时保存版本、回退版本；多人协作不再靠微信传代码；GITHUB Star数=个人技术品牌硬通货。</p>
+<p><strong>核心原则</strong>：<strong>不要深入研究原理</strong>，后续操作都在CODEX里执行，不需要敲命令行，<strong>会用即可</strong>。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">13.2</span> GITHUB功能介绍</h3>
+<p>GIT安装：百度搜"GIT"→官网下载→傻瓜式安装→验证<code>git --version</code>（PowerShell或CMD中执行）。GITHUB注册：邮箱注册→创建仓库（点New→命名<strong>不要出现中文</strong>）→新手练手选<strong>Private</strong>（避免误传API Key）。</p>
+<p>仓库URL结构：<code>https://github.com/[用户名]/[仓库名]</code>。用户名要起好听点（所有仓库URL都带这个名字）。国内访问可能慢→多刷新几次。没装好：检查环境变量、重启电脑，还不行就让CODEX帮你检查。</p>
+
+<h3><span class="sec-tag">13.3</span> GIT指令基本操作方法</h3>
+<p><strong>所有命令通过CODEX执行</strong>，不直接敲命令行。五大核心操作：</p>
+<table>
+<tr><th>操作</th><th>命令</th><th>作用</th></tr>
+<tr><td>初始化</td><td><code>git init</code></td><td>产生.git文件夹（版本记录）</td></tr>
+<tr><td>忽略配置</td><td>修改<code>.gitignore</code></td><td>设置不上传的文件（测试输出/API Key/依赖文件）</td></tr>
+<tr><td>提交</td><td><code>git commit</code></td><td>存一次盘，生成唯一ID</td></tr>
+<tr><td>回退</td><td><code>git reset --hard [ID]</code></td><td>回到指定版本（<strong>不可逆！</strong>）</td></tr>
+<tr><td>分支</td><td><code>git branch/checkout/merge</code></td><td>分支开发+合并</td></tr>
+</table>
+<p>分支操作标准流程：创建分支（复制主干）→分支里开发→测试成功→合并回master。单人模式核心需求=存档+回退；多人模式才需要分支+合并。冲突处理：人工审查/让CODEX展示冲突点/自主决策。</p>
+
+<h3><span class="sec-tag">13.4</span> 项目移植到GITHUB服务器</h3>
+<p><strong>上行</strong>：本地→远端；<strong>下行</strong>：远端→本地。两种发布形式：源码上传（给开发者）vs Release安装包（给普通用户）。</p>
+<p>上传指令："我的token是什么[粘贴token]，把当前项目上传到GITHUB仓库里[粘贴仓库链接]"。获取Token：Settings→Developer settings→Personal access tokens→权限只勾仓库相关。<strong>Token是命脉</strong>，只显示一次，绝对不能给别人。</p>
+<p><strong>Release发布流程</strong>：仓库→右侧"Releases"→"Create a new release"→写标题（如"v1.0安装包"）→上传附件（.exe）→Publish release→别人可直接下载。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第14章 飞书集成与多维表格 ════════════ -->
+<div class="chapter" id="ch14">
+<div class="chapter-header"><span class="ch-num">Chapter 14</span><h2>📋 飞书集成与多维表格（3节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">14.1</span> 结合飞书的逻辑分析</h3>
+<p><strong>飞书=智能体办公的最佳载体</strong>：CODEX（智能）+飞书（载体）+官方技能包（工具）=移动可用的AI办公助手。飞书三大核心优势：①接口完整、AI友好——所有接口全部为AI/智能体做了对接；②官方提供大量技能包——多维表格、文档、邮箱、日历、会议、任务全覆盖；③移动端可用——解决CODEX移动版国内装不了的问题。</p>
+<p><strong>两种使用场景</strong>：场景一（在CODEX里使用飞书技能，做表格/上传文件/处理数据）vs 场景二（在飞书里接入CODEX，手机也能用CODEX）。关键限制：电脑必须保持开机（CODEX服务跑在本地）。</p>
+
+<h3><span class="sec-tag">14.2</span> 接入飞书skill处理多维表格</h3>
+<p><strong>两个必须安装组件</strong>：①飞书CLI（命令行连接飞书）②飞书官方技能包（开源在GitHub，覆盖多维表格/文档/邮箱/日历/会议/任务）。<strong>"已有标准技能包就不需要自己配API"</strong>。</p>
+<p><strong>首次授权流程</strong>：注册飞书（个人版即可）+下载飞书APP→扫码授权（约8分钟，扫很多次码），后续不需要。核心指令："帮我把CSV上传到飞书多维表格，加上ID，自己分析意向级别（1-5星优先级）"→CODEX自动导入数据、添加新字段、写Python脚本计算分数、批量提交、返回飞书链接。</p>
+<p>1000条数据几分钟完成。让CODEX自己分析哪些用户意向高，给<strong>综合优先级</strong>字段（1-5星）。27个字段，可在浏览器中直接打开飞书链接查看。飞书任务："根据表格创建未来三天跟进任务"→自动筛选、创建、汇总。手机电脑同步查看。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">14.3</span> 飞书中接入自己的智能体</h3>
+<p><strong>反向打通架构</strong>：飞书APP→飞书服务器→本地服务→CODEX CLI→CODEX能力。在飞书里出现"你的智能助手"，手机和电脑聊天界面一模一样。</p>
+<p>安装CODEX CLI→借助飞书官方开源项目→反复授权（5-6次）→服务启动后<strong>必须保持运行</strong>。<strong>电脑不能休眠</strong>（否则服务断开）。</p>
+<div class="tip"><strong>💡 关键认知</strong>视野决定上限——知道有什么比会用什么更重要。</div>
+</div>
+</div></div>
+
+<!-- ════════════ 第15章 Obsidian知识库应用 ════════════ -->
+<div class="chapter" id="ch15">
+<div class="chapter-header"><span class="ch-num">Chapter 15</span><h2>📓 Obsidian知识库应用（5节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">15.1</span> Obsidian能解决的问题</h3>
+<p><strong>知识库=把个人知识变成CODEX能访问的资源</strong>。Obsidian=个人AI知识库的最佳载体。三大优势：①本地化存储（数据在自己电脑，安全可控）②格式兼容性强（啥都支持，免费可用）③与CODEX无缝连接（不打开Obsidian，纯用CODEX操控）。</p>
+<p>初始化流程：下载→安装（无难度）→快速开始（默认配置）。模型选择：GPT（多模态，适合Obsidian完整图文理解）vs DeepSeek（仅文字，不适合第一个环节）。</p>
+<div class="tip"><strong>核心心法</strong>不要把它当复杂软件学，当作"文件存储+展示"系统。不要自己学透Obsidian，让CODEX帮你操作。</div>
+
+<h3><span class="sec-tag">15.2</span> Obsidian中配置CODEX使用</h3>
+<p><strong>两种使用模式</strong>：Obsidian内嵌CODEX vs CODEX直接操作Obsidian文件夹。内嵌方式：关闭安全模式（设置→第三方插件→关闭安全模式）→搜索安装"Claudian"/"claude code"插件→配置CODEX CLI路径→选GPT模型。反向配置：Obsidian欢迎页→右键→复制绝对路径→CODEX新建项目→"使用现有文件夹"→粘贴路径→完全访问权限。</p>
+<div class="tip warn"><strong>⚠️</strong>第一次给的路径可能不对，让CODEX确认第二遍。每天第一次打开会重新连接5遍（国内版bug）。配不好就算了，直接在CODEX里操作也行。</div>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">15.3</span> Obsidian插件获取数据</h3>
+<p>MD=Markdown（类似飞书文档格式），通用格式。两种采集方法：插件（公开内容）vs CLI（私有内容）。<strong>小红书内容采集</strong>：搜索安装"小红书Import"插件→复制小红书链接→点插件→粘贴链接→import→完整笔记内容直接入库到"收集箱"文件夹。</p>
+<p><strong>飞书文档采集</strong>：对CODEX说"帮我安装飞书CLI"→提供飞书官方安装教程链接→首次安装必然要授权（扫码登录飞书）→CODEX自动下载飞书文档。<strong>Word格式陷阱</strong>：CODEX下载完可能存为Word格式Obsidian打不开→解决方案：加指令"转成MD格式文件"。</p>
+<p>采集后的典型应用场景：做同款内容、个人知识库、孩子错题本、行业资料分析。</p>
+
+<h3><span class="sec-tag">15.4</span> 接入开源项目做行业分析</h3>
+<p>开源项目核心能力：筛选海量资源→信息源汇总→数据清洗（去重复/营销号）→自动打分排序→生成总结资料。"看不懂不是重要的，关键是CODEX能看得懂。"</p>
+<p>操作：把项目链接给CODEX→指令模板"帮我配置这个信息数据系统，需要什么跟我说"→配置API Key（CODEX给链接→自己注册拿Key→给CODEX）→跑通测试生成AI日报。</p>
+<p>自定义行业分析（旅游行业案例）："帮我搜集今天旅游行业热点，总结哪个城市最热门"→约2分钟生成结果→自动存入Obsidian指定目录。生成结果含：今日结论、行业洞察、推荐选题（如"端午节龙舟热度+毕业季"推荐广州）。</p>
+
+<h3><span class="sec-tag">15.5</span> 基于知识库做小红书图文</h3>
+<p><strong>完整数据闭环</strong>：信息源→Obsidian知识库→CODEX检索+多模态理解（GPT）→生成图文内容→封装Skill（定时自动化）。</p>
+<p>操作：参考Obsidian中收集箱里的小红书旅游文案→理解写作方法和配图方法→对CODEX指令"参考MD文件，帮我做同款小红书图文文案，需要包括标题。封面配图尽量不出现文字，配图以展示实景或实际地标为主。"→约10分钟生成9张配图全部嵌入笔记。标题示例："断后才发现，广州才是最适合毕业旅游的城市"。</p>
+<p><strong>通用方法论（四步）</strong>：①定业务目标（存数据的目的是什么）→②选信息源（选什么开源项目/API，CODEX可直接帮你查）→③跑通流程（重复执行几遍确保无错误→封装成技能包）→④自动化执行（设定每天定时，自动跑数据/自动整理/自动生成/自动发布）。Obsidian=本地文件管理系统+聚合知识的容器。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第16章 Nature Skill科研应用 ════════════ -->
+<div class="chapter" id="ch16">
+<div class="chapter-header"><span class="ch-num">Chapter 16</span><h2>🔬 Nature Skill科研应用（1节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">16.1</span> Nature-Skill完成科研工作</h3>
+<p><strong>Nature-Skill</strong>：上海交大博士开发的开源科研Skill包，定位为"科研辅助工具集"，包含多个Skill的集合（非单一功能）。</p>
+<table>
+<tr><th>功能</th><th>Skill名</th><th>输入</th><th>输出</th><th>价值</th></tr>
+<tr><td>做图</td><td>nature figure</td><td>论文截图/数据</td><td>可编辑图表</td><td><strong>4-5小时缩减到9秒</strong></td></tr>
+<tr><td>翻译论文</td><td>nature read</td><td>英文论文</td><td>中英对照翻译</td><td>符合SCI写作风格</td></tr>
+<tr><td>组会PPT</td><td>nature paper to PPT</td><td>论文PDF</td><td>组会PPT</td><td>自动生成5页框架</td></tr>
+</table>
+<p><strong>安装方式</strong>：GitHub搜索nature-skill→复制链接给CODEX→说"请求这个仓库帮我安装这个skill"。</p>
+<div class="tip warn"><strong>⚠️ 注意</strong>项目刚开源不久bug较多；翻译功能存在符号乱码问题；PPT只能出大框架需人工二次修改；<strong>做图是最值得用的功能</strong>。</div>
+</div>
+</div></div>
+
+<!-- ════════════ 第17章 大模型微调与量化 ════════════ -->
+<div class="chapter" id="ch17">
+<div class="chapter-header"><span class="ch-num">Chapter 17</span><h2>🔧 大模型微调与量化（3节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">17.1</span> 环境配置方法</h3>
+<p><strong>LLaMA-Factory</strong>：开箱即用的大模型微调框架，Windows下无独显也能微调。提供可视化WebUI，选择参数即可完成微调（WebUI操作=等价命令行参数的前端封装）。</p>
+<p><strong>环境配置步骤</strong>：创建独立conda环境（<code>conda create -n llama_factory_2025 python=3.10</code>，3.10兼容性最佳）→GitHub搜索LLaMA-Factory→git clone或手动下载ZIP→安装依赖（默认CPU版PyTorch）→手动替换GPU版PyTorch（<code>pip uninstall torch</code>后安装PyTorch 2.4.0+CUDA版本）→启动WebUI（<code>llamafactory-cli webui</code>，必须在项目根目录执行）。</p>
+<p><strong>模型下载</strong>：推荐ModelScope（国内无需登录，资源齐全）。模型选择：Qwen2.5-VL-3B-Instruct（视觉语言模型，带Instruct后缀）。自定义下载路径避免占满C盘。</p>
+
+<h3><span class="sec-tag">17.2</span> 多模态数据集配置</h3>
+<p><strong>JSONL多模态数据格式</strong>：<code>{"messages":[{"role":"user","content":[{"type":"image","image":"图片路径"},{"type":"text","text":"问题"}]},{"role":"assistant","content":[{"type":"text","text":"答案"}]}]}</code>。role只能是user/assistant不能改，content必含image+text字段。一个样本对应一张图，支持多轮问答，一条JSON对应一个样本。</p>
+<p><strong>数据集注册步骤</strong>：打开<code>data/dataset_info.json</code>→新增条目只需改name和file_name→WebUI数据集下拉框从该配置文件动态加载→点击"预览数据集"验证格式。</p>
+<p>对话模板必须与模型匹配：Qwen-VL必须选qwen2_vl模板。微调方法默认LoRA。数据构造建议：不要自己写脚本，让DeepSeek/豆包帮忙生成Python脚本。流程：复制官方示例格式→让AI写处理脚本→跑脚本生成JSONL。</p>
+
+<h3><span class="sec-tag">17.3</span> 微调与量化和推理预测</h3>
+<div class="formula-card">LLaMA-Factory完整工作流：下载基础模型 → 数据集构造(JSONL+多模态) → 注册数据集 → 配置训练参数(LoRA) → 启动训练 → 合并LoRA到原模型 → (可选)量化压缩 → 转GGUF → 部署到Ollama</div>
+<p><strong>训练参数</strong>：训练类型=指令微调（SFT，不做偏好对齐）；训练轮数建议300 epochs；max_length=256/1024；lora_rank（矩阵秩，机器配置高可调大）、lora_alpha（一般为rank的2倍）。典型错误：报错"792与256不匹配"→max_length设小，改为1024。训练前必须卸载Chat模块已加载的模型避免显存冲突。</p>
+<p><strong>LoRA导出与合并</strong>：LoRA只保存A、B两个矩阵的增量→原模型权重未修改→<strong>不能直接推理</strong>→必须合并（<code>merged_model=原模型+Lora_AB</code>）→导出为完整可独立推理模型。导出设备默认Auto、精度bfloat16。</p>
+<p><strong>量化</strong>：对合并后完整模型做4-bit量化→约10分钟→体积显著缩小。部署到Ollama需用llama.cpp将safetensors转GGUF。LLaMA-Factory已自动生成Ollama所需Modelfile。效果测试（安全施工场景）：原模型漏检3人→微调后正确识别2名安全员，输出符合规范格式。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第18章 RAGFLOW本地知识库 ════════════ -->
+<div class="chapter" id="ch18">
+<div class="chapter-header"><span class="ch-num">Chapter 18</span><h2>📚 RAGFLOW本地知识库（5节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">18.1</span> RAGFLOW介绍和特点</h3>
+<p><strong>微调 vs 知识库/RAG</strong>：微调=考试学100本书（擅长风格/格式，效果慢）vs 知识库=考试带小抄（不需训练，效果快，不需准备数据和算力）。两者不是互斥关系：微调擅长风格，知识库擅长事实。</p>
+<p><strong>RAG四步标准流程</strong>：解析（Parser，OCR+结构化）→ Embedding向量化（段落变向量，相似度匹配）→ Embedding模型选择（付费API或本地M3E）→ 重排序/精排（降低LLM上下文负担）。</p>
+<p><strong>RAGFLOW核心优势</strong>：解析模板丰富（论文/书/表格/QA对）、纯开源完全本地部署、Windows/Linux全平台、本地化模型无缝接入（<strong>全流程零API调用、零成本</strong>）、内置DeepDOC模块做OCR。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">18.2</span> RAGFLOW接入本地模型</h3>
+<p><strong>Docker部署</strong>：下载Docker桌面版（docker.com）→GitHub搜索RAGFLOW（Infiniflow公司出品，star数16.4K）→执行docker compose命令两步完成。⚠️ Docker默认装C盘，RAGFLOW占用约50GB，建议先调整Docker镜像存储路径。部署耗时3~4小时（下载几十GB镜像）。</p>
+<p><strong>Ollama部署本地模型</strong>：本地大模型运行时标准方案。<code>ollama list</code>查看已下载模型；<code>ollama run qwen2:7b</code>拉取并运行。模型选型：Qwen2多版本（0.5B/1.5B/7B/72B），推荐<strong>7B</strong>（能力够用，4.4GB量化后，笔记本8GB显存可跑）。</p>
+
+<h3><span class="sec-tag">18.3</span> Chat与Embedding模型接入</h3>
+<p><strong>两个关键配置坑</strong>：①URL必须用<code>http://192.168.x.x:11434</code>，不能用localhost；②Windows环境变量（官方文档未提及）：变量名<code>OLLAMA_HOST</code>，变量值<code>0.0.0.0:11434</code>——<strong>没有此变量Ollama与RAGFLOW始终连不上</strong>。</p>
+<p><strong>必配两类模型</strong>：Chat模型（如Qwen2-7B，配置入口：头像→模型供应商→添加Ollama类型）+ Embedding模型（如M3E，中文任务首选，开源400+MB，商用可选智谱Embedding-3）。<strong>两者缺一不可</strong>。</p>
+
+<h3><span class="sec-tag">18.4</span> 知识库构建实例</h3>
+<p><strong>解析方法分类</strong>：paper（学术论文结构）、book（书籍结构）、table（表格类）、QA（问题-答案对，Excel格式）。完整解析链路：OCR→分段→Embedding→入库→建索引。</p>
+<p><strong>QA模式Excel格式要求</strong>：第一列query（问题）、第二列answer（答案），无需表头（系统按位置识别），一个QA对应一个向量（按行，不按字数）。检索局限性：LLM自己已会的问题不触发检索；问题太通用时检索未触发；数据集与问题相似度低时匹配不准。</p>
+
+<h3><span class="sec-tag">18.5</span> 封装成API调用</h3>
+<p><strong>API调用流程</strong>：初始化拿session_id→提问携带session→返回答案+引用。Python调用示例关键参数：<code>session_id</code>（连续对话标识）、headers中放API Key做鉴权、BASE_URL：<code>http://本机IP:80/v1</code>。</p>
+<p>部署建议：Docker所有服务保持启用。RAGFLOW=长期运行的后端RAG服务，其他项目通过URL+Key即可复用。Agent工作流取舍：本章只用RAGFLOW的知识库能力；RAGFLOW的Agent功能简陋，不建议用于生产级Agent（市面上Dify/Coze等Agent框架更成熟）。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第19章 影刀RPA自动化 ════════════ -->
+<div class="chapter" id="ch19">
+<div class="chapter-header"><span class="ch-num">Chapter 19</span><h2>🤖 影刀RPA自动化（5节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">19.1</span> 影刀RPA分析</h3>
+<p><strong>工具链分工模式</strong>：影刀=数据采集层（模拟鼠标键盘）→扣子=智能分析层（Excel解析+Prompt生成+LLM分析）→组合=半自动化ETL流水线。核心价值：RPA模拟物理用户行为；真正难点是数据获取（"怎么把别人家的数据抓下来"）；降本增效——把人的重复劳动交给机器人。</p>
+
+<h3><span class="sec-tag">19.2</span> 影刀安装方法</h3>
+<p><strong>安装流程</strong>：浏览器搜索"影刀RPA"→官网→免费下载→注册账号。<strong>浏览器插件安装（关键步骤）</strong>：必须安装自动化插件才能操控浏览器；安装前先关闭对应浏览器；Chrome：扩展程序中找到影刀RPA插件→切换为"启用"。</p>
+<p><strong>学习方法建议</strong>：<strong>先做后学</strong>，不要先看官方文档。跟着走一遍完整流程，每一个组件操作一次就能基本掌握。</p>
+
+<h3><span class="sec-tag">19.3</span> 影刀流程配置方法实例</h3>
+<p><strong>关键组件配置</strong>：①打开/选择文件对话框（文件过滤*.xlsx;*.xls，指令输出保存为变量）②获取已打开网页对象（浏览器选Chrome，先手动登录再自动化）③打开/新建Excel（打开已有的，文件路径引用变量）④循环Excel内容（行列索引<strong>从0开始</strong>，0=A列/1=B列/2=C列...）。</p>
+<p><strong>跳过表头标准做法</strong>：添加IF条件<code>{当前行号}==1</code>（注意从0起所以是1不是0）→TRUE分支执行"继续下一次循环"→FALSE分支正常处理。关键经验：变量命名用中文；<code>{x}</code>引用模式与扣子统一；行列索引从0开始是必须知道的规则；写两步就运行一次逐步叠功能。</p>
+
+<h3><span class="sec-tag">19.4</span> 执行循环操作</h3>
+<p><strong>核心操作组件</strong>：跳转到新网址（操控网页对象，网址引用变量，等待20秒加载）→For次数循环（起始值0/结束值5/步长1）→点击元素（元素库→捕获新元素，Ctrl+鼠标左键选中目标）→等候加载（等待1-2秒）。</p>
+<p><strong>踩坑经验</strong>：录屏软件干扰元素捕获；元素未加载完就点击导致漏抓；循环不闭合导致死循环点击。</p>
+
+<h3><span class="sec-tag">19.5</span> 完成文案采集全部功能</h3>
+<p><strong>全局变量实现动态索引</strong>：添加"设置变量"组件（整数类型，值引用For循环变量）→配置全局变量（右侧+添加全局变量，命名index，默认值0）→修改点击元素索引（引用变量而非固定数字）。</p>
+<p><strong>核心设计原则</strong>：①状态变量化（全局变量index是动态点击关键）②行/列映射（循环索引→Excel列的偏移计算）③循环闭环（每个内层必须有关页动作ESC）④逐层调试（写两步运行一次）。完整流程：多博主×多文案=笛卡尔积，自动写入Excel。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 第20章 Agent论文解读与框架设计 ════════════ -->
+<div class="chapter" id="ch20">
+<div class="chapter-header"><span class="ch-num">Chapter 20</span><h2>🏘 Agent论文解读与框架设计（10节）</h2></div>
+<div class="chapter-body">
+
+<div class="section">
+<h3><span class="sec-tag">20.1</span> 整体故事解读</h3>
+<p><strong>斯坦福AI小镇论文核心</strong>：构建沙盒环境，初始化<strong>25个具有完整人物设定的角色</strong>（姓名、年龄、过往经历、性格特点、朋友关系、家庭组织关系等），让它们在小镇中自主生活、自由交互，演绎出无法事先预设的故事。</p>
+<p><strong>核心运作机制</strong>：角色间对话（25人互相走动相遇触发对话，全部由大模型生成）+环境感知（角色观察到环境事件如床上有人、市长竞选等）+长期与短期记忆（记忆库持续存储、更新检索所见信息）+反思与计划（角色结合记忆与目标进行反思制定未来行为）。</p>
+<p><strong>涌现行为</strong>：情人节派对从一人发起→朋友告知朋友的朋友→当天咖啡馆真的聚满了人。信息在人际间自然传播，非预设而形成。Agent四要素：观察、交互、反思、计划——全部由GPT/LLM驱动。</p>
+
+<h3><span class="sec-tag">20.2</span> 要解决的问题和框架分析</h3>
+<p><strong>Agent执行流程四步骤</strong>：感知（观察周围世界）→思考（结合感知与现有记忆形成新记忆）→反思（结合长期目标做更深层总结）→执行/计划（做出下一步行动并规划未来）。</p>
+<p>论文定位：<strong>工程框架类论文</strong>，非算法类，提供Agent设计思路。所有决策都由大模型完成——既包括"看到什么、学到什么、存入什么记忆"的感知层，也包括"遇到人该问什么、怎么回答"等高层行为决策。</p>
+
+<h3><span class="sec-tag">20.3</span> 论文基本框架分析</h3>
+<p><strong>记忆检索机制三大维度</strong>：①时效性（自动衰减函数）②重要性（LLM打分1-10分）③相关性（Embedding余弦相似度）。筛选公式：三者加权累加（论文中三个系数都设为1）。</p>
+<p><strong>消融实验结论</strong>：感知、反思、规划三者缺一不可。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">20.4</span> Agent的记忆信息</h3>
+<p>记忆特征：长期、动态、文本形式存储。表情由LLM根据对话/事件生成。物品交互：物体状态被感知并影响行为决策。信息传播：个体发起事件通过社交网络自然扩散。关系演化：从细节记忆抽象为高层关系判断。</p>
+
+<h3><span class="sec-tag">20.5</span> 感知与反思模块构建流程</h3>
+<p><strong>三大核心模块</strong>：感知（环境输入）+思考（低级+高级）+规划（行为输出）。</p>
+<p><strong>感知四步</strong>：获取感知半径内事物→与当前记忆对比（已有则跳过）→向量化Embedding→LLM打分（重要性1-5分）。</p>
+<p><strong>思考两级</strong>：低级（表面观察与自身记忆关联）→高级（生成问题→问LLM→形成新记忆）。</p>
+
+<h3><span class="sec-tag">20.6</span> 计划模块实现细节</h3>
+<p><strong>计划两级生成</strong>：粗计划（每日5件左右主要事项）→详细计划（每小时拆成5分钟子任务）。提示词结构：人物属性+初始化信息+当前时间+计划模板。</p>
+<p>详细计划生成后：把每小时行为拆成5分钟级子任务→提示词包含人物基本信息+计划表+持续时间+详细规划要求→拆分结果如"起床→刷牙→吃早饭各持续若干分钟"→计划写回记忆库。</p>
+<p><strong>关键提醒</strong>：成本极高！完整跑一遍花费数千美元，GPT-4每步操作都要产生大量交互。</p>
+</div>
+
+<div class="section">
+<h3><span class="sec-tag">20.7</span> 整体流程框架图</h3>
+<div class="formula-card">完整框架：感知（看到什么）→ 检索（找相关内容）→ 思考+计划（影响记忆）→ 得出"想做什么"→ 决定下一步5分钟行为→ 递归循环</div>
+<p>详细计划的拆分：每小时行为拆成5分钟级子任务。计划生成后写回记忆库（记忆逐步扩张：醒来→洗脸→刷牙→吃早饭）。交互所需信息：地点（咖啡店）+事件（讨论问题）+涉及物品（买咖啡）+遇到的人+心情/表情。物品选择：提示词"你要去睡觉，周围有什么物品→选床"，最终得到完整行为。</p>
+<p>源码让人大吃一惊——<strong>所有东西都是GPT的交互完成</strong>，没有传统算法逻辑，纯粹是流程化提示词工程。</p>
+
+<h3><span class="sec-tag">20.8</span> 感知模块解读</h3>
+<p><strong>记忆筛选公式三维度</strong>：时效性（自动衰减）+重要性（LLM打分1-10）+相关性（Embedding余弦相似度）。三者相加后乘以各自权重系数（论文中三个系数都设为1）。感知模块不断循环执行：看到新事物→对比记忆→打分→决定是否存入。</p>
+
+<h3><span class="sec-tag">20.9</span> 思考模块解读</h3>
+<p><strong>反思触发机制</strong>：重要记忆总分超过阈值（如150）→触发反思。<strong>反思三步走</strong>：①LLM生成自我反思问题→②检索与问题最相关记忆→③生成高层抽象总结。<strong>反思不等于决策</strong>：反思只产出总结，真正决策还需LLM生成计划。</p>
+
+<h3><span class="sec-tag">20.10</span> 项目环境配置方法解读</h3>
+<p><strong>环境配置</strong>：下载源码→新建utils.py→需要OpenAI API Key（余额≥10美元）→<code>pip install -r requirements.txt</code>。</p>
+<p><strong>两种运行方式</strong>：①自行生成（用OpenAI Key自己跑，极昂贵，完整跑一遍花费数千美元）②<strong>回放预设</strong>（用原作者保存好的"电影脚本"直接播放，<strong>推荐</strong>）。</p>
+<p><strong>源码特点</strong>：约3000行代码，几乎全是GPT提示词，没有算法/模型搭建，纯流程化代码。离线批量生成，非实时交互。全部由LLM提示词驱动，零传统算法。</p>
+</div>
+</div></div>
+
+<!-- ════════════ 页脚 ════════════ -->
+<div class="chapter" style="text-align:center;padding:40px 28px">
+<p style="color:var(--sub);font-size:.9rem">📖 唐宇迪【2026】Codex智能体应用实战 · 完全指南</p>
+<p style="color:#999;font-size:.8rem">共20章 · 91节 · 涵盖从小白到精通的全部知识点</p>
+<p style="color:#999;font-size:.78rem;margin-top:12px">由 Claude Code 基于全部课程原始文字稿整理生成 | 2026年7月</p>
+</div>
+
+</div><!-- .wrap -->
+<a href="#" class="back-top">↑</a>
+</body>
+</html>
