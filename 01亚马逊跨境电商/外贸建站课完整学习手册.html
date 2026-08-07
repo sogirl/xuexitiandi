@@ -1,0 +1,1671 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="format-detection" content="telephone=no">
+<title>外贸人Codex+WordPress建站课 · 完整学习手册</title>
+<style>
+:root{--bg:#FAFBFC;--card:#FFF;--text:#2C3E50;--text-light:#5A6C7D;--primary:#4A90A4;--primary-light:#E8F4F8;--success:#7FB069;--success-light:#EAF4E3;--warning:#E8A87C;--warning-light:#FBF1E9;--danger:#C44569;--danger-light:#F9EBEF;--border:#E8ECEF;--code-bg:#F5F7F9;--shadow:0 2px 8px rgba(74,144,164,0.08);--radius:8px}
+*{box-sizing:border-box;margin:0;padding:0}
+html{-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{font-family:'Microsoft YaHei','PingFang SC','Helvetica Neue',sans-serif;background:var(--bg);color:var(--text);line-height:1.8;font-size:16px;-webkit-font-smoothing:antialiased}
+a{color:var(--primary);text-decoration:none}
+a:hover{text-decoration:underline}
+code{font-family:'Consolas','Monaco','Courier New',monospace;font-size:14px;background:var(--code-bg);padding:2px 6px;border-radius:4px;color:#C44569}
+pre{background:var(--code-bg);padding:14px 16px;border-radius:var(--radius);overflow-x:auto;border-left:3px solid var(--primary);font-size:13px;line-height:1.6;margin:12px 0}
+pre code{background:none;padding:0;color:var(--text)}
+.progress-bar{position:fixed;top:0;left:0;height:4px;background:linear-gradient(90deg,var(--primary),var(--success));width:0;z-index:9999;transition:width 0.2s ease}
+.wps-tip{background:linear-gradient(90deg,var(--warning-light),var(--warning));color:#8B4513;padding:10px 20px;text-align:center;font-size:14px;border-bottom:2px solid var(--warning)}
+.hero{background:linear-gradient(135deg,#4A90A4 0%,#7FB069 100%);color:#fff;padding:40px 20px;text-align:center;box-shadow:var(--shadow)}
+.hero h1{font-size:32px;margin-bottom:10px;font-weight:700;letter-spacing:1px}
+.hero .subtitle{font-size:18px;opacity:0.95;margin-bottom:8px}
+.hero .meta{font-size:14px;opacity:0.85;margin-top:14px}
+.hero .meta span{margin:0 12px}
+.container{max-width:1200px;margin:0 auto;padding:20px;display:grid;grid-template-columns:240px 1fr;gap:24px}
+@media(max-width:768px){.container{grid-template-columns:1fr;padding:12px}}
+.toc{background:var(--card);border-radius:var(--radius);padding:20px 16px;box-shadow:var(--shadow);position:sticky;top:24px;max-height:calc(100vh - 48px);overflow-y:auto;font-size:14px}
+.toc h3{font-size:16px;color:var(--primary);border-bottom:2px solid var(--primary);padding-bottom:8px;margin-bottom:12px}
+.toc ul{list-style:none}
+.toc li{margin:6px 0}
+.toc a{color:var(--text-light);display:block;padding:4px 8px;border-radius:4px;transition:all 0.2s}
+.toc a:hover{background:var(--primary-light);color:var(--primary);text-decoration:none}
+.toc .toc-part{font-weight:600;color:var(--primary);margin-top:10px}
+.toc .toc-doc{padding-left:18px;font-size:13px}
+main{min-width:0}
+.part{background:var(--card);border-radius:var(--radius);margin-bottom:24px;padding:28px;box-shadow:var(--shadow)}
+.part-header{display:flex;align-items:center;gap:12px;padding-bottom:14px;margin-bottom:20px;border-bottom:3px solid var(--primary)}
+.part-num{background:var(--primary);color:#fff;width:44px;height:44px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;font-size:18px;flex-shrink:0}
+.part-title{font-size:22px;color:var(--primary);font-weight:700;flex:1}
+.doc{border-left:4px solid var(--primary-light);padding:18px 0 18px 18px;margin:24px 0;border-bottom:1px dashed var(--border)}
+.doc:last-child{border-bottom:none}
+.doc-header{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;margin-bottom:12px}
+.doc-num{background:var(--primary-light);color:var(--primary);padding:3px 10px;border-radius:12px;font-size:13px;font-weight:700}
+.doc-title{font-size:19px;color:var(--text);font-weight:700}
+.doc-subtitle{font-size:13px;color:var(--text-light);margin-bottom:14px;font-style:italic}
+.mindmap-wrap{background:#FAFBFC;border:1px solid var(--border);border-radius:var(--radius);padding:14px;margin:18px 0;overflow-x:auto;touch-action:manipulation;-webkit-overflow-scrolling:touch}
+.mindmap-wrap svg{display:block;min-width:100%;height:auto}
+.mindmap-caption{font-size:13px;color:var(--text-light);text-align:center;margin-top:8px;font-style:italic}
+.callout{border-radius:var(--radius);padding:14px 18px;margin:14px 0;border-left:4px solid;font-size:14.5px}
+.callout-info{background:var(--primary-light);border-color:var(--primary);color:#2C5F6F}
+.callout-success{background:var(--success-light);border-color:var(--success);color:#4A6E3A}
+.callout-warning{background:var(--warning-light);border-color:var(--warning);color:#8B5A2B}
+.callout-danger{background:var(--danger-light);border-color:var(--danger);color:#8B2942}
+.callout strong{font-weight:700}
+.table-wrap{overflow-x:auto;margin:14px 0;-webkit-overflow-scrolling:touch}
+table{width:100%;border-collapse:collapse;font-size:14px;min-width:480px}
+th,td{padding:10px 12px;text-align:left;border:1px solid var(--border)}
+th{background:var(--primary-light);color:var(--primary);font-weight:700}
+tr:nth-child(even) td{background:#FAFBFC}
+tr:hover td{background:var(--primary-light)}
+h2{font-size:24px;color:var(--primary);margin:20px 0 14px;padding-bottom:8px;border-bottom:2px solid var(--primary-light)}
+h3{font-size:19px;color:var(--text);margin:18px 0 10px}
+h4{font-size:16px;color:var(--primary);margin:14px 0 8px}
+h5{font-size:15px;color:var(--text-light);margin:12px 0 6px}
+p{margin:10px 0}
+ul,ol{margin:10px 0 10px 24px}
+li{margin:4px 0}
+strong{color:var(--text);font-weight:700}
+.related{margin-top:14px;padding-top:10px;border-top:1px dashed var(--border);font-size:13px;color:var(--text-light)}
+.related strong{color:var(--primary)}
+.path-card{background:var(--card);border:2px solid var(--primary);border-radius:var(--radius);padding:18px;margin:14px 0}
+.path-card h4{color:var(--primary);margin-top:0}
+.path-p0{color:var(--danger);font-weight:700}
+.path-p1{color:var(--warning);font-weight:700}
+.path-p2{color:var(--success);font-weight:700}
+@media print{.toc,.progress-bar,.wps-tip,.no-print{display:none}.container{grid-template-columns:1fr;max-width:100%}.part{break-inside:avoid;box-shadow:none;border:1px solid var(--border)}body{font-size:12pt}h2,h3{break-after:avoid}}
+</style>
+</head>
+<body>
+<div class="progress-bar" id="progressBar"></div>
+<div class="wps-tip">💡 如在WPS中打开排版异常或思维导图模糊，请改用 <strong>微信 / 手机浏览器</strong> 打开本文件，体验更佳。</div>
+<header class="hero">
+<h1>📘 外贸人 Codex + WordPress 建站课</h1>
+<div class="subtitle">AI 建站 · 外贸独立站 · 询盘承接 · 从0到1学会用 Codex 辅助建站</div>
+<div class="meta"><span>📚 7大模块</span><span>📝 38篇课程</span><span>🌳 7张思维导图</span><span>📱 移动端友好</span></div>
+<div class="meta" style="margin-top:8px">从小白到精通高手的系统化学习手册</div>
+</header>
+<div class="container">
+<aside class="toc no-print">
+<h3>📑 课程目录</h3>
+<ul>
+<li class="toc-part"><a href="#overview">📌 课程总览</a></li>
+<li class="toc-part"><a href="#part1">第一部分：Codex基础</a></li>
+<li class="toc-doc"><a href="#doc01">01 课程总纲</a></li>
+<li class="toc-doc"><a href="#doc02">02 Codex设置</a></li>
+<li class="toc-doc"><a href="#doc03">03 项目文件夹</a></li>
+<li class="toc-part"><a href="#part2">第二部分：服务器+WP</a></li>
+<li class="toc-doc"><a href="#doc04">04 服务器域名(上)</a></li>
+<li class="toc-doc"><a href="#doc05">05 服务器域名(下)</a></li>
+<li class="toc-doc"><a href="#doc06">06 必备插件</a></li>
+<li class="toc-doc"><a href="#doc07">07 WP后台</a></li>
+<li class="toc-part"><a href="#part3">第三部分：SEO策略</a></li>
+<li class="toc-doc"><a href="#doc08">08 营销漏斗</a></li>
+<li class="toc-doc"><a href="#doc09">09 关键词调研</a></li>
+<li class="toc-doc"><a href="#doc10">10 好关键词</a></li>
+<li class="toc-part"><a href="#part4">第四部分：站内SEO</a></li>
+<li class="toc-doc"><a href="#doc11">11 Yoast SEO</a></li>
+<li class="toc-doc"><a href="#doc12">12 Title优化</a></li>
+<li class="toc-doc"><a href="#doc13">13 Description</a></li>
+<li class="toc-doc"><a href="#doc14">14 Heading标签</a></li>
+<li class="toc-doc"><a href="#doc15">15 图片Alt</a></li>
+<li class="toc-doc"><a href="#doc16">16 URL优化</a></li>
+<li class="toc-doc"><a href="#doc17">17 内链理论</a></li>
+<li class="toc-doc"><a href="#doc18">18 内链实操</a></li>
+<li class="toc-part"><a href="#part5">第五部分：内容营销</a></li>
+<li class="toc-doc"><a href="#doc19">19 内容营销</a></li>
+<li class="toc-doc"><a href="#doc20">20 痛点方法</a></li>
+<li class="toc-doc"><a href="#doc21">21 引流</a></li>
+<li class="toc-part"><a href="#part6">第六部分：技术优化</a></li>
+<li class="toc-doc"><a href="#doc22">22 robots.txt</a></li>
+<li class="toc-doc"><a href="#doc23">23 sitemap</a></li>
+<li class="toc-doc"><a href="#doc24">24 加载过程</a></li>
+<li class="toc-doc"><a href="#doc25">25 加载文件</a></li>
+<li class="toc-doc"><a href="#doc26">26 加载速度</a></li>
+<li class="toc-doc"><a href="#doc28">28 Mobile First</a></li>
+<li class="toc-part"><a href="#part7">第七部分：白帽外链</a></li>
+<li class="toc-doc"><a href="#doc29">29 外链总纲</a></li>
+<li class="toc-doc"><a href="#doc30">30 DA和PA</a></li>
+<li class="toc-doc"><a href="#doc31">31 Dofollow</a></li>
+<li class="toc-doc"><a href="#doc32">32 锚文本</a></li>
+<li class="toc-doc"><a href="#doc33">33 行业相关</a></li>
+<li class="toc-doc"><a href="#doc34">34 EAT</a></li>
+<li class="toc-doc"><a href="#doc35">35 竞品外链</a></li>
+<li class="toc-doc"><a href="#doc36">36 行业博客</a></li>
+<li class="toc-doc"><a href="#doc37">37 Resource Page</a></li>
+<li class="toc-doc"><a href="#doc38">38 Schema Markup</a></li>
+<li class="toc-part"><a href="#graph">🔗 知识图谱</a></li>
+<li class="toc-part"><a href="#summary">📊 终极总结</a></li>
+<li class="toc-part"><a href="#path">🎯 学习路径</a></li>
+<li class="toc-part"><a href="#appendix">📎 附录</a></li>
+</ul>
+</aside>
+<main>
+<!-- ========== 课程总览 ========== -->
+<section class="part" id="overview">
+<div class="part-header"><div class="part-num">📌</div><h2 class="part-title">课程总览：你能学到什么？</h2></div>
+<h3>🎯 课程核心承诺</h3>
+<p>这是一套<strong>从0到1学会用 Codex 辅助搭建外贸独立站</strong>的完整课程。承诺：</p>
+<ul>
+<li>✅ <strong>零编程基础</strong>也能通过自然语言提示词搭建功能完整的外贸B2B独立站</li>
+<li>✅ 掌握<strong>Codex 核心逻辑</strong>，实现举一反三（工具能力）</li>
+<li>✅ <strong>快速搭建可立即上线</strong>的独立站（完成任务）</li>
+<li>✅ 独立站权限<strong>100%归自己</strong>——服务器和域名完全自主（成果归属）</li>
+<li>✅ 从小白到精通高手——SEO、内容、外链全链路掌握</li>
+</ul>
+<div class="callout callout-warning"><strong>⚠️ 核心认知</strong>：独立站的真正含义是 <strong>服务器和域名完全掌握在自己手里</strong>。用"盖房子、买土地"做比喻——明确区别于SaaS建站服务商（如某乎某宝页面）那种"租房子"。</div>
+<h3>💰 建站成本概览</h3>
+<div class="table-wrap"><table><thead><tr><th>项目</th><th>费用</th><th>说明</th></tr></thead><tbody>
+<tr><td>服务器（Hostinger）</td><td>约200元/年</td><td>中间档套餐，48个月最划算 3.79美元/月</td></tr>
+<tr><td>域名</td><td>约60-80元/年</td><td>Spaceship 推荐，支持支付宝</td></tr>
+<tr><td>ChatGPT Plus（Codex）</td><td>150-180元/月</td><td>代充值，仅建站充1个月够用</td></tr>
+<tr><td>WordPress主题</td><td>约300元（终身）</td><td>老师提供链接</td></tr>
+<tr style="background:var(--success-light)"><td><strong>总计（最低）</strong></td><td><strong>约500-1000元</strong></td><td>对比：传统模板站"好几千"起</td></tr>
+</tbody></table></div>
+<h3>👥 适合人群 vs 不适合人群</h3>
+<div class="table-wrap"><table><thead><tr><th>✅ 适合</th><th>❌ 不适合</th></tr></thead><tbody>
+<tr><td>有外贸业务基础（有产品/客户/市场）的外贸从业者</td><td>完全不想动手的人</td></tr>
+<tr><td>数字营销运营者</td><td>只想立刻获询盘的人</td></tr>
+<tr><td>希望用AI提效的人</td><td>想学复杂代码的人</td></tr>
+</tbody></table></div>
+<div class="callout callout-info"><strong>📐 20/80 法则</strong>：人工做 <strong>20%</strong> 的基础配置（域名、服务器、WordPress安装），Codex 做 <strong>80%</strong> 的内容搭建（页面设计、文案、SEO）。这是本课程的核心方法论。</div>
+<h3>🔧 课程两大模块</h3>
+<ol>
+<li><strong>模块一：Codex 基础和配置教程</strong>——认识能力、安装登录、充值设置</li>
+<li><strong>模块二：Codex + WordPress 建站实战</strong>——需求理解 → 结构设计 → 排版文案 → 人工基础配置 → 纠错修复 → 迭代上线检查</li>
+</ol>
+<h3>📋 完整38篇课程目录速览</h3>
+<div class="table-wrap"><table><thead><tr><th>部分</th><th>课程</th><th>主题</th></tr></thead><tbody>
+<tr><td rowspan="3">第一部分</td><td>01</td><td>Codex 建站介绍（课程总纲）</td></tr>
+<tr><td>02</td><td>Codex 基础设置（工具就绪）</td></tr>
+<tr><td>03</td><td>建立独立项目文件夹</td></tr>
+<tr><td rowspan="4">第二部分</td><td>04</td><td>服务器和域名解析（上）</td></tr>
+<tr><td>05</td><td>服务器和域名解析（下）+ WordPress 安装</td></tr>
+<tr><td>06</td><td>安装必备插件</td></tr>
+<tr><td>07</td><td>快速熟悉 WordPress 后台功能</td></tr>
+<tr><td rowspan="3">第三部分</td><td>08</td><td>营销漏斗——SEO 的底层逻辑</td></tr>
+<tr><td>09</td><td>关键词调研——SEO 的地基工程</td></tr>
+<tr><td>10</td><td>什么样的词是好关键词</td></tr>
+<tr><td rowspan="8">第四部分</td><td>11</td><td>Yoast SEO 插件使用</td></tr>
+<tr><td>12</td><td>Title 标签优化</td></tr>
+<tr><td>13</td><td>Description 标签优化</td></tr>
+<tr><td>14</td><td>Heading 标签优化</td></tr>
+<tr><td>15</td><td>图片 Alt 标签优化</td></tr>
+<tr><td>16</td><td>网站页面 URL 优化</td></tr>
+<tr><td>17</td><td>网站内链建设（理论）</td></tr>
+<tr><td>18</td><td>内链建设实操</td></tr>
+<tr><td rowspan="3">第五部分</td><td>19</td><td>为什么做内容营销</td></tr>
+<tr><td>20</td><td>寻找用户痛点的方法</td></tr>
+<tr><td>21</td><td>通过分享文章引流到独立站</td></tr>
+<tr><td rowspan="6">第六部分</td><td>22</td><td>编写 robots.txt 文件</td></tr>
+<tr><td>23</td><td>Sitemap 生成和提交</td></tr>
+<tr><td>24</td><td>用户访问网站的加载过程</td></tr>
+<tr><td>25</td><td>浏览器加载的文件有哪些</td></tr>
+<tr><td>26</td><td>影响网站加载速度的五大原因</td></tr>
+<tr><td>28</td><td>Mobile First Index</td></tr>
+<tr><td rowspan="10">第七部分</td><td>29</td><td>什么是外链</td></tr>
+<tr><td>30</td><td>外链的 DA 和 PA</td></tr>
+<tr><td>31</td><td>Dofollow 和 Nofollow 外链</td></tr>
+<tr><td>32</td><td>锚文本外链</td></tr>
+<tr><td>33</td><td>行业高度相关外链</td></tr>
+<tr><td>34</td><td>E.A.T. 站点外链</td></tr>
+<tr><td>35</td><td>获取竞争对手的外链</td></tr>
+<tr><td>36</td><td>查找行业博客</td></tr>
+<tr><td>37</td><td>查找 Resource Page 的外链</td></tr>
+<tr><td>38</td><td>Schema Markup（结构化数据标记）</td></tr>
+</tbody></table></div>
+</section>
+<!-- ========== 第一部分 ========== -->
+<section class="part" id="part1">
+<div class="part-header"><div class="part-num">1</div><h2 class="part-title">第一部分：课程介绍与 Codex 基础设置</h2></div>
+<h3>🧠 本部分知识地图</h3>
+<div class="mindmap-wrap">
+<svg viewBox="0 0 1200 480" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+<path d="M 200,240 H 380 V 100 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,240 H 380 V 240 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,240 H 380 V 380 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 540,100 H 720 V 60 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,100 H 720 V 130 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 200 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 280 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,380 H 720 V 340 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,380 H 720 V 400 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<rect x="20" y="220" width="180" height="40" rx="6" fill="#4A90A4"/>
+<text x="110" y="245" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">Codex 基础设置</text>
+<rect x="380" y="80" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="105" text-anchor="middle" fill="#2C5F6F" font-size="13">工具能力（02）</text>
+<rect x="380" y="220" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="245" text-anchor="middle" fill="#2C5F6F" font-size="13">课程总纲（01）</text>
+<rect x="380" y="360" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="385" text-anchor="middle" fill="#2C5F6F" font-size="13">项目管理（03）</text>
+<rect x="720" y="42" width="140" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="790" y="65" text-anchor="middle" fill="#4A6E3A" font-size="12">下载安装</text>
+<rect x="720" y="112" width="140" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="790" y="135" text-anchor="middle" fill="#4A6E3A" font-size="12">Plus 充值</text>
+<rect x="720" y="182" width="140" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="790" y="205" text-anchor="middle" fill="#8B5A2B" font-size="12">六大板块</text>
+<rect x="720" y="262" width="140" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="790" y="285" text-anchor="middle" fill="#8B5A2B" font-size="12">20/80法则</text>
+<rect x="720" y="322" width="140" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="790" y="345" text-anchor="middle" fill="#4A6E3A" font-size="12">项目文件夹</text>
+<rect x="720" y="382" width="140" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="790" y="405" text-anchor="middle" fill="#4A6E3A" font-size="12">GPT Work 模式</text>
+</svg>
+</div>
+<div class="mindmap-caption">图1：第一部分知识地图（根在左，逐层向右展开 · 直角折线连接）</div>
+
+<div class="doc" id="doc01">
+<div class="doc-header"><span class="doc-num">01</span><span class="doc-title">Codex 建站介绍 —— 课程总纲</span></div>
+<div class="doc-subtitle">定位：整套课程的价值说服体系与框架总览，不涉及具体操作</div>
+<h4>六大板块概述</h4>
+<ol>
+<li><strong>效果展示</strong>：老师展示一个完全由 Codex 搭建的工业类B2B外贸独立站 Demo（含 About Us、产品列表页、产品详情页），证明零编程基础可通过自然语言提示词从零搭建功能完整的独立站。</li>
+<li><strong>三大学习收获（递进关系）</strong>：
+  <ul>
+    <li>掌握 Codex 核心逻辑，实现举一反三（工具能力）</li>
+    <li>快速搭建可立即上线的独立站（完成任务）</li>
+    <li>独立站权限百分之百归属于自己的（成果归属）</li>
+    <li>核心认知："独立站的真正含义是服务器和域名完全掌握在自己手里"——用"盖房子、买土地"做比喻</li>
+  </ul>
+</li>
+<li><strong>方案论证（为什么 Codex + WordPress）</strong>：
+  <ul>
+    <li><strong>WordPress</strong>：全球超过 50% 外贸B2B独立站基于 WordPress 二次开发（索尼音乐、迪士尼等世界500强也在用）</li>
+    <li><strong>Codex</strong>：替代 Elementor 等手动拖拽编辑器，实现自动化前端样式定制</li>
+    <li><strong>核心比喻</strong>：WordPress 是"车"，Codex 是"支架系统"——人工可在关键节点介入决策</li>
+  </ul>
+</li>
+<li><strong>人群定位</strong>：
+  <ul>
+    <li>❌ 不适合：完全不想动手的人、只想立刻获询盘的人、想学复杂代码的人</li>
+    <li>✅ 适合：有外贸业务基础的外贸从业者、数字营销运营者、希望用AI提效的人</li>
+    <li><strong>核心原则</strong>：<code>80%</code> 精力仍应投入在市场挖掘、产品选品、供应链深挖方面，AI是提效工具而非主业替代</li>
+  </ul>
+</li>
+<li><strong>课程两大模块</strong>：
+  <ul>
+    <li>模块一：Codex 基础和配置教程（认识能力、安装登录、充值设置）</li>
+    <li>模块二：Codex + WordPress 建站实战（需求理解→结构设计→排版文案→人工基础配置→纠错修复→迭代上线检查）</li>
+  </ul>
+</li>
+<li><strong>20/80 法则</strong>：人工做 20% 的基础配置（域名、服务器、WordPress安装），Codex 做 80% 的内容搭建（页面设计、文案、SEO）</li>
+</ol>
+<div class="callout callout-danger"><strong>⚠️ 关键批判</strong>：纯 Codex 全栈方案（前端+后端+数据库+接口全部由 AI 搭建）有致命缺陷——改几十次后"前面本来好好的东西，后面越改越乱"，<strong>编程小白不推荐</strong>。</div>
+<div class="related"><strong>📎 相关：</strong> [02. Codex 基础设置](#doc02) → [03. 建立项目文件夹](#doc03)</div>
+</div>
+
+<div class="doc" id="doc02">
+<div class="doc-header"><span class="doc-num">02</span><span class="doc-title">Codex 基础设置 —— 工具就绪</span></div>
+<div class="doc-subtitle">五大操作步骤：下载→注册→充值→七项配置→其他</div>
+<h4>第一步：下载安装</h4>
+<ul><li>访问 OpenAI 官网，系统自动检测操作系统，下载安装程序</li><li>前提需有 ChatGPT 账号</li></ul>
+<h4>第二步：账号注册</h4>
+<ul>
+<li>推荐用已有 <strong>Gmail 账号</strong>直接登录（也支持苹果账号）</li>
+<li><strong>Codex 与 ChatGPT 同一产品</strong>，数据互通</li>
+<li>登录后默认为免费版</li>
+</ul>
+<h4>第三步：Plus 充值（关键门槛）</h4>
+<ul>
+<li><strong>为什么必须充值</strong>：免费版无法满足建站项目需求</li>
+<li><strong>套餐选择</strong>：<code>20 美元/月</code>（8 美元和 100 美元档均不需要）</li>
+<li><strong>支付障碍</strong>：中国大陆信用卡无法支付（不论美元还是人民币信用卡）</li>
+<li><strong>解决方案</strong>：找第三方代充值，约 <code>150-180 元/月</code>（官方 20 美元约 140 元 + 代充手续费 30-40 元）</li>
+<li>老师提供多个代充值渠道，优先推荐价格最低渠道</li>
+<li>如果仅用于建站，<strong>充一个月即够</strong></li>
+<li><strong>验证</strong>：ChatGPT 账号刷新后出现 "Plus" 标识即成功</li>
+</ul>
+<h4>第四步：七项关键配置（直接影响建站效率）</h4>
+<div class="table-wrap"><table><thead><tr><th>设置项</th><th>推荐值</th><th>原因</th></tr></thead><tbody>
+<tr><td>访问权限（常规）</td><td>三项全勾选</td><td>确保 Codex 有足够权限执行操作（自动审核、完全访问）</td></tr>
+<tr><td>速度</td><td><strong>标准</strong>（非快速）</td><td>快速模式消耗 1.5 倍 token，不急于完成选标准即可</td></tr>
+<tr><td>个性化风格</td><td><strong>务实</strong>（非亲和）</td><td>"亲和"风格产生过多无意义对话</td></tr>
+<tr><td>记忆</td><td>调至最右侧（最大化）</td><td>让 Codex 更好记住上下文</td></tr>
+<tr><td>浏览器</td><td>启用，选默认浏览器</td><td>支持浏览器相关功能</td></tr>
+<tr><td>电脑操控</td><td>全部放开权限</td><td>让 Codex 操控本地文件</td></tr>
+<tr><td>运行时防止系统休眠</td><td><strong>打开</strong></td><td>防止休眠导致运行中断</td></tr>
+<tr><td>弹窗与 Enter 行为</td><td><strong>引导</strong>（非排队）</td><td>"引导"模式可在任务运行中继续输入新提示词，合并到当前任务一起执行</td></tr>
+</tbody></table></div>
+<h4>第五步：其他</h4>
+<p>语言菜单栏、底部面板等保持默认打开即可。</p>
+<div class="callout callout-success"><strong>💡 小技巧</strong>：<code>引导</code> 模式是核心生产力配置——它允许你在 Codex 任务执行中追加新指令，所有指令会被合并到当前任务一起处理，避免等待。</div>
+<div class="related"><strong>⚠️ 前置：</strong> [01. 课程总纲](#doc01) ｜ <strong>📎 相关：</strong> [03. 项目文件夹建立](#doc03)</div>
+</div>
+
+<div class="doc" id="doc03">
+<div class="doc-header"><span class="doc-num">03</span><span class="doc-title">Codex 建立独立项目文件夹 —— 项目就绪</span></div>
+<div class="doc-subtitle">核心问题：不建立独立项目文件夹，所有 Codex 生成的文件散落在电脑根目录，文件极度混乱</div>
+<h4>操作步骤（4 步）</h4>
+<ol>
+<li>在本地电脑创建专用文件夹（如"Codex 文件"目录）</li>
+<li>在其中建子文件夹（如"wordpress codex 建站"）</li>
+<li>在 Codex 界面"项目"区域点击加号</li>
+<li>选择"使用现有文件夹"绑定</li>
+</ol>
+<p>此后建站过程中所有生成内容（图片、网站文件、代码文件）全部自动存储在该文件夹下，集中管理。</p>
+<h4>ChatGPT 工作模式 vs Codex 模式对比</h4>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>ChatGPT 工作模式（GPT Work）</th><th>Codex 模式</th></tr></thead><tbody>
+<tr><td>核心能力</td><td>横向连接——跨工具协作</td><td>纵向深入——编程构建、调试和发布</td></tr>
+<tr><td>适用场景</td><td>关键词调研、市场调研、页面结构规划</td><td>代码编写、主题修改、网站搭建</td></tr>
+<tr><td>角色定位</td><td>项目经理/策划/运营</td><td>开发者</td></tr>
+</tbody></table></div>
+<div class="callout callout-warning"><strong>🎯 老师建议</strong>：<strong>只使用 Codex 模式就够了</strong>，Codex 模式下也能完成 GPT Work 的工作内容。</div>
+<h4>后续流程预告</h4>
+<p>购买服务器 → 域名解析 → 安装 WordPress → 安装主题 → MCP 连通 Codex 与 WordPress → 自然语言建站</p>
+<div class="related"><strong>⚠️ 前置：</strong> [02. Codex 基础设置](#doc02)</div>
+</div>
+</section>
+<!-- ========== 第二部分 ========== -->
+<section class="part" id="part2">
+<div class="part-header"><div class="part-num">2</div><h2 class="part-title">第二部分：服务器环境搭建与 WordPress 配置</h2></div>
+<h3>🧠 本部分知识地图</h3>
+<div class="mindmap-wrap">
+<svg viewBox="0 0 1240 560" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+<path d="M 200,280 H 380 V 100 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,280 H 380 V 240 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,280 H 380 V 380 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,280 H 380 V 500 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 540,100 H 720 V 60 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,100 H 720 V 130 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 200 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 270 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,380 H 720 V 340 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,380 H 720 V 410 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,500 H 720 V 460 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,500 H 720 V 520 H 860" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<rect x="20" y="260" width="180" height="40" rx="6" fill="#4A90A4"/>
+<text x="110" y="285" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">服务器+WP配置</text>
+<rect x="380" y="80" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="105" text-anchor="middle" fill="#2C5F6F" font-size="12">基础设施（04-05）</text>
+<rect x="380" y="220" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="245" text-anchor="middle" fill="#2C5F6F" font-size="12">WordPress安装（05）</text>
+<rect x="380" y="360" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="385" text-anchor="middle" fill="#2C5F6F" font-size="12">插件配置（06）</text>
+<rect x="380" y="480" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="505" text-anchor="middle" fill="#2C5F6F" font-size="12">后台熟悉（07）</text>
+<rect x="720" y="42" width="140" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="790" y="65" text-anchor="middle" fill="#4A6E3A" font-size="12">服务器购买</text>
+<rect x="720" y="112" width="140" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="790" y="135" text-anchor="middle" fill="#4A6E3A" font-size="12">域名解析</text>
+<rect x="720" y="182" width="140" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="790" y="205" text-anchor="middle" fill="#8B5A2B" font-size="12">从零开始构建</text>
+<rect x="720" y="252" width="140" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="790" y="275" text-anchor="middle" fill="#8B5A2B" font-size="12">机房位置选择</text>
+<rect x="720" y="322" width="140" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="790" y="345" text-anchor="middle" fill="#4A6E3A" font-size="12">5大必备插件</text>
+<rect x="720" y="392" width="140" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="790" y="415" text-anchor="middle" fill="#4A6E3A" font-size="12">插件≤10个</text>
+<rect x="720" y="442" width="140" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="790" y="465" text-anchor="middle" fill="#8B5A2B" font-size="12">8大菜单</text>
+<rect x="720" y="502" width="140" height="36" rx="5" fill="#F9EBEF" stroke="#C44569"/>
+<text x="790" y="525" text-anchor="middle" fill="#8B2942" font-size="12">阻止索引（关键）</text>
+</svg>
+</div>
+<div class="mindmap-caption">图2：第二部分知识地图（基础设施→安装→插件→后台）</div>
+
+<div class="doc" id="doc04">
+<div class="doc-header"><span class="doc-num">04</span><span class="doc-title">服务器和域名解析（上）—— 基础设施购置</span></div>
+<div class="doc-subtitle">建站总步骤框架（本课完成第一步）</div>
+<p>服务器域名购买 → 解析 → 安装 WordPress → 安装主题 → 安装必备插件</p>
+<h4>服务器购买（Hostinger）</h4>
+<ul>
+<li>三个套餐中推荐<strong>中间档</strong>，月费选择 48 个月最划算（<code>3.79 美元/月</code>）</li>
+<li><strong>支付方式</strong>：首推支付宝（扫码支付），也支持信用卡</li>
+<li>账单地址随便填写即可</li>
+</ul>
+<div class="table-wrap"><table><thead><tr><th>购买时长</th><th>月费</th></tr></thead><tbody>
+<tr><td>12 个月（1年）</td><td>5 美元/月</td></tr>
+<tr><td>24 个月（2年）</td><td>4.5 美元/月</td></tr>
+<tr><td>48 个月（4年）</td><td><strong>3.79 美元/月</strong></td></tr>
+</tbody></table></div>
+<h4>域名购买（Spaceship/阿里云）</h4>
+<ul><li>推荐 <strong>Spaceship</strong>，参考价约 <code>60 元/年</code></li><li>支持支付宝支付</li></ul>
+<h4>域名解析（DNS 配置）—— 核心概念</h4>
+<div class="callout callout-success"><strong>🏠 生活化比喻</strong>：
+<ul><li><strong>服务器</strong> = 买了一块地</li><li><strong>域名</strong> = 门牌号</li><li><strong>域名解析</strong> = 把门牌号绑定到土地上</li></ul></div>
+<p>操作：进入 Hostinger 后台获取两条 DNS 地址 → 到域名管理平台（Spaceship/阿里云）将 DNS 修改为 Hostinger 的地址 → 等待解析生效</p>
+<div class="related"><strong>📎 相关：</strong> [05. 服务器和域名解析（下）](#doc05)（连续内容）</div>
+</div>
+
+<div class="doc" id="doc05">
+<div class="doc-header"><span class="doc-num">05</span><span class="doc-title">服务器和域名解析（下）+ WordPress 安装</span></div>
+<h4>域名解析补充操作</h4>
+<ul>
+<li><strong>Spaceship</strong>：域名管理 → Name Server and DNS → Custom Name Server → 粘贴两条 Hostinger DNS 地址</li>
+<li><strong>阿里云</strong>：域名列表 → 管理 → 修改 DNS → 粘贴 Hostinger DNS 地址</li>
+<li>DNS 修改后<strong>非即时生效</strong>，需等待一段时间</li>
+</ul>
+<h4>在 Hostinger 安装 WordPress（5 步）</h4>
+<ol>
+<li>Hostinger 后台 → 网站 → 添加网站 → 选择 "WordPress"</li>
+<li>输入已购买的域名</li>
+<li><strong>关键选择：选"从零开始构建"</strong>（不使用 AI 建站功能）——因为后续建站由 Codex 完成</li>
+<li>管理员语言选 "中文"，设置管理员邮箱和密码——<strong>务必保存好，这是 WordPress 后台的唯一凭证</strong></li>
+<li>等待安装完成</li>
+</ol>
+<h4>机房位置选择建议</h4>
+<ul>
+<li>默认：美国（北美）——适用大多数情况</li>
+<li>客户集中在欧洲：德国或法国</li>
+<li>俄语地区：拉脱维亚（靠近东欧）</li>
+</ul>
+<h4>域名解析故障排查</h4>
+<p>如长时间无法访问 → 检查主机套餐中的 DNS 地址 → 与域名后台 DNS 对比 → 不一致则重新修改</p>
+<h4>WordPress 后台访问方式（预告）</h4>
+<ol><li>Hostinger 后台"网站管理员"入口</li><li>直接在域名后加 <code>/wp-admin</code></li></ol>
+<div class="callout callout-danger"><strong>⚠️ 安全提醒</strong>：管理员密码务必用密码管理器保存。一旦丢失，邮箱是唯一的找回途径。</div>
+<div class="related"><strong>📎 相关：</strong> [06. 安装必备插件](#doc06)</div>
+</div>
+
+<div class="doc" id="doc06">
+<div class="doc-header"><span class="doc-num">06</span><span class="doc-title">安装必备插件 —— 功能基础配置</span></div>
+<h4>访问 WordPress 后台</h4>
+<ul>
+<li>能访问网站前端 = 域名解析成功</li>
+<li>登录方式：<code>域名/wp-admin</code> → 输入管理员邮箱和密码</li>
+<li><strong>小技巧</strong>：将后台地址加入浏览器收藏夹</li>
+</ul>
+<h4>第一步：清理预装插件</h4>
+<ul>
+<li>将 WordPress 默认预装的用不到的插件全部<strong>停用并删除</strong></li>
+<li>保留必要的核心插件（如 Akismet 反垃圾评论）</li>
+<li>目的：保持插件环境干净，避免后续冲突</li>
+</ul>
+<h4>必备插件清单（覆盖五大关键需求）</h4>
+<div class="table-wrap"><table><thead><tr><th>序号</th><th>插件名称</th><th>功能分类</th><th>说明</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>Yoast SEO / Rank Math</strong></td><td>SEO优化</td><td>用于优化网站搜索引擎排名，填写 Title 和 Description</td></tr>
+<tr><td>2</td><td><strong>WP Forms</strong></td><td>联系表单</td><td>创建询盘表单、联系表单的必备插件</td></tr>
+<tr><td>3</td><td><strong>Wordfence</strong></td><td>网站安全</td><td>防火墙和恶意软件扫描，保护网站安全</td></tr>
+<tr><td>4</td><td><strong>Duplicate</strong></td><td>数据备份</td><td>网站数据备份插件，防止数据丢失</td></tr>
+<tr><td>5</td><td><strong>EZ MCP AI</strong></td><td>Codex连接</td><td><strong>核心插件</strong>——通过 MCP 协议连接 Codex 和 WordPress，实现 AI 对网站的控制</td></tr>
+</tbody></table></div>
+<div class="callout callout-warning"><strong>📌 插件管理原则</strong>：B2B 独立站插件数量<strong>越少越好，控制在 10 个左右</strong>（另一处提到 15 个以内）。插件过多增加负担、可能产生冲突、增加安全漏洞风险。<br>理解：<strong>10 个左右是理想值，15 个是硬性上限</strong>。建站初期从少开始，按需添加。</div>
+<h4>WP Forms 初始配置注意</h4>
+<p>如果 WordPress 默认语言为中文，表单模板为中文。外贸独立站需要英文表单时，需先到 <strong>"设置 → 常规"</strong> 中将站点语言改为英文，再重新创建表单。</p>
+<div class="related"><strong>⚠️ 前置：</strong> [05. WordPress 安装](#doc05) ｜ <strong>📎 相关：</strong> [07. WP 后台](#doc07)、[11. Yoast SEO](#doc11)、[26. 加载速度](#doc26)</div>
+</div>
+
+<div class="doc" id="doc07">
+<div class="doc-header"><span class="doc-num">07</span><span class="doc-title">快速熟悉 WordPress 后台功能 —— 认知地图</span></div>
+<h4>核心功能模块速览</h4>
+<div class="table-wrap"><table><thead><tr><th>菜单</th><th>功能</th><th>重要性</th></tr></thead><tbody>
+<tr><td><strong>Posts（文章）</strong></td><td>管理博客文章、分类体系</td><td>内容营销操作区</td></tr>
+<tr><td><strong>Media（媒体库）</strong></td><td>管理所有上传的图片和视频</td><td>图片 Alt 标签优化在此进行</td></tr>
+<tr><td><strong>Pages（页面）</strong></td><td><strong>外贸独立站最核心管理区</strong>——所有 AI 创建的页面集中管理</td><td>★★★★★</td></tr>
+<tr><td><strong>Comments（评论）</strong></td><td>管理博客文章底部用户评论</td><td>常规管理</td></tr>
+<tr><td><strong>Appearance（外观）</strong></td><td>主题安装、切换、配置</td><td>★★★★★</td></tr>
+<tr><td><strong>Plugins（插件）</strong></td><td>管理所有已安装插件</td><td>上节课装好的插件在此管理</td></tr>
+<tr><td><strong>Users（用户）</strong></td><td>管理管理员和其他用户账号</td><td>安全相关</td></tr>
+<tr><td><strong>Settings（设置）</strong></td><td>网站全局配置</td><td>关键设置在 Reading 中</td></tr>
+</tbody></table></div>
+<div class="callout callout-danger">
+<strong>⚠️ 建站期间关键安全设置（极易忽略！）</strong>：
+<p>Settings → Reading → <strong>"阻止搜索引擎索引此网站"</strong></p>
+<ul>
+<li>建站过程中：<strong>全程保持勾选状态</strong>——防止搜索引擎在建站期间抓取未完成的页面</li>
+<li>建站完全完成后、准备正式上线时：<strong>取消勾选</strong>——允许搜索引擎开始收录</li>
+</ul>
+<p>若忽略此设置，未完成的页面被搜索引擎抓取，会影响 SEO 和用户体验，<strong>后续修复成本高</strong>。</p>
+</div>
+<div class="related"><strong>⚠️ 前置：</strong> [06. 安装必备插件](#doc06)</div>
+</div>
+</section>
+<!-- ========== 第三部分 ========== -->
+<section class="part" id="part3">
+<div class="part-header"><div class="part-num">3</div><h2 class="part-title">第三部分：SEO 策略框架</h2></div>
+<h3>🧠 本部分知识地图</h3>
+<div class="mindmap-wrap">
+<svg viewBox="0 0 1240 480" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+<path d="M 200,240 H 380 V 100 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,240 H 380 V 240 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,240 H 380 V 380 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 540,100 H 720 V 60 H 880" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,100 H 720 V 130 H 880" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 200 H 880" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 270 H 880" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,380 H 720 V 340 H 880" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,380 H 720 V 410 H 880" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<rect x="20" y="220" width="180" height="40" rx="6" fill="#4A90A4"/>
+<text x="110" y="245" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">SEO 策略框架</text>
+<rect x="380" y="80" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="105" text-anchor="middle" fill="#2C5F6F" font-size="13">营销漏斗（08）</text>
+<rect x="380" y="220" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="245" text-anchor="middle" fill="#2C5F6F" font-size="13">关键词调研（09）</text>
+<rect x="380" y="360" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="385" text-anchor="middle" fill="#2C5F6F" font-size="13">好关键词标准（10）</text>
+<rect x="720" y="42" width="160" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="800" y="65" text-anchor="middle" fill="#4A6E3A" font-size="12">5步转化流程</text>
+<rect x="720" y="112" width="160" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="800" y="135" text-anchor="middle" fill="#4A6E3A" font-size="12">AIDA 模型</text>
+<rect x="720" y="182" width="160" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="800" y="205" text-anchor="middle" fill="#8B5A2B" font-size="12">谷歌关键词规划师</text>
+<rect x="720" y="252" width="160" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="800" y="275" text-anchor="middle" fill="#8B5A2B" font-size="12">三类分法（红绿大）</text>
+<rect x="720" y="322" width="160" height="36" rx="5" fill="#F9EBEF" stroke="#C44569"/>
+<text x="800" y="345" text-anchor="middle" fill="#8B2942" font-size="12">搜索量底线≥10</text>
+<rect x="720" y="392" width="160" height="36" rx="5" fill="#F9EBEF" stroke="#C44569"/>
+<text x="800" y="415" text-anchor="middle" fill="#8B2942" font-size="12">低搜索+高CPC</text>
+</svg>
+</div>
+<div class="mindmap-caption">图3：第三部分知识地图（漏斗→调研→选词标准）</div>
+
+<div class="doc" id="doc08">
+<div class="doc-header"><span class="doc-num">08</span><span class="doc-title">营销漏斗 —— SEO 的底层逻辑</span></div>
+<div class="doc-subtitle">理论起点</div>
+<h4>营销漏斗五步转化流程</h4>
+<ol>
+<li><strong>用户遇到痛点问题</strong> —— 生活中各种需求和困扰（吃什么、用什么、怎么解决问题）</li>
+<li><strong>用户上网搜索寻找答案</strong> —— 搜索引擎成为解决问题的入口，这是 SEO 发挥作用的环节</li>
+<li><strong>用户通过搜索发现你的网站</strong> —— 因做了 SEO 排名优化，用户搜索时匹配到你的网站，阅读文章解决疑惑</li>
+<li><strong>用户对网站和品牌产生兴趣</strong> —— 获得专业信息后认可网站专业度（兴趣阶段）</li>
+<li><strong>建立信任后下单成交</strong> —— 最终转化为客户，下单或发询盘</li>
+</ol>
+<h4>AIDA 模型对应</h4>
+<div class="table-wrap"><table><thead><tr><th>阶段</th><th>英文</th><th>含义</th></tr></thead><tbody>
+<tr><td>认知</td><td>Awareness</td><td>意识到存在某个问题</td></tr>
+<tr><td>兴趣</td><td>Interest</td><td>通过搜索找到网站，阅读专业文章，产生兴趣</td></tr>
+<tr><td>欲望</td><td>Desire</td><td>认为网站专业、文章能解决痛点，想进一步了解</td></tr>
+<tr><td>行动</td><td>Action</td><td>最终转化为客户——下单或发询盘</td></tr>
+</tbody></table></div>
+<div class="callout callout-info"><strong>🎯 营销漏斗对 SEO 的指导意义</strong>：不同漏斗阶段对应不同类型的关键词——<strong>意识阶段对应信息类/博客类关键词</strong>（如 how-to 类），<strong>行动阶段对应商业转化类关键词</strong>（如 buy、supplier 等）。</div>
+<div class="related"><strong>📎 相关：</strong> [09. 关键词调研](#doc09)、[19. 内容营销](#doc19)</div>
+</div>
+
+<div class="doc" id="doc09">
+<div class="doc-header"><span class="doc-num">09</span><span class="doc-title">关键词调研 —— SEO 的地基工程</span></div>
+<div class="callout callout-danger"><strong>📐 核心定位</strong>：关键词调研是 SEO 最基础也最关键的部分，<strong>必须在建站动手之前完成</strong>。关键词好比开车上路前的路线和目的地——决定了运营方向。</div>
+<h4>四步流程：输入 → 导出 → 分组 → 分配</h4>
+<h4>第一步：谷歌关键词规划师（Keyword Planner）实操</h4>
+<ul>
+<li>入口：谷歌广告后台 → 关键词规划师 → "Discover New Keywords"</li>
+<li>参数设置：语言选 English，<strong>排除中国地区</strong>，选择针对所有位置</li>
+<li>数据范围：过去 12 个月的搜索数据</li>
+<li><strong>蓝色柱状图</strong> = 所有设备搜索量，<strong>红色柱状图</strong> = 移动端搜索量</li>
+<li>案例：受疫情影响，"office chairs" 在 3-4 月搜索量大幅上升</li>
+<li>一次调研可获取上千个关键词（如 1900 个），导出为 Excel 进行分析</li>
+</ul>
+<h4>第二步：关键词三类分法（按营销漏斗标记）</h4>
+<div class="table-wrap"><table><thead><tr><th>类型</th><th>标记颜色</th><th>特征</th><th>用途</th></tr></thead><tbody>
+<tr><td><strong>商业属性词</strong></td><td>🔴 红色</td><td>含 buy/cheap/supplier/manufacturer 等购买意图词，转化率最高</td><td>SEO + 谷歌广告投放</td></tr>
+<tr><td><strong>博客词</strong></td><td>🟢 绿色</td><td>长尾信息类词（如 "best computer chair under 100"），搜索量不高</td><td>内容营销/写文章</td></tr>
+<tr><td><strong>大词</strong></td><td>—</td><td>月搜索量数万甚至十几万，竞争难度极高</td><td>首页关键词（新站慎选）</td></tr>
+</tbody></table></div>
+<div class="callout callout-warning"><strong>📌 B 端与 C 端的行业差异</strong>：以 "office chairs" 为例，B 端属性词（manufacturer/wholesale/supplier）出现极少——该品类整体偏向 C 端零售。不同品类的关键词属性不同，需根据实际产品判断。</div>
+<h4>第三步：关键词分配到网站页面</h4>
+<div class="table-wrap"><table><thead><tr><th>页面类型</th><th>分配关键词</th><th>示例</th></tr></thead><tbody>
+<tr><td>首页（Home）</td><td>商业属性强的大词 + 品牌词</td><td>"Office Chair Supplier - BrandName"</td></tr>
+<tr><td>产品详情页</td><td>具体产品关键词</td><td>精确匹配的产品词</td></tr>
+<tr><td>博客页</td><td>长尾信息词/博客词</td><td>How-to 类、知识分享类关键词</td></tr>
+</tbody></table></div>
+<div class="related"><strong>📎 相关：</strong> [10. 好关键词标准](#doc10)、[11. Yoast SEO](#doc11)</div>
+</div>
+
+<div class="doc" id="doc10">
+<div class="doc-header"><span class="doc-num">10</span><span class="doc-title">什么样的词是好关键词 —— 三条判断标准</span></div>
+<h4>标准一：月搜索量不能太低</h4>
+<ul>
+<li>常规产品底线：月搜索量低于 <code>10</code> 的词，没有必要浪费时间</li>
+<li><strong>例外场景（可做低搜索量词）</strong>：行业非常冷门、门槛极高、专业性极强（如精细化工品），虽然搜索量低但搜索意图极其精准——"要么不搜，一搜就是对产品有需求"</li>
+<li>理想长尾词区间：<strong>月搜索量 100-1000</strong>——难度较低，较容易获得排名</li>
+</ul>
+<h4>标准二：月搜索量上万的大词难度极大</h4>
+<ul>
+<li>新站点应避开超级大词（如 "office chairs" 月搜索量 13万+）</li>
+<li>预计最少需要<strong>一年</strong>才能做好大词的 SEO</li>
+<li>优先选择搜索量在 <strong>1000-10000</strong> 的中大型词</li>
+</ul>
+<h4>标准三（核心方法论）：低搜索量 + 高 CPC 出价 = 好词</h4>
+<ul>
+<li><strong>低搜索量</strong> = 竞争小，容易获得排名</li>
+<li><strong>高 CPC 出价</strong> = 很多人愿意出高价投广告，意味着商业转化价值已被市场验证</li>
+<li>两者结合：易排名 + 高商业价值，是做 SEO 的优质选择</li>
+<li><strong>CPC 出价是判断关键词商业价值的可靠代理指标</strong></li>
+</ul>
+<div class="callout callout-success"><strong>💡 黄金公式</strong>：好关键词 = 低搜索量（易排名）× 高 CPC 出价（高商业价值）。这是 SEO 选词的核心方法论。</div>
+<div class="related"><strong>📎 相关：</strong> [12. Title 标签优化](#doc12)（好关键词应放在 Title 最前面）</div>
+</div>
+</section>
+<!-- ========== 第四部分 ========== -->
+<section class="part" id="part4">
+<div class="part-header"><div class="part-num">4</div><h2 class="part-title">第四部分：站内 SEO 优化实操</h2></div>
+<h3>🧠 本部分知识地图</h3>
+<div class="mindmap-wrap">
+<svg viewBox="0 0 1280 600" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+<path d="M 200,300 H 380 V 100 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,300 H 380 V 240 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,300 H 380 V 380 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,300 H 380 V 500 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 540,100 H 720 V 60 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,100 H 720 V 130 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 200 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 270 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,380 H 720 V 340 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,380 H 720 V 410 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,500 H 720 V 460 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,500 H 720 V 530 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<rect x="20" y="280" width="180" height="40" rx="6" fill="#4A90A4"/>
+<text x="110" y="305" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">站内 SEO 优化</text>
+<rect x="380" y="80" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="105" text-anchor="middle" fill="#2C5F6F" font-size="12">操作枢纽（11）</text>
+<rect x="380" y="220" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="245" text-anchor="middle" fill="#2C5F6F" font-size="12">标签优化（12-15）</text>
+<rect x="380" y="360" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="385" text-anchor="middle" fill="#2C5F6F" font-size="12">URL+内链（16-18）</text>
+<rect x="380" y="480" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="505" text-anchor="middle" fill="#2C5F6F" font-size="12">协同（19-21）</text>
+<rect x="720" y="42" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="65" text-anchor="middle" fill="#4A6E3A" font-size="12">Yoast SEO 使用</text>
+<rect x="720" y="112" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="135" text-anchor="middle" fill="#4A6E3A" font-size="12">Title(50字)+Desc(150字)</text>
+<rect x="720" y="182" width="180" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="810" y="205" text-anchor="middle" fill="#8B5A2B" font-size="12">H1-H6 层级</text>
+<rect x="720" y="252" width="180" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="810" y="275" text-anchor="middle" fill="#8B5A2B" font-size="12">图片 Alt 标签</text>
+<rect x="720" y="322" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="345" text-anchor="middle" fill="#4A6E3A" font-size="12">Post name URL</text>
+<rect x="720" y="392" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="415" text-anchor="middle" fill="#4A6E3A" font-size="12">内链 6 大规范</text>
+<rect x="720" y="442" width="180" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="810" y="465" text-anchor="middle" fill="#8B5A2B" font-size="12">锚文本密度 1%-2%</text>
+<rect x="720" y="512" width="180" height="36" rx="5" fill="#F9EBEF" stroke="#C44569"/>
+<text x="810" y="535" text-anchor="middle" fill="#8B2942" font-size="12">5步内链实操</text>
+</svg>
+</div>
+<div class="mindmap-caption">图4：第四部分知识地图（枢纽→标签→URL+内链→协同）</div>
+
+<div class="doc" id="doc11">
+<div class="doc-header"><span class="doc-num">11</span><span class="doc-title">Yoast SEO 插件使用 —— 站内 SEO 操作枢纽</span></div>
+<div class="callout callout-info"><strong>📌 互补阅读</strong>：本课是 Yoast SEO 的"填什么、怎么填"实操课；[12. Title 标签优化](#doc12) 和 [13. Description 标签优化](#doc13) 是"为什么要这样填"的理论规则课。<strong>三课互补，建议配合阅读。</strong></div>
+<h4>Yoast SEO 插件核心功能区</h4>
+<p>每个页面编辑界面下方出现 SEO 设置区域，主要操作 Title 和 Description 两个字段。</p>
+<h4>Title 标签填写规则</h4>
+<div class="table-wrap"><table><thead><tr><th>规则</th><th>说明</th></tr></thead><tbody>
+<tr><td>字数限制</td><td><code>50</code> 个字符以内，超出会被截断</td></tr>
+<tr><td>颜色指示器</td><td><strong>绿色 = 达标</strong>，黄色 = 字数不足或未达最佳要求</td></tr>
+<tr><td>必须包含关键词</td><td>使搜索关键词与 Title 匹配——这是搜索引擎排名机制的核心环节</td></tr>
+<tr><td>建议加品牌名</td><td>格式如 "Phone Cases Only Supplier - MyBestPhoneCase.com"</td></tr>
+<tr><td>实时预览</td><td>Yoast SEO 提供搜索结果展示效果的即时预览</td></tr>
+</tbody></table></div>
+<h4>Description 标签填写规则</h4>
+<div class="table-wrap"><table><thead><tr><th>规则</th><th>说明</th></tr></thead><tbody>
+<tr><td>字数限制</td><td><code>150</code> 个字符以内，超出会被省略号替代</td></tr>
+<tr><td>颜色指示器</td><td>绿色 = 达标</td></tr>
+<tr><td>必须包含关键词</td><td>且关键词必须与 Title 中的关键词保持一致</td></tr>
+<tr><td>点击率优化</td><td>Description 是搜索结果中的"广告文案"，写得越好点击率越高</td></tr>
+</tbody></table></div>
+<h4>搜索结果页的结构认知</h4>
+<ul><li><strong>蓝字标题</strong> = Title 标签</li><li><strong>下方描述文字</strong> = Description 标签</li><li>带"广告"标志 = 付费广告（非自然排名）</li><li>无标志 = 自然搜索排名结果</li></ul>
+<h4>其他设置项</h4>
+<ul><li>社交设置区域：无需关注</li><li>Slug（URL 缩略名）：→ 相关详细讲解见 [16. URL 优化](#doc16)</li><li>搜索引擎链接权重传递：选择 "Yes" 开启</li></ul>
+<div class="related"><strong>⚠️ 前置：</strong> [06. 插件安装](#doc06)、[09. 关键词调研](#doc09) ｜ <strong>📎 相关：</strong> [12. Title](#doc12)、[13. Description](#doc13)</div>
+</div>
+
+<div class="doc" id="doc12">
+<div class="doc-header"><span class="doc-num">12</span><span class="doc-title">Title 标签优化 —— 六条优化规则</span></div>
+<h4>站内 SEO 完整体系（共 7 个有效模块）</h4>
+<ol>
+<li>Title 标签优化</li><li>Description 标签优化</li><li>~~Keywords 标签~~（谷歌已弃用，不计入排名）</li>
+<li>图片 Alt 标签优化</li><li>H 标签优化（H1-H6 标题层级）</li><li>页面 URL 优化</li><li>锚文本关键词内链优化</li><li>页面整体内容相关性</li>
+</ol>
+<h4>Title 优化的六大规则</h4>
+<ol>
+<li><strong>字数限制</strong>：50 个字符以内，超出部分在搜索结果中被截断</li>
+<li><strong>必须包含关键词</strong>：关键词匹配是搜索排名的核心机制</li>
+<li><strong>层级差异化布局</strong>：首页放最大核心关键词 → 二级目录放次级关键词 → 产品页放长尾关键词</li>
+<li><strong>关键词位置前置</strong>：关键词放在 Title 最前面，搜索引擎给予更高权重</li>
+<li><strong>Title 与页面内容高相关</strong>：标题说 A 内容实际是 B = 被判定为作弊</li>
+<li><strong>禁止关键词堆积</strong>：反复堆砌关键词会被判作弊</li>
+</ol>
+<h4>竞品分析方法</h4>
+<p>右键 → 查看网页源代码 → 查找 <code>&lt;title&gt;</code> 标签 → 学习竞品 Title 撰写格式和关键词布局策略（一般格式：<strong>关键词 + 简短网站介绍 + 品牌名</strong>）</p>
+<div class="related"><strong>⚠️ 前置：</strong> [11. Yoast SEO](#doc11) ｜ <strong>📎 相关：</strong> [10. 好关键词](#doc10)</div>
+</div>
+
+<div class="doc" id="doc13">
+<div class="doc-header"><span class="doc-num">13</span><span class="doc-title">Description 标签优化 —— 用户点击率的"广告文案"</span></div>
+<h4>Description 的双重作用</h4>
+<ul><li><strong>对搜索引擎</strong>：帮助理解页面内容，辅助准确索引和排名</li><li><strong>对用户</strong>：搜索结果中的"广告文案"，直接影响是否点击（CTR）</li></ul>
+<h4>三条核心规则</h4>
+<ol>
+<li><strong>150 字符限制</strong>：超出被省略号替代，描述信息不完整</li>
+<li><strong>必须包含关键词</strong>：这是核心要求</li>
+<li><strong>关键词必须与 Title 一致</strong>：两者关键词一致形成统一用户体验，帮助搜索引擎理解页面主题定位</li>
+</ol>
+<div class="callout callout-success"><strong>💡 点击率优化逻辑</strong>：搜索结果页面中的 Description 是用户的决策依据 → 描述越好越能吸引点击 → 点击率是排名信号之一 → <strong>间接提升 SEO 排名</strong></div>
+<h4>竞品分析方法</h4>
+<p>查看源代码中的 <code>&lt;meta name="description"&gt;</code> 标签，学习竞品写法。</p>
+<div class="related"><strong>⚠️ 前置：</strong> [11. Yoast SEO](#doc11)</div>
+</div>
+
+<div class="doc" id="doc14">
+<div class="doc-header"><span class="doc-num">14</span><span class="doc-title">Heading 标签优化 —— 页面内容标题体系</span></div>
+<div class="callout callout-danger"><strong>⚠️ 概念区分（重要！）</strong>：
+<ul><li><strong>Title 标签</strong>：HTML 中给搜索引擎看的网站标题，出现在搜索结果页蓝字部分</li><li><strong>H 标签</strong>：页面正文内容的标题标记（H1-H6），是给用户和搜索引擎看的内容标题</li></ul></div>
+<h4>H 标签权重体系</h4>
+<p>H1 > H2 > H3 > H4 > H5 > H6（权重从高到低递减）</p>
+<h4>核心优化原则</h4>
+<ul>
+<li>优先优化 H1，其次是 H2</li>
+<li>越靠上的 H 标签越要尽量包含目标关键词</li>
+<li>一篇文章一般只有<strong>一个 H1</strong>（文章标题）</li>
+<li>H2 是子标题，同样建议包含核心关键词</li>
+</ul>
+<h4>WordPress 实操三步法</h4>
+<ol>
+<li>前端页面右键"检查"→ 查找 <code>&lt;h1&gt;</code>、<code>&lt;h2&gt;</code> 等标签 → 确认当前 H 标签结构</li>
+<li>后台编辑器 → 选中标题文字 → 工具栏 Heading 下拉菜单 → 修改层级</li>
+<li>更新后刷新前端 → 再次检查元素 → 确认已正确修改</li>
+</ol>
+<div class="related"><strong>⚠️ 前置：</strong> [12. Title 标签优化](#doc12)</div>
+</div>
+
+<div class="doc" id="doc15">
+<div class="doc-header"><span class="doc-num">15</span><span class="doc-title">图片 Alt 标签优化 —— 让爬虫"读懂"图片 + 获取图片搜索流量</span></div>
+<h4>Alt 标签存在的根本原因</h4>
+<p>谷歌爬虫只能识别文字内容，<strong>无法直接识别图片中的物体</strong>（是一部手机还是一台电脑，爬虫无从判断）。Alt 标签以文字形式告诉爬虫图片内容。</p>
+<h4>两大优化目标</h4>
+<ol>
+<li>让爬虫通过 Alt 文字理解图片内容</li>
+<li><strong>提升 Google Image 搜索排名</strong>——为网站带来额外的图片搜索流量
+  <ul><li>实操验证：搜索 "iphone kisses" → Google Image 中出现的产品图片 → HTML 中 alt 标签值为 "iphone kiss XS" → 证明了 Alt 标签对图片搜索排名的直接影响</li></ul>
+</li>
+</ol>
+<h4>图片优化的完整要求</h4>
+<div class="table-wrap"><table><thead><tr><th>维度</th><th>标准</th><th>说明</th></tr></thead><tbody>
+<tr><td>文件命名</td><td>用<strong>英文</strong>命名</td><td>不要用中文或乱七八糟的符号</td></tr>
+<tr><td>Alt 内容</td><td>自然描述图片内容</td><td>禁止关键词堆积</td></tr>
+<tr><td>单张图片大小</td><td>常规图/产品图：<code>100K 以内</code></td><td>直接影响加载速度</td></tr>
+<tr><td>Banner 图大小</td><td><code>100K-200K</code></td><td>首页 Banner 三张每张几百 K，总大小近 1MB，首页极慢</td></tr>
+<tr><td>优化理念</td><td><strong>治本优于治标</strong></td><td>上传前压缩本身 + 缓存加速插件辅助 = 真正的速度提升</td></tr>
+</tbody></table></div>
+<h4>WordPress 实操</h4>
+<p>后台 → Media（媒体库）→ 找到图片 → 右侧 Alternative Text 字段 → 填写描述关键词 → 保存。<strong>最核心的是 Alternative Text 字段</strong>（Title 和 Caption 可选填）。</p>
+<div class="related"><strong>📎 相关：</strong> [07. WP 后台](#doc07)、[25. 浏览器加载文件](#doc25)、[26. 加载速度](#doc26)</div>
+</div>
+
+<div class="doc" id="doc16">
+<div class="doc-header"><span class="doc-num">16</span><span class="doc-title">网站页面 URL 优化 —— 三个维度的优化</span></div>
+<h4>维度一：URL 内容优化 —— 包含关键词</h4>
+<ul><li>URL 应包含目标关键词，让 URL 本身具有语义价值</li><li>示例：二级目录 <code>/my-shirt/</code>，三级目录 <code>/black-color-shirt/</code></li></ul>
+<h4>维度二：URL 结构优化 —— 层级越短越好</h4>
+<ul>
+<li><strong>优</strong>：首页 > 产品目录 > 产品详情页（三层结构，两次点击）</li>
+<li><strong>劣</strong>：首页 > 第一级 > 第二级 > 第三级 > 产品详情页（层级过长）</li>
+<li>较短的 URL 结构对谷歌更友好</li>
+</ul>
+<h4>维度三：WordPress 系统配置 —— Permalinks 设置</h4>
+<ul>
+<li>路径：后台 → Settings → Permalinks（固定链接）</li>
+<li><strong>必须选择：Post name（文章名）格式</strong></li>
+<li>原因：URL 干净整洁，如 <code>example.com/product-name/</code>，对 SEO 最友好</li>
+<li>避免：带问号参数格式（如 <code>?p=123</code>），不美观且可能导致 404，对搜索引擎不友好</li>
+</ul>
+<div class="related"><strong>📎 相关：</strong> [17. 内链建设](#doc17)</div>
+</div>
+
+<div class="doc" id="doc17">
+<div class="doc-header"><span class="doc-num">17</span><span class="doc-title">网站内链建设（理论）—— 站内 SEO 的重中之重</span></div>
+<h4>核心概念定义</h4>
+<ul><li><strong>内链</strong>：网站某个页面中的某个关键词，以锚文本形式加上超链接，指向同一网站域名内的另一个页面</li><li><strong>锚文本（Anchor Text）</strong>：被添加了超链接的那个关键词</li></ul>
+<h4>内链的三大核心价值（首尾相连的完整逻辑链）</h4>
+<ol>
+<li><strong>有利于谷歌爬虫抓取</strong> → 爬虫顺着内链从一个页面深入另一个页面，提高收录效率</li>
+<li><strong>提高用户体验</strong> → 用户读到不理解的术语点击内链即可跳转获取解释</li>
+<li><strong>延长用户停留时间</strong> → 停留时间越长 → 谷歌信号越好 → 排名越靠前</li>
+</ol>
+<h4>内链建设的六大规范</h4>
+<div class="table-wrap"><table><thead><tr><th>规范</th><th>具体要求</th></tr></thead><tbody>
+<tr><td>禁止过度滥用</td><td>一个段落不能有十个八个内链，否则视为作弊</td></tr>
+<tr><td>关键词位置靠前</td><td>锚文本关键词放在文章靠前位置，搜索引擎给予更高权重</td></tr>
+<tr><td>高度相关性</td><td>锚文本链接的页面必须与所在页面具有内容相关性</td></tr>
+<tr><td>文本多样性</td><td>锚文本用关键词但保持多样性（如"笔记本电脑"可换为"手提电脑"）</td></tr>
+<tr><td>密度控制</td><td>锚文本关键词密度控制在 <code>1%-2%</code> 左右</td></tr>
+<tr><td>自然优先</td><td>不能为了做锚文本故意堆满关键词——属于作弊</td></tr>
+</tbody></table></div>
+<h4>学习资源推荐</h4>
+<p><strong>backlinko.com</strong>（Brian Dean 创办），全球 SEO 最权威的网站之一。</p>
+<div class="related"><strong>📎 相关：</strong> [18. 内链建设实操](#doc18)</div>
+</div>
+
+<div class="doc" id="doc18">
+<div class="doc-header"><span class="doc-num">18</span><span class="doc-title">内链建设实操 —— 五步完成一次内链建设</span></div>
+<h4>实操五步法</h4>
+<ol>
+<li>WordPress 后台 → Posts → 新建或编辑文章</li>
+<li>撰写正文内容，确定需要添加内链的目标关键词</li>
+<li>用鼠标选中要作为锚文本的关键词文字</li>
+<li>点击编辑器工具栏的链接（Insert/Edit Link）按钮 → 输入目标页面 URL → Apply</li>
+<li>预览确认：鼠标悬停关键词显示超链接标志，点击可跳转到目标产品页</li>
+</ol>
+<h4>适用范围</h4>
+<p>内链功能在文章（Posts）和页面（Pages）中均可使用，实现页面之间的相互关联。</p>
+<div class="related"><strong>⚠️ 前置：</strong> [17. 内链建设理论](#doc17)</div>
+</div>
+</section>
+<!-- ========== 第五部分 ========== -->
+<section class="part" id="part5">
+<div class="part-header"><div class="part-num">5</div><h2 class="part-title">第五部分：内容营销与社媒引流</h2></div>
+<h3>🧠 本部分知识地图</h3>
+<div class="mindmap-wrap">
+<svg viewBox="0 0 1240 440" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+<path d="M 200,220 H 380 V 100 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,220 H 380 V 240 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,220 H 380 V 360 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 540,100 H 720 V 60 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,100 H 720 V 130 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 200 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 270 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,360 H 720 V 320 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,360 H 720 V 390 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<rect x="20" y="200" width="180" height="40" rx="6" fill="#4A90A4"/>
+<text x="110" y="225" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">内容营销与引流</text>
+<rect x="380" y="80" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="105" text-anchor="middle" fill="#2C5F6F" font-size="13">价值定位（19）</text>
+<rect x="380" y="220" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="245" text-anchor="middle" fill="#2C5F6F" font-size="13">痛点挖掘（20）</text>
+<rect x="380" y="340" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="365" text-anchor="middle" fill="#2C5F6F" font-size="13">多渠道分发（21）</text>
+<rect x="720" y="42" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="65" text-anchor="middle" fill="#4A6E3A" font-size="12">站内SEO一部分</text>
+<rect x="720" y="112" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="135" text-anchor="middle" fill="#4A6E3A" font-size="12">品牌信任建设</text>
+<rect x="720" y="182" width="180" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="810" y="205" text-anchor="middle" fill="#8B5A2B" font-size="12">7种选题方法</text>
+<rect x="720" y="252" width="180" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="810" y="275" text-anchor="middle" fill="#8B5A2B" font-size="12">Reddit/Quora/ATP</text>
+<rect x="720" y="302" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="325" text-anchor="middle" fill="#4A6E3A" font-size="12">LinkedIn/Facebook</text>
+<rect x="720" y="372" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="395" text-anchor="middle" fill="#4A6E3A" font-size="12">Hashtag 规模化</text>
+</svg>
+</div>
+<div class="mindmap-caption">图5：第五部分知识地图（价值→选题→分发）</div>
+
+<div class="doc" id="doc19">
+<div class="doc-header"><span class="doc-num">19</span><span class="doc-title">为什么做内容营销 —— 品牌信任建设</span></div>
+<h4>内容营销的三重定位</h4>
+<ol>
+<li><strong>属于站内 SEO 的一部分</strong>：写文章本身就是站内 SEO 优化</li>
+<li><strong>以用户体验为核心（与谷歌价值观一致）</strong>：谷歌的使命是"一切以用户为核心、不作恶、提供给客户最优质最有价值的内容"</li>
+<li><strong>品牌营销的核心</strong>：围绕客户痛点写文章 → 提供系统性解决方案 → 建立行业专家形象 → 品牌信任 → 流量与排名</li>
+</ol>
+<h4>核心前提</h4>
+<p>如果自己是这个行业的半个专家或专家（如具有化工背景、机械背景等），对产品和客户痛点非常了解，<strong>就能系统性地写出解决方案</strong>。</p>
+<div class="callout callout-warning"><strong>📌 长期性认知</strong>：内容营销和 SEO 一样属于"慢工出细活"——SEO 最快也需要<strong>半年</strong>才能有排名出结果。需要通过不断更新文章 + 外链建设 + 社交分享，逐步让网站获得流量和排名。</div>
+<div class="related"><strong>📎 相关：</strong> [20. 寻找用户痛点](#doc20)、[21. 文章分享引流](#doc21)</div>
+</div>
+
+<div class="doc" id="doc20">
+<div class="doc-header"><span class="doc-num">20</span><span class="doc-title">寻找用户痛点的方法 —— 七种内容营销选题来源</span></div>
+<h4>第一类：搜索引擎维度（3 种）</h4>
+<div class="table-wrap"><table><thead><tr><th>方法</th><th>具体操作</th></tr></thead><tbody>
+<tr><td>谷歌长尾关键词挖掘</td><td>从长尾词中发现用户真实关心的问题</td></tr>
+<tr><td>People Also Ask（用户也问）</td><td>搜索结果页中的"用户也问"区域，每展开一个问题会继续生成新问题</td></tr>
+<tr><td>Related Queries（相关搜索）</td><td>搜索结果页面底部相关搜索词，整理到表格中作为选题库</td></tr>
+</tbody></table></div>
+<h4>第二类：工具维度（1 种）</h4>
+<ul><li><strong>AnswerThePublic</strong>：输入关键词 → 自动按 5W1H 框架（are/can/what/when/where/who/why/how）分类呈现所有相关搜索问题 → 支持下载导出</li></ul>
+<h4>第三类：社区维度（强烈推荐，3 种）</h4>
+<div class="table-wrap"><table><thead><tr><th>方法</th><th>说明</th></tr></thead><tbody>
+<tr><td>行业垂直论坛</td><td>如美妆论坛（口红类）、3C 论坛（电脑类）</td></tr>
+<tr><td><strong>Reddit（强烈推荐）</strong></td><td>全美前五流量论坛平台 → 搜索行业/产品关键词 → 找到对应 subreddit → 挖掘用户讨论问题</td></tr>
+<tr><td><strong>Quora（强烈推荐）</strong></td><td>类似中国知乎 → 搜索行业相关问题 → 撰写高质量回答 → 在答案中自然嵌入文章链接引流 → 同时是内容营销和外链建设</td></tr>
+</tbody></table></div>
+<h4>基础前提</h4>
+<p>自身对产品和行业的专业深度理解（至少是半个专家）。</p>
+<div class="related"><strong>⚠️ 前置：</strong> [19. 内容营销](#doc19) ｜ <strong>📎 相关：</strong> [09. 关键词调研](#doc09)</div>
+</div>
+
+<div class="doc" id="doc21">
+<div class="doc-header"><span class="doc-num">21</span><span class="doc-title">通过分享文章引流到独立站 —— 缩短流量等待周期</span></div>
+<h4>核心逻辑</h4>
+<p>文章发布后 → SEO 效果需等待 → 主动分享获取即时流量 → 多渠道分发实现引流</p>
+<h4>文章分享的四大渠道</h4>
+<div class="table-wrap"><table><thead><tr><th>渠道</th><th>操作方式</th><th>关键技巧</th></tr></thead><tbody>
+<tr><td>行业论坛</td><td>找到相关论坛，在讨论中附上文章链接</td><td>融入讨论，非硬广</td></tr>
+<tr><td><strong>LinkedIn Groups</strong></td><td>加入相关行业小组 → 发帖分享文章链接</td><td>添加 hashtag（如 #contentmarketing、#SEO）提升搜索可见性</td></tr>
+<tr><td><strong>Facebook Groups</strong></td><td>操作方法完全同 LinkedIn</td><td><strong>规模化</strong>：加入多个相关小组复制推广</td></tr>
+<tr><td><strong>Quora</strong></td><td>找到相关问题 → 写有实质内容的回答 → 嵌入文章链接</td><td>引流同时是内容营销和外链建设</td></tr>
+</tbody></table></div>
+<h4>LinkedIn 引流实操演示要点</h4>
+<ul>
+<li>搜索话题/问题时关注 follow 人数 → 人数越多引流潜力越大</li>
+<li>演示小组人数：<strong>约 139 万人</strong>——一篇帖子可触达大量潜在客户</li>
+<li><strong>Hashtag 的作用</strong>：当有人搜索这些关键词时，帖子可能被搜到，进一步扩大曝光</li>
+<li><strong>规模化策略</strong>：加入更多相关行业小组，在不同小组复制推广模式</li>
+</ul>
+<div class="callout callout-success"><strong>💡 本质思路</strong>：在 SEO 自然流量到来之前，利用社交媒体和问答平台的现有流量池，<strong>主动将内容推送到目标用户面前</strong>，缩短从内容生产到获得流量的时间周期。</div>
+<div class="related"><strong>⚠️ 前置：</strong> [19. 内容营销](#doc19)、[20. 用户痛点](#doc20) ｜ <strong>📎 相关：</strong> [29. 外链建设](#doc29)（Nofollow 链接的引流作用）</div>
+</div>
+</section>
+<!-- ========== 第六部分 ========== -->
+<section class="part" id="part6">
+<div class="part-header"><div class="part-num">6</div><h2 class="part-title">第六部分：网站技术优化与加速</h2></div>
+<h3>🧠 本部分知识地图</h3>
+<div class="mindmap-wrap">
+<svg viewBox="0 0 1280 540" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+<path d="M 200,280 H 380 V 80 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,280 H 380 V 220 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,280 H 380 V 360 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,280 H 380 V 480 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 540,80 H 720 V 40 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,80 H 720 V 110 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,220 H 720 V 180 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,220 H 720 V 250 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,360 H 720 V 320 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,360 H 720 V 390 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,480 H 720 V 440 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,480 H 720 V 510 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<rect x="20" y="260" width="180" height="40" rx="6" fill="#4A90A4"/>
+<text x="110" y="285" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">技术优化与加速</text>
+<rect x="380" y="60" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="85" text-anchor="middle" fill="#2C5F6F" font-size="13">爬虫指引（22-23）</text>
+<rect x="380" y="200" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="225" text-anchor="middle" fill="#2C5F6F" font-size="13">加载原理（24-25）</text>
+<rect x="380" y="340" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="365" text-anchor="middle" fill="#2C5F6F" font-size="13">速度优化（26）</text>
+<rect x="380" y="460" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="485" text-anchor="middle" fill="#2C5F6F" font-size="13">移动端（28）</text>
+<rect x="720" y="22" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="45" text-anchor="middle" fill="#4A6E3A" font-size="12">robots.txt</text>
+<rect x="720" y="92" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="115" text-anchor="middle" fill="#4A6E3A" font-size="12">Sitemap 提交</text>
+<rect x="720" y="162" width="180" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="810" y="185" text-anchor="middle" fill="#8B5A2B" font-size="12">4步加载流程</text>
+<rect x="720" y="232" width="180" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="810" y="255" text-anchor="middle" fill="#8B5A2B" font-size="12">4类核心文件</text>
+<rect x="720" y="302" width="180" height="36" rx="5" fill="#F9EBEF" stroke="#C44569"/>
+<text x="810" y="325" text-anchor="middle" fill="#8B2942" font-size="12">5大原因</text>
+<rect x="720" y="372" width="180" height="36" rx="5" fill="#F9EBEF" stroke="#C44569"/>
+<text x="810" y="395" text-anchor="middle" fill="#8B2942" font-size="12">服务器占40-50%</text>
+<rect x="720" y="422" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="445" text-anchor="middle" fill="#4A6E3A" font-size="12">MFI 算法</text>
+<rect x="720" y="492" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="515" text-anchor="middle" fill="#4A6E3A" font-size="12">响应式 vs M站</text>
+</svg>
+</div>
+<div class="mindmap-caption">图6：第六部分知识地图（爬虫→加载→速度→移动端）</div>
+
+<div class="doc" id="doc22">
+<div class="doc-header"><span class="doc-num">22</span><span class="doc-title">编写 robots.txt 文件 —— 搜索引擎爬虫的行为指引</span></div>
+<h4>技术 SEO 五大方面</h4>
+<ol>
+<li>robots 文件编写和提交</li><li>sitemap 生成和提交</li><li>网站速度优化</li><li>网站层级架构优化</li><li>网站移动端自适应优化</li>
+</ol>
+<h4>核心概念</h4>
+<p>robots.txt 是放在网站根目录（public_html）的 TXT 文本文件，<strong>专门给搜索引擎爬虫看的</strong>。爬虫按照其中的指令判断：哪些要抓取收录、哪些不抓取。</p>
+<h4>默认情况</h4>
+<p>WordPress 可自动生成 robots 文件，无需刻意编写。路径：后台 → Settings → Reading → Search Engine Visibility。</p>
+<h4>手动编写的语法</h4>
+<div class="table-wrap"><table><thead><tr><th>指令</th><th>含义</th><th>说明</th></tr></thead><tbody>
+<tr><td><code>User-agent: *</code></td><td>目标搜索引擎</td><td><code>*</code> = 所有引擎。可指定单个 "Googlebot"/"Baiduspider"/"Bingbot"</td></tr>
+<tr><td><code>Disallow: /wp-admin/</code></td><td>禁止抓取路径</td><td>禁止爬虫抓取网站后台（安全+无价值内容）</td></tr>
+<tr><td><code>Allow: /</code></td><td>允许抓取路径</td><td><code>/</code> = 网站根目录，允许抓取所有内容</td></tr>
+<tr><td>Noindex</td><td>不收录</td><td>可抓取但不收录到搜索引擎数据库</td></tr>
+</tbody></table></div>
+<h4>建议设置 Noindex 的无商业价值页面</h4>
+<ul><li>Thank You Page（感谢页面）——提交询盘后的跳转页</li><li>Cart Page（购物车页面）</li><li>Checkout Page（结账页面）</li></ul>
+<h4>上传操作</h4>
+<p>编写 robots.txt → 进入服务器后台文件管理器 → 进入 public_html 文件夹 → File Upload 上传 → <strong>必须上传到根目录，不能上传到任何子文件夹中</strong></p>
+<div class="related"><strong>📎 相关：</strong> [23. Sitemap](#doc23)</div>
+</div>
+
+<div class="doc" id="doc23">
+<div class="doc-header"><span class="doc-num">23</span><span class="doc-title">Sitemap 生成和提交 —— 主动告知谷歌来抓取</span></div>
+<h4>Sitemap 在 SEO 三步骤中的位置</h4>
+<ul>
+<li><strong>第一步（爬取）</strong>：谷歌蜘蛛来网站爬取内容——<strong>sitemap 在此环节发挥作用</strong></li>
+<li>第二步（收录）：内容进入谷歌数据库</li>
+<li>第三步（排名）：在搜索结果中获得位置</li>
+</ul>
+<p>有了 sitemap 文件，爬虫会顺着站点地图中的每个链接挨个到达网站的每一个页面，抓取每个页面的 HTML 内容。<strong>Sitemap 极大地便利了谷歌爬虫访问网站页面和读取页面内容。</strong></p>
+<h4>Sitemap 的实际内容结构</h4>
+<ul>
+<li>浏览器访问 <code>https://你的网站.com/sitemap.xml</code> 可查看</li>
+<li>按内容类型分类的子地图：
+  <ul><li><code>page-sitemap.xml</code>：页面站点地图</li><li><code>post-sitemap.xml</code>：文章站点地图</li><li><code>product-sitemap.xml</code>：产品站点地图</li></ul>
+</li>
+</ul>
+<h4>生成方式</h4>
+<p>使用 WordPress SEO 插件（如 Rank Math SEO，500万+安装量、全五星好评）自动生成。插件同时具备：<strong>站内 SEO 优化 + sitemap 自动生成</strong>两大功能。</p>
+<h4>提交方式（加速收录的关键步骤）</h4>
+<p>Google Search Console 后台 → Sitemap 菜单 → 输入 <code>sitemap.xml</code> → 提交 → 谷歌审核查看</p>
+<div class="callout callout-info"><strong>📐 提交的意义</strong>：<strong>主动通知谷歌搜索引擎</strong>，让爬虫主动来爬取站点地图上的所有页面信息，加速网站被收录。</div>
+<h4>核心操作链</h4>
+<p>安装 SEO 插件 → 自动生成 sitemap → Google Search Console 提交 → 谷歌爬虫按 sitemap 爬取 → 加速收录</p>
+<div class="related"><strong>📎 相关：</strong> [22. robots.txt](#doc22)</div>
+</div>
+
+<div class="doc" id="doc24">
+<div class="doc-header"><span class="doc-num">24</span><span class="doc-title">用户访问网站的加载过程 —— 四步理解加载原理</span></div>
+<h4>加载速度影响 SEO 的完整逻辑链</h4>
+<p>用户访问慢（10-20 秒打不开）→ 用户关闭网站 → 跳出率升高 → 谷歌接收负面信号 → 排名下降</p>
+<h4>网站加载的完整四步流程（线上线下类比模型）</h4>
+<div class="table-wrap"><table><thead><tr><th>步骤</th><th>线上流程</th><th>线下类比</th></tr></thead><tbody>
+<tr><td>第一步</td><td>用户在浏览器输入域名，开始访问网站</td><td>客户来到你的线下店铺</td></tr>
+<tr><td>第二步</td><td>浏览器接到请求后，从网站服务器端下载网站文件</td><td>导购根据客户要求，从店铺仓库调取商品</td></tr>
+<tr><td>第三步</td><td>浏览器将从服务器下载的数据文件解码成前端可理解的内容呈现给客户</td><td>导购给客户讲解产品</td></tr>
+<tr><td>第四步</td><td>客户正确浏览网站，开始进行交互操作</td><td>客户完成支付</td></tr>
+</tbody></table></div>
+<h4>课程专题覆盖五个方面</h4>
+<p>加载过程理解 → 加载文件类型 → 影响速度的原因 → 骨架屏（Skeleton Markup）→ 移动端优化</p>
+<div class="related"><strong>📎 相关：</strong> [25. 浏览器加载文件](#doc25)、[26. 加载速度原因](#doc26)</div>
+</div>
+
+<div class="doc" id="doc25">
+<div class="doc-header"><span class="doc-num">25</span><span class="doc-title">浏览器加载的文件有哪些 —— 四类核心文件</span></div>
+<h4>浏览器加载的四类核心文件</h4>
+<div class="table-wrap"><table><thead><tr><th>文件类型</th><th>角色</th><th>线下类比</th><th>WordPress 中的表现</th></tr></thead><tbody>
+<tr><td><strong>HTML</strong></td><td>页面框架结构</td><td>店铺中所有实体东西（墙上的字、货架、商品）</td><td>网站所有可见内容的容器</td></tr>
+<tr><td><strong>CSS</strong></td><td>装修风格/视觉样式</td><td>商品摆放、留白、颜色搭配</td><td>主题的样式定义</td></tr>
+<tr><td><strong>JavaScript</strong></td><td>交互逻辑/功能脚本</td><td>—</td><td>插件代码本质是 JS；谷歌分析/谷歌跟踪代码管理器等第三方代码也是 JS</td></tr>
+<tr><td><strong>图片</strong></td><td>视觉内容</td><td>—</td><td>产品图、Banner 等（需预先压缩优化）</td></tr>
+</tbody></table></div>
+<div class="callout callout-info"><strong>💡 关键认知</strong>：JavaScript 是镶嵌在 HTML 框架内部的脚本语言。<strong>所有 WordPress 插件本质上都是 JavaScript 代码。</strong></div>
+<h4>图片优化的重点</h4>
+<ul>
+<li>图片大小对加载速度影响极大</li>
+<li><strong>必须在上传服务器之前</strong>就做好压缩优化</li>
+<li>整个网站首页加载的<strong>文件总大小应控制在 1-2MB 以内</strong></li>
+<li>反例：演示网站加载总大小 4.3MB（偏大），存在较大优化空间</li>
+</ul>
+<h4>开发者工具实操</h4>
+<p>F12 → Network 面板 → 刷新页面 → 观察瀑布流式文件加载过程 → 按类型筛选（JS/CSS/Image/Media/Font 等）→ 点击图片资源可查看具体文件</p>
+<div class="related"><strong>📎 相关：</strong> [15. 图片 Alt](#doc15)、[26. 加载速度](#doc26)</div>
+</div>
+
+<div class="doc" id="doc26">
+<div class="doc-header"><span class="doc-num">26</span><span class="doc-title">影响网站加载速度的五大原因</span></div>
+<div class="table-wrap"><table><thead><tr><th>排名</th><th>原因</th><th>影响程度</th><th>核心解决方案</th></tr></thead><tbody>
+<tr><td>1</td><td><strong>服务器性能差</strong></td><td><strong>最高（40%-50%）</strong></td><td>选择性价比高的服务器（如 SiteGround）</td></tr>
+<tr><td>2</td><td>图片体积过大</td><td>高</td><td>上传前压缩优化（单张 100K 以内，Banner 100-200K）</td></tr>
+<tr><td>3</td><td>直接上传视频</td><td>高</td><td>上传到 YouTube 后用嵌入代码插入网站</td></tr>
+<tr><td>4</td><td>插件过多</td><td>中</td><td>控制在 15 个以内（理想 10 个左右）</td></tr>
+<tr><td>5</td><td>代码臃肿</td><td>中</td><td>使用现代高效的程序语言</td></tr>
+</tbody></table></div>
+<div class="callout callout-success"><strong>💡 关键认知</strong>：
+<ul>
+<li>服务器是加载速度的"<strong>引擎</strong>"——好服务器如飞机引擎，差服务器如绿皮火车引擎</li>
+<li>即使其他方面优化再好，<strong>差服务器也难以获得理想加载速度</strong></li>
+<li>图片预先压缩 + 视频用 YouTube 嵌入，属于运营层面持续优化动作</li>
+<li>插件数量：理想值 10 个左右，<strong>硬性上限 15 个</strong></li>
+</ul></div>
+<div class="related"><strong>📎 相关：</strong> [06. 插件安装](#doc06)、[15. 图片 Alt](#doc15)、[28. Mobile First](#doc28)</div>
+</div>
+
+<div class="doc" id="doc28">
+<div class="doc-header"><span class="doc-num">28</span><span class="doc-title">Mobile First Index —— 移动端优化要求</span></div>
+<h4>算法背景</h4>
+<p>2018 年谷歌正式发布 Mobile First Index（移动优先索引）算法：</p>
+<ul>
+<li><strong>爬虫策略转变</strong>：优先使用移动端爬虫（Google Smart Bot）爬取和索引网站内容</li>
+<li><strong>权重倾斜</strong>：排名权重更侧重网站是否做了移动端优化</li>
+<li><strong>桌面端做得再好，如果移动端体验差，排名也不会好</strong></li>
+</ul>
+<h4>两种移动端方案全方位对比</h4>
+<div class="table-wrap"><table><thead><tr><th>对比维度</th><th>M 站点（独立移动站）</th><th>响应式网站（Responsive）</th></tr></thead><tbody>
+<tr><td>域名</td><td>二级域名（m.abc.com）</td><td>单一主域名，PC 和移动共用</td></tr>
+<tr><td>代码</td><td>独立代码，可灵活修改</td><td>一套代码</td></tr>
+<tr><td>开发维护成本</td><td>高（需专门开发人员）</td><td><strong>低</strong>（无需额外开发人员）</td></tr>
+<tr><td>加载速度</td><td>有 301 跳转延迟</td><td><strong>无跳转</strong>，更快速</td></tr>
+<tr><td>SEO 影响</td><td>权重分散，需单独 SEO</td><td><strong>权重集中</strong>，一套 SEO 即可</td></tr>
+<tr><td>谷歌推荐度</td><td>不推荐（新网站）</td><td><strong>强烈推荐</strong></td></tr>
+</tbody></table></div>
+<div class="callout callout-info"><strong>📌 谷歌官方建议（引用原文）</strong>：
+<blockquote>"We recommend responsive web design for new websites... We recommend use a single URL for both desktop and mobile website."</blockquote>
+</div>
+<div class="callout callout-success"><strong>💡 WordPress 的天然优势</strong>：WordPress 主题基本上都是响应式设计，<strong>天然支持移动端自适应</strong>。使用 WordPress 建站无需额外担忧移动端适配问题。</div>
+<h4>验证方法</h4>
+<p>F12 开发者工具 → 设备模拟功能 → 查看不同设备上的呈现效果</p>
+<div class="related"><strong>📎 相关：</strong> [25. 浏览器加载文件](#doc25)、[26. 加载速度](#doc26)</div>
+</div>
+</section>
+<!-- ========== 第七部分 ========== -->
+<section class="part" id="part7">
+<div class="part-header"><div class="part-num">7</div><h2 class="part-title">第七部分：白帽外链建设完整体系</h2></div>
+<h3>🧠 本部分知识地图</h3>
+<div class="mindmap-wrap">
+<svg viewBox="0 0 1280 580" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+<path d="M 200,300 H 380 V 80 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,300 H 380 V 240 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 200,300 H 380 V 400 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 540,80 H 720 V 40 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,80 H 720 V 110 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 200 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,240 H 720 V 270 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,400 H 720 V 360 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<path d="M 540,400 H 720 V 430 H 900" stroke="#7FB069" stroke-width="1.2" fill="none"/>
+<rect x="20" y="280" width="180" height="40" rx="6" fill="#4A90A4"/>
+<text x="110" y="305" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">白帽外链建设</text>
+<rect x="380" y="60" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="85" text-anchor="middle" fill="#2C5F6F" font-size="12">基础概念（29-32）</text>
+<rect x="380" y="220" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="245" text-anchor="middle" fill="#2C5F6F" font-size="12">质量判断（33-34）</text>
+<rect x="380" y="380" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="460" y="405" text-anchor="middle" fill="#2C5F6F" font-size="12">获取途径（35-37）</text>
+<rect x="720" y="22" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="45" text-anchor="middle" fill="#4A6E3A" font-size="12">白帽 vs 黑帽</text>
+<rect x="720" y="92" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="115" text-anchor="middle" fill="#4A6E3A" font-size="12">DA/PA + Dofollow</text>
+<rect x="720" y="182" width="180" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="810" y="205" text-anchor="middle" fill="#8B5A2B" font-size="12">行业相关外链</text>
+<rect x="720" y="252" width="180" height="36" rx="5" fill="#FBF1E9" stroke="#E8A87C"/>
+<text x="810" y="275" text-anchor="middle" fill="#8B5A2B" font-size="12">EAT 站点</text>
+<rect x="720" y="342" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="365" text-anchor="middle" fill="#4A6E3A" font-size="12">竞品外链</text>
+<rect x="720" y="412" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="810" y="435" text-anchor="middle" fill="#4A6E3A" font-size="12">行业博客+Resource</text>
+</svg>
+</div>
+<div class="mindmap-caption">图7：第七部分知识地图（基础→质量→获取）</div>
+
+<div class="doc" id="doc29">
+<div class="doc-header"><span class="doc-num">29</span><span class="doc-title">什么是外链 —— 外链建设模块总纲</span></div>
+<h4>方法论定调 —— 白帽 SEO vs 黑帽 SEO</h4>
+<div class="table-wrap"><table><thead><tr><th>类型</th><th>说明</th></tr></thead><tbody>
+<tr><td><strong>白帽 SEO（本课程全部基于此）</strong></td><td>使用干净、正规的手段将网站排名做上去</td></tr>
+<tr><td><strong>黑帽 SEO（不提倡、不学习）</strong></td><td>用作弊手段、黑色技术排上去——风险：
+  <ul><li>排名只是临时性的</li><li>谷歌更新算法后排名被降下来</li><li>严重情况：网站被永久拉黑，打入<strong>沙盒（Sandbox）</strong>——永无天日，永远得不到排名</li></ul></td></tr>
+</tbody></table></div>
+<p>本课程：<strong>不做垃圾外链（Spam Links）、不做链接农场（Link Farm）</strong></p>
+<h4>外链的定义与本质</h4>
+<ul>
+<li><strong>定义</strong>：外部网站上的某个页面有一个链接指向我们的网站。用户点击从外部网站跳转过来，这个链接就是外链</li>
+<li><strong>本质：网站信用的投票机制</strong>——得到的外链越多，说明信用越高（相对而言）</li>
+<li><strong>比喻</strong>：网站像一个人在社会上立足，行业前辈给你投一票说你德才兼备有发展潜力，这就是外链的作用</li>
+</ul>
+<h4>外链是影响网站排名的前三因素之一</h4>
+<ol>
+<li><strong>首要因素：外链</strong></li>
+<li><strong>内容质量</strong>（Content Quality，偏重 SEO 层面）</li>
+<li><strong>RankBrain</strong>：谷歌约 2016-2018 年推出的 AI 算法，模仿人类神经网络判断网站内容质量</li>
+</ol>
+<h4>数量与质量的关系</h4>
+<p>数据表明排名越靠前外链数量越高（正相关），但<strong>质量比数量更为重要</strong>。</p>
+<h4>外链建设课程覆盖内容预览</h4>
+<p>什么是外链 → DA 和 PA → Dofollow/Nofollow → 锚文本外链 → 行业相关外链 → EAT 站点外链 → 竞品外链获取 → 行业博客 → Resource Page → Link Miner 插件 → Blogger Outreach → 文章外包避坑 → Schema Markup</p>
+<div class="related"><strong>📎 相关：</strong> [30. DA 和 PA](#doc30)</div>
+</div>
+
+<div class="doc" id="doc30">
+<div class="doc-header"><span class="doc-num">30</span><span class="doc-title">外链的 DA 和 PA —— 权重衡量标准</span></div>
+<h4>历史背景</h4>
+<p>谷歌早期的 PR（PageRank）虽已书面宣布取消，但业内共识是<strong>网站权重依然非常影响排名</strong>。</p>
+<h4>DA 和 PA 的来源与定义（来自 Moz）</h4>
+<div class="table-wrap"><table><thead><tr><th>指标</th><th>全称</th><th>含义</th><th>分值范围</th><th>特点</th></tr></thead><tbody>
+<tr><td><strong>DA</strong></td><td>Domain Authority</td><td>域名权重，反映整个域名的权威性</td><td>0-100</td><td>所有页面共用同一个 DA 值，不变</td></tr>
+<tr><td><strong>PA</strong></td><td>Page Authority</td><td>页面权重，反映单个页面的权威性</td><td>0-100</td><td>每个页面不同，随页面内容变化</td></tr>
+</tbody></table></div>
+<h4>权重传递机制</h4>
+<p>通过 <strong>Dofollow 外链</strong>实现权重传递。案例：如能获得 DA 值 80 分的网站外链（权重极高、域名历史悠久），自己网站排名会提升得非常快。</p>
+<h4>MozBar 工具</h4>
+<ul>
+<li>安装：Chrome 扩展商店搜索 MozBar</li>
+<li>功能：即时查看任何网站的 DA 值和 PA 值</li>
+<li>应用场景：寻找外链来源时，快速判断目标网站权重，辅助判断是否值得作为外链来源</li>
+<li>推荐深入学习：访问 moz.com</li>
+</ul>
+<div class="related"><strong>📎 相关：</strong> [31. Dofollow 和 Nofollow](#doc31)（权重通过 Dofollow 链接传递）</div>
+</div>
+
+<div class="doc" id="doc31">
+<div class="doc-header"><span class="doc-num">31</span><span class="doc-title">Dofollow 和 Nofollow 外链 —— 两种链接传递类型</span></div>
+<h4>技术本质</h4>
+<p>Dofollow 和 Nofollow 是 HTML 标签属性（<code>rel="nofollow"</code>），用于告诉谷歌搜索引擎：</p>
+<ul><li><strong>Dofollow</strong>：可以传递权重（传递 Link Juice）</li><li><strong>Nofollow</strong>：不能传递权重</li></ul>
+<h4>水杯比喻</h4>
+<p>一大杯水代表 100% 的权重 → Dofollow 可以把水分配给下面的杯子（传递权重）；Nofollow 不传递水，对网站实际权重提升没有直接帮助。</p>
+<h4>代码层面识别</h4>
+<ul>
+<li>右键点击链接 → 检查（Inspect）→ 查看 HTML 代码</li>
+<li>有 <code>rel="nofollow"</code> = Nofollow</li>
+<li>没有标记 = 默认 Dofollow</li>
+</ul>
+<div class="callout callout-success">
+<strong>💡 Nofollow 的重要价值——引流（Referral Traffic）</strong>：
+<ul>
+<li>典型案例：Facebook、Pinterest、Instagram、YouTube 等社交媒体上的链接都是 Nofollow 的</li>
+<li>虽然不传递权重，但因为社交媒体流量大，<strong>引流作用非常高</strong></li>
+<li><strong>策略建议</strong>：外链建设不能只做 Dofollow，也要建立 Nofollow 外链——Dofollow 负责传递权重提排名，Nofollow 负责社交媒体引流</li>
+</ul></div>
+<div class="related"><strong>📎 相关：</strong> [32. 锚文本外链](#doc32)（锚文本外链也有 Dofollow/Nofollow 之分）</div>
+</div>
+
+<div class="doc" id="doc32">
+<div class="doc-header"><span class="doc-num">32</span><span class="doc-title">锚文本外链 —— 选词与位置策略</span></div>
+<h4>锚文本的两种类型</h4>
+<ul>
+<li><strong>锚文本内链</strong>：点击后跳转仍在同一网站内部 → 详见 [17. 内链建设](#doc17)</li>
+<li><strong>锚文本外链</strong>：点击后跳转到网站之外的其他网站</li>
+</ul>
+<h4>核心选词原则：尽可能使用目标关键词来做锚文本</h4>
+<ul>
+<li>举例：专业手机壳网站 → 锚文本用"手机壳批发"或"手机壳制造"——属于相关性强的锚文本外链</li>
+<li>反面例子：在微波炉或办公桌椅网站上用锚文本指向手机壳网站——不相关，对用户体验和排名都不好</li>
+</ul>
+<h4>锚文本外链的位置策略</h4>
+<p>尽可能放在正文<strong>比较靠上的位置</strong>。原因：越靠上越容易被谷歌蜘蛛及时发现和爬取 → 谷歌将此纳入排名考量。</p>
+<h4>技术验证方法</h4>
+<p>找到外链锚文本 → 右键检查 → 查看是否有 <code>rel="nofollow"</code> → 无标记 = Dofollow（传递权重）</p>
+<div class="related"><strong>📎 相关：</strong> [17. 内链建设](#doc17)（锚文本内链概念与本课的锚文本外链本质相同，跳转方向不同）</div>
+</div>
+
+<div class="doc" id="doc33">
+<div class="doc-header"><span class="doc-num">33</span><span class="doc-title">行业高度相关外链 —— 相关性是硬门槛</span></div>
+<h4>核心原则</h4>
+<p>获取外链时，必须尽量获取<strong>与自身行业高度相关的站点外链</strong>。</p>
+<h4>谷歌企鹅算法（Google Penguin）的分水岭意义</h4>
+<ul>
+<li>企鹅算法之前：可以获取一大批不同行业的垃圾外链（Spam Links）</li>
+<li>企鹅算法之后：谷歌严厉打击垃圾外链——只要是与你的行业没有任何相关的外链，都会被列入垃圾外链范畴并受到惩罚</li>
+</ul>
+<h4>相关性判断的拓展思维（重要！）</h4>
+<div class="table-wrap"><table><thead><tr><th>案例</th><th>判定</th><th>原因</th></tr></thead><tbody>
+<tr><td>宠物用品站 → 美妆站外链</td><td><strong>不好</strong></td><td>行业完全不相关</td></tr>
+<tr><td>宠物用品站 → 宠物喂养博客外链</td><td><strong>好</strong></td><td>同属"宠物"大主题生态圈</td></tr>
+<tr><td>宠物用品站 → 宠物训练博客外链</td><td><strong>好</strong></td><td>同属"宠物"大主题生态圈</td></tr>
+<tr><td>宠物用品站 → 宠物爱护博客外链</td><td><strong>好</strong></td><td>同属"宠物"大主题生态圈</td></tr>
+</tbody></table></div>
+<div class="callout callout-info"><strong>💡 判断标准总结</strong>：外链来源不局限于同行业的商业销售站点，可扩展到<strong>同一主题生态圈</strong>内的所有相关站点。关键在于内容主题的相关性，而非是否同为商业销售站点。</div>
+<div class="related"><strong>📎 相关：</strong> [34. EAT 站点外链](#doc34)、[36. 查找行业博客](#doc36)</div>
+</div>
+
+<div class="doc" id="doc34">
+<div class="doc-header"><span class="doc-num">34</span><span class="doc-title">E.A.T. 站点外链 —— 外链质量的最高标准</span></div>
+<h4>EAT 定义</h4>
+<ul>
+<li><strong>E</strong>xpertise（专业性）</li>
+<li><strong>A</strong>uthoritativeness（权威性）</li>
+<li><strong>T</strong>rustworthiness（可信赖性）</li>
+</ul>
+<p>谷歌偏好外链来源于这种<strong>专业、权威、值得信赖的网站</strong>。</p>
+<h4>YMYL 站点与 Medic 算法</h4>
+<ul>
+<li>2018 年谷歌 Medic 算法（Medical Update）专门针对 YMYL（Your Money or Your Life）类网站</li>
+<li>YMYL 行业：医药类、财产类（保险、基金等金融类）</li>
+<li>对于这类网站的 SEO，EAT 站点的外链尤为关键</li>
+</ul>
+<h4>EAT 外链示例</h4>
+<ul>
+<li>卖药网站 → 获取来自 <strong>FDA（美国食品药品监督管理局）</strong> 的外链</li>
+<li>卖药网站 → 获取来自 <strong>美国医药协会（American Medical Association）</strong> 的外链</li>
+</ul>
+<div class="callout callout-success"><strong>💡 核心逻辑链</strong>：行业里专业权威的网站给了你一个外链（投了一票） → 向谷歌传递信号：你的网站也值得信赖 → 谷歌因此更认可你的网站</div>
+<h4>策略指导</h4>
+<p>在外链建设时，尽量寻找专业、权威、信任度高的站点作为外链来源。切勿只看 DA/PA 数值，还要看来源是否具备 EAT 属性——尤其对于 YMYL 行业。</p>
+<div class="related"><strong>📎 相关：</strong> [30. DA 和 PA](#doc30)（EAT 是比 DA/PA 更高维度的质量评估）</div>
+</div>
+
+<div class="doc" id="doc35">
+<div class="doc-header"><span class="doc-num">35</span><span class="doc-title">获取竞争对手的外链 —— 顺藤摸瓜策略</span></div>
+<h4>外链获取五大途径</h4>
+<ol>
+<li><strong>查找竞品外链</strong>（本课重点）：顺藤摸瓜，找竞品外链来源 → 发邮件获取</li>
+<li>搜索行业博客：Email Outreach（邮件外展）→ 详见 [36. 查找行业博客](#doc36)</li>
+<li>Resource Page 联系站长发邮件 → 详见 [37. Resource Page 外链](#doc37)</li>
+<li>Link Miner 插件：查找 Broken Links（404 损坏链接）→ 联系站长替换成自己链接</li>
+<li>BuzzSumo 工具：查找已提及品牌但未给链接的网站 → 申请补上链接</li>
+</ol>
+<h4>竞品外链分析四步法</h4>
+<h5>第一步</h5>
+<p>谷歌搜索行业关键词 → 找到排名第一的竞争对手网站</p>
+<h5>第二步</h5>
+<p>借助 SEO 工具分析竞品外链。推荐工具：<strong>SEMrush、Ahrefs、Ubersuggest</strong>（本课演示使用 Ubersuggest）</p>
+<h5>第三步</h5>
+<p>导出竞品所有外链数据（CSV 格式）</p>
+<ul>
+<li>数据维度：外链总数（如 1354 个）、增长趋势、新增/丢失外链、外链来源</li>
+<li>导出技巧：勾选 "One Link Per Domain"（每个域名只取一个链接，去除重复）</li>
+<li>筛选技巧：只导出 Dofollow 链接、精确匹配域名、锚文本关键词等</li>
+</ul>
+<h5>第四步</h5>
+<p>通过邮件联系外链来源站长 → 询问是否可以给自己的网站也加上链接</p>
+<div class="callout callout-info"><strong>💡 核心假设（为什么这个策略有效）</strong>：既然这些网站给竞争对手加了外链，而大家都在同一个行业，那么大概率他们也可以给我们加一个外链。</div>
+<div class="related"><strong>📎 相关：</strong> [36. 查找行业博客](#doc36)、[37. Resource Page 外链](#doc37)</div>
+</div>
+
+<div class="doc" id="doc36">
+<div class="doc-header"><span class="doc-num">36</span><span class="doc-title">查找行业博客 —— 谷歌搜索指令精准定位</span></div>
+<h4>核心搜索技术 —— <code>intitle:</code> 指令</h4>
+<ul>
+<li><code>intitle:</code> 是谷歌高级搜索指令，意思是在网页 Title 标签中查找指定关键词</li>
+<li>语法示例：<code>intitle:"office furniture blogs"</code> → 搜索结果中所有页面的 Title 标题都包含此关键词</li>
+</ul>
+<h4>实操演示（以办公家具为例）的搜索组合</h4>
+<ul>
+<li><code>intitle:"office furniture blogs"</code> —— 在标题中搜索办公家具博客</li>
+<li><code>best office furniture blogs</code> —— 搜索最佳办公家具博客</li>
+</ul>
+<h4>搜索结果分类及处理策略</h4>
+<div class="table-wrap"><table><thead><tr><th>结果类型</th><th>特征</th><th>处理策略</th></tr></thead><tbody>
+<tr><td>资源页面型</td><td>如"Top 50 Office Furniture Blogs"</td><td><strong>整合集，含大量博客链接</strong>——可直接进入下一课 Resource Page 策略</td></tr>
+<tr><td>博客型网站</td><td>专门的博客站</td><td>找 Contact Us 页面 → 发邮件联系</td></tr>
+<tr><td>电商/商城型（附带博客）</td><td>如在线零售网站有 Blog 板块</td><td>同行但不构成直接竞争 → 仍可联系获取外链</td></tr>
+<tr><td>服务型企业</td><td>如办公家具安装/搬家/维修公司</td><td><strong>非直接竞争对手</strong> → 同属行业生态，可联系获取外链</td></tr>
+</tbody></table></div>
+<h4>非竞争关系判断</h4>
+<p>你是 manufacturer 制造商，对方是安装/维修服务商——非直接竞争对手，属于有效外链来源。</p>
+<div class="related"><strong>📎 相关：</strong> [37. Resource Page 外链](#doc37)</div>
+</div>
+
+<div class="doc" id="doc37">
+<div class="doc-header"><span class="doc-num">37</span><span class="doc-title">查找 Resource Page 的外链 —— 最高效的规模化获取方法</span></div>
+<h4>Resource Page（资源页面）的特征</h4>
+<ul>
+<li>页面上汇总列出 N 多种同类资源的介绍</li>
+<li>典型格式：Top 10/Best 10/Top 50 榜单、"Helpful Resources" 页面</li>
+<li><strong>关键特征</strong>：不光列出资源名称，还给每个资源<strong>加上外链</strong>指向被介绍的网站</li>
+</ul>
+<h4>查找 Resource Page 的搜索指令组合</h4>
+<ul>
+<li><code>关键词 + inurl:links</code></li>
+<li><code>关键词 + helpful resources</code></li>
+<li><code>关键词 + useful resources</code></li>
+<li><code>关键词 + useful links</code></li>
+<li><code>关键词 + resource page</code></li>
+</ul>
+<h4>外链质量验证</h4>
+<p>通过右键检查确认 Resource Page 上的外链通常为<strong>Dofollow</strong>，可直接传递权重。</p>
+<h4>全套 Outreach 邮件模板（经讲师验证）</h4>
+<pre><code>Hello [Name],
+
+I was Googling around for content about [topic/industry] this
+morning when I came across your excellent resources page.
+
+[此处粘贴 Resource Page 的 URL]
+
+I just wanted to say that your page helped me a ton — I would
+have never found [资源页面上推荐的某个网站/资源] without it.
+
+It's funny — I recently published a guide on [你的文章主题].
+[简要介绍你的文章内容，1-2句即可。]
+
+Here it is, in case you'd like to check it out: [你的文章URL]
+
+Also, my guide might make a nice addition to your page.
+
+Either way, thanks for putting together a list of resources.
+
+Best,
+[你的名字]
+</code></pre>
+<h4>邮件模板核心要素拆解</h4>
+<ol>
+<li><strong>开场</strong>：说明如何发现对方页面（谷歌搜索相关主题时碰巧发现）——建立自然感</li>
+<li><strong>肯定对方</strong>：称赞对方资源页面做得好，对你有帮助——先给予价值</li>
+<li><strong>引出自己的内容</strong>：提到你最近发布了相关主题的文章/指南——自然过渡</li>
+<li><strong>提供链接</strong>：附上文章 URL，建议它可能成为对方页面的不错补充——提出请求</li>
+<li><strong>礼貌结尾</strong>：无论对方是否添加，都感谢他整理资源——体现真诚而非纯索取</li>
+</ol>
+<h4>规模优势</h4>
+<p>Resource Page 一次可发现大量外链机会，批量联系站长效率远高于逐一寻找博客。</p>
+<div class="related"><strong>📎 相关：</strong> [36. 查找行业博客](#doc36)</div>
+</div>
+
+<div class="doc" id="doc38">
+<div class="doc-header"><span class="doc-num">38</span><span class="doc-title">补充：Schema Markup（结构化数据标记）—— 提升搜索点击率</span></div>
+<h4>定义</h4>
+<p>Schema Markup（纲要标记/结构化数据）是一种用于帮助搜索引擎理解网站信息类型的代码标记。将网页上的不同信息类型用代码进行分类标注，使搜索引擎能识别什么是价格、什么是评分、什么是链接等。</p>
+<h4>在搜索结果中的实际效果（Rich Snippets）</h4>
+<ul>
+<li><strong>Rating（评分/星级）</strong>：以星星图标显示</li>
+<li><strong>Price（价格）</strong>：直接显示价格信息</li>
+<li><strong>Site Links（网站子链接）</strong>：搜索结果下方显示的子页面链接</li>
+<li><strong>Review（评价数）</strong>：显示评价数量</li>
+</ul>
+<h4>核心价值</h4>
+<p>让搜索结果的展示更丰富、更突出、信息量更大，<strong>直接提高用户点击率（CTR）</strong>。</p>
+<h4>WordPress + WooCommerce 优势</h4>
+<p>如果使用 WordPress 配合 WooCommerce 电商插件，<strong>谷歌蜘蛛会自动抓取 Schema 信息</strong>，不需要额外操心。自定义开发才需要与技术团队配合添加。</p>
+<h4>与外链的协同关系</h4>
+<p>外链负责提高排名位置，Schema Markup 负责在已有排名的位置上最大化点击率——两者协同，共同提升搜索流量。</p>
+<div class="related"><strong>📎 相关：</strong> [11. Yoast SEO](#doc11)、[23. Sitemap](#doc23)、[13. Description 标签优化](#doc13)</div>
+</div>
+</section>
+<!-- ========== 知识图谱 ========== -->
+<section class="part" id="graph">
+<div class="part-header"><div class="part-num">🔗</div><h2 class="part-title">跨课程知识图谱与依赖链路</h2></div>
+<h3>核心概念关系网络</h3>
+<div class="mindmap-wrap">
+<svg viewBox="0 0 1320 520" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+<path d="M 600,260 H 800 V 80 H 960" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 600,260 H 800 V 160 H 960" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 600,260 H 800 V 240 H 960" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 600,260 H 800 V 320 H 960" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 600,260 H 800 V 400 H 960" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+<path d="M 600,260 H 400 V 100 H 240" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+<path d="M 600,260 H 400 V 220 H 240" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+<path d="M 600,260 H 400 V 340 H 240" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+<path d="M 600,260 H 400 V 460 H 240" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+<rect x="440" y="240" width="160" height="40" rx="6" fill="#4A90A4"/>
+<text x="520" y="265" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">建站全流程</text>
+<rect x="800" y="60" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="880" y="85" text-anchor="middle" fill="#2C5F6F" font-size="12">Codex 工具链</text>
+<rect x="800" y="140" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="880" y="165" text-anchor="middle" fill="#2C5F6F" font-size="12">WordPress 配置</text>
+<rect x="800" y="220" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="880" y="245" text-anchor="middle" fill="#2C5F6F" font-size="12">SEO 策略框架</text>
+<rect x="800" y="300" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="880" y="325" text-anchor="middle" fill="#2C5F6F" font-size="12">站内SEO实操</text>
+<rect x="800" y="380" width="160" height="40" rx="6" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+<text x="880" y="405" text-anchor="middle" fill="#2C5F6F" font-size="12">内容+外链</text>
+<rect x="80" y="80" width="160" height="40" rx="6" fill="#EAF4E3" stroke="#7FB069" stroke-width="1.5"/>
+<text x="160" y="105" text-anchor="middle" fill="#4A6E3A" font-size="12">询盘承接</text>
+<rect x="80" y="200" width="160" height="40" rx="6" fill="#EAF4E3" stroke="#7FB069" stroke-width="1.5"/>
+<text x="160" y="225" text-anchor="middle" fill="#4A6E3A" font-size="12">建站成本</text>
+<rect x="80" y="320" width="160" height="40" rx="6" fill="#EAF4E3" stroke="#7FB069" stroke-width="1.5"/>
+<text x="160" y="345" text-anchor="middle" fill="#4A6E3A" font-size="12">服务器选型</text>
+<rect x="80" y="440" width="160" height="40" rx="6" fill="#EAF4E3" stroke="#7FB069" stroke-width="1.5"/>
+<text x="160" y="465" text-anchor="middle" fill="#4A6E3A" font-size="12">建站周期</text>
+<rect x="960" y="60" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="1050" y="83" text-anchor="middle" fill="#4A6E3A" font-size="11">下载/充值/七项配置</text>
+<rect x="960" y="140" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="1050" y="163" text-anchor="middle" fill="#4A6E3A" font-size="11">域名/服务器/WP/插件</text>
+<rect x="960" y="220" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="1050" y="243" text-anchor="middle" fill="#4A6E3A" font-size="11">漏斗/关键词/好词</text>
+<rect x="960" y="300" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="1050" y="323" text-anchor="middle" fill="#4A6E3A" font-size="11">Title/H/Alt/URL/内链</text>
+<rect x="960" y="380" width="180" height="36" rx="5" fill="#EAF4E3" stroke="#7FB069"/>
+<text x="1050" y="403" text-anchor="middle" fill="#4A6E3A" font-size="11">内容/社媒/外链体系</text>
+</svg>
+</div>
+<div class="mindmap-caption">跨课程知识图谱：建站全流程 × 四大板块 × 8 个关键环节</div>
+
+<h3>知识点依赖链路</h3>
+<h4>链路一：从策略到落地</h4>
+<div class="callout callout-info">
+<p><strong>营销漏斗(08) → 关键词调研(09) → 好词标准(10) → 关键词分配到页面(09) → Yoast SEO 填写(11) → Title/Desc/H标签/Alt/URL 完善(12-16) → 内链建设(17-18)</strong></p>
+<p>必学顺序：<code>08 → 09 → 10 → 11</code> 必须按序学习，09 的调研结果直接影响 11 的填写内容；12-16 可并行学习。</p>
+</div>
+<h4>链路二：从零到网站上线</h4>
+<div class="callout callout-info">
+<p><strong>服务器域名购买(04-05) → WordPress 安装(05) → 插件配置(06) → 后台熟悉(07) → Codex 建站(01-03) → 网站上线检查</strong></p>
+<p>必学顺序：<code>04 → 05 → 06 → 07</code> 必须按序执行（硬件到软件到配置），01-03 可在 04 之前或之后学习。</p>
+</div>
+<h4>链路三：从站内优化到排名提升</h4>
+<div class="callout callout-info">
+<p><strong>站内 SEO(11-18) → 内容营销(19-20) → 社媒引流(21) → 技术 SEO(22-23) → 速度优化(24-26) → 移动端(28) → 外链建设(29-38) → 排名提升</strong></p>
+<p>必学顺序：先学站内 SEO（打基础），再学技术 SEO 和外链（协同作用）。外链模块 29→30→31→32→33→34 建议按序学习，35-37 可并行。</p>
+</div>
+</section>
+<!-- ========== 终极总结 ========== -->
+<section class="part" id="summary">
+<div class="part-header"><div class="part-num">📊</div><h2 class="part-title">终极系统性总结</h2></div>
+<h3>一、课程核心知识体系（七大模块概述）</h3>
+<div class="table-wrap"><table><thead><tr><th>模块</th><th>课程编号</th><th>核心产出</th><th>在整体中的角色</th></tr></thead><tbody>
+<tr><td>课程介绍与 Codex 基础</td><td>01-03</td><td>理解方案逻辑、完成工具就绪</td><td><strong>信心建立 + 工具准备</strong></td></tr>
+<tr><td>服务器与 WordPress 配置</td><td>04-07</td><td>服务器+域名+WordPress+插件就绪</td><td><strong>网站地基建设</strong></td></tr>
+<tr><td>SEO 策略框架</td><td>08-10</td><td>掌握营销漏斗、关键词调研方法</td><td><strong>方向指引 + 关键词库</strong></td></tr>
+<tr><td>站内 SEO 优化实操</td><td>11-18</td><td>每个页面 SEO 配置到位</td><td><strong>站内优化落地</strong></td></tr>
+<tr><td>内容营销与社媒引流</td><td>19-21</td><td>文章选题库 + 多渠道分发能力</td><td><strong>持续内容生产 + 即时流量</strong></td></tr>
+<tr><td>网站技术优化与加速</td><td>22-28</td><td>robots/sitemap/速度/移动端优化</td><td><strong>技术底座保障</strong></td></tr>
+<tr><td>白帽外链建设体系</td><td>29-38</td><td>完整外链获取方法论 + 实操模板</td><td><strong>排名加速引擎</strong></td></tr>
+</tbody></table></div>
+<h3>二、各部分递进关系</h3>
+<div class="callout callout-info">
+<p><strong>地基（04-07）→ 框架（01-03）→ 方向（08-10）→ 内容（11-18）→ 生产（19-21）→ 保障（22-28）→ 推广（29-38）</strong></p>
+<p>逻辑：<strong>先有网站存在 → 再有 AI 能力驾驭 → 再明确 SEO 方向 → 再把每个页面优化到位 → 再持续生产好内容 → 再确保技术体验 → 最后用外链加速排名</strong></p>
+</div>
+<h3>三、15 个核心知识点回顾（必背）</h3>
+<ol>
+<li><strong>独立站本质</strong>：服务器和域名的完全自主所有权 —— 不是 SaaS 平台上的子站点，而是自己拥有"土地和门牌号"</li>
+<li><strong>Codex+WordPress 方案逻辑</strong>：WordPress 是成熟的"车"，Codex 是 AI 驱动的"支架系统"——人在关键节点介入决策，AI 负责执行。纯 Codex 全栈方案对小白不可控</li>
+<li><strong>20/80 法则</strong>：人工做 20% 的基础配置，Codex 做 80% 的内容搭建</li>
+<li><strong>营销漏斗→关键词</strong>：不同漏斗阶段对应不同类型关键词——意识阶段用信息类/博客词，行动阶段用商业转化词，关键词调研必须建站前完成</li>
+<li><strong>好关键词 = 低搜索量 + 高 CPC 出价</strong>：CPC 出价是判断关键词商业价值的可靠代理指标，低竞争+高商业价值是最优组合</li>
+<li><strong>Yoast SEO 是站内 SEO 操作枢纽</strong>：Title（50 字符/绿色达标）、Description（150 字符/绿色达标），两者关键词必须一致</li>
+<li><strong>Title 优化六大规则</strong>：50 字符限制、必含关键词、层级差异化分配、关键词位置前置、与内容高相关、禁止关键词堆积</li>
+<li><strong>图片优化</strong>：单张 100K 以内（Banner 100-200K），上传前压缩是"治本"，缓存插件是"治标"，首页总大小控制 1-2MB</li>
+<li><strong>内链是站内 SEO 的重中之重</strong>：爬虫抓取效率 + 用户体验 + 停留时间延长 → 三者共同作用于排名。锚文本密度控制在 1%-2%</li>
+<li><strong>建站期间安全设置</strong>：Settings → Reading → "阻止搜索引擎索引此网站"——全程勾选，建站完成后再取消</li>
+<li><strong>服务器占加载速度 40%-50%</strong>：好服务器是速度的"引擎"，其他优化（图片/插件/视频嵌入）是辅助</li>
+<li><strong>响应式网站是谷歌推荐方案</strong>：WordPress 主题天然支持响应式，无需额外担忧 Mobile First Index</li>
+<li><strong>外链本质是"信用投票"</strong>：质量（DA/PA/EAT/行业相关性）> 数量。白帽 SEO 是唯一正途，黑帽 SEO 有沙盒永久拉黑风险</li>
+<li><strong>Dofollow 传递权重/Nofollow 引流</strong>：两者互补缺一不可——Dofollow 提升排名，Nofollow（如社媒平台）负责引流</li>
+<li><strong>Resource Page Outreach 是最高效的规模化外链获取手段</strong>：配合验证过的邮件模板，可批量操作。搜索指令是 <code>关键词 + inurl:links</code> 或 <code>关键词 + helpful resources</code></li>
+</ol>
+</section>
+<!-- ========== 学习路径 ========== -->
+<section class="part" id="path">
+<div class="part-header"><div class="part-num">🎯</div><h2 class="part-title">学习路径建议（三种学习方案）</h2></div>
+
+<div class="path-card">
+<h4>路径 A：快速建站型（1-2 天）</h4>
+<p>目标：让网站尽快上线，先有个"门面"</p>
+<div class="table-wrap"><table><thead><tr><th>优先级</th><th>课程</th><th>内容</th><th>预估时间</th></tr></thead><tbody>
+<tr><td class="path-p0">P0</td><td>01</td><td>课程总纲（建立认知）</td><td>30分钟</td></tr>
+<tr><td class="path-p0">P0</td><td>02</td><td>Codex 下载安装+Plus 充值</td><td>2小时（含充值等待）</td></tr>
+<tr><td class="path-p0">P0</td><td>03</td><td>建立项目文件夹</td><td>15分钟</td></tr>
+<tr><td class="path-p0">P0</td><td>04</td><td>服务器和域名购买</td><td>1-2小时（含支付）</td></tr>
+<tr><td class="path-p0">P0</td><td>05</td><td>域名解析+WordPress 安装</td><td>1-2小时（含 DNS 等待）</td></tr>
+<tr><td class="path-p0">P0</td><td>06</td><td>安装必备插件</td><td>30分钟</td></tr>
+<tr><td class="path-p0">P0</td><td>07</td><td>快速熟悉 WP 后台</td><td>20分钟</td></tr>
+</tbody></table></div>
+<p><strong>产出</strong>：拥有一个可访问的 WordPress 网站 + Codex 已配置好 + 插件环境就绪</p>
+<div class="callout callout-danger"><strong>⚠️ 注意</strong>：路径 A 只完成了"地基"，建站期间务必勾选 Settings → Reading 中的"阻止搜索引擎索引"。</div>
+</div>
+
+<div class="path-card">
+<h4>路径 B：SEO 优化型（3-5 天）</h4>
+<p>目标：网站不仅有，还能获得谷歌排名和询盘</p>
+<p><strong>📌 先完成路径 A 全部内容（1-2 天）</strong></p>
+<div class="table-wrap"><table><thead><tr><th>优先级</th><th>课程</th><th>内容</th><th>预估时间</th></tr></thead><tbody>
+<tr><td class="path-p1">P1</td><td>08</td><td>营销漏斗（SEO 理论基础）</td><td>30分钟</td></tr>
+<tr><td class="path-p1">P1</td><td>09</td><td>关键词调研实操</td><td>2-3小时（含工具使用和关键词筛选）</td></tr>
+<tr><td class="path-p1">P1</td><td>10</td><td>好关键词三条标准</td><td>30分钟</td></tr>
+<tr><td class="path-p2">P2</td><td>11</td><td>Yoast SEO 插件实操</td><td>1小时</td></tr>
+<tr><td class="path-p2">P2</td><td>12-13</td><td>Title + Description 优化规则</td><td>1小时</td></tr>
+<tr><td class="path-p2">P2</td><td>14</td><td>H 标签优化</td><td>30分钟</td></tr>
+<tr><td class="path-p2">P2</td><td>15</td><td>图片 Alt 标签优化</td><td>30分钟</td></tr>
+<tr><td class="path-p2">P2</td><td>16</td><td>URL 优化</td><td>20分钟</td></tr>
+<tr><td class="path-p2">P2</td><td>17-18</td><td>内链建设理论+实操</td><td>1小时</td></tr>
+<tr><td class="path-p2">P2</td><td>22</td><td>robots.txt</td><td>30分钟</td></tr>
+<tr><td class="path-p2">P2</td><td>23</td><td>Sitemap 生成和提交</td><td>30分钟</td></tr>
+<tr><td class="path-p2">P2</td><td>24-26</td><td>网站加载速度优化</td><td>1小时</td></tr>
+<tr><td class="path-p2">P2</td><td>28</td><td>Mobile First Index</td><td>30分钟</td></tr>
+</tbody></table></div>
+<p><strong>产出</strong>：站内 SEO 基础配置完成 + 网站可被谷歌正常抓取收录 + 速度优化到位</p>
+<div class="callout callout-warning"><strong>⚠️ 注意</strong>：路径 B 是"站内优化+技术保障"型，外链还未建设（排名提升需要时间）。建议边等待 SEO 效果边启动外链建设。</div>
+</div>
+
+<div class="path-card">
+<h4>路径 C：完整学习型（1-2 周）</h4>
+<p>目标：从零到独立运营，具备完整的建站+SEO+内容+外链能力</p>
+<p><strong>📌 先完成路径 A + 路径 B 全部内容（4-7 天）</strong></p>
+<div class="table-wrap"><table><thead><tr><th>优先级</th><th>课程</th><th>内容</th><th>预估时间</th></tr></thead><tbody>
+<tr><td class="path-p1">P1</td><td>19</td><td>为什么做内容营销</td><td>30分钟</td></tr>
+<tr><td class="path-p1">P1</td><td>20</td><td>寻找用户痛点（7 种方法）</td><td>1小时</td></tr>
+<tr><td class="path-p1">P1</td><td>21</td><td>文章分享引流实操</td><td>1-2小时（含社媒平台操作）</td></tr>
+<tr><td class="path-p1">P1</td><td>29</td><td>外链基础概念（白帽定调）</td><td>30分钟</td></tr>
+<tr><td class="path-p1">P1</td><td>30</td><td>DA 和 PA</td><td>30分钟</td></tr>
+<tr><td class="path-p1">P1</td><td>31</td><td>Dofollow 和 Nofollow</td><td>30分钟</td></tr>
+<tr><td class="path-p1">P1</td><td>32</td><td>锚文本外链</td><td>30分钟</td></tr>
+<tr><td class="path-p1">P1</td><td>33</td><td>行业高度相关外链</td><td>20分钟</td></tr>
+<tr><td class="path-p1">P1</td><td>34</td><td>EAT 站点外链</td><td>20分钟</td></tr>
+<tr><td class="path-p2">P2</td><td>35</td><td>获取竞品外链（实操）</td><td>1-2小时（含工具操作）</td></tr>
+<tr><td class="path-p2">P2</td><td>36</td><td>查找行业博客</td><td>1小时</td></tr>
+<tr><td class="path-p2">P2</td><td>37</td><td>Resource Page 外链+邮件模板</td><td>1-2小时（含邮件撰写）</td></tr>
+<tr><td class="path-p2">P2</td><td>38</td><td>Schema Markup 补充</td><td>20分钟</td></tr>
+</tbody></table></div>
+<p><strong>产出</strong>：具备独立站从 0 到 1 的完整建设能力 + SEO 优化体系 + 内容营销能力 + 外链建设方法论</p>
+</div>
+</section>
+<!-- ========== 附录 ========== -->
+<section class="part" id="appendix">
+<div class="part-header"><div class="part-num">📎</div><h2 class="part-title">附录：建站成本与工具清单</h2></div>
+<h3>一、建站全部成本明细</h3>
+<div class="table-wrap"><table><thead><tr><th>项目</th><th>费用</th><th>购买渠道</th><th>说明</th></tr></thead><tbody>
+<tr><td>服务器（Hostinger）</td><td>约 200 元/年（1年）或约 1200-1300 元/4年</td><td>Hostinger 官网</td><td>推荐中间档套餐，4年最划算 3.79 美元/月</td></tr>
+<tr><td>域名</td><td>约 60-80 元/年</td><td>Spaceship（推荐）/ 阿里云</td><td>支持支付宝支付</td></tr>
+<tr><td>ChatGPT Plus（Codex Plus）</td><td>150-180 元/月（代充值）</td><td>第三方代充值渠道</td><td>官方 20 美元约 140 元，代充赚 30-40 元手续费。仅建站充 1 个月即够</td></tr>
+<tr><td>WordPress 主题</td><td>约 300 元</td><td>老师提供链接</td><td><strong>终身使用</strong></td></tr>
+<tr style="background:var(--success-light)"><td><strong>总计（最低）</strong></td><td><strong>约 500-1000 元</strong></td><td>—</td><td><strong>对比：传统模板站"好几千"起，定制站更贵</strong></td></tr>
+</tbody></table></div>
+<h3>二、工具清单总汇</h3>
+<div class="table-wrap"><table><thead><tr><th>工具</th><th>用途</th><th>费用</th><th>使用场景</th></tr></thead><tbody>
+<tr><td><strong>ChatGPT Plus（Codex）</strong></td><td>AI 建站核心工具</td><td>20 美元/月</td><td>建站全流程（从设计到部署）</td></tr>
+<tr><td><strong>Hostinger</strong></td><td>服务器托管</td><td>3.79-5 美元/月</td><td>网站服务器</td></tr>
+<tr><td><strong>Spaceship</strong></td><td>域名注册</td><td>~60 元/年</td><td>域名购买</td></tr>
+<tr><td><strong>阿里云</strong></td><td>域名注册（备选）</td><td>~80 元/年</td><td>域名购买备选渠道</td></tr>
+<tr><td><strong>谷歌关键词规划师（Keyword Planner）</strong></td><td>关键词调研</td><td><strong>免费</strong></td><td>获取关键词搜索量和趋势数据</td></tr>
+<tr><td><strong>AnswerThePublic</strong></td><td>内容营销选题</td><td>有免费版</td><td>一键获取用户搜索问题的 5W1H 分类</td></tr>
+<tr><td><strong>MozBar</strong></td><td>DA/PA 检测</td><td><strong>免费</strong>（Chrome 扩展）</td><td>查看目标网站域名和页面权重</td></tr>
+<tr><td><strong>Ubersuggest</strong></td><td>竞品外链分析</td><td>有免费版</td><td>分析竞争对手外链来源</td></tr>
+<tr><td><strong>SEMrush</strong></td><td>竞品外链分析</td><td>付费</td><td>专业级外链分析</td></tr>
+<tr><td><strong>Ahrefs</strong></td><td>竞品外链分析</td><td>付费</td><td>专业级外链分析</td></tr>
+<tr><td><strong>Google Search Console</strong></td><td>站长工具</td><td><strong>免费</strong></td><td>提交 sitemap、监控网站收录状态</td></tr>
+<tr><td><strong>WordPress Yoast SEO / Rank Math</strong></td><td>SEO 插件</td><td>免费</td><td>站内 SEO 配置、sitemap 自动生成</td></tr>
+<tr><td><strong>WP Forms</strong></td><td>询盘表单</td><td>免费</td><td>创建联系表单</td></tr>
+<tr><td><strong>Wordfence</strong></td><td>网站安全</td><td>免费</td><td>防火墙和恶意软件扫描</td></tr>
+<tr><td><strong>Duplicate</strong></td><td>数据备份</td><td>免费</td><td>网站数据备份</td></tr>
+<tr><td><strong>EZ MCP AI</strong></td><td>Codex-WordPress 连接</td><td>免费</td><td><strong>核心插件</strong>——MCP 协议实现 AI 操控网站</td></tr>
+<tr><td><strong>Link Miner</strong></td><td>外链建设</td><td>—</td><td>查找 Broken Links（404 损坏链接）</td></tr>
+<tr><td><strong>BuzzSumo</strong></td><td>品牌提及监测</td><td>付费</td><td>查找已提及品牌但未给链接的网站</td></tr>
+</tbody></table></div>
+<h3>三、推荐的 SEO 学习资源</h3>
+<div class="table-wrap"><table><thead><tr><th>网站</th><th>说明</th></tr></thead><tbody>
+<tr><td><strong>backlinko.com</strong></td><td>Brian Dean 创办，全球 SEO 最权威的网站之一</td></tr>
+<tr><td><strong>moz.com</strong></td><td>DA/PA 指标的来源，专业 SEO 知识分享平台</td></tr>
+</tbody></table></div>
+<h3>四、社媒引流平台</h3>
+<div class="table-wrap"><table><thead><tr><th>平台</th><th>用途</th><th>链接类型</th></tr></thead><tbody>
+<tr><td><strong>LinkedIn Groups</strong></td><td>行业小组分享文章引流</td><td>Nofollow（引流价值高）</td></tr>
+<tr><td><strong>Facebook Groups</strong></td><td>行业小组分享文章引流</td><td>Nofollow（引流价值高）</td></tr>
+<tr><td><strong>Quora</strong></td><td>回答问题嵌入文章链接</td><td>内容营销 + 引流 + 外链建设</td></tr>
+<tr><td><strong>Reddit</strong></td><td>挖掘用户痛点（subreddit）</td><td>内容选题来源</td></tr>
+<tr><td><strong>YouTube</strong></td><td>视频嵌入网站（代替直接上传）</td><td>减轻服务器负担</td></tr>
+</tbody></table></div>
+<h3>五、移动端使用提示</h3>
+<div class="callout callout-success">
+<strong>📱 微信 / 手机浏览器 / WPS 兼容性说明</strong>：
+<ul>
+<li>✅ 微信浏览器（iOS WKWebView）：完美支持</li>
+<li>✅ 微信浏览器（Android X5 内核）：完美支持</li>
+<li>✅ 手机 Chrome：完美支持</li>
+<li>⚠️ WPS 手机版：核心内容可读，但思维导图缩放可能不稳定。建议改用微信/浏览器打开</li>
+</ul>
+<strong>双指放大说明</strong>：本文件中所有 SVG 思维导图均使用 viewBox 自适应技术 + 浏览器原生缩放，<strong>无需任何 JavaScript</strong>，双指捏合即可放大查看。已设置 <code>touch-action: manipulation</code> 禁用双击缩放（避免误触），保留捏合缩放。</strong>
+</div>
+<div class="callout callout-info" style="margin-top:20px">
+<strong>📚 文档生成说明</strong>：本学习手册基于全部 38 篇课程总结原文，经过跨文档去重、交叉引用整合和知识图谱构建而成。可作为课程的独立完整教材使用，无需依赖原始课程文件。从小白到精通高手——本手册覆盖全部必学知识点。
+<br><br>
+<strong>最后更新</strong>：2026 年 8 月 2 日
+<br>
+<strong>归属权</strong>：本手册归主人所有，可自由用于个人学习。
+</div>
+</section>
+</main>
+</div>
+<script>
+// 进度条
+window.addEventListener('scroll',function(){
+  var h=document.documentElement;
+  var b=document.body;
+  var st='scrollTop' in h?h.scrollTop:b.scrollTop;
+  var sh='scrollHeight' in h?h.scrollHeight:b.scrollHeight;
+  var p=sh>0?(st/(sh-h.clientHeight))*100:0;
+  document.getElementById('progressBar').style.width=p+'%';
+});
+</script>
+</body>
+</html>
