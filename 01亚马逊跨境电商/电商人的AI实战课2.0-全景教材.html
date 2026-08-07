@@ -1,0 +1,2681 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="description" content="电商人的AI实战课2.0 · 全景教材 · 小白到精通 · 德龙老师">
+<meta name="author" content="清虎AI · 德龙老师">
+<title>电商人的AI实战课 2.0 · 全景教材（小白→精通）</title>
+<style>
+/* ============= 浅色系全局样式 ============= */
+:root{
+  --c-primary:#4A90A4;       /* 蓝灰 - 主色 */
+  --c-primary-light:#E8F4F8; /* 蓝灰浅 */
+  --c-success:#7FB069;       /* 绿 - 成功/正向 */
+  --c-success-light:#EDF6E8;
+  --c-warning:#E8A87C;       /* 暖橙 - 警示 */
+  --c-warning-light:#FAEEE2;
+  --c-danger:#C76B6B;        /* 红 - 错误 */
+  --c-danger-light:#F8E5E5;
+  --c-text:#333;             /* 主文字 */
+  --c-text-light:#666;
+  --c-text-mute:#999;
+  --c-bg:#F5F5F5;            /* 页面背景 */
+  --c-card:#FFFFFF;          /* 卡片背景 */
+  --c-border:#E0E0E0;
+  --c-divider:#EEE;
+  --shadow-sm:0 2px 4px rgba(0,0,0,.05);
+  --shadow-md:0 4px 12px rgba(0,0,0,.08);
+  --radius:8px;
+  --radius-lg:14px;
+  --gap:16px;
+  --gap-lg:24px;
+  --max-width:1200px;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{font-size:16px;-webkit-text-size-adjust:100%}
+body{
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height:1.75;
+  color:var(--c-text);
+  background:var(--c-bg);
+  padding:0;
+  -webkit-font-smoothing:antialiased;
+}
+img,svg{max-width:100%;height:auto;display:block}
+a{color:var(--c-primary);text-decoration:none}
+a:hover{text-decoration:underline}
+
+/* ============= 顶部封面 ============= */
+.cover{
+  background:linear-gradient(135deg,var(--c-primary) 0%,#6BAFC4 100%);
+  color:#fff;
+  padding:60px 24px 50px;
+  text-align:center;
+  box-shadow:var(--shadow-md);
+}
+.cover h1{font-size:32px;font-weight:700;margin-bottom:8px;letter-spacing:2px}
+.cover .subtitle{font-size:18px;opacity:.95;margin-bottom:6px}
+.cover .meta{font-size:14px;opacity:.85;margin-top:18px}
+.cover .author{font-size:16px;margin-top:8px;opacity:.95}
+.cover .badges{margin-top:20px;display:flex;justify-content:center;gap:10px;flex-wrap:wrap}
+.cover .badge{background:rgba(255,255,255,.2);padding:6px 14px;border-radius:20px;font-size:13px;backdrop-filter:blur(4px)}
+.toc-toggle{
+  display:inline-block;margin-top:24px;padding:8px 20px;
+  background:rgba(255,255,255,.18);color:#fff;border:1px solid rgba(255,255,255,.3);
+  border-radius:20px;cursor:pointer;font-size:14px;
+}
+.toc-toggle:hover{background:rgba(255,255,255,.28)}
+
+/* ============= 顶部目录（可折叠） ============= */
+.toc-wrap{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.96);backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--c-border);
+  box-shadow:var(--shadow-sm);
+}
+.toc-container{
+  max-width:var(--max-width);margin:0 auto;padding:14px 24px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:8px;
+}
+.toc-title{font-weight:700;color:var(--c-primary);margin-right:14px;font-size:15px;white-space:nowrap}
+.toc a{
+  display:inline-block;padding:6px 12px;border-radius:16px;
+  background:var(--c-primary-light);color:var(--c-primary);
+  font-size:13px;transition:.2s;
+}
+.toc a:hover{background:var(--c-primary);color:#fff;text-decoration:none}
+
+/* ============= 主体容器 ============= */
+main{
+  max-width:var(--max-width);margin:0 auto;padding:24px;
+}
+
+/* ============= 章节 ============= */
+.chapter{
+  background:var(--c-card);
+  border-radius:var(--radius-lg);
+  padding:32px 36px;
+  margin-bottom:30px;
+  box-shadow:var(--shadow-sm);
+}
+@media(max-width:768px){.chapter{padding:20px 18px}}
+.chapter-header{
+  display:flex;align-items:center;gap:16px;margin-bottom:24px;
+  padding-bottom:18px;border-bottom:3px solid var(--c-primary-light);
+}
+.chapter-num{
+  background:var(--c-primary);color:#fff;
+  width:54px;height:54px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;font-weight:700;flex-shrink:0;
+}
+.chapter-title-wrap{flex:1}
+.chapter-title{font-size:26px;font-weight:700;color:var(--c-primary);margin-bottom:4px}
+.chapter-subtitle{font-size:14px;color:var(--c-text-light)}
+.chapter-intro{
+  background:var(--c-primary-light);
+  border-left:4px solid var(--c-primary);
+  padding:14px 18px;border-radius:0 var(--radius) var(--radius) 0;
+  margin-bottom:24px;font-size:15px;color:var(--c-text);
+}
+@media(max-width:768px){.chapter-title{font-size:20px}}
+
+/* ============= 节 ============= */
+.section{margin-bottom:36px;padding-bottom:24px;border-bottom:1px dashed var(--c-divider)}
+.section:last-child{border-bottom:none;margin-bottom:0}
+.section-header{display:flex;align-items:baseline;gap:12px;margin-bottom:14px;flex-wrap:wrap}
+.section-num{
+  background:var(--c-primary-light);color:var(--c-primary);
+  padding:4px 12px;border-radius:14px;
+  font-size:13px;font-weight:700;flex-shrink:0;
+}
+.section-title{font-size:21px;font-weight:700;color:var(--c-text)}
+.section-tag{
+  display:inline-block;padding:2px 10px;border-radius:10px;
+  font-size:11px;color:#fff;
+}
+.tag-knowledge{background:var(--c-primary)}
+.tag-tool{background:var(--c-success)}
+.tag-method{background:#9B59B6}
+.tag-avoid{background:var(--c-warning)}
+
+/* ============= 三级标题 ============= */
+h3{font-size:18px;color:var(--c-primary);margin:20px 0 10px;padding-left:10px;border-left:4px solid var(--c-primary)}
+h4{font-size:16px;color:var(--c-text);margin:16px 0 8px}
+h5{font-size:14px;color:var(--c-text);margin:12px 0 6px;font-weight:600}
+
+/* ============= 段落 ============= */
+p{margin-bottom:12px;text-align:justify}
+strong{color:var(--c-primary);font-weight:600}
+em{color:var(--c-text-light);font-style:normal}
+
+/* ============= 引用块（金句/重点） ============= */
+blockquote{
+  background:linear-gradient(135deg,var(--c-warning-light) 0%,#FCEFD9 100%);
+  border-left:5px solid var(--c-warning);
+  padding:14px 18px;margin:14px 0;
+  border-radius:0 var(--radius) var(--radius) 0;
+  font-size:15px;font-weight:500;
+}
+blockquote::before{content:"💡 ";font-size:18px;margin-right:4px}
+blockquote.danger{background:var(--c-danger-light);border-left-color:var(--c-danger)}
+blockquote.danger::before{content:"⚠️ "}
+blockquote.success{background:var(--c-success-light);border-left-color:var(--c-success)}
+blockquote.success::before{content:"✅ "}
+
+/* ============= 列表 ============= */
+ul,ol{margin:8px 0 14px 24px}
+li{margin-bottom:6px}
+ul.checklist{list-style:none;padding-left:0}
+ul.checklist li{padding-left:28px;position:relative}
+ul.checklist li::before{
+  content:"✅";position:absolute;left:0;top:0;font-size:14px;
+}
+
+/* ============= 表格 ============= */
+table{
+  width:100%;border-collapse:collapse;margin:14px 0;
+  background:#fff;border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow-sm);font-size:14px;
+}
+th{
+  background:var(--c-primary);color:#fff;
+  padding:12px 14px;text-align:left;font-weight:600;
+}
+td{padding:11px 14px;border-bottom:1px solid var(--c-divider);vertical-align:top}
+tr:nth-child(even) td{background:#FAFBFC}
+tr:hover td{background:var(--c-primary-light)}
+.table-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+@media(max-width:768px){
+  th,td{padding:8px;font-size:13px}
+}
+
+/* ============= 提示卡片 ============= */
+.callout{
+  background:var(--c-primary-light);
+  border:1px solid #B8DAE3;border-radius:var(--radius);
+  padding:14px 18px;margin:14px 0;
+}
+.callout-title{font-weight:700;color:var(--c-primary);margin-bottom:6px;font-size:15px}
+.callout.warning{background:var(--c-warning-light);border-color:#E8C9A8}
+.callout.warning .callout-title{color:#A85E2A}
+.callout.danger{background:var(--c-danger-light);border-color:#E8B0B0}
+.callout.danger .callout-title{color:#A84545}
+.callout.success{background:var(--c-success-light);border-color:#B8D9A8}
+.callout.success .callout-title{color:#5C8048}
+
+/* ============= 行内代码 / 代码块 ============= */
+code{
+  background:#F0F2F4;padding:2px 8px;border-radius:4px;
+  font-family:"SF Mono",Consolas,Monaco,monospace;
+  font-size:13px;color:var(--c-primary);
+}
+pre{
+  background:#2C3E50;color:#ECF0F1;
+  padding:16px 18px;border-radius:var(--radius);
+  overflow-x:auto;margin:14px 0;
+  font-family:"SF Mono",Consolas,Monaco,monospace;
+  font-size:13px;line-height:1.6;
+}
+pre code{background:none;color:inherit;padding:0}
+
+/* ============= 提示词卡片 ============= */
+.prompt-card{
+  background:#FAFBFC;
+  border:2px solid var(--c-primary-light);
+  border-radius:var(--radius);
+  padding:18px 20px;margin:16px 0;
+  position:relative;
+}
+.prompt-card::before{
+  content:"📋 AI 提示词";
+  position:absolute;top:-12px;left:16px;
+  background:var(--c-primary);color:#fff;
+  padding:3px 12px;border-radius:12px;
+  font-size:12px;font-weight:600;
+}
+.prompt-purpose{
+  background:var(--c-primary-light);
+  color:var(--c-primary);
+  padding:6px 12px;border-radius:14px;
+  display:inline-block;font-size:13px;margin-bottom:10px;
+  font-weight:600;
+}
+.prompt-content{
+  background:#fff;
+  border:1px dashed #C8D6DD;
+  padding:14px;border-radius:6px;
+  white-space:pre-wrap;font-size:14px;line-height:1.7;
+  color:var(--c-text);
+}
+
+/* ============= 折叠区 ============= */
+details{
+  margin:12px 0;
+  background:#FAFBFC;
+  border:1px solid var(--c-divider);
+  border-radius:var(--radius);
+  padding:0;
+}
+details summary{
+  padding:12px 16px;cursor:pointer;font-weight:600;
+  color:var(--c-primary);list-style:none;
+  position:relative;padding-right:36px;
+}
+details summary::-webkit-details-marker{display:none}
+details summary::after{
+  content:"▼";position:absolute;right:14px;top:50%;
+  transform:translateY(-50%);transition:.2s;font-size:11px;
+}
+details[open] summary::after{transform:translateY(-50%) rotate(180deg)}
+details[open] summary{border-bottom:1px solid var(--c-divider)}
+details .detail-body{padding:14px 18px}
+
+/* ============= 进度条 / 学习路径 ============= */
+.path-week{
+  display:flex;align-items:center;gap:16px;
+  background:linear-gradient(90deg,var(--c-primary-light) 0%,#fff 100%);
+  border-radius:var(--radius-lg);
+  padding:18px 22px;margin-bottom:14px;
+  border-left:5px solid var(--c-primary);
+}
+.path-week-num{
+  background:var(--c-primary);color:#fff;
+  width:48px;height:48px;border-radius:50%;
+  display:flex;align-items:center;justify-content:center;
+  font-size:18px;font-weight:700;flex-shrink:0;
+}
+.path-week-content{flex:1}
+.path-week-title{font-weight:700;color:var(--c-primary);margin-bottom:4px;font-size:17px}
+.path-week-detail{font-size:14px;color:var(--c-text-light);line-height:1.7}
+
+/* ============= SVG容器 ============= */
+.svg-wrap{
+  background:#fff;border:1px solid var(--c-divider);
+  border-radius:var(--radius);padding:16px;margin:16px 0;
+  overflow-x:auto;touch-action:manipulation;
+  -webkit-overflow-scrolling:touch;
+}
+.svg-wrap svg{display:block;min-width:100%;height:auto}
+
+/* ============= 选品清单特殊样式 ============= */
+.selection-table td:nth-child(5){text-align:center;font-weight:700}
+.go{color:var(--c-success);font-weight:700}
+.not-go{color:var(--c-danger);font-weight:700}
+.pending{color:var(--c-warning);font-weight:700}
+
+/* ============= 返回顶部 ============= */
+.back-top{
+  position:fixed;right:20px;bottom:20px;
+  width:44px;height:44px;border-radius:50%;
+  background:var(--c-primary);color:#fff;
+  display:flex;align-items:center;justify-content:center;
+  font-size:20px;cursor:pointer;
+  box-shadow:var(--shadow-md);
+  opacity:0;transition:.3s;z-index:99;
+  border:none;
+}
+.back-top.show{opacity:.9}
+
+/* ============= 页脚 ============= */
+footer{
+  background:#2C3E50;color:#BDC3C7;
+  padding:30px 24px;text-align:center;margin-top:40px;
+  font-size:13px;line-height:1.8;
+}
+footer strong{color:#fff}
+
+/* ============= WPS 兼容提示 ============= */
+.wps-tip{
+  display:none;
+  background:var(--c-warning-light);
+  border:1px solid var(--c-warning);
+  color:#A85E2A;
+  padding:10px 16px;border-radius:var(--radius);
+  margin:12px 24px;font-size:13px;text-align:center;
+}
+
+/* ============= 响应式 ============= */
+@media(max-width:768px){
+  .cover{padding:40px 18px 30px}
+  .cover h1{font-size:24px}
+  .cover .subtitle{font-size:15px}
+  main{padding:14px}
+  .chapter-header{padding-bottom:14px;margin-bottom:18px}
+  .chapter-num{width:42px;height:42px;font-size:16px}
+  .section-title{font-size:18px}
+  .toc-container{padding:10px 14px;gap:6px}
+  .toc a{font-size:12px;padding:4px 10px}
+  .toc-title{font-size:13px;margin-right:8px}
+  .path-week{flex-direction:column;align-items:flex-start}
+  .path-week-num{width:36px;height:36px;font-size:14px}
+}
+
+/* ============= A4 打印 ============= */
+@media print{
+  body{background:#fff}
+  .toc-wrap,.back-top,.toc-toggle,.wps-tip{position:static;display:none}
+  .chapter{box-shadow:none;border:1px solid #ccc;page-break-inside:avoid;margin-bottom:20px}
+  pre{background:#f5f5f5;color:#333;border:1px solid #ddd}
+  .cover{background:#fff;color:#333;border-bottom:2px solid var(--c-primary)}
+  .cover h1,.cover .subtitle,.cover .meta,.cover .author,.cover .badge{color:#333}
+  a{color:#333;text-decoration:underline}
+}
+</style>
+</head>
+<body>
+
+<!-- ============= WPS 降级提示 ============= -->
+<div class="wps-tip" id="wpsTip">
+⚠️ 检测到您可能使用 WPS 打开，建议用 Chrome / Edge / Safari / 微信浏览器打开本教材，可获得最佳阅读体验。
+</div>
+
+<!-- ============= 顶部封面 ============= -->
+<header class="cover">
+  <h1>电商人的 AI 实战课 2.0</h1>
+  <div class="subtitle">全景教材 · 从小白到精通高手</div>
+  <div class="author">主讲：清虎AI · 德龙老师</div>
+  <div class="badges">
+    <span class="badge">📚 22 节精华</span>
+    <span class="badge">🛠️ LinkPix + 清虎AI</span>
+    <span class="badge">🎯 提示词五层公式</span>
+    <span class="badge">💰 实操可落地</span>
+  </div>
+  <button class="toc-toggle" onclick="document.getElementById('toc').scrollIntoView({behavior:'smooth'})">📑 查看课程目录</button>
+  <div class="meta">课程出品 · 整理：学习助手 · 归属权归主人</div>
+</header>
+
+<!-- ============= 顶部目录 ============= -->
+<nav class="toc-wrap" id="toc">
+  <div class="toc-container">
+    <span class="toc-title">📑 快速跳转：</span>
+    <a href="#ch1">① 认知篇</a>
+    <a href="#ch2">② 工具篇</a>
+    <a href="#ch3">③ 方法论</a>
+    <a href="#ch4">④ 避坑篇</a>
+    <a href="#ch5">⑤ 实战整合</a>
+    <a href="#appA">📋 选品清单</a>
+    <a href="#appB">🤖 提示词汇总</a>
+    <a href="#appC">⚡ 速查表</a>
+    <a href="#path">🎯 学习路径</a>
+  </div>
+</nav>
+
+<main>
+<!-- ============= 写在前面 ============= -->
+<section class="chapter">
+  <div class="chapter-header">
+    <div class="chapter-num">📖</div>
+    <div class="chapter-title-wrap">
+      <div class="chapter-title">写在前面 · 这本教材如何使用</div>
+      <div class="chapter-subtitle">本教材由"电商人的AI实战课 2.0"22 节课程原文系统化整理而成</div>
+    </div>
+  </div>
+
+  <div class="chapter-intro">
+    <strong>主人您好！</strong>这是一本浓缩了 22 节课程精华的"全景教材"。无论您是完全没接触过 AI 的小白，还是已经用过 AI 工具但想要系统化的高手，本教材都能帮您建立完整的"AI 电商"知识体系。
+  </div>
+
+  <h3>🎯 学习目标</h3>
+  <ul>
+    <li><strong>认知层</strong>：理解 AI 时代的"降维打击"和电商红利，建立正确的 AI 心智</li>
+    <li><strong>工具层</strong>：熟练掌握 LinkPix + 清虎AI 的全部功能（9 大功能模块）</li>
+    <li><strong>方法论层</strong>：掌握"提示词金字塔五层公式"——出大片的底层方法论</li>
+    <li><strong>避坑层</strong>：知道 AI 创作的所有红线、死穴与故障排除方案</li>
+    <li><strong>实战层</strong>：能从"选品→上架→出图→出视频→投流→合规"全流程跑通</li>
+  </ul>
+
+  <h3>📖 阅读建议</h3>
+  <ol>
+    <li><strong>小白路径</strong>：按顺序阅读 5 大章节，约 4 周读完</li>
+    <li><strong>速查路径</strong>：直接看附录 C（速查表）和附录 B（提示词）</li>
+    <li><strong>避坑优先</strong>：先看第 4 章（避坑篇）能少走 80% 的弯路</li>
+  </ol>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠️ 重要声明</div>
+    本教材中所有产品案例、提示词案例、数据案例均来源于课程原文整理。AI 工具迭代很快，部分界面与功能可能更新，请以工具最新版本为准。
+  </div>
+</section>
+
+<!-- ============= 第 1 章 认知与底层逻辑 ============= -->
+<section class="chapter" id="ch1">
+  <div class="chapter-header">
+    <div class="chapter-num">1</div>
+    <div class="chapter-title-wrap">
+      <div class="chapter-title">第一章 · 认知与底层逻辑</div>
+      <div class="chapter-subtitle">为什么这场 AI 革命是电商人的"超级红利"？</div>
+    </div>
+  </div>
+
+  <div class="chapter-intro">
+    <strong>本章地位：</strong>全书最重要的"定调章"。如果不先建立正确的 AI 认知，后面所有工具和方法论都会用偏。先理解 AI 为何值得你投入，再学怎么用，事半功倍。
+  </div>
+
+  <!-- 1.1 第 1 节 -->
+  <div class="section" id="s1-1">
+    <div class="section-header">
+      <span class="section-num">1.1</span>
+      <span class="section-title">电商人的"降维打击"：AI 时代的红利与机会</span>
+      <span class="section-tag tag-knowledge">认知</span>
+    </div>
+
+    <h3>一、开篇算账：3000 元 → 3 元，3 天 → 3 分钟</h3>
+    <p>上架一个新产品，传统电商链路需要经历：</p>
+    <ul>
+      <li>拍图 → 修图 → 做详情页</li>
+      <li>拍短视频 → 剪辑</li>
+      <li>找外包至少 <strong>3000 元</strong>起步，自己做要"脱层皮"</li>
+    </ul>
+    <p>AI 能把这 <strong>3000 元</strong>的成本变成 <strong>3 元</strong>，把 <strong>3 天</strong>的时间变成 <strong>3 分钟</strong>。这不是科幻，这就是正在发生的<strong>AI 降维打击</strong>。</p>
+
+    <blockquote>
+      真正的降维打击，不是同类竞争，是<strong>时代代差</strong>——成本坍塌 + 时间坍塌 + 试错成本坍塌。
+    </blockquote>
+
+    <h3>二、传统模式 vs AI 模式成本对比（核心数据）</h3>
+
+    <div class="table-wrap">
+    <table>
+      <thead>
+        <tr><th>项目</th><th>传统成本</th><th>AI 成本</th><th>关键差异</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>模特拍摄</strong></td>
+          <td>杭州/广州外模 1200 元（新手）/ 2000 元/小时（爆款）</td>
+          <td>0.1 元生成欧美、日韩、非洲模特；30 秒出片</td>
+          <td>价格差 <strong>10000 倍</strong></td>
+        </tr>
+        <tr>
+          <td><strong>后期修图</strong></td>
+          <td>摄影师只修部分，精修额外收费</td>
+          <td>提示词改一改，迭代成本几乎为零</td>
+          <td>无限次精修</td>
+        </tr>
+        <tr>
+          <td><strong>实景视频</strong></td>
+          <td>波司登、羽绒服户外拍摄几万起步（阿勒泰、长白山）</td>
+          <td>3 元算力（"我去雪山行走""巴黎街头漫步"）</td>
+          <td>几万 vs <strong>3 元</strong></td>
+        </tr>
+        <tr>
+          <td><strong>差旅物流</strong></td>
+          <td>差旅 + 食宿 + 设备运输 + 人工 + 临时状况累积 3 万+</td>
+          <td>零差旅、零物流、及时生成、无意外</td>
+          <td>0 成本</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>三、AI 模特的具体优势（详细）</h3>
+    <ul>
+      <li>只需一个<strong>假人台或平铺</strong>，扔到 LinkPix / 清虎 AI 工具中</li>
+      <li><strong>0.1 元</strong>即可生成全球各种模特</li>
+      <li>不用担心<strong>肖像权</strong>（人物根本不存在）</li>
+      <li>发型、肤色、体型可<strong>随意挑选</strong></li>
+      <li>出图速度极快，<strong>30 秒</strong>出片</li>
+      <li>原生感 / 精修感 / 摄影大片 / 海报大片 四种风格自由切换</li>
+    </ul>
+
+    <h3>四、最可怕的红利：极低的试错成本</h3>
+    <p><strong>传统电商痛点：</strong></p>
+    <ul>
+      <li>拍一套图太贵、拍一个视频太贵、找模特配合太难</li>
+      <li>试错成本高 → <strong>不敢尝试</strong> → 错失机会</li>
+      <li>测款过程中存在大量<strong>隐性成本</strong></li>
+    </ul>
+
+    <p><strong>AI 时代转变：</strong></p>
+    <div class="callout success">
+      <div class="callout-title">🚀 AI 给电商人最大的底气</div>
+      <p style="margin:0">一天可以生成 <strong>100 套图、1000 套图、100 个视频、1000 个视频</strong>，用海量素材去跑数据，哪一条火就把钱投给哪一条。</p>
+    </div>
+
+    <h3>五、ROI 思维重构</h3>
+    <p>不要只盯着表面的 ROI（投放回报率）。</p>
+    <blockquote>
+      真正的 ROI 是整个<strong>内容生产过程</strong>的成本与产出。当生产成本降低，ROI 才会真正增加。
+    </blockquote>
+
+    <h3>六、AI 工具时代的关键时间节点</h3>
+    <ul>
+      <li><strong>2025 年下半年</strong>，尤其是国庆节后（10 月份）开始</li>
+      <li>AI 彻底进入<strong>工具时代</strong></li>
+      <li>已经渗透到电商的<strong>每一个毛孔、每一个环节</strong></li>
+    </ul>
+
+    <h3>七、AI 搞定的 5 大核心场景</h3>
+    <ol>
+      <li><strong>图片场景</strong>：场景图无限生成（白底图→海边礁石/卧室梳妆台/雪山背景）</li>
+      <li><strong>视频场景</strong>：静态产品图→360° 旋转光影视频；户外场景→室内一键生成</li>
+      <li><strong>主图视频</strong>：传统货架电商主图视频，瞬间生成</li>
+      <li><strong>种草短视频</strong>：场景强结合产品，冲锋衣雪山大片</li>
+      <li><strong>信息流广告素材</strong>：一天生成 100 条不重样素材</li>
+    </ol>
+
+    <blockquote success>
+      <strong>AI 不会淘汰人，但是会用 AI 的人一定会淘汰不会用 AI 的人。</strong>这场红利才刚刚开始，你入局就是跑在 90% 的同行前面。
+    </blockquote>
+
+    <h3>📌 系统性总结</h3>
+    <div class="callout">
+      <div class="callout-title">核心要点</div>
+      <ul style="margin:0">
+        <li>降维打击的本质：<strong>成本 + 时间 + 试错</strong>三重坍塌</li>
+        <li>AI 不是"贵工具"，而是<strong>3 元撬动 3000 元</strong>的杠杆</li>
+        <li>最大红利不是省钱，而是<strong>敢测款</strong>——海量素材数据驱动</li>
+        <li>ROI 思维要从"投放端"扩展到"<strong>全生产链</strong>"</li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- 1.2 第 2 节 -->
+  <div class="section" id="s1-2">
+    <div class="section-header">
+      <span class="section-num">1.2</span>
+      <span class="section-title">扫除障碍：打破 AI 创作的 3 大心魔</span>
+      <span class="section-tag tag-knowledge">认知</span>
+    </div>
+
+    <p>很多人学了 AI 工具但用不起来，根本原因不是技术，而是<strong>心理</strong>。本节打破 3 大心魔。</p>
+
+    <h3>心魔一：流量焦虑 —— "我加了 AI 标识，平台会限流吗？"</h3>
+    <p><strong>真相：</strong></p>
+    <ul>
+      <li>平台对 AI 内容是<strong>标识而非限流</strong></li>
+      <li>AI 标识 ≠ 限流。平台的诉求是"<strong>合规</strong>"，不是"打压 AI"</li>
+      <li>过去 95% 限流是因为<strong>违规词</strong>，不是 AI 标识</li>
+    </ul>
+    <div class="callout success">
+      <div class="callout-title">破解方法</div>
+      <p style="margin:0">正规打上"AI 生成"标识，专注于内容质量。流量核心靠<strong>内容质量</strong>，不打 AI 标识反而可能被检测算法误判。</p>
+    </div>
+
+    <h3>心魔二：完美陷阱 —— "做不好就不发"</h3>
+    <p><strong>完美心态的 3 大危害：</strong></p>
+    <ul>
+      <li>第一条不完美就放弃</li>
+      <li>反复修图改视频，时间成本失控</li>
+      <li>错失 AI 时代<strong>敢发敢试</strong>的最大红利</li>
+    </ul>
+    <blockquote>
+      完成 &gt; 完美。<strong>发出去让用户投票</strong>，比闭门造车强 10 倍。
+    </blockquote>
+
+    <h3>心魔三：甩手掌柜 —— "等 AI 自己搞定一切"</h3>
+    <p>AI 不是<strong>神仙</strong>，是<strong>实习生</strong>：</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>AI 擅长的</th><th>AI 不擅长的</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>批量生成图片/视频</td>
+          <td>精准把握品牌调性</td>
+        </tr>
+        <tr>
+          <td>风格迁移、场景替换</td>
+          <td>复杂决策、创意策划</td>
+        </tr>
+        <tr>
+          <td>重复性劳动</td>
+          <td>情绪共鸣、深度文案</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+    <div class="callout warning">
+      <div class="callout-title">⚠️ 关键认知</div>
+      <p style="margin:0">老板心态用 AI = 失败。要用 "<strong>精准指令 + 多轮迭代</strong>" 的<strong>指挥官心态</strong>。</p>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul class="checklist">
+      <li><strong>流量焦虑</strong>：AI 标识 ≠ 限流，正规打标</li>
+      <li><strong>完美陷阱</strong>：完成 &gt; 完美，先发再改</li>
+      <li><strong>甩手掌柜</strong>：AI 是实习生，需要精准指挥</li>
+    </ul>
+  </div>
+
+  <!-- 1.3 第 3 节 -->
+  <div class="section" id="s1-3">
+    <div class="section-header">
+      <span class="section-num">1.3</span>
+      <span class="section-title">底层逻辑：建立"概率思维"与人机协作</span>
+      <span class="section-tag tag-knowledge">认知</span>
+    </div>
+
+    <h3>一、核心比喻：AI 是"盲盒机"不是"打印机"</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>打印机</th><th>盲盒机</th></tr></thead>
+      <tbody>
+        <tr><td>输入 → 输出（确定性）</td><td>输入 → 输出（概率性）</td></tr>
+        <tr><td>一次成功率高</td><td>多次抽卡才有惊喜</td></tr>
+        <tr><td>可控</td><td>可控性低，需要筛选</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>二、AI 创作的本质：抽卡文化</h3>
+    <p>AI 生成 10 张图，可能有：</p>
+    <ul>
+      <li>2 张很棒</li>
+      <li>3 张能用</li>
+      <li>5 张不行</li>
+    </ul>
+    <p>传统思维：<strong>"这次不行就放弃"</strong> ❌<br>
+    AI 思维：<strong>"5 张不行就再来 10 张"</strong> ✅</p>
+
+    <h3>三、人机协作 SOP（黄金流程）</h3>
+    <div class="callout success">
+      <div class="callout-title">🤖 + 👤 黄金组合</div>
+      <ol style="margin:0">
+        <li><strong>LinkPix 出素材</strong>（AI 批量生成图片/视频）</li>
+        <li><strong>人工筛选</strong>（挑出能用的素材）</li>
+        <li><strong>剪映做剪辑</strong>（拼接、加字幕、加 BGM）</li>
+        <li><strong>人工优化</strong>（标题、封面、文案）</li>
+      </ol>
+    </div>
+
+    <h3>四、两个核心习惯</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>习惯</th><th>具体做法</th><th>为什么重要</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>多抽卡</strong></td>
+          <td>同样的提示词生成 10+ 张再筛选</td>
+          <td>概率思维，单次失败不代表方法错</td>
+        </tr>
+        <tr>
+          <td><strong>学会拼凑</strong></td>
+          <td>不同 AI 生成的素材拼接成完整视频</td>
+          <td>不追求单张完美，追求整体效果</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>AI 是<strong>盲盒机</strong>，需要"概率思维 + 抽卡文化"</li>
+      <li>人机协作 SOP：<strong>LinkPix 出素材 + 剪映做剪辑</strong></li>
+      <li>两个核心习惯：<strong>多抽卡 + 学会拼凑</strong></li>
+    </ul>
+  </div>
+
+  <!-- 1.4 第 4 节 -->
+  <div class="section" id="s1-4">
+    <div class="section-header">
+      <span class="section-num">1.4</span>
+      <span class="section-title">AI 是如何"看"懂话的——揭秘生成的底层逻辑</span>
+      <span class="section-tag tag-knowledge">认知</span>
+    </div>
+
+    <h3>一、核心比喻：AI 是"造梦机器"</h3>
+    <p>AI 不是"摄影机"也不是"打印机"，而是<strong>造梦机器</strong>：</p>
+    <ul>
+      <li><strong>摄影机</strong>：真实记录物理世界</li>
+      <li><strong>打印机</strong>：精确复制已有内容</li>
+      <li><strong>造梦机器</strong>：根据文本"想象"画面，可能不符合物理规律</li>
+    </ul>
+
+    <h3>二、AI 三大底层原理（必懂）</h3>
+
+    <h4>原理 1：扩散模型（噪点 → 雕图）</h4>
+    <ul>
+      <li>AI 生成图片的起点是<strong>纯噪点</strong>（像老电视雪花）</li>
+      <li>通过<strong>迭代去噪</strong>，逐步雕出有意义的图像</li>
+      <li>这就是为什么 AI 总是从模糊到清晰</li>
+    </ul>
+
+    <h4>原理 2：下一帧预测（AI 视频的核心）</h4>
+    <ul>
+      <li>AI 视频是一帧一帧"猜"出来的</li>
+      <li>每帧之间有<strong>误差累积</strong>，所以做短不做长</li>
+      <li>这就是为什么 AI 视频通常 <strong>5-15 秒</strong>为最佳</li>
+    </ul>
+
+    <h4>原理 3：AI 不懂物理</h4>
+    <ul>
+      <li>AI 没有"重力""惯性""因果"概念</li>
+      <li>所以会出现：<strong>穿模、反重力、液体乱飞</strong></li>
+      <li>解决方案：<strong>物理提示词</strong>（方向、材质、动作顺序）</li>
+    </ul>
+
+    <h3>三、从"操作员"升级为"AI 训练师"</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>操作员思维</th><th>AI 训练师思维</th></tr></thead>
+      <tbody>
+        <tr><td>按按钮出结果</td><td>调参数优化结果</td></tr>
+        <tr><td>AI 给啥用啥</td><td>多抽卡筛选最优</td></tr>
+        <tr><td>不懂为什么</td><td>理解 AI 原理反向调优</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <blockquote>
+      懂 AI 原理不是为了"修 AI"，而是为了<strong>知道 AI 在哪会出错，提前在提示词中规避</strong>。
+    </blockquote>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>AI 是<strong>造梦机器</strong>，不是摄影机/打印机</li>
+      <li>三大原理：<strong>扩散模型、下一帧预测、不懂物理</strong></li>
+      <li>应用启示：<strong>写物理提示词、做短不做长、多抽卡</strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============= 第 2 章 工具实操 ============= -->
+<section class="chapter" id="ch2">
+  <div class="chapter-header">
+    <div class="chapter-num">2</div>
+    <div class="chapter-title-wrap">
+      <div class="chapter-title">第二章 · 工具实操（LinkPix + 清虎AI）</div>
+      <div class="chapter-subtitle">9 大功能模块详解 · 从新手到专家</div>
+    </div>
+  </div>
+
+  <div class="chapter-intro">
+    <strong>本章地位：</strong>AI 时代的"工具兵器谱"。覆盖 LinkPix + 清虎AI 的全部核心功能，<strong>新手到老手</strong>的全流程实操。学完本章您就具备了"AI 视频日产能 50 条"的基础能力。
+  </div>
+
+  <!-- 2.1 第 1 节 -->
+  <div class="section" id="s2-1">
+    <div class="section-header">
+      <span class="section-num">2.1</span>
+      <span class="section-title">工具全景：LinkPix 界面与核心功能区</span>
+      <span class="section-tag tag-tool">工具</span>
+    </div>
+
+    <h3>一、LinkPix 工具定位</h3>
+    <p>LinkPix 是一款<strong>AI 一键成片</strong>工具，定位"击退全国 99% 电商人"的 AI 视频生产力工具。</p>
+
+    <h3>二、核心功能区（5 大区域）</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>功能区</th><th>位置</th><th>核心能力</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>① 新手模式</strong></td>
+          <td>顶部菜单</td>
+          <td>不写一个字，30 秒利用模板出片（适合小白）</td>
+        </tr>
+        <tr>
+          <td><strong>② 专家模式</strong></td>
+          <td>顶部菜单</td>
+          <td>利用"提示词润色"定向开发，用对话调教 AI</td>
+        </tr>
+        <tr>
+          <td><strong>③ 商品广告一键成片</strong></td>
+          <td>独立入口</td>
+          <td>锁定真人模特 + 1 分钟长视频</td>
+        </tr>
+        <tr>
+          <td><strong>④ 数字人</strong></td>
+          <td>独立入口</td>
+          <td>12 个数字人主播，避开"精神分裂"</td>
+        </tr>
+        <tr>
+          <td><strong>⑤ 简易剪辑室</strong></td>
+          <td>辅助工具</td>
+          <td>修剪崩坏、换封面、拼单省钱</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>三、视频时长与画质选择</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>时长档位</th><th>用途建议</th><th>画质档位</th></tr></thead>
+      <tbody>
+        <tr><td>5 秒</td><td>主图短视频</td><td>普清 / 高清</td></tr>
+        <tr><td>15 秒</td><td>短视频平台（抖音/小红书）</td><td>高清（推荐）</td></tr>
+        <tr><td>25 秒</td><td>视频号、朋友圈</td><td>高清</td></tr>
+        <tr><td>60 秒</td><td>商品广告长视频（一键成片功能）</td><td>高清</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>LinkPix 是<strong>AI 一键成片</strong>工具，定位"击退 99% 电商人"</li>
+      <li>5 大功能区：<strong>新手/专家/一键成片/数字人/剪辑室</strong></li>
+      <li>视频时长选择：<strong>15 秒 + 高清</strong>是黄金组合</li>
+    </ul>
+  </div>
+
+  <!-- 2.2 第 2 节 -->
+  <div class="section" id="s2-2">
+    <div class="section-header">
+      <span class="section-num">2.2</span>
+      <span class="section-title">新手模式：不写一个字，30 秒利用"模板"快速出片</span>
+      <span class="section-tag tag-tool">工具</span>
+    </div>
+
+    <h3>一、什么是新手模式？</h3>
+    <p>新手模式是 LinkPix 的<strong>零门槛出片</strong>功能：用户不需要写任何提示词，只需要<strong>选模板 + 选产品图</strong>，AI 自动匹配场景，<strong>30 秒</strong>出一条视频。</p>
+
+    <h3>二、4 步出片流程</h3>
+    <ol>
+      <li><strong>选择模板</strong>（按品类：服装/美妆/食品/3C）</li>
+      <li><strong>上传产品图</strong>（平铺图、假人图、模特图均可）</li>
+      <li><strong>点击生成</strong>（AI 自动跑算力，30 秒-2 分钟）</li>
+      <li><strong>下载/发布</strong>（保留首帧或多选下载）</li>
+    </ol>
+
+    <h3>三、关键技巧</h3>
+    <ul>
+      <li><strong>保留首帧</strong>：视频第一帧作为封面图，是主图设计的核心素材</li>
+      <li><strong>多选下载</strong>：一次生成多条素材，择优使用</li>
+      <li><strong>99% 还原</strong>：新手模式主打"还原产品图"，避免 AI 自由发挥过度</li>
+    </ul>
+
+    <div class="callout warning">
+      <div class="callout-title">⚠️ 新手模式的局限</div>
+      <p style="margin:0">虽然省事，但模板固定、缺乏个性化。想出<strong>爆款差异化</strong>，需要进入"专家模式"。</p>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>新手模式 = <strong>选模板 + 上传图 + 30 秒出片</strong></li>
+      <li>适用场景：<strong>主图视频 / 快速测款 / 大量铺素材</strong></li>
+      <li>关键技巧：<strong>保留首帧 + 多选下载</strong></li>
+    </ul>
+  </div>
+
+  <!-- 2.3 第 3 节 -->
+  <div class="section" id="s2-3">
+    <div class="section-header">
+      <span class="section-num">2.3</span>
+      <span class="section-title">专家模式：利用"提示词润色"定向开发，用对话调教 AI</span>
+      <span class="section-tag tag-tool">工具</span>
+    </div>
+
+    <h3>一、什么是专家模式？</h3>
+    <p>专家模式是 LinkPix 的<strong>"手动挡"</strong>，让用户从"模板用户"升级为"<strong>AI 指挥官</strong>"。</p>
+
+    <h3>二、"提示词润色"功能 4 步走</h3>
+    <ol>
+      <li><strong>填产品信息</strong>（产品名 + 卖点）</li>
+      <li><strong>AI 生成 4 条结构化提示词</strong>（不同侧重点）</li>
+      <li><strong>收藏喜欢的提示词</strong>（未来可直接复用）</li>
+      <li><strong>多轮对话调优</strong>（加细节/换风格/改时长）</li>
+    </ol>
+
+    <h3>三、案例演示：男士香水</h3>
+    <p>老师在课程中演示了男士香水的完整生成流程：</p>
+    <ol>
+      <li>输入"男士香水"，AI 自动生成 4 条提示词（如地中海风格、商业大片、复古港风等）</li>
+      <li>收藏"地中海风格"这条</li>
+      <li>多轮对话调优：
+        <ul>
+          <li>"加意大利男模"</li>
+          <li>"加海里捞出镜头"</li>
+          <li>"控制时长 15 秒"</li>
+          <li>"改成英文界面"</li>
+        </ul>
+      </li>
+      <li>最终成片</li>
+    </ol>
+
+    <div class="callout success">
+      <div class="callout-title">🤖 关键方法论</div>
+      <p style="margin:0">结构化提示词的可控性远强于新手模式。建议<strong>先中文调优再翻译</strong>，效果更稳定。</p>
+    </div>
+
+    <h3>四、专家模式 3 大优势</h3>
+    <ul>
+      <li><strong>结构化</strong>：提示词分层清晰，便于调优</li>
+      <li><strong>可编辑</strong>：每一层都能单独迭代</li>
+      <li><strong>可控</strong>：效果可预期，废片率低</li>
+    </ul>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>专家模式 = <strong>手动挡 + 提示词润色 + 多轮对话</strong></li>
+      <li>核心工作流：<strong>填信息 → 4 条提示词 → 收藏 → 多轮调优 → 成片</strong></li>
+      <li>适合：<strong>差异化爆款 / 长期复用的素材</strong></li>
+    </ul>
+  </div>
+
+  <!-- 2.4 第 4 节 -->
+  <div class="section" id="s2-4">
+    <div class="section-header">
+      <span class="section-num">2.4</span>
+      <span class="section-title">商品广告一键成片：锁定真人模特与 1 分钟长视频</span>
+      <span class="section-tag tag-tool">工具</span>
+    </div>
+
+    <h3>一、解决两大痛点</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>痛点</th><th>解决方案</th></tr></thead>
+      <tbody>
+        <tr><td>AI 模特与品牌调性不搭</td><td><strong>真人模特锁定</strong>（同一模特贯穿全片）</td></tr>
+        <tr><td>多段视频拼接不一致</td><td><strong>最长 60 秒一次性生成</strong></td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>二、关键功能</h3>
+    <ol>
+      <li><strong>最多上传 7 张多角度产品图</strong>——提升一致性</li>
+      <li><strong>真实成片 vs 创意成片</strong>——双模式选择
+        <ul>
+          <li>真实成片：严谨商业、适合主图/详情页</li>
+          <li>创意成片：引流、完播率高</li>
+        </ul>
+      </li>
+      <li><strong>方屏 vs 竖屏</strong>——方屏适合主图视频与朋友圈</li>
+      <li><strong>提示词可填可不填</strong>——与第 3 节结构化提示词对照</li>
+    </ol>
+
+    <div class="callout warning">
+      <div class="callout-title">⚠️ 成本提示</div>
+      <p style="margin:0">商品广告一键成片<strong>成本较高</strong>，建议仅用于<strong>正式商业落地</strong>场景（如主图/详情页/品牌片），不要用于大量测款。</p>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>商品广告一键成片 = <strong>真人锁定 + 1 分钟长视频</strong></li>
+      <li>适用场景：<strong>主图/详情页/品牌片</strong></li>
+      <li>成本提示：<strong>慎用，仅用于商业级落地</strong></li>
+    </ul>
+  </div>
+
+  <!-- 2.5 第 5 节 -->
+  <div class="section" id="s2-5">
+    <div class="section-header">
+      <span class="section-num">2.5</span>
+      <span class="section-title">数字人实战：选对带货主播，避开"精神分裂"</span>
+      <span class="section-tag tag-tool">工具</span>
+    </div>
+
+    <h3>一、数字人 vs 一键成片中的"上传人物形象"</h3>
+    <div class="callout">
+      <div class="callout-title">关键区别</div>
+      <ul style="margin:0">
+        <li>数字人 = AI 生成的虚拟人物，<strong>支持对话和动作</strong></li>
+        <li>上传人物形象 = 你自己提供的人物作为参考，<strong>形象固定</strong></li>
+      </ul>
+    </div>
+
+    <h3>二、12 个公共数字人角色速查</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>角色名</th><th>风格</th><th>适配品类</th></tr></thead>
+      <tbody>
+        <tr><td>静静</td><td>温柔女性</td><td>美妆、护肤、香氛</td></tr>
+        <tr><td>牧师</td><td>成熟男性</td><td>数码、家居、男性护肤</td></tr>
+        <tr><td>阿文</td><td>阳光男生</td><td>运动、户外</td></tr>
+        <tr><td>OK1</td><td>潮酷男生</td><td>3C、潮牌</td></tr>
+        <tr><td>浩哥</td><td>憨厚大哥</td><td>食品、营养品</td></tr>
+        <tr><td>豆妈</td><td>亲和妈妈</td><td>母婴、家居</td></tr>
+        <tr><td>Sunny</td><td>活力女生</td><td>美妆、东南亚市场</td></tr>
+        <tr><td>沙竭</td><td>睿智长者</td><td>茶叶、保健品</td></tr>
+        <tr><td>（其他 4 个）</td><td>待探索</td><td>—</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>三、三大黄金法则（避坑核心）</h3>
+
+    <h4>法则 1：生理冲突禁忌</h4>
+    <ul>
+      <li>不要让 60 岁老奶奶推荐健身器材</li>
+      <li>不要让年轻女生推荐老人保健品</li>
+      <li>角色年龄/性别/气质与产品匹配</li>
+    </ul>
+
+    <h4>法则 2：空镜强加人禁忌（幽灵现象）</h4>
+    <ul>
+      <li>不要在已经生成的场景中"强行加数字人"</li>
+      <li>会出现<strong>穿模、肢体扭曲、幽灵感</strong></li>
+      <li>正确做法：<strong>从一开始就以数字人为主角</strong>生成</li>
+    </ul>
+
+    <h4>法则 3：多角色禁忌（穿模/失真）</h4>
+    <ul>
+      <li>同一画面不要超过 <strong>2 个数字人</strong></li>
+      <li>多个数字人同框会出现<strong>穿模、手脚融合、表情混乱</strong></li>
+      <li>如需多角色，<strong>用切换镜头</strong>，不要同框</li>
+    </ul>
+
+    <h3>四、定制数字人 vs 公共数字人</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>维度</th><th>公共数字人</th><th>定制数字人</th></tr></thead>
+      <tbody>
+        <tr><td>形象相似度</td><td>—</td><td>70%-80% 相似度</td></tr>
+        <tr><td>声纹克隆</td><td>—</td><td>不可克隆（避免欺诈）</td></tr>
+        <tr><td>口音</td><td>—</td><td>可模拟口音</td></tr>
+        <tr><td>成本</td><td>低</td><td>较高</td></tr>
+        <tr><td>用途</td><td>通用带货</td><td>品牌专属 IP</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>五、导演思维：必须给每个角色具体指令</h3>
+    <div class="callout success">
+      <div class="callout-title">🎬 导演式指令示例</div>
+      <pre><code>【场景】咖啡厅内，午后阳光
+【人物】静静（公共数字人）
+【动作】手持拿铁，面带微笑，看向镜头
+【台词】"姐妹们，这款面霜我自己用了三个月..."
+【镜头】中景 → 慢推近景</code></pre>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>数字人选择 = <strong>角色 + 品类匹配</strong></li>
+      <li>三大黄金法则：<strong>不冲突 / 不强加 / 不多角色</strong></li>
+      <li>导演思维：<strong>具体指令 + 场景 + 镜头</strong></li>
+    </ul>
+  </div>
+
+  <!-- 2.6 第 6 节 -->
+  <div class="section" id="s2-6">
+    <div class="section-header">
+      <span class="section-num">2.6</span>
+      <span class="section-title">灵感枯竭怎么办？套用模板与"爆款复刻"神技</span>
+      <span class="section-tag tag-tool">工具</span>
+    </div>
+
+    <h3>一、两条解决路径</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>路径</th><th>适用场景</th><th>优势</th></tr></thead>
+      <tbody>
+        <tr><td><strong>官方模板</strong></td><td>日常素材 / 测款</td><td>省事、稳定、低风险</td></tr>
+        <tr><td><strong>爆款复刻</strong></td><td>追热点 / 差异化</td><td>蹭流量、高完播率</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>二、官方模板的六大分类</h3>
+    <ol>
+      <li><strong>本地生活</strong>（餐饮/探店/同城）</li>
+      <li><strong>家居百货</strong>（收纳/日用/小家电）</li>
+      <li><strong>美妆个护</strong>（护肤/彩妆/香水）</li>
+      <li><strong>养号种草</strong>（测评/教程/开箱）</li>
+      <li><strong>食品饮料</strong>（零食/饮品/调味品）</li>
+      <li><strong>服饰箱包</strong>（服装/鞋包/配饰）</li>
+    </ol>
+
+    <h3>三、爆款复刻的三个入口</h3>
+    <ul>
+      <li><strong>平台内</strong>：抖音/小红书的爆款视频直接复刻</li>
+      <li><strong>灵感区</strong>：工具内置的灵感库</li>
+      <li><strong>链接复刻</strong>：粘贴视频链接，AI 提取</li>
+    </ul>
+
+    <h3>四、复刻案例：从抖音 6 秒爆款 → 25 秒自家广告</h3>
+    <ol>
+      <li><strong>原片分析</strong>：6 秒爆款视频的脚本 + 画面</li>
+      <li><strong>复刻生成</strong>：AI 生成 25 秒相似版本</li>
+      <li><strong>融合元素</strong>：原片文案 + 评论区高赞 + 自家产品广告</li>
+      <li><strong>修改迭代</strong>：多轮对话优化细节</li>
+    </ol>
+
+    <div class="callout success">
+      <div class="callout-title">💡 零门槛方法论</div>
+      <p style="margin:0">"不需要懂那么多，AI 就帮你完成这一切"——<strong>复刻 → 对话 → 修改 → 生成</strong>四步完成。</p>
+    </div>
+
+    <h3>五、视频时长限制</h3>
+    <ul>
+      <li>复刻视频 <strong>3 分钟以内</strong></li>
+      <li>最长不超过 <strong>4 分钟</strong></li>
+      <li>超过限制 AI 可能截断或失真</li>
+    </ul>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>灵感枯竭的两条路：<strong>模板（省事）+ 复刻（追热点）</strong></li>
+      <li>复刻流程：<strong>复刻 → 对话 → 修改 → 生成</strong></li>
+      <li>时长限制：<strong>3 分钟以内</strong></li>
+    </ul>
+  </div>
+
+  <!-- 2.7 第 7 节 -->
+  <div class="section" id="s2-7">
+    <div class="section-header">
+      <span class="section-num">2.7</span>
+      <span class="section-title">简易剪辑室：修剪崩坏、换封面与"拼单"省钱大法</span>
+      <span class="section-tag tag-tool">工具</span>
+    </div>
+
+    <h3>一、简易剪辑室定位</h3>
+    <p>简易剪辑室是 LinkPix 的"<strong>急救包</strong>"，针对 AI 生成素材的常见问题提供快速修复方案。</p>
+
+    <h3>二、六大功能详解</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>功能</th><th>用途</th><th>使用频率</th></tr></thead>
+      <tbody>
+        <tr><td><strong>① 视频剪辑</strong></td><td>修剪崩坏片段，保留有效部分</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><strong>② 修改封面</strong></td><td>视频第一帧重新生成</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td><strong>③ 视频合并</strong></td><td>多段素材拼接</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td><strong>④ 去水印</strong></td><td>移除参考素材水印</td><td>⭐⭐⭐</td></tr>
+        <tr><td><strong>⑤ 去字幕</strong></td><td>原片字幕清除（重新加）</td><td>⭐⭐⭐</td></tr>
+        <tr><td><strong>⑥ 画质提升</strong></td><td>低清素材变高清</td><td>⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>三、杀手锏："拼单"省钱大法</h3>
+    <div class="callout success">
+      <div class="callout-title">💰 省钱技巧</div>
+      <p><strong>4 个 15 秒视频凑满 1 分钟 = 1 次收费</strong></p>
+      <p style="margin:0">原本 4 个 15 秒分别生成要 4 次算力成本，<strong>合并为 1 个 60 秒</strong>后只算 1 次！</p>
+    </div>
+
+    <h3>四、推荐第三方剪辑工具</h3>
+    <ul>
+      <li><strong>剪映</strong>（国内首选，模板丰富）</li>
+      <li><strong>CapCut</strong>（国际版剪映）</li>
+      <li><strong>Premiere Rush</strong>（Adobe 移动版）</li>
+      <li><strong>Final Cut Pro</strong>（Mac 专业版）</li>
+    </ul>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>剪辑室 = <strong>急救包</strong>，6 大功能按需使用</li>
+      <li>省钱核心：<strong>拼单 4 个 15 秒 = 1 次收费</strong></li>
+      <li>推荐工具：<strong>剪映</strong>（小白首选）</li>
+    </ul>
+  </div>
+
+  <!-- 2.8 第 8 节 -->
+  <div class="section" id="s2-8">
+    <div class="section-header">
+      <span class="section-num">2.8</span>
+      <span class="section-title">电商刚需：告别昂贵商拍，用"极致性价比"搞定主图与海报</span>
+      <span class="section-tag tag-tool">工具</span>
+    </div>
+
+    <h3>一、为什么是"极致性价比"？</h3>
+    <p>传统商拍：找摄影师 + 模特 + 场景 + 后期，一套主图动辄 <strong>2000-5000 元</strong>。<br>
+    AI 主图：<strong>几毛钱</strong>搞定，还能批量测款。</p>
+
+    <h3>二、5 大用途模板</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>用途</th><th>操作</th><th>典型场景</th></tr></thead>
+      <tbody>
+        <tr><td><strong>① 换背景</strong></td><td>白底图 → 场景图</td><td>电商主图</td></tr>
+        <tr><td><strong>② 翻译</strong></td><td>中文 → 多语言</td><td>跨境电商</td></tr>
+        <tr><td><strong>③ 模特换脸</strong></td><td>替换模特形象</td><td>多市场适配</td></tr>
+        <tr><td><strong>④ 换衣</strong></td><td>同款衣服不同穿法</td><td>服装测款</td></tr>
+        <tr><td><strong>⑤ 主图优化</strong></td><td>优化构图、光影、文字</td><td>主图点击率提升</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>三、三种模式选择</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>模式</th><th>速度</th><th>质量</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td><strong>快图</strong></td><td>10 秒</td><td>一般</td><td>快速测款</td></tr>
+        <tr><td><strong>精图</strong></td><td>30-60 秒</td><td>高</td><td>主图定稿</td></tr>
+        <tr><td><strong>专图</strong></td><td>2-3 分钟</td><td>顶级</td><td>品牌宣传</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>四、杀手锏："提示润色"功能</h3>
+    <p>提示润色 = <strong>AI 自动优化你的提示词</strong>，即使你是文案小白也能写出专业级提示词。</p>
+
+    <div class="prompt-card">
+      <div class="prompt-purpose">📌 用途：玫瑰精油主图</div>
+      <div class="prompt-content">产品：玫瑰精油，玻璃瓶装，瓶身有金色花纹。
+场景：简约大理石台面，旁边有一束新鲜玫瑰花，光线柔和温暖。
+风格：高端、轻奢、质感、留白构图。
+色调：暖色调，米白色背景。
+构图：产品居中，背景虚化突出产品。
+文字：图片留白处可加产品名（可选）</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-purpose">📌 用途：私域获客海报</div>
+      <div class="prompt-content">产品：胶原蛋白口服液，6 瓶装礼盒。
+场景：高级餐厅桌面，温馨氛围，背景虚化的烛光。
+风格：节日感、馈赠、轻奢。
+色调：金红配色，喜庆但不俗气。
+构图：产品居中，上方留出标题区，下方留出价格/二维码区。
+文字：标题留空（用户自己加）。</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-purpose">📌 用途：节日活动海报</div>
+      <div class="prompt-content">主题：双 11 大促。
+产品：智能手表，黑色表带，金属表盘。
+场景：科技感背景，蓝色光效粒子。
+风格：未来感、科技、活力、年轻。
+色调：电光蓝 + 橙红点缀。
+构图：产品倾斜 15°，增加动感；左上角突出"双 11"，右下角留出价格区。
+文字：图片不直接写文字，留白供设计。</div>
+    </div>
+
+    <div class="prompt-card">
+      <div class="prompt-purpose">📌 用途：社媒图文（小红书）</div>
+      <div class="prompt-content">产品：手冲咖啡壶套装。
+场景：温馨家庭厨房，木质台面，自然晨光从窗户洒入。
+风格：生活化、温暖、治愈、文艺。
+色调：暖黄、棕色、原木色。
+构图：俯拍 45°，产品作为画面主角，旁边放一杯已冲好的咖啡。
+文字：留出标题区（用户可加"周末仪式感"等标题）。</div>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>主图与海报 = <strong>极致性价比</strong>（几毛钱 vs 几千元）</li>
+      <li>3 种模式：<strong>快图/精图/专图</strong> 按需选择</li>
+      <li>杀手锏：<strong>提示润色</strong>——AI 帮你写专业提示词</li>
+    </ul>
+  </div>
+
+  <!-- 2.9 第 9 节 -->
+  <div class="section" id="s2-9">
+    <div class="section-header">
+      <span class="section-num">2.9</span>
+      <span class="section-title">详情页革命：AI 一键排版，还是"可编辑"的活文件</span>
+      <span class="section-tag tag-tool">工具</span>
+    </div>
+
+    <h3>一、传统 AI 详情页的局限</h3>
+    <ul>
+      <li>生成的图是<strong>"死图"</strong>，无法二次编辑</li>
+      <li>文字位置、字体大小改不动</li>
+      <li>改一个标点都得重新生成</li>
+    </ul>
+
+    <h3>二、清虎 AI 详情页的王炸功能："活文件"</h3>
+    <div class="callout success">
+      <div class="callout-title">🌟 核心概念</div>
+      <p><strong>活文件</strong> = 可在线编辑的源文件（如 PSD/Figma 概念）</p>
+      <p style="margin:0">文字、图层、排版都能<strong>自由编辑</strong>，改完直接导出成图片。</p>
+    </div>
+
+    <h3>三、详情页"三步曲"</h3>
+    <ol>
+      <li><strong>多传图 + 打标签</strong>（避免 AI 幻觉）</li>
+      <li><strong>套模板 AI 排版</strong>（生成基础版）</li>
+      <li><strong>在线编辑微调</strong>（调整文字/图层）</li>
+    </ol>
+
+    <h3>四、关键方法论：多传图 + 打标签</h3>
+    <p>上传多张图片 + 给每张打标签 = 避免 AI 幻觉。</p>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>标签类型</th><th>作用</th></tr></thead>
+      <tbody>
+        <tr><td><strong>主图</strong></td><td>产品正面图，作为详情页首图</td></tr>
+        <tr><td><strong>品牌故事</strong></td><td>品牌背景图，情感化</td></tr>
+        <tr><td><strong>logo</strong></td><td>品牌标识，统一调性</td></tr>
+        <tr><td><strong>买家说明</strong></td><td>使用教程图</td></tr>
+        <tr><td><strong>面料细节</strong></td><td>材质近景图</td></tr>
+        <tr><td><strong>尺寸</strong></td><td>尺寸对比图</td></tr>
+        <tr><td><strong>核心卖点</strong></td><td>亮点突出图</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout warning">
+      <div class="callout-title">⚠️ 关键经验</div>
+      <p style="margin:0">"多传图 + 打标签" 是避免 AI 幻觉的关键！单图 AI 容易"自由发挥"导致产品变形，多图加标签才能保证细节还原。</p>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>详情页新概念：<strong>"活文件"可编辑</strong>（vs 传统 AI 死图）</li>
+      <li>核心三步：<strong>多传图打标签 → 套模板 → 在线编辑</strong></li>
+      <li>关键技巧：<strong>多图 + 标签</strong> 是避免 AI 幻觉的核心</li>
+    </ul>
+  </div>
+</section>
+
+
+<!-- ============= 第 3 章 提示词金字塔方法论 ============= -->
+<section class="chapter" id="ch3">
+  <div class="chapter-header">
+    <div class="chapter-num">3</div>
+    <div class="chapter-title-wrap">
+      <div class="chapter-title">第三章 · 提示词金字塔方法论</div>
+      <div class="chapter-subtitle">5 课讲透五层公式 · 从"瞎写"到"出大片"</div>
+    </div>
+  </div>
+
+  <div class="chapter-intro">
+    <strong>本章地位：</strong>全书<strong>含金量最高</strong>的章节。德龙老师独创"五层提示词金字塔"公式——<strong>基石→骨架→眼睛→常识→耳朵</strong>，层层递进。学完本章您就具备了"<strong>用一句话调教 AI 出大片</strong>"的能力。
+  </div>
+
+  <!-- 3.1 第 1 课 -->
+  <div class="section" id="s3-1">
+    <div class="section-header">
+      <span class="section-num">3.1</span>
+      <span class="section-title">公式全景与第一层：整体风格与角色承诺（锚定）</span>
+      <span class="section-tag tag-method">方法论</span>
+    </div>
+
+    <h3>一、常见误区：长提示词 ≠ 好提示词</h3>
+    <p>很多同学的提示词像"<strong>大杂烩</strong>"——把所有想法堆在一起：</p>
+    <pre><code>❌ 错误示范：
+"一个女生，25 岁，长头发，穿着红色连衣裙，在巴黎街头，背景是埃菲尔铁塔，夕阳，阳光，光圈，电影质感，胶片色调，4K，高清，佳能，索尼…"</code></pre>
+
+    <div class="callout danger">
+      <div class="callout-title">⚠️ 问题诊断</div>
+      <p style="margin:0">信息过载 + 风格矛盾（"电影质感" vs "胶片色调"）+ 无层次结构。AI 无法理解你想要什么。</p>
+    </div>
+
+    <h3>二、五层结构公式（核心）</h3>
+    <div class="svg-wrap">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 480" preserveAspectRatio="xMidYMid meet">
+  <!-- 塔基：风格 + 角色 -->
+  <rect x="50" y="380" width="700" height="60" rx="8" fill="#E8A87C"/>
+  <text x="400" y="416" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">① 基石层：风格流派 + 角色锚定（最重要）</text>
+
+  <!-- 第二层：骨架分镜 -->
+  <rect x="100" y="310" width="600" height="60" rx="8" fill="#E8C9A8"/>
+  <text x="400" y="346" text-anchor="middle" fill="#fff" font-size="16" font-weight="600">② 骨架层：分镜结构 + 时间节奏</text>
+
+  <!-- 第三层：眼睛运镜 -->
+  <rect x="150" y="240" width="500" height="60" rx="8" fill="#9BCCE0"/>
+  <text x="400" y="276" text-anchor="middle" fill="#fff" font-size="16" font-weight="600">③ 眼睛层：镜头语言 + 景别控制</text>
+
+  <!-- 第四层：常识物理 -->
+  <rect x="200" y="170" width="400" height="60" rx="8" fill="#7FB069"/>
+  <text x="400" y="206" text-anchor="middle" fill="#fff" font-size="16" font-weight="600">④ 常识层：物理动态 + 因果逻辑</text>
+
+  <!-- 顶层：耳朵音频 -->
+  <rect x="250" y="100" width="300" height="60" rx="8" fill="#4A90A4"/>
+  <text x="400" y="136" text-anchor="middle" fill="#fff" font-size="16" font-weight="600">⑤ 耳朵层：环境音 + 音效 + 旁白</text>
+
+  <!-- 箭头标注 -->
+  <text x="60" y="50" fill="#666" font-size="14">📐 自下而上递进</text>
+  <text x="600" y="50" fill="#666" font-size="14">层级越靠下越重要</text>
+
+  <!-- 左右双向箭头 -->
+  <path d="M 30 410 L 50 410" stroke="#666" stroke-width="2" marker-end="url(#arrow)"/>
+</svg>
+    </div>
+
+    <h3>三、第一层：基石层（最重要的"地基"）</h3>
+    <p>基石层决定整个视频的<strong>调性</strong>。基石不稳，上层全塌。</p>
+
+    <h4>基石层通用公式</h4>
+    <pre><code>【风格流派】+ 【角色锚点】+ 【服装锚点】+ 【约束指令】</code></pre>
+
+    <h4>① 风格流派（必填）</h4>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>风格关键词</th><th>典型示例</th><th>适配场景</th></tr></thead>
+      <tbody>
+        <tr><td>商业大片</td><td>商业广告、TVC 风格</td><td>主图视频、品牌片</td></tr>
+        <tr><td>电影质感</td><td>胶片色调、宽幅</td><td>服装、香氛</td></tr>
+        <tr><td>生活化</td><td>纪实、自然光</td><td>日用品、食品</td></tr>
+        <tr><td>科技感</td><td>蓝黑、电光、粒子</td><td>3C、数码</td></tr>
+        <tr><td>复古</td><td>胶片、暖色调</td><td>国潮、怀旧</td></tr>
+        <tr><td>治愈系</td><td>晨光、暖色、慢节奏</td><td>家居、美妆</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h4>② 角色锚点（必填，避免角色"千人千面"）</h4>
+    <ul>
+      <li><strong>具体描述</strong>：年龄 + 体型 + 肤色 + 发型 + 表情</li>
+      <li><strong>示例</strong>："25 岁亚洲女性，中长黑发，自然妆容，微笑表情"</li>
+    </ul>
+
+    <h4>③ 服装锚点（重要）</h4>
+    <ul>
+      <li>具体描述服装的颜色、款式、材质</li>
+      <li><strong>示例</strong>："红色真丝连衣裙，V 领，中长款"</li>
+    </ul>
+
+    <h4>④ 约束指令（避免 AI 跑偏）</h4>
+    <pre><code>【不加文字】【不做剪辑】【清晰不要模糊】</code></pre>
+
+    <div class="callout warning">
+      <div class="callout-title">基石层三条铁律</div>
+      <ul style="margin:0">
+        <li><strong>不加文字</strong>：AI 加的中文字几乎都是错字，文字后期再加</li>
+        <li><strong>不做剪辑</strong>：单镜头即可，剪辑后期处理</li>
+        <li><strong>要清晰不要模糊</strong>：明确要求清晰，避免 AI 自动虚化</li>
+      </ul>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>五层公式：<strong>基石→骨架→眼睛→常识→耳朵</strong></li>
+      <li>基石层 = <strong>风格 + 角色 + 服装 + 约束</strong></li>
+      <li>基石层是<strong>地基</strong>，决定整体调性</li>
+    </ul>
+  </div>
+
+  <!-- 3.2 第 2 课 -->
+  <div class="section" id="s3-2">
+    <div class="section-header">
+      <span class="section-num">3.2</span>
+      <span class="section-title">分镜结构与时间节奏：15 秒黄金三段式设计</span>
+      <span class="section-tag tag-method">方法论</span>
+    </div>
+
+    <h3>一、为什么是"15 秒黄金"？</h3>
+    <p>短视频生态中，<strong>15 秒</strong>是完播率最高的时长：</p>
+    <ul>
+      <li>太短（&lt; 8 秒）：信息不足，<strong>完播率高但转化低</strong></li>
+      <li>15 秒：信息密度 + 完播率<strong>黄金平衡点</strong></li>
+      <li>太长（&gt; 25 秒）：容易流失，<strong>完播率下降</strong></li>
+    </ul>
+
+    <h3>二、15 秒黄金三段式（核心方法论）</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>时段</th><th>时长</th><th>任务</th><th>常见做法</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>开篇 0-5 秒</strong></td>
+          <td>5 秒</td>
+          <td><strong>钩子</strong>：吸引注意</td>
+          <td>反常识画面、特写、悬念</td>
+        </tr>
+        <tr>
+          <td><strong>中段 5-10 秒</strong></td>
+          <td>5 秒</td>
+          <td><strong>展示</strong>：产品/场景</td>
+          <td>全景、使用场景</td>
+        </tr>
+        <tr>
+          <td><strong>结尾 10-15 秒</strong></td>
+          <td>5 秒</td>
+          <td><strong>转化</strong>：号召行动</td>
+          <td>特写、痛点共鸣、CTA</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>三、Shot 切分方法（每个镜头必须有"变化"）</h3>
+    <p>15 秒视频可以分为 <strong>3-5 个镜头</strong>，每个镜头必须有"<strong>变化</strong>"：</p>
+    <ul>
+      <li><strong>人物变化</strong>：模特换动作 / 换表情</li>
+      <li><strong>环境变化</strong>：背景切换</li>
+      <li><strong>场景变化</strong>：从室内到室外</li>
+      <li><strong>运镜变化</strong>：从全景到特写</li>
+    </ul>
+
+    <div class="callout warning">
+      <div class="callout-title">⚠️ 微节奏（Micro Rhythm）</div>
+      <p style="margin:0">15 秒视频<strong>不是</strong>一个静态长镜头，而是 <strong>3-5 个变化镜头</strong>的组合。没有变化 = 没有节奏 = 完播率低。</p>
+    </div>
+
+    <h3>四、第二层：骨架层通用公式</h3>
+    <pre><code>【时间戳】+ 【景别】+ 【动作】+ 【环境】
+示例：0-3 秒 | 中景 | 模特拿起香水 | 卧室梳妆台前
+      3-5 秒 | 特写 | 香水瓶特写 | 浅景深虚化
+      5-10 秒 | 全景 | 模特走向窗边 | 阳光洒入
+      10-15 秒 | 中景 | 模特微笑 | 夕阳逆光</code></pre>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>15 秒 = <strong>开篇钩子 + 中段展示 + 结尾转化</strong></li>
+      <li>3-5 个镜头组合，<strong>必须有变化</strong></li>
+      <li>骨架层公式：<strong>时间戳 + 景别 + 动作 + 环境</strong></li>
+    </ul>
+  </div>
+
+  <!-- 3.3 第 3 课 -->
+  <div class="section" id="s3-3">
+    <div class="section-header">
+      <span class="section-num">3.3</span>
+      <span class="section-title">摄影与视角：镜头语言与景别控制</span>
+      <span class="section-tag tag-method">方法论</span>
+    </div>
+
+    <h3>一、7 个必背镜头语言关键词</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>镜头语言</th><th>英文</th><th>效果</th><th>典型场景</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Dolly in（推近）</strong></td>
+          <td>Dolly In</td>
+          <td>从远景推到特写，营造代入感</td>
+          <td>产品展示、人物特写</td>
+        </tr>
+        <tr>
+          <td><strong>Dolly out（拉远）</strong></td>
+          <td>Dolly Out</td>
+          <td>从特写拉到全景，揭示环境</td>
+          <td>开篇钩子、场景交代</td>
+        </tr>
+        <tr>
+          <td><strong>Pan（横摇）</strong></td>
+          <td>Pan</td>
+          <td>镜头水平旋转，扫视场景</td>
+          <td>环境展示、产品陈列</td>
+        </tr>
+        <tr>
+          <td><strong>Orbit（环绕）</strong></td>
+          <td>Orbit</td>
+          <td>镜头围绕主体 360° 旋转</td>
+          <td>产品主图、立体感</td>
+        </tr>
+        <tr>
+          <td><strong>Low Angle（仰拍）</strong></td>
+          <td>Low Angle</td>
+          <td>从下往上拍，气势感</td>
+          <td>运动、户外、力量感</td>
+        </tr>
+        <tr>
+          <td><strong>Macro（微距）</strong></td>
+          <td>Macro</td>
+          <td>极近距离拍摄，细节</td>
+          <td>材质特写、产品细节</td>
+        </tr>
+        <tr>
+          <td><strong>POV（第一人称）</strong></td>
+          <td>POV</td>
+          <td>主观视角，沉浸感</td>
+          <td>使用教程、试吃试穿</td>
+        </tr>
+        <tr>
+          <td><strong>Drone View（航拍）</strong></td>
+          <td>Drone View</td>
+          <td>空中俯瞰，宏观感</td>
+          <td>户外大片、地标</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>二、AI 理解力的 3 大局限案例</h3>
+    <div class="callout danger">
+      <div class="callout-title">⚠️ AI 不懂的物理细节</div>
+      <ul style="margin:0">
+        <li><strong>液体粘稠度</strong>：写"浓稠的蜂蜜"AI 可能生成"清水"</li>
+        <li><strong>绿豆沙饼内馅</strong>：切开应见豆沙，AI 可能生成"空心"</li>
+        <li><strong>箭头螺纹</strong>：可能变成"波浪"，方向性丢失</li>
+      </ul>
+    </div>
+
+    <h3>三、景别控制（5 大景别）</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>景别</th><th>范围</th><th>用途</th></tr></thead>
+      <tbody>
+        <tr><td><strong>远景</strong></td><td>环境为主</td><td>开篇交代</td></tr>
+        <tr><td><strong>全景</strong></td><td>人物 + 环境</td><td>展示场景</td></tr>
+        <tr><td><strong>中景</strong></td><td>人物膝盖以上</td><td>对话、互动</td></tr>
+        <tr><td><strong>近景</strong></td><td>胸部以上</td><td>表情、情感</td></tr>
+        <tr><td><strong>特写</strong></td><td>面部 / 局部</td><td>细节、强调</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>7 个必背镜头：<strong>Dolly in/out, Pan, Orbit, Low Angle, Macro, POV, Drone</strong></li>
+      <li>5 大景别：<strong>远/全/中/近/特</strong></li>
+      <li>AI 局限：<strong>不懂物理细节，需在提示词中显式描述</strong></li>
+    </ul>
+  </div>
+
+  <!-- 3.4 第 4 课 -->
+  <div class="section" id="s3-4">
+    <div class="section-header">
+      <span class="section-num">3.4</span>
+      <span class="section-title">物理动态与因果逻辑：赋予画面真实重力</span>
+      <span class="section-tag tag-method">方法论</span>
+    </div>
+
+    <h3>一、物理崩坏的两大根源</h3>
+    <ul>
+      <li><strong>根源 1：模棱两可指令</strong>——AI 不知道你想要什么物理效果</li>
+      <li><strong>根源 2：AI 不理解现实物理</strong>——没有"重力""惯性"概念</li>
+    </ul>
+
+    <h3>二、核心方法论："先做减法后做加法"</h3>
+    <div class="callout success">
+      <div class="callout-title">🔑 金科玉律</div>
+      <ol style="margin:0">
+        <li>先保证<strong>产品不变形</strong>（多角度图 + 材质属性标注 + 单一角度展示）</li>
+        <li>再叠加<strong>创意</strong>（场景、光影、动态）</li>
+      </ol>
+    </div>
+
+    <h3>三、关键洞见</h3>
+
+    <h4>洞见 1：AI 不理解"套装"概念</h4>
+    <p>"男士西装三件套"AI 可能生成"三件独立的衣服"。<br>
+    <strong>解决</strong>：拆开生成（外套、衬衫、裤子分别），再后期合成。</p>
+
+    <h4>洞见 2：材质"看起来 vs 实际"必须双重描述</h4>
+    <p>真皮 vs 仿皮，<strong>光泽 + 纹理 + 触感</strong>都要写。</p>
+    <pre><code>示例："看起来像真皮，光泽柔和，表面有自然纹理，触感细腻"</code></pre>
+
+    <h3>四、第四层：常识层通用公式</h3>
+    <pre><code>【物理方向】+ 【材质属性】+ 【动作顺序】+ 【因果逻辑】
+示例：右手拿起杯子 → 倾斜 45° → 水从杯口流出 → 流入下方容器
+     （重力向下，液体流动的因果链）</code></pre>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>物理崩坏根源：<strong>模棱两可 + AI 不懂物理</strong></li>
+      <li>核心方法论：<strong>先做减法后做加法</strong></li>
+      <li>套装要<strong>拆开生成</strong>再合成</li>
+    </ul>
+  </div>
+
+  <!-- 3.5 第 5 课 -->
+  <div class="section" id="s3-5">
+    <div class="section-header">
+      <span class="section-num">3.5</span>
+      <span class="section-title">音频与对话：音画同步的最后拼图</span>
+      <span class="section-tag tag-method">方法论</span>
+    </div>
+
+    <h3>一、五层公式收官</h3>
+    <p>本章是五层公式的最后一层——<strong>耳朵层</strong>。很多同学忽略了音频，导致"无声电影"般的尴尬。</p>
+
+    <h3>二、三大声音类型（必须全部写入）</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>声音类型</th><th>作用</th><th>示例</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>① 环境音</strong></td>
+          <td>营造场景真实感</td>
+          <td>咖啡厅背景音、街道喧嚣、海浪声</td>
+        </tr>
+        <tr>
+          <td><strong>② 音效</strong></td>
+          <td>强化动作、强调细节</td>
+          <td>翻书声、玻璃碰撞、脚步声</td>
+        </tr>
+        <tr>
+          <td><strong>③ 旁白</strong></td>
+          <td>传递信息、推动剧情</td>
+          <td>产品介绍、品牌故事</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>三、声音层次化原则</h3>
+    <div class="callout warning">
+      <div class="callout-title">⚠️ 不要平铺堆叠</div>
+      <p style="margin:0">三层声音<strong>要有层次</strong>，不是同时大声播放。一般<strong>旁白为主，环境音为底，音效点缀</strong>。</p>
+    </div>
+
+    <h3>四、结构化提示词的最大价值</h3>
+    <blockquote>
+      结构化提示词的最大价值是<strong>可单独迭代一层而不影响整体</strong>。例如音频不好，只需修改第五层提示词，其他四层保持不变。
+    </blockquote>
+
+    <h3>五、第五层：耳朵层通用公式</h3>
+    <pre><code>【环境音】+ 【音效】+ 【旁白/对话】
+示例：咖啡厅背景音（轻柔爵士乐）
+     + 咖啡机蒸汽声、杯子碰撞声
+     + 旁白（女声，温柔）："在这个快节奏的城市，让一杯咖啡，给你片刻的宁静。"</code></pre>
+
+    <div class="callout">
+      <div class="callout-title">💡 黄金提示</div>
+      <p style="margin:0">上传图必须<strong>单一主体</strong>——多主体 AI 会混乱，音频同理，避免多人同时说话。</p>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>三大声音：<strong>环境音 + 音效 + 旁白</strong></li>
+      <li>声音层次化：<strong>主次分明</strong>，不要平铺</li>
+      <li>结构化提示词最大价值：<strong>单层迭代不影响整体</strong></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============= 第 4 章 合规与避坑 ============= -->
+<section class="chapter" id="ch4">
+  <div class="chapter-header">
+    <div class="chapter-num">4</div>
+    <div class="chapter-title-wrap">
+      <div class="chapter-title">第四章 · 合规、除错与避坑</div>
+      <div class="chapter-subtitle">AI 创作的"红线 + 死穴 + 故障"全解</div>
+    </div>
+  </div>
+
+  <div class="chapter-intro">
+    <strong>本章地位：</strong>"<strong>省钱的章节</strong>"。本章每节课都能帮您少走至少一周的弯路，避开 80% 的新手坑。<strong>强烈建议优先阅读本章。</strong>
+  </div>
+
+  <!-- 4.1 第 1 课 -->
+  <div class="section" id="s4-1">
+    <div class="section-header">
+      <span class="section-num">4.1</span>
+      <span class="section-title">避坑指南：AI 视频创作误区纠正</span>
+      <span class="section-tag tag-avoid">避坑</span>
+    </div>
+
+    <h3>一、四大常见误区</h3>
+
+    <h4>误区 1：AI = 万能工具 ❌</h4>
+    <p><strong>真相</strong>：AI 是<strong>"加速器"</strong>，不是"<strong>替代者</strong>"。人的审美、决策、品牌调性永远在 AI 之上。</p>
+
+    <h4>误区 2：越像真实越好 ❌</h4>
+    <p><strong>真相</strong>：过度真实反而<strong>失去营销属性</strong>。短视频要"美"不要"真"——灯光、角度、滤镜都要比现实美 10%。</p>
+
+    <h4>误区 3：必须一条出片 ❌</h4>
+    <p><strong>真相</strong>：AI 生成 10 条才出一条爆款是常态。<strong>概率思维 + 抽卡文化</strong>是 AI 时代的核心方法论。</p>
+
+    <h4>误区 4：自动过审 ❌</h4>
+    <p><strong>真相</strong>：AI 内容过审率<strong>远低于人工内容</strong>，必须掌握违规词排查、过审技巧（详见第 3 课）。</p>
+
+    <h3>二、四大避坑建议</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>避坑建议</th><th>具体做法</th></tr></thead>
+      <tbody>
+        <tr><td><strong>多抽卡</strong></td><td>同样的提示词生成 10+ 张再筛选</td></tr>
+        <tr><td><strong>留备份</strong></td><td>AI 生成的素材全部下载保存</td></tr>
+        <tr><td><strong>人机协作</strong></td><td>AI 出素材 + 人工剪辑 + 人工优化</td></tr>
+        <tr><td><strong>持续学习</strong></td><td>关注工具更新，每周尝试新功能</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>四大误区：<strong>万能 / 越真越好 / 一条出片 / 自动过审</strong></li>
+      <li>避坑核心：<strong>多抽卡 + 人机协作 + 持续学习</strong></li>
+    </ul>
+  </div>
+
+  <!-- 4.2 第 2 课 -->
+  <div class="section" id="s4-2">
+    <div class="section-header">
+      <span class="section-num">4.2</span>
+      <span class="section-title">拒绝废片：图片素材的 5 大死穴与规范</span>
+      <span class="section-tag tag-avoid">避坑</span>
+    </div>
+
+    <h3>一、5 大死穴（废片元凶）</h3>
+
+    <h4>死穴 1：分辨率过低 ❌</h4>
+    <ul>
+      <li><strong>症状</strong>：生成的图模糊、有像素点</li>
+      <li><strong>解决</strong>：上传原图<strong>≥ 1080P</strong>，选择<strong>高清</strong>或<strong>专图</strong>模式</li>
+    </ul>
+
+    <h4>死穴 2：背景杂乱 ❌</h4>
+    <ul>
+      <li><strong>症状</strong>：主体被背景淹没</li>
+      <li><strong>解决</strong>：使用<strong>白底图或纯色背景</strong>，主体占画面 60%+</li>
+    </ul>
+
+    <h4>死穴 3：主体不完整 ❌</h4>
+    <ul>
+      <li><strong>症状</strong>：产品被裁切、缺角</li>
+      <li><strong>解决</strong>：上传图时<strong>留出 20% 边距</strong>，提示词标注"完整产品"</li>
+    </ul>
+
+    <h4>死穴 4：Logo 模糊 / 侵权 ❌</h4>
+    <ul>
+      <li><strong>症状</strong>：AI 把 Logo 改得模糊或变形</li>
+      <li><strong>解决</strong>：<strong>后期人工加 Logo</strong>，不要让 AI 改 Logo</li>
+    </ul>
+
+    <h4>死穴 5：上传真人 ❌</h4>
+    <ul>
+      <li><strong>症状</strong>：涉及肖像权风险</li>
+      <li><strong>解决</strong>：使用<strong>假人台或平铺图</strong>，或获得<strong>肖像授权</strong></li>
+    </ul>
+
+    <h3>二、图片规范速查表</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>规范项</th><th>标准</th></tr></thead>
+      <tbody>
+        <tr><td>分辨率</td><td>≥ 1080P（主图建议 2000×2000）</td></tr>
+        <tr><td>背景</td><td>白底或纯色，无杂物</td></tr>
+        <tr><td>主体占比</td><td>画面 60% 以上</td></tr>
+        <tr><td>边距</td><td>四周留 20%</td></tr>
+        <tr><td>格式</td><td>JPG/PNG，&lt; 5MB</td></tr>
+        <tr><td>Logo</td><td>后期人工加，不让 AI 改</td></tr>
+        <tr><td>人物</td><td>假人台或授权真人</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>5 大死穴：<strong>分辨率 / 背景 / 主体 / Logo / 真人</strong></li>
+      <li>核心规范：<strong>1080P + 白底 + 60% 占比 + 留边距</strong></li>
+    </ul>
+  </div>
+
+  <!-- 4.3 第 3 课 -->
+  <div class="section" id="s4-3">
+    <div class="section-header">
+      <span class="section-num">4.3</span>
+      <span class="section-title">账号安全红线：违规词排查与过审技巧</span>
+      <span class="section-tag tag-avoid">避坑</span>
+    </div>
+
+    <h3>一、4 大红线（必背）</h3>
+
+    <h4>红线 1：品牌红线 ❌</h4>
+    <p><strong>违规示例</strong>：提示词含"耐克""阿迪""苹果"等品牌名<br>
+    <strong>后果</strong>：被判侵权，扣分甚至下架</p>
+
+    <h4>红线 2：翻译陷阱 ❌</h4>
+    <p><strong>违规示例</strong>：用中文想表达"高级感"，AI 可能翻译成"luxury" → 触发奢侈品违规词<br>
+    <strong>后果</strong>：广告法违规，扣算力</p>
+
+    <h4>红线 3：危险动作 ❌</h4>
+    <p><strong>违规示例</strong>：模特攀爬、玩火、化学实验等<br>
+    <strong>后果</strong>：违反平台内容规范</p>
+
+    <h4>红线 4：系统繁忙（假违规）❌</h4>
+    <p><strong>现象</strong>：明明没违规词，提示"系统繁忙请稍后再试"<br>
+    <strong>真相</strong>：可能是平台<strong>风控误判</strong>，稍后再试或换关键词</p>
+
+    <h3>二、算力扣减机制</h3>
+    <ul>
+      <li>触发红线 → <strong>扣算力但不出片</strong></li>
+      <li>反复触发 → <strong>账号风险</strong>，可能被风控</li>
+      <li>建议：<strong>建立违规词库</strong>，每次提示词前检查</li>
+    </ul>
+
+    <h3>三、4 种绕过技巧</h3>
+
+    <h4>技巧 1：国际术语替代</h4>
+    <pre><code>❌ "耐克跑鞋"
+✅ "运动跑鞋，带有标志性 swoosh 线条"</code></pre>
+
+    <h4>技巧 2：英文替代</h4>
+    <pre><code>❌ "高级感"
+✅ "premium quality"（高端品质）</code></pre>
+
+    <h4>技巧 3：分镜图分解</h4>
+    <p>把含违规词的画面<strong>拆成多个分镜</strong>，每个分镜独立生成。</p>
+
+    <h4>技巧 4：特征描述代替品牌名</h4>
+    <pre><code>❌ "可口可乐红"
+✅ "活力橙红色"</code></pre>
+
+    <div class="callout success">
+      <div class="callout-title">🌟 黄金法则</div>
+      <p style="margin:0"><strong>特征描述 &gt; 品牌名 &gt; 翻译</strong>。能描述就别用品牌，能英文就别用中文。</p>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>4 大红线：<strong>品牌 / 翻译 / 危险动作 / 系统繁忙</strong></li>
+      <li>4 种绕过：<strong>国际术语 / 英文 / 分镜 / 特征描述</strong></li>
+      <li>建立<strong>违规词库</strong>，每次提示词前检查</li>
+    </ul>
+  </div>
+
+  <!-- 4.4 第 4 课 -->
+  <div class="section" id="s4-4">
+    <div class="section-header">
+      <span class="section-num">4.4</span>
+      <span class="section-title">视觉故障排除：变形、模糊与一致性问题</span>
+      <span class="section-tag tag-avoid">避坑</span>
+    </div>
+
+    <h3>一、3 大视觉故障</h3>
+
+    <h4>故障 1：产品变形 ❌</h4>
+    <ul>
+      <li><strong>症状</strong>：产品扭曲、缺角、不对称</li>
+      <li><strong>原因</strong>：提示词描述模糊 / 上传图角度单一</li>
+      <li><strong>解决</strong>：多角度上传 + 提示词标注"产品不变形"</li>
+    </ul>
+
+    <h4>故障 2：人物不一致 ❌</h4>
+    <ul>
+      <li><strong>症状</strong>：同一角色不同镜头中形象变化</li>
+      <li><strong>原因</strong>：AI 没有"角色记忆"</li>
+      <li><strong>解决</strong>：
+        <ul>
+          <li><strong>方案 A：数字人</strong>（一致性最高）</li>
+          <li><strong>方案 B：剪映/平台剪辑小工具</strong>锁定人物形象</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h4>故障 3：画质模糊 ❌</h4>
+    <ul>
+      <li><strong>症状</strong>：生成图清晰度低</li>
+      <li><strong>解决</strong>：选<strong>高清/专图模式</strong> + 上传 1080P 原图</li>
+    </ul>
+
+    <h3>二、3 步走故障排除策略</h3>
+    <ol>
+      <li><strong>负向提示词</strong>：明确告诉 AI 不要什么
+        <pre><code>--no 模糊, 变形, 像素化, 低质量</code></pre>
+      </li>
+      <li><strong>穿衣镜案例</strong>：用"穿衣镜"作为视觉锚点，让 AI 知道要展示"镜中效果"</li>
+      <li><strong>人物一致性双方案</strong>：数字人 OR 剪辑锁定</li>
+    </ol>
+
+    <h3>三、推荐剪辑工具</h3>
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>工具</th><th>适合场景</th></tr></thead>
+      <tbody>
+        <tr><td><strong>剪映</strong></td><td>小白首选，模板丰富</td></tr>
+        <tr><td><strong>平台剪辑小工具</strong></td><td>抖音/小红书内置</td></tr>
+        <tr><td><strong>Final Cut Pro</strong></td><td>Mac 专业用户</td></tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout">
+      <div class="callout-title">💡 平台底层微调优化</div>
+      <p style="margin:0">大部分平台（抖音/小红书）发布前会做<strong>底层微调</strong>，轻微模糊可被平台算法自动优化。</p>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>3 大故障：<strong>变形 / 人物不一致 / 模糊</strong></li>
+      <li>核心策略：<strong>负向提示词 + 数字人 + 剪辑锁定</strong></li>
+      <li>推荐工具：<strong>剪映</strong>（小白首选）</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============= 第 5 章 实战整合 ============= -->
+<section class="chapter" id="ch5">
+  <div class="chapter-header">
+    <div class="chapter-num">5</div>
+    <div class="chapter-title-wrap">
+      <div class="chapter-title">第五章 · 实战整合（小白到精通最后一公里）</div>
+      <div class="chapter-subtitle">从"知识"到"赚钱"的完整 SOP</div>
+    </div>
+  </div>
+
+  <div class="chapter-intro">
+    <strong>本章地位：</strong>把前 4 章的"<strong>知识点</strong>"串联成"<strong>赚钱工作流</strong>"。学完前 4 章您是"<strong>懂 AI 的小白</strong>"，学完本章您是"<strong>能赚钱的 AI 电商高手</strong>"。
+  </div>
+
+  <!-- 5.1 完整工作流 SOP -->
+  <div class="section" id="s5-1">
+    <div class="section-header">
+      <span class="section-num">5.1</span>
+      <span class="section-title">完整工作流 SOP：从选品到投流 7 步法</span>
+      <span class="section-tag tag-tool">实战</span>
+    </div>
+
+    <h3>第一步：选品（参考附录 A）</h3>
+    <ul>
+      <li>查阅附录 A 选品清单</li>
+      <li>选 <strong>Go</strong> 类目</li>
+      <li>避开<strong>高侵权 + 高危险动作</strong>类目</li>
+    </ul>
+
+    <h3>第二步：准备图片素材</h3>
+    <ul>
+      <li>拍摄<strong>1080P 白底图 / 假人台 / 平铺图</strong></li>
+      <li>检查图片规范（分辨率 / 背景 / 主体占比）</li>
+      <li>如需模特，使用<strong>AI 模特</strong>（避免肖像权）</li>
+    </ul>
+
+    <h3>第三步：写提示词（五层公式）</h3>
+    <ol>
+      <li><strong>基石层</strong>：风格 + 角色 + 服装 + 约束</li>
+      <li><strong>骨架层</strong>：分镜 + 时间节奏</li>
+      <li><strong>眼睛层</strong>：镜头语言 + 景别</li>
+      <li><strong>常识层</strong>：物理 + 因果</li>
+      <li><strong>耳朵层</strong>：环境音 + 音效 + 旁白</li>
+    </ol>
+
+    <h3>第四步：AI 生成（专家模式 + 提示润色）</h3>
+    <ul>
+      <li>使用<strong>专家模式 + 提示词润色</strong></li>
+      <li>多轮对话迭代</li>
+      <li><strong>多抽卡</strong>（同提示词生成 10+ 张）</li>
+    </ul>
+
+    <h3>第五步：人工筛选 + 剪辑</h3>
+    <ul>
+      <li>筛选 <strong>10 条 → 1 条爆款</strong></li>
+      <li>使用<strong>剪映</strong>拼接 + 加字幕 + 加 BGM</li>
+      <li>检查违规词（详见第 4.3 节）</li>
+    </ul>
+
+    <h3>第六步：测试投流</h3>
+    <ul>
+      <li>小预算<strong>测试 3-5 条</strong>素材</li>
+      <li>看 <strong>CTR / CVR / ROI</strong> 数据</li>
+      <li>保留 <strong>Top 20%</strong> 素材</li>
+    </ul>
+
+    <h3>第七步：放量 + 持续优化</h3>
+    <ul>
+      <li>爆款素材<strong>批量复制</strong>（爆款复刻功能）</li>
+      <li>每周<strong>新增 10-20 条</strong>素材</li>
+      <li>持续优化提示词库</li>
+    </ul>
+
+    <h3>📌 系统性总结</h3>
+    <p>完整 SOP：<strong>选品 → 图片 → 提示词 → AI 生成 → 剪辑 → 测试 → 放量</strong>。每一步都有对应的工具和章节支撑。</p>
+  </div>
+
+  <!-- 5.2 选品决策树 -->
+  <div class="section" id="s5-2">
+    <div class="section-header">
+      <span class="section-num">5.2</span>
+      <span class="section-title">选品决策树：怎么判断一个品类能不能做？</span>
+      <span class="section-tag tag-tool">实战</span>
+    </div>
+
+    <h3>5 问决策法</h3>
+    <p>选定一个品类前，先回答以下 5 个问题：</p>
+
+    <div class="table-wrap">
+    <table>
+      <thead><tr><th>问题</th><th>判断标准</th><th>Go 标准</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Q1：侵权风险？</strong></td>
+          <td>是否涉及知名品牌</td>
+          <td>无品牌或自有品牌</td>
+        </tr>
+        <tr>
+          <td><strong>Q2：危险动作？</strong></td>
+          <td>是否需要危险动作展示</td>
+          <td>日常场景即可展示</td>
+        </tr>
+        <tr>
+          <td><strong>Q3：模特匹配？</strong></td>
+          <td>是否有合适数字人</td>
+          <td>12 个公共数字人能覆盖</td>
+        </tr>
+        <tr>
+          <td><strong>Q4：场景还原？</strong></td>
+          <td>是否需要复杂场景</td>
+          <td>AI 可生成，无需实拍</td>
+        </tr>
+        <tr>
+          <td><strong>Q5：测试预算？</strong></td>
+          <td>是否有 1000 元测试预算</td>
+          <td>至少有 500 元测试</td>
+        </tr>
+      </tbody>
+    </table>
+    </div>
+
+    <div class="callout success">
+      <div class="callout-title">🌟 Go 标准</div>
+      <p style="margin:0">5 个问题全部 <strong>Go</strong> → 放心做<br>3-4 个 <strong>Go</strong> → 可以试<br>≤ 2 个 <strong>Go</strong> → 建议换品</p>
+    </div>
+
+    <h3>📌 系统性总结</h3>
+    <ul>
+      <li>5 问决策法：<strong>侵权 / 危险 / 模特 / 场景 / 预算</strong></li>
+      <li>5 个全 Go = <strong>放心做</strong></li>
+      <li>≤ 2 个 Go = <strong>换品</strong></li>
+    </ul>
+  </div>
+
+  <!-- 5.3 学习路径 -->
+  <div class="section" id="s5-3">
+    <div class="section-header">
+      <span class="section-num">5.3</span>
+      <span class="section-title">4 周学习路径：从小白到精通</span>
+      <span class="section-tag tag-method">方法论</span>
+    </div>
+
+    <h3>第 1 周：建立认知</h3>
+    <div class="path-week">
+      <div class="path-week-num">1</div>
+      <div class="path-week-content">
+        <div class="path-week-title">认知革命 · 4 节</div>
+        <div class="path-week-detail">
+          第 1 天：1.1 降维打击的成本账<br>
+          第 2 天：1.2 三大心魔（先解决心态）<br>
+          第 3 天：1.3 概率思维 + 人机协作<br>
+          第 4 天：1.4 AI 原理（造梦机器）<br>
+          第 5-7 天：<strong>消化 + 实操</strong>——随便找张图去 LinkPix 试试
+        </div>
+      </div>
+    </div>
+
+    <h3>第 2 周：掌握工具核心</h3>
+    <div class="path-week">
+      <div class="path-week-num">2</div>
+      <div class="path-week-content">
+        <div class="path-week-title">工具实操 · 9 节</div>
+        <div class="path-week-detail">
+          第 1-2 天：2.1 + 2.2 LinkPix 工具全景 + 新手模式（30 秒出第一条）<br>
+          第 3-4 天：2.3 + 2.4 专家模式 + 一键成片<br>
+          第 5 天：2.5 + 2.6 数字人 + 爆款复刻<br>
+          第 6 天：2.7 + 2.8 + 2.9 剪辑室 + 主图 + 详情页<br>
+          第 7 天：<strong>每天 3 条视频</strong>，感受抽卡文化
+        </div>
+      </div>
+    </div>
+
+    <h3>第 3 周：方法论升级</h3>
+    <div class="path-week">
+      <div class="path-week-num">3</div>
+      <div class="path-week-content">
+        <div class="path-week-title">提示词金字塔 · 5 节</div>
+        <div class="path-week-detail">
+          第 1 天：3.1 五层公式 + 基石层<br>
+          第 2 天：3.2 分镜结构 + 15 秒黄金<br>
+          第 3 天：3.3 镜头语言 + 景别<br>
+          第 4 天：3.4 物理 + 因果<br>
+          第 5 天：3.5 音频 + 旁白<br>
+          第 6-7 天：<strong>用五层公式</strong>重写之前所有提示词
+        </div>
+      </div>
+    </div>
+
+    <h3>第 4 周：避坑 + 综合实战</h3>
+    <div class="path-week">
+      <div class="path-week-num">4</div>
+      <div class="path-week-content">
+        <div class="path-week-title">避坑 + 实战 · 4 节</div>
+        <div class="path-week-detail">
+          第 1 天：4.1 避坑指南<br>
+          第 2 天：4.2 图片 5 大死穴<br>
+          第 3 天：4.3 违规词排查<br>
+          第 4 天：4.4 视觉故障排除<br>
+          第 5-7 天：<strong>综合实战</strong>——选 1 个产品，跑通完整 SOP
+        </div>
+      </div>
+    </div>
+
+    <h3>4 周后进阶</h3>
+    <ul>
+      <li>每周看 <strong>3-5 个同行爆款</strong>，用爆款复刻拆解</li>
+      <li>用"<strong>五层公式</strong>"迭代视频（每次只改一层）</li>
+      <li>积累 <strong>50 条爆款提示词</strong>到资产库</li>
+      <li>定制<strong>专属数字人</strong>打造"当家花旦"</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============= 附录 A：选品清单 ============= -->
+<section class="chapter" id="appA">
+  <div class="chapter-header">
+    <div class="chapter-num">A</div>
+    <div class="chapter-title-wrap">
+      <div class="chapter-title">附录 A · 课程选品清单汇总</div>
+      <div class="chapter-subtitle">22 节课程中所有实质性讨论的产品汇总</div>
+    </div>
+  </div>
+
+  <div class="chapter-intro">
+    <strong>说明：</strong>本清单汇总了课程中老师<strong>实质性讨论</strong>的产品。老师随口举例的商品未纳入。"判断"列基于老师的明确表态或课程语境推断。
+  </div>
+
+  <div class="table-wrap">
+  <table class="selection-table">
+    <thead>
+      <tr>
+        <th>序号</th><th>中文商品名</th><th>英文商品名</th><th>选品理由</th><th>判断</th><th>原因说明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td><td>男士香水</td><td>Men's Perfume</td><td>AI 模特 + 场景还原 + 数字人适配</td><td class="go">Go</td><td>老师推荐品类，AI 高度适配</td>
+      </tr>
+      <tr>
+        <td>2</td><td>冲锋衣</td><td>Outdoor Jacket</td><td>户外场景 + 复杂光影 AI 可生成</td><td class="go">Go</td><td>无需实拍长白山，AI 替代</td>
+      </tr>
+      <tr>
+        <td>3</td><td>羽绒服</td><td>Down Jacket</td><td>户外场景 + 模特试穿</td><td class="go">Go</td><td>传统拍摄成本高（几万），AI 替代</td>
+      </tr>
+      <tr>
+        <td>4</td><td>美妆产品</td><td>Beauty Products</td><td>数字人静静适配 + 真实感场景</td><td class="go">Go</td><td>数字人静静专属推荐</td>
+      </tr>
+      <tr>
+        <td>5</td><td>护肤品</td><td>Skincare</td><td>数字人静静适配 + 治愈系风格</td><td class="go">Go</td><td>数字人静静 + 暖色调</td>
+      </tr>
+      <tr>
+        <td>6</td><td>香氛产品</td><td>Fragrance</td><td>数字人静静 + 轻奢场景</td><td class="go">Go</td><td>地中海风格 + 商业大片</td>
+      </tr>
+      <tr>
+        <td>7</td><td>数码产品</td><td>Digital Products</td><td>数字人牧师适配 + 科技感场景</td><td class="go">Go</td><td>数字人牧师 + 蓝黑配色</td>
+      </tr>
+      <tr>
+        <td>8</td><td>家居用品</td><td>Home Goods</td><td>数字人豆妈适配 + 温馨场景</td><td class="go">Go</td><td>数字人豆妈 + 暖色调</td>
+      </tr>
+      <tr>
+        <td>9</td><td>母婴产品</td><td>Maternal & Baby</td><td>数字人豆妈专属</td><td class="go">Go</td><td>数字人豆妈是核心推荐角色</td>
+      </tr>
+      <tr>
+        <td>10</td><td>营养品</td><td>Nutritional Supplements</td><td>数字人浩哥 + 暖色调</td><td class="go">Go</td><td>数字人浩哥适配</td>
+      </tr>
+      <tr>
+        <td>11</td><td>东南亚市场女性产品</td><td>SE Asia Female Products</td><td>数字人 Sunny 专属</td><td class="go">Go</td><td>数字人 Sunny 适配东南亚审美</td>
+      </tr>
+      <tr>
+        <td>12</td><td>男性护肤品</td><td>Men's Skincare</td><td>数字人牧师适配</td><td class="go">Go</td><td>数字人牧师 + 高级感</td>
+      </tr>
+      <tr>
+        <td>13</td><td>仿冒品牌（如耐克鞋）</td><td>Counterfeit Brand Goods</td><td>侵权风险</td><td class="not-go">Not Go</td><td>触发品牌红线，必被风控</td>
+      </tr>
+      <tr>
+        <td>14</td><td>奢侈品</td><td>Luxury Goods</td><td>广告法限制</td><td class="not-go">Not Go</td><td>翻译陷阱 + 广告法违规</td>
+      </tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout warning">
+    <div class="callout-title">⚠️ 数字人 vs 品类匹配速查</div>
+    <p><strong>静静</strong>：美妆/护肤/香氛（女）<br>
+    <strong>牧师</strong>：数码/家居/男性护肤（男）<br>
+    <strong>阿文</strong>：运动/户外（男）<br>
+    <strong>OK1</strong>：3C/潮牌（男）<br>
+    <strong>浩哥</strong>：食品/营养品（男）<br>
+    <strong>豆妈</strong>：母婴/家居（女）<br>
+    <strong>Sunny</strong>：美妆/东南亚市场（女）<br>
+    <strong>沙竭</strong>：茶叶/保健品（男长者）</p>
+  </div>
+</section>
+
+<!-- ============= 附录 B：AI 提示词汇总 ============= -->
+<section class="chapter" id="appB">
+  <div class="chapter-header">
+    <div class="chapter-num">B</div>
+    <div class="chapter-title-wrap">
+      <div class="chapter-title">附录 B · AI 提示词汇总（16 条完整原文）</div>
+      <div class="chapter-subtitle">按用途/场景分类的完整提示词库</div>
+    </div>
+  </div>
+
+  <div class="chapter-intro">
+    <strong>说明：</strong>以下提示词均来自课程原文，按"<strong>使用场景</strong>"分类。每条提示词都标注了适用场景和触发条件。
+  </div>
+
+  <h3>一、专家模式提示词（男士香水）</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：男士香水 - 地中海风格</div>
+    <div class="prompt-content">风格流派：地中海风格、阳光、海岸
+角色锚点：30 岁欧洲男性，短发，自然胡须，健壮身材
+服装锚点：白色亚麻衬衫，袖口卷起
+约束指令：不加文字、不做剪辑、要清晰不要模糊
+场景：地中海海岸线，背景是蓝色大海和白色建筑
+光线：自然光，下午 4 点暖色调
+镜头：中景 → 慢推近景
+时长：15 秒</div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：男士香水 - 商业大片</div>
+    <div class="prompt-content">风格流派：商业大片、TVC 广告质感
+角色锚点：35 岁亚洲男性，精致短发，干净妆容
+服装锚点：黑色西装，白色衬衫
+约束指令：不加文字、不做剪辑、要清晰不要模糊
+场景：极简黑色背景，地面反光
+光线：顶光 + 侧光，制造高光阴影
+镜头：全景 → 中景 → 特写
+时长：25 秒</div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：男士香水 - 复古港风</div>
+    <div class="prompt-content">风格流派：复古港风、80 年代胶片
+角色锚点：40 岁香港男性，黑色油头，沧桑感
+服装锚点：复古花纹衬衫，金属项链
+约束指令：不加文字、不做剪辑、要清晰不要模糊
+场景：香港老街道，霓虹灯招牌
+光线：傍晚霓虹光，色彩斑斓
+镜头：中景 → 慢推
+时长：15 秒</div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：男士香水 - 自然清新</div>
+    <div class="prompt-content">风格流派：自然清新、治愈系
+角色锚点：25 岁年轻男性，阳光笑容
+服装锚点：白色 T 恤，浅色牛仔裤
+约束指令：不加文字、不做剪辑、要清晰不要模糊
+场景：森林中，阳光透过树叶洒下
+光线：自然光，斑驳光影
+镜头：特写 → 中景
+时长：15 秒</div>
+  </div>
+
+  <h3>二、商品广告一键成片提示词</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：真实成片 - 主图视频</div>
+    <div class="prompt-content">真实成片模式：严谨商业展示
+产品：男士香水，玻璃瓶装，金色瓶盖
+模特：30 岁欧洲男性
+动作：手持香水瓶，面带微笑
+场景：简洁白色背景
+时长：15 秒
+镜头：3 个镜头（特写 → 中景 → 特写）</div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：创意成片 - 引流爆款</div>
+    <div class="prompt-content">创意成片模式：故事化、引流
+产品：男士香水
+故事：模特清晨醒来，使用香水，出门遇女主
+场景：卧室 → 街道 → 咖啡厅
+时长：60 秒
+镜头：5 个镜头，故事化推进</div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：方屏主图视频</div>
+    <div class="prompt-content">画面比例：方屏 1:1
+产品：男士香水
+场景：极简白色背景
+动作：香水瓶 360° 旋转展示
+光线：柔和均匀
+时长：5 秒</div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：朋友圈短片</div>
+    <div class="prompt-content">画面比例：竖屏 9:16
+产品：男士香水
+场景：咖啡厅一角，自然光
+动作：模特使用香水喷在手腕
+时长：15 秒
+风格：生活化、有质感</div>
+  </div>
+
+  <h3>三、数字人实战提示词</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：数字人 + 多角色互动</div>
+    <div class="prompt-content">【场景】咖啡厅内，午后阳光
+【人物 A】静静（25 岁温柔女）
+【人物 B】阿文（25 岁阳光男）
+【动作 A】静静微笑看向阿文
+【动作 B】阿文拿起咖啡杯
+【台词 A】"今天天气真好"
+【台词 B】"是啊，出来坐坐"
+【镜头】双人同框（不要超过 2 人）
+【时长】25 秒</div>
+  </div>
+
+  <h3>四、爆款复刻提示词</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：复刻抖音爆款</div>
+    <div class="prompt-content">原片分析：6 秒爆款视频
+爆款元素：反常识开场 + 痛点共鸣 + 快速反转
+复刻策略：保留原片节奏，替换为自家产品
+自家产品：男士香水
+融合文案：原片脚本 + 评论区高赞 + 自家广告
+时长：25 秒
+镜头：5 个，节奏紧凑</div>
+  </div>
+
+  <h3>五、主图与海报提示词（清虎 AI）</h3>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：玫瑰精油主图</div>
+    <div class="prompt-content">产品：玫瑰精油，玻璃瓶装，瓶身有金色花纹
+场景：简约大理石台面，旁边有一束新鲜玫瑰花，光线柔和温暖
+风格：高端、轻奢、质感、留白构图
+色调：暖色调，米白色背景
+构图：产品居中，背景虚化突出产品
+文字：图片留白处可加产品名（可选）</div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：私域获客海报</div>
+    <div class="prompt-content">产品：胶原蛋白口服液，6 瓶装礼盒
+场景：高级餐厅桌面，温馨氛围，背景虚化的烛光
+风格：节日感、馈赠、轻奢
+色调：金红配色，喜庆但不俗气
+构图：产品居中，上方留出标题区，下方留出价格/二维码区
+文字：标题留空（用户自己加）</div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：节日活动海报</div>
+    <div class="prompt-content">主题：双 11 大促
+产品：智能手表，黑色表带，金属表盘
+场景：科技感背景，蓝色光效粒子
+风格：未来感、科技、活力、年轻
+色调：电光蓝 + 橙红点缀
+构图：产品倾斜 15°，增加动感；左上角突出"双 11"，右下角留出价格区
+文字：图片不直接写文字，留白供设计</div>
+  </div>
+
+  <div class="prompt-card">
+    <div class="prompt-purpose">📌 场景：社媒图文（小红书）</div>
+    <div class="prompt-content">产品：手冲咖啡壶套装
+场景：温馨家庭厨房，木质台面，自然晨光从窗户洒入
+风格：生活化、温暖、治愈、文艺
+色调：暖黄、棕色、原木色
+构图：俯拍 45°，产品作为画面主角，旁边放一杯已冲好的咖啡
+文字：留出标题区（用户可加"周末仪式感"等标题）</div>
+  </div>
+
+  <h3>📌 提示词系统性总结</h3>
+  <div class="callout">
+    <div class="callout-title">💡 16 条提示词的共性规律</div>
+    <ul style="margin:0">
+      <li><strong>结构化</strong>：风格 + 角色 + 服装 + 约束（基石层公式）</li>
+      <li><strong>具体化</strong>：避免抽象词，用数字、颜色、质感描述</li>
+      <li><strong>约束化</strong>：明确告诉 AI "不要什么"</li>
+      <li><strong>场景化</strong>：场景 + 光线 + 镜头 + 时长 四要素齐备</li>
+      <li><strong>迭代化</strong>：多轮对话调优，不求一次完美</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ============= 附录 C：速查表 ============= -->
+<section class="chapter" id="appC">
+  <div class="chapter-header">
+    <div class="chapter-num">C</div>
+    <div class="chapter-title-wrap">
+      <div class="chapter-title">附录 C · 速查表（小白必备）</div>
+      <div class="chapter-subtitle">5 大速查表 · 一表在手说走就走</div>
+    </div>
+  </div>
+
+  <h3>速查表 1：5 层提示词公式</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>层级</th><th>核心要素</th><th>重要性</th></tr></thead>
+    <tbody>
+      <tr><td>① 基石</td><td>风格 + 角色 + 服装 + 约束</td><td>⭐⭐⭐⭐⭐</td></tr>
+      <tr><td>② 骨架</td><td>分镜 + 时间节奏</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>③ 眼睛</td><td>镜头语言 + 景别</td><td>⭐⭐⭐⭐</td></tr>
+      <tr><td>④ 常识</td><td>物理 + 因果</td><td>⭐⭐⭐</td></tr>
+      <tr><td>⑤ 耳朵</td><td>环境音 + 音效 + 旁白</td><td>⭐⭐⭐</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>速查表 2：7 大镜头语言</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>镜头</th><th>英文</th><th>用法</th></tr></thead>
+    <tbody>
+      <tr><td>Dolly in</td><td>推近</td><td>特写、代入感</td></tr>
+      <tr><td>Dolly out</td><td>拉远</td><td>开篇、场景</td></tr>
+      <tr><td>Pan</td><td>横摇</td><td>扫视环境</td></tr>
+      <tr><td>Orbit</td><td>环绕</td><td>产品立体</td></tr>
+      <tr><td>Low Angle</td><td>仰拍</td><td>气势感</td></tr>
+      <tr><td>Macro</td><td>微距</td><td>细节、材质</td></tr>
+      <tr><td>POV</td><td>主观</td><td>沉浸感</td></tr>
+      <tr><td>Drone View</td><td>航拍</td><td>户外、宏观</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>速查表 3：5 大景别</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>景别</th><th>范围</th><th>用途</th></tr></thead>
+    <tbody>
+      <tr><td>远景</td><td>环境为主</td><td>开篇交代</td></tr>
+      <tr><td>全景</td><td>人物 + 环境</td><td>场景展示</td></tr>
+      <tr><td>中景</td><td>膝盖以上</td><td>对话互动</td></tr>
+      <tr><td>近景</td><td>胸部以上</td><td>表情情感</td></tr>
+      <tr><td>特写</td><td>面部 / 局部</td><td>细节强调</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>速查表 4：4 大红线（违规词）</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>红线</th><th>示例</th><th>绕过方法</th></tr></thead>
+    <tbody>
+      <tr><td>品牌</td><td>耐克、阿迪</td><td>特征描述代替</td></tr>
+      <tr><td>翻译</td><td>luxury、premium</td><td>用"高端"等中性词</td></tr>
+      <tr><td>危险动作</td><td>攀爬、玩火</td><td>用日常动作替代</td></tr>
+      <tr><td>系统繁忙</td><td>假违规</td><td>换关键词重试</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>速查表 5：3 大数字人黄金法则</h3>
+  <div class="table-wrap">
+  <table>
+    <thead><tr><th>法则</th><th>禁忌</th><th>正确做法</th></tr></thead>
+    <tbody>
+      <tr><td>生理冲突</td><td>老奶奶推荐健身</td><td>角色匹配品类</td></tr>
+      <tr><td>空镜强加</td><td>场景中强加数字人</td><td>从一开始就以数字人为主角</td></tr>
+      <tr><td>多角色</td><td>同框 3+ 数字人</td><td>用切换镜头代替同框</td></tr>
+    </tbody>
+  </table>
+  </div>
+</section>
+
+<!-- ============= 跨课程知识图谱 ============= -->
+<section class="chapter" id="path">
+  <div class="chapter-header">
+    <div class="chapter-num">🗺️</div>
+    <div class="chapter-title-wrap">
+      <div class="chapter-title">跨课程知识图谱</div>
+      <div class="chapter-subtitle">22 节课程的核心概念关系 + 依赖链路</div>
+    </div>
+  </div>
+
+  <h3>核心概念关系图（SVG）</h3>
+  <div class="svg-wrap">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 600" preserveAspectRatio="xMidYMid meet">
+  <!-- 中心节点：AI 电商 -->
+  <rect x="400" y="270" width="200" height="60" rx="30" fill="#4A90A4"/>
+  <text x="500" y="305" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">AI 电商生产力</text>
+
+  <!-- 四大模块节点 -->
+  <rect x="50" y="50" width="180" height="60" rx="10" fill="#7FB069"/>
+  <text x="140" y="78" text-anchor="middle" fill="#fff" font-size="15" font-weight="600">认知篇</text>
+  <text x="140" y="98" text-anchor="middle" fill="#fff" font-size="12">（模块一）</text>
+
+  <rect x="280" y="50" width="180" height="60" rx="10" fill="#E8A87C"/>
+  <text x="370" y="78" text-anchor="middle" fill="#fff" font-size="15" font-weight="600">工具篇</text>
+  <text x="370" y="98" text-anchor="middle" fill="#fff" font-size="12">（模块二）</text>
+
+  <rect x="510" y="50" width="180" height="60" rx="10" fill="#9BCCE0"/>
+  <text x="600" y="78" text-anchor="middle" fill="#fff" font-size="15" font-weight="600">方法论</text>
+  <text x="600" y="98" text-anchor="middle" fill="#fff" font-size="12">（模块三）</text>
+
+  <rect x="740" y="50" width="180" height="60" rx="10" fill="#C76B6B"/>
+  <text x="830" y="78" text-anchor="middle" fill="#fff" font-size="15" font-weight="600">避坑篇</text>
+  <text x="830" y="98" text-anchor="middle" fill="#fff" font-size="12">（模块四）</text>
+
+  <!-- 实战整合 -->
+  <rect x="400" y="490" width="200" height="60" rx="30" fill="#E8A87C"/>
+  <text x="500" y="518" text-anchor="middle" fill="#fff" font-size="18" font-weight="700">实战整合 → 赚钱</text>
+  <text x="500" y="538" text-anchor="middle" fill="#fff" font-size="12">（第 5 章）</text>
+
+  <!-- 连接线（模块到中心） -->
+  <path d="M 140 110 L 140 200 L 430 270" stroke="#7FB069" stroke-width="2" fill="none"/>
+  <path d="M 370 110 L 370 240 L 440 290" stroke="#E8A87C" stroke-width="2" fill="none"/>
+  <path d="M 600 110 L 600 240 L 560 290" stroke="#9BCCE0" stroke-width="2" fill="none"/>
+  <path d="M 830 110 L 830 200 L 570 270" stroke="#C76B6B" stroke-width="2" fill="none"/>
+
+  <!-- 中心到实战 -->
+  <path d="M 500 330 L 500 490" stroke="#4A90A4" stroke-width="3" fill="none" stroke-dasharray="5,5"/>
+  <text x="510" y="420" fill="#666" font-size="13">↓ 应用落地</text>
+
+  <!-- 标注 -->
+  <text x="20" y="20" fill="#999" font-size="11">📚 22 节课程体系</text>
+</svg>
+  </div>
+
+  <h3>知识点依赖链路</h3>
+  <pre><code>1.1 降维打击（建立信心）
+   ↓
+1.2 三大心魔（解决心态）
+   ↓
+1.3 概率思维（接受 AI 是盲盒机）
+   ↓
+1.4 AI 造梦原理（理解 AI 在哪会出错）
+   ↓
+2.1 LinkPix 界面（认识工具）
+   ↓
+2.2 新手模式（30 秒出片，建立成就感）
+   ↓
+2.3 专家模式（提示词润色，对话调优）
+   ↓
+2.5 数字人 / 2.6 爆款复刻（高阶玩法）
+   ↓
+3.1 五层公式 + 基石（核心方法论）
+   ↓
+3.2-3.5 骨架/眼睛/常识/耳朵（分层应用）
+   ↓
+4.1-4.4 避坑 + 合规（保证安全）
+   ↓
+5.1-5.3 实战整合（赚钱落地）</code></pre>
+
+  <div class="callout success">
+    <div class="callout-title">🌟 学习建议</div>
+    <p style="margin:0"><strong>严格按顺序学</strong>，每章都是下一章的<strong>前置知识</strong>。跳章学习会导致"听不懂""不会用"。</p>
+  </div>
+</section>
+
+</main>
+
+<!-- ============= 页脚 ============= -->
+<footer>
+  <p><strong>电商人的 AI 实战课 2.0 · 全景教材</strong></p>
+  <p>主讲：清虎AI · 德龙老师</p>
+  <p>整理：学习助手工作流 · 归属权归主人</p>
+  <p style="margin-top:14px;font-size:12px;opacity:.7">
+    本教材由 22 节课程原文系统化整理，融合 5 位专家（🎓跨学科方法论 / 🏗️工作流架构 / 🔎领域研究 / 📐SVG 思维导图 / 📱移动端兼容）的专业建议
+  </p>
+</footer>
+
+<!-- ============= 返回顶部按钮 ============= -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" title="返回顶部">↑</button>
+
+<script>
+// 显示/隐藏返回顶部按钮
+window.addEventListener('scroll',function(){
+  var btn=document.getElementById('backTop');
+  if(window.scrollY>500){btn.classList.add('show')}else{btn.classList.remove('show')}
+});
+
+// WPS 检测（仅在 WPS 中显示提示）
+(function(){
+  try{
+    if(navigator.userAgent.indexOf('WPS')>=0||navigator.userAgent.indexOf('Kingsoft')>=0){
+      document.getElementById('wpsTip').style.display='block';
+    }
+  }catch(e){}
+})();
+</script>
+
+</body>
+</html>
