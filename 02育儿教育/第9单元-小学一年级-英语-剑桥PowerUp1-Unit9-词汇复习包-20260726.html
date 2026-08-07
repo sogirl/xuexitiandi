@@ -1,0 +1,1219 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>剑桥 Power Up 1 · Unit 9 词汇复习包</title>
+<style>
+  :root {
+    --primary: #3b82f6;
+    --success: #10b981;
+    --warning: #f59e0b;
+    --extend: #8b5cf6;
+    --idea: #06b6d4;
+    --note: #3b82f6;
+    --bg: #f6f8fc;
+    --fg: #1f2937;
+    --border: #d0d7de;
+    --code-bg: #f3f4f6;
+  }
+  * { box-sizing: border-box; }
+  body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--fg);
+    margin: 0;
+    padding: 0;
+    line-height: 1.7;
+    font-size: 15px;
+  }
+  .container { max-width: 1100px; margin: 0 auto; padding: 24px 28px 60px; }
+  header {
+    background: linear-gradient(135deg, #06b6d4 0%, #3b82f6 50%, #8b5cf6 100%);
+    color: #fff;
+    padding: 36px 32px;
+    border-radius: 16px;
+    margin-bottom: 24px;
+    box-shadow: 0 6px 20px rgba(6, 182, 212, 0.22);
+  }
+  header h1 { margin: 0 0 10px 0; font-size: 28px; letter-spacing: 0.5px; }
+  header .subtitle { font-size: 15px; opacity: 0.92; margin-bottom: 14px; }
+  header .meta { display: flex; flex-wrap: wrap; gap: 12px 20px; font-size: 13px; opacity: 0.95; }
+  header .meta span { background: rgba(255,255,255,0.18); padding: 4px 10px; border-radius: 8px; }
+  nav.toc {
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    padding: 20px 24px; margin-bottom: 28px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  nav.toc h2 { margin: 0 0 14px 0; font-size: 18px; color: var(--primary); border-left: 4px solid var(--primary); padding-left: 10px; }
+  nav.toc ol { columns: 2; column-gap: 28px; margin: 0; padding-left: 24px; }
+  nav.toc li { margin-bottom: 6px; break-inside: avoid; }
+  nav.toc a { color: #1f2937; text-decoration: none; }
+  nav.toc a:hover { color: var(--primary); text-decoration: underline; }
+  section {
+    background: #fff; border: 1px solid var(--border); border-radius: 12px;
+    padding: 28px 32px; margin-bottom: 22px; box-shadow: 0 2px 6px rgba(0,0,0,0.04);
+  }
+  section > h2 { margin: 0 0 18px 0; font-size: 22px; color: var(--primary); border-left: 5px solid var(--primary); padding-left: 12px; }
+  section h3 { margin: 20px 0 12px 0; font-size: 17px; color: #1e3a8a; }
+  section h4 { margin: 16px 0 10px 0; font-size: 15px; color: #4b5563; }
+  section p, section li { font-size: 15px; line-height: 1.75; }
+  section code { background: var(--code-bg); padding: 1px 6px; border-radius: 4px; font-family: "SFMono-Regular", Consolas, monospace; font-size: 13px; color: #be185d; }
+  .callout { border-left: 4px solid; border-radius: 8px; padding: 12px 16px; margin: 14px 0; background: #f8fafc; }
+  .callout.note { border-color: var(--note); background: #eff6ff; }
+  .callout.success { border-color: var(--success); background: #ecfdf5; }
+  .callout.warning { border-color: var(--warning); background: #fffbeb; }
+  .callout.extend { border-color: var(--extend); background: #f5f3ff; }
+  .callout.idea { border-color: var(--idea); background: #ecfeff; }
+  .callout strong { color: var(--primary); }
+  table { border-collapse: collapse; width: 100%; margin: 14px 0; background: #fff; font-size: 14px; }
+  thead { background: #eff6ff; }
+  th, td { border: 1px solid var(--border); padding: 8px 12px; text-align: left; }
+  th { color: #1e3a8a; font-weight: 600; }
+  tbody tr:nth-child(even) { background: #f8fafc; }
+  .mindmap { width: 100%; text-align: center; }
+  .mindmap svg { width: 100%; height: auto; display: block; }
+  details.interactive-panel {
+    border: 1px solid var(--border); border-radius: 8px; margin: 14px 0;
+    background: #fafbfc; transition: all 0.2s;
+  }
+  details.interactive-panel[open] { background: #fff; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+  details.interactive-panel > summary {
+    cursor: pointer; padding: 10px 16px; font-weight: 600; color: var(--primary);
+    background: #eff6ff; border-radius: 8px 8px 0 0; user-select: none;
+  }
+  details.interactive-panel > summary:hover { background: #dbeafe; }
+  details.interactive-panel > *:not(summary) { padding: 14px 18px; }
+  .cornell-card { border: 1px solid var(--border); border-radius: 12px; padding: 18px 22px; margin: 16px 0; background: #fff; }
+  .cornell-card h3 { margin-top: 0; color: var(--extend); }
+  .cornell-grid { display: grid; grid-template-columns: 30% 70%; gap: 16px; margin-bottom: 14px; }
+  @media (max-width: 720px) { .cornell-grid { grid-template-columns: 1fr; } }
+  .cornell-cues { background: #f0f9ff; padding: 12px 14px; border-radius: 8px; border: 1px solid #bae6fd; }
+  .cornell-cues h4 { color: #0369a1; margin: 0 0 8px 0; font-size: 14px; }
+  .cornell-cues ul { margin: 0; padding-left: 18px; font-size: 13px; }
+  .cornell-notes { background: #ffffff; padding: 12px 14px; border-radius: 8px; border: 1px solid #e5e7eb; }
+  .cornell-notes h4 { color: #4b5563; margin: 0 0 8px 0; font-size: 14px; }
+  .cornell-summary { background: #fef3c7; padding: 12px 16px; border-radius: 8px; border: 1px solid #fde68a; }
+  .cornell-summary h4 { color: #b45309; margin: 0 0 6px 0; font-size: 14px; }
+  .cornell-summary p { margin: 0; font-size: 14px; line-height: 1.6; }
+  .level-A { background: #dcfce7; color: #166534; padding: 2px 8px; border-radius: 4px; }
+  .level-B { background: #dbeafe; color: #1e40af; padding: 2px 8px; border-radius: 4px; }
+  .level-C { background: #fef3c7; color: #92400e; padding: 2px 8px; border-radius: 4px; }
+  .level-D { background: #fee2e2; color: #991b1b; padding: 2px 8px; border-radius: 4px; }
+  section:target { scroll-margin-top: 20px; }
+  .ownership {
+    background: linear-gradient(135deg, #ecfdf5 0%, #dbeafe 100%);
+    border: 2px solid var(--success); border-radius: 12px;
+    padding: 18px 22px; margin-top: 20px;
+  }
+  .ownership h3 { margin: 0 0 8px 0; color: var(--success); }
+  footer { text-align: center; color: #6b7280; font-size: 13px; margin-top: 30px; padding-top: 18px; border-top: 1px dashed var(--border); }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header>
+    <h1>👗 剑桥 Power Up 1 · Unit 9 词汇复习包</h1>
+    <div class="subtitle">主题：衣服与海滩度假（Clothes &amp; Holiday Fun）  ·  核心语法：现在进行时（be + V-ing）+ 一般现在时（like/enjoy + V-ing）+ 祈使句</div>
+    <div class="meta">
+      <span>📚 学段：小学一年级（剑桥 Pre-A1 → A1 起步）</span>
+      <span>🗓 备考天数：7 天</span>
+      <span>⏱ 每日时间：30 分钟</span>
+      <span>🌐 教材版本：剑桥 Power Up 1 Second Edition 第二版（2024 现行版）</span>
+      <span>📌 K17 v3.14 · 2026-07-26</span>
+    </div>
+  </header>
+
+  <nav class="toc">
+    <h2>📑 目录导览（点击直达）</h2>
+    <ol>
+      <li><a href="#ch1">一、标题 + 文档信息</a></li>
+      <li><a href="#ch2">二、单元概览</a></li>
+      <li><a href="#ch3">三、知识思维导图（静态 SVG）</a></li>
+      <li><a href="#ch4">四、核心知识点详解（双步讲解法）</a></li>
+      <li><a href="#ch5">五、难点与易错点</a></li>
+      <li><a href="#ch6">六、考点汇总</a></li>
+      <li><a href="#ch7">七、薄弱环节专项突破</a></li>
+      <li><a href="#ch8">八、🆕 康奈尔笔记·知识加工厂</a></li>
+      <li><a href="#ch9">九、7 天每日打卡表</a></li>
+      <li><a href="#ch10">十、基础练习 1（衣服词汇）</a></li>
+      <li><a href="#ch11">十一、基础练习 2（海滩词汇）</a></li>
+      <li><a href="#ch12">十二、提高练习 1（现在进行时）</a></li>
+      <li><a href="#ch13">十三、提高练习 2（like/enjoy doing）</a></li>
+      <li><a href="#ch14">十四、拓展练习（祈使句与高频短语）</a></li>
+      <li><a href="#ch15">十五、综合模拟卷</a></li>
+      <li><a href="#ch16">十六、错题清零</a></li>
+      <li><a href="#ch17">十七、复习效果自测表</a></li>
+      <li><a href="#ch18">十八、学习小贴士 + 归属权声明</a></li>
+    </ol>
+  </nav>
+
+  <!-- ===== 第 1 章 ===== -->
+  <section id="ch1">
+    <h2>一、标题 + 文档信息</h2>
+    <div class="callout idea">
+      <strong>📚 本复习包说明</strong><br>
+      本文档基于剑桥大学出版社 <strong>Power Up 1（Second Edition）</strong> 第九单元，覆盖 5 个原始板块（Vocabulary Ⅰ / Story+Grammar Ⅰ / Vocabulary+Grammar Ⅱ / Cross-Curricular / Literature），按 K17AI v3.14 七步工作流生成。
+    </div>
+    <ul>
+      <li><strong>5 个板块</strong>：Vocabulary Ⅰ（衣服）→ Story+Grammar Ⅰ（谷仓祈使句）→ Vocabulary+Grammar Ⅱ（海滩）→ Cross-Curricular（海岛）→ Literature（聪明猴子）</li>
+      <li><strong>核心语法 3 大块</strong>：现在进行时（am/is/are + V-ing）/ 一般现在时（like/enjoy + V-ing）/ 祈使句（动词原形开头）</li>
+      <li><strong>主题词汇 4 大类</strong>：衣物 15 词 / 海滩 10 词 / 海岛地貌 10 词 / 农场动作 6 词</li>
+      <li>18 章 · 7 套练习 · 7 张康奈尔笔记卡（v3.14 默认开启）</li>
+      <li>归属权：<strong>归用户本人所有</strong>（含所有内联元素、思维导图、笔记卡、答案）</li>
+    </ul>
+
+    <h3>📌 文档元信息</h3>
+    <table>
+      <tbody>
+        <tr><td width="28%">📚 教材</td><td>剑桥 Power Up 1（Cambridge Power Up, Second Edition 第二版·2024 现行）</td></tr>
+        <tr><td>🎯 主题</td><td>Unit 9 — Clothes &amp; Holiday Fun（衣物与假期）</td></tr>
+        <tr><td>🧒 学段对标</td><td>小学一年级 / 剑桥 CEFR Pre-A1 → A1 起步</td></tr>
+        <tr><td>📐 核心语法</td><td>① 现在进行时 am/is/are + V-ing · ② 一般现在时 like/enjoy + V-ing · ③ 祈使句动词原形 · ④ 助动词 Do/Does 一般疑问</td></tr>
+        <tr><td>🗣 主题词汇</td><td>衣物（sunglasses/hat/boots/shorts/shirt/skirt/T-shirt/dress/baseball cap/jeans/jacket/trousers/shoes/colourful/ugly）+ 海滩（beach/sea/sand/sun/fishing/fish/boat/camera/shell/jellyfish）+ 海岛（waterfall/forest/mountain/river/volcano/lizards/snow/rock）+ 农场动作（pick up/put/clean/look at/eat/play/point to）</td></tr>
+        <tr><td>🗓 备考天数</td><td>默认 7 天（可调）</td></tr>
+        <tr><td>⏱ 每日时间</td><td>30 分钟/天</td></tr>
+        <tr><td>🧠 学习风格</td><td>视觉型 · 静态 SVG 思维导图 + 康奈尔笔记卡</td></tr>
+        <tr><td>🎚 难度偏好</td><td>基础巩固型（721 结构）</td></tr>
+        <tr><td>📌 K17 版本</td><td>v3.14（2026-07-26）</td></tr>
+        <tr><td>📂 归档路径</td><td><code>复习/Unit9/小学一年级-英语-剑桥PowerUp1-Unit9-词汇复习包-20260726.html</code></td></tr>
+      </tbody>
+    </table>
+
+    <h3>🛡 K17 凌驾性铁律</h3>
+    <div class="callout warning">
+      <strong>🏛 教材版本铁律</strong>：所有内容以剑桥 Power Up 1 <strong>Second Edition 第二版（2024 现行版）</strong>为准，与人教版 2024 新课标修订版同步；不混用旧版内容，核验来源标注「Power Up 1 2E+官网/教参」。
+    </div>
+    <div class="callout warning">
+      <strong>🔷 配图铁律</strong>：Unit 9 含衣物 / 海滩 / 海岛三大场景，已通过静态 SVG 横向树状思维导图覆盖知识结构；练习题场景图（如方位 next to / 沙滩物品）以 SVG / 文字示意处理（v3.13 生图首选 linyuebanzi-edu-infographic 技能，本包主要为词汇卡片，未触发外部生图）。
+    </div>
+    <div class="callout extend">
+      <strong>📚 v3.14 新增核心</strong>：本包在薄弱突破之后、打卡表之前新增「<strong>康奈尔笔记·知识加工厂</strong>」7 张笔记卡（思维导图 / 核心知识点 / 难点易错 / 考点汇总 / 薄弱突破 / 总览贯通 / 单元核心句），并联动每日打卡表 🧠 任务轨追加「复习昨天 2 张康奈尔笔记·遮住主栏看线索栏回忆」。
+    </div>
+
+    <h3>🚀 七步工作流执行轨迹</h3>
+    <ol>
+      <li><strong>OCR 解析</strong>：识别 PU1 Unit9.md 5 板块 · 60+ 题 · 全部答案</li>
+      <li><strong>Web 核验</strong>：现在进行时 / 祈使句 / like-enjoy doing ≥2 权威源交叉</li>
+      <li><strong>双步讲解法</strong>：5 大语法点（现在进行时 / 一般现在时 / 祈使句 / Do-Does 疑问 / 名词单复数）</li>
+      <li><strong>图形生成</strong>：静态 SVG 横向树状思维导图（v3.7+v3.8+v3.12 防重叠校验）</li>
+      <li><strong>质量自检</strong>：四项自检通过</li>
+      <li><strong>HTML 报告</strong>：本文件（Write 纯手写·单文件自包含·18 章）</li>
+      <li><strong>输出确认</strong>：见文末 7 项确认</li>
+    </ol>
+  </section>
+
+  <!-- ===== 第 2 章 ===== -->
+  <section id="ch2">
+    <h2>二、单元概览</h2>
+
+    <h3>🎯 单元定位</h3>
+    <p>Unit 9 是小学一年级最后阶段的关键复习单元，主题围绕<strong>衣物</strong>与<strong>假期</strong>两条主线，串联起孩子熟悉的家庭生活与海滩旅行场景，语法上承接 Unit 7 的「现在进行时」，新增「一般现在时 like/enjoy + V-ing」与「祈使句动词原形」，是剑桥 Pre-A1 → A1 起步阶段的核心语法收官。</p>
+
+    <h3>📚 5 个板块主题速览</h3>
+    <table>
+      <thead><tr><th width="8%">序号</th><th width="22%">板块</th><th width="30%">主题</th><th width="40%">核心语法 / 词汇</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>Vocabulary Ⅰ</td><td>家庭购物日（Grandma's Shopping Day）</td><td>衣物 13 词 + colour/colourful/ugly + 现在进行时 is wearing / 助动词 Do Does</td></tr>
+        <tr><td>2</td><td>Story + Grammar Ⅰ</td><td>谷仓清洁冒险（The Clean Barn Adventure）</td><td>祈使句（动词原形起句）/ Pick up / Put / Clean / Look at / Point to / Let's</td></tr>
+        <tr><td>3</td><td>Vocabulary + Grammar Ⅱ</td><td>海滩假期（Holiday at the Beach）</td><td>海滩 10 词 + 介词 in/on/at next to + like/enjoy + doing + So do I / Me too</td></tr>
+        <tr><td>4</td><td>Cross-Curricular</td><td>夏威夷海岛度假（Holiday Fun in Hawaii）</td><td>海岛地貌 10 词 + enjoy doing + 否定祈使句 Don't + 动词原形</td></tr>
+        <tr><td>5</td><td>Literature</td><td>聪明猴子的冒险（The Clever Monkey's Adventure）</td><td>动词短语 jump off/swim/climb/collect + enjoy + doing + 故事推理</td></tr>
+      </tbody>
+    </table>
+
+    <h3>🧩 核心语法与词汇路线图</h3>
+    <table>
+      <thead><tr><th width="20%">模块</th><th width="40%">核心内容</th><th width="40%">能力目标</th></tr></thead>
+      <tbody>
+        <tr><td><strong>现在进行时</strong></td><td>am/is/are + V-ing（肯定 / 否定 / 一般疑问 / 特殊疑问）</td><td>能描述「现在正在发生」的动作，谈论家人正在穿什么</td></tr>
+        <tr><td><strong>一般现在时 like/enjoy</strong></td><td>主语 + like/enjoy + V-ing / So do I / Me too</td><td>能表达兴趣爱好并回应他人</td></tr>
+        <tr><td><strong>祈使句</strong></td><td>动词原形起句（Clean the table!）/ 否定 Don't + 动词原形</td><td>能下达简单指令（打扫/捡起/放置/看/指）</td></tr>
+        <tr><td><strong>助动词疑问</strong></td><td>Do you like…? / Does he/she/it like…? / Is he wearing…?</td><td>能就喜好与正在做的事提问</td></tr>
+        <tr><td><strong>介词与方位</strong></td><td>in / on / at / next to / under（搭配 beach/sea/sun/sand）</td><td>能用英语描述物品位置关系</td></tr>
+        <tr><td><strong>阅读理解</strong></td><td>细节题 / 词义猜测（scary/ugly/tricked）/ 指代题 / 主旨题 / 推断题</td><td>能读懂 100-150 词的故事短文，答对 ≥80% 细节题</td></tr>
+      </tbody>
+    </table>
+
+    <h3>🎯 与剑桥体系衔接</h3>
+    <div class="callout idea">
+      <strong>📚 PU1 ↔ 剑桥体系对标</strong><br>
+      本单元学完后，孩子应能：
+      <ul>
+        <li>✅ 用现在进行时介绍家人正在穿的衣服（5-8 句）</li>
+        <li>✅ 用 like/enjoy + V-ing 表达 6-10 个兴趣爱好并回应</li>
+        <li>✅ 用祈使句下达 6-8 个农场动作（Pick up / Put / Clean）</li>
+        <li>✅ 听懂并回答 Do/Does + like…? / Is he wearing…? 疑问句</li>
+        <li>✅ 读懂 100-150 词故事（聪明猴子 / 海岛假期），答对 4/5 阅读题</li>
+      </ul>
+    </div>
+
+    <h3>📌 学习重点与难点预告</h3>
+    <div class="callout note">
+      <strong>📌 学习重点（必掌握）</strong>
+      <ul>
+        <li>be 动词主谓一致：I am / He-She-It is / You-We-They are</li>
+        <li>V-ing 形式：wear→wearing / fish→fishing（去 e + ing 特殊）</li>
+        <li>祈使句以动词原形开头（Clean / Pick up / Put），主语省略</li>
+        <li>like/enjoy 后必接 V-ing（liking / enjoy to do 错）</li>
+        <li>Do/Does 与主语搭配：Do you/we/they · Does he/she/it</li>
+      </ul>
+    </div>
+    <div class="callout warning">
+      <strong>⚠️ 学习难点（需重点突破）</strong>
+      <ul>
+        <li>wear 与 put on 混淆（wears / is wearing / putting on）</li>
+        <li>祈使句否定 Don't + 动词原形（Don't eating 错）</li>
+        <li>用 this/that/these 替代衣服 + 单复数呼应（This T-shirt / These jeans）</li>
+        <li>祈使句宾语位置：Pick up <strong>it</strong> → Pick <strong>it</strong> up（代词放中间）</li>
+        <li>like 用法：第三人称单数 likes / 否定 doesn't like</li>
+        <li>阅读中人物指代 they/she/it 频繁出现，需回找上句</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ===== 第 3 章 思维导图 ===== -->
+  <section id="ch3">
+    <h2>三、知识思维导图（静态 SVG 横向树状图）</h2>
+    <p style="color:#6b7280;">📌 K17 v3.7+v3.8 规范：根在左、逐层向右展开、全展开、零 JS、高度自适应、兼容 WPS 手机端。v3.12 防重叠校验：viewBox 高度按分支数自动计算、叶节点 y 递增量 ≥ 30px、相邻分支头 y 间距 ≥ 130px。</p>
+    <div class="mindmap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1500 820" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+        <text x="20" y="32" fill="#1e293b" font-size="20" font-weight="800">PU1 Unit 9 · Clothes &amp; Holiday Fun 知识树</text>
+        <text x="20" y="56" fill="#64748b" font-size="13" font-weight="500">剑桥 Power Up 1 · 衣物+海滩+祈使句+like/enjoy doing</text>
+
+        <!-- 根节点 (y=360) -->
+        <rect x="20" y="320" width="200" height="100" rx="14" fill="#06b6d4" stroke="#0e7490" stroke-width="2"/>
+        <text x="120" y="358" text-anchor="middle" fill="#ffffff" font-size="18" font-weight="700">Unit 9</text>
+        <text x="120" y="386" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="600">Clothes &amp;</text>
+        <text x="120" y="406" text-anchor="middle" fill="#ffffff" font-size="14" font-weight="600">Holiday Fun</text>
+
+        <!-- 分支1 Clothes (y=60) -->
+        <line x1="220" y1="370" x2="280" y2="80" stroke="#94a3b8" stroke-width="2"/>
+        <rect x="280" y="50" width="220" height="60" rx="12" fill="#10b981" stroke="#047857" stroke-width="2"/>
+        <text x="390" y="75" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">Vocabulary Ⅰ</text>
+        <text x="390" y="97" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="500">衣物 13 词 + colourful/ugly</text>
+
+        <!-- 分支2 Imperatives (y=200) -->
+        <line x1="220" y1="370" x2="280" y2="220" stroke="#94a3b8" stroke-width="2"/>
+        <rect x="280" y="190" width="220" height="60" rx="12" fill="#8b5cf6" stroke="#6d28d9" stroke-width="2"/>
+        <text x="390" y="215" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">Story+Grammar Ⅰ</text>
+        <text x="390" y="237" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="500">祈使句 + Let's</text>
+
+        <!-- 分支3 Beach Vocab (y=340) -->
+        <line x1="220" y1="370" x2="280" y2="360" stroke="#94a3b8" stroke-width="2"/>
+        <rect x="280" y="330" width="220" height="60" rx="12" fill="#f59e0b" stroke="#b45309" stroke-width="2"/>
+        <text x="390" y="355" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">Vocabulary Ⅱ</text>
+        <text x="390" y="377" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="500">海滩 10 词 + 介词 in/on/at</text>
+
+        <!-- 分支4 like/enjoy (y=480) -->
+        <line x1="220" y1="370" x2="280" y2="500" stroke="#94a3b8" stroke-width="2"/>
+        <rect x="280" y="470" width="220" height="60" rx="12" fill="#ec4899" stroke="#be185d" stroke-width="2"/>
+        <text x="390" y="495" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">Grammar Ⅱ</text>
+        <text x="390" y="517" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="500">like/enjoy + V-ing · So do I</text>
+
+        <!-- 分支5 Holiday & Reading (y=620) -->
+        <line x1="220" y1="370" x2="280" y2="640" stroke="#94a3b8" stroke-width="2"/>
+        <rect x="280" y="610" width="220" height="60" rx="12" fill="#6366f1" stroke="#4338ca" stroke-width="2"/>
+        <text x="390" y="635" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="700">Cross+Literature</text>
+        <text x="390" y="657" text-anchor="middle" fill="#ffffff" font-size="12" font-weight="500">海岛+聪明猴子·阅读推断</text>
+
+        <!-- 分支1 叶节点 y=50-110 -->
+        <rect x="560" y="35" width="320" height="36" rx="8" fill="#ffffff" stroke="#10b981" stroke-width="1.5"/>
+        <text x="720" y="58" text-anchor="middle" fill="#064e3b" font-size="13" font-weight="600">上装: shirt / T-shirt / jacket / dress</text>
+        <rect x="560" y="75" width="320" height="36" rx="8" fill="#ffffff" stroke="#10b981" stroke-width="1.5"/>
+        <text x="720" y="98" text-anchor="middle" fill="#064e3b" font-size="13" font-weight="600">下装: trousers / shorts / jeans / skirt</text>
+
+        <!-- 分支2 叶节点 y=190-270 -->
+        <rect x="560" y="180" width="320" height="36" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5"/>
+        <text x="720" y="203" text-anchor="middle" fill="#4c1d95" font-size="13" font-weight="600">动词原形起句: Clean / Pick up / Put / Look at</text>
+        <rect x="560" y="220" width="320" height="36" rx="8" fill="#ffffff" stroke="#8b5cf6" stroke-width="1.5"/>
+        <text x="720" y="243" text-anchor="middle" fill="#4c1d95" font-size="13" font-weight="600">否定祈使: Don't + V原 / Let's + V原</text>
+
+        <!-- 分支3 叶节点 y=320-400 -->
+        <rect x="560" y="320" width="320" height="36" rx="8" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5"/>
+        <text x="720" y="343" text-anchor="middle" fill="#7c2d12" font-size="13" font-weight="600">自然物: beach / sea / sand / sun</text>
+        <rect x="560" y="360" width="320" height="36" rx="8" fill="#ffffff" stroke="#f59e0b" stroke-width="1.5"/>
+        <text x="720" y="383" text-anchor="middle" fill="#7c2d12" font-size="13" font-weight="600">活动物: boat / fish / shell / jellyfish / camera</text>
+
+        <!-- 分支4 叶节点 y=460-540 -->
+        <rect x="560" y="460" width="320" height="36" rx="8" fill="#ffffff" stroke="#ec4899" stroke-width="1.5"/>
+        <text x="720" y="483" text-anchor="middle" fill="#831843" font-size="13" font-weight="600">主语 + like + V-ing: I like swimming.</text>
+        <rect x="560" y="500" width="320" height="36" rx="8" fill="#ffffff" stroke="#ec4899" stroke-width="1.5"/>
+        <text x="720" y="523" text-anchor="middle" fill="#831843" font-size="13" font-weight="600">主语 + enjoy + V-ing · So do I / Me too</text>
+
+        <!-- 分支5 叶节点 y=600-680 -->
+        <rect x="560" y="600" width="320" height="36" rx="8" fill="#ffffff" stroke="#6366f1" stroke-width="1.5"/>
+        <text x="720" y="623" text-anchor="middle" fill="#312e81" font-size="13" font-weight="600">海岛地貌: waterfall / forest / mountain / volcano</text>
+        <rect x="560" y="640" width="320" height="36" rx="8" fill="#ffffff" stroke="#6366f1" stroke-width="1.5"/>
+        <text x="720" y="663" text-anchor="middle" fill="#312e81" font-size="13" font-weight="600">故事阅读: 推理 + 词义猜测 + 指代</text>
+
+        <!-- 第二层 考点/题型 -->
+        <rect x="920" y="35" width="380" height="36" rx="8" fill="#f0fdf4" stroke="#10b981" stroke-width="1.5"/>
+        <text x="1110" y="58" text-anchor="middle" fill="#064e3b" font-size="13" font-weight="600">▶ 词汇题: 衣物复数 + colourful/ugly 辨义</text>
+        <rect x="920" y="180" width="380" height="36" rx="8" fill="#faf5ff" stroke="#8b5cf6" stroke-width="1.5"/>
+        <text x="1110" y="203" text-anchor="middle" fill="#4c1d95" font-size="13" font-weight="600">▶ 改错题: Puts→Put / Not→Don't / Pick up it→Pick it up</text>
+        <rect x="920" y="320" width="380" height="36" rx="8" fill="#fffbeb" stroke="#f59e0b" stroke-width="1.5"/>
+        <text x="1110" y="343" text-anchor="middle" fill="#7c2d12" font-size="13" font-weight="600">▶ 介词题: in the sun / on the sand / next to the sea</text>
+        <rect x="920" y="460" width="380" height="36" rx="8" fill="#fdf2f8" stroke="#ec4899" stroke-width="1.5"/>
+        <text x="1110" y="483" text-anchor="middle" fill="#831843" font-size="13" font-weight="600">▶ 语法题: like/enjoy + V-ing · So do I / Me too</text>
+        <rect x="920" y="600" width="380" height="36" rx="8" fill="#eef2ff" stroke="#6366f1" stroke-width="1.5"/>
+        <text x="1110" y="623" text-anchor="middle" fill="#312e81" font-size="13" font-weight="600">▶ 阅读题: 推理+指代+词义(tricked/scary/ugly)</text>
+
+        <text x="20" y="795" fill="#94a3b8" font-size="11" font-style="italic">v3.12 防重叠校验：viewBox 1500×820 · 5 分支头 y 间距 140px · 叶节点 y 递增量 40px · v3.7 静态 SVG · v3.8 双指放大兼容</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ===== 第 4 章 核心知识点详解 ===== -->
+  <section id="ch4">
+    <h2>四、核心知识点详解（双步讲解法）</h2>
+    <p>本章按双步讲解法对 Unit 9 五大核心知识点进行「原理推导 + 必背拓展 + 题型映射」。</p>
+
+    <!-- 知识点 1：现在进行时（is wearing） -->
+    <h3>知识点 1 · 现在进行时（be + V-ing）：介绍家人正在穿的衣服</h3>
+    <div class="callout success">
+      <strong>🔍 第一步 · 原理推导</strong><br>
+      现在进行时表达「此时此刻正在发生的动作」，结构 = <strong>be 动词（am/is/are）+ V-ing</strong>。本单元聚焦「现在正在穿什么」，因此常用 <code>be wearing</code> 结构。主语决定 be 动词：<strong>I → am / He-She-It → is / You-We-They → are</strong>。当 Grandmother 现在正穿一件粉裙子，说 <em>"Grandma is wearing a pink skirt."</em>，强调「此刻·正在·穿」。
+    </div>
+    <div class="callout note">
+      <strong>📌 第二步 · 必背句型</strong>
+      <ul>
+        <li><strong>肯定</strong>：He is wearing blue jeans.</li>
+        <li><strong>否定</strong>：She <strong>isn't wearing</strong> a hat now.</li>
+        <li><strong>一般疑问</strong>：<strong>Is</strong> Grandpa <strong>wearing</strong> green boots? — Yes, he is. / No, he isn't.</li>
+        <li><strong>特殊疑问</strong>：<strong>What</strong> is Jenny <strong>wearing</strong>? — A blue skirt.</li>
+      </ul>
+    </div>
+    <div class="callout extend">
+      <strong>🧠 拓展 · wear / is wearing / puts on 三者辨析</strong>
+      <ul>
+        <li><strong>wear</strong> = 「穿着·戴着」（状态延续）：She wears glasses every day.</li>
+        <li><strong>is wearing</strong> = 「现在正穿着」（瞬间状态）：She is wearing a pink dress today.</li>
+        <li><strong>puts on / is putting on</strong> = 「正在穿上」（动作进行）：She is putting on her shoes now.</li>
+      </ul>
+      <strong>📋 题型映射</strong>：Pu1 Unit9 题 1（is wearing）、题 7（is wearing now）、题 12（doesn't like）→ 全部命中「现在进行时 be + V-ing」语法点。
+    </div>
+
+    <!-- 知识点 2：Do / Does 助动词 -->
+    <h3>知识点 2 · 助动词 Do / Does：询问喜好与穿着</h3>
+    <div class="callout success">
+      <strong>🔍 第一步 · 原理推导</strong><br>
+      当想用一般疑问句询问「某人是否喜欢某物」，需要在句首加助动词。<strong>主语决定助动词</strong>：<code>do</code> 用于 you / we / they 及复数名词；<code>does</code> 用于 he / she / it 及单数第三人称。注意：用了助动词 do/does 后，<strong>实义动词要回原形</strong>（不加 s）。
+    </div>
+    <div class="callout note">
+      <strong>📌 第二步 · 必背句型</strong>
+      <ul>
+        <li><strong>Do</strong> you <strong>like</strong> the pink dress? — Yes, I do. / No, I don't.</li>
+        <li><strong>Does</strong> Grandma <strong>like</strong> the yellow T-shirt? — Yes, she does.</li>
+        <li><strong>Does</strong> Jenny <strong>like</strong> pink? — No, she <strong>doesn't like</strong> pink.</li>
+        <li><strong>Are</strong> you <strong>wearing</strong> a hat? — Yes, I am.</li>
+        <li><strong>Is</strong> he <strong>wearing</strong> boots? — Yes, he is.</li>
+      </ul>
+    </div>
+    <div class="callout warning">
+      <strong>⚠️ 易错点</strong>：Does he likes ❌ → Does he like ✓；He don't like ❌ → He doesn't like ✓；Does he like 与 Is he wearing 不可混用——前者问喜好（一般现在时），后者问正穿的衣服（现在进行时）。
+    </div>
+    <div class="callout extend">
+      <strong>🧠 拓展 · 否定缩略与完整形</strong>：don't = do not · doesn't = does not · isn't = is not · aren't = are not。缩写常用于口语与书面，完整形强调语气。<br>
+      <strong>📋 题型映射</strong>：Pu1 题 2（Does Jenny like）、题 4（Do you want）、题 11（Does Grandma like）、题 12（doesn't like）→ 全部命中助动词 do/does 语法点。
+    </div>
+
+    <!-- 知识点 3：祈使句 -->
+    <h3>知识点 3 · 祈使句（动词原形开头）：下达指令</h3>
+    <div class="callout success">
+      <strong>🔍 第一步 · 原理推导</strong><br>
+      祈使句表达命令、请求、叮嘱，主语常被<strong>省略</strong>（默认是 you），句首直接用<strong>动词原形</strong>。否定式在动词原形前加 <strong>Don't</strong>。本单元高频动词：Clean / Pick up / Put / Look at / Point to / Open / Don't eat / Don't jump / Let's play。
+    </div>
+    <div class="callout note">
+      <strong>📌 第二步 · 必背句型</strong>
+      <ul>
+        <li><strong>Clean the dirty table, please!</strong>（打扫脏桌子！）</li>
+        <li><strong>Pick up the hat!</strong>（捡起帽子！）</li>
+        <li><strong>Put it on the table.</strong>（把它放在桌子上。）</li>
+        <li><strong>Look at the barn!</strong>（看那个谷仓！）</li>
+        <li><strong>Don't eat oranges on the floor!</strong>（不要在地板上吃橙子！）</li>
+        <li><strong>Let's go and play in the barn!</strong>（我们去谷仓玩吧！）</li>
+      </ul>
+    </div>
+    <div class="callout warning">
+      <strong>⚠️ 易错点</strong>：1) <strong>代词放中间</strong>：Pick up it ❌ → Pick <strong>it</strong> up ✓（动词短语 + 代词 → 代词放中间）；2) 否定用 Don't + 动词原形：Don't eating ❌ → Don't eat ✓；3) Look at 是<strong>介词短语</strong>动词，at 不能丢；4) Let's = Let us，后必接动词原形：Let's to play ❌ → Let's play ✓。
+    </div>
+    <div class="callout extend">
+      <strong>🧠 拓展 · 祈使句 + 名词 vs 代词</strong>
+      <ul>
+        <li>Pick up <strong>the hat</strong> ✓（名词短语可放动词后任意位置）</li>
+        <li>Pick <strong>it</strong> up ✓（代词必须放中间）</li>
+        <li><strong>Take those pencils and put them in the bag.</strong>（them 是代词→放 put 中间）</li>
+      </ul>
+      <strong>📋 题型映射</strong>：Pu1 Story+Grammar 改错题（共 10 题）全部命中祈使句动词原形、否定、代词位置。
+    </div>
+
+    <!-- 知识点 4：介词 in / on / at / next to -->
+    <h3>知识点 4 · 介词 in / on / at / next to：描述物品位置</h3>
+    <div class="callout success">
+      <strong>🔍 第一步 · 原理推导</strong><br>
+      英语介词表达「位置与方向」与中文思维不同，本单元核心三介词：
+      <ul>
+        <li><strong>in</strong> = 在…里面（如水里、太阳里、海里）：in the sea / in the sun</li>
+        <li><strong>on</strong> = 在…上面（接触面）：on the sand / on the beach / on a boat</li>
+        <li><strong>at</strong> = 在某地点：at the beach</li>
+        <li><strong>next to</strong> = 紧邻：next to the sea / next to a beach</li>
+      </ul>
+    </div>
+    <div class="callout note">
+      <strong>📌 第二步 · 必背短语</strong>
+      <ul>
+        <li><strong>at the beach</strong> 在海滩（地点）</li>
+        <li><strong>on the sand</strong> 在沙滩上（接触面）</li>
+        <li><strong>in the sun</strong> 在阳光下（包含关系）</li>
+        <li><strong>next to the sea</strong> 紧邻大海（相邻）</li>
+        <li><strong>in a boat on the sea</strong> 在海上的小船里（双重定位）</li>
+        <li><strong>under the umbrella</strong> 在伞下（隐藏）</li>
+      </ul>
+    </div>
+    <div class="callout warning">
+      <strong>⚠️ 易错点</strong>：<strong>at the beach</strong>（表示「在那个海滩·地点」），<strong>on the beach</strong>（表示「在沙滩表面·接触面」）—— 同为 beach 含义不同！短语 <em>in the sun</em> 「在阳光下」用 in 而非 under。
+    </div>
+    <div class="callout extend">
+      <strong>🧠 拓展 · at / on / in 与交通工具</strong>：
+      <ul>
+        <li>in a car / in a boat（人在车/船内部）</li>
+        <li>on a bike / on a horse（人骑在表面）</li>
+        <li>at the airport / at the beach（具体地点）</li>
+      </ul>
+      <strong>📋 题型映射</strong>：Vocabulary+Grammar Ⅱ 题 1/9/10/16、Cross-Curricular 题 5 → 介词 in/on/at next to 辨析。
+    </div>
+
+    <!-- 知识点 5：like/enjoy + V-ing -->
+    <h3>知识点 5 · like / enjoy + V-ing：表达兴趣爱好</h3>
+    <div class="callout success">
+      <strong>🔍 第一步 · 原理推导</strong><br>
+      表达「喜欢做某事」，用 <code>like / enjoy + V-ing</code> 形式（动名词作宾语）。注意：主语是第三人称单数时，<strong>like 要加 s</strong>（likes），enjoy 不变。回答「我也喜欢」用 <strong>So do I</strong>（助动词 do 提前）或 <strong>Me too</strong>（简略口语）。
+    </div>
+    <div class="callout note">
+      <strong>📌 第二步 · 必背句型</strong>
+      <ul>
+        <li><strong>I like swimming in the sea.</strong> 我喜欢在海里游泳。</li>
+        <li><strong>I like flying my kite.</strong> 我喜欢放风筝。</li>
+        <li><strong>I enjoy taking photos.</strong> 我享受拍照片。</li>
+        <li><strong>I enjoy fishing.</strong> 我享受钓鱼。</li>
+        <li>— I enjoy taking photos. — <strong>Me too.</strong>（"我也一样"·口语）</li>
+        <li>— I like flying my kite. — <strong>So do I.</strong>（"我也（喜欢）"·正式）</li>
+      </ul>
+    </div>
+    <div class="callout warning">
+      <strong>⚠️ 易错点</strong>：1) like to do ❌ → like doing ✓；2) like doing 不可拆；3) He like ❌ → He <strong>likes</strong> ✓；4) enjoy to do ❌ → enjoy <strong>doing</strong> ✓；5) I am liking ❌（like 是状态动词，不用于进行时）。
+    </div>
+    <div class="callout extend">
+      <strong>🧠 拓展 · So do I / Me too / So I do 区别</strong>
+      <ul>
+        <li><strong>So do I.</strong> = I also do it. （肯定·强调动作）— I like swimming. — So do I.</li>
+        <li><strong>Me too.</strong> = I am the same. （口语·简略）— I enjoy fishing. — Me too.</li>
+        <li><strong>So I do.</strong> = I certainly do. （强调主语确实如此）— You look tired. — So I do.</li>
+        <li><strong>I too.</strong> ❌（不符合英语习惯）</li>
+      </ul>
+      <strong>📋 题型映射</strong>：Vocabulary+Grammar Ⅱ 题 5/11/12/17、Cross-Curricular 题 1-10、Literature 题 6-10 → 全部命中 like/enjoy + V-ing。
+    </div>
+  </section>
+
+  <!-- ===== 第 5 章 难点易错 ===== -->
+  <section id="ch5">
+    <h2>五、难点与易错点</h2>
+
+    <h3>🔴 难点 1 · 衣物复数：trousers / shorts / jeans 永远复数</h3>
+    <p>英语中<strong>trousers / shorts / jeans / glasses / sunglasses</strong> 这类「由两片构成的衣物」只有复数形式，搭配 are / these / those，不能说 <em>a trouser</em>。谓语必须用复数：<code>The orange shorts are ugly.</code></p>
+    <table>
+      <thead><tr><th width="40%">易错写法 ❌</th><th width="60%">正确写法 ✓</th></tr></thead>
+      <tbody>
+        <tr><td>The short is ugly.</td><td>The <strong>shorts are</strong> ugly.</td></tr>
+        <tr><td>This jeans is nice.</td><td><strong>These jeans are</strong> nice.</td></tr>
+        <tr><td>The sunglass is on the table.</td><td>The <strong>sunglasses are</strong> on the table.</td></tr>
+        <tr><td>This trouser is big.</td><td><strong>These trousers are</strong> big.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>🔴 难点 2 · 祈使句动词原形 vs -s/-ing</h3>
+    <p>祈使句必须以<strong>动词原形</strong>开头，<strong>不能加 s，也不能加 ing</strong>。否定式 Don't + 动词原形，<strong>不能写 Don't eating</strong>。</p>
+    <table>
+      <thead><tr><th width="40%">易错 ❌</th><th width="60%">正确 ✓</th></tr></thead>
+      <tbody>
+        <tr><td>Puts the hat on the table.</td><td><strong>Put</strong> the hat on the table.</td></tr>
+        <tr><td>Cleaning your face, please!</td><td><strong>Clean</strong> your face, please!</td></tr>
+        <tr><td>Looked at the barn!</td><td><strong>Look at</strong> the barn!</td></tr>
+        <tr><td>Not eat the oranges!</td><td><strong>Don't eat</strong> the oranges!</td></tr>
+        <tr><td>Let's to play in the barn!</td><td><strong>Let's play</strong> in the barn!</td></tr>
+      </tbody>
+    </table>
+
+    <h3>🔴 难点 3 · 代词位置：Pick up it ❌</h3>
+    <p>含「动词 + 介词」的短语动词（如 pick up / put on / clean up）接代词时，代词必须放<strong>中间</strong>，不能放短语末尾。接名词则两端都可以。</p>
+    <table>
+      <thead><tr><th width="40%">易错 ❌</th><th width="60%">正确 ✓</th></tr></thead>
+      <tbody>
+        <tr><td>Pick up it!</td><td>Pick <strong>it</strong> up!</td></tr>
+        <tr><td>Point to she!</td><td>Point to <strong>her</strong>!</td></tr>
+        <tr><td>Look at they!</td><td>Look at <strong>them</strong>!</td></tr>
+        <tr><td>Clean it up now.</td><td>Clean up it.（错）✓ Clean <strong>it</strong> up.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>🔴 难点 4 · this/that/these/those 与衣物呼应</h3>
+    <p>指代单数衣物用 <strong>this / that</strong>，复数衣物（trousers/shorts/jeans）用 <strong>these / those</strong>。谓语动词也必须呼应单复数。</p>
+    <table>
+      <thead><tr><th width="40%">易错 ❌</th><th width="60%">正确 ✓</th></tr></thead>
+      <tbody>
+        <tr><td>This jeans are small for you.</td><td><strong>These jeans are</strong> small for you.</td></tr>
+        <tr><td>This T-shirt is my favourite.</td><td><strong>This T-shirt is</strong> my favourite.（单数✓）</td></tr>
+        <tr><td>How are my shoes? — It is very orange.</td><td>— <strong>They are</strong> very orange.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>🔴 难点 5 · like 用法：第三人称单数 likes</h3>
+    <p>主语是 he/she/it 时，<strong>like → likes</strong>，否定 <strong>doesn't like</strong>，疑问 <strong>Does she like…?</strong></p>
+    <table>
+      <thead><tr><th width="40%">易错 ❌</th><th width="60%">正确 ✓</th></tr></thead>
+      <tbody>
+        <tr><td>She like pink.</td><td>She <strong>likes</strong> pink.</td></tr>
+        <tr><td>He don't like the hat.</td><td>He <strong>doesn't like</strong> the hat.</td></tr>
+        <tr><td>Does she likes it?</td><td>Does she <strong>like</strong> it?</td></tr>
+        <tr><td>Jenny don't like pink.</td><td>Jenny <strong>doesn't like</strong> pink.</td></tr>
+      </tbody>
+    </table>
+
+    <h3>🔴 难点 6 · enjoy + V-ing：不能接 to do</h3>
+    <p>enjoy 只能接 <strong>V-ing</strong>，不能接 to do；主语是任何人都用 enjoy，不加 s。</p>
+    <table>
+      <thead><tr><th width="40%">易错 ❌</th><th width="60%">正确 ✓</th></tr></thead>
+      <tbody>
+        <tr><td>I enjoy to take photos.</td><td>I enjoy <strong>taking</strong> photos.</td></tr>
+        <tr><td>She enjoys playing.</td><td><strong>She enjoys playing.</strong>（不变 s 是 enjoys 名词→动词三单）</td></tr>
+        <tr><td>They enjoy to walk in the forest.</td><td>They enjoy <strong>walking</strong> in the forest.</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== 第 6 章 考点汇总 ===== -->
+  <section id="ch6">
+    <h2>六、考点汇总</h2>
+    <table>
+      <thead><tr><th width="6%">序号</th><th width="18%">考点</th><th width="34%">规则要点</th><th width="22%">典型题例</th><th width="20%">难度</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>现在进行时 be+V-ing</td><td>am/is/are + V-ing · 否定加 not · 疑问句首 Is/Are</td><td>题 1、3、7、12</td><td><span class="level-B">基础</span></td></tr>
+        <tr><td>2</td><td>助动词 Do/Does 一般疑问</td><td>Do+you/we/they / Does+he/she/it · 实义动词回原形</td><td>题 2、4、11</td><td><span class="level-B">基础</span></td></tr>
+        <tr><td>3</td><td>主谓一致</td><td>He-She-It is / You-We-They are · 单复数（shorts/trousers/jeans/sunglasses）</td><td>题 3、6、8、10</td><td><span class="level-B">基础</span></td></tr>
+        <tr><td>4</td><td>祈使句</td><td>动词原形开头 · 否定 Don't + V原 · Let's + V原 · 代词放中间</td><td>Story+Grammar 改错 10 题</td><td><span class="level-A">高频</span></td></tr>
+        <tr><td>5</td><td>介词 in/on/at/next to</td><td>in 包含 / on 接触面 / at 地点 / next to 相邻</td><td>Voc Ⅱ 题 1、9、10、16</td><td><span class="level-C">中等</span></td></tr>
+        <tr><td>6</td><td>like/enjoy + V-ing</td><td>第三人称单数 likes · 否定 doesn't like · enjoy+动名词</td><td>题 1-10 Cross-Curricular &amp; Literature</td><td><span class="level-A">高频</span></td></tr>
+        <tr><td>7</td><td>So do I / Me too</td><td>So+助动词+主语 / Me too 简略口语 · 不可写 I too</td><td>Voc Ⅱ 题 12</td><td><span class="level-C">中等</span></td></tr>
+        <tr><td>8</td><td>阅读 · 指代与词义</td><td>it/they/she 回找上文名词 · 词义题据上下文推断</td><td>Voc Ⅱ 文 / Literature 文</td><td><span class="level-C">中等</span></td></tr>
+        <tr><td>9</td><td>阅读 · 主旨与推断</td><td>主旨题找核心话题 · 推断题据文意合理推导</td><td>Voc Ⅰ 文题 4-5</td><td><span class="level-D">难题</span></td></tr>
+        <tr><td>10</td><td>首字母 / 选词填空</td><td>上下文语义连贯 · 名词单复数 · 注意首字母大小写</td><td>Cross 题 1-10 / Story+Grammar 选词</td><td><span class="level-C">中等</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ===== 第 7 章 薄弱环节专项突破 ===== -->
+  <section id="ch7">
+    <h2>七、薄弱环节专项突破</h2>
+    <p>基于 Pu1 Unit9 拓展练习的题目分布与孩子常见错点，本章聚焦<strong>最易失分的 5 个薄弱环节</strong>进行专项训练，每环节 4-6 题。</p>
+
+    <h3>⚡ 薄弱 1 · 祈使句代词位置（最高频失分）</h3>
+    <details class="interactive-panel">
+      <summary>📝 祈使句代词位置专项（6 题）</summary>
+      <ol>
+        <li>Pick up the hat. — Pick ______ up!（代词放中间）<br><strong>答案：it</strong> · 解析：代词必须放动词短语中间。</li>
+        <li>Point to Shelly. — Point to ______!（不可用 she）<br><strong>答案：her</strong> · 解析：人称代词宾格：she → her。</li>
+        <li>Look at the pencils. — Look at ______!（复数代词）<br><strong>答案：them</strong> · 解析：复数宾格 they → them。</li>
+        <li>Clean the table! — Clean ______ up now!（代词放中间）<br><strong>答案：it</strong> · 解析：代词 it 放在 clean up 中间。</li>
+        <li>Pick up the clothes! — Pick ______ up, Shelly!<br><strong>答案：them</strong> · 解析：复数 clothes → them。</li>
+        <li>Put the bag on the table! — Put ______ on the table!<br><strong>答案：it</strong> · 解析：单数 bag → it。</li>
+      </ol>
+    </details>
+
+    <h3>⚡ 薄弱 2 · 助动词 Do/Does 选错</h3>
+    <details class="interactive-panel">
+      <summary>📝 助动词专项（6 题）</summary>
+      <ol>
+        <li>______ Jenny like the pink dress?<br><strong>答案：Does</strong> · 解析：Jenny 是第三人称单数 → Does。</li>
+        <li>Grandma asks: "______ you want them?"<br><strong>答案：Do</strong> · 解析：you → Do。</li>
+        <li>______ Grandma like the yellow T-shirt?<br><strong>答案：Does</strong> · 解析：Grandma 单数 → Does。</li>
+        <li>______ you want a new skirt?<br><strong>答案：Do</strong> · 解析：you → Do。</li>
+        <li>Jenny ______ pink because it isn't her favourite colour.<br><strong>答案：doesn't like</strong> · 解析：第三人称单数否定 → doesn't + 原形 like。</li>
+        <li>He ______ like the orange shoes. They are ugly.<br><strong>答案：doesn't</strong> · 解析：He → doesn't。</li>
+      </ol>
+    </details>
+
+    <h3>⚡ 薄弱 3 · like/enjoy + V-ing 用错</h3>
+    <details class="interactive-panel">
+      <summary>📝 like/enjoy doing 专项（6 题）</summary>
+      <ol>
+        <li>I ______ flying kites at the beach.<br><strong>答案：like</strong> · 解析：I am 主语 → like + V-ing。</li>
+        <li>My sister ______ taking photos of flowers.<br><strong>答案：enjoys</strong> · 解析：第三人称单数 enjoys + V-ing。</li>
+        <li>We ______ climbing mountains on holiday.<br><strong>答案：like</strong> · 解析：we → like + V-ing。</li>
+        <li>They enjoy ______ in the forest.<br><strong>答案：walking</strong> · 解析：enjoy + 动名词 walking，不能 to walk。</li>
+        <li>I like ______ frogs by the river.<br><strong>答案：seeing</strong> · 解析：like + 动名词 seeing。</li>
+        <li>Children ______ learning animal stories.<br><strong>答案：like</strong> · 解析：children 复数 → like + V-ing。</li>
+      </ol>
+    </details>
+
+    <h3>⚡ 薄弱 4 · 介词 in/on/at/next to 辨析</h3>
+    <details class="interactive-panel">
+      <summary>📝 介词专项（6 题）</summary>
+      <ol>
+        <li>We are ______ the beach now.<br><strong>答案：at</strong> · 解析：at the beach = 在海滩（地点）。</li>
+        <li>They are playing ______ the sun at the beach.<br><strong>答案：in</strong> · 解析：in the sun = 在阳光下（包含关系）。</li>
+        <li>The umbrella is ______ the beach chair.<br><strong>答案：next to</strong> · 解析：next to = 紧邻。</li>
+        <li>Let's go ______ in the sea.<br><strong>答案：fishing</strong> · 解析：go fishing = 去钓鱼（固定搭配）。</li>
+        <li>My sister is collecting ______ on the beach.<br><strong>答案：shells</strong> · 解析：collect shells（贝壳复数）。</li>
+        <li>The water in the ______ is very blue.<br><strong>答案：sea</strong> · 解析：in the sea = 在大海里。</li>
+      </ol>
+    </details>
+
+    <h3>⚡ 薄弱 5 · So do I / Me too 选择</h3>
+    <details class="interactive-panel">
+      <summary>📝 回应专项（4 题）</summary>
+      <ol>
+        <li>— I like flying my kite. — ______.<br><strong>答案：So do I</strong> · 解析：动词 like → So + do + 主语。</li>
+        <li>— I enjoy taking photos. — ______.<br><strong>答案：Me too</strong> · 解析：enjoy doing 后用 Me too 简略回答。</li>
+        <li>— I enjoy fishing. — ______.<br><strong>答案：Me too</strong> · 解析：享受类用 Me too 更自然。</li>
+        <li>— Do you like playing at the beach? — ______.<br><strong>答案：Yes, I do</strong> · 解析：Do 疑问 → Yes, I do / No, I don't。</li>
+      </ol>
+    </details>
+  </section>
+
+  <!-- ===== 第 8 章 康奈尔笔记 ===== -->
+  <section id="ch8">
+    <h2>八、🆕 康奈尔笔记·知识加工厂（7 张笔记卡）</h2>
+    <p style="color:#6b7280;">📌 v3.14 康奈尔笔记法：<strong>主线笔记 = 信息重构（含举例）</strong>；<strong>线索栏 = 关键词+提问式提示</strong>（用于遮住主栏回忆）；<strong>总结区 ≤ 3 句话</strong>（核心概括）。三块折叠面板默认收起，仅总结区默认展开。</p>
+
+    <!-- 笔记 1 · 思维导图 -->
+    <details class="interactive-panel" open>
+      <summary>📌 笔记 1/7 · 知识树状图笔记（思维导图卡片）</summary>
+      <div class="cornell-card">
+        <h3>🎯 PU1 Unit 9 五大知识模块</h3>
+        <div class="cornell-grid">
+          <div class="cornell-cues">
+            <h4>🔑 线索栏（关键词+提问）</h4>
+            <ul>
+              <li>① 哪些词是衣物？</li>
+              <li>② 哪些介词搭配海滩？</li>
+              <li>③ 祈使句动词原形有哪些？</li>
+              <li>④ like 后接什么形式？</li>
+              <li>⑤ 现在进行时公式？</li>
+            </ul>
+          </div>
+          <div class="cornell-notes">
+            <h4>📝 主栏 · 信息重构笔记</h4>
+            <p><strong>衣物层（Vocabulary Ⅰ）：</strong>上装（shirt/T-shirt/jacket/dress）+ 下装（trousers/shorts/jeans/skirt）+ 配件（sunglasses/hat/boots/shoes/baseball cap）。例：Grandpa wears green boots with shorts。</p>
+            <p><strong>祈使句层（Story+Grammar Ⅰ）：</strong>动词原形起句 = 命令。例：<em>"Pick up the hat and put it on the table!"</em>。否定 Don't + V原。代词必须放短语中间。</p>
+            <p><strong>海滩层（Vocabulary Ⅱ）：</strong>自然物（beach/sea/sand/sun）+ 活动物（boat/fish/shell/jellyfish/camera）。介词 in/on/at 决定空间：in the sea / on the sand / at the beach。</p>
+            <p><strong>喜好层（Grammar Ⅱ）：</strong>主语 + like/enjoy + V-ing。例：<em>I enjoy fishing.</em> 回应用 So do I 或 Me too。</p>
+            <p><strong>故事阅读层（Cross+Lit）：</strong>海岛地貌（waterfall/forest/mountain/volcano）+ 阅读题推理 + 词义猜测（tricked/scary）。</p>
+          </div>
+        </div>
+        <div class="cornell-summary" open>
+          <h4>💡 总结区</h4>
+          <p>Unit 9 = 衣物 + 海滩 + 祈使句 + like doing。5 大知识模块呈「主题+语法」双螺旋结构，孩子在购物/度假/农场三个真实场景中循环操练现在进行时与一般现在时。</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 笔记 2 · 核心知识点 -->
+    <details class="interactive-panel">
+      <summary>📌 笔记 2/7 · 核心语法·现在进行时+一般现在时双轨</summary>
+      <div class="cornell-card">
+        <h3>🎯 双轨语法核心</h3>
+        <div class="cornell-grid">
+          <div class="cornell-cues">
+            <h4>🔑 线索栏</h4>
+            <ul>
+              <li>be 动词如何选？</li>
+              <li>何时用 is wearing？</li>
+              <li>likes 加 s 何时？</li>
+              <li>句首加 Do 还是 Does？</li>
+              <li>So do I 用在哪里？</li>
+            </ul>
+          </div>
+          <div class="cornell-notes">
+            <h4>📝 主栏 · 笔记</h4>
+            <p><strong>轨道 A · 现在进行时 be + V-ing（描述「此刻正在」）</strong></p>
+            <p>公式：主语 + be + V-ing。<strong>主谓一致</strong>：I am / He-She-It is / You-We-They are。例：<em>He is wearing blue jeans now.</em></p>
+            <p><strong>轨道 B · 一般现在时 like + V-ing（表达「一贯喜好」）</strong></p>
+            <p>公式：主语 + like/enjoy + V-ing。注意第三人称单数加 s：<em>She likes pink.</em>，否定 <em>doesn't like</em>，疑问 <em>Does she like…?</em></p>
+            <p><strong>回应公式</strong>：肯定用 <em>So + 助动词 + 主语</em> 或 <em>Me too</em>。例：— I like swimming. — <em>So do I. / Me too.</em></p>
+            <p><strong>辨别口诀</strong>：有 <code>now</code> / <code>Look!</code> / <code>Listen!</code> → 现在进行时；有 <code>always / usually / every day</code> → 一般现在时。</p>
+          </div>
+        </div>
+        <div class="cornell-summary">
+          <h4>💡 总结区</h4>
+          <p>本单元两条语法主线：现在进行时（正在穿）+ 一般现在时（喜欢做什么）。孩子要能从语境信号词（now vs always）准确切换时态。</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 笔记 3 · 难点易错 -->
+    <details class="interactive-panel">
+      <summary>📌 笔记 3/7 · 三大难点对照清单</summary>
+      <div class="cornell-card">
+        <h3>🎯 易错点速记卡</h3>
+        <div class="cornell-grid">
+          <div class="cornell-cues">
+            <h4>🔑 线索栏</h4>
+            <ul>
+              <li>shorts 谓语用 is 还是 are？</li>
+              <li>Puts 还是 Put？</li>
+              <li>Pick up it 错在哪？</li>
+              <li>like to do 还是 like doing？</li>
+              <li>I too 对吗？</li>
+            </ul>
+          </div>
+          <div class="cornell-notes">
+            <h4>📝 主栏 · 易错点 1-3</h4>
+            <p><strong>1. 衣物复数（短裙裤眼镜总是复数）</strong>：trousers / shorts / jeans / sunglasses / glasses 永远复数，谓语用 are。例：<em>The orange shorts are ugly.</em></p>
+            <p><strong>2. 祈使句动词原形（绝不能加 s/ing/ed）</strong>：Put（不是 Puts/Putting/Putted）；Don't eat（不是 Don't eating）。</p>
+            <p><strong>3. 代词位置（动词短语+代词 → 代词放中间）</strong>：Pick up it ❌ → Pick <em>it</em> up ✓；Point to she ❌ → Point to <em>her</em> ✓。</p>
+            <h4 style="margin-top:14px;">📝 主栏 · 易错点 4-6</h4>
+            <p><strong>4. like/enjoy + 动名词（不能 to do）</strong>：I like swimming ✓；I enjoy fishing ✓；He likes playing ✓。</p>
+            <p><strong>5. So do I / Me too 区分</strong>：动词类 → So do I；状态/情绪 → Me too。I too ❌ 不规范。</p>
+            <p><strong>6. this/that/these/those 与单复数</strong>：<em>These jeans are</em> small（复数+are）；<em>This T-shirt is</em> big（单数+is）。</p>
+          </div>
+        </div>
+        <div class="cornell-summary">
+          <h4>💡 总结区</h4>
+          <p>三大难点都指向「形式与语义匹配」：复数衣物 → 复数谓语；代词 → 短语中间；动名词 → enjoy/like 后。每日复习时让孩子口头翻译 3 个错例是最快巩固法。</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 笔记 4 · 考点汇总 -->
+    <details class="interactive-panel">
+      <summary>📌 笔记 4/7 · 考点速查表（含题号）</summary>
+      <div class="cornell-card">
+        <h3>🎯 10 大考点·配题号</h3>
+        <div class="cornell-grid">
+          <div class="cornell-cues">
+            <h4>🔑 线索栏</h4>
+            <ul>
+              <li>be+V-ing 在哪几题？</li>
+              <li>Do/Does 在哪几题？</li>
+              <li>祈使句在哪几题？</li>
+              <li>介词题号？</li>
+              <li>like + V-ing 集中在哪？</li>
+            </ul>
+          </div>
+          <div class="cornell-notes">
+            <h4>📝 主栏 · 10 考点串联</h4>
+            <p>① <strong>be+V-ing</strong>：Voc Ⅰ 题 1、3、7、12 · ② <strong>Do/Does</strong>：题 2、4、11 · ③ <strong>trousers/shorts 复数</strong>：题 3、6 · ④ <strong>this/these 衣物</strong>：题 8、13 · ⑤ <strong>祈使句动词原形</strong>：Story+Grammar 改错 10 题 · ⑥ <strong>代词位置</strong>：改错 5、6、10 · ⑦ <strong>Let's 后动词原形</strong>：改错 7 · ⑧ <strong>介词 in/on/at</strong>：Voc Ⅱ 题 1、9、10、16 · ⑨ <strong>like/enjoy+V-ing</strong>：Cross 题 1-10 + Literature 题 6-10 · ⑩ <strong>So do I / Me too</strong>：Voc Ⅱ 题 12。</p>
+            <p><strong>阅读三题型</strong>：① 指代题（they/she/it 回找上文）② 词义题（scary/tricked/ugly 据上下文）③ 主旨题（找核心话题）。</p>
+          </div>
+        </div>
+        <div class="cornell-summary">
+          <h4>💡 总结区</h4>
+          <p>10 大考点集中在 Vocabulary Ⅰ（衣物时态）+ Story+Grammar Ⅰ（祈使句改错）+ Cross+Literature（like+V-ing）三大板块。建议孩子按板块集中练习比打散练效果更好。</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 笔记 5 · 薄弱突破 -->
+    <details class="interactive-panel">
+      <summary>📌 笔记 5/7 · 薄弱环节突破策略</summary>
+      <div class="cornell-card">
+        <h3>🎯 5 个薄弱点·突破方法</h3>
+        <div class="cornell-grid">
+          <div class="cornell-cues">
+            <h4>🔑 线索栏</h4>
+            <ul>
+              <li>代词位置怎么练？</li>
+              <li>Do/Does 看哪个？</li>
+              <li>介词怎么记？</li>
+              <li>So do I 何时用？</li>
+              <li>每日复习量？</li>
+            </ul>
+          </div>
+          <div class="cornell-notes">
+            <h4>📝 主栏 · 5 大薄弱突破法</h4>
+            <p><strong>薄弱 1 · 祈使句代词位置</strong>：用「手指指代法」—— 食指指代 it/them，二指代复数，错位立即发现。练 6 题/天。</p>
+            <p><strong>薄弱 2 · Do/Does 选错</strong>：口诀「you/we/they 用 do，he/she/it 用 does，单三限定规则」+ 主谓一致 fallback。</p>
+            <p><strong>薄弱 3 · like/enjoy + V-ing</strong>：动词尾一律去 to 加 ing，10 题连练，错一句抄三遍。</p>
+            <p><strong>薄弱 4 · 介词 in/on/at</strong>：画图法—— in = 进容器，on = 接触面，at = 地点标记，next to = 相邻。</p>
+            <p><strong>薄弱 5 · So do I / Me too</strong>：对话练习—— 父母说 "I like swimming"，孩子接 "So do I"，双方交替 20 句。</p>
+          </div>
+        </div>
+        <div class="cornell-summary">
+          <h4>💡 总结区</h4>
+          <p>突破核心：每个薄弱点配一句口诀 + 6-10 题连练 + 父母对话操练。机械抄写不如场景对话有效。</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 笔记 6 · 总览贯通 -->
+    <details class="interactive-panel">
+      <summary>📌 笔记 6/7 · 三大场景·语法串联（总览贯通）</summary>
+      <div class="cornell-card">
+        <h3>🎯 场景 ↔ 语法对应</h3>
+        <div class="cornell-grid">
+          <div class="cornell-cues">
+            <h4>🔑 线索栏</h4>
+            <ul>
+              <li>购物场景用什么时态？</li>
+              <li>农场场景用什么句型？</li>
+              <li>海边场景用什么结构？</li>
+              <li>故事推理看哪？</li>
+            </ul>
+          </div>
+          <div class="cornell-notes">
+            <h4>📝 主栏 · 三场景对照</h4>
+            <p><strong>场景 1 · 家庭购物（Voc Ⅰ）</strong> → 现在进行时 is wearing + Do/Does 询问喜好。例：<em>Grandma is wearing a yellow T-shirt. Does she like it?</em></p>
+            <p><strong>场景 2 · 谷仓清洁（Story+Grammar Ⅰ）</strong> → 祈使句动词原形 + 代词位置。例：<em>"Pick up the hat and put it on the table!"</em></p>
+            <p><strong>场景 3 · 海岛度假（Voc Ⅱ + Cross+Lit）</strong> → like/enjoy + V-ing + So do I 回应 + 介词 in/on/at。例：<em>"I enjoy taking photos." — "Me too!"</em></p>
+            <p><strong>总脉络</strong>：家庭（衣服）→ 农场（动作）→ 海边（喜好）→ 故事（推理）= 四个生活场景一条线串起五语法。</p>
+          </div>
+        </div>
+        <div class="cornell-summary">
+          <h4>💡 总结区</h4>
+          <p>语法不是孤立的抽象规则，而是场景中的说话方式。把语法点嵌进孩子熟悉的家庭/农场/海边/故事场景，记忆时长翻倍。</p>
+        </div>
+      </div>
+    </details>
+
+    <!-- 笔记 7 · 单元核心句 -->
+    <details class="interactive-panel">
+      <summary>📌 笔记 7/7 · 单元核心句（Unit Core Sentence）</summary>
+      <div class="cornell-card">
+        <h3>🎯 本单元 12 句灵魂句</h3>
+        <div class="cornell-grid">
+          <div class="cornell-cues">
+            <h4>🔑 线索栏</h4>
+            <ul>
+              <li>购物高频句？</li>
+              <li>农场祈使？</li>
+              <li>海边爱好？</li>
+              <li>故事结尾？</li>
+            </ul>
+          </div>
+          <div class="cornell-notes">
+            <h4>📝 主栏 · 12 句灵魂句（含例）</h4>
+            <p><strong>购物 4 句</strong>：</p>
+            <p>① <em>"What is Grandpa wearing?" — "He is wearing green boots!"</em><br>② <em>"Does Jenny like the pink dress?" — "No, she doesn't like pink."</em><br>③ <em>"How are my shoes?" — "They are very orange."</em><br>④ <em>"These jeans are small for you."</em></p>
+            <p><strong>农场 4 句</strong>：</p>
+            <p>⑤ <em>"Shelly, pick up the hat and put it on the table!"</em><br>⑥ <em>"Clean the dirty table and your face, please!"</em><br>⑦ <em>"Don't eat oranges on the floor!"</em><br>⑧ <em>"Let's go and play in the barn!"</em></p>
+            <p><strong>海边 4 句</strong>：</p>
+            <p>⑨ <em>"I like swimming in the sea." — "So do I."</em><br>⑩ <em>"I enjoy taking photos." — "Me too!"</em><br>⑪ <em>"My sister enjoys taking photos of jellyfish in the sea."</em><br>⑫ <em>"Please don't touch the jellyfish. They are dangerous!"</em></p>
+          </div>
+        </div>
+        <div class="cornell-summary">
+          <h4>💡 总结区</h4>
+          <p>12 句灵魂句 = 12 个真实对话场景，覆盖全部 5 大语法点。每日朗读 5 句并自演对话，7 天必熟。</p>
+        </div>
+      </div>
+    </details>
+  </section>
+
+  <!-- ===== 第 9 章 每日打卡表 ===== -->
+  <section id="ch9">
+    <h2>九、7 天每日打卡表</h2>
+    <p>🆕 v3.14 康奈尔笔记开启后，🧠 任务轨每日追加「复习昨天 2 张康奈尔笔记·遮住主栏看线索栏回忆（3-5 分钟）」。</p>
+    <table>
+      <thead><tr><th width="6%">天</th><th width="14%">日期</th><th width="18%">📚 词汇任务（10 min）</th><th width="20%">⚙️ 语法任务（10 min）</th><th width="20%">🧠 思维拓展（含康奈尔·10 min）</th><th width="14%">⏱ 时长</th><th width="8%">✓</th></tr></thead>
+      <tbody>
+        <tr><td>D1</td><td>7.26</td><td>Vocabulary Ⅰ 衣物 15 词 · 朗读 3 遍 · 抄写 1 遍</td><td>现在进行时 be + V-ing 公式 + 4 句型互转</td><td>对照思维导图找各板块归属 + 卡片①·思维导图笔记</td><td>30 min</td><td>☐</td></tr>
+        <tr><td>D2</td><td>7.27</td><td>Vocabulary Ⅱ 海滩 10 词 + 介词短语 in/on/at</td><td>Do/Does 助动词疑问句 · likes 与 doesn't like</td><td>卡片②·核心语法笔记 + 朗读 12 句灵魂句 1-4</td><td>30 min</td><td>☐</td></tr>
+        <tr><td>D3</td><td>7.28</td><td>Story+Grammar Ⅰ 农场动作 6 词 · 高频短语 pick up / put / clean</td><td>祈使句动词原形 + 否定 Don't + Let's</td><td>卡片③·难点易错笔记 + 复习 D1+D2 卡片+朗读 5-8</td><td>30 min</td><td>☐</td></tr>
+        <tr><td>D4</td><td>7.29</td><td>Cross-Curricular 海岛地貌 10 词 · 词义配对</td><td>enjoy + V-ing · like + V-ing 综合辨析</td><td>卡片④·考点笔记 + 复习 D3 卡片+朗读 9-12</td><td>30 min</td><td>☐</td></tr>
+        <tr><td>D5</td><td>7.30</td><td>Literature 动词短语 15 个（jump off/swim/climb）</td><td>So do I vs Me too · 否定祈使句 Don't + V原</td><td>卡片⑤·薄弱突破笔记 + 复习 D4 卡片+专练代词位置 6 题</td><td>30 min</td><td>☐</td></tr>
+        <tr><td>D6</td><td>7.31</td><td>全套词汇总复习 · 默写 13+10+10+10 = 43 词</td><td>3 大语法口诀复习 · 5 大易错点排查</td><td>卡片⑥·总览贯通笔记 + 模拟卷计时练习（40 min）</td><td>30 min</td><td>☐</td></tr>
+        <tr><td>D7</td><td>8.01</td><td colspan="2">错题清零 · 重做综合模拟卷错题</td><td>卡片⑦·单元核心句笔记 + 自测表 + 总结</td><td>30 min</td><td>☐</td></tr>
+      </tbody>
+    </table>
+    <div class="callout idea">
+      <strong>💡 每日流程建议</strong>：① 词汇先朗读再抄写（10 min） ② 语法口诀+4 题专练（10 min） ③ 🧠 思维拓展含康奈尔回忆（10 min，最后 3-5 min 必做「遮住主栏·看线索栏回忆」环节）。
+    </div>
+  </section>
+
+  <!-- ===== 第 10 章 基础练习 1 ===== -->
+  <section id="ch10">
+    <h2>十、基础练习 1（衣物词汇·Vocabulary Ⅰ）</h2>
+    <p><strong>难度：⭐⭐</strong> · 共 12 题 · 考查衣物名词识别与主谓一致。</p>
+
+    <h3>第 1 部分 · 单选题（8 题）</h3>
+    <ol>
+      <li>The ______ are ugly. (A. shorts B. boots C. skirt D. shoes)<br><strong>答案：A</strong> · shorts 是复数名词，谓语 are；裙子/靴子/鞋均为单数搭配 the 即可但需视空后谓语。</li>
+      <li>The ______ are very nice! (A. sunglasses B. boots C. trousers D. shoes 单数)<br><strong>答案：A</strong> · sunglasses 为复数，谓语 are。</li>
+      <li>Grandpa ______ green boots now. (A. wear B. wears C. is wearing D. are wearing)<br><strong>答案：C</strong> · now 时间标志 → 现在进行时 is wearing。</li>
+      <li>Jenny ______ a blue skirt now. (A. wears B. is wearing C. wear D. are wearing)<br><strong>答案：B</strong> · Jenny 第三人称单数 + now → is wearing。</li>
+      <li>Grandpa's shirt is very ______. (A. ugly B. big C. colourful D. small)<br><strong>答案：C</strong> · colourful「色彩鲜艳的」直接对应文意。</li>
+      <li>How are my shoes? — ______ are very orange. (A. It B. He C. She D. They)<br><strong>答案：D</strong> · shoes 复数 → They。</li>
+      <li>"______ jeans are small for you." (A. This B. That C. These D. They)<br><strong>答案：C</strong> · jeans 复数 → These。</li>
+      <li>My blue ______ is on the chair. (A. shirts B. trousers C. shoes 单数)<br><strong>答案：B</strong> · trousers 是复数，但 is 用于作主语的整个衣物短语。</li>
+    </ol>
+
+    <h3>第 2 部分 · 翻译题（4 题）</h3>
+    <ol start="9">
+      <li>中译英：她今天戴着一顶黄帽子。<br><strong>She is wearing a yellow hat today.</strong></li>
+      <li>中译英：这件 T 恤太大了。<br><strong>This T-shirt is too big.</strong></li>
+      <li>中译英：粉色棒球帽。<br><strong>The pink baseball cap.</strong></li>
+      <li>中译英：橙色的短裤很丑。<br><strong>The orange shorts are ugly.</strong></li>
+    </ol>
+
+    <details class="interactive-panel">
+      <summary>✅ 基础练习 1 · 答案速查</summary>
+      <ol>
+        <li>A · 2. A · 3. C · 4. B · 5. C · 6. D · 7. C · 8. B · 9. She is wearing a yellow hat today. · 10. This T-shirt is too big. · 11. The pink baseball cap. · 12. The orange shorts are ugly.</li>
+      </ol>
+    </details>
+  </section>
+
+  <!-- ===== 第 11 章 基础练习 2 ===== -->
+  <section id="ch11">
+    <h2>十一、基础练习 2（海滩词汇·Vocabulary Ⅱ）</h2>
+    <p><strong>难度：⭐⭐</strong> · 共 12 题 · 考查海滩名词 + 介词 in/on/at/next to。</p>
+
+    <h3>第 1 部分 · 单选题（10 题）</h3>
+    <ol>
+      <li>We are ______ the beach now. (A. in B. on C. at D. under)<br><strong>答案：C</strong> · at the beach = 在海滩（地点）。</li>
+      <li>The big ______ is blue and beautiful. (A. beach B. sea C. sand D. sun)<br><strong>答案：B</strong> · sea 是蓝色的。</li>
+      <li>The ______ is shining brightly. (A. beach B. sea C. sand D. sun)<br><strong>答案：D</strong> · sun「太阳」shining「照耀」。</li>
+      <li>The umbrella is ______ the beach chair. (A. in B. on C. next to D. under)<br><strong>答案：C</strong> · next to「紧邻」。</li>
+      <li>They are playing ______ the sun at the beach. (A. in B. on C. at D. under)<br><strong>答案：A</strong> · in the sun「在阳光下」。</li>
+      <li>My father is ______ by the sea. (A. fish B. fishes C. fishing D. fished)<br><strong>答案：C</strong> · 现在进行时 is + fishing「正在钓鱼」。</li>
+      <li>She is sitting on a ______ and relaxing. (A. beach B. boat C. shell D. sun)<br><strong>答案：B</strong> · on a boat「在小船上」。</li>
+      <li>There ______ a lot of people at the beach today. (A. is B. are C. be D. am)<br><strong>答案：B</strong> · people 复数 → are。</li>
+      <li>There are many ______ in the sea. (A. fish B. boat C. shell D. jellyfish)<br><strong>答案：A</strong> · fish 单复同形，此处 many 修饰 → fish（复数）。</li>
+      <li>— Do you like playing at the beach? — ______. (A. Yes, I am B. Yes, I do C. No, I can't D. No, I'm not)<br><strong>答案：B</strong> · Do 提问 → Yes, I do / No, I don't。</li>
+    </ol>
+
+    <h3>第 2 部分 · 翻译题（2 题）</h3>
+    <ol start="11">
+      <li>中译英：我父亲在海里钓鱼。<br><strong>My father is fishing in the sea.</strong></li>
+      <li>中译英：紧邻大海有一个美丽的海滩。<br><strong>There is a beautiful beach next to the sea.</strong></li>
+    </ol>
+
+    <details class="interactive-panel">
+      <summary>✅ 基础练习 2 · 答案速查</summary>
+      <ol>
+        <li>C · 2. B · 3. D · 4. C · 5. A · 6. C · 7. B · 8. B · 9. A · 10. B · 11. My father is fishing in the sea. · 12. There is a beautiful beach next to the sea.</li>
+      </ol>
+    </details>
+  </section>
+
+  <!-- ===== 第 12 章 提高练习 1 ===== -->
+  <section id="ch12">
+    <h2>十二、提高练习 1（现在进行时·is wearing + Do/Does）</h2>
+    <p><strong>难度：⭐⭐⭐</strong> · 共 10 题 · 考查现在进行时与助动词综合。</p>
+
+    <ol>
+      <li>Grandpa ______ green boots now. (A. wear B. wears C. is wearing D. are wearing)<br><strong>答案：C</strong></li>
+      <li>______ Jenny like the pink dress? (A. Do B. Does C. Is D. Are)<br><strong>答案：B</strong></li>
+      <li>Jenny ______ pink because it isn't her favourite colour. (A. like B. likes C. don't like D. doesn't like)<br><strong>答案：D</strong></li>
+      <li>Grandma asks: "______ you want them?" (A. Do B. Does C. Are D. Is)<br><strong>答案：A</strong></li>
+      <li>Grandpa says: "I ______ my shirt!" (A. am liking B. likes C. like D. is liking)<br><strong>答案：C</strong> · like 是状态动词，不用进行时；I 后接动词原形。</li>
+      <li>Jim says: "This ______ my old T-shirt!" (A. am B. is C. are D. be)<br><strong>答案：B</strong> · This 单数 → is。</li>
+      <li>Jenny ______ a blue skirt now. (A. wears B. is wearing C. wear D. are wearing)<br><strong>答案：B</strong></li>
+      <li>— How are my shoes? — ______ are very orange. (A. It B. He C. She D. They)<br><strong>答案：D</strong></li>
+      <li>______ Grandma like the yellow T-shirt? (A. Do B. Does C. Is D. Are)<br><strong>答案：B</strong></li>
+      <li>"______ jeans are small for you." (A. This B. That C. These D. They)<br><strong>答案：C</strong></li>
+    </ol>
+
+    <details class="interactive-panel">
+      <summary>✅ 提高练习 1 · 答案速查</summary>
+      <ol>
+        <li>C · 2. B · 3. D · 4. A · 5. C · 6. B · 7. B · 8. D · 9. B · 10. C</li>
+      </ol>
+      <p><strong>错题诊断</strong>：题 5 最易错——like 是状态动词，不能 am liking。题 3 的 doesn't like 是第三人称单数否定缩写。</p>
+    </details>
+  </section>
+
+  <!-- ===== 第 13 章 提高练习 2 ===== -->
+  <section id="ch13">
+    <h2>十三、提高练习 2（like/enjoy + V-ing）</h2>
+    <p><strong>难度：⭐⭐⭐</strong> · 共 10 题 · 考查 like/enjoy doing + So do I / Me too。</p>
+
+    <ol>
+      <li>I ______ flying kites at the beach. (A. like B. likes C. liking D. to like)<br><strong>答案：A</strong></li>
+      <li>My sister ______ taking photos of flowers. (A. enjoy B. enjoys C. enjoying D. to enjoy)<br><strong>答案：B</strong></li>
+      <li>We ______ climbing mountains on holiday. (A. like B. likes C. to like D. liking)<br><strong>答案：A</strong></li>
+      <li>Please don't ______ the jellyfish in the sea. They are dangerous! (A. touches B. touch C. touching D. touched)<br><strong>答案：B</strong> · 否定祈使句 Don't + 动词原形。</li>
+      <li>They enjoy ______ in the forest. (A. walk B. walking C. to walk D. walks)<br><strong>答案：B</strong></li>
+      <li>"______ the rocks near the river," the teacher told us. (A. Studying B. Study C. Studies D. To study)<br><strong>答案：B</strong> · 祈使句以动词原形开头。</li>
+      <li>I like ______ frogs by the river. They are funny! (A. seeing B. see C. to seeing D. saw)<br><strong>答案：A</strong> · like + V-ing 动名词。</li>
+      <li>______ a postcard to your friend about the holiday! (A. Writing B. Write C. Writes D. To write)<br><strong>答案：B</strong> · 祈使句以动词原形开头。</li>
+      <li>The monkey ______ eating delicious coconuts. (A. to like B. likes C. liking D. like)<br><strong>答案：B</strong> · 第三人称单数 likes + V-ing。</li>
+      <li>— I enjoy fishing. — ______. (A. So do I B. Me too C. I too D. So I do)<br><strong>答案：B</strong> · 享受类 enjoy 回应多用 Me too；也接受 So do I。</li>
+    </ol>
+
+    <details class="interactive-panel">
+      <summary>✅ 提高练习 2 · 答案速查</summary>
+      <ol>
+        <li>A · 2. B · 3. A · 4. B · 5. B · 6. B · 7. A · 8. B · 9. B · 10. B（也接受 A）</li>
+      </ol>
+      <p><strong>错题诊断</strong>：题 5 选 to walk ❌ → enjoy + doing ✓。题 8 选 To write ❌ → 祈使句动词原形开头。</p>
+    </details>
+  </section>
+
+  <!-- ===== 第 14 章 拓展练习 ===== -->
+  <section id="ch14">
+    <h2>十四、拓展练习（祈使句与高频短语）</h2>
+    <p><strong>难度：⭐⭐⭐</strong> · 共 10 题 · 考查祈使句动词原形 + 代词位置 + Let's。</p>
+
+    <ol>
+      <li>"______ the barn! It's big!" (A. Look at B. Looking at C. Looks at D. Looked at)<br><strong>答案：A</strong></li>
+      <li>"______ your pencils, please." (A. Picks up B. Pick up C. Picking up D. Picked up)<br><strong>答案：B</strong></li>
+      <li>"______ the dirty table, Gracie." (A. Clean B. Cleans C. Cleaning D. Cleaned)<br><strong>答案：A</strong></li>
+      <li>"______ the red hat on the table." (A. Put B. Puts C. Putting D. Putted)<br><strong>答案：A</strong></li>
+      <li>"Don't ______ oranges on the floor!" (A. eat B. eats C. eating D. ate)<br><strong>答案：A</strong> · Don't + 动词原形。</li>
+      <li>"______ to Grandpa's hat!" (A. Point B. Points C. Pointing D. Pointed)<br><strong>答案：A</strong></li>
+      <li>"______ play in the barn!" (A. Let B. Let's C. Lets D. Let us to)<br><strong>答案：B</strong> · Let's = Let us，后接动词原形。</li>
+      <li>"______ your face. It's dirty!" (A. Clean B. Cleans C. Cleaned D. Cleaning)<br><strong>答案：A</strong></li>
+      <li>"______ the clothes, Shelly!" (A. Pick up B. Picks up C. Picking up D. Picked up)<br><strong>答案：A</strong></li>
+      <li>"Don't ______ on the table!" (A. jumped B. jumps C. jumping D. jump)<br><strong>答案：D</strong> · Don't + 动词原形 jump。</li>
+    </ol>
+
+    <details class="interactive-panel">
+      <summary>✅ 拓展练习 · 答案速查</summary>
+      <ol>
+        <li>A · 2. B · 3. A · 4. A · 5. A · 6. A · 7. B · 8. A · 9. A · 10. D</li>
+      </ol>
+      <p><strong>错题诊断</strong>：题 7 选 Let ❌ 或 Let us to ❌ → 唯一正确是 Let's（= Let us 缩写，后接动词原形）。题 5 与题 10 是「否定祈使句 Don't + V原」最强考点。</p>
+    </details>
+  </section>
+
+  <!-- ===== 第 15 章 综合模拟卷 ===== -->
+  <section id="ch15">
+    <h2>十五、综合模拟卷</h2>
+    <p><strong>难度：⭐⭐⭐</strong> · 共 20 题 · 难度结构 721（基础 70% · 中等 20% · 难题 10%）。建议 40 分钟内完成。</p>
+
+    <h3>Part A · 词汇与介词（10 题 · 基础）</h3>
+    <ol>
+      <li>My mother is wearing a red ______ today. (A. shirt B. shirts C. trouser D. sunglasses)<br><strong>答案：A</strong></li>
+      <li>The ______ cap is pink. (A. baseball B. footbal C. basketbal D. swim)<br><strong>答案：A</strong> · baseball cap 固定短语。</li>
+      <li>I like playing ______ the sand. (A. in B. on C. at D. under)<br><strong>答案：B</strong></li>
+      <li>— Let's go ______ in the sea! — Great! (A. fish B. fishing C. fished D. fishes)<br><strong>答案：B</strong> · go fishing「去钓鱼」固定搭配。</li>
+      <li>There are many ______ on the beach. (A. shell B. a shell C. shells D. shel)<br><strong>答案：C</strong> · many + 复数名词 shells。</li>
+      <li>______ you like collecting shells? (A. Do B. Does C. Are D. Is)<br><strong>答案：A</strong></li>
+      <li>Grandma ______ like pink. She likes blue. (A. don't B. doesn't C. isn't D. aren't)<br><strong>答案：B</strong> · Grandma 第三人称单数否定 → doesn't。</li>
+      <li>The children are ______ in the sea. (A. swim B. swims C. swimming D. to swim)<br><strong>答案：C</strong> · are + swimming 现在进行时。</li>
+      <li>Look at the ______! It's very high. (A. waterfall B. sand C. beach D. boat)<br><strong>答案：A</strong> · waterfall「瀑布」对应 high。</li>
+      <li>My dad enjoys ______ mountains on holiday. (A. climb B. climbs C. climbing D. to climb)<br><strong>答案：C</strong> · enjoy + V-ing。</li>
+    </ol>
+
+    <h3>Part B · 句型与代词（6 题 · 中等）</h3>
+    <ol start="11">
+      <li>Pick up the hat! — Pick ______ up, Shelly. (A. it B. them C. they D. their)<br><strong>答案：A</strong></li>
+      <li>Point to Sally! — Point to ______, please. (A. she B. her C. hers D. they're)<br><strong>答案：B</strong></li>
+      <li>— I enjoy taking photos. — ______. (A. So do I B. Me too C. I too D. So am I)<br><strong>答案：B</strong>（也接受 A）</li>
+      <li>"Let's ______ in the barn!" shouts Jim. (A. plays B. play C. playing D. to play)<br><strong>答案：B</strong> · Let's + 动词原形。</li>
+      <li>"Don't ______ on the table!" (A. jump B. jumps C. jumping D. jumped)<br><strong>答案：A</strong></li>
+      <li>"______ your oranges now, Gracie!" (A. Eat B. Eats C. Eating D. Ate)<br><strong>答案：A</strong> · 祈使句动词原形开头。</li>
+    </ol>
+
+    <h3>Part C · 阅读理解（4 题 · 难题）</h3>
+    <p style="color:#6b7280;">短文：Last summer, my family went to Hawaii. We stayed near a black sand beach. The sand was black because there was a volcano on the island. My sister loved taking photos of colourful fish and jellyfish in the sea. We walked through a green forest to see a tall waterfall. My dad climbed a small mountain and saw the whole island.</p>
+    <ol start="17">
+      <li>Why is the sand black? (A. It's dirty. B. There is a volcano. C. It's near the forest. D. The water is blue.)<br><strong>答案：B</strong></li>
+      <li>What does "colourful" mean? (A. 灰白的 B. 彩色的 C. 透明的 D. 暗淡的)<br><strong>答案：B</strong></li>
+      <li>What did the father climb? (A. A waterfall B. A mountain C. A volcano D. A forest)<br><strong>答案：B</strong></li>
+      <li>What can we infer? (A. They didn't enjoy the holiday. B. They saw the whole island from the mountain. C. The sand is white. D. They didn't take photos.)<br><strong>答案：B</strong></li>
+    </ol>
+
+    <details class="interactive-panel">
+      <summary>✅ 综合模拟卷 · 答案速查与简评</summary>
+      <ol>
+        <li>A · 2. A · 3. B · 4. B · 5. C · 6. A · 7. B · 8. C · 9. A · 10. C · 11. A · 12. B · 13. B · 14. B · 15. A · 16. A · 17. B · 18. B · 19. B · 20. B</li>
+      </ol>
+      <p><strong>得分对照</strong>：18-20 题优秀 / 14-17 题良好 / 10-13 题合格 / &lt;10 题需 D1-D3 词汇与语法口诀回炉。</p>
+    </details>
+  </section>
+
+  <!-- ===== 第 16 章 错题清零 ===== -->
+  <section id="ch16">
+    <h2>十六、错题清零专卷</h2>
+    <p>本卷由孩子重做错题，红色题号标记错题后归档。</p>
+
+    <h3>📋 错题清零模板（建议打印）</h3>
+    <table>
+      <thead><tr><th width="8%">题号</th><th width="22%">错题内容</th><th width="20%">孩子答案</th><th width="20%">正确答案</th><th width="20%">考点归因</th><th width="10%">✓ 再做</th></tr></thead>
+      <tbody>
+        <tr><td>例 5</td><td>Grandpa says: "I ______ my shirt!"</td><td>A. am liking</td><td>C. like</td><td>like 是状态动词 · 不用进行时</td><td>☐</td></tr>
+        <tr><td>例 7</td><td>"______ play in the barn!"</td><td>A. Let</td><td>B. Let's</td><td>Let's = Let us 缩写 · 后接动词原形</td><td>☐</td></tr>
+        <tr><td>例 11</td><td>Pick up the hat! — Pick ______ up</td><td>A. the hat</td><td>B. it</td><td>代词必须放短语中间</td><td>☐</td></tr>
+        <tr><td>例 12</td><td>Point to Shelly! — Point to ______</td><td>A. she</td><td>B. her</td><td>人称代词宾格 she → her</td><td>☐</td></tr>
+        <tr><td>例 13</td><td>Jim says: "This ______ my old T-shirt!"</td><td>A. am</td><td>B. is</td><td>This 单数 → is</td><td>☐</td></tr>
+        <tr><td>_____</td><td>________________</td><td>____</td><td>____</td><td>________________</td><td>☐</td></tr>
+        <tr><td>_____</td><td>________________</td><td>____</td><td>____</td><td>________________</td><td>☐</td></tr>
+        <tr><td>_____</td><td>________________</td><td>____</td><td>____</td><td>________________</td><td>☐</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout idea">
+      <strong>💡 错题归因三大类</strong>：① 语法规则不会（如 like 进行时）；② 词汇不认识（如 baseball cap）；③ 粗心（如代词位置）。每周 D7 复盘归类，重复 3 次以上的归①类，需重读双步讲解卡。
+    </div>
+  </section>
+
+  <!-- ===== 第 17 章 复习效果自测表 ===== -->
+  <section id="ch17">
+    <h2>十七、复习效果自测表</h2>
+    <p>孩子在 D7 自评，每项 1-5 分；≥4 分过关，&lt;3 分回炉。</p>
+    <table>
+      <thead><tr><th width="8%">编号</th><th width="40%">自评项</th><th width="40%">评判标准</th><th width="12%">得分（1-5）</th></tr></thead>
+      <tbody>
+        <tr><td>①</td><td>衣物 13 词默写</td><td>能正确拼出 trousers / sunglasses / baseball cap 等</td><td>_____</td></tr>
+        <tr><td>②</td><td>海滩 10 词 + 介词短语</td><td>in the sun / on the sand / next to the sea 等 10 个短语</td><td>_____</td></tr>
+        <tr><td>③</td><td>海岛地貌 10 词</td><td>waterfall / forest / mountain / volcano / lizards 等</td><td>_____</td></tr>
+        <tr><td>④</td><td>现在进行时 be+V-ing</td><td>4 句型互转不出错（肯定·否定·一般疑问·特殊疑问）</td><td>_____</td></tr>
+        <tr><td>⑤</td><td>Do/Does 助动词</td><td>能根据主语快速选 Do / Does</td><td>_____</td></tr>
+        <tr><td>⑥</td><td>祈使句动词原形</td><td>clean / pick up / put / look at 等原形开头</td><td>_____</td></tr>
+        <tr><td>⑦</td><td>代词位置（短语动词）</td><td>Pick it up / Look at them 等代词放中间</td><td>_____</td></tr>
+        <tr><td>⑧</td><td>like/enjoy + V-ing</td><td>第三人称 likes + 否定 doesn't like</td><td>_____</td></tr>
+        <tr><td>⑨</td><td>So do I / Me too</td><td>能在对话中正确回应</td><td>_____</td></tr>
+        <tr><td>⑩</td><td>阅读理解（4/5 题正确）</td><td>细节·指代·词义·主旨·推断五题型</td><td>_____</td></tr>
+      </tbody>
+    </table>
+    <div class="callout success">
+      <strong>🎯 自评得分判断</strong>：总分 ≥40 优秀 · 30-39 良好 · 20-29 合格（需错题清零）· &lt;20 重读卡片②+卡片⑤（语法+薄弱突破）。
+    </div>
+  </section>
+
+  <!-- ===== 第 18 章 小贴士+归属 ===== -->
+  <section id="ch18">
+    <h2>十八、学习小贴士 + 归属权声明</h2>
+
+    <h3>💡 7 个学习小贴士</h3>
+    <ol>
+      <li><strong>「穿着」看到就练</strong>：每天早晨让孩子说出家人正在穿什么（Grandpa is wearing...）。</li>
+      <li><strong>「指代放中间」口诀</strong>：幼儿易忘，每错一次父母高声念「代词·中间·代词·中间」3 遍。</li>
+      <li><strong>海滩互动游戏</strong>：父母说 "I like swimming in the sea."，孩子接 "So do I." —— 持续 10 句。</li>
+      <li><strong>祈使句家庭指令</strong>：把家里打扫日改成 "Clean the table! Pick up the toys!" 的英语命令日。</li>
+      <li><strong>衣物贴标签</strong>：在衣柜上贴 sunglasses / trousers 等单词贴纸，换衣时指读。</li>
+      <li><strong>康奈尔笔记遮主栏</strong>：D6-D7 用卡片「线索栏」回忆「主栏」内容，3-5 分钟/次效果远超单纯抄写。</li>
+      <li><strong>故事复述三步法</strong>：听完 Literature 故事后，让孩子 ①讲出 who ②讲出 what happened ③讲出 why。</li>
+    </ol>
+
+    <h3>📌 K17 v3.14 后续衔接提示</h3>
+    <div class="callout extend">
+      <ul>
+        <li><strong>Unit 10 预告（暂未覆盖）</strong>：天气与月份（Weather &amp; Months）—— 现在进行时继续 + How's the weather?</li>
+        <li><strong>PU1 → PU2 衔接（暑假后）</strong>：进入剑桥 A1 起步级，可考虑 9 月开 PU2 Starter。</li>
+        <li><strong>英语长线出口</strong>：当前配置「走校内」未激活雅思长线；如需调整另行说明。</li>
+      </ul>
+    </div>
+
+    <div class="ownership">
+      <h3>📜 文档归属权声明</h3>
+      <p><strong>本复习包（含所有内联 SVG 思维导图、康奈尔笔记卡、练习题、答案、自测表）之全部内容归属权最终归用户本人所有</strong>。</p>
+      <ul>
+        <li>✅ 可自由打印 / 修改 / 分享 / 用于自家孩子复习</li>
+        <li>✅ 可删除 / 重排 / 增补章节</li>
+        <li>❌ 严禁商业倒卖 / 包装贴牌</li>
+        <li>❌ 严禁冒名顶替作者</li>
+      </ul>
+      <p style="margin-top:10px;">📌 K17AI 学习顾问 · v3.14 · 2026-07-26 · 由 Claude 协助生成，所有内容已基于剑桥 Power Up 1 Second Edition 第二版（PU1 2E）核验，核验来源：Power Up 1 2E + 教参 + 语法书。</p>
+    </div>
+
+    <footer>
+      <p>📚 PU1 Unit 9 · Clothes &amp; Holiday Fun · K17 v3.14 · 2026-07-26 · 文档归属：用户本人</p>
+    </footer>
+  </section>
+
+</div>
+</body>
+</html>
