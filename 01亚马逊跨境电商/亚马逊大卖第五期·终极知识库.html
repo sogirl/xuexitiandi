@@ -1,0 +1,4639 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes">
+<meta name="format-detection" content="telephone=no">
+<title>亚马逊大卖第五期·终极知识库（小白→精通高手）</title>
+<style>
+/* ========== 全局浅色系样式 ========== */
+*{margin:0;padding:0;box-sizing:border-box}
+html{font-size:16px;-webkit-text-size-adjust:100%;-webkit-tap-highlight-color:transparent}
+body{
+  font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Helvetica Neue",Helvetica,Arial,sans-serif;
+  line-height:1.75;color:#1f2937;
+  background:linear-gradient(135deg,#f5f7fa 0%,#e9eef5 100%);
+  min-height:100vh;
+  padding-bottom:60px;
+  word-wrap:break-word;
+  overflow-wrap:break-word;
+}
+:root{
+  --primary:#2563eb;
+  --primary-light:#dbeafe;
+  --primary-dark:#1e40af;
+  --accent:#ea580c;
+  --accent-light:#fed7aa;
+  --success:#059669;
+  --success-light:#d1fae5;
+  --warning:#d97706;
+  --warning-light:#fef3c7;
+  --bg-card:#ffffff;
+  --bg-soft:#f8fafc;
+  --border:#e5e7eb;
+  --text:#1f2937;
+  --text-light:#6b7280;
+  --text-soft:#9ca3af;
+  --shadow:0 1px 3px rgba(0,0,0,.05),0 1px 2px rgba(0,0,0,.06);
+  --shadow-lg:0 10px 25px rgba(0,0,0,.08),0 4px 10px rgba(0,0,0,.04);
+}
+
+/* ========== 顶部导航 ========== */
+.top-nav{
+  position:sticky;top:0;z-index:100;
+  background:rgba(255,255,255,.95);
+  backdrop-filter:blur(10px);
+  -webkit-backdrop-filter:blur(10px);
+  border-bottom:1px solid var(--border);
+  box-shadow:var(--shadow);
+  padding:10px 0;
+}
+.top-nav-inner{
+  max-width:1200px;margin:0 auto;padding:0 16px;
+  display:flex;align-items:center;gap:12px;flex-wrap:wrap;
+}
+.brand{
+  font-size:1.1rem;font-weight:700;color:var(--primary);
+  display:flex;align-items:center;gap:6px;
+}
+.brand::before{content:"🧙🏾‍♂️";font-size:1.4rem}
+.nav-toggle{
+  display:none;
+  background:var(--primary-light);border:none;
+  padding:6px 12px;border-radius:6px;
+  color:var(--primary);font-weight:600;cursor:pointer;
+  font-size:.9rem;
+}
+.nav-links{
+  display:flex;gap:6px;flex-wrap:wrap;flex:1;
+}
+.nav-links a{
+  text-decoration:none;color:var(--text);
+  padding:6px 12px;border-radius:6px;font-size:.85rem;
+  transition:all .2s;
+  white-space:nowrap;
+}
+.nav-links a:hover,.nav-links a.active{
+  background:var(--primary-light);color:var(--primary);
+}
+@media (max-width:768px){
+  .nav-toggle{display:block}
+  .nav-links{display:none;width:100%;margin-top:10px}
+  .nav-links.open{display:flex}
+}
+
+/* ========== 主容器 ========== */
+.container{max-width:1200px;margin:0 auto;padding:16px}
+.hero{
+  background:linear-gradient(135deg,#ffffff 0%,#f0f9ff 100%);
+  border-radius:16px;padding:32px 24px;
+  margin-bottom:24px;box-shadow:var(--shadow);
+  border:1px solid var(--border);
+}
+.hero h1{
+  font-size:1.8rem;color:var(--primary-dark);
+  margin-bottom:8px;line-height:1.3;
+}
+.hero .sub{color:var(--text-light);font-size:.95rem;margin-bottom:12px}
+.hero .meta{
+  display:flex;flex-wrap:wrap;gap:12px;
+  font-size:.8rem;color:var(--text-light);
+}
+.hero .meta span{
+  background:var(--bg-soft);padding:4px 10px;border-radius:6px;
+}
+.hero-quote{
+  margin-top:16px;padding:14px 18px;
+  background:var(--accent-light);border-left:4px solid var(--accent);
+  border-radius:0 8px 8px 0;
+  font-style:italic;color:#7c2d12;font-size:.95rem;
+}
+
+/* ========== 章节卡片 ========== */
+.chapter{
+  background:var(--bg-card);
+  border-radius:14px;margin-bottom:24px;
+  box-shadow:var(--shadow);
+  border:1px solid var(--border);
+  overflow:hidden;
+}
+.chapter-header{
+  padding:20px 24px;
+  background:linear-gradient(90deg,var(--primary-light) 0%,transparent 100%);
+  border-bottom:2px solid var(--primary);
+}
+.chapter-num{
+  display:inline-block;
+  background:var(--primary);color:#fff;
+  padding:3px 10px;border-radius:6px;
+  font-size:.8rem;font-weight:600;margin-bottom:6px;
+}
+.chapter-title{
+  font-size:1.5rem;color:var(--primary-dark);
+  font-weight:700;line-height:1.3;
+}
+.chapter-sub{
+  color:var(--text-light);font-size:.9rem;margin-top:4px;
+}
+.chapter-body{padding:20px 24px}
+
+/* ========== 板块 ========== */
+.section{margin-bottom:24px}
+.section-title{
+  font-size:1.15rem;font-weight:700;
+  color:var(--primary-dark);
+  margin-bottom:12px;
+  padding-left:10px;
+  border-left:4px solid var(--primary);
+}
+.section h4{
+  font-size:1rem;color:var(--text);
+  margin:14px 0 8px 0;font-weight:600;
+}
+.section h5{
+  font-size:.95rem;color:var(--text);
+  margin:10px 0 6px 0;font-weight:600;
+}
+.section p{margin-bottom:8px}
+.section ul,.section ol{padding-left:22px;margin-bottom:10px}
+.section li{margin-bottom:4px}
+.section strong{color:var(--primary-dark);font-weight:600}
+
+/* ========== 表格 ========== */
+.tbl-wrap{overflow-x:auto;margin:12px 0;border-radius:8px;border:1px solid var(--border)}
+table{
+  width:100%;border-collapse:collapse;
+  font-size:.88rem;background:#fff;
+}
+th{
+  background:var(--primary-light);color:var(--primary-dark);
+  padding:10px;text-align:left;font-weight:600;
+  border-bottom:1px solid var(--border);
+}
+td{
+  padding:10px;border-bottom:1px solid var(--border);
+  vertical-align:top;
+}
+tr:nth-child(even){background:var(--bg-soft)}
+tr:last-child td{border-bottom:none}
+
+/* ========== 高亮框 ========== */
+.callout{
+  margin:12px 0;padding:14px 16px;
+  border-radius:8px;border-left:4px solid;
+  background:var(--bg-soft);
+}
+.callout.gold{border-color:var(--accent);background:var(--accent-light)}
+.callout.info{border-color:var(--primary);background:var(--primary-light)}
+.callout.success{border-color:var(--success);background:var(--success-light)}
+.callout.warn{border-color:var(--warning);background:var(--warning-light)}
+.callout strong{display:block;margin-bottom:4px}
+.callout p:last-child{margin-bottom:0}
+
+/* ========== 金句卡 ========== */
+.quote-card{
+  background:linear-gradient(135deg,#fff7ed 0%,#fef3c7 100%);
+  border:1px solid var(--accent-light);
+  border-radius:10px;padding:16px 20px;
+  margin:14px 0;font-style:italic;
+  color:#7c2d12;position:relative;
+}
+.quote-card::before{
+  content:'"';font-size:3rem;color:var(--accent);
+  position:absolute;top:-10px;left:8px;
+  font-family:Georgia,serif;opacity:.3;
+}
+
+/* ========== 思维导图容器 ========== */
+.mindmap-container{
+  margin:16px 0;
+  background:#fdfdfd;
+  border:1px solid var(--border);
+  border-radius:10px;
+  padding:12px;
+  overflow-x:auto;
+  -webkit-overflow-scrolling:touch;
+}
+.mindmap-container svg{
+  display:block;min-width:100%;height:auto;
+}
+.mindmap-caption{
+  text-align:center;font-size:.85rem;
+  color:var(--text-light);margin-top:8px;
+  font-style:italic;
+}
+
+/* ========== 学习路径 ========== */
+.path-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:12px;margin-top:14px;
+}
+.path-card{
+  background:var(--bg-soft);
+  padding:14px;border-radius:8px;
+  border:1px solid var(--border);
+}
+.path-card h5{color:var(--accent);margin-bottom:6px}
+.path-card ul{padding-left:20px;font-size:.88rem}
+
+/* ========== 底部行动建议 ========== */
+.action-box{
+  background:linear-gradient(135deg,#ecfdf5 0%,#d1fae5 100%);
+  border-radius:10px;padding:16px 20px;
+  margin-top:14px;
+  border:1px solid var(--success-light);
+}
+.action-box h4{color:var(--success);margin-bottom:8px}
+.action-box h5{color:var(--success);font-size:.9rem;margin-top:8px}
+.action-box ul{padding-left:22px;font-size:.9rem}
+
+/* ========== 跨章节引用 ========== */
+.cross-link{
+  display:inline-block;
+  background:var(--primary-light);
+  color:var(--primary);
+  padding:2px 8px;border-radius:4px;
+  font-size:.8rem;
+  text-decoration:none;
+  margin:2px;
+}
+.cross-link:hover{background:var(--primary);color:#fff}
+
+/* ========== 附录区块 ========== */
+.appendix{
+  background:linear-gradient(135deg,#fafafa 0%,#f0f9ff 100%);
+  border-radius:14px;padding:24px;
+  margin-bottom:24px;border:1px solid var(--border);
+}
+.appendix h2{
+  font-size:1.4rem;color:var(--primary-dark);
+  margin-bottom:14px;
+}
+
+/* ========== 标签 ========== */
+.tag{
+  display:inline-block;
+  background:var(--primary-light);
+  color:var(--primary-dark);
+  padding:2px 8px;border-radius:4px;
+  font-size:.75rem;margin:2px;
+}
+.tag.gold{background:var(--accent-light);color:#9a3412}
+.tag.success{background:var(--success-light);color:#065f46}
+
+/* ========== 工具提示 ========== */
+hr{
+  border:none;
+  border-top:1px dashed var(--border);
+  margin:18px 0;
+}
+
+/* ========== 章节速览卡 ========== */
+.chapter-overview{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(140px,1fr));
+  gap:10px;margin:16px 0;
+}
+.overview-card{
+  background:var(--bg-soft);
+  border:1px solid var(--border);
+  border-radius:8px;
+  padding:12px;text-align:center;
+  text-decoration:none;color:inherit;
+  transition:all .2s;
+}
+.overview-card:hover{
+  transform:translateY(-2px);
+  box-shadow:var(--shadow);
+  border-color:var(--primary);
+}
+.overview-card .num{
+  display:block;
+  font-size:1.5rem;font-weight:700;color:var(--primary);
+}
+.overview-card .name{font-size:.85rem;color:var(--text)}
+
+/* ========== 移动端微调 ========== */
+@media (max-width:768px){
+  .container{padding:12px}
+  .hero{padding:20px 16px}
+  .hero h1{font-size:1.4rem}
+  .chapter-header{padding:16px}
+  .chapter-title{font-size:1.2rem}
+  .chapter-body{padding:16px}
+  table{font-size:.82rem}
+  th,td{padding:8px 6px}
+  .nav-links{font-size:.8rem}
+  .nav-links a{padding:4px 8px}
+}
+
+/* ========== SVG节点基础样式 ========== */
+.node-rect{
+  fill:#fff;stroke:#2563eb;stroke-width:1.5;
+  rx:6;ry:6;
+}
+.node-rect.level2{fill:#dbeafe;stroke:#1e40af}
+.node-rect.level3{fill:#ecfdf5;stroke:#059669}
+.node-rect.level4{fill:#fef3c7;stroke:#d97706}
+.node-rect.root{fill:#2563eb;stroke:#1e3a8a;stroke-width:2}
+.node-text{
+  font-family:"PingFang SC","Microsoft YaHei",sans-serif;
+  font-size:13px;fill:#1f2937;
+  font-weight:500;
+}
+.node-text.root{fill:#fff;font-weight:700;font-size:14px}
+.node-text.level2{fill:#1e40af;font-weight:600}
+.node-text.level3{fill:#065f46}
+.node-text.level4{fill:#92400e}
+.edge{stroke:#94a3b8;stroke-width:1.2;fill:none}
+.edge-main{stroke:#64748b;stroke-width:1.8;fill:none}
+
+/* 缩放提示 */
+.zoom-hint{
+  text-align:right;font-size:.75rem;color:var(--text-soft);
+  margin-top:4px;
+}
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部导航 ========== -->
+<nav class="top-nav">
+  <div class="top-nav-inner">
+    <div class="brand">亚马逊大卖·终极知识库</div>
+    <button class="nav-toggle" onclick="document.querySelector('.nav-links').classList.toggle('open')">📑 章节</button>
+    <div class="nav-links">
+      <a href="#ch1">1.吸引力法则</a>
+      <a href="#ch2">2.心法</a>
+      <a href="#ch3">3.商业模式①</a>
+      <a href="#ch4">4.商业模式②</a>
+      <a href="#ch5">5.卖点提炼①</a>
+      <a href="#ch6">6.卖点提炼②</a>
+      <a href="#ch7">7.营销工具①</a>
+      <a href="#ch8">8.营销工具②</a>
+      <a href="#ch9">9.盈利模式</a>
+      <a href="#ch10">10.营销③</a>
+      <a href="#ch11">11.股权</a>
+      <a href="#ch12">12.公司管理</a>
+      <a href="#appendix">📚附录</a>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+<!-- ========== HERO 头部 ========== -->
+<section class="hero">
+  <h1>亚马逊大卖第五期 · 终极知识库</h1>
+  <p class="sub">从"底层哲学 → 商业战略 → 营销战术 → 公司治理"的完整闭环 · 让小白变精通高手</p>
+  <div class="meta">
+    <span>📚 共 12 章</span>
+    <span>🧠 67 条选品案例</span>
+    <span>🗺 12 张知识图谱</span>
+    <span>🎯 哲学→战略→战术→治理</span>
+    <span>📅 整理：2026-07-19</span>
+  </div>
+  <div class="hero-quote">
+    商场及战场，道德是给强者的说法，生存才是我们的第一位。<br>
+    —— 讲师·亚马逊大卖第五期·第一课
+  </div>
+  <h4 style="margin-top:16px;color:var(--primary-dark)">📖 章节速览</h4>
+  <div class="chapter-overview">
+    <a class="overview-card" href="#ch1"><span class="num">1</span><span class="name">吸引力法则</span></a>
+    <a class="overview-card" href="#ch2"><span class="num">2</span><span class="name">心法</span></a>
+    <a class="overview-card" href="#ch3"><span class="num">3</span><span class="name">商业模式①</span></a>
+    <a class="overview-card" href="#ch4"><span class="num">4</span><span class="name">商业模式②</span></a>
+    <a class="overview-card" href="#ch5"><span class="num">5</span><span class="name">卖点提炼①</span></a>
+    <a class="overview-card" href="#ch6"><span class="num">6</span><span class="name">卖点提炼②</span></a>
+    <a class="overview-card" href="#ch7"><span class="num">7</span><span class="name">营销工具①</span></a>
+    <a class="overview-card" href="#ch8"><span class="num">8</span><span class="name">营销工具②</span></a>
+    <a class="overview-card" href="#ch9"><span class="num">9</span><span class="name">盈利模式</span></a>
+    <a class="overview-card" href="#ch10"><span class="num">10</span><span class="name">营销③</span></a>
+    <a class="overview-card" href="#ch11"><span class="num">11</span><span class="name">股权</span></a>
+    <a class="overview-card" href="#ch12"><span class="num">12</span><span class="name">公司管理</span></a>
+  </div>
+</section>
+
+<!-- ========== 第一章 吸引力法则 ========== -->
+<section class="chapter" id="ch1">
+  <div class="chapter-header">
+    <span class="chapter-num">第一部分 · 哲学起点</span>
+    <h2 class="chapter-title">第1章 吸引力法则 + 法人思维</h2>
+    <p class="chapter-sub">量子物理学 + 同频共振 + 能量管理 + 法人意识</p>
+  </div>
+  <div class="chapter-body">
+
+    <!-- 思维导图 -->
+    <div class="section">
+      <h3 class="section-title">🗺 第1章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2200 780" preserveAspectRatio="xMinYMin meet">
+  <!-- 根节点 -->
+  <rect class="node-rect root" x="20" y="320" width="180" height="140"/>
+  <text class="node-text root" x="110" y="370" text-anchor="middle">吸引力法则</text>
+  <text class="node-text root" x="110" y="395" text-anchor="middle">+ 法人思维</text>
+  <text class="node-text root" x="110" y="420" text-anchor="middle">(哲学起点)</text>
+
+  <!-- 第一层连线（直角折线） -->
+  <path class="edge-main" d="M200,390 L240,390 L240,100 L300,100"/>
+  <path class="edge-main" d="M200,390 L240,390 L240,300 L300,300"/>
+  <path class="edge-main" d="M200,390 L240,390 L240,500 L300,500"/>
+  <path class="edge-main" d="M200,390 L240,390 L240,700 L300,700"/>
+
+  <!-- 板块一：科学基础 -->
+  <rect class="node-rect level2" x="300" y="50" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="80" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="100" text-anchor="middle">科学基础与核心理念</text>
+
+  <path class="edge" d="M500,75 L540,75 L540,40 L580,40"/>
+  <path class="edge" d="M500,100 L540,100 L540,100 L580,100"/>
+  <path class="edge" d="M500,125 L540,125 L540,160 L580,160"/>
+
+  <rect class="node-rect" x="580" y="20" width="200" height="40"/>
+  <text class="node-text" x="680" y="45" text-anchor="middle">量子物理学基础</text>
+  <rect class="node-rect" x="580" y="80" width="200" height="40"/>
+  <text class="node-text" x="680" y="105" text-anchor="middle">三大核心机制</text>
+  <rect class="node-rect" x="580" y="140" width="200" height="40"/>
+  <text class="node-text" x="680" y="165" text-anchor="middle">能量守恒定律</text>
+
+  <!-- 板块二：五步操作法 -->
+  <rect class="node-rect level2" x="300" y="230" width="200" height="140"/>
+  <text class="node-text level2" x="400" y="260" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="280" text-anchor="middle">五步操作法</text>
+
+  <path class="edge" d="M500,255 L540,255 L540,235 L580,235"/>
+  <path class="edge" d="M500,280 L540,280 L540,275 L580,275"/>
+  <path class="edge" d="M500,305 L540,305 L540,315 L580,315"/>
+  <path class="edge" d="M500,330 L540,330 L540,355 L580,355"/>
+
+  <rect class="node-rect" x="580" y="215" width="200" height="40"/>
+  <text class="node-text" x="680" y="240" text-anchor="middle">① 放松</text>
+  <rect class="node-rect" x="580" y="255" width="200" height="40"/>
+  <text class="node-text" x="680" y="280" text-anchor="middle">② 立即行动</text>
+  <rect class="node-rect" x="580" y="295" width="200" height="40"/>
+  <text class="node-text" x="680" y="320" text-anchor="middle">③ 持续稳定能量</text>
+  <rect class="node-rect" x="580" y="335" width="200" height="40"/>
+  <text class="node-text" x="680" y="360" text-anchor="middle">④ 感恩 ⑤ 传递</text>
+
+  <!-- 板块三：能量管理 -->
+  <rect class="node-rect level2" x="300" y="430" width="200" height="140"/>
+  <text class="node-text level2" x="400" y="460" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="480" text-anchor="middle">能量管理与冥想</text>
+
+  <path class="edge" d="M500,455 L540,455 L540,440 L580,440"/>
+  <path class="edge" d="M500,480 L540,480 L540,480 L580,480"/>
+  <path class="edge" d="M500,505 L540,505 L540,520 L580,520"/>
+  <path class="edge" d="M500,530 L540,530 L540,560 L580,560"/>
+
+  <rect class="node-rect" x="580" y="420" width="200" height="40"/>
+  <text class="node-text" x="680" y="445" text-anchor="middle">远离负能量的人</text>
+  <rect class="node-rect" x="580" y="460" width="200" height="40"/>
+  <text class="node-text" x="680" y="485" text-anchor="middle">磁场/频率比喻</text>
+  <rect class="node-rect" x="580" y="500" width="200" height="40"/>
+  <text class="node-text" x="680" y="525" text-anchor="middle">冥想实操</text>
+  <rect class="node-rect" x="580" y="540" width="200" height="40"/>
+  <text class="node-text" x="680" y="565" text-anchor="middle">自律性=人与禽兽之别</text>
+
+  <!-- 板块四：法人思维 -->
+  <rect class="node-rect level2" x="300" y="630" width="200" height="140"/>
+  <text class="node-text level2" x="400" y="660" text-anchor="middle">板块四</text>
+  <text class="node-text level2" x="400" y="680" text-anchor="middle">法人思维·丛林法则</text>
+
+  <path class="edge" d="M500,655 L540,655 L540,640 L580,640"/>
+  <path class="edge" d="M500,680 L540,680 L540,680 L580,680"/>
+  <path class="edge" d="M500,705 L540,705 L540,720 L580,720"/>
+  <path class="edge" d="M500,730 L540,730 L540,760 L580,760"/>
+
+  <rect class="node-rect" x="580" y="620" width="200" height="40"/>
+  <text class="node-text" x="680" y="645" text-anchor="middle">法人三大特征</text>
+  <rect class="node-rect" x="580" y="660" width="200" height="40"/>
+  <text class="node-text" x="680" y="685" text-anchor="middle">法人四项铁律</text>
+  <rect class="node-rect" x="580" y="700" width="200" height="40"/>
+  <text class="node-text" x="680" y="725" text-anchor="middle">老虎比喻：法人=吃肉</text>
+  <rect class="node-rect" x="580" y="740" width="200" height="40"/>
+  <text class="node-text" x="680" y="765" text-anchor="middle">亚马逊实战态度</text>
+
+  <!-- 第二层展开 -->
+  <path class="edge" d="M780,40 L820,40 L820,30 L860,30"/>
+  <path class="edge" d="M780,40 L820,40 L820,70 L860,70"/>
+
+  <rect class="node-rect level3" x="860" y="10" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="35" text-anchor="middle">粒子/质子/中子</text>
+  <rect class="node-rect level3" x="860" y="50" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="75" text-anchor="middle">同频共振·意念是量子振动</text>
+
+  <path class="edge" d="M780,100 L820,100 L820,100 L860,100"/>
+  <path class="edge" d="M780,100 L820,100 L820,140 L860,140"/>
+
+  <rect class="node-rect level3" x="860" y="80" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="105" text-anchor="middle">意念·行动·去内耗</text>
+  <rect class="node-rect level3" x="860" y="120" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="145" text-anchor="middle">能量统一度量衡</text>
+
+  <path class="edge" d="M780,160 L820,160 L820,180 L860,180"/>
+
+  <rect class="node-rect level3" x="860" y="160" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="185" text-anchor="middle">输出增值 vs 减值</text>
+
+  <path class="edge" d="M780,235 L820,235 L820,235 L860,235"/>
+  <path class="edge" d="M780,275 L820,275 L820,275 L860,275"/>
+  <path class="edge" d="M780,315 L820,315 L820,315 L860,315"/>
+  <path class="edge" d="M780,355 L820,355 L820,355 L860,355"/>
+
+  <rect class="node-rect level3" x="860" y="215" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="240" text-anchor="middle">清空杂念</text>
+  <rect class="node-rect level3" x="860" y="255" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="280" text-anchor="middle">与宇宙校准频率</text>
+  <rect class="node-rect level3" x="860" y="295" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="320" text-anchor="middle">不是爆发是稳定输出</text>
+  <rect class="node-rect level3" x="860" y="335" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="360" text-anchor="middle">能量闭环+影响力扩散</text>
+
+  <path class="edge" d="M780,440 L820,440 L820,440 L860,440"/>
+  <rect class="node-rect level3" x="860" y="420" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="445" text-anchor="middle">"能量黑洞"</text>
+
+  <path class="edge" d="M780,480 L820,480 L820,490 L860,490"/>
+  <path class="edge" d="M780,480 L820,480 L820,530 L860,530"/>
+
+  <rect class="node-rect level3" x="860" y="470" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="495" text-anchor="middle">医不上门·收音机比喻</text>
+  <rect class="node-rect level3" x="860" y="510" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="535" text-anchor="middle">惜字如金·双向奔赴</text>
+
+  <path class="edge" d="M780,520 L820,520 L820,560 L860,560"/>
+  <rect class="node-rect level3" x="860" y="545" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="570" text-anchor="middle">默念"美好即将发生"</text>
+
+  <path class="edge" d="M780,560 L820,560 L820,600 L860,600"/>
+  <rect class="node-rect level3" x="860" y="580" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="605" text-anchor="middle">高级快乐=自律</text>
+
+  <path class="edge" d="M780,640 L820,640 L820,640 L860,640"/>
+  <rect class="node-rect level3" x="860" y="620" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="645" text-anchor="middle">兵贵神速·敬畏对手·坚持</text>
+
+  <path class="edge" d="M780,680 L820,680 L820,680 L860,680"/>
+  <rect class="node-rect level3" x="860" y="660" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="685" text-anchor="middle">法人≠个人·利益优先</text>
+
+  <path class="edge" d="M780,720 L820,720 L820,720 L860,720"/>
+  <rect class="node-rect level3" x="860" y="700" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="725" text-anchor="middle">从法出发=老虎·要捕猎</text>
+
+  <path class="edge" d="M780,760 L820,760 L820,760 L860,760"/>
+  <rect class="node-rect level3" x="860" y="740" width="220" height="40"/>
+  <text class="node-text level3" x="970" y="765" text-anchor="middle">违规即投诉·力所能及干死</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+      <p class="mindmap-caption">图谱说明：根节点"吸引力法则+法人思维"在左，逐层向右展开4个板块及其子项</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：吸引力法则的科学基础与核心理念</h3>
+
+      <h4>1. 课程开场总论</h4>
+      <p>讲师开宗明义指出：吸引力法则"确确实实是非常管用的"，所以在第五期大卖班里特意加入这一节课。市面上关于吸引力法则的资料非常多——喜马拉雅、百度视频/录音都有大量相关内容，但讲师强调"我们自己亲身体会了"——属于亲自验证过而非纸上谈兵。</p>
+      <p>讲师将吸引力法则上升到<strong>"宇宙最顶级的真相"</strong>的级别，并表示这是他在将近40岁时"才发现的"。</p>
+
+      <h4>2. 量子物理学基础</h4>
+      <ul>
+        <li><strong>物理学基础</strong>：世间一切外在有形的东西都是由粒子、质子、中子组成</li>
+        <li><strong>能量守恒与共振原理</strong>：万物都有"量子能量"、"量子率"</li>
+        <li><strong>人类自身的量子属性</strong>：从物理学上讲，人类各种骨骼都由量子组成——这意味着人的意念也是一种量子振动，可以与宇宙同频共振</li>
+        <li><strong>核心机理</strong>：我们要"具有同等频率"，才能吸引到相同频率的事物</li>
+      </ul>
+
+      <h4>3. 三个核心机制</h4>
+      <h5>（A）意念的力量（同频共振）</h5>
+      <p>你要"发出念"，这种念一定是"吻合和天地一种法则的"——与宇宙保持同频是吸引力的底层物理原理。</p>
+      <h5>（B）行动的力量（两步走）</h5>
+      <ul>
+        <li>第一步：发出念（心理层面）</li>
+        <li>第二步：付诸于行动（执行层面）</li>
+        <li>关键点："为了念的成功，我们要坚定不移"——意念必须配合持续行动才能成事</li>
+      </ul>
+      <h5>（C）内耗的反作用力</h5>
+      <p>第一条铁律：<strong>不能内耗</strong>——内耗是吸引力法则的最大敌人，会直接消耗掉发出的念的能量，让吸引力失效。</p>
+
+      <h4>4. 能量守恒定律在情绪层面的应用</h4>
+      <p>讲师用"能量"这个统一概念统摄吸引力法则的所有操作：</p>
+      <ul>
+        <li>一切与量子相关的现象、人际关系、情绪波动，本质都是"能量"在流转</li>
+        <li>能量守恒意味着：你输出的能量如果不增值，就一定在减值；输出在错的人身上就等于纯消耗</li>
+      </ul>
+
+      <div class="callout info">
+        <strong>📌 板块一核心要点</strong>
+        <p><strong>科学基础</strong>：用量子物理学作为吸引力法则的"合法化"外衣；<strong>三大支柱</strong>：意念+行动+去内耗；<strong>统一度量衡</strong>"能量"贯穿全文——意念是能量、行动是能量、情绪内耗是负能量、磁场是能量、感恩是能量传递。</p>
+      </div>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：吸引力法则的五步操作法</h3>
+      <p>讲师给出了一个非常清晰的"心理法则五步法"，五步环环相扣：</p>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>步骤</th><th>关键词</th><th>核心动作</th><th>常见误区</th></tr></thead>
+        <tbody>
+          <tr><td>1</td><td>放松</td><td>清空杂念，让能量归位</td><td>一开始就想结果</td></tr>
+          <tr><td>2</td><td>立即行动</td><td>与宇宙响应频率校准</td><td>等待"感觉准备好"</td></tr>
+          <tr><td>3</td><td>持续稳定</td><td>持续性是核心，稳定输出</td><td>三天打鱼两天晒网</td></tr>
+          <tr><td>4</td><td>感恩</td><td>回向能量，形成闭环</td><td>视所得为理所当然</td></tr>
+          <tr><td>5</td><td>传递</td><td>扩散影响，让更多人相信美好</td><td>独享成功喜悦</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>宇宙信号-响应-呈现闭环</h4>
+      <p>你想要的结果 → 向宇宙发出信号 → 产生强烈磁场 → 宇宙接收 → 美好事物逐步呈现</p>
+
+      <h4>关键心态校准</h4>
+      <ul>
+        <li>核心信条：<strong>"凡发生的事情皆有利于我"</strong>——即使是百分之百糟糕的事情，背后也一定有对学习者有利的方面</li>
+        <li>"安心把事情一步一步行动起来，做好，静待结果"——一切美好结果都是"一步一步做好"组成的"因"最终形成的"果"</li>
+      </ul>
+
+      <div class="quote-card">
+        我一直在践行吸引力法则，确实效果挺好的。关于是否"信则有不信则无"的辩论，讲师的态度："可以看作精神安慰，但你相信什么，你就会见到什么。"
+      </div>
+
+      <div class="callout gold">
+        <strong>💡 重点提示</strong>
+        <p>步骤3（持续稳定能量）和步骤4（感恩）是大多数人会漏掉的两步——这两步是吸引力法则能否持续运转的关键。</p>
+      </div>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：日常能量管理与冥想修行</h3>
+
+      <h4>1. 远离负能量的人</h4>
+      <p>"保持自己的能量，首先是不消耗，远离那些负能量的人"——能量消耗往往发生在与他人的交往中，负能量的人=能量黑洞，靠近你就会被吸走。</p>
+
+      <h4>2. 磁场/频率的比喻</h4>
+      <p>讲师用了一个很形象的比喻：</p>
+      <ul>
+        <li>"医不上门"——医生不会上门给人看病</li>
+        <li>类比：你要等对方有需求时，你恰好能解决，这叫"合适"，叫"磁场"，也叫"频率"</li>
+        <li>像收音机的FM/AM一样，要调对频道才能接收信号</li>
+      </ul>
+
+      <h4>3. 能量饱和的原则</h4>
+      <ul>
+        <li>你输出给别人的，别人可能只吸收5%，甚至完全没吸收</li>
+        <li>"大人物能量强的人说话都是一个字一个字，惜字如金"——因为字是有能量的</li>
+        <li>说多了能量就消耗出去了</li>
+        <li>唯一能"双向奔赴"的场景："遇到同频的人，互相之间能量吸引、互相能量弥补"</li>
+      </ul>
+
+      <h4>4. 冥想实操方法</h4>
+      <ul>
+        <li>每天都有冥想打坐，保持对事情的专注</li>
+        <li>内心默念"美好的事情即将发生"</li>
+        <li><strong>冥想的好处</strong>：让自己静下来、远离乱七八糟的事情</li>
+        <li>低级快乐靠放纵，高级快乐靠自律和克制</li>
+      </ul>
+
+      <h4>5. 人与禽兽的区别 — 自律性</h4>
+      <p>动物靠本能行事：饿了就吃，吃饱了就睡；人类爬到食物链顶端，是因为"人之所以为人，是因为他有人性"——能克制、能自律。</p>
+
+      <h4>6. 吸引力法则的可验证性</h4>
+      <p>你可以观察你身边的朋友：</p>
+      <ul>
+        <li>如果你每天说"谎言"，你吸引到的就是"虚与委蛇"的人</li>
+        <li>如果你每天能量满满、家庭幸福、婚姻幸福，你吸引到的也会是这类人</li>
+        <li>这是吸引力法则"同频相吸"的有力证据</li>
+      </ul>
+
+      <div class="callout success">
+        <strong>📌 能量管理三层结构</strong>
+        <p><strong>输入端</strong>：远离负能量人、保持静心、冥想充电<br>
+        <strong>输出端</strong>：惜字如金、对同频人输出、量力而行<br>
+        <strong>校准端</strong>：相信美好即将发生、凡事找切入点、默念正向意念</p>
+      </div>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：法人思维 — 亚马逊丛林法则</h3>
+      <p>这是本节课的下半段，讲师从抽象的吸引力法则转入非常具体的亚马逊商业实战——"法人"思维。</p>
+
+      <h4>1. 法人的法律定义</h4>
+      <ul>
+        <li>法人在《公司法》上明确规定 = 使公司不断盈利的人</li>
+        <li>法人的底线：以法律为准绳，在法律范围内"不择手段地"去盈利</li>
+        <li>法人代表一个组织，为所有利益相关方负责</li>
+      </ul>
+
+      <h4>2. 商场 ≠ 个人道德场</h4>
+      <div class="quote-card">
+        商场及战场，道德是给强者的说法，生存才是我们的第一位。<br>
+        义不长财，慈不长兵——讲师引用的古语
+      </div>
+      <p>作为法人/企业，最高级的"善"是为国家创收、创造税收、解决就业。用个人道德准则评判法人组织=一种"恶"（因为这会束缚法人的生存本能）。</p>
+
+      <h4>3. 法人应具备的特征</h4>
+      <ul>
+        <li><strong>兵贵神速</strong>——反应快、决策快、行动快</li>
+        <li><strong>敬畏对手</strong>——学习竞争对手→竞争→敬畏→超越</li>
+        <li><strong>坚持的力量</strong>——引用刘备、曹丕、司马懿的坚持案例</li>
+      </ul>
+
+      <h4>4. 利益关系 vs 个人感情的优先级</h4>
+      <p>"<strong>利益建立起来的感情是最可靠的</strong>"——这是讲师对亚马逊商业现实的冷峻判断。</p>
+
+      <h4>5. 应对亚马逊违规竞争的具体态度</h4>
+      <p>这是讲师最锋利的段落——直接回应学员常见的被攻击问题：</p>
+      <ul>
+        <li>竞争对手在你之前违规使用了变体、合并了变体等</li>
+        <li>你的反应：<strong>直接投诉</strong>，没有什么不可以的</li>
+        <li>因为你代表的是法人、是公司背后的利益集团，而不仅仅是你个人</li>
+      </ul>
+
+      <div class="quote-card">
+        他明明违规使用了变体，你告诉我凭啥不玩头（应对手段），不把他干死？<br>
+        你被竞争对手搞了，你代表的是法人，代表的是公司背后的利益，就要一定要反击。<br>
+        在力所能及范围内，一定要把对方直接干死。
+      </div>
+
+      <h4>6. 老虎比喻 — 法人的本质</h4>
+      <div class="quote-card">
+        法人就是要吃肉的，你就是从法的（按规则出发的）就是老虎，是要捕杀猎物的。<br>
+        整个亚马逊市场就那么大，市场已经固定，排位层也已经固定。我们想赚钱=把别人的排位挤掉+赚别人的钱。
+      </div>
+      <p>这本身是一个<strong>掠夺</strong>的过程——对方原本排在第一名每月赚100万，你现在冲上第一名，对方怎么可能和平解决？</p>
+
+      <h4>7. 法人应有的心态</h4>
+      <p>"大家就想尽一切办法去争执去，这才是一个法人该做的，该有的态度。"</p>
+
+      <div class="callout gold">
+        <strong>📌 法人思维核心要点</strong>
+        <p><strong>心法层面（三大支柱）</strong>：兵贵神速、敬畏对手、坚持的力量<br>
+        <strong>行动层面（四项铁律）</strong>：法人≠个人、利益优先、主动反击、充分利用规则</p>
+      </div>
+
+      <div class="callout info">
+        <strong>📌 亚马逊实战对应</strong>
+        <table style="margin-top:8px">
+          <thead><tr><th>场景</th><th>法人思维正确做法</th><th>个人道德错误做法</th></tr></thead>
+          <tbody>
+            <tr><td>竞争对手违规合并变体</td><td>直接投诉到亚马逊</td><td>容忍、退让、"算了吧"</td></tr>
+            <tr><td>自己的排名被攻击</td><td>全面反击（合规范围内）</td><td>不敢动、"忍一时风平浪静"</td></tr>
+            <tr><td>抢占别人的市场</td><td>"掠夺"是合理的</td><td>"做人留一线"</td></tr>
+            <tr><td>决策迟缓</td><td>兵贵神速，先下手为强</td><td>反复纠结"合不合适"</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第1章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>每天冥想10-30分钟（在喜马拉雅、相关APP找资源）</li>
+        <li>每天默念"美好的事情即将发生"</li>
+        <li>远离明显消耗你能量的人</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>读完至少一本吸引力法则的入门书</li>
+        <li>用五步法对一件具体的事进行实操</li>
+        <li>区分"个人道德"和"法人道德"的应用场景</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>把"凡事皆有利于我"内化为本能反应</li>
+        <li>在亚马逊运营中建立"法人/老虎"的心态</li>
+        <li>对竞争对手的违规行为建立快速响应机制</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#ch2" class="cross-link">下一章：2.心法 →</a></p>
+  </div>
+</section>
+
+<!-- ========== 第二章 心法 ========== -->
+<section class="chapter" id="ch2">
+  <div class="chapter-header">
+    <span class="chapter-num">第二部分 · 心态与认知基础</span>
+    <h2 class="chapter-title">第2章 心法 — 创业哲学与生命哲学</h2>
+    <p class="chapter-sub">如何在痛苦中持续做大做强亚马逊的精神操作系统</p>
+  </div>
+  <div class="chapter-body">
+
+    <!-- 思维导图 -->
+    <div class="section">
+      <h3 class="section-title">🗺 第2章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 920" preserveAspectRatio="xMinYMin meet">
+  <rect class="node-rect root" x="20" y="380" width="180" height="160"/>
+  <text class="node-text root" x="110" y="425" text-anchor="middle">心法</text>
+  <text class="node-text root" x="110" y="450" text-anchor="middle">创业哲学</text>
+  <text class="node-text root" x="110" y="475" text-anchor="middle">+ 生命哲学</text>
+  <text class="node-text root" x="110" y="500" text-anchor="middle">(心态底座)</text>
+
+  <path class="edge-main" d="M200,460 L240,460 L240,60 L300,60"/>
+  <path class="edge-main" d="M200,460 L240,460 L240,200 L300,200"/>
+  <path class="edge-main" d="M200,460 L240,460 L240,340 L300,340"/>
+  <path class="edge-main" d="M200,460 L240,460 L240,500 L300,500"/>
+  <path class="edge-main" d="M200,460 L240,460 L240,650 L300,650"/>
+  <path class="edge-main" d="M200,460 L240,460 L240,800 L300,800"/>
+
+  <rect class="node-rect level2" x="300" y="20" width="200" height="80"/>
+  <text class="node-text level2" x="400" y="50" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="75" text-anchor="middle">开课与课程定位</text>
+
+  <path class="edge" d="M500,40 L540,40 L540,30 L580,30"/>
+  <path class="edge" d="M500,65 L540,65 L540,70 L580,70"/>
+  <path class="edge" d="M500,90 L540,90 L540,110 L580,110"/>
+
+  <rect class="node-rect" x="580" y="10" width="200" height="40"/>
+  <text class="node-text" x="680" y="35" text-anchor="middle">理论根基：李健+特劳特</text>
+  <rect class="node-rect" x="580" y="50" width="200" height="40"/>
+  <text class="node-text" x="680" y="75" text-anchor="middle">全程班 vs 大卖班</text>
+  <rect class="node-rect" x="580" y="90" width="200" height="40"/>
+  <text class="node-text" x="680" y="115" text-anchor="middle">资金匹配策略</text>
+
+  <rect class="node-rect level2" x="300" y="160" width="200" height="80"/>
+  <text class="node-text level2" x="400" y="190" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="215" text-anchor="middle">苦难与坚持</text>
+
+  <path class="edge" d="M500,180 L540,180 L540,170 L580,170"/>
+  <path class="edge" d="M500,205 L540,205 L540,210 L580,210"/>
+  <path class="edge" d="M500,230 L540,230 L540,250 L580,250"/>
+
+  <rect class="node-rect" x="580" y="150" width="200" height="40"/>
+  <text class="node-text" x="680" y="175" text-anchor="middle">起点：5.5元+40万负债</text>
+  <rect class="node-rect" x="580" y="190" width="200" height="40"/>
+  <text class="node-text" x="680" y="215" text-anchor="middle">18次倒闭+65万冻结180天</text>
+  <rect class="node-rect" x="580" y="230" width="200" height="40"/>
+  <text class="node-text" x="680" y="255" text-anchor="middle">唐僧式不放弃精神</text>
+
+  <rect class="node-rect level2" x="300" y="300" width="200" height="80"/>
+  <text class="node-text level2" x="400" y="330" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="355" text-anchor="middle">健康代价·熬夜教训</text>
+
+  <path class="edge" d="M500,320 L540,320 L540,310 L580,310"/>
+  <path class="edge" d="M500,345 L540,345 L540,350 L580,350"/>
+  <path class="edge" d="M500,370 L540,370 L540,390 L580,390"/>
+
+  <rect class="node-rect" x="580" y="290" width="200" height="40"/>
+  <text class="node-text" x="680" y="315" text-anchor="middle">脑血管钙化(40→70岁)</text>
+  <rect class="node-rect" x="580" y="330" width="200" height="40"/>
+  <text class="node-text" x="680" y="355" text-anchor="middle">心脏问题·黑蒙0.1秒</text>
+  <rect class="node-rect" x="580" y="370" width="200" height="40"/>
+  <text class="node-text" x="680" y="395" text-anchor="middle">作息铁律·11点睡6点起</text>
+
+  <rect class="node-rect level2" x="300" y="450" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="480" text-anchor="middle">板块四</text>
+  <text class="node-text level2" x="400" y="500" text-anchor="middle">四大根本能力</text>
+
+  <path class="edge" d="M500,470 L540,470 L540,465 L580,465"/>
+  <path class="edge" d="M500,495 L540,495 L540,505 L580,505"/>
+  <path class="edge" d="M500,520 L540,520 L540,545 L580,545"/>
+  <path class="edge" d="M500,545 L540,545 L540,585 L580,585"/>
+
+  <rect class="node-rect" x="580" y="445" width="200" height="40"/>
+  <text class="node-text" x="680" y="470" text-anchor="middle">认知（知不知道）</text>
+  <rect class="node-rect" x="580" y="485" width="200" height="40"/>
+  <text class="node-text" x="680" y="510" text-anchor="middle">野心（想不想要）</text>
+  <rect class="node-rect" x="580" y="525" width="200" height="40"/>
+  <text class="node-text" x="680" y="550" text-anchor="middle">勇气（敢不敢）</text>
+  <rect class="node-rect" x="580" y="565" width="200" height="40"/>
+  <text class="node-text" x="680" y="590" text-anchor="middle">执行力（做不做）</text>
+
+  <rect class="node-rect level2" x="300" y="610" width="200" height="80"/>
+  <text class="node-text level2" x="400" y="640" text-anchor="middle">板块五</text>
+  <text class="node-text level2" x="400" y="665" text-anchor="middle">天行健+地势坤</text>
+
+  <path class="edge" d="M500,630 L540,630 L540,625 L580,625"/>
+  <path class="edge" d="M500,655 L540,655 L540,665 L580,665"/>
+  <path class="edge" d="M500,680 L540,680 L540,705 L580,705"/>
+
+  <rect class="node-rect" x="580" y="605" width="200" height="40"/>
+  <text class="node-text" x="680" y="630" text-anchor="middle">自强不息·对外奋斗</text>
+  <rect class="node-rect" x="580" y="645" width="200" height="40"/>
+  <text class="node-text" x="680" y="670" text-anchor="middle">厚德载物·30楼视野</text>
+  <rect class="node-rect" x="580" y="685" width="200" height="40"/>
+  <text class="node-text" x="680" y="710" text-anchor="middle">气运论：12年一轮回</text>
+
+  <rect class="node-rect level2" x="300" y="760" width="200" height="140"/>
+  <text class="node-text level2" x="400" y="790" text-anchor="middle">板块六+七+八</text>
+  <text class="node-text level2" x="400" y="810" text-anchor="middle">家庭·父亲·舍得</text>
+
+  <path class="edge" d="M500,775 L540,775 L540,770 L580,770"/>
+  <path class="edge" d="M500,800 L540,800 L540,810 L580,810"/>
+  <path class="edge" d="M500,825 L540,825 L540,850 L580,850"/>
+  <path class="edge" d="M500,855 L540,855 L540,890 L580,890"/>
+
+  <rect class="node-rect" x="580" y="750" width="200" height="40"/>
+  <text class="node-text" x="680" y="775" text-anchor="middle">家庭五重角色</text>
+  <rect class="node-rect" x="580" y="790" width="200" height="40"/>
+  <text class="node-text" x="680" y="815" text-anchor="middle">父亲精神传承</text>
+  <rect class="node-rect" x="580" y="830" width="200" height="40"/>
+  <text class="node-text" x="680" y="855" text-anchor="middle">舍得智慧：紧箍咒比喻</text>
+  <rect class="node-rect" x="580" y="870" width="200" height="40"/>
+  <text class="node-text" x="680" y="895" text-anchor="middle">终极：心里有净土</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：开课致辞与课程体系定位</h3>
+
+      <h4>1. 大卖班的理论根基</h4>
+      <ul>
+        <li><strong>李健老师</strong>——《行动成功》之"低成本创业"</li>
+        <li><strong>特劳特</strong>——《定位》系列</li>
+        <li>讲师用亲身验证：自己做亚马逊产品<strong>22个月</strong>冲上第一名</li>
+      </ul>
+
+      <h4>2. 全程班 vs 大卖班</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>课程属性</th><th>全程班</th><th>大卖班</th></tr></thead>
+        <tbody>
+          <tr><td>内容重点</td><td>怎么做（how）</td><td>为什么这样做（why）</td></tr>
+          <tr><td>知识深度</td><td>浅显</td><td>深层逻辑</td></tr>
+          <tr><td>适用阶段</td><td>新手</td><td>想做大做强的卖家</td></tr>
+          <tr><td>资金要求</td><td>灵活</td><td>灵活（分两路径）</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>3. 大卖班的核心目标</h4>
+      <ul>
+        <li>创建完善的亚马逊运营体系</li>
+        <li>实现低成本创业</li>
+        <li>核心承诺：<strong>"上架就是第一"</strong></li>
+      </ul>
+
+      <h4>4. 资金匹配策略</h4>
+      <ul>
+        <li><strong>资金充裕者</strong>：3-6个月冲第一（甚至可以加速到3个月）</li>
+        <li><strong>资金不充裕者</strong>：一方面融资，一方面通过漫长的时间沉淀把产品做起来</li>
+      </ul>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：讲师个人经历 — 苦难与坚持</h3>
+
+      <div class="callout warn">
+        <strong>📋 讲师真实经历数据</strong>
+        <ul style="margin-top:6px;padding-left:20px">
+          <li><strong>2010年11月21日</strong>接触速卖通，身上只剩<strong>5.5块钱，负债40万</strong></li>
+          <li>启动资金5000块（让媳妇回娘家问老丈人借的）</li>
+          <li>期间有<strong>6次</strong>被逼入绝境</li>
+          <li><strong>65万人民币被亚马逊冻结180天</strong></li>
+          <li>刷信用卡最多时<strong>42张</strong>，欠<strong>31家公司</strong></li>
+          <li>公司面临18次倒闭不放弃</li>
+          <li>口头禅：<strong>"不花钱掉坑，就花钱办事"</strong></li>
+        </ul>
+      </div>
+
+      <h4>唐僧式的不放弃</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>角色</th><th>法力</th><th>性格</th></tr></thead>
+        <tbody>
+          <tr><td>孙悟空</td><td>齐天大圣，霸气</td><td>最能打</td></tr>
+          <tr><td>猪八戒</td><td>天河10万水军</td><td>会说话、会调节气氛</td></tr>
+          <tr><td>沙僧</td><td>卷帘大将</td><td>老实木讷，力气大</td></tr>
+          <tr><td>唐僧</td><td>个人武力值最低</td><td><strong>唯一不变的就是不放弃的精神</strong></td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <p>讲师自述的"不放弃"含金量：</p>
+      <ul>
+        <li>公司面临18次倒闭不放弃</li>
+        <li>面对公司背叛+5个员工不放弃</li>
+        <li>哪怕大脑、心脏生病，从未想过放弃</li>
+        <li>一晚上死4个店铺+65万被速卖通扣留180天，依然没放弃</li>
+        <li>产品22个月没赚钱，没放弃</li>
+      </ul>
+
+      <div class="quote-card">
+        这些年唯一值得我骄傲的就是我无论遇到什么样的情况都不会放弃，这是我身上"唯一值得夸赞一点品质"。
+      </div>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：健康代价 — 通宵熬夜的惨痛教训</h3>
+      <p>这是本课最震撼的"反面教材"段落，讲师用个人健康代价强烈警告学员：<strong>不要熬夜</strong>。</p>
+
+      <h4>1. 脑血管钙化（不可逆）</h4>
+      <p>长期日夜颠倒→某天晚上睡觉时脑血管突然跳个不停。2019年CT检查结果：脑血管有钙化灶，医生评语："今年我才不到40岁，人家说我的脑血管大概像70岁的老人一样"——很多微血管已经老化失去弹性。</p>
+
+      <h4>2. 心脏功能丧失</h4>
+      <p>某次开车出去玩，突然之间心脏好像"没了"，眼睛一黑（开车上山时），黑的过程不超过0.1秒。</p>
+
+      <h4>3. 帕金森样症状</h4>
+      <p>白云山旅游第二天：走路不稳，吃饭夹菜夹不到，上下牙齿咬合错位（脑命令无法被神经执行），甚至尿尿都尿不到小便池（因为控制不住）。</p>
+
+      <h4>4. 康复过程</h4>
+      <ul>
+        <li>咬牙花<strong>1200块办一年健身房会员卡</strong></li>
+        <li>每天坚持锻炼2小时</li>
+        <li>具体方式：快走4分钟+慢跑1分钟，70分钟循环</li>
+        <li><strong>坚持8个月后，心脏再没出过问题</strong></li>
+      </ul>
+
+      <h4>5. 作息铁律</h4>
+      <div class="callout gold">
+        <strong>💪 11点睡6点起的硬性作息</strong>
+        <p>晚上通宵熬夜：<strong>除了白事，绝对不熬夜</strong><br>
+        例外：直系亲属晚上下葬（凌晨两点也得熬一次）—— 但事后会回家赶紧休息<br>
+        通宵打牌/熬夜赚钱都不干<br>
+        晚上11:00睡觉 + 早上6:00起床 + <strong>保证7小时睡眠</strong> + 中午至少休息半小时</p>
+      </div>
+
+      <div class="callout info">
+        <strong>📌 熬夜代价三层级</strong>
+        <p>① 脑血管钙化（40岁→70岁脑血管）—— 不可逆<br>
+        ② 心脏功能丧失（黑蒙0.1秒）—— 险些致死<br>
+        ③ 行动控制失调（帕金森样症状）—— 生活不能自理</p>
+      </div>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：创业者的四大根本能力 — 认知、野心、勇气、执行力</h3>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>能力</th><th>解决的问题</th><th>本质</th></tr></thead>
+        <tbody>
+          <tr><td><strong>认知</strong></td><td>知不知道</td><td>信息获取层</td></tr>
+          <tr><td><strong>野心</strong></td><td>想不想要</td><td>动机层</td></tr>
+          <tr><td><strong>勇气</strong></td><td>敢不敢</td><td>决策层</td></tr>
+          <tr><td><strong>执行力</strong></td><td>做不做</td><td>行动层</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>知识转化四层模型</h4>
+      <ol>
+        <li>听来的（别人的）</li>
+        <li>看来的（书上的）</li>
+        <li>经历过的（你的）</li>
+        <li><strong>悟出来+做出来的（真正属于你的）</strong></li>
+      </ol>
+
+      <h4>象牙塔陷阱</h4>
+      <p>"躲在象牙塔里边一直去学习，学习最多就是出一些学术言论"。这解释了为什么"现在的专家多"——没实践过就敢下结论。</p>
+
+      <h4>辨别讲师的真假</h4>
+      <p>"同样作为亚马逊的讲师来说，有很多人那课一听你就知道他到底有没有经历过，他到底有没有在第一线运营"——这是教给学员"用耳朵识别"的元能力。</p>
+
+      <div class="quote-card">
+        试错本质上是只有经历，没有年龄。有志不在年高，无志空长百岁。但要注意：这里的"志"是智慧，智慧是经过不断经历和游历得来的。
+      </div>
+    </div>
+
+    <!-- 板块五 -->
+    <div class="section">
+      <h3 class="section-title">板块五：人生哲学双柱 — 天行健与地势坤</h3>
+
+      <h4>第一支柱：天行健，君子以自强不息</h4>
+      <div class="quote-card">
+        天行健，无论任何时候，我们都要去努力，太阳从不停歇。
+      </div>
+      <ul>
+        <li><strong>人生目的：守护</strong>——父母、妻儿、子侄辈、子女</li>
+        <li><strong>气运论</strong>：每12年一个轮回，天有二十四节气，人生气运起起伏伏</li>
+        <li><strong>传承问题</strong>：精神传承 / 财富传承 / 权力传承 / 资本传承</li>
+      </ul>
+
+      <h4>第二支柱：地势坤，君子以厚德载物</h4>
+      <div class="callout info">
+        <strong>🏙️ 视野 vs 胸怀的著名比喻</strong>
+        <p>站<strong>1楼</strong>看垃圾桶：看到的都是垃圾、苍蝇、各种垃圾<br>
+        站<strong>30楼</strong>看垃圾桶：整个视野非常开阔，处处都是风景，无尽的蓝天，水天共一色<br>
+        <strong>结论</strong>：胸怀宽广时，看到的都是风景——"要练习我们的承载能力"</p>
+      </div>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>支柱</th><th>哲学基础</th><th>关键词</th><th>应用方向</th></tr></thead>
+        <tbody>
+          <tr><td>天行健</td><td>自强不息</td><td>努力、奋进、坚持</td><td>对外/对事业</td></tr>
+          <tr><td>地势坤</td><td>厚德载物</td><td>胸怀、承受、包容</td><td>对内/人际关系</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- 板块六 -->
+    <div class="section">
+      <h3 class="section-title">板块六：家庭五重角色与父亲的精神传承</h3>
+
+      <h4>人生五轮（谁都跑不了）</h4>
+      <ol>
+        <li><strong>儿子/女儿</strong>（因父母尚在）</li>
+        <li><strong>丈夫/妻子</strong>（有挚爱的另一半）</li>
+        <li><strong>父亲/母亲</strong>（有血脉的结晶，子女）</li>
+        <li><strong>兄弟/姐妹</strong>（有手足）</li>
+        <li><strong>朋友</strong>（有社会关系）</li>
+      </ol>
+
+      <h4>能力的有限性 — 50斤 vs 500斤</h4>
+      <p>有些人的能力上限是挑50斤，有些人的上限是挑500斤，你不能指望一个人挑无限大的重量——所以评估自己/父亲的能力，要看上限而非无限要求。</p>
+
+      <h4>父亲的故事</h4>
+      <ul>
+        <li>父亲姊妹们11个，家里穷到"小偷来家里偷东西都得含泪走，还得扔点大米"</li>
+        <li>从农村一步一步到北京做生意</li>
+        <li>把三个孩子（讲师+弟弟妹妹）都送入大学</li>
+        <li>结婚时帮孩子付房子首付</li>
+      </ul>
+
+      <h4>精神传承 > 财富传承</h4>
+      <div class="quote-card">
+        父亲也许没有给我们留下多少财富传承，"也确实没有"。但这种精神一直孤立支持着讲师。创业的15年里，时时刻刻不忘这种精神。任何困难、公司危机、资金链断裂6次的时候，都靠精神挺过来的。
+      </div>
+
+      <h4>不可倒下的理由（代际继承）</h4>
+      <ul>
+        <li>我不能倒下</li>
+        <li>我的父母怎么办</li>
+        <li>我的妻儿怎么办</li>
+        <li>我爸当年也是这么想——他也不能倒下，他也有父母妻儿</li>
+      </ul>
+    </div>
+
+    <!-- 板块七 -->
+    <div class="section">
+      <h3 class="section-title">板块七：品味舍得 — 取舍智慧</h3>
+
+      <h4>紧箍咒比喻 — 紫霞仙子的取舍</h4>
+      <p>讲师用《大话西游》至尊宝的例子：</p>
+      <ul>
+        <li><strong>两难情境</strong>：戴上紧箍→变为法力无边的齐天大圣→救下紫霞仙子</li>
+        <li><strong>代价</strong>：观音说"戴上紧箍后，人世间的情欲无法再沾染半点，如果动心，金箍就会越来越紧"</li>
+        <li>至尊宝最终选择戴上紧箍→救了紫霞→成就事业→但丧失了和紫霞的爱情</li>
+      </ul>
+
+      <h4>舍得的应用场景矩阵</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>场景</th><th>取</th><th>舍</th></tr></thead>
+        <tbody>
+          <tr><td>时间</td><td>听课</td><td>思考是否做亚马逊</td></tr>
+          <tr><td>爱情</td><td>选定一人</td><td>其余所有</td></tr>
+          <tr><td>育儿</td><td>孩子榜样角色</td><td>个人自由时间</td></tr>
+          <tr><td>紧箍</td><td>法力无边</td><td>人间情爱</td></tr>
+          <tr><td>亚马逊选品</td><td>选定类目</td><td>其他类目</td></tr>
+          <tr><td>广告打法</td><td>选定打法</td><td>其他打法</td></tr>
+          <tr><td>学习方法</td><td>选定方法100%执行</td><td>旧方法/多种方法并行</td></tr>
+          <tr><td>修行</td><td>84000中选一法</td><td>其余83999法</td></tr>
+          <tr><td>婚姻</td><td>家庭幸福</td><td>婚外感情</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>舍得四句口诀</h4>
+      <ol>
+        <li>人生就是取舍过程</li>
+        <li>取舍=在不断放弃中得到</li>
+        <li>取舍=在不断得到中舍弃</li>
+        <li>没有十全十美——日中则昃，月盈则亏</li>
+      </ol>
+
+      <h4>亚马逊运营中的最大陷阱</h4>
+      <p>怕的是你<strong>固执地认为原来的运营方法有问题，但又放不掉</strong>。来老师这里学习，回去后又不能100%执行——这是"沉默成本的内耗过程"。舍不掉→也就没有得到。</p>
+    </div>
+
+    <!-- 板块八 -->
+    <div class="section">
+      <h3 class="section-title">板块八：人生哲学的综合应用</h3>
+
+      <div class="callout gold">
+        <strong>🌟 全课的核心命题</strong>
+        <ol style="margin-top:6px;padding-left:20px">
+          <li>起点低没关系，坚持可以成事（唐僧式不放弃）</li>
+          <li>不要透支健康（通宵熬夜是不可逆的损伤）</li>
+          <li>四大能力要齐备（认知/野心/勇气/执行力）</li>
+          <li>自强+厚德=大卖级人生哲学的双柱</li>
+          <li>家庭幸福是传出来的，不是继承的</li>
+          <li>舍得是亚马逊运营的元方法</li>
+          <li>心里有净土，地方就是净土</li>
+        </ol>
+      </div>
+
+      <div class="quote-card">
+        哪里有净土？心里有净土的时候，地方就是净土。——讲师最浓缩的人生哲学输出
+      </div>
+
+      <div class="callout success">
+        <strong>📌 全课的逻辑主线</strong>
+        <p>讲师个人故事（我曾经怎样）→ 健康代价（我付出了什么）→ 四大能力（你需要什么）→ 天行健（对外奋斗）+ 地势坤（对内承载）→ 五轮家庭角色（你为谁活着）→ 父亲的传承（精神如何继承）→ 舍得（如何活得不纠结）→ 终极结论：心里有净土，地方就是净土</p>
+      </div>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第2章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>调整作息，强制11点睡6点起</li>
+        <li>用"四大能力"模型给自己做诊断，找出最弱一环</li>
+        <li>把"心里有净土，地方就是净土"作为每日提醒</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>在亚马逊运营中选定一种方法100%执行，放弃其他</li>
+        <li>与父亲/榜样人物进行深度交流，提取一个"精神传承"句子</li>
+        <li>把"取/舍"明确写入本季度的决策清单</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>每月反思一次：我在哪个角色（5轮）上有所欠缺？</li>
+        <li>每年规划一次：哪个传答应为子女留下（精神/财富/权力/资本）？</li>
+        <li>长期笃行天行健+地势坤双柱</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#ch3" class="cross-link">下一章：3.商业模式① →</a></p>
+  </div>
+</section>
+
+<!-- ========== 第三章 商业模式① ========== -->
+<section class="chapter" id="ch3">
+  <div class="chapter-header">
+    <span class="chapter-num">第三部分 · 商业底层</span>
+    <h2 class="chapter-title">第3章 商业模式① — 价值交换×规律复制×抗失败</h2>
+    <p class="chapter-sub">商业本质 × 模式本质 × 价值领先 vs 成本领先 × 抗失败心态</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="section">
+      <h3 class="section-title">🗺 第3章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 720" preserveAspectRatio="xMinYMin meet">
+  <rect class="node-rect root" x="20" y="280" width="180" height="160"/>
+  <text class="node-text root" x="110" y="325" text-anchor="middle">商业模式①</text>
+  <text class="node-text root" x="110" y="350" text-anchor="middle">商业底层</text>
+  <text class="node-text root" x="110" y="375" text-anchor="middle">哲学+框架</text>
+  <text class="node-text root" x="110" y="400" text-anchor="middle">(战略起点)</text>
+
+  <path class="edge-main" d="M200,360 L240,360 L240,80 L300,80"/>
+  <path class="edge-main" d="M200,360 L240,360 L240,280 L300,280"/>
+  <path class="edge-main" d="M200,360 L240,360 L240,480 L300,480"/>
+  <path class="edge-main" d="M200,360 L240,360 L240,680 L300,680"/>
+
+  <rect class="node-rect level2" x="300" y="30" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="60" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="85" text-anchor="middle">商业模式概论</text>
+
+  <path class="edge" d="M500,50 L540,50 L540,40 L580,40"/>
+  <path class="edge" d="M500,75 L540,75 L540,80 L580,80"/>
+  <path class="edge" d="M500,100 L540,100 L540,120 L580,120"/>
+
+  <rect class="node-rect" x="580" y="20" width="200" height="40"/>
+  <text class="node-text" x="680" y="45" text-anchor="middle">商业本质=价值交换</text>
+  <rect class="node-rect" x="580" y="60" width="200" height="40"/>
+  <text class="node-text" x="680" y="85" text-anchor="middle">模式本质=规律复制</text>
+  <rect class="node-rect" x="580" y="100" width="200" height="40"/>
+  <text class="node-text" x="680" y="125" text-anchor="middle">桃树比喻·疏果逻辑</text>
+
+  <rect class="node-rect level2" x="300" y="230" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="260" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="285" text-anchor="middle">情绪价值与产品溢价</text>
+
+  <path class="edge" d="M500,250 L540,250 L540,240 L580,240"/>
+  <path class="edge" d="M500,275 L540,275 L540,280 L580,280"/>
+  <path class="edge" d="M500,300 L540,300 L540,320 L580,320"/>
+
+  <rect class="node-rect" x="580" y="220" width="200" height="40"/>
+  <text class="node-text" x="680" y="245" text-anchor="middle">价值不依赖成本</text>
+  <rect class="node-rect" x="580" y="260" width="200" height="40"/>
+  <text class="node-text" x="680" y="285" text-anchor="middle">富人思维 vs 穷人思维</text>
+  <rect class="node-rect" x="580" y="300" width="200" height="40"/>
+  <text class="node-text" x="680" y="325" text-anchor="middle">价格与包装全链路匹配</text>
+
+  <rect class="node-rect level2" x="300" y="430" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="460" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="485" text-anchor="middle">价值领先战略</text>
+
+  <path class="edge" d="M500,450 L540,450 L540,440 L580,440"/>
+  <path class="edge" d="M500,475 L540,475 L540,480 L580,480"/>
+  <path class="edge" d="M500,500 L540,500 L540,520 L580,520"/>
+
+  <rect class="node-rect" x="580" y="420" width="200" height="40"/>
+  <text class="node-text" x="680" y="445" text-anchor="middle">康泰克 vs 白加黑</text>
+  <rect class="node-rect" x="580" y="460" width="200" height="40"/>
+  <text class="node-text" x="680" y="485" text-anchor="middle">钻石·德芙品牌故事</text>
+  <rect class="node-rect" x="580" y="500" width="200" height="40"/>
+  <text class="node-text" x="680" y="525" text-anchor="middle">讲师实战：利润70元/单</text>
+
+  <rect class="node-rect level2" x="300" y="630" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="660" text-anchor="middle">板块四</text>
+  <text class="node-text level2" x="400" y="685" text-anchor="middle">成本领先战略</text>
+
+  <path class="edge" d="M500,650 L540,650 L540,640 L580,640"/>
+  <path class="edge" d="M500,675 L540,675 L540,680 L580,680"/>
+  <path class="edge" d="M500,700 L540,700 L540,720 L580,720"/>
+
+  <rect class="node-rect" x="580" y="620" width="200" height="40"/>
+  <text class="node-text" x="680" y="645" text-anchor="middle">成本领先代表利润率</text>
+  <rect class="node-rect" x="580" y="660" width="200" height="40"/>
+  <text class="node-text" x="680" y="685" text-anchor="middle">四大成本压缩法</text>
+  <rect class="node-rect" x="580" y="700" width="200" height="40"/>
+  <text class="node-text" x="680" y="725" text-anchor="middle">工业风仓储·3-4台空+12台扇</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：商业模式概论</h3>
+
+      <h4>1. 商业的本质 = 价值交换</h4>
+      <p>哪怕诈骗本身也是一种"价值交换"——任何商业行为本质上都是交换。</p>
+
+      <h4>2. 商业模式的本质 = 规律复制</h4>
+      <p>掌握一件事的规律之后，可以快速复制——这是规模化盈利的基础。</p>
+
+      <h4>3. 失败的常态化认知</h4>
+      <div class="quote-card">
+        创业失败是主旋律。最可怕的不是失败，而是失败后不知道为什么失败。
+      </div>
+
+      <h4>4. 长线产品比喻：种桃树</h4>
+      <ul>
+        <li>选苗、挖坑、栽种 → 上肥、浇水</li>
+        <li><strong>疏果逻辑</strong>：每棵树若保20个桃，发芽后会有约100个小桃，必须剪掉80个——剩下的20个才又大又甜</li>
+      </ul>
+
+      <div class="callout info">
+        <strong>📌 核心逻辑链</strong>
+        <p>商业本质=价值交换 → 模式本质=规律复制 → 失败是常态 → 长线产品如种桃树（选苗→栽种→疏果→收获）</p>
+      </div>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：情绪价值与产品溢价</h3>
+
+      <h4>1. 价值不依赖成本 — 奢侈品案例</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>品牌</th><th>成本</th><th>售价</th></tr></thead>
+        <tbody>
+          <tr><td>苹果手机</td><td>七八百元</td><td>可达1万元</td></tr>
+          <tr><td>劳斯莱斯库里南</td><td>—</td><td>850万/辆，单独车标即值500-700万</td></tr>
+          <tr><td>法国奢侈品</td><td>—</td><td>13个世界一流品牌，本土工厂全部外包代工</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>2. 富人思维 vs 穷人思维</h4>
+      <ul>
+        <li><strong>穷人思维</strong> = 智商税（看产品是否"实用"）</li>
+        <li><strong>富人思维</strong> = "我配得上世间美好"</li>
+      </ul>
+
+      <h4>3. 价格与包装必须匹配</h4>
+      <div class="callout gold">
+        <strong>💍 冰点玉手镯案例</strong>
+        <p>手镯17000元 + 黄花梨包装盒1500元 + 顺丰保价2万<br>
+        <strong>方法论结论</strong>：产品价格必须"全链路匹配"</p>
+      </div>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：价值领先 — 品牌故事重塑产品价值</h3>
+
+      <h4>1. 价值重塑的经典案例：康泰克 vs 白加黑</h4>
+      <p>"白天有公务、晚上要睡觉"——针对特定场景重新定义价值。<strong>价值切换赛道 = 在原成本不变的情况下，切换用户场景/故事，把价格翻倍。</strong></p>
+
+      <h4>2. 钻石、德芙案例</h4>
+      <ul>
+        <li>钻石："钻石恒久远，一颗永流传"</li>
+        <li>德芙："公主死了，要为心爱的公主做出永远不会融化的蛋糕"</li>
+      </ul>
+
+      <h4>3. 讲师自己的价值领先实战案例</h4>
+      <div class="callout success">
+        <strong>📊 讲师实战数据</strong>
+        <p>进货价：4.85元 | 售价：16.99美金<br>
+        <strong>单笔利润：72元人民币/单（10美金利润），利润率约70%</strong><br>
+        品牌故事生产方式："把想法丢给ChatGPT，编不满意让他编10个20个，从里边选一个"</p>
+      </div>
+
+      <h4>4. 极致复制计划</h4>
+      <ul>
+        <li>同一产品换个马甲+品牌故事，换店卖</li>
+        <li><strong>目标：国庆节前，4家店×30款=120款产品</strong></li>
+        <li>假设100款日均1单，每单赚70元，则月入约15万</li>
+      </ul>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：成本领先 — 极致成本压缩与工业化运营</h3>
+
+      <h4>1. 价值领先 vs 成本领先 的赛道分野</h4>
+      <ul>
+        <li><strong>价值领先</strong> → 做不到第一名（价格高、量小）</li>
+        <li><strong>成本领先</strong> → 受众多、量大、很可能冲第一名</li>
+      </ul>
+
+      <h4>2. 成本领先代表企业的利润率现实</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>企业</th><th>利润率</th></tr></thead>
+        <tbody>
+          <tr><td>名创优品</td><td>5.7%</td></tr>
+          <tr><td>沃尔玛</td><td>7.7%</td></tr>
+          <tr><td>Costco</td><td>6%</td></tr>
+          <tr><td>奥乐齐</td><td>6.7%</td></tr>
+          <tr><td>燕文物流</td><td>2022年3.2%</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>3. 成本领先的四大成本压缩法</h4>
+
+      <h5>（1）采购压价</h5>
+      <p>议价能力公式：<strong>量大 + 现金 + 账期 = 更低价</strong></p>
+      <p>议价进阶：要求3个月账期</p>
+
+      <h5>（2）内部管理极致压缩</h5>
+      <ul>
+        <li>口号："<strong>一个人干五个人活，拿两个人的工资</strong>"</li>
+        <li>4.4亿销售额团队：<strong>3人</strong></li>
+        <li>讲师自己的亚马逊团队：<strong>2人</strong>——也做到了第一名</li>
+      </ul>
+
+      <h5>（3）仓储"纯纯的工业风"经典案例</h5>
+      <div class="callout gold">
+        <strong>🏭 拼多多头部卖家2100平方米案例</strong>
+        <p>水泥地起灰 → 喷红色油漆（喷完不起灰就算"装修完了"）<br>
+        装了3-4个大空调，但<strong>同时装12个电扇</strong></p>
+      </div>
+
+      <h4>4. 成本领先的方法论公式</h4>
+      <div class="quote-card">
+        抠着抠着，利润都抠出来了。
+      </div>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第3章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>识别你的产品属于"价值领先"还是"成本领先"赛道</li>
+        <li>把品牌故事丢给ChatGPT生成10-20个，从中挑选</li>
+        <li>检查产品包装是否与价格全链路匹配</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>列出采购议价能力公式：量+现金+账期，分别评估</li>
+        <li>反思团队人效：是否做到"一人干五人活"</li>
+        <li>梳理仓储/办公成本：哪些是"工业风"可压缩的</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>接受"创业失败是主旋律"，把每次失败归因到规律层</li>
+        <li>把"价值交换"和"规律复制"内化为商业判断的本能</li>
+        <li>在长线产品上践行"桃树疏果逻辑"</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#ch4" class="cross-link">下一章：4.商业模式② →</a></p>
+  </div>
+</section>
+
+<!-- ========== 第四章 商业模式② ========== -->
+<section class="chapter" id="ch4">
+  <div class="chapter-header">
+    <span class="chapter-num">第四部分 · 商业进阶</span>
+    <h2 class="chapter-title">第4章 商业模式② — 价格复利×无形价值×马斯洛×Showlex</h2>
+    <p class="chapter-sub">长线→成本领先 / 短线→价值领先 + 无形价值不可定价 + 找未被满足的需求</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="section">
+      <h3 class="section-title">🗺 第4章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 720" preserveAspectRatio="xMinYMin meet">
+  <rect class="node-rect root" x="20" y="280" width="180" height="160"/>
+  <text class="node-text root" x="110" y="325" text-anchor="middle">商业模式②</text>
+  <text class="node-text root" x="110" y="350" text-anchor="middle">商业进阶</text>
+  <text class="node-text root" x="110" y="375" text-anchor="middle">战略+定价</text>
+  <text class="node-text root" x="110" y="400" text-anchor="middle">+需求挖掘</text>
+
+  <path class="edge-main" d="M200,360 L240,360 L240,80 L300,80"/>
+  <path class="edge-main" d="M200,360 L240,360 L240,280 L300,280"/>
+  <path class="edge-main" d="M200,360 L240,360 L240,480 L300,480"/>
+  <path class="edge-main" d="M200,360 L240,360 L240,680 L300,680"/>
+
+  <rect class="node-rect level2" x="300" y="30" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="60" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="85" text-anchor="middle">成本领先延伸·价格复利</text>
+
+  <path class="edge" d="M500,50 L540,50 L540,40 L580,40"/>
+  <path class="edge" d="M500,75 L540,75 L540,80 L580,80"/>
+  <path class="edge" d="M500,100 L540,100 L540,120 L580,120"/>
+
+  <rect class="node-rect" x="580" y="20" width="200" height="40"/>
+  <text class="node-text" x="680" y="45" text-anchor="middle">价格复利公式</text>
+  <rect class="node-rect" x="580" y="60" width="200" height="40"/>
+  <text class="node-text" x="680" y="85" text-anchor="middle">每涨1%利润涨11.3%</text>
+  <rect class="node-rect" x="580" y="100" width="200" height="40"/>
+  <text class="node-text" x="680" y="125" text-anchor="middle">战略分叉终极公式</text>
+
+  <rect class="node-rect level2" x="300" y="230" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="260" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="285" text-anchor="middle">无形价值·马斯洛</text>
+
+  <path class="edge" d="M500,250 L540,250 L540,240 L580,240"/>
+  <path class="edge" d="M500,275 L540,275 L540,280 L580,280"/>
+  <path class="edge" d="M500,300 L540,300 L540,320 L580,320"/>
+
+  <rect class="node-rect" x="580" y="220" width="200" height="40"/>
+  <text class="node-text" x="680" y="245" text-anchor="middle">卖功能→场景→故事→内涵</text>
+  <rect class="node-rect" x="580" y="260" width="200" height="40"/>
+  <text class="node-text" x="680" y="285" text-anchor="middle">Zippo·茅台·巧克力</text>
+  <rect class="node-rect" x="580" y="300" width="200" height="40"/>
+  <text class="node-text" x="680" y="325" text-anchor="middle">"好看的皮囊千篇一律"</text>
+
+  <rect class="node-rect level2" x="300" y="430" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="460" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="485" text-anchor="middle">定价策略·多SKU布局</text>
+
+  <path class="edge" d="M500,450 L540,450 L540,440 L580,440"/>
+  <path class="edge" d="M500,475 L540,475 L540,480 L580,480"/>
+  <path class="edge" d="M500,500 L540,500 L540,520 L580,520"/>
+
+  <rect class="node-rect" x="580" y="420" width="200" height="40"/>
+  <text class="node-text" x="680" y="445" text-anchor="middle">定价=圈定人群</text>
+  <rect class="node-rect" x="580" y="460" width="200" height="40"/>
+  <text class="node-text" x="680" y="485" text-anchor="middle">颜色定价法·7色7种</text>
+  <rect class="node-rect" x="580" y="500" width="200" height="40"/>
+  <text class="node-text" x="680" y="525" text-anchor="middle">亚马逊利润：广告+Prime</text>
+
+  <rect class="node-rect level2" x="300" y="630" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="660" text-anchor="middle">板块四+五</text>
+  <text class="node-text level2" x="400" y="685" text-anchor="middle">未被满足的需求+Showlex</text>
+
+  <path class="edge" d="M500,650 L540,650 L540,640 L580,640"/>
+  <path class="edge" d="M500,675 L540,675 L540,680 L580,680"/>
+  <path class="edge" d="M500,700 L540,700 L540,720 L580,720"/>
+
+  <rect class="node-rect" x="580" y="620" width="200" height="40"/>
+  <text class="node-text" x="680" y="645" text-anchor="middle">人类需求：变懒</text>
+  <rect class="node-rect" x="580" y="660" width="200" height="40"/>
+  <text class="node-text" x="680" y="685" text-anchor="middle">案例：洗衣机·小罐米·考研锁</text>
+  <rect class="node-rect" x="580" y="700" width="200" height="40"/>
+  <text class="node-text" x="680" y="725" text-anchor="middle">Showlex软件·需求清单</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：成本领先延伸与价格复利</h3>
+
+      <h4>价格复利公式</h4>
+      <div class="callout gold">
+        <strong>📈 价格复利公式</strong>
+        <p>8 + 8 = 16<br>
+        8 × 8 = 64<br>
+        8 × 8 的 8次方 = 16,777,216<br>
+        <strong>核心结论：价格每上涨1%，利润上涨11.3%</strong></p>
+      </div>
+
+      <h4>战略分叉终极公式</h4>
+      <ul>
+        <li>做<strong>长线产品</strong> → 追求<strong>成本领先</strong></li>
+        <li>做<strong>短线产品/高客单价高利润产品</strong> → 追求<strong>价值领先</strong></li>
+      </ul>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：高端市场的无形价值与马斯洛需求层次</h3>
+
+      <h4>高端市场属性</h4>
+      <ul>
+        <li>用户核心购买的其实是<strong>无形价值</strong>（产品只是载体）</li>
+        <li>经典案例：巧克力做成心形 / Zippo打火机 / 800元的礼物 / 茅台+顿饭</li>
+        <li>"好看的皮囊千篇一律，有趣的灵魂万里挑一"</li>
+      </ul>
+
+      <h4>价值升级链路</h4>
+      <div class="callout success">
+        <strong>📌 卖功能 → 卖场景 → 卖故事 → 卖内涵</strong>
+        <p>毛利率递增——这是高端市场的核心方法论</p>
+      </div>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：定价策略与多SKU布局</h3>
+
+      <h4>1. 定价 = 圈定人群</h4>
+
+      <h4>2. 颜色定价法</h4>
+      <p>颜色是有独特的价格——"赤橙黄绿青蓝紫"7色7种定价</p>
+
+      <h4>3. 多 SKU 布局</h4>
+      <p>要做多SKU——不同价格梯度覆盖不同人群</p>
+
+      <h4>4. 亚马逊盈利逻辑</h4>
+      <div class="callout info">
+        <strong>📊 亚马逊利润两大来源</strong>
+        <p><strong>第一大头：广告</strong> + <strong>第二：Prime会员费</strong><br>
+        Prime会员全球<strong>2亿</strong>，一年收入约<strong>400亿美金</strong></p>
+      </div>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：寻找"未被满足的需求"</h3>
+
+      <h4>人类需求的本质</h4>
+      <p>人类是不断想变懒的，进化永远不会停止。</p>
+
+      <h4>经典案例</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>产品</th><th>未被满足的需求</th></tr></thead>
+        <tbody>
+          <tr><td>洗衣机</td><td>手洗→自动→烘干→加热消毒（持续进化）</td></tr>
+          <tr><td>联想电脑</td><td>山寨机的便宜 + 品牌机的售后</td></tr>
+          <tr><td>小罐米</td><td>单身群体一餐一罐</td></tr>
+          <tr><td>考研锁</td><td>定时锁，强制隔离手机</td></tr>
+          <tr><td>小罐茶</td><td>商务宴请"唯一性"</td></tr>
+          <tr><td>日本书包</td><td>防震防水+GPS+一键报警+1万元</td></tr>
+          <tr><td>特斯拉手机</td><td>免费上网 + 有光自动充电</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- 板块五 -->
+    <div class="section">
+      <h3 class="section-title">板块五：Showlex 软件实操演示</h3>
+
+      <h4>软件核心功能</h4>
+      <p>直接列出某行业/产品的"<strong>未被满足的需求清单</strong>"</p>
+
+      <h4>核心SOP</h4>
+      <ol>
+        <li>用Showlex软件</li>
+        <li>选定一个行业</li>
+        <li>软件自动列出该行业的"未被满足的需求"</li>
+        <li><strong>直接照着未被满足的需求去打</strong></li>
+      </ol>
+
+      <div class="callout gold">
+        <strong>🚀 Showlex = 选品核武器</strong>
+        <p>把"找需求"从凭经验变为数据化、可复制的工程动作</p>
+      </div>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第4章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>下载并试用Showlex软件</li>
+        <li>列出你的产品处于"卖功能/卖场景/卖故事/卖内涵"哪一层</li>
+        <li>用"颜色定价法"为现有产品重新梳理SKU</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>用"价格复利公式"测算每涨价1%的利润变化</li>
+        <li>做一次"未被满足的需求"头脑风暴：你的行业有哪些隐性需求？</li>
+        <li>把战略分叉公式应用到产品线：长线/短线分别用哪种领先？</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>建立"人类想变懒"的底层视角观察所有产品机会</li>
+        <li>把Showlex作为定期选品工具，建立数据化选品习惯</li>
+        <li>在Prime会员、广告、佣金三大盈利来源中找结构性机会</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#ch5" class="cross-link">下一章：5.卖点提炼① →</a></p>
+  </div>
+</section>
+
+<!-- ========== 第五章 卖点提炼① ========== -->
+<section class="chapter" id="ch5">
+  <div class="chapter-header">
+    <span class="chapter-num">第五部分 · 卖点方法论</span>
+    <h2 class="chapter-title">第5章 卖点提炼① — 七大价值维度+围裙案例+小而美</h2>
+    <p class="chapter-sub">选品的本质——产品价值交换、卖点提炼、长短线产品策略、小而美定位</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="section">
+      <h3 class="section-title">🗺 第5章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 880" preserveAspectRatio="xMinYMin meet">
+  <rect class="node-rect root" x="20" y="340" width="180" height="180"/>
+  <text class="node-text root" x="110" y="385" text-anchor="middle">卖点提炼①</text>
+  <text class="node-text root" x="110" y="410" text-anchor="middle">卖点方法论</text>
+  <text class="node-text root" x="110" y="435" text-anchor="middle">价值维度</text>
+  <text class="node-text root" x="110" y="460" text-anchor="middle">+人群+定位</text>
+  <text class="node-text root" x="110" y="485" text-anchor="middle">(战略中段)</text>
+
+  <path class="edge-main" d="M200,430 L240,430 L240,80 L300,80"/>
+  <path class="edge-main" d="M200,430 L240,430 L240,260 L300,260"/>
+  <path class="edge-main" d="M200,430 L240,430 L240,440 L300,440"/>
+  <path class="edge-main" d="M200,430 L240,430 L240,620 L300,620"/>
+  <path class="edge-main" d="M200,430 L240,430 L240,740 L300,740"/>
+  <path class="edge-main" d="M200,430 L240,430 L240,860 L300,860"/>
+
+  <rect class="node-rect level2" x="300" y="30" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="60" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="85" text-anchor="middle">七大价值维度</text>
+
+  <rect class="node-rect level2" x="300" y="210" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="240" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="265" text-anchor="middle">围裙案例深度拆解</text>
+
+  <rect class="node-rect level2" x="300" y="390" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="420" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="445" text-anchor="middle">店铺定位·产品取舍</text>
+
+  <rect class="node-rect level2" x="300" y="570" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="600" text-anchor="middle">板块四</text>
+  <text class="node-text level2" x="400" y="625" text-anchor="middle">亚马逊护城河分析</text>
+
+  <rect class="node-rect level2" x="300" y="690" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="720" text-anchor="middle">板块五</text>
+  <text class="node-text level2" x="400" y="745" text-anchor="middle">小而美·类目选择指标</text>
+
+  <rect class="node-rect level2" x="300" y="810" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="840" text-anchor="middle">板块六</text>
+  <text class="node-text level2" x="400" y="865" text-anchor="middle">选品三大方向·长短线</text>
+
+  <path class="edge" d="M500,55 L540,55 L540,50 L580,50"/>
+  <path class="edge" d="M500,80 L540,80 L540,85 L580,85"/>
+  <path class="edge" d="M500,105 L540,105 L540,120 L580,120"/>
+
+  <rect class="node-rect" x="580" y="30" width="200" height="40"/>
+  <text class="node-text" x="680" y="55" text-anchor="middle">七大维度</text>
+  <rect class="node-rect" x="580" y="70" width="200" height="40"/>
+  <text class="node-text" x="680" y="95" text-anchor="middle">功能/工艺/安全/创意</text>
+  <rect class="node-rect" x="580" y="110" width="200" height="40"/>
+  <text class="node-text" x="680" y="135" text-anchor="middle">情绪/品牌/卖家定位</text>
+
+  <path class="edge" d="M500,235 L540,235 L540,230 L580,230"/>
+  <path class="edge" d="M500,260 L540,260 L540,265 L580,265"/>
+  <path class="edge" d="M500,285 L540,285 L540,300 L580,300"/>
+
+  <rect class="node-rect" x="580" y="210" width="200" height="40"/>
+  <text class="node-text" x="680" y="235" text-anchor="middle">卖点冲突点</text>
+  <rect class="node-rect" x="580" y="250" width="200" height="40"/>
+  <text class="node-text" x="680" y="275" text-anchor="middle">5大人群拆解</text>
+  <rect class="node-rect" x="580" y="290" width="200" height="40"/>
+  <text class="node-text" x="680" y="315" text-anchor="middle">弱水三千只取一瓢</text>
+
+  <path class="edge" d="M500,415 L540,415 L540,410 L580,410"/>
+  <path class="edge" d="M500,440 L540,440 L540,445 L580,445"/>
+  <path class="edge" d="M500,465 L540,465 L540,480 L580,480"/>
+
+  <rect class="node-rect" x="580" y="390" width="200" height="40"/>
+  <text class="node-text" x="680" y="415" text-anchor="middle">3种店铺模式</text>
+  <rect class="node-rect" x="580" y="430" width="200" height="40"/>
+  <text class="node-text" x="680" y="455" text-anchor="middle">塔尖/塔底策略</text>
+  <rect class="node-rect" x="580" y="470" width="200" height="40"/>
+  <text class="node-text" x="680" y="495" text-anchor="middle">价格定律：销售价格最低</text>
+
+  <path class="edge" d="M500,595 L540,595 L540,590 L580,590"/>
+  <path class="edge" d="M500,620 L540,620 L540,625 L580,625"/>
+  <path class="edge" d="M500,645 L540,645 L540,660 L580,660"/>
+
+  <rect class="node-rect" x="580" y="570" width="200" height="40"/>
+  <text class="node-text" x="680" y="595" text-anchor="middle">FBA + Prime</text>
+  <rect class="node-rect" x="580" y="610" width="200" height="40"/>
+  <text class="node-text" x="680" y="635" text-anchor="middle">美国137个仓库</text>
+  <rect class="node-rect" x="580" y="650" width="200" height="40"/>
+  <text class="node-text" x="680" y="675" text-anchor="middle">亚马逊不会全托管</text>
+
+  <path class="edge" d="M500,715 L540,715 L540,710 L580,710"/>
+  <path class="edge" d="M500,740 L540,740 L540,745 L580,745"/>
+  <path class="edge" d="M500,765 L540,765 L540,780 L580,780"/>
+
+  <rect class="node-rect" x="580" y="690" width="200" height="40"/>
+  <text class="node-text" x="680" y="715" text-anchor="middle">小爆款群优势</text>
+  <rect class="node-rect" x="580" y="730" width="200" height="40"/>
+  <text class="node-text" x="680" y="755" text-anchor="middle">类目四大指标≤60%</text>
+  <rect class="node-rect" x="580" y="770" width="200" height="40"/>
+  <text class="node-text" x="680" y="795" text-anchor="middle">短线产品方向</text>
+
+  <path class="edge" d="M500,835 L540,835 L540,830 L580,830"/>
+  <path class="edge" d="M500,860 L540,860 L540,865 L580,865"/>
+  <path class="edge" d="M500,885 L540,885 L540,900 L580,900"/>
+
+  <rect class="node-rect" x="580" y="810" width="200" height="40"/>
+  <text class="node-text" x="680" y="835" text-anchor="middle">3大方向：熟悉/兴趣/资源</text>
+  <rect class="node-rect" x="580" y="850" width="200" height="40"/>
+  <text class="node-text" x="680" y="875" text-anchor="middle">爱好者话术模板</text>
+  <rect class="node-rect" x="580" y="890" width="200" height="40"/>
+  <text class="node-text" x="680" y="915" text-anchor="middle">长短线产品操作</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：产品价值的七大维度</h3>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>维度</th><th>说明</th><th>典型产品</th></tr></thead>
+        <tbody>
+          <tr><td>1 功能价值</td><td>基础使用价值</td><td>躺椅、桌子、菜刀、电饭锅</td></tr>
+          <tr><td>2 工艺/材质价值</td><td>工艺水平、原材料</td><td>酒的工艺、布料的涤纶纯棉牛仔布</td></tr>
+          <tr><td>3 安全价值</td><td>使用安全、保护</td><td>锁、儿童/宝宝用品</td></tr>
+          <tr><td>4 创意价值</td><td>独特、新颖</td><td>解压玩具、品牌故事</td></tr>
+          <tr><td>5 情绪价值</td><td>情感满足、心理慰藉</td><td>高客单价、解压、好的故事、漂亮包装、好的书</td></tr>
+          <tr><td>6 品牌故事</td><td>叙事溢价</td><td>钻石、德芙、Zippo</td></tr>
+          <tr><td>7 卖家如何定位</td><td>卖家IP人格化</td><td>资深爱好者</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="quote-card">
+        买家是不知道产品有啥卖点的，我们作为卖家应该是引导着他。——讲师核心观点
+      </div>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：卖点提炼实操 — 围裙案例深度拆解</h3>
+
+      <h4>围裙的卖点冲突点</h4>
+      <ul>
+        <li><strong>纯棉 + 防水</strong>：要做防水隔层，但隔层会变硬、不透气</li>
+        <li><strong>塑料PE</strong>：防水但透气差</li>
+      </ul>
+
+      <h4>人群与场景拆解</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>购买人群</th><th>用途</th><th>关注点</th></tr></thead>
+        <tbody>
+          <tr><td>普通工人</td><td>日常做饭</td><td>通用</td></tr>
+          <tr><td>理发师</td><td>理发时穿</td><td>防水、防头发</td></tr>
+          <tr><td>画家</td><td>画画时穿</td><td>防水、防颜料</td></tr>
+          <tr><td>木匠</td><td>做木工时穿</td><td>耐磨</td></tr>
+          <tr><td>屠夫</td><td>屠宰时穿</td><td>防水、耐脏</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="quote-card">
+        弱水三千，只取一瓢。<br>
+        很多人的纠结就是在于我明明选了一个高客单价的产品，但是你还想做第一名，这就很尴尬了。
+      </div>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：店铺定位与产品取舍（塔尖/塔底、长短线）</h3>
+
+      <h4>三种店铺模式</h4>
+      <ul>
+        <li><strong>节日型店铺</strong>：整个店铺都是节日产品，两三个月就赚够一年的钱</li>
+        <li><strong>高价小爆款群模式</strong>：整个店铺都是高客单价，每天订单不多但累积利润非常牛</li>
+        <li><strong>第一名战略</strong>：狠心做第一名，前期会有战略性亏损</li>
+      </ul>
+
+      <h4>价格定律</h4>
+      <div class="callout gold">
+        <strong>📊 价格定律</strong>
+        <p>所有的同行类目除了新奇特、大牌之外，第一名往往都有一个共同特点——它就是<strong>销售价格最低</strong>。</p>
+      </div>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：亚马逊平台护城河分析</h3>
+
+      <h4>亚马逊的护城河</h4>
+      <p><strong>FBA + Prime 会员</strong>（美国国内137个仓库）</p>
+
+      <div class="callout info">
+        <strong>🎯 讲师判断</strong>
+        <p>"美国的法律和中国的法律不同，所以我百分之百认为亚马逊不可能进行全托管模式。"</p>
+      </div>
+    </div>
+
+    <!-- 板块五 -->
+    <div class="section">
+      <h3 class="section-title">板块五：小而美策略与类目选择指标</h3>
+
+      <h4>小爆款群的优势</h4>
+      <p>亚马逊喜欢、利润高、风险低、投资小、收益不低</p>
+
+      <h4>类目选择四大指标</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>指标</th><th>阈值</th></tr></thead>
+        <tbody>
+          <tr><td>商品集中度</td><td>≤60%</td></tr>
+          <tr><td>品牌集中度</td><td>≤60%</td></tr>
+          <tr><td>卖家集中度</td><td>≤60%</td></tr>
+          <tr><td>亚马逊自营占比</td><td>≤25%</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>短线产品方向</h4>
+      <p>季节/节日、小众群体、木制品、成人用品、刀具类</p>
+    </div>
+
+    <!-- 板块六 -->
+    <div class="section">
+      <h3 class="section-title">板块六：选品的三大方向与长短线产品操作</h3>
+
+      <h4>选品三大方向</h4>
+      <ol>
+        <li><strong>熟悉的产品</strong>（你懂的产品）</li>
+        <li><strong>兴趣驱动</strong>（你喜欢、你家人喜欢）</li>
+        <li><strong>身边资源</strong>（七大姑八大姨、工厂、货源）</li>
+      </ol>
+
+      <h4>资深爱好者的产品话术模板</h4>
+      <div class="callout success">
+        <strong>📝 话术公式</strong>
+        <ol style="margin-top:6px;padding-left:20px">
+          <li>我卖这款产品是因为啥？</li>
+          <li>我在钓鱼之中遇到了什么问题？</li>
+          <li>最后我发现能解决的问题。</li>
+          <li>为了解决问题，我付出了哪些努力？</li>
+          <li>最后使用了这款产品。</li>
+          <li>使用这款产品之后达到了什么样的效果？</li>
+        </ol>
+      </div>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第5章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>梳理你的产品属于七大价值维度的哪几个</li>
+        <li>用"围裙案例"的5大人群拆解方法分析你的产品</li>
+        <li>检查目标类目的四大指标是否在阈值内</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>用"弱水三千只取一瓢"做卖点聚焦：选出1个最强卖点</li>
+        <li>用"爱好者话术模板"为你的产品写一段品牌故事</li>
+        <li>判断你的店铺属于"节日型/高价小爆款/第一名"哪种</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>把"卖家引导买家"内化为本能</li>
+        <li>建立"长线养希望养融资 / 短线养团队养信心"的产品矩阵思维</li>
+        <li>持续关注类目集中度变化，及时调整产品线</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#ch6" class="cross-link">下一章：6.卖点提炼② →</a></p>
+  </div>
+</section>
+
+<!-- ========== 第六章 卖点提炼② ========== -->
+<section class="chapter" id="ch6">
+  <div class="chapter-header">
+    <span class="chapter-num">第六部分 · 卖点落地</span>
+    <h2 class="chapter-title">第6章 卖点提炼② — 单一卖点+马斯洛+赛道切割+产品组合</h2>
+    <p class="chapter-sub">冲击Best Seller的价值领先与刚需战略、马斯洛需求层次、赛道切割与单一卖点提炼</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="section">
+      <h3 class="section-title">🗺 第6章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 880" preserveAspectRatio="xMinYMin meet">
+  <rect class="node-rect root" x="20" y="340" width="180" height="180"/>
+  <text class="node-text root" x="110" y="385" text-anchor="middle">卖点提炼②</text>
+  <text class="node-text root" x="110" y="410" text-anchor="middle">卖点落地</text>
+  <text class="node-text root" x="110" y="435" text-anchor="middle">单一卖点</text>
+  <text class="node-text root" x="110" y="460" text-anchor="middle">+赛道切割</text>
+  <text class="node-text root" x="110" y="485" text-anchor="middle">(战略落地)</text>
+
+  <path class="edge-main" d="M200,430 L240,430 L240,80 L300,80"/>
+  <path class="edge-main" d="M200,430 L240,430 L240,240 L300,240"/>
+  <path class="edge-main" d="M200,430 L240,430 L240,420 L300,420"/>
+  <path class="edge-main" d="M200,430 L240,430 L240,600 L300,600"/>
+  <path class="edge-main" d="M200,430 L240,430 L240,780 L300,780"/>
+
+  <rect class="node-rect level2" x="300" y="30" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="60" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="85" text-anchor="middle">冲击Best Seller</text>
+
+  <rect class="node-rect level2" x="300" y="190" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="220" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="245" text-anchor="middle">单一卖点战略</text>
+
+  <rect class="node-rect level2" x="300" y="370" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="400" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="425" text-anchor="middle">店铺产品布局</text>
+
+  <rect class="node-rect level2" x="300" y="550" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="580" text-anchor="middle">板块四</text>
+  <text class="node-text level2" x="400" y="605" text-anchor="middle">马斯洛需求层次</text>
+
+  <rect class="node-rect level2" x="300" y="730" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="760" text-anchor="middle">板块五+六+七</text>
+  <text class="node-text level2" x="400" y="785" text-anchor="middle">员工管理+赛道切割+组合</text>
+
+  <path class="edge" d="M500,55 L540,55 L540,50 L580,50"/>
+  <path class="edge" d="M500,80 L540,80 L540,85 L580,85"/>
+  <path class="edge" d="M500,105 L540,105 L540,120 L580,120"/>
+
+  <rect class="node-rect" x="580" y="30" width="200" height="40"/>
+  <text class="node-text" x="680" y="55" text-anchor="middle">价值排序：价格+价值</text>
+  <rect class="node-rect" x="580" y="70" width="200" height="40"/>
+  <text class="node-text" x="680" y="95" text-anchor="middle">供应链：3家以上</text>
+  <rect class="node-rect" x="580" y="110" width="200" height="40"/>
+  <text class="node-text" x="680" y="135" text-anchor="middle">刚需制胜+生命周期</text>
+
+  <path class="edge" d="M500,215 L540,215 L540,210 L580,210"/>
+  <path class="edge" d="M500,240 L540,240 L540,245 L580,245"/>
+  <path class="edge" d="M500,265 L540,265 L540,280 L580,280"/>
+
+  <rect class="node-rect" x="580" y="190" width="200" height="40"/>
+  <text class="node-text" x="680" y="215" text-anchor="middle">宝马·奔驰·沃尔沃·法拉利</text>
+  <rect class="node-rect" x="580" y="230" width="200" height="40"/>
+  <text class="node-text" x="680" y="255" text-anchor="middle">心智占位链路</text>
+  <rect class="node-rect" x="580" y="270" width="200" height="40"/>
+  <text class="node-text" x="680" y="295" text-anchor="middle">多优点→筛选→1卖点</text>
+
+  <path class="edge" d="M500,395 L540,395 L540,390 L580,390"/>
+  <path class="edge" d="M500,420 L540,420 L540,425 L580,425"/>
+  <path class="edge" d="M500,445 L540,445 L540,460 L580,460"/>
+
+  <rect class="node-rect" x="580" y="370" width="200" height="40"/>
+  <text class="node-text" x="680" y="395" text-anchor="middle">6种店铺类型</text>
+  <rect class="node-rect" x="580" y="410" width="200" height="40"/>
+  <text class="node-text" x="680" y="435" text-anchor="middle">极致为王</text>
+  <rect class="node-rect" x="580" y="450" width="200" height="40"/>
+  <text class="node-text" x="680" y="475" text-anchor="middle">水平vs垂直店铺</text>
+
+  <path class="edge" d="M500,575 L540,575 L540,570 L580,570"/>
+  <path class="edge" d="M500,600 L540,600 L540,605 L580,605"/>
+  <path class="edge" d="M500,625 L540,625 L540,640 L580,640"/>
+
+  <rect class="node-rect" x="580" y="550" width="200" height="40"/>
+  <text class="node-text" x="680" y="575" text-anchor="middle">五层需求与订单利润</text>
+  <rect class="node-rect" x="580" y="590" width="200" height="40"/>
+  <text class="node-text" x="680" y="615" text-anchor="middle">5-50倍利润差</text>
+  <rect class="node-rect" x="580" y="630" width="200" height="40"/>
+  <text class="node-text" x="680" y="655" text-anchor="middle">第一二层做第一名</text>
+
+  <path class="edge" d="M500,755 L540,755 L540,750 L580,750"/>
+  <path class="edge" d="M500,780 L540,780 L540,785 L580,785"/>
+  <path class="edge" d="M500,805 L540,805 L540,820 L580,820"/>
+
+  <rect class="node-rect" x="580" y="730" width="200" height="40"/>
+  <text class="node-text" x="680" y="755" text-anchor="middle">员工四层级管理</text>
+  <rect class="node-rect" x="580" y="770" width="200" height="40"/>
+  <text class="node-text" x="680" y="795" text-anchor="middle">5维切割</text>
+  <rect class="node-rect" x="580" y="810" width="200" height="40"/>
+  <text class="node-text" x="680" y="835" text-anchor="middle">反向组合+唯一卖点</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：冲击 Best Seller 的价值领先与供应链基础</h3>
+
+      <h4>1. 目标产品的价值排序</h4>
+      <p>价格领先，但<strong>价值不能缺席</strong></p>
+
+      <h4>2. 长线产品的供应链要求</h4>
+      <ul>
+        <li>找到<strong>3家以上供应商</strong></li>
+        <li>供应链必须稳定</li>
+        <li>后期销量变大后，可以争取账期</li>
+      </ul>
+
+      <h4>3. 长线产品的基本原则：刚需制胜</h4>
+      <p>筷子、碗、厨具、刀具</p>
+
+      <h4>4. 用竞品生命周期判断市场成熟度</h4>
+      <p>查看同类竞品中是否有<strong>上线三年以上</strong>且仍然销售良好的产品</p>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：单一卖点战略</h3>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>品牌/产品</th><th>被强化的核心卖点</th><th>对应消费心态</th></tr></thead>
+        <tbody>
+          <tr><td>宝马</td><td>驾驶感</td><td>追求体验价值</td></tr>
+          <tr><td>奔驰</td><td>后座舒适、商务接待</td><td>商务场景</td></tr>
+          <tr><td>沃尔沃</td><td>安全</td><td>重视安全</td></tr>
+          <tr><td>法拉利</td><td>赛车/速度</td><td>追求性能与激情</td></tr>
+          <tr><td>米其林</td><td>耐磨耐造</td><td>实用品质</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>心智占位链路</h4>
+      <div class="callout success">
+        <strong>🔁 心智占位五步</strong>
+        <p>产品多个优点 → 筛选 → 一个最有竞争力卖点 → 广告 + 长期重复 → 卖点进入买家心智 → 品牌联想</p>
+      </div>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：亚马逊店铺产品布局与极致化经营</h3>
+
+      <h4>亚马逊常见产品布局类型</h4>
+      <ul>
+        <li><strong>精品店铺</strong>：一天可能只有一两个订单</li>
+        <li><strong>精铺店铺</strong>：一个店铺可能有50、100、200个产品</li>
+        <li><strong>横向店铺</strong>：同一产品类型扩展（如卖碗上架100个款式）</li>
+        <li><strong>垂直店铺</strong>：围绕生活场景扩展（碗、筷子、菜刀等）</li>
+        <li><strong>纯跟卖店铺</strong></li>
+        <li><strong>超低价店铺</strong></li>
+      </ul>
+
+      <div class="quote-card">
+        任何事情你只有把它发挥做到极致，那才可能会产生质变。——极致为王
+      </div>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：马斯洛需求层次与产品定位</h3>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>需求层级</th><th>核心需求</th><th>典型产品</th><th>订单规模</th><th>价格/利润</th></tr></thead>
+        <tbody>
+          <tr><td>1 生理</td><td>生存、饮食、穿衣、睡眠</td><td>水、食物、菜刀、外卖</td><td>最大</td><td>价格低，靠规模</td></tr>
+          <tr><td>2 安全</td><td>保障、秩序、保护</td><td>保险、保鲜膜、密封罐、沃尔沃</td><td>大</td><td>中等</td></tr>
+          <tr><td>3 归属与爱</td><td>家庭、爱情、友谊、认可</td><td>钻石、教育、人际课程</td><td>较大</td><td>较高</td></tr>
+          <tr><td>4 尊重</td><td>成就、身份、地位、声望</td><td>礼服、豪车、名牌、培训</td><td>较少</td><td>高</td></tr>
+          <tr><td>5 自我实现</td><td>认知、审美、抱负、潜能</td><td>知识、医美、手办、自媒体</td><td>最少</td><td>最高，可为5-50倍</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="callout gold">
+        <strong>📊 核心结论</strong>
+        <p>想做第一名：奔着<strong>生理需求和安全需求</strong><br>
+        想做高利润：做<strong>第三层级以上</strong><br>
+        利润可能呈 <strong>5倍、50倍</strong> 增加</p>
+      </div>
+    </div>
+
+    <!-- 板块五 -->
+    <div class="section">
+      <h3 class="section-title">板块五：需求层次在员工与人际价值交换中的应用</h3>
+
+      <h4>员工管理：根据员工需求层级提供价值</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>员工/对象状态</th><th>主要需求</th><th>管理者应提供的价值</th></tr></thead>
+        <tbody>
+          <tr><td>基础条件较差的员工</td><td>生理、安全</td><td>薪资、稳定、保障</td></tr>
+          <tr><td>家庭条件好的员工</td><td>归属与爱</td><td>关怀、友谊、团队认可</td></tr>
+          <tr><td>中层</td><td>尊重/成就</td><td>名声、地位、权力</td></tr>
+          <tr><td>高层/股东/投资人</td><td>自我实现</td><td>知识探索、人生意义</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+
+    <!-- 板块六 -->
+    <div class="section">
+      <h3 class="section-title">板块六：赛道切割与差异化卖点提炼</h3>
+
+      <h4>矿泉水案例：同一品类的多种价值定位</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>品牌/产品</th><th>核心卖点/定位</th></tr></thead>
+        <tbody>
+          <tr><td>农夫山泉</td><td>长白山深山山泉水</td></tr>
+          <tr><td>百岁山</td><td>广西巴马县长寿之乡</td></tr>
+          <tr><td>恒大冰泉</td><td>地下1000米冰泉；富含矿物质</td></tr>
+          <tr><td>元气森林</td><td>零糖、零脂</td></tr>
+          <tr><td>凉白开</td><td>水经过100℃烧开后放凉；主打熟水</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>五种差异化切割维度</h4>
+      <ul>
+        <li><strong>材质切割</strong>：纯棉 vs 涤纶 vs 无纺布 vs 真皮 vs 帆布 vs 牛仔布 vs 亚麻</li>
+        <li><strong>功能切割</strong>：高露洁（健齿白）vs 云南白药（消炎杀菌）vs 冷酸灵（抗酸）vs 两面针（清热去火）</li>
+        <li><strong>外观切割</strong>：传统铝皮牙膏管 vs 洗手液瓶式按压牙膏</li>
+        <li><strong>工艺切割</strong>：明星代言 vs 情怀/怀旧</li>
+        <li><strong>口号/梦想切割</strong></li>
+      </ul>
+    </div>
+
+    <!-- 板块七 -->
+    <div class="section">
+      <h3 class="section-title">板块七：产品组合策略与唯一卖点落地</h3>
+
+      <h4>钓鱼套装可能包含</h4>
+      <p>鱼竿、鱼漂/浮漂、鱼线/鱼绳、鱼钩、长杆、短杆、遮阳帽、钓鱼凳、装鱼的水桶、清洗用品</p>
+
+      <h4>露营套装</h4>
+      <p>露营灯/挂灯、帐篷天幕、蚊香、坐垫、睡袋、露营桌椅、桌套、洗刷用品、油灯、手电筒</p>
+
+      <h4>反向组合策略</h4>
+      <div class="callout gold">
+        <strong>🔄 反向组合</strong>
+        <p>类目都在卖组合 → 你卖单一产品<br>
+        类目都在卖单一产品 → 你卖组合</p>
+      </div>
+
+      <div class="quote-card">
+        有两个以上的卖点的产品等于没有卖点。
+      </div>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第6章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>在七大价值维度中为你的产品找出1个核心卖点</li>
+        <li>用马斯洛模型定位你的产品在哪一层</li>
+        <li>从5种切割维度中选择1种做差异化</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>建立3家以上供应商池（长线产品）</li>
+        <li>把员工按马斯洛层级分类，提供差异化激励</li>
+        <li>设计1套反向组合产品</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>坚持"心智占位链路"，让1个卖点反复出现在listing、广告、QA中</li>
+        <li>把"极致为王"作为店铺经营哲学</li>
+        <li>持续观察类目生命周期，避开3年以上老化的赛道</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#ch7" class="cross-link">下一章：7.营销工具① →</a></p>
+  </div>
+</section>
+
+<!-- ========== 第七章 营销工具① ========== -->
+<section class="chapter" id="ch7">
+  <div class="chapter-header">
+    <span class="chapter-num">第七部分 · 营销理念</span>
+    <h2 class="chapter-title">第7章 营销工具① — 选品定位+黑科技选品+极致为王+流量入口+转化+产品故事</h2>
+    <p class="chapter-sub">从定位到listing打造，把产品力做到极致的方法论</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="section">
+      <h3 class="section-title">🗺 第7章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 800" preserveAspectRatio="xMinYMin meet">
+  <rect class="node-rect root" x="20" y="320" width="180" height="160"/>
+  <text class="node-text root" x="110" y="365" text-anchor="middle">营销工具①</text>
+  <text class="node-text root" x="110" y="390" text-anchor="middle">营销理念</text>
+  <text class="node-text root" x="110" y="415" text-anchor="middle">+产品力打造</text>
+  <text class="node-text root" x="110" y="440" text-anchor="middle">(战术起点)</text>
+
+  <path class="edge-main" d="M200,400 L240,400 L240,80 L300,80"/>
+  <path class="edge-main" d="M200,400 L240,400 L240,260 L300,260"/>
+  <path class="edge-main" d="M200,400 L240,400 L240,440 L300,440"/>
+  <path class="edge-main" d="M200,400 L240,400 L240,620 L300,620"/>
+  <path class="edge-main" d="M200,400 L240,400 L240,740 L300,740"/>
+
+  <rect class="node-rect level2" x="300" y="30" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="60" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="85" text-anchor="middle">选品定位·差异化</text>
+
+  <rect class="node-rect level2" x="300" y="210" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="240" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="265" text-anchor="middle">五种黑科技选品法</text>
+
+  <rect class="node-rect level2" x="300" y="390" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="420" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="445" text-anchor="middle">极致为王哲学</text>
+
+  <rect class="node-rect level2" x="300" y="570" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="600" text-anchor="middle">板块四</text>
+  <text class="node-text level2" x="400" y="625" text-anchor="middle">流量入口全景</text>
+
+  <rect class="node-rect level2" x="300" y="700" width="220" height="100"/>
+  <text class="node-text level2" x="410" y="730" text-anchor="middle">板块五+六</text>
+  <text class="node-text level2" x="410" y="755" text-anchor="middle">转化率+完美listing</text>
+
+  <path class="edge" d="M500,55 L540,55 L540,50 L580,50"/>
+  <path class="edge" d="M500,80 L540,80 L540,85 L580,85"/>
+  <path class="edge" d="M500,105 L540,105 L540,120 L580,120"/>
+
+  <rect class="node-rect" x="580" y="30" width="200" height="40"/>
+  <text class="node-text" x="680" y="55" text-anchor="middle">防火墙三件套</text>
+  <rect class="node-rect" x="580" y="70" width="200" height="40"/>
+  <text class="node-text" x="680" y="95" text-anchor="middle">价格/版权/域名</text>
+  <rect class="node-rect" x="580" y="110" width="200" height="40"/>
+  <text class="node-text" x="680" y="135" text-anchor="middle">域名698元/年</text>
+
+  <path class="edge" d="M500,235 L540,235 L540,230 L580,230"/>
+  <path class="edge" d="M500,260 L540,260 L540,265 L580,265"/>
+  <path class="edge" d="M500,285 L540,285 L540,300 L580,300"/>
+
+  <rect class="node-rect" x="580" y="210" width="200" height="40"/>
+  <text class="node-text" x="680" y="235" text-anchor="middle">翻新·跟卖·拆分·包装</text>
+  <rect class="node-rect" x="580" y="250" width="200" height="40"/>
+  <text class="node-text" x="680" y="275" text-anchor="middle">工厂投资人·节省32万</text>
+  <rect class="node-rect" x="580" y="290" width="200" height="40"/>
+  <text class="node-text" x="680" y="315" text-anchor="middle">供应链物流优化</text>
+
+  <path class="edge" d="M500,415 L540,415 L540,410 L580,410"/>
+  <path class="edge" d="M500,440 L540,440 L540,445 L580,445"/>
+  <path class="edge" d="M500,465 L540,465 L540,480 L580,480"/>
+
+  <rect class="node-rect" x="580" y="390" width="200" height="40"/>
+  <text class="node-text" x="680" y="415" text-anchor="middle">单点聚焦·统一指向</text>
+  <rect class="node-rect" x="580" y="430" width="200" height="40"/>
+  <text class="node-text" x="680" y="455" text-anchor="middle">价格极致：节省184.8万</text>
+  <rect class="node-rect" x="580" y="470" width="200" height="40"/>
+  <text class="node-text" x="680" y="495" text-anchor="middle">成本从7.16→4.85元</text>
+
+  <path class="edge" d="M500,595 L540,595 L540,590 L580,590"/>
+  <path class="edge" d="M500,620 L540,620 L540,625 L580,625"/>
+  <path class="edge" d="M500,645 L540,645 L540,660 L580,660"/>
+
+  <rect class="node-rect" x="580" y="570" width="200" height="40"/>
+  <text class="node-text" x="680" y="595" text-anchor="middle">广告/类目/视频/关联</text>
+  <rect class="node-rect" x="580" y="610" width="200" height="40"/>
+  <text class="node-text" x="680" y="635" text-anchor="middle">计划/QA/站外/关键词</text>
+  <rect class="node-rect" x="580" y="650" width="200" height="40"/>
+  <text class="node-text" x="680" y="675" text-anchor="middle">自动vs手动广告</text>
+
+  <path class="edge" d="M520,730 L560,730 L560,730 L600,730"/>
+  <path class="edge" d="M520,755 L560,755 L560,765 L600,765"/>
+  <path class="edge" d="M520,780 L560,780 L560,800 L600,800"/>
+
+  <rect class="node-rect" x="600" y="710" width="220" height="40"/>
+  <text class="node-text" x="710" y="735" text-anchor="middle">评论比价格都重要</text>
+  <rect class="node-rect" x="600" y="750" width="220" height="40"/>
+  <text class="node-text" x="710" y="775" text-anchor="middle">完美listing六要素</text>
+  <rect class="node-rect" x="600" y="790" width="220" height="40"/>
+  <text class="node-text" x="710" y="815" text-anchor="middle">产品故事公式</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：选品定位与产品差异化基础</h3>
+
+      <h4>产品防火墙三件套</h4>
+
+      <h5>价格防火墙</h5>
+      <p>走量的长线产品必须建立价格优势</p>
+
+      <h5>版权防火墙</h5>
+      <ul>
+        <li>版权必须注册</li>
+        <li>外观专利：能改就改</li>
+        <li>即便模仿别人外观专利，注册下来也需要很久时间，本身就是护城河</li>
+      </ul>
+
+      <h5>品牌官网与域名</h5>
+      <div class="callout gold">
+        <strong>💡 域名=性价比最高的护城河</strong>
+        <p>品牌注册时一定要<strong>同时购买域名</strong>（如 ABC123.com）<br>
+        一年费用约 <strong>698元人民币</strong><br>
+        如果被别人抢注，买回需<strong>最少6,980元</strong>（10倍代价）</p>
+      </div>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：五种黑科技选品法与供应链物流优化</h3>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>方法</th><th>适用场景</th><th>核心动作</th><th>成本/风险</th></tr></thead>
+        <tbody>
+          <tr><td>翻新产品</td><td>差评/库存积压</td><td>二手种子链接重置</td><td>中等</td></tr>
+          <tr><td>新品版快速跟进</td><td>高客单价长线产品</td><td>小号跟卖积累评价</td><td>需多账号资源</td></tr>
+          <tr><td>组合拆分</td><td>套装/组合产品</td><td>反向减配做单品</td><td>低</td></tr>
+          <tr><td>包装翻新</td><td>任何产品</td><td>换包装+喷码</td><td>极低</td></tr>
+          <tr><td>工厂投资人</td><td>成熟供应链</td><td>谈定投资合作</td><td>需销量基础</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>工厂打包案例</h4>
+      <div class="callout success">
+        <strong>📦 工厂打包优化案例</strong>
+        <p>优化前流程：义乌 → 南阳（打包）→ 宁波港口<br>
+        优化后流程：宁波工厂 → 货拉拉 → 宁波港口<br>
+        <strong>节省金额：一年节省32万人民币运费</strong></p>
+      </div>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：极致为王的产品打造哲学</h3>
+
+      <h4>核心金句</h4>
+      <div class="quote-card">
+        很多人不怕你有特点，就怕你的特点不突出。<br>
+        当你的产品具有两个以上的卖点的时候，表示你的产品没有卖点。<br>
+        弱水三千只取一瓢饮 / 八万四千法门皆可成佛
+      </div>
+
+      <h4>价格极致案例 - 厨具产品</h4>
+      <div class="callout gold">
+        <strong>💰 厨具单品成本演变</strong>
+        <p>初始成本7.16元 → 最终成本4.85元 → 节省2.31元/件<br>
+        年销量：<strong>80万个</strong><br>
+        年节省：<strong>184.8万元利润</strong></p>
+      </div>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：亚马逊流量入口全景解析</h3>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>流量类型</th><th>入口</th><th>核心要点</th></tr></thead>
+        <tbody>
+          <tr><td>广告流量</td><td>SP/SB/SD</td><td>自动+手动组合</td></tr>
+          <tr><td>类目流量</td><td>三个类目节点</td><td>多节点匹配</td></tr>
+          <tr><td>视频流量</td><td>listing视频+详情页10位</td><td>必须做满</td></tr>
+          <tr><td>关联流量</td><td>by together</td><td>人工干预加购</td></tr>
+          <tr><td>计划流量</td><td>透明计划/万计划</td><td>防跟卖+流量</td></tr>
+          <tr><td>QA流量</td><td>QA位置</td><td>服务商提问+自己回复</td></tr>
+          <tr><td>站外流量</td><td>Facebook/联盟</td><td>重转化轻流量</td></tr>
+          <tr><td>关键词</td><td>标题/ST/五行/QA/Review</td><td>埋词</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="callout info">
+        <strong>🎯 自动 vs 手动广告本质</strong>
+        <p>自动广告的本质：<strong>告诉A9算法你卖的是啥产品</strong><br>
+        手动广告的本质：<strong>告诉买家我们卖的是什么</strong></p>
+      </div>
+
+      <div class="callout success">
+        <strong>💎 透明计划的隐藏价值</strong>
+        <p>正在参加透明计划的产品被投诉外观专利/版权侵权时，透明计划有"意想不到的作用"</p>
+      </div>
+    </div>
+
+    <!-- 板块五 -->
+    <div class="section">
+      <h3 class="section-title">板块五：转化率提升与站内活动运营</h3>
+
+      <h4>优惠券使用率（反常识发现）</h4>
+      <p>即便开50%优惠券；只有约 <strong>1/3的人</strong>使用；约 <strong>2/3的人</strong>不用（直接原价买）</p>
+
+      <h4>转化三大要素递进关系</h4>
+      <div class="callout gold">
+        <strong>🔁 价格→评论→图片视觉</strong>
+        <p>价格（吸引点击+促成首单）→ 评论（建立信任）→ 图片视觉（强化卖点+代入场景）</p>
+      </div>
+
+      <div class="quote-card">
+        评论比价格都重要。——讲师核心观点
+      </div>
+
+      <h4>Post发帖</h4>
+      <p>免费功能；讲师数据：<strong>post发帖带来767单免费的</strong></p>
+    </div>
+
+    <!-- 板块六 -->
+    <div class="section">
+      <h3 class="section-title">板块六：完美 listing 打造与产品故事方法论</h3>
+
+      <h4>完美 listing 六要素框架</h4>
+      <div class="callout success">
+        <strong>📋 六要素清单</strong>
+        <ol style="margin-top:6px;padding-left:20px">
+          <li>多SKU矩阵（含低价扛压力SKU）</li>
+          <li>全流量买词（标题/ST/五行/QA埋词）</li>
+          <li>10个视频位（关键词+logo）</li>
+          <li>多节点策略（开case/僵尸合并/关键词自然匹配）</li>
+          <li>差异化卖点呈现（主图+附图+A++五行）</li>
+          <li>产品故事（A+页面核心）</li>
+        </ol>
+      </div>
+
+      <h4>产品故事编写公式</h4>
+      <div class="callout gold">
+        <strong>📖 故事公式六步</strong>
+        <p>我为什么卖产品？→ 产品有哪些痛点？→ 我为解决痛点付出了怎样的努力？→ 最终解决了问题？→ 解决问题后的爽点是什么？→ 可以生发出哪些东西？</p>
+      </div>
+
+      <h4>经典故事案例</h4>
+      <ul>
+        <li>好莱坞电影模型</li>
+        <li>Zippo打火机（二战老兵）</li>
+        <li>大芙巧克力（褚时健）</li>
+        <li>钻石（"恒久远"）</li>
+        <li>80后集体回忆（钢笔、课本、玩具枪、皮筋）</li>
+      </ul>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第7章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>检查品牌域名是否已购买（未注册的立即花698元购买）</li>
+        <li>为listing设计10个视频位</li>
+        <li>用产品故事公式为自己的产品写一个故事</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>梳理产品防火墙三件套（价格/版权/域名）</li>
+        <li>分析供应链是否可做"工厂投资人"或"打包优化"</li>
+        <li>用转化率三要素诊断listing</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>把"极致为王"作为产品打造的唯一标准</li>
+        <li>持续优化listing六要素，让每一个都做到满分</li>
+        <li>每月分析流量入口数据，调整流量结构</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#ch8" class="cross-link">下一章：8.营销工具② →</a></p>
+  </div>
+</section>
+
+<!-- ========== 第八章 营销工具② ========== -->
+<section class="chapter" id="ch8">
+  <div class="chapter-header">
+    <span class="chapter-num">第八部分 · 营销实操</span>
+    <h2 class="chapter-title">第8章 营销工具② — 站外+广告+秒杀+自动/手动+SP/SB/SD</h2>
+    <p class="chapter-sub">所有营销工具的具体使用方法+讲师45万广告投入提炼的方法论</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="section">
+      <h3 class="section-title">🗺 第8章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 940" preserveAspectRatio="xMinYMin meet">
+  <rect class="node-rect root" x="20" y="380" width="180" height="180"/>
+  <text class="node-text root" x="110" y="425" text-anchor="middle">营销工具②</text>
+  <text class="node-text root" x="110" y="450" text-anchor="middle">营销实操</text>
+  <text class="node-text root" x="110" y="475" text-anchor="middle">工具组合</text>
+  <text class="node-text root" x="110" y="500" text-anchor="middle">+广告方法论</text>
+  <text class="node-text root" x="110" y="525" text-anchor="middle">(战术深水区)</text>
+
+  <path class="edge-main" d="M200,470 L240,470 L240,80 L300,80"/>
+  <path class="edge-main" d="M200,470 L240,470 L240,250 L300,250"/>
+  <path class="edge-main" d="M200,470 L240,470 L240,420 L300,420"/>
+  <path class="edge-main" d="M200,470 L240,470 L240,590 L300,590"/>
+  <path class="edge-main" d="M200,470 L240,470 L240,760 L300,760"/>
+  <path class="edge-main" d="M200,470 L240,470 L240,900 L300,900"/>
+
+  <rect class="node-rect level2" x="300" y="30" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="60" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="85" text-anchor="middle">长线测评·工具总览</text>
+
+  <rect class="node-rect level2" x="300" y="200" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="230" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="255" text-anchor="middle">站外推广</text>
+
+  <rect class="node-rect level2" x="300" y="370" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="400" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="425" text-anchor="middle">广告核心机制</text>
+
+  <rect class="node-rect level2" x="300" y="540" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="570" text-anchor="middle">板块四</text>
+  <text class="node-text level2" x="400" y="595" text-anchor="middle">秒杀原理</text>
+
+  <rect class="node-rect level2" x="300" y="710" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="740" text-anchor="middle">板块五+六</text>
+  <text class="node-text level2" x="400" y="765" text-anchor="middle">促销组合+自动广告</text>
+
+  <rect class="node-rect level2" x="300" y="850" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="880" text-anchor="middle">板块七+八</text>
+  <text class="node-text level2" x="400" y="905" text-anchor="middle">手动广告+SP/SB/SD</text>
+
+  <path class="edge" d="M500,55 L540,55 L540,50 L580,50"/>
+  <path class="edge" d="M500,80 L540,80 L540,85 L580,85"/>
+  <path class="edge" d="M500,105 L540,105 L540,120 L580,120"/>
+
+  <rect class="node-rect" x="580" y="30" width="200" height="40"/>
+  <text class="node-text" x="680" y="55" text-anchor="middle">田忌赛马原则</text>
+  <rect class="node-rect" x="580" y="70" width="200" height="40"/>
+  <text class="node-text" x="680" y="95" text-anchor="middle">断货测试4个标准</text>
+  <rect class="node-rect" x="580" y="110" width="200" height="40"/>
+  <text class="node-text" x="680" y="135" text-anchor="middle">真实长线必经断货</text>
+
+  <path class="edge" d="M500,225 L540,225 L540,220 L580,220"/>
+  <path class="edge" d="M500,250 L540,250 L540,255 L580,255"/>
+  <path class="edge" d="M500,275 L540,275 L540,290 L580,290"/>
+
+  <rect class="node-rect" x="580" y="200" width="200" height="40"/>
+  <text class="node-text" x="680" y="225" text-anchor="middle">重转化轻流量</text>
+  <rect class="node-rect" x="580" y="240" width="200" height="40"/>
+  <text class="node-text" x="680" y="265" text-anchor="middle">起步50%折扣</text>
+  <rect class="node-rect" x="580" y="280" width="200" height="40"/>
+  <text class="node-text" x="680" y="305" text-anchor="middle">围裙首日1127单</text>
+
+  <path class="edge" d="M500,395 L540,395 L540,390 L580,390"/>
+  <path class="edge" d="M500,420 L540,420 L540,425 L580,425"/>
+  <path class="edge" d="M500,445 L540,445 L540,460 L580,460"/>
+
+  <rect class="node-rect" x="580" y="370" width="200" height="40"/>
+  <text class="node-text" x="680" y="395" text-anchor="middle">广告=73%亚马逊收入</text>
+  <rect class="node-rect" x="580" y="410" width="200" height="40"/>
+  <text class="node-text" x="680" y="435" text-anchor="middle">关键词竞价公式</text>
+  <rect class="node-rect" x="580" y="450" width="200" height="40"/>
+  <text class="node-text" x="680" y="475" text-anchor="middle">权重独立+7天归因</text>
+
+  <path class="edge" d="M500,565 L540,565 L540,560 L580,560"/>
+  <path class="edge" d="M500,590 L540,590 L540,595 L580,595"/>
+  <path class="edge" d="M500,615 L540,615 L540,630 L580,630"/>
+
+  <rect class="node-rect" x="580" y="540" width="200" height="40"/>
+  <text class="node-text" x="680" y="565" text-anchor="middle">秒杀3阶段价值</text>
+  <rect class="node-rect" x="580" y="580" width="200" height="40"/>
+  <text class="node-text" x="680" y="605" text-anchor="middle">LD/BD/镇店之宝</text>
+  <rect class="node-rect" x="580" y="620" width="200" height="40"/>
+  <text class="node-text" x="680" y="645" text-anchor="middle">秒杀后排名飙升</text>
+
+  <path class="edge" d="M500,735 L540,735 L540,730 L580,730"/>
+  <path class="edge" d="M500,760 L540,760 L540,765 L580,765"/>
+  <path class="edge" d="M500,785 L540,785 L540,800 L580,800"/>
+
+  <rect class="node-rect" x="580" y="710" width="200" height="40"/>
+  <text class="node-text" x="680" y="735" text-anchor="middle">3促销工具对比</text>
+  <rect class="node-rect" x="580" y="750" width="200" height="40"/>
+  <text class="node-text" x="680" y="775" text-anchor="middle">工具选择决策树</text>
+  <rect class="node-rect" x="580" y="790" width="200" height="40"/>
+  <text class="node-text" x="680" y="815" text-anchor="middle">自动广告黄金公式</text>
+
+  <path class="edge" d="M500,875 L540,875 L540,870 L580,870"/>
+  <path class="edge" d="M500,900 L540,900 L540,905 L580,905"/>
+  <path class="edge" d="M500,925 L540,925 L540,940 L580,940"/>
+
+  <rect class="node-rect" x="580" y="850" width="200" height="40"/>
+  <text class="node-text" x="680" y="875" text-anchor="middle">手动广告漏斗</text>
+  <rect class="node-rect" x="580" y="890" width="200" height="40"/>
+  <text class="node-text" x="680" y="915" text-anchor="middle">长尾词撬动100热搜词</text>
+  <rect class="node-rect" x="580" y="930" width="200" height="40"/>
+  <text class="node-text" x="680" y="955" text-anchor="middle">SP/SB/SD对比+价格哲学</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：长线产品测评与营销工具总览</h3>
+
+      <h4>田忌赛马原则</h4>
+      <ul>
+        <li>测评关键：<strong>至少要经历一次断货才能够测出来产品是否是真的成功</strong></li>
+        <li>断货测试通过的标准：每日稳定出单；产品稳定增加；有成功案例；断货后再次推广仍可出单</li>
+      </ul>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：站外推广工具详解</h3>
+
+      <h4>站外的本质</h4>
+      <div class="callout gold">
+        <strong>📌 站外本质</strong>
+        <p><strong>重转化、轻流量</strong></p>
+      </div>
+
+      <h4>站外工具与折扣标准</h4>
+      <p>起步50%折扣；实际60%-70%；一般情况下都可以出单</p>
+
+      <h4>围裙案例（首日数据）</h4>
+      <div class="callout success">
+        <strong>📊 围裙站外推广首日数据</strong>
+        <p>上架即站外<br>
+        首日数据：少则35单；多则<strong>1,127单</strong><br>
+        次日：冲上小类目<strong>第二名</strong></p>
+      </div>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：广告核心机制</h3>
+
+      <h4>广告的本质</h4>
+      <div class="callout gold">
+        <strong>💰 广告本质</strong>
+        <p><strong>广告负责流量，不负责转化</strong></p>
+      </div>
+
+      <h4>广告的 73%</h4>
+      <p>广告是亚马逊 <strong>73% 的重要收入来源</strong></p>
+
+      <h4>不开广告的惨痛代价</h4>
+      <ul>
+        <li>正常 2,000 单/天的产品</li>
+        <li><strong>不开广告时：700 单/天</strong></li>
+        <li><strong>结论：广告一旦开了就关不了</strong></li>
+      </ul>
+
+      <h4>关键词竞价公式</h4>
+      <div class="callout info">
+        <strong>📈 关键词竞价公式</strong>
+        <p><strong>下一名的关键词出价 + 0.01 = 你的关键词出价</strong></p>
+      </div>
+
+      <h4>广告三大机制</h4>
+      <ol>
+        <li><strong>竞价机制</strong>：下一名出价 + 0.01 = 你的出价</li>
+        <li><strong>权重机制</strong>：每组广告独立权重，跨组迁移失效</li>
+        <li><strong>归因机制</strong>：7天归因周期，1-2周调一次</li>
+      </ol>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：秒杀原理与实操策略</h3>
+
+      <h4>秒杀三阶段价值</h4>
+      <ol>
+        <li>秒杀前：积累权重（连续LD）</li>
+        <li>秒杀中：流量爆发 + 可能不赚钱</li>
+        <li>秒杀后：<strong>排名飙升（真正价值）</strong></li>
+      </ol>
+
+      <h4>秒杀类型对比</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>类型</th><th>时长</th><th>收费</th><th>适用场景</th></tr></thead>
+        <tbody>
+          <tr><td>LD</td><td>7天</td><td>150-300美金</td><td>平时使用</td></tr>
+          <tr><td>BD</td><td>6-12小时</td><td>150-300美金</td><td>节日使用</td></tr>
+          <tr><td>镇店之宝</td><td>—</td><td>500美金</td><td>需客户经理</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>围裙产品秒杀节奏</h4>
+      <p>每月报一次秒杀；调到第二/第三名后；秒杀第二天冲上第一名；可蹲1-2周</p>
+    </div>
+
+    <!-- 板块五 -->
+    <div class="section">
+      <h3 class="section-title">板块五：买一送一、优惠券与 Prime 折扣的组合应用</h3>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>工具</th><th>增加点击率</th><th>增加转化率</th><th>手续费</th><th>风险</th></tr></thead>
+        <tbody>
+          <tr><td>优惠券</td><td>✓ 强</td><td>一般</td><td>0.6美金/张</td><td>低</td></tr>
+          <tr><td>Prime 折扣</td><td>一般</td><td>✓ 强</td><td>免费</td><td>影响BD最低价</td></tr>
+          <tr><td>买一送一</td><td>中</td><td>中</td><td>中</td><td>中</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>促销工具选择决策树</h4>
+      <div class="callout success">
+        <strong>🌳 决策树</strong>
+        <p>新品推广/防跟卖 → <strong>买一送一</strong><br>
+        缺点击率 → <strong>优惠券</strong>（绿标+0.6美金）<br>
+        缺转化率 → <strong>Prime 折扣</strong>（直接降价）<br>
+        节日冲销量 → <strong>秒杀</strong>（LD/BD）</p>
+      </div>
+    </div>
+
+    <!-- 板块六 -->
+    <div class="section">
+      <h3 class="section-title">板块六：自动广告全流程运营方法论</h3>
+
+      <h4>自动广告设置黄金公式</h4>
+      <div class="callout gold">
+        <strong>⚙️ 黄金公式</strong>
+        <p>竞价模式：<strong>固定竞价</strong><br>
+        展示位置出价：<strong>50%</strong><br>
+        商品页面：<strong>30%</strong><br>
+        匹配方式：仅开<strong>宽泛匹配+紧密匹配</strong><br>
+        否定频率：<strong>7-14天/次</strong></p>
+      </div>
+
+      <h4>自动广告运营闭环</h4>
+      <div class="callout info">
+        <strong>🔁 闭环</strong>
+        <p>选词（工具拉词+前台验证）→ 分级（1-7级）→ 否定（大词/不相关词）→ 设置（固定竞价+展示位+商品页）→ 投放 → 监控（自然单+广告单）→ 调整（7-14天/次）→ 出单词埋入ST</p>
+      </div>
+    </div>
+
+    <!-- 板块七 -->
+    <div class="section">
+      <h3 class="section-title">板块七：手动广告漏斗筛选法</h3>
+
+      <h4>手动广告漏斗筛选模型</h4>
+      <div class="callout gold">
+        <strong>🔻 漏斗模型</strong>
+        <p>初始：200-300个词<br>
+        → 每50个词一组（4-6组）<br>
+        → 出单组留下，其余关闭<br>
+        → 留下的组给单独预算<br>
+        → 点击不出单的逐步关闭<br>
+        → 降价不转化的降价/关闭<br>
+        最终：10个左右的"嫡系部队"长尾词</p>
+      </div>
+
+      <h4>长尾词杠杆效应</h4>
+      <ul>
+        <li>10个长尾词（出单）→ 带动100+热搜词（自然排名第一页）</li>
+        <li>10个长尾词的推广投入 → 撬动100个热搜词的自然流量</li>
+      </ul>
+
+      <h4>讲师广告投入</h4>
+      <p>从2020年4月到现在，<strong>47,800多美金</strong>（约35万人民币）<br>
+      6个产品在出单；每单利润不低于<strong>70元人民币</strong>；单产品月赚约<strong>15,000元</strong></p>
+    </div>
+
+    <!-- 板块八 -->
+    <div class="section">
+      <h3 class="section-title">板块八：SP/SB/SD 广告对比与价格运营哲学</h3>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>类型</th><th>适用场景</th><th>核心策略</th></tr></thead>
+        <tbody>
+          <tr><td>SP 广告</td><td>主流量</td><td>漏斗筛选法 + 定位广告</td></tr>
+          <tr><td>SB 广告</td><td>锦上添花</td><td>出单TOP10关键词</td></tr>
+          <tr><td>SD 广告</td><td>低客单价</td><td>站外爆单 + 羊毛党</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>价格运营四原则</h4>
+      <ol>
+        <li><strong>浮动原则</strong>：价格根据销量动态调整</li>
+        <li><strong>节日涨价</strong>：圣诞/万圣节涨5美金</li>
+        <li><strong>知足常乐</strong>：淡季主动躺平</li>
+        <li><strong>适度竞争</strong>：看情况拼刺刀或躺平</li>
+      </ol>
+
+      <div class="quote-card">
+        重剑无锋，大巧不工，想要开始战斗用啥招呢？——讲师的营销哲学总结
+      </div>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第8章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>检查现有广告是否关不掉（避免被关后流量断崖）</li>
+        <li>用"下一名+0.01"公式设定关键词出价</li>
+        <li>启动1次站外50%折扣测试，观察出单数据</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>用漏斗法筛选手动广告的200-300个词</li>
+        <li>建立"自动广告黄金公式"配置（固定竞价+展示位50%+商品页30%）</li>
+        <li>按"促销工具决策树"选择当前缺什么（点击率or转化率）</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>把"广告负责流量，不负责转化"作为运营底层认知</li>
+        <li>定期（7-14天）做自动广告的否定词清理</li>
+        <li>用"价格运营四原则"应对淡旺季</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#ch9" class="cross-link">下一章：9.盈利模式 →</a></p>
+  </div>
+</section>
+
+<!-- ========== 第九章 盈利模式 ========== -->
+<section class="chapter" id="ch9">
+  <div class="chapter-header">
+    <span class="chapter-num">第九部分 · 多元盈利</span>
+    <h2 class="chapter-title">第9章 盈利模式 — 9大盈利来源+股权变现+融资工具+合伙人</h2>
+    <p class="chapter-sub">产品之外的多元盈利路径，把单点成功变成系统化复制</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="section">
+      <h3 class="section-title">🗺 第9章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 700" preserveAspectRatio="xMinYMin meet">
+  <rect class="node-rect root" x="20" y="260" width="180" height="180"/>
+  <text class="node-text root" x="110" y="305" text-anchor="middle">盈利模式</text>
+  <text class="node-text root" x="110" y="330" text-anchor="middle">多元盈利</text>
+  <text class="node-text root" x="110" y="355" text-anchor="middle">+股权融资</text>
+  <text class="node-text root" x="110" y="380" text-anchor="middle">+合伙人</text>
+  <text class="node-text root" x="110" y="405" text-anchor="middle">(治理起点)</text>
+
+  <path class="edge-main" d="M200,350 L240,350 L240,80 L300,80"/>
+  <path class="edge-main" d="M200,350 L240,350 L240,260 L300,260"/>
+  <path class="edge-main" d="M200,350 L240,350 L240,440 L300,440"/>
+  <path class="edge-main" d="M200,350 L240,350 L240,620 L300,620"/>
+
+  <rect class="node-rect level2" x="300" y="30" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="60" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="85" text-anchor="middle">9大盈利来源</text>
+
+  <rect class="node-rect level2" x="300" y="210" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="240" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="265" text-anchor="middle">股权与分红权变现</text>
+
+  <rect class="node-rect level2" x="300" y="390" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="420" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="445" text-anchor="middle">融资工具</text>
+
+  <rect class="node-rect level2" x="300" y="570" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="600" text-anchor="middle">板块四</text>
+  <text class="node-text level2" x="400" y="625" text-anchor="middle">合伙人+股权架构</text>
+
+  <path class="edge" d="M500,55 L540,55 L540,50 L580,50"/>
+  <path class="edge" d="M500,80 L540,80 L540,85 L580,85"/>
+  <path class="edge" d="M500,105 L540,105 L540,120 L580,120"/>
+
+  <rect class="node-rect" x="580" y="30" width="200" height="40"/>
+  <text class="node-text" x="680" y="55" text-anchor="middle">金融/政策/资产/服务</text>
+  <rect class="node-rect" x="580" y="70" width="200" height="40"/>
+  <text class="node-text" x="680" y="95" text-anchor="middle">出口退税3%</text>
+  <rect class="node-rect" x="580" y="110" width="200" height="40"/>
+  <text class="node-text" x="680" y="135" text-anchor="middle">账期套利·保税区</text>
+
+  <path class="edge" d="M500,235 L540,235 L540,230 L580,230"/>
+  <path class="edge" d="M500,260 L540,260 L540,265 L580,265"/>
+  <path class="edge" d="M500,285 L540,285 L540,300 L580,300"/>
+
+  <rect class="node-rect" x="580" y="210" width="200" height="40"/>
+  <text class="node-text" x="680" y="235" text-anchor="middle">变现4层路径</text>
+  <rect class="node-rect" x="580" y="250" width="200" height="40"/>
+  <text class="node-text" x="680" y="275" text-anchor="middle">卖店铺350万案例</text>
+  <rect class="node-rect" x="580" y="290" width="200" height="40"/>
+  <text class="node-text" x="680" y="315" text-anchor="middle">18次倒闭危机存活</text>
+
+  <path class="edge" d="M500,415 L540,415 L540,410 L580,410"/>
+  <path class="edge" d="M500,440 L540,440 L540,445 L580,445"/>
+  <path class="edge" d="M500,465 L540,465 L540,480 L580,480"/>
+
+  <rect class="node-rect" x="580" y="390" width="200" height="40"/>
+  <text class="node-text" x="680" y="415" text-anchor="middle">信用卡42张</text>
+  <rect class="node-rect" x="580" y="430" width="200" height="40"/>
+  <text class="node-text" x="680" y="455" text-anchor="middle">房产抵押月息0.37%</text>
+  <rect class="node-rect" x="580" y="470" width="200" height="40"/>
+  <text class="node-text" x="680" y="495" text-anchor="middle">网商贷+分红权融资</text>
+
+  <path class="edge" d="M500,595 L540,595 L540,590 L580,590"/>
+  <path class="edge" d="M500,620 L540,620 L540,625 L580,625"/>
+  <path class="edge" d="M500,645 L540,645 L540,660 L580,660"/>
+
+  <rect class="node-rect" x="580" y="570" width="200" height="40"/>
+  <text class="node-text" x="680" y="595" text-anchor="middle">6种股权架构</text>
+  <rect class="node-rect" x="580" y="610" width="200" height="40"/>
+  <text class="node-text" x="680" y="635" text-anchor="middle">投资+操盘70/30最优</text>
+  <rect class="node-rect" x="580" y="650" width="200" height="40"/>
+  <text class="node-text" x="680" y="675" text-anchor="middle">4大合伙人法则</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：卖产品之外的多元盈利模式</h3>
+
+      <h4>九大类非销售性盈利来源</h4>
+      <ol>
+        <li>卖产品本身的直接利润</li>
+        <li>物流商与供应商的<strong>账期套利</strong></li>
+        <li><strong>出口退税</strong>（3%；年销售1000万=30万纯利）</li>
+        <li>地方政策性红利（保税区产业园、汇率锁定）</li>
+        <li>用公司销售部门带动其他部门盈利（物流、美工、摄影、推广对外接单）</li>
+        <li>投资新店铺</li>
+        <li><strong>股权与分红权变现</strong></li>
+        <li>卖公司、卖店铺、卖商标</li>
+        <li>联合运营收取代运营费用；卖品牌授权；卖产品版权</li>
+      </ol>
+
+      <h4>九大类盈利来源按属性分类</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>类型</th><th>包含内容</th></tr></thead>
+        <tbody>
+          <tr><td><strong>金融型</strong></td><td>账期套利、出口退税、汇率锁定</td></tr>
+          <tr><td><strong>政策型</strong></td><td>地方税务、保税区政策</td></tr>
+          <tr><td><strong>资产型</strong></td><td>股权、分红权、商标、品牌、版权</td></tr>
+          <tr><td><strong>服务型</strong></td><td>物流、美工、摄影、视频、推广、代运营</td></tr>
+          <tr><td><strong>整合型</strong></td><td>卖公司、卖店铺</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>逻辑链</h4>
+      <div class="callout gold">
+        <strong>🔗 盈利逻辑链</strong>
+        <p>主营业务赚钱 → 沉淀资金做理财 → 用政策降低税负 → 用团队能力对外服务 → 用资本运作（股权/分红权）放大收益</p>
+      </div>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：股权与分红权深度变现</h3>
+
+      <h4>变现路径四个层级</h4>
+      <ol>
+        <li><strong>短期变现</strong>：卖当下分红权</li>
+        <li><strong>中期变现</strong>：卖2-3年的延迟分红权</li>
+        <li><strong>长期变现</strong>：卖公司、卖店铺</li>
+        <li><strong>特殊变现</strong>：卖负债公司（专业收购方存在）</li>
+      </ol>
+
+      <h4>卖店铺真实案例</h4>
+      <div class="callout success">
+        <strong>💰 卖店铺真实案例</strong>
+        <p>"有Buy Seller的店铺，有人出价<strong>350万来收购我的店铺</strong>"</p>
+      </div>
+
+      <div class="quote-card">
+        在这几年的操作过程中，我公司经历了18次的倒闭危机。一次一次都是通过卖股权和卖分红权，还有融资一直活到现在的。——讲师亲述
+      </div>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：融资工具与亲身经历</h3>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>融资工具</th><th>成本/利率</th><th>额度参考</th></tr></thead>
+        <tbody>
+          <tr><td>信用卡</td><td>手续费约1%</td><td>多卡组合（作者曾持42张）</td></tr>
+          <tr><td>房子抵押贷款</td><td>月息约0.37%（1654/450000）</td><td>房产评估价的70%</td></tr>
+          <tr><td>车子抵押贷款</td><td>—</td><td>车辆估值</td></tr>
+          <tr><td>个人网商贷</td><td>年化10.1%</td><td>作者额度55万</td></tr>
+          <tr><td>速卖通企业网商贷</td><td>年化8.1%</td><td>作者额度70万</td></tr>
+          <tr><td>亚马逊网商贷</td><td>—</td><td>作者额度24.8万</td></tr>
+          <tr><td>分红权融资</td><td>月息最高10%</td><td>项目规模</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="callout gold">
+        <strong>💡 核心方法论</strong>
+        <p>白手起家的创业者要敢于<strong>"用尽一切合法融资工具"</strong></p>
+      </div>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：合伙人选择与股权架构设计</h3>
+
+      <h4>股权架构的6种模式</h4>
+
+      <h5>（1）投资人和操盘手分股模式（作者最推荐）</h5>
+      <ul>
+        <li>投资人比例：60%-70%</li>
+        <li>操盘手比例：20%-40%（一级大卖可能拿到50%）</li>
+        <li><strong>关键原则</strong>：投资和操盘分开算</li>
+        <li><strong>反例警示</strong>：五五分成的结果一般是"分道扬镳，反目成仇"</li>
+      </ul>
+
+      <h5>（2）投资人纯粹拿钱不要股份</h5>
+      <p>可以延迟分红，例如投资100万，当分红达到200%时（即200万）必须撤出</p>
+
+      <h5>（5）技术入股</h5>
+      <p>专利入股折算为投资股份，一般不超过2%的分红</p>
+
+      <h5>（6）资源型入股</h5>
+      <p>提供房租仓库、亚马逊账户、品牌等必备资源</p>
+
+      <div class="quote-card">
+        分权分利、分风险。千斤重担人人挑，人人头上有指标。
+      </div>
+
+      <h4>挑选合伙人的四大法则</h4>
+      <ol>
+        <li><strong>人在心在身在钱在</strong></li>
+        <li><strong>要重孝道</strong></li>
+        <li><strong>要有闲钱和闲的时间</strong>——不要找穷朋友（作者的惨痛教训）</li>
+        <li><strong>挑选合伙人必须喝一场酒、吃一次饭、出一次差，全方位观察</strong>——引用孔子"视其所以，观其所由，察其所安"</li>
+      </ol>
+
+      <div class="callout warn">
+        <strong>⚠️ 执行原则</strong>
+        <p>不留退路，置之死地而后生，投之亡地而后存。</p>
+      </div>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第9章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>对照9大盈利来源，列出当前你公司激活了哪些</li>
+        <li>申请个人网商贷、亚马逊网商贷备用资金</li>
+        <li>用6种股权架构模式评估现有合伙关系</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>设计"投资+操盘70/30"的合伙协议</li>
+        <li>列出当前合伙人是否符合4大法则（人在/心在/身在/钱在）</li>
+        <li>梳理所有融资工具清单，建立"合法融资工具库"</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>把"主营业务+金融服务+股权变现"作为长期盈利框架</li>
+        <li>用孔子的"视其所以观其所由察其所安"观察每个潜在合伙人</li>
+        <li>坚持"用尽一切合法融资工具"的融资理念</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#ch10" class="cross-link">下一章：10.营销③ →</a></p>
+  </div>
+</section>
+
+<!-- ========== 第十章 营销③ ========== -->
+<section class="chapter" id="ch10">
+  <div class="chapter-header">
+    <span class="chapter-num">第十部分 · 订单逻辑+长短线</span>
+    <h2 class="chapter-title">第10章 营销③ — 订单逻辑+A9算法+评论阈值+4种组合拳+长线螺旋</h2>
+    <p class="chapter-sub">整合所有营销工具，按场景组合，落地为完整SOP</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="section">
+      <h3 class="section-title">🗺 第10章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 800" preserveAspectRatio="xMinYMin meet">
+  <rect class="node-rect root" x="20" y="320" width="180" height="180"/>
+  <text class="node-text root" x="110" y="365" text-anchor="middle">营销③</text>
+  <text class="node-text root" x="110" y="390" text-anchor="middle">订单逻辑</text>
+  <text class="node-text root" x="110" y="415" text-anchor="middle">+长短线</text>
+  <text class="node-text root" x="110" y="440" text-anchor="middle">+账户安全</text>
+  <text class="node-text root" x="110" y="465" text-anchor="middle">(战术集成)</text>
+
+  <path class="edge-main" d="M200,400 L240,400 L240,80 L300,80"/>
+  <path class="edge-main" d="M200,400 L240,400 L240,260 L300,260"/>
+  <path class="edge-main" d="M200,400 L240,400 L240,440 L300,440"/>
+  <path class="edge-main" d="M200,400 L240,400 L240,620 L300,620"/>
+  <path class="edge-main" d="M200,400 L240,400 L240,760 L300,760"/>
+
+  <rect class="node-rect level2" x="300" y="30" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="60" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="85" text-anchor="middle">订单逻辑·A9算法</text>
+
+  <rect class="node-rect level2" x="300" y="210" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="240" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="265" text-anchor="middle">评论阈值+转化率</text>
+
+  <rect class="node-rect level2" x="300" y="390" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="420" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="445" text-anchor="middle">四种营销组合拳</text>
+
+  <rect class="node-rect level2" x="300" y="570" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="600" text-anchor="middle">板块四</text>
+  <text class="node-text level2" x="400" y="625" text-anchor="middle">长线螺旋打造</text>
+
+  <rect class="node-rect level2" x="300" y="700" width="220" height="100"/>
+  <text class="node-text level2" x="410" y="730" text-anchor="middle">板块五+六</text>
+  <text class="node-text level2" x="410" y="755" text-anchor="middle">短线+账户安全</text>
+
+  <path class="edge" d="M500,55 L540,55 L540,50 L580,50"/>
+  <path class="edge" d="M500,80 L540,80 L540,85 L580,85"/>
+  <path class="edge" d="M500,105 L540,105 L540,120 L580,120"/>
+
+  <rect class="node-rect" x="580" y="30" width="200" height="40"/>
+  <text class="node-text" x="680" y="55" text-anchor="middle">订单飞轮循环</text>
+  <rect class="node-rect" x="580" y="70" width="200" height="40"/>
+  <text class="node-text" x="680" y="95" text-anchor="middle">A9=谁帮赚钱给谁流量</text>
+  <rect class="node-rect" x="580" y="110" width="200" height="40"/>
+  <text class="node-text" x="680" y="135" text-anchor="middle">流量池陷阱</text>
+
+  <path class="edge" d="M500,235 L540,235 L540,230 L580,230"/>
+  <path class="edge" d="M500,260 L540,260 L540,265 L580,265"/>
+  <path class="edge" d="M500,285 L540,285 L540,300 L580,300"/>
+
+  <rect class="node-rect" x="580" y="210" width="200" height="40"/>
+  <text class="node-text" x="680" y="235" text-anchor="middle">500评价·1000评价</text>
+  <rect class="node-rect" x="580" y="250" width="200" height="40"/>
+  <text class="node-text" x="680" y="275" text-anchor="middle">马斯洛与策略匹配</text>
+  <rect class="node-rect" x="580" y="290" width="200" height="40"/>
+  <text class="node-text" x="680" y="315" text-anchor="middle">转化率=唯一决定因素</text>
+
+  <path class="edge" d="M500,415 L540,415 L540,410 L580,410"/>
+  <path class="edge" d="M500,440 L540,440 L540,445 L580,445"/>
+  <path class="edge" d="M500,465 L540,465 L540,480 L580,480"/>
+
+  <rect class="node-rect" x="580" y="390" width="200" height="40"/>
+  <text class="node-text" x="680" y="415" text-anchor="middle">①站外+券+广告</text>
+  <rect class="node-rect" x="580" y="430" width="200" height="40"/>
+  <text class="node-text" x="680" y="455" text-anchor="middle">②广告+LD+BD</text>
+  <rect class="node-rect" x="580" y="470" width="200" height="40"/>
+  <text class="node-text" x="680" y="495" text-anchor="middle">③站外+Prime+广告④跟卖</text>
+
+  <path class="edge" d="M500,595 L540,595 L540,590 L580,590"/>
+  <path class="edge" d="M500,620 L540,620 L540,625 L580,625"/>
+  <path class="edge" d="M500,645 L540,645 L540,660 L580,660"/>
+
+  <rect class="node-rect" x="580" y="570" width="200" height="40"/>
+  <text class="node-text" x="680" y="595" text-anchor="middle">17步完整生命周期</text>
+  <rect class="node-rect" x="580" y="610" width="200" height="40"/>
+  <text class="node-text" x="680" y="635" text-anchor="middle">第10-20名好评均值</text>
+  <rect class="node-rect" x="580" y="650" width="200" height="40"/>
+  <text class="node-text" x="680" y="675" text-anchor="middle">讲师放弃20次反思</text>
+
+  <path class="edge" d="M520,735 L560,735 L560,735 L600,735"/>
+  <path class="edge" d="M520,760 L560,760 L560,770 L600,770"/>
+  <path class="edge" d="M520,785 L560,785 L560,800 L600,800"/>
+
+  <rect class="node-rect" x="600" y="715" width="220" height="40"/>
+  <text class="node-text" x="710" y="740" text-anchor="middle">短线直奔利润</text>
+  <rect class="node-rect" x="600" y="755" width="220" height="40"/>
+  <text class="node-text" x="710" y="780" text-anchor="middle">账户关联三原则</text>
+  <rect class="node-rect" x="600" y="790" width="220" height="40"/>
+  <text class="node-text" x="710" y="815" text-anchor="middle">PUA申诉5步</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：亚马逊订单逻辑与A9算法</h3>
+
+      <h4>核心循环</h4>
+      <div class="callout gold">
+        <strong>🔁 订单飞轮</strong>
+        <p>订单越多 → 转化率越高 → 平台给的流量越多 → 越容易爆单 → 产品卖得越快 → A9算法匹配的流量更多</p>
+      </div>
+
+      <h4>亚马逊的盈利来源</h4>
+      <ul>
+        <li>广告费</li>
+        <li>佣金</li>
+        <li>评论满意度</li>
+        <li>Prime会员续费</li>
+        <li>会员费净利润</li>
+      </ul>
+
+      <h4>反面案例——流量池陷阱</h4>
+      <ul>
+        <li>症状：月销售额3000，2900就是3100，死活突破不了</li>
+        <li>破解方法：使用一次大的站外推广，或者参加一次秒杀活动</li>
+      </ul>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：评论数量阈值与转化率提升</h3>
+
+      <h4>评论数量三阶段</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>评价数</th><th>阶段</th><th>关键特征</th></tr></thead>
+        <tbody>
+          <tr><td>0-499</td><td>冷启动期</td><td>卖得痛苦，权重低，排名不稳</td></tr>
+          <tr><td>500-999</td><td>加速期</td><td>权重明显提升，排名稳住，开始微盈利</td></tr>
+          <tr><td>1000+</td><td>稳定期</td><td>调价断货都不怕，可作为种子链接推新品</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>讲师围裙产品</h4>
+      <p>560个评价，4.7分；<strong>500评价后开始微盈利</strong></p>
+
+      <h4>马斯洛需求层次与策略</h4>
+      <ul>
+        <li>第一二层（生理、安全）—— 低价策略为主</li>
+        <li>第三四五层（社交、尊重、自我实现）—— 差异化/独一无二理由为主</li>
+      </ul>
+
+      <div class="quote-card">
+        订单的转化率是亚马逊衡量产品的唯一决定性因素。
+      </div>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：四种营销组合拳</h3>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>组合拳</th><th>核心定位</th><th>关键打法</th><th>适用场景</th><th>风险/代价</th></tr></thead>
+        <tbody>
+          <tr><td>① 站外+优惠券+广告</td><td>转化率主导</td><td>强制转化</td><td>新品测款、获取评价</td><td>资金压力大</td></tr>
+          <tr><td>② 广告+LD+BD</td><td>流量主导</td><td>站内秒杀冲刺</td><td>高客单价、前20冲刺</td><td>费钱</td></tr>
+          <tr><td>③ 站外+Prime+广告</td><td>转化+流量并重</td><td>Prime冲刺</td><td>500评价以下、标品</td><td>周期长</td></tr>
+          <tr><td>④ 多店铺跟卖</td><td>矩阵运营</td><td>主店+跟卖店分价</td><td>大爆品、价格矩阵</td><td>多账号风险</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>秒杀技巧</h4>
+      <ul>
+        <li>每次只报推荐数量</li>
+        <li>不要所有SKU都做秒杀，选择1-2个即可</li>
+        <li>价格低于正常<strong>20%-30%</strong>即可</li>
+      </ul>
+
+      <h4>多店铺跟卖</h4>
+      <ul>
+        <li>主店铺涨价策略：主店铺价格上涨幅度<strong>不超过2美金</strong></li>
+        <li>新品测试小号跟卖法：风险转移到小号</li>
+      </ul>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：长线产品螺旋打造</h3>
+
+      <h4>螺旋打造的完整生命周期</h4>
+      <div class="callout gold">
+        <strong>📈 17步完整生命周期</strong>
+        <p>测款（UB仓200-500产品，1-3款测试）<br>
+        ↓<br>
+        第一波获取评价（站外送1000-2000单，战略性亏损）<br>
+        ↓<br>
+        补货 + 跟卖店铺准备<br>
+        ↓<br>
+        500评价阶段（权重跨越，开始微利）<br>
+        ↓<br>
+        800-1000评价阶段（瓶颈期，配合秒杀、BD）<br>
+        ↓<br>
+        冲刺榜一（达第10-20名好评均值）<br>
+        ↓<br>
+        稳在第一名（评论第一，价格不是第一因素）<br>
+        ↓<br>
+        产品升级 + 多SKU布局 + 复制第二款</p>
+      </div>
+
+      <div class="callout success">
+        <strong>📌 核心公式</strong>
+        <p>达到<strong>第10-20名好评的总平均数</strong>是稳在第一名的重要因素。</p>
+      </div>
+
+      <div class="quote-card">
+        我第一名产品，说实话我放弃了至少20次。等500-1000个评论的时候尽量就不要调价了。——讲师自我反思
+      </div>
+    </div>
+
+    <!-- 板块五 -->
+    <div class="section">
+      <h3 class="section-title">板块五：短线产品、节日产品与创意产品打造</h3>
+
+      <h4>短线产品定位</h4>
+      <p>"短线产品一定是直奔利润的，不追求量。每天保证逐步增加的转化率。"</p>
+
+      <h4>节日产品核心心法</h4>
+      <div class="quote-card">
+        来来回回用500个产品的钱赚到3000个产品的钱。
+      </div>
+
+      <h4>创意产品</h4>
+      <p>精品、精品出；跟卖都要设定好期望值</p>
+
+      <h4>避免失败的4种策略</h4>
+      <ol>
+        <li>不断测试（失败乃成功之母）</li>
+        <li>合并僵尸（低风险）</li>
+        <li>增加10-20个变体稀释亏损</li>
+        <li>同一类目5-20款围剿垄断</li>
+      </ol>
+    </div>
+
+    <!-- 板块六 -->
+    <div class="section">
+      <h3 class="section-title">板块六：账户安全与PUA申诉</h3>
+
+      <h4>关联防护的三大原则</h4>
+      <ul>
+        <li>资料唯一性（公司/邮箱/收款/手机/地址/信用卡）</li>
+        <li>IP唯一性（单IP单账号）</li>
+        <li>产品多样性（小而美）</li>
+      </ul>
+
+      <h4>多店铺品牌授权的风险</h4>
+      <p>授权超过<strong>三个以上</strong>的店铺可能导致品牌滥用</p>
+
+      <h4>侵权处理的分级响应</h4>
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>侵权类型</th><th>处理方法</th><th>后果</th></tr></thead>
+        <tbody>
+          <tr><td>普通版权</td><td>删除链接+认错</td><td>申诉成功</td></tr>
+          <tr><td>法院传票</td><td>找律师和解</td><td>资金冻结</td></tr>
+          <tr><td>专利商标3次内</td><td>申诉</td><td>一般没事</td></tr>
+          <tr><td>专利商标3次以上</td><td>几乎必封</td><td>大概率封店</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <h4>PUA申诉的标准范式</h4>
+      <div class="callout info">
+        <strong>📋 申诉5步</strong>
+        <ol style="margin-top:6px;padding-left:20px">
+          <li>态度真诚</li>
+          <li>解释错误（符合底层逻辑）</li>
+          <li>改进措施</li>
+          <li>下一步行动</li>
+          <li>期望诉求</li>
+        </ol>
+      </div>
+
+      <div class="quote-card">
+        不论啥东西就是唯一性。
+      </div>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第10章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>检查产品当前在哪个评论数量阶段（0-499/500-999/1000+）</li>
+        <li>为产品匹配4种组合拳中的1种</li>
+        <li>检查账户是否有"唯一性"违规风险</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>用17步长线螺旋打造SOP制定产品规划</li>
+        <li>建立"评论为王"意识：500评价前战略性亏损，500后开始微利</li>
+        <li>梳理账户安全三大原则，建立防御机制</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>把"订单的转化率是亚马逊衡量产品的唯一决定性因素"作为底层认知</li>
+        <li>每个产品对应一种组合拳，不混用</li>
+        <li>持续关注评论数，达到1000评价后再考虑调价断货</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#ch11" class="cross-link">下一章：11.股权 →</a></p>
+  </div>
+</section>
+
+<!-- ========== 第十一章 股权 ========== -->
+<section class="chapter" id="ch11">
+  <div class="chapter-header">
+    <span class="chapter-num">第十一部分 · 治理基础</span>
+    <h2 class="chapter-title">第11章 股权 — 七大生命线+分红权+公司类型+退出机制+双轨留人</h2>
+    <p class="chapter-sub">公司治理的法律基础——章程修改控制权+分红设计+退出机制</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="section">
+      <h3 class="section-title">🗺 第11章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 780" preserveAspectRatio="xMinYMin meet">
+  <rect class="node-rect root" x="20" y="300" width="180" height="180"/>
+  <text class="node-text root" x="110" y="345" text-anchor="middle">股权</text>
+  <text class="node-text root" x="110" y="370" text-anchor="middle">治理基础</text>
+  <text class="node-text root" x="110" y="395" text-anchor="middle">法律+分红</text>
+  <text class="node-text root" x="110" y="425" text-anchor="middle">+退出+留人</text>
+  <text class="node-text root" x="110" y="450" text-anchor="middle">(治理顶层)</text>
+
+  <path class="edge-main" d="M200,390 L240,390 L240,80 L300,80"/>
+  <path class="edge-main" d="M200,390 L240,390 L240,260 L300,260"/>
+  <path class="edge-main" d="M200,390 L240,390 L240,440 L300,440"/>
+  <path class="edge-main" d="M200,390 L240,390 L240,620 L300,620"/>
+  <path class="edge-main" d="M200,390 L240,390 L240,740 L300,740"/>
+
+  <rect class="node-rect level2" x="300" y="30" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="60" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="85" text-anchor="middle">七大生命线</text>
+
+  <rect class="node-rect level2" x="300" y="210" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="240" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="265" text-anchor="middle">分红权设计</text>
+
+  <rect class="node-rect level2" x="300" y="390" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="420" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="445" text-anchor="middle">公司类型</text>
+
+  <rect class="node-rect level2" x="300" y="570" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="600" text-anchor="middle">板块四+五</text>
+  <text class="node-text level2" x="400" y="625" text-anchor="middle">先小人后君子+退出</text>
+
+  <rect class="node-rect level2" x="300" y="700" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="730" text-anchor="middle">板块六</text>
+  <text class="node-text level2" x="400" y="755" text-anchor="middle">双轨留人</text>
+
+  <path class="edge" d="M500,55 L540,55 L540,50 L580,50"/>
+  <path class="edge" d="M500,80 L540,80 L540,85 L580,85"/>
+  <path class="edge" d="M500,105 L540,105 L540,120 L580,120"/>
+
+  <rect class="node-rect" x="580" y="30" width="200" height="40"/>
+  <text class="node-text" x="680" y="55" text-anchor="middle">七大生命线</text>
+  <rect class="node-rect" x="580" y="70" width="200" height="40"/>
+  <text class="node-text" x="680" y="95" text-anchor="middle">修改章程+增减资本</text>
+  <rect class="node-rect" x="580" y="110" width="200" height="40"/>
+  <text class="node-text" x="680" y="135" text-anchor="middle">34%被动控制权</text>
+
+  <path class="edge" d="M500,235 L540,235 L540,230 L580,230"/>
+  <path class="edge" d="M500,260 L540,260 L540,265 L580,265"/>
+  <path class="edge" d="M500,285 L540,285 L540,300 L580,300"/>
+
+  <rect class="node-rect" x="580" y="210" width="200" height="40"/>
+  <text class="node-text" x="680" y="235" text-anchor="middle">同股不同权</text>
+  <rect class="node-rect" x="580" y="250" width="200" height="40"/>
+  <text class="node-text" x="680" y="275" text-anchor="middle">3类合伙人画像</text>
+  <rect class="node-rect" x="580" y="290" width="200" height="40"/>
+  <text class="node-text" x="680" y="315" text-anchor="middle">岗位分红=未来钱</text>
+
+  <path class="edge" d="M500,415 L540,415 L540,410 L580,410"/>
+  <path class="edge" d="M500,440 L540,440 L540,445 L580,445"/>
+  <path class="edge" d="M500,465 L540,465 L540,480 L580,480"/>
+
+  <rect class="node-rect" x="580" y="390" width="200" height="40"/>
+  <text class="node-text" x="680" y="415" text-anchor="middle">3类公司组合</text>
+  <rect class="node-rect" x="580" y="430" width="200" height="40"/>
+  <text class="node-text" x="680" y="455" text-anchor="middle">股份+有限+合伙</text>
+  <rect class="node-rect" x="580" y="470" width="200" height="40"/>
+  <text class="node-text" x="680" y="495" text-anchor="middle">64%决策效率</text>
+
+  <path class="edge" d="M500,595 L540,595 L540,590 L580,590"/>
+  <path class="edge" d="M500,620 L540,620 L540,625 L580,625"/>
+  <path class="edge" d="M500,645 L540,645 L540,660 L580,660"/>
+
+  <rect class="node-rect" x="580" y="570" width="200" height="40"/>
+  <text class="node-text" x="680" y="595" text-anchor="middle">10项必须约定</text>
+  <rect class="node-rect" x="580" y="610" width="200" height="40"/>
+  <text class="node-text" x="680" y="635" text-anchor="middle">3个退出维度</text>
+  <rect class="node-rect" x="580" y="650" width="200" height="40"/>
+  <text class="node-text" x="680" y="675" text-anchor="middle">诚信约定</text>
+
+  <path class="edge" d="M500,725 L540,725 L540,720 L580,720"/>
+  <path class="edge" d="M500,750 L540,750 L540,755 L580,755"/>
+
+  <rect class="node-rect" x="580" y="700" width="200" height="40"/>
+  <text class="node-text" x="680" y="725" text-anchor="middle">A轨道：岗位留技术人员</text>
+  <rect class="node-rect" x="580" y="740" width="200" height="40"/>
+  <text class="node-text" x="680" y="765" text-anchor="middle">B轨道：股权留中高层</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：公司章程修改与"七大生命线"</h3>
+
+      <h4>七大生命线</h4>
+      <p><strong>34%以上</strong>股东拥有"被动的控制权"：</p>
+      <ol>
+        <li>修改公司章程</li>
+        <li>增加注册资本</li>
+        <li>减少注册资本</li>
+        <li>公司合并</li>
+        <li>公司分立</li>
+        <li>公司结算</li>
+        <li>变更公司形式</li>
+      </ol>
+
+      <div class="callout gold">
+        <strong>📌 关键持股阈值</strong>
+        <p><strong>34%</strong> 是被动控制权的关键持股阈值</p>
+      </div>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：分红权设计与差异化分配</h3>
+
+      <h4>同股不同权协议</h4>
+      <p>股权比例与分红比例<strong>不必挂钩</strong></p>
+
+      <h4>三类典型合伙人画像</h4>
+      <ul>
+        <li><strong>重股权轻分红型</strong>：拿80%的股权要控制权，但只要20%的分红</li>
+        <li><strong>重分红轻股权型</strong>：要60%的分红，但只要10%的股权</li>
+        <li><strong>不要股权不要分红型</strong>：纯粹的财务投资人或家族长辈支持</li>
+      </ul>
+
+      <h4>岗位分红</h4>
+      <p>针对的是岗位创造的<strong>未来业绩</strong>，而非当下利润</p>
+
+      <div class="callout info">
+        <strong>💡 岗位分红示例</strong>
+        <p>销售总监做到15万，超出10万基础的部分（5万）按20%分红 = 分1万<br>
+        <strong>"分红权，分红权一定分的是未来的钱，不是当下的钱"</strong></p>
+      </div>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：公司类型与角色定位</h3>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>公司类型</th><th>主要功能</th><th>持股安排</th></tr></thead>
+        <tbody>
+          <tr><td>股份有限公司</td><td>业务+培养人才</td><td>投资60% + 资源股30%-40%</td></tr>
+          <tr><td>有限责任公司</td><td>决策效率</td><td>2-3位股东，大股东64%</td></tr>
+          <tr><td>有限合伙公司</td><td>留住人才（持股平台）</td><td>家族公司做GP控股</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <div class="callout gold">
+        <strong>📌 关键持股阈值</strong>
+        <p><strong>64%</strong> 是有限责任公司中大股东决策效率的关键持股</p>
+      </div>
+
+      <div class="quote-card">
+        你有家族公司，你有几个业务公司，有有限合伙公司，那你这基本上就属于是集团公司了。
+      </div>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：股权合作的"先小人后君子"原则</h3>
+
+      <h4>核心原则</h4>
+      <p>规矩才是长期持续长久的方向盘</p>
+
+      <h4>必须约定的事项清单</h4>
+      <ol>
+        <li>投资股东与资源股东的优先分红顺序（优先分红给投资人200%的投资款）</li>
+        <li>约定融资次数和时间</li>
+        <li>约定每个人的权利和义务</li>
+        <li>定期召开会议</li>
+        <li>设置财务审核机制（公款公用）</li>
+        <li>退出机制（盈利期/亏损期/重大事件）</li>
+        <li>诚实守信机制</li>
+        <li>约定分红时间</li>
+        <li>约定重要会议和重要决定的临时会议</li>
+        <li>股权转让</li>
+      </ol>
+    </div>
+
+    <!-- 板块五 -->
+    <div class="section">
+      <h3 class="section-title">板块五：退出机制与诚信约定</h3>
+
+      <h4>退出机制三个维度</h4>
+      <ol>
+        <li><strong>盈利期退出</strong> —— 合伙人看到公司赚钱了想退出分钱</li>
+        <li><strong>亏损期退出</strong> —— "我现在赌博了，家里边老娘生病了，我需要钱怎么办？"</li>
+        <li><strong>重大事件退出</strong> —— 负债过多影响项目资金、个人挥霍导致亏损、婚内出轨影响个人/公司声誉、经常到公司闹事</li>
+      </ol>
+
+      <div class="quote-card">
+        有好的退出机制是必须的，还要约定诚实守信机制。——讲师总结
+      </div>
+    </div>
+
+    <!-- 板块六 -->
+    <div class="section">
+      <h3 class="section-title">板块六：股权留住人才的双轨设计</h3>
+
+      <h4>公司治理在不同阶段要有不同的策略</h4>
+      <ul>
+        <li>公司小、人数少 → <strong>以感情为主</strong></li>
+        <li>公司规模稍微大 → <strong>以规矩为主</strong></li>
+      </ul>
+
+      <h4>留住人才的两条平行轨道</h4>
+      <ul>
+        <li><strong>轨道A：岗位留人</strong>（技术人员）：分红权、阶梯提成、五险一金、行使权利</li>
+        <li><strong>轨道B：股权留人</strong>（中层和高层）：股权激励</li>
+      </ul>
+
+      <div class="quote-card">
+        公司股岗位留的是一些技术人员，公司股权留的是中层和高层。
+      </div>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第11章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>检查自己在公司中的持股比例是否过34%或过64%</li>
+        <li>列出当前合伙人的类型（重股权/重分红/都不要）</li>
+        <li>检查合伙协议是否包含10项必备约定</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>用"七大生命线"梳理公司决策权结构</li>
+        <li>设计"岗位分红"机制（针对未来的钱而非当下的钱）</li>
+        <li>建立"盈利期+亏损期+重大事件"三维退出机制</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>把"先小人后君子"作为合伙的底层认知</li>
+        <li>用"A轨道+B轨道"双轨留人——岗位留技术人员，股权留中高层</li>
+        <li>定期审视三类公司组合（股份+有限+合伙）是否符合当前阶段</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#ch12" class="cross-link">下一章：12.公司管理 →</a></p>
+  </div>
+</section>
+
+<!-- ========== 第十二章 公司管理 ========== -->
+<section class="chapter" id="ch12">
+  <div class="chapter-header">
+    <span class="chapter-num">第十二部分 · 治理实操</span>
+    <h2 class="chapter-title">第12章 公司管理 — M8阿米巴+薪酬三阶段+名利魂+持股平台+领袖修养</h2>
+    <p class="chapter-sub">把单点成功变成系统化复制——阿米巴小组+薪酬三阶段+6大系统+7重修养</p>
+  </div>
+  <div class="chapter-body">
+
+    <div class="section">
+      <h3 class="section-title">🗺 第12章 知识图谱</h3>
+      <div class="mindmap-container">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 2400 940" preserveAspectRatio="xMinYMin meet">
+  <rect class="node-rect root" x="20" y="380" width="180" height="180"/>
+  <text class="node-text root" x="110" y="425" text-anchor="middle">公司管理</text>
+  <text class="node-text root" x="110" y="450" text-anchor="middle">治理实操</text>
+  <text class="node-text root" x="110" y="475" text-anchor="middle">M8阿米巴</text>
+  <text class="node-text root" x="110" y="500" text-anchor="middle">+名利魂</text>
+  <text class="node-text root" x="110" y="525" text-anchor="middle">+领袖修养</text>
+
+  <path class="edge-main" d="M200,470 L240,470 L240,80 L300,80"/>
+  <path class="edge-main" d="M200,470 L240,470 L240,250 L300,250"/>
+  <path class="edge-main" d="M200,470 L240,470 L240,420 L300,420"/>
+  <path class="edge-main" d="M200,470 L240,470 L240,590 L300,590"/>
+  <path class="edge-main" d="M200,470 L240,470 L240,760 L300,760"/>
+  <path class="edge-main" d="M200,470 L240,470 L240,900 L300,900"/>
+
+  <rect class="node-rect level2" x="300" y="30" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="60" text-anchor="middle">板块一</text>
+  <text class="node-text level2" x="400" y="85" text-anchor="middle">M8阿米巴小组</text>
+
+  <rect class="node-rect level2" x="300" y="200" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="230" text-anchor="middle">板块二</text>
+  <text class="node-text level2" x="400" y="255" text-anchor="middle">增长小组</text>
+
+  <rect class="node-rect level2" x="300" y="370" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="400" text-anchor="middle">板块三</text>
+  <text class="node-text level2" x="400" y="425" text-anchor="middle">薪酬三阶段</text>
+
+  <rect class="node-rect level2" x="300" y="540" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="570" text-anchor="middle">板块四+五</text>
+  <text class="node-text level2" x="400" y="595" text-anchor="middle">管理层级+名利魂</text>
+
+  <rect class="node-rect level2" x="300" y="710" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="740" text-anchor="middle">板块六+七</text>
+  <text class="node-text level2" x="400" y="765" text-anchor="middle">系统化+持股平台</text>
+
+  <rect class="node-rect level2" x="300" y="850" width="200" height="100"/>
+  <text class="node-text level2" x="400" y="880" text-anchor="middle">板块八</text>
+  <text class="node-text level2" x="400" y="905" text-anchor="middle">领袖7重修养</text>
+
+  <path class="edge" d="M500,55 L540,55 L540,50 L580,50"/>
+  <path class="edge" d="M500,80 L540,80 L540,85 L580,85"/>
+  <path class="edge" d="M500,105 L540,105 L540,120 L580,120"/>
+
+  <rect class="node-rect" x="580" y="30" width="200" height="40"/>
+  <text class="node-text" x="680" y="55" text-anchor="middle">IV8小组+股权</text>
+  <rect class="node-rect" x="580" y="70" width="200" height="40"/>
+  <text class="node-text" x="680" y="95" text-anchor="middle">2-3人/1-3店铺</text>
+  <rect class="node-rect" x="580" y="110" width="200" height="40"/>
+  <text class="node-text" x="680" y="135" text-anchor="middle">运营组只做运营</text>
+
+  <path class="edge" d="M500,225 L540,225 L540,220 L580,220"/>
+  <path class="edge" d="M500,250 L540,250 L540,255 L580,255"/>
+  <path class="edge" d="M500,275 L540,275 L540,290 L580,290"/>
+
+  <rect class="node-rect" x="580" y="200" width="200" height="40"/>
+  <text class="node-text" x="680" y="225" text-anchor="middle">每家公司都要设</text>
+  <rect class="node-rect" x="580" y="240" width="200" height="40"/>
+  <text class="node-text" x="680" y="265" text-anchor="middle">3-7人内·Google都有</text>
+  <rect class="node-rect" x="580" y="280" width="200" height="40"/>
+  <text class="node-text" x="680" y="305" text-anchor="middle">实验→数据→铺开</text>
+
+  <path class="edge" d="M500,395 L540,395 L540,390 L580,390"/>
+  <path class="edge" d="M500,420 L540,420 L540,425 L580,425"/>
+  <path class="edge" d="M500,445 L540,445 L540,460 L580,460"/>
+
+  <rect class="node-rect" x="580" y="370" width="200" height="40"/>
+  <text class="node-text" x="680" y="395" text-anchor="middle">阶段一：高底薪+低提成</text>
+  <rect class="node-rect" x="580" y="410" width="200" height="40"/>
+  <text class="node-text" x="680" y="435" text-anchor="middle">阶段二：低底+5-10%净利</text>
+  <rect class="node-rect" x="580" y="450" width="200" height="40"/>
+  <text class="node-text" x="680" y="475" text-anchor="middle">阶段三：无底薪合伙人</text>
+
+  <path class="edge" d="M500,565 L540,565 L540,560 L580,560"/>
+  <path class="edge" d="M500,590 L540,590 L540,595 L580,595"/>
+  <path class="edge" d="M500,615 L540,615 L540,630 L580,630"/>
+  <path class="edge" d="M500,640 L540,640 L540,665 L580,665"/>
+
+  <rect class="node-rect" x="580" y="540" width="200" height="40"/>
+  <text class="node-text" x="680" y="565" text-anchor="middle">5-7人老板直管</text>
+  <rect class="node-rect" x="580" y="580" width="200" height="40"/>
+  <text class="node-text" x="680" y="605" text-anchor="middle">名（头衔）+利（分红）</text>
+  <rect class="node-rect" x="580" y="620" width="200" height="40"/>
+  <text class="node-text" x="680" y="645" text-anchor="middle">魂（精神导师）</text>
+  <rect class="node-rect" x="580" y="660" width="200" height="40"/>
+  <text class="node-text" x="680" y="685" text-anchor="middle">先成就员工再成就自己</text>
+
+  <path class="edge" d="M500,735 L540,735 L540,730 L580,730"/>
+  <path class="edge" d="M500,760 L540,760 L540,765 L580,765"/>
+  <path class="edge" d="M500,785 L540,785 L540,800 L580,800"/>
+
+  <rect class="node-rect" x="580" y="710" width="200" height="40"/>
+  <text class="node-text" x="680" y="735" text-anchor="middle">6大系统</text>
+  <rect class="node-rect" x="580" y="750" width="200" height="40"/>
+  <text class="node-text" x="680" y="775" text-anchor="middle">数据化+标准化+可量化</text>
+  <rect class="node-rect" x="580" y="790" width="200" height="40"/>
+  <text class="node-text" x="680" y="815" text-anchor="middle">财务+采购+物流控制</text>
+
+  <path class="edge" d="M500,875 L540,875 L540,870 L580,870"/>
+  <path class="edge" d="M500,900 L540,900 L540,905 L580,905"/>
+  <path class="edge" d="M500,925 L540,925 L540,940 L580,940"/>
+
+  <rect class="node-rect" x="580" y="850" width="200" height="40"/>
+  <text class="node-text" x="680" y="875" text-anchor="middle">创造力·胸襟·吸引力</text>
+  <rect class="node-rect" x="580" y="890" width="200" height="40"/>
+  <text class="node-text" x="680" y="915" text-anchor="middle">天眼·知识·易经·艺术</text>
+  <rect class="node-rect" x="580" y="930" width="200" height="40"/>
+  <text class="node-text" x="680" y="955" text-anchor="middle">终极形态=创业平台</text>
+</svg>
+      </div>
+      <p class="zoom-hint">💡 双指捏合可放大查看细节</p>
+    </div>
+
+    <!-- 板块一 -->
+    <div class="section">
+      <h3 class="section-title">板块一：M8 阿米巴小组模式概述</h3>
+
+      <div class="quote-card">
+        在跨境公司管理中我见过的所有模式，只有一种模式就是M8模式。——讲师核心断言
+      </div>
+
+      <h4>核心架构</h4>
+      <p>IV8（阿米巴）小组 + 股权的模式</p>
+
+      <h4>小组设置</h4>
+      <ul>
+        <li>人员：2-3人作为一个小组</li>
+        <li>店铺：操作1-3个店铺</li>
+      </ul>
+
+      <h4>N8小组（运营小组）的主要职责</h4>
+      <ul>
+        <li>负责运营工作</li>
+        <li>选品可由运营组负责，也可由单独的选品组负责</li>
+        <li>产品拍照、上架</li>
+        <li>标题、五行、A+撰写</li>
+        <li>刷QA</li>
+        <li>站外站内优惠券、Deal、开广告</li>
+      </ul>
+
+      <h4>关键分工</h4>
+      <p>运营小组<strong>只负责运营</strong>；非运营支持职能（物流部、采购部、质量检查员）独立</p>
+
+      <h4>小组权限</h4>
+      <ul>
+        <li>对老板负责；老板亲自挑头</li>
+        <li>最大权限：撕膜、定制个性化包装、对产品功能外观重新设计等</li>
+      </ul>
+    </div>
+
+    <!-- 板块二 -->
+    <div class="section">
+      <h3 class="section-title">板块二：增长小组设置</h3>
+
+      <div class="callout gold">
+        <strong>📌 讲师建议</strong>
+        <p>"增长小组，我建议每一家公司都有。"<br>
+        全球顶级公司都设增长小组：Google、微软、Facebook、埃隆·马斯克的公司</p>
+      </div>
+
+      <h4>增长小组的核心功能</h4>
+      <ul>
+        <li>研究新模式 / 新产品 / 新外观 / 新平台 / 新运营技巧 / 新广告方法</li>
+      </ul>
+
+      <h4>工作流程</h4>
+      <ol>
+        <li>增长小组快速去做（实验）</li>
+        <li>拿到数据、拿到结果</li>
+        <li>结果好的，就在公司统一铺开</li>
+        <li>再展开一个小组，再开几个店铺</li>
+      </ol>
+
+      <h4>增长小组规模</h4>
+      <p>3-7个人以内（精品模式）；海豹模式：3-5人一组</p>
+    </div>
+
+    <!-- 板块三 -->
+    <div class="section">
+      <h3 class="section-title">板块三：岗位薪酬三阶段设计</h3>
+
+      <div class="tbl-wrap">
+      <table>
+        <thead><tr><th>阶段</th><th>适用</th><th>底薪</th><th>提成</th><th>目的</th></tr></thead>
+        <tbody>
+          <tr><td>阶段一</td><td>0-6月新人</td><td>高</td><td>低</td><td>培养</td></tr>
+          <tr><td>阶段二</td><td>6月+老手</td><td>低（最低线）</td><td>5%-10%净利润</td><td>激励</td></tr>
+          <tr><td>阶段三</td><td>优秀操盘手</td><td>无</td><td>合伙人</td><td>孵化</td></tr>
+        </tbody>
+      </table>
+      </div>
+
+      <ul>
+        <li><strong>阶段一</strong>：高底薪 + 低提成（培养期）</li>
+        <li><strong>阶段二</strong>：高提成 + 低底薪（激励期，店铺净利润的5%-10%）</li>
+        <li><strong>阶段三</strong>：无底薪合伙人（孵化期）</li>
+      </ul>
+    </div>
+
+    <!-- 板块四 -->
+    <div class="section">
+      <h3 class="section-title">板块四：管理层级与组织架构</h3>
+
+      <h4>精品/小爆品团队规模</h4>
+      <ul>
+        <li>一般一二十人；<strong>不需要太多管理</strong></li>
+        <li>解决方案：设几个主管或项目总监；一个项目3-5人</li>
+      </ul>
+
+      <h4>小团队结构</h4>
+      <div class="callout info">
+        <strong>👥 5-7人团队结构</strong>
+        <p>5-7个人：老板直接管理<br>
+        "我们目标是最终奔着快速的去赚钱的"<br>
+        设置那么多层级反而影响效率<br>
+        <strong>"5-7个人，一个人管七个人是比较科学的模式"</strong></p>
+      </div>
+
+      <p>反层级原则："不需要一层一层的像原来那种老的那种模式，一层一层的去传达，效率会非常低。"</p>
+    </div>
+
+    <!-- 板块五 -->
+    <div class="section">
+      <h3 class="section-title">板块五：管理核心"名、利、魂"</h3>
+
+      <h4>第一样：名</h4>
+      <ul>
+        <li>头衔：总经理、项目总监、操盘手、联合创始人</li>
+        <li><strong>"现在该给就给，不要拿着不放"</strong></li>
+      </ul>
+
+      <h4>第二样：利</h4>
+      <ul>
+        <li>提成到位；分红到位；股权到位；福利到位</li>
+        <li><strong>"天下熙熙皆为利来，天下往往皆为利往"</strong></li>
+      </ul>
+
+      <h4>关键胸怀论</h4>
+      <div class="quote-card">
+        你只有能够拥有山川的胸襟，我们才能够做山川之王。<br>
+        我们赚取我们有限的利润就可以了，把更多的利润分给那些创造价值更大的人。<br>
+        我们不是逮着一个人使劲薅，给他薅死。我们要养一群……每个人从他们身上拔一个毛。你拔的毛多了，照样能支个一个坎肩儿。
+      </div>
+
+      <h4>第三样：魂</h4>
+      <ul>
+        <li>自己也要成为精神导师</li>
+        <li>磁场要稳定，带给人能量</li>
+        <li>高层婚姻家庭、子女教育出现问题时，主动帮忙</li>
+        <li>言出必行，温文尔雅</li>
+        <li>杀伐果断，说干就干</li>
+      </ul>
+
+      <div class="quote-card">
+        先成就员工，再成就自己。——背后的逻辑
+      </div>
+    </div>
+
+    <!-- 板块六 -->
+    <div class="section">
+      <h3 class="section-title">板块六：系统化建设（创业平台）</h3>
+
+      <h4>核心方法论</h4>
+      <div class="callout gold">
+        <strong>💡 核心方法论</strong>
+        <p><strong>靠系统赚钱</strong></p>
+      </div>
+
+      <h4>系统的三大属性</h4>
+      <ol>
+        <li><strong>数据化</strong>：每个步骤都有数据可追踪</li>
+        <li><strong>标准化</strong>：每个动作都有具体的标准</li>
+        <li><strong>可量化</strong>：每一步可衡量</li>
+      </ol>
+
+      <h4>六大系统</h4>
+      <ol>
+        <li>选品系统</li>
+        <li>营销系统</li>
+        <li>融资系统</li>
+        <li>股权系统</li>
+        <li>M8管理系统（增长小组）</li>
+        <li>财务系统</li>
+      </ol>
+
+      <div class="callout info">
+        <strong>📌 检验系统是否OK的标准</strong>
+        <p>能不能让<strong>小白也能做出来</strong></p>
+      </div>
+    </div>
+
+    <!-- 板块七 -->
+    <div class="section">
+      <h3 class="section-title">板块七：持股平台与控制权</h3>
+
+      <h4>核心架构</h4>
+      <ul>
+        <li><strong>创建一个持股平台</strong></li>
+        <li><strong>控制着阿米巴公司的小组</strong>的"领头在接操盘手"</li>
+        <li>让他们"成为一家的公司"——小公司老板都是持股平台的股东</li>
+      </ul>
+
+      <h4>老板的三大抓手</h4>
+      <div class="callout gold">
+        <strong>💪 三大抓手</strong>
+        <p><strong>财务 + 采购 + 物流</strong>（必须控制在自己手里）</p>
+      </div>
+
+      <div class="quote-card">
+        即便是城里再多的系统，记得产品的采购打包，还有整个资金的流向，一定要控制在我们自己手里边。
+      </div>
+
+      <h4>实际控制人原则</h4>
+      <div class="quote-card">
+        任何时候我们都要成为实际的控制人，哪怕甚至法律上我们都不是控制人。但是在实际的操作过程中，我们一定要成为实际的控制人。
+      </div>
+    </div>
+
+    <!-- 板块八 -->
+    <div class="section">
+      <h3 class="section-title">板块八：领袖修炼与企业哲学</h3>
+
+      <h4>领袖的七重修养</h4>
+      <ol>
+        <li><strong>创造力</strong>（成就他人）："一个好的领袖，第一个要有创造力，成就一个一个的普通人，激发每个人的销冠基因。"</li>
+        <li><strong>容纳天地的胸襟</strong>：身教大于言教</li>
+        <li><strong>强大的吸引力</strong>：宏伟的目标、波澜不惊的定力、海纳百川的包容心</li>
+        <li><strong>天眼与直指本质</strong>：要练就一双看透问题的天眼</li>
+        <li><strong>知识储备</strong>：布群书的知识储备；通读四书五经；天人合一</li>
+        <li><strong>易经哲学</strong>："元亨利贞"</li>
+        <li><strong>艺术修养</strong>：琴棋书画、诗酒花茶</li>
+      </ol>
+
+      <div class="quote-card">
+        大家都知道创业板。九成的失败，一成的成功，这是天道。——关键论断
+      </div>
+
+      <h4>企业的终极形态：平台</h4>
+      <div class="callout gold">
+        <strong>🎯 终极形态</strong>
+        <p>"把工厂的数据，自身的数据，所有的管理数据进行复制粘贴，打造自己的平台。最终我们是要把老板是要把自己发展成为一个平台。"</p>
+      </div>
+
+      <h4>创业者 vs 人脉的本质</h4>
+      <div class="quote-card">
+        传统的生意成功是人脉的成功……创业者的成功是产品的成功。有了好的产品就可以吸引到更多的人脉。所以创业者要耐心打磨自己的产品，坐等人脉上门。
+      </div>
+    </div>
+
+    <div class="action-box">
+      <h4>🎯 第12章 学习路径建议</h4>
+      <h5>立即可做</h5>
+      <ul>
+        <li>把团队改成2-3人阿米巴小组模式</li>
+        <li>建立1个3-5人增长小组</li>
+        <li>为团队成员匹配薪酬三阶段</li>
+      </ul>
+      <h5>一周内可做</h5>
+      <ul>
+        <li>梳理6大系统（选品/营销/融资/股权/M8/财务），看哪些已有/哪些缺失</li>
+        <li>建立持股平台，控制财务+采购+物流三大抓手</li>
+        <li>为员工匹配"名+利+魂"三层激励</li>
+      </ul>
+      <h5>持续修炼</h5>
+      <ul>
+        <li>坚持"先成就员工，再成就自己"的底层哲学</li>
+        <li>以"小白也能做出来"为标准检验系统</li>
+        <li>持续修炼7重领袖修养（创造力/胸襟/吸引力/天眼/知识/易经/艺术）</li>
+        <li>终极目标：把自己发展为"创业平台"</li>
+      </ul>
+    </div>
+
+    <p style="text-align:center;margin-top:14px"><a href="#appendix" class="cross-link">下一部分：附录 →</a></p>
+  </div>
+</section>
+
+<!-- ========== 附录部分 ========== -->
+<section class="appendix" id="appendix">
+  <h2>📚 附录部分</h2>
+  <p style="color:var(--text-light);margin-bottom:14px">跨章节综合资源：选品清单 + 知识图谱 + 系统性总结 + 学习路径</p>
+  <div class="chapter-overview">
+    <a class="overview-card" href="#appendixA"><span class="num">A</span><span class="name">选品清单</span></a>
+    <a class="overview-card" href="#appendixB"><span class="num">B</span><span class="name">知识图谱</span></a>
+    <a class="overview-card" href="#appendixC"><span class="num">C</span><span class="name">系统性总结</span></a>
+  </div>
+</section>
+
+<!-- ========== 附录A 选品清单 ========== -->
+<section class="appendix" id="appendixA">
+  <h2>📦 附录A：全课程选品清单汇总（67条去重）</h2>
+  <p style="color:var(--text-light);margin-bottom:14px">以下清单已对12篇文档中的选品清单进行去重合并。同一产品在不同文档中出现时合并为一条，并标注全部出处。</p>
+
+  <div class="callout info">
+    <strong>📊 清单统计</strong>
+    <ul style="margin-top:6px;padding-left:20px">
+      <li>总条目数：<strong>67条</strong>（去重后）</li>
+      <li>Go（推荐做/作为定位案例）：<strong>约55条</strong></li>
+      <li>Not Go（不推荐做）：<strong>3条</strong>（围裙普通款、大爆款类目、含3种）</li>
+      <li>待定：<strong>约9条</strong></li>
+    </ul>
+  </div>
+
+  <div class="tbl-wrap">
+  <table>
+    <thead><tr><th>#</th><th>中文商品名</th><th>英文商品名</th><th>判断</th><th>原因说明</th><th>出处</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>围裙（普通款）</td><td>Apron</td><td>Not Go</td><td>同质化严重、利润薄、需走量</td><td>5,7,8,10</td></tr>
+      <tr><td>2</td><td>围裙（防水/纯棉）</td><td>Waterproof/Cotton Apron</td><td>Go</td><td>卖点明确、客单价中等、有差异化</td><td>5</td></tr>
+      <tr><td>3</td><td>围裙（专用类）</td><td>Carpenter/Butcher/Barber</td><td>Go</td><td>客单价高、利润高、竞争小</td><td>5</td></tr>
+      <tr><td>4</td><td>围裙（节日印花）</td><td>Holiday Pattern Apron</td><td>Go</td><td>节日爆发、节日期间好卖</td><td>5</td></tr>
+      <tr><td>5</td><td>筷子</td><td>Chopsticks</td><td>Go</td><td>需求稳定、市场教育成熟</td><td>6</td></tr>
+      <tr><td>6</td><td>碗/厨具/菜刀</td><td>Bowls/Kitchenware</td><td>Go</td><td>迭代慢，功能是核心</td><td>5,6,7</td></tr>
+      <tr><td>7</td><td>室内装饰品</td><td>Indoor Decoration</td><td>待定</td><td>情绪价值和设计差异化</td><td>6</td></tr>
+      <tr><td>8</td><td>厨具（成本领先案例）</td><td>Kitchenware</td><td>Go</td><td>年销80万，单件利润70+元</td><td>7</td></tr>
+      <tr><td>9</td><td>矿泉水/饮用水</td><td>Bottled Water</td><td>Go</td><td>需用产地/成分切割赛道</td><td>6</td></tr>
+      <tr><td>10</td><td>农夫山泉</td><td>Nongfu Spring</td><td>Go</td><td>产地+品牌故事</td><td>6</td></tr>
+      <tr><td>11</td><td>百岁山</td><td>Ganten</td><td>Go</td><td>产地/长寿叙事</td><td>6</td></tr>
+      <tr><td>12</td><td>恒大冰泉</td><td>Evergrande Ice Spring</td><td>Go</td><td>水源深度与矿物质</td><td>6</td></tr>
+      <tr><td>13</td><td>元气森林</td><td>Zero-Sugar Beverage</td><td>Go</td><td>健康定位</td><td>6</td></tr>
+      <tr><td>14</td><td>凉白开</td><td>Boiled Water</td><td>Go</td><td>主打熟水</td><td>6</td></tr>
+      <tr><td>15</td><td>竹叶水</td><td>Bamboo-Leaf Water</td><td>Go</td><td>清热去火</td><td>6</td></tr>
+      <tr><td>16</td><td>充电宝</td><td>Power Bank</td><td>待定</td><td>必须找到差异化卖点</td><td>6</td></tr>
+      <tr><td>17</td><td>方便面</td><td>Instant Noodles</td><td>待定</td><td>通过口味、场景、包装切割</td><td>6</td></tr>
+      <tr><td>18</td><td>牙膏（整体）</td><td>Toothpaste</td><td>待定</td><td>从功能/材质/外观/工艺/口号切割</td><td>6</td></tr>
+      <tr><td>19</td><td>冷酸灵牙膏</td><td>Sensitive-Teeth</td><td>Go</td><td>抗酸痛功能</td><td>6</td></tr>
+      <tr><td>20</td><td>高露洁健齿白</td><td>Colgate Whitening</td><td>Go</td><td>美白/健齿功能</td><td>6</td></tr>
+      <tr><td>21</td><td>云南白药牙膏</td><td>Yunnan Baiyao</td><td>Go</td><td>消炎、杀菌功能</td><td>6</td></tr>
+      <tr><td>22</td><td>两面针牙膏</td><td>Liangmianzhen</td><td>Go</td><td>清热去火</td><td>6</td></tr>
+      <tr><td>23</td><td>露营套装</td><td>Camping Kit</td><td>Go</td><td>新手决策成本低</td><td>6</td></tr>
+      <tr><td>24</td><td>钓鱼新手套装</td><td>Beginner Fishing Kit</td><td>Go</td><td>一站式解决方案</td><td>5,6</td></tr>
+      <tr><td>25</td><td>钓鱼单品</td><td>Fishing Line/Rod</td><td>Go</td><td>老手细分精准</td><td>6</td></tr>
+      <tr><td>26</td><td>太阳镜周边</td><td>Sunglasses Accessories</td><td>Go</td><td>跟着热门做周边</td><td>5</td></tr>
+      <tr><td>27</td><td>防晒纱巾</td><td>Sun Protection Scarf</td><td>Go</td><td>季节性强、利润可观</td><td>5</td></tr>
+      <tr><td>28</td><td>户外帐篷/探照灯</td><td>Outdoor Tent</td><td>Go</td><td>秋天旺季、海边度假周边</td><td>5</td></tr>
+      <tr><td>29</td><td>厨具/刀具/碗筷（长线）</td><td>Kitchenware</td><td>Go</td><td>一年两年不换、迭代慢</td><td>5</td></tr>
+      <tr><td>30</td><td>音箱/手表/手机壳</td><td>Speaker/Watch/Phone Case</td><td>Go</td><td>不同价位都有对应人群</td><td>5</td></tr>
+      <tr><td>31</td><td>大爆款类目（日出5000单）</td><td>N/A</td><td>Not Go</td><td>不适合中小卖家做长线</td><td>5</td></tr>
+      <tr><td>32</td><td>木制品/成人用品/刀具</td><td>Wooden/Adult/Knives</td><td>Go</td><td>小众人群、利润可观</td><td>5</td></tr>
+      <tr><td>33</td><td>密封罐</td><td>Airtight Container</td><td>待定</td><td>安全需求层次产品</td><td>6</td></tr>
+      <tr><td>34</td><td>沃尔沃</td><td>Volvo</td><td>Go</td><td>"安全"心智标签</td><td>6</td></tr>
+      <tr><td>35</td><td>钻石</td><td>Diamond</td><td>Go</td><td>"恒久远一颗永流传"</td><td>6,7</td></tr>
+      <tr><td>36</td><td>Zippo打火机</td><td>Zippo Lighter</td><td>Go</td><td>二战老兵故事</td><td>7</td></tr>
+      <tr><td>37</td><td>大芙巧克力</td><td>Dove Chocolate</td><td>Go</td><td>褚时健精神象征</td><td>7</td></tr>
+      <tr><td>38</td><td>苹果手机</td><td>iPhone</td><td>Go</td><td>科技含量价值领先</td><td>3,4</td></tr>
+      <tr><td>39</td><td>劳斯莱斯库里南</td><td>Rolls-Royce Cullinan</td><td>Go</td><td>品牌价值极致</td><td>3</td></tr>
+      <tr><td>40</td><td>GUCCI/LV/香奈儿</td><td>Luxury Brands</td><td>Go</td><td>卖的是身份、效率、面子</td><td>3,6</td></tr>
+      <tr><td>41</td><td>茅台</td><td>Moutai</td><td>Go</td><td>情绪价值+场景价值</td><td>4</td></tr>
+      <tr><td>42</td><td>康泰克 vs 白加黑</td><td>Contac vs Baijiahei</td><td>Go</td><td>切换用户场景</td><td>3</td></tr>
+      <tr><td>43</td><td>宝马</td><td>BMW</td><td>Go</td><td>单一卖点"驾驶感"</td><td>6</td></tr>
+      <tr><td>44</td><td>奔驰</td><td>Mercedes-Benz</td><td>Go</td><td>单一卖点"后座舒适"</td><td>6</td></tr>
+      <tr><td>45</td><td>法拉利</td><td>Ferrari</td><td>Go</td><td>单一卖点"赛车/速度"</td><td>6</td></tr>
+      <tr><td>46</td><td>米其林</td><td>Michelin</td><td>Go</td><td>单一卖点"耐磨耐造"</td><td>6</td></tr>
+      <tr><td>47</td><td>长城皮卡</td><td>Great Wall Pickup</td><td>Go</td><td>"后备箱/发动机"切割</td><td>6</td></tr>
+      <tr><td>48</td><td>小米</td><td>Xiaomi</td><td>Go</td><td>便宜+品牌机售后</td><td>4</td></tr>
+      <tr><td>49</td><td>小罐米</td><td>Single-Portion Rice</td><td>Go</td><td>单身群体精准定量</td><td>4</td></tr>
+      <tr><td>50</td><td>小罐茶</td><td>Premium Mini Tea</td><td>Go</td><td>商务宴请"唯一性"</td><td>4</td></tr>
+      <tr><td>51</td><td>日本书包</td><td>Japanese School Bag</td><td>Go</td><td>多功能整合高客单价</td><td>4</td></tr>
+      <tr><td>52</td><td>考研锁</td><td>Time-Lock Safe</td><td>Go</td><td>考研人自律</td><td>4</td></tr>
+      <tr><td>53</td><td>特斯拉手机</td><td>Tesla Phone</td><td>Go</td><td>创新功能整合</td><td>4</td></tr>
+      <tr><td>54</td><td>联想电脑</td><td>Lenovo PC</td><td>Go</td><td>便宜+售后</td><td>4</td></tr>
+      <tr><td>55</td><td>保鲜膜/密封罐</td><td>Plastic Wrap</td><td>Go</td><td>安全需求：食物保存</td><td>6</td></tr>
+      <tr><td>56</td><td>滴滴/医疗保险/车险</td><td>Didi/Insurance</td><td>Go</td><td>安全需求：出行/生命/财产</td><td>6</td></tr>
+      <tr><td>57</td><td>礼服/胸针/领带</td><td>Formal Wear</td><td>Go</td><td>尊重需求：成就、身份</td><td>6</td></tr>
+      <tr><td>58</td><td>钓鱼/渔具</td><td>Fishing Gear</td><td>Go</td><td>尊重需求+资深爱好者</td><td>6</td></tr>
+      <tr><td>59</td><td>健身减肥/培训</td><td>Fitness/Education</td><td>Go</td><td>尊重需求：成就、声望</td><td>6</td></tr>
+      <tr><td>60</td><td>性用品及周边</td><td>Adult Products</td><td>Go</td><td>高利润但需注意合规</td><td>6</td></tr>
+      <tr><td>61</td><td>知识/手办/医美</td><td>Knowledge/Figurine</td><td>Go</td><td>自我实现需求</td><td>6</td></tr>
+      <tr><td>62</td><td>LV</td><td>Louis Vuitton</td><td>Go</td><td>尊重+自我实现双重价值</td><td>6</td></tr>
+      <tr><td>63</td><td>油盐酱醋/菜刀</td><td>Grocery/Knife</td><td>Go</td><td>第一层生理需求</td><td>6</td></tr>
+      <tr><td>64</td><td>饿了么/美团</td><td>Ele.me/Meituan</td><td>Go</td><td>第一层生理需求服务</td><td>6</td></tr>
+      <tr><td>65</td><td>80后怀旧产品</td><td>Nostalgic Products</td><td>Go</td><td>童年回忆与情感共鸣</td><td>7</td></tr>
+      <tr><td>66</td><td>洗衣机（西门子）</td><td>Washing Machine</td><td>Go</td><td>进化案例：手洗→自动→烘干</td><td>4</td></tr>
+      <tr><td>67</td><td>苹果手机（故事）</td><td>iPhone</td><td>Go</td><td>故事溢价的极致案例</td><td>3</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <div class="callout warn">
+    <strong>⚠️ 重要说明</strong>
+    <p>1. 表中大量的"Go"项实际是讲师作为"品牌案例/心智占位/故事溢价"演示的知名案例（如宝马、奔驰、Zippo、钻石等），并非直接建议复制——真实落地仍需验证搜索量、集中度、利润、合规、供应链与侵权风险。</p>
+    <p>2. 围裙产品（讲师真实第一款爆品）的冲榜过程（500→1000评价阈值、每月报秒杀等）已整合到营销组合拳与长线螺旋打造板块中。</p>
+  </div>
+</section>
+
+<!-- ========== 附录B 知识图谱 ========== -->
+<section class="appendix" id="appendixB">
+  <h2>🗺 附录B：跨课程知识图谱</h2>
+  <p style="color:var(--text-light);margin-bottom:14px">核心概念关系梳理 + 知识点依赖链路 + 跨文档重复知识点汇总</p>
+
+  <div class="section">
+    <h3 class="section-title">一、核心概念关系梳理（哲学→战略→战术→治理）</h3>
+
+    <h4>1. 哲学层（第1-2章）—— "为什么这样做"</h4>
+    <ul>
+      <li><strong>吸引力法则 vs 心法</strong>：[1]讲"自我能量管理"；[2]讲"如何用哲学指导创业与生活"</li>
+      <li><strong>法人思维 vs 创始人个人心法</strong>：[1]讲"法人vs个人的分离"；[11][12]讲"如何在法人组织里留人"</li>
+      <li><strong>国学经典</strong>：《周易》天行健/地势坤（《论语》视其所以观其所由察其所安）《心经》《易经》元亨利贞</li>
+    </ul>
+
+    <h4>2. 战略层（第3-6章）—— "做什么、不做什么"</h4>
+    <ul>
+      <li><strong>价值领先 vs 成本领先</strong>：[3]讲理论框架；[4]讲战略选择与定价杠杆</li>
+      <li><strong>马斯洛需求层次理论</strong>：本课程最核心的"贯穿性框架"，5个文档从不同维度深化</li>
+      <li><strong>极致为王 / 单卖点聚焦</strong>：从理念→方法论→操作落地的完整链路</li>
+      <li><strong>赛道切割与差异化</strong>：从选品指标→切割方法→黑科技加速的完整工具箱</li>
+      <li><strong>长短线产品策略</strong>：从比喻→战略→心理建设→实操SOP的完整方法论</li>
+    </ul>
+
+    <h4>3. 战术层（第7-10章）—— "具体怎么做"</h4>
+    <ul>
+      <li><strong>A9算法与转化率飞轮</strong>：[7]讲流量入口；[10]讲转化率背后的算法逻辑</li>
+      <li><strong>评论数量阈值（500/1000）</strong>：三文档形成完整方法论</li>
+      <li><strong>广告运营体系</strong>：[7]是分类；[8]是实操</li>
+      <li><strong>4种营销组合拳</strong>：整合所有营销工具，按场景组合</li>
+      <li><strong>长线产品螺旋打造17步</strong>：整合所有营销工具+商业模式+价值塑造 → 完整SOP</li>
+    </ul>
+
+    <h4>4. 治理层（第9-12章）—— "如何做大做强"</h4>
+    <ul>
+      <li><strong>盈利模式 = 产品+股权+融资+服务</strong>：[9]全板块</li>
+      <li><strong>股权设计</strong>：[11]是[12]公司管理的前置基础</li>
+      <li><strong>公司管理 = M8阿米巴+薪酬三阶段+名利魂</strong>：[12]全板块</li>
+      <li><strong>股权与管理双轨留人</strong>：[9][11][12]三层互补</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">二、知识点依赖链路</h3>
+    <div class="callout gold">
+      <strong>🔗 完整链路</strong>
+      <p>[1.吸引力法则] 哲学起点<br>
+      ↓ 量子物理/能量管理/法人意识<br>
+      [2.心法] 心态与认知基础<br>
+      ↓ 天行健+地势坤+四大能力+舍得<br>
+      [3.商业模式1] 商业底层<br>
+      ↓ 价值交换+规律复制<br>
+      [4.商业模式2] 商业进阶<br>
+      ↓ 价格复利+马斯洛+Showlex<br>
+      [5.卖点提炼1] 卖点方法论<br>
+      ↓ 七大价值维度+围裙案例<br>
+      [6.卖点提炼2] 卖点落地<br>
+      ↓ 单一卖点+5维切割+唯一卖点<br>
+      [7.营销工具1] 营销理念<br>
+      ↓ 防火墙+五种黑科技+流量入口<br>
+      [8.营销工具2] 营销实操<br>
+      ↓ 站外+广告+秒杀+手动漏斗<br>
+      [10.营销3] 订单逻辑+长短线<br>
+      ↓ A9算法+500/1000评价+组合拳<br>
+      [9.盈利模式] 多元盈利<br>
+      ↓ 9大盈利+股权+融资+合伙人<br>
+      [11.股权] 治理基础<br>
+      ↓ 七大生命线+分红权+退出机制<br>
+      [12.公司管理] 治理实操<br>
+      ↓ M8阿米巴+名利魂+7重修养+平台</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">三、跨文档重复知识点汇总（18类）</h3>
+    <div class="tbl-wrap">
+    <table>
+      <thead><tr><th>知识点</th><th>出现文档数</th><th>关系</th></tr></thead>
+      <tbody>
+        <tr><td>马斯洛需求层次理论</td><td>5</td><td>贯穿性框架</td></tr>
+        <tr><td>价值领先 vs 成本领先</td><td>3</td><td>理论→战略→操作</td></tr>
+        <tr><td>极致为王 / 单卖点聚焦</td><td>3</td><td>理念→方法→落地</td></tr>
+        <tr><td>围裙案例</td><td>4</td><td>卖点→黑科技→站外→螺旋</td></tr>
+        <tr><td>Showlex 软件</td><td>2</td><td>完整演示+工具引用</td></tr>
+        <tr><td>评价数量阈值（500/1000）</td><td>3</td><td>"评论比价格重要"+完整两阈值</td></tr>
+        <tr><td>长线 vs 短线产品策略</td><td>4</td><td>比喻→分叉→心理→SOP</td></tr>
+        <tr><td>A9算法 / 转化率飞轮</td><td>2</td><td>流量入口+算法逻辑</td></tr>
+        <tr><td>股权与分红权设计</td><td>3</td><td>变现+法律+激励</td></tr>
+        <tr><td>国学经典</td><td>3</td><td>周易+论语+易经</td></tr>
+        <tr><td>马斯洛与员工管理</td><td>3</td><td>五轮+层级价值+名利魂</td></tr>
+        <tr><td>供应链/工厂投资人</td><td>3</td><td>采购+工厂投资人+业务公司</td></tr>
+        <tr><td>战略亏损</td><td>3</td><td>冲第一+长尾词+500评价前</td></tr>
+        <tr><td>价格复利11.3%</td><td>2</td><td>详细讲解+战略分叉公式</td></tr>
+        <tr><td>评论为王</td><td>2</td><td>"评论比价格重要"+"评论第一"</td></tr>
+        <tr><td>唯一性原则</td><td>2</td><td>账户安全+持股平台实际控制人</td></tr>
+        <tr><td>产品故事公式</td><td>3</td><td>白加黑+组合+完整公式</td></tr>
+        <tr><td>马斯洛与选品映射</td><td>2</td><td>4步递进+五层利润差</td></tr>
+      </tbody>
+    </table>
+    </div>
+  </div>
+</section>
+
+<!-- ========== 附录C 系统性总结+学习路径 ========== -->
+<section class="appendix" id="appendixC">
+  <h2>📖 附录C：终极系统性总结 + 6阶段学习路径</h2>
+
+  <div class="section">
+    <h3 class="section-title">一、全部课程的核心知识体系（6层架构）</h3>
+
+    <h4>第1层：哲学起点（第1-2章）</h4>
+    <ul>
+      <li>价值观：强势文化、舍与得、法人心法</li>
+      <li>信念：相信的力量、量子物理同频共振、能量管理</li>
+      <li>哲学双柱：天行健自强不息 + 地势坤厚德载物</li>
+      <li>家庭五轮角色与父亲的"不可倒下"精神传承</li>
+    </ul>
+
+    <h4>第2层：商业模式（第3-4章）</h4>
+    <ul>
+      <li>本质：商业本质=价值交换；模式本质=规律复制</li>
+      <li>战略：价值领先 vs 成本领先（长线→成本领先；短线→价值领先）</li>
+      <li>价格杠杆：每涨1%利润涨11.3%</li>
+      <li>无形价值：故事+场景图+高级感+内涵</li>
+      <li>工具：Showlex=未被满足的需求清单</li>
+    </ul>
+
+    <h4>第3层：卖点方法论（第5-6章）</h4>
+    <ul>
+      <li>七大价值维度（功能/工艺/安全/创意/情绪/品牌故事/卖家定位）</li>
+      <li>单一卖点战略（两个卖点=没有卖点）</li>
+      <li>5维赛道切割（材质/功能/外观/工艺/口号）</li>
+      <li>产品组合+反向组合+唯一卖点</li>
+      <li>马斯洛五层需求与5-50倍利润差</li>
+    </ul>
+
+    <h4>第4层：营销战术（第7-8章、第10章）</h4>
+    <ul>
+      <li>营销工具1：选品定位+黑科技选品+极致为王+流量入口+转化三要素+产品故事</li>
+      <li>营销工具2：站外+广告核心机制+秒杀+促销组合+自动/手动广告+价格哲学</li>
+      <li>营销3：A9算法飞轮+500/1000评价阈值+4种组合拳+长线17步+账户安全</li>
+      <li>长线：螺旋打造+500→1000评价→冲刺榜一→稳在第一名+复制第二款</li>
+      <li>短线：直奔利润+涨价降价反复操作</li>
+    </ul>
+
+    <h4>第5层：盈利模式（第9章）</h4>
+    <ul>
+      <li>9大盈利来源（金融/政策/资产/服务/整合）</li>
+      <li>股权变现4层（短期/中期/长期/特殊）</li>
+      <li>融资工具箱（信用卡42张+房产抵押+网商贷+分红权）</li>
+      <li>6种股权架构+4大合伙人法则</li>
+    </ul>
+
+    <h4>第6层：公司治理（第11-12章）</h4>
+    <ul>
+      <li>股权：七大生命线+34%控制权+同股不同权+岗位分红+三类公司组合+退出机制+诚信约定+双轨留人</li>
+      <li>公司管理：M8阿米巴小组+增长小组+薪酬三阶段+5-7人老板直管+名利魂三位一体+6大系统+持股平台+7重领袖修养+平台的终极形态</li>
+    </ul>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">二、54条关键要点回顾</h3>
+    <div class="callout info">
+      <strong>🌟 哲学层（6条）</strong>
+      <ol style="margin-top:6px;padding-left:20px">
+        <li>量子物理+同频共振=吸引力法则的科学化</li>
+        <li>法人≠个人——商场即战场</li>
+        <li>四大能力=认知/野心/勇气/执行力</li>
+        <li>人生哲学双柱=天行健+地势坤</li>
+        <li>紧箍咒=舍得=舍九取一</li>
+        <li>"心里有净土，地方就是净土"</li>
+      </ol>
+    </div>
+
+    <div class="callout info">
+      <strong>🎯 战略层（6条）</strong>
+      <ol style="margin-top:6px;padding-left:20px">
+        <li>商业本质=价值交换；模式本质=规律复制</li>
+        <li>战略分叉公式：长线→成本领先；短线→价值领先</li>
+        <li>价格每涨1%→利润涨11.3%</li>
+        <li>卖功能&lt;卖场景&lt;卖故事&lt;卖内涵（毛利率递增）</li>
+        <li>卖产品要找"未被满足的需求"</li>
+        <li>Showlex软件=选品核武器</li>
+      </ol>
+    </div>
+
+    <div class="callout info">
+      <strong>🎨 卖点层（6条）</strong>
+      <ol style="margin-top:6px;padding-left:20px">
+        <li>七大价值维度聚焦单一价值</li>
+        <li>卖点选择=人群选择=价格层级选择（弱水三千只取一瓢）</li>
+        <li>两个以上卖点=没有卖点（宝马驾驶感、奔驰商务感）</li>
+        <li>马斯洛5层需求与5-50倍利润差</li>
+        <li>5维赛道切割（材质/功能/外观/工艺/口号）</li>
+        <li>产品组合+反向组合+唯一卖点</li>
+      </ol>
+    </div>
+
+    <div class="callout info">
+      <strong>⚔️ 战术层（17条）</strong>
+      <ol style="margin-top:6px;padding-left:20px">
+        <li>选品三大方向：熟悉/兴趣/资源</li>
+        <li>防火墙三件套（价格/版权/域名698元/年）</li>
+        <li>五种黑科技选品（翻新/跟卖/拆分/包装/工厂投资人）</li>
+        <li>极致为王=单点聚焦+所有listing要素统一</li>
+        <li>价格极致案例：单品节省2.31元×年销量80万=184.8万年利润</li>
+        <li>A9算法=谁帮亚马逊赚钱就给谁流量</li>
+        <li>评论比价格重要（讲师核心观点）</li>
+        <li>评价数量阈值：500（权重跨越）→ 1000（调价断货都不怕）</li>
+        <li>流量池陷阱：销量卡死3000（2900-3100）</li>
+        <li>关键词竞价公式：下一名出价+0.01=你的出价</li>
+        <li>7天归因周期+广告权重独立计算</li>
+        <li>自动广告黄金公式：固定竞价+展示位50%+商品页30%</li>
+        <li>手动广告漏斗：200词→10个嫡系部队→带动100+热搜词</li>
+        <li>4种营销组合拳：站外+券/广告+秒杀/站外+Prime/多店铺跟卖</li>
+        <li>长线螺旋打造17步（测款→500评价→1000评价→冲刺榜一→稳在第一名）</li>
+        <li>秒杀后排名飙升=真正价值</li>
+        <li>淡季躺平+节日涨价=价格运营哲学</li>
+      </ol>
+    </div>
+
+    <div class="callout info">
+      <strong>🏛️ 治理层（18条）</strong>
+      <ol style="margin-top:6px;padding-left:20px">
+        <li>9大盈利来源（金融/政策/资产/服务/整合）</li>
+        <li>18次倒闭危机靠卖股权/分红权活下来</li>
+        <li>6种股权架构（投资+操盘70/30最优）</li>
+        <li>4大合伙人法则（人在心在身在钱在、重孝道、有闲钱闲时、全方位观察）</li>
+        <li>七大生命线（34%被动控制权）</li>
+        <li>同股不同权+岗位分红（未来增量）</li>
+        <li>三类公司组合（股份+有限+有限合伙=集团公司）</li>
+        <li>退出机制三层（盈利期/亏损期/重大事件）+ 诚信约定</li>
+        <li>M8阿米巴小组（2-3人+1-3个店铺）</li>
+        <li>增长小组（3-7人=利润倍增阀门）</li>
+        <li>薪酬三阶段（高底薪→高提成→无底薪合伙人）</li>
+        <li>名利魂三位一体（先成就员工，再成就自己）</li>
+        <li>6大系统（选品/营销/融资/股权/M8/财务）+ 数据化/标准化/可量化</li>
+        <li>老板三大抓手：财务+采购+物流</li>
+        <li>7重领袖修养（创造力/胸襟/吸引力/天眼/知识/易经/艺术）</li>
+        <li>企业的终极形态=创业平台（人人都能成为老板）</li>
+        <li>创业者成功=产品成功（产品好人脉自来）</li>
+        <li>终身学习=持续成功的唯一方式</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">三、6阶段学习路径（总时长建议18-26周）</h3>
+
+    <div class="path-grid">
+      <div class="path-card">
+        <h5>第1阶段：哲学打底</h5>
+        <p><strong>建议：1-2周</strong></p>
+        <ul>
+          <li>读[1.吸引力法则]</li>
+          <li>读[2.心法]</li>
+          <li>植入价值观</li>
+        </ul>
+        <p><strong>目的</strong>：形成"创始人心态"</p>
+      </div>
+
+      <div class="path-card">
+        <h5>第2阶段：战略框架</h5>
+        <p><strong>建议：2-3周</strong></p>
+        <ul>
+          <li>读[3.商业模式1]</li>
+          <li>读[4.商业模式2]</li>
+          <li>战略选择能力</li>
+        </ul>
+        <p><strong>目的</strong>：建立"做什么不做什么"</p>
+      </div>
+
+      <div class="path-card">
+        <h5>第3阶段：卖点方法论</h5>
+        <p><strong>建议：3-4周</strong></p>
+        <ul>
+          <li>读[5.卖点提炼1]</li>
+          <li>读[6.卖点提炼2]</li>
+          <li>卖点聚焦方法</li>
+        </ul>
+        <p><strong>目的</strong>：掌握"如何从人群中胜出"</p>
+      </div>
+
+      <div class="path-card">
+        <h5>第4阶段：营销战术</h5>
+        <p><strong>建议：6-8周</strong></p>
+        <ul>
+          <li>读[7.营销工具1]</li>
+          <li>读[8.营销工具2]</li>
+          <li>读[10.营销3]</li>
+          <li>选1-2个产品做"长线螺旋打造17步"完整实战</li>
+        </ul>
+        <p><strong>目的</strong>：掌握所有营销工具的具体使用方法</p>
+      </div>
+
+      <div class="path-card">
+        <h5>第5阶段：盈利模式</h5>
+        <p><strong>建议：2-3周</strong></p>
+        <ul>
+          <li>读[9.盈利模式]</li>
+          <li>同时测试3-5个短线产品验证"高利润+直奔利润"模型</li>
+        </ul>
+        <p><strong>目的</strong>：建立"商业生态盈利"思维</p>
+      </div>
+
+      <div class="path-card">
+        <h5>第6阶段：公司治理</h5>
+        <p><strong>建议：4-6周</strong></p>
+        <ul>
+          <li>读[11.股权]</li>
+          <li>读[12.公司管理]</li>
+          <li>用"M8阿米巴+薪酬三阶段"搭建小团队</li>
+        </ul>
+        <p><strong>目的</strong>：建立"做大做强"的系统化能力</p>
+      </div>
+    </div>
+
+    <div class="callout gold">
+      <strong>🎯 贯穿全程的实践</strong>
+      <ul style="margin-top:6px;padding-left:20px">
+        <li>选1-2个产品做"长线螺旋打造17步"完整实战</li>
+        <li>同时测试3-5个短线产品验证"高利润+直奔利润"模型</li>
+        <li>用"M8阿米巴+薪酬三阶段"搭建小团队</li>
+        <li>把"6大系统"逐步落地为"数据化+标准化+可量化"的SOP</li>
+      </ul>
+      <p style="margin-top:8px"><strong>最终目标</strong>：从"个人卖家"升级为"系统化运营+平台化裂变"的创业型老板</p>
+    </div>
+  </div>
+
+  <div class="section">
+    <h3 class="section-title">四、本知识库的54条金句</h3>
+    <div class="quote-card">
+      商场及战场，道德是给强者的说法，生存才是我们的第一位。<br>
+      —— 讲师·亚马逊大卖第五期·第一课
+    </div>
+    <div class="quote-card">
+      哪里有净土？心里有净土的时候，地方就是净土。<br>
+      —— 讲师·亚马逊大卖第五期·第二课
+    </div>
+    <div class="quote-card">
+      不花钱掉坑，就花钱办事。<br>
+      —— 讲师口头禅
+    </div>
+    <div class="quote-card">
+      抠着抠着，利润都抠出来了。<br>
+      —— 成本领先方法论
+    </div>
+    <div class="quote-card">
+      很多人不怕你有特点，就怕你的特点不突出。当你的产品具有两个以上的卖点的时候，表示你的产品没有卖点。<br>
+      —— 极致为王哲学
+    </div>
+    <div class="quote-card">
+      评论比价格都重要。<br>
+      —— 讲师核心观点
+    </div>
+    <div class="quote-card">
+      订单的转化率是亚马逊衡量产品的唯一决定性因素。<br>
+      —— 亚马逊运营底层认知
+    </div>
+    <div class="quote-card">
+      不论啥东西就是唯一性。<br>
+      —— 账户安全与持股平台
+    </div>
+    <div class="quote-card">
+      先成就员工，再成就自己。<br>
+      —— 名利魂背后的逻辑
+    </div>
+    <div class="quote-card">
+      你只有能够拥有山川的胸襟，我们才能够做山川之王。<br>
+      —— 领袖修炼·关键胸怀论
+    </div>
+  </div>
+</section>
+
+<!-- 结束标记 -->
+<section class="appendix" style="text-align:center;background:linear-gradient(135deg,#dbeafe 0%,#fef3c7 100%)">
+  <h2>🎉 恭喜主人！您已完成亚马逊大卖第五期全部知识库的学习</h2>
+  <p style="margin-top:8px;font-size:1.1rem;color:var(--primary-dark)">从"小白"到"精通高手"——12章67选品54金句18类核心知识一网打尽</p>
+  <p style="margin-top:14px;color:var(--text-light)">📅 整理日期：2026-07-19 | 🧙🏾‍♂️ Synapse教授·亚马逊大卖第五期·终极知识库 v1.0</p>
+  <p style="margin-top:8px;color:var(--text-light)">知识归属权归还于主人 · 随时翻查 · 终身受用</p>
+</section>
+
+</div>
+
+<!-- 页面底部 -->
+<footer style="text-align:center;padding:20px;color:var(--text-light);font-size:.85rem">
+  <p>🧙🏾‍♂️ Synapse教授·亚马逊大卖第五期·终极知识库 v1.0</p>
+  <p style="margin-top:4px">整理日期：2026-07-19 | 服务对象：尊贵的主人</p>
+</footer>
+
+</body>
+</html>
