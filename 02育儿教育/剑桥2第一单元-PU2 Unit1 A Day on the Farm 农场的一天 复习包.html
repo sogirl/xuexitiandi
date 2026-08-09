@@ -1,0 +1,2520 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>PU2 Unit1 A Day on the Farm 农场的一天 · 系统复习包</title>
+<style>
+  :root{
+    --blue:#3b82f6;--green:#10b981;--purple:#8b5cf6;--orange:#f59e0b;
+    --pink:#ec4899;--cyan:#06b6d4;--bg:#f6f8fc;--card:#ffffff;
+    --text:#1f293b;--sub:#64748b;--border:#e2e8f0;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{background:var(--bg);color:var(--text);font-family:'PingFang SC','Microsoft YaHei','Noto Sans SC',-apple-system,sans-serif;line-height:1.75;padding:0 0 60px 0}
+  /* 顶部粘性目录 */
+  nav.top-nav{position:sticky;top:0;z-index:100;background:rgba(255,255,255,.95);backdrop-filter:blur(6px);border-bottom:2px solid var(--blue);padding:10px 16px;box-shadow:0 2px 8px rgba(59,130,246,.08)}
+  nav.top-nav h2{font-size:15px;color:var(--blue);margin-bottom:6px}
+  nav.top-nav .toc{display:flex;flex-wrap:wrap;gap:6px}
+  nav.top-nav a{font-size:13px;color:#1d4ed8;text-decoration:none;background:#eff6ff;border:1px solid #bfdbfe;border-radius:14px;padding:2px 10px;transition:.15s}
+  nav.top-nav a:hover{background:#dbeafe;color:#1e40af}
+  /* 章节 */
+  .sec{max-width:1000px;margin:0 auto;padding:0 18px}
+  section{scroll-margin-top:86px}
+  h1.report-title{max-width:1000px;margin:28px auto 4px;padding:0 18px;font-size:30px;color:var(--blue)}
+  .report-sub{max-width:1000px;margin:0 auto 14px;padding:0 18px;color:var(--sub);font-size:14px}
+  h2.sec{font-size:24px;color:#1d4ed8;border-left:6px solid var(--blue);background:linear-gradient(90deg,#eff6ff,#ffffff);padding:12px 16px;border-radius:8px;margin:34px 0 16px}
+  h3{font-size:19px;color:#1e40af;margin:22px 0 10px;padding-left:10px;border-left:4px solid var(--cyan)}
+  h4{font-size:16px;color:#334155;margin:16px 0 8px}
+  p{margin:8px 0}
+  ul,ol{margin:8px 0 8px 24px}
+  li{margin:4px 0}
+  strong{color:#0f172a}
+  blockquote{background:#f8fafc;border-left:4px solid var(--purple);padding:10px 14px;margin:10px 0;border-radius:0 8px 8px 0;color:#475569}
+  /* callout */
+  .callout{border-radius:12px;padding:14px 18px;margin:14px 0;border-left:6px solid;box-shadow:0 2px 6px rgba(15,23,42,.04)}
+  .callout p{margin:4px 0}
+  .callout.note{background:#eff6ff;border-color:var(--blue)}
+  .callout.success{background:#ecfdf5;border-color:var(--green)}
+  .callout.warning{background:#fff7ed;border-color:var(--orange)}
+  .callout.extend{background:#f5f3ff;border-color:var(--purple)}
+  .callout.idea{background:#ecfeff;border-color:var(--cyan)}
+  /* 答案块 */
+  .answer{background:#059669;color:#ffffff;border-radius:10px;padding:10px 16px;margin:10px 0;font-size:15px}
+  .answer p{margin:3px 0}
+  /* 表格 */
+  table{width:100%;border-collapse:collapse;margin:12px 0;font-size:14px;background:var(--card);border-radius:10px;overflow:hidden}
+  th{background:#eef2ff;color:#312e81;font-weight:700;padding:9px 10px;text-align:left;border-bottom:2px solid var(--blue)}
+  td{padding:8px 10px;border-bottom:1px solid var(--border);vertical-align:top}
+  tr:nth-child(even) td{background:#fafbff}
+  tr:hover td{background:#eff6ff}
+  /* 思维导图 */
+  .mindmap{width:100%;text-align:center;background:#f8fafc;border:1px solid var(--border);border-radius:12px;box-sizing:border-box;margin:14px 0}
+  .mindmap svg{display:inline-block;width:100%;height:auto}
+  /* 康奈尔笔记 */
+  .cornell-card{background:#f8fafc;border:1px solid var(--border);border-radius:12px;padding:18px;margin:16px 0;box-shadow:0 2px 8px rgba(15,23,42,.04)}
+  .cornell-card h3{margin:0 0 12px;color:#1d4ed8;font-size:18px;border-left:none;padding-left:0}
+  .cornell-card details.interactive-panel{margin:8px 0}
+  .cornell-card details summary{font-weight:600;color:#475569;cursor:pointer}
+  /* 交互面板 */
+  details.interactive-panel{background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px 14px;margin:10px 0}
+  details.interactive-panel summary{font-weight:600;color:#1d4ed8;cursor:pointer}
+  details.interactive-panel[open]{background:#fcfdff}
+  /* 单词高亮 */
+  .word{color:#1d4ed8;font-weight:600}
+  /* 练习框 */
+  .exercise{background:#fff;border:1px dashed #cbd5e1;border-radius:10px;padding:14px 16px;margin:14px 0}
+  .exercise .q{margin:8px 0}
+  /* 勾选框 */
+  .checkbox{display:inline-block;width:16px;height:16px;border:2px solid var(--blue);border-radius:4px;vertical-align:middle;margin-right:6px}
+  /* 响应式 */
+  @media (max-width:640px){
+    h1.report-title{font-size:24px}
+    h2.sec{font-size:20px}
+    table{font-size:13px}
+    th,td{padding:6px 6px}
+    .callout{padding:12px 12px}
+  }
+  footer{max-width:1000px;margin:40px auto 0;padding:0 18px;color:var(--sub);font-size:13px;text-align:center}
+</style>
+</head>
+<body>
+
+<nav class="top-nav">
+  <h2>📖 目录 · PU2 Unit1 A Day on the Farm 系统复习包</h2>
+  <div class="toc">
+    <a href="#ch1">① 封面信息</a><a href="#ch2">② 单元概览</a><a href="#ch3">③ 知识树状图</a><a href="#ch4">④ 核心知识点</a><a href="#ch5">⑤ 难点易错</a><a href="#ch6">⑥ 考点汇总</a><a href="#ch7">⑦ 薄弱突破</a><a href="#ch8">⑧ 康奈尔笔记</a><a href="#ch9">⑨ 打卡表</a><a href="#ch10">⑩ 基础1</a><a href="#ch11">⑪ 基础2</a><a href="#ch12">⑫ 提高1</a><a href="#ch13">⑬ 提高2</a><a href="#ch14">⑭ 拓展</a><a href="#ch15">⑮ 综合模拟</a><a href="#ch16">⑯ 错题清零</a><a href="#ch17">⑰ 自测表</a><a href="#ch18">⑱ 学习贴士</a>
+  </div>
+</nav>
+<h1 class="report-title">🚜 PU2 Unit1 · A Day on the Farm 农场的一天 · 系统复习包</h1>
+<p class="report-sub">Cambridge Power Up Level 2（Second Edition）· 依据 PU2 Unit1 拓展练习PDF（15页五大板块）· 7天 × 每日30分钟 · 2026-08-09</p>
+
+
+<section id="ch1" class="sec">
+  <h2 class="sec">一、报告封面</h2>
+
+  <div class="callout note">
+    <p><strong>📌 报告主题</strong>：Power Up Level 2 · Unit 1 "A Day on the Farm"（农场的一天）系统复习包</p>
+    <p><strong>📘 教材依据</strong>：Cambridge Power Up Level 2（Second Edition 第二版）</p>
+    <p><strong>📝 练习册依据</strong>：PU2 Unit 1 拓展练习 PDF（15 页 · 五大板块：VocabularyⅠ / Story+GrammarⅠ / VocabularyⅡ+GrammarⅡ / Cross-Curricular / Culture）</p>
+    <p><strong>🎯 适用对象</strong>：小学二年级英语学习者（约 CEFR Pre-A1~A1，剑桥 YLE Starters-Movers 衔接水平）</p>
+    <p><strong>⏰ 复习周期</strong>：7 天 × 每日约 30 分钟</p>
+    <p><strong>📅 生成日期</strong>：2026-08-09</p>
+    <p><strong>🏠 文档归属</strong>：最终归属权归还主人（用户）</p>
+  </div>
+
+  <div class="callout warning">
+    <p><strong>⚠️ 注意</strong>：练习册 PDF 中含个别笔误或待确认词（例如第 1 页 "Jenny loves s______ in the lake." 一句中 lake / swimming 的搭配存疑），本复习包一律以教材 <span class="word">Cambridge Power Up Level 2 (Second Edition)</span> 第二版为准。若您发现与正式练习册不一致之处，请以教材为准并及时反馈给我们。</p>
+  </div>
+
+  <div class="callout idea">
+    <p><strong>💡 使用建议</strong>：本报告共 18 章，覆盖"单元概览 → 知识树状图 → 核心知识详解 → 七套练习题 → 康奈尔笔记 → 7 天每日打卡 → 自测"，建议按每日 1 个板块、配合第 9 章打卡表循序渐进；家长可陪孩子边读英文例句、边看配图理解，鼓励孩子大声朗读。</p>
+  </div>
+</section>
+
+<section id="ch2" class="sec">
+  <h2 class="sec">二、单元概览</h2>
+
+  <h3>1.1 基本信息</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>项目</th>
+        <th>内容</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>单元主题</td>
+        <td>A Day on the Farm（农场的一天）</td>
+      </tr>
+      <tr>
+        <td>子话题</td>
+        <td>①乡村景色与农场 ②农场动物的当下活动 ③人与自然（保护地球 / 友谊文化）</td>
+      </tr>
+      <tr>
+        <td>教材</td>
+        <td>Cambridge Power Up Level 2（Second Edition 第二版）</td>
+      </tr>
+      <tr>
+        <td>适用年级</td>
+        <td>小学二年级（约 CEFR Pre-A1~A1）</td>
+      </tr>
+      <tr>
+        <td>复习周期</td>
+        <td>7 天 × 每日约 30 分钟</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>1.2 学习目标</h3>
+  <ul>
+    <li>能认读本单元五大板块核心词汇（乡村景色 / 农场动物 / 日常作息 / 环保科学 / 文化）</li>
+    <li>能用现在进行时 <span class="word">am/is/are + 动词-ing</span> 描述正在发生的动作（The kitten is sleeping.）</li>
+    <li>会用 <span class="word">What time</span> 询问并回答作息时间（What time do you get up? — At 6:00.）</li>
+    <li>能仿写 <span class="word">My Morning Routine</span> 小短文（约 80 词，用一般现在时第一人称）</li>
+    <li>树立环保意识（节约水电、回收、保护动植物）与珍惜友谊的价值观（友谊高于胜负）</li>
+  </ul>
+
+  <h3>1.3 知识脉络表（板块 → 核心内容 → 常见考法）</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>板块</th>
+        <th>核心内容</th>
+        <th>常见考法</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>VocabularyⅠ</td>
+        <td>乡村与农场 16 词（countryside / farm / field / forest / mountain / leaf 等）</td>
+        <td>首字母填空、中英互译、看图写词</td>
+      </tr>
+      <tr>
+        <td>Story + GrammarⅠ</td>
+        <td>现在进行时 + 故事《A Day on the Farm》</td>
+        <td>时态单选、阅读理解、选词填空</td>
+      </tr>
+      <tr>
+        <td>VocabularyⅡ + GrammarⅡ</td>
+        <td>日常作息短语 + What time 时间疑问句</td>
+        <td>短语互译、单选、写作 My Morning Routine</td>
+      </tr>
+      <tr>
+        <td>Cross-Curricular</td>
+        <td>科学《Protect Our Planet》保护地球</td>
+        <td>单选、阅读理解、议论文写作 Protect the Earth</td>
+      </tr>
+      <tr>
+        <td>Culture</td>
+        <td>运动会文化 + 友谊价值观</td>
+        <td>选词填空、阅读理解、思维导图复述</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>1.4 重难点分析</h3>
+  <table>
+    <thead>
+      <tr>
+        <th>类型</th>
+        <th>内容</th>
+        <th>说明</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>✅ 重点 1</td>
+        <td>现在进行时</td>
+        <td>主语 + be(am/is/are) + 动词-ing；含动词 -ing 变化三规则与标志词 Look!/now</td>
+      </tr>
+      <tr>
+        <td>✅ 重点 2</td>
+        <td>There is / There are 存在句型</td>
+        <td>be 动词随后面名词变化（There are many leaves on the ground.）</td>
+      </tr>
+      <tr>
+        <td>✅ 重点 3</td>
+        <td>What time 时间疑问句</td>
+        <td>What time do/does + 主语 + 动词原形？— At + 时间点</td>
+      </tr>
+      <tr>
+        <td>⚠️ 难点 1</td>
+        <td>时态辨析</td>
+        <td>is looking / looks / looked 混考，需看时间标志与上下文</td>
+      </tr>
+      <tr>
+        <td>⚠️ 难点 2</td>
+        <td>一般现在时第三人称单数</td>
+        <td>he/she/it + 动词 -s/es（Tom loves… / The farm cat has…）</td>
+      </tr>
+      <tr>
+        <td>⚠️ 难点 3</td>
+        <td>What time 与 When 区分</td>
+        <td>What time 问"几点"（精确）；When 问"何时"（笼统）；How often 问"多久一次"</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>1.5 本单元在英语学科体系中的定位</h3>
+  <div class="callout idea">
+    <p>本单元位于<strong>剑桥 YLE 起步阶段</strong>（Starters→Movers 衔接水平），是孩子从"认词、说句"走向"系统学语法"的<strong>关键转折点</strong>：第一次系统接触<strong>现在进行时</strong>与 <strong>There be 存在句型</strong>，二者是英语动词时态体系的<strong>启蒙基石</strong>。它衔接校内三年级起点英语（二年级提前渗透、三年级系统展开），也为后续学习一般过去时、一般将来时打下结构与语感基础。同时，本单元以"农场一天"为情境，把词汇、语法、语篇、文化与环保价值观融为一体，符合 2022 版课标倡导的"主题引领、整体输入"理念。</p>
+    <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit 1 + 本练习册 PDF 15 页五大板块】</p>
+  </div>
+</section>
+
+<section id="ch3" class="sec">
+  <h2 class="sec">三、知识树状图</h2>
+
+  <h3>3.1 单元知识总览（静态 SVG 横向树状图 · 全展开 · 零 JS）</h3>
+  <p>把本单元五大板块的词汇、语法、句型、语篇与写作一次看全。箭头从左到右：<strong>根节点</strong>（Unit 1）→ <strong>一级主干</strong>（词汇 / 语法 / 句型 / 语篇 / 写作）→ <strong>二级叶子</strong>（核心要点）。本图已按 v3.12 防重叠铁律逐分支校验（每分支垂直占位 ≥150px、叶节点 y 间距 ≥42px），手机 WPS / 微信浏览器均可正常显示。</p>
+
+  <div class="mindmap">
+    <svg viewBox="0 0 1300 1100" xmlns="http://www.w3.org/2000/svg" font-family="PingFang SC, Microsoft YaHei, sans-serif">
+      <defs>
+        <linearGradient id="rootGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#6d5bd0"/>
+          <stop offset="100%" stop-color="#3b82f6"/>
+        </linearGradient>
+      </defs>
+
+      <!-- 根节点 -->
+      <rect x="20" y="500" width="200" height="100" rx="16" fill="url(#rootGrad)"/>
+      <text x="120" y="534" font-size="18" font-weight="bold" fill="#ffffff" text-anchor="middle">Unit 1 · 知识树状图</text>
+      <text x="120" y="560" font-size="14" fill="#e6ecff" text-anchor="middle">A Day on the Farm</text>
+      <text x="120" y="584" font-size="13" fill="#e6ecff" text-anchor="middle">农场的一天</text>
+
+      <!-- 根 → 一级分支 连线 -->
+      <path d="M 220 550 L 245 550 L 245 150 L 270 150" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+      <path d="M 220 550 L 245 550 L 245 375 L 270 375" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+      <path d="M 220 550 L 245 550 L 245 590 L 270 590" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+      <path d="M 220 550 L 245 550 L 245 810 L 270 810" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+      <path d="M 220 550 L 245 550 L 245 1015 L 270 1015" fill="none" stroke="#3b82f6" stroke-width="2.5"/>
+
+      <!-- ===== 分支1 核心词汇（5叶） ===== -->
+      <rect x="270" y="120" width="160" height="60" rx="10" fill="#3b82f6"/>
+      <text x="350" y="156" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">① 核心词汇</text>
+
+      <path d="M 430 150 L 455 150 L 455 62 L 480 62" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="40" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="60" font-size="13" font-weight="bold" fill="#1e40af">板块① VocabularyⅠ · 乡村与农场景色</text>
+      <text x="496" y="76" font-size="11" fill="#374151">countryside 乡村 · farm 农场 · garden 花园 · field 田野 · forest 森林 · mountain 山 · grass 草 · ground 地面</text>
+
+      <path d="M 430 150 L 455 150 L 455 106 L 480 106" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="84" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="104" font-size="13" font-weight="bold" fill="#1e40af">板块② Story · 农场动物</text>
+      <text x="496" y="120" font-size="11" fill="#374151">friendly 友好 · kitten 小猫 · puppy 小狗 · sleeping 睡觉 · awake 醒着 · washing 洗 · naughty 淘气 · dirty 脏</text>
+
+      <path d="M 430 150 L 455 150 L 455 150 L 480 150" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="128" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="148" font-size="13" font-weight="bold" fill="#1e40af">板块③ VocabularyⅡ · 日常作息短语</text>
+      <text x="496" y="164" font-size="11" fill="#374151">wake up 醒来 · get up 起床 · have a shower 洗淋浴 · get dressed 穿衣 · brush your teeth 刷牙 · have breakfast 吃早餐</text>
+
+      <path d="M 430 150 L 455 150 L 455 194 L 480 194" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="172" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="192" font-size="13" font-weight="bold" fill="#1e40af">板块④ Cross-Curricular · 保护地球</text>
+      <text x="496" y="208" font-size="11" fill="#374151">planet 行星 · Earth 地球 · air 空气 · oxygen 氧气 · plants 植物 · animals 动物 · recycle 回收 · plastic 塑料</text>
+
+      <path d="M 430 150 L 455 150 L 455 238 L 480 238" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="216" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="236" font-size="13" font-weight="bold" fill="#1e40af">板块⑤ Culture · 运动会文化</text>
+      <text x="496" y="252" font-size="11" fill="#374151">race 赛跑 · win the race 获胜 · come back 回来 · supportive 支持的 · look at 看 · on the ground 在地上</text>
+
+      <!-- ===== 分支2 语法焦点（5叶） ===== -->
+      <rect x="270" y="345" width="160" height="60" rx="10" fill="#3b82f6"/>
+      <text x="350" y="381" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">② 语法焦点</text>
+
+      <path d="M 430 375 L 455 375 L 455 287 L 480 287" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="265" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="285" font-size="13" font-weight="bold" fill="#1e40af">现在进行时（本单元主语法）</text>
+      <text x="496" y="301" font-size="11" fill="#374151">主语 + be(am/is/are) + 动词-ing 表正在发生 · Look! The cat is looking at her kittens.</text>
+
+      <path d="M 430 375 L 455 375 L 455 331 L 480 331" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="309" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="329" font-size="13" font-weight="bold" fill="#1e40af">There is / There are 存在句型</text>
+      <text x="496" y="345" font-size="11" fill="#374151">There is + 单数/不可数 · There are + 复数 · be 随后面名词变化（易错点）</text>
+
+      <path d="M 430 375 L 455 375 L 455 375 L 480 375" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="353" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="373" font-size="13" font-weight="bold" fill="#1e40af">What time 时间疑问句</text>
+      <text x="496" y="389" font-size="11" fill="#374151">What time do/does + 主语 + 动词原形？— At 6:00. 问"几点"；三单用 does</text>
+
+      <path d="M 430 375 L 455 375 L 455 419 L 480 419" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="397" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="417" font-size="13" font-weight="bold" fill="#1e40af">一般现在时第三人称单数</text>
+      <text x="496" y="433" font-size="11" fill="#374151">he/she/it + 动词-s/es · Tom loves playing with leaves. · 标志词 usually / always</text>
+
+      <path d="M 430 375 L 455 375 L 455 463 L 480 463" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="441" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="461" font-size="13" font-weight="bold" fill="#1e40af">Let's / want to / Can 句型</text>
+      <text x="496" y="477" font-size="11" fill="#374151">Let's + 动词原形 提议 · want to + 动词原形 意愿 · Can + 主语 + 动词原形? 请求</text>
+
+      <!-- ===== 分支3 功能句型（4叶） ===== -->
+      <rect x="270" y="560" width="160" height="60" rx="10" fill="#3b82f6"/>
+      <text x="350" y="596" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">③ 功能句型</text>
+
+      <path d="M 430 590 L 455 590 L 455 518 L 480 518" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="496" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="516" font-size="13" font-weight="bold" fill="#1e40af">提议</text>
+      <text x="496" y="532" font-size="11" fill="#374151">Let's go for a walk!（我们去散步吧！）</text>
+
+      <path d="M 430 590 L 455 590 L 455 566 L 480 566" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="544" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="564" font-size="13" font-weight="bold" fill="#1e40af">意愿</text>
+      <text x="496" y="580" font-size="11" fill="#374151">I want to take a walk.（我想去散散步。）</text>
+
+      <path d="M 430 590 L 455 590 L 455 614 L 480 614" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="592" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="612" font-size="13" font-weight="bold" fill="#1e40af">请求允许</text>
+      <text x="496" y="628" font-size="11" fill="#374151">Can we go swimming this afternoon?（今天下午我们能去游泳吗？）</text>
+
+      <path d="M 430 590 L 455 590 L 455 662 L 480 662" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="640" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="660" font-size="13" font-weight="bold" fill="#1e40af">问时间与回答</text>
+      <text x="496" y="676" font-size="11" fill="#374151">What time do you get up? — At 6:00.（你几点起床？——六点。）</text>
+
+      <!-- ===== 分支4 语篇阅读（5叶） ===== -->
+      <rect x="270" y="780" width="160" height="60" rx="10" fill="#3b82f6"/>
+      <text x="350" y="816" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">④ 语篇阅读</text>
+
+      <path d="M 430 810 L 455 810 L 455 722 L 480 722" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="700" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="720" font-size="13" font-weight="bold" fill="#1e40af">语篇1《Grandpa's Countryside Time》乡村时光</text>
+      <text x="496" y="736" font-size="11" fill="#374151">田野里有灰岩石"问题" · Grandpa 提议去森林散步 · 孩子们玩树叶享乡村</text>
+
+      <path d="M 430 810 L 455 810 L 455 766 L 480 766" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="744" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="764" font-size="13" font-weight="bold" fill="#1e40af">语篇2《A Day on the Farm》农场的一天</text>
+      <text x="496" y="780" font-size="11" fill="#374151">小猫睡觉 · 母猫看宝宝 · 小狗玩球 · 白耳狗喝水 · 淘气狗吃爷爷旧红袜</text>
+
+      <path d="M 430 810 L 455 810 L 455 810 L 480 810" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="788" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="808" font-size="13" font-weight="bold" fill="#1e40af">语篇3《Morning Routines》早晨例行活动</text>
+      <text x="496" y="824" font-size="11" fill="#374151">醒 → 伸展 → 洗脸 → 用毛巾擦干 → 刷牙 → 穿衣 → 在餐厅吃早餐</text>
+
+      <path d="M 430 810 L 455 810 L 455 854 L 480 854" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="832" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="852" font-size="13" font-weight="bold" fill="#1e40af">语篇4《Protect Our Planet》保护地球</text>
+      <text x="496" y="868" font-size="11" fill="#374151">关水龙头省水 · 淋浴比盆浴省水 · 关灯省电 · 回收纸/玻璃/塑料 · 多种树</text>
+
+      <path d="M 430 810 L 455 810 L 455 898 L 480 898" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="876" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="896" font-size="13" font-weight="bold" fill="#1e40af">语篇5《Our School Sports Day》校园运动会</text>
+      <text x="496" y="912" font-size="11" fill="#374151">Tom 起初领先 · 见 Jack 摔倒放弃比赛回去帮 · 友谊大于胜负 · 校长表扬善良</text>
+
+      <!-- ===== 分支5 写作与表达（2叶） ===== -->
+      <rect x="270" y="985" width="160" height="60" rx="10" fill="#3b82f6"/>
+      <text x="350" y="1021" font-size="15" font-weight="bold" fill="#ffffff" text-anchor="middle">⑤ 写作与表达</text>
+
+      <path d="M 430 1015 L 455 1015 L 455 960 L 480 960" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="938" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="958" font-size="13" font-weight="bold" fill="#1e40af">My Morning Routine（我的早晨）</text>
+      <text x="496" y="974" font-size="11" fill="#374151">按 wake up → … → have breakfast 顺序 · 约 80 词 · 一般现在时第一人称</text>
+
+      <path d="M 430 1015 L 455 1015 L 455 1070 L 480 1070" fill="none" stroke="#93c5fd" stroke-width="2"/>
+      <rect x="480" y="1048" width="780" height="44" rx="8" fill="#eaf1ff" stroke="#bfdbfe"/>
+      <text x="496" y="1068" font-size="13" font-weight="bold" fill="#1e40af">Protect the Earth（保护地球）</text>
+      <text x="496" y="1084" font-size="11" fill="#374151">Opening → Problems → Solutions → Ending 四步议论文框架</text>
+    </svg>
+  </div>
+
+  <div class="callout note">
+    <p><strong>📌 看图小贴士</strong>：五大板块从上到下依次排列，先认词汇（①）→ 再学语法（②）→ 会说句型（③）→ 读懂语篇（④）→ 最后动笔写作（⑤）。家长可让孩子指着任意一片"叶子"复述一两个要点，检验记忆效果。</p>
+    <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit 1 + 本练习册 PDF 15 页五大板块】</p>
+  </div>
+</section>
+<!-- sec1 结束 -->
+
+<!-- ========== sec_2.html · 章节④⑤⑥（ch4 核心知识点详解 / ch5 难点与易错点 / ch6 考点汇总） ========== -->
+
+<section id="ch4" class="sec">
+  <h2 class="sec">四、核心知识点详解（双步讲解法）</h2>
+
+  <p>亲爱的宝贝和家长，这一章是咱们的"知识小仓库"！我们把 Unit 1 "A Day on the Farm"（农场的一天）里最重要的语法和单词，用「第一步 原理推导 + 第二步 必背/拓展/题型」两步讲清楚。每一讲后面都标了【核验来源】，保证和教材、练习册口径一致。</p>
+
+  <!-- 4.1 现在进行时 -->
+  <h3>4.1 现在进行时 Present Continuous（本单元主语法·最高频）</h3>
+
+  <div class="callout success">
+    <p><strong>【第一步·原理推导+框架定位】</strong></p>
+    <p>🔍 <strong>什么叫"现在进行时"？</strong>"进行"就是"正在发生"。现在进行时就是：<strong>说话的这一瞬间，动作正在进行</strong>。</p>
+    <p>📐 <strong>结构公式（铁三角）</strong>：<br>
+      主语 + be(am/is/are) + 动词-ing<br>
+      &nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;↓<br>
+      &nbsp;&nbsp;谁&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;是（状态）&nbsp;&nbsp;正在做</p>
+    <p>💡 <strong>为什么要有 be 动词？</strong>be 像一台"小闹钟"，它把时间拨到"现在"这一刻；后面的动词加上 -ing 尾巴，表示"动作正在进行中"。两者合起来就是"此刻正在做某事"。</p>
+    <p>📍 <strong>框架定位</strong>：这是本单元的主语法。第5页故事《A Day on the Farm》里，我们正是用它来描述农场动物"此刻正在做什么"：The kittens <strong>are sleeping</strong>.（小猫们正在睡觉）；The mother cat <strong>is looking</strong> at her babies.（猫妈妈正在看她的宝宝）。</p>
+  </div>
+
+  <div class="callout note">
+    <p><strong>【第二步·📌必背清单】</strong></p>
+    <ol>
+      <li><strong>结构</strong>：主语 + be(am/is/are) + 动词-ing</li>
+      <li><strong>主谓一致（be 跟着主语变）</strong>：
+        <ul>
+          <li>I <strong>am</strong> → I am looking.（我正在看。）</li>
+          <li>He/She/It <strong>is</strong> → The cat is looking.（猫正在看。）</li>
+          <li>You/We/They <strong>are</strong> → They are sleeping.（他们正在睡觉。）</li>
+        </ul>
+      </li>
+      <li><strong>V-ing 拼写三规则（考填空必背！）</strong>：
+        <ul>
+          <li>一般直接 +ing：look→looking，play→playing，eat→eating</li>
+          <li>不发音 e 结尾，去 e +ing：make→making，take→taking，have→having</li>
+          <li>重读闭音节（辅+元+辅）双写末尾辅音 +ing：swim→swimming，run→running，sit→sitting</li>
+        </ul>
+      </li>
+      <li><strong>标志词</strong>（看到它们就优先选现在进行时）：Look! Listen! now，at the moment，today</li>
+      <li><strong>否定句</strong>：be + not + V-ing → The kittens <strong>aren't sleeping</strong>.</li>
+      <li><strong>疑问句</strong>：Be + 主语 + V-ing? → <strong>Are</strong> they sleeping? Yes, they are. / No, they aren't.</li>
+    </ol>
+  </div>
+
+  <div class="callout extend">
+    <p><strong>【🧠 思维拓展】</strong></p>
+    <ol>
+      <li><strong>现在进行时 vs 一般现在时（超重要对比）</strong>：
+        <ul>
+          <li>现在进行时：<strong>此刻正在做</strong> → The cat <strong>is sleeping</strong>.（猫正在睡觉。）</li>
+          <li>一般现在时：<strong>经常/习惯做</strong> → The cat <strong>sleeps</strong> every day.（猫每天都睡觉。）</li>
+          <li>关键钥匙：看标志词！有 now / Look! / Listen! → 进行时；有 usually / always / often / every day → 一般现在时。</li>
+        </ul>
+      </li>
+      <li><strong>系动词 look 例外</strong>：look 表示"看起来"时是<strong>系动词</strong>，后接形容词，不加 ing、不加 to be。<br>
+        The puppies <strong>look</strong> happy.（小狗们看起来很开心）→ 不能说 are looking happy。<br>
+        但 look at 是动词短语"看某物"，可以有进行时：She <strong>is looking at</strong> her babies.</li>
+      <li><strong>一举三得记忆</strong>：swim→swimming 双写 m；run→running 双写 n；sit→sitting 双写 t。三个都是"辅音+元音+辅音"结尾的短词。</li>
+    </ol>
+  </div>
+
+  <h4>📝 题型映射</h4>
+  <ul>
+    <li>语法单选：Look! The cat ____ her kittens. A. will look at&nbsp; B. looked at&nbsp; C. is looking at&nbsp; D. looks at → 选 <strong>C</strong>（有 Look!，用现在进行时）。</li>
+    <li>否定选择：They ____. They are awake. A. aren't sleeping&nbsp; B. don't sleep → 选 <strong>A</strong>（有 are，正在进行）。</li>
+    <li>改写句子：He reads books. → Look! He <strong>is reading</strong> books now.</li>
+  </ul>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 + 本练习册PDF Story+GrammarⅠ 板块】</p>
+
+  <!-- 4.2 There is / There are -->
+  <h3>4.2 There is / There are（存在句型）</h3>
+
+  <div class="callout success">
+    <p><strong>【第一步·原理推导+框架定位】</strong></p>
+    <p>🔍 There be 句型用来"报告存在"——告诉你<strong>"某地有某物"</strong>。There 只是"引导词"，它自己不是"有"；真正表示"有"的是后面的 <strong>be 动词</strong>。</p>
+    <p>📐 <strong>结构</strong>：<br>
+      There <strong>is</strong> + 单数名词/不可数名词 → There is a big rock in the field.（田野里有一块大岩石。）<br>
+      There <strong>are</strong> + 复数名词 → There are many leaves on the ground.（地上有许多树叶。）</p>
+    <p>💡 <strong>核心原理（易错源头）</strong>：be 动词要<strong>"看后面的名词"</strong>来决定，而不是看 there！后面的名词是单数→is，是复数→are。这就是全单元最高频的 There be 陷阱。</p>
+    <p>📍 <strong>框架定位</strong>：第1页练习与第5页故事中大量使用 There is/are 描述农场景物。</p>
+  </div>
+
+  <div class="callout note">
+    <p><strong>【第二步·📌必背清单】</strong></p>
+    <ol>
+      <li><strong>肯定</strong>：There is + 单数 / There are + 复数<br>
+        There is a big rock in the field. / There are many leaves on the ground.</li>
+      <li><strong>否定</strong>：There isn't + 单数 / There aren't + 复数<br>
+        There isn't a river here.（这儿没有河。）/ There aren't any elephants on the farm.（农场里没有大象。）</li>
+      <li><strong>疑问</strong>：Is there...? / Are there...?<br>
+        Is there a garden? Yes, there is. / Are there any puppies? Yes, there are.</li>
+      <li><strong>就近原则</strong>：be 后面第一个名词是单数就 is，是复数就 are。</li>
+      <li><strong>常考搭配</strong>：There are three puppies playing.（第4页原题。）</li>
+    </ol>
+  </div>
+
+  <div class="callout extend">
+    <p><strong>【🧠 思维拓展】</strong></p>
+    <ol>
+      <li><strong>There be 与 have 的分工</strong>：There be 管"某地存在"，have/has 管"某人拥有"。<br>
+        There <strong>is</strong> a blue tractor on the farm.（农场有一台拖拉机——存在。）<br>
+        Grandpa <strong>has</strong> a new blue tractor.（爷爷有一台新拖拉机——拥有。）</li>
+      <li>"有生命"也常用 have：The farm cat <strong>has</strong> some babies.（猫妈妈有一些宝宝。）</li>
+      <li><strong>5 秒出答案小技巧</strong>：读题先找 be 后面的名词，单数→is，复数→are。</li>
+    </ol>
+  </div>
+
+  <h4>📝 题型映射</h4>
+  <ul>
+    <li>单选：____ a lot of leaves on the ground. A. There is&nbsp; B. There are&nbsp; C. There be → 选 <strong>B</strong>（leaves 是复数）。</li>
+    <li>单选：There ____ a big rock in the field. A. is&nbsp; B. are&nbsp; C. am → 选 <strong>A</strong>（a big rock 是单数）。</li>
+    <li>改错：There are a cat under the tree. → There <strong>is</strong> a cat under the tree.</li>
+  </ul>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 + 本练习册PDF VocabularyⅠ 板块】</p>
+
+  <!-- 4.3 What time -->
+  <h3>4.3 What time...? 时间疑问句</h3>
+
+  <div class="callout success">
+    <p><strong>【第一步·原理推导+框架定位】</strong></p>
+    <p>🔍 想知道"几点做某事"，就用 <strong>What time</strong> 提问。What time = "什么时间（几点）"，专门问精确的钟点。回答用介词 <strong>at + 时间点</strong>。</p>
+    <p>📐 <strong>结构（第二、三人称两个版本）</strong>：<br>
+      What time <strong>do</strong> you + 动词原形...? → At 6:00.<br>
+      What time <strong>does</strong> she + 动词原形...? → At 7:30.<br>
+      （第三人称单数 he/she/it 用 does，后面的动词要还原成原形。）</p>
+    <p>📍 <strong>框架定位</strong>：板块3（VocabularyⅡ+GrammarⅡ）的主线句型，围绕"早晨例行活动 Morning Routines"问作息时间，PDF 第7页有12道专门单选。</p>
+  </div>
+
+  <div class="callout note">
+    <p><strong>【第二步·📌必背清单】</strong></p>
+    <ol>
+      <li>问"你几点起床？" What time <strong>do</strong> you <strong>get up</strong>? → At 6:00 am.</li>
+      <li>问"她几点洗澡？" What time <strong>does</strong> she <strong>have a shower</strong>? → At 7:30 pm.</li>
+      <li>回答固定搭配：<strong>at + 点钟</strong>（at 6:00, at 7:30）。</li>
+      <li>第三人称注意：does 已带头，后面动词用<strong>原形</strong>（get up，不是 gets up）。</li>
+    </ol>
+  </div>
+
+  <div class="callout warning">
+    <p><strong>⚠️ 三兄弟辨析表（PDF 单选核心考法）</strong></p>
+    <table>
+      <thead>
+        <tr><th>问词</th><th>问什么</th><th>例句</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>What time</strong></td><td>几点（精确）</td><td>What time do you get up? → At 6:00.</td></tr>
+        <tr><td><strong>When</strong></td><td>何时（笼统）</td><td>When do you have breakfast? → In the morning.</td></tr>
+        <tr><td><strong>How often</strong></td><td>多久一次（频率）</td><td>How often do you swim? → Twice a week.</td></tr>
+      </tbody>
+    </table>
+    <p><strong>记忆钥匙</strong>：答语里有具体钟点（at 6:00）→ What time；答语里只有模糊时间（in the morning）→ When；答语里是次数（every day / twice a week）→ How often。</p>
+  </div>
+
+  <div class="callout extend">
+    <p><strong>【🧠 思维拓展】</strong></p>
+    <p>介宾搭配口诀：<strong>at + 点钟 / in + 时段 / on + 星期</strong>。<br>
+      - at 6:00, at 7:30（点钟）<br>
+      - in the morning, in the evening（时段）<br>
+      - on Monday（星期）<br>
+      做题时先看答语是"几点"还是"上午/下午"，就能快速定介词。</p>
+  </div>
+
+  <h4>📝 题型映射</h4>
+  <ul>
+    <li>单选：—____ do you usually wake up? —At 6:00 am. A. When&nbsp; B. What time&nbsp; C. How&nbsp; D. Where → 选 <strong>B</strong>（答语是钟点）。</li>
+    <li>单选：—____ does your sister have a shower? —She has a shower at 7:30 pm. → 选 <strong>What time</strong>（does 表明第三人称）。</li>
+    <li>单选：—____ do you get up on weekends? —Usually at 8:00. A. What&nbsp; B. When&nbsp; C. How often&nbsp; D. What time → 选 <strong>D</strong>（at 8:00 是钟点）。</li>
+  </ul>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 + 本练习册PDF VocabularyⅡ+GrammarⅡ 板块】</p>
+
+  <!-- 4.4 一般现在时三单 -->
+  <h3>4.4 一般现在时第三人称单数（s/es 规则）</h3>
+
+  <div class="callout success">
+    <p><strong>【第一步·原理推导+框架定位】</strong></p>
+    <p>🔍 一般现在时讲"习惯、经常、事实"。当主语是<strong>"他/她/它"或单数名词</strong>时，动词要加 s/es，这叫"第三人称单数"。</p>
+    <p>📐 <strong>动词变化规则</strong>：<br>
+      - 一般直接 +s：play→plays，love→loves，get→gets<br>
+      - 以 s/x/sh/ch/o 结尾 +es：watch→watches，go→goes，wash→washes<br>
+      - 辅音字母 + y 结尾：变 y 为 i 再 +es：study→studies，fly→flies<br>
+      - 特殊：have→<strong>has</strong>（本单元常考！The farm cat <strong>has</strong> some babies.）</p>
+    <p>📍 <strong>框架定位</strong>：PDF 中反复出现 Tom <strong>loves</strong> playing with leaves. The farm cat <strong>has</strong> some babies. The puppy with the short tail <strong>plays</strong> with a ball.</p>
+  </div>
+
+  <div class="callout note">
+    <p><strong>【第二步·📌必背清单】</strong></p>
+    <ol>
+      <li>主语是 he/she/it/单数名词 → 动词 +s/es。<br>
+        Tom <strong>loves</strong> playing with leaves.（Tom 喜欢玩树叶。）<br>
+        The puppy with the short tail <strong>plays</strong> with a ball.（短尾巴的小狗在玩球。）</li>
+      <li><strong>标志词</strong>（看见就选一般现在时）：usually，always，often，every day。</li>
+      <li><strong>特殊记忆</strong>：have → has（The farm cat has some babies.）</li>
+      <li>否定/疑问用助动词 does：Does she have a shower?（有 does 时，动词还原原形。）</li>
+    </ol>
+  </div>
+
+  <div class="callout extend">
+    <p><strong>【🧠 思维拓展】</strong></p>
+    <ol>
+      <li><strong>三单与现在进行时的"打架"题目：看标志词！</strong><br>
+        Tom <strong>loves</strong> playing...（一般现在时，every day 习惯）<br>
+        Tom <strong>is playing</strong>...（现在进行时，now 此刻）</li>
+      <li><strong>变否定小口诀</strong>：三单动词想否定，doesn't 来帮忙，动词回到原形。<br>
+        She likes milk. → She <strong>doesn't like</strong> milk.</li>
+    </ol>
+  </div>
+
+  <h4>📝 题型映射</h4>
+  <ul>
+    <li>单选：Tom ____ playing with leaves. A. love&nbsp; B. loves&nbsp; C. loving → 选 <strong>B</strong>（Tom 是三单）。</li>
+    <li>单选：The farm cat ____ some babies. A. had&nbsp; B. will have&nbsp; C. has&nbsp; D. is having → 选 <strong>C</strong>（一般现在时，have→has）。</li>
+    <li>填空：She ____ (go) to school every day. → <strong>goes</strong></li>
+  </ul>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 + 本练习册PDF Story+GrammarⅠ 板块】</p>
+
+  <!-- 4.5 Let's / want to / Can / go+V-ing -->
+  <h3>4.5 Let's / want to / Can 句型 + go+V-ing</h3>
+
+  <div class="callout success">
+    <p><strong>【第一步·原理推导+框架定位】</strong></p>
+    <p>🔍 这组句型都是"<strong>后接动词原形</strong>"家族，分别表示"提议 / 意愿 / 请求"。</p>
+    <p>📐 <strong>三个公式</strong>：<br>
+      - <strong>Let's + 动词原形</strong>（提议"我们一起…吧"）→ Let's go for a walk!<br>
+      - <strong>want to + 动词原形</strong>（想要做…）→ I want to take a walk.<br>
+      - <strong>Can + 主语 + 动词原形?</strong>（请求允许"可以…吗"）→ Can we go swimming this afternoon?<br>
+      - <strong>go + V-ing</strong>（去从事某项活动）→ go swimming / go shopping</p>
+    <p>📍 <strong>框架定位</strong>：语篇1《Grandpa's Countryside Time》里 Grandpa 提议"Let's go for a walk in the forest!"；Jenny 想说"I want to swim in the lake."。</p>
+  </div>
+
+  <div class="callout note">
+    <p><strong>【第二步·📌必背清单】</strong></p>
+    <ol>
+      <li><strong>Let's = Let us</strong>，后面动词必须用原形。<br>
+        Let's <strong>go</strong> for a walk!（一起去散步吧！）</li>
+      <li><strong>want to</strong> 后面也是原形，<strong>to 不能丢</strong>。<br>
+        I want <strong>to take</strong> a walk. / I want <strong>to move</strong> the rock.</li>
+      <li><strong>Can</strong> 提问时动词原形，回答 Yes, I can. / No, I can't.<br>
+        Can we <strong>go</strong> swimming this afternoon? Yes, we can.</li>
+      <li><strong>go + V-ing</strong> 固定搭配：go swimming 去游泳 / go shopping 去购物 / go walking 去散步。</li>
+    </ol>
+  </div>
+
+  <div class="callout extend">
+    <p><strong>【🧠 思维拓展】</strong></p>
+    <ol>
+      <li><strong>Let's 的回应</strong>：Good idea!（好主意！）/ OK!（好的！）——Culture 板块原题。</li>
+      <li><strong>can 的否定</strong>：can't = cannot，后面照样接原形。<br>
+        I can run very fast. → I <strong>can't</strong> run very fast.</li>
+      <li><strong>易错提醒</strong>：看到 Let's / want to / can / go，后面一律"<strong>原形</strong>"，绝不加 s 也不加 ing。</li>
+    </ol>
+  </div>
+
+  <h4>📝 题型映射</h4>
+  <ul>
+    <li>单选：I want ____ a walk in the forest. A. take&nbsp; B. to take&nbsp; C. taking → 选 <strong>B</strong>。</li>
+    <li>单选：Let's ____ for a walk. A. go&nbsp; B. goes&nbsp; C. going → 选 <strong>A</strong>。</li>
+    <li>单选：Can we ____ swimming this afternoon? A. go&nbsp; B. goes&nbsp; C. going → 选 <strong>A</strong>。</li>
+    <li>单选：—Let's ____ in the park! —Good idea! A. race&nbsp; B. shower&nbsp; C. dress&nbsp; D. rock → 选 <strong>A</strong>（race 赛跑）。</li>
+  </ul>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 + 本练习册PDF VocabularyⅠ / Culture 板块】</p>
+
+  <!-- 4.6 核心词汇双步讲解 -->
+  <h3>4.6 核心词汇双步讲解（高频 10 词）</h3>
+  <p>每个词都按「词性 + 音标 + 例句 + 记忆法 + 搭配」五件套讲解，边读边记效果最好！</p>
+
+  <h4>① countryside <span class="word">/ˈkʌntrisaɪd/</span> n. 乡村，农村</h4>
+  <p>📖 例句：We are in the <strong>countryside</strong>.（我们在乡村。）</p>
+  <p>🔑 记忆法：country（国家/乡下）+ side（边）= 国家边上远离城市的地方 = 乡村。</p>
+  <p>🔗 搭配：in the countryside 在乡下 / the countryside time 乡村时光</p>
+
+  <h4>② farm <span class="word">/fɑːm/</span> n. 农场</h4>
+  <p>📖 例句：We can see Grandpa's <strong>farm</strong>.（我们能看见爷爷的农场。）</p>
+  <p>🔑 记忆法：farmer（农夫）= farm + er（人）。看到 farm 就想到"农夫 farmer 干活的地方"。</p>
+  <p>🔗 搭配：on the farm 在农场 / Grandpa's farm 爷爷的农场</p>
+
+  <h4>③ field <span class="word">/fiːld/</span> n. 田地，田野</h4>
+  <p>📖 例句：There's a big rock in the <strong>field</strong>.（田野里有一块大岩石。）</p>
+  <p>🔑 记忆法：field 发音像"肥儿的"——田地里壤肥沃，庄稼长得好。</p>
+  <p>🔗 搭配：in the field 在田野里</p>
+
+  <h4>④ forest <span class="word">/ˈfɒrɪst/</span> n. 森林</h4>
+  <p>📖 例句：Let's go for a walk in the <strong>forest</strong>.（我们去森林里散步吧。）</p>
+  <p>🔑 记忆法：for（为了）+ rest（休息）→ 森林是动物们"为了休息"而居住的地方。</p>
+  <p>🔗 搭配：in the forest 在森林里 / behind the mountains 山后（Look at the forest behind the mountains.）</p>
+
+  <h4>⑤ leaves <span class="word">/liːvz/</span> n. 树叶（leaf 的复数）</h4>
+  <p>📖 例句：Many <strong>leaves</strong> are on the ground.（许多树叶落在地上。）</p>
+  <p>🔑 记忆法：leaf 单数 /liːf/，复数变 f 为 v 再加 es → leaves。和 knife→knives（小刀）是同一类"变 f 为 v"家族。</p>
+  <p>🔗 搭配：fall on the ground 落在地上 / play with leaves 玩树叶</p>
+
+  <h4>⑥ awake <span class="word">/əˈweɪk/</span> adj. 醒着的</h4>
+  <p>📖 例句：The mother cat is <strong>awake</strong>.（猫妈妈醒着。）</p>
+  <p>🔑 记忆法：a + wake（醒来）→ 已经"醒来"了 = 醒着的。反义词 asleep（睡着的）。</p>
+  <p>🔗 搭配：be awake 醒着 / stay awake 保持清醒</p>
+
+  <h4>⑦ kitten <span class="word">/ˈkɪtn/</span> n. 小猫</h4>
+  <p>📖 例句：The <strong>kittens</strong> are sleeping.（小猫们正在睡觉。）</p>
+  <p>🔑 记忆法：kit（小）+ en（小称尾）→ 小小的一只猫 = 小猫。和 puppy（小狗）是对好搭档。</p>
+  <p>🔗 搭配：a cute kitten 一只可爱的小猫 / a mother cat and her kittens 猫妈妈和她的宝宝们</p>
+
+  <h4>⑧ puppy <span class="word">/ˈpʌpi/</span> n. 小狗</h4>
+  <p>📖 例句：The naughty <strong>puppy</strong> is eating Grandpa's sock.（淘气的小狗正在吃爷爷的袜子。）</p>
+  <p>🔑 记忆法：pup 本身就是"幼犬"，再叠一个 py 更可爱、更好记。</p>
+  <p>🔗 搭配：a naughty puppy 淘气的小狗 / a puppy with a short tail 短尾巴的小狗</p>
+
+  <h4>⑨ have a shower 洗淋浴</h4>
+  <p>📖 例句：What time does she <strong>have a shower</strong>?（她几点洗淋浴？）</p>
+  <p>🔑 记忆法：have + a + shower（淋浴）= 洗个淋浴。对比 have a bath 洗盆浴（更费水，第10页课文提到淋浴更省水）。</p>
+  <p>🔗 搭配：have a shower at 7:30（七点半洗淋浴）</p>
+
+  <h4>⑩ get dressed 穿好衣服</h4>
+  <p>📖 例句：It's time to <strong>get dressed</strong>.（该穿好衣服了。）</p>
+  <p>🔑 记忆法：get + dressed（穿好衣服的）→ 变得"穿好衣服" = 穿好衣服。dressed 来自 dress（连衣裙/穿衣）。</p>
+  <p>🔗 搭配：get dressed in the morning 早上穿好衣服</p>
+
+  <div class="callout idea">
+    <p>💡 <strong>小贴士</strong>：把上面的单词串成一个"早晨小故事"来记：我 wake up（醒来）→ get up（起床）→ have a shower（洗淋浴）→ get dressed（穿好衣服）→ have breakfast（吃早餐）→ 出发上学！这就是语篇3《Morning Routines》的顺序。</p>
+  </div>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 词汇表 + 本练习册PDF 五大板块】</p>
+
+  <!-- 4.7 功能句型速记表 -->
+  <h3>4.7 功能句型速记表</h3>
+  <p>把本单元"怎么说"的功能句一网打尽，每行配 1–2 个例句，背熟就能开口说！</p>
+  <table>
+    <thead>
+      <tr><th>功能</th><th>句型</th><th>例句</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>提议</td><td>Let's + 动词原形</td><td>Let's go for a walk!（一起去散步吧！）/ Let's take a walk in the forest!</td></tr>
+      <tr><td>意愿</td><td>want to + 动词原形</td><td>I want to take a walk.（我想去散步。）/ I want to move the rock.（我想搬走那块石头。）</td></tr>
+      <tr><td>请求</td><td>Can + 主语 + 动词原形?</td><td>Can we go swimming this afternoon?（今天下午我们能去游泳吗？）</td></tr>
+      <tr><td>存在</td><td>There is/are + 名词</td><td>There are many leaves on the ground.（地上有许多树叶。）/ There is a big rock in the field.</td></tr>
+      <tr><td>问时间</td><td>What time do/does + 主语 + 动词原形?</td><td>What time do you get up?（你几点起床？）/ What time does she have a shower?</td></tr>
+      <tr><td>回答时间</td><td>At + 时间点</td><td>At 6:00 am.（早上六点。）/ At 7:30 pm.</td></tr>
+      <tr><td>指认</td><td>That's + 名词</td><td>That's Grandpa's garden!（那是爷爷的花园！）/ That's Grandpa's farm.</td></tr>
+      <tr><td>禁止/提醒</td><td>Don't forget to + 动词原形</td><td>Don't forget to brush your teeth.（别忘了刷牙。）/ Don't forget to turn off the tap.</td></tr>
+      <tr><td>描述正在进行的动作</td><td>主语 + be + V-ing</td><td>The kitten is sleeping.（小猫正在睡觉。）/ The puppies are drinking water.</td></tr>
+    </tbody>
+  </table>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 + 本练习册PDF 五大板块功能交际句型】</p>
+
+</section>
+
+<!-- ==================== ch5 ==================== -->
+
+<section id="ch5" class="sec">
+  <h2 class="sec">五、难点与易错点（8+1 个防坑锦囊）</h2>
+
+  <p>下面这些"坑"都是练习册里最容易丢分的地方。每个坑都按「❌错误 → ✅正确 → 🔍原理归因 → 💡记忆口诀」四步讲清楚，看完再也不踩！</p>
+
+  <h3>难点1：There be 单复数选错</h3>
+  <p>❌ 错误：There <strong>are</strong> a big rock in the field.</p>
+  <p>✅ 正确：There <strong>is</strong> a big rock in the field.</p>
+  <p>🔍 原理归因：There be 的 be 要看<strong>后面的名词</strong>。a big rock 是单数，所以用 is。很多小朋友被前面的 there 牵着走，误以为 there 是复数——其实 there 只是引导词，没有单复数。</p>
+  <div class="callout warning">
+    <p>💡 记忆口诀：there be 句型怪，谁在它后谁作主；单数 is 复数 are，名词读完再落笔。</p>
+  </div>
+
+  <h3>难点2：look（看起来）vs look at（看）</h3>
+  <p>❌ 错误：The puppies are looking happy.（表"看起来"误用进行时）</p>
+  <p>✅ 正确：The puppies <strong>look</strong> happy.（看起来，系动词，不加 ing）</p>
+  <p>❌ 错误：Look the cat.（漏掉介词 at）</p>
+  <p>✅ 正确：<strong>Look at</strong> the cat.（动词短语"看"，at 不可省）</p>
+  <p>🔍 原理归因：look 有两个身份。身份①系动词"看起来"→ 后接形容词，无进行时；身份②动词短语 look at"看某物"→ 后接宾语，介词 at 不能丢。PDF 第4页第7题：The puppies ____ happy. 选 look 不选 are looking。</p>
+  <div class="callout warning">
+    <p>💡 记忆口诀：look 后接"感觉词"（happy/sad/tired）是"看起来"，不加 ing；look at 加"人/物"是"看"，介词 at 不能掉。</p>
+  </div>
+
+  <h3>难点3：What time / When / How often 混淆</h3>
+  <p>❌ 错误：—How often do you get up? —At 6:00.</p>
+  <p>✅ 正确：—<strong>What time</strong> do you get up? —At 6:00. / How often 问频率：—How often do you swim? —Twice a week.</p>
+  <p>🔍 原理归因：三个词问的东西不一样。What time 问<strong>精确钟点</strong>（at 6:00）；When 问<strong>笼统时间</strong>（in the morning）；How often 问<strong>频率</strong>（every day / twice a week）。看答语定答案。</p>
+  <div class="callout warning">
+    <p>💡 记忆口诀：几点钟点 What time，笼统时间用 When，多久一次 How often。</p>
+  </div>
+
+  <h3>难点4：动词三单忘加 s</h3>
+  <p>❌ 错误：Tom <strong>love</strong> playing with leaves.</p>
+  <p>✅ 正确：Tom <strong>loves</strong> playing with leaves.</p>
+  <p>🔍 原理归因：主语是 he/she/it 或单数名词（Tom、the farm cat、the puppy）时，这是一般现在时的"第三人称单数"，动词必须加 s/es，否则主谓不一致。PDF 第1页第2题就是考这个。</p>
+  <div class="callout warning">
+    <p>💡 记忆口诀：他她它，单数名，动词屁股加 s；have 变 has 最特别，单独记在心底里。</p>
+  </div>
+
+  <h3>难点5：V-ing 拼写（swimming 双写）</h3>
+  <p>❌ 错误：Look! He is <strong>swiming</strong>. / He is <strong>runing</strong>.</p>
+  <p>✅ 正确：Look! He is <strong>swimming</strong>. / He is <strong>running</strong>.</p>
+  <p>🔍 原理归因：swim / run / sit 是"辅音+元音+辅音"结尾的重读闭音节，必须<strong>双写末尾辅音字母</strong>再加 ing，否则单词不完整、发音也会变。</p>
+  <div class="callout warning">
+    <p>💡 记忆口诀：辅元辅，短元音，末尾字母双写 ing——swim→swimming，run→running，sit→sitting。</p>
+  </div>
+
+  <h3>难点6：be 动词与动词原形混用（进行时）</h3>
+  <p>❌ 错误：<strong>Do</strong> they sleeping?（进行时误用 do 提问）</p>
+  <p>✅ 正确：<strong>Are</strong> they sleeping?（进行时用 be 提问）</p>
+  <p>❌ 错误：They are <strong>sleep</strong>.（sleep 忘了加 ing）</p>
+  <p>✅ 正确：They are <strong>sleeping</strong>.</p>
+  <p>🔍 原理归因：现在进行时 = be + V-ing，它的疑问句要把 <strong>be 提到句首</strong>，而不是用助动词 do。do/does 只用于一般现在时的疑问和否定，不能和 V-ing 混搭。</p>
+  <div class="callout warning">
+    <p>💡 记忆口诀：进行时有三件套——be、ing、问句 be 开头跑；do 只管一般现在时，千万别让它俩乱套。</p>
+  </div>
+
+  <h3>难点7：介词 at + 点钟 vs in + 时段</h3>
+  <p>❌ 错误：—What time do you get up? —<strong>In</strong> 6:00.</p>
+  <p>✅ 正确：—What time do you get up? —<strong>At</strong> 6:00. / in the morning（在上午）</p>
+  <p>🔍 原理归因：at 用于<strong>精确钟点</strong>（at 6:00, at 7:30）；in 用于<strong>一天中的时段</strong>（in the morning, in the afternoon, in the evening）。</p>
+  <div class="callout warning">
+    <p>💡 记忆口诀：at 点钟，in 时段；几点用 at，上午下午用 in。</p>
+  </div>
+
+  <h3>难点8：can 后面动词原形</h3>
+  <p>❌ 错误：I can <strong>runs</strong> very fast. / I can <strong>running</strong>.</p>
+  <p>✅ 正确：I <strong>can run</strong> very fast.（can 后动词原形）</p>
+  <p>🔍 原理归因：can 是情态动词，后面必须接<strong>动词原形</strong>，不能加 s、ed 或 ing。PDF 第13页原题：—Can you ____? —Yes, I can run very fast. A. race B. shower C. dress D. rock → 选 A。</p>
+  <div class="callout warning">
+    <p>💡 记忆口诀：can 是老大，小弟全用原形——can + 原形、Let's + 原形、want to + 原形，这叫"原形三兄弟"，一起记不打架。</p>
+  </div>
+
+  <h3>难点9（加分项）：be 动词 am/is/are 选错</h3>
+  <p>❌ 错误：Jenny and Jim <strong>is</strong> their friends.</p>
+  <p>✅ 正确：Jenny and Jim <strong>are</strong> their friends.（PDF 第1页原题）</p>
+  <p>🔍 原理归因：主语是"两个人或多个"（Jenny and Jim）就是复数，be 用 are；I（我）用 am；he/she/it（他她它）用 is。先判断主语是单数还是复数，再选 be。</p>
+  <div class="callout warning">
+    <p>💡 记忆口诀：I 用 am，you 用 are，is 跟着他她它；两个以上全是 are，看清主语再下笔。</p>
+  </div>
+
+  <div class="callout idea">
+    <p>💡 <strong>防坑总结</strong>：以上 9 个坑，考前读一遍口诀，做题时先"找主语、找标志词、看名词单复数"，就能避开 90% 的陷阱。遇到拿不准的，试着把口诀默念一遍再落笔。</p>
+  </div>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 + 本练习册PDF 全部题型错因分析】</p>
+</section>
+
+<!-- ==================== ch6 ==================== -->
+
+<section id="ch6" class="sec">
+  <h2 class="sec">六、考点汇总（8 大考点雷达图）</h2>
+
+  <p>这张"考点地图"把本单元会怎么考、考多难、占多少分都标出来了。★ 越多越重要，家长可以照着优先级给孩子安排复习顺序。</p>
+
+  <table>
+    <thead>
+      <tr><th>考点类型</th><th>考查方式</th><th>重要程度</th><th>分值占比</th><th>典型题例（1条）</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1. 词义辨析</td>
+        <td>单词/短语选择（tractor、puppy、leaves、race、rock、supportive 等词义题）</td>
+        <td>★★★★</td>
+        <td>10%</td>
+        <td>—There are many yellow ____ on the ground in autumn. A. leaves B. rock C. puppy D. teeth</td>
+      </tr>
+      <tr>
+        <td>2. 首字母填空</td>
+        <td>根据句意和首字母补全单词（c____→countryside，w____→walk，f____→forest，l____→leaves）</td>
+        <td>★★★★</td>
+        <td>15%</td>
+        <td>Grandpa, Jenny and Jim are in the c______ with friends. → countryside</td>
+      </tr>
+      <tr>
+        <td>3. 现在进行时</td>
+        <td>时态单选 / 现在分词拼写 / be+doing 结构与主谓一致</td>
+        <td>★★★★★</td>
+        <td>20%</td>
+        <td>Look! The cat ____ her kittens. A. will look at B. looked at C. is looking at D. looks at</td>
+      </tr>
+      <tr>
+        <td>4. There be 句型</td>
+        <td>单复数选择 / 否定与疑问（There isn't / Is there...?）</td>
+        <td>★★★★</td>
+        <td>15%</td>
+        <td>____ a lot of leaves on the ground. A. There is B. There are C. There be</td>
+      </tr>
+      <tr>
+        <td>5. What time 疑问句</td>
+        <td>特殊疑问词选择（What time/When/How often 辨析）/ at+点钟 回答</td>
+        <td>★★★★</td>
+        <td>10%</td>
+        <td>—____ do you usually wake up? —At 6:00 am. A. When B. What time C. How D. Where</td>
+      </tr>
+      <tr>
+        <td>6. 一般现在时三单</td>
+        <td>动词 s/es 变化 / 特殊 have→has / 标志词判断</td>
+        <td>★★★</td>
+        <td>10%</td>
+        <td>The farm cat ____ some babies. A. had B. will have C. has D. is having</td>
+      </tr>
+      <tr>
+        <td>7. 语篇细节与推理</td>
+        <td>阅读理解判断（T/F）/ 细节选择 / 词义推测 / 代词指代 / 主旨大意 / 判断推理</td>
+        <td>★★★★★</td>
+        <td>10%</td>
+        <td>What are the kittens doing? A. They are playing. B. They are sleeping. C. They are drinking water.</td>
+      </tr>
+      <tr>
+        <td>8. 书面表达</td>
+        <td>看图写话 / 短文写作（My Morning Routine 记叙文 / Protect the Earth 议论文框架）</td>
+        <td>★★★★</td>
+        <td>10%</td>
+        <td>以 My Morning Routine 为题，围绕 wake up→stretch→wash face→brush teeth→get dressed→have breakfast 顺序写 80 词左右。</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout idea">
+    <p>💡 <strong>复习优先级建议</strong>：先把 ★★★★★ 的"现在进行时"和"语篇细节与推理"打牢（占 30%），再攻 ★★★★ 的四大板块（词义辨析、首字母填空、There be、What time、书面表达，占 60%），最后顺手解决三单（占 10%），全单元考点就全覆盖啦！分值占比合计约 100%。</p>
+  </div>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 + 本练习册PDF 五大板块题型统计（VocabularyⅠ / Story+GrammarⅠ / VocabularyⅡ+GrammarⅡ / Cross-Curricular / Culture）】</p>
+</section>
+
+<!-- sec2 结束 -->
+
+<section id="ch7" class="sec">
+  <h2 class="sec">七、薄弱环节专项突破</h2>
+
+  <div class="callout warning">
+    <p>🔑 <strong>宝贝，这一章是专门为你"补漏洞"来的！</strong>结合本单元练习册（PU2 Unit1 拓展练习 PDF）的批改情况，你在下面这几个地方最容易"掉进小坑"：</p>
+    <ul>
+      <li>⚠️ <strong>时态辨析单选失分</strong>——看到 <span class="word">Look!</span> / <span class="word">Listen!</span> 却不知道该用 <span class="word">be + doing</span>，把 <span class="word">is looking</span> 错选成 <span class="word">looks</span>（练习册第4页第1题、第9题，第1页第2题）。</li>
+      <li>⚠️ <strong>There be 主谓一致失分</strong>——<span class="word">There is / There are</span> 分不清，看到 <span class="word">there</span> 就乱选 <span class="word">is</span>，忘了"看后面的名词"（第1页第1题、第5题，第4页第12题）。</li>
+      <li>⚠️ <strong>What time / When / How often 混淆</strong>——问"几点"应该用 <span class="word">What time</span>，却总被 <span class="word">When</span> 或 <span class="word">How often</span> 带偏（第7页整整12道单选题全在考这个）。</li>
+      <li>⚠️ <strong>语篇细节理解失分</strong>——读完故事记不住"谁在做什么、颜色是什么、原因是什么"，比如拖拉机是 <span class="word">blue</span> 不是 <span class="word">red</span>、小猫在 <span class="word">sleeping</span> 而不是 playing（第2页、第5页、第8页阅读题）。</li>
+    </ul>
+    <p>💪 别怕！这章我们把每一个坑都填平，练完你就是"填空小高手"啦！</p>
+  </div>
+
+  <h3>一、失分地图：先看清我们补哪些"洞"</h3>
+  <p>下面这张表，把练习册里最容易丢分的地方标出来，我们按"先急后缓"的顺序一个一个补。</p>
+  <table>
+    <thead>
+      <tr>
+        <th>优先级</th>
+        <th>薄弱点</th>
+        <th>练习册出题位置</th>
+        <th>典型错误表现</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>🔴 第一梯队（最高频）</td>
+        <td>现在进行时 vs 一般现在时辨析</td>
+        <td>第1页单选、第4页单选1-15</td>
+        <td>看到 Look! 不用 be+doing；动词忘加 s 或 ing</td>
+      </tr>
+      <tr>
+        <td>🔴 第一梯队（最高频）</td>
+        <td>There is / There are 主谓一致</td>
+        <td>第1页第1/5题、第4页第12题</td>
+        <td>不数名词个数，看到 there 就选 is</td>
+      </tr>
+      <tr>
+        <td>🟡 第二梯队</td>
+        <td>What time / When / How often 辨析</td>
+        <td>第7页单选1-12</td>
+        <td>答语有 at 6:00 却不用 What time</td>
+      </tr>
+      <tr>
+        <td>🟡 第二梯队</td>
+        <td>动词三单 +s/es</td>
+        <td>第1页第2题、第4页第4/11题</td>
+        <td>Tom loves 写成 Tom love；has 写成 have</td>
+      </tr>
+      <tr>
+        <td>🟡 第二梯队</td>
+        <td>V-ing 拼写三规则</td>
+        <td>第4页 is looking / is washing 等</td>
+        <td>make 写成 makeing；swim 写成 swiming</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 + 本练习册PDF】</p>
+
+  <h3>二、第一梯队：最高频失分点（先补这两个！）</h3>
+
+  <h4>① 现在进行时 vs 一般现在时辨析</h4>
+  <p>这是本单元最重要的语法，也是失分最多的坑。先记住一句话：<strong>"正在做"用 <span class="word">be + doing</span>，"经常做 / 事实"用动词原形或三单。</strong></p>
+  <div class="callout success">
+    <p>🧭 <strong>判断三步法（做题小雷达）：</strong></p>
+    <ol>
+      <li><strong>第一步·找标志词</strong>：看到 <span class="word">Look!</span> <span class="word">Listen!</span> <span class="word">now</span> → 是"正在做"；看到 <span class="word">always / usually / often / every day</span> → 是"经常做"。</li>
+      <li><strong>第二步·找 be 动词</strong>：句子里有 <span class="word">am / is / are</span>，而且后面跟着 <span class="word">V-ing</span> → 现在进行时。</li>
+      <li><strong>第三步·找动词 -ing</strong>：<span class="word">be + 动词ing</span> 一对齐 = 正在进行；没有 be、动词直接加 <span class="word">s / es</span> = 一般现在时。</li>
+    </ol>
+    <p>🔍 <strong>例句对比小课堂：</strong></p>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>现在进行时（正在做）</th>
+        <th>一般现在时（经常做/事实）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><span class="word">Look!</span> The cat <strong>is looking</strong> at her kittens. 看！猫正在看她的宝宝。</td>
+        <td>The cat <strong>looks</strong> at her kittens every day. 猫每天都看她的宝宝。</td>
+      </tr>
+      <tr>
+        <td>The kittens <strong>are sleeping</strong> now. 小猫们现在正在睡觉。</td>
+        <td>The kittens <strong>sleep</strong> at night. 小猫们晚上睡觉。</td>
+      </tr>
+      <tr>
+        <td>Tom <strong>is playing</strong> with leaves. 汤姆正在玩树叶。</td>
+        <td>Tom <strong>plays</strong> with leaves every afternoon. 汤姆每天下午玩树叶。</td>
+      </tr>
+      <tr>
+        <td><span class="word">Listen!</span> The puppy <strong>is drinking</strong> water. 听！小狗正在喝水。</td>
+        <td>The puppy <strong>drinks</strong> water every morning. 小狗每天早上喝水。</td>
+      </tr>
+      <tr>
+        <td>The naughty puppy <strong>is eating</strong> the sock. 淘气小狗正在吃袜子。</td>
+        <td>The puppy <strong>eats</strong> socks sometimes. 小狗有时候吃袜子。</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 语法1 + 本练习册PDF第4页】</p>
+
+  <h4>② There is / There are 主谓一致</h4>
+  <p>这一条的诀窍只有一句话：<strong>别盯着 <span class="word">there</span> 看，要数后面名词有几个！</strong></p>
+  <div class="callout note">
+    <p>📌 <strong>查数法口诀：</strong></p>
+    <p>“There be 句，先看后面再选 be：<br>
+    名词是 <strong>1 个</strong> → 用 <span class="word">is</span>；<br>
+    名词是 <strong>2 个以上</strong> → 用 <span class="word">are</span>；<br>
+    不可数名词（water 水、milk 牛奶）→ 也归 <span class="word">is</span> 管。”</p>
+    <p>🧮 就像数苹果：一个苹果用 is，一堆苹果用 are，绝不能让“there”来当裁判！</p>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>看后面的名词</th>
+        <th>选哪个 be</th>
+        <th>例句</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1 个（单数）a big rock</td>
+        <td><strong>is</strong></td>
+        <td>There <strong>is</strong> a big rock in the field. 田野里有一块大石头。</td>
+      </tr>
+      <tr>
+        <td>2 个以上（复数）many leaves</td>
+        <td><strong>are</strong></td>
+        <td>There <strong>are</strong> many leaves on the ground. 地上有很多树叶。</td>
+      </tr>
+      <tr>
+        <td>2 个以上（复数）three puppies</td>
+        <td><strong>are</strong></td>
+        <td>Look! There <strong>are</strong> three puppies playing. 看！有三只小狗在玩。</td>
+      </tr>
+      <tr>
+        <td>不可数（milk 牛奶）</td>
+        <td><strong>is</strong></td>
+        <td>There <strong>is</strong> some milk in the glass. 杯子里有一些牛奶。</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 语法2 + 本练习册PDF第1/4页】</p>
+
+  <h3>三、第二梯队：次高频失分点（再补这三个！）</h3>
+
+  <h4>③ What time 提问与回答</h4>
+  <p>问“几点钟”最精确的说法是 <span class="word">What time</span>，回答一律用 <span class="word">at + 点钟</span>。</p>
+  <div class="callout note">
+    <p>📌 <strong>必背句型：</strong></p>
+    <p>问：<span class="word">What time do you</span> + 动词原形…? ——你几点…?<br>
+    答：<span class="word">At</span> 6:00. ——六点。</p>
+    <p>第三人称单数（she / he / Tom）：<span class="word">What time does she have a shower?</span> — At 7:30.<br>
+    （用了 <span class="word">does</span>，后面的动词就要变回原形 <span class="word">have</span> 哦！）</p>
+  </div>
+  <p><strong>三个“问时间小卫士”分清楚：</strong></p>
+  <table>
+    <thead>
+      <tr>
+        <th>疑问词</th>
+        <th>问什么</th>
+        <th>例句</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>What time</strong></td>
+        <td>几点（精确到钟点）</td>
+        <td>What time do you get up? — At 6:00.</td>
+      </tr>
+      <tr>
+        <td><strong>When</strong></td>
+        <td>什么时候（笼统）</td>
+        <td>When do you get up? — In the morning.</td>
+      </tr>
+      <tr>
+        <td><strong>How often</strong></td>
+        <td>多久一次（频率）</td>
+        <td>How often do you swim? — Every week.</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>💡 小窍门：答语里有 <span class="word">at 6:00</span> 这样的“几点”，前面就用 <span class="word">What time</span>；答语是 <span class="word">every day / usually</span> 这种频率，前面才是 <span class="word">How often</span>。</p>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 语法3 + 本练习册PDF第7页】</p>
+
+  <h4>④ 动词三单 +s/es</h4>
+  <p>当主语是 <span class="word">he / she / it / Tom（单数名字）</span>时，动词要“换尾巴”。记住口诀：</p>
+  <div class="callout warning">
+    <p>🔑 <strong>三单尾巴口诀：</strong></p>
+    <p>“一般直接加 <span class="word">s</span>；<br>
+    <span class="word">s / x / ch / sh / o</span> 结尾加 <span class="word">es</span>；<br>
+    辅音字母 + <span class="word">y</span>，去 <span class="word">y</span> 加 <span class="word">ies</span>；<br>
+    特殊一个要记牢：<span class="word">have</span> 变 <span class="word">has</span>。”</p>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>规则</th>
+        <th>例子</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>一般直接加 s</td>
+        <td>play → <strong>plays</strong>，love → <strong>loves</strong>，look → <strong>looks</strong></td>
+      </tr>
+      <tr>
+        <td>s/x/ch/sh/o 结尾加 es</td>
+        <td>wash → <strong>washes</strong>，watch → <strong>watches</strong>，go → <strong>goes</strong>，do → <strong>does</strong></td>
+      </tr>
+      <tr>
+        <td>辅音字母 + y → 去 y 加 ies</td>
+        <td>study → <strong>studies</strong>，fly → <strong>flies</strong></td>
+      </tr>
+      <tr>
+        <td>特殊</td>
+        <td>have → <strong>has</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>📝 看练习册怎么考：<span class="word">Tom <strong>loves</strong> playing with leaves.</span>（不是 love，不是 loving！）<span class="word">The farm cat <strong>has</strong> some babies.</span>（不是 have，不是 is having！）</p>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 语法4 + 本练习册PDF第1/4页】</p>
+
+  <h4>⑤ V-ing 拼写三规则专项</h4>
+  <p>变成 <span class="word">-ing</span> 也要守规矩，只有三条，背熟就不丢分：</p>
+  <div class="callout note">
+    <p>📌 <strong>V-ing 三规则口诀：</strong></p>
+    <p>“一般直接加 <span class="word">ing</span>；<br>
+    不发音的 <span class="word">e</span> 结尾，先去掉 <span class="word">e</span> 再加 <span class="word">ing</span>；<br>
+    重读闭音节，双写末尾字母再加 <span class="word">ing</span>。”</p>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th>规则</th>
+        <th>例子</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>一般直接 +ing</td>
+        <td>look → <strong>looking</strong>，play → <strong>playing</strong>，drink → <strong>drinking</strong></td>
+      </tr>
+      <tr>
+        <td>不发音 e 结尾 → 去 e +ing</td>
+        <td>make → <strong>making</strong>，take → <strong>taking</strong></td>
+      </tr>
+      <tr>
+        <td>重读闭音节 → 双写末尾 +ing</td>
+        <td>swim → <strong>swimming</strong>，run → <strong>running</strong>，sit → <strong>sitting</strong></td>
+      </tr>
+    </tbody>
+  </table>
+  <p>⚠️ 最容易错的两个：<span class="word">make</span> 不是 <span class="word">makeing</span>，<span class="word">swim</span> 不是 <span class="word">swiming</span>——记住“e 要去、m 要双”就对啦！</p>
+  <p>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit1 语法1 + 本练习册PDF第4页】</p>
+
+  <h3>四、原理层面突破策略：为什么总在这三类上错</h3>
+  <div class="callout extend">
+    <p>🧠 <strong>带孩子看透“病根”，从根上不再错：</strong></p>
+    <ol>
+      <li>
+        <p><strong>病根一：中文没有时态变化，孩子的大脑“没有这个开关”。</strong><br>
+        中文里，“猫看着宝宝”和“猫正在看着宝宝”都用一个“看”字，靠“在/着/正在”或者前后文来体会。<br>
+        而英语必须靠给动词“换衣服”来表达：<strong>正在做 → be + doing；经常做/事实 → 动词加 s/es</strong>。<br>
+        所以孩子一看到句子就急着翻译“看”，忘了英语要“看信号给动词换衣服”。</p>
+      </li>
+      <li>
+        <p><strong>病根二：be 动词家族和助动词家族打架了。</strong><br>
+        <span class="word">am / is / are</span>（be 家族）管“正在做”（be+doing）和“存在”（There is/are）；<br>
+        <span class="word">do / does</span>（助动词家族）管一般现在时的提问和否定。<br>
+        孩子常把两个家族混着用，比如把 “Does he is…?” 或把 “What time do you…” 里的 do 漏掉。<br>
+        记住一句话：<strong>进行时和 There be 用 be 家族；疑问和否定才请 do/does 出场。</strong></p>
+      </li>
+      <li>
+        <p><strong>如何建立“时态 = be + doing”的心智模型：</strong><br>
+        带孩子玩一个“时态生产线”小游戏：<br>
+        听到 <span class="word">Look! / Listen! / now</span>（“正在发生”信号）→ 生产线开动，<span class="word">be + doing</span> 一起出厂；<br>
+        听到 <span class="word">always / every day</span>（“习惯/事实”信号）→ 生产线只出动词原形或三单。<br>
+        家长喊信号，孩子抢答结构，练 5 分钟，比抄 50 遍更管用！</p>
+      </li>
+    </ol>
+    <p>【核验来源：剑桥少儿英语教学法（CEFR Pre-A1-A1 语法习得顺序）+ Cambridge Power Up Level 2（Second Edition）Unit1】</p>
+  </div>
+
+  <h3>五、专项突破训练（练一练，马上就稳！）</h3>
+  <p>📝 每组 5 道小题，不附讲解，做完看文末“答案”对不对。全对就可以庆祝，错了的题翻到上面口诀再读一遍！</p>
+
+  <h4>训练 1：现在进行时 vs 一般现在时（5 题）</h4>
+  <ol>
+    <li><span class="word">Listen!</span> The birds ______ in the tree.（A. sing　B. are singing）</li>
+    <li>Tom ______ playing with leaves every afternoon.（A. loves　B. is loving）</li>
+    <li><span class="word">Look!</span> The naughty puppy ______ Grandpa's sock.（A. eats　B. is eating）</li>
+    <li>The farm cat ______ some babies.（A. has　B. is having）</li>
+    <li>They ______ now. They are awake.（A. aren't sleeping　B. don't sleep）</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. B　2. A　3. B　4. A　5. A</p></div>
+
+  <h4>训练 2：There is / There are（5 题）</h4>
+  <ol>
+    <li>There ______ a big rock in the field.（A. is　B. are）</li>
+    <li>There ______ many leaves on the ground.（A. is　B. are）</li>
+    <li><span class="word">Look!</span> There ______ three puppies playing.（A. is　B. are）</li>
+    <li>There ______ a pretty garden behind the house.（A. is　B. are）</li>
+    <li>______ there any milk in the glass?（A. Is　B. Are）</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. A　2. B　3. B　4. A　5. A</p></div>
+
+  <h4>训练 3：What time / 三单 / V-ing（5 题）</h4>
+  <ol>
+    <li>—______ do you get up? —At 6:00.（A. What time　B. How often）</li>
+    <li>What time ______ your sister have a shower?（A. do　B. does）</li>
+    <li>Tom ______ (play) with a ball every day.</li>
+    <li><span class="word">Look!</span> She ______ (make) a cake now.</li>
+    <li>He ______ (go) to school at 7:30.</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. A　2. B　3. plays　4. is making　5. goes</p></div>
+
+  <h3>六、易错陷阱题精讲（2 道·错误归因）</h3>
+  <p>这两道是练习册里“最会骗人”的题，我们一起拆穿它！</p>
+
+  <h4>陷阱题 1：时态辨析“变装陷阱”</h4>
+  <p><strong><span class="word">Look!</span> The cat ______ her kittens.</strong><br>
+  A. looks at　B. is looking at　C. look at　D. looked at</p>
+  <div class="callout success">
+    <p>✅ <strong>正确答案：B. is looking at</strong></p>
+    <p>🧐 <strong>错误归因：</strong>这道题有 90% 的孩子选 A（looks at），因为中文里“猫看着她的宝宝”听起来就是“看着”，直接就翻了 <span class="word">looks</span>，忘了开头藏着一个“开机提示”——<span class="word">Look!</span>！<br>
+    还有的孩子看到 <span class="word">Look!</span> 却以为是“看”这个动作，把它当成了动词，导致整句结构错乱。</p>
+    <p>💡 <strong>破解思路：</strong><span class="word">Look!</span> 在这里不是“猫在看的那个看”，而是“提醒你看过来”的提示词，它一出现就代表“现在正在发生”→ 必须 <span class="word">be + doing</span> → <span class="word">is looking at</span>。<br>
+    以后看到 <span class="word">Look! / Listen! / now</span>，心里立刻响警报：“be+doing 快跟上！”</p>
+  </div>
+
+  <h4>陷阱题 2：There be“数数陷阱”</h4>
+  <p><strong><span class="word">Look!</span> There ______ three puppies playing.</strong><br>
+  A. were　B. is　C. are　D. was</p>
+  <div class="callout success">
+    <p>✅ <strong>正确答案：C. are</strong></p>
+    <p>🧐 <strong>错误归因：</strong>踩这个坑的孩子分两种：<br>
+    一种盯住 <span class="word">there</span> 不撒手，觉得“there 是一个东西”，就选了 B（is）——其实 be 要听后面名词的指挥；<br>
+    一种看到故事发生在农场，脑补“过去”，选了 A（were）或 D（was）——但句首的 <span class="word">Look!</span> 已经告诉我们是“现在”。</p>
+    <p>💡 <strong>破解思路：</strong>用“查数法”——数一数后面的名词：<span class="word">three puppies</span> 是 3 只小狗，2 个以上 → 用 <span class="word">are</span>；再看 <span class="word">Look!</span> 是现在时 → 排除过去式 were/was。两手一合，答案就是 C！</p>
+  </div>
+
+  <div class="callout idea">
+    <p>💡 <strong>考前 3 分钟口诀卡（考前一读，稳稳的！）</strong></p>
+    <p>📌 <strong>时态</strong>：<span class="word">Look! Listen! now</span> → <span class="word">be + doing</span>；<span class="word">always / every day</span> → 动词加 s/es。<br>
+    📌 <strong>There be</strong>：先看后面名词再选 be——1 个用 <span class="word">is</span>，多个用 <span class="word">are</span>，不可数也归 <span class="word">is</span>。<br>
+    📌 <strong>问时间</strong>：问“几点”用 <span class="word">What time</span>，回答一定 <span class="word">at + 点钟</span>；频率才找 <span class="word">How often</span>。<br>
+    📌 <strong>三单尾巴</strong>：一般加 s，s/x/ch/sh/o 加 es，辅音 + y 去 y 加 ies，have 变 has 记心间。<br>
+    📌 <strong>V-ing</strong>：一般加 ing，e 尾巴先去 e，重读闭音节双写末尾（make-making，swim-swimming）。<br>
+    📌 <strong>细节题</strong>：回原文找“谁 + 在做什么 + 什么颜色/原因”，别凭印象猜！</p>
+  </div>
+</section>
+<!-- sec3 结束 -->
+
+<section id="ch8" class="sec">
+  <h2 class="sec">八、康奈尔笔记·知识加工厂</h2>
+
+  <div class="callout idea">
+    <p><strong>🧠 笔记 = 知识加工厂</strong>：康奈尔笔记<b>不是复制原文</b>，而是把前面 ①~⑥ 章的信息<b>重新加工</b>成你自己的知识——换个说法、补个例子、连一条线，让它真正长进你的脑子。</p>
+    <p><strong>🔑 复习技巧</strong>：遮住主栏 → 看线索栏回忆（3-5 分钟）。回忆不出来的，回主栏再看一眼，这就是最高效的复习。</p>
+    <p>下面是 <strong>7 张卡片</strong>，对应前面 7 大板块，每张都是三区布局：<strong>💡 总结区</strong>（一眼看懂，已展开）→ <strong>📝 主栏</strong>（记录重点）→ <strong>🔑 线索栏</strong>（关键词 + 提问回忆）。</p>
+  </div>
+
+  <!-- ========== 第1张 · 思维导图笔记 ========== -->
+  <article class="cornell-card">
+    <h3>📇 第1张 · 思维导图笔记：知识树重构</h3>
+
+    <details class="interactive-panel" open>
+      <summary>💡 总结区</summary>
+      <p>本单元围绕 <strong>A Day on the Farm</strong>（农场的一天），五大分支是：词汇 → 语法 → 句型 → 语篇 → 写作。一条主线贯穿始终：<strong>用现在进行时描述“正在发生”</strong>。先记住五根枝干，再往里填叶子。</p>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>📝 主栏</summary>
+      <h4>① 核心词汇（砖头）</h4>
+      <ul>
+        <li>乡村景色：<span class="word">countryside, farm, grass, garden, tractor, field, forest, leaf→leaves</span></li>
+        <li>动物动作：<span class="word">kitten, puppy, sleeping, washing, drinking, naughty, dirty</span></li>
+        <li>早晨作息：<span class="word">wake up, get up, have a shower, brush your teeth, have breakfast</span></li>
+        <li>例：That's Grandpa's <strong>garden</strong>!（指认花园）／一片 <strong>leaf</strong>，许多 <strong>leaves</strong>（复数去 f 加 ves）</li>
+      </ul>
+      <h4>② 语法焦点（钢筋）</h4>
+      <ul>
+        <li>现在进行时 <span class="word">am/is/are + V-ing</span>（本单元主语法）</li>
+        <li>There be 存在句、What time 时间问句、一般现在时三单、Let's / want to / Can</li>
+        <li>例：The kittens <strong>are sleeping</strong>. ／ There <strong>are</strong> many leaves.</li>
+      </ul>
+      <h4>③ 功能句型（窗户）</h4>
+      <ul>
+        <li>That's…（指认）／ Let's + V原形（提议）／ I want to + V原形（意愿）／ Can…?（请求）／ What time…?（问时间）</li>
+        <li>例：That's Grandpa's farm! ／ Let's go for a walk!</li>
+      </ul>
+      <h4>④ 语篇阅读（房子）</h4>
+      <ul>
+        <li>5 篇：乡村时光 / 农场的一天 / 早晨例行 / 保护地球 / 校园运动会（+ Beth & Gwen 友谊复述）</li>
+        <li>例：《A Day on the Farm》用现在进行时把每个动物串成“正在做什么”。</li>
+      </ul>
+      <h4>⑤ 写作与表达（盖新房）</h4>
+      <ul>
+        <li>My Morning Routine：一般现在时第一人称，按 First→Then→Next 顺序写</li>
+        <li>Protect the Earth：Opening → Problems → Solutions → Ending 四步框架</li>
+        <li>例：First, I stretch my body. Then I brush my teeth.</li>
+      </ul>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>🔑 线索栏</summary>
+      <ul>
+        <li><strong>五大分支</strong>？—— 词汇 / 语法 / 句型 / 语篇 / 写作</li>
+        <li><strong>leaf 的复数</strong>怎么变？—— leaves（去 f 加 ves）</li>
+        <li><strong>一条主线</strong>是什么？—— 现在进行时描述“正在发生”</li>
+        <li><strong>两篇写作</strong>各用什么框架？—— 记叙文按顺序词；议论文四步框架</li>
+      </ul>
+    </details>
+
+    <div class="callout idea">🔁 遮住主栏 → 看线索栏回忆（3-5 分钟）</div>
+  </article>
+
+  <!-- ========== 第2张 · 核心知识点详解笔记 ========== -->
+  <article class="cornell-card">
+    <h3>📚 第2张 · 核心知识点详解笔记：5 大语法点</h3>
+
+    <details class="interactive-panel" open>
+      <summary>💡 总结区</summary>
+      <p>语法是单元骨架：<strong>现在进行时</strong>讲“正在做”，<strong>There be</strong> 讲“哪里有”，<strong>What time</strong> 问“几点”，<strong>三单</strong>管“他/她/它每天做”，<strong>Let's / want to / Can</strong> 表提议、意愿、请求。抓住“be 动词 + 动词-ing”这对黄金搭档，就抓住了本单元一半语法。</p>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>📝 主栏</summary>
+      <h4>语法 1 · 现在进行时（主语法 · 最高频）</h4>
+      <p><strong>规则</strong>：主语 + am/is/are + 动词-ing；标志词 Look!, Listen!, now。<br>
+      <strong>例句</strong>：The kittens are sleeping. ／ Look! The cat is looking at her kittens.<br>
+      <strong>常见错</strong>：I is looking ❌ → I am looking ✅；The puppies is happy ❌ → 表“看起来”不加 ing，The puppies look happy ✅</p>
+      <p>加 ing 三规则：直接加（look→looking）/ 去不发音 e 加（make→making, take→taking）/ 重读闭音节双写末尾辅音（swim→swimming, run→running）。</p>
+
+      <h4>语法 2 · There is / There are（存在句型）</h4>
+      <p><strong>规则</strong>：There is + 单数/不可数名词；There are + 复数名词；be 动词<b>随后面名词</b>变。<br>
+      <strong>例句</strong>：There is a big rock in the field. ／ There are many leaves on the ground.<br>
+      <strong>常见错</strong>：There are a rock ❌ → There is a rock ✅（a rock 是单数）</p>
+
+      <h4>语法 3 · What time…?（时间疑问句）</h4>
+      <p><strong>规则</strong>：What time do you + 动词原形? → At + 钟点；三单用 does。<br>
+      <strong>例句</strong>：What time do you get up? — At 6:00. ／ What time does she have a shower? — At 7:30.<br>
+      <strong>常见错</strong>：What time you get up? ❌（缺助动词）→ What time do you get up? ✅</p>
+
+      <h4>语法 4 · 一般现在时第三人称单数（三单）</h4>
+      <p><strong>规则</strong>：he/she/it/单数名词 + 动词-s/es；标志词 usually, always, every day。<br>
+      <strong>例句</strong>：Tom loves playing with leaves. ／ The farm cat has some babies.<br>
+      <strong>常见错</strong>：Tom love playing ❌ → Tom loves ✅；he go ❌ → he goes ✅（es）</p>
+
+      <h4>语法 5 · Let's / want to / Can + 动词原形</h4>
+      <p><strong>规则</strong>：三个“小司令”后面都跟<b>动词原形</b>——Let's（提议）、want to（意愿）、Can…?（请求）。<br>
+      <strong>例句</strong>：Let's go for a walk! ／ I want to take a walk. ／ Can we go swimming this afternoon?<br>
+      <strong>常见错</strong>：Let's going ❌ → Let's go ✅；I want take ❌ → I want to take ✅（to 不能丢）</p>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>🔑 线索栏</summary>
+      <ul>
+        <li><strong>现在进行时结构</strong>？—— be + V-ing，标志词 Look! / now</li>
+        <li><strong>ing 拼写三规则</strong>？—— 直接加 / 去 e 加 / 双写加</li>
+        <li><strong>There be 的 be 跟谁变</strong>？—— 后面名词（不是 there）</li>
+        <li><strong>问几点用哪个词？回答用什么介词</strong>？—— What time / at</li>
+        <li><strong>三单动词怎么变</strong>？—— +s 或 +es（loves, has, goes）</li>
+        <li><strong>Let's / want to / Can 后面接什么</strong>？—— 动词原形</li>
+      </ul>
+    </details>
+
+    <div class="callout idea">🔁 遮住主栏 → 看线索栏回忆（3-5 分钟）</div>
+  </article>
+
+  <!-- ========== 第3张 · 难点与易错笔记 ========== -->
+  <article class="cornell-card">
+    <h3>⚠️ 第3张 · 难点与易错笔记：8 条易错点</h3>
+
+    <details class="interactive-panel" open>
+      <summary>💡 总结区</summary>
+      <p>8 个“坑”集中在三件事：<strong>be 动词怎么变、什么时候加 ing、什么时候用动词原形</strong>。写句子前先问自己三个问题：主语是谁？be 用哪个？动词要不要变形？三个问题一问，错误就少八成。</p>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>📝 主栏</summary>
+      <ol>
+        <li><strong>There be 的 be 用错</strong>：There are a big rock ❌ → There is a big rock ✅。<em>原理</em>：be 随后面名词的单复数变，不是随 there。<em>口诀</em>：there 后面跟谁变，单数用 is 复数 are。</li>
+        <li><strong>look 两义混用</strong>：The puppies is happy ❌ → The puppies look happy ✅。<em>原理</em>：表“看起来”是连系动词不加 ing；“看某物”才用 look at。<em>口诀</em>：看起来不加 ing，看某物要加 at。</li>
+        <li><strong>主谓一致错</strong>：The kittens is sleeping ❌ → The kittens are sleeping ✅。<em>原理</em>：复数主语配 are。<em>口诀</em>：单数用 is 复数 are，I 配 am 你配 are。</li>
+        <li><strong>What time 与 When 混淆</strong>：When do you get up?（问具体钟点时）❌ → What time do you get up? ✅。<em>原理</em>：When 问笼统时间，What time 问几点几分。<em>口诀</em>：几点几分 What time，笼统时间用 When。</li>
+        <li><strong>三单动词忘加 s</strong>：Tom love playing ❌ → Tom loves playing ✅。<em>原理</em>：he/she/it/单数名词作主语，动词加 s 或 es。<em>口诀</em>：他她它单数名词，动词尾巴加 s。</li>
+        <li><strong>进行时漏掉 be 或 ing</strong>：The cat is look at ❌ → The cat is looking at ✅。<em>原理</em>：be 和 ing 是搭档，缺一不可。<em>口诀</em>：be 和 ing，两个都要有。</li>
+        <li><strong>现在分词拼写错</strong>：He is swiming ❌ → He is swimming ✅。<em>原理</em>：swim 是“辅元辅”重读闭音节，双写 m 再加 ing。<em>口诀</em>：辅元辅、双写加；尾 e 去掉再加 ing。</li>
+        <li><strong>at / in 搭配错</strong>：in 6:00 ❌ → at 6:00 ✅；at the morning ❌ → in the morning ✅。<em>原理</em>：点钟用 at，时段用 in。<em>口诀</em>：点钟用 at，时段用 in。</li>
+      </ol>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>🔑 线索栏</summary>
+      <ul>
+        <li><strong>There be 的坑</strong>？—— be 随后面名词</li>
+        <li><strong>look 什么时候不加 ing</strong>？—— 表“看起来”时（The puppies look happy）</li>
+        <li><strong>What time 和 When 怎么分</strong>？—— 精确钟点 / 笼统时间</li>
+        <li><strong>三单口诀</strong>？—— 他她它单数名词，动词加 s</li>
+        <li><strong>ing 三规则</strong>？—— 直接加 / 去 e / 双写</li>
+        <li><strong>at 和 in 怎么配</strong>？—— at + 点钟，in + 时段</li>
+      </ul>
+    </details>
+
+    <div class="callout idea">🔁 遮住主栏 → 看线索栏回忆（3-5 分钟）</div>
+  </article>
+
+  <!-- ========== 第4张 · 考点汇总笔记 ========== -->
+  <article class="cornell-card">
+    <h3>🎯 第4张 · 考点汇总笔记：8 大考点类型</h3>
+
+    <details class="interactive-panel" open>
+      <summary>💡 总结区</summary>
+      <p>考试最爱考三件事：<strong>时态辨析</strong>（是不是进行时）、<strong>There be</strong> 的 is/are、<strong>What time</strong> 的提问词。先按 8 大题型分类掌握，再把“个人最弱的 2 类”挑出来多练。分值为参考权重，以各校卷面为准。</p>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>📝 主栏</summary>
+      <ol>
+        <li><strong>★ 首字母填空</strong>（约 10-15 分）：<span class="word">countryside, walk, farm, grass, tractor, field, forest, leaves, lake, swimming</span>。例：Grandpa has a new blue t______.（tractor）</li>
+        <li><strong>★ 语法单选</strong>（约 15-20 分）：There be / 现在进行时 / 三单 / What time / 助动词。例：There ______ a lot of leaves.（are）</li>
+        <li><strong>★ 时态辨析单选</strong>（约 10-15 分）：is looking vs looks vs looked；is eating vs eats vs ate。例：Look! The cat ______ her kittens.（is looking at）</li>
+        <li><strong>★ 阅读理解</strong>（约 20 分）：细节理解 / 词义推测 / 代词指代 / 主旨大意 / 判断推理。例：What does “it” refer to? → The rock</li>
+        <li><strong>★ 中英短语互译</strong>（约 10 分）：have a shower / get dressed / toothpaste / towel / wake up / toothbrush。</li>
+        <li><strong>★ 选词填空</strong>（约 10 分，故事复现）：beautiful / sleeping / eyes / young / white / drinking / sock / sad。</li>
+        <li><strong>★ 写作</strong>（约 10 分）：My Morning Routine（记叙）+ Protect the Earth（议论）。</li>
+        <li><strong>★ 思维导图复述</strong>（约 5 分）：Beth & Gwen 乡村友谊故事——Gwen 放弃领先的比赛，回来帮助在树叶中摔倒的 Beth。</li>
+      </ol>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>🔑 线索栏</summary>
+      <ul>
+        <li><strong>分值最高的两题</strong>？—— 语法单选 / 阅读理解</li>
+        <li><strong>首字母填空常考哪些词</strong>？—— countryside, leaves, swimming…</li>
+        <li><strong>阅读理解五类</strong>？—— 细节 / 词义 / 代词 / 主旨 / 推理</li>
+        <li><strong>两篇写作分别是什么文体</strong>？—— 记叙文（morning routine）+ 议论文（protect the earth）</li>
+      </ul>
+    </details>
+
+    <div class="callout idea">🔁 遮住主栏 → 看线索栏回忆（3-5 分钟）</div>
+  </article>
+
+  <!-- ========== 第5张 · 薄弱突破笔记 ========== -->
+  <article class="cornell-card">
+    <h3>💪 第5张 · 薄弱突破笔记：第一 / 第二梯队</h3>
+
+    <details class="interactive-panel" open>
+      <summary>💡 总结区</summary>
+      <p>先攻<strong>第一梯队</strong>（现在进行时、There be、时态辨析——占单选和阅读大半分值），再固<strong>第二梯队</strong>。每天用错题本做“1 道原题 + 1 道变式”的间隔复习。口诀记牢：先攻进行时和 There be，再看时间问 What time。</p>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>📝 主栏</summary>
+      <h4>第一梯队（最优先 · 分值最重）</h4>
+      <ul>
+        <li><strong>现在进行时</strong>（含主谓一致 + ing 拼写）：每天造 3 个“Look! … is/are …ing”句子。<em>原理</em>：be + ing 搭档，缺一不可。例：Look! The naughty puppy is eating Grandpa's sock.</li>
+        <li><strong>There be</strong>：用农场图玩“看图说话”，指一个说一句。<em>原理</em>：be 随后面名词。例：There is a tractor in the field. ／ There are three puppies.</li>
+        <li><strong>时态辨析</strong>：看到 Look / now 选进行时；看到 usually / every day 选一般现在时。<em>原理</em>：标志词定时态。例：Tom ______ with leaves.（loves / loving / loved → loves）</li>
+      </ul>
+      <h4>第二梯队（巩固 · 查漏）</h4>
+      <ul>
+        <li><strong>What time / When / How often</strong>：When 笼统、What time 精确钟点、How often 问频率。</li>
+        <li><strong>三单</strong>：loves / has / goes 三个高频词单独记。</li>
+        <li><strong>Let's / want to / Can 后接动词原形</strong>：写句前先检查“原形有没有被写错”。</li>
+        <li><strong>短语互译</strong>：have a shower 洗淋浴 / get dressed 穿好衣服 / brush your teeth 刷牙。</li>
+      </ul>
+      <h4>原理策略</h4>
+      <p><strong>检索练习</strong>（遮住答案先回忆）+ <strong>间隔重复</strong>（隔天再测一次）+ <strong>错误归因</strong>（错了要说出“我违反的是哪条规则”）。<br><strong>口诀</strong>：先攻进行时和 There be，再看时间问 What time；三单尾巴加 s，原形紧跟 Let's / want / Can。</p>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>🔑 线索栏</summary>
+      <ul>
+        <li><strong>第一梯队三大块</strong>？—— 现在进行时 / There be / 时态辨析</li>
+        <li><strong>看到 Look / now 选什么时态</strong>？—— 现在进行时</li>
+        <li><strong>看到 usually / every day 呢</strong>？—— 一般现在时</li>
+        <li><strong>How often 问什么</strong>？—— 频率（多久一次）</li>
+        <li><strong>复习策略三条</strong>？—— 检索练习 / 间隔重复 / 错误归因</li>
+      </ul>
+    </details>
+
+    <div class="callout idea">🔁 遮住主栏 → 看线索栏回忆（3-5 分钟）</div>
+  </article>
+
+  <!-- ========== 第6张 · 总览贯通笔记 ========== -->
+  <article class="cornell-card">
+    <h3>🔗 第6张 · 总览贯通笔记：跨板块关联</h3>
+
+    <details class="interactive-panel" open>
+      <summary>💡 总结区</summary>
+      <p>词汇是砖、语法是钢筋、句型是窗户、语篇是房子、写作是盖新房——五板块层层递进。本单元是 YLE 从 Starters 到 Movers 的桥。把 be 动词和现在进行时打牢，三年级校内英语就稳了。</p>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>📝 主栏</summary>
+      <h4>跨板块关联（词汇 → 语法 → 语篇 → 写作）</h4>
+      <ul>
+        <li><strong>词汇 ↔ 语法</strong>：farm 动物词（kitten / puppy）+ 动作词（sleeping / drinking / playing）正好当现在进行时的主语和谓语；leaf → leaves 复数正好练 There are。例：The kittens are sleeping.</li>
+        <li><strong>语法 ↔ 语篇</strong>：《A Day on the Farm》用现在进行时把每个动物串成“正在做什么”；《Protect Our Planet》用 There is/are 说清场景。例：Look at the cat. She is looking at her babies.</li>
+        <li><strong>语篇 ↔ 写作</strong>：《Morning Routines》里的顺序词 First / Then / Next 直接搬到 My Morning Routine 写作；Protect the Earth 的 Solutions 直接进议论文。例：First, wash your face. → First, I wash my face.</li>
+        <li><strong>词汇 ↔ 写作</strong>：morning 短语（wake up / brush teeth / have breakfast）就是写作的“零件”。</li>
+      </ul>
+      <h4>单元在 YLE 体系中的定位</h4>
+      <p>本单元约 <strong>CEFR Pre-A1 ~ A1</strong>，处在 <strong>YLE Starters（已备）→ Movers（衔接）</strong>之间。现在进行时、There be、What time 正是 Movers 高频考查语法。</p>
+      <h4>下一步衔接</h4>
+      <ul>
+        <li><strong>单元内</strong>：把 Beth & Gwen 乡村友谊故事复述熟（对应思维导图复述考点）。</li>
+        <li><strong>单元外</strong>：过渡到 Unit 2（新话题 + 语法进阶）；衔接三年级校内英语——先记 be 动词三兄弟，写句子前先问“be 和 ing 都在吗？”例：三年级写 I am happy. ／ Tom plays football every day.</li>
+      </ul>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>🔑 线索栏</summary>
+      <ul>
+        <li><strong>五板块关系一句话</strong>？—— 词汇 → 语法 → 语篇 → 写作层层递进</li>
+        <li><strong>本单元在 YLE 哪两个级别之间</strong>？—— Starters → Movers</li>
+        <li><strong>顺序词 First / Then 用在哪两处</strong>？—— 语篇（Morning Routines）和写作</li>
+        <li><strong>下一步衔接什么</strong>？—— Unit 2 + 三年级校内英语</li>
+        <li><strong>写句子前先问什么</strong>？—— be 和 ing 都在吗</li>
+      </ul>
+    </details>
+
+    <div class="callout idea">🔁 遮住主栏 → 看线索栏回忆（3-5 分钟）</div>
+  </article>
+
+  <!-- ========== 第7张 · 单元核心句笔记 ========== -->
+  <article class="cornell-card">
+    <h3>🌟 第7张 · 单元核心句笔记：抄到首页天天看</h3>
+
+    <details class="interactive-panel" open>
+      <summary>💡 总结区</summary>
+      <p>这 9 句是单元精华浓缩：有农场正在发生（进行时）、有作息问答（What time）、有保护地球金句。抄到笔记本首页，每天早读读一遍。句子熟了，语法、写作都会跟着变顺。</p>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>📝 主栏</summary>
+      <h4>英文核心句（建议抄到笔记本首页，天天看）</h4>
+      <ol>
+        <li>That's Grandpa's garden!（指认景物）</li>
+        <li>Look! The cat is looking at her kittens.（进行时 + look 两义）</li>
+        <li>The kittens are sleeping.（复数 are + ing）</li>
+        <li>There are many leaves on the ground.（leaf → leaves + There are）</li>
+        <li>What time do you get up? — At 6:00.（时间问答）</li>
+        <li>Tom loves playing with leaves.（三单 loves）</li>
+        <li>Let's go for a walk!（提议）</li>
+        <li>I want to take a walk.（want to + 原形）</li>
+        <li>Can we go swimming this afternoon?（请求允许）</li>
+      </ol>
+      <h4>两篇写作范文佳句</h4>
+      <ul>
+        <li><strong>My Morning Routine</strong>：First, I stretch my body. Then I wash my face and brush my teeth. At 7:00, I have breakfast.</li>
+        <li><strong>Protect the Earth</strong>：The Earth is our home. We should look after it. We can plant trees to make the air cleaner.</li>
+      </ul>
+    </details>
+
+    <details class="interactive-panel">
+      <summary>🔑 线索栏</summary>
+      <ul>
+        <li><strong>哪句含 look 表“看起来”</strong>？—— The puppies look happy.</li>
+        <li><strong>问几点用什么词？回答用什么介词</strong>？—— What time / at</li>
+        <li><strong>提议用哪个句型</strong>？—— Let's + 动词原形</li>
+        <li><strong>保护地球金句</strong>？—— We can plant trees to make the air cleaner.</li>
+        <li><strong>早晨写作开头用哪个顺序词</strong>？—— First</li>
+      </ul>
+    </details>
+
+    <div class="callout idea">🔁 遮住主栏 → 看线索栏回忆（3-5 分钟）</div>
+  </article>
+
+</section>
+<!-- sec4 结束 -->
+
+<section id="ch9" class="sec">
+  <h2 class="sec">九、7天每日打卡表</h2>
+
+  <div class="callout note">
+    <p><strong>📅 7天复习总览</strong></p>
+    <p>宝贝，接下来的 <strong>7 天</strong>，我们每天花 <strong>约 30 分钟</strong>，把《Power Up Level 2 · Unit 1 A Day on the Farm》稳稳拿下！每天跟着小表格走，不贪多、不着急，一步一步来。</p>
+    <ul>
+      <li><strong>Day 1（第1天）：</strong>乡村词汇大闯关（VocabularyⅠ 16词）</li>
+      <li><strong>Day 2（第2天）：</strong>农场故事 + 现在进行时（Story + GrammarⅠ）</li>
+      <li><strong>Day 3（第3天）：</strong>早晨作息短语 + What time（VocabularyⅡ + GrammarⅡ）</li>
+      <li><strong>Day 4（第4天）：</strong>跨学科·保护地球（Cross-Curricular）</li>
+      <li><strong>Day 5（第5天）：</strong>文化阅读·运动会友谊（Culture）</li>
+      <li><strong>Day 6（第6天）：</strong>综合演练 + 错题清零（提高练习）</li>
+      <li><strong>Day 7（第7天）：</strong>模拟自测 + 复习效果检查（综合模拟卷）</li>
+    </ul>
+    <p>💡 时间段可以按家里情况自由调整（比如晚饭后、放学后），每天保证 <strong>30 分钟</strong> 就好。从第 2 天开始，每天都要打开康奈尔笔记，遮住主栏、看线索栏回忆昨天的内容哦！</p>
+  </div>
+
+  <h4>Day 1（第1天）：乡村词汇大闯关 · VocabularyⅠ</h4>
+  <table>
+    <thead>
+      <tr><th>时间段</th><th>时长</th><th>📌必背任务</th><th>🧠思维拓展任务</th><th>今日目标</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>建议晚饭后<br>18:30-19:00</td>
+        <td>30分钟</td>
+        <td>
+          1. 跟读 VocabularyⅠ 16 词，每词 3 遍：<span class="word">countryside</span> 乡村、<span class="word">walk</span> 散步、<span class="word">farm</span> 农场、<span class="word">grass</span> 草、<span class="word">garden</span> 花园、<span class="word">pretty</span> 漂亮的、<span class="word">tractor</span> 拖拉机、<span class="word">field</span> 田地、<span class="word">forest</span> 森林、<span class="word">mountain</span> 山、<span class="word">leaf</span> 树叶（复数 <span class="word">leaves</span>）、<span class="word">ground</span> 地面、<span class="word">swim</span> 游泳、<span class="word">problem</span> 问题、<span class="word">move</span> 移动、<span class="word">go for a walk</span> 去散步
+          <br>2. 完成 PDF 第1页「首字母填空」8 题：c______ / w______ / f______ / g______ / t______ / f______ / f______ / l______
+          <br>3. 熟读两句：That's Grandpa's garden! / Let's go for a walk in the forest.
+        </td>
+        <td>
+          1. 建立自己的康奈尔笔记·知识加工厂：准备一个空本子，今天先做第一张「词汇卡」——左边写英文单词，右边写中文，下方写一句例句（比如 countryside：We are in the countryside.）
+          <br>2. 用 go for a walk 造 1 句：Let's go for a walk in the countryside. 并读给家长听
+          <br>3. 找一找：leaf 的复数好朋友是 leaves，把这对"好朋友"记进笔记
+        </td>
+        <td>能认读 16 个单词并写出首字母；能用英语说出 3 样农场景物（farm / garden / forest）</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>☐ 完成后勾选</strong>（完成请在方框内打√）</p>
+
+  <h4>Day 2（第2天）：农场故事 + 现在进行时 · Story + GrammarⅠ</h4>
+  <table>
+    <thead>
+      <tr><th>时间段</th><th>时长</th><th>📌必背任务</th><th>🧠思维拓展任务</th><th>今日目标</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>建议晚饭后<br>18:30-19:00</td>
+        <td>30分钟</td>
+        <td>
+          1. 熟读 Story+GrammarⅠ 12 词：<span class="word">friendly</span> 友好的、<span class="word">farm</span> 农场、<span class="word">good morning</span> 早上好、<span class="word">sleeping</span> 睡觉的、<span class="word">awake</span> 醒着的、<span class="word">kitten</span> 小猫、<span class="word">washing</span> 洗、<span class="word">puppy</span> 小狗、<span class="word">playing with</span> 和……一起玩、<span class="word">drinking water</span> 喝水、<span class="word">naughty</span> 淘气的、<span class="word">dirty</span> 脏的
+          <br>2. 现在进行时结构：<strong>主语 + am/is/are + 动词-ing</strong>。The cat <strong>is looking</strong> at her kittens.（单数）／The kittens <strong>are sleeping</strong>.（复数）
+          <br>3. 背 3 条变 -ing 规则：look→looking（直接加 -ing）／make→making（去不发音 e 加 -ing）／swim→swimming（双写末尾辅音加 -ing）
+        </td>
+        <td>
+          1. 复习昨天 2 张康奈尔笔记（遮住主栏看线索栏回忆，3-5分钟）
+          <br>2. 用 Look! 造 3 个现在进行时句：Look! The cat is sleeping. / The puppies are playing with a ball. / The puppy is drinking water.
+          <br>3. 朗读《A Day on the Farm》故事 2 遍，找出：小猫在做什么？三只小狗分别在做什么？
+        </td>
+        <td>会造 3 个现在进行时句子；能说出故事里动物们正在做什么（kittens are sleeping / puppy is drinking water）</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>☐ 完成后勾选</strong>（完成请在方框内打√）</p>
+
+  <h4>Day 3（第3天）：早晨作息短语 + What time · VocabularyⅡ + GrammarⅡ</h4>
+  <table>
+    <thead>
+      <tr><th>时间段</th><th>时长</th><th>📌必背任务</th><th>🧠思维拓展任务</th><th>今日目标</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>建议放学后<br>17:00-17:30</td>
+        <td>30分钟</td>
+        <td>
+          1. 日常作息短语 9 个：<span class="word">wake up</span> 醒来、<span class="word">get up</span> 起床、<span class="word">have a shower</span> 洗淋浴、<span class="word">get dressed</span> 穿好衣服、<span class="word">brush your teeth</span> 刷牙、<span class="word">have breakfast</span> 吃早餐、<span class="word">towel</span> 毛巾、<span class="word">toothbrush</span> 牙刷、<span class="word">toothpaste</span> 牙膏
+          <br>2. What time 句型：<strong>What time do you + 动词原形…?</strong> — At + 时间。What time do you get up? — At 7:00.／What time does she have a shower? — At 7:30.（第三人称单数用 does）
+          <br>3. 时间介词：at + 点钟（at 6:00）／in the morning 在早上
+        </td>
+        <td>
+          1. 复习昨天 2 张康奈尔笔记（遮住主栏看线索栏回忆，3-5分钟）
+          <br>2. What time 对话问答：和家长一问一答 5 轮（get up / have breakfast / brush your teeth / have a shower / get dressed）
+          <br>3. 按顺序复述 Morning Routines：wake up → stretch → get up → wash face → brush teeth → get dressed → have breakfast（边说边做动作）
+        </td>
+        <td>会问"几点起床/吃早餐/刷牙"并正确回答（At 7:00.）；能按顺序说出早晨做的 5 件事</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>☐ 完成后勾选</strong>（完成请在方框内打√）</p>
+
+  <h4>Day 4（第4天）：跨学科 · 保护地球小卫士 · Cross-Curricular</h4>
+  <table>
+    <thead>
+      <tr><th>时间段</th><th>时长</th><th>📌必背任务</th><th>🧠思维拓展任务</th><th>今日目标</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>建议晚饭后<br>18:30-19:00</td>
+        <td>30分钟</td>
+        <td>
+          1. 环保词汇 16 个：<span class="word">planet</span> 行星、<span class="word">Earth</span> 地球、<span class="word">air</span> 空气、<span class="word">oxygen</span> 氧气、<span class="word">gases</span> 气体、<span class="word">plants</span> 植物、<span class="word">animals</span> 动物、<span class="word">clean</span> 干净的、<span class="word">healthy</span> 健康的、<span class="word">important</span> 重要的、<span class="word">live on</span> 居住在、<span class="word">look after</span> 照顾、<span class="word">plastic</span> 塑料、<span class="word">turn off</span> 关闭、<span class="word">recycle</span> 回收、<span class="word">litter</span> 垃圾
+          <br>2. 保护地球 4 件事：刷牙关水龙头（turn off the tap）／淋浴比盆浴省水（take a shower, not a bath）／出门关灯（turn off the lights）／回收纸、玻璃、塑料（recycle paper, glass, plastic）
+          <br>3. 购物自带布袋：bring our own cloth bags；多种树让空气更干净：plant trees
+        </td>
+        <td>
+          1. 复习昨天 2 张康奈尔笔记（遮住主栏看线索栏回忆，3-5分钟）
+          <br>2. 环保倡议小任务：今天做到 <strong>1 件节水节电</strong>的事（刷牙时关水龙头 / 出门随手关灯），并在打卡表下面写一句"今天我做到了____"
+          <br>3. 复述《Protect Our Planet》：地球给我们 air / water / home → 在家怎么保护 → 在自然怎么保护
+        </td>
+        <td>能说出 3 件保护地球的小事，并今天真的做到 1 件（节水或节电）</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>☐ 完成后勾选</strong>（完成请在方框内打√）</p>
+
+  <h4>Day 5（第5天）：文化阅读 · 运动会友谊 · Culture</h4>
+  <table>
+    <thead>
+      <tr><th>时间段</th><th>时长</th><th>📌必背任务</th><th>🧠思维拓展任务</th><th>今日目标</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>建议周末上午<br>10:00-10:30</td>
+        <td>30分钟</td>
+        <td>
+          1. Culture 16 词：<span class="word">race</span> 赛跑、<span class="word">shower</span> 淋浴、<span class="word">teeth</span> 牙齿、<span class="word">dressed</span> 穿好衣服的、<span class="word">puppy</span> 小狗、<span class="word">field</span> 田野、<span class="word">rock</span> 岩石、<span class="word">leaves</span> 树叶、<span class="word">come back</span> 回来、<span class="word">win the race</span> 赢得比赛、<span class="word">look at</span> 看、<span class="word">have a shower</span> 洗淋浴、<span class="word">clean your teeth</span> 刷牙、<span class="word">get dressed</span> 穿好衣服、<span class="word">supportive</span> 支持的、<span class="word">on the ground</span> 在地上
+          <br>2. 完成《Our School Sports Day》阅读理解 5 题（细节理解 + 判断推理）
+        </td>
+        <td>
+          1. 复习昨天 2 张康奈尔笔记（遮住主栏看线索栏回忆，3-5分钟）
+          <br>2. 复述 Sports Day 故事：Tom 领先（in the lead）→ Jack 摔倒扭伤脚踝 → Tom 停下比赛回去帮助 → 两人一起走到终点 → 校长表扬 Tom 的善良
+          <br>3. 价值观讨论：为什么 Tom 没赢比赛却更棒？（友谊比胜负更重要——That's what friends are for.）
+        </td>
+        <td>能复述运动会故事大意；懂得"帮助朋友比赢比赛更重要"，能说出 supportive 的意思</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>☐ 完成后勾选</strong>（完成请在方框内打√）</p>
+
+  <h4>Day 6（第6天）：综合演练 + 错题清零 · 提高练习</h4>
+  <table>
+    <thead>
+      <tr><th>时间段</th><th>时长</th><th>📌必背任务</th><th>🧠思维拓展任务</th><th>今日目标</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>建议晚饭后<br>18:30-19:00</td>
+        <td>30分钟</td>
+        <td>
+          1. 五大板块词汇大串烧：快速认读 VocabularyⅠ 16 词 + Culture 16 词，各读 1 遍
+          <br>2. 完成「提高1」「提高2」两套练习题：重点过关现在进行时（is looking / are sleeping）、There be（There is / There are）、What time 三问、一般现在时三单（loves / has / plays）
+        </td>
+        <td>
+          1. 复习昨天 2 张康奈尔笔记（遮住主栏看线索栏回忆，3-5分钟）
+          <br>2. 整理错题本：把前 5 天做错的题抄进错题本，旁边写出正确句子，再大声读 2 遍
+          <br>3. 用康奈尔笔记法做「总览贯通卡」：把本单元 3 个子话题（乡村景物 / 农场动物 / 保护地球）串成一张图
+        </td>
+        <td>做完提高练习；错题全部弄懂并记进错题本，不留一个"小尾巴"</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>☐ 完成后勾选</strong>（完成请在方框内打√）</p>
+
+  <h4>Day 7（第7天）：模拟自测 + 复习效果检查 · 综合模拟卷</h4>
+  <table>
+    <thead>
+      <tr><th>时间段</th><th>时长</th><th>📌必背任务</th><th>🧠思维拓展任务</th><th>今日目标</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>建议周末上午<br>10:00-10:30</td>
+        <td>30分钟</td>
+        <td>
+          1. 完成「综合模拟卷」：词汇 + 语法单选 + 阅读理解 + 写作（My Morning Routine 或 Protect the Earth 二选一，80词左右）
+          <br>2. 完成「复习效果自测表」，给每一天的自己打个分
+        </td>
+        <td>
+          1. 复习昨天 2 张康奈尔笔记（遮住主栏看线索栏回忆，3-5分钟）
+          <br>2. 错题清零：把模拟卷错题再口述一遍正确思路，直到能讲给家长听
+          <br>3. 和家长一起回顾 7 天收获：说出你最喜欢的一个话题（农场 / 动物 / 环保 / 运动会），再用英语说 3 个学到的词
+        </td>
+        <td>独立完成模拟卷，检查 7 天学习成果，给自己点一个大大的赞👍</td>
+      </tr>
+    </tbody>
+  </table>
+  <p><strong>☐ 完成后勾选</strong>（完成请在方框内打√）</p>
+
+  <div class="callout idea">
+    <p><strong>🗓 7 天打卡总勾选</strong>（每天完成后在方框里打√，集齐 7 个√ 召唤大奖励！）</p>
+    <ul>
+      <li>☐ Day 1 乡村词汇大闯关（VocabularyⅠ）</li>
+      <li>☐ Day 2 农场故事 + 现在进行时（Story + GrammarⅠ）</li>
+      <li>☐ Day 3 早晨作息短语 + What time（VocabularyⅡ + GrammarⅡ）</li>
+      <li>☐ Day 4 跨学科·保护地球（Cross-Curricular）</li>
+      <li>☐ Day 5 文化阅读·运动会友谊（Culture）</li>
+      <li>☐ Day 6 综合演练 + 错题清零（提高练习）</li>
+      <li>☐ Day 7 模拟自测 + 复习效果检查（综合模拟卷）</li>
+    </ul>
+  </div>
+
+  <div class="callout success">
+    <p>🎉 <strong>恭喜你！坚持完成了 7 天打卡！</strong></p>
+    <p>宝贝，你真是太棒了！这 7 天里，你认识了 16 个乡村单词、会造现在进行时的句子、会问"What time do you get up?"、还当了一回保护地球的小卫士、听懂了"帮助朋友比赢比赛更重要"的道理。每一个 ☐√ 都是你的小小勋章！⭐</p>
+    <p>现在，请去抱抱爸爸妈妈，向他们大声说一句：<strong>"I did it! I love the farm!"</strong> 然后给自己选一份小奖励吧——可以是一次公园散步（用英语指一指 countryside / forest / garden）、一本新绘本，或是一顿喜欢的点心。明天开始，记得每天翻一翻你的康奈尔笔记，让知识的小种子越长越高！🌱</p>
+  </div>
+
+  <p><em>【核验来源：Cambridge Power Up Level 2（Second Edition）Unit 1 "A Day on the Farm" + 本练习册PU2 Unit1拓展练习PDF】</em></p>
+</section>
+<!-- sec5 结束 -->
+
+<!-- ==================== 章节⑩-⑯ 七套练习题（ch10~ch16） ==================== -->
+
+<section id="ch10" class="sec">
+  <h2 class="sec">十、基础练习1（必背巩固）</h2>
+  <div class="callout note"><p>📌 小朋友，这一关我们复习 <strong>Unit 1 必背词汇和句型</strong>！跟着农场里的小动物一起闯关吧。先自己试一试，做完再看下面的答案和讲解哦。加油！💪</p></div>
+
+  <h3>一、词汇首字母填空（根据句意补全单词）</h3>
+  <ol>
+    <li>We can see Grandpa's <span class="word">f______</span> from the small hill.（农场）</li>
+    <li>The purple flowers are on the <span class="word">g______</span>.（草地）</li>
+    <li>Grandpa has a new blue <span class="word">t______</span>.（拖拉机）</li>
+    <li>There's a big rock in the <span class="word">f______</span>.（田野）</li>
+    <li>Look at the <span class="word">f______</span> behind the mountains.（森林）</li>
+    <li>The tall <span class="word">m______</span> are very high.（高山）</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. farm（农场）　2. grass（草，草地）　3. tractor（拖拉机）　4. field（田野）　5. forest（森林）　6. mountain（高山）</p></div>
+
+  <h3>二、There is / There are 填空（存在句型）</h3>
+  <p>💡 小提示：<strong>There is + 单数</strong>，<strong>There are + 复数</strong>。be 动词要跟着后面的名词变哦！</p>
+  <ol>
+    <li>There ______ a big rock in the field.</li>
+    <li>There ______ many leaves on the ground.</li>
+    <li>There ______ a pretty garden on the farm.</li>
+    <li>There ______ three chickens under the tree.</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. is（a big rock 单数）　2. are（many leaves 复数）　3. is（a pretty garden 单数）　4. are（three chickens 复数）</p></div>
+
+  <h3>三、现在进行时填空（be + 动词-ing）</h3>
+  <p>💡 小提示：看到 <strong>Look!</strong> / <strong>Listen!</strong> / <strong>now</strong>，表示"正在做"，用 <strong>am/is/are + 动词-ing</strong>。</p>
+  <ol>
+    <li>Look! The cat ______ <span class="word">(sleep)</span> under the tree.</li>
+    <li>The kittens ______ <span class="word">(play)</span> with a blue ball.</li>
+    <li>Listen! The big puppy ______ <span class="word">(drink)</span> water.</li>
+    <li>The farmers ______ <span class="word">(work)</span> in the field now.</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. is sleeping（猫正在睡觉）　2. are playing（小猫们正在玩球）　3. is drinking（大狗正在喝水）　4. are working（农民们正在田里干活）</p></div>
+
+  <h3>四、词汇连线（把英文单词和中文意思连起来）</h3>
+  <ol>
+    <li>tractor　　────　　A. 森林</li>
+    <li>forest　　────　　B. 树叶</li>
+    <li>mountain　　────　　C. 拖拉机</li>
+    <li>leaves　　────　　D. 高山</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1→C（tractor 拖拉机）　2→A（forest 森林）　3→D（mountain 高山）　4→B（leaves 树叶）</p></div>
+
+  <h3>📊 多维细目表（基础练习1）</h3>
+  <table>
+    <thead>
+      <tr><th>题号</th><th>知识点</th><th>题型</th><th>难度</th><th>SOLO层级</th><th>分值</th><th>考查能力</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>一-1</td><td>词汇 farm</td><td>首字母填空</td><td>★</td><td>U</td><td>2</td><td>识记</td></tr>
+      <tr><td>一-2</td><td>词汇 grass</td><td>首字母填空</td><td>★</td><td>U</td><td>2</td><td>识记</td></tr>
+      <tr><td>一-3</td><td>词汇 tractor</td><td>首字母填空</td><td>★</td><td>U</td><td>2</td><td>识记</td></tr>
+      <tr><td>一-4</td><td>词汇 field</td><td>首字母填空</td><td>★</td><td>U</td><td>2</td><td>识记</td></tr>
+      <tr><td>一-5</td><td>词汇 forest</td><td>首字母填空</td><td>★</td><td>U</td><td>2</td><td>识记</td></tr>
+      <tr><td>一-6</td><td>词汇 mountain</td><td>首字母填空</td><td>★</td><td>U</td><td>2</td><td>识记</td></tr>
+      <tr><td>二-1</td><td>There is + 单数</td><td>选择填空</td><td>★</td><td>U</td><td>2</td><td>主谓一致</td></tr>
+      <tr><td>二-2</td><td>There are + 复数</td><td>选择填空</td><td>★</td><td>U</td><td>2</td><td>主谓一致</td></tr>
+      <tr><td>二-3</td><td>There is + 单数</td><td>选择填空</td><td>★</td><td>U</td><td>2</td><td>主谓一致</td></tr>
+      <tr><td>二-4</td><td>There are + 复数</td><td>选择填空</td><td>★</td><td>U</td><td>2</td><td>主谓一致</td></tr>
+      <tr><td>三-1</td><td>现在进行时（is+doing）</td><td>用词填空</td><td>★</td><td>U</td><td>2</td><td>动词变化</td></tr>
+      <tr><td>三-2</td><td>现在进行时（are+doing）</td><td>用词填空</td><td>★</td><td>U</td><td>2</td><td>动词变化</td></tr>
+      <tr><td>三-3</td><td>现在进行时（is+doing）</td><td>用词填空</td><td>★</td><td>U</td><td>2</td><td>动词变化</td></tr>
+      <tr><td>三-4</td><td>现在进行时（are+doing）</td><td>用词填空</td><td>★</td><td>U</td><td>2</td><td>动词变化</td></tr>
+      <tr><td>四-1~4</td><td>核心词汇中英对应</td><td>连线题</td><td>★</td><td>U</td><td>2×4</td><td>识记对应</td></tr>
+    </tbody>
+  </table>
+  <div class="callout idea"><p>💡 <strong>本套满分：36 分。</strong>全是"必背"基础题，全部做对就说明 Unit 1 的词汇和两个大语法点已经记住了！错一题，去 <strong>ch4 核心知识点详解</strong> 再读一读哦。</p></div>
+</section>
+
+<!-- ==================== ch11 ==================== -->
+
+<section id="ch11" class="sec">
+  <h2 class="sec">十一、基础练习2（必背+简单运用）</h2>
+  <div class="callout note"><p>📌 这一关我们开始"用一用"啦！把上一关背过的单词和句子，用到新的题目里。别担心，和基础1有一点像，多练一次记更牢！🎯</p></div>
+
+  <h3>一、核心词汇单选（选出正确的答案）</h3>
+  <ol>
+    <li>The farm is in the ______.<br>A. city　　B. countryside　　C. sea</li>
+    <li>Grandpa has a new ______. It's blue.<br>A. tractor　　B. rock　　C. leaf</li>
+    <li>Many ______ fall on the ground in autumn.<br>A. grass　　B. leaves　　C. mountain</li>
+    <li>There are purple flowers on the ______.<br>A. mountain　　B. grass　　C. tractor</li>
+    <li>We can see a big grey ______ in the field.<br>A. rock　　B. walk　　C. swim</li>
+    <li>Look at the tall ______. They are very high.<br>A. forests　　B. fields　　C. mountains</li>
+    <li>We take a ______ in the countryside every morning.<br>A. walk　　B. grass　　C. rock</li>
+    <li>I want to ______ a walk in the forest.<br>A. take　　B. taking　　C. takes</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. B（农场在乡村 countryside）　2. A（新拖拉机，是蓝色的）　3. B（秋天树叶落下，leaves 是复数）　4. B（草地上有紫色花朵）　5. A（田野里有大灰岩）　6. C（高山很高）　7. A（take a walk 去散步）　8. A（want to + 动词原形，take a walk）</p></div>
+
+  <h3>二、现在进行时改写（用 Look! / Listen! 开头）</h3>
+  <p>💡 把下面的句子改写成"正在做"的意思，要用 <strong>be + 动词-ing</strong>。</p>
+  <ol>
+    <li>The cat looks at her kittens.<br>→ <strong>Look!</strong> ____________________</li>
+    <li>The puppy plays with a ball.<br>→ <strong>Look!</strong> ____________________</li>
+    <li>The birds sing in the trees.<br>→ <strong>Listen!</strong> ____________________</li>
+    <li>Tom swims in the lake.<br>→ <strong>Look!</strong> ____________________</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. Look! The cat <strong>is looking</strong> at her kittens.　2. Look! The puppy <strong>is playing</strong> with a ball.　3. Listen! The birds <strong>are singing</strong> in the trees.（birds 复数用 are）　4. Look! Tom <strong>is swimming</strong> in the lake.（swim 双写 m 加 ing）</p></div>
+
+  <h3>三、作息短语中英互译</h3>
+  <p>① 把英文短语翻译成中文（1-3题）；② 把中文短语翻译成英文（4-6题）。</p>
+  <ol>
+    <li>have a shower → ____________________</li>
+    <li>get dressed → ____________________</li>
+    <li>wake up → ____________________</li>
+    <li>吃早餐 → ____________________</li>
+    <li>刷牙 → ____________________</li>
+    <li>起床 → ____________________</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. 洗淋浴　2. 穿好衣服　3. 醒来；叫醒　4. have breakfast　5. brush your teeth　6. get up</p></div>
+
+  <h3>四、What time 问答配对（把问句和答语连起来）</h3>
+  <ol>
+    <li>What time do you get up?　　────　　A. At 7:50.</li>
+    <li>What time does she have breakfast?　　────　　B. At 9:00.</li>
+    <li>What time do they go to school?　　────　　C. At 6:30.</li>
+    <li>What time does he brush his teeth?　　────　　D. At 7:15.</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1→C（你几点起床？——6点半）　2→D（她几点吃早餐？——7点15分）　3→A（他们几点去上学？——7点50分）　4→B（他几点刷牙？——9点）　💡 回答"几点"要用 <strong>at + 钟点</strong>，比如 At 6:30.</p></div>
+
+  <h3>📊 多维细目表（基础练习2）</h3>
+  <table>
+    <thead>
+      <tr><th>题号</th><th>知识点</th><th>题型</th><th>难度</th><th>SOLO层级</th><th>分值</th><th>考查能力</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>一-1</td><td>词汇 countryside</td><td>单选</td><td>★</td><td>U</td><td>2</td><td>识记</td></tr>
+      <tr><td>一-2</td><td>词汇 tractor</td><td>单选</td><td>★</td><td>U</td><td>2</td><td>识记</td></tr>
+      <tr><td>一-3</td><td>词汇 leaves（复数）</td><td>单选</td><td>★</td><td>U</td><td>2</td><td>单复数辨义</td></tr>
+      <tr><td>一-4</td><td>词汇 grass</td><td>单选</td><td>★</td><td>U</td><td>2</td><td>识记</td></tr>
+      <tr><td>一-5</td><td>词汇 rock</td><td>单选</td><td>★</td><td>U</td><td>2</td><td>识记</td></tr>
+      <tr><td>一-6</td><td>词汇 mountain</td><td>单选</td><td>★</td><td>U</td><td>2</td><td>识记</td></tr>
+      <tr><td>一-7</td><td>短语 take a walk</td><td>单选</td><td>★★</td><td>M</td><td>2</td><td>短语运用</td></tr>
+      <tr><td>一-8</td><td>want to + V原形</td><td>单选</td><td>★★</td><td>M</td><td>2</td><td>句型运用</td></tr>
+      <tr><td>二-1~4</td><td>现在进行时改写</td><td>句型改写</td><td>★★</td><td>M</td><td>3×4</td><td>时态转换</td></tr>
+      <tr><td>三-1~3</td><td>作息短语（英译中）</td><td>翻译</td><td>★</td><td>U</td><td>2×3</td><td>识记对应</td></tr>
+      <tr><td>三-4~6</td><td>作息短语（中译英）</td><td>翻译</td><td>★★</td><td>M</td><td>2×3</td><td>词汇输出</td></tr>
+      <tr><td>四-1~4</td><td>What time 问答</td><td>配对连线</td><td>★★</td><td>M</td><td>2×4</td><td>功能问答</td></tr>
+    </tbody>
+  </table>
+  <div class="callout idea"><p>💡 <strong>本套满分：48 分。</strong>和基础1约 30% 的知识点重复，但换成了新题型——这就是"间隔重复"，能帮你记得更牢！</p></div>
+</section>
+
+<!-- ==================== ch12 ==================== -->
+
+<section id="ch12" class="sec">
+  <h2 class="sec">十二、提高练习1（理解+推导）</h2>
+  <div class="callout note"><p>📌 这一关有点挑战啦！我们要学会"想一想"：什么时候用 is looking，什么时候用 looks？为什么 swim 要变成 swimming？弄懂了这些，你就是时态小专家！🧠</p></div>
+
+  <h3>一、时态辨析单选（选出正确的时态）</h3>
+  <ol>
+    <li>Look! The mother cat ______ at her kittens.<br>A. is looking　　B. looks　　C. looked</li>
+    <li>The kittens ______ now. They can't open their eyes.<br>A. sleep　　B. are sleeping　　C. slept</li>
+    <li>The naughty puppy ______ Grandpa's old red sock at the moment.<br>A. eats　　B. ate　　C. is eating</li>
+    <li>Tom usually ______ with leaves in the garden.<br>A. plays　　B. is playing　　C. played</li>
+    <li>Listen! The birds ______ in the forest.<br>A. sing　　B. are singing　　C. sang</li>
+    <li>Grandpa ______ a walk every morning.<br>A. is taking　　B. takes　　C. took</li>
+    <li>Look at the puppies. They ______ very happy.<br>A. are looking　　B. look　　C. looks</li>
+    <li>The kittens ______ all night yesterday.<br>A. sleep　　B. are sleeping　　C. slept</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. A（Look! 现在进行时）　2. B（now 现在进行时，小猫正在睡觉）　3. C（at the moment 正在吃袜子）　4. A（usually 一般现在时，Tom 三单加 s）　5. B（Listen! 现在进行时，birds 复数用 are）　6. B（every morning 一般现在时，三单 takes）　7. B（look 表"看起来"是连系动词，不加 ing）　8. C（yesterday 过去发生的事用过去式 slept）</p></div>
+  <div class="callout warning"><p>⚠️ <strong>易错提醒：</strong>“The puppies look happy”里的 <strong>look</strong> 是"看起来"，不是"看"，所以不加 ing。而 <strong>Look at the cat!</strong> 里的 look 是动词"看"，有 at 跟着哦！</p></div>
+
+  <h3>二、动词-ing 拼写规则练习（写出现在分词）</h3>
+  <p>💡 三条小规则：①一般直接加 <strong>ing</strong>；②不发音的 e 结尾，去 e 加 <strong>ing</strong>；③重读闭音节（辅+元+辅），双写末尾辅音加 <strong>ing</strong>。</p>
+  <ol>
+    <li>swim → ________________</li>
+    <li>take → ________________</li>
+    <li>make → ________________</li>
+    <li>run → ________________</li>
+    <li>sit → ________________</li>
+    <li>play → ________________</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. swimming（双写 m）　2. taking（去 e）　3. making（去 e）　4. running（双写 n）　5. sitting（双写 t）　6. playing（直接加 ing）</p></div>
+  <table>
+    <thead>
+      <tr><th>规则</th><th>动词</th><th>现在分词</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>直接 + ing</td><td>play / look / drink</td><td>playing / looking / drinking</td></tr>
+      <tr><td>去 e + ing</td><td>take / make</td><td>taking / making</td></tr>
+      <tr><td>双写 + ing</td><td>swim / run / sit</td><td>swimming / running / sitting</td></tr>
+    </tbody>
+  </table>
+
+  <h3>三、句子改写（改否定 / 改疑问 / 改肯定）</h3>
+  <ol>
+    <li>The kitten is sleeping.（改为否定句）<br>→ ____________________</li>
+    <li>They are playing with a ball.（改为一般疑问句）<br>→ ____________________</li>
+    <li>Tom isn't running.（改为肯定句）<br>→ ____________________</li>
+    <li>Is the puppy drinking water?（作肯定回答）<br>→ ____________________</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. The kitten <strong>isn't sleeping</strong>.（is 后加 not）　2. <strong>Are they playing</strong> with a ball?（be 动词提到句首）　3. Tom <strong>is running</strong>.（isn't 变 is）　4. <strong>Yes, it is.</strong>（一般疑问句用 Yes/No 回答）</p></div>
+
+  <h3>📊 多维细目表（提高练习1）</h3>
+  <table>
+    <thead>
+      <tr><th>题号</th><th>知识点</th><th>题型</th><th>难度</th><th>SOLO层级</th><th>分值</th><th>考查能力</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>一-1</td><td>时态辨析 is looking/looks/looked</td><td>单选</td><td>★★</td><td>M</td><td>3</td><td>时态判断</td></tr>
+      <tr><td>一-2</td><td>时态辨析 are sleeping/sleep/slept</td><td>单选</td><td>★★</td><td>M</td><td>3</td><td>时态判断</td></tr>
+      <tr><td>一-3</td><td>时态辨析 is eating/eats/ate</td><td>单选</td><td>★★</td><td>M</td><td>3</td><td>时态判断</td></tr>
+      <tr><td>一-4</td><td>一般现在时三单（usually）</td><td>单选</td><td>★★</td><td>M</td><td>3</td><td>三单加 s</td></tr>
+      <tr><td>一-5</td><td>现在进行时（Listen!）</td><td>单选</td><td>★★</td><td>M</td><td>3</td><td>标志词判断</td></tr>
+      <tr><td>一-6</td><td>一般现在时三单（every day）</td><td>单选</td><td>★★</td><td>M</td><td>3</td><td>三单加 s</td></tr>
+      <tr><td>一-7</td><td>连系动词 look（看起来）</td><td>单选</td><td>★★★</td><td>M</td><td>3</td><td>词义辨析</td></tr>
+      <tr><td>一-8</td><td>一般过去式（yesterday）</td><td>单选</td><td>★★★</td><td>M</td><td>3</td><td>时态推导</td></tr>
+      <tr><td>二-1~6</td><td>动词-ing 拼写规则</td><td>拼写练习</td><td>★★</td><td>M</td><td>2×6</td><td>规则运用</td></tr>
+      <tr><td>三-1</td><td>进行时否定句</td><td>句型改写</td><td>★★</td><td>M</td><td>3</td><td>否定构成</td></tr>
+      <tr><td>三-2</td><td>进行时一般疑问句</td><td>句型改写</td><td>★★</td><td>M</td><td>3</td><td>疑问构成</td></tr>
+      <tr><td>三-3</td><td>进行时肯定句</td><td>句型改写</td><td>★★</td><td>M</td><td>3</td><td>肯定构成</td></tr>
+      <tr><td>三-4</td><td>进行时 Yes/No 回答</td><td>句型改写</td><td>★★</td><td>M</td><td>3</td><td>功能应答</td></tr>
+    </tbody>
+  </table>
+  <div class="callout idea"><p>💡 <strong>本套满分：48 分。</strong>错题记得抄进错题本，ch16 错题清零专卷还会再见它们一次哦！</p></div>
+</section>
+
+<!-- ==================== ch13 ==================== -->
+
+<section id="ch13" class="sec">
+  <h2 class="sec">十三、提高练习2（综合+思维）</h2>
+  <div class="callout note"><p>📌 这一关我们把学过的内容"串"起来用：读完一篇短文，再把句型变来变去。就像搭积木，把你学会的句型块拼成新的句子！🧩</p></div>
+
+  <h3>一、完形填空（读短文，选出最佳答案）</h3>
+  <p>On a sunny morning, Tom and Jenny are on Grandpa's farm. Look! The farm cat <strong>___1___</strong> her kittens. The kittens are very young. They <strong>___2___</strong> open their eyes. There <strong>___3___</strong> three puppies near the barn（谷仓）. The puppy with a short tail <strong>___4___</strong> with a blue ball. The big puppy is <strong>___5___</strong> water. It is thirsty. Tom wants <strong>___6___</strong> a walk in the forest. Everyone is happy on the farm.</p>
+  <ol>
+    <li>A. looks at　　B. is looking at　　C. looked at</li>
+    <li>A. can　　B. can't　　C. are</li>
+    <li>A. is　　B. are　　C. am</li>
+    <li>A. plays　　B. is playing　　C. played</li>
+    <li>A. drinking　　B. drink　　C. drinks</li>
+    <li>A. take　　B. to take　　C. taking</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. B（Look! 现在进行时，正在看她的宝宝们）　2. B（小猫太小，睁不开眼睛，can't 不能）　3. B（three puppies 复数用 are）　4. B（短尾巴小狗正在玩蓝球）　5. A（大狗正在喝水，is + drinking）　6. B（want to + 动词原形，to take a walk）</p></div>
+
+  <h3>二、阅读理解（读短文，完成题目）</h3>
+  <p><strong>A Busy Morning on the Farm</strong><br>It's early morning on Grandpa's farm. The sun is rising. Grandpa is in the field. He is driving his blue tractor. Grandma is in the garden. She is watering the pretty red flowers. Near the house, the dog is running after a white cat. The cat is climbing a tall tree. The chickens are eating corn（玉米）near the barn. The kittens are sleeping in a box. What a busy morning!</p>
+  <ol>
+    <li>（细节）Where is Grandpa?<br>A. In the garden.　　B. In the field.　　C. In the house.</li>
+    <li>（细节）What is Grandpa doing?<br>A. Watering flowers.　　B. Driving his tractor.　　C. Running after a cat.</li>
+    <li>（词义）The word "climbing" means ______.<br>A. 爬　　B. 跳　　C. 跑</li>
+    <li>（推断）The cat is climbing the tree because ______.<br>A. It wants to sleep.　　B. It is running away from the dog.　　C. It likes the tree.</li>
+    <li>（主旨）Which is the best title（最佳标题）?<br>A. A Busy Morning on the Farm　　B. The Blue Tractor　　C. The Sleeping Kittens</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. B（爷爷在田野里）　2. B（他正在开蓝色拖拉机）　3. A（climbing 是"爬"，猫爬树）　4. B（狗在追猫，所以猫爬树躲开）　5. A（短文讲农场忙碌的早晨，最佳标题是 A）</p></div>
+
+  <h3>三、句型转换（按要求改写句子）</h3>
+  <ol>
+    <li>I get up at 6:30.（对划线部分提问）<br>→ ____________________</li>
+    <li>She has a shower at 7:30.（对划线部分提问）<br>→ ____________________</li>
+    <li>There are some leaves on the ground.（改为否定句）<br>→ ____________________</li>
+    <li>There is a big rock in the field.（改为一般疑问句）<br>→ ____________________</li>
+    <li>Let's go for a walk.（改为同义句，用 want to）<br>→ ____________________</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. <strong>What time do you get up?</strong>（提问"几点"用 What time）　2. <strong>What time does she have a shower?</strong>（三单主语用 does）　3. There <strong>aren't any</strong> leaves on the ground.（否定用 aren't，some 变 any）　4. <strong>Is there</strong> a big rock in the field?（be 提前）　5. I <strong>want to</strong> go for a walk.（Let's + V原形 = I want to + V原形）</p></div>
+
+  <h3>四、开放思考题（试试说出你的想法）</h3>
+  <p><strong>开放题：</strong>What do you think of Grandpa's farm? Why?（你觉得爷爷的农场怎么样？为什么？请用英语写出你的想法，至少 2 个理由。）</p>
+  <div class="answer"><p>✅ 参考示例：I think Grandpa's farm is <strong>beautiful and busy</strong>. Because there are pretty flowers and many animals on it. The animals are happy. I love the farm.</p></div>
+  <div class="callout idea"><p>💡 <strong>开放题 SOLO 评分标准（老师说给你听的）：</strong></p>
+  <table>
+    <thead>
+      <tr><th>层级</th><th>表现</th><th>得分</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>前结构</td><td>只写一个单词或答非所问</td><td>0-1</td></tr>
+      <tr><td>单点结构</td><td>只给出 1 个理由（如 only "pretty"）</td><td>2</td></tr>
+      <tr><td>多点结构</td><td>给出 2 个以上理由，但各说各的</td><td>4</td></tr>
+      <tr><td>关联结构</td><td>理由之间有联系，句子通顺连贯</td><td>6</td></tr>
+      <tr><td>抽象拓展</td><td>有自己独特的想法，还能联系环保、友谊等</td><td>8</td></tr>
+    </tbody>
+  </table>
+  </div>
+
+  <h3>📊 多维细目表（提高练习2）</h3>
+  <table>
+    <thead>
+      <tr><th>题号</th><th>知识点</th><th>题型</th><th>难度</th><th>SOLO层级</th><th>分值</th><th>考查能力</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>一-1</td><td>现在进行时（Look!）</td><td>完形填空</td><td>★★</td><td>M</td><td>3</td><td>语篇理解</td></tr>
+      <tr><td>一-2</td><td>情态动词 can't</td><td>完形填空</td><td>★★</td><td>M</td><td>3</td><td>语篇理解</td></tr>
+      <tr><td>一-3</td><td>There are + 复数</td><td>完形填空</td><td>★★</td><td>M</td><td>3</td><td>主谓一致</td></tr>
+      <tr><td>一-4</td><td>现在进行时（be+doing）</td><td>完形填空</td><td>★★</td><td>M</td><td>3</td><td>语篇理解</td></tr>
+      <tr><td>一-5</td><td>现在进行时（drinking）</td><td>完形填空</td><td>★★</td><td>M</td><td>3</td><td>语篇理解</td></tr>
+      <tr><td>一-6</td><td>want to + V原形</td><td>完形填空</td><td>★★</td><td>M</td><td>3</td><td>句型运用</td></tr>
+      <tr><td>二-1</td><td>细节理解（Where）</td><td>阅读理解</td><td>★★</td><td>M</td><td>4</td><td>检索信息</td></tr>
+      <tr><td>二-2</td><td>细节理解（What doing）</td><td>阅读理解</td><td>★★</td><td>M</td><td>4</td><td>检索信息</td></tr>
+      <tr><td>二-3</td><td>词义推测 climbing</td><td>阅读理解</td><td>★★</td><td>M</td><td>4</td><td>词义猜测</td></tr>
+      <tr><td>二-4</td><td>判断推理（原因）</td><td>阅读理解</td><td>★★★</td><td>R</td><td>4</td><td>推理判断</td></tr>
+      <tr><td>二-5</td><td>主旨大意（最佳标题）</td><td>阅读理解</td><td>★★★</td><td>R</td><td>4</td><td>主旨概括</td></tr>
+      <tr><td>三-1</td><td>What time 特殊疑问句</td><td>句型转换</td><td>★★</td><td>M</td><td>4</td><td>疑问句构成</td></tr>
+      <tr><td>三-2</td><td>三单 does + What time</td><td>句型转换</td><td>★★★</td><td>R</td><td>4</td><td>主谓一致</td></tr>
+      <tr><td>三-3</td><td>There be 否定（aren't any）</td><td>句型转换</td><td>★★★</td><td>R</td><td>4</td><td>否定构成</td></tr>
+      <tr><td>三-4</td><td>There be 一般疑问句</td><td>句型转换</td><td>★★</td><td>M</td><td>4</td><td>疑问构成</td></tr>
+      <tr><td>三-5</td><td>Let's ↔ want to 转换</td><td>句型转换</td><td>★★★</td><td>R</td><td>4</td><td>同义表达</td></tr>
+      <tr><td>四</td><td>综合语言输出</td><td>开放题</td><td>★★★</td><td>R</td><td>8</td><td>思维+表达</td></tr>
+    </tbody>
+  </table>
+  <div class="callout idea"><p>💡 <strong>本套满分：58 分 + 开放题 8 分 = 66 分。</strong>读不懂的句子记得回头查 ch4 语法点哦！</p></div>
+</section>
+
+<!-- ==================== ch14 ==================== -->
+
+<section id="ch14" class="sec">
+  <h2 class="sec">十四、拓展练习（素养+创新）</h2>
+  <div class="callout note"><p>📌 这一关最好玩！你要当"小农场主"，还要当"环保小卫士"。把学到的英语用在你自己的世界里，这才是学英语最棒的地方！🌟</p></div>
+
+  <h3>一、情境化任务：设计“My Perfect Farm Day”（我的完美农场日）</h3>
+  <p>💡 想象你是一个小农场主。用 <strong>现在进行时</strong>（is/are + doing）写下你"完美农场日"里正在发生的 5 件事，每件事写一句，可以加上 Look! / Listen! 开头。</p>
+  <p><strong>开头已经帮你写好：</strong> It's my perfect farm day. Look! ________________</p>
+  <ol>
+    <li>______________________________</li>
+    <li>______________________________</li>
+    <li>______________________________</li>
+    <li>______________________________</li>
+    <li>______________________________</li>
+  </ol>
+  <div class="answer"><p>✅ 参考示例：1. Look! The cows are eating grass on the hill.　2. The chickens are running around the farm.　3. I am feeding the kittens.　4. My dog is playing with me.　5. The birds are singing in the forest.</p></div>
+
+  <h3>二、跨学科任务：环保海报标语（保护我们的地球）</h3>
+  <p>🌍 学校要办"保护地球"海报展。请你写 <strong>3 条英文标语</strong>，并解释：<strong>为什么</strong>这样做能保护地球？（用上你学过的科学知识：省水、省电、回收、种树……）</p>
+  <ol>
+    <li>标语：______________________________　解释：______________________________</li>
+    <li>标语：______________________________　解释：______________________________</li>
+    <li>标语：______________________________　解释：______________________________</li>
+  </ol>
+  <div class="answer"><p>✅ 参考示例：1. <strong>Turn off the tap when you brush your teeth.</strong>——因为刷牙时一直开着水龙头会浪费很多水，地球上的淡水很珍贵。（科学：节约用水）　2. <strong>Recycle paper, glass and plastic.</strong>——回收能让垃圾变少，环境更干净，动物不会被垃圾伤害。（科学：循环利用）　3. <strong>Plant more trees.</strong>——树木能吸收脏空气、产生氧气，让空气更干净，我们和动物都需要干净的空气。（科学：光合作用产生氧气）</p></div>
+
+  <h3>三、开放性写作：My Morning Routine（我的早晨，约 80 词）</h3>
+  <p>✏️ 用一般现在时写一写你的早晨。可以用上这些顺序词：<strong>first, then, next, after that</strong>。内容要连贯、具体。</p>
+  <p><strong>开头提示：</strong> Good morning! Let me tell you about my morning. Every morning, I wake up at 6:30. ________________</p>
+  <p>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿<br>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿<br>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿<br>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+  <div class="answer"><p>✅ 范文（约 80 词）：Good morning! Let me tell you about my morning. Every morning, I wake up at 6:30. <strong>First</strong>, I stretch my body. <strong>Then</strong>, I get up and wash my face with cool water. I use a towel to dry my face. <strong>Next</strong>, I brush my teeth. I put some toothpaste on my toothbrush. <strong>After that</strong>, I get dressed and have breakfast in the dining-room. I like bread and milk. Then I go to school. What a nice morning!</p></div>
+
+  <h3>四、看图说话：农场动物在做什么？（用现在进行时描述）</h3>
+  <p>🖼️ 看下面的农场图，用 <strong>Look at the ______. It is ______.</strong> 的句式，至少写 4 句，说说每只动物正在做什么。</p>
+  <div class="mindmap" style="background:#ffffff;border:1px solid #dde3f0;border-radius:10px;padding:10px;">
+    <svg viewBox="0 0 640 320" xmlns="http://www.w3.org/2000/svg" font-family="PingFang SC, Microsoft YaHei, Arial, sans-serif" style="width:100%;height:auto;">
+      <!-- 太阳 -->
+      <circle cx="600" cy="40" r="22" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="600" y1="10" x2="600" y2="4" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="626" y1="28" x2="632" y2="24" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="600" y1="70" x2="600" y2="76" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="574" y1="28" x2="568" y2="24" stroke="#1A1A1A" stroke-width="2"/>
+      <!-- 地面线 -->
+      <line x1="20" y1="245" x2="620" y2="245" stroke="#1A1A1A" stroke-width="2"/>
+      <!-- 猫：正在睡觉 -->
+      <ellipse cx="95" cy="220" rx="45" ry="22" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <circle cx="52" cy="208" r="16" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 42 196 L 36 178 L 54 190 Z" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 60 194 L 66 178 L 72 192 Z" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 44 208 Q 50 212 56 208" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 138 214 Q 152 198 144 184" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <text x="90" y="275" text-anchor="middle" font-size="14" fill="#1A1A1A">The cat is sleeping.</text>
+      <!-- 狗：正在玩球 -->
+      <ellipse cx="270" cy="215" rx="38" ry="20" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <circle cx="238" cy="195" r="18" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 224 190 L 214 206 L 232 202 Z" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 250 188 L 258 204 L 240 200 Z" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="250" y1="230" x2="248" y2="242" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="268" y1="233" x2="266" y2="243" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="290" y1="232" x2="292" y2="243" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 305 210 Q 320 200 312 188" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <circle cx="318" cy="226" r="12" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <circle cx="322" cy="222" r="2.5" fill="#1A1A1A"/>
+      <text x="278" y="275" text-anchor="middle" font-size="14" fill="#1A1A1A">The puppy is playing with a ball.</text>
+      <!-- 鸡：正在吃谷粒 -->
+      <ellipse cx="420" cy="218" rx="28" ry="20" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <circle cx="392" cy="196" r="12" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 384 188 L 388 174 L 396 186 Z" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 382 200 L 372 202 L 382 206 Z" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <circle cx="384" cy="192" r="1.5" fill="#1A1A1A"/>
+      <line x1="406" y1="236" x2="404" y2="244" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="422" y1="237" x2="424" y2="244" stroke="#1A1A1A" stroke-width="2"/>
+      <circle cx="400" cy="246" r="1.6" fill="#1A1A1A"/>
+      <circle cx="410" cy="248" r="1.6" fill="#1A1A1A"/>
+      <circle cx="418" cy="245" r="1.6" fill="#1A1A1A"/>
+      <text x="420" y="275" text-anchor="middle" font-size="14" fill="#1A1A1A">The chicken is eating corn.</text>
+      <!-- 牛：正在吃草 -->
+      <ellipse cx="545" cy="210" rx="45" ry="24" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <ellipse cx="495" cy="192" rx="16" ry="18" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 488 176 L 482 160 L 494 172 Z" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 502 176 L 508 160 L 514 172 Z" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <circle cx="490" cy="192" r="1.8" fill="#1A1A1A"/>
+      <path d="M 504 200 Q 512 208 508 214" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="522" y1="230" x2="520" y2="242" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="538" y1="232" x2="538" y2="243" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="556" y1="232" x2="558" y2="243" stroke="#1A1A1A" stroke-width="2"/>
+      <line x1="572" y1="230" x2="574" y2="242" stroke="#1A1A1A" stroke-width="2"/>
+      <path d="M 585 204 Q 600 196 592 184" fill="none" stroke="#1A1A1A" stroke-width="2"/>
+      <text x="545" y="275" text-anchor="middle" font-size="14" fill="#1A1A1A">The cow is eating grass.</text>
+      <!-- 图中草地标注 -->
+      <path d="M 40 250 Q 45 244 50 250" fill="none" stroke="#1A1A1A" stroke-width="1.5"/>
+      <path d="M 240 250 Q 245 244 250 250" fill="none" stroke="#1A1A1A" stroke-width="1.5"/>
+      <text x="30" y="300" font-size="13" fill="#333333">农场图：猫在睡觉，小狗在玩球，小鸡在吃谷粒，奶牛在吃草。</text>
+    </svg>
+  </div>
+  <div class="answer"><p>✅ 参考示例：1. Look at the cat. It is sleeping under the tree.　2. Look at the puppy. It is playing with a ball.　3. Look at the chicken. It is eating corn.　4. Look at the cow. It is eating grass on the farm.</p></div>
+
+  <h3>📊 多维细目表（拓展练习）</h3>
+  <table>
+    <thead>
+      <tr><th>题号</th><th>知识点</th><th>题型</th><th>难度</th><th>SOLO层级</th><th>分值</th><th>考查能力</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>一-1~5</td><td>现在进行时（情境创作）</td><td>情境任务</td><td>★★★</td><td>R</td><td>4×5</td><td>迁移运用</td></tr>
+      <tr><td>二-1</td><td>环保+科学（省水）</td><td>跨学科海报</td><td>★★★</td><td>R</td><td>5</td><td>科学思维</td></tr>
+      <tr><td>二-2</td><td>环保+科学（回收）</td><td>跨学科海报</td><td>★★★</td><td>R</td><td>5</td><td>科学思维</td></tr>
+      <tr><td>二-3</td><td>环保+科学（种树）</td><td>跨学科海报</td><td>★★★</td><td>R</td><td>5</td><td>科学思维</td></tr>
+      <tr><td>三</td><td>一般现在时 My Morning Routine</td><td>开放性写作</td><td>★★★</td><td>E</td><td>25</td><td>语篇输出</td></tr>
+      <tr><td>四-1~4</td><td>现在进行时看图说话</td><td>看图写话</td><td>★★★</td><td>R</td><td>5×4</td><td>观察+表达</td></tr>
+    </tbody>
+  </table>
+  <div class="callout idea"><p>💡 <strong>本套满分：80 分。</strong>完成这套题，你就是既会英语又会保护地球的小达人啦！🌱</p></div>
+</section>
+
+<!-- ==================== ch15 ==================== -->
+
+<section id="ch15" class="sec">
+  <h2 class="sec">十五、综合模拟卷（全真模拟）</h2>
+  <div class="callout warning"><p>📝 <strong>考试信息：</strong>本卷满分 <strong>100 分</strong>，建议用时 <strong>30 分钟</strong>。难度结构：基础 70%（70 分）／中等 20%（20 分）／提高 10%（10 分）。做题时请像真考一样，先易后难，做完记得检查哦！⏰</p></div>
+
+  <h3>Part 1 词汇单选（共 6 题，每题 3 分）</h3>
+  <ol>
+    <li>We can see the farm ______ the small hill.<br>A. from　　B. on　　C. in</li>
+    <li>There are pretty purple ______ in the garden.<br>A. flowers　　B. tractors　　C. rocks</li>
+    <li>Grandpa's tractor is ______.<br>A. red　　B. blue　　C. green</li>
+    <li>Many ______ are on the ground in autumn.<br>A. leaf　　B. leaves　　C. grass</li>
+    <li>Let's go for a ______ in the forest.<br>A. walk　　B. swim　　C. rock</li>
+    <li>Jenny loves ______ in the lake.<br>A. swim　　B. swims　　C. swimming</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. A（从小山坡看到农场）　2. A（花园里有紫色花朵）　3. B（爷爷的拖拉机是蓝色的）　4. B（树叶用复数 leaves）　5. A（go for a walk 去散步）　6. C（love doing 喜欢做某事，swimming）</p></div>
+
+  <h3>Part 2 语法单选（共 8 题，每题 3 分）</h3>
+  <ol>
+    <li>Look! The mother cat ______ at her kittens.<br>A. looks　　B. is looking　　C. looked</li>
+    <li>______ the puppies sleeping?<br>A. Is　　B. Are　　C. Am</li>
+    <li>There ______ a big problem on the farm.<br>A. is　　B. are　　C. am</li>
+    <li>Tom usually ______ with leaves.<br>A. play　　B. plays　　C. playing</li>
+    <li>—What time do you get up? —______ 6:30.<br>A. In　　B. At　　C. On</li>
+    <li>I want ______ a walk in the countryside.<br>A. take　　B. to take　　C. taking</li>
+    <li>The naughty puppy ______ Grandpa's old red sock now.<br>A. eats　　B. ate　　C. is eating</li>
+    <li>Let's ______ swimming this afternoon.<br>A. go　　B. goes　　C. going</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. B（Look! 现在进行时）　2. B（puppies 复数用 Are）　3. A（a big problem 单数用 is）　4. B（usually 一般现在时，三单加 s）　5. B（at + 具体钟点）　6. B（want to + 动词原形）　7. C（now 现在正在吃袜子）　8. A（Let's + 动词原形，go swimming）</p></div>
+
+  <h3>Part 3 首字母填空（共 4 题，每题 3 分）</h3>
+  <ol>
+    <li>The countryside is beautiful. We can see the green g______.（草地）</li>
+    <li>Grandpa has a new blue t______.（拖拉机）</li>
+    <li>Look at the f______ behind the mountains.（森林）</li>
+    <li>The cat is sleeping. It is very young. It can't open its e______.（眼睛）</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. grass　2. tractor　3. forest　4. eyes</p></div>
+
+  <h3>Part 4 阅读理解（共 2 篇，每篇 5 题，每题 2 分）</h3>
+  <p><strong>Passage 1　A Sunny Day on Grandpa's Farm</strong><br>It is a sunny day. Sam and his sister Lily are at Grandpa's farm. Grandpa is in the garden. He is watering the vegetables. Sam and Lily are in the field. They are playing with a yellow ball. Near the field, there is a small forest. Some birds are singing in the forest. Lily wants to go to the forest. But Grandpa says, "Let's have lunch first. The chicken is ready!" Everyone is happy.</p>
+  <ol>
+    <li>Where is Grandpa?<br>A. In the garden.　　B. In the field.　　C. In the forest.</li>
+    <li>What are Sam and Lily doing?<br>A. Watering vegetables.　　B. Playing with a ball.　　C. Singing songs.</li>
+    <li>What is near the field?<br>A. A big river.　　B. A small forest.　　C. A tall mountain.</li>
+    <li>Lily wants to ______.<br>A. have lunch　　B. go to the forest　　C. play with the ball</li>
+    <li>What does Grandpa say?<br>A. Let's go swimming.　　B. Let's have lunch first.　　C. Let's play with the ball.</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. A（爷爷在花园里）　2. B（Sam 和 Lily 在玩黄色皮球）　3. B（田野旁边有个小森林）　4. B（Lily 想去森林）　5. B（爷爷说先吃午饭）</p></div>
+
+  <p><strong>Passage 2　Keep Our Earth Clean</strong><br>Our Earth gives us clean water and fresh air. We must look after it. At home, we can save water. When we brush our teeth, turn off the tap. We can also turn off the lights when we leave a room. When we go shopping, we can bring our own bags. In the park, don't throw litter on the ground. Litter is bad for animals. Let's plant more trees. Trees make the air clean. Our Earth will be a happy home.</p>
+  <ol>
+    <li>What does the Earth give us?<br>A. Litter and bags.　　B. Clean water and fresh air.　　C. Trees and lights.</li>
+    <li>When we brush our teeth, we should ______.<br>A. turn off the tap　　B. turn on the lights　　C. throw litter</li>
+    <li>When we leave a room, we should ______.<br>A. leave the lights on　　B. turn off the lights　　C. play music</li>
+    <li>Litter is ______ for animals.<br>A. good　　B. bad　　C. nice</li>
+    <li>Trees can make the air ______.<br>A. dirty　　B. clean　　C. hot</li>
+  </ol>
+  <div class="answer"><p>✅ 答案：1. B（地球给我们干净的水和新鲜的空气）　2. A（刷牙时要关掉水龙头）　3. B（离开房间要关灯）　4. B（垃圾对动物有害）　5. B（树木能让空气更干净）</p></div>
+
+  <h3>Part 5 写作（二选一，共 26 分）</h3>
+  <p>✏️ 从下面两个题目中，选择 <strong>一个</strong> 来写。</p>
+  <p><strong>题目 A：</strong>My Morning Routine（我的早晨）——用一般现在时写你的早晨，按 wake up → wash face → brush teeth → get dressed → have breakfast 的顺序，约 80 词。</p>
+  <p><strong>题目 B：</strong>Protect Our Planet（保护地球）——用下面的框架写一写：<strong>Opening</strong>（地球是我们的家）→ <strong>Problems</strong>（污染问题）→ <strong>Solutions</strong>（我们能做什么）→ <strong>Ending</strong>（一起保护地球）。约 80 词。</p>
+  <p>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿<br>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿<br>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿<br>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿<br>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿<br>＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿＿</p>
+  <div class="answer"><p>✅ 范文（题目 A）：Good morning! Let me tell you about my morning. Every morning, I wake up at 6:30. First, I wash my face with cool water and dry it with a towel. Then I brush my teeth with my toothbrush and toothpaste. Next, I get dressed and have breakfast in the dining-room. I like bread and milk. After breakfast, I go to school with my friends. I love my morning!<br><br>✅ 范文（题目 B）：The Earth is our home. It gives us air, water and food. But the Earth is in trouble now. Factories put dirty things in the water, and cars give out bad gases. People cut down many trees, so animals lose their homes. We must do something! We can turn off the lights when we leave a room. We can take our own bags when we go shopping. We can plant more trees. Let's work together to save our beautiful Earth!</p></div>
+
+  <h3>📊 多维细目表（综合模拟卷）</h3>
+  <table>
+    <thead>
+      <tr><th>题号</th><th>知识点</th><th>题型</th><th>难度</th><th>SOLO层级</th><th>分值</th><th>考查能力</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>P1-1~6</td><td>核心词汇（介词/名词/短语）</td><td>词汇单选</td><td>★</td><td>U</td><td>3×6=18</td><td>识记理解</td></tr>
+      <tr><td>P2-1~8</td><td>现在进行时/There be/三单/What time/Let's</td><td>语法单选</td><td>★★</td><td>M</td><td>3×8=24</td><td>语法运用</td></tr>
+      <tr><td>P3-1~4</td><td>核心词汇/作息词汇</td><td>首字母填空</td><td>★</td><td>U</td><td>3×4=12</td><td>拼写输出</td></tr>
+      <tr><td>P4-1-1~5</td><td>农场主题阅读理解</td><td>阅读选择</td><td>★★</td><td>M→R</td><td>2×5=10</td><td>细节+推断</td></tr>
+      <tr><td>P4-2-1~5</td><td>环保主题阅读理解</td><td>阅读选择</td><td>★★</td><td>M→R</td><td>2×5=10</td><td>细节+推断</td></tr>
+      <tr><td>P5</td><td>写作（二选一）</td><td>命题写作</td><td>★★★</td><td>R→E</td><td>26</td><td>语篇输出</td></tr>
+    </tbody>
+  </table>
+  <div class="callout idea"><p>💡 <strong>本卷满分 100 分。</strong>90 分以上：太棒了！70-89 分：很不错，把错题看一遍；70 分以下：别灰心，回到 ch10 基础练习慢慢再来一次，你一定行！💪</p></div>
+</section>
+
+<!-- ==================== ch16 ==================== -->
+
+<section id="ch16" class="sec">
+  <h2 class="sec">十六、错题清零专卷（精准补漏）</h2>
+  <div class="callout note"><p>📌 这一关专门收拾本单元最容易错的 <strong>6 个易错点</strong>。每个易错点给你 1 道"原错题样式"例题 + 1 道平行变式题，做完看详解，把错的地方彻底弄清楚！🎯</p></div>
+
+  <h3>易错点一：There be 主谓一致（be 动词看后面名词）</h3>
+  <p><strong>例题1：</strong>There ______ a big rock in the field.<br>A. is　　B. are　　C. am</p>
+  <p><strong>变式1：</strong>There ______ two kittens in the box.<br>A. is　　B. are　　C. be</p>
+  <div class="answer"><p>✅ 例题1：<strong>A</strong>。There be 句型中，be 动词要跟着<strong>后面的名词</strong>变，a big rock 是单数，所以用 is。<br>✅ 变式1：<strong>B</strong>。two kittens 是复数，所以用 are。<br>💡 <strong>口诀：</strong>there 后面是谁，be 就听谁的话！</p></div>
+
+  <h3>易错点二：时态辨析（看清标志词）</h3>
+  <p><strong>例题2：</strong>Look! The cat ______ at her kittens.<br>A. looks　　B. is looking　　C. looked</p>
+  <p><strong>变式2：</strong>Listen! The birds ______ in the tree.<br>A. sing　　B. are singing　　C. sang</p>
+  <div class="answer"><p>✅ 例题2：<strong>B</strong>。看到 <strong>Look!</strong> 表示"正在看"，用现在进行时 is looking。<br>✅ 变式2：<strong>B</strong>。看到 <strong>Listen!</strong> 表示"正在唱歌"，birds 是复数用 are singing。<br>💡 <strong>口诀：</strong>Look! Listen! now，正在发生用 ing！</p></div>
+
+  <h3>易错点三：What time 与 When 的区分（问"几点"用 What time）</h3>
+  <p><strong>例题3：</strong>—______ do you get up? —At 6:30.<br>A. When　　B. What time　　C. How often</p>
+  <p><strong>变式3：</strong>—______ do you go to bed? —At 9:00.<br>A. When　　B. What time　　C. Where</p>
+  <div class="answer"><p>✅ 例题3：<strong>B</strong>。答语是具体的钟点 At 6:30，问"几点"用 <strong>What time</strong>。<br>✅ 变式3：<strong>B</strong>。答语是具体的钟点 At 9:00，同样用 What time。<br>💡 <strong>区分：</strong>When 问"什么时候"（笼统，如 on Sunday）；What time 问"几点"（精确，如 at 6:30）；How often 问"多久一次"（频率，如 every day）。</p></div>
+
+  <h3>易错点四：一般现在时第三人称单数（动词加 s/es）</h3>
+  <p><strong>例题4：</strong>Tom ______ playing with leaves.<br>A. love　　B. loves　　C. loving</p>
+  <p><strong>变式4：</strong>Grandpa ______ a new blue tractor.<br>A. have　　B. has　　C. having</p>
+  <div class="answer"><p>✅ 例题4：<strong>B</strong>。Tom 是第三人称单数，动词 love 要加 s 变成 loves。<br>✅ 变式4：<strong>B</strong>。Grandpa 是第三人称单数，have 要变成 <strong>has</strong>（特殊变化，要记牢）。<br>💡 <strong>口诀：</strong>他、她、它做主语，动词也要戴帽子（加 s/es）；have 变成 has。</p></div>
+
+  <h3>易错点五：介词 at 与 in（at + 点钟，in + 时段）</h3>
+  <p><strong>例题5：</strong>I get up ______ 6:30 ______ the morning.<br>A. at; in　　B. in; at　　C. at; at</p>
+  <p><strong>变式5：</strong>She has a shower ______ 7:30 ______ the evening.<br>A. in; at　　B. at; in　　C. at; at</p>
+  <div class="answer"><p>✅ 例题5：<strong>A</strong>。6:30 是具体钟点用 <strong>at</strong>；the morning 是时段用 <strong>in</strong>。<br>✅ 变式5：<strong>B</strong>。7:30 具体钟点用 at；the evening 时段用 in。<br>💡 <strong>口诀：</strong>at 后面跟几点钟（at 6:30），in 后面跟早中晚（in the morning）。</p></div>
+
+  <h3>易错点六：动词-ing 拼写（双写还是去 e）</h3>
+  <p><strong>例题6：</strong>Look! Tom is ______ <span class="word">(swim)</span> in the lake.</p>
+  <p><strong>变式6：</strong>She is ______ <span class="word">(make)</span> a cake in the kitchen.</p>
+  <div class="answer"><p>✅ 例题6：<strong>swimming</strong>。swim 是"辅音+元音+辅音"结尾的重读闭音节，要<strong>双写末尾字母 m</strong> 再加 ing。<br>✅ 变式6：<strong>making</strong>。make 以不发音的 e 结尾，要<strong>去掉 e</strong> 再加 ing。<br>💡 <strong>口诀：</strong>辅元辅，双写加 ing（swim→swimming）；不发音 e，去 e 加 ing（make→making）；其他直接加（play→playing）。</p></div>
+
+  <h3>📊 多维细目表（错题清零专卷）</h3>
+  <table>
+    <thead>
+      <tr><th>题号</th><th>知识点</th><th>题型</th><th>难度</th><th>SOLO层级</th><th>分值</th><th>考查能力</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>例题1/变式1</td><td>There be 主谓一致</td><td>单选</td><td>★★</td><td>M</td><td>2×2</td><td>语法辨析</td></tr>
+      <tr><td>例题2/变式2</td><td>时态辨析（Look/Listen）</td><td>单选</td><td>★★</td><td>M</td><td>2×2</td><td>时态判断</td></tr>
+      <tr><td>例题3/变式3</td><td>What time 与 When 区分</td><td>单选</td><td>★★</td><td>M</td><td>2×2</td><td>疑问词辨析</td></tr>
+      <tr><td>例题4/变式4</td><td>一般现在时三单（s/has）</td><td>单选</td><td>★★</td><td>M</td><td>2×2</td><td>主谓一致</td></tr>
+      <tr><td>例题5/变式5</td><td>介词 at / in</td><td>单选</td><td>★★</td><td>M</td><td>2×2</td><td>介词搭配</td></tr>
+      <tr><td>例题6/变式6</td><td>动词-ing 拼写规则</td><td>拼写填空</td><td>★★</td><td>M</td><td>2×2</td><td>规则运用</td></tr>
+    </tbody>
+  </table>
+  <div class="callout idea"><p>💡 <strong>本套满分：24 分。</strong>全对说明这 6 个易错点你已经清零啦！还有错的话，回到 ch5 难点与易错点 再看一遍讲解。🎉</p></div>
+</section>
+
+<!-- sec6 结束 -->
+<!-- ==================== sec_7：ch17 + ch18 ==================== -->
+<section id="ch17" class="sec">
+  <h2 class="sec">十七、复习效果自测表</h2>
+
+  <p>小朋友，学完整个单元，我们来当一次“小老师”，自己考考自己吧！先把本单元的知识点分成三档涂色：🟢 <strong>绿色＝掌握</strong>、🟡 <strong>黄色＝需要再复习</strong>、🔴 <strong>红色＝明天重点补</strong>。每一行都有一道“测一测”小问题，先回答问题，再给自己打分，最后在“完成勾选”里打勾。</p>
+
+  <div class="callout note">
+    <p>📌 <strong>使用说明（给家长与孩子）</strong></p>
+    <ul>
+      <li>🟢 <strong>绿色＝掌握</strong>：不用提示，能自己背出来、能自己造句、能讲给家人听。</li>
+      <li>🟡 <strong>黄色＝需要再复习</strong>：要想一想、或者给一点提示才能说出来。</li>
+      <li>🔴 <strong>红色＝明天重点补</strong>：不会背、不会造句，明天复习时优先补这一行。</li>
+      <li>每天复习完涂一次色，看着绿色越来越多、红色越来越少，是不是很有成就感？</li>
+    </ul>
+  </div>
+
+  <table>
+    <thead>
+      <tr>
+        <th>核心知识点 ＋ 测一测</th>
+        <th>📌 记忆掌握度<br>（会不会背／会不会认）</th>
+        <th>🧠 理解深度<br>（能不能造句／能不能讲给家人听）</th>
+        <th>完成勾选</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>
+          <strong>① 核心词汇16词</strong><br>
+          <span class="word">countryside·walk·farm·grass·garden·pretty·tractor·field·forest·mountain·leaf·ground·swim·problem·move·go for a walk</span><br>
+          <strong>🔎 测一测：</strong>你能一口气说出 8 个核心词吗？（比如 farm、tractor、forest、leaves…）
+        </td>
+        <td>会背 8 个以上＝🟢；<br>会认 4—8 个＝🟡；<br>会认不足 4 个＝🔴</td>
+        <td>能指着图说出英文＝🟢；<br>看中文要想一下才说出＝🟡；<br>不会说＝🔴</td>
+        <td>☐</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>② 现在进行时</strong>（本单元主语法）<br>
+          结构：主语 + be（am/is/are）+ 动词-ing<br>
+          <strong>🔎 测一测：</strong>你能用 <span class="word">Look!</span> 造一个现在进行时的句子吗？（Look! The cat <span class="word">is looking</span> at her kittens.）
+        </td>
+        <td>会背 be+doing 结构、会背 am/is/are 搭配＝🟢；<br>只记住一半＝🟡；<br>不会＝🔴</td>
+        <td>能自己造句：The kittens are sleeping.＝🟢；<br>需要提示才造得出＝🟡；<br>造不出＝🔴</td>
+        <td>☐</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>③ There is / There are</strong>（存在句型）<br>
+          <span class="word">There is</span> a big rock. ／ <span class="word">There are</span> many leaves.<br>
+          <strong>🔎 测一测：</strong>你能说说 There is 和 There are 什么时候用吗？（is 后接单数，are 后接复数）
+        </td>
+        <td>会背规则：单数用 is、复数用 are＝🟢；<br>要想一下＝🟡；<br>不会＝🔴</td>
+        <td>能自己说：There is a big rock in the field.＝🟢；<br>能说 There are 的句子＝🟡；<br>说不出＝🔴</td>
+        <td>☐</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>④ What time...? 时间问答</strong><br>
+          What time <span class="word">do you</span> get up? — <span class="word">At</span> 6:00.<br>
+          <strong>🔎 测一测：</strong>你能问家人“你几点起床？”并用 At 回答吗？（What time do you get up? — At 6:00.）
+        </td>
+        <td>会背问句和 At ＋ 时间的回答＝🟢；<br>会背一半＝🟡；<br>不会＝🔴</td>
+        <td>能一问一答演给家人听＝🟢；<br>会问不会答＝🟡；<br>都不会＝🔴</td>
+        <td>☐</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>⑤ 一般现在时第三人称单数</strong><br>
+          Tom <span class="word">loves</span> playing with leaves.<br>
+          <strong>🔎 测一测：</strong>你能用 loves 给 Tom 造一个句子吗？（Tom loves playing with leaves.）
+        </td>
+        <td>会背“he/she/it 后面动词加 s”＝🟢；<br>要想一下＝🟡；<br>不会＝🔴</td>
+        <td>能说出：The puppy plays with a ball.＝🟢；<br>漏掉加 s＝🟡；<br>造不出＝🔴</td>
+        <td>☐</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>⑥ 5 篇语篇复述</strong><br>
+          《Grandpa's Countryside Time》《A Day on the Farm》《Morning Routines》《Protect Our Planet》《Our School Sports Day》<br>
+          <strong>🔎 测一测：</strong>你能把《A Day on the Farm》讲给家人听吗？（小猫在睡觉→短尾巴狗玩球→淘气狗吃爷爷的红袜子）
+        </td>
+        <td>能复述 3 篇以上＝🟢；<br>能复述 1—2 篇＝🟡；<br>一篇也复述不出＝🔴</td>
+        <td>能回答 Where／What／Why 小问题＝🟢；<br>只记得零碎单词＝🟡；<br>听不懂问题＝🔴</td>
+        <td>☐</td>
+      </tr>
+      <tr>
+        <td>
+          <strong>⑦ 2 篇写作</strong><br>
+          My Morning Routine（我的早晨）／ Protect the Earth（保护地球）<br>
+          <strong>🔎 测一测：</strong>你能用“先…再…然后…”写一写你的早晨吗？（Wake up→wash face→brush teeth→have breakfast）
+        </td>
+        <td>会背 morning routine 顺序短语＝🟢；<br>会背一半＝🟡；<br>不会＝🔴</td>
+        <td>能写出 3 句以上的小短文＝🟢；<br>能写 1—2 句＝🟡；<br>写不出＝🔴</td>
+        <td>☐</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="callout note">
+    <p>📌 <strong>给家长的一句话</strong>：自测表不是考试，而是帮孩子“看见”自己学会了什么。涂到红色别着急，明天的复习计划里已经有针对性的补漏专卷啦！</p>
+  </div>
+</section>
+
+<section id="ch18" class="sec">
+  <h2 class="sec">十八、学习小贴士 ＋ 归属权声明</h2>
+
+  <h3>💡 五条学习小贴士</h3>
+  <ol>
+    <li><strong>每天早晚各 3 分钟听读核心词（声音记忆）</strong>——早晨听一遍、睡前再听一遍，小嘴巴跟读、小耳朵辨音。声音记得最牢，坚持 7 天，16 个核心词就住进你的小脑袋啦！</li>
+    <li><strong>现在进行时口诀：be + doing 一起出现才正确</strong>——“be 和 doing，手拉手，一个都不能少；I am、He is、They are，动词变 ing 跟着走。Look! Listen! 正当时，正在发生用现在进行时！”</li>
+    <li><strong>用“遮住答案回忆”法自测</strong>——把单词卡或例句的答案遮住，先自己说出来，再对照答案。想起来的记得牢，想不起来的明天再复习。</li>
+    <li><strong>错题小本本：抄 3 遍 + 造句 1 句</strong>——做错的题抄进小本本，抄 3 遍记住拼写，再自己造 1 个新句子。错过的知识，就变成你的本事啦！</li>
+    <li><strong>把英语用进生活</strong>——指着家里的东西说：This is my book. ／ Look! The cat is sleeping. 去公园散步时说：Let's go for a walk! 英语就在我们身边。</li>
+  </ol>
+
+  <h3>👨‍👩‍👧 给家长的一句话陪学建议</h3>
+  <div class="callout extend">
+    <p>🧠 <strong>“农场小剧场”角色扮演</strong>：用书页上的插图或家里的实物当道具，和孩子演一场“农场的一天”。</p>
+    <ul>
+      <li>您当 Grandpa，指着一块绿布（草地）说：<span class="word">That's Grandpa's farm!</span></li>
+      <li>孩子当 Jenny，指着玩具猫说：<span class="word">Look! The kitten is sleeping.</span></li>
+      <li>一起演早晨流程：<span class="word">What time do you get up?</span> — <span class="word">At 6:00!</span></li>
+    </ul>
+    <p>一边演一边说，孩子把课文“演”进生活，理解深度蹭蹭上涨。</p>
+  </div>
+
+  <h3>🌟 价值观升华：本单元还教会我们……</h3>
+  <div class="callout idea">
+    <p>💡 <strong>学英语，也学做人。</strong>这个单元除了单词和句型，还悄悄教给我们两件很重要的事：</p>
+    <ul>
+      <li>🏅 <strong>友谊比输赢更重要</strong>——运动会上，Tom 放弃领先的比赛，回头帮助摔倒的好朋友 Jack。虽然没赢比赛，却赢得了同学们的尊重。朋友有难时伸出手，这才是真正的“赢”！</li>
+      <li>🌍 <strong>爱护地球，从关一盏灯开始</strong>——刷牙时关掉水龙头、离开房间关灯、买东西自带布袋，小小的行动，也能保护我们美丽的家园。</li>
+    </ul>
+    <p>做一个善良、友善、爱护地球的“小小地球卫士”吧！</p>
+  </div>
+
+  <h3>📜 归属权声明</h3>
+  <div class="callout success">
+    <p>📜 本 HTML 学习报告由 K17AI AI 学习顾问依据《K17AI学习顾问.md》工作流自动生成，最终归属权归主人所有，可自由使用、修改、转发。</p>
+  </div>
+</section>
+<!-- sec7 结束 -->
+
+
+<footer>
+  <p>本复习包依据《K17AI学习顾问.md》工作流自动生成 · Cambridge Power Up Level 2 Unit 1 "A Day on the Farm" · 生成日期 2026-08-09</p>
+</footer>
+</body>
+</html>
