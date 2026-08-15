@@ -1,0 +1,1483 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>一进二打板 · 首板选龙 全套教程（从小白到精通）</title>
+<style>
+  :root{
+    --bg:#f7f4ef;          /* 页面浅米白背景 */
+    --card:#ffffff;        /* 卡片白 */
+    --ink:#2b2b2b;         /* 主文字 */
+    --sub:#6b6560;         /* 次文字 */
+    --line:#e8e2d8;        /* 分隔线 */
+    --blue:#4a6fa5;        /* 主蓝 */
+    --blue-bg:#e8f0fb;     /* 蓝底 */
+    --orange:#d97b2f;      /* 强调橙 */
+    --orange-bg:#fdeee0;   /* 橙底 */
+    --green:#5a9663;       /* 绿 */
+    --green-bg:#e9f4ea;    /* 绿底 */
+    --violet:#7d6bb0;      /* 紫 */
+    --violet-bg:#f0ebf9;   /* 紫底 */
+    --red:#c0504d;         /* 红（风险） */
+    --red-bg:#fbe9e7;      /* 红底 */
+    --code:#fdf6ec;        /* 公式代码底 */
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Source Han Sans SC","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    background:var(--bg);
+    color:var(--ink);
+    line-height:1.75;
+    font-size:16px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:1040px;margin:0 auto;padding:0 18px 80px;}
+
+  /* ===== 头部 ===== */
+  header{
+    background:linear-gradient(135deg,#3f5d86 0%,#4a6fa5 55%,#5f83b5 100%);
+    color:#fff;padding:46px 22px 40px;text-align:center;
+  }
+  header h1{margin:0 0 12px;font-size:26px;font-weight:700;letter-spacing:1px;}
+  header .sub{font-size:15px;opacity:.94;max-width:760px;margin:0 auto;}
+  header .meta{margin-top:16px;font-size:13px;opacity:.8;}
+
+  /* ===== 章节卡片 ===== */
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 28px;margin:22px 0;box-shadow:0 1px 3px rgba(60,50,30,.05);
+  }
+  h2.sec{
+    font-size:22px;color:var(--blue);margin:0 0 6px;padding-left:14px;
+    border-left:5px solid var(--orange);line-height:1.4;
+  }
+  h2.sec .no{color:var(--orange);font-weight:700;margin-right:8px;}
+  h3{font-size:18px;color:var(--ink);margin:26px 0 10px;padding-bottom:6px;border-bottom:1px dashed var(--line);}
+  h4{font-size:16px;color:var(--blue);margin:18px 0 6px;}
+  p{margin:8px 0;}
+  ul,ol{margin:8px 0;padding-left:24px;}
+  li{margin:5px 0;}
+
+  /* ===== 强调块 ===== */
+  .formula{
+    background:var(--code);border:1px solid #f0d9b8;border-left:5px solid var(--orange);
+    border-radius:8px;padding:14px 18px;margin:16px 0;font-size:17px;font-weight:600;
+    color:#8a4d16;text-align:center;
+  }
+  .key{color:var(--orange);font-weight:700;}
+  .tip{background:var(--blue-bg);border-left:4px solid var(--blue);border-radius:8px;padding:12px 16px;margin:14px 0;}
+  .warn{background:var(--red-bg);border-left:4px solid var(--red);border-radius:8px;padding:12px 16px;margin:14px 0;}
+  .good{background:var(--green-bg);border-left:4px solid var(--green);border-radius:8px;padding:12px 16px;margin:14px 0;}
+  .violet{background:var(--violet-bg);border-left:4px solid var(--violet);border-radius:8px;padding:12px 16px;margin:14px 0;}
+  code{
+    background:#f1ece4;border-radius:4px;padding:1px 6px;font-family:"SFMono-Regular",Consolas,"Liberation Mono",monospace;
+    font-size:14px;color:#8a4d16;
+  }
+
+  /* ===== 表格 ===== */
+  table{border-collapse:collapse;width:100%;margin:14px 0;font-size:14.5px;}
+  th,td{border:1px solid var(--line);padding:9px 12px;text-align:left;vertical-align:top;}
+  th{background:var(--blue-bg);color:var(--blue);font-weight:700;}
+  tr:nth-child(even) td{background:#fbf9f5;}
+
+  /* ===== 目录 ===== */
+  .toc{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 26px;margin:22px 0;}
+  .toc h2{font-size:19px;color:var(--blue);margin:0 0 12px;}
+  .toc ol{margin:0;padding-left:22px;columns:2;column-gap:34px;}
+  .toc li{margin:6px 0;}
+  .toc a{color:var(--ink);text-decoration:none;border-bottom:1px solid transparent;}
+  .toc a:hover{color:var(--orange);border-bottom:1px solid var(--orange);}
+
+  /* ===== SVG 思维导图容器 ===== */
+  .map{background:#fffdf9;border:1px solid var(--line);border-radius:14px;padding:14px 10px;margin:18px 0;overflow-x:auto;-webkit-overflow-scrolling:touch;}
+  .map svg{display:block;width:100%;height:auto;min-width:760px;}
+  .map .cap{font-size:13px;color:var(--sub);text-align:center;margin:6px 0 2px;}
+
+  .backtop{display:inline-block;margin-top:18px;font-size:14px;color:var(--blue);text-decoration:none;border:1px solid var(--blue);border-radius:20px;padding:4px 14px;}
+  .backtop:hover{background:var(--blue);color:#fff;}
+
+  footer{text-align:center;color:var(--sub);font-size:13px;margin-top:30px;}
+
+  @media (max-width:640px){
+    .toc ol{columns:1;}
+    .card{padding:18px 16px;}
+    body{font-size:15px;}
+    header h1{font-size:22px;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>一进二打板 · 首板选龙 全套教程</h1>
+  <div class="sub">一套从「小白」到「精通高手」的短线龙头战法系统 —— 首板选龙 · 一进二打板 · 抱团龙头，全部知识点一页收尽</div>
+  <div class="meta">68 篇文档 · 4 位作者（龙头最佳射手 / 塞外书生 / 邢者 / 只做竞价2022）跨文档去重合并 · 所有权归属尊贵的主人</div>
+</header>
+
+<div class="wrap">
+
+<!-- ==================== 目录（置顶导航） ==================== -->
+<div class="toc" id="toc">
+  <h2>📚 目录（点击跳转）</h2>
+  <ol>
+    <li><a href="#ch1">一、核心共识：筹码好的十六字真经</a></li>
+    <li><a href="#ch2">二、知识图谱</a></li>
+    <li><a href="#ch3">三、择时：情绪周期 / 指数周期 / 四时间节点</a></li>
+    <li><a href="#ch4">四、选股：逐条删除法 / 辨识度 / 最高空间板</a></li>
+    <li><a href="#ch5">五、买点：首板突破 / 一进二打板 / 竞价抢筹</a></li>
+    <li><a href="#ch6">六、持股与卖出：5日线低吸 / 补涨龙</a></li>
+    <li><a href="#ch7">七、避开启动失败：错误本能清单</a></li>
+    <li><a href="#ch8">八、进阶：抱团龙头 / 强者恒强 / 量化格局</a></li>
+    <li><a href="#ch9">九、第三方视角：邢者 / 只做竞价 / 塞外书生</a></li>
+    <li><a href="#ch10">十、心态与知行合一</a></li>
+    <li><a href="#ch11">十一、终极系统性总结 + 学习路径</a></li>
+    <li><a href="#appA">附录 A：68 篇文档索引</a></li>
+    <li><a href="#appB">附录 B：去重说明</a></li>
+    <li><a href="#appC">附录 C：交叉引用</a></li>
+  </ol>
+</div>
+
+<!-- ==================== 前言 ==================== -->
+<div class="card">
+  <h2 class="sec"><span class="no">前言</span>你将在这一页学到什么</h2>
+  <p>本页把整套课程的全部知识点压缩成一张可随身翻阅的地图。无论你此刻是完全不懂股票的「小白」，还是已经打板多年的老手，都可以顺着下面的路径，一步步从<b>看懂筹码</b>走到<b>知行合一</b>。</p>
+  <p>整套课程的第一性原理只有一句话——<span class="key">筹码好</span>。68 篇文档、11 个章节、上百个案例与量化数字，全部围绕这一条展开。建议按顺序阅读：先背会十六字真经，再依次学择时、选股、买点、持股，最后用「错误本能清单」完成心态的最后一跃。</p>
+  <div class="formula">学习主线：筹码好（第一因）→ 择时（能不能买）→ 选股（买哪个）→ 买点（何时买）→ 持股卖出（何时卖）→ 纠偏（为什么做不到）→ 进阶（抱团 / 强者恒强 / 量化格局）</div>
+  <p class="tip"><b>阅读提示：</b>每一个章节标题后都附有一张「横向树状思维导图」，根在左、逐层向右展开，直角折线连接，可直接双指放大查看。正文里的 <span class="key">橙色加粗</span> 是必须背下来的核心口诀，绿色块是可直接照做的操作清单，红色块是必须避开的风险。</p>
+</div>
+
+<!-- ==================== 总知识图谱 ==================== -->
+<div class="card">
+  <h2 class="sec"><span class="no">图0</span>全套课程总知识图谱（横向树状 · 静态 SVG）</h2>
+  <div class="map">
+    <div class="cap">根在左 = 筹码好（十六字真经），向右逐层展开六大板块 → 十七个核心要点（可双指放大 / 左右滑动查看）</div>
+    <svg viewBox="0 0 1180 1060" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="全套课程总知识图谱">
+      <defs>
+        <marker id="arr" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><path d="M0,0 L0,6 L9,3 z" fill="#b7a88f"/></marker>
+      </defs>
+
+      <!-- 连接线（直角折线）：根 -> 层1 -->
+      <g stroke="#b7a88f" stroke-width="1.6" fill="none">
+        <path d="M320 528 H340 V136 H360"/>
+        <path d="M320 528 H340 V304 H360"/>
+        <path d="M320 528 H340 V472 H360"/>
+        <path d="M320 528 H340 V640 H360"/>
+        <path d="M320 528 H340 V780 H360"/>
+        <path d="M320 528 H340 V920 H360"/>
+      </g>
+      <!-- 层1 -> 层2 -->
+      <g stroke="#c4b8a4" stroke-width="1.4" fill="none">
+        <path d="M570 136 H600 V80 H630"/>
+        <path d="M570 136 H600 V136 H630"/>
+        <path d="M570 136 H600 V192 H630"/>
+        <path d="M570 304 H600 V248 H630"/>
+        <path d="M570 304 H600 V304 H630"/>
+        <path d="M570 304 H600 V360 H630"/>
+        <path d="M570 472 H600 V416 H630"/>
+        <path d="M570 472 H600 V472 H630"/>
+        <path d="M570 472 H600 V528 H630"/>
+        <path d="M570 640 H600 V584 H630"/>
+        <path d="M570 640 H600 V640 H630"/>
+        <path d="M570 640 H600 V696 H630"/>
+        <path d="M570 780 H600 V752 H630"/>
+        <path d="M570 780 H600 V808 H630"/>
+        <path d="M570 920 H600 V864 H630"/>
+        <path d="M570 920 H600 V920 H630"/>
+        <path d="M570 920 H600 V976 H630"/>
+      </g>
+
+      <!-- 根节点 -->
+      <g>
+        <rect x="30" y="490" width="290" height="76" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="175" y="520" text-anchor="middle" font-size="17" font-weight="700" fill="#8a4d16">筹码好（十六字真经）</text>
+        <text x="175" y="544" text-anchor="middle" font-size="13" fill="#a05e22">缩量 + 窄幅震荡 + 均线粘合 + 轻松突破</text>
+      </g>
+
+      <!-- 层1 六大板块 -->
+      <g font-size="15" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="360" y="114" width="210" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.6"/>
+        <text x="465" y="142">三 · 择时（能不能买）</text>
+        <rect x="360" y="282" width="210" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.6"/>
+        <text x="465" y="310">四 · 选股（买哪个）</text>
+        <rect x="360" y="450" width="210" height="44" rx="9" fill="#dcefe0" stroke="#5a9663" stroke-width="1.6"/>
+        <text x="465" y="478">五 · 买点（何时买）</text>
+        <rect x="360" y="618" width="210" height="44" rx="9" fill="#dbeafa" stroke="#4a6fa5" stroke-width="1.6"/>
+        <text x="465" y="646">六 · 持股卖出</text>
+        <rect x="360" y="758" width="210" height="44" rx="9" fill="#fbe9e7" stroke="#c0504d" stroke-width="1.6"/>
+        <text x="465" y="786">七 · 风控纠偏</text>
+        <rect x="360" y="898" width="210" height="44" rx="9" fill="#f0ebf9" stroke="#7d6bb0" stroke-width="1.6"/>
+        <text x="465" y="926">八 · 进阶</text>
+      </g>
+
+      <!-- 层2 十七要点 -->
+      <g font-size="13.5" text-anchor="middle" fill="#333">
+        <rect x="630" y="60"  width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="755" y="85">情绪周期（水龙头）</text>
+        <rect x="630" y="116" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="755" y="141">指数周期 / 四时间节点</text>
+        <rect x="630" y="172" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="755" y="197">六种节点龙</text>
+
+        <rect x="630" y="228" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="755" y="253">逐条删除法 10 条</text>
+        <rect x="630" y="284" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="755" y="309">辨识度 = 最高空间板</text>
+        <rect x="630" y="340" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="755" y="365">流通市值门槛</text>
+
+        <rect x="630" y="396" width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="755" y="421">首板突破买</text>
+        <rect x="630" y="452" width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="755" y="477">一进二打板（谁胜出打谁）</text>
+        <rect x="630" y="508" width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="755" y="533">竞价抢筹（9:35 前）</text>
+
+        <rect x="630" y="564" width="250" height="40" rx="8" fill="#f0f6fc" stroke="#a9c2dd"/><text x="755" y="589">两套持有规则</text>
+        <rect x="630" y="620" width="250" height="40" rx="8" fill="#f0f6fc" stroke="#a9c2dd"/><text x="755" y="645">不破 5 日线死拿</text>
+        <rect x="630" y="676" width="250" height="40" rx="8" fill="#f0f6fc" stroke="#a9c2dd"/><text x="755" y="701">补涨龙时间节点</text>
+
+        <rect x="630" y="732" width="250" height="40" rx="8" fill="#fdf0ee" stroke="#d8a9a6"/><text x="755" y="757">三大排斥误区</text>
+        <rect x="630" y="788" width="250" height="40" rx="8" fill="#fdf0ee" stroke="#d8a9a6"/><text x="755" y="813">完整错误本能清单</text>
+
+        <rect x="630" y="844" width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="755" y="869">抱团龙头（光杆司令）</text>
+        <rect x="630" y="900" width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="755" y="925">强者恒强</text>
+        <rect x="630" y="956" width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="755" y="981">量化时代格局</text>
+      </g>
+
+      <!-- 层3 一句话收束 -->
+      <g font-size="12.5" text-anchor="middle" fill="#6b6560">
+        <rect x="910" y="240" width="250" height="40" rx="8" fill="#fbf9f5" stroke="#ddd5c8"/><text x="1035" y="265">风格 &gt; 题材 &gt; 筹码 &gt; 市值 &gt; 分时</text>
+        <rect x="910" y="500" width="250" height="40" rx="8" fill="#fbf9f5" stroke="#ddd5c8"/><text x="1035" y="525">首板 → 一进二 → 竞价 一条链</text>
+        <rect x="910" y="880" width="250" height="40" rx="8" fill="#fbf9f5" stroke="#ddd5c8"/><text x="1035" y="905">只看自身硬 · 不看逻辑板块</text>
+      </g>
+      <g stroke="#d9d0c2" stroke-width="1.2" fill="none">
+        <path d="M880 304 H895 V260 H910"/>
+        <path d="M880 472 H895 V520 H910"/>
+        <path d="M880 920 H895 V900 H910"/>
+      </g>
+    </svg>
+  </div>
+</div>
+
+<!-- ==================== 第一章 ==================== -->
+<div class="card" id="ch1">
+  <h2 class="sec"><span class="no">一</span>核心共识：筹码好的十六字真经</h2>
+  <p>这是全课程的<b>第一性原理</b>。68 篇文档无论讲择时、选股、买点还是心态，最终都收敛到这一条：<span class="key">筹码好</span>。理解了它，后面所有章节都只是它的展开。</p>
+
+  <div class="formula">筹码好 = 缩量 + 窄幅震荡 + 均线粘合 + 轻松突破</div>
+  <p class="tip"><b>十二字内核：</b>原文亦称「十二字真经」——<code>缩量 + 窄幅震荡 + 均线粘合 = 筹码好</code>，而「轻松突破」是它的必然结果。这十六字是全书被反复背诵、去重后剩下的最简内核。</p>
+
+  <h3>1.1 轻松突破的精确判定</h3>
+  <ul>
+    <li><b>第一个涨停板的前一天，已经突破左侧压力</b>（约半年时间跨度的左侧压力）；或</li>
+    <li><b>第一个涨停板当天，只需涨一点点就能突破。</b></li>
+  </ul>
+  <div class="good">
+    <b>「轻松」是相对的（量化标准）：</b><br>
+    · 涨 <b>1%–2%</b> 就能突破 = <b>轻松突破</b>（极品）；<br>
+    · 涨 <b>8%–9%</b> 才勉强突破 = <b>不轻松</b>（打折扣）；<br>
+    · 涨 <b>20%</b> 才能突破 = 严重打折，阻力极大。
+  </div>
+
+  <h3>1.2 极品筹码的「厚积薄发」四要素</h3>
+  <p>四组量级越极端，筹码越极品：</p>
+  <ul>
+    <li>窄幅震荡的<b>时间越长</b>；</li>
+    <li>窄幅震荡的<b>幅度越小</b>；</li>
+    <li><b>缩量时间越长</b>；</li>
+    <li>各条均线<b>距离越近</b>（几乎成一条线）。</li>
+  </ul>
+
+  <h3>1.3 一个极其重要的认知纠偏：第几个板突破不重要</h3>
+  <p class="warn">「筹码好」是唯一前提，<b>第几个涨停板突破并不重要</b>。有的第一个板就突破，有的第二、第三个板才突破（美邦股份、原中通客车），甚至处于「挖坑阶段」时<b>把左侧压力忽略掉、就当它已经突破了</b>。执着于「必须第一个板突破、必须突破左侧压力」会漏掉筹码极好的标的。</p>
+
+  <h3>1.4 筹码好 = 龙头 = 每天新高、每天大涨</h3>
+  <ul>
+    <li>筹码好是成为大牛股的<b>最主要原因，可机械理解为唯一原因</b>。</li>
+    <li><span class="key">筹码好比逻辑重要一万倍</span>：逻辑是「讲故事」、是出货时别人替你安排的工具；一开始没人知道逻辑，长高了自然有人补逻辑；被逻辑绑架就错过牛股。</li>
+    <li>选股公式优先级：<b>筹码好（本质，第一位）＞ 非融资融券标的（最重要）＞ 价格低 ＞ 流通市值小 ＞ 个股逻辑、板块（明的，最不重要）</b>。前三项是「暗的」（软件不直接显示，需自己判断），后两项是「明的」。</li>
+    <li>完整涨停条件：<b>轻松突破 + 流通市值小 + 价格低 + 非融资融券</b>。</li>
+  </ul>
+
+  <h3>1.5 筹码好坏「程度」决定买不买、买多少</h3>
+  <ul>
+    <li><b>首板</b>可以宽容（买得低，只要突破第一个涨停板都能试）；但<b>一进二越高、越靠后接力，越要求筹码极品</b>（缩量、窄幅、均线粘合三个维度都要好）。</li>
+    <li>筹码好坏的程度 → 决定「要不要买、买多少」；情绪好坏 → 决定「要不要空仓等待」。二者是全书两条并列主线。</li>
+    <li>案例对照：<b>电光科技</b>（窄幅震荡 + 缩量，虽勉强突破但筹码好）＞ <b>新亚电子</b>（宽幅震荡、上蹿下跳、无首板突破，筹码差）。</li>
+  </ul>
+
+  <h3>1.6 均线的本质</h3>
+  <ul>
+    <li>均线 = 平均持股成本；均线都在脚下、K 线站上所有均线，就不存在均线下压的抛压——这是因果关系。</li>
+    <li><b>256 线 = 年线</b>（365 天刨去节假日后的纯交易日）。</li>
+    <li>长期均线与短期均线距离越短，成本越靠近、越容易突破；距离越远，冲到该位置时越需要回调。</li>
+    <li>均线粘合时大家成本一致、没有套牢盘抛盘，涨起来只有获利盘——这是最极品的筹码结构（浙江建投、天山乳业等老牛股均属此类）。</li>
+  </ul>
+
+  <!-- 章节思维导图 -->
+  <div class="map">
+    <div class="cap">第一章思维导图：十六字真经 → 四要素 → 判断与纠偏</div>
+    <svg viewBox="0 0 1240 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第一章思维导图">
+      <g stroke="#c4b8a4" stroke-width="1.5" fill="none">
+        <path d="M300 280 H340 V70 H380"/>
+        <path d="M300 280 H340 V170 H380"/>
+        <path d="M300 280 H340 V270 H380"/>
+        <path d="M300 280 H340 V370 H380"/>
+        <path d="M300 280 H340 V490 H380"/>
+        <path d="M660 70 H700 V70 H740"/>
+        <path d="M660 170 H700 V170 H740"/>
+        <path d="M660 270 H700 V270 H740"/>
+        <path d="M660 370 H700 V370 H740"/>
+        <path d="M660 490 H700 V490 H740"/>
+      </g>
+      <g>
+        <rect x="20" y="240" width="280" height="80" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="160" y="273" text-anchor="middle" font-size="17" font-weight="700" fill="#8a4d16">筹码好（十六字真经）</text>
+        <text x="160" y="298" text-anchor="middle" font-size="12.5" fill="#a05e22">缩量+窄幅震荡+均线粘合+轻松突破</text>
+      </g>
+      <g font-size="14" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="380" y="48"  width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="520" y="75">缩量（长期无大量）</text>
+        <rect x="380" y="148" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="520" y="175">窄幅震荡（振幅极小）</text>
+        <rect x="380" y="248" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="520" y="275">均线粘合（成本一致）</text>
+        <rect x="380" y="348" width="280" height="44" rx="9" fill="#dcefe0" stroke="#5a9663" stroke-width="1.5"/><text x="520" y="375">轻松突破（1%-2%即破）</text>
+        <rect x="380" y="468" width="280" height="44" rx="9" fill="#fbe9e7" stroke="#c0504d" stroke-width="1.5"/><text x="520" y="495">纠偏：第几个板突破不重要</text>
+      </g>
+      <g font-size="13" text-anchor="middle" fill="#333">
+        <rect x="740" y="48"  width="250" height="44" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="865" y="75">启动前画一条直线</text>
+        <rect x="740" y="148" width="250" height="44" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="865" y="175">下跌挖坑也是窄幅</text>
+        <rect x="740" y="248" width="250" height="44" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="865" y="275">无套牢盘 · 只有获利盘</text>
+        <rect x="740" y="348" width="250" height="44" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="865" y="375">8%-9% 勉强 · 20% 打折</text>
+        <rect x="740" y="468" width="250" height="44" rx="8" fill="#fdf0ee" stroke="#d8a9a6"/><text x="865" y="495">挖坑可忽略左侧压力</text>
+      </g>
+    </svg>
+  </div>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 第二章 ==================== -->
+<div class="card" id="ch2">
+  <h2 class="sec"><span class="no">二</span>知识图谱</h2>
+  <p>本章把全书的关系用「一句话」串起来，帮助你建立整体框架。详细展开见后续各章。</p>
+
+  <h3>2.1 文字关系图（一句话版）</h3>
+  <div class="formula">筹码好（第一因）→ 决定「谁是龙头」（选股）；情绪周期 / 时间节点 → 决定「能不能买」（择时）；两者交汇 → 三个买点（首板突破 → 一进二打板 → 竞价抢筹）→ 持股卖出（不破 5 日线死拿 → 走一步看一步 → 补涨龙）；全程靠「错误本能清单」纠偏 → 进阶到「抱团龙头 / 强者恒强 / 量化格局」。</div>
+
+  <h3>2.2 三层体系</h3>
+  <ol>
+    <li><b>认知层（为什么）</b>：筹码好是第一原因、逻辑不重要；风格＞题材；辨识度 = 最高空间板。</li>
+    <li><b>执行层（怎么做）</b>：择时（情绪 / 时间节点）→ 选股（逐条删除法 / 辨识度）→ 买点（首板 / 一进二 / 竞价）→ 持股卖出（5 日线 / 两套规则 / 补涨龙）。</li>
+    <li><b>心法层（做到）</b>：错误本能清单 + 心态归零 + 知行合一。</li>
+  </ol>
+
+  <div class="map">
+    <div class="cap">第二章思维导图：三大层级 → 各自支柱</div>
+    <svg viewBox="0 0 1080 500" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第二章思维导图">
+      <g stroke="#c4b8a4" stroke-width="1.5" fill="none">
+        <path d="M260 250 H300 V80 H340"/>
+        <path d="M260 250 H300 V250 H340"/>
+        <path d="M260 250 H300 V420 H340"/>
+        <path d="M620 80 H660 V50 H700"/>
+        <path d="M620 80 H660 V80 H700"/>
+        <path d="M620 80 H660 V110 H700"/>
+        <path d="M620 250 H660 V220 H700"/>
+        <path d="M620 250 H660 V250 H700"/>
+        <path d="M620 250 H660 V280 H700"/>
+        <path d="M620 420 H660 V390 H700"/>
+        <path d="M620 420 H660 V420 H700"/>
+        <path d="M620 420 H660 V450 H700"/>
+      </g>
+      <g>
+        <rect x="20" y="210" width="240" height="80" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="140" y="243" text-anchor="middle" font-size="16" font-weight="700" fill="#8a4d16">整套课程三层体系</text>
+        <text x="140" y="266" text-anchor="middle" font-size="12" fill="#a05e22">认知 → 执行 → 心法</text>
+      </g>
+      <g font-size="14" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="340" y="58"  width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="480" y="85">认知层（为什么）</text>
+        <rect x="340" y="228" width="280" height="44" rx="9" fill="#dcefe0" stroke="#5a9663" stroke-width="1.5"/><text x="480" y="255">执行层（怎么做）</text>
+        <rect x="340" y="398" width="280" height="44" rx="9" fill="#f0ebf9" stroke="#7d6bb0" stroke-width="1.5"/><text x="480" y="425">心法层（做到）</text>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#333">
+        <rect x="700" y="28"  width="230" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="815" y="53">筹码好是第一原因</text>
+        <rect x="700" y="78"  width="230" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="815" y="103">风格＞题材</text>
+        <rect x="700" y="128" width="230" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="815" y="153">辨识度=最高空间板</text>
+        <rect x="700" y="198" width="230" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="815" y="223">择时→选股→买点→持股</text>
+        <rect x="700" y="248" width="230" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="815" y="273">一条买入链</text>
+        <rect x="700" y="298" width="230" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="815" y="323">两套持有规则</text>
+        <rect x="700" y="368" width="230" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="815" y="393">错误本能清单</text>
+        <rect x="700" y="418" width="230" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="815" y="443">心态归零</text>
+        <rect x="700" y="468" width="230" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="815" y="493">知行合一</text>
+      </g>
+    </svg>
+  </div>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 第三章 ==================== -->
+<div class="card" id="ch3">
+  <h2 class="sec"><span class="no">三</span>择时：情绪周期 / 指数周期 / 四个时间节点</h2>
+  <p>筹码好解决「买谁」，择时解决「能不能买、什么时候买」。择时是龙头高度的总闸门。</p>
+
+  <h3>3.1 情绪是水龙头，高度是船</h3>
+  <ul>
+    <li>情绪是<b>总闸门</b>：情绪好，水涨船高、龙头高度高；情绪不好，最高空间板也走不出来（华塑控股杀高标案例）。</li>
+    <li><span class="key">启动看筹码（80%），涨幅看情绪（80%）</span>：筹码好决定「启不启动」，情绪好坏决定「涨幅高低」。启动是筹码的问题，涨多少是情绪的问题。</li>
+    <li>情绪好 = 没有地天板、都一字 / 秒板；情绪不好 = 有负反馈、杀高标、跌停多 → 回避高标。</li>
+    <li><b>情绪回暖转折点 = 转折龙头</b>：分歧转一致转折点当天买，次日往往一字（买不到或买到即坑），本质是节奏 / 时间节点问题（华塑控股 8.13 案例）。</li>
+  </ul>
+
+  <h3>3.2 情绪的量价观测（两分法）</h3>
+  <ul>
+    <li>用<b>涨跌停家数</b>判断情绪：上百只跌停 = 情绪不好、最高空间板高度降低、高位龙头（尤其补涨龙头）易一字跌停；没有跌停、跌停少时怼高标。</li>
+    <li>看 <b>15000 亿左右成交量</b>判断情绪；情绪好筹码好的龙头（广博股份、粤桂股份、三维化学）总涨幅约 10 个涨停板高度。</li>
+    <li><b>情绪周期批判（降维）</b>：不要管复杂的情绪周期名词（「混沌期」是把简单问题复杂化），知道情绪好坏就够了。情绪好时「降智炒股」——大主升浪来临时不要当研究生，唯一关心这一波启动浪有多超预期。</li>
+  </ul>
+
+  <h3>3.2-补充 连板板块是市场温度计（竞价后第一步）</h3>
+  <p>第二天早上 9:25 竞价后的<b>第一步动作</b>：打开「每日强势标的（连板）」板块，整体扫一眼判断当天情绪——它决定「今天情绪决定大势、决定仓位」：</p>
+  <table>
+    <tr><th>连板板块信号</th><th>情绪判断</th><th>操作</th></tr>
+    <tr><td>很多低开绿色、出现<b>一字跌停</b>或接近跌停、-8 点开盘</td><td>情绪退潮（迹象明显）</td><td>防守为主、降仓、或高低切做低位首板</td></tr>
+    <tr><td>昨天质量板很高的，今天低开或不及预期</td><td>连板质量不强</td><td>回避</td></tr>
+    <tr><td>昨天烂板、放量换手很高（如浙江自然换手 53%+），今天却<b>高开</b></td><td>超预期</td><td>重点观察对象（隔日分歧转一致 / 弱转强）</td></tr>
+    <tr><td>整体大幅红色高开</td><td>情绪高潮 / 升温</td><td>适合进攻</td></tr>
+  </table>
+
+  <h3>3.3 指数周期与大环境判断</h3>
+  <ul>
+    <li>有大主流板块核心龙头引领保驾护航时 → <b>大干猛干</b>（一字板多、确定性高、成功率高）。</li>
+    <li>板块轮动、无大龙头、混沌期 → <b>休息</b>，不追高、不接力、不买早上冲天炮（螳螂捕蝉黄雀在后）。</li>
+    <li>指数弱势缩量 → 只能<b>抱团辨识度龙头</b>或空仓，题材越不持续抱团越强。</li>
+    <li>大盘暴跌无利空 → 从资金面解释（配资爆仓被动清仓），但<b>与首板突破模式无关</b>，不影响做盘。</li>
+  </ul>
+
+  <h3>3.4 塞外书生的四个时间节点（择时总纲）</h3>
+  <p>择时解决「何时做一进二」：每天的<b>首板晋级率、炸板率、未来潜力空间</b>都不同，并非每天都能参与，只在四个概率占优的时间节点出手：</p>
+  <ol>
+    <li><b>情绪周期首日后的次日</b>：小周期一般 3—4 天，其间板块个股以上涨为主；这天<b>首板与情绪周期共振</b>、未来潜力空间大；叠加大的题材共振，往往催生大龙头。例：10 月 31 日天鹅股份、11 月 24 日安奈儿 / 中交地产。</li>
+    <li><b>周期逆转的当日（冰点试错）</b>：受深市异动次数监管影响，T 日 2 板往往不触发异动、走到 5 板才 2 次异动，利于吸引后续接力资金；本质是冰点试错。例：西安饮食（博弈次日情绪逆转而打 2 板）。</li>
+    <li><b>指数周期首阳后的次日</b>：以上证指数为准，最理想是情绪与指数一起爆发；仅指数爆发、情绪一般，也可适度参与但预期要降低。例：次新龙头永泰顺。</li>
+    <li><b>三角形板块爆发的次日</b>：集中爆发型题材「出道即巅峰」，随后每天淘汰赛；好的 2 板直接一字，部分 2 板给换手机会，<b>尽快放量回封的都是参与机会</b>。</li>
+  </ol>
+
+  <h3>3.5 六种节点龙（选时重于选股）</h3>
+  <ol>
+    <li><b>涨潮期超预期板</b>；</li>
+    <li><b>涨潮期出利好的「先于龙」</b>（四川金顶氢能源第一天先于龙竞价买）；</li>
+    <li><b>过节龙</b>；</li>
+    <li><b>补涨龙 / 卡位龙 / 崩溃龙</b>（龙头涨高后做补涨、低卡高的卡位、龙头首阴减一天节点的崩溃龙）；</li>
+    <li><b>退潮期回暖龙</b>；</li>
+    <li><b>行情好的卡位龙</b>。</li>
+  </ol>
+
+  <h3>3.6 龙头一生的三次分歧转一致</h3>
+  <p>板块龙头 → 周期龙头 → 高潮博傻，三次分歧转一致对应上涨的三个台阶；每次分歧转一致都是买点，但位置越高风险越大。</p>
+
+  <h3>3.7 地天板是「情绪大师」的专属时间节点</h3>
+  <ul>
+    <li>地天板 / 大长腿必须抓<b>情绪冰点、连续冰点的转折点</b>（上塘路风格）。</li>
+    <li>刚退潮时第一天做地天板会再跌停；<b>前面已杀好几天、情绪冰点时</b>做地天板才容易成功（康盛股份案例）。</li>
+    <li><b>穿越</b> = 新题材股涨到半路时，顶着老龙头跌停的负反馈、与老龙头分离继续涨（周期衔接）。</li>
+  </ul>
+
+  <h3>3.8 监管决定龙头形态与两套持有规则</h3>
+  <ul>
+    <li><b>不监管时</b>：龙头连板、连续涨停、日内完成分歧转一致，一字板多买不到。</li>
+    <li><b>监管时</b>：断板反包、分歧加大时间变长，反而容易买到；共同特点仍是筹码好。</li>
+    <li><b>两套持有规则</b>：① 情绪不好、监管时——筹码好的龙头 N+N 板涨 1 倍基本见顶即卖；② 情绪好、不监管时——收盘不破 5 日线死拿，天空才是尽头。</li>
+  </ul>
+
+  <div class="map">
+    <div class="cap">第三章思维导图：择时 → 情绪 / 指数 / 时间节点 / 节点龙</div>
+    <svg viewBox="0 0 1240 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第三章思维导图">
+      <g stroke="#c4b8a4" stroke-width="1.5" fill="none">
+        <path d="M280 310 H330 V96 H370"/>
+        <path d="M280 310 H330 V228 H370"/>
+        <path d="M280 310 H330 V360 H370"/>
+        <path d="M280 310 H330 V492 H370"/>
+        <path d="M650 96 H690 V60 H730"/>
+        <path d="M650 96 H690 V96 H730"/>
+        <path d="M650 96 H690 V132 H730"/>
+        <path d="M650 228 H690 V196 H730"/>
+        <path d="M650 228 H690 V228 H730"/>
+        <path d="M650 228 H690 V260 H730"/>
+        <path d="M650 360 H690 V360 H730"/>
+        <path d="M650 492 H690 V452 H730"/>
+        <path d="M650 492 H690 V492 H730"/>
+        <path d="M650 492 H690 V532 H730"/>
+      </g>
+      <g>
+        <rect x="20" y="270" width="260" height="80" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="150" y="303" text-anchor="middle" font-size="16" font-weight="700" fill="#8a4d16">三 · 择时</text>
+        <text x="150" y="326" text-anchor="middle" font-size="12.5" fill="#a05e22">能不能买 / 什么时候买</text>
+      </g>
+      <g font-size="14" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="370" y="74"  width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="101">情绪周期</text>
+        <rect x="370" y="206" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="233">指数周期 / 环境</text>
+        <rect x="370" y="338" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="365">四时间节点</text>
+        <rect x="370" y="470" width="280" height="44" rx="9" fill="#dcefe0" stroke="#5a9663" stroke-width="1.5"/><text x="510" y="497">六种节点龙</text>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#333">
+        <rect x="730" y="38"  width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="63">情绪是水龙头，高度是船</text>
+        <rect x="730" y="94"  width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="119">启动看筹码80% · 涨幅看情绪80%</text>
+        <rect x="730" y="150" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="175">涨跌停家数 / 15000亿量能</text>
+        <rect x="730" y="174" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="199">大主线猛干 · 轮动休息</text>
+        <rect x="730" y="226" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="251">弱势缩量只抱团</text>
+        <rect x="730" y="282" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="307">情绪首日次日 / 逆转当日</text>
+        <rect x="730" y="338" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="363">指数首阳次日 / 三角爆发次日</text>
+        <rect x="730" y="430" width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="855" y="455">超预期 / 先于龙 / 过节龙</text>
+        <rect x="730" y="486" width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="855" y="511">补涨 / 卡位 / 崩溃 / 回暖</text>
+        <rect x="730" y="542" width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="855" y="567">龙头三次分歧转一致</text>
+      </g>
+    </svg>
+  </div>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 第四章 ==================== -->
+<div class="card" id="ch4">
+  <h2 class="sec"><span class="no">四</span>选股：逐条删除法 / 辨识度 / 最高空间板</h2>
+  <p>选股是<b>做减法</b>，不是做加法。「无穷无尽的做加法，说明你内心着急，长远万劫不复。」逐条删除不合格项，剩下的就是标的。</p>
+
+  <h3>4.1 选股框架总纲：五位一体</h3>
+  <div class="formula">风格 ＞ 题材 ＞ 筹码 ＞ 流通市值 ＞ 分时抢筹（729 版排序）</div>
+  <p>等价表述：<b>筹码好 ＞ 非融资融券 ＞ 价格低 ＞ 流通市值小 ＞ 个股逻辑 / 板块</b>。</p>
+  <ul>
+    <li><span class="key">风格是「暗的」</span>（当下最强挣钱风格），它比明的行业题材更重要；看懂「暗风格」（10cm / 20cm / 30cm、高价低价、每天大阳线不停涨的图形）才能判断涨幅高低。</li>
+    <li>风格案例：正丹股份打造 20cm 强趋势上涨风格后，20cm 赚钱效应一度优于 10cm；2024 年 7 月 29 日前大众交通又打出 10cm 连续上涨风格，主板与 20cm 纷纷模仿。</li>
+  </ul>
+
+  <h3>4.1-补充 市场定位前提（11月16日总纲的重要差异点）</h3>
+  <div class="good">
+    <b>市场定位（先定市场，再谈选股）：</b><br>
+    · <b>北交所 30cm</b> —— 做首板和接力；<br>
+    · <b>主板 10cm</b> —— 做一进二；<br>
+    · <b>20cm（创业板 / 科创板）</b> —— 持续性不行，<b>不碰 20cm</b>。
+  </div>
+  <p class="tip"><b>注意这是「最新提炼」与「历史内容」的关键转向：</b>历史内容中 20cm 强趋势曾是主线（正丹、逸豪、杰美特），最新总纲已转向「20cm 持续性不行、暂不碰」；风格要<b>动态切换</b>——哪个风格挣钱效应最强就做哪个，不固执于某一风格。</p>
+
+  <h3>4.2 逐条删除法（两套互补）</h3>
+  <h4>A. 塞外书生 10 条（1210，做减法的完整版）</h4>
+  <table>
+    <tr><th>序号</th><th>标准</th><th>删除 / 保留规则</th></tr>
+    <tr><td>1</td><td>流通市值</td><td>优选 <b>100 亿以下</b>（流通市值非总市值）；200 亿以上直接删；100—200 亿大部分删（除非板块龙一、形态优美、人气高、题材强）。</td></tr>
+    <tr><td>2</td><td>股价</td><td>一般 <b>30 元以下</b>（20 元以下更优），太高直接删。</td></tr>
+    <tr><td>3</td><td>首板成交额</td><td>不能太大，一般 <b>10 亿以上都不好</b>；例外是当日炸板回封、次日遇利好（中交地产 12 亿）。</td></tr>
+    <tr><td>4</td><td>赛道股</td><td>锂电池、储能等<b>很少连板、多走趋势</b>，直接删。</td></tr>
+    <tr><td>5</td><td>股性</td><td>看历史是经常连板还是经常断板，留股性活跃、有历史人气的。</td></tr>
+    <tr><td>6</td><td>趋势股</td><td>明显趋势型走法（步步走高但磨叽、少有连板、猛升后回落）直接删。</td></tr>
+    <tr><td>7</td><td>题材预期</td><td>三角形板块爆发次日多留其首板做 2 板；倒三角形爆发次日晋级很少、直接删；冷门题材删。</td></tr>
+    <tr><td>8</td><td>K 线形态</td><td>离上方套牢盘越远越好；同板块竞争时形态优势是关键。</td></tr>
+    <tr><td>9</td><td>深市优先</td><td>沪市一度因监管高度受限（最多 3 板），2 选 1 优先深圳。</td></tr>
+    <tr><td>10</td><td>历史老妖</td><td>老龙头再成龙仅约 20%，其首板 8 成时间可删，个别可留但要降低预期。</td></tr>
+  </table>
+
+  <h4>B. 龙头最佳射手删除清单（更凝练）</h4>
+  <ul>
+    <li>非首板突破 → 删（N 形、跌下来反抽、宽幅震荡等，要么放弃、要么归入独立模式单独研究）；</li>
+    <li>流通市值超门槛 → 删；</li>
+    <li>融资融券标的（带 R）→ 减分；</li>
+    <li>价格高 → 减分；</li>
+    <li>筹码差（宽幅震荡、上影线多、放量）→ 删；</li>
+    <li>无板块、无逻辑且筹码也不极品 → 删；</li>
+    <li><span class="key">没有更好的就空仓，任何时候都可以空仓等好机会</span>。</li>
+  </ul>
+  <p class="tip">两套删除法<b>内核一致</b>（都以筹码好 + 首板突破为第一标准、以做减法收敛标的），塞外书生版更细化为 10 条硬指标，龙头最佳射手版更强调「非首板突破一律删」的审美洁癖。</p>
+
+  <h3>4.3 辨识度 = 最高空间板 = 官大一级压死人</h3>
+  <ul>
+    <li>低位启动选龙头，最看重<b>辨识度最高</b>——新题材里多一个板、唯一最高空间板，就是「鹤立鸡群」，绝大多数资金都做最高空间板。</li>
+    <li>低位叫「辨识度最高的」，高位确认后叫「龙头」；最高空间板也称<b>先于龙头</b>（先于板块打开高度的孤勇者）。</li>
+    <li>筹码都不是特别好时，谁多一个板谁更可能成为新潜在龙头（与情绪好坏相关）。</li>
+    <li><span class="key">情绪好怼最高空间板（无跌停时），情绪不好回避（有负反馈时）</span>。</li>
+  </ul>
+
+  <h3>4.4 流通市值门槛（次要但硬性的过滤项）</h3>
+  <div class="formula">20cm ＜ 10 亿 · 10cm ＜ 20 亿 · 30cm（北交所）＜ 4 亿</div>
+  <ul>
+    <li>市值是<b>次要决定因素</b>，不是主因：决定龙头连续大涨的是「筹码好 + 板块强」（两项或占一项）。</li>
+    <li>三种放宽 / 忽略的平衡：① 筹码好 + 板块当时最强 → 可放宽市值（大众交通、航天科技、中公教育）；② 筹码好 + 市值小 → 可忽略逻辑不正宗、能蹭题材（腾达科技）；③ 筹码好 + 市值小 → 可忽略无板块、不知炒啥的瑕疵（庄股抱团瞎炒）。</li>
+    <li>反例：筹码不好、振幅大，市值再小也不碰（联动科技）；筹码好、市值大（大众交通、民德电子）也要坚决买。</li>
+    <li><b>同板块、板块强、筹码相当</b>的前提下，才优选市值小的；市值小但筹码不好也不买。</li>
+    <li><b>放宽的具体数字</b>：没有「市值又小、筹码又好」的标的时，可买「筹码好、市值稍大」的——10cm 三四十亿、20cm 15 亿左右仍可接受（大众交通、航天晨光这类 N 形，不机械要求市值小）。</li>
+  </ul>
+
+  <h3>4.5 筹码好的四种（五种）首板突破形态</h3>
+  <ol>
+    <li><b>极品飞机跑道型（正丹股份型）</b>：缩量 + 窄幅震荡 + 均线粘合三方面都好，首板「旱地拔葱」直接突破左侧毫无压力，超级大龙头（至少翻倍）。</li>
+    <li><b>首板 N 形突破（大众交通型）</b>：前面有过一个涨停回调很长时间，第一个涨停基本突破左侧压力。</li>
+    <li><b>超跌反弹筹码好（腾达科技型）</b>：超跌过程中启动前缩量 + 窄幅震荡 + 均线粘合，忽略前面一段、看作首板突破（逻辑根本不正宗，但筹码好）。</li>
+    <li><b>大 N 形回调重启（航天晨光型 / 最多见）</b>：前面涨过一波跌回起涨点、股性好，第一 / 二板可上车；超跌均线不粘合的往往受年线压制，<b>第一次突破是假突破 → 回调 5 / 10 日线 → 第二次突破才是主升浪</b>（博士眼镜、星星科技）。</li>
+    <li><b>挖坑不突破 / 次新横盘几天突破</b>：美邦股份「挖坑又跌下来、平台又跌下来」，均线粘合后忽略左侧压力即算突破；次新需横盘沉淀足够久（筹码沉淀够、换手降下来）。</li>
+  </ol>
+  <p class="warn"><b>减分项：</b>带可转债的股票是减分项（有大题材就没人做可转债、持续性不好）；次新股大部分时间不能碰——换手率高、上涨阻力大、「赔钱最快」。</p>
+
+  <h3>4.6 龙头分级（729 版）</h3>
+  <ul>
+    <li><b>大龙头 / 极品龙头</b>：各维度都好，至少翻倍。</li>
+    <li><b>板块特别强时的核心龙头（城门立木）</b>：至少翻三倍。</li>
+    <li><b>十倍龙头</b>：可遇不可求，取决于板块纵深与分支是否支持核心龙头再走一波两波，需「走一步看一步」。</li>
+  </ul>
+
+  <div class="map">
+    <div class="cap">第四章思维导图：选股 → 做减法 / 辨识度 / 市值 / 形态</div>
+    <svg viewBox="0 0 1240 660" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第四章思维导图">
+      <g stroke="#c4b8a4" stroke-width="1.5" fill="none">
+        <path d="M280 330 H330 V90 H370"/>
+        <path d="M280 330 H330 V210 H370"/>
+        <path d="M280 330 H330 V330 H370"/>
+        <path d="M280 330 H330 V450 H370"/>
+        <path d="M280 330 H330 V570 H370"/>
+        <path d="M650 90 H690 V90 H730"/>
+        <path d="M650 210 H690 V180 H730"/>
+        <path d="M650 210 H690 V210 H730"/>
+        <path d="M650 210 H690 V240 H730"/>
+        <path d="M650 330 H690 V330 H730"/>
+        <path d="M650 450 H690 V430 H730"/>
+        <path d="M650 450 H690 V470 H730"/>
+        <path d="M650 570 H690 V570 H730"/>
+      </g>
+      <g>
+        <rect x="20" y="290" width="260" height="80" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="150" y="323" text-anchor="middle" font-size="16" font-weight="700" fill="#8a4d16">四 · 选股</text>
+        <text x="150" y="346" text-anchor="middle" font-size="12.5" fill="#a05e22">做减法 · 买哪个</text>
+      </g>
+      <g font-size="14" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="370" y="68"  width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="95">五位一体框架</text>
+        <rect x="370" y="188" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="215">逐条删除法 10 条</text>
+        <rect x="370" y="308" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="335">辨识度=最高空间板</text>
+        <rect x="370" y="428" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="455">流通市值门槛</text>
+        <rect x="370" y="548" width="280" height="44" rx="9" fill="#dcefe0" stroke="#5a9663" stroke-width="1.5"/><text x="510" y="575">四种(五种)首板形态</text>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#333">
+        <rect x="730" y="68"  width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="93">风格&gt;题材&gt;筹码&gt;市值&gt;分时</text>
+        <rect x="730" y="158" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="183">市值 / 股价 / 成交额 / 赛道</text>
+        <rect x="730" y="206" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="231">股性 / 趋势 / 题材 / K线</text>
+        <rect x="730" y="254" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="279">深市优先 / 老妖 8 成删</text>
+        <rect x="730" y="308" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="333">官大一级压死人</text>
+        <rect x="730" y="408" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="433">20cm&lt;10亿 · 10cm&lt;20亿 · 30cm&lt;4亿</text>
+        <rect x="730" y="488" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="513">市值是次要 · 放宽三平衡</text>
+        <rect x="730" y="548" width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="855" y="573">正丹/大众/腾达/晨光/挖坑</text>
+      </g>
+    </svg>
+  </div>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 第五章 ==================== -->
+<div class="card" id="ch5">
+  <h2 class="sec"><span class="no">五</span>买点：首板突破 / 一进二打板 / 竞价抢筹</h2>
+  <p>三个买点构成一条买入链，是全课程的操作主轴。</p>
+
+  <div class="formula">首板启动买 → 二板接力打板胜出者 → 二板后 5/10 日线低吸缠打</div>
+  <p>对应龙头上涨三阶段：<b>启动（靠筹码好）→ 中途（靠辨识度 / 市场地位吸引接力）→ 高潮（靠资金合力抱团）</b>。</p>
+
+  <h3>5.0 启动三重标准（11月16日总纲）</h3>
+  <div class="formula">启动三重标准 = 轻松突破极品筹码 + 最强风格 + 竞价 / 9:35 前 90 度抢筹市场合力</div>
+  <p>三项同时满足，才是「启动」的完整确认：<b>筹码好</b>解决「买谁」、<b>最强风格</b>解决「买哪个市场」、<b>90 度抢筹</b>解决「何时下手」。三者缺一，启动的确定性就下降一档。</p>
+
+  <h3>5.1 首板突破买（最早、最安全）</h3>
+  <div class="good">
+    <b>最安全暴利标准（做减法后的唯一标准）：</b><br>
+    10cm + 板块强题材在线 + 非融资融券标的 + 筹码沉淀好 + 流通市值小 + <b>90 度抢筹一口气涨停</b> → 能看见就立即买。
+  </div>
+  <ul>
+    <li><b>首板半路秘笈四要素</b>：挣钱效应最强风格 + 板块在线 + 流通市值小 + 筹码好（<span class="key">筹码好是必备项</span>，所有牛股的唯一共性）。</li>
+    <li><b>「至少两项符合」宽容规则</b>：筹码好 + 板块强（放宽市值）；筹码好 + 独龙 / 庄股（可无板块）。</li>
+    <li><b>启动信号</b>：盘中 <b>100 万、200 万甚至几百万的单子 90 度抢筹</b>。买一或买二出现几倍于前面成交金额的买单接住，同时至少几百万金额的大单连续直线 90 度抢筹——出现这个信号就要抢，等打板一般抢不到。</li>
+  </ul>
+
+  <h3>5.2 一进二打板（谁胜出打谁，客观确认）</h3>
+  <ul>
+    <li><b>同身位 PK 客观化</b>：首板买<b>涨停最早</b>的（一般次日竞价开最高）；<b>二板起客观看「谁胜出打谁」</b>，打板胜出者、失败者断板（3 / 4 / 5 板同身位 PK 同理），与首板买涨停早不冲突。</li>
+    <li><b>优先日内龙</b>：多股竞争晋级 2 板时，早盘最快上板并封住的潜力空间最大；但 2 板日内龙不一定是最终龙一，还需综合排除 K 线形态等不利因素。</li>
+    <li>涨停早的多是量化抢筹（看不到 / 手慢抢不到），涨停晚的量化游资散户人工都买得到、换手好、人气好 → 反而易成抱团龙头。</li>
+    <li><b>一字板强度＞换手</b>：板块低位启动时一字板往往成龙头 PK 胜出继续涨，换手往往失败；一字买不到就第一时间买换手跟风龙头。</li>
+    <li><b>10cm 为主、20cm 只是套利</b>：主板一字涨停定方向 → 竞价看主板有一字，从创业板涨幅 / 市值排序找套利标的，<b>第一天买 20cm</b>；10cm 龙头能买到时 20cm 无套利价值、不接力。20cm 本质是跟风、不接力。</li>
+    <li><b>一进二的定义</b>：上一交易日以涨停板收盘，今天收盘前成功涨停收盘 = 「一进二成功」。</li>
+  </ul>
+
+  <h3>5.3 竞价抢筹（9:35 前解决战斗）</h3>
+  <div class="formula">9:35 之前发现「低位的极品小美女」（筹码好 + 市值小 + 竞价 90 度抢筹）就立即抢 —— 顺人性、追涨但不追高</div>
+  <ul>
+    <li>竞价开最高、9:30 开盘就 90 度抢筹 = 龙头；上涨阻力大、上影线多、宽幅震荡、龙头涨停后才跟涨 = 跟风杂毛。</li>
+    <li><b>竞价爆量判定</b>：分歧预期 → 竞价承接转强 = <b>弱转强</b>（可买）；一致预期 → 抢跑转弱 = <b>强转弱 / 坠机线</b>（规避）。</li>
+    <li><b>9:35 前解决战斗</b>：作者本能更倾向首板二板低位、更果断主动，9:35 前结束交易（交易纯粹）。</li>
+  </ul>
+
+  <h3>5.4 一进二分时形态（海哥，六种分时形态）</h3>
+  <table>
+    <tr><th>形态</th><th>分时特征</th><th>参与方式</th></tr>
+    <tr><td>① 最强</td><td>高开 5 点直线秒板 / 一字开炸板回封 / 高位大分歧回封</td><td>在炸板回封位置打板（已确认强度）</td></tr>
+    <tr><td>② 较常见</td><td>水下/水面开一波拉升；冲 5-7 点震荡后一笔上板；翻板炸开二次回封</td><td>竞价爆量超昨日 8%-15% 则竞价参与一笔 + 板上确认，或直接打板</td></tr>
+    <tr><td>③ 换手板</td><td>平开震荡拉升；震荡后下午秒板；尾盘直线板（最弱）</td><td>只在板上参与；早盘爆量且逻辑正则开盘一笔 + 板上确认</td></tr>
+    <tr><td>④ 大长腿/地天板</td><td>低开/跌停开拉升；水下震荡下午拉 15 点；地天板拉 20 点</td><td>逻辑在 + 换手够 + 翘板处跟大单翘；回溯概率不到 10%</td></tr>
+  </table>
+  <p class="tip"><b>两个关键量能指标：</b>① 竞价爆量 &gt; 昨日成交额 <b>8%–15%</b>；② 回封时成交量达昨日 <b>80%</b>。</p>
+
+  <h3>5.5 一进二五种内在逻辑（海哥）</h3>
+  <ol>
+    <li><b>挡刀</b>：资金为引导行情方向，做一个快速拉升的二板引导当天方向。</li>
+    <li><b>留活口</b>：板块阶段性上涨到中期，资金留一个小盘个股穿越打高度（补涨龙一般在此出现）。</li>
+    <li><b>跟风补涨</b>：龙头打出高度后，资金挖掘低位同属性、题材重叠的小票蹭消息补涨。</li>
+    <li><b>消息加持</b>：头一天多板块各出首板，当天某板块出利好，次日资金自然做该板块一进二。</li>
+    <li><b>独立预期差</b>：并购、重组、收购或根本逻辑改变，独立于当前主线，更易走成周期类龙头。</li>
+  </ol>
+
+  <h3>5.6 五条「不打」风险（海哥）</h3>
+  <ol>
+    <li>板块内有快速涨停成龙一的不打龙二（全市场资金只参与龙一）。</li>
+    <li>板块内超过三个一字的不打该板块二板（你就是「龙 4」）。</li>
+    <li>同梯队涨停越靠前越好（昨天十个一板，今天 9:35 就上板的越快越好）。</li>
+    <li>集合竞价最后一笔单笔拉高 7-9 个点但无量、无题材历史、股性不好的不打（有资金恶意做竞价）。</li>
+    <li>庄股不打（分时走势非常难受）。</li>
+  </ol>
+
+  <h3>5.7 抓龙头核心：突破性缺口 + 丈量战法</h3>
+  <div class="formula">主力目标价 = 缺口位 × 2　（口诀「高量不破，后市必火」）</div>
+  <ul>
+    <li>飞龙股份：前面高开 T 板后，长时间（一两个月）震荡始终没跌破 T 板最低价，这个低位突破缺口成为<b>突破性缺口</b>。</li>
+    <li>更多案例：韩瑞工业（长时间震荡不破缺口）、科达制造、北方稀土（第一目标 15、回踩后目标 20、最高 24）。</li>
+    <li>涨停基因的普遍规律：涨停-震荡-涨停-震荡、长时间箱体不破、多均线多头发散、涨了翻倍——说明前面已有涨停基因、主力之前就运作很久。</li>
+  </ul>
+
+  <h3>5.8 三种模式三种资金性质 + 中军平移</h3>
+  <ul>
+    <li><b>10cm 连板</b>——小游资、产业链资金参与（出发点坑人，高位容易一字跌停出不来），必须低位启动时买。</li>
+    <li><b>10cm 强趋势上涨的中军</b>（大众交通、金龙客车）——游资、大游资参与，比连板更安全、更有确定性。</li>
+    <li><b>20cm 强趋势上涨 / 连板</b>（青源 / 清源环境）——量化参与，量化只看当下、不看昨天涨跌。</li>
+    <li><b>中军平移模式</b>：锦江在线顶一字买不到 → 买同板块筹码好的中军大众交通；平移到 AI 眼镜：博士眼镜打开高度，卓翼科技、亚视光电顶一字，就买同板块中军创维数字。</li>
+  </ul>
+
+  <div class="map">
+    <div class="cap">第五章思维导图：买点 → 首板 / 一进二 / 竞价 / 打板实战</div>
+    <svg viewBox="0 0 1240 640" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第五章思维导图">
+      <g stroke="#c4b8a4" stroke-width="1.5" fill="none">
+        <path d="M280 320 H330 V70 H370"/>
+        <path d="M280 320 H330 V180 H370"/>
+        <path d="M280 320 H330 V290 H370"/>
+        <path d="M280 320 H330 V400 H370"/>
+        <path d="M280 320 H330 V510 H370"/>
+        <path d="M650 70 H690 V70 H730"/>
+        <path d="M650 180 H690 V150 H730"/>
+        <path d="M650 180 H690 V180 H730"/>
+        <path d="M650 180 H690 V210 H730"/>
+        <path d="M650 290 H690 V290 H730"/>
+        <path d="M650 400 H690 V400 H730"/>
+        <path d="M650 510 H690 V480 H730"/>
+        <path d="M650 510 H690 V510 H730"/>
+        <path d="M650 510 H690 V540 H730"/>
+      </g>
+      <g>
+        <rect x="20" y="280" width="260" height="80" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="150" y="313" text-anchor="middle" font-size="16" font-weight="700" fill="#8a4d16">五 · 买点</text>
+        <text x="150" y="336" text-anchor="middle" font-size="12.5" fill="#a05e22">首板 → 一进二 → 竞价</text>
+      </g>
+      <g font-size="14" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="370" y="48"  width="280" height="44" rx="9" fill="#dcefe0" stroke="#5a9663" stroke-width="1.5"/><text x="510" y="75">首板突破买</text>
+        <rect x="370" y="158" width="280" height="44" rx="9" fill="#dcefe0" stroke="#5a9663" stroke-width="1.5"/><text x="510" y="185">一进二打板</text>
+        <rect x="370" y="268" width="280" height="44" rx="9" fill="#dcefe0" stroke="#5a9663" stroke-width="1.5"/><text x="510" y="295">竞价抢筹</text>
+        <rect x="370" y="378" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="405">分时形态 / 五种逻辑</text>
+        <rect x="370" y="488" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="515">缺口丈量 / 三种模式</text>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#333">
+        <rect x="730" y="48"  width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="855" y="73">90度大单抢筹 · 9:35前</text>
+        <rect x="730" y="128" width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="855" y="153">谁胜出打谁 · 优先日内龙</text>
+        <rect x="730" y="176" width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="855" y="201">10cm为主 · 20cm套利</text>
+        <rect x="730" y="224" width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="855" y="249">五条不打 · 庄股不打</text>
+        <rect x="730" y="268" width="250" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="855" y="293">弱转强买 · 强转弱避</text>
+        <rect x="730" y="378" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="403">六种分时 · 竞价爆量8%-15%</text>
+        <rect x="730" y="458" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="483">目标价=缺口位×2</text>
+        <rect x="730" y="506" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="531">10cm连板/强趋势/20cm</text>
+        <rect x="730" y="554" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="579">中军平移模式</text>
+      </g>
+    </svg>
+  </div>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 第六章 ==================== -->
+<div class="card" id="ch6">
+  <h2 class="sec"><span class="no">六</span>持股与卖出：5日线低吸 / 走一步看一步 / 补涨龙</h2>
+
+  <h3>6.1 两套持有规则（最关键的增量）</h3>
+  <div class="good">
+    ① <b>情绪不好、监管时</b>：筹码好的龙头 N+N 板涨 <b>1 倍</b>基本见顶，一次反包涨到一倍左右就卖，切换下一个低位启动筹码好的龙头。<br>
+    ② <b>情绪好、不监管时</b>：<b>收盘不破 5 日线死拿，天空才是尽头</b>（海能达连续穿越、双城药业连续涨停）。
+  </div>
+
+  <h3>6.2 不破 5 日线死拿 + 5 日线低吸</h3>
+  <ul>
+    <li>龙头 5 日线上方分歧状态是<b>买点</b>、还会反包；抱团龙头是最大确定性、能对抗不确定性（跟风杂毛板块涨完、龙头涨 10 倍，跟风可能还亏钱）。</li>
+    <li><b>卖出信号（两个）</b>：高位出现<b>大于 15% 振幅</b>，或<b>跌破 5 日线</b>。</li>
+    <li><b>跌停 + 15% 振幅</b>两个信号同时满足 → 卖。</li>
+    <li><b>总龙头（周期总龙头）至少涨三倍，不破 5 日线、不破 10 日线不卖</b>（艾艾精工证明）。</li>
+    <li>高位承接好因素越多越易承接：市值小、中间无连续一字（筹码不断层）、换手好、非融券标的（艾艾精工承接得住；克莱机电连续一字断层 + 融券 + 市值大 → 砸下来接不住）。</li>
+  </ul>
+
+  <h3>6.3 强者恒强：主升浪不碰 5 日线</h3>
+  <p class="warn">强者恒强主升浪中，强者<b>根本不碰 5 日线</b>（大众交通、博士眼镜第一波），要<b>第一时间无脑去买，不要等跌到 5 日线低吸</b>——等低吸就买不到。</p>
+
+  <h3>6.4 走一步看一步</h3>
+  <ul>
+    <li>十倍龙头无法提前预判，只能<b>走一步看一步</b>：龙头上涨是「每天新高、每天大涨」，不预设立场、不活在未来。</li>
+    <li>情绪好、不监管时死拿，就是「走一步看一步」的落地方案。</li>
+  </ul>
+
+  <h3>6.5 补涨龙 vs 跟风（时间节点决定）</h3>
+  <ul>
+    <li><b>跟风「三碗不过岗」</b>：龙头打开高度之前，下面跟风小弟最多涨 3 个涨停板（圣龙股份 20 板下面天龙、腾龙最多 3 板）。</li>
+    <li><b>补涨龙头</b> = 龙头<b>翻倍打开高度以后、首阴 / 断板的时间节点</b>出来的相关小盘股，高度才相对更高（圣龙断板首阴时出的天龙股份；正丹翻 5 倍 10 倍后第一个补涨龙头涨幅最高）。</li>
+    <li>补涨龙头<b>也能接力、也能抱团</b>，「只能首板买补涨龙不能接力」是错的（正丹后多个补涨龙、大科技分支龙都能抱团连续大涨）。</li>
+    <li>但补涨龙头<b>高位（一致后加速）不能接力</b>（航天科技末端补涨龙头，首板二板错过高位就不看）；<b>低位看出来买早买低</b>才是对的。</li>
+    <li>主升周期 <b>三大阶段 × 三小阶段 = 九个小周期龙头</b>，一个强主升阶段<b>最多四轮补涨</b>；所有补涨进高潮期 = 大阶段将结束、有出清。</li>
+  </ul>
+
+  <h3>6.6 分阶段买卖决策框架</h3>
+  <ul>
+    <li>低位没涨够时：分歧、断板、盘中分歧、启动时果断买；中间：果断接力；高位：果断放弃。</li>
+    <li>涨到高位不要抱有侥幸心理、不要去碰，才能躲开广博股份高位见顶天地板连续跌停。</li>
+  </ul>
+
+  <h3>6.7 买错处理 + 高低切换</h3>
+  <ul>
+    <li>买错了当天被套，<b>第二天不高开、不立即往上冲就立即扔掉</b>，切最强。</li>
+    <li><b>高低切换</b>：必须等「高位出现极大亏钱效应」时（大众首阴时低位补涨一堆但不重要，因高位情绪还在延续）；只要高位一半以上健在，高低切节点就往后延。</li>
+    <li>补涨龙头比高位龙头「多活一两天、多涨一两天」；周期末端：补涨一轮比一轮低，最后「1 进 2 都死」，龙头跌停或掉出 10 日线是周期末端表现。</li>
+  </ul>
+
+  <div class="map">
+    <div class="cap">第六章思维导图：持股卖出 → 持有规则 / 卖出信号 / 补涨龙</div>
+    <svg viewBox="0 0 1240 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第六章思维导图">
+      <g stroke="#c4b8a4" stroke-width="1.5" fill="none">
+        <path d="M280 310 H330 V100 H370"/>
+        <path d="M280 310 H330 V230 H370"/>
+        <path d="M280 310 H330 V360 H370"/>
+        <path d="M280 310 H330 V490 H370"/>
+        <path d="M650 100 H690 V70 H730"/>
+        <path d="M650 100 H690 V100 H730"/>
+        <path d="M650 100 H690 V130 H730"/>
+        <path d="M650 230 H690 V230 H730"/>
+        <path d="M650 360 H690 V330 H730"/>
+        <path d="M650 360 H690 V360 H730"/>
+        <path d="M650 360 H690 V390 H730"/>
+        <path d="M650 490 H690 V490 H730"/>
+      </g>
+      <g>
+        <rect x="20" y="270" width="260" height="80" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="150" y="303" text-anchor="middle" font-size="16" font-weight="700" fill="#8a4d16">六 · 持股卖出</text>
+        <text x="150" y="326" text-anchor="middle" font-size="12.5" fill="#a05e22">拿住 · 卖对</text>
+      </g>
+      <g font-size="14" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="370" y="78"  width="280" height="44" rx="9" fill="#dbeafa" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="105">两套持有规则</text>
+        <rect x="370" y="208" width="280" height="44" rx="9" fill="#dbeafa" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="235">不破 5 日线死拿</text>
+        <rect x="370" y="338" width="280" height="44" rx="9" fill="#dbeafa" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="365">补涨龙 vs 跟风</text>
+        <rect x="370" y="468" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="495">买错处理 / 高低切换</text>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#333">
+        <rect x="730" y="48"  width="250" height="40" rx="8" fill="#f0f6fc" stroke="#a9c2dd"/><text x="855" y="73">情绪差监管→1倍卖</text>
+        <rect x="730" y="98"  width="250" height="40" rx="8" fill="#f0f6fc" stroke="#a9c2dd"/><text x="855" y="123">情绪好不监管→死拿</text>
+        <rect x="730" y="148" width="250" height="40" rx="8" fill="#f0f6fc" stroke="#a9c2dd"/><text x="855" y="173">天空才是尽头</text>
+        <rect x="730" y="208" width="250" height="40" rx="8" fill="#f0f6fc" stroke="#a9c2dd"/><text x="855" y="233">卖出信号：15%振幅/破5日线</text>
+        <rect x="730" y="308" width="250" height="40" rx="8" fill="#f0f6fc" stroke="#a9c2dd"/><text x="855" y="333">跟风三碗不过岗</text>
+        <rect x="730" y="356" width="250" height="40" rx="8" fill="#f0f6fc" stroke="#a9c2dd"/><text x="855" y="381">补涨龙翻倍后首阴节点</text>
+        <rect x="730" y="404" width="250" height="40" rx="8" fill="#f0f6fc" stroke="#a9c2dd"/><text x="855" y="429">九小周期 · 四轮补涨</text>
+        <rect x="730" y="468" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="493">次日不高开不冲→扔</text>
+      </g>
+    </svg>
+  </div>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 第七章 ==================== -->
+<div class="card" id="ch7">
+  <h2 class="sec"><span class="no">七</span>避开启动失败：错误本能清单</h2>
+  <p>把「阻碍买龙头」的极端错误本能一一列出并破解，是知行合一的另一半。</p>
+
+  <h3>7.1 三种排斥龙头的极端错误</h3>
+  <ol>
+    <li><b>看逻辑不正宗</b>——短线情绪股就是「瞎炒」，一开始不要考虑逻辑正宗不正宗、业绩好不好；考虑这些会导致低位排斥不买、长高了又心痒痒去追。</li>
+    <li><b>看流通市值稍大</b>（如大众交通）——市值是次要因素，筹码好 + 板块强可放宽。</li>
+    <li><b>看超跌均线压制、N 形二次突破就排斥</b>——不要排斥「两次才能突破」的超跌 N 形启动（年线第一次假突破、第二次主升浪）。</li>
+  </ol>
+
+  <h3>7.2 完整错误本能清单</h3>
+  <table>
+    <tr><th>错误本能</th><th>危害与破解</th></tr>
+    <tr><td>过于严格审美（完美主义）</td><td>没有完美的牛股（正丹无板块、大众市值稍大、腾达逻辑不正宗）；等完美的，一万年不可能有 → 解放思想、实事求是：筹码好 + 资金认可看到就全仓干。</td></tr>
+    <tr><td>怕高躲龙头</td><td>龙头启动时分时买点都让人害怕，本能怕高就万劫不复（怕高躲龙头 → 龙头涨停 → 追高跟风 → 被套割肉 → 恶性循环）。</td></tr>
+    <tr><td>买跟风</td><td>熊出没（烂货横行）时乱买跟风杂毛，是赔光、腰斩最快的路。</td></tr>
+    <tr><td>追涨杀跌（标的错误）</td><td>追涨杀跌本身必须做，但<b>标的必须是龙头</b>——追涨龙头 = 第一时间追（非追高），追涨跟风 = 赔光。</td></tr>
+    <tr><td>想结果 / 活在未来</td><td>用上帝视角从结果看开始指导操作，但盘中要活在当下，不要预设立场后视镜后悔。</td></tr>
+    <tr><td>做加法</td><td>无穷无尽做加法 = 内心着急 = 万劫不复。</td></tr>
+    <tr><td>主观判断题材</td><td>本能觉得「这题材没什么可炒的」错误否定首板突破信号（山东矿机偏见导致错过）。</td></tr>
+    <tr><td>主观侥幸心理</td><td>板块有消息 + 市值小 + 股性好但<b>筹码就是不好</b>，坚决不碰（新城市反面案例）。</td></tr>
+  </table>
+
+  <h3>7.3 易失败的启动形态（缩量脉冲坑）</h3>
+  <p class="warn">日 K 线不是轻松突破、在坑里爬不出来、开盘第一分钟直线脉冲一两分钟、成交量不够、日线还是缩量的涨停——「缩量冲涨停容易，被量化砸盘容易失败，因为左侧尤其最近几天被套盘很难消化。大部分冲高回落涨停炸板都是这种不是轻松突破的、自不量力、筹码消化不够、9:30 开盘直线脉冲的。」</p>
+  <p class="tip">但启动失败即使冲高回落，<b>5 日线附近支撑住基本上过两天就会涨回来</b>（前提是筹码好）。</p>
+
+  <h3>7.4 老妖二波陷阱</h3>
+  <ul>
+    <li>老妖股老龙头主升浪结束、调整很长时间后妄想走大二波三板，容易出问题（大众交通、海能达、双城药业、常山北明）。</li>
+    <li>主力正是利用「妄想大二波」的散户无脑接力二波反包三板。</li>
+  </ul>
+
+  <h3>7.5 破解方法</h3>
+  <ul>
+    <li>每天背「<b>筹码好立即就干，不要管逻辑正宗不正宗，不要管流通市值稍大</b>」。</li>
+    <li><b>定点爆破</b>：从「知道」到「做到」之间，找出阻碍你的本能 / 心态（「业力」），用正确的东西把它「撵出去」，只剩正确的本能 = 知行合一。</li>
+    <li><b>师出有名（分阶段看上涨原因）</b>：启动靠筹码好 → 中途靠接力确认 → 高位靠资金合力 / 人气 / 市场地位；分阶段一清二楚才能启动主动买、涨高还敢买、拿得住不卖飞。</li>
+  </ul>
+
+  <div class="map">
+    <div class="cap">第七章思维导图：风控纠偏 → 三大排斥 / 错误清单 / 破解</div>
+    <svg viewBox="0 0 1240 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第七章思维导图">
+      <g stroke="#c4b8a4" stroke-width="1.5" fill="none">
+        <path d="M280 270 H330 V90 H370"/>
+        <path d="M280 270 H330 V270 H370"/>
+        <path d="M280 270 H330 V450 H370"/>
+        <path d="M650 90 H690 V60 H730"/>
+        <path d="M650 90 H690 V90 H730"/>
+        <path d="M650 90 H690 V120 H730"/>
+        <path d="M650 270 H690 V240 H730"/>
+        <path d="M650 270 H690 V270 H730"/>
+        <path d="M650 270 H690 V300 H730"/>
+        <path d="M650 450 H690 V450 H730"/>
+      </g>
+      <g>
+        <rect x="20" y="230" width="260" height="80" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="150" y="263" text-anchor="middle" font-size="16" font-weight="700" fill="#8a4d16">七 · 风控纠偏</text>
+        <text x="150" y="286" text-anchor="middle" font-size="12.5" fill="#a05e22">避开启动失败</text>
+      </g>
+      <g font-size="14" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="370" y="68"  width="280" height="44" rx="9" fill="#fbe9e7" stroke="#c0504d" stroke-width="1.5"/><text x="510" y="95">三大排斥误区</text>
+        <rect x="370" y="248" width="280" height="44" rx="9" fill="#fbe9e7" stroke="#c0504d" stroke-width="1.5"/><text x="510" y="275">完整错误本能清单</text>
+        <rect x="370" y="428" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="455">破解方法</text>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#333">
+        <rect x="730" y="38"  width="250" height="40" rx="8" fill="#fdf0ee" stroke="#d8a9a6"/><text x="855" y="63">看逻辑不正宗</text>
+        <rect x="730" y="88"  width="250" height="40" rx="8" fill="#fdf0ee" stroke="#d8a9a6"/><text x="855" y="113">看市值稍大</text>
+        <rect x="730" y="138" width="250" height="40" rx="8" fill="#fdf0ee" stroke="#d8a9a6"/><text x="855" y="163">排斥 N 形二次突破</text>
+        <rect x="730" y="218" width="250" height="40" rx="8" fill="#fdf0ee" stroke="#d8a9a6"/><text x="855" y="243">完美主义 · 怕高躲龙头</text>
+        <rect x="730" y="266" width="250" height="40" rx="8" fill="#fdf0ee" stroke="#d8a9a6"/><text x="855" y="291">买跟风 · 追涨杀跌</text>
+        <rect x="730" y="314" width="250" height="40" rx="8" fill="#fdf0ee" stroke="#d8a9a6"/><text x="855" y="339">想结果 · 做加法 · 侥幸</text>
+        <rect x="730" y="428" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="453">定点爆破 · 师出有名</text>
+      </g>
+    </svg>
+  </div>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 第八章 ==================== -->
+<div class="card" id="ch8">
+  <h2 class="sec"><span class="no">八</span>进阶：抱团龙头 / 强者恒强 / 量化时代格局</h2>
+
+  <h3>8.1 抱团龙头 = 光杆司令、脱离板块</h3>
+  <ul>
+    <li><b>脱离板块才称为抱团龙头</b>，否则不叫抱团——龙头单兵突进、单独上涨、不带动板块。</li>
+    <li><span class="key">看板块选股会让你错过抱团龙头</span>：大部分时间板块轮动不持续，但抱团龙头能穿越板块分歧连续上涨（连板或反包）。</li>
+    <li>北交所 30cm 个股上涨基本与板块无关（艾融软件、天马新材、大地电气、聚星科技）；10cm / 20cm 与板块相关，独立者为庄股。</li>
+    <li>板块驱动型股（上涨主因是消息刺激板块）在轮动期易坑人；筹码好的抱团龙头不受板块影响。</li>
+    <li>指数弱势缩量 → 只能抱团或休息；题材越不持续抱团越强，抱团必须忽略题材和个股逻辑（杰美特做手机壳照样大涨）。</li>
+  </ul>
+
+  <h3>8.2 强者恒强 / 辨识度龙头</h3>
+  <ul>
+    <li><b>强者恒强</b>：主升浪中强者根本不碰 5 日线（大众交通、博士眼镜第一波主升浪），要第一时间无脑去买，不要等跌到 5 日线低吸。</li>
+    <li><b>辨识度 = 最高空间板 = 官大一级压死人</b>：做最高空间板的资金全市场最多，最高板发散带动板块和相关个股。</li>
+    <li>连板 vs 强趋势 / N 形两大阵营，断板基本被淘汰（做连板资金断板就不看）。</li>
+  </ul>
+
+  <h3>8.2-补充 开拓者核心龙头 vs 模仿者 / 补涨龙头</h3>
+  <div class="warn">
+    <b>龙头认知核心（贯穿全篇）：</b><br>
+    <b>开拓者核心龙头</b>才能强者恒强、强韧有力、不坑人、反复不断上涨；<b>模仿者 / 补涨龙头都是一波流，断板就完蛋</b>。选股时要看清个股所处板块是「老题材末端补涨模仿者」还是「新板块新题材的开拓者」——后者才是真正要抓的核心总龙头。
+  </div>
+  <p><b>高位趋同</b>：高位品种会「趋同」——腾达晋级 10 板带动整个高位「分歧转一致」，同样处于高位的金龙、宗申、晨光、大众凭什么不可以？这些高位品种只是跑得快慢不同，<b>根据竞价来选择</b>，直到腾达见顶，情绪才会再次迎来较大分歧。</p>
+
+  <h3>8.3 量化时代的格局变化</h3>
+  <ul>
+    <li><b>量化成交量占比提高后，部分量价方法失效</b>：历史上主力靠做多赚钱时下跌明显缩量，现在不明显。</li>
+    <li>游资多选量化不易参与的股票（<b>非转融通标的</b>），这类股票量价分析（主力走没走）仍有效。</li>
+    <li>涨停早的多是量化抢筹（看不到 / 抢不到），涨停晚的换手好、人工买得到——这改变了同身位 PK 的判断。</li>
+    <li>10cm 短线连板太恶劣（天地板、一字跌停）→ 资金被虹吸到「不停涨涨不停」的 20cm 强趋势抱团（正丹、逸豪新材、杰美特）。</li>
+  </ul>
+
+  <h3>8.4 游资抱团 vs 量化抱团</h3>
+  <ul>
+    <li><b>游资抱团</b>（六一中路为首，夹杂小鳄鱼、养家、92 科比、呼家楼）：只拉核心标的不带板块（金龙汽车案例，什么都没带动）。</li>
+    <li><b>量化抱团</b>（围绕 300 创业板搞「大长腿」，香雪→博士眼镜、星星科技、广生堂）：量化龙头都是主力自己给自己抬轿子，每天都是新的。</li>
+    <li>无脑接力资金（不怕赔钱头铁的人、踏空比赔钱痛苦的人）非常多，所以龙头会涨了又涨、超预期上涨；游资为流动性必须做高位龙头接力低吸缠打。</li>
+  </ul>
+
+  <h3>8.5 退潮期与转折点</h3>
+  <ul>
+    <li>退潮期阶段划分：见顶后三四天是主杀期（A 杀），之后才是转折点。</li>
+    <li>光杆司令（抱团龙头）在退潮期 A 杀最快，主跌期结束才谈转折点龙头。</li>
+    <li>退潮期盯「往外切的新板块」，用<b>一字板竞价引领</b>发现新方向（新天科技案例）；一字板引领 + 各方面好 + 消息触发 = 可买点。</li>
+    <li>高低切换：必须<b>高位出现极大亏损效应</b>才切换；高位一半以上健在则高低切节点往后延。</li>
+  </ul>
+
+  <h3>8.6 龙头与跟风的「反推」关系（分阶段理解，不可张冠李戴）</h3>
+  <p class="violet"><b>关系是反的、且分阶段：</b>「一开始是<b>龙头带跟风</b>，龙头涨到高位了，需要<b>跟风（新首板）反推它</b>」，而不是永远龙头带跟风。把阶段搞反、张冠李戴，是徒弟最常犯的错。</p>
+  <ul>
+    <li><b>艾绒软件案例</b>：最后两个 30cm 涨停板往前数第四天是<b>天马新材</b>启动（补涨龙头），天马新材连续快速涨停<b>反推</b>艾绒软件，又涨 2 个 30cm 涨停。</li>
+    <li><b>正丹股份案例</b>：涨到高位后脱离涨价逻辑，上涨主因变成「龙头市场地位引领整个 20cm 最强挣钱效应风格的总龙头」，补涨小弟<b>不断反推</b>正丹几波上涨 10 倍。</li>
+    <li><b>操作含义</b>：龙头弱时，小弟（一字板 / 补涨龙）会反推龙头反包，此时应<b>坚定买「轻松突破的小弟」</b>，而不是去追已经滞涨的老龙头。</li>
+  </ul>
+
+  <div class="map">
+    <div class="cap">第八章思维导图：进阶 → 抱团 / 强者恒强 / 量化 / 退潮</div>
+    <svg viewBox="0 0 1240 620" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第八章思维导图">
+      <g stroke="#c4b8a4" stroke-width="1.5" fill="none">
+        <path d="M280 310 H330 V90 H370"/>
+        <path d="M280 310 H330 V210 H370"/>
+        <path d="M280 310 H330 V330 H370"/>
+        <path d="M280 310 H330 V470 H370"/>
+        <path d="M650 90 H690 V70 H730"/>
+        <path d="M650 90 H690 V90 H730"/>
+        <path d="M650 90 H690 V110 H730"/>
+        <path d="M650 210 H690 V210 H730"/>
+        <path d="M650 330 H690 V300 H730"/>
+        <path d="M650 330 H690 V330 H730"/>
+        <path d="M650 330 H690 V360 H730"/>
+        <path d="M650 470 H690 V470 H730"/>
+      </g>
+      <g>
+        <rect x="20" y="270" width="260" height="80" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="150" y="303" text-anchor="middle" font-size="16" font-weight="700" fill="#8a4d16">八 · 进阶</text>
+        <text x="150" y="326" text-anchor="middle" font-size="12.5" fill="#a05e22">抱团 · 强者恒强 · 量化</text>
+      </g>
+      <g font-size="14" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="370" y="68"  width="280" height="44" rx="9" fill="#f0ebf9" stroke="#7d6bb0" stroke-width="1.5"/><text x="510" y="95">抱团龙头</text>
+        <rect x="370" y="188" width="280" height="44" rx="9" fill="#f0ebf9" stroke="#7d6bb0" stroke-width="1.5"/><text x="510" y="215">强者恒强</text>
+        <rect x="370" y="308" width="280" height="44" rx="9" fill="#f0ebf9" stroke="#7d6bb0" stroke-width="1.5"/><text x="510" y="335">量化时代格局</text>
+        <rect x="370" y="448" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="475">退潮期与转折点</text>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#333">
+        <rect x="730" y="48"  width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="855" y="73">光杆司令 · 脱离板块</text>
+        <rect x="730" y="96"  width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="855" y="121">看板块选股会错过抱团</text>
+        <rect x="730" y="144" width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="855" y="169">北交所30cm与板块无关</text>
+        <rect x="730" y="188" width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="855" y="213">主升浪不碰5日线</text>
+        <rect x="730" y="278" width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="855" y="303">部分量价方法失效</text>
+        <rect x="730" y="326" width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="855" y="351">游资抱团 vs 量化抱团</text>
+        <rect x="730" y="374" width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="855" y="399">20cm强趋势虹吸</text>
+        <rect x="730" y="448" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="473">A杀 · 一字板引领新方向</text>
+      </g>
+    </svg>
+  </div>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 第九章 ==================== -->
+<div class="card" id="ch9">
+  <h2 class="sec"><span class="no">九</span>第三方视角：邢者 / 只做竞价 / 塞外书生</h2>
+  <p>三位独立作者从「竞价 / 分时」这一微观切口，对主线「筹码好 + 90 度抢筹」买点做量化细化与择时补充。</p>
+
+  <h3>9.1 邢者《如何做一进二》（竞价高开 / 低开幅度标尺）</h3>
+  <p><b>认知层（短线三条件）</b>：格局 + 审美 + 技术必须同时具备，本课专攻技术（单一战法单点打透，反对多而不精）。</p>
+  <p><b>择时层</b>：以「市场高度」为温度计识别情绪冰点——市场高度只剩二板即冰点极值，此时率先上板（一字除外）的个股是必做对象；<span class="key">打板成功唯一硬标准 = 当天收盘封住板</span>；失败归因三因子 = 个股 / 题材 / 市场。</p>
+  <p><b>关系层（三概念辨析）</b>：</p>
+  <ul>
+    <li><b>补涨</b> = 再造第二个龙头（时间先后接力，大题材必有二波，补涨龙头最佳买点是二板，四板五板后是大面）；</li>
+    <li><b>助攻</b> = 同板块群起烘托龙头（空间呼应）；</li>
+    <li><b>卡位</b> = 同高度 PK、只有一个能胜出（竞争淘汰，英洛华→金力案例）。</li>
+  </ul>
+  <p><b>分类层（六类二板，按竞价幅度）</b>：</p>
+  <table>
+    <tr><th>类别</th><th>竞价特征</th><th>操作要点</th></tr>
+    <tr><td>1</td><td>竞价顶一字（缩量一字 / 一字开板）</td><td>排板前提：题材硬核 + 赚钱效应初期；开板回封按龙头二波 / 行情不明 / 补涨区分</td></tr>
+    <tr><td>2</td><td>高开秒板（厂字板）</td><td>看资金预期一致性 + 题材够大</td></tr>
+    <tr><td>3</td><td>中等高开 3–5%</td><td>看「三步拉升」的分时进攻力度（二板最看重分时进攻力度）</td></tr>
+    <tr><td>4</td><td>小幅高开 1–3%</td><td>看题材被认可、快速脱离成本区，均线附近试建仓</td></tr>
+    <tr><td>5</td><td>小幅低开</td><td>对昨日涨停的「微弱修正」，买点在 0 轴上方、先试一笔</td></tr>
+    <tr><td>6</td><td>两类特殊</td><td>次新突破新高（情绪爆发点）、高位反包二板（反包二板优于反包首板）</td></tr>
+  </table>
+
+  <h3>9.2 「只做竞价 2022」一进二竞价模式（量化门槛）</h3>
+  <ul>
+    <li><b>工具 / 时间</b>：通达信，竞价 9:15 起观察，输入「昨日首板」调出首板池，按<b>开盘换手排序</b>实时跟踪。</li>
+    <li><b>双指标达标条件</b>：① <b>开盘换手率 ≥ 1%</b>；② <b>开盘幅度适中</b>（过高即否决，如 ≥ 6%、10%）。</li>
+    <li><b>叠加三重定性过滤</b>：形态良好（排除庄股分时）+ 主流题材 + 非一年以下次新。</li>
+    <li><b>换手→金额换算技巧</b>：竞价「金额接近」即金额接近 1% 换手对应金额，看金额比看换手更直观。</li>
+  </ul>
+  <div class="good">一句话主线：<b>换手达标 + 幅度适中 + 形态良好 + 主流题材 + 非次新 / 非庄股 = 量价共振的关注点</b>，条件不符风险大、宁可错过。</div>
+
+  <h3>9.3 塞外书生《1210 一进二完整战法》（择时 + 概率思维）</h3>
+  <p>补足主线相对薄弱的「择时纪律」部分（详见第三章 3.4 四时间节点 + 第四章 4.2 逐条删除法 10 条）。核心方法论：</p>
+  <ul>
+    <li>尽量参加<b>日内龙</b>：多股竞争晋级 2 板时，早盘最快上板并封住的潜力空间最大。</li>
+    <li><b>逆袭卡位要谨慎</b>：「10 卡 9 死」——首板排位靠前、次日反转为小弟卡老大，场外资金不服、分歧分散易炸板；次日打 2 板最好选「首板老大到 2 板仍最先上板」的顺延股。</li>
+    <li>买点多样化，但<b>以打板为主</b>：竞价买、半路买、打板买均可，但打板确定性最高、技术要求最低。</li>
+    <li><span class="key">一切皆是概率</span>：资金受盘面消息影响无法预测全天走势，没有任何方法完全避免炸板，必须建立概率思维——没有确定性，只有概率游戏。</li>
+  </ul>
+
+  <div class="map">
+    <div class="cap">第九章思维导图：第三方视角 → 邢者 / 只做竞价 / 塞外书生</div>
+    <svg viewBox="0 0 1240 540" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第九章思维导图">
+      <g stroke="#c4b8a4" stroke-width="1.5" fill="none">
+        <path d="M280 270 H330 V90 H370"/>
+        <path d="M280 270 H330 V270 H370"/>
+        <path d="M280 270 H330 V450 H370"/>
+        <path d="M650 90 H690 V60 H730"/>
+        <path d="M650 90 H690 V90 H730"/>
+        <path d="M650 90 H690 V120 H730"/>
+        <path d="M650 270 H690 V270 H730"/>
+        <path d="M650 450 H690 V420 H730"/>
+        <path d="M650 450 H690 V450 H730"/>
+        <path d="M650 450 H690 V480 H730"/>
+      </g>
+      <g>
+        <rect x="20" y="230" width="260" height="80" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="150" y="263" text-anchor="middle" font-size="16" font-weight="700" fill="#8a4d16">九 · 第三方视角</text>
+        <text x="150" y="286" text-anchor="middle" font-size="12.5" fill="#a05e22">竞价 / 分时量化细化</text>
+      </g>
+      <g font-size="14" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="370" y="68"  width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="95">邢者：六类二板</text>
+        <rect x="370" y="248" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="275">只做竞价：量化门槛</text>
+        <rect x="370" y="428" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="455">塞外书生：概率思维</text>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#333">
+        <rect x="730" y="38"  width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="63">补涨 / 助攻 / 卡位辨析</text>
+        <rect x="730" y="86"  width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="111">收盘封板=唯一硬标准</text>
+        <rect x="730" y="134" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="159">竞价一字/秒板/高开分档</text>
+        <rect x="730" y="248" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="273">开盘换手≥1% + 幅度适中</text>
+        <rect x="730" y="398" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="423">日内龙 · 10卡9死</text>
+        <rect x="730" y="446" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="471">以打板为主</text>
+        <rect x="730" y="494" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="519">没有确定性只有概率</text>
+      </g>
+    </svg>
+  </div>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 第十章 ==================== -->
+<div class="card" id="ch10">
+  <h2 class="sec"><span class="no">十</span>心态与知行合一</h2>
+
+  <h3>10.1 心态总纲</h3>
+  <ul>
+    <li><b>忘掉上一笔、活在当下</b>：不预设结果、不活在未来、不后视镜后悔。</li>
+    <li><b>宠辱不惊、冷血杀手</b>：凡墙皆是门，宠辱不惊做好每一笔。</li>
+    <li><b>心态归零</b>：每一次交易都是新的一笔，不与任何人比、不定目标。</li>
+    <li><b>归零与冷血杀手</b>：每天账户都从零看，不以物喜、没有悲喜；挣钱了不能高兴，赔钱了也不能不高兴——高兴和悲伤的效果一样，都是情绪波动。要做没有情绪的「冷血杀手」。</li>
+    <li><b>资金来源切割</b>：钱是借的、自己的、刷信用卡的，与「能否出手」的判断无关，一码归一码，别让资金来源带来压力。</li>
+  </ul>
+
+  <h3>10.2 具体心法</h3>
+  <ul>
+    <li><b>远离鸡群</b>：不看股评、不跟原有人群谈股票，努力不是鹤立鸡群而是远离鸡群。</li>
+    <li><b>艺不压身、不怕错过</b>：各种模式都看明白才不怕错过；怕错过 = 下手晚 = 最要害。</li>
+    <li><b>交易纯粹</b>：9 点 40 / 45 就结束交易，好龙头早早就涨停，倒推必须这样操作才能轻松挣钱；收盘三点尽早交流、复盘。</li>
+    <li><b>宁可错过、不要侥幸</b>：情绪不好、没有好标的就空仓，「一定要淡定、宁静致远」，任何时候都可空仓等更好机会。</li>
+    <li><b>解放思想、实事求是</b>（类比邓公）：市场认可和自己冲突时要解放思想服从市场，不主观预设。</li>
+  </ul>
+
+  <h3>10.3 仓位与执行纪律</h3>
+  <ul>
+    <li><b>满仓标的必须满仓</b>（如精伦电子八连板时就是满仓去干的）；一个月抓两次满仓标的就够了，还不累。</li>
+    <li><b>分仓原则</b>：下不去手就分仓；可买可不买的分仓买也还行；但满仓标的必须满仓。</li>
+    <li><b>不交易的控制</b>：「跟我没关系、不出手」比技术更高阶；不买就不亏损。</li>
+    <li><b>100 股试验法</b>：先买 100 股试验、照样割肉、最后连 100 股都不买——一旦发现 100 股都赔钱，一下就改过来了。</li>
+    <li><b>打猎比喻</b>：做交易像打猎，不要乱开枪；想打到老虎，就得放过兔子；标准越严越容易尝到甜头，形成正向循环。</li>
+    <li><b>守中 / 临界点</b>：龙头出现时全仓干不能错过（错过是灾难）；但没等龙头出现就把子弹打光是提前（也是灾难）；「不能提前、也不能错过」。</li>
+  </ul>
+
+  <h3>10.4 直觉与第六感</h3>
+  <ul>
+    <li>第六感 / 直觉是大脑里存了很多正确东西后产生的灵感；脑子里全是错的东西，直觉也是错的。直觉正确的前提是「脑子里的库存正确」。</li>
+    <li>相信第一次的判断（第一直觉），具体问题具体分析。</li>
+  </ul>
+
+  <h3>10.5 知行合一（从知道到做到）</h3>
+  <ul>
+    <li>这些知识很简单，做不到就是人性的错误本能；需要自己清晰认识哪些是错的，然后解决掉错误本能。</li>
+    <li><b>定点爆破</b>：找出「知道」到「做到」之间的障碍（本能、心态、业力），用正确的东西把错误的「撵出去」。</li>
+    <li>反复输出、提炼成几个字，最后形成直觉，一看对上眼就干。</li>
+    <li>情绪是虚假的、是错误的，该出手时必出手，不该出手时不出手，不能让情绪指挥操作。</li>
+    <li>引用《中庸》「喜怒哀乐之未发谓之中」——用中情绪、恰到好处执行。</li>
+  </ul>
+
+  <div class="map">
+    <div class="cap">第十章思维导图：心态 → 归零 / 心法 / 仓位 / 知行合一</div>
+    <svg viewBox="0 0 1240 560" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第十章思维导图">
+      <g stroke="#c4b8a4" stroke-width="1.5" fill="none">
+        <path d="M280 280 H330 V80 H370"/>
+        <path d="M280 280 H330 V200 H370"/>
+        <path d="M280 280 H330 V320 H370"/>
+        <path d="M280 280 H330 V460 H370"/>
+        <path d="M650 80 H690 V50 H730"/>
+        <path d="M650 80 H690 V80 H730"/>
+        <path d="M650 80 H690 V110 H730"/>
+        <path d="M650 200 H690 V200 H730"/>
+        <path d="M650 320 H690 V320 H730"/>
+        <path d="M650 460 H690 V430 H730"/>
+        <path d="M650 460 H690 V460 H730"/>
+        <path d="M650 460 H690 V490 H730"/>
+      </g>
+      <g>
+        <rect x="20" y="240" width="260" height="80" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="150" y="273" text-anchor="middle" font-size="16" font-weight="700" fill="#8a4d16">十 · 心态</text>
+        <text x="150" y="296" text-anchor="middle" font-size="12.5" fill="#a05e22">从知道到做到</text>
+      </g>
+      <g font-size="14" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="370" y="58"  width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="85">心态归零</text>
+        <rect x="370" y="178" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="205">具体心法</text>
+        <rect x="370" y="298" width="280" height="44" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.5"/><text x="510" y="325">仓位与执行</text>
+        <rect x="370" y="438" width="280" height="44" rx="9" fill="#f0ebf9" stroke="#7d6bb0" stroke-width="1.5"/><text x="510" y="465">知行合一</text>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#333">
+        <rect x="730" y="28"  width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="53">忘掉上一笔 · 冷血杀手</text>
+        <rect x="730" y="76"  width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="101">资金切割 · 不预设结果</text>
+        <rect x="730" y="124" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="149">解放思想实事求是</text>
+        <rect x="730" y="178" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="203">远离鸡群 · 交易纯粹</text>
+        <rect x="730" y="298" width="250" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="855" y="323">满仓标的必满仓 · 100股试验</text>
+        <rect x="730" y="408" width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="855" y="433">定点爆破 · 错误本能</text>
+        <rect x="730" y="456" width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="855" y="481">反复输出成直觉</text>
+        <rect x="730" y="504" width="250" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="855" y="529">中庸：用中情绪执行</text>
+      </g>
+    </svg>
+  </div>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 第十一章 ==================== -->
+<div class="card" id="ch11">
+  <h2 class="sec"><span class="no">十一</span>终极系统性总结 + 学习路径</h2>
+
+  <h3>11.1 一句话总结</h3>
+  <div class="formula">在情绪允许的时间节点上，找到「筹码好（缩量 + 窄幅震荡 + 均线粘合 + 轻松突破）」的龙头，用首板突破 → 一进二打板 → 竞价抢筹三种方式第一时间买入，不破 5 日线死拿（情绪好）或涨一倍见顶即卖（情绪差 / 监管），全程用「错误本能清单」纠偏，进阶到抱团龙头与强者恒强。</div>
+
+  <h3>11.2 三层体系（回顾）</h3>
+  <ol>
+    <li><b>认知层（为什么）</b>：筹码好是第一原因、逻辑不重要；风格＞题材；辨识度 = 最高空间板。</li>
+    <li><b>执行层（怎么做）</b>：择时 → 选股 → 买点 → 持股卖出。</li>
+    <li><b>心法层（做到）</b>：错误本能清单 + 心态归零 + 知行合一。</li>
+  </ol>
+
+  <h3>11.2-补充 核心框架七大支柱（12月11日版，胜利模式总纲）</h3>
+  <ol>
+    <li><b>唯一标准</b>：筹码好（缩量 + 窄幅震荡 + 均线粘合 + 突破）是牛股唯一共同特征，其余维度一律放松。</li>
+    <li><b>启动信号</b>：90 度大单抢筹分时图（100 万 / 200 万 / 几百万单）是必备；竞价到 9:35 前确认合力认可。</li>
+    <li><b>买入动作</b>：首板半路 → 一进二 → 二板后 5 日线低吸缠打；首板或一进二全仓干。</li>
+    <li><b>PK 规则</b>：首板买涨停最早的，二板起「谁胜出干谁」，客观确认不押宝。</li>
+    <li><b>择时</b>：只看情绪好坏 + 监管状态 + 指数量能；抓最强挣钱效应「暗的风格」。</li>
+    <li><b>持有 / 卖出</b>：5 日线为生死线，高位翻倍后看 15% 振幅；低位买、中位接力、高位放弃。</li>
+    <li><b>心理纪律</b>：克服过于严格审美、怕高、完美主义、活在未来等错误本能，把细节刻成画面挂图作战。</li>
+  </ol>
+
+  <h3>11.3 八阶学习路径（由浅入深）</h3>
+  <table>
+    <tr><th>阶段</th><th>学习内容</th><th>核心要点</th></tr>
+    <tr><td>第一阶</td><td>背会十六字真经</td><td>缩量 + 窄幅震荡 + 均线粘合 + 轻松突破 = 筹码好；理解「第几个板突破不重要、筹码好是唯一前提」</td></tr>
+    <tr><td>第二阶</td><td>学首板突破四（五）形态</td><td>正丹飞机跑道 / 大众 N 形 / 腾达超跌反弹 / 航天晨光大 N 形 / 挖坑不突破（次新横盘）</td></tr>
+    <tr><td>第三阶</td><td>练首板半路买点</td><td>最强风格 + 板块在线 + 市值小 + 筹码好 + 90 度大单抢筹，9:35 前解决战斗</td></tr>
+    <tr><td>第四阶</td><td>学一进二打板</td><td>同身位 PK「谁胜出打谁」；参考邢者竞价六类二板、只做竞价的换手 ≥ 1% + 幅度适中门槛</td></tr>
+    <tr><td>第五阶</td><td>学持股卖出</td><td>两套持有规则、不破 5 日线死拿、跌停 + 15% 振幅卖出、补涨龙时间节点</td></tr>
+    <tr><td>第六阶</td><td>学择时</td><td>情绪周期（情绪是水龙头高度是船）、四时间节点、六种节点龙、龙头三次分歧转一致</td></tr>
+    <tr><td>第七阶</td><td>进阶抱团</td><td>光杆司令脱离板块、强者恒强、量化格局、老妖二波陷阱、退潮期转折点</td></tr>
+    <tr><td>终阶</td><td>知行合一</td><td>错误本能清单 + 心态归零 + 定点爆破，把知识变成直觉</td></tr>
+  </table>
+
+  <div class="map">
+    <div class="cap">第十一章思维导图：学习路径 → 八阶进阶</div>
+    <svg viewBox="0 0 1240 700" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="第十一章思维导图">
+      <g stroke="#c4b8a4" stroke-width="1.5" fill="none">
+        <path d="M260 350 H300 V350 H340"/>
+        <path d="M620 350 H660 V30 H700"/>
+        <path d="M620 350 H660 V110 H700"/>
+        <path d="M620 350 H660 V190 H700"/>
+        <path d="M620 350 H660 V270 H700"/>
+        <path d="M620 350 H660 V350 H700"/>
+        <path d="M620 350 H660 V430 H700"/>
+        <path d="M620 350 H660 V510 H700"/>
+        <path d="M620 350 H660 V590 H700"/>
+      </g>
+      <g>
+        <rect x="20" y="310" width="240" height="80" rx="12" fill="#fde3c8" stroke="#d97b2f" stroke-width="2"/>
+        <text x="140" y="343" text-anchor="middle" font-size="16" font-weight="700" fill="#8a4d16">八阶学习路径</text>
+        <text x="140" y="366" text-anchor="middle" font-size="12" fill="#a05e22">由浅入深 · 小白到精通</text>
+      </g>
+      <g font-size="13.5" font-weight="700" text-anchor="middle" fill="#2f4a6e">
+        <rect x="340" y="28"  width="280" height="40" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.4"/><text x="480" y="53">① 背会十六字真经</text>
+        <rect x="340" y="108" width="280" height="40" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.4"/><text x="480" y="133">② 首板四(五)形态</text>
+        <rect x="340" y="188" width="280" height="40" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.4"/><text x="480" y="213">③ 首板半路买点</text>
+        <rect x="340" y="268" width="280" height="40" rx="9" fill="#dcefe0" stroke="#5a9663" stroke-width="1.4"/><text x="480" y="293">④ 一进二打板</text>
+        <rect x="340" y="348" width="280" height="40" rx="9" fill="#dcefe0" stroke="#5a9663" stroke-width="1.4"/><text x="480" y="373">⑤ 持股卖出</text>
+        <rect x="340" y="428" width="280" height="40" rx="9" fill="#e8f0fb" stroke="#4a6fa5" stroke-width="1.4"/><text x="480" y="453">⑥ 择时</text>
+        <rect x="340" y="508" width="280" height="40" rx="9" fill="#f0ebf9" stroke="#7d6bb0" stroke-width="1.4"/><text x="480" y="533">⑦ 进阶抱团</text>
+        <rect x="340" y="588" width="280" height="40" rx="9" fill="#f0ebf9" stroke="#7d6bb0" stroke-width="1.4"/><text x="480" y="613">⑧ 知行合一</text>
+      </g>
+      <g font-size="12.5" text-anchor="middle" fill="#333">
+        <rect x="700" y="28"  width="260" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="830" y="53">筹码好是唯一前提</text>
+        <rect x="700" y="108" width="260" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="830" y="133">正丹/大众/腾达/晨光/挖坑</text>
+        <rect x="700" y="188" width="260" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="830" y="213">90度大单 · 9:35前解决</text>
+        <rect x="700" y="268" width="260" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="830" y="293">谁胜出打谁 · 竞价门槛</text>
+        <rect x="700" y="348" width="260" height="40" rx="8" fill="#eaf4ec" stroke="#9dc3a4"/><text x="830" y="373">5日线死拿 · 15%振幅卖</text>
+        <rect x="700" y="428" width="260" height="40" rx="8" fill="#f2f6fb" stroke="#a7bcd4"/><text x="830" y="453">情绪水龙头 · 四时间节点</text>
+        <rect x="700" y="508" width="260" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="830" y="533">光杆司令 · 量化格局</text>
+        <rect x="700" y="588" width="260" height="40" rx="8" fill="#f4f0fa" stroke="#b7a9d6"/><text x="830" y="613">错误本能清单 · 定点爆破</text>
+      </g>
+    </svg>
+  </div>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 附录 A ==================== -->
+<div class="card" id="appA">
+  <h2 class="sec"><span class="no">附A</span>68 篇文档索引（按主题簇分组）</h2>
+  <p>共 12 个主题簇，68 篇文档全部覆盖。文件名以《单篇总结》目录下实际文件名为准。</p>
+
+  <h3>簇 1：核心公式（筹码好十六字真经）—— 14 篇</h3>
+  <ol>
+    <li><code>启动看出龙头核心技术20240805…_ev_原文.md</code> —— 十六字公式源头，正丹最极品 &gt; 大众 &gt; 腾达 &gt; 航天晨光 N 型分档，5/10 日线持股。</li>
+    <li><code>…_ev_笔记.md</code> —— 同上（笔记版）。</li>
+    <li><code>2024年85…_ev_原文.md</code> —— 同上（日期前缀原文版）。</li>
+    <li><code>2024年85…_ev_笔记.md</code> —— 同上（日期前缀笔记版）。</li>
+    <li><code>…_ev_笔记(1).md</code> —— 同上（重复副本）。</li>
+    <li><code>筹码好讲解简单3月30日…_原文.md</code> —— 筹码好三要素最简讲解。</li>
+    <li><code>筹码好极品小美女图形讲解2023年端午节.md</code> —— 「极品小美女」图形化定义。</li>
+    <li><code>20250106筹码好坏程度决定要不要买_原文.md</code> —— 筹码好坏「程度」分级，电光科技 vs 新亚电子对照。</li>
+    <li><code>2024年11月18日日k线轻松突破筹码好竞价抢筹…_原文.md</code> —— 轻松突破 + 竞价抢筹 + 不要怕高。</li>
+    <li><code>轻松突破筹码好盖世食品20241107_ev_原文.md</code> —— 轻松突破专题（盖世食品案例）。</li>
+    <li><code>…_ev_笔记.md</code> —— 同上（笔记版）。</li>
+    <li><code>20241107只看只买最强两个轻松突破盖世食品徒弟樱花_原文.md</code> —— 「只看只买最强两个」。</li>
+    <li><code>给徒弟买首板筹码不好坚决不买最安全暴利首板低吸_原文.md</code> —— 筹码不好坚决不买。</li>
+    <li><code>C天元次新股首板突破知识梳理1025_原文.md</code> —— 五维一体买入法、次新股首板突破专题。</li>
+  </ol>
+
+  <h3>簇 2：首板选龙框架（自身硬 / 胜利模式）—— 10 篇</h3>
+  <ol start="15">
+    <li><code>729首板选准龙头核心技术…_ev_原文.md</code> —— 龙头分级、选股框架、研奥股份补涨案例。</li>
+    <li><code>…_ev_笔记.md</code> —— 同上（笔记版）。</li>
+    <li><code>2024年729…_ev_笔记.md</code> —— 同上（日期前缀笔记版）。</li>
+    <li><code>2025年1月1日首板选龙框架自身硬胜利模式…核心技术.md</code> —— 10 板块总框架、六节点龙、因果闭环。</li>
+    <li><code>2024年12月26日自身硬胜利模式…核心技术.md</code> —— 自身硬胜利模式（12 月末版）。</li>
+    <li><code>2024年12月11日盘后选出筹码好1进2…核心技术.md</code> —— 七大支柱、一进二完整链路、PK 规则、竞价爆量判定。</li>
+    <li><code>2024年12月9日筹码好启动就干…核心技术.md</code> —— 筹码好启动就干、不看逻辑不硬。</li>
+    <li><code>2025年1月9日N形和挖坑不突破…核心技术.md</code> —— N 形 / 挖坑不突破专题、五种筹码好形态、老妖二波陷阱。</li>
+    <li><code>2024年11月16日启动选准龙头…核心技术.md</code> —— 总纲式更新：两套持有规则、市场定位、轻松突破精细定义。</li>
+    <li><code>启动选龙头流程细节…核心技术.md</code> —— 龙头三阶段、游资抱团 vs 量化抱团、四种首板突破、首板半路秘笈、同身位 PK（最大文档）。</li>
+  </ol>
+
+  <h3>簇 3：一进二打板实战 —— 3 篇</h3>
+  <ol start="25">
+    <li><code>1进2抓龙头核心干货_原文.md</code> —— 一进二实战课、「超预期就上低预期就撤」、突破性缺口 ×2 丈量战法。</li>
+    <li><code>1进2_原文.md</code> —— 一进二（与 25 疑似同源 / 精简版）。</li>
+    <li><code>1210一进二接力的完整战法_纯图版.md</code> —— 塞外书生：择时四时间节点、逐条删除法 10 条、概率思维。</li>
+  </ol>
+
+  <h3>簇 4：首板突破形态与案例 —— 5 篇</h3>
+  <ol start="28">
+    <li><code>8月8日财上平如水总结_原文.md</code> —— 四种极品筹码形态、退潮期外切新板块、三条大框架。</li>
+    <li><code>20240816因为逻辑不正宗流通市值稍大N形均线压制排斥是极端错误的_原文.md</code> —— 三大排斥误区专论。</li>
+    <li><code>20240816选龙头过程细节…_原文.md</code> —— 选龙头过程细节、二板接力打板胜出者。</li>
+    <li><code>格林精密首板突破好该格局.md</code> —— 首板突破 + 该格局的持股态度。</li>
+    <li><code>怎样买入就数板首板突破9月27日_原文.md</code> —— 首板突破「数板」买入法。</li>
+  </ol>
+
+  <h3>簇 5：抱团龙头与退潮转折 —— 6 篇</h3>
+  <ol start="33">
+    <li><code>11月19日张志第一次抱团龙头.md</code> —— 抱团龙头战法、跌停 + 15% 振幅卖出、心态归零。</li>
+    <li><code>中秋节抱团龙头退潮主跌期结束转折点龙头怎样判断涨幅.md</code> —— 光杆司令 A 杀、海南海药冰点买点、炒新不炒旧。</li>
+    <li><code>龙头上涨过程中几个买点恐慌抱团龙头新龙带老龙反抽知识框架.md</code> —— 四个买点、新龙带老龙两逻辑、深圳华强竞价成龙。</li>
+    <li><code>龙头走出来带动其所属的题材板块2月4日_原文.md</code> —— 龙头带板块（辩证补充）。</li>
+    <li><code>8月8日选吋板块炒作的阶段补涨龙头衰减N多_原文.md</code> —— 板块炒作阶段、补涨龙头衰减。</li>
+    <li><code>2024年12月20日筹码号好启动买大板块龙头…_原文.md</code> —— 补涨龙头时间节点（翻倍后才出现）。</li>
+  </ol>
+
+  <h3>簇 6：竞价与抢筹买点 —— 7 篇</h3>
+  <ol start="39">
+    <li><code>22或jjfx回车看竞价分析知识框架.md</code> —— 竞价分析工具（22/jjfx）、核心龙头 vs 模仿者一波流。</li>
+    <li><code>940之前抢和低吸强趋势两手都要硬7月30日_原文.md</code> —— 9:40 前抢 + 低吸强趋势两手抓。</li>
+    <li><code>华是科技早上940前市值小筹码好抢筹就干…_原文.md</code> —— 9:40 前市值小筹码好抢筹即干。</li>
+    <li><code>6月15日日k线筹码沉淀好流通市值小九十度抢筹…_原文.md</code> —— 日 K 筹码沉淀 + 市值小 + 90 度抢筹。</li>
+    <li><code>唯一每天全仓高频100%胜率办法935…_原文.md</code> —— 9:35 前抢低位极品小美女。</li>
+    <li><code>718唯一每天全仓高频100%胜率办法935…_原文.md</code> —— 同上（718 日期版）。</li>
+    <li><code>2024年7.10核心技术首板看出龙头_ev_笔记.md</code> —— 首板看出龙头。</li>
+  </ol>
+
+  <h3>簇 7：持股与卖出 —— 4 篇</h3>
+  <ol start="46">
+    <li><code>怎样拿住龙头？走一步看一步怎样持股？_原文.md</code> —— 走一步看一步、拿住龙头。</li>
+    <li><code>头脑清晰首板90度上涨追涨和强趋势主升浪五日线低吸_原文.md</code> —— 首板 90 度追涨 + 主升浪 5 日线低吸。</li>
+    <li><code>20240817最强的大众交通。博士眼镜第一波上涨主升浪根本不碰5日线…_原文.md</code> —— 强者恒强。</li>
+    <li><code>8月17日只做强者恒强主升浪接力龙头不做跟风首板徒弟财上平如水_原文.md</code> —— 强者恒强主升浪接力、不做跟风。</li>
+  </ol>
+
+  <h3>簇 8：择时与情绪周期 —— 5 篇</h3>
+  <ol start="50">
+    <li><code>2024年12月2日龙头股启动于筹码好情绪好坏决定涨幅高低案例_原文.md</code> —— 情绪 80% 定涨幅 / 筹码 80% 定启动、三次分歧转一致。</li>
+    <li><code>11月11日停牌导致情绪下降更要严格筹码好风格最强_原文.md</code> —— 停牌致情绪下降 → 更严格筹码好。</li>
+    <li><code>9月2日买股避坑流程节奏大题材启动当天…_原文.md</code> —— 大题材第一天龙头跟风都能买、小题材第二天赔钱。</li>
+    <li><code>8月30学量化不管昨天只低吸力源信息_原文.md</code> —— 量化时代不管昨天、只低吸。</li>
+    <li><code>龙头上涨过程清晰梳理启动于筹码好忽略其他相对不好的瑕疵…_原文.md</code> —— 龙头上涨过程清晰梳理。</li>
+  </ol>
+
+  <h3>簇 9：错误本能与心态 —— 7 篇</h3>
+  <ol start="55">
+    <li><code>20241230不要不切实际不存在的完美导致低位排斥不买突破的当下最好的_原文.md</code> —— 破除完美主义。</li>
+    <li><code>20240815知识细节市场认可和自己冲突时要解放思想服从市场。_原文.md</code> —— 解放思想服从市场。</li>
+    <li><code>8月29日心随我动类比邓公解放思想禁止跟随市场_原文.md</code> —— 解放思想、禁止跟随（邓公类比）。</li>
+    <li><code>1月1日凡墙皆是门宠辱不惊做好每一笔_原文.md</code> —— 宠辱不惊、凡墙皆是门。</li>
+    <li><code>2025年1月1日凡墙皆是门宠辱不惊做好每一笔_原文.md</code> —— 同上（2025 日期版）。</li>
+    <li><code>2024年12月24日人脑情绪本能让本能正确对比选最强电光科技小方制药(1)_原文.md</code> —— 让本能正确、对比选最强。</li>
+    <li><code>给QQ好友录音拜师学我的核心技术相关问题_原文.md</code> —— 拜师答疑。</li>
+  </ol>
+
+  <h3>簇 10：第三方视角 —— 2 篇</h3>
+  <ol start="62">
+    <li><code>邢者的股票教程《如何做一进二》.md</code> —— 竞价六类二板、补涨 / 助攻 / 卡位、收盘封板硬标准。</li>
+    <li><code>「只做竞价2022」只做竞价--一进二竞价模式.md</code> —— 换手 ≥ 1% + 幅度适中量化门槛。</li>
+  </ol>
+
+  <h3>簇 11：工具与公式 —— 3 篇</h3>
+  <ol start="64">
+    <li><code>自由流通市值公式和步骤第一步鼠标右键点某一天的日k线.md</code> —— 自由流通市值计算步骤。</li>
+    <li><code>给徒弟3月30日看盘界面使用怎样调图形_原文.md</code> —— 看盘界面使用（dxql 短线擒龙）。</li>
+    <li><code>看盘界面导入视频_笔记.md</code> —— 看盘界面导入（工具笔记）。</li>
+  </ol>
+
+  <h3>簇 12：案例复盘与其他 —— 2 篇</h3>
+  <ol start="67">
+    <li><code>风格总龙头徒弟820财上平如水总结几条语音_原文.md</code> —— 风格总龙头徒弟复盘。</li>
+    <li><code>20250114选股公式案例_原文.md</code> —— 选股公式优先级、第几个板突破纠偏、地天板情绪节点。</li>
+  </ol>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 附录 B ==================== -->
+<div class="card" id="appB">
+  <h2 class="sec"><span class="no">附B</span>去重说明（多版本同源合并情况）</h2>
+  <p>共 <b>5 组</b>明确同源（_ev_原文 / _ev_笔记 / 日期前缀 / (1) 副本等多版本），去重后归并为 5 个独立知识点：</p>
+  <table>
+    <tr><th>组号</th><th>同源文件名（前缀差异）</th><th>去重后合并为</th></tr>
+    <tr><td>B1</td><td>启动看出龙头核心技术20240805…（5 个版本）</td><td>十六字公式 + 正丹/大众/腾达/晨光分档 + 5/10 日线持股</td></tr>
+    <tr><td>B2</td><td>729首板选准龙头…（3 个版本）</td><td>龙头分级 + 选股框架「风格&gt;题材&gt;筹码&gt;市值&gt;分时」</td></tr>
+    <tr><td>B3</td><td>轻松突破筹码好盖世食品20241107（2 个版本）</td><td>轻松突破专题</td></tr>
+    <tr><td>B4</td><td>唯一每天全仓高频100%胜率办法935…（2 个版本）</td><td>9:35 前抢低位极品小美女</td></tr>
+    <tr><td>B5</td><td>凡墙皆是门宠辱不惊做好每一笔（2 个版本）</td><td>宠辱不惊心态</td></tr>
+  </table>
+  <p class="tip"><b>疑似同源（未计入 5 组，建议人工复核）：</b>《1进2_原文》与《1进2抓龙头核心干货_原文》疑为同一课程的精简版与完整版；「自身硬胜利模式」系列（12 月 9 日 / 12 月 11 日 / 12 月 26 日 / 1 月 1 日 / 1 月 9 日）为同一总框架在不同日期的迭代版本，核心公式相同、侧重点各异，已按「最新为准、差异保留」原则合并。</p>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<!-- ==================== 附录 C ==================== -->
+<div class="card" id="appC">
+  <h2 class="sec"><span class="no">附C</span>交叉引用（哪些文档相互印证、补充）</h2>
+  <ol>
+    <li><b>十六字公式</b>：启动看出龙头核心技术（源头）↔ 筹码好讲解简单 3月30日（三要素最简）↔ 2024年11月16日（轻松突破精细定义）↔ 20250106（程度分级）↔ 20250114（第几个板突破纠偏）——五者互补。</li>
+    <li><b>选股框架</b>：729首板选准龙头（风格排序）↔ 2025年1月1日（自身硬胜利模式）↔ 20250114（筹码&gt;非融券&gt;价格&gt;市值&gt;逻辑）↔ 1210（逐条删除法 10 条）——四者同一框架。</li>
+    <li><b>买点链</b>：启动选龙头流程细节（首板半路 + 同身位 PK）↔ 12月11日盘后（竞价爆量 + 一进二链路）↔ 1进2抓龙头核心干货（打板实战）↔ 唯一每天全仓高频 935（9:35 前抢）↔ 22或jjfx（竞价工具）——五者拼出三买点。</li>
+    <li><b>持股卖出</b>：11月16日（两套持有规则）↔ 怎样拿住龙头（持股心法）↔ 20240817（强者恒强）↔ 11月19日张志（跌停+15%振幅卖出）↔ 龙头上涨过程中几个买点（四个买点）——五者互补。</li>
+    <li><b>抱团龙头</b>：中秋节抱团龙头（光杆司令 A 杀）↔ 11月19日张志（抱团战法）↔ 龙头走出来带动题材（带板块辩证）↔ 8月8日选吋（板块阶段与补涨衰减）——四者互证。</li>
+    <li><b>情绪择时</b>：12月2日（情绪 80% 定涨幅）↔ 1月1日（六节点龙）↔ 1210（四时间节点）↔ 8月8日选吋（退潮期阶段）——四者共筑择时体系。</li>
+    <li><b>心态 / 纠偏</b>：20240816（三排斥误区）↔ 20241230（完美主义）↔ 8月29日（解放思想）↔ 凡墙皆是门（心态归零）——四者共筑错误本能清单。</li>
+    <li><b>第三方与主线互证</b>：邢者（竞价六类二板）↔ 只做竞价（换手 ≥ 1% 门槛）↔ 22或jjfx（竞价工具）——三者均从竞价 / 分时微观切入。</li>
+  </ol>
+  <a class="backtop" href="#toc">↑ 返回目录</a>
+</div>
+
+<footer>
+  <p>本教程由 68 篇结构化深度总结 MD 跨文档去重、交叉引用、逻辑排序合并而成，单 HTML 文件纯手写，浅色系，静态 SVG 思维导图（零 JS）。</p>
+  <p>所有权归属尊贵的主人。祝主人交易顺利、稳定复利、成为精通高手。</p>
+</footer>
+
+</div>
+</body>
+</html>
