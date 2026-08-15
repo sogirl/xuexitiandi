@@ -1,0 +1,1350 @@
+<!DOCTYPE html>
+<html lang="zh-CN"><head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=10.0, user-scalable=yes">
+<meta name="format-detection" content="telephone=no">
+<title>万战寻道·理解力体系（A股短线交易）体系化教程</title>
+<style>
+:root{
+  --bg:#F5F6F8; --card:#FFFFFF; --border:#E5E7EB; --text:#333333;
+  --sub:#666666; --light:#8A919C; --primary:#2F6FBF; --primary-l:#E8F1FB;
+  --heading:#1F2937; --code-bg:#F5F7FA; --quote-bg:#F0F6FF;
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html{-webkit-text-size-adjust:100%;}
+body{background:var(--bg); color:var(--text);
+  font-family:-apple-system,BlinkMacSystemFont,'PingFang SC','Hiragino Sans GB','Microsoft YaHei','WenQuanYi Micro Hei',sans-serif;
+  font-size:16px; line-height:1.8; word-break:break-word;}
+.container{max-width:920px; margin:0 auto; padding:0 14px 40px;}
+.hero{background:linear-gradient(135deg,#2F6FBF 0%,#4A90D9 55%,#5BA3E8 100%); color:#fff; padding:40px 16px 36px; text-align:center;}
+.hero h1{font-size:28px; font-weight:700; letter-spacing:1px; line-height:1.35;}
+.hero .hero-sub{font-size:15px; opacity:.95; margin-top:10px;}
+.hero-pills{display:flex; flex-wrap:wrap; gap:8px; justify-content:center; margin-top:16px;}
+.hero .pill{font-size:12.5px; padding:5px 13px; background:rgba(255,255,255,.16); border:1px solid rgba(255,255,255,.35); border-radius:16px; line-height:1.5;}
+.hero .hero-desc{font-size:13px; opacity:.88; margin-top:14px; line-height:1.8;}
+.card{background:var(--card); border:1px solid var(--border); border-radius:12px; padding:20px 16px; margin-top:18px; box-shadow:0 1px 3px rgba(0,0,0,.04);}
+.sec-title{font-size:19px; color:var(--heading); font-weight:700; margin-bottom:6px; padding-left:12px; border-left:4px solid var(--primary);}
+.sec-tip{font-size:13px; color:var(--light); margin-bottom:14px;}
+.svg-wrap{margin-top:12px; overflow:hidden;}
+.svg-wrap svg{display:block;}
+/* 导航 */
+.nav-group{margin-bottom:16px; padding-bottom:14px; border-bottom:1px dashed var(--border);}
+.nav-group:last-child{border-bottom:none; margin-bottom:0; padding-bottom:0;}
+.nav-part{font-size:15px; font-weight:700; color:var(--heading); margin-bottom:4px; padding-left:10px; border-left:3px solid var(--primary);}
+.nav-desc{font-size:12.5px; color:var(--light); margin-bottom:9px; line-height:1.6;}
+.nav-lecs{display:flex; flex-wrap:wrap; gap:8px;}
+.nav-lecs a{display:inline-block; padding:5px 12px; background:var(--primary-l); color:var(--primary); border-radius:16px; font-size:13px; text-decoration:none; font-weight:600; line-height:1.5;}
+.nav-lecs a:active{opacity:.6;}
+/* 表格 */
+.table-wrap{overflow-x:auto; -webkit-overflow-scrolling:touch; margin:12px 0; border:1px solid var(--border); border-radius:8px;}
+table{border-collapse:collapse; width:100%; font-size:13.5px; min-width:480px;}
+thead th{background:#F3F4F6; color:var(--heading); font-weight:700; text-align:left; padding:9px 10px; border-bottom:2px solid var(--border); white-space:nowrap;}
+tbody td{padding:8px 10px; border-bottom:1px solid #F0F1F3; vertical-align:top; line-height:1.6;}
+tbody tr:nth-child(even){background:#FAFBFC;}
+tbody tr:last-child td{border-bottom:none;}
+td:first-child,th:first-child{font-weight:600; color:var(--heading);}
+/* 正文 */
+main.content{margin-top:18px;}
+main.content h1{font-size:25px; color:var(--heading); margin:30px 0 16px; padding:16px 14px; background:linear-gradient(90deg,#E8F1FB,#FFFFFF); border-left:5px solid var(--primary); border-radius:6px; line-height:1.4;}
+main.content h2.part-title{font-size:21px; color:#fff; background:var(--primary); margin:40px 0 6px; padding:12px 16px; border-radius:8px; letter-spacing:1px;}
+main.content h2.part-title + p{margin-top:4px;}
+main.content h2:not(.part-title){font-size:19px; color:var(--heading); margin:32px 0 14px; padding:10px 12px; background:var(--primary-l); border-left:4px solid var(--primary); border-radius:4px; line-height:1.4;}
+main.content h2:target{animation:targetFlash 1.8s ease;}
+@keyframes targetFlash{0%{box-shadow:0 0 0 4px rgba(47,111,191,.30); background:#FFF3CD;}100%{box-shadow:none; background:var(--primary-l);}}
+.part-desc{font-size:13.5px; color:var(--light); margin:-2px 0 16px; padding-left:4px; line-height:1.7;}
+main.content h3{font-size:16.5px; color:#2A4A77; margin:22px 0 8px; padding-left:8px; border-left:3px solid #7C9BC8;}
+main.content h3[class^="tpl-"]::before{content:''; display:inline-block; width:9px; height:9px; border-radius:50%; background:var(--dot,#7C9BC8); margin-right:9px; vertical-align:1px;}
+main.content h3.tpl-idea{--dot:#4A90D9;}
+main.content h3.tpl-concept{--dot:#3BA272;}
+main.content h3.tpl-logic{--dot:#7C5CD6;}
+main.content h3.tpl-action{--dot:#E0873F;}
+main.content h3.tpl-quant{--dot:#D6648C;}
+main.content h3.tpl-pitfall{--dot:#D9534F;}
+main.content h3.tpl-link{--dot:#3FA3A3;}
+main.content h4{font-size:15px; color:var(--heading); margin:16px 0 6px;}
+main.content p{margin:10px 0;}
+main.content ul,main.content ol{margin:8px 0 12px 22px;}
+main.content li{margin:4px 0; line-height:1.75;}
+main.content strong{color:#1F2937; font-weight:700;}
+main.content blockquote{background:var(--quote-bg); border-left:4px solid var(--primary); padding:10px 14px; margin:12px 0; color:#3A5A82; border-radius:0 6px 6px 0; font-size:14px;}
+main.content hr{border:none; border-top:1px solid var(--border); margin:20px 0;}
+main.content .code-block{background:var(--code-bg); border:1px solid var(--border); border-radius:8px; padding:12px 14px; overflow-x:auto; font-size:13px; line-height:1.6; margin:12px 0;}
+main.content a{color:var(--primary); text-decoration:none;}
+.footer{margin-top:28px; padding:22px 16px; text-align:center; color:var(--light); font-size:13px; line-height:1.8; border-top:1px solid var(--border);}
+.footer .warn{color:#C0763C;}
+@media (max-width:600px){
+  body{font-size:15px;}
+  .hero h1{font-size:23px;}
+  .sec-title{font-size:17px;}
+  main.content h1{font-size:21px;}
+  main.content h2.part-title{font-size:18px;}
+  main.content h2:not(.part-title){font-size:17px; padding:8px 10px;}
+  main.content h3{font-size:15.5px;}
+  table{font-size:12.5px;}
+}
+</style>
+</head><body>
+<header class="hero">
+<h1>万战寻道 · 理解力体系</h1>
+<p class="hero-sub">A股短线交易 · 体系化教程 · 从小白到高手</p>
+<div class="hero-pills">
+<span class="pill">一条主线 · 预期差 / 超预期</span>
+<span class="pill">四个支柱 · 语言 / 信号 / 执行 / 纪律</span>
+<span class="pill">最高纪律 · 买卖逻辑一致性</span>
+</div>
+<p class="hero-desc">共 6 部 27 讲，按认知递进重新编排，融合去重，非原文照搬。</p>
+</header><div class="container">
+<section class="card">
+<h2 class="sec-title">课程知识图谱（横向树状 · 根在左）</h2>
+<p class="sec-tip">根节点在左，逐层向右展开为「六部 → 27 讲」；手机端双指放大查看。</p>
+<div class="svg-wrap"><svg viewBox="0 0 701 1727" width="100%" style="height:auto;" preserveAspectRatio="xMinYMin meet" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', sans-serif" role="img" aria-label="万战寻道理解力体系知识图谱">
+<path d="M 419.0 152.0 H 484.5 V 60.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 152.0 H 484.5 V 121.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 152.0 H 484.5 V 182.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 152.0 H 484.5 V 243.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 371.5 H 484.5 V 310.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 371.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 371.5 H 484.5 V 432.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 621.5 H 484.5 V 499.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 621.5 H 484.5 V 560.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 621.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 621.5 H 484.5 V 682.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 621.5 H 484.5 V 743.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 993.5 H 484.5 V 810.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 993.5 H 484.5 V 871.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 993.5 H 484.5 V 932.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 993.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 993.5 H 484.5 V 1054.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 993.5 H 484.5 V 1115.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 993.5 H 484.5 V 1176.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 1365.5 H 484.5 V 1243.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 1365.5 H 484.5 V 1304.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 1365.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 1365.5 H 484.5 V 1426.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 1365.5 H 484.5 V 1487.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 1615.5 H 484.5 V 1554.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 1615.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 419.0 1615.5 H 484.5 V 1676.5 H 550" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200.5 883.75 H 245.25 V 152.0 H 290" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200.5 883.75 H 245.25 V 371.5 H 290" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200.5 883.75 H 245.25 V 621.5 H 290" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200.5 883.75 H 245.25 V 993.5 H 290" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200.5 883.75 H 245.25 V 1365.5 H 290" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<path d="M 200.5 883.75 H 245.25 V 1615.5 H 290" fill="none" stroke="#C4CDD5" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+<g>
+<rect x="550" y="40" width="108.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="604.25" y="60.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">01 复盘与盯盘</text>
+</g>
+<g>
+<rect x="550" y="101" width="121.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="610.75" y="121.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">02 筹码支撑压力</text>
+</g>
+<g>
+<rect x="550" y="162" width="69.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="584.75" y="182.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">03 盘口</text>
+</g>
+<g>
+<rect x="550" y="223" width="121.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="610.75" y="243.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">04 强弱主动被动</text>
+</g>
+<g>
+<rect x="290" y="131.5" width="129.0" height="41" rx="8" ry="8" fill="#E8F1FB" stroke="#4A90D9" stroke-width="1.2"/>
+<text x="354.5" y="152.0" dy="5" text-anchor="middle" font-size="14" fill="#333333" font-weight="bold">第一部·看懂市场</text>
+</g>
+<g>
+<rect x="550" y="290" width="69.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="584.75" y="310.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">05 预期</text>
+</g>
+<g>
+<rect x="550" y="351" width="82.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="591.25" y="371.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">06 超预期</text>
+</g>
+<g>
+<rect x="550" y="412" width="82.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="591.25" y="432.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">07 关联性</text>
+</g>
+<g>
+<rect x="290" y="351.0" width="129.0" height="41" rx="8" ry="8" fill="#E7F5EC" stroke="#3BA272" stroke-width="1.2"/>
+<text x="354.5" y="371.5" dy="5" text-anchor="middle" font-size="14" fill="#333333" font-weight="bold">第二部·读懂预期</text>
+</g>
+<g>
+<rect x="550" y="479" width="95.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="597.75" y="499.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">08 赚钱效应</text>
+</g>
+<g>
+<rect x="550" y="540" width="108.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="604.25" y="560.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">09 情绪与指数</text>
+</g>
+<g>
+<rect x="550" y="601" width="69.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="584.75" y="621.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">10 共振</text>
+</g>
+<g>
+<rect x="550" y="662" width="69.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="584.75" y="682.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">11 择时</text>
+</g>
+<g>
+<rect x="550" y="723" width="121.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="610.75" y="743.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">12 分歧博弈修复</text>
+</g>
+<g>
+<rect x="290" y="601.0" width="129.0" height="41" rx="8" ry="8" fill="#F1EDFB" stroke="#7C5CD6" stroke-width="1.2"/>
+<text x="354.5" y="621.5" dy="5" text-anchor="middle" font-size="14" fill="#333333" font-weight="bold">第三部·情绪节点</text>
+</g>
+<g>
+<rect x="550" y="790" width="108.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="604.25" y="810.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">13 打板与择强</text>
+</g>
+<g>
+<rect x="550" y="851" width="108.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="604.25" y="871.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">14 高低切套利</text>
+</g>
+<g>
+<rect x="550" y="912" width="95.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="597.75" y="932.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">15 反核博弈</text>
+</g>
+<g>
+<rect x="550" y="973" width="95.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="597.75" y="993.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">16 缩量战法</text>
+</g>
+<g>
+<rect x="550" y="1034" width="95.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="597.75" y="1054.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">17 竞价体系</text>
+</g>
+<g>
+<rect x="550" y="1095" width="108.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="604.25" y="1115.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">18 套利与缠论</text>
+</g>
+<g>
+<rect x="550" y="1156" width="108.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="604.25" y="1176.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">19 小题材埋伏</text>
+</g>
+<g>
+<rect x="290" y="973.0" width="129.0" height="41" rx="8" ry="8" fill="#FCF0E6" stroke="#E0873F" stroke-width="1.2"/>
+<text x="354.5" y="993.5" dy="5" text-anchor="middle" font-size="14" fill="#333333" font-weight="bold">第四部·战法执行</text>
+</g>
+<g>
+<rect x="550" y="1223" width="69.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="584.75" y="1243.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">20 回测</text>
+</g>
+<g>
+<rect x="550" y="1284" width="95.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="597.75" y="1304.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">21 动态股池</text>
+</g>
+<g>
+<rect x="550" y="1345" width="108.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="604.25" y="1365.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">22 选股最唯一</text>
+</g>
+<g>
+<rect x="550" y="1406" width="95.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="597.75" y="1426.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">23 盘中工作</text>
+</g>
+<g>
+<rect x="550" y="1467" width="108.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="604.25" y="1487.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">24 看盘与仓位</text>
+</g>
+<g>
+<rect x="290" y="1345.0" width="129.0" height="41" rx="8" ry="8" fill="#E7F4F4" stroke="#3FA3A3" stroke-width="1.2"/>
+<text x="354.5" y="1365.5" dy="5" text-anchor="middle" font-size="14" fill="#333333" font-weight="bold">第五部·工具选股</text>
+</g>
+<g>
+<rect x="550" y="1534" width="121.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="610.75" y="1554.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">25 买卖逻辑一致</text>
+</g>
+<g>
+<rect x="550" y="1595" width="95.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="597.75" y="1615.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">26 心态修炼</text>
+</g>
+<g>
+<rect x="550" y="1656" width="95.5" height="41" rx="8" ry="8" fill="#FFFFFF" stroke="#E5E7EB" stroke-width="1.2"/>
+<text x="597.75" y="1676.5" dy="5" text-anchor="middle" font-size="13" fill="#333333">27 模式构建</text>
+</g>
+<g>
+<rect x="290" y="1595.0" width="129.0" height="41" rx="8" ry="8" fill="#FBECF1" stroke="#D6648C" stroke-width="1.2"/>
+<text x="354.5" y="1615.5" dy="5" text-anchor="middle" font-size="14" fill="#333333" font-weight="bold">第六部·纪律心法</text>
+</g>
+<g>
+<rect x="30" y="860.25" width="170.5" height="47" rx="8" ry="8" fill="#2F6FBF" stroke="#2F6FBF" stroke-width="1.2"/>
+<text x="115.25" y="883.75" dy="5" text-anchor="middle" font-size="15" fill="#FFFFFF" font-weight="bold">万战寻道·理解力体系</text>
+</g>
+</svg></div>
+</section>
+<section class="card">
+<h2 class="sec-title">学习导航（六部 · 27 讲）</h2>
+<p class="sec-tip">按认知递进排列，点击讲次跳转正文；建议从头到尾顺序学习。</p>
+<div class="nav-group">
+<div class="nav-part">第一部 · 看懂市场（语言层 · 地基）</div>
+<div class="nav-desc">先学会「看」：复盘、盯盘、筹码、盘口、强弱。看懂盘面在发生什么，是整座大厦的地基。</div>
+<div class="nav-lecs">
+<a href="#第1讲复盘与盯盘建立客观盘面认知">第1讲：复盘与盯盘</a>
+<a href="#第2讲筹码支撑与压力价格的本质">第2讲：筹码、支撑与压力</a>
+<a href="#第3讲盘口看穿资金构成与封板力度">第3讲：盘口</a>
+<a href="#第4讲强弱与主动被动谁带动谁">第4讲：强弱与主动被动</a>
+</div></div>
+<div class="nav-group">
+<div class="nav-part">第二部 · 读懂预期（信号层 · 全书轴心）</div>
+<div class="nav-desc">再学会「判断」：预期、超预期、关联性。这一部是全书主线「预期差」的轴心。</div>
+<div class="nav-lecs">
+<a href="#第5讲预期全课程最高频的核心概念">第5讲：预期</a>
+<a href="#第6讲超预期唯一真正能下单的信号">第6讲：超预期</a>
+<a href="#第7讲关联性锚定对标分离走势量能分歧">第7讲：关联性</a>
+</div></div>
+<div class="nav-group">
+<div class="nav-part">第三部 · 判断情绪节点（信号层 · 择时）</div>
+<div class="nav-desc">学会「何时出手」：赚钱效应、情绪与指数、共振、择时、分歧修复。记住：择时 &gt; 选股。</div>
+<div class="nav-lecs">
+<a href="#第8讲赚钱效应跟随与预判">第8讲：赚钱效应</a>
+<a href="#第9讲情绪与指数龙头跟风模型通杀局">第9讲：情绪与指数</a>
+<a href="#第10讲共振拐点判断">第10讲：共振</a>
+<a href="#第11讲择时择时大于选股">第11讲：择时</a>
+<a href="#第12讲分歧博弈修复">第12讲：分歧博弈修复</a>
+</div></div>
+<div class="nav-group">
+<div class="nav-part">第四部 · 战法执行（执行层 · 手法）</div>
+<div class="nav-desc">学会「怎么打」：打板、高低切、反核、缩量、竞价、套利缠论、小题材埋伏。每个战法都落到「预期/赚钱效应」的底层。</div>
+<div class="nav-lecs">
+<a href="#第13讲打板与择强超预期博弈的买卖逻辑">第13讲：打板与择强</a>
+<a href="#第14讲高低切套利">第14讲：高低切套利</a>
+<a href="#第15讲反核博弈">第15讲：反核博弈</a>
+<a href="#第16讲正向有卖点缩量战法">第16讲：正向有卖点缩量战法</a>
+<a href="#第17讲竞价体系换手率审美股池开盘博弈">第17讲：竞价体系</a>
+<a href="#第18讲套利与缠论区间套动能衰竭">第18讲：套利与缠论</a>
+<a href="#第19讲小题材埋伏套利">第19讲：小题材埋伏套利</a>
+</div></div>
+<div class="nav-group">
+<div class="nav-part">第五部 · 工具与选股（方法 · 工具化）</div>
+<div class="nav-desc">把方法固化成工具：回测、动态股池、选股标准、盘中工作、看盘界面与仓位。</div>
+<div class="nav-lecs">
+<a href="#第20讲回测从模式建立到数据验证">第20讲：回测</a>
+<a href="#第21讲动态股池如何建立长期股池">第21讲：动态股池</a>
+<a href="#第22讲选股标准最与唯一">第22讲：选股标准</a>
+<a href="#第23讲盘中工作清单持仓加仓计划执行临盘交易">第23讲：盘中工作清单</a>
+<a href="#第24讲看盘界面与仓位管理">第24讲：看盘界面与仓位管理</a>
+</div></div>
+<div class="nav-group">
+<div class="nav-part">第六部 · 纪律与心法（纪律层 · 收官）</div>
+<div class="nav-desc">守住利润：买卖逻辑一致性、心态修炼、模式构建。完成从「模式化交易」到「理解力交易」的跃迁。</div>
+<div class="nav-lecs">
+<a href="#第25讲买卖逻辑一致性最高纪律">第25讲：买卖逻辑一致性</a>
+<a href="#第26讲交易纯粹性与心态修炼">第26讲：交易纯粹性与心态修炼</a>
+<a href="#第27讲模式构建与可复制竞价接力的工程化">第27讲：模式构建与可复制</a>
+</div></div>
+</section>
+<main class="content">
+<h1 class="doc-title">卷首：这门课到底在教你什么</h1>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>A股短线交易不是「猜涨跌」，而是「比预期」——先判断市场对一只票的普遍预期是什么，再等它出现「超预期」，这才是唯一真正能下单的信号。</p>
+<h3>一条主线：预期差 / 超预期</h3>
+<p>所有交易本质上都是「预判」，而预判的抓手只有一个：<strong>预期差</strong>。</p>
+<ul><li>市场对每只票都有一个「默认该这么走」的普遍想法，这就是<strong>预期</strong>。</li><li>实际走势和预期之间的差距，就是<strong>预期差</strong>。</li><li><strong>符合预期，不提供任何交易信息</strong>（涨了是应该的，跌了也是应该的）。</li><li>只有<strong>超预期</strong>——强股高开、弱股逆势走强——才真正值钱，因为它意味着有资金在「逆着大众共识」做事。</li></ul>
+<p>整门课从头到尾都围绕这条线转：复盘（第1讲）预测次日 → 预期（第5讲）定义大众期望 → 超预期（第6讲）确认博弈 → 分歧博弈（第12讲）在分歧节点抢先手。<strong>预期差是唯一真信号</strong>，这句话要刻进骨子里。</p>
+<h3>四个支柱</h3>
+<p>这门课用「四个支柱」撑起整座大厦，学习顺序就是支柱的搭建顺序：</p>
+<ol><li><strong>语言层（看懂市场）</strong> —— 第1～4讲。先学会「看」：复盘、盯盘、筹码、盘口、强弱。这是地基，看不懂盘面，后面一切无从谈起。</li><li><strong>信号层（判断强弱与节点）</strong> —— 第5～12讲。再学会「判断」：预期、超预期、关联性、赚钱效应、情绪与指数、共振、择时、分歧修复。这是全书的核心，决定你「何时出手、打谁」。</li><li><strong>执行层（做对动作）</strong> —— 第13～19讲。然后学会「做」：打板、高低切、反核、缩量、竞价、套利缠论、小题材埋伏。每个战法都落到「预期」和「赚钱效应」这个底层。</li><li><strong>纪律层（拿住利润）</strong> —— 第20～27讲。最后学会「守住」：回测、动态股池、选股、盘中工作、仓位管理、买卖逻辑一致性、心态、模式构建。赚到的钱能不能留住，靠的是这一层。</li></ol>
+<h3>一个最高纪律：买卖逻辑一致性</h3>
+<p>四根支柱之上，压着一条贯穿全书的最高纪律——<strong>买卖逻辑一致性</strong>（详见第25讲）：</p>
+<blockquote>买入时就想清楚「什么情况证明我错了」，卖出时严格用同一个理由证伪，绝不中途换逻辑。</blockquote>
+<h3>学习路线图（六部 · 27 讲）</h3>
+<div class="table-wrap"><table style="min-width:560px;"><thead><tr><th>部</th><th>主题</th><th>讲次</th><th>一句话目标</th></tr></thead><tbody><tr><td>第一部</td><td>看懂市场（语言层）</td><td>第1～4讲</td><td>看懂盘面在发生什么</td></tr><tr><td>第二部</td><td>读懂预期（信号层·轴心）</td><td>第5～7讲</td><td>抓住「预期差」这条主线</td></tr><tr><td>第三部</td><td>判断情绪节点（信号层·择时）</td><td>第8～12讲</td><td>学会「何时出手」，择时 &gt; 选股</td></tr><tr><td>第四部</td><td>战法执行（执行层）</td><td>第13～19讲</td><td>学会「怎么打」</td></tr><tr><td>第五部</td><td>工具与选股（方法工具化）</td><td>第20～24讲</td><td>把方法固化成可复制的工具</td></tr><tr><td>第六部</td><td>纪律与心法（纪律层）</td><td>第25～27讲</td><td>拿住利润，稳定盈利</td></tr></tbody></table></div>
+<p><strong>递进的核心逻辑</strong>：先有市场后有理论，规律会变、本质是资金流动。你要完成的跃迁是——从「模式化交易（背招式、自下而上）」进阶到「理解力交易（懂逻辑、自上而下）」，最终做到 <strong>择时 &gt; 选股，节点 &gt; 标的</strong>。</p>
+<p><strong>每一层都必须先吃透「预期」这个轴心概念，再进入更高层。</strong> 最终目标不是记住 27 讲的知识点，而是把「预期差 → 情绪节点择时 → 超预期选股 → 纪律执行」这套框架，内化成临盘的第一反应。</p>
+<h2 class="part-title">术语先导：27 个核心术语（小白先读）</h2>
+<div class="table-wrap"><table style="min-width:620px;"><thead><tr><th>术语</th><th>大白话解释</th></tr></thead><tbody><tr><td>预期</td><td>大家心里默认「这只票接下来该这么走」的普遍想法。比如昨天涨停，人人都觉得今天该高开。</td></tr><tr><td>预期差</td><td>实际走势和「大家以为会怎么走」之间的差距。符合预期不给信息，有差才值钱。</td></tr><tr><td>超预期</td><td>实际比大家想的更强——强势股高开、弱势股逆势走强，这才是唯一真正能下单的信号。</td></tr><tr><td>赚钱效应</td><td>今天赚钱的人明天更敢买，行情自己滚雪球：跌停有人撬板→没人砸→连板加速→一致→到顶。</td></tr><tr><td>情绪周期/节点</td><td>市场情绪所处阶段（恐慌一致、冰点、分歧、修复）；「节点」就是该出手的时机点。</td></tr><tr><td>分歧/一致</td><td>分歧=看法不统一、有人砸有人接（洗掉伪强）；一致=看法一样、往往到顶。口诀「一致即末期」。</td></tr><tr><td>弱转强</td><td>昨天表现弱（炸板/没封住）今天突然变强（高开/秒板）=资金态度反转；次日竞价量能≥前日50%才可信。</td></tr><tr><td>竞价</td><td>开盘前 9:15–9:25 集合竞价阶段，看竞价金额、竞价换手率判断资金关注度。</td></tr><tr><td>打板</td><td>在涨停价上直接买入（排板/扫板），赌次日开盘溢价；本质是「超预期→选最强→打板」。</td></tr><tr><td>反核</td><td>「核按钮」=恐慌按跌停；「反核」=集体恐慌跌停时撬板捡便宜，只在「恐慌一致」时做。</td></tr><tr><td>缩量</td><td>成交量明显萎缩；缩到历史顶量2/3以下通常是主力没跑（锁仓信号）。</td></tr><tr><td>爆量K</td><td>某天成交量暴增、把一堆人套在山顶的K线，本身就是压力位；看最高价、收盘价、最低价。</td></tr><tr><td>结构线</td><td>把相邻两个顶（或底）连成线看趋势方向；碰得越多越有效，突破后压力变支撑。</td></tr><tr><td>筹码/支撑压力</td><td>筹码=大家的持仓成本；压力=上方被套急着卖，支撑=卖的人卖光+下方进场买。</td></tr><tr><td>盘口</td><td>盯委托队列、超级盘口、分时成交明细，看大资金真假动作、封板牢不牢。</td></tr><tr><td>强弱/主动被动</td><td>主动强/主动弱/被动强/被动弱四象限；口诀「强的不强算为弱，弱的不弱算为强」。</td></tr><tr><td>关联性</td><td>不孤立看一只票，借同板块「对标、分离走势、量能分歧」定强弱。</td></tr><tr><td>锚定</td><td>给自己找明确参照物当心理支点（支撑位/龙头涨幅/一字方向），照着做决定。</td></tr><tr><td>共振</td><td>大盘反弹拐头那一刻「第一个被想起并拉升」的票；三条件：改变预期+足够幅度+持续性验证。</td></tr><tr><td>择时</td><td>选「什么时候出手」比「选哪只票」重要；利润来自少数关键节点，不会空仓=不会炒股。</td></tr><tr><td>地位人气</td><td>地位=位置+贡献度（板块排第几、贡献多大）；人气=资金关注度，凌驾一切技术指标。</td></tr><tr><td>一字定方向</td><td>竞价看哪些票直接一字板（封单大），锚定今天市场主攻方向。</td></tr><tr><td>高低切</td><td>赚钱效应还在时从涨高龙头切到低位补涨做套利；补涨约龙头高度60%-70%。</td></tr><tr><td>区间套/缠论</td><td>缠论分析下跌动能是否衰竭（找抄底点）；区间套=不同级别K线逐级缩小范围精确定位买卖点。</td></tr><tr><td>买卖逻辑一致性</td><td>买时想清「什么情况证明我错了」，卖时严格用同一理由，绝不中途换借口（全书最高纪律）。</td></tr><tr><td>龙头跟风模型</td><td>情绪是龙头（强）、指数是跟风（弱），用指数是否破前低判断情绪风险。</td></tr><tr><td>通杀局</td><td>指数没创新低、情绪却创新低，指数情绪「双杀一致」；是上涨途中一次分歧一致，仍是博弈点。</td></tr></tbody></table></div>
+<h2 class="part-title">第一部 · 看懂市场（语言层 · 地基）</h2>
+<p class="part-desc">先学会「看」：复盘、盯盘、筹码、盘口、强弱。看懂盘面在发生什么，是整座大厦的地基。</p>
+<h2 id="第1讲复盘与盯盘建立客观盘面认知">第1讲：复盘与盯盘——建立客观盘面认知</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>复盘是"收盘后把昨天的账一笔笔算清楚，再把明天可能怎么走提前想一遍"；盯盘是"开盘后当场看明白钱在往哪跑"——合起来，就是给一个什么指标都不懂的小白，装上一副"客观的眼镜"，逼你把"我觉得会涨"换成"盘面能证明什么"。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p><strong>复盘不是找股票，是找规律和找机会。</strong> 这门课所有功夫的起点，就是先学会"看"，再学会"做"。看都看不客观，后面一切都是空中楼阁。</p>
+<p>复盘分三大块，像一家餐厅晚上打烊后要干三件事：</p>
+<ol><li><strong>马后炮（回顾）</strong>——昨晚生意好不好？哪道菜卖爆了、哪道菜剩了一堆？为什么？这叫"回看昨天"。</li><li><strong>马前炮（前瞻）</strong>——明天该进多少货、主打哪道菜？这叫"预判明天"。</li><li><strong>复盘交易（自我审计）</strong>——今天我自己哪一单下得对、哪一单是手贱？这叫"批改自己的作业"。</li></ol>
+<p>回顾是前瞻的地基，前瞻是交易的依据。专业复盘要投入 <strong>4 小时以上</strong>，不是扫一眼涨幅榜就叫复盘。</p>
+<p>盯盘则是把这套逻辑搬到盘中：你不是在看股价跳，而是在<strong>建立一套"系统化的观察框架"</strong>——把临场拍脑袋，变成按表操课。</p>
+<p>复盘有两条完全不同的路径，就像两种学车方式：</p>
+<ul><li><strong>模式驱动（自下而上）</strong>：我只做一种套路（比如"一进二"——首板次日能否晋级二板），那就只盯着这种形态去筛，从图形→叠加市值股性题材→匹配情绪，层层过滤。适合喜欢"标准化流水线"的人。</li><li><strong>理解力驱动（自上而下）</strong>：我先看大盘（指数），再看情绪，再看题材，最后落到个股。适合喜欢"看全局"的人。</li></ul>
+<p>两条路没有高下，关键是别混着用。本讲后面的实战演练，就是自上而下路径的完整示范。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p><strong>为什么复盘必须"客观客观客观"？</strong> 因为人有个致命毛病——<strong>自我强化认知</strong>：手里有票，看谁都像要涨停；空仓，看谁都像要崩。复盘的目的本来是"找机会"，一旦掺了情绪，就变成了"找证据证明自己没错"。所以复盘第一铁律是：<strong>规律是现象，不是本质；本质是资金往哪流。</strong> 你看到的"连跌三天就涨"只是表象，真正的因是背后资金在轮动（见第2讲的筹码、第3讲的盘口，都是往"钱"这个本质上看的工具）。</p>
+<p>自上而下这条路径，可以拆成<strong>五层递进</strong>，像剥洋葱一样从外到内：</p>
+<ol><li><strong>指数（流动性区间）</strong>——市场好不好，先看水够不够。行情好时接近<strong>万亿成交</strong>，低迷时<strong>5000–7000亿</strong>。水少了，题材就没持续性；缩量回踩支撑通常撑得住，缩量碰压力位往往过不去。</li><li><strong>筹码结构（压力与支撑）</strong>——哪里是墙、哪里是垫子（完整内容见第2讲）。</li><li><strong>资金载体（板块属性）</strong>——钱躲在"进攻型"（科技线：芯片、消费电子，主动带动大盘）还是"防守型"（农业、有色、石油）？<strong>无利好的主动拉升才有参考价值，利好刺激的被动上涨持续性存疑。</strong></li><li><strong>外力因素</strong>——与趋势同向的消息会加速行情；反向的消息通常只能延缓、难改大势。但要注意：<strong>高位出利好可能变"利好兑现"，低位出利空可能已提前反映。</strong></li><li><strong>情绪</strong>——分生态维度（钱在主板还是创业板）、情绪趋势（趋强还是趋弱、隔日是修复还是分歧）、高低位关系（健康市场=高位打空间+低位补涨；弱势市场=高位抱团+低位跷跷板）。</li></ol>
+<p>盯盘则是这五层的"现场直播版"，核心抓手有三个：<strong>黄白线看分化、动态量能看真假、涨停跌停比看情绪。</strong></p>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>第一步：回顾（马后炮），用"复盘四步法"搭证据链。</strong> 这一步是整个体系的分析范式，务必练熟：</p>
+<ul><li><strong>现象 → 原因 → 数据 → 结论</strong>。</li><li>例题：发现能源金属板块异常强势（现象）→ 是转融券比例高引发（原因）→ 全市场融券余额仅<strong>300亿</strong>、两个月可消化完（数据）→ 持续性预期不佳（结论）。</li></ul>
+<p><strong>第二步：前瞻（马前炮），用"情景推演"代替猜方向。</strong> 例题（消费电子）：</p>
+<ul><li>正常预期：被动上涨后回调，概率<strong>70%</strong>；</li><li>超预期情形：主动走强，概率<strong>30%</strong>。</li><li>区分被动/主动的两个标尺：<strong>分离指数</strong>（大盘开盘下杀时板块逆势涨）、<strong>抗跌性</strong>（大盘回落时板块跌得少）。</li><li>口诀记死：<strong>"被动上涨看回调，主动分离抓二波。"</strong> 正常情形就放弃日内博弈、观察尾盘修复信号；超预期情形就确认二波突破，选二波龙头或低位补涨。</li></ul>
+<p><strong>第三步：复盘交易（批改作业）。</strong> 每天记录三件事：</p>
+<ul><li><strong>最优解分析</strong>：事后看今天的最优操作是什么，从市场/模式/执行三个维度验证自己的决策依据。</li><li><strong>盈亏归因</strong>：亏损要分清是"模式失效"（套路本身在当下失效）还是"情绪冲击"（恐慌乱砍）；卖飞要界定清楚，别把随机波动当卖飞。</li><li><strong>大回撤防控</strong>：单次回撤控制在<strong>5%以内</strong>（打板策略）、龙头策略弹性上限<strong>10–15%</strong>。行为上要躲开三个坑：<strong>恐慌性抛售</strong>（分时急杀时不决策）、<strong>完美主义陷阱</strong>（接受自己买不到最低卖不到最高）、<strong>持仓偏见</strong>（别"屁股决定脑袋"）。落地工具：<strong>收盘决策法</strong>（盘中干脆关软件）、<strong>回撤日志</strong>（记录情绪波动节点）、<strong>硬性止损纪律</strong>。</li></ul>
+<p><strong>第四步：盯盘的标准配置（软件层面）。</strong></p>
+<ul><li><strong>表头</strong>：优先显示<strong>自由流通市值</strong>（=扣除5%以上大股东限售股后的真实可交易市值）、<strong>竞价金额</strong>、<strong>涨跌幅</strong>。K线务必勾选<strong>前复权</strong>，否则除权缺口会骗你的技术分析。</li><li><strong>竞价</strong>：弱转强个股，次日竞价量能<strong>需达前日50%以上</strong>才算够；竞价金额达昨日成交额<strong>5%–10%</strong>是资金关注度的门槛。竞价阶段看<strong>封单金额</strong>排序锚定方向（金额越大越强），但<strong>9:15前可撤单</strong>，若从7亿骤降至2000万，强度就是假的。更准的指标是<strong>实际竞价换手率</strong>（与总股本比），全市场排序看爆量个股集中在哪个板块，叫<strong>"一字定方向"</strong>。</li><li><strong>盘中异动</strong>：短线精灵只勾选"<strong>走势移动</strong>"一大类即可，已涵盖突破/跌破、涨停封板、打开涨停（炸板）、跌停封板、<strong>急速拉升（3分钟内涨幅超1.5%）</strong>、猛烈打压、封单大减（可能开板）。屏蔽ST/科创板/北交所/新股。</li><li><strong>均线</strong>：只留<strong>20日（月线）、50日（季度线）、250日（年线）</strong>三条，总数不超5根。<strong>均线的价值来自"共识"而非数学精确</strong>——用的人越多越有效，加8条线只会把自己看花。</li><li><strong>换手率</strong>：要看<strong>实际换手率</strong>（当日成交量÷实际流通股本），传统换手率没剔除限售股。案例里某股表面29%，实际<strong>55.83%</strong>——真实活跃度是表面近两倍。<strong>实际换手超50%＝短期过热信号</strong>（详见本讲量化锚点）。</li></ul>
+<p><strong>第五步：盯盘的实战流程（理解力定盘）。</strong></p>
+<ul><li><strong>看大盘</strong>：黄线=小盘股、白线=大盘股，黄线在上且开口越大＝小盘越强、分化越明显。盯<strong>动态预测量能曲线</strong>：开盘比昨日高13%但盘中一路回落到5%，说明冲高没量撑着，容易背离回落；相反，<strong>极端萎缩后再放量往往是有效信号</strong>（如量能跌到前日60%后放量反弹）。</li><li><strong>看情绪</strong>：涨停数/跌停数比值（如67:13）看强弱；高位股批量跌停（-7%到-9%）是情绪退潮前兆；<strong>早盘上涨4500家但指数只涨0.3%是背离</strong>，警惕回落；再看昨日涨停、炸板股今日是否红盘（红盘多=修复强）。</li><li><strong>看板块</strong>：用<strong>1分钟涨速</strong>抓异动（最敏感）、<strong>成交金额</strong>过滤（<strong>20亿以下</strong>板块对指数影响有限，<strong>需超50亿</strong>才有板块影响力）、<strong>涨停数量</strong>确认板块效应。别被小成交的"脉冲式"拉升骗（如4亿成交的异动）。</li><li><strong>看个股定位</strong>：用<strong>关联报价</strong>确认它属于什么板块、是领涨还是跟风。只认<strong>关联性强</strong>的核心题材，蹭热点的弱关联概念一律剔除；板块若已有5个涨停，新拉升的多是后排跟风，参与价值低。</li></ul>
+<p><strong>第六步：复盘实战演练（9月5日当天的完整示范，自上而下推演链）。</strong> 这一节把前面所有工具串成一条流水线：</p>
+<ol><li><strong>个股结构回顾</strong>：核心是"<strong>结构确认 → 首次回踩 → 新高确认</strong>"。<strong>回踩只做第一次</strong>，第二次不确定性大增；下跌<strong>越流畅越好</strong>（连续无反弹的下跌是健康洗盘，中途"提前反弹"是陷阱，弹了还会再跌）；<strong>破位就不能做</strong>（如寒武纪跌破关键支撑）；成交量必须与价格匹配，量价背离要警惕。</li><li><strong>大盘流动性</strong>：当日成交<strong>5348亿</strong>，从8766亿→7000→5800→5500→5348<strong>连续缩量</strong>，属于<strong>存量市场</strong>。存量博弈两大特征：<strong>涨跌轮动</strong>（涨多了跌、跌多了涨）和<strong>跷跷板</strong>（大盘涨小票崩、大盘跌小票涨）。决策用<strong>四步分析法</strong>：①定性市场性质（存量/增量）→②判断流动性趋势→③分析价格走势→④确定资金载体。</li><li><strong>资金载体</strong>：领涨是进攻（数字货币、芯片），领跌是防守（煤炭、石油、家电）→市场有做多意愿。关键两条铁律：<strong>进攻板块延续性好=预期积极；防守板块延续性好=预期反而差</strong>（如<strong>医药连续三天领涨，大盘预期就不好</strong>了）。资金容量要匹配——1000亿题材需要5000亿以上的市场才能撑住持续性。存量市场里<strong>银行等权重上涨是"虚假繁荣"</strong>，会抽干小票的血。</li><li><strong>成分对标</strong>：银行企稳（放量承接、MA20压力待观察）会抽离小票资金，小票回调概率&gt;70%。抄底和追高是两回事：<strong>抄底看安全性（资金安全第一）、追高看弹性（有空间才追）</strong>。判断用"走势对标+量能对标"双重验证（本案例均倾向震荡，概率70%与60%），若两者矛盾则该分析点失去意义；追涨必须有<strong>放量</strong>，理想是<strong>量价齐升</strong>。</li><li><strong>情绪周期</strong>：这是本讲的方法论之魂——<strong>情绪没有固定周期，"周期"只是对历史规律的总结，规律是现象，本质是资金流动</strong>。所以先教你规律（好用），再告诉你规律会失效（别机械套用）。经典规律包括：<strong>"连跌三天就会涨"</strong>（2788–2955点区间尤为明显，2888–3120点区间曾9次验证）；<strong>涨跌家数跌破500家次日往往上涨、超4000家则倾向回调</strong>（实例4400→800、3779→1250）。口诀两条：<strong>"三跌必涨看量能，资金动向定真假""规律会变本质恒，指标共振才当真。"</strong></li><li><strong>情绪量化</strong>：普涨达4000家附近次日回调概率显著提升；<strong>涨停家数超50家时，次日减少案例占比达80%</strong>（59→49、50→47）；情绪表分值突破特定阈值时次日分歧概率75%以上。<strong>判断分歧力度，主要看亏钱效应而非赚钱效应</strong>；<strong>中位股杀跌对情绪的冲击大于高位股</strong>（如奋达科技中位杀跌、保变电气中位掉队），多股协同修复（如伟时电子地天板修复+宝馨科技涨停修复形成修复集群）可降低分歧预期；割裂行情（高开跳水+跌停封死）要延迟判断至开盘后5分钟。</li><li><strong>龙头拆解</strong>：深圳华强16天15板、累计333%，超越大众交通271%，但缩量加速、<strong>硬封涨停透支次日做多动能</strong>（次日走势容易纠结）；<strong>断板后反包资金更活跃</strong>；高位加速进入高潮时要警惕梯队断层和分化淘汰。龙头的强弱对比、主动被动判断详见第4讲。</li></ol>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>复盘投入：<strong>4小时以上</strong>；融券余额<strong>300亿</strong>、消化周期<strong>2个月</strong>。</li><li>前瞻概率：正常<strong>70%</strong>/超预期<strong>30%</strong>；漏斗筛选<strong>50→30→5</strong>。</li><li>回撤控制：打板<strong>5%以内</strong>、龙头<strong>10–15%</strong>。</li><li>流动性：活跃<strong>万亿</strong>、低迷<strong>5000–7000亿</strong>；存量参考阈值<strong>5000亿</strong>；缩量至<strong>5000–6000亿</strong>往往企稳；单边放量<strong>&gt;3000亿</strong>会打破存量逻辑。</li><li>弱转强次日竞价量能：<strong>≥前日50%</strong>；竞价金额：昨日成交额<strong>5%–10%</strong>；大单口径：<strong>500手以上</strong>。</li><li>板块影响力：成交额<strong>&gt;50亿</strong>（20亿以下过滤）；急速拉升：<strong>3分钟内涨幅&gt;1.5%</strong>；均线：<strong>20/50/250</strong>、不超5根。</li><li>实际换手率：表面29%可对应实际<strong>55.83%</strong>；<strong>超50%过热</strong>；竞价换手率案例17%。</li><li>情绪：涨跌家数<strong>跌破500家次日涨/超4000家回调</strong>；涨停家数<strong>超50家次日80%减少</strong>；情绪表突破阈值次日分歧<strong>75%+</strong>；涨停/跌停比案例67:13；上涨4500家+指数仅涨0.3%＝背离。</li><li>龙头参照：深圳华强<strong>333%、16天15板、次日需135万手</strong>；大众交通<strong>271%</strong>；科森<strong>900%</strong>；走势对标震荡<strong>70%</strong>、量能对标<strong>60%</strong>；小票回调概率<strong>&gt;70%</strong>；振幅预计1.02%–1.11%；进攻题材延续性≤3日。</li><li>时间窗口：次日关键观察期<strong>9:30–10:00</strong>；割裂行情延迟判断至<strong>开盘后5分钟</strong>；盘前准备<strong>10分钟</strong>；显示器最低<strong>2K</strong>、推荐<strong>4K</strong>。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>自我验证式复盘</strong>：看啥都像龙头，复盘变成给自己找安慰。记住目的是找机会，不是找认同。</li><li><strong>把规律当必然</strong>：什么"三跌必涨""4000家必回调"都是统计现象，增量资金一来就破（可能涨到5000家）。口诀说得好——规律会变，本质才是恒定的。</li><li><strong>孤立盯盘</strong>：只盯自己的持仓分时，等卖完才发现龙头涨停了。必须提前建好"龙头+小弟"的关联自选池，用数字标记分组。</li><li><strong>误读量比/换手率</strong>：过度关注昨日量比，却忽略实际换手率的绝对值；传统换手率没剔除限售股，会严重低估真实热度。</li><li><strong>抄底与追高混为一谈</strong>：抄底看安全性、追高看弹性，标准不同，别用一套逻辑做两件事。</li><li><strong>盘面没看就慌</strong>：分时一波动就乱动。核心是"锚定"——有明确的支撑压力位（见第2讲）和系统化框架，才不会被单根分时线牵着鼻子走。</li><li><strong>边界提示</strong>：这些量化规律<strong>只在"无重大外力"前提下成立</strong>；一旦出现政策突变、极端量能，先停下规律、回到"本质是资金"这个根上重判。盯盘的软件设置是工具，工具再多也替代不了对"钱往哪走"的理解。</li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>本讲是<strong>整部体系的"地基"和"镜头"</strong>——它提供的是观察世界的客观方法，本身不产生买卖信号，但所有信号都要透过它才能被看见。它落在"一条主线（预期差/超预期）+四个支柱（语言/信号/执行/纪律）+一个最高纪律（买卖逻辑一致性）"的<strong>最底层</strong>：</p>
+<ul><li>复盘里的"回顾四步法""自上而下五要素"是<strong>语言层</strong>的元语法——教你如何描述市场（本讲即语言层的起点，连同第2、3、4讲共同构成"看懂市场"的地基）。</li><li>前瞻里的"正常预期/超预期"正是那条<strong>主线（预期差）</strong>的雏形，完整的预期推演逻辑见<strong>第5讲</strong>。</li><li>情绪周期、分歧、亏钱效应这些是<strong>信号支柱</strong>的原料，本讲只建立"客观看盘"的能力，具体如何把它们转成买卖信号，见后文"信号"篇。</li><li>"复盘交易"里的回撤防控、止损纪律，是<strong>纪律支柱</strong>的前置——先学会批改作业，后面才谈得上执行。</li><li>盯盘里的委托队列、超级盘口等工具，本讲只做全景介绍，拆解透在第3讲；结构线、爆量K等支撑压力工具在第2讲；强弱、主动被动在第4讲。</li><li>最顶上的<strong>最高纪律（买卖逻辑一致性）</strong>在本讲已埋下伏笔：复盘定下的预期，盘中操作必须与它一致——"早盘冲高未放量、与复盘预期不符，就不可追高"，这就是一致性在复盘场景里的第一次落地。</li></ul>
+<hr>
+<h2 id="第2讲筹码支撑与压力价格的本质">第2讲：筹码、支撑与压力——价格的本质</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>股票价格上不去，是被一群"套牢的人"压着的；掉不下来，是因为"该卖的人卖完了"。压力和支撑，本质是一句话：<strong>价格是套牢盘与恐慌盘用真金白银堆出来的墙和垫子。</strong></p>
+<h3 class="tpl-concept">核心概念</h3>
+<p>先讲筹码是什么。一根K线，<strong>开盘价、收盘价、最高价、最低价</strong>四个数，就是当天所有买卖双方博弈出来的结果——谁在什么价位买了多少、套了多少，都藏在这四个数字里。</p>
+<p>筹码有两个特点：</p>
+<ul><li><strong>静态特点</strong>：成本不随股价变动而变。你10块钱买进去被套了，捂着不卖，你的成本永远是10块，股价跌到5块也改不了。这叫"成本锁定"。</li><li><strong>动态特点</strong>：交换。股票换钱（割肉、止盈），钱换股票（建仓）。筹码每时每刻都在易主。</li></ul>
+<p><strong>压力从哪来？</strong> 来自<strong>空方（套牢盘）</strong>。核心逻辑就一句：<strong>同一价位套牢的钱越多，压力越大。</strong> 人套牢了，一回到成本就想跑（回本解套的兑现欲望），于是那个价位堆满了"等着解套就卖"的单子，股价一冲到这里就被砸下来。</p>
+<p><strong>支撑从哪来？</strong> 很多人以为支撑是"大家都觉得便宜、抢着买"，错了。<strong>支撑的本质是空方（恐慌盘）的衰竭</strong>——该割肉的割完了、想卖的卖光了，砸盘的力量枯竭，多方才有机会进场。所以支撑成立要两个条件：<strong>空方衰竭是前提，多方入场是必要条件。</strong> 缺一个，支撑就无效。</p>
+<p>一句话总结两者的关系：<strong>压力=空方集中，支撑=空方衰竭+多方接力。二者本质不同，但可以互相转化。</strong></p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p><strong>为什么成本越集中，压力越大？</strong> 这其实是"时间与空间的叠加"问题。<strong>一天套住100万个散户，和一个月慢慢套住100万个散户，结果没有本质区别</strong>——套牢的金额总量一样，解套时的抛压就一样。</p>
+<p>压力有两种典型形态：</p>
+<ol><li><strong>中枢震荡型</strong>：一个窄窄的区间里来回磨很久，把一堆人套在同一片成本里。区间越窄，成本越趋同，压力越大（同等资金下）。</li><li><strong>单个爆量K型</strong>：一根K线放天量，一天之内把海量资金套牢。常见于天地板、地天板这种极端K线。</li></ol>
+<p>关键变量是<strong>阴线幅度</strong>：</p>
+<ul><li><strong>大阴线</strong>（如5→4元）：成本可能偏上（比如涨停炸板、板上成交多），所以<strong>拉升初期压力小、后期压力大</strong>——越往上越难。</li><li><strong>小阴线</strong>（如-5%→-2%）：成本集中，<strong>反弹即遇压力</strong>，一抬头就撞墙。</li></ul>
+<p>由此可以推出一个实用的<strong>四种K线压力排序</strong>（假设昨天收了这么一根K线，今天要反包往上攻）：核心是"<strong>套牢人数×成本集中度</strong>"。放量比缩量套的人多，小阴线比大阴线成本集中，所以从大到小是——<strong>放量小阴线 &gt; 缩量小阴线 &gt; 放量大阴线 &gt; 缩量大阴线</strong>。</p>
+<p><strong>为什么压力越强，突破后回踩的支撑也越强（正相关转化）？</strong> 因为筹码密集区有两副面孔：突破前，它是海量套牢盘=压力；突破后，套牢的人解套了、不砸了，这片区域变成了大家共同的成本区=谁都不愿意在成本价下轻易卖=支撑。<strong>上方成交最活跃的区域，突破后就是最强支撑区，而非那个无量区。</strong></p>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>第一招：找压力位，看"谁被套在哪"。</strong></p>
+<ul><li>中枢震荡型：直接画震荡区上下沿；区间越窄，越要重视。</li><li>爆量K型：<strong>爆量K线三要素——最高价（涨停价）、收盘价、最低价</strong>。人气股（连板股）的震荡区多在顶部、参考意义有限，<strong>核心分析对象就是爆量K线</strong>。</li><li><strong>压力验证方法</strong>：多次触碰都没突破的位置，才是真压力。案例（世纪鼎力）：最低价多次被突破→压力无效；涨停价多次没触及→压力不明显；<strong>收盘价多次触碰都没过→压力最大（已验证）</strong>。股价走到这里再走弱，立即离场。</li></ul>
+<p><strong>第二招：找支撑位，看"谁愿意不砸、谁愿意接"。</strong></p>
+<ul><li>支撑=筹码密集区+空方不砸+多方认可环境。三者缺一不可。如果公司有实质利空，就算筹码再密集，多方也不敢接，支撑照样废。</li><li>支撑失效的两类场景：不同成本区的人（如3元成本、6元成本）在同一个价位集中止盈/止损，抛压一拥而上；或者公司出了经营问题。</li></ul>
+<p><strong>第三招：结构线——给小白的入门画法。</strong></p>
+<ul><li><strong>画法：相邻两个顶或相邻两个底的连线。</strong> 震荡区=水平结构，单边上涨=向上结构，单边下跌=向下结构。上结构线（连两个顶）=压力线，下结构线（连两个底）=支撑线。</li><li><strong>画完不能用，必须验证</strong>：连线后看股价是否多次在该线处回落（压力有效）或跌破后回踩（支撑有效）。<strong>触碰次数越多越有效。</strong> 上影线可能是虚价（单笔资金扰动），可以调整；原则是"<strong>尽量包含更多走势、尽量多次触碰</strong>"，第一个点必须取最高点。</li><li><strong>只做上行结构</strong>：底抬高、顶抬高的正向趋势，做"上涨中的回调"才容易赚钱；<strong>下行结构永远不是博弈点</strong>（可以横盘或阴跌，不破区间但没有赚钱效应）。判断一根下结构线有没有支撑意义，前提是<strong>顶越来越高</strong>（创出新高后，之前的低点才被确认）。</li><li><strong>压力转支撑的博弈点</strong>：突破后回踩原压力线，如果守住，就是买点。<strong>回踩只做第一次</strong>——真正确认突破后的首次回踩成功率最高，越往后胜率越低（股价不会永远贴着一根线走）。</li><li><strong>止损纪律（上海贝岭案例）</strong>：结构线确认后，盘中接近收盘价可入场；次日若跳空低开破结构线、冲高又没过去、回落，<strong>必须止损</strong>。</li></ul>
+<p><strong>第四招：爆量K线最低点安全值（人气股专用）。</strong></p>
+<ul><li><strong>定义</strong>：连板单边上涨中，除顶部外成交量最大的那根K线，它的<strong>最低点画一条水平线</strong>，就是安全值/支撑参考。</li><li><strong>用法</strong>：核心人气股跌到这根线以下，短期大概率被拉回来（容错率高），<strong>跌破不割肉、可考虑加仓</strong>，几天内大概率解套。原理：爆量K是连板中承接最强、人气最旺的位置，一旦跌回去，抄底和反抽的钱都会来救。</li><li><strong>边界（非常重要）</strong>：①顶部放量的K线无效（支撑是给"回踩"用的，不是给"顶部回落"用的）；②仅限核心人气股，没人气的杂毛股不适用；③次新、新股不适用（筹码不停置换，数据失真）。</li></ul>
+<p><strong>第五步：分时级别的支撑压力（日内用）。</strong></p>
+<ul><li><strong>早盘成交量最活跃，早盘创出的压力/支撑位对全天乃至隔日都有指导意义。</strong></li><li>压力位=找多个高点落在同一位置（验证过的），不是单一最高点；支撑位=找多个低点同一位置（如双底）。</li><li>用法（长山北冥案例）：昨日分时早盘形成双顶压力、下方双底支撑；今日第一波拉升遇昨日压力回落、第二波力度更弱又遇阻，<strong>过不去就走</strong>；想格局就把止盈线设在下方支撑位，跌破走人。</li><li><strong>两条实战纪律</strong>：①<strong>锚定效应</strong>——有明确的支撑压力位做心理锚，才不会被分时波动牵着情绪（开盘恐慌割肉、拉升后盲目乐观）；②<strong>急刹跳水不卖</strong>——急杀时挂单容易成交在分时最低点，而且因为通道劣势，你卖完往往就反弹了；<strong>急杀很多时候是买点不是卖点</strong>。</li></ul>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>大阴线案例区间5→4元；小阴线案例-5%→-2%。</li><li>南京化纤：反弹<strong>三板</strong>后压力巨大（人气股反抽越往上压力越大）。</li><li>稳定盈利目标：<strong>年度几十个点</strong>（跑赢巴菲特）；实操建议<strong>本金50万先用5万</strong>练。</li><li>量化真相：<strong>95%以上的量化赚不到钱</strong>（别神化、别阴谋论）。</li><li>分时止盈参考：长山北冥案例止盈线设于-58元附近（跌破走）。</li><li>结构线、爆量K线本身无固定数值阈值，其"有效性"由<strong>触碰次数</strong>和<strong>首次回踩</strong>决定。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>本末倒置地画线</strong>：结构线只是"适合小白的入门工具"，<strong>非核心</strong>。短线核心排序是<strong>人气（资金关注度）&gt; 数、筹码、盘口、逻辑</strong>——选股最核心永远是人气，技术线凌驾不了人气。</li><li><strong>把支撑当"多方共识"</strong>：支撑的前提是空方衰竭，不是有人抢着买。没人愿意砸比有人愿意买更根本。</li><li><strong>大阴线一定比小阴线压力大</strong>：错。成本是否集中才是关键，小阴线成本集中、反弹即遇压，反而更直接。</li><li><strong>下行结构里抄底</strong>：下跌趋势中找"支撑"抄底，是逆着趋势接飞刀。只做上行结构、只做第一次回踩。</li><li><strong>多次回踩</strong>：第二次、第三次回踩胜率递减，别贪。</li><li><strong>顶部放量当支撑</strong>：爆量K安全值只用于连板中段的回踩，顶部那根放量K线没有支撑意义。</li><li><strong>对非人气股套用爆量K</strong>：这个方法容错率的来源就是"人气"，杂毛股跌破就是真跌破，没人来救。</li><li><strong>边界提示</strong>：这套支撑压力方法<strong>只适用于最强、最核心的个股</strong>；看不懂的票不做，等结构线回归再出手，只抓自己认知内的那一次机会。先教生存，再谈盈利——一年稳赚几十个点，靠的是"不做错"，不是"全做对"。</li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>本讲是<strong>"语言层"的第二个地基</strong>，讲的是"价格的本质"——价格不是玄学，是套牢盘和恐慌盘的博弈结果。它把第1讲里"筹码结构（压力与支撑）"这个五要素之一彻底展开。</p>
+<ul><li>它服务的对象正是那条<strong>主线（预期差）</strong>：压力位、支撑位是判断"正常预期 vs 超预期"的坐标——股价到压力位该回落却放量突破，就是超预期（预期推演见第5讲）。</li><li>它给<strong>信号支柱</strong>提供了"锚"：第4讲的强弱判断、后文的打板（见第13讲）、半路、反抽，全都需要先知道"墙在哪、垫子在哪"。</li><li>它天然连接<strong>执行支柱</strong>：结构线的止损纪律、爆量K的"跌破不割肉"容错，都是执行动作，但它只负责告诉你"位置"，"什么时候按下按钮"要等信号和纪律篇。</li><li>它同样受<strong>最高纪律（买卖逻辑一致性）</strong>约束：你认定这是"上行结构第一次回踩"才进场，那跌破结构线就必须按纪律离场，不能临时改口说"再等等"——买卖逻辑必须一致。</li><li>与前后讲的关系：压力支撑看的是"静态的成本分布"，第3讲的盘口看的是"当下资金怎么动"，一个看地图、一个看实时路况，配合使用才能又稳又准。</li></ul>
+<hr>
+<h2 id="第3讲盘口看穿资金构成与封板力度">第3讲：盘口——看穿资金构成与封板力度</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>盘口看的不是"涨没涨"，而是<strong>"谁在买、花了多少钱"</strong>——同样的涨停，是大资金真金白银封上去的，还是一群散户凑热闹封上去的，决定了这板会不会炸。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p><strong>盘口分析的本质，是判断"单子的构成"——大单 vs 散单，从而判断大资金的态度。</strong></p>
+<p>同一根拉升，资金构成不同，结局天差地别：</p>
+<ul><li><strong>散户占比高</strong>：没有合力，意见不统一，涨上去也没人维护，一有风吹草动就树倒猢狲散。</li><li><strong>大资金占比高</strong>：会主动维护股价、主动拉升，跌下来也有人接。</li></ul>
+<p>所以盘口的心法就一句话：<strong>大资金态度 = 愿意花多少钱。</strong> 愿意真金白银买得越多、越持续，盘口越强；全是碎单子，涨得再好看也是虚的。</p>
+<p>本讲有三个工具，都是为这一个目的服务的：<strong>委托队列（看封板构成）、超级盘口（看逐笔质量）、分时成交明细（手机党简化版）。</strong></p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p><strong>为什么看金额不看手数？</strong> 因为股票单价不同。一只8块钱的低价股，挂一万手看着吓人，算下来才<strong>280万</strong>（8元×10000手=100万股×…），可能连一只百元股的零头都比不上。<strong>手数会骗人，金额不会。</strong> 判断单子大小，一律切到金额显示。</p>
+<p><strong>为什么"大单封板稳、散单封板炸"？</strong> 大单是一个（或几个）有计划的资金做出的决定，封上去会守；散单是千百个散户各怀心思的堆砌，稍微一慌就集体撤单。所以：</p>
+<ul><li>涨停板看<strong>买一档</strong>封单构成、跌停板看<strong>卖一档</strong>；</li><li><strong>队列前列是几百上千手的大单＝封板有力；前列是几手几十手的小单＝随时炸板。</strong></li><li>大单集中在前排，封板稳固；大单躲在后排、散单顶在前面，封板脆弱。</li><li>打板排板时：<strong>散户若能轻松成交，往往意味着快炸板了</strong>（真正的大单封死，散户根本排不进去）。</li></ul>
+<p><strong>为什么"挂单"不等于"意愿"？</strong> 两个原因：一是<strong>挂单都是被动成交</strong>——卖单挂在那，得有资金主动来吃才成交；买单挂在那，得有人主动砸才成交。二是<strong>挂单可以随时撤</strong>。所以传统"压单/托单"看主力的那套，在非庄股时代意义已经下降，别死磕，聚焦有用的信息。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>工具一：委托队列（L2付费功能，十档约两三百元/年，免费版五档）。</strong></p>
+<ol><li>先切<strong>金额显示</strong>（右键→买卖量及现手金额显示），别被大额手数误导。</li><li>看封板/封跌停的<strong>构成</strong>：前排大单多=安全，散单多=易炸。</li><li>进阶：可以定位自己委托在队列里的位置，预估成交时间。</li></ol>
+<p><strong>工具二：超级盘口（逐笔成交明细，判断拉升质量）。</strong></p>
+<p>超级盘口的三层结构：<strong>单笔构成 → 三秒汇总 → 明细列表</strong>。核心是把"三秒总和"拆成"逐笔构成"：</p>
+<ul><li><strong>红箭头=主动买入</strong>（直接吃掉卖盘），<strong>绿箭头=主动卖出</strong>；红色单子越大越亮=大资金买入，绿色越大越亮=大资金卖出。</li><li>判断拉升质量：<strong>三秒档由多笔小额散单组成=拉升质量低、延续性差；由一笔或几笔大单组成=大资金参与、质量高。</strong></li><li><strong>警惕拆单出货</strong>：大资金也可能把大单拆成散单，但<strong>拆单通常用于出货，不是买入</strong>。</li></ul>
+<p><strong>核心统计法——加减法：</strong></p>
+<ol><li>设定阈值（<strong>50万或100万以上</strong>算大单，过滤散单噪音）；</li><li>分别统计红色买单总额 vs 绿色卖单总额；</li><li>对比买卖总额，谁强谁弱一目了然。</li><li><strong>必须看全天</strong>：不能只看一段。上午7000万卖单多、下午3000万买单多，整体仍然偏弱。</li></ol>
+<p><strong>四个实战案例（背下来当模板）：</strong></p>
+<div class="table-wrap"><table style="min-width:560px;"><thead><tr><th>案例</th><th>关键信号</th><th>结论</th></tr></thead><tbody><tr><td>拓维信息</td><td>买方2000万→再增4000-5000万，卖方从600-800万缩到200万</td><td>力量悬殊，盘口好</td></tr><tr><td>新日</td><td>见顶时买方无一笔50万以上，卖方累计约500万</td><td>散户跟风，弱爆</td></tr><tr><td>科森科技（炸板）</td><td>下杀阶段买单持续增强，整体买4700万&gt;卖4000余万</td><td>回封概率高但会松动</td></tr><tr><td>复旦复华</td><td>3元股，59万的"大红单"其实不大，拉升时单子还减弱</td><td>封板后易走弱</td></tr></tbody></table></div>
+<p><strong>工具三：分时成交明细（手机党替代方案）。</strong></p>
+<p>没有电脑盘口时，用"主笔成交明细"的红绿单子，看<strong>三个维度</strong>：<strong>大小、密度、流速</strong>，三者缺一不可。</p>
+<ul><li>强：红色持续大单（3000、4000、6000手）vs 绿色偏小（300、400手）。</li><li>弱：红色都是200、300手，绿色50、40手，金额太小。</li><li>震荡区红绿都小是正常的；<strong>突破时必须有大单突变</strong>（突然冒出6000、2万、8万）才可信。</li><li>单子大但稀疏、或密集但都小，都不能说明强。</li></ul>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>L2十档委托队列：<strong>约两三百元/年</strong>。</li><li>金额换算案例：8元股，1万手（100万股）≈<strong>280万</strong>；1000手≈28万。</li><li>大单阈值：<strong>50万/100万以上</strong>（人为约定，用于过滤散单）。</li><li>三秒成交档案例：54万、50万、37万；开盘至一点零三秒总成交503万。</li><li>案例金额：拓维买方2000万→再增4000-5000万、卖方600-800万→200万；新日卖方累计约500万；科森买4700万vs卖4000余万；复旦复华59万（3元股）。</li><li>手机党红绿单手数：红3000/4000/6000手 vs 绿300/400手＝强。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>只看涨跌不看构成</strong>：盘口核心不是"涨没涨"，是"谁在买、花了多少钱"。</li><li><strong>被手数骗</strong>：低价股万手不过几百万，看金额，别看手数。</li><li><strong>只看单边</strong>：只数买单不数卖单，就会误判。必须对比买卖总额。</li><li><strong>把三秒总和当构成</strong>：三秒档是"总和"，逐笔明细才是"构成"，大资金拆单出货往往藏在碎单里。</li><li><strong>盘口强=未来能走出来</strong>：大错。<strong>盘口强只代表"今天此刻强"</strong>，次日能不能走出来要看预期（见第5讲）、看情绪、看板块，盘口解决不了"明天"的问题。</li><li><strong>急于简化</strong>：时效性交易（<strong>半路、追涨、打板，见第13讲</strong>）必须看盘口，没有例外；简化方式（如只看分时区间统计）会损失功能、失真。先练扎实，目标是练到"一眼判断行不行"，不用临时算。</li><li><strong>边界提示</strong>：<strong>单子金额必须结合股价和市值判断</strong>——3块钱的股票59万不算大；同时要看大单占总成交的比例。盘口能力是"练"出来的，不是"背"出来的；看不懂就不做，绝不勉强。手机党可行，但前提是<strong>只做核心股、绝不碰杂毛</strong>（有名气、有辨识度的人气股）。</li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>本讲是<strong>"语言层"的第三个地基</strong>，解决的是"盘面此刻，钱在怎么动"的实时翻译问题，与第2讲的"静态筹码分布"互为表里。</p>
+<ul><li>它直接为那条<strong>主线（预期差）</strong>供料：盘口大单持续买入=当下资金态度强，是"超预期"最原始的现场证据，但盘口强弱要翻译成隔日预期，还得接第5讲。</li><li>它是<strong>信号支柱</strong>的眼睛：第4讲的强弱对比（谁主动谁被动），很多就藏在盘口的逐笔明细里——主动的拉升会看到大单主动扫货。</li><li>它是<strong>执行支柱</strong>的手：<strong>打板、半路、追涨（见第13讲）</strong>这些时效性交易，全都要靠本讲的盘口功夫来"过手"——排板看委托队列位置，打板看封单构成判断会不会炸。</li><li>它受<strong>最高纪律（买卖逻辑一致性）</strong>管束：你是因为"看到大资金持续买"才进场，那当盘口大单消失、只剩散单时，你的买入逻辑就已经不成立了，必须重新评估，不能恋战。</li><li>一句话定位：第1讲教你"看全局"，第2讲教你"看地图"，本讲教你"看路况"，第4讲教你"看谁在领跑"——四者合起来，"看懂市场"的语言才算完整。</li></ul>
+<hr>
+<h2 id="第4讲强弱与主动被动谁带动谁">第4讲：强弱与主动被动——谁带动谁</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>同一天里两只股票都涨了，一只是自己领涨、别人跟着涨，另一只是别人涨了它才被动跟一下——<strong>前者是主角，后者是群演。</strong> 强弱不是看涨跌多少，是看"谁带动谁"。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p>把每只股票的行为放进两个维度：<strong>主动/被动 × 强/弱</strong>，得到<strong>四象限</strong>：</p>
+<ul><li><strong>主动强</strong>：领涨——它自己先动，别人跟着它动。</li><li><strong>被动弱</strong>：跟跌——别人先跳水，它才跟着跳。</li><li><strong>主动弱</strong>：领跌——它先跳水，带崩别人。</li><li><strong>被动强</strong>：跟涨——别人先拉，它才跟着涨。</li></ul>
+<p>判定的关键永远是<strong>先后顺序（谁带动谁）</strong>，而不是涨跌幅。同样跌3%，是"你先跳、对手跟着跳"（主动弱），还是"对手先拉、你才被动跳"（被动弱），结论完全不同。</p>
+<p>由此延伸出本课最重要的口诀，也是贯穿全文的判据：</p>
+<p><strong>"强的不强，算为弱；弱的不弱，算为强。"</strong></p>
+<p>怎么理解？看一个类比：一个平时考90分的学霸，和一个平时考60分的学渣，今天都考了50分——谁更"不及预期"？当然是学霸。<strong>强弱永远是相对的，要和"昨日的自己""同梯队的对手"比，而不是看绝对涨跌。</strong> 昨日更强的个股，今日若和别人跌得一样多，它反而更弱（因为不及预期）。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p><strong>为什么"主动"和"被动"的本质差别这么大？</strong> 因为主动方是自己有意图、有资金在主导；被动方只是被情绪或板块裹挟。主动拉升的股票，资金愿意花力气去拉、去封，说明有真实意图；被动跟涨的，只是蹭情绪，情绪一退它就现原形。</p>
+<p><strong>为什么"看强做弱"是个坑？</strong> "看强做弱"是指：龙头太强买不进（比如一字板），退而求其次去买跟风的小弟。这个后手动作有两个天生风险：</p>
+<ol><li><strong>日内回落</strong>：跟风股冲高就回落，当天就套。</li><li><strong>隔日低开低走</strong>：次日没人接力，直接低开走弱。</li></ol>
+<p>这两条风险怎么对冲？</p>
+<ul><li>日内风险，靠"<strong>板块能否起势</strong>"对冲——龙头带动板块大涨，跟风股日内才有肉。</li><li>隔日风险，靠"<strong>龙头明天能否更强</strong>"对冲——龙头明天还更强，跟风才有人接；龙头明天弱了，跟风隔日大概率低开。</li></ul>
+<p>所以"看强做弱"有个硬前提：<strong>你必须能预判龙头（强股）次日更强</strong>（强股有更强预期，如次日一字加强）。预判不了，就不能做。关键信号：<strong>龙头一字涨停但不带动大盘＝次日预期分歧</strong>，跟风股隔日堪忧。</p>
+<p><strong>风险收益对等原则</strong>（市场很公平）：</p>
+<ul><li><strong>主动拉升</strong>：反应要求高（要快）、盈利预期大，但风险是可能拉不起来、带不动市场；</li><li><strong>被动跟风</strong>：反应要求低（慢半拍也能上车）、盈利预期小，但<strong>风险并不小</strong>——你得替主动方承担"拉不起来"的失败风险。</li></ul>
+<p><strong>反应慢的人，必须用承担额外风险来换取低反应要求。</strong> 所以"好票不会等人"，时效性至关重要。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>第一招：良性竞争里找买点（大众交通 vs 深圳华强）。</strong></p>
+<ul><li>大众主动强（先拉升、不回踩均线直接上攻），华强被动弱（大众拉升后华强才跳水）。</li><li><strong>主动强和被动弱，都是"强"的表现，都是买点</strong>：主动强→<strong>追涨</strong>（跟随）；被动弱→<strong>低吸</strong>。</li><li>判断核心还是先后：<strong>对手先拉、你后跳＝被动弱（可低吸）；你先跳、对手后拉＝主动弱（是卖点）。</strong> 顺序一错，买卖就反了。</li></ul>
+<p><strong>第二招：二选一时，用"昨日强弱"当标尺（新亚制程 vs 伟时电子）。</strong></p>
+<ul><li>两只票今日都绿盘、跌幅相当，怎么选谁更弱？<strong>看昨日</strong>：新亚制程昨日更强（开盘秒回封），伟时电子昨日磨叽封板。今日同样下跌，<strong>昨日更强的那只反而更弱</strong>（不及预期）。</li><li>结论：<strong>"强的不强，算为弱；弱的不弱，算为强。"</strong> 科森科技（十板）这类高度板，就可以参照同生态标的的走势来判断强弱。</li></ul>
+<p><strong>第三招：弱转强的信号——前排炸板、后排主动回封。</strong></p>
+<ul><li>券商板块案例：涨停顺序是"一字板→锦龙（首个自然板）→中国银河→天风证券（最后涨停，最弱）"。炸板时：中国银河先炸→锦龙炸（跌得更狠）→<strong>天风证券却主动回封</strong>。</li><li>逻辑：跟风股（天风）在板块走弱时，没有任何理由主动去涨停——它敢主动冲，就说明有资金在做它，<strong>这是"弱转强"</strong>，回封大概率封得住，后续还有冲高。</li><li>奋达科技案例：日久光电10:40首封、10:42二封、10:51炸板松动；奋达10:45首封，日久炸板后<strong>奋达没炸、只是松动</strong>——同样是主动性体现，回封大概率封住。</li><li><strong>判断要点：排除"被迫跟风"</strong>——板块都弱了，跟风股没理由主动涨停，敢主动冲就是强。反过来要防"看弱做强的坑"：<strong>强的已经主动走弱，就不再是强了</strong>，得重新评估。</li></ul>
+<p><strong>第四招：骨性/历史走势对标（判断安全性）。</strong></p>
+<p>没有板块效应时，锚定个股本身。方法：<strong>看它"历史涨停后次日低吸，坑不坑人"</strong>，用<strong>3个以上同类样本</strong>验证：</p>
+<ul><li>拓维信息：样本1、2、3涨停后次日低吸都能赚或解套→无大阴线风险（低吸不会遇瀑布面）、解套概率高→"扛揍"。</li><li>双乐股份：与上海贝岭高度联动，涨停次日低吸均有解套机会，断板日低吸也不亏钱→相对安全。</li><li><strong>两条铁律</strong>：①对标<strong>仅限自身历史走势，不可跨股票对标</strong>（领益智造突破后A杀三天，别拿别的票套它）；②<strong>第一次回踩破位有支撑（解套概率高），第二次回踩（重心未上移）博弈价值低</strong>。</li><li>核心考量是<strong>安全性（少套即优于亏损）</strong>——做热点、核心股的反抽，容易解套。</li></ul>
+<p><strong>第五招：双重被动弱＝埋点（进阶判断，中信海直案例）。</strong></p>
+<p>判断"尾盘松动是买点还是卖点"，要分层对比：</p>
+<ul><li>个股 vs 板块：中信海直松动发生在板块已大回落之后→被动弱；</li><li>板块 vs 大盘：低空经济尾盘跳水，大盘尾盘也大跳水→板块相对大盘也是被动弱。</li><li><strong>双重被动弱下，尾盘松动就是博弈点（埋点）</strong>，不是主动走弱。</li><li>操作：尾盘先埋伏部分仓位（如5万），次日开盘确认超预期（如开一字）后再加仓（另5万）；不追最强的跟风（追高日内易回落）。</li></ul>
+<p><strong>第六招：追涨时，追主动的、别追跟风的（华映科技 vs 捷荣技术）。</strong></p>
+<p>华映主动拉升、带动捷荣跟涨——<strong>要追就追主动拉升的强股（华映），不追跟风弱股（捷荣）</strong>，否则易冲高回落、收盘倒亏。</p>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>二选一判据：类比"90分 vs 60分同考50分"，昨日强者同跌＝更弱。</li><li>奋达/日久时间线：日久10:40首封、10:42二封、10:51炸板；奋达10:45首封。</li><li>中信海直：3月27日尾盘带动失败回落、3月28日开一字=超预期；分批仓位示例各5万。</li><li>拓维信息：盘中冲高约7个点、次日红盘不亏；双乐股份：涨停次日回调5个点后冲高3个点、断板日低吸不亏。</li><li>历史样本验证：<strong>3个以上</strong>同类样本才算数。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>只看绝对涨跌幅判断强弱</strong>：错。强弱是相对的，要和昨日的自己、同梯队对手比。口诀"强的不强算为弱"就是这个意思。</li><li><strong>搞错先后顺序</strong>：把"对手先拉、你后跳"（被动弱，是低吸买点）误当成"你先跳"（主动弱，是卖点），买卖就做反了。</li><li><strong>做跟风小弟不看龙头预期</strong>：看强做弱必须能预判龙头次日更强，否则隔日必被埋。<strong>龙头一字但不带动大盘，就是次日分歧的警告。</strong></li><li><strong>把"主动回封"和"被迫跟风"混了</strong>：板块整体都弱了还主动涨停，才是弱转强；跟着别人屁股后面回封的不算。</li><li><strong>跨股票对标</strong>：用别的票的历史走势套现在这只票，是刻舟求剑。骨性对标只认它自己的历史。</li><li><strong>追主动股时犹豫</strong>：好票不会等人，反应慢的人要么承担额外风险（做跟风），要么错过。风险收益永远对等。</li><li><strong>边界提示</strong>：四象限判断必须<strong>明确生态</strong>——不同生态（主板/创业板、不同题材周期）下，强弱的对比结论不能直接套用。同时记住一句本质：<strong>我们做的是"强的股票、涨得多的股票"，能掌控的是"选强、判断强弱"，能赚几个板是市场说了算——尽人事，听天命。</strong></li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>本讲是<strong>"语言层"的第四个地基，也是收口之讲</strong>——它把"看懂市场"从静态（第2讲筹码）、实时（第3讲盘口）推进到"关系"：看懂个股之间谁带动谁、个股与板块、板块与大盘的强弱层级。</p>
+<ul><li>它服务的核心正是那条<strong>主线（预期差/超预期）</strong>：本讲的几乎所有判断——"强的不强算为弱""主动回封=弱转强""双重被动弱=埋点""次日开一字=超预期"——本质都是在识别<strong>"实际表现 vs 预期"的差值</strong>。这些差值如何系统化成交易信号，就是第5讲（预期）的任务。</li><li>它是<strong>信号支柱</strong>的第一块砖：弱转强、强更强、良性竞争、骨性对标，都是信号层的原材料，本讲先建立"看懂关系"的语言，后文再教"如何把这些关系变成买入卖出的扳机"。</li><li>它直接对接<strong>执行支柱</strong>：追主动强股、低吸被动弱股、埋伏被动弱埋点，都是执行动作；其中的"追涨/低吸/打板"具体手法见第13讲。</li><li>它受<strong>最高纪律（买卖逻辑一致性）</strong>的严格约束：你因为"主动弱转强"买入，那当它重新"主动走弱"时，你的买入逻辑已经不复存在，必须离场——<strong>买卖必须基于同一条逻辑，不能今天用强弱的理由买、明天用筹码的理由留。</strong></li><li>至此，"语言层"四讲（复盘盯盘→筹码压力→盘口→强弱主被动）全部落地，你已经能客观地"描述"市场；下一步，就是进入"信号"层，学会如何从这些描述里"出手"。</li></ul>
+<h2 class="part-title">第二部 · 读懂预期（信号层 · 全书轴心）</h2>
+<p class="part-desc">再学会「判断」：预期、超预期、关联性。这一部是全书主线「预期差」的轴心。</p>
+<h2 id="第5讲预期全课程最高频的核心概念">第5讲：预期——全课程最高频的核心概念</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>预期不是"你觉得会怎样"，而是"市场上大多数人此刻默认会怎样"；看懂这个"大家心里的默认值"，你就拿到了这张牌桌上唯一的指南针。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p><strong>预期是什么：大众的期望值</strong></p>
+<p>先讲一个最土的比喻。你邻居家孩子，平时次次考90分。今天放学回来，你听说"又考了90分"——一点不惊讶，这叫<strong>符合预期</strong>。要是考了50分，全家瞪大眼，这叫<strong>不及预期</strong>。反过来，一个平时只能考30分的学渣，突然考了60分，全家人高兴坏了，这叫<strong>超预期</strong>。但要是这学渣直接考了100分，家长第一反应不是高兴，而是怀疑"是不是作弊了"——这叫<strong>透支预期</strong>：实力和成绩对不上，后面反而没人信了。</p>
+<p>股票里的预期，就是这张"大家心里的默认分"。<strong>预期 = 大众的期望值</strong>，注意是"大众"，不是"你"。</p>
+<p>这是全课程最容易踩的坑，也是最重要的一句：<strong>分析市场时，预期指的是大多数资金对这只票的共识看法</strong>，不是你自己YY出来的"我觉得还能涨10个板"。你活在"我认为"的世界里，就永远读不懂市场——市场不会按你的想法走，只会按大多数人的想法走。</p>
+<p>所以这里有一条铁律级的分界：<strong>预期 ≠ 预测</strong>。</p>
+<ul><li>预测是"我猜明天会怎样"——这是算命。</li><li>预期是"我现在读出来，大家已经默认了怎样"——这是读盘。</li></ul>
+<p>复盘要找的是"相对确定的点"，再围绕这个点发散逻辑链，而不是预判所有板块和消息。</p>
+<p><strong>为什么预期是全书最高频的概念</strong></p>
+<p>因为后面的一切——超预期、关联性、打板、低吸、卖点——全都是"拿现实和预期做比较"的结果。预期就是那把标尺。没有标尺，你连"这票今天算强还是算弱"都回答不了。所以原文把它定位成<strong>短线/隔日交易的核心能力</strong>：看懂强弱和预期，选股质量就上去了，远比主观臆测靠谱。</p>
+<p><strong>预期和强弱是一张表的正反面</strong>（强弱的具体讲解见第4讲）：</p>
+<ul><li>超预期 → 强（资金认可、愿意追随）</li><li>不及预期 → 弱（资金砸盘）</li><li>符合预期 → 不强不弱</li><li>透支预期 → 无空间</li></ul>
+<p>一句话：<strong>超预期就是强，不及预期就是弱</strong>，这是把"预期"翻译成"操作语言"的桥梁。</p>
+<p><strong>四类预期，一张图装下</strong></p>
+<p>原文反复强调，预期要分四个维度看全，缺一不可：</p>
+<div class="table-wrap"><table style="min-width:560px;"><thead><tr><th>维度</th><th>回答的问题</th><th>适用对象</th></tr></thead><tbody><tr><td>题材预期</td><td>这个题材能走多远？反抽还是反转？震荡还是A杀？突破不突破？什么级别？</td><td>板块/题材</td></tr><tr><td>个股预期</td><td>这只票自己强不强？</td><td>单只个股</td></tr><tr><td>溢价预期</td><td>它明天开盘能高开几个点、有没有肉？</td><td>连板小盘股为主</td></tr><tr><td>规律性预期</td><td>已经明牌的规律，还能不能照着做？</td><td>走出规律的老票</td></tr></tbody></table></div>
+<p>下面把四类全部讲透。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p><strong>（一）大众预期为什么成立？——三个前提属性</strong></p>
+<p>一个东西要有"预期"，必须先满足三个条件，缺一个就"没预期"：</p>
+<ol><li><strong>人气</strong>：得有人关注。没关注度的票，涨了跌了都是随机游走，没有"大家默认"这回事。</li><li><strong>普及性</strong>：关注的人得足够多，多到形成"共识"。少数人知道的内幕，那不叫预期，那叫违法（下面讲消息面会再强调）。</li><li><strong>动态性</strong>：预期不是写死的数字，会随环境变。</li></ol>
+<p>动态性用考试比喻最清楚：平时90分的孩子，发高烧40度去考，考了60分——不算不及预期，因为有"外力因素"（生病）。题目难到全班第一才70分，他考60分——也不算不及预期，因为有"关联性因素"（参照系整体下移了）。所以<strong>判断预期必须结合外部环境和参照系动态调整</strong>。</p>
+<p>反例：一只无消息、无人气、无资金关注的票（原文举磷化工板块），它"可强可弱"，根本无法定义预期——这种票就别硬套预期分析。</p>
+<p><strong>（二）消息面预期：永远反着人性来</strong></p>
+<p>这是"预期"最实战的一个应用，一句话总结：<strong>善于把握利空，警惕利好</strong>。为什么？因为消息是"外力因素"，会改变大众的期望值，而改变的方向往往和你的直觉相反。</p>
+<p>先记住一条大前提：<strong>资金永远先于消息</strong>。等你在财联社、悦达投资、嘉宏这些平台上看到利好，股价早涨完了，你就是接盘的。所以盘中看消息炒股基本赚不到钱；内部消息不合法（原文案例：有人听信并购重组内幕，先吃3个涨停，重组失败变ST，20多个跌停，几千万身家只剩一点）。正确姿势是：<strong>看市场强弱关系来预判，不靠消息做操作依据</strong>。</p>
+<p>然后是三张对照表：</p>
+<div class="table-wrap"><table style="min-width:560px;"><thead><tr><th>对象</th><th>利空</th><th>利好</th></tr></thead><tbody><tr><td>大盘</td><td>恐慌低开 = 分歧兑现 = 机会，要兴奋</td><td>高开 = 符合预期，难预测，别追</td></tr><tr><td>题材</td><td>看它抗不抗揍，检验题材强度</td><td>警惕被透支（原文光刻机：假期全平台吹"技术突破"，实际逻辑没那么强，高开就是坑人）</td></tr><tr><td>个股</td><td><strong>低位利空 = 机会</strong>（恐慌进场）</td><td><strong>高位利好 = 利空</strong>（利好兑现）</td></tr></tbody></table></div>
+<p>几个必背案例：</p>
+<ul><li><strong>疫情利空（2020）</strong>：大盘已回调，出利空，3000+家跌停，但收盘价比开盘价高（收了阳线）→ 极度恐慌后能拉回 = <strong>超预期</strong>。</li><li><strong>印花税利好</strong>：大盘高开5个点 → 只是符合预期，后续走势尴尬（股民纪念碑）。</li><li><strong>赛力斯</strong>（24元涨到106元）出业绩利好 → 只是符合预期，高位利好就是兑现。</li><li><strong>科森科技</strong>：三折叠屏消息发酵后见顶 → 高位利好 = 利空的铁证。</li><li><strong>光伏、海天味业</strong>：超跌后出利空 → 恐慌是机会。</li></ul>
+<p>个股层面还有一个口诀：<strong>最大利好是重组，最大利空是退市</strong>。重组（如中国船舶/中国重工）开盘没顶死一字，就是不及预期、没意义。</p>
+<p><strong>（三）题材预期：先看清"这波是反抽还是反转"</strong></p>
+<p>这是题材预期里最实用的一组对立，也是最容易判断错的。</p>
+<ul><li><strong>反抽</strong>：下跌通道里的一次反弹。特征：<strong>无溢价</strong>——当天涨停，后排明天大概率跳空低开，前排溢价也偏低。原文最狠的一句：6月26日无人驾驶最强涨停股，打板买入，第二天只给个高开，开盘走根本赚不到钱。<strong>买在最强都赚不到钱</strong>，这就是反抽。</li><li><strong>反转</strong>：趋势真正掉头向上。特征：前排转一字（加速），后排不掉队（全部连板）。</li></ul>
+<p>怎么区分？一句话口诀：<strong>看次日后排是否掉队、前排是否加强</strong>。</p>
+<p>还有个极其重要的心理关：<strong>一根大阳线，默认先按反抽看</strong>，别急着喊"踏空"。因为——如果行情只涨一天，那不叫踏空（没有溢价，你根本没错过钱）；如果行情不止一天，后面还有买点。老想博弈到启动点（反转点），可能性不大，那是自虐。</p>
+<p><strong>（四）题材预期：震荡还是A杀？</strong></p>
+<p>判断题材退潮后是"有支撑的震荡"还是"单边A杀（一路阴跌不回头的退潮）"，看两点：</p>
+<ol><li><strong>高位有没有补跌</strong>（有没有A杀）；</li><li><strong>有没有更强题材把它替代掉</strong>。</li></ol>
+<p>两个都没有，它才有震荡预期。但有个前提：<strong>必须是有延续性的题材（至少涨了三天以上）</strong>，一日游题材没有震荡博弈的价值。</p>
+<p>量化口诀（必背）：<strong>跌1天 = 回调，跌2天 = 分歧延续，跌3天 = 退潮（震荡预期基本失效）</strong>。所以<strong>对于中级题材，回调两天砸出来的低点，就是震荡区下沿</strong>——这就是低吸的参照点（人工智能板块就是：第一波强势→见顶连跌两天→那个低点可围绕低吸博弈）。</p>
+<p><strong>（五）题材预期：突破不突破，比强度</strong></p>
+<p>突破预期 = 判断股价能不能有效突破结构压力位。核心方法就一招：<strong>多波拉升强度对比</strong>。</p>
+<ul><li>第二波反抽强度明显弱于第一波 → <strong>不赌突破</strong>，接近新高就卖。</li><li>第三波最强 + 量能确认（量能放大、出现顶量、连续放量强于第一波）→ <strong>有突破预期</strong>，接近新高可买。</li></ul>
+<p>一个延伸规律：<strong>突破预期没兑现（冲高回落没站稳）→ 是修复买点</strong>（预期没兑现，还有修复可能，可加仓/买入）。有效突破要"确认性阳线"，假突破是"多次冲高回落没站稳"。</p>
+<p><strong>（六）题材预期：级别（小/中/大）</strong></p>
+<p>这是全文核心之一，用"中军"这个对标物给题材定级。</p>
+<div class="table-wrap"><table style="min-width:560px;"><thead><tr><th>级别</th><th>判定标准</th><th>案例</th></tr></thead><tbody><tr><td>小级别</td><td>无中军、启动日全是首板、无想象力、无持续利好</td><td>腾达带起的光伏</td></tr><tr><td>中级别</td><td><strong>必须有中军（容量票）</strong>，板块日成交百亿级</td><td>低空经济（万丰奥威）、无人驾驶（大众交通）</td></tr><tr><td>大级别</td><td>想象力 + 大盘配合 + 龙头持续创新高</td><td>人工智能</td></tr></tbody></table></div>
+<p>几个硬概念：</p>
+<ul><li><strong>中军</strong>：日成交额数十亿、盘子大的容量票。<strong>中军越强，题材级别预期越高</strong>。</li><li><strong>对标</strong>：无人驾驶中军大众交通启动时流通盘约30-40亿，低空经济万丰奥威约100亿 → 容量差距说明无人驾驶级别低于低空经济。</li><li><strong>0到1 vs 1到100</strong>：0到1是炒概念、虚无缥缈（无人驾驶初期）；1到100是炒落地、规模化（无人驾驶现在）；救市这种既不是0到1也不是1到100的（房地产），难成主线。</li><li><strong>大级别三条件</strong>：题材想象力 + 大盘行情配合 + 个股持续打新高（后续龙头高度要超越前一波）。人工智能第一波龙头海天瑞声涨约260%，后续剑桥科技、鸿博、联特突破前高，才配得上大级别；低空经济后续龙头高度降低，所以只算中级别。</li></ul>
+<p><strong>级别直接决定仓位</strong>（必背）：</p>
+<ul><li>小级别：只博弈左侧（启动期），回调段不参与。买在尖尖上<strong>无解套机会</strong>。</li><li>中级别：博弈两段（上涨段 + 二波段），<strong>仓位递减：前段如五成仓 → 后段如两成仓</strong>。买在尖尖上有<strong>一次解套机会</strong>（二波）。</li><li>大级别：博弈三段，每段都能参与。只要不买在三波尖尖，都有赚钱机会。</li></ul>
+<p><strong>（七）题材预期：博弈逻辑提前，右侧沦为接盘</strong></p>
+<p>市场在进化，最核心的变化一句话：<strong>博弈逻辑全部提前</strong>。</p>
+<ul><li>传统理论是突破时高位股才表现；现在是<strong>高位股提前两天表现，突破时反手砸盘</strong>（无人驾驶：锦江、大众等高位股在突破前表现，突破时砸盘，板块再涨一天后跳水，高位股在跳水时修复）。</li><li>结果：<strong>只做右侧、做确定性交易的人，最终成了接盘者</strong>——因为右侧交易点已经滞后了。</li><li>应对：<strong>博弈必须提前，偏左侧</strong>。原文的个人习惯是<strong>只博弈前三天（前三根阳线）</strong>：好行情前三天做强势股可能躺赢；差行情前三天博弈阳线，第三天离场规避下跌。</li><li>心态两条：<strong>别把每根大阳线当踏空</strong>；疯狗浪（疯狂单边上涨）行情里，无先手者越涨越不敢做，踏空者众多。财经主播"天天看空"胜率能超一半——因为<strong>差行情的时间远多于好行情</strong>，要在差行情里找机会，而不是干等行情转好。</li></ul>
+<p><strong>（八）题材预期：级别扩张与"矫枉过正"（最高阶心法）</strong></p>
+<p>这是全章升华，两个最深的概念：</p>
+<ol><li><strong>级别扩张</strong>：高位接力（比如五连板高位隔夜挂单）赌的不是3-5个点的套利，而是<strong>赌生态发生重大变化、级别放大</strong>（从原有高度开启新一轮更大行情）。冒一天亏20%+的风险，必须押注级别变大才值得。所以当板块<strong>全面加速后</strong>，次日就算突破，也<strong>只是符合预期，不算走强确认</strong>（预期已被充分消化）——此时做多资金没有预期差，只能赌级别放大，于是启动更早的老龙头反而被资金提前博弈。</li><li><strong>矫枉必须过正</strong>：股价涨跌常超预期——值3元的票，预期涨到5元，实际能冲到6元。市场情绪总是超调。</li><li><strong>损不足而奉有余</strong>：越不敢买越涨，越敢买越跌；强者恒强、弱者恒弱。这是理解"超预期"的心理根基（下一讲会反复用到）。</li></ol>
+<p><strong>（九）个股预期：三个维度看一只票强不强</strong></p>
+<p>判断个股次日预期，原文给出三大方式：</p>
+<ol><li><strong>带动性</strong>：它涨停能带动板块吗？常山北明涨停带动10个鸿蒙涨停 → 次日一字预期。带动性越强，预期越高。</li><li><strong>地位</strong>：它在板块里的排序。同板块三个二板股，溢价排序 = 第一个涨停 &gt; 第二个 &gt; 第三个。地位越高，溢价预期越高。</li><li><strong>走势</strong>：它自己的K线形态。一字涨停/缩量涨停 = 强；次日低开就是不及预期。烂板/断板/炸板 = 弱。</li></ol>
+<p><strong>个股预期补充：换手 vs 锁仓（判断连板能不能续）</strong></p>
+<p>两只票看着都连板，本质可能完全不同：</p>
+<ul><li><strong>换手（空中加油）</strong>：威海德遇到左侧震荡区时主动换手（放量）→ 置换掉抛压后放量上行 → 健康。换手进来的资金是<strong>做连板的资金</strong>（愿意接力）。</li><li><strong>被动锁仓</strong>：安诺琪遇左侧震荡区时缩量板直接跳过 → 抛压没置换，是被动锁仓 → 后续遇分歧，锁仓资金<strong>一有不对就跑，易砸盘终结连板</strong>。</li></ul>
+<p>口诀：<strong>换手资金 = 连板资金（愿接力）；被动锁仓资金 = 非连板资金（易砸盘）</strong>。</p>
+<p><strong>（十）溢价预期：四维判断明天开盘有肉没肉</strong></p>
+<p>溢价预期（尤其针对连板小盘股）要从四个维度综合，别只看一维：</p>
+<div class="table-wrap"><table style="min-width:560px;"><thead><tr><th>维度</th><th>看什么</th></tr></thead><tbody><tr><td>带动性（贡献值）</td><td>有没有真带动板块大涨/个股涨停，看收盘结果，不看盘中脉冲</td></tr><tr><td>地位</td><td>板块内涨停时间排序，前排（早盘率先）vs 后排（跟风）</td></tr><tr><td>走势（分时强度）</td><td>封板质量：缩量板/一字板（强）vs 大烂板（弱）</td></tr><tr><td>外力 + 关联因素</td><td>消息面、大盘、对标标的会不会改变结论</td></tr></tbody></table></div>
+<p>天风证券是标准教材：带动性弱（板块没大涨）、地位后排（天茂集团、红叶期货更早涨停）、分时大烂板 → 正常预期<strong>低开</strong>。但如果金融出重大利好、或大盘大高开、或天茂集团强一字封单，那它高开就<strong>不算超预期</strong>了。<strong>预期是动态的</strong>。</p>
+<p>这里有个容易混的点：<strong>走势预期 vs 溢价预期，用错对象会翻车</strong>。</p>
+<ul><li><strong>走势预期</strong>：针对趋势容量股（大盘股），锚定左侧压力位，赌突破。</li><li><strong>溢价预期</strong>：针对连板小盘股，看次日开盘溢价。</li></ul>
+<p>两者不可混用。</p>
+<p><strong>（十一）规律性预期：明牌的规律，必须反着用</strong></p>
+<p>这是全文最深的一层心法。</p>
+<p><strong>明牌预期 = 已经走出来的、公开的、大家都知道的规律。</strong> 核心原则一句话：<strong>明牌之后风险 &gt; 收益，所以必须反着用</strong>。</p>
+<p>底层逻辑用"公认支撑位"讲最透：</p>
+<ul><li>某股公认支撑位是3元。既然大家都认3元是底，持有者就不会在3元卖（不缺买盘）→ 所以它<strong>根本跌不到3元</strong>。万一真跌到3元，说明卖压大到离谱，那它<strong>不会反弹，而是跌破</strong>。</li><li>同理，公认压力位5元，大家都不在5元买（没人抬轿）→ 它<strong>涨不到5元</strong>。</li></ul>
+<p>所以：<strong>能看懂的规律都是后知后觉，规律本身就是收割工具</strong>。</p>
+<p>"第四次反用"是操作落点（口诀：明牌预期形成需要<strong>出现3次左右</strong>，大众形成共识）：</p>
+<ul><li>华为汽车一次、两次、三次摸顶不过 → <strong>第四次赌突破</strong>（而非再赌回落）。</li><li>某股每次买红K修复，第二天必亏，连亏三次 → 第四次没人敢买 → <strong>第四次超预期上涨</strong>。</li><li>保变电气连续3次跌停后地天（深水区买就赚）→ <strong>第四次不是买点，是收割</strong>，大聪明抄底，狼真来了。唯一例外是超级龙头（如大众交通）可以连续反包，但高位恐慌会打破规律。</li><li>中广天择"断板必反包"连出几次 → 规律太明显，预期已兑现，<strong>下次断板不买</strong>。</li></ul>
+<p>但"第四次反用"有个关键前提，否则就是瞎赌：<strong>必须看它是主动还是被动</strong>。</p>
+<ul><li><strong>主动上涨</strong>（领涨、非大盘带动）拉到压力位 → 可参考，第四次可赌突破。</li><li><strong>被动上涨</strong>（大盘先涨、被带起来的）→ 突破可能性低，无效信号。</li></ul>
+<p>消费电子案例就是反面教材：一次两次冲顶不过，第三次涨了，但是被动拉升（跟着大盘走）→ 不作为参考。</p>
+<p><strong>（十二）预期差是伪命题</strong></p>
+<p>很多新同学到处找"预期差"，这里要泼盆冷水：<strong>大佬从来不提预期差，只讲超预期和不及预期</strong>。为什么？因为<strong>预期差无法通过分析个股本身找到，它由市场或竞争对手赋予</strong>。它只出现在两种场景：</p>
+<ol><li><strong>题材发散（暗线逻辑）</strong>：中通客车，市场以为炒汽车，实际带动国企改革；深圳华强，市场以为炒海思，实际带动互联网金融。价值在于高位股存在认知错位。</li><li><strong>竞争对手更差</strong>：空港股份自身不及预期，但所有竞争对手更惨，它反而显得强——这只能靠对比同梯队看出来，分析它自己分析不出。</li></ol>
+<p>一句话：<strong>预期差是市场和对手塞给你的，不是你自己算出来的</strong>。</p>
+<h3 class="tpl-action">操作要点</h3>
+<ol><li><strong>先问"这票有没有预期"</strong>：有人气、有地位、有普及性的票才有预期；无消息无人气无资金的票，直接跳过，别硬套分析。</li><li><strong>读预期 = 读大众共识</strong>：复盘时问"大多数人此刻默认它明天怎么样"，而不是"我觉得它怎么样"。</li><li><strong>四类预期各归各的账</strong>：题材用反抽/反转/震荡/突破/级别来判断；个股用带动性/地位/走势；连板股用溢价四维；老规律票用"明牌反用"。</li><li><strong>消息永远反着用</strong>：利好高开 = 符合预期别追；利空恐慌 = 分歧兑现要兴奋；高位利好 = 利空兑现；低位利空 = 机会。</li><li><strong>判断超预期先排除干扰</strong>：消息、大盘、对标（关联）都会改变"该不该高开"，排除完还剩的超预期才是真超预期（下一讲展开）。</li><li><strong>按级别定仓位</strong>：小级别只做左侧、中级别五成→两成做两段、大级别做三段。</li><li><strong>博弈往前挪</strong>：只博弈前三天，别等右侧确认点（那已经是接盘点）。</li></ol>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li><strong>跌2天 = 分歧延续，跌3天 = 退潮</strong>；中级题材回调两天的低点 = 震荡区下沿。</li><li><strong>有延续性题材 = 至少涨3天以上</strong>（才有震荡博弈价值）。</li><li><strong>中级别题材</strong>：必须有中军（日成交数十亿）+ 板块日成交百亿级；对标：万丰奥威约100亿、大众交通约30-40亿。</li><li><strong>仓位递减</strong>：中级别前段五成 → 后段两成。</li><li><strong>明牌规律形成 = 出现3次左右</strong>；"第四次反用"。</li><li><strong>大级别案例</strong>：海天瑞声第一波约260%。</li><li><strong>级别扩张</strong>：五连板高位隔夜挂单，冒一天亏20%+风险赌3-5个板。</li><li><strong>矫枉过正</strong>：值3元预期5元实际冲6元。</li><li><strong>消息案例</strong>：印花税利好高开5个点 = 符合预期；疫情利空3000+家跌停收阳 = 超预期。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li><strong>活在"我认为"里</strong>："我觉得还能10个板"——这是把个人YY当大众预期，全课程第一大忌。</li><li><strong>把预期当预测</strong>：预期是读已有共识，不是算命。</li><li><strong>一根大阳线就喊踏空</strong>：行情只涨一天不算踏空；不追启动点。</li><li><strong>利好当宝</strong>：高位利好 = 利空，追高开 = 接盘。</li><li><strong>给没预期的票硬套预期</strong>：无关注度的票可强可弱，分析不出所以然。</li><li><strong>走势预期和溢价预期混用</strong>：用趋势股的"赌突破"去套小盘连板股，或用"看溢价"去套容量股，都会错。</li><li><strong>做右侧等确定性</strong>：市场博弈已提前，等右侧确认就是接盘。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>预期是整个体系<strong>主线「预期差 / 超预期」的起点，是信号层的总入口</strong>。在"一条主线 + 四个支柱（语言/信号/执行/纪律）+ 一个最高纪律（买卖逻辑一致性）"里，本讲处在<strong>信号层的地基</strong>位置——你后面要判断的一切信号（强弱见第4讲、超预期见第6讲、关联性见第7讲、打板见第13讲），本质上都是"现实和预期比大小"。没有本讲这把标尺，后面的每一讲都是空中楼阁。记住主线的那句话：<strong>市场唯一的真信号，就是"现实跑赢了（或跑输了）大众预期"</strong>——这就是预期差，而它最尖锐、最可操作的形态，就是下一讲的"超预期"。</p>
+<hr>
+<h2 id="第6讲超预期唯一真正能下单的信号">第6讲：超预期——唯一真正能下单的信号</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>别人都以为它会跌（或没那么强），它偏偏涨得比大家默认的强——这种"跑赢大众共识"的一瞬间，才是这张桌子上唯一值得真金白银下单的理由。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p><strong>超预期是什么：跑赢大众默认值的那一下</strong></p>
+<p>上一讲说，预期是"大众的期望值"。那<strong>超预期 = 实际表现超越了那个大众期望值</strong>。前提是：<strong>得先有预期</strong>，没有预期，就谈不上超预期。</p>
+<p>注意两个关键词：</p>
+<ol><li><strong>大众共识，不是个人YY</strong>：宝鼎科技涨停，你个人觉得明天一字板，这不叫市场预期。要市场大多数人默认了某个值，然后现实超过去，才叫超预期。</li><li><strong>动态</strong>：预期会随信息、外力实时调整。比如一只票炸板了，大家默认它明天极差；结果它次日高开7个点——这就超预期。反过来，如果它大哥（关联票）一字涨停封死，那它高开5个点就<strong>不算超预期</strong>了，因为参照系变了。</li></ol>
+<p><strong>两类超预期（必背）</strong></p>
+<ol><li><strong>走势型超预期</strong>：没有任何外力和关联因素帮忙，纯粹靠自己走强。典型：一只票昨天是烂板（分时很弱），今天无消息、无板块助攻，却大幅高开——这是它自己"走势"上的超预期。</li><li><strong>关联型超预期（本质是地位超预期）</strong>：靠对比体现出来。典型：东百集团是跟风小弟，中百集团是大哥，结果两个都高开2%——小弟跟大哥平起平坐，这在小弟的"地位"上是超预期的。</li></ol>
+<p>两个叠加时，成功率更高（<strong>叠加更确认</strong>）。</p>
+<p><strong>超预期吸引资金的本质：确认</strong></p>
+<p>超预期为什么能吸引资金？本质就两个字——<strong>确认</strong>。你看到它超预期，确认了；别人也看到了，也确认了；于是大家一起买。<strong>你确认、我确认、所有人确认</strong>，钱就来了。</p>
+<p>而"确认度"由人气决定：</p>
+<ul><li><strong>人气高</strong> → 预期更明确 → 超预期时更确认 → 更愿意参与。</li><li><strong>人气低</strong> → 预期模糊 → 超预期确认度低（凤凰光学：分时很弱次日高开，算走势超预期，但人气低，没人敢跟着确认，参与价值就低）。</li></ul>
+<p><strong>地位 = 位置 + 贡献度（本讲最硬的公式）</strong></p>
+<p>为什么有些"超预期"一做就吃面？根源在地位不明确。地位的公式：</p>
+<p><strong>地位 = 位置 + 贡献度</strong></p>
+<ul><li><strong>位置</strong>：它在板块/市场里的层级角色（龙头、前排、跟风、中位）。这是天然的，高位票、龙头票天生占便宜。</li><li><strong>贡献度</strong>：它对市场/板块的<strong>实际带动作用</strong>。这是决定实际地位高低的关键。</li></ul>
+<p>打个比方：雷锋职位不高（位置低），但他贡献大，地位就高。交易里也一样——<strong>万丰奥威位置可能不是最高的那个，但它对板块的带动性强（贡献度高），地位照样高</strong>。反过来，"位置高但没贡献"的票，就是个空架子。</p>
+<p>所以判断一只票的"超预期"值不值得做，核心就是问：<strong>它的地位（位置+贡献度）明不明确</strong>。地位明确的超预期才值得做；地位模糊的，就是下面要讲的"试错"甚至"吃面"。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p><strong>（一）为什么超预期是唯一真信号</strong></p>
+<p>因为A股短线赚钱的本质，是<strong>买在"大众共识还没来得及重新定价"的那一瞬间</strong>。当一只票超预期时，意味着：市场原先对它的定价（预期）错了，现在现实证明它更强，于是资金要重新给价——这个"重新定价"的过程，就是你能赚的钱。而符合预期的票，价格早就包含了共识，没有价差可赚；不及预期的票，资金正在逃离，别碰。</p>
+<p>这就是主线那句"<strong>预期差是唯一真信号</strong>"：预期差 = 现实和大众预期之间的落差，而<strong>超预期是预期差最尖锐、最可操作的形态</strong>。</p>
+<p><strong>（二）判断超预期，必须先"排雷"</strong></p>
+<p>判断一只票是不是真超预期，最难的不是"看出它高开"，而是<strong>排除干扰</strong>。原文反复强调两类干扰必须剔除：</p>
+<ol><li><strong>外力因素</strong>（消息、大盘）：中航产融昨天是后排金融股、炸板、走势弱，今天只低开一丢丢还冲高——看着像超预期？不算。因为<strong>大盘高开给了助攻 + 银之杰开盘一字带动了板块</strong>，它是被抬起来的，不是自己强。</li><li><strong>关联性因素</strong>（同板块/对标带动）：海南海药一字加强（龙头变强），结果医药板块里一只分时极烂的票次日高开还带量——看着超预期？不算，它是<strong>被龙头带起来的</strong>，不是自身带动性/地位强。</li></ol>
+<p>正面的例子是天风证券（两种真超预期）：</p>
+<ul><li>前两个大哥（锦龙、中国银河）都冲板失败炸板了，天风作为第三个证券涨停却<strong>封住了</strong> → 主动回封，真超预期。</li><li>一直跟随天茂集团，昨天天茂一字跌停，天风分时极烂，今天<strong>只低开1个点</strong>（抗跌）→ 真超预期。</li></ul>
+<p>一句话：<strong>排除了消息、大盘、对标（关联）帮忙之后，剩下的那点"强"，才是真超预期</strong>。</p>
+<p><strong>（三）动态修正：静态幅度会骗人</strong></p>
+<p>东百集团案例是最好的教材：</p>
+<ul><li>静态看：一只烂板票，次日高开5个点，算超预期。</li><li>动态修正：如果它大哥中百集团一字涨停（巨额封单），那东百高开5个点就<strong>不算超预期</strong>了——因为大哥给了它底气。</li></ul>
+<p>所以<strong>超预期判断永远不能套固定幅度，必须结合当天的大盘、消息、对标动态调整</strong>。这就是为什么"高开带量就买"这种死板口诀会亏死——竞价没有固定模式（下一讲还会展开）。</p>
+<p><strong>（四）超预期的吃面三问（必背自查清单）</strong></p>
+<p>为什么看懂了超预期还会亏？原文总结了吃面的三大问题，每次下单前照镜子：</p>
+<ol><li><strong>所选标的不占人气、地位、板块效应</strong>（三要素一个没有）。</li><li><strong>即使占了，也不是最优选</strong>（有更好的你不选，选了个次货）。</li><li><strong>中位超预期，地位不明确</strong>（不高不低，可做可不做，最容易被埋）。</li></ol>
+<p>吃面的根源就一句：<strong>主观赋予个股过多预期</strong>（比如幻想它走二波、突破），而忽略它的客观地位。双成药业、南京化纤烂板后冲高，你主观幻想"突破走二波"，结果吃面——问题不在票，在你给它加的戏太多。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>（一）看超预期，先分场景</strong></p>
+<div class="table-wrap"><table style="min-width:560px;"><thead><tr><th>场景</th><th>特点</th><th>怎么判断</th></tr></thead><tbody><tr><td>高位超预期</td><td>更吃情绪，需有人气、有板块代表性</td><td>地位必须明确（不一定是龙头，但要能代表点啥）</td></tr><tr><td>低位试错</td><td>无地位、无人气，无法从带动性判断</td><td>只能看走势 + 整体赚钱效应 + 板块/情绪关联性</td></tr></tbody></table></div>
+<p><strong>（二）低位试错的两条路</strong></p>
+<p>当核心股加速买不到，想做的票又"人气地位缺失"时，你做的就是<strong>试错</strong>：</p>
+<ol><li><strong>比较择强</strong>：地位缺失时，关联性标的要<strong>尽量多</strong>（别只盯一只），靠"同逻辑标的二选一、三选一"来选出相对强的（原文交大昂立案例：关联性多、可相对确认；关联性少则无意义）。但要有心理准备：<strong>胜率不一定高，可能都死</strong>。</li><li><strong>用整体赚钱效应弥补</strong>：看好板块整体修复（比如机器人板块弱票，你看好板块反弹，它次日超预期高开，就作为买入依据）。本质是赌情绪和赚钱效应。</li></ol>
+<p>反面警示（低位试错吃面）：<strong>只凭走势判断、忽略整体环境</strong>。AI眼镜板块开盘炸板率高（10板炸5板）时，次日谁开得更高、谁修复概率高，才值得看。</p>
+<p><strong>（三）区分"正常预期"和"真超预期"（最容易搞混的地方）</strong></p>
+<ul><li><strong>博士眼镜</strong>：它和AI眼镜板块关联性极强，是板块核心。它<strong>必须高开</strong>，高开3-5个点是<strong>正常预期</strong>，不算超预期；它要是不高开，板块预期才彻底走弱。所以别把"本该如此的高开"当超预期追。</li><li><strong>来伊份</strong>：大哥十亿达（消费/微信送礼）本来预期一字，结果没走成一字（强度不及预期），这时小弟来伊份高开4%<strong>不算超预期</strong>——<strong>龙头趋弱时，小弟不应有溢价</strong>。</li><li><strong>地天板二选一（克劳斯 vs 来伊份）</strong>：两个都是大长腿地天板、逻辑相同，但来伊份强于克劳斯（走势更超预期 + 有消费板块赚钱效应加持），二选一只选来伊份。</li><li><strong>真超预期的例子（AI眼镜）</strong>：龙头比翼股份买不到时，候选里有易到信息、华灿光电、国兴光电。选<strong>国兴光电</strong>——因为它"阴线转一字"（开盘强度秒杀其他）+ 人气高。这才是地位 + 走势双重超预期。</li></ul>
+<p><strong>（四）宁可错过，不可做错</strong></p>
+<p>原文最重的一条纪律，也是给"怕踏空"的同学的镇定剂：</p>
+<ul><li>走强合理、被卡位也合理的票（如君禾股份）→ <strong>无确定性，不做</strong>。</li><li>华鼎股份烂板，明天高开算不算超预期？要看它能不能找到三个支撑点：<strong>板块、情绪、地位</strong>。找不到，就不好做，不做。</li><li>电光科技（高位情绪票）没强更强，不算证伪（市场整体差），但找不到合适标的就<strong>宁可踏空也不硬做</strong>。</li><li><strong>看得懂的超预期不常出现，一个月做对2-3次，短线收益就远超多数人了</strong>。散户最大的亏损来源，就是"怕踏空 → 追高 → 吃面"。</li></ul>
+<p><strong>（五）能力分层：先练"超预期 + 跟随"，再谈预判</strong></p>
+<p>原文把能力分成两层：</p>
+<ul><li><strong>基础层（掌握即可跑赢多数人）</strong>：超预期识别 + 跟随操作。看到打出赚钱效应的票，跟着做——<strong>钟摆跟随</strong>（同类型标的跟随，中横约20个点、克劳斯约20个点，收益并不少）。</li><li><strong>进阶层（大局观）</strong>：预判能力。预判是大局观提升后自然长出来的，别一上来就强求。</li></ul>
+<p>重仓博弈节点：<strong>高位票第一次低点后的二次回踩</strong>，这个位置不应怂，主升行情里在这个节点买入大概率正确。</p>
+<p><strong>（六）超预期需要择时配合（"找底"先讲清楚）</strong></p>
+<p>超预期是"信号"，但信号再强，也得看大环境允不允许你动手。原文第18章开头用一整块讲了大盘节奏，这里做个浓缩（完整择时逻辑见第11讲）：</p>
+<ul><li><strong>周K大阴线是好信号</strong>：它是市场给出博弈机会的前提。</li><li><strong>底必须伴随反弹</strong>：跌不动后横着不破低点，不算底；必须反弹确认，才叫底。确认顶底必然滞后，但滞后性恰好可用于指导双底的第二个底。</li><li><strong>双底 vs 单底</strong>，根本看<strong>恐慌的极致程度</strong>：单底 = 一波杀到位、极致恐慌、一致性看空；双底 = 恐慌慢慢蔓延、非一次性释放。辅助看<strong>位置</strong>（低位易单底，如3000点；高位易双底，如3300-3400点）和<strong>量能</strong>（一致性看空易单底）。</li><li><strong>双底剧本</strong>（可操作节奏）：<strong>大阴线 → 企稳K/下跌K（第一个底，左侧轻仓）→ 反弹（逐步出货，不赌单边）→ 回踩第一个底附近（第二个底，重仓点）</strong>。口诀：<strong>反弹不追、急杀可抄；下跌K必须拿先手</strong>。</li><li>本轮生态（原文当时）参考：微盘股回调20%，A杀范围广、深度超50%、温水煮青蛙式阴跌，龙头涨停也无二波信心 → 倾向双底，直接V型反转难。</li></ul>
+<p>一句话：<strong>不抄左侧、等右侧确认；强的不一定值得做，得结合生态</strong>。</p>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li><strong>地位 = 位置 + 贡献度</strong>（公式）。</li><li><strong>超预期两大类型</strong>：走势型、关联型（地位型）；叠加更确认。</li><li><strong>动态修正案例</strong>：烂板票静态高开5个点算超预期；但大哥一字时，高开5个点不算。</li><li><strong>吃面三问</strong>：不占人气/地位/板块、非最优选、中位地位不明。</li><li><strong>确认层级</strong>：龙一 &gt; 龙二 &gt; 龙三；板块B（8个涨停）&gt; 板块A（3个涨停），赚钱效应更集中。</li><li><strong>一个月做对2-3次超预期即足够</strong>；钟摆跟随：中横、克劳斯各约20个点。</li><li><strong>步步高案例</strong>：一字跌停预期，封单约10亿，资金主动撬板 = 超预期。</li><li><strong>双底节奏</strong>：微盘股回调20%；A杀深度超50%；周K大阴线。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li><strong>把"强"等同于"值得做"</strong>：强的不一定值得做，要结合生态和地位。</li><li><strong>静态套幅度</strong>：忘了预期是动态的，没排除消息/大盘/关联的帮忙。</li><li><strong>把"本该如此"当超预期</strong>：博士眼镜必须高开，追它 = 追正常预期。</li><li><strong>龙头趋弱还给小弟溢价找理由</strong>：来伊份的教训——大哥走弱，小弟高开不算超预期。</li><li><strong>主观加戏</strong>：幻想二波、突破，忽略客观地位，吃面。</li><li><strong>怕踏空硬做</strong>：走强走弱都合理的票，硬做就是赌，宁可错过。</li><li><strong>地位 = 只看位置（高度）</strong>：漏了贡献度，把"高但没带动性"的空架子当龙头。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>本讲是全书<strong>主线「预期差 / 超预期」的正中心，是唯一能下单的真信号</strong>。在"一条主线 + 四支柱 + 一个最高纪律"里，它就是那条<strong>主线本身</strong>：预期差是唯一真信号，而超预期是这个信号里最尖锐、最可操作的那一刀。它的上游依赖"预期"（第5讲）作为标尺，它的判断手段大量借重"关联性"（第7讲）来排除干扰和找地位，它的执行需要"强弱"（第4讲）来落地，它是否值得动手又受"择时"（第11讲）约束。同时，超预期下单的那一刻，<strong>买卖逻辑必须一致</strong>（最高纪律）——你买的是"它比大众默认的强"，那么一旦它不再强、或强的是别人（被反卡），就证伪了，必须走。这一讲你吃透了，就摸到了这本书的脊梁。</p>
+<hr>
+<h2 id="第7讲关联性锚定对标分离走势量能分歧">第7讲：关联性——锚定、对标、分离走势、量能分歧</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>一只票永远不是孤岛，它的强弱是"跟旁边的人比出来的"；学会把它和"最该比的那几只"摆在一起看，你就能在别人还在盯一只票时，先看清谁强谁弱。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p><strong>关联性是什么：市场资金共识的坐标系</strong></p>
+<p>关联性 = 通过观察"相关标的的整体表现"来判断强弱。本质是<strong>市场资金的共识</strong>：资金会把一类票放在一起比较，谁强谁弱，就是比出来的。对交易者的意义就一个——<strong>简化观察、聚焦核心</strong>。你不用搞懂全市场所有涨停股，只需要盯住和你目标最相关的那几只。</p>
+<p><strong>关联的六大特点（重合度越高，关联越强）</strong></p>
+<ol><li><strong>名称/代码相似</strong>：「达」字辈联动，敬业达带动"达"字辈跟涨。</li><li><strong>市值规模相近</strong>：权重股一起共振。</li><li><strong>题材一致</strong>：同属5G、同属光刻机。</li><li><strong>走势形态趋同</strong>：趋势股联动。</li><li><strong>市场地位关联</strong>：龙一龙二相互影响。</li><li><strong>同周期属性</strong>：同一时段的高位股联动。</li></ol>
+<p>原文还给出另一组三分类（殊途同归）：</p>
+<ul><li><strong>概念关联</strong>（同板块）：腾达科技 vs 航天晨光。</li><li><strong>地位关联</strong>（同周期、同身位）：大众交通影响腾达科技，哪怕不同题材。</li><li><strong>特点关联</strong>（相同技术特征）：保变电气 vs 天茂集团，都是反包/反核特征。</li><li>再加一条<strong>资金记忆关联（老龙）</strong>：一提化工大涨，资金就想到正丹、南京化纤；航天晨光作为商业航天老龙，题材回暖时它总会动。</li></ul>
+<p>一句话：<strong>找共性，但只找最相关的那一个，避免过度关联</strong>。</p>
+<p><strong>关联性的四大功能（目的）</strong></p>
+<ol><li><strong>找对标</strong>：给它找个参照物。</li><li><strong>判断强弱</strong>：谁强谁弱。</li><li><strong>评估超预期</strong>：它到底超没超预期（第6讲的核心手段）。</li><li><strong>识别主动/被动</strong>：它是自己涨，还是被带起来的。</li></ol>
+<p>本质作用：<strong>建立强弱比较坐标系，控制回撤风险</strong>。</p>
+<p><strong>短线四大核心维度（关联性的位置）</strong></p>
+<p>原文给出短线判断的统一框架，四个维度一起看：<strong>预期、关联性、强弱、主动与被动</strong>。本讲讲的是其中"关联性"这一根支柱，但它和另外三根是咬死的，后面会反复串起来。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p><strong>（一）锚定逻辑（本讲最核心）</strong></p>
+<p><strong>锚定效应</strong>：判断次日谁最可能走强、谁最可能走弱，靠的是"该强不强、该弱不弱"的反差。</p>
+<ul><li><strong>强锚定</strong>：本该走强却没走强 → 这就是个<strong>弱锚点</strong>（危险信号）。</li><li><strong>弱锚定</strong>：本该走弱却没走弱 → 这是个<strong>强锚点</strong>（机会信号）。</li></ul>
+<p>（华为题材案例：华映科技一字板晋级 = 强锚定；网达软件被动拉升、冲板没封住大幅回落 = 弱锚定——它次日若红开/反包，说明华为题材不会差；若低开低走，只是符合预期、没惊喜。）</p>
+<p><strong>锚定两大原则（必背口诀）</strong>：</p>
+<ol><li><strong>弱的锚定强的，强的锚定弱的</strong>——它们互相给对方当参照物。</li><li><strong>一字板无法作为锚定对象</strong>——因为一字板封死了，不反映强弱变化，你锚定它没意义。</li></ol>
+<p><strong>怎么判断"走废"（锚定的量化标准，必背）</strong>：</p>
+<ul><li>第一波回调后<strong>拐头</strong> → 不算走废（正常回调）。</li><li><strong>第二波拉升乏力 + 一笔砸盘接近前低</strong> → 走废。</li><li>回调幅度极大（跌回前低附近）→ 彻底走弱。</li></ul>
+<p><strong>卖点规则（锚定怎么帮你卖）</strong>：</p>
+<ul><li>当<strong>强的一方封死涨停、且当日无法继续走强</strong>时，<strong>弱方的一波拉升就是你的卖点</strong>（趁着弱方被带起来，赶紧走）。</li><li><strong>弱方走废后，再处理强方仍来得及</strong>——右侧卖出比左侧卖出更稳，别慌。</li><li>锚定适用前提：<strong>同板块的实体板</strong>，且你得先分清谁是强股、谁是弱股。</li></ul>
+<p><strong>（二）撬板（翘板）的主动与被动</strong></p>
+<p>早盘撬跌停板的动作，怎么判断主动还是被动？结论很简单：<strong>早盘撬板基本是被动的</strong>。在大盘快速冲高、多数个股加速上涨的环境下，任何撬板都不具备主动性，所以<strong>早上撬板不构成明确买点</strong>。哪怕撬得最猛的电子城，也是被动。反包风格盛行时，断板后常有资金抢筹，撬板最强的个股需<strong>持有观察</strong>，而非急着卖。判断主动/被动的三个场景：大盘冲高、大盘冲高后再封板、核心高位股加速。</p>
+<p><strong>（三）对标分析：怎么挑参照物</strong></p>
+<p>挑对标标的（参照物）三条铁律：</p>
+<ol><li><strong>数量 ≤ 3个</strong>，别盯一堆。</li><li><strong>优先级：分时关联 ＞ 题材重合 ＞ 走势相似</strong>。</li><li><strong>聚焦核心、排除非直接关联的干扰项</strong>。</li></ol>
+<p>两个关键性质：</p>
+<ul><li><strong>单向性</strong>：影响有方向。金融（金龙汽车等）影响大众交通，但大众交通<strong>不能反向锚定</strong>金融。别把方向搞反了。</li><li><strong>资金记忆可复用</strong>：保变电气2020年特高压行情里，大连热电是最强补涨，这一轮还可以参考这条老关系；腾达科技走势可以参照历史次新龙头三羊马；圣龙股份曾15连板，顺控发展也有类似走势，资金会自然对标。<strong>历史补涨关系 + 次新模仿</strong>，都是资金的肌肉记忆。</li></ul>
+<p><strong>看高做低 vs 低位锚定</strong>：</p>
+<ul><li><strong>高位锚定</strong>（看高做低）：龙头强，做它的补涨/套利。要在<strong>龙头启动初期</strong>介入，别等涨幅高了再去。</li><li><strong>低位锚定</strong>：同周期属性优先于同题材；埋伏一字板标的的替代机会。</li></ul>
+<p><strong>同属性绑定选强势</strong>：保变电气地天板反包高开 vs 天茂集团地天板反包一字跌停——同属性票里，<strong>优先选强的，指数反弹预期不能抵消关联标的的相对弱势</strong>。</p>
+<p>几个对标案例的要点（都是"找共性"的应用）：</p>
+<ul><li><strong>大众交通对标框架</strong>：名称（「大众」前缀，大众公用）、市值（启动约40亿）、题材（智驾）、走势（断板反包）、股权（大众公用是第一大股东）。绝对核心股的补涨，要满足多维度特点重合。</li><li><strong>恒银科技</strong>：题材对标（信创金融科技首板）+ 名称关联（「恒」字辈，恒为科技）+ 身位对标（二连板龙头带动的补涨）。</li><li><strong>银之杰 vs 法本信息</strong>：同属互联网金融、同属创业板高位，存在竞争。若银之杰率先涨停，法本作为后排，打板价值显著降低。</li><li><strong>汉嘉设计 vs 齐天科技</strong>：同属股权转让逻辑、都是断板（两连一字后断板 vs 三连一字后断板），同质化标的要观察龙头溢价传导。</li></ul>
+<p><strong>（四）分离走势：资金切换的信号</strong></p>
+<p><strong>分离</strong> = 一只票（或一个板块）逆着原板块跳水、独立拉升，代表资金在切换赛道。比如海力股份（光刻机）在保变电气、常山北明跳水时独立走强，就是资金从高位老票切去新题材。</p>
+<p><strong>成功分离需同时满足三条件</strong>：</p>
+<ol><li>龙头地位确认；</li><li>板块跟风股批量启动；</li><li>次日溢价可持续。</li></ol>
+<p><strong>被动分离 = 弱势</strong>：如果它"跳水后又被拉起来"，这种拉升是<strong>被动分离</strong>，反映市场情绪偏弱，别急着追。</p>
+<p><strong>虚假一致性（必背陷阱）</strong>：龙头涨停了，但板块没跟涨（没跟风涨停）→ <strong>一致性是假的</strong>，次日溢价不足、易低开。一致性要看"跟风家数"，不是看龙头一根线。量化参考：低位股（凯美特气）一致性预期弱（约20%）、高位龙头（海力股份）强（60%-80%），但高位龙头更容易引发虚假一致性。</p>
+<p><strong>题材股 vs 金融股的一致性来源不同</strong>：</p>
+<ul><li><strong>题材股</strong>：靠"分离瞬间"形成一致，易受高位风险干扰。</li><li><strong>金融股</strong>：靠"大盘共振"逐步确认，<strong>大盘企稳不回落是金融股封板的必要条件</strong>。</li></ul>
+<p>强度排序（海力 vs 保变的三种情形，从强到弱）：</p>
+<ol><li>海力涨停 + 保变炸板 → 最强；</li><li>保变跳水后海力拉升 → 中等；</li><li>保变封死跌停而海力拉升 → 最弱。</li></ol>
+<p>第二种强行带动一致，风险极高。接力高标要<strong>提前一天预判</strong>，竞价走弱信号即离场依据。</p>
+<p><strong>（五）量能分歧：二次分歧的连锁风险</strong></p>
+<p>这是判断"分歧够不够"的量能方法，核心逻辑一条链：</p>
+<p><strong>断板后缩量 = 分歧不足 → 放量但没超过前高量能 = 分歧仍不充分 → 分歧不足 + 加速 = 二次分歧风险（可能瀑布杀跌）</strong>。</p>
+<p>几个风险信号（看到就警惕）：</p>
+<ul><li>分歧后缩量加速 → 次日分歧风险高。</li><li>高位缩量后放量、分歧不足 → 次日炸板应及时离场。</li><li>缩量后小幅放量再加速 → 警惕次日风险。</li><li><strong>唯一例外：一字板锁死状态</strong>（风险较低），但次日加速后再分歧仍需警惕。</li></ul>
+<p>深圳华强、踊跃科技都是这条链上的反面案例：分歧没释放干净就加速，二次分歧杀伤力极大。</p>
+<p><strong>（六）卡位与买卖逻辑一致性</strong></p>
+<p><strong>卡位</strong>：同板块、同预期的票之间，谁先谁强、谁压谁一头。</p>
+<ul><li><strong>低位卡高位</strong>（人气低的卡人气高的）→ 合理，有价值。</li><li><strong>高位卡低位</strong>（地位低的卡地位高的）→ 拖累板块预期。</li><li><strong>被卡位后再介入 = 无意义</strong>。</li><li><strong>反卡即证伪</strong>：昨天南天比常山弱，今天南天反卡常山 → 常山<strong>不能打板</strong>，因为逻辑冲突了。</li></ul>
+<p>这背后是全书最高纪律的影子——<strong>买卖逻辑必须一致</strong>：你买的是"博弈鸿蒙走强、常山最能代表鸿蒙强度"，结果常山被南天反卡，说明你买的核心逻辑（常山代表强度）被证伪了，那这个交易就不能做。核心有问题还硬交易 = 逻辑冲突。</p>
+<p><strong>（七）卖逻辑与竞价预判：直接标的答不出，就转关联性</strong></p>
+<p>竞价/开盘最实用的推理链：<strong>符合预期的开盘，涨跌都有可能，直接看这只票本身得不出答案</strong>，这时<strong>转向关联性找答案</strong>。</p>
+<ul><li>法本信息跟随常山北明。开盘时法本信息<strong>没等常山/南天明确方向，就自己高开了</strong>（开在零轴附近、未涨停却主动高开）→ 这是超预期信号，给了答案。</li><li><strong>强弱背离 = 套利信号</strong>：海力股份（强）封死跌停，凯美特气（弱）反而主动拉红 → 这是关联性下的<strong>套利行为</strong>，别当超预期追捧。</li></ul>
+<p><strong>（八）主动 vs 被动（关联性判断的最后一根支柱）</strong></p>
+<p>怎么判断一只票是主动还是被动？</p>
+<ul><li><strong>主动走强</strong>：它上涨时，板块没涨甚至回调、大盘也没涨——它是自己强（常山北明开盘31分冲到涨停、33分封死，三分钟内鸿蒙没涨、大盘也没涨 = 主动）。</li><li><strong>被动弱</strong>：大盘往上冲，它自己回落——这是被动弱。</li><li><strong>被动拉升只能埋伏</strong>：被动性交易（追高、打板）不适合，正确姿势是<strong>低位埋伏，等别人拉升时卖</strong>。被动拉升的走势容易回落。</li><li><strong>资金回流旧龙头（华强、大众、科森）往往是被动选择</strong>：不是主动看好它们，而是新龙头太难参与，资金"无奈"地拉它们，这属于被动，别当主动强去追。</li></ul>
+<h3 class="tpl-action">操作要点</h3>
+<ol><li><strong>先锁定"最相关的那一只"</strong>：锚定对象必须是竞争关系、直接关联的票（电子城↔大连热电），不是一字板，也不是无关票。</li><li><strong>锚定买卖</strong>：弱方走废再处理强方；强方封死不再走强时，弱方冲一波就是卖点。</li><li><strong>对标挑参照物</strong>：≤3个，分时关联优先，聚焦核心，注意单向性。</li><li><strong>识别分离真假</strong>：分离要龙头地位 + 板块跟风批量 + 次日溢价，三者缺一就是假的。</li><li><strong>量能看分歧</strong>：缩量/放量未超前高 = 分歧不足，别在分歧不足时追加速。</li><li><strong>卡位证伪</strong>：买入逻辑与交易行为一致；被反卡就走。</li><li><strong>竞价转向关联性</strong>：符合预期开盘、直接标的答不出时，去看法本信息这种"关联票"的表态。</li><li><strong>被动只埋伏，主动才追</strong>。</li></ol>
+<p><strong>（九）竞价、手板、转债（本讲顺带的三块实战）</strong></p>
+<p>这部分原文夹在关联性答疑里，一并讲清：</p>
+<ul><li><strong>排单技巧</strong>：封单极大（超1亿）时不排；封单一点点加上来时等待，立马封死则第一时间排，全天有机会成交。一字板/加速板次日难以承接，资金会提前切换方向。</li><li><strong>手板策略核心 = 卡节点 + 赔率结构</strong>：手板（首板）炸板后次日<strong>无核按钮风险</strong>、亏损可控；高位连板打板若炸板，<strong>日内+隔日双重亏损可能超20%</strong>。所以<strong>高位不好做时，是参与手板的时机</strong>。手板唯一可行的策略就是打板（半路介入不合适，因为手板地位低，只有涨停排名靠前才可能有溢价）。</li><li><strong>无卖点放量</strong>：昨日是分歧板（资金全进场、没浮盈），今日无论何时卖都亏损，集体止损离场。</li><li><strong>转债的负作用</strong>：转债涨幅上限20%、可日内多次交易，资金会提前博弈转债，<strong>透支正股未来预期</strong>。</li><li><strong>竞价已从"玩法"变成"预判"</strong>：过去靠"弱转强 + 带量 + 情绪修复预判"三要点，现在无固定模式，<strong>最核心的是情绪预判</strong>。竞价真正的价值点只在<strong>9:25前最后几秒</strong>（9:20前都可以伪造）。竞价是最左侧的交易，追求高赔率（大赚不巨亏），但时间、赔率、确定性三者难兼得。</li><li><strong>洗盘 vs 骗炮</strong>：竞价先顶涨停→回落→反拉红盘，是<strong>洗盘</strong>（9:20前挂涨停单诱多→9:20前撤单制造恐慌→9:25拉回红盘，洗掉卖方恐慌盘，不是骗买方接盘）。骗炮=骗买方，洗盘=洗卖方。</li><li><strong>资金一致性的双刃剑</strong>：任何买入最差都能解套的市场，会"抑制情绪、加速一致"——大家敢追高、敢顶一字，导致市场加速，进而造成<strong>价格移植（透支）</strong>。</li><li><strong>唯一通用的固定盈利模式</strong>：是<strong>基于安全性的"买入下跌"</strong>（下跌衰竭/超跌反弹），而非追涨、竞价或打板。</li><li><strong>正向拐点一年约两次</strong>；量化打板单日可打近20个板且全封死、次日连板——但这只是极少数案例，资金量最终受行情制约。</li></ul>
+<p><strong>（十）节点规律与封单成交（国改一进二案例）</strong></p>
+<ul><li><strong>节点规律</strong>：「昨日首板多则今日做一进二」；一字板当日可做创业板国改首板并优先一进二。昨日加速（如常山北明）则今日不宜再追首板。</li><li><strong>封单量与成交比例判断排队可行性</strong>：预期高度一致（认知度极高）的个股封单难介入（神州信息4亿封单仅成交5000万）；认知度低的个股（共进股份、科森科技）更易排队成功。</li><li><strong>高低位信号含义</strong>：高位股强势 = 资金看好后市；低位股反弹 = 谨慎情绪。金融老龙头（天茂集团、锦龙股份）涨停 = 板块高潮，高潮后分歧可能弱分歧或强分歧。</li></ul>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li><strong>关联六大特点</strong>：名称/代码、市值、题材、走势形态、地位、同周期；重合度越高越强。</li><li><strong>对标数量 ≤ 3个</strong>；优先级：分时关联 &gt; 题材重合 &gt; 走势相似。</li><li><strong>走废标准</strong>：第一波回调后拐头不算走废；第二波乏力 + 砸盘近前低 = 走废。</li><li><strong>量能分歧链</strong>：断板缩量=分歧不足 → 放量未超前高=仍不充分 → 分歧不足+加速=二次分歧（瀑布）。</li><li><strong>排单</strong>：封单超1亿不排；神州信息4亿封单仅成交5000万。</li><li><strong>手板 vs 高位</strong>：高位连板炸板日内+隔日亏损可能超20%；首板流通市值70亿难二连板。</li><li><strong>转债</strong>：涨幅上限20%，日内多次交易，透支正股预期。</li><li><strong>竞价</strong>：9:15-9:25；9:20前可伪造，价值点只在9:25前最后几秒；情绪预判胜率80%→一个月约18天对、90%→最多2次机会。</li><li><strong>一致性强度</strong>：凯美特气（低位）约20%、海力股份（高位）60%-80%。</li><li><strong>强度排序</strong>：海力涨停+保变炸板 &gt; 保变跳水+海力拉升 &gt; 保变跌停+海力拉升。</li><li><strong>正向拐点一年约两次</strong>；圣龙股份15连板。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li><strong>过度关联</strong>：给一只票硬找一堆关联票，反而扰乱判断——只找最相关的那一个。</li><li><strong>锚定一字板</strong>：一字板不反映强弱，锚定它等于白锚。</li><li><strong>搞反影响方向</strong>：忘了关联性的单向性（金融→大众，不是大众→金融）。</li><li><strong>把被动分离当主动强</strong>：跳水后被拉起来是被动，追高风险大。</li><li><strong>只看龙头一根线，不看跟风家数</strong>：龙头涨停板块没跟，一致性是假的。</li><li><strong>分歧不足就追加速</strong>：缩量没换手充分就加速，容易瀑布。</li><li><strong>把套利当超预期</strong>：强股跌停、弱股拉红是套利，不是弱股变强了。</li><li><strong>被动拉升去追高/打板</strong>：被动性交易只能埋伏。</li><li><strong>锚定对象没选对</strong>：不选竞争最激烈、最直接关联的票，而去锚定无关票或一字板。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>关联性是四大支柱里<strong>信号层</strong>的重要支柱之一，和"预期（第5讲）、强弱（第4讲）、超预期（第6讲）"共同构成短线判断的四大维度（预期、关联性、强弱、主动与被动）。在主线"预期差/超预期是唯一真信号"里，关联性扮演的是<strong>"裁判员"角色</strong>：你要判断一只票到底超没超预期，光看它自己不行，必须拉来对标票做参照——锚定、对标、分离、量能分歧，全都是为了把"预期差"这件事看得更准。同时它直通最高纪律"买卖逻辑一致性"：卡位、反卡、谁能代表板块强度，本质都是在检验"你买它的那个逻辑还成不成立"。这一讲学完，你就有了把单只票放回市场坐标系里判断强弱的本事，信号层到这里就闭环了。</p>
+<h2 class="part-title">第三部 · 判断情绪节点（信号层 · 择时）</h2>
+<p class="part-desc">学会「何时出手」：赚钱效应、情绪与指数、共振、择时、分歧修复。记住：择时 &gt; 选股。</p>
+<h2 id="第8讲赚钱效应跟随与预判">第8讲：赚钱效应——跟随与预判</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>赚钱效应就是市场的"风"——会看风的人跟风走，不会看风的人逆风猜；先学会跟着风跑，再学会预判风往哪吹。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p>什么是赚钱效应？就是"照着某个样子买、大概率能赚钱"这件事本身。最近凡是"二进三"的票都涨，大家就去抢二板；凡是"跌停撬起来"的票次日都反包，大家就去撬跌停。这些"样板戏"就是赚钱效应。</p>
+<p>赚钱效应有两种玩法：</p>
+<ul><li><strong>跟随</strong>：市场已经出现了这种样板，你照着找相似的票买。这是"看见兔子再放鹰"。</li><li><strong>预判</strong>：还没有样板，你提前赌某个逻辑会变成新的赚钱效应。这是"没见兔子先撒鹰"，难度完全不同。</li></ul>
+<p>跟随的核心不是"跟不跟"，而是判断赚钱效应处在哪个阶段——阶段不同，打法完全不同。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p>跟随为什么有效？因为钱有记忆、会模仿。一个模式被反复验证能赚钱，资金就会像水往低处流一样自动涌过来，把同样走势再演一遍。这本质就是"形态模仿"（见第5讲的预期，都是人心对"曾经赚过钱的样子"的复制）。</p>
+<p>跟随为什么"早一天可做、晚一天不可做"？因为赚钱效应会从"没人知道"传到"人人知道"。人人知道时预期差就消失了，你抢到的成本高、性价比就没了。就像一家刚开业的小店菜好又便宜，你赶早去吃；等排队排到马路边，菜还是那个菜，但已经不值了。</p>
+<p>预判为什么难？因为预判没有可锚定的东西，纯靠主观。赌对了收益大，赌错了就是三个跌停（南京化纤赌二波突破失败的教训）。所以预判要降低损失，只能靠三招：左侧低吸、左侧先减仓、观察次日市场认可度——本质是用"市场节点"（如大修复行情）来给预判兜底：赌电光科技突破七板，如果当日是大修复行情，失败也亏得可控。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p>一、先分清自己是跟随还是预判。判断标准一句话：市场上有没有"已经成型的类似赚钱效应"可参照？有，就是跟随；没有，纯靠主观觉得它会涨，就是预判。</p>
+<p>二、跟随的三阶段打法（赚钱效应从新到旧）：</p>
+<ol><li>早期（没普及）：做二板，确定性高、竞争小。</li><li>普及期（人人知道）：做首板，二板高开概率大、晋级竞争激烈。</li><li>名牌期（预期差消失）：退而做转债套利，别再做个股反核。</li></ol>
+<p>三、情绪周期的演变路径（预判的底层地图）：<strong>反核</strong>（跌停就有人撬、撬了就有钱赚）→ <strong>无核按钮</strong>（跌停不再恐慌、情绪转好）→ <strong>连板加速</strong>（人气股越高越安全、敢顶加速）→ <strong>市场一致</strong>（断板就反包、人人无惧分歧）→ <strong>末期</strong>。记住一句：赚钱效应走到"再也无法更强"的一致状态，就是末期——一致即末期。</p>
+<p>四、缠论三类买点（把"安全"和"赔率"量化）：</p>
+<ul><li><strong>一买</strong>（最安全）：跌不动了，但可能横盘磨叽、不涨，安全但可能没收益。</li><li><strong>二买</strong>（性价比最高）：上涨趋势里的大级别分歧回调，赌走二波，赔率最高但难度大。</li><li><strong>三买</strong>：强度确认后的分时小回调。</li></ul>
+<p>结论：最该做的是"上涨段的分歧"（二买），不是"下跌段的冰点"（一买）。因为上涨段分歧天然胜率&gt;50%（趋势已拐头），下跌段博弈天然胜率&lt;50%（还在赌反转）。</p>
+<p>五、下跌段的应对口诀：<strong>有空间等冰点（一天跌够、空间换时间），无空间等连续分歧（多日小跌、时间换空间，等2连、3连分歧再进）</strong>。</p>
+<p>六、晋级的两种形态（一进二时的判断）：<strong>弱转强</strong>=修复当天弱的票、次日竞价转强（天正电气尾盘炸板后次日一字）；<strong>强更强</strong>=修复次日、第一天很强第二天更强（宝胜股份）。强更强适用节点是修复次日、分歧次日；弱转强适用节点是修复当天弱的票次日转强。</p>
+<p>七、超预期要选"地位+人气"，不是单纯看走势：</p>
+<ul><li>基于走势的超预期（炸板后高开带量）历史胜率只有50%左右，不提升。</li><li>基于地位+人气的超预期才值得做：<strong>东百集团（地位+人气）&gt; 卧龙电驱（有地位没人气）&gt; 豪尔赛（都没）</strong>。</li></ul>
+<p>口诀：人气高=资金关注度高、差一个理由就能买；地位明确=看好的人不轻易摇摆。</p>
+<p>八、高位的抱团/二波要过两道检验：第一次<strong>完全脱离题材</strong>（不靠板块独立走）、第二次<strong>脱离市场整体情绪</strong>（独立于大盘情绪）。没过这两关的（如中百集团还带动关联股），二波容易失败。</p>
+<p>九、纪律：<strong>不带你玩，就不做</strong>。看好的票不给好买点（比如直接顶一字），坚决放弃，别因为"越看越好"把心理成本从-3%抬到+7%去追高。规律一旦变成一致性（人人都知道的那个规律），规律就失效了——连续三年元旦前高位晋级是规律不是本质，一旦人人按这个抢一字，它反而不灵了。看好的票不给你好买点，满仓逆回购跑赢多数，不丢人。</p>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>基于走势的超预期胜率：约50%（无提升）</li><li>上涨段分歧天然胜率&gt;50%、下跌段博弈天然胜率&lt;50%</li><li>冰点验证标准：涨停数量锐减至个位数、连板高度压缩至3板以下</li><li>缠论三买点：一买最安全、二买赔率最高、三买确认后小回调</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li>把预判当跟随：看见一个票突破新高就买，以为"它像之前那些二波股"，其实市场上根本没有那个赚钱效应，这是预判，难度翻倍。</li><li>名牌了还往里冲：赚钱效应人人都知道时你还去做，等于排队吃凉菜。</li><li>只等冰点/分歧，错过连续修复：一路连阳时你死等冰点，结果踏空整个主升。</li><li>追"走势型超预期"：看见炸板高开带量就追，殊不知这种模式胜率只有一半，要选有地位有人气的。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>本讲是"第三部·信号层"的开篇，讲的是判断"什么时候市场好赚钱、用什么姿势赚钱"的底层心法，对应四个支柱里的"信号"支柱——赚钱效应本身就是最核心的择时信号。</p>
+<ul><li>"预期"（见第5讲）是这里的总纲：跟随靠的是"已经兑现的预期差"，预判赌的是"还没兑现的预期差"。</li><li>"超预期"（见第6讲）在本讲落地为"地位+人气"——只有人气股、地位股才有资格谈超预期。</li><li>本讲的情绪周期循环（反核→无核→加速→一致→末期）是后面第9讲、第12讲判断情绪节点的地图。</li><li>一买/二买的"上涨段分歧胜率高"直接引出第11讲"择时&gt;选股"的结论——好节点（二买）本身就赢了一半。</li></ul>
+<h2 id="第9讲情绪与指数龙头跟风模型通杀局">第9讲：情绪与指数——龙头跟风模型、通杀局</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>指数是"台子"，情绪是"台上唱戏的人"——唱戏的人比台子重要，但台子塌了，戏也没法唱。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p>先定义两个词：</p>
+<ul><li><strong>情绪</strong>：短线资金（游资、散户）的活跃度和赚钱/亏钱效应，可用同花顺全A指数（蓝色线）做代理，也可看黄线（代表中小盘股）。</li><li><strong>指数</strong>：大盘，白线（代表权重股）、上证指数。</li></ul>
+<p>情绪和指数的关系是：正相关、互相印证。指数大跌时情绪很难持续强，指数大涨时情绪分歧会被压下去。</p>
+<p>关键区分（健康与否）：</p>
+<ul><li><strong>情绪强于指数 = 健康</strong>（指数横着、情绪在创新高），重点参与、加仓。</li><li><strong>情绪弱于指数 = 不健康</strong>（指数横着、情绪在创新低），要谨慎。</li><li>指数强于情绪 = 也不是好事（指数还行但情绪疲弱，短线难做）。</li></ul>
+<p>一句话：短线永远先看情绪，情绪不行就不做；指数只提供"<strong>方向</strong>"和"<strong>流动性</strong>"两个价值。所以"重个股轻指数"是误区，该拉黑——指数给你的不是精确买卖点，而是"今天这局能不能玩、玩多大"。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p>为什么情绪比指数重要？因为短线赚的是"最活跃那批钱"的钱。情绪反映这批钱在不在场、敢不敢干。指数好但情绪差，就像大商场人流大但没人进你的店——热闹是假的。</p>
+<p>为什么有"龙头跟风模型"？把情绪当成<strong>龙头（强的那个）</strong>、指数当成<strong>跟风（弱的那个）</strong>。跟风的用途不是用来买，而是用来给龙头"报警"——跟风（指数）先破位，龙头（情绪）就要出风险。就像开车，副驾驶先看见危险喊一嗓子，主驾驶就要踩刹车。安全边界：指数没跌破前低，情绪风险不大，可积极参与；指数跌破前低，情绪判定"废掉"、风险骤增。</p>
+<p>为什么"共振拉升"会见顶？同时拉升指数（大盘股）和情绪（小盘股），等于两头烧钱，做多动能消耗巨大；只拉情绪（小票）成本低。所以一旦出现"指数和情绪从各涨各的变成一起猛拉"，说明钱快不够用了，离顶不远。顶部不能靠单根K线判断（反包阳线、小阴小阳、阴线都不能单独下结论），关键信号是"<strong>连续无法创新高、进入滞涨段</strong>"。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p>一、判断健康状态：心中要有"正常走势的图形"做参照。指数横住时，情绪应持续打新高（健康）；一旦指数横住、情绪打不出新高，就是真正趋弱点（去年最后一段"指数横着但钱不好赚"就是典型）。</p>
+<p>二、龙头跟风模型的用法：情绪是龙头、指数是跟风，用跟风（指数）判断龙头（情绪）的风险——指数未破前低则积极参与，指数破位则情绪"废掉"、收手。</p>
+<p>三、通杀局：<strong>指数没创新低、情绪却创了新低</strong>。这是最难受的局面——指数稳住但情绪疲弱，钱照样不好赚，没有确定性博弈点。通杀局的双重属性要记住：它是上涨过程中的一次"分歧一致"（指数情绪双杀一致），仍是博弈点，但通杀局之后行情强度会降级（后段涨幅不如前段，突破后涨不起来很正常）。</p>
+<p>四、情绪与指数共振的两种信号：</p>
+<ul><li><strong>共振拉升 = 见顶信号</strong>（同时拉大盘股小盘股，动能衰竭）。</li><li><strong>共振下跌 = 见底前兆</strong>（指数、个股、题材、短线资金同时无脑卖出，卖方力量集中释放）。</li></ul>
+<p>五、卖点：强票（龙头）卖<strong>右侧</strong>（等确认走弱再卖、拿住整段利润），弱票（跟风）卖<strong>左侧</strong>（龙头一有走弱迹象就先跑）。共振后指数"三次上不去"就卖。</p>
+<p>六、博弈点判断：<strong>第一次指数分歧、第一次情绪分歧、通杀局，都是博弈点（不存在卖点）</strong>。逻辑链条：指数不能证伪→情绪强→博弈点；指数新高→情绪第一次分歧→博弈点。当指数和情绪高度共振、强弱分不清时，别急着下结论，等右侧信号（指数继续杀新低、情绪明显强于指数、未破新低+修复）。</p>
+<p>七、结构线（判断趋势）：画结构线本质是"赌上升趋势"——底和顶陆续抬高。结构线撑不撑得住，看三个维度，安全性排序：<strong>级别 &gt; 人气 &gt; 盘子大小</strong>（大级别周K&gt;小级别30分钟；人气高共识强；500亿大盘&gt;5亿小盘，大趋势难被单笔资金改变）。专注大级别（周K），一年出手几次就够。</p>
+<p>八、指数预判 vs 情绪预判：</p>
+<ul><li>指数适合预判大方向（综合性、不易被操纵、看日K/周K相对简单），但盘前精确验证难；<strong>滞涨K线（冲高回落）+下跌阴线</strong>的组合预测价值高；<strong>修复K是下行趋势里的正常反弹</strong>，别误当反转。</li><li>个股难预判（受游资散户主导），MACD、KDJ、布林线预判个股是不准的。</li><li>情绪必须"<strong>隔日预判+盘面验证</strong>"双重验证，而且<strong>盘面验证比隔日预判更重要</strong>——开盘就能看个大概基调，偏差了立刻纠。</li></ul>
+<p>九、题材的容量定行情（判断这波行情靠不靠谱）：大行情需要大容量载体。题材对市场的贡献度 = <strong>走势强度 × 资金容量</strong>。有强度有容量（人工智能2000-3000亿）→带动大盘；有强度无容量（低空经济400-500亿）→只能走独立行情。题材分进攻型（科技/热点，高PE高波动）和防守型（周期，低PE围绕价值中枢）；防守板块暴涨超出防御需求，可能是情绪转好的异常信号。</p>
+<p>十、大概率思维 + 锚定：指数和情绪代表80%以上的大概率；4000家普涨日赚钱概率80%，普跌日技术再好也容易亏。大方向向上时分歧节点是进场机会，向下时操作难度大。每天记3-5个赚钱/亏钱效应的代表股做锚定：情绪锚（标杆股如永辉超市、建设工业）、题材锚（连续一字板的山东矿机）、指数锚（上证关键位）。</p>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>主板一进二换手10%即可连板、创业板需20%以上才相对安全（主板换手=真实博弈、创业板换手=流动性需求）</li><li>4000家普涨日赚钱概率80%</li><li>题材容量阈值：300亿以下撑不起、2000亿以上才带得动、芯片启动日3000亿</li><li>结构线安全性排序：级别&gt;人气&gt;盘子大小</li><li>通杀局前涨幅（如-62%）&gt; 通杀局后涨幅（如-91%），后段强度降级</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li>"重个股轻指数"：指数不是用来预测精确涨跌的，它是方向+流动性，不看指数等于闭眼开车。</li><li>情绪弱于指数时还硬做：小分歧、大分歧都不博弈，<strong>情绪比指数弱时任何分歧都不做</strong>。</li><li>单根K线猜顶底：反包阳线、小阴线、阴线都不能单独判定见顶，看的是"连续无法创新高"。</li><li>共振拉升时还加仓：指数和情绪一起猛拉，正是动能快耗尽的信号，该警惕而不是兴奋。</li><li>只看表面涨跌不看相对强弱：强不强，要跟指数比、跟预期比（见第6讲超预期），不是看它自己涨了几个点。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>本讲是"第三部·信号层"的第二块拼图，把"情绪"和"指数"这两个最宏观的信号讲清楚怎么对比使用，处在信号支柱的核心位置。</p>
+<ul><li>判断"情绪强不强"最终落到"超预期"（见第6讲）——情绪创新高才是强，符合预期只是合理。</li><li>"预期"（见第5讲）是这里的方向盘：指数给你的是"预期是好还是差"的方向，不是精确点位。</li><li>龙头跟风模型、通杀局、滞涨段，直接为第10讲的"共振拐点"和第12讲的"分歧博弈修复"提供判断环境好坏的标尺。</li><li>本讲反复出现的"情绪先于指数企稳"，是第10讲"情绪底先于指数底"的伏笔。</li></ul>
+<h2 id="第10讲共振拐点判断">第10讲：共振——拐点判断</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>大盘拐头那一瞬间，第一个被资金抢着拉起来的票，就是"共振票"——它相当于火箭发射时第一个点火升空的信号弹。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p>共振，就是个股与大盘（情绪或指数）在拐点上"同时启动"。当大盘反弹拐头时，<strong>第一时间、第一个</strong>被想起来并拉升的个股，就是与大盘共振的票。它的价值在于"第一时间+第一个"——代表它的带动性和市场地位，是全市场共识的焦点。</p>
+<p>共振的本质是看两个指标：情绪和指数。情绪先于指数见底反弹，叫"情绪底"；指数随后见底，叫"指数底"。一句话：<strong>情绪底先于指数底，情绪的底比指数的底更有说服力、支撑性更强</strong>（因为它反映最活跃资金的恐慌释放与企稳）。</p>
+<p>怎么选拐点（三段拐点分析）：</p>
+<ul><li>拐点1：情绪底（共振情绪，第一个涨停/拉升的）。</li><li>拐点2：既不是情绪底也不是指数底（位置尴尬，不能选）。</li><li>拐点3：指数底（共振指数，第一个配合指数拉升的）。</li></ul>
+<p>结论：只能选拐点1或拐点3，别碰中间那个。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p>为什么共振票安全？因为大盘一拐头，市场容易第一时间想到它；下次大盘再拐头，还容易再次想到它。一旦拐头成立，它是全市场共识的焦点，安全边际自然高。它就像班里老师一问"谁来答"，大家第一反应喊出的那个名字。</p>
+<p>为什么共振本质是左侧交易、赌的是日内V型反转而非行情反转？因为最完美的共振点是事后才知道的——买入那一刻，你无法确定它就是那个"最工整"的共振点。所以共振操作本质是"赌日内拐点"，做的是低位首板/二板（一般不超过二板，越高越变成赌大拐点、偏离套利逻辑），用试错来捕捉。</p>
+<p>为什么共振要"三条件"？一次有效共振必须同时满足：</p>
+<ol><li><strong>改变预期</strong>：原本看跌，急拉后持续走强（或反之）；</li><li><strong>足够幅度</strong>：波动要够大，1.8%的小阳线不算；</li><li><strong>持续性验证</strong>：波动后要有持续性走势确认。</li></ol>
+<p>缺一个都不算共振。这是第24章给共振下的更严格定义，和第19章"拐头时第一个拉升"是同一个东西的两面——一个是"怎么找"，一个是"怎么验"。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p>一、复盘四步法（找共振票）：</p>
+<ol><li>识别指数特征：当天指数是什么形态（如"下杀后拉起"）。</li><li>定位拐点时间：找到指数明确的拐头时点（如13:52分）。</li><li>匹配涨停时间：看当天哪些票的涨停时间与拐点高度吻合。</li><li>纳入计划：找到的共振票，作为明天的重点观察/计划票。</li></ol>
+<p>二、盯盘看涨速榜，第一时间发现异动。博弈不到当天涨停没关系，记住它，次日拐头仍成立再做低吸。</p>
+<p>三、操作纪律：</p>
+<ul><li>只做首次共振，不做回封。</li><li>以主板为主（创业板共振票极少，几乎可忽略）。</li><li>有效性门槛：只做"指数拐头真正成立"那段，不做"尝试拐头"那段。判断拐点是否有效，看同一时间点有没有强势个股共振（如1:50博通集成涨停=有效，2:22无共振标的=无效）。</li><li>指数下跌分三段时，第一段共振性价比最高（第一次尝试，拐头成立后空间最大）。</li></ul>
+<p>四、次日三种走势与应对（先手买入后第二天看）：</p>
+<ul><li><strong>V型反转</strong>（共振明确）：可低吸或竞价小追高（前提是预判反弹延续、开盘不高）。</li><li><strong>横盘震荡</strong>（共振不明确）：只能低吸、绝不能追高。</li><li><strong>继续下跌</strong>（共振证伪）：冲高即卖，卖飞也卖不了多少。</li></ul>
+<p>五、低吸的唯一前提是"被动弱"：个股因为大盘拖累而回调（被动弱）才有低吸机会、还有想象力；个股自己走弱（主动弱）是证伪，没博弈价值。低开本身就是不及预期，别因为"共振安全"就去低吸。</p>
+<p>六、试错与去留：左侧交易有不确定性，靠试错——第一次没共振起来就等下次，失败次日开盘直接跑，成功（次日一字）就持有。打板优先选当天"走势最工整、最符合共振条件"的票（比依股份次日一字），非最工整的次日预期差要跑；封板力度过强反而透支次日。</p>
+<p>七、抄底选黄线不选白线：抄情绪底（黄线/小盘股），不抄指数底（白线）。即使指数（白线）继续创新低，只要黄线回踩到今日低点附近企稳（被动下跌），这个位置仍是博弈点而非恐慌点；可以用黄线支撑位预判白线的拐点。</p>
+<p>八、周K大阴线抄底（大盘级别的拐点信号）：</p>
+<ul><li>信号定义：周K级别大阴线、实体覆盖前几周涨幅50%以上、形成破位。</li><li>信号意义：短期见底标志，最差也是横盘震荡，不会首次直接跌破（2024年3月案例：当周跌7.58%后展开三周反弹）。</li><li>建仓：大阴线当周收盘前或次周初建仓，仓位不低于50%，金字塔加仓。</li><li>持仓：2-3个周K周期（约10-15个交易日），可做T不清仓；大阴线后3-5周是相对安全窗口。</li><li>止盈：反弹至阴线实体50%位置首次减仓；连续阳线拉升分批减。</li><li>回补：回落至原低点附近再次重仓。</li><li>大阴线出现后不要空仓，最低配置ETF；持仓约2周，可能"首周横盘、次周大涨"（螃蟹形态）。</li><li>心态：面对周K大阴线"不要怂"。</li></ul>
+<p>九、下跌性质（A型vsB型）——判断拐点后能反弹多久：</p>
+<ul><li>A型：直接见顶后快速回落，套牢资金少，恢复快（约5年）。</li><li>B型：震荡后逐步破位，震荡期间参与资金越多、破位伤害越广，恢复慢（约10年）。</li></ul>
+<p>核心：走势是否"走废"取决于恐慌程度，而非技术形态；B型杀伤力更大。</p>
+<p>十、大小节奏与仓位（把共振融入节奏管理）：</p>
+<ul><li>大节奏（周K）：当前位置先守，再出周K阴线可加仓，出反弹K不追加只格局，二次回踩到底部附近是加仓机会（不要怂）。</li><li>小节奏（日K）：<strong>上涨S（卖）、急杀B（买）</strong>——急杀时抄底、拉升后不追高。</li><li>时间：双底第二个底通常在"年后"，年前只能赌一次底；周K二次探底成功之后才是真正的重仓博弈点。</li></ul>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>共振三条件：改变预期 + 足够幅度 + 持续性验证（1.8%小阳线不算）</li><li>三段拐点：只能选情绪底或指数底，排除中间拐点2</li><li>次日三种走势：V型/横盘/继续下跌</li><li>周K大阴线：实体覆盖前几周涨幅50%以上、建仓≥50%、持仓2-3周K（10-15交易日）、阴线实体50%位置首次减仓、3-5周安全窗口、2024年3月跌7.58%后三周反弹</li><li>A型恢复约5年、B型恢复约10年</li><li>共振票以主板为主、创业板极少；第一段共振性价比最高</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li>把"个股强势"当"共振"：指数拐头时个股冲涨停，但指数随后回落、个股还封死，这只是个股强，不是共振。</li><li>做"尝试拐头"那段：指数试了几次都没成，你去接，就是接在没成立的点上。</li><li>横盘状态去追高：共振不明确（横了）时只能低吸，追高是绝对禁止的。</li><li>低开还去低吸：低开本身就是不及预期，别拿"共振安全"当借口。</li><li>把"抗跌"当"强"：真正强的票是"给点阳光就灿烂"、有带动性（见第12讲），不是跌的时候扛得住。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>本讲是"第三部·信号层"的拐点识别核心，把"拐点"这个最值钱的择时信号拆成了可操作的步骤，处在"一条主线（预期差）"和"四个支柱（信号）"的交汇处。</p>
+<ul><li>共振的"改变预期"三条件，本质就是"预期差"主线（见第5讲）在拐点上的落地——从看跌到看涨的预期翻转，才叫共振。</li><li>共振票"第一个被想起"，和超预期（见第6讲）的"地位+人气"是一回事：只有有地位、有人气的票才配第一个被想起。</li><li>被动弱/主动弱的判断，和第9讲"情绪强于指数/情绪弱于指数"是同一套逻辑在个股层面的应用。</li><li>本讲的大小节奏、仓位匹配，直接引出第11讲"择时&gt;选股"——拐点（节点）本身比选什么票更重要。</li></ul>
+<h2 id="第11讲择时择时大于选股">第11讲：择时——择时大于选股</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>选股错了只擦破皮，买错日子才伤筋动骨——同样的票，买在修复日亏2个点，买在非修复日亏15个点。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p>择时，就是判断"哪天是能进场的好日子（修复日/节点）"。选股，就是"在能进场的日子里买哪只"。</p>
+<p>整个体系的最高级结论之一：<strong>择时 &gt; 选股，节点 &gt; 标的</strong>。</p>
+<p>为什么？举一个最扎心的例子：同样做错一只股票，你在修复日进场，可能只亏2个点；你在非修复日进场，可能亏15个点。差别不在你选的股票好不好，而在你踩没踩对日子。别人买的票当天亏了，第二天市场修复能拉回来；你买的票当天亏了，第二天继续跌停——区别在节奏，不在选股。</p>
+<p>赚钱最终靠的是行情（天时），不是个人选股能力。所以先把"判断修复日"这件事学会，再谈选股。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p>利润的真实分布是反直觉的：不是"80%的节点贡献80%利润、20%的节点贡献20%利润"，而是——<strong>少数几个关键节点贡献了120%甚至150%的利润，其余所有非节点交易加在一起总体是亏损的</strong>。</p>
+<p>换句话说：<strong>80%的利润来自20%的时间，150%的利润来自5%的节点</strong>。</p>
+<p>这就推出一个残酷的结论：与其在其他时间辛苦操作、最后还亏钱，不如只做关键节点，又轻松又赚得多。</p>
+<p>这也是"空仓"的价值所在：<strong>不会空仓等于不会炒股</strong>。空仓的本质不是消极，而是"把火力留给那几个关键节点"——在确定性节点重仓参与，其余时间（甚至11/14个交易日、约78.5%的时间）空仓等待。市场大涨时空仓是愚蠢的，但非节点频繁操作同样是送钱。</p>
+<p>节奏的核心是心态。两个致命陷阱：</p>
+<ol><li>非节点连续操作亏损→真正节点来临时害怕了、不敢做→完美错过。</li><li>非节点买入被套→真正节点来临时仓位被占用→竞价再好也没钱买。</li></ol>
+<h3 class="tpl-action">操作要点</h3>
+<p>一、大盘分析的真正作用不是预测涨跌，而是判断"市场预期是好是差"。大盘大部分时间波动零点几个点，分析它没用；它真正的用途是判断趋势和预期，从而决定你"做小分歧还是大分歧"（这是第12讲的操作细节）。</p>
+<p>二、仓位的大小取决于"赔率"（市场预期×分歧程度的组合），三种情况：</p>
+<ul><li><strong>预期偏好 + 大分歧 = "送钱"机会，仓位给最重</strong>（背景好、空间够）。</li><li><strong>预期偏好 + 小分歧 = 也很好，仓位相当甚至稍多</strong>（预期向好）。</li><li><strong>预期偏差 + 大分歧 = 纪律性抄底，可参与但仓位不宜最重</strong>。</li></ul>
+<p>三、上仓位的通用决策（赔率×安全性）：</p>
+<ul><li>黄金组合：<strong>赔率50% + 亏损控制在5-10%</strong>（做对赚50点、做错最多亏10点）。</li><li>风险底线：安全性不能低于中等，赔率再高也不接受亏损超20%。</li><li>安全性三标准：买入后不易亏、亏了容易解套、避免大回撤。注意低价≠安全（3元股也可能A杀）。</li><li>成交量：维持万亿以上才考虑大仓位；突然放量不可靠，要看5日/10日均量线持续验证。4000亿市场容错率极低（"屎里捡肉"）。</li><li>三层级框架：市场（成交量达标+非连续下跌）→ 题材（足够容量+正向趋势+有中军）→ 个股（人气地位突出+超预期动态分析）。越往下越严格，上层可适当放宽（题材可偏逆向）。</li></ul>
+<p>四、冰点博弈的逆人性仓位：弱势行情里，越跌到后面越恐慌，但越往后的冰点仓位要越重——<strong>第一次冰点正常做、第二次稍多、第三次更多参与</strong>。别因为前几次体验不好（亏钱或没赚钱）就放弃后面的冰点。</p>
+<p>五、左侧 vs 右侧的仓位分配：</p>
+<ul><li>左侧（支撑未确认前介入，如大阴线当日）= 预判性博弈，宜小仓位试错。</li><li>右侧（支撑确认后跟进，如次日开盘拉升）= 确定性高但成本高，可适当加重仓位。</li></ul>
+<p>六、只做你能预判的东西：预判"支撑位博弈修复"相对容易（有明确支撑如大缺口，埋伏等待修复）；预判"延续上涨"难度极高（不知道哪天启动）。所以聚焦前者。</p>
+<p>七、难受的根源不是"今天没赚到"，而是"该参与的时候没参与"。你的能力只能解决"在该做的时候去做"，无法预判所有波动。节点分析的目的不是精准预判涨多少，而是"在该参与的时候先参与进去"，之后躺10个点还是1个点交给市场。</p>
+<p>八、落地方案：卡节点做股池。在修复日，股池里的票涨停率很高（5个首板涨停3个），踩对节点即使选股一般也没大代价。</p>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>修复日进场亏2点 vs 非修复日亏15点</li><li>80%利润来自20%时间、150%利润来自5%节点、少数节点贡献120%-150%利润</li><li>上班族只做3个大分歧节点、约78.5%时间（11/14个交易日）空仓</li><li>黄金组合：赔率50% + 亏损5-10%（做对赚50点、做错亏10点）、亏损超20%不接受</li><li>成交量维持万亿以上才考虑大仓位；4000亿市场"屎里捡肉"</li><li>冰点逆人性仓位：第一次正常、第二次稍多、第三次更多</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li>把亏损归咎于"选股没选好"，从而回避对择时的学习——选股逻辑可以有千万种，但"哪天买"决定代价。</li><li>在错误节点死扛：买在分歧日当天亏钱，第二天继续分歧，持有越久亏越多。</li><li>该空仓时空不住：市场大涨时空仓是愚蠢的，但非节点频繁操作同样是送钱。</li><li>低价误当安全：3元一股不代表安全，正向趋势也可能A杀。</li><li>好高骛远：连节点都判断不清，却想靠选股独步市场——能靠选股逆市赚钱的人凤毛麟角。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>本讲是"第三部·择时"的核心理念讲，也是这一部的结论所在——"择时&gt;选股，节点&gt;标的"。它处在"一条主线（预期差）+四个支柱"里，属于信号支柱向"执行/纪律"支柱过渡的桥梁。</p>
+<ul><li>"预期"（见第5讲）决定赔率：偏好预期+大分歧才是重仓的"送钱"机会，这就是预期差在主线上兑现的位置。</li><li>仓位随预期不确定程度下降，和"纪律"支柱（买卖逻辑一致性）呼应——不是节点不好，而是你的仓位没跟预期匹配。</li><li>本讲的"赔率×安全性"和"三层级框架"，是第12讲"分歧博弈修复"落地时的仓位标尺。</li><li>空仓、节奏、心态，直接支撑下一部（执行层/纪律层）的展开。</li></ul>
+<h2 id="第12讲分歧博弈修复">第12讲：分歧博弈修复</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>别瞎猜"跌够了没"，要看两个东西：跌的"深度"够不够（分歧大小），和市场本身的"态度"好不好（预期好坏）——态度好，小跌就能抄；态度差，得等大跌。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p>分歧，就是市场情绪从"一致看涨"转向"松动了、有分歧了"（涨停家数减少、下跌家数增多）。修复，就是分歧之后情绪回暖的那一天。"分歧博弈修复"就是：在分歧发生后，判断"哪天进场赌修复"。</p>
+<p>最核心的一句话：<strong>结合市场预期来决定博弈哪种分歧</strong>——</p>
+<ul><li><strong>市场预期偏好（好、向上）：小分歧出现就能进场博弈修复。</strong></li><li><strong>市场预期偏差（差、向下）：必须等大分歧出现才能博弈修复。</strong></li></ul>
+<p>市场预期直接决定了分歧修复的节点和力度。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p>为什么"偏好用小分歧、偏差用大分歧"？因为预期偏好时，市场上涨的势还在，一点点回调（小分歧）洗掉获利盘就够了，很快会修复；预期偏差时，市场本身在转弱，只有跌得够狠（大分歧）才能把风险释放干净、把恐慌的人洗出来，否则反弹也是假反弹。</p>
+<p>为什么修复日这么值钱？因为情绪修复节点是账户利润的主要来源——大部分赚钱的交易都是行情（情绪修复）带来的（见第11讲）。</p>
+<p>怎么判断"分歧大小"？四大公式（本质都是找"大分歧"=情绪冰点/极值）：</p>
+<ol><li><strong>涨跌家数极值法</strong>：上涨家数接近或跌破下方虚线（极值区），次日易修复。</li><li><strong>情绪分值极值法</strong>：分值低于下方虚线，可考虑做修复。</li><li><strong>涨停家数骤减</strong>：前一天涨停很多、今天骤减一半以上（如111家→55家），次日修复概率约80%以上（可能回升到80家）。</li><li><strong>涨停家数连续减少</strong>：没有骤减但连续多日递减（如87→69→66→47），同样可看修复，但对分歧力度要求更大。</li></ol>
+<p>如果实在判断不了预期是偏好还是偏差，就按大分歧去做——因为市场最坏情况就是偏差，按大分歧做不会错过机会（只是机会变少）。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p>一、三月份完整复盘（把方法串起来的实战样板）：</p>
+<ul><li>3月3-4日：低开/盘中破位被拉回=假破位（假破位是能做的好机会）→ 预期转偏好（预期突破前高）。</li><li>3月5日小分歧（63家）→ 预期偏好，小分歧即可博弈 → 3月6日修复（111家）。</li><li>3月7日大分歧（111→55骤减一半）→ 标准大分歧可博弈 → 3月10日修复（80家）。</li><li>3月11日非标准小分歧（80→54）→ 因预期尚未兑现，不适合博弈（关键：回到"预期兑现了没"这个根本问题）。</li><li>3月13日大分歧（79→47）→ 3月14日强修复（87家，接近翻倍）并突破兑现预期。</li><li>3月17-19日周K预期转偏差 → 小分歧（周一、周二）不博弈，等大分歧（周三47家+3500家下跌）→ 3月20日修复。</li></ul>
+<p>对比结果：<strong>结合市场预期，3月份能抓到7个修复日；不结合（纯套公式），只能抓到3个</strong>——博弈机会差一倍多。</p>
+<p>二、修复日的操作节奏：识别分歧（看涨停/跌停家数、指数走势）→ 判断预期（大盘趋势好还是差）→ 博弈修复（在分歧日尾盘或修复日早盘参与）。</p>
+<p>三、弱势行情选股（抢修复逻辑）：</p>
+<ul><li>尾盘拉升=抢修复（拿先手、赌次日修复）。抢修复过程中涨幅最大的个股=市场推举的龙头，次日延续上涨概率更高。</li><li>选带节奏的股：主动拉升、市场认可的，而不是被动跟风的。</li><li>时间窗口：从14:20（下午两点二十）开始拉升至尾盘，看这个区间谁涨幅第一。</li><li>区间涨幅第一的若是涨停股，切换为"共振选股"——看大盘反转时谁第一个上板（认可度最高，见第10讲）。</li><li>关键前提：<strong>当天大盘拉升后不能回落</strong>，否则区间涨幅/共振逻辑失效、当天被证伪、修复无效。</li></ul>
+<p>四、判断个股强弱的标准是"带动性"，不是"抗跌"：真正强的票"<strong>给点阳光就灿烂</strong>"（市场稍一反弹它就拉得更猛）；抗跌票在市场修复后反而可能补跌。弱势期选股要选"主动且独立"、能带节奏的（如带动"马字辈"的龙头）。</p>
+<p>五、证伪的判断：市场给了修复延续、但个股没动静=证伪（放弃）；市场没给修复延续（今天就是分歧日）=不算证伪，不能怪板块。类比：昨天给钱办事办得好，今天一毛不给还要求办事、说人家能力不行——不合理。</p>
+<p>六、赚钱效应的正确定义：不是"溢价高"，而是"<strong>让投资者产生强烈跟随意愿</strong>"（要有持续性刺激，而非单日冲高）。北交所沉寂后只一个涨停+次日冲高，无延续性，不算赚钱效应。</p>
+<p>七、落地的执行纪律（本讲收拢前面讲次的执行要点）：</p>
+<ul><li>打板看盘口强度：盘口强度不够不半路，等最后一档打板确认；大盘股（如四川长虹5亿压单）盘口占比弱，除非强到离谱不半路。<strong>打手板=板块内第一个涨停、剔除连板股，优先打第一个</strong>。</li><li>看"气质"：主动炸板（自身抛压/逻辑不足）回封后气质已失，不值得参与；被动炸板（大盘跳水拖累）回封后气质仍在，可接受。</li><li>持仓处理优先级&gt;新机会：不为"买新的"而"卖旧的"，处理持仓的唯一理由是该股本身需要处理。趋势容量票（深科技）可磨叽、先减仓再格局；情绪票（文一科技）要果断竞价清仓。</li><li><strong>策略=预判+具体操作预案</strong>：预案要具体到"什么情况做什么操作"（"开一字，看一眼炸板就跑；不开一字，竞价挂5个点出完"），而不是模糊的"怎么处理"。执行力&gt;胜率：50%胜率+强执行力也能赚大钱。</li><li>竞争标的选择的"<strong>一三规律</strong>"：同逻辑多标的中，第一个（先发优势）和第三个（最勇敢）通常表现好，第二个（中间位置）最差。</li><li>龙头"<strong>一二三玩法</strong>"（适合上班族）：只适用绝对核心龙头，用首阴、二阴、三阴低吸（首阴次日赚钱、双阴次日赚钱、三阴当天赚钱），四阴博弈性弱不做；做完日K做周K（二点一线/三点一线），做完周K做爆量K。</li><li>高位核心选票标准：成交额≥10亿（大容量才能容纳博弈资金，避免小盘股被点火资金砸盘）；只做正向走势票，不碰逆向反抽票；仓位2-3成主打赔率。</li><li>人气股池看盘法：把各板块核心人气股（低空、芯片、军工、金融、鸿蒙、跨境支付、医药等）加自选池，人气股反应比板块指数更超前，盯住它们等于同时盯多个板块，要求"如数家珍"。</li><li>个股博弈五要素：人气地位、形态模仿、筹码结构、板块共振（需3只以上同板块涨停）、指数窗口（避开MA30压力位）。题材四维验证：大环境匹配度、龙头表现、亏钱效应、中军稳定性。</li><li>仓位口诀：头仓不要多、绿盘再加做T、半个轻度先手。</li><li>人性规律：股票是人的游戏，强者恒强、弱者恒弱，一致见顶、恐慌见底；不要轻易抄底（你以为跌到位了，很多时候没到位）。</li></ul>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>涨停家数骤减一半以上 → 次日修复概率约80%以上（111→55后回升至80）</li><li>四大公式：涨跌家数极值、情绪分值极值、涨停家数骤减一半、涨停家数连续减少</li><li>3月数据：结合预期抓7个修复日 vs 不结合抓3个；63→111、55→80、47→87等修复验证</li><li>抢修复时间窗口：14:20至尾盘的区间涨幅</li><li>区间涨幅第一=市场推举龙头；涨停股切换共振选股（谁先上板）</li><li>高位核心成交额≥10亿；仓位2-3成</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li>今天分歧就赌明天修复——盲目预判，分歧接冰点、冰点接冰点会让人很恶心，必须明确"什么节点、什么信号"再动手。</li><li>预期偏差时用小分歧去抄底：周K预期差时，小分歧（周一、周二）不足以支撑修复，抄了就被套。</li><li>"看强做弱"：看到龙头拉就追跟风，这是不合理的；看好龙头就做龙头，不敢买龙头就不做，关联性太高的"谁先动做谁"。</li><li>把"抗跌"当"强"：只记"拐点找涨停"的形式、忘了"大盘不能回落"的本质（融科科技拐点涨停、次日低吸连收三根大阴线）。</li><li>学了方法仍亏钱：根源是"只记形、忘本质"，被动记方式、不主动思考，关键点就会遗漏。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>本讲是"第三部·择时/信号层"的收口讲，把"怎么博弈修复、修复日买什么"两个问题一次讲透，从"判断节点"落到"选股落地"，处在信号支柱的终点、也是执行支柱的起点。</p>
+<ul><li>"结合市场预期"这四个字，就是"预期差"主线（见第5讲）在分歧节点的具体用法：预期偏好=预期差还在，小分歧就够；预期偏差=预期差没了，要大分歧才够。</li><li>"超预期"（见第6讲）在选股环节落地为"地位+人气"（见第8讲）和"带动性"——真正强的票给点阳光就灿烂。</li><li>抢修复的"共振选股"直接引用第10讲的共振四步法；本讲把"拐点判断"进一步翻译成"14:20到尾盘谁先涨、谁先板"的落地动作。</li><li>择时&gt;选股（第11讲）是本讲的前提：先判断修复日，再谈选股；节点对了，股池里随便选都不亏大钱。</li></ul>
+<h2 class="part-title">第四部 · 战法执行（执行层 · 手法）</h2>
+<p class="part-desc">学会「怎么打」：打板、高低切、反核、缩量、竞价、套利缠论、小题材埋伏。每个战法都落到「预期/赚钱效应」的底层。</p>
+<h2 id="第13讲打板与择强超预期博弈的买卖逻辑">第13讲：打板与择强——超预期博弈的买卖逻辑</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>超预期出现时到底怎么下手——票只有一个就等它冲板再打，票多到好几个就挑最强的那一个下手。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<ul><li><strong>打板</strong>：在股价快要封死涨停的那一瞬间，用买一价主动把单子"扫"进去。它是一门<strong>手法</strong>（怎么买），不是<strong>模式</strong>（买什么）。手法根据你的买入逻辑按需选用。</li><li><strong>择强</strong>：同一个逻辑下冒出好几个超预期的票、市场钱又不够大家一起涨时，只选最强的那一个。</li><li><strong>打板的两大保证</strong>：必须<strong>冲板</strong>（买完股价真的封上涨停——这是确定性）+ 必须<strong>成交</strong>（单子真的买得进去——这是可执行性），两者缺一不可。</li><li><strong>超预期的有效范围</strong>：只看<strong>人气股</strong>的超预期。龙头、中位股、反包股都算人气股；非人气股的"烂板高开"即便形态满足，也因没人关注而走不出来。</li></ul>
+<h3 class="tpl-logic">底层逻辑</h3>
+<ul><li><strong>为什么打板要等冲板</strong>：提前动手（比如5个点就买），一旦股价最后不涨停，你买进去的那5个点就是当天最高价，日内就套牢。涨停价是当天唯一"有资金在最贵地方接货"的确定性价格，所以只在冲板那一刻下手。</li><li><strong>为什么扫板优于排板</strong>：排板是挂涨停价排队等成交，但真强的好票根本排不到，能排到的往往是炸板后还剩货的弱票。所以强票只能"扫"——看见卖盘被大单一笔笔急吃掉时，主动砸进去。</li><li><strong>为什么人少要右侧、人多要择强</strong>：市场资金有限。只有<strong>一个</strong>超预期时，它可能只是"被动超预期"（量能不足、没有关联性），必须等它真冲板来证明自己；同时出现<strong>三四个</strong>超预期时，通常只有一个能成，所以必须择强、抢最强的那个。</li><li><strong>为什么"加速对应高开"</strong>：昨日走加速（缩量上板）的票，次日只要能对应高开就算符合预期，低开才是不及预期。这是判断开盘是否超预期的基准线。</li></ul>
+<h3 class="tpl-action">操作要点</h3>
+<ol><li><strong>先数数</strong>，超预期标的有几个？<ul><li><strong>1个</strong>：不能竞价追，只能等冲板时打板（板上确认）。</li><li><strong>2个</strong>：可以平铺（两个都买）。</li><li><strong>3个及以上</strong>：必须择强，谁先涨停、谁最强做谁。</li></ul></li><li><strong>择强怎么做</strong>：看谁先摸涨停、谁开盘最强、谁"带节奏"（主动拉升带动板块），而不是看标签。择强无法提前锚定，只能实时看谁先冲板。</li><li><strong>打板的盘口触发信号</strong>：盯右侧卖盘挂单金额 + 成交金额。卖盘挂单几千万，成交金额突然急剧放大（比如突然来一笔1000万的大单）——这就是扫板的信号，必须立刻点买入。</li><li><strong>盘口分两类</strong>：<strong>独石盘口</strong>（一笔直接打死、没有排队机会，只能主动扫）vs <strong>可排队盘口</strong>（卖单厚、能排队成交）。盘口弱就放弃。</li><li><strong>个股预期判断三要素</strong>：带动性、地位、外部观点（关联性）。</li><li><strong>主动走弱判断</strong>：开盘就是最高价、第一笔直接下杀、第二笔才反弹——这是主动走弱，主动走弱者没有博弈价值。</li><li><strong>概念归类看"驱动逻辑"</strong>：逻辑相同的合并看（数字经济包含信创、网络安全），逻辑不同的分开看；主线是博弈出来的，锚定"涨停数量最多的方向"。</li></ol>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>打板时间窗口：从开盘到上板约 <strong>10秒</strong>（手机端因延迟天然劣势，更应倾向竞价）。</li><li>大资金仓位结构参考：竞价 <strong>40%</strong> + 打板 <strong>40%</strong> + 盘中低吸/半路 <strong>20%</strong>。</li><li>打板生态变迁：过去封板后次日高开概率约 <strong>80%</strong>，现在"次日高开看命"，打板由常规手法变为按需使用。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>提前动手</strong>（5个点甚至更早就买），结果不冲板，当天废掉——这是最高频的错误。</li><li><strong>排板</strong>：好票排不到，能排到的是炸板弱票。</li><li><strong>因开盘价高/低就提前买</strong>：开得高不一定先涨停，开得低也可能先涨停，只能看谁先摸板。</li><li><strong>等"分离确认"才动手</strong>：两个票强弱分开到7个点才确认时，你的成本已经和打板无异，博弈当日浮盈就没了意义。</li><li><strong>忘了买卖逻辑一致</strong>（最高纪律）：买入时定的是"赚当日浮盈"还是"赚隔日溢价"，卖出必须用同一逻辑证伪（比如"次日A强于B即卖"这类前置信号），中途换逻辑会越套越深。</li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>这一讲是"四个支柱"里<strong>执行</strong>支柱的核心手法课（语言/信号/执行/纪律）。它处理的是"超预期（见第6讲）"出现之后，怎么把判断落地成下单动作。打板、竞价、低吸都是手法，手法本身不产生收益，收益来自"预期差/超预期"这条主线——手法只是按需选择的工具（逼空行情里不打板就买不进，打板成了必要手段）。最高纪律"买卖逻辑一致性"在这里被反复强调：先想清楚博弈的是当日浮盈还是隔日溢价，否则"博弈意义何在"。</p>
+<hr>
+<h2 id="第14讲高低切套利">第14讲：高低切套利</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>龙头涨到5板太高不敢追，就买它同板块的低位小弟，赚"小弟补涨"这口稳钱。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<ul><li><strong>高低切套利</strong>：市场/板块的赚钱效应还在延续时，不追高位龙头，转去买低位的补涨股，赚比价的钱。</li><li><strong>比价效应</strong>：高位的高度决定低位的空间——5板龙头对应大约3板补涨，龙头高度就是补涨股的"天花板标尺"。</li><li><strong>向好的预期</strong>：高位股突破压制（比如终于站上5板）时，市场产生"这次可能不同"的预期，观望资金入场，补涨空间打开。</li><li><strong>弱转强辨析</strong>：炸板 &gt; 烂板 &gt; 栅板，代表弱势程度递增；"烂板次日高开"不等于弱转强，必须排除消息面/板块带动才是真弱转强。</li></ul>
+<h3 class="tpl-logic">底层逻辑</h3>
+<ul><li><strong>为什么高低切能赚钱</strong>：这是概率游戏，前提是"持续的赚钱效应"（见第8讲）。有赚钱效应时，钱会顺着"高度差"流动——高位太贵买不进，钱自然去找便宜的、同属性的低位股，背后是"不能踏空"的心理。</li><li><strong>为什么比例是60%-70%</strong>：龙头5板，补涨股一般炒到3板（5×60%-70%≈3）就有人开始兑现，因为大家心里有杆秤：小弟终究超不过大哥，越靠近大哥的高度越危险。</li><li><strong>为什么"多次失败后的首次成功突破"最好</strong>：反复冲5板都失败，第N次终于站上去，市场从"不抱希望"变成"这次不一样"，预期差的弹性最大（预期差见第5讲）。</li></ul>
+<h3 class="tpl-action">操作要点</h3>
+<ol><li><strong>前提检查</strong>：先确认市场/板块有没有持续赚钱效应——没有赚钱效应，高低切无从谈起（这是"何时不用"的边界）。</li><li><strong>看高低位关系定策略</strong>：<ul><li>弱势行情：跷跷板（逆向），高位抱团 vs 低位避险，此消彼长。</li><li>强势行情：好基友（正向），同步上涨。</li><li>行情好但高位分歧：资金转低位（逆向选择）。</li><li>核心股连续一字买不进：低位成为被迫选择（参与性问题）。</li></ul></li><li><strong>卡节点</strong>：最佳窗口是"高位加速次日"和"高位分歧时点"；但要规避"一致后接分歧"这个最大陷阱——一致之后才容易出分歧，行情差时高位一致后接分歧是最难操作的节点，容错率极低（"可以对十次，不能错一次"）。</li><li><strong>识别加速</strong>：较前日显著缩量（如6亿→3亿）+ T字板/一字板 = 加速。五板缩量加速后次日可博弈前排首板；但六板还缩量是风险信号，次日不宜操作。</li><li><strong>首板坚持"时间优先"</strong>：第一个涨停的（如共进股份、科森科技），不做跟风。</li><li><strong>弱转强辨析</strong>：真弱转强要同时满足——①原始预期差（昨日烂板）②没有新消息刺激下主动强势开盘。被消息（周末利好）或龙头带动的高开，是"被动转强"，不宜重仓。</li><li><strong>历史对标</strong>：用同特征（概念+涨跌幅制度+市值）的历史样本，验证"次日零轴买入会不会坑人"，至少验证3个以上样本，并区分龙头与跟风。</li></ol>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>补涨比例：<strong>60%-70%</strong>（5板龙头 → 3板补涨）。</li><li>加速缩量：<strong>6亿→3亿</strong>。</li><li>手板（首板）错误亏损约 <strong>10%</strong>，中高位错误可能亏 <strong>20%</strong>。</li><li>单账户持股不超过 <strong>3只</strong>；10万资金里8万做主仓。</li><li>创业板20cm下，零轴买入单日可能亏超 <strong>10%</strong>，容错率低。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>机械套用固定节点</strong>：高低切是概率游戏不是固定套路，照着死记硬背会亏。</li><li><strong>把"烂板高开"当弱转强</strong>：必须排除消息面，否则是诱多（炸板股在板块批量涨停时，是被淘汰的弱势标的）。</li><li><strong>在"一致后接分歧"里接盘</strong>：一致以后才最容易出分歧，这是最大的陷阱。</li><li><strong>周期后期不减仓</strong>：华为概念案例里，缩量4日、6日后的首板（华升股份、联创电子）性价比递减，要降仓位降预期。</li><li><strong>只信一个成功案例</strong>：警惕幸存者偏差，要结合板块强度、主力净额、成交额综合判断。</li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>这一讲是"四个支柱"里<strong>信号</strong>支柱的核心战法，但地基是"赚钱效应"（见第8讲）——没有赚钱效应，高低切无从谈起。它处理的是"预期差"主线里的一个具体形态：龙头的高度差就是预期差的来源。高低切回答的是"做哪个方向"的问题，所以更接近"择时/择方向"（见第11讲）。纪律层面，仓位不超3只、主次仓分级、硬止损，都指向最高纪律"买卖逻辑一致性"——先想清楚这笔钱赚的是"补涨的价差"还是"突破的情绪"，卖点就跟着这个逻辑走。</p>
+<hr>
+<h2 id="第15讲反核博弈">第15讲：反核博弈</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>一大堆高位票同时被按死在跌停板上的"恐慌"时刻，正是有人敢去撬板捡便宜的时刻——关键看你赌在"恐慌第一天"还是"恐慌第二天"。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<ul><li><strong>反核</strong>：跌停撬板博弈，在恐慌杀跌时去撬跌停，赌它拉起来。</li><li><strong>恐慌的一致</strong>：市场全部看空，高位股、中位股同一时间集体按跌停（跌停家数大几十家）。</li><li><strong>一致的延续</strong>：恐慌之后的第二天，恐慌加剧，开盘直接一字跌停或大幅惯性低开。</li><li><strong>反抽</strong>：反核博弈赚的是"反抽"的钱——逆向阶段，起来的票只是反抽，起不来的就只是反抽一下。</li></ul>
+<h3 class="tpl-logic">底层逻辑</h3>
+<ul><li><strong>为什么反核能赚钱</strong>：情绪极端一致（恐慌）时，往往就是空头衰竭的临界点，缩量到极致容易出现"空头衰竭点"。恐慌一致的反面，就是分歧向上。</li><li><strong>为什么"恐慌一致"和"一致延续"要反着做</strong>：恐慌第一天跌停太多，你不知道谁能拉回来，盲选胜率极低，所以要<strong>看右侧</strong>（等它真拉回、回封）；第二天恐慌加剧、低开幅度巨大，短期已经超跌，一致延续后容易"分歧向上"，所以要<strong>提前左侧</strong>（开盘就博弈）。</li><li><strong>为什么选人气最强而不是跌得最惨</strong>：反核赚的是反抽的钱，反抽看的是"谁最牛、之前涨得最多"。龙头跌停封死，后排必跌；人气最强者在反弹成立时"唯一不会缺席"。这是安全性逻辑，不是赚最多逻辑。</li></ul>
+<h3 class="tpl-action">操作要点</h3>
+<ol><li><strong>先定性恐慌阶段</strong>：是"恐慌的一致"（第一天）还是"一致的延续"（第二天）？</li><li><strong>手法与节点匹配</strong>（本节核心结论）：<ul><li>恐慌一致 → <strong>右侧</strong>博弈（看回封、等拉回），放弃部分利润换确定性。</li><li>一致延续 → <strong>左侧</strong>博弈（开盘提前介入），博一致延续后的分歧向上。</li></ul></li><li><strong>选股标准：人气优先于开盘高度</strong>。看谁最牛、之前涨得最多（润和4板 vs 法本3板，选润和），而不是看谁开盘开得最高。</li><li><strong>剧本锚定（涨停 vs 高位横盘）</strong>：<ul><li>核心股<strong>涨停</strong> → 情绪形成一致 → 后排冲高回落 → 明日无预期 → 持有后排者盘中直接走。</li><li>核心股<strong>不涨停、高位横盘</strong> → 情绪未一致 → 后排温和回落 → 明日有低吸修复机会，反而对后排更有利。</li></ul></li><li><strong>涨停并非最优解</strong>：T+1下反核资金浮盈过大（如抄底40个点），涨停反而透支次日，浮盈资金会砸盘。</li></ol>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>量能：顶部 <strong>34000亿</strong> → 缩至 <strong>7000多亿</strong>（腰斩）；空头衰竭参考区间 <strong>14000-17000亿</strong>。</li><li>润和日内振幅：跌停到涨停约 <strong>40个点</strong>。</li><li>竞价开盘价对比案例：鸿蒙（润和-14%、法本-12%）强于金融（银之杰-20%、银时-18%、安硕-16%）。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>手法用错</strong>：恐慌第一天就左侧抄底（胜率低），或者一致延续日反而做右侧（等拉起已晚）——手法与节点错配是反核亏钱的核心原因。</li><li><strong>认为"强就一定好"</strong>：涨停反而透支次日，高位横盘反而给明日留了修复空间，这是打破直觉的核心认知。</li><li><strong>选错票</strong>：选"跌得最惨的"而不是"人气最旺的"——龙头封死时后排起不来，选跌得最惨的等于选最危险的。</li><li><strong>把"恐慌一致"和"一致延续"混为一谈</strong>：这两个阶段的博弈点方向完全相反（右 vs 左），是全文的枢纽。</li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>这一讲是"四个支柱"里<strong>信号</strong>支柱对"情绪周期"最极致的一次运用——它处理的不是个股涨跌，而是情绪所处的阶段。反核的底层是"预期差"：市场一致恐慌（一致看空）本身就是最大的预期差来源，物极必反。它和"择时"（见第11讲）深度绑定：恐慌一致、一致延续就是两个不同的择时节点。纪律上，手法与节点错配是亏钱核心原因，这本身就是"买卖逻辑一致性"的体现——买入逻辑（博反抽还是博修复）决定了你在哪个节点、用左侧还是右侧出手。</p>
+<hr>
+<h2 id="第16讲正向有卖点缩量战法">第16讲：正向有卖点缩量战法</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>一只票涨得很好、该跑的人都能跑掉、结果成交量还很小——说明主力压根没想卖，这是锁仓，后面还有戏。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<ul><li><strong>正向走势</strong>：股价在主力锁仓状态下呈现的持续上升形态，区别于"高位放量滞涨"或"无量下跌"的逆向走势。</li><li><strong>卖点</strong>：同时满足"时间充分（全天给足交易时间）+ 空间充足（顶点进场也能获利了结）"——让任何进场者都能跑掉。</li><li><strong>缩量（锁仓信号）</strong>：满足卖点条件，量能却明显小于历史顶量，说明主力没兑现、主动锁仓。</li><li><strong>预期差选股</strong>：市场共识标签与真实驱动逻辑背离时（如四川长虹被错贴"西部大开发"，实为华为线），形成套利机会。</li></ul>
+<h3 class="tpl-logic">底层逻辑</h3>
+<ul><li><strong>为什么缩量是好事</strong>：正常见顶应该是"股价越高、量能越大"（主力要兑现出货，必须放量，如腾达科技见顶日7.51万手）。反过来，该跑都能跑、股价还创新高、量反而很小，只能说明主力没跑——筹码没松动，后面大概率还要拉。</li><li><strong>为什么容错率随尝试次数递增</strong>（证券四次修复）：第一次（红塔中金）纯坑人，第二次（华西）开始有溢价，第三次（海通）炸板不坑人，第四次（天风）封板带动大盘拐头。逻辑是"前三次失败后第四次成功概率显著提升"——市场对证券修复的预期被反复测试，容错率抬升到临界点。</li></ul>
+<h3 class="tpl-action">操作要点</h3>
+<ol><li><strong>三要素链条</strong>：正向走势 + 有卖点 + 缩量，缺一不可。</li><li><strong>缩量的判定基准</strong>：必须与"价格低于当前K线的历史最大顶量"比较。满足时空条件仍缩量才是锁仓：量能 &lt; 历史顶量 <strong>2/3</strong> 为异常，&lt; 前顶量 <strong>30%</strong> 为强锁仓。</li><li><strong>卖点时空双标准</strong>：时间（全天充分交易，排除尾盘突袭炸板）+ 空间（顶点进场也能获利，排除早盘10:30前急拉、反弹高度&lt;前期跌幅50%）。</li><li><strong>正例特征</strong>（国新健康、常山北明）：炸板/回踩日缩量（明显小于前顶量）+ 空间充足（让前一日买入者获利4%以上）+ 时间充足（高位震荡2小时以上）+ 全天红盘。</li><li><strong>反例特征</strong>（华达新材、荣科科技、艾布鲁）：空间不足（&lt;3%）、时间不足（&lt;40分钟）、量能不缩（甚至放量）、水下时间长、套牢盘未解或主力隐蔽出货。</li><li><strong>选股</strong>："人气优先 + 三足原则（足够时间/空间/理由）"；仓位默认正常仓，确定性不足的标"微仓"（5%以下）。</li><li><strong>纪律</strong>：套利止盈10%-15%；持仓不超3只；震荡市"涨后减仓、跌后加仓"（口诀：跌完之后多上点，涨完之后少上点）。</li></ol>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>缩量阈值：量能 &lt; 历史顶量 <strong>2/3</strong> 异常；&lt; 前顶量 <strong>30%</strong> 主动锁仓。</li><li>套利止盈：<strong>10%-15%</strong>。</li><li>常山北明：炸板量1453万 vs 前高1557万；14.53买入者在15.20获利4.6%；高位震荡2小时13分。</li><li>腾达科技见顶放量7.51万手（正常兑现的放量标准）。</li><li>盈利目标：年化三倍 = 周收益仅需 <strong>2.3%</strong>。</li><li>无效交易约 <strong>80%</strong>；优质机会每月 <strong>2-4次</strong>；年手续费 <strong>20-30%</strong>。</li><li>中航电测8连板 / 光智科技5连板。</li><li><strong>量价四句诀</strong>：放量下跌还会跌、缩量下跌还会跌、放量上涨还会涨、缩量上涨还会涨（需结合环境，不可机械套用）。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>缩量判定基准用错</strong>：不是随便跟昨天比，而是跟"价格低于当前K线的历史最大顶量"比。</li><li><strong>只看到缩量就买</strong>：必须先满足"正向 + 有卖点"两个前提，早盘急拉、空间不足、尾盘才给卖点的，缩量也不算数。</li><li><strong>被"放量"骗</strong>：正常见顶要放量，放量 + 时空不足 = 出货，不是锁仓。</li><li><strong>追重组一字</strong>：光智科技类不追一字，等开板后博弈（重组利好股走小趋势而非A字杀跌）。</li><li><strong>沉迷交易频率</strong>：80%是无效交易，优质机会每月2-4次，年手续费20-30%会吃掉利润。</li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>这一讲是"四个支柱"里<strong>信号</strong>支柱对"量价关系"最精妙的一次运用——用缩量这个信号反推主力的意图（锁仓还是出货）。底层依然是"预期差"：锁仓 = 主力对未来有更高预期，而你通过量价读出了这个预期差。同时它演示了"预期差选股"（四川长虹案例，预期差见第5讲）和"容错率递增"的择时思想（见第11讲）。纪律层面，套利止盈10%-15%、持仓不超3只、涨后减仓跌后加仓，全部落到最高纪律"买卖逻辑一致性"——买入逻辑是"赌主力锁仓"，卖出逻辑就是"量能异常放大/主力出货信号出现"就离场，而不是涨一点就跑。</p>
+<hr>
+<h2 id="第17讲竞价体系换手率审美股池开盘博弈">第17讲：竞价体系——换手率、审美股池、开盘博弈</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>开盘前那几分钟（9:15-9:25）的竞价，能告诉你当天情绪好不好、该不该出手——关键不是看量看涨幅，而是看"节点对不对"。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<ul><li><strong>竞价的本质是"卡节点"</strong>：节点分两类——题材节点（题材周期）和情绪节点（情绪周期）。量能、开盘涨幅、题材都不是核心，节点判断才是核心。</li><li><strong>审美股池</strong>：为练基本功而建的池子，里面的票不是"必涨"而是"好看"（涨停后易获资金追捧、封死后易走强的票）。</li><li><strong>量能健康度</strong>：竞价/开盘的成交量要"该缩时缩、该放时放"，缩放对不对是判断健康的标尺。</li></ul>
+<h3 class="tpl-logic">底层逻辑</h3>
+<ul><li><strong>为什么竞价看节点不看量</strong>：市场是动态博弈，没有"固定到某点必涨必跌"的规律。今天情绪好不代表明天继续好，今天冰点不代表明天必修复（可能出现"三连冰"）。节点对了，量略差可以接受；节点错了，量再好也是灾难。</li><li><strong>为什么"大票看金额、小票看换手"</strong>：百亿以上大票有大量长线/机构资金，换手天生不活跃，看换手会误判；小票是短线资金主导，理应活跃，看金额会失真（小票竞价金额过亿往往意味着见顶或巨大分歧）。</li><li><strong>为什么"该缩时缩、该放时放"</strong>：波动越大、成交越活跃。零轴附近（波动小）应缩量，若放量说明恐慌卖盘；涨停/跌停附近（波动大）应放量，若缩量说明无承接、票已废。</li><li><strong>为什么"审美优先于盘口/量能"</strong>：两个人都看得懂盘口，一人打板连板、另一人炸板无溢价，差异在审美。形态不好看，盘口再强也不考虑。审美本质是稀缺性——票多时提高标准，票少时降低标准。</li></ul>
+<h3 class="tpl-action">操作要点</h3>
+<ol><li><strong>先判断节点</strong>（题材或情绪）：<ul><li>情绪节点：搏冰点后的修复，锚定全市场，选择广，试错。</li><li>题材节点：锚定特定题材（如机器人），预判修复/高低切预期，选择窄，易无票可做。</li><li>警示：冰点日做错竞价，亏损20个点极易发生。</li></ul></li><li><strong>竞价换手率标准（一进二）</strong>：<ul><li>小票：竞价实际换手率 <strong>5%</strong> 左右；开得越高要求越高，接近涨停则竞价失效、改打板。</li><li>大票（百亿以上）：竞价实际换手率 <strong>1%</strong> 左右，金额过亿为佳。</li><li>通用规律：盘子越小换手要求越高，开得越高换手要求越高。</li></ul></li><li><strong>开盘博弈/核按钮判断</strong>：看"封单金额 vs 竞价成交额"判断是否被核死——封单小、竞价成交大，说明筹码大量换手、撬板有基础；但反核能否成功还要看资金共识（是否集中攻击一个目标）。</li><li><strong>超预期判断（封单不衰减）</strong>：山东矿机今日封单40亿 vs 昨日39亿持平，即超预期——封单未趋弱即板块超预期。</li><li><strong>板上换手补量</strong>：突破左侧高点时，健康量能 ≈ 左侧量能的1/2以上；封板强则1/2略多（约2/3）即可，封板弱/烂板需达甚至超过左侧量。</li><li><strong>量能锚定（竞价）</strong>：对标"所上穿平台区域的最大量"，不是昨日量。高开越高要求量越大；百分比选5%/7%/10%。</li><li><strong>多标的选择</strong>：按"溢价强度"排序（不是按量能），优先选高开的；选择少时（2只）平铺。</li><li><strong>复盘工具工程化</strong>：涨停池（主板+创业板分开，找稀缺性和预期差）+ 次日观察池 + 持仓池（只放最有代表性的情绪载体，少而精）。</li><li><strong>下单时机</strong>：竞价挂单仅在 <strong>9:25之后</strong>，可挂买现价。</li></ol>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>竞价换手：小票约 <strong>5%</strong>、大票约 <strong>1%</strong>；大票自由流通市值 <strong>七八十亿以上</strong>（50亿需谨慎）。</li><li>竞价挂单：仅 <strong>9:25后</strong>。</li><li>高开分档：<strong>0-3个点一般、3-6较高、6-10很高</strong>；量能百分比 <strong>5%/7%/10%</strong>。</li><li>突破左侧健康量：左侧量的 <strong>1/2以上</strong>（封板强约2/3，封板弱≥左侧量）。</li><li>山东矿机封单 <strong>40亿 vs 昨日39亿</strong>（不衰减即超预期）。</li><li>冰点日做错竞价可亏 <strong>20个点</strong>。</li><li>审美池适用首板数量：<strong>50-70个涨停</strong>时筛选；过百放弃。</li><li>战法批判：图形/量能战法胜率仅 <strong>50%</strong>、年化 <strong>3-5%</strong>。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>把量能/涨幅/题材当竞价核心</strong>：核心是节点，不是这些表象。</li><li><strong>线性外推情绪</strong>（今天好→明天好）或机械反转（冰点→必修复）：三连冰真实存在。</li><li><strong>用昨日量做竞价量能对标</strong>：正确对标是"所上穿平台区域的最大量"。</li><li><strong>大票看换手、小票看金额</strong>：搞反了就会误判（小票竞价金额过亿 = 见顶/巨大分歧信号）。</li><li><strong>审美池当买入信号池</strong>：池子练的是基本功，"好看"不等于"必涨"。</li><li><strong>低价票偏好</strong>：开1%的票看似空间大实则不确定性高，开8%的票浮盈小但次日躺赢概率高——应按溢价排序、拥抱确定性。</li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>这一讲把"竞价"的四个角度互补讲全了：<strong>量能健康度</strong>（大票看金额/小票看换手、该缩时缩该放时放）、<strong>节点审美</strong>（审美股池、卡节点）、<strong>预判演变</strong>（情绪周期：三连冰、今日好不代表明日好）、<strong>模式工程化</strong>（涨停池/观察池/持仓池的复盘体系）。它是"四个支柱"里<strong>执行</strong>支柱对"竞价/开盘"这一时间窗口的完整手册。底层落到"预期"（见第5讲）和"超预期"（见第6讲）：竞价博弈赚的是超预期的钱，节点判断就是预判情绪修复的择时能力（见第11讲）。最高纪律"买卖逻辑一致性"体现在：先明确你博弈的是"当日浮盈"还是"隔日溢价"，再决定是竞价左侧上车还是打板右侧确认。</p>
+<hr>
+<h2 id="第18讲套利与缠论区间套动能衰竭">第18讲：套利与缠论——区间套、动能衰竭</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>套利赚的是"时间差"的小钱（今天买、明天冲高卖）；而缠论只教两件事——价格像被地心引力拉着往筹码堆里拽（万有引力），以及下跌的劲头会一次比一次弱、最后耗尽（动能衰竭）。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<ul><li><strong>套利</strong>：不关注长远，只看当下或隔日，赚的是"时间上的预期差"。</li><li><strong>万有引力</strong>（缠论核心之一）：中枢 = 筹码堆积区域，它会吸引股价，使股价难以突破或跌破；中枢越大，引力越大。</li><li><strong>动能衰竭</strong>（缠论核心之二）：离开中枢的下跌/上涨，力度一次比一次弱，三次衰竭点可能为反转点（"一而再，再而三，三而竭"）。</li><li><strong>区间套</strong>：把大级别的短均线，转化成小级别的大均线，用均线的稳定性换取操作精度。</li></ul>
+<h3 class="tpl-logic">底层逻辑</h3>
+<ul><li><strong>为什么套利看时间维度</strong>：常山北明涨停、预期明天一字加强时，尾盘买拓维、润和等跟风股，赌的是"明天"常山一字后跟风冲高。深圳华强补仓做T，同时覆盖"当天（新龙不分歧，华强当天涨）"和"明天（新龙分歧，华强次日有预期）"两个时间维度，赔率更好。</li><li><strong>为什么筹码峰是"假"的</strong>：筹码峰是基于换手率的算法结果，假设"时间够长能洗清套牢盘"，但真实套牢盘决心极强（某案例2011年的套牢资金，平均每年只洗掉3-4成）。所以左侧压力位真实存在，不能用筹码峰自我安慰。</li><li><strong>为什么均线要"大转小"</strong>：5日线这种小均线受单日收盘价影响极大（今日涨停/跌停会让明日5日线大幅漂移，无法精准低吸），年线这种大均线波动极小（只需在今日基础上加2-3分钱就能预判明日）。区间套就是把日线的大均线，换成分钟K线里更大的均线参数，让均线"稳下来"，从而能用来精准低吸。</li></ul>
+<h3 class="tpl-action">操作要点</h3>
+<ol><li><strong>套利操作</strong>：龙头涨停、预期次日一字加强时，尾盘买跟风股，赌次日冲高获利了结。</li><li><strong>缠论别学画线</strong>：中枢、笔、线段只是工具，核心只有"万有引力"和"动能衰竭"两个思想；"千人千缠"源于多数人没理解本质。</li><li><strong>底背离的前提</strong>：先找到中枢，再判断离开中枢的动能——动能强（大幅下跌）不博弈，动能弱（小幅震荡）拉回概率高，可博弈。</li><li><strong>区间套实操</strong>：50分钟K线设88日均线（= 日线20日均线的分钟级等效值），回踩88均线时接近最低点买入。</li><li><strong>均线换算（两条独立关系，不混为一谈）</strong>：关系一——50分钟K线88日均线 = 日线20日均线（分钟级等效）；关系二——周K线20日均线 = 日K线88日均线。因节假日，需按实际交易日加权，不能机械按5日折算。</li><li><strong>股性区分</strong>：连板型（直上直下）vs 趋势型（缓慢上升），先认股性再定打法。</li></ol>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>套牢盘洗盘速度：平均每年仅洗 <strong>3-4成</strong>（约5年洗30-40%）。</li><li>明日5日线波动区间可达 <strong>±4个点</strong>（甚至更大），无法精准低吸；年线仅需加 <strong>2-3分钱</strong> 即可预判次日。</li><li>动能衰竭：<strong>三次衰竭点</strong>可能为反转点。</li><li>区间套参数：周期 <strong>50分钟</strong> K线，均线参数 <strong>88</strong>。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>学缠论去学画线</strong>：核心是思想（万有引力 + 动能衰竭），画线、拆波段都是"走歪"。</li><li><strong>用筹码峰判断套牢盘</strong>：筹码峰假设时间能洗清套牢盘，低估了套牢盘决心。</li><li><strong>盘中按"回踩5日线"低吸</strong>：小均线是滞后指标，随当日收盘价漂移，是"事后验证"，不可靠。</li><li><strong>三买最难</strong>：级别太小、T+1下操作困难、出现频率低，别轻易碰。</li><li><strong>把两条均线换算关系混为"三者等价"</strong>：50分钟88日 = 日20日 和 周20日 = 日88日，是两条独立关系。</li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>这一讲是"四个支柱"里<strong>信号</strong>支柱最"技术派"的一课，但老师反复强调不要掉进技术指标陷阱——它最终落到"预期差"主线：套利 = 时间上的预期差，缠论的万有引力/动能衰竭本质上是对"市场筹码结构"和"动能预期"的解读。区间套解决的是"择时"（见第11讲）里的精准买点问题，和"择强"（第13讲）形成互补——一个解决"买在哪"，一个解决"买哪个"。纪律层面，套利的买卖逻辑一致性在于：你赌的是"隔日跟风冲高"，那么次日冲高不兑现就是卖点，绝不恋战；缠论博弈底背离，动能弱才是前提，动能强就该收手。</p>
+<hr>
+<h2 id="第19讲小题材埋伏套利">第19讲：小题材埋伏套利</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>不打龙头、不追高位，专门在小题材里找那种"当天主动带过节奏"的票，等它第二天回调到水下去低吸，赚一小口安稳钱。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<ul><li><strong>小题材埋伏套利</strong>：不去龙头/高位接力，在小题材中寻找"有气质、主动带节奏"的个股，等回调后低吸埋伏，赚稳妥小利。</li><li><strong>主动带节奏</strong>：盘中某只票主动拉升、带动了它所在的小题材（哪怕没涨停成功），这只票就是"带节奏的票"。</li><li><strong>龙一</strong>：板块内最强（按涨停顺序确认），埋伏只做龙一，不做龙二龙三。</li><li><strong>权重抽血</strong>：早盘权重（大票）拉升抽走资金，题材/情绪票被压制；当日未涨不算弱，是受抽血影响。</li></ul>
+<h3 class="tpl-logic">底层逻辑</h3>
+<ul><li><strong>为什么做小题材不做大板块</strong>：大板块预期明确、没有预期差，低吸机会尴尬（大板块的强势带节奏票不会有回调买点，回调了就是真弱）；小题材预期不明确，其中的龙一有"如果市场再点这个题材，它大概率是首选"的稀缺价值。</li><li><strong>为什么只做龙一</strong>：板块没起时，只有龙一有辨识度，龙二龙三没有"龙"的地位，回调后没人认，套利确定性差。</li><li><strong>为什么只低吸不追涨</strong>：埋伏逻辑的核心是"赚安稳小利"，追高就违背了逻辑本身（如果第二天开盘直接上涨 = 题材加强，追进去成本高、和埋伏初衷相悖）。</li><li><strong>为什么止损位要分模式</strong>：连板股起不来无溢价就走（干脆）；趋势股分时磨叽、波动大（不设好承受点必然卖在启动前）；埋伏试错定位就是"试错"，容忍度最小。</li></ul>
+<h3 class="tpl-action">操作要点</h3>
+<ol><li><strong>选股唯一标准</strong>：盘中有过主动带节奏的个股（前排），且只选龙一。</li><li><strong>四条铁律</strong>：<ul><li>只做首板，回避高位股（最高板已达4板的坚决不碰）。</li><li>只低吸不追涨，且只在水下（绿盘）低吸，水上不考虑。</li><li>主线回避，只在非主线小题材中找（主线带节奏票不会给回调买点）。</li><li>不强求，无回调买点就放弃（火炬电子第二天直接拉升，就不做，不顺延到龙二）。</li></ul></li><li><strong>操作流程</strong>：每日复盘时忽略大题材（机器人）→ 关注小题材（芯片、医药、军工、黄金）→ 按涨停数量排序选龙一 → 等次日回调水下低吸。</li><li><strong>转债套利补充</strong>：小题材中唯一有转债的标的（如多胎概念里的新乳转债），在概念加强预期下赚转债波动；但若无涨停预期，转债表现不强。</li><li><strong>50分钟88均线战法（进阶）</strong>：回踩88均线时接近最低点买入；分仓买入、接受1-2个点偏差、只做第一次回踩，不追求绝对低点。</li><li><strong>反抽铁律：人气优先</strong>——没有人气一切免谈，只选人气最高的（每日互动、长盛轴承），二选一时选人气高的。</li></ol>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>纪律性止损位（按模式）：连板 <strong>-10%</strong>、短趋势 <strong>-5%</strong>、埋伏试错 <strong>-3%</strong>。</li><li>波动范围参考：短线连板正常波动-10%、埋伏试错-3%左右。</li><li>50分钟88均线：买点偏差允许 <strong>2-3个点</strong>；分仓买入不计较一两毛钱。</li><li>龙一止损：约 <strong>3-4个点</strong>（约3个点）。</li><li>美尔雅/天地源等案例：埋伏后开盘冲高约 <strong>6-7个点</strong>。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>做龙二龙三</strong>：板块未起时只有龙一有辨识度，龙二龙三是"没有龙的票"。</li><li><strong>追高、在水上买</strong>：和埋伏逻辑相悖，只做水下低吸。</li><li><strong>把"受权重抽血压制"误判为"个股真弱"</strong>：当日未涨不算弱。</li><li><strong>苛求精确到点</strong>：交易不是数学题，为1-2个点放弃交易，说明预期本来就只有1-2个点，不该做。</li><li><strong>学"术"忘"本"</strong>：反抽的核心是"人气"，不是图形；京城医药走势尚可但人气不足，就不做。</li><li><strong>高位反推</strong>：高位反推确定性差，不建议参与。</li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>这一讲是"四个支柱"里<strong>执行</strong>支柱中最适合上班族、门槛最低的战法，但根基依然是"赚钱效应"（见第8讲）和"预期差"（见第5讲）：小题材之所以有埋伏价值，是因为它预期不明确、存在"市场再点它就首选龙一"的预期差。它和"高低切套利"（第14讲）是同一家族——都在"不追高"的前提下找低位机会，但高低切赌的是"龙头高度差"，小题材埋伏赌的是"龙一的稀缺性 + 回调买点"。纪律层面，分模式的止损位（连板-10% / 短趋势-5% / 埋伏-3%）是"买卖逻辑一致性"最落地的体现：不同的买入逻辑配不同的止损纪律，买的时候就想好错了在哪认亏。</p>
+<h2 class="part-title">第五部 · 工具与选股（方法 · 工具化）</h2>
+<p class="part-desc">把方法固化成工具：回测、动态股池、选股标准、盘中工作、看盘界面与仓位。</p>
+<h2 id="第20讲回测从模式建立到数据验证">第20讲：回测——从模式建立到数据验证</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>把你盘面里一闪而过的"感觉"，先问清它到底赚的是什么钱，再用冷冰冰的历史数据验算一遍——行得通才敢上手，行不通就扔掉。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p><strong>回测是什么？</strong> 就是拿历史行情去验算一个"玩法"到底赚不赚钱、赚多少、亏在哪。它不是预测未来，而是给"感觉"上一把锁。</p>
+<p>先讲回测的两个基本点：</p>
+<ul><li><strong>回测的目的</strong>：长假、空闲时，你脑子里会冒出很多想法——"这个玩法胜率是不是挺高""炸板次日高开是不是都能买"。回测就是验证这些想法。比如竞价玩法里有板块超预期竞价、连板竞价、一进二竞价，都可以回测。</li><li><strong>回测的本质</strong>：任何玩法都需要回测，终极目的只有一个——<strong>验证模式有效性</strong>。</li></ul>
+<p>这里有个最反直觉、新手最容易踩的坑：<strong>好行情里回测没意义</strong>。牛市普涨里随便买都涨、胜率100%，你回测出来的"漂亮数据"全是假象，会把一个无效模式误判成神技。所以回测要挑常态行情，别挑"闭着眼都赚"的暴涨段。</p>
+<p>还有个重要方法叫<strong>最优解回测法</strong>：回看每一周、每一天，找出"那一天的最优解"——如果重来一遍，当天买哪只、怎么买最赚钱。案例：指南针昨天烂板、今天高开（超预期，见第6讲），应该打回封板。关键不是记住答案，而是思考"这些关联因素是怎么凑到一起的"。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p>为什么回测有用？因为短线是概率游戏。你不可能每笔都对，但你要知道这个玩法长期重复下去是正期望还是负期望。回测就是把"模糊的感觉"变成"可统计的胜率"。</p>
+<p>那模式是怎么来的？这里是整个体系最关键的方法——<strong>模式建立四步法</strong>：</p>
+<ol><li><strong>思考本质</strong>：不问技术指标（MACD、KDJ金叉），而是问"这个模式赚的到底是什么钱"。比如炸板高开模式的本质，是<strong>超预期弱转强</strong>（见第6讲）。</li><li><strong>提炼有效因子</strong>：围绕本质，找出真正起作用的变量。比如做弱转强，你得先定义清楚"什么叫弱"。</li><li><strong>制定标准</strong>：止盈、止损、买卖点全部写成可执行的客观标准，别用"明天冲8个点"这种主观臆测。</li><li><strong>回测验证</strong>：基于明确标准去验算，结果才有参考价值。</li></ol>
+<p>拿"一进二模式"完整拆一遍，你就懂了：</p>
+<ul><li>结果：首板进二板。</li><li><strong>本质</strong>：一是<strong>高低切</strong>（高位涨不动，资金往低位切）；二是<strong>板块惯性</strong>（赚钱效应延续，见第8讲）。</li><li><strong>有效因子/参数</strong>：题材（要强势题材）、时间（具体某天）、<strong>昨日板块首板涨停数量</strong>——这是关键参数，市场好时一个题材能30-40个首板，差时可能只有5个，昨天涨停越多，今天出二板概率越大。</li><li><strong>强弱区分</strong>：看上板时间，越早上板越强；排除一字板、T字板（买不进），选第一个自然上板的。</li><li><strong>额外参数</strong>：自由流通市值（比如近期高位连板市值都没超过50亿/30亿）、盘口强弱（封住=1、未封=0）。</li><li><strong>卖点</strong>：用客观卖点——开盘价（涨停次日，无论高开低开都按开盘价算）或收盘价（日K级反弹模式）。</li></ul>
+<p>这里藏着整个回测最重要的原则——<strong>客观回测原则（三条）</strong>：</p>
+<ol><li>买点卖点必须客观。"盘中拉升我能吃到、下跌我能躲开"这种主观判断一律不算数。</li><li>基准用盘面客观价：<strong>开盘价、收盘价</strong>。体量不大时就用开盘/尾盘价做基准。</li><li>特殊情况才能延后：<strong>一字涨停/跌停</strong>买不进卖不出，就延后到开板日，按那天的开盘、收盘、涨跌停价算。除了一字板，其他情况一律不许延后。</li></ol>
+<p>最后一条：回测优化的目标不是"看谁赚得多"，而是<strong>重点规避大亏</strong>。盯着亏损案例，从市值（小于50亿到底成不成功？）、盘口（是不是盘口问题导致亏损？）、涨停数量（是不是板块涨停数量不够？）三个维度去筛，找出规避大坑的办法。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>第一步：把想法写成可回测的模式。</strong> 别停在"我觉得炸板次日能买"，要精确到"昨日炸板+今日高开X%+竞价金额达某阈值→竞价买入→次日开盘卖出"。</p>
+<p><strong>第二步：定义弱和强。</strong> 这是回测能不能做的前提。以弱转强竞价玩法为例，先把"弱"量化：</p>
+<ul><li>最后封板时间：中午前封死不算弱；下午封板相对弱。</li><li>炸板次数：回测里可设定炸板&gt;1次或&gt;2次。</li><li>组合：多次炸板+下午封板=最弱。</li></ul>
+<p>标准不先定义，回测结果就不客观。</p>
+<p><strong>第三步：抓"爆量=分歧"这个核心。</strong> 强转弱是"一致看好之后爆量"；弱转强是"一致看弱之后爆量走强"。弱转强买的是"强势的分歧"，不是弱势的分歧，所以胜率较高。竞价时间注意：<strong>25分之后、30分之前</strong>。</p>
+<p><strong>第四步：量能判断"金额与量比并重"。</strong></p>
+<ul><li>金额看绝对规模：小票（5亿盘子）500万容易被资金人为操控，不算数；大票（5000万）更倾向市场综合博弈。</li><li>量比看相对放量：竞价8000万，但昨天成交40亿，量比极小，根本不算爆量。</li></ul>
+<p><strong>第五步：高开是弱转强超预期的前提。</strong> 低开=符合预期（不算超预期）；高开幅度越大，对爆量的需求越大（代价越高）。</p>
+<p><strong>第六步：排除"尾盘/中午偷鸡"的分时。</strong> 特征：全天没表现、没异动，临近收盘一笔直线拉涨停。这是个人资金行为，不是市场合力，次日哪怕竞价放量也不安全，回测要剔除。</p>
+<p><strong>第七步：用工具提效。</strong> 同花顺"竞价监控"按竞价金额排序，盯三个指标：<strong>大幅高开、急速上涨、竞价抢筹</strong>，还能回测任意历史日期。热点复盘看每日涨停/跌停家数、封板率、一字板数、连板数、连板高度、昨日涨停表现，点任意日期能回看当天所有涨停股、题材、首次涨停时间。但记住铁律：<strong>工具≠盈利</strong>。工具只辅助回测，盈利靠思维和模式。</p>
+<p>顺带讲两个常见的"模式本质"，帮你理解四步法里"思考本质"这一步有多值钱：</p>
+<ul><li><strong>手板本质=纯试错</strong>：核心逻辑是"高位核心加速→随时断板预期→高低切与补涨预期"。</li><li><strong>反抽本质=下跌比上涨更安全</strong>：上涨段获利盘比例高（如83%），资金随时兑现，接盘不安全；下跌段套牢盘比例高（如82%），浮亏后卖盘衰竭，再跌也不割肉，所以安全。爆量K战法的本质就是反抽，核心要素是<strong>人气</strong>。</li></ul>
+<p>还有一个规律要记住：<strong>趋势博弈</strong>——强势题材第一次回调（阴线）后，次日往往接修复，连续两三根阴线都是博弈点，前提是题材级别大、预期强（如低空经济、人工智能）。这一条在第24讲"一二三玩法"里会再用到。</p>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>一进二参数：昨日板块首板涨停数量（市场好时30-40个，差时约5个）。</li><li>弱的标准：中午前封死不算弱；下午封板相对弱；炸板&gt;1次或&gt;2次；多次炸板+下午封板最弱。</li><li>市值参照：近期高位连板市值未超50亿/30亿（回测的市值筛选维度）。</li><li>解套概率：胜率70%时，解套概率可达85%（可衍生分仓模式）。</li><li>竞价时间：25分之后、30分之前。</li><li>反抽筹码：上涨段获利盘约83%，下跌段套牢盘约82%。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li>在牛市普涨里回测，得出"胜率100%"就以为找到圣杯——那是行情给的，不是模式给的。</li><li>把"弱转强"和"超预期"混为一谈。它们不是一回事：个股因板块利好高开，是弱转强但不是超预期。判断分两个维度——个股走势维度（跳空昨日涨停价=更强）和预期维度（结合板块因素、关联性因素，<strong>无外力</strong>的弱转强才是真超预期）。有外力（消息面、关联超预期）需谨慎。</li><li>回测里用主观买卖点（"我能吃到大肉"），数据全是自嗨。</li><li>把"正确的废话"当本质——不去深究"资金为什么选这个板块"，只停留在"强者恒强"这种车轱辘话。</li><li>认知偏见：做龙头赚钱就以为只有龙头能赚钱。市场是生态，中位股被忽视就没有高位，别把"中位性价比最低"当绝对真理。</li><li>板块本身没有走强预期时，还去赌个股超预期——十有八九失败（比如低空经济已大退潮、处于双顶附近，个股超预期多半失败，这属于知行不合一）。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>回测处在四个支柱里【执行】与【纪律】的交汇处：它把前面学到的"语言"（识别预期差/超预期，见第5、6讲）和"信号"（弱转强、爆量）变成一套可反复验证的规则，这就是纪律。模式建立四步法里的"思考本质"，几乎每个模式的本质都会绕回那条主线——预期差/超预期。回测最终服务的是最高纪律"买卖逻辑一致性"：买的时候想的是超预期弱转强，卖的时候也必须是这个逻辑走坏才卖，而不是盘面一跳就慌。</p>
+<hr>
+<h2 id="第21讲动态股池如何建立长期股池">第21讲：动态股池——如何建立长期股池</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>别在五千只股票里大海捞针，先圈出10-20只"最可能有事发生"的票，每天只在圈子里找超预期和试错的机会。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p><strong>动态股池是什么？</strong> 把全市场压缩到一个几十只（10-20只左右）的小池子，每天只从池子里筛出"超预期"或"感觉还行"的标的来操作。它是给基础薄弱、跟不上盘面变化的小白准备的"选股减速带"。</p>
+<p>为什么需要它？先看清三个选股困境：</p>
+<ol><li><strong>动态调整难</strong>：盘中临时起意、冲动决策，胜率极低，结果"开盘感觉不错，收盘发现方向错了"。</li><li><strong>计划跟不上变化</strong>：提前计划的票容易被突发消息打乱而失效。</li><li><strong>随机选股选不到好股</strong>：规律是"涨的选不到，跌的一个不落下"。</li></ol>
+<p>还有个最扎心的悖论：真正的好机会往往是"<strong>计划外超预期</strong>"。案例：首都在线（300846）当天开盘超预期，但它前一天根本不在你的计划里，也不是龙头核心股，于是眼睁睁错过。这就是动态股池的由来——你需要一个能覆盖"计划外超预期"的机制。</p>
+<p>动态股池同时解决三个问题：<strong>选股</strong>（有范围）、<strong>安全性</strong>（经筛选）、<strong>随机交易</strong>（有纪律）。池子的真正价值不只是"选出好票"，更在于"没有机会时敢空仓"。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p>为什么缩小范围就能提高胜率？因为短线选股的核心不是"找到唯一正确答案"，而是"提高命中率、降低容错成本"。哪怕你在池子里盲选，胜率也比全市场瞎选高一大截。</p>
+<p>再深一层，是<strong>超预期与试错的本质区分</strong>（本讲命门）：</p>
+<ul><li><strong>超预期</strong>：个股走势强于普遍预期，本质是"弱转强"的一种表现（见第6讲）。典型：昨天市场普遍觉得它不行了，今天却高开。</li><li><strong>试错</strong>：找不到绝对确定的机会时用小仓位试探。本质是"<strong>买市场风格</strong>"而不是"买个股逻辑"——比如发现最近是机构行情，看到80亿盘子的首都在线开盘还行，就作为试错对象。</li></ul>
+<p>试错经典案例是四川长虹（600839）：前两个涨停毫无辨识度，第三个涨停确认低位后开始加速。试错初期，个股可能没有硬逻辑、没有明确地位，核心只是"符合当下市场风格"。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>先做每日功课（两条主线）：</strong></p>
+<ol><li><strong>看消息面</strong>。用"开盘啦"首页的"明天炒什么"功能，看热度值、消息汇总、利好个股，重点看盘前概要和周末消息汇总。案例：2月6日"李飞飞团队50美元复刻DeepSeek R1"+"DeepSeek暂停API充值"两条消息直接锁定算力方向，开盘前30分钟就能试错买入算力股。</li><li><strong>看市值分档涨幅</strong>。在通达信"盘面分析"模块里，把股票按市值分档（千亿以上、500-1000亿、200-500亿等），看哪一档涨得最多，判断资金现在偏好大盘股还是小盘股。</li></ol>
+<p><strong>然后建立股池，六个筛选条件（核心量化输出）：</strong></p>
+<ol><li><strong>竞价金额&gt;3000万</strong>。竞价有量说明有资金关注，个股容易走强；即使下跌，有量也有承接，不会直接"闷杀"。</li><li><strong>自由流通市值设范围</strong>：下限30亿（过滤流动性差的迷你盘）、上限100亿-200亿（行情好时可放宽到300亿-400亿）。</li><li><strong>开盘涨幅&gt;0%</strong>（高开）。低开或平开不符合强势特征；筛出的太少，可放宽到"&gt;-1%"。</li><li><strong>剔除科创板和北交所</strong>（按个人权限）。</li><li><strong>剔除一字板</strong>（开盘价=涨停价，买不进）。</li><li><strong>剔除昨日一字板</strong>（昨日一字，今日高开也不叫超预期，因为预期本来就是涨停）。</li></ol>
+<p>关于"3000万"，务必记住推导：<strong>30亿市值 × 1%实际换手率 = 3000万</strong>。这是小盘股换手率的下限，不能再低（再低就是没换手），也不能定到8000万（会误杀小盘股）。</p>
+<p>关键辨析：<strong>大票看金额、小票看换手率，统一用金额最合适</strong>。因为"手数"会骗人——买1万手但股价很低，金额其实很小。金额是"真金白银"，最实打实。</p>
+<p>筛选结果是动态的：2万亿成交的活跃期，池子可能筛出23个；低迷期可能只有几个。条件可弹性调整：太少就把开盘涨幅放宽到&gt;-1%，太多就加严。</p>
+<p><strong>池子的两个应用入口</strong>，注意它们对开盘幅度的要求正好相反：</p>
+<ul><li><strong>试错模式</strong>：开盘幅度要低（理想1-3%小幅高开），追求日内成本优势，做错代价小。</li><li><strong>超预期模式</strong>：开盘幅度要高，且需突破前一天高点（关键压力位）才算确认，追求确定性。</li></ul>
+<p>最后记住三大策略谱系（对应不同场景）：</p>
+<ul><li><strong>超预期策略</strong>：情绪修复/新题材启动时用，竞价确认或打板，预期收益5-20%，核心要求是强度确认。</li><li><strong>试错策略</strong>：趋势行情、无明确机会时用，竞价低吸或半路，预期收益3-10%，核心要求是成本控制（开盘不高）。</li><li><strong>躺赢策略</strong>：已持有核心龙头时用，持有不动，预期收益20%+，核心要求是逻辑硬核（题材龙头）。</li></ul>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>池子规模：10-20只（筛选后约23-30个，低迷时&lt;10个）。</li><li>竞价金额下限：&gt;3000万（=30亿市值×1%换手）。</li><li>自由流通市值：100亿-200亿（-300亿），下限30亿。</li><li>开盘涨幅：&gt;0%，可放宽至&gt;-1%。</li><li>试错开盘幅度：约1-3%（鸣志电器当日约0.99%）。</li><li>池子平均收益实证：+6.27%（周四选股周五平铺）。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li>把池子当圣杯，不思考个股逻辑和市场本质——池子只是辅助工具。</li><li>对人气股不设预期：龙头本该一字板，结果只高开4个点，这是"不及预期"，哪怕符合池子条件也不能买，要直接排除。</li><li>为了交易而交易——真正赚钱的交易往往只有几笔。</li><li>套利不划算还要硬做：为了两三个点去做高位股，性价比极低（拓尔思低吸只能赚两三个点，不如选符合趋势风格的票）。</li><li>迷信"看懂行情就能赚"——实际上当你看懂行情、确认情绪不错时，博弈点往往已消失（每日互动周四三连板没人敢顶，周五给了十几厘米才知道香）。股池要提前备好先手，破解这个悖论。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>动态股池是四个支柱里【信号】支柱的"工具化"落地：它把散在盘面上的超预期/预期差信号（见主线，第5、6讲）预先装进一个可扫描的框，让你在开盘那几分钟快速捕捉"计划外超预期"。它直接服务第22讲"最与唯一"的选股标准——池子筛出来的票，最终还要用"最/唯一"再筛一遍。同时它也是纪律的一部分：池外不动、池内择优，是给冲动交易踩的刹车。</p>
+<hr>
+<h2 id="第22讲选股标准最与唯一">第22讲：选股标准——最与唯一</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>选股只有两把尺子：要么选"最"（同一批里最猛的那个，右侧追强），要么选"唯一"（没人能替代的那个，左侧埋伏）。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p>做交易前先问自己一句：我要买的票，符合"最"还是"唯一"？</p>
+<ul><li><strong>"最" = 同逻辑最强</strong>：最快涨停、涨幅最大、封板最坚决。它是右侧思维——比谁强，就选最强。</li><li><strong>"唯一" = 选择集中、稀缺</strong>：同一逻辑下，它是北交所唯一的高标、创业板唯一的高位、主板唯一的换手。它是左侧思维——比谁稀缺，就选稀缺。</li></ul>
+<p>两个例子秒懂：</p>
+<ul><li><strong>选"最"</strong>：AI医疗板块开盘后想参与，除了一字板（买不到），市场上有3个手板。该选谁？选第一个涨停的。因为第一个符合"最"——同逻辑最快上板、最强。能做第一个就不做第二个，宁缺毋滥。第一个有时也炸板，但第二个、第三个炸板或亏损的概率更高。顺便记住<strong>首板定义</strong>：当日板块内第一个涨停的股票，要剔除昨日已涨停的连板股和高位反包股。</li><li><strong>选"唯一"</strong>：DeepSeek高位修复，创业板有每日互动、首都在线，科创板有青云科技、优刻得，主板一堆，北交所有并行科技。该选谁？选并行科技。因为它在"北交所高位修复"这个逻辑里最集中、最稀缺，具备唯一性。当天并行科技日内拉了近20个点。</li></ul>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p>为什么"最"和"唯一"能当选股总纲？因为它直接回答那个最扎心的问题：为什么我总买到"杂毛"、买了之后被动套牢？</p>
+<p>答案：<strong>持股的被动，源于做盘时不知道这只股票的预期是什么</strong>。你买了数据港（同逻辑里既不是最强也不是唯一），结果同逻辑的云赛智联、海南华铁都涨了，就它不涨，你就懵了——不知该走还是该留。定位模糊→不好买（不知何时介入）→买了不好处理（不知何时卖）。</p>
+<p>而唯一性和最强势，恰恰能让预期变清晰。于是有了核心决策规则：</p>
+<ul><li><strong>有唯一性 → 可左侧埋伏</strong>（提前买入赌修复）。</li><li><strong>无唯一性 → 只能右侧追强</strong>（等市场选出最强再跟）。</li></ul>
+<p>举例：云赛智联、海南华铁、东华软件、数据港、润建股份是同一时期同一逻辑的一批标的，地位相似，谁都不"唯一"。这时去做左侧埋伏，就无法确定哪个会率先修复，必然被动。正确做法是等——等某天云赛智联率先涨停、还带动其他票，它就成了"唯一"，之后再低吸、追涨，标的就清晰了。</p>
+<p>再深一层，是"<strong>博弈强度 vs 博弈预期</strong>"：</p>
+<ul><li><strong>博弈强度</strong>：右侧，题材爆发第一时间介入，赌当天爆发力，确定性高。比如AI医疗开盘3个一字板配合消息，直接开盘追。</li><li><strong>博弈预期</strong>：左侧，赌题材后续能持续、成为大主线，确定性低。比如AI医疗第一天暴涨没买到，第二天去接力。</li></ul>
+<p>博弈预期难在哪？本质是"猜/蒙"题材持续性，是左侧交易。哪怕你对题材理解很深，市场走势没强度，照样亏。大游资也会吃跌停（交易员8亿吃特惠信息跌停，本质也是赌预期）。</p>
+<p>这就引出资金体量的天然分工：<strong>小资金可以等</strong>——等确定性强度出来再做右侧；<strong>大资金等不了</strong>，等强度确认时已买不到足够筹码，被迫做左侧。所以小资金最大的优势就是"买点后置"。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>板块突然启动时，选谁？四个维度：</strong></p>
+<ol><li><strong>最高</strong>：板块内已存在的最高连板股，今天晋级就是板块最高位。</li><li><strong>最先涨停</strong>：板块启动时第一个涨停的。</li><li><strong>最正宗</strong>：题材里基本面最纯正、最核心的。</li><li><strong>中军</strong>：注意定义——不是板块里静态市值最大的，而是"<strong>板块上涨过程中，市值最大的那只</strong>"（大资金能进出）。</li></ol>
+<p>顺带把板块健康度也讲透（<strong>板块三维度框架</strong>）：</p>
+<ul><li><strong>高度预期</strong>→反馈到高位（高位涨不动，板块高度受限）。</li><li><strong>持续性预期</strong>→反馈到低位数量（小弟越多持续性越强）。</li><li><strong>资金容量</strong>→反馈到中军。</li></ul>
+<p>良性板块三特征：<strong>有中军、低位涨停数量多、高位敢往上顶</strong>。若低位强、高位不强，说明对板块预期打折，只做低位超预期套利，次日弱就赶紧走、别格局。主线切换的信号是：从小盘证券涨停演变成东方财富、中信证券涨停=市场真正看好。</p>
+<p><strong>把"最"细化为可操作清单（六最）：</strong></p>
+<ul><li>最高（连板高度最高）</li><li>最快涨停（同梯队里，9:35涨停优于9:45涨停）</li><li>最正宗（与板块概念关联度最高）</li><li><strong>最主动</strong>（板块回调时，率先、主动拉升，先于板块且有幅度）</li><li><strong>最抗揍</strong>（板块回调大家都在跌，它扛住分歧不跌或跌幅小）</li><li><strong>最正向</strong>（距离历史新高越近，修复能力越强、上涨阻力越小）</li></ul>
+<p>"最主动"和"最抗揍"特别容易混，务必区分：创业惠康早盘高开8个点、盘中跌到-1%，这是"被动"（跟随大盘下跌），既不算主动也不算抗揍。真正的主动/抗揍，是板块分歧时能稳住分时均线，或逆势拉升。</p>
+<p><strong>同属性超预期只做一个。</strong> 超预期判断的方法是"关联性思考+地位比较"：东方财富高开17-18个点、中信证券大票开一字，是市场代表；指南针、润和软件虽高开，但相对东财、中信不算超预期。同属性里只挑"地位最高、涨幅最大、最没想到"的那只——因为最超预期的不行，跟风股会亏大钱。跟风股反超龙头也是超预期（浪潮信息 vs 中科曙光：跟风股比龙头扛揍）。</p>
+<p><strong>市场异常波动里的"反衬选强"</strong>（这也是"最/唯一"的实战用法）：只有急涨急跌的异常波动（急杀、炸板潮、地天板）才能反衬出个股强弱，缓慢阴跌中的上涨不算数。大盘跳水时跌幅最小、大盘拉回时涨幅最大的那只，就是"最抗揍"；板块跳水后唯一拉回新高的，就是真强势。典型案例是亚香股份（香料股，无强逻辑，但大盘急杀时最抗揍，预期套利几个点，实际涨停）。同时注意"主动弱 vs 被动弱"：被大盘拖累的被动弱可接受，开盘主动跳水的主动弱（如敬业达）非买点。还可以用这个思路找稀缺：主板79家涨停vs40家炸板（选79家连板），创业板4家涨停vs5家炸板（选炸板博弈，因为5选1比40选1稀缺得多）。</p>
+<p><strong>博弈预期时，保证安全性的三要素：</strong></p>
+<ol><li><strong>情绪上有修复预期</strong>：修复日博弈比退潮日安全，赌错代价也小。</li><li><strong>锚定上有强度确认</strong>：看核心个股封单，润达医疗第二天封单明显加大或没减小，说明强度还在。</li><li><strong>选择上做最核心的唯一</strong>：别拿幸存者偏差当规律——偶尔做第四个涨停赚了钱，不代表长期可行；长期做第一个涨停胜率更高。</li></ol>
+<p><strong>两条补充原则：</strong></p>
+<ul><li><strong>卖点没有定势</strong>：别迷信"分时顶背离"这类固定指标，用它们大概率卖飞。<strong>理解在哪，卖点就在哪</strong>——对个股理解到位，自然知道何时卖。</li><li><strong>正向选股</strong>：距新高越近越好。云赛智联稍涨就创新高，数据港哪怕涨停也回不到新高（市场会怀疑"双头"），所以云赛智联更容易修复创新高。</li></ul>
+<p><strong>关于容量票与概念梳理：</strong> 容量票=成交额高的股票（如东华软件日成交100多亿），大资金进出方便，是资金体量大的硬约束。概念梳理看"<strong>启动时走什么概念</strong>"——拓维信息启动时走的是算力，所以核心是算力而非机器人；查概念按Ctrl+R。</p>
+<p><strong>关于转债（预期博弈）：</strong> 转债博弈的是"预期"而非当日强弱——隔日预期（润达转债提前兑现龙头次日一字预期）和当日预期（信测转债博弈开盘上冲，不赌日内持续）两种用法。</p>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>并行科技（北交所唯一高位修复）当日拉升近20个点。</li><li>"最"的细分：最高/最快涨停（9:35优于9:45）/最正宗/最主动/最抗揍/最正向。</li><li>板块启动四维度：最高/最先涨停/最正宗/中军（板块上涨中市值最大者）。</li><li>炸板潮参照：45家炸板（衡量选股难度）；创业板4涨停vs5炸板（5选1稀缺）、主板79涨停vs40炸板。</li><li>亚香股份套利：涨11-14个点。</li><li>大资金案例：交易员8亿吃特惠信息跌停。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li><strong>五区间涨幅陷阱</strong>：选"五区间涨幅最高"的股票，次日力度往往不行，因为短期顶部结构出现——量价背离。</li><li><strong>出监管陷阱</strong>：偏离异动≠被监控、出监管≠必涨、监管状态≠买入理由。真正强的票"无惧监管、敢于顶异动"，不敢顶监管的票走不出大龙头。逻辑悖论：若出监管必涨，资金早该提前低吸了，轮不到出监管前才买。</li><li><strong>高位跟风的被动是"买入即注定"</strong>：买浙江黎明（跟风）后，龙头兴民健康涨停它继续跌、龙头走弱它也跌，完全无法用龙头预判跟风。</li><li><strong>概念混淆</strong>：一只票拥有多个概念（车联网、算力、机器人），不等于同时走所有概念，核心只看启动时走的那个。</li><li><strong>博弈预期当博弈强度做</strong>：把"猜题材持续性"的左侧交易当成确定性高的右侧交易，重仓吃跌停。</li><li>题材强度当延续性：若只想持续盈利，<strong>延续性&gt;强度</strong>——连续三天有赚钱效应的板块才能高看，解套概率远高于一日游题材。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>"最与唯一"是整个体系里【语言】支柱的核心：它教你用一套统一的标准去"读"盘面，把"预期差/超预期"这条主线（见第5、6讲）翻译成可执行的选股动作——超预期→右侧选"最"，预期差→左侧埋伏"唯一"。它和第21讲的动态股池是"筛子"和"尺子"的关系：股池先圈范围，"最/唯一"再定标的。同时它和第23讲的"临盘交易"衔接——临盘来不及分析时，"有没有比它更牛逼的"就是"最/唯一"在盘中的快速版本。</p>
+<hr>
+<h2 id="第23讲盘中工作清单持仓加仓计划执行临盘交易">第23讲：盘中工作清单——持仓、加仓、计划执行、临盘交易</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>盘中一切工作有且只有一条优先级：先处理持仓，再执行计划，最后才是临盘抓机会；而加仓永远是一笔全新的交易。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p>先立总纲，盘中工作的优先级是固定的：</p>
+<ol><li><strong>持仓处理</strong>（永远第一）</li><li><strong>计划执行</strong></li><li><strong>临盘交易</strong></li></ol>
+<p>第一，<strong>持仓处理——永远的第一优先级。</strong> 铁律：持仓处理 &gt; 寻找新机会。最常见的误区就是"为买新票而匆忙卖持仓"。比如你持有新力金融（预期小冲高），看到国脉科技开盘拉升强，就忍不住先卖一半新力金融去切换——错。新力金融没到卖点（3-4个点），就不能因为国脉科技而处理它。</p>
+<p>正确的处理理由只有三类：<strong>不看好、认为走弱、到达卖点（止盈/止损）</strong>。绝对禁止"为开新仓而处理持仓"。每天开盘第一步，是思考持仓处理方案、锚定处理依据。</p>
+<p>处理时还要分票性（这背后是第24讲的心法）：</p>
+<ul><li><strong>情绪票</strong>（如文一科技）：易直线杀、回调快，处理要果断。</li><li><strong>趋势容量票</strong>（如深科技）：不易直线杀，可先减仓、剩余格局，着急卖容易卖飞。</li></ul>
+<p>第二，<strong>加仓——一笔独立的交易。</strong> 加仓的唯一判断标准：<strong>假设你没有底仓，现在这个价位，你会不会买？</strong></p>
+<ul><li>会买→加仓；不会买→不加。无论你是套牢想摊薄成本，还是盈利了想让利润奔跑。</li></ul>
+<p>底层逻辑：每一笔交易都是独立的，加仓就是一笔全新的交易。案例：第一笔早盘追高，逻辑是"预期连板"；第二笔尾盘埋伏，逻辑是"预期次日反包"。这是两笔逻辑不同的交易。第一笔逻辑已证伪，第二笔基于新逻辑，加不加仓跟持仓盈亏完全无关。</p>
+<p>第三，<strong>计划执行——优于临盘交易。</strong> 优选执行计划，次选临盘交易（仅在计划无法执行时才考虑临盘）。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p>为什么持仓必须第一？因为确定性。持仓冲高3个点，是"已经在你手里的确定性"；去追新机会，是"不确定性"。放弃确定性去追不确定性，是人性里最昂贵的冲动——看到新机会就着急处理持仓，结果往往"两面吃面"。</p>
+<p>为什么加仓必须是独立交易？因为它堵住两个情感漏洞：一是"套牢摊薄"（越跌越买、越买越套），二是"利润奔跑"（赚了就盲目加重仓）。把它们都还原成"现在这个价，你买不买"，情感就失效了，只剩逻辑。</p>
+<p>为什么计划执行要绝对客观？因为执行力是短线最大的难点。哪怕只有50%胜率，执行力强也能稳定盈利；犹豫、挑着执行，会把正期望系统做成负期望。计划的本质，是把盘中的主观判断提前做掉，用纪律对抗人性。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>持仓处理的动作清单：</strong></p>
+<ul><li>开盘第一步锚定处理方案，先处理完持仓，再看新机会。</li><li>用<strong>同身位对比</strong>判断强弱：关注同梯队、同板块的个股表现。如果你手里的票（如化工二板的小鲁）比同身位的票更强，而比你弱的票（小亚）开盘冲高，那你就无需恐慌卖在水下。</li><li>用<strong>持仓强弱判断法</strong>：以大盘/板块为参照，若大盘跌2%反弹1%，你的持仓跌4%只反弹0.5%（个股弱于市场），且无额外持股逻辑，就是卖点。</li></ul>
+<p><strong>计划执行的三个杀手，逐个破解：</strong></p>
+<ol><li><strong>条件模糊</strong>：计划"低吸科泰电源"没说清是负一还是负十。→明确到具体点位，比如"负九深水低吸"。</li><li><strong>条件过多</strong>：设一堆前置条件导致没法执行。→聚焦与核心逻辑相关的唯一或少数条件。例：按20日线低吸科泰电源（龙头），龙头表现就代表板块，不用再分析板块情绪。</li><li><strong>主动放弃执行</strong>：计划制定了，却因"情绪不佳、担心破位、盘面氛围差"而放弃。→这绝不构成合法理由。<strong>唯一的合法理由是"条件未触发"</strong>。</li></ol>
+<p>最致命的状态是"<strong>半执行、半不执行</strong>"——挑着执行、掺入主观因素，后果是胜率必然下降、好机会永远买不到、买到的多是还会跌的。正确做法只有两条路：要么坚决不做（完全临盘），要么绝对客观执行。若因资金量恐惧，就降仓到敢执行的水平。</p>
+<p>计划还有优先级：同逻辑下"<strong>明确关联（确定性高）&gt; 可能被选择（不确定性高）</strong>"。计划不宜过多，5-6个太多，优选<strong>前3个</strong>，优先执行最高的，它不给机会再退而求其次。</p>
+<p><strong>临盘交易（最后才轮到，也要规范做）的流程：</strong></p>
+<ol><li><strong>开盘先定方向</strong>：判断强弱、确定方向，再找机会。情绪判断无需量化，看涨停表现、连板表现、跌停表现、一字板数量，感受"大差不差"即可。</li><li><strong>第一步选板块</strong>：选明显强势的板块提升胜率（看一字板构成，机器人占3个、板块骨性良好就选它）。</li><li><strong>第二步判断情绪</strong>：对盘中临时想法，必须判断情绪有无修复预期；无明确修复预期，不建议做临盘交易。</li><li><strong>异动拉升的应对</strong>：看到拉升就上头想追是最大陷阱。核心动作是冷静、<strong>至少给自己1分钟缓冲</strong>——写下买入理由（分析情绪预期、板块强度），写完还觉得该买再下单。往往写着写着股价已回落，你就躲过了一次追高。</li><li><strong>来不及分析的补救判断</strong>：问一句"<strong>有没有比它更牛逼的？</strong>"（同逻辑下）。例：东土科技（创业板一进二）拉升，先检查有没有同板块、同逻辑的票拉升得更主动。没有更牛逼的→可尝试；有→它易成陪衬，放弃。</li></ol>
+<p><strong>复盘必须独立完成</strong>，不可依赖他人——目的是培养独立分析能力。竞价交易（挂涨停/跌停、成交价即开盘价）本质是试错交易，错了就错、无需纠结。</p>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>盘中优先级：持仓处理 &gt; 计划执行 &gt; 临盘交易。</li><li>新力金融卖点参照：3-4个点未达预期卖点则不卖。</li><li>计划数量：不宜5-6个，优选前3个。</li><li>临盘缓冲：至少1分钟，写下买入理由再决策。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li>为买新票而匆忙卖持仓（让新机会绑架持仓决策）。</li><li>套牢摊薄式加仓、盈利后"让利润奔跑"式加仓——都违反"独立交易"原则。</li><li>计划写得模糊（"低吸"没点位）或条件堆太多，最后没法执行。</li><li>用"情绪差、怕破位"当理由放弃执行计划——这不合法，唯一合法理由是"条件未触发"。</li><li>半执行半不执行——挑着执行，胜率必然下降。</li><li>看到异动拉升就上头追高，不给缓冲时间。</li><li>个股强弱脱离市场孤立看——个股强不强的本质，映射的是"市场能否突破"的更大预期，分析个股要结合市场预期（见第11讲择时）。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>第23讲是四个支柱里【执行】支柱的主战场：它把前面所有讲次学到的判断（预期差/超预期的主线、赚钱效应择时、最/唯一的选股）落实到"盘中这一刻具体怎么按优先级动手"。而"加仓是独立交易"这一条，直指体系的最高纪律——<strong>买卖逻辑一致性</strong>：每一笔买入（包括加仓）都必须有独立、自洽的逻辑，第一笔追连板、第二笔赌反包，两笔逻辑各算各的账，绝不能拿"我手里有仓"来糊弄自己。</p>
+<hr>
+<h2 id="第24讲看盘界面与仓位管理">第24讲：看盘界面与仓位管理</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>用一套"一屏盯多个板块"的界面和"持仓不超过三只、试错不超过三成"的铁律，把看盘和控仓都变成肌肉记忆。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p>本讲把"怎么盯"和"拿多少"两件事工具化、纪律化。</p>
+<p><strong>先讲看盘界面。</strong> 核心组件：涨停主板块（主板）、动态选择池（含创业板涨停、机会池——当天/提前一天选股）、大盘分时盘口、分时图、委托队列、K线。硬件上，双屏（一屏看盘一屏聊天），推荐4K分辨率（3840×2160，注意辨别真假4K）。</p>
+<p>看盘的关键不是"看得多"，而是"看得精"。核心方法是<strong>自建人气股池</strong>：把每个板块的核心人气股背下来、放进自选池，实现一屏监控多板块，而不是逐板块翻看。</p>
+<p>为什么能这么做？因为一条核心规律：<strong>个股反应永远比板块提前，尤其是人气股</strong>。案例：光启技术跌停，军工板块当日崩盘。所以盯住几个核心股=监控多个板块，无需逐一查看板块指数。</p>
+<p>所以每个板块的核心人气股要像背课文一样背下来（低空经济、并购重组、芯片、抱团、鸿蒙、光伏、军工、文化传媒等，每个板块记住代表股），盘中看到中油资本就知道是跨境支付，看到天风证券就知道是券商，看到中文在线就知道是文化传媒。持仓股也从这个人气股池里挑，安全性高——对上班族这种无法实时盯盘的人尤其重要。</p>
+<p><strong>再讲仓位管理，三条控仓铁律：</strong></p>
+<ol><li><strong>持仓不超过三只</strong>（成熟投资者一般两只）。</li><li><strong>最多六只</strong>（买三卖三）。</li><li><strong>试错仓不超过30%</strong>。</li></ol>
+<p>配套规则：</p>
+<ul><li>持仓数量与资金量无关。几万块买几十只股票、每只两三手，失去分析意义，不如买大盘ETF。</li><li>多模式操作（权重、趋势、打板）建议分账户，别挤在一个账户里互相干扰。</li><li>心理压力若因仓位重导致压力大，就降低总仓位——以小博大，输不起就降仓。</li><li>本周预期偏滞涨或回调时，仓位建议降到三成。</li></ul>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p>为什么"一屏监控人气股"有效？因为它利用了"人气股是板块的哨兵"这一事实——人气股是资金关注度最高的地方，异动最先在这里显现，盯住它们等于给每个板块装了个提前报警器。</p>
+<p>为什么控仓要"≤3只、试错≤30%"？因为短线交易的敌人是"集中押注"和"过度分散"两个极端。持仓超过三只，精力被摊薄，无法深度分析每一只；试错超过三成，错一次就伤筋动骨。控制仓位本质是控制"亏损比例"而不是"本金规模"——<strong>本金不重要，重要的是亏损比例；有本事，不缺本金</strong>。</p>
+<p>最后把心法层也归拢到这里（它是看盘和控仓背后的人性底色）：</p>
+<ul><li>股票本质是人性博弈的游戏。天道是"损有余而补不足"（动态平衡），但股市的人道是"<strong>损不足以奉有余</strong>"——强者恒强、弱者恒弱，涨的越强，弱的越弱。</li><li>执行力是最大难点，下单犹豫是短线最大障碍。</li><li><strong>急杀跳水一定不能卖（亏死也认）</strong>。应对方法：准备两个账户（一个持仓，另一个可接跳水）。</li><li>心态陷阱：竞价阴影、分时骗人。解法是"<strong>不看竞价、只看开盘价</strong>"——纯粹一点，避免竞价干扰，减少卖飞。</li><li>克服恐高（不敢买核心）的方法是<strong>降仓</strong>（而不是用模拟盘，模拟盘无真实亏损感、心态失真）。</li><li>投资学习三阶段：<strong>加法</strong>（满眼机会、频繁操作）→<strong>减法</strong>（满眼无机会、开始筛选）→<strong>寻找</strong>（有限机会里精准出击）。</li></ul>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>看盘界面搭建步骤：</strong></p>
+<ol><li>设置涨停颜色高亮：工具→系统设置→显示设置→数据高亮，以涨幅为条件（涨幅&gt;-9%显示指定颜色），涨停一眼识别。</li><li>自建板块，把各板块核心人气股纳入，一屏监控。</li><li>每日复盘把每个板块的核心人气股背下来。</li></ol>
+<p><strong>一二三玩法</strong>（本讲最实用的战法，必须吃透）：</p>
+<ul><li>适用对象：<strong>绝对的核心龙头</strong>（如大众交通、正丹股份这种超级大龙头）。</li><li>本质：<strong>龙头首阴、双阴低吸</strong>策略。"一二三"指首次出现的连续阴线数量（1根、2根、3根）。</li><li>买入时机：龙头首次出现对应数量阴线时低吸。</li><li>限制：首次出现4根阴线，博弈性已弱，不参与。</li><li>周K首阴不推荐（时间成本高、收益有限）；替代方案是"<strong>周K二点一线/三点一线</strong>"（正丹股份第二次回调，二点一线给13个点）。</li><li>可叠加<strong>爆量K玩法</strong>：操作顺序是日K→周K→爆量K（正丹股份第二次回调叠加爆量K给23个点）。</li><li>适用人群：上班族，追求资金稳定增值，年收益预期跑赢理财。</li></ul>
+<p>顺带提一句：这个"首阴博弈"的思路，在题材级别同样适用——强势题材第一次回调后次日往往接修复（见第20讲"趋势博弈"），只是"一二三玩法"把它精准用在绝对核心龙头上。</p>
+<p><strong>打板与选股补充：</strong> 打板优先选"大屁股"（如深科技，炸板后仍可回封），避开"小盘连板"（根本打不进、排板浪费仓位）。中高位打板的核心标准是"<strong>上板后能否引起无限遐想</strong>"——能则做，不能则弃。首板选择核心看节点：芯片首板节点已过，华为首板高标仍加速可继续玩，且"今天优于明天"。</p>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>控仓铁律：持仓≤3只（成熟2只）、最多6只（买三卖三）、试错仓≤30%。</li><li>本周偏滞涨时仓位建议：降至三成。</li><li>涨停高亮条件：涨幅&gt;-9%。</li><li>一二三玩法：1/2/3根阴线低吸，4根放弃。</li><li>正丹股份案例：二点一线收益13个点，叠加爆量K收益23个点。</li><li>屏幕：4K分辨率3840×2160，32寸显示器。</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li><strong>满眼机会</strong>：初学阶段认为处处是交易机会，频繁操作。</li><li><strong>过度分散</strong>：几万元买几十只股票、每只两三手，失去分析意义。</li><li><strong>为买新票匆忙卖持仓</strong>（呼应第23讲，持仓第一）。</li><li><strong>情绪票和趋势容量票处理混为一谈</strong>：情绪票要果断，趋势票可先减仓再格局。</li><li><strong>迷信固定技术指标卖股票</strong>（如分时顶背离），大概率卖飞。</li><li><strong>炒股极耗情绪</strong>：涨了没做难过、跌了做了更难过、别人赚钱嫉妒。应对是减少情绪投入、保持无感状态、接受"看不懂是常态"——连游资也看不懂，不必自我加戏、逆天改命。</li><li>概念辨识不查历史：多概念个股要查"历史涨停原因"判断当前炒作概念，避免高位试错。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>第24讲是四个支柱里【纪律】支柱的收官：看盘界面是"语言"和"信号"的观察窗（让你读得懂盘面），控仓铁律（≤3只、试错≤30%）是把所有判断落地的最终闸门。它和"一条主线（预期差/超预期）"的关系在于——只有当仓位和看盘工具都守纪律时，你识别出的预期差/超预期才有意义，否则一个重仓错误就抹掉十次正确。同时，本讲反复强调的"持仓优先""卖是因为它需要处理"（见第23讲），最终都指向最高纪律"<strong>买卖逻辑一致性</strong>"：买有买的逻辑，卖有卖的逻辑，两只票两本账，互不绑架。</p>
+<h2 class="part-title">第六部 · 纪律与心法（纪律层 · 收官）</h2>
+<p class="part-desc">守住利润：买卖逻辑一致性、心态修炼、模式构建。完成从「模式化交易」到「理解力交易」的跃迁。</p>
+<h2 id="第25讲买卖逻辑一致性最高纪律">第25讲：买卖逻辑一致性——最高纪律</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>买的时候就想清楚「什么情况证明我错了」，卖的时候严格用同一个理由，绝不中途换借口。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p><strong>买卖逻辑一致性</strong>，是贯穿全书的最高纪律：买入逻辑前置定义「证伪信号」，卖出严格用同一逻辑证伪，绝不中途换逻辑。</p>
+<p>它是「执行层」（第四部所有战法）和「纪律层」（第六部）的交汇点。没有它，再好的战法也会在执行中走样——这才是大多数人亏钱的真正原因：<strong>不是选错了股，而是逻辑中途偷换了。</strong></p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p>为什么它是最高纪律？因为人性天然会给自己找台阶：</p>
+<ul><li>你因为「超预期」买入（第6讲、第13讲），结果它跌了，你的大脑会自动把逻辑改成「这是价值股，长期持有」，于是小亏变大亏。</li><li>你因为「共振」买入（第10讲），结果它没涨，你会说「再等等，总会涨」，于是错失止损。</li><li>你因为「赚钱效应」买入（第8讲），结果情绪退潮，你会说「这次不一样」，于是扛单到崩。</li></ul>
+<p><strong>买卖逻辑一致性，就是逼你在买入那一刻，把「卖出理由」一并写死</strong>，不给临场的人性留任何发挥空间。它解决的不是「选股」问题，而是「执行力」问题——而执行力，恰恰是散户和专业选手的分水岭。</p>
+<h3 class="tpl-action">操作要点</h3>
+<ol><li><strong>买入前，写清楚买入逻辑</strong>：我是因为什么买的？是超预期（第6讲）？共振（第10讲）？分歧修复（第12讲）？还是某套战法信号（第13～19讲）？</li><li><strong>买入同时，定义证伪信号</strong>：什么情况说明这个逻辑已经不成立了？是跌破某个支撑？是次日不符合预期？是封单被砸？</li><li><strong>卖出只认这个证伪信号</strong>：到了就卖，没到就拿，<strong>不管当前是浮盈还是浮亏</strong>。浮盈不是卖的理由，浮亏更不是扛的理由。</li><li><strong>绝不中途换逻辑</strong>：绝对不能「买的时候是短线逻辑，跌了改成长期价值逻辑」。这是最致命、最常见的错误。</li></ol>
+<h3 class="tpl-quant">量化锚点</h3>
+<p>证伪信号的量化形式（把「证伪」落成具体数字，纪律才可执行）：</p>
+<ul><li><strong>止损位（按模式）</strong>：连板模式 -10%、短趋势 -5%、埋伏试错 -3%（详见第19讲）</li><li><strong>套利止盈</strong>：10%～15%（缩量战法，见第16讲）</li><li><strong>微仓标准</strong>：确定性不足的标的标注微仓（&lt;5%），用仓位表达不确定</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ul><li><strong>逻辑中途偷换</strong>：短线买成长线、超预期买成价值投资，小亏变大亏的根源。</li><li><strong>凭感觉卖，不凭逻辑卖</strong>：赚一点就跑（拿不住），亏了就扛（舍不得），两头挨打。</li><li><strong>把「浮盈」当卖点</strong>：盈利本身不是卖出的理由，只有「逻辑被证伪」才是。</li><li><strong>把「浮亏」当扛单理由</strong>：浮亏更不是扛单的理由，恰恰说明证伪信号可能已经触发。</li></ul>
+<h3 class="tpl-link">体系关联</h3>
+<p>这是全书<strong>四个支柱之上的「最高纪律」</strong>，位置在最顶层：</p>
+<ul><li>它是<strong>执行层（第四部）所有战法的前提</strong>——打板（第13讲）、反核（第15讲）、缩量（第16讲）……每一套战法的「止损/止盈」都是买卖逻辑一致性的具体化。</li><li>它是<strong>纪律层（第六部）的收官内核</strong>——第26讲「交易纯粹性」、第27讲「模式构建」，本质都是在为「买卖逻辑一致性」提供心态和流程保障。</li><li>它呼应<strong>主线（预期差）</strong>：你买入的逻辑，必须建立在「预期差/超预期」上；逻辑一旦被证伪，就说明「预期差」消失了，无论多难受都要走。</li></ul>
+<p><strong>一句话记住</strong>：买要问「我凭什么买」，卖要问「这个理由还在不在」。理由在就拿着，理由没了就走，跟盈亏数字无关。</p>
+<h2 id="第26讲交易纯粹性与心态修炼">第26讲：交易纯粹性与心态修炼</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>炒股这碗饭，靠的不是学得多、手速快，而是"想得干净"——只做自己看得懂、体系内的那几笔，用仓位管住手，用手管住心，让心保住认知。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p><strong>交易纯粹性（是什么）</strong><br>交易只有一个初衷——赚钱，别的都不该掺进来。它由两件事组成：</p>
+<ul><li>逻辑纯粹性：把与"这笔交易该不该做"无关的因素全部剥离。市场里大多数消息都是噪声、没有决策价值；别人的看法、游资的动向、一时的浮盈浮亏，统统是杂质。</li><li>操作纪律：不是体系内的机会，再诱人也坚决不做。</li></ul>
+<p>配套的一条铁律是：<strong>逻辑至上，"数"（技术指标）的重要性递减</strong>。技术指标只能当辅助的尺子，不能当决策的主人。</p>
+<p>为什么重要？因为短线交易的本质，是对市场逻辑和周期的理解，而不是操作频率的快慢。一位学员用 68 倍收益证明了真正的转折点：不是更努力，而是"方向正确性比盲目努力更重要"。他 2021 年入市时信息筛选低效、操作失误频发，越努力越亏；后来转向"聚焦热点题材的稀缺性验证"，才开始真正赚钱。他的学习投入可量化：体系课反复学了 4 遍（第 5 遍进行中）、录播课关键节点重复 3-4 遍——方法论内化靠反复，不是一次性听懂。</p>
+<p><strong>核心目标「不亏钱」</strong><br>把目标从"多赚钱"改成"不亏钱"，整个打法就变了：降低出手频率，只做看得懂的交易。赚钱靠三个支柱——<strong>市场理解力、套利方法、仓位管理</strong>。</p>
+<p><strong>买卖逻辑的一致性（一个最高纪律）</strong><br>买的时候用的是哪个理由，卖的时候就必须看同一个理由的成色：</p>
+<div class="table-wrap"><table style="min-width:560px;"><thead><tr><th>买入依据</th><th>对应卖出依据</th><th>适用场景</th></tr></thead><tbody><tr><td>强度驱动</td><td>强度衰减</td><td>缺乏想象力的题材</td></tr><tr><td>长线逻辑</td><td>逻辑证伪</td><td>颠覆性行业机会</td></tr></tbody></table></div>
+<p>特殊情况：地位性不足的标的要减仓；逻辑没破但强度偏弱，可以保留底仓。</p>
+<p><strong>心态修炼的两条腿</strong></p>
+<ul><li>控仓纪律（仓位是心态的刹车片）</li><li>心态与盈亏的关系（计划内 vs 计划外）</li></ul>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p><strong>为什么"纯粹"能赚钱——方向比努力重要。</strong><br>一个人每天复盘选股几十只、天天交易，但选的都是杂毛票，这叫"无效努力"，在错误方向投再多精力也突破不了。纯粹性的价值在于：砍掉冗余动作，把火力集中到"看得懂的、逻辑正宗的、题材稀缺的"机会上。</p>
+<p><strong>为什么买卖逻辑要一致——闭环才不散架。</strong><br>你因为"这票强"买进去，它变弱了你却用"我长期看好"说服自己拿住，两个逻辑打架，最后必然卖飞或套牢。一致性就是让每一笔交易形成完整闭环：什么逻辑进，什么逻辑出。</p>
+<p><strong>为什么会卖飞——长期逻辑和短期强度打架。</strong><br>并行科技案例：板块走强但个股分时强度不足，人一慌就卖了。卖飞的根源，是用"短期分时强度"去否定"长期题材逻辑"。正确做法：趋势股拿不拿，看的是逻辑（题材持续性、标的正宗性、想象力空间）；分时强度只用来辅助选买卖点，不是卖出依据。题材也分两类——概念性炒作（如元宇宙）和可落地性炒作（如低空经济），后者的逻辑强度更高，更能拿。</p>
+<p><strong>为什么心态会崩——一个负向闭环。</strong><br>计划外交易 → 亏损 → 慌乱 → 更偏离策略 → 再亏损。这个闭环一旦转起来，越亏越乱、越乱越亏（敬业达、梦网科技的案例，就是从盈利转亏损后被计划外交易拖下水的）。破局的唯一办法：清仓、重置节奏，而不是立刻去追下一只"高位核心股"翻本。</p>
+<p><strong>为什么"认知内盈利"才留得住——盈利分三类。</strong></p>
+<div class="table-wrap"><table style="min-width:560px;"><thead><tr><th>盈利类型</th><th>特征</th><th>长期影响</th></tr></thead><tbody><tr><td>认知内盈利</td><td>基于系统化交易体系</td><td>可持续</td></tr><tr><td>非认知盈利</td><td>靠市场运气（如 2015 年胆量博弈）</td><td>必回吐</td></tr><tr><td>违背德行盈利</td><td>不当手段</td><td>负面后果</td></tr></tbody></table></div>
+<p>只有认知内的钱能存进账户；跟风、抄作业赚的钱，最后都会还给市场。</p>
+<p><strong>为什么理解力能弯道超车。</strong><br>传统打板策略早期有高溢价，但当前环境下已失效（量化参与 + 市场风格转变），纯技术分析效果下降。当前盈利靠两个核心：对市场深度的信心强度 + 对整体趋势的把握能力，合起来就是"大局观"。理解力相对固定模式的突破，就像新能源车对燃油车的弯道超车——量化模型难以捕捉理解力驱动的机会，理解力积累会形成认知复利。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>第一步：把频率降下来。</strong><br>只做看得懂的交易，减少试错性交易；高赔率机会出现时才重仓，日常保持轻仓甚至空仓。看懂一个再做下一个。</p>
+<p><strong>第二步：用"三支柱"当每日检查清单。</strong></p>
+<ul><li>市场理解力：这笔交易我在赌什么逻辑？（题材稀缺性、正宗性、级别）</li><li>套利方法：我赚的是哪一段的钱？（修复、反抽、接力）</li><li>仓位管理：这一笔该下多重？</li></ul>
+<p><strong>第三步：买卖对照，先写后做。</strong><br>下每一单前先写下"我为什么买"，并明确"什么情况我会卖"。强度驱动的票看强度衰减，长线逻辑的票看逻辑证伪。</p>
+<p><strong>第四步：控仓是心态的前提（而非结果）。</strong></p>
+<ul><li>常态三成仓以下，避免过度暴露。</li><li>情绪周期向好时（赚钱效应强）才重仓，靠市场强度动态调仓。</li><li>分仓，降低单票波动对心态的冲击。</li><li>小仓位复利优于盲目满仓：两成仓赚 30%-50%，比满仓赌一把更走得远。</li><li>买点前置、注重安全边际：从高位追涨（四到八板）转到前置买点，降低成本、提升盈亏比。</li></ul>
+<p><strong>第五步：回撤控制的三大抓手。</strong></p>
+<ol><li>仓位分级：按题材强度动态调整仓位。</li><li>日 K 分歧识别：首次大分歧时不要恐慌离场。</li><li>锚定票观察：用标杆股（如杭钢）判断板块持续性。</li></ol>
+<p><strong>第六步：风险红线（量化止损标准）。</strong></p>
+<ul><li>单标的回撤超过 10%，止损。</li><li>盈利 20% 的票回调到 15%，可补仓。</li><li>翻倍后提取本金、留利润继续运作——本金安全了，心态自然稳。</li><li>资金属性很重要：只用"零压力"的钱（如历史股权激励收益）才能拿得住，持股周期要与题材强度正相关。</li></ul>
+<p><strong>第七步：持仓分类管理。</strong><br>区分换手龙（可灵活操作）与一字锚定票（当观察锚点），差异化处理；每日筛选日内龙头作为观察锚点，消息面与逻辑验证（如海外接入 DeepSeek）强化持仓信心。</p>
+<p><strong>第八步：上班族/时间不足者的打法。</strong><br>避免隔日超短交易，优先做题材大、持股周期长的标的；手机看盘效率低，就等待高确定性节点、减少频繁交易。预期差博弈（如拓维信息的新高预期差）要"看情绪强弱定策略"：情绪强可竞价、情绪弱只低吸，冲高回落要警惕。</p>
+<p><strong>第九步：心态崩了怎么办。</strong><br>清仓、重置节奏，等下一个适配机会，而不是追高位核心股翻本。记住：70% 的盈利来自计划内交易，踏空后要做的不是追，是停下来重整。</p>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>核心目标：不亏钱（而非多赚钱）</li><li>常态仓位：三成仓（30%）以下；试错仓 ≤30%</li><li>单标的：最大回撤 10% 止损</li><li>盈利保护：盈利 20% 后回调至 15% 补仓</li><li>本金纪律：翻倍后提取本金、留利润运作</li><li>复利观：两成仓赚 30%-50% 优于盲目满仓</li><li>计划内占比：70% 盈利源于计划内交易</li><li>分享门槛：逻辑 60 分以上才值得拿出来交流</li><li>学习投入：体系课 4 遍、录播课关键节点 3-4 遍</li><li>量能临界：指数量能 5 万亿是反弹临界点</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li>把"抗跌/扛跌"当"强"——扛跌不等于强，主动拉升才是强（见第27讲详讲）。心态层面同理：扛住浮亏不割，不等于这笔交易就对。</li><li>用短期分时强度否定长期题材逻辑，导致卖飞。</li><li>计划外交易：临盘拍脑袋买入，是心态崩溃的起点。</li><li>把炒股当"证明自我"的工具：急于证明自己 → 策略变形。炒股就是谋生手段，和上班没本质区别。</li><li>盲目追游资：游资也会错（陈小群早期有溢价、后期失效），跟单无出路。</li><li>迷信指标：技术分析（术）无法替代对市场本质的认知。</li><li>收益攀比、踏空焦虑：非认知范围内的盈利，本来就不属于你。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>这一讲落在"一条主线 + 四个支柱"里的<strong>纪律支柱</strong>，是收官前的心法总成：</p>
+<ul><li>交易纯粹性 = 把"预期差/超预期"这条主线（见第5讲预期、第6讲超预期）之外的杂质全部清掉，只留逻辑本体。</li><li>"不亏钱"目标对应<strong>信号支柱</strong>（见第8讲的赚钱效应、第11讲的择时）——看得懂才出手。</li><li>买卖逻辑一致性，正是全书"一个最高纪律（买卖逻辑一致性）"的直接落地：什么逻辑进、什么逻辑出。</li><li>控仓纪律对应<strong>执行支柱</strong>：仓位是心态的刹车片，心态稳了认知才能正常运转。</li><li>认知内盈利 vs 非认知盈利，是"从模式化交易到理解力交易"跃迁的价值观底座：只有理解力赚的钱能留存、能形成认知复利。</li></ul>
+<hr>
+<h2 id="第27讲模式构建与可复制竞价接力的工程化">第27讲：模式构建与可复制——竞价接力的工程化</h2>
+<h3 class="tpl-idea">一句话理解</h3>
+<p>真正的赚钱模式不是背下来的几条指标，而是一条能回答"为什么"的流水线：先看天时（情绪修复），再看地位（人气），最后才看数字——把"竞价接力"这个玩法，做成上班族都能照着跑的固定程序。</p>
+<h3 class="tpl-concept">核心概念</h3>
+<p><strong>模式类 vs 理解力类（是什么）</strong><br>赚钱方法分两种：</p>
+<ul><li>模式类：固定规则，条件符合就执行（如情绪龙头模式、N 字形态）。</li><li>理解力类：基于市场动态随机应变（如"一进二"本身没有固定模式）。</li></ul>
+<p>炒股的终极状态是"喜欢哪个玩哪个"，但前提是你先吃透了模式背后的理解力。本讲先送一套可复制的模式（竞价接力），再拆给你看它是怎么"造"出来的。</p>
+<p><strong>模式的核心是"人气与地位"，不是指标（为什么重要）</strong><br>任何模式的核心，一定不是数、量能、形态、均线、筹码支撑位这些指标——它们只能当辅助的尺子。</p>
+<ul><li>人气与地位决定两件事：①支撑的可能性与安全度；②弹性（反弹/拉升的力度）。</li><li>选股第一原则：人气和地位永远放第一位。多个票同时跌到支撑位要选一个做反抽，闭眼选人气最高的那个（东华软件、云赛智联、数据港、拓维信息里选拓维）。</li></ul>
+<p><strong>情绪修复节点 &gt; 机会本身</strong><br>节点（天时）不佳时，再好的机会成功率也低；机会的主要来源就是情绪修复节点。这是全课"先讲安全性、再讲条件"的底层原因。</p>
+<p><strong>竞价接力 = 左侧行为</strong><br>竞价（开盘集合竞价）买入属于"左侧"——开盘买入，生死由命、富贵在天。所以它必须优先解决"安全性"。而左侧交易的安全性，无法靠个股自身条件（量、高开幅度、昨日表现）确认，唯一能保证的是"情绪修复节点"。</p>
+<p><strong>模式两大分类</strong><br>按方向分：上涨段（接力竞价）与下跌段（反抽，核心是人气）；按位置分：左侧（竞价买入）与右侧（打板买入）。</p>
+<h3 class="tpl-logic">底层逻辑</h3>
+<p><strong>一切交易都围绕赚钱效应（见第8讲）。</strong><br>核心目标是"不亏钱"，于是降低频率，只围绕赚钱效应出手（见第26讲）。做热点、赌行情、做龙头，本质上都是奔着赚钱效应去的——资金扎堆处赚钱概率高。而赚钱效应最大层面是"情绪与指数"这个大环境，所以出手的落点应该选在情绪修复节点，而不是追涨。</p>
+<p><strong>赚钱效应两种玩法：预判 vs 跟随。</strong></p>
+<div class="table-wrap"><table style="min-width:560px;"><thead><tr><th>模式</th><th>定义</th><th>关注点</th><th>案例</th></tr></thead><tbody><tr><td>预判</td><td>提前判断题材/情绪将走强</td><td>安全性（找矛盾信号）</td><td>冰点尾盘买赌次日修复</td></tr><tr><td>跟随</td><td>盘中确认板块走强后介入</td><td>确定性（找锚定）</td><td>开盘看到固态电池强，直接做前排</td></tr></tbody></table></div>
+<p>跟随必须做"强度确认"：看板块一字板数量是否偏多、一字强度是否加强（如山东矿机）。预判难度更高、信号不明确，赌的是安全。两种关注点根本不同，不可混用。</p>
+<p><strong>为什么左侧的安全性只能靠"情绪"保证。</strong><br>竞价买入时你看到的量能、高开幅度、昨日表现，都已是"过去时"，没法告诉你明天市场买不买账。唯一能让"做错代价小、做对易涨停"的，是市场整体在修复——情绪修复日做竞价，错的概率低、错的代价小。所以左侧交易的本质是"赌情绪修复"，核心变量是情绪能否修复，而不是竞价等技术细节。</p>
+<p><strong>为什么要回测（见第20讲）。</strong><br>模式的"客观条件"要靠回测来定：设定明确条件，统计历史上符合条件后的胜率与基础概率。但回测测的是"条件是否成立"，条件背后的"为什么"还是得自己想通。</p>
+<h3 class="tpl-action">操作要点</h3>
+<p><strong>第一部分：先把"天时"这套工具装进脑子里（情绪修复节点的判断）。</strong></p>
+<p>看盘界面建议从复杂切到极简，核心几块：昨日主板涨停、动态板块、异动精灵、分时图（要打开竞价图）、委托队列、十档成交、大盘指数。判断"明天会不会修复"，有三套量化工具：</p>
+<ol><li>涨跌家数：收盘看全市场涨跌家数指标（同花顺指标广场搜"全市场涨跌家数"，通达信也有类似指标）。<strong>低于 1000 家时，次日往往接修复</strong>（多次低于 1000 家后，次日都出现小修复或大修复）。对小白最直观。</li><li>涨停家数：看涨停家数变化，两种模式——<ul><li>连续两天减少（如 99→77→48）：约 80% 以上概率次日修复，属连续小分歧。</li><li>骤减一半以下（如 103→47）：一天完成两天分歧（时间换空间），概率略低于前者但依然高。</li><li>两种方法能做到 <strong>80% 以上胜率</strong>，会数数就行。辅助：情绪分值（开盘啦软件），画一条底线（约 40 分），跌到附近即可博弈。</li></ul></li><li>盘面载体属性：看分歧时是谁在领涨。<ul><li>进攻方向（科技、热点：人工智能、DeepSeek、北交所、算力）领涨 → 良性分歧，次日易修复。</li><li>防守方向（农业、化工、石油、黄金、稀土、医药、消费）领涨 → 避险情绪，次日通常不佳。</li></ul></li></ol>
+<p>情绪修复分三种类型：当日修复（买点对应当日开盘）、次日修复（买点对应当日尾盘或次日开盘，如周五冰点尾盘买、周一修复离场）、修复延续（行情预期偏一致时极难博弈，看好的票大概率买不到，硬顶则"对则赚不多、错则大亏"）。</p>
+<p><strong>记住"被动的根源"</strong>：被动不是来自修复当天没参与（大阳线踏空），而是来自之前该博弈分歧时没做（冰点未布局）。所以要做先手、在分歧日布局，而不是修复日无脑追高——分歧博弈成功，大涨来临时只是"让利润奔跑"。用概率思维追求大概率（修复节点），而非 100% 确定性。</p>
+<p><strong>第二部分：逼空行情的专用解法（分歧级别递增）。</strong></p>
+<p>大分歧博弈（等跌透再买）在逼空行情（单边上涨、无大分歧）里失效，等你等到分歧可能已见顶。此时改用"分歧力度逐次增大"原则：</p>
+<ul><li>前提：行情至少要用 <strong>3 个 K 线</strong>确认强度。</li><li>大分歧识别标准：涨跌家数低于 500-600 家、涨停家数连续两天减少或骤减一半、情绪分值跌破底线。</li><li>分歧级别逐次升级：第一次博弈分时级别分歧（日内水下抄底，当天拉回、次日新高则行情无问题）→ 第二次必须是日 K 级别 → 第三次更大日 K 或连续两天 → 连续三天……</li><li>两个维度缺一不可：①级别递增（每次分歧必须大于上一次，以收盘价为准确认）②每次分歧后必须拉出新高。</li><li>关键警示：<strong>若分歧后拉不出新高，行情可能见顶，再博弈分歧已无意义。</strong></li><li>经典例题：连续三个阴线，只能博弈第三天（前一次已是连续两天分歧，本次需"连续三天"才满足逐次增大）。</li><li>不同板块级别不同：单边逼空用分时/日 K，斜向上的趋势行情要切到周 K 级别看。</li></ul>
+<p><strong>第三部分：竞价接力模式的全链条（把玩法工程化）。</strong></p>
+<p>思维链五步：</p>
+<ol><li>定性：竞价接力 = 左侧行为。</li><li>定前提（安全）：左侧安全性只能由情绪修复节点保证——情绪修复日做竞价没问题。</li><li>定强弱：弱转强 = 超预期（见第6讲）。昨天烂板、今天高开 = 超预期（弱转强、分歧转一致）；昨天很强、今天高开 = 符合预期。选超预期的。</li><li>定层级：低位更合适（以一进二为例），高位股（如杭齿前进）剔除。</li><li>定量化条件（见下）。</li></ol>
+<p>量化四条件（最终版）：</p>
+<div class="table-wrap"><table style="min-width:560px;"><thead><tr><th>维度</th><th>条件</th></tr></thead><tbody><tr><td>大前提（安全）</td><td>情绪修复节点</td></tr><tr><td>开盘幅度</td><td>5% 以下（开太高不如直接打板）</td></tr><tr><td>昨日要求</td><td>首板，且最终封死涨停时间在下午</td></tr><tr><td>竞价换手率</td><td>大于 1%</td></tr></tbody></table></div>
+<p>逐条讲"为什么"：</p>
+<ul><li>开盘幅度 5% 以下：竞价玩的是"日内浮盈"（竞价 2 个点上车、涨停赚 8 个点），开太高就没空间了，不如去打板。</li><li>"弱"的精确定义：<strong>最终封死涨停的时间在下午</strong>。上午涨停（哪怕烂板、上午回封）不算弱；尾盘才封死（下午封板）才算弱。反复炸板算弱，但炸板后磨叽回封、全天低迷后续分歧转一致的不算弱。</li><li>量能绝对值有要求："钱多才有诚信"——盘子过小（如 5 亿市值、日成交几千万）容易被人为干预（庄股骗线），量能绝对值不能太小。</li><li>竞价量占比：低位涨停板竞价量通常占当日成交的 <strong>10%-20%</strong>（例：云鼎科技竞价 5800 万、日成交 6 亿，约 10%）。错误做法是与昨日竞价量对比，关键是估算今日成交量。</li><li>健康量概念：量价齐升更健康；突破左侧高点时量能更大更安全（换手充分防砸盘）。预估今日涨停量应大于左侧近期最大量（例：左侧涨停最大量 54 万手，今日突破需 &gt;54 万手）。</li><li>换手率替代法（简化）：逐日算健康量太繁琐、手机端不便，换成"换手率"指标——二板实际换手率约 20%，竞价量占日成交 5%-10%，所以竞价换手率 = 20% × 5%-10% ≈ <strong>1%-2%</strong>，简化成"竞价实际换手率 &gt; 1%"。股价越高获利盘越多，换手要求也越高。</li><li>实际流通盘 vs 自由流通市值：剔除持股超 5% 的大股东（他们要发减持公告、不能自由交易），只算 5% 以下股东的每日可交易股份。</li></ul>
+<p><strong>第四部分：工程化落地（动态板块自动筛选）。</strong><br>把条件写进同花顺动态板块，四条条件：</p>
+<ol><li>昨日主板首板（剔除 ST，剔除创业板、科创板）</li><li>今日高开（开盘幅度 &gt; 0）</li><li>开盘幅度 &lt; 5%</li><li>竞价实际换手率 &gt; 1%</li></ol>
+<p>结果：每日自动筛选出约 3 只候选（电脑端编辑、手机端自动同步，上班族友好）。涨停时间（下午封板）可能无法自动筛，需手动复核。</p>
+<p><strong>第五部分：买入与离场。</strong></p>
+<ul><li>情绪修复日，条件符合即试错博弈。</li><li>多个标的都符合、情绪节点匹配时，<strong>倾向于平铺</strong>（符合条件的选择本就不多，如青鸟消防与浙江黎明二选一，两个都做大概率仍盈利）。</li><li>离场：<strong>次日竞价直接离场</strong>（博弈日内浮盈，非隔日利润）。</li></ul>
+<p><strong>第六部分：分时强弱——抗跌≠强。</strong><br>市场大跌时个股稳住（抗跌/抗揍），不代表它强，可能只是扛跌，次日照样补跌。真正的强是"主动拉升"：市场一反弹它就猛拉、板块小回拉时它能主动拉新高。一句话：<strong>强体现在拉升阶段，而非回调阶段；给你一点阳光你就灿烂，才是强。</strong> 附赠一句炸板口诀：带起板块后的炸板 = 不及预期，第一时间跑（华丰炸板带起固态电池就是反面教材）；反抽要区分"反抽 vs 二波"（拓维信息是反抽非二波）。</p>
+<h3 class="tpl-quant">量化锚点</h3>
+<ul><li>情绪修复节点 &gt; 机会本身（天时优先于标的）</li><li>涨跌家数 &lt; 1000 家 → 次日接修复</li><li>涨停家数：连续两天减少（99→77→48）或骤减一半（103→47），胜率约 80% 以上</li><li>情绪分值底线：约 40 分（开盘啦软件）</li><li>大分歧识别：涨跌家数 &lt; 500-600 家</li><li>逼空行情强度确认：至少 3 个 K 线</li><li>分歧级别递增：分时 → 日K小 → 日K大 → 连续两天 → 连续三天（每次分歧后必须拉新高）</li><li>开盘幅度：5% 以下（追求日内浮盈）</li><li>竞价量占比：日成交的 10%-20%（折合竞价换手 5%-10%）</li><li>二板实际换手率：约 20%</li><li>一进二竞价换手率：&gt; 1%（由 20% × 5%-10% 推算）</li><li>健康量示例：左侧最大量 54 万手，今日突破需 &gt;54 万手</li><li>动态板块四条件：主板首板剔除ST + 高开&gt;0 + 幅度&lt;5% + 竞价换手&gt;1%，每日约 3 只</li></ul>
+<h3 class="tpl-pitfall">常见误区</h3>
+<ol><li>只知条件、不知其所以然——每个条件（5%、下午封板、换手&gt;1%）背后都有逻辑，必须能回答"为什么"。</li><li>把指标当模式核心——长盛轴承（-7% 拉到 +2%）这类案例，误以为核心是量能、形态、筹码支撑位，其实核心是"人气与地位"。</li><li>抗跌当成强——扛跌不代表次日不补跌，主动拉升才是强。</li><li>开太高还硬做竞价——开太高不如去打板，做竞价就失去意义了。</li><li>用昨日竞价量做对比——无意义，关键是估算今日成交量。</li><li>逼空行情里等大分歧——等到分歧可能已见顶，要改用"分歧级别递增"。</li><li>把一字板数量当万能信号——板块有三个一字板≠一定能做，看着不强≠不能做。</li><li>表面相似的形态都做——宝通科技（能做）和凯旺科技（不能做）同为机器人一字启动，区别在逻辑是否被市场认可、锚定是否成立。</li></ol>
+<h3 class="tpl-link">体系关联</h3>
+<p>这一讲是"从模式化交易到理解力交易"跃迁的最后一跃，收束全书：</p>
+<ul><li>竞价接力的"弱转强 = 超预期"直接挂在主线"预期差/超预期"上（见第5讲预期、第6讲超预期）。</li><li>"情绪修复节点"就是择时（见第11讲），是模式安全性的第一前提，对应<strong>信号支柱</strong>。</li><li>"人气与地位"对应<strong>语言支柱</strong>（读懂资金在讲什么故事），是模式的核心，指标只是辅助。</li><li>动态板块工程化对应<strong>执行支柱</strong>：把理解力固化成规则，让上班族也能照着跑。</li><li>回测（见第20讲）用来验证条件的胜率，但真正的能力是"跟随赚钱效应（找锚定 + 保证安全）"——模式只是理解力的固化，不是理解力的替代。</li><li>最终呼应第26讲"认知内盈利才可持续"：照抄模式不算本事，会"构建模式、回答为什么"才是你自己的理解力，这才留得住、可复制。</li></ul>
+<h2 class="part-title">附录一 · 量化锚点速查表（数字记忆点）</h2>
+<div class="table-wrap"><table style="min-width:640px;"><thead><tr><th>锚点</th><th>数值 / 阈值</th><th>含义</th></tr></thead><tbody><tr><td>补涨比例</td><td>60%-70%（5板龙头→3板补涨）</td><td>补涨股与龙头的标准比价比例（第05章）</td></tr><tr><td>竞价资金关注阈值</td><td>昨日成交额5%-10%</td><td>竞价资金关注度阈值（第01章盯盘）</td></tr><tr><td>实际换手率过热</td><td>超50%</td><td>当日成交覆盖半数以上流通筹码，短期过热（第01章）</td></tr><tr><td>缩量锁仓信号</td><td>&lt;历史顶量2/3；主动锁仓&lt;前顶量30%</td><td>满足卖点却缩量=主力未兑现、锁仓（第11章）</td></tr><tr><td>动态股池门槛</td><td>竞价金额&gt;3000万（=30亿市值×1%）</td><td>小盘股换手率下限（第21章）</td></tr><tr><td>竞价量占比</td><td>当日成交量10%-20%（折合5%-10%）</td><td>竞价量占日成交比例（第26章）</td></tr><tr><td>一进二竞价换手门槛</td><td>竞价实际换手率&gt;1%</td><td>一进二竞价接力量化门槛（第26章）</td></tr><tr><td>竞价换手分档</td><td>小票约5%；大票（百亿+）约1%</td><td>大小票竞价换手分档（第14章）</td></tr><tr><td>突破左侧健康量能</td><td>左侧量1/2以上；封板强约2/3</td><td>突破左侧高点所需健康量能（第14章）</td></tr><tr><td>控仓铁律</td><td>常态低仓位、试错仓≤30%、持仓≤3只</td><td>控仓是心态稳定前提（第23/11章）</td></tr><tr><td>微仓标准</td><td>&lt;5%</td><td>确定性不足标的标注微仓（第11章）</td></tr><tr><td>套利止盈</td><td>10%-15%</td><td>缩量战法套利止盈纪律（第11章）</td></tr><tr><td>止损位（按模式）</td><td>连板-10%、短趋势-5%、埋伏试错-3%</td><td>纪律性止损位（第28章）</td></tr><tr><td>修复概率</td><td>涨停家数骤减一半以上→次日修复概率80%+</td><td>大分歧后修复概率（第30章）</td></tr><tr><td>利润分布</td><td>80%利润来自20%节点、150%来自5%节点</td><td>少数关键节点贡献主要利润（第30章）</td></tr><tr><td>共振三条件</td><td>改变预期+足够幅度+持续性验证</td><td>有效共振判断标准，缺一不可（第24章）</td></tr><tr><td>审美池筛选门槛</td><td>首板50-70个才筛；涨停过百放弃</td><td>审美股池适用前提（第20章）</td></tr><tr><td>审美及格线</td><td>留60-70分以上</td><td>审美剔除标准（第20章）</td></tr><tr><td>量能衰竭参考</td><td>顶部34000亿→7000多亿（腰斩）</td><td>反核章节量能参考（第10章）</td></tr><tr><td>反核日内振幅</td><td>跌停到涨停约40个点</td><td>润和反核案例振幅（第10章）</td></tr><tr><td>竞价挂单时间</td><td>仅9:25之后</td><td>竞价下单时机（第14章）</td></tr><tr><td>弱转强竞价量能</td><td>次日竞价量能≥前日50%</td><td>弱转强可信度门槛（第01章）</td></tr></tbody></table></div>
+<h2 class="part-title">附录二 · 战法策略速查卡（12 个核心战法）</h2>
+<div class="table-wrap"><table style="min-width:920px;"><thead><tr><th>战法</th><th>适用场景</th><th>核心信号</th><th>操作要点</th><th>风控</th></tr></thead><tbody><tr><td>打板与择强</td><td>多个/单一超预期标的并存时择强</td><td>单一超预期需板上确认，多个必须择强；量能不足/关联性缺失=减分</td><td>扫板优于排板；卖盘挂单+成交急剧放大→立即扫板</td><td>高开过大追入≈无低吸价值；盘口弱则放弃；买卖逻辑一致</td></tr><tr><td>高低切套利</td><td>前提是持续赚钱效应</td><td>比价效应：补涨≈龙头60%-70%；多次失败后的首次突破</td><td>多次试探失败后的首次成功突破时介入，优先同属性低位补涨</td><td>机械套用固定节点会亏；没赚钱效应高低切无从谈起</td></tr><tr><td>反核博弈</td><td>恐慌一致（首次集体跌停）或一致延续（次日惯性低开）</td><td>恐慌一致→选右侧（看回封/等拉回）；一致延续→选左侧（开盘提前介入）</td><td>选股人气优先于开盘高度；核心股涨停时持有后排直接走</td><td>手法与节点错配是亏钱主因；涨停≠最优（浮盈过大透支次日）</td></tr><tr><td>正向有卖点缩量战法</td><td>主力锁仓判断、证券修复</td><td>三要素：正向+有卖点（时间充分+空间充足）+缩量（&lt;历史顶量2/3）</td><td>优选人气股+三足原则（足够时间/空间/理由）</td><td>空间&lt;3%、时间&lt;40分钟、量能不缩均排除；套利止盈10%-15%</td></tr><tr><td>竞价换手率</td><td>爆量前提（最好昨日烂板）、一进二竞价</td><td>大票看金额、小票看换手；封单不衰减即超预期</td><td>小票竞价换手约5%、大票（百亿+）约1%；仅9:25后挂单</td><td>封单小+竞价成交大需资金共识；小票竞价过亿=见顶或分歧</td></tr><tr><td>竞价审美股池</td><td>首板50-70个时才筛</td><td>池子是「好看」非「必涨」；审美&gt;盘口/换手/量能</td><td>剔不好看留60-70分以上；右侧打板看盘口、左侧竞价卡节点</td><td>形态不好看盘口再强不考虑；冰点日做错竞价可亏20个点</td></tr><tr><td>共振</td><td>指数/情绪超跌后拐头带量</td><td>大盘拐头瞬间「第一时间第一个」拉升的个股</td><td>只做首次共振、不做回封；盯涨速榜；复盘四步法</td><td>共振≠个股强势；只做拐头成立段；次日V型追、横盘禁追高</td></tr><tr><td>择时</td><td>行情节点确定性决定仓位</td><td>共振=改变预期+足够幅度+持续性验证（缺一不可）</td><td>确定性日主动出击；模糊日控仓等待</td><td>先涨停可能被卡位；未经验证的疑似共振易误判</td></tr><tr><td>选股最与唯一</td><td>博弈同一逻辑时</td><td>「最」=同逻辑最强；「唯一」=选择集中/稀缺</td><td>能做第一个不做第二个；有唯一性→左侧埋伏，无→右侧追强</td><td>无唯一性提前埋伏=买杂毛；等强度确认后右侧</td></tr><tr><td>小题材埋伏套利</td><td>上班族、无明确机会、非主线小题材</td><td>唯一标准：盘中有过主动带节奏的个股</td><td>只做龙一、只做首板、只低吸不追涨、只在水下绿盘低吸</td><td>止损：连板-10%、短趋势-5%、埋伏试错-3%</td></tr><tr><td>分歧博弈修复</td><td>判断情绪修复节点</td><td>涨跌家数/情绪分值跌破虚线、涨停家数骤减一半以上</td><td>预期偏好用小分歧、偏差用大分歧；偏好+大分歧=重仓</td><td>不能凭感觉；不会空仓等于不会炒股</td></tr><tr><td>一二三玩法</td><td>绝对核心龙头</td><td>首阴/双阴低吸 + 爆量K</td><td>多周期套利日K→周K→爆量K</td><td>仅适用绝对核心龙头，非核心不适用</td></tr></tbody></table></div>
+</main>
+<footer class="footer">
+<p>本教程基于《万战寻道·理解力体系》43 篇讲课笔记体系化重写而成，融合去重、交叉引用，覆盖全部知识点。</p>
+<p class="warn">⚠️ 股市有风险，投资需谨慎。本内容仅供学习参考，不构成任何投资建议。</p>
+</footer>
+</div></body></html>
