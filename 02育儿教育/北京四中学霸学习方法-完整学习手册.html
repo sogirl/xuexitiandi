@@ -1,0 +1,1760 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>《原来还可以这么学》北京四中学霸学习方法 · 完整学习手册（68篇零遗漏）</title>
+<style>
+  :root{
+    --c-main:#4A90A4;   /* 青蓝 */
+    --c-green:#7FB069;  /* 绿 */
+    --c-orange:#E8A87C; /* 橙 */
+    --c-bg:#f7f6f2;     /* 浅灰底 */
+    --c-card:#ffffff;
+    --c-border:#e7e3da;
+    --c-ink:#333333;
+    --c-sub:#6b6b6b;
+    --c-soft:#eef4f6;   /* 青蓝浅底 */
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    font-family:'Microsoft YaHei','PingFang SC','Helvetica Neue',sans-serif;
+    color:var(--c-ink);
+    background:var(--c-bg);
+    font-size:16px;
+    line-height:1.85;
+    -webkit-font-smoothing:antialiased;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:1000px;margin:0 auto;padding:0 14px 60px;}
+
+  /* ===== 顶部横幅 ===== */
+  header.hero{
+    background:linear-gradient(135deg,#4A90A4 0%,#5ba3b8 60%,#7FB069 100%);
+    color:#fff;
+    padding:38px 20px 34px;
+    text-align:center;
+  }
+  header.hero h1{margin:0 0 8px;font-size:26px;letter-spacing:1px;line-height:1.4;}
+  header.hero .sub{font-size:14px;opacity:.95;}
+  header.hero .badge{display:inline-block;margin-top:12px;padding:4px 14px;border:1px solid rgba(255,255,255,.7);border-radius:20px;font-size:13px;}
+
+  /* ===== WPS 提示条 ===== */
+  .notice{
+    background:#fdf6e3;border:1px solid #f0dfa8;color:#7a5b1a;
+    padding:10px 14px;border-radius:8px;font-size:13px;margin:16px 0;
+  }
+
+  /* ===== 导航目录 ===== */
+  nav.toc{
+    background:var(--c-card);border:1px solid var(--c-border);border-radius:12px;
+    padding:18px 20px;margin:16px 0;
+  }
+  nav.toc h2{margin:0 0 12px;font-size:18px;color:var(--c-main);}
+  nav.toc .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:8px;}
+  nav.toc a{
+    display:block;padding:7px 12px;border-radius:8px;background:var(--c-soft);
+    color:var(--c-ink);text-decoration:none;font-size:14px;
+  }
+  nav.toc a:hover{background:#dceaf0;color:var(--c-main);}
+  nav.toc .meta{font-size:12px;color:var(--c-sub);margin-top:10px;}
+
+  /* ===== 章节 ===== */
+  section.part{margin-top:42px;}
+  h2.part-title{
+    font-size:22px;color:#fff;background:var(--c-main);
+    padding:12px 18px;border-radius:10px;margin:0 0 4px;line-height:1.4;
+  }
+  h2.part-title .cnt{font-size:13px;font-weight:normal;opacity:.9;margin-left:8px;}
+  .part-lead{
+    background:var(--c-soft);border-left:4px solid var(--c-main);
+    padding:12px 16px;border-radius:0 8px 8px 0;font-size:14px;color:#3d5760;margin:0 0 18px;
+  }
+
+  /* ===== SVG 容器 ===== */
+  .svg-box{
+    background:var(--c-card);border:1px solid var(--c-border);border-radius:12px;
+    padding:12px;margin:14px 0;overflow-x:auto;touch-action:manipulation;
+  }
+  .svg-box .cap{font-size:12px;color:var(--c-sub);margin-bottom:6px;}
+  .svg-box svg{width:100%;height:auto;display:block;}
+
+  /* ===== 卡片 ===== */
+  .card{
+    background:var(--c-card);border:1px solid var(--c-border);border-radius:12px;
+    padding:18px 20px;margin:16px 0;
+  }
+  .card h3.art{
+    font-size:18px;margin:0 0 4px;color:#2c4b56;line-height:1.5;
+  }
+  .card h3.art .no{
+    display:inline-block;background:var(--c-main);color:#fff;border-radius:6px;
+    padding:1px 9px;font-size:13px;margin-right:8px;vertical-align:2px;
+  }
+  .card h3.art .author{font-size:13px;color:var(--c-sub);font-weight:normal;margin-left:6px;}
+  .card h4{font-size:15px;color:var(--c-main);margin:16px 0 6px;border-left:3px solid var(--c-main);padding-left:8px;}
+  .card h4.g{color:#5d8a3e;border-left-color:var(--c-green);}
+  .card h4.o{color:#b06a33;border-left-color:var(--c-orange);}
+  .card p{margin:6px 0;}
+  .card ul,.card ol{margin:6px 0 6px 0;padding-left:22px;}
+  .card li{margin:4px 0;}
+  .card table{width:100%;border-collapse:collapse;margin:10px 0;font-size:14px;}
+  .card table th,.card table td{border:1px solid var(--c-border);padding:7px 10px;text-align:left;vertical-align:top;}
+  .card table th{background:var(--c-soft);color:#2c4b56;font-weight:bold;}
+  .key{background:#fdf3ec;border-left:3px solid var(--c-orange);padding:9px 12px;border-radius:0 6px 6px 0;font-size:14px;margin:10px 0;}
+  .tip{background:#f0f7ec;border-left:3px solid var(--c-green);padding:9px 12px;border-radius:0 6px 6px 0;font-size:14px;margin:10px 0;}
+  .warn{background:#fdf0ef;border-left:3px solid #d98880;padding:9px 12px;border-radius:0 6px 6px 0;font-size:14px;margin:10px 0;}
+  .tag{display:inline-block;background:var(--c-soft);color:#3d5760;border-radius:5px;padding:1px 8px;font-size:12px;margin:2px 4px 2px 0;}
+
+  /* ===== 元方法论 ===== */
+  .meta-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:12px;}
+  .meta-item{background:var(--c-card);border:1px solid var(--c-border);border-radius:10px;padding:14px 16px;}
+  .meta-item .num{font-weight:bold;color:var(--c-main);}
+
+  /* ===== 页脚 ===== */
+  footer{margin-top:50px;text-align:center;font-size:12px;color:var(--c-sub);}
+
+  @media print{
+    body{background:#fff;}
+    .notice{display:none;}
+    .card{break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <h1>《原来还可以这么学》</h1>
+  <div class="sub">北京四中学霸学习方法 · 全书 68 篇完整学习手册（知识点零遗漏）</div>
+  <div class="badge">从小白到精通高手 · 一册在手 无需再翻任何 MD 文件</div>
+</header>
+
+<div class="wrap">
+
+  <div class="notice">
+    📱 <b>手机/微信/WPS 打开提示：</b>本页为纯静态 HTML，零脚本、零外部资源。思维导图均为横向树状静态 SVG，可<b>双指放大</b>查看（根在左、逐层向右、直角折线连接）。若在 WPS 中 SVG 显示异常，请改用浏览器（微信内置浏览器 / Chrome / Safari）打开以获得最佳效果。
+  </div>
+
+  <!-- ============ 导航目录 ============ -->
+  <nav class="toc">
+    <h2>📚 全书导航目录（点击跳转）</h2>
+    <div class="grid">
+      <a href="#overview">🌳 全书总览（横向树）</a>
+      <a href="#meta">🧩 跨课程元方法论（10条）</a>
+      <a href="#deps">🔗 核心依赖关系链</a>
+      <a href="#consensus">💎 全书最强共识（5条）</a>
+      <a href="#fourloop">🔄 四环学习法</a>
+      <a href="#stages">🗺 分阶段学习路径</a>
+      <a href="#p1">① 语文（9篇）</a>
+      <a href="#p2">② 数学（3篇）</a>
+      <a href="#p3">③ 英语（6篇）</a>
+      <a href="#p4">④ 物理（4篇）</a>
+      <a href="#p5">⑤ 化学（6篇）</a>
+      <a href="#p6">⑥ 生物（8篇）</a>
+      <a href="#p7">⑦ 历史（7篇）</a>
+      <a href="#p8">⑧ 地理政治（7篇）</a>
+      <a href="#p9">⑨ 习题与计划（4篇）</a>
+      <a href="#p10">⑩ 情绪与生活（5篇）</a>
+      <a href="#p11">⑪ 时间与手机（9篇）</a>
+    </div>
+    <div class="meta">全书共 68 篇 · 覆盖 9 大学科 + 日常管理 · 按官方顺序分十一部分 · 各篇编号、标题、作者与官方目录一一对应。</div>
+  </nav>
+
+  <!-- ============ 全书总览横向树 SVG ============ -->
+  <section id="overview">
+    <div class="svg-box">
+      <div class="cap">🌳 全书结构总览（根在左 → 11 大部分逐层向右展开 · 直角折线 · 静态SVG · 可双指放大）</div>
+      <svg viewBox="0 0 510 540" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="全书结构总览">
+        <!-- 根节点 -->
+        <rect x="20" y="240" width="210" height="56" rx="10" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="125" y="265" text-anchor="middle" fill="#ffffff" font-size="15" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">《原来还可以这么学》</text>
+        <text x="125" y="285" text-anchor="middle" fill="#eaf4f7" font-size="13" font-family="'Microsoft YaHei',sans-serif">全书 68 篇 · 11 大部分</text>
+
+        <!-- 连接线（直角折线） -->
+        <path d="M 230 268 H 260 V 38 H 290" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 230 268 H 260 V 84 H 290" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 230 268 H 260 V 130 H 290" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 230 268 H 260 V 176 H 290" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 230 268 H 260 V 222 H 290" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 230 268 H 260 V 268 H 290" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 230 268 H 260 V 314 H 290" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 230 268 H 260 V 360 H 290" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 230 268 H 260 V 406 H 290" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 230 268 H 260 V 452 H 290" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 230 268 H 260 V 498 H 290" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+
+        <!-- 11 部分节点 -->
+        <rect x="290" y="20" width="200" height="36" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="390" y="43" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 语文学习方法 · 9篇</text>
+
+        <rect x="290" y="66" width="200" height="36" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="390" y="89" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 数学学习方法 · 3篇</text>
+
+        <rect x="290" y="112" width="200" height="36" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="390" y="135" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 英语学习方法 · 6篇</text>
+
+        <rect x="290" y="158" width="200" height="36" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="390" y="181" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 物理学习方法 · 4篇</text>
+
+        <rect x="290" y="204" width="200" height="36" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="390" y="227" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑤ 化学学习方法 · 6篇</text>
+
+        <rect x="290" y="250" width="200" height="36" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="390" y="273" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑥ 生物学习方法 · 8篇</text>
+
+        <rect x="290" y="296" width="200" height="36" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="390" y="319" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑦ 历史学习方法 · 7篇</text>
+
+        <rect x="290" y="342" width="200" height="36" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="390" y="365" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑧ 地理政治 · 7篇</text>
+
+        <rect x="290" y="388" width="200" height="36" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="390" y="411" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑨ 习题与计划 · 4篇</text>
+
+        <rect x="290" y="434" width="200" height="36" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="390" y="457" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑩ 情绪与生活 · 5篇</text>
+
+        <rect x="290" y="480" width="200" height="36" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="390" y="503" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑪ 时间与手机 · 9篇</text>
+      </svg>
+    </div>
+  </section>
+
+  <!-- ============ 跨课程元方法论 ============ -->
+  <section id="meta" class="part">
+    <h2 class="part-title">🧩 全书贯穿的「元方法论」（10 个高频公约数）</h2>
+    <p class="part-lead">以下方法在多个学科反复出现，是全书的<b>方法论公约数</b>，掌握它们即可迁移到任何学科。</p>
+    <div class="meta-grid">
+      <div class="meta-item"><span class="num">① 理解优先于记忆</span><br><span style="font-size:13px;color:var(--c-sub)">出现：全科。反对死记硬背，先懂原理再谈记忆。</span></div>
+      <div class="meta-item"><span class="num">② 教材为本 / 画书</span><br><span style="font-size:13px;color:var(--c-sub)">出现：生物·历史·政治·化学·地理。教材目录=结构图，画书是笔记中心。</span></div>
+      <div class="meta-item"><span class="num">③ 框架 / 思维导图</span><br><span style="font-size:13px;color:var(--c-sub)">出现：生物·历史·政治·地理·化学·物理。从整体到局部，结构化对抗零碎。</span></div>
+      <div class="meta-item"><span class="num">④ 错题本 / 错题整理</span><br><span style="font-size:13px;color:var(--c-sub)">出现：数学·物理·化学·生物·历史·习题组。错题是效率放大器。</span></div>
+      <div class="meta-item"><span class="num">⑤ 碎片时间利用</span><br><span style="font-size:13px;color:var(--c-sub)">出现：英语·语文·时间组。积跬步至千里，小纸条/小册子随身。</span></div>
+      <div class="meta-item"><span class="num">⑥ 计划管理</span><br><span style="font-size:13px;color:var(--c-sub)">出现：计划组·时间组。计划是"规划生活"而非"控制生活"。</span></div>
+      <div class="meta-item"><span class="num">⑦ 费曼学习法</span><br><span style="font-size:13px;color:var(--c-sub)">出现：物理·地理·化学（出题）。能讲清楚=真理解。</span></div>
+      <div class="meta-item"><span class="num">⑧ 艾宾浩斯 / 反复复习</span><br><span style="font-size:13px;color:var(--c-sub)">出现：历史·英语·语文·生物。少量多次、经常反复地看。</span></div>
+      <div class="meta-item"><span class="num">⑨ 预习—听课—复习闭环</span><br><span style="font-size:13px;color:var(--c-sub)">出现：物理·化学·生物·地理·政治（全科）。课堂是主战场。</span></div>
+      <div class="meta-item"><span class="num">⑩ 主动输出 / 自我检测</span><br><span style="font-size:13px;color:var(--c-sub)">出现：化学(出题)·生物(默写)·历史(自测)·物理(费曼)。输出倒逼理解。</span></div>
+    </div>
+  </section>
+
+  <!-- ============ 依赖关系链 ============ -->
+  <section id="deps" class="part">
+    <h2 class="part-title">🔗 核心依赖关系链（⚠️ 前置知识）</h2>
+    <div class="card">
+      <p style="font-family:monospace;font-size:14px;white-space:pre-wrap;line-height:1.9;background:#fafaf7;padding:12px;border-radius:8px;">教材阅读（目录→框架） ──▶ 框架/思维导图 ──▶ 笔记落实（图文并茂、就近记补充）
+     （生物·历史·政治·地理）       │
+                              ├──▶ 主动输出（默写结构/出题/讲给别人听）
+                              │        │
+                              │        ▼
+理解优先 ──▶ 做题 ──▶ 错题整理（多色笔/错误三分）──▶ 反复复习（艾宾浩斯）──▶ 考前总结
+   │          （数学·物理·化学）         （习题组·各科）         （历史·英语·生物）
+   │
+   └──▶ 碎片时间利用 + 计划管理 + 情绪/手机管理（日常管理组，作为底层支撑）</p>
+      <h4 class="o">⚠️ 关键前置关系</h4>
+      <ul>
+        <li><b>化学「氧化还原」</b>是元素学习（Na/Fe/Cl）的前置 —— 邢函睿。</li>
+        <li><b>物理「受力分析前先运动分析」</b>是动力学解题的前置 —— 王健祺等。</li>
+        <li><b>「理解/朗读」</b>是「背默落实」的前置 —— 语文张可嫄。</li>
+        <li><b>「预习」</b>是「课堂效率」的前置 —— 化学严绍恒、物理蔡继丰。</li>
+        <li><b>「身心健康（8元素）」</b>是「一切学习效率」的前置 —— 董一玮。</li>
+      </ul>
+    </div>
+  </section>
+
+  <!-- ============ 最强共识 ============ -->
+  <section id="consensus" class="part">
+    <h2 class="part-title">💎 全书最强共识（出现频次最高的 5 条）</h2>
+    <div class="card">
+      <ol>
+        <li><b>理解优先于记忆</b> —— 几乎每篇文章的起点。</li>
+        <li><b>适合自己的方法才是最好的</b> —— 60 余篇的共同结尾，反对盲从。</li>
+        <li><b>少量多次、反复复习</b> —— 对抗遗忘的通用答案。</li>
+        <li><b>主动输出（讲/默写/出题）</b> —— 检验真理解的黄金标准。</li>
+        <li><b>身心与生活是学习的底层</b> —— 计划、情绪、手机、睡眠最终都服务于可持续学习。</li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- ============ 四环学习法 ============ -->
+  <section id="fourloop" class="part">
+    <h2 class="part-title">🔄 终极系统性总结 · 四环学习法</h2>
+    <p class="part-lead">68 篇文章表面是分散的个人经验，实则指向一套高度一致的<b>「理解—内化—应用—巩固」</b>四环学习法。</p>
+    <div class="svg-box">
+      <div class="cap">🔄 四环学习法（横向树 · 根在左逐层向右 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 620 300" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="四环学习法">
+        <!-- 根 -->
+        <rect x="16" y="120" width="150" height="60" rx="10" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="91" y="146" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">四环学习法</text>
+        <text x="91" y="166" text-anchor="middle" fill="#eaf4f7" font-size="12" font-family="'Microsoft YaHei',sans-serif">理解→内化→应用→巩固</text>
+
+        <!-- 连接线 -->
+        <path d="M 166 150 H 205 V 34 H 244" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 166 150 H 205 V 104 H 244" fill="none" stroke="#7FB069" stroke-width="1.5"/>
+        <path d="M 166 150 H 205 V 196 H 244" fill="none" stroke="#E8A87C" stroke-width="1.5"/>
+        <path d="M 166 150 H 205 V 266 H 244" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+
+        <!-- 第2层 -->
+        <rect x="244" y="20" width="140" height="28" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="314" y="39" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 理解环</text>
+        <rect x="244" y="90" width="140" height="28" rx="7" fill="#EFF5EA" stroke="#7FB069" stroke-width="1.5"/>
+        <text x="314" y="109" text-anchor="middle" fill="#3d5a2c" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 内化环</text>
+        <rect x="244" y="182" width="140" height="28" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="314" y="201" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 应用环</text>
+        <rect x="244" y="252" width="140" height="28" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="314" y="271" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 巩固环</text>
+
+        <!-- 第3层连接 -->
+        <path d="M 384 34 H 404 V 34 H 424" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 384 104 H 404 V 104 H 424" fill="none" stroke="#7FB069" stroke-width="1.5"/>
+        <path d="M 384 196 H 404 V 196 H 424" fill="none" stroke="#E8A87C" stroke-width="1.5"/>
+        <path d="M 384 266 H 404 V 266 H 424" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+
+        <!-- 第3层文字 -->
+        <text x="424" y="30" fill="#4a6b76" font-size="12" font-family="'Microsoft YaHei',sans-serif">理解概念/原理而非死背</text>
+        <text x="424" y="45" fill="#4a6b76" font-size="12" font-family="'Microsoft YaHei',sans-serif">（是什么/为什么/怎么用）</text>
+        <text x="424" y="100" fill="#5d8a3e" font-size="12" font-family="'Microsoft YaHei',sans-serif">主动输出：讲/默写/出题</text>
+        <text x="424" y="115" fill="#5d8a3e" font-size="12" font-family="'Microsoft YaHei',sans-serif">（费曼·思维导图）</text>
+        <text x="424" y="192" fill="#b06a33" font-size="12" font-family="'Microsoft YaHei',sans-serif">做题检验 + 错题整理</text>
+        <text x="424" y="207" fill="#b06a33" font-size="12" font-family="'Microsoft YaHei',sans-serif">（辨考点·一题多解·错误三分）</text>
+        <text x="424" y="262" fill="#4a6b76" font-size="12" font-family="'Microsoft YaHei',sans-serif">少量多次 + 反复复习</text>
+        <text x="424" y="277" fill="#4a6b76" font-size="12" font-family="'Microsoft YaHei',sans-serif">（碎片积累·计划统筹·考前收口）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h4>1. 理解环</h4>
+      <p>任何学科都从"理解"而非"记忆"起步——物理追问概念"是什么/为什么/怎么用"、化学抓住"氧化还原"逻辑、生物从教材目录建框架、历史按主线梳理、地理用"关键因素"串联、政治重术语背后的逻辑。</p>
+      <h4 class="g">2. 内化环</h4>
+      <p>把理解转化为自己的东西，靠<b>主动输出</b>——讲给别人听（费曼）、默写笔记结构、给自己出题、画思维导图。</p>
+      <h4 class="o">3. 应用环</h4>
+      <p>用做题检验理解，靠<b>错题整理</b>放大效率——辨考点、一题多解、多色笔分类、错误三分法、只记"耳目一新"的题。</p>
+      <h4>4. 巩固环</h4>
+      <p>靠<b>少量多次 + 反复复习</b>对抗遗忘，用碎片时间积累、用计划统筹、用活页本/错题本在考前集中收口。</p>
+    </div>
+  </section>
+
+  <!-- ============ 分阶段学习路径 ============ -->
+  <section id="stages" class="part">
+    <h2 class="part-title">🗺 分阶段学习路径建议（按时间维度整合全书）</h2>
+    <div class="card">
+      <h4>① 课前（预习）</h4>
+      <ul>
+        <li>前一天晚上通读教材，记下不懂处（地理徐紫晗、生物黄悦琪）。</li>
+        <li>理科可用带题教辅预习，找理解漏洞（物理王健祺等）。</li>
+        <li>政治可用课前两分钟看标题（崔一茗）。</li>
+      </ul>
+      <h4>② 课上（主战场）</h4>
+      <ul>
+        <li>抓"考点/难点/易错点"，听逻辑关系与实际例子（化学严绍恒、政治崔一茗）。</li>
+        <li>笔记记核心与框架、老师补充就近记、图文并茂（生物李少轩、丁柏丰）。</li>
+      </ul>
+      <h4>③ 课下（落实）</h4>
+      <ul>
+        <li>课后 10–20 分钟及时复习（生物王若溪）；默写笔记结构主动输出（生物杨静怡）。</li>
+        <li>作业当考试、自判、弄懂错题（地理徐紫晗）。</li>
+      </ul>
+      <h4>④ 平时（积累）</h4>
+      <ul>
+        <li>碎片时间背单词/古诗/纸卡（英语、语文、历史）；整理错题到错题本/整理本。</li>
+        <li>用计划统筹生活，睡前反思未完成原因（高嘉璐）。</li>
+      </ul>
+      <h4>⑤ 考前（复习）</h4>
+      <ul>
+        <li>优先级：复习笔记＞复习错题＞看教科书＞做题（生物杜泽淳）。</li>
+        <li>按科目差异化——逻辑科画思维导图、积累科抓技巧（赵心然）；考前活页本集中回顾。</li>
+      </ul>
+      <h4>⑥ 考中（应试）</h4>
+      <ul>
+        <li>审题五类圈画、难题拆分（化学）；先浏览、能拿一分是一分（情绪贾瑞希）。</li>
+      </ul>
+      <h4>⑦ 考后（归因）</h4>
+      <ul>
+        <li>分析失分分布/成绩三因素，找 bug 而非自我否定（化学刘心悦、纪天然）。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h4>一句话收束</h4>
+      <p class="key">全书 68 位学霸的共同经验，浓缩起来只有一句话：<b>先理解、再内化、靠输出、勤巩固，在身心健康与生活平衡的底座上，找到并坚持适合自己的方法。</b>正如多篇文章反复强调的——<b>"适合自己的，才是最好的。"</b></p>
+    </div>
+  </section>
+
+  <!-- ============ 第①部分 语文 ============ -->
+  <section class="part" id="p1">
+    <h2 class="part-title">① 语文学习方法<span class="cnt">9 篇</span></h2>
+    <p class="part-lead">组内综述：9 篇覆盖「古诗文记忆×5 + 写作×4」两大主题。古诗文侧的共同公约数是<b>理解优先于记忆、反复朗读/少量多次</b>；写作侧的共同公约数是<b>真情实感 + 切题 + 阅读动笔积累</b>，且反复强调"写作不能只靠考场灵光一现"。</p>
+    <div class="svg-box">
+      <div class="cap">🌳 ① 语文（根在左 → 9 篇逐层向右 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 540 430" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="语文学习方法结构">
+        <rect x="15" y="180" width="160" height="40" rx="9" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="95" y="205" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">语文学习方法</text>
+        <path d="M 175 200 H 200 V 46 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 200 H 200 V 86 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 200 H 200 V 126 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 200 H 200 V 166 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 200 H 200 V 206 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 200 H 200 V 246 H 240" fill="none" stroke="#7FB069" stroke-width="1.5"/>
+        <path d="M 175 200 H 200 V 286 H 240" fill="none" stroke="#7FB069" stroke-width="1.5"/>
+        <path d="M 175 200 H 200 V 326 H 240" fill="none" stroke="#7FB069" stroke-width="1.5"/>
+        <path d="M 175 200 H 200 V 366 H 240" fill="none" stroke="#7FB069" stroke-width="1.5"/>
+        <rect x="240" y="30" width="285" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="382" y="51" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 古诗文记忆（王心昱）</text>
+        <rect x="240" y="70" width="285" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="382" y="91" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 古诗文理解与背默（张可嫄）</text>
+        <rect x="240" y="110" width="285" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="382" y="131" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 如何背诵文言文（刘宜畅）</text>
+        <rect x="240" y="150" width="285" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="382" y="171" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 语文知识的积累（黄闰中）</text>
+        <rect x="240" y="190" width="285" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="382" y="211" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑤ 诗词背诵与周周练字词（张一帆）</text>
+        <rect x="240" y="230" width="285" height="32" rx="7" fill="#EFF5EA" stroke="#7FB069" stroke-width="1.5"/>
+        <text x="382" y="251" text-anchor="middle" fill="#3d5a2c" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑥ 从读到写——写作（刘筱）</text>
+        <rect x="240" y="270" width="285" height="32" rx="7" fill="#EFF5EA" stroke="#7FB069" stroke-width="1.5"/>
+        <text x="382" y="291" text-anchor="middle" fill="#3d5a2c" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑦ 浪淘沙——写作（李知恒）</text>
+        <rect x="240" y="310" width="285" height="32" rx="7" fill="#EFF5EA" stroke="#7FB069" stroke-width="1.5"/>
+        <text x="382" y="331" text-anchor="middle" fill="#3d5a2c" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑧ 凌云健笔意纵横（尚灵逸）</text>
+        <rect x="240" y="350" width="285" height="32" rx="7" fill="#EFF5EA" stroke="#7FB069" stroke-width="1.5"/>
+        <text x="382" y="371" text-anchor="middle" fill="#3d5a2c" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑨ 关于写作文这件事（柳楠）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">1-1</span>古诗文记忆方法 <span class="author">王心昱</span></h3>
+      <p>核心观点：古诗文（尤其长文言文）记忆<b>重在"韵律与理解"，反对逐字硬记</b>。方法 = <b>反复大声朗读，不刻意去背、不设硬性截止日期</b>——过几天，无论多长的文章都会从口中流畅而出（"润物细无声"）。多看文本也能提高默写准确率。</p>
+      <h4>初读方法</h4>
+      <ul><li><b>不看注释，先自行疏通文意</b>，试着"感怀作者之感怀、体察作者之情意"；典故可查，但不要急于求答案，答案会在重复朗读中悄然自来。</li></ul>
+      <h4>特殊情况（因祸得福）</h4>
+      <ul><li>若因懈怠延误到老师讲完才背，反而"因祸得福"——已懂文意可事半功倍，可关注句间逻辑；但此法易致<b>虚词记忆失误</b>，不推荐平时用。</li></ul>
+      <h4>记忆时间排序</h4>
+      <ul><li><b>早晨起床后 ＞ 夜晚入睡前 ＞ 零碎时间</b>（下下之选）。作者强调：仅为个人经验，<b>适合自己的最重要</b>。</li></ul>
+      <p class="key">适用范围：古诗文；适用人群："相信并会尝试的人"。</p>
+      <p class="tip"><b>重点：</b>反复出声朗读、不急于背、不看注释先疏通。<b>难点：</b>虚词易失误，需在"先理解梳理"与"纯朗读成诵"间取舍。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">1-2</span>课内古诗文理解及背默方法 <span class="author">张可嫄</span></h3>
+      <h4>一、理解与背默的相互关系</h4>
+      <p>理解与背默<b>双向促进</b>：背默过程中可纠正因古今字词义、语法不同引发的"理所当然"错误（某字书写、句连接顺序、语句停顿），进而改正对细节表意、部分间联系、整体脉络的错误理解；这些自我纠正经验还能促进古文阅读能力进步。</p>
+      <h4>二、课堂环节是基础</h4>
+      <p>认真听讲 + 参与讨论 + <b>独立思考</b> + 有疑问及时答疑，即可保证理解达标。</p>
+      <h4>三、词句翻译的落实（操作步骤）</h4>
+      <ol>
+        <li>学文当天，逐段背记注释，用<b>方框框出角标注释的文字</b>（记忆+圈框双动作同步）；</li>
+        <li>回到段首，脑中<b>逐框快速翻译</b>，磕绊处用铅笔<b>标问号</b>；</li>
+        <li>重新背记标问号的词句，再全段快速翻译；</li>
+        <li>学完全文当天，慢速读一遍全文并同步逐句译大意（困难先查译文，再问老师），再逐段快翻注释词句。</li>
+      </ol>
+      <h4>四、考前复习（操作步骤）</h4>
+      <ol><li>读一遍全文（对照注释）；</li><li>快速逐框翻译（写在白纸上）；</li><li>对照注释，铅笔圈出错词句；</li><li>再背出错词句、再默即可。</li></ol>
+      <p class="key"><b>效果数据：</b>此步骤每篇古文考前约需 <b>10 分钟</b>（近《登泰山记》篇幅）或 <b>20 分钟</b>（近《促织》篇幅）；效果为试卷文言文部分失分 <b>3 分以内</b>。</p>
+      <h4>五、默写差异化策略</h4>
+      <ul><li><b>古诗词侧重韵律</b>（字音韵律 + 情感韵律）；<b>古文侧重结构和逻辑</b>（"结构上的韵律"）。</li>
+      <li><b>背诗流程：</b>①读全诗确认句意与情感脉络 → ②两句两句顺次背（律诗两句可相互提示，更"丝滑"）→ ③体会四联接续逻辑 → ④关注写法不熟的字、心中默写。</li></ul>
+      <h4>自信的重要性</h4>
+      <p>背诗要<b>自信</b>，别如临大敌；给自己短时间要求（如"五分钟背下"）并相信自己。长诗可分段分解，也可顺着韵律一气呵成，避免"再来亿遍"。</p>
+      <p class="tip"><b>重点：</b>逐框背记的翻译闭环（框出→脑译→标问号→重背）；考前10-20分钟复习法。<b>难点：</b>律诗两句相互提示；长诗分段与一气呵成的结合。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">1-3</span>如何背诵文言文 <span class="author">刘宜畅</span></h3>
+      <p>核心信条：<b>"书读百遍，其义自现"</b>——"熟读成诵"，即肌肉记忆辅助大脑记忆。</p>
+      <p class="key"><b>实证案例：</b>高一下寒假要背《阿房宫赋》《谏太宗十思疏》《赤壁赋》三篇从未接触的长古文，每天 20 分钟朗读，到 2 月 6 号已全部流利背下。</p>
+      <h4>三步流程</h4>
+      <ul>
+        <li><b>一、准备阶段</b>（需整块时间）：①查准生僻字读音（"避免一步错步步错"）；②简单疏通文意；③定每日朗读遍数（寒暑假每天1-2遍，学期中每天3-5遍）。</li>
+        <li><b>二、背诵阶段</b>（时间不限，可碎片化）：<b>四重渐进体验</b>——①流利度渐增；②背诵度渐进（陌生→能想起个别句→基本背完但接不上→完整流利）；③理解度渐深（多看注释工具书，自然记住）；④情感体验渐好（畏惧沮丧→平静→惊喜自信→快乐满足）。</li>
+        <li><b>三、检验阶段</b>：基本能背完后，把"每日朗读两遍"改成"每日背诵一遍"；背完仍要<b>及时复习</b>（尽量每天至少一遍）。标准：<b>"合上书能完整背上全文"才算背完</b>。</li>
+      </ul>
+      <h4>小技巧</h4>
+      <ul><li><b>场景代入</b>：思考模拟、还原场景并模仿作者语调（《谏太宗十思疏》如老臣恳切劝说；《阿房宫赋》悲慨沉郁、怒其不争）。<b>务必大声出声朗读</b>，不建议默读。</li></ul>
+      <p class="tip"><b>优点：</b>轻松不痛苦、肌肉记忆记得牢、可利用碎片时间。<b>缺点：</b>周期较长（不适合短时突击）、需长期坚持并找到乐趣。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">1-4</span>语文知识的积累 <span class="author">黄闰中</span></h3>
+      <h4>1. 文言文（整理式积累）</h4>
+      <ul><li>每周三/周五早读，把本学期文言文中的<b>词类活用、特殊句式、古今异义、重要翻译字词</b>整理到单独笔记本，"不强调背诵，在整理中潜移默化记住"，时常翻看巩固。</li></ul>
+      <h4>2. 诗词</h4>
+      <ul>
+        <li><b>背诵黄金时间：临睡前 + 刚起床</b>——睡前过一遍、晨起再背，流畅深刻（似睡眠加强记忆）。</li>
+        <li><b>借力记忆：</b>借耳熟能详的名句/成语助记；但像《燕歌行》这类佶屈聱牙的诗无好办法。</li>
+        <li><b>梳理归类：</b>按诗歌类别（边塞/田园/送别）归纳，体会情感与表达方式。</li>
+        <li><b>意象记忆：</b>多记意象，如"柳叶=离别""红豆=相思"。</li>
+      </ul>
+      <h4>3. 字词</h4>
+      <ul><li><b>周周练：</b>每个字词尽量查字典（很费时），用醒目笔划出错词，隔段时间快速浏览三五分钟。</li><li><b>生活积累：</b>留意生活中不熟悉的字词，及时查、记——从生活积累的印象最深、效果最好。</li></ul>
+      <p class="tip"><b>重点：</b>整理式积累（不强制背）；睡前晨起记忆规律。<b>难点：</b>佶屈聱牙类诗无捷径；查字典耗时难坚持。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">1-5</span>语文诗词背诵和周周练字词 <span class="author">张一帆</span></h3>
+      <h4>一、古诗词背诵</h4>
+      <ul>
+        <li><b>黄金时间：早读 + 睡前。</b>早读（周三周五）朗读唐诗读熟到"下一句呼之欲出"，减轻集中背诵负担；按刘葵老师"读出抑扬顿挫"找节奏感，别在诗册下垫物理卷/英语改错。</li>
+        <li><b>睡前：</b>洗完澡清醒时，抽 10-15 分钟每首"过一遍"，不必刻意背，睡梦中巩固记忆。</li>
+        <li><b>长诗"拉长战线"：</b>以《琵琶行》为例，每天读一两遍、两周完全熟悉韵律节奏再背，优于周末两小时"硬啃"，更持久。</li>
+        <li><b>语感生涩的诗：</b>用喜马拉雅等平台循环播放名家诵读（如背《李凭箜篌引》）。</li>
+      </ul>
+      <h4>二、字词（周周练）</h4>
+      <ul><li><b>做：</b>不确定的词先空下，信息课自由时间上网查；成语语义批注题旁，标重点。</li><li><b>复习：</b>找靠谱同学校对；考前通读重点字形词义，<b>不拘泥生僻词</b>，"胸有成竹"即可。</li></ul>
+      <p class="tip"><b>重点：</b>早读+睡前双时段记忆；长诗分散背诵。<b>难点：</b>语感生涩诗借音频；字词查证依赖网络与时间。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">1-6</span>从读到写——关于写作 <span class="author">刘筱</span></h3>
+      <p>理念：引孙婧妍《语文从来是有关素养、无关应试的学科》，核心就是<b>读书 + 写作</b>。</p>
+      <h4>一、读书（做批注）</h4>
+      <ul><li>读书时<b>圈点勾画 + 空白处批注 + 写自己的看法共鸣</b>，促使思考，避免"读完就忘"。具体做法：画关键句、批几个词概括段落、段首写结构、用自己的话转述晦涩观点、文末放开了"想到哪儿写到哪儿"（如勾景物描写先批"我好震撼"，再追问什么/怎么/为什么震撼）。</li></ul>
+      <h4>二、读同学们的文章（向同伴学习）</h4>
+      <ul><li><b>别带强烈主观情绪看同学文章</b>，抛弃对分数的成见；从<b>语言 / 内容 / 结构</b>三维度诊断借鉴——语言（摘抄好句好段、学描写叙事论述方法、找作者请教）、内容（广泛读、概括主题分类、问作者怎么联想）、结构（看范文布局字数、采访作者怎么列提纲）。坚信"每篇作文都有值得借鉴之处"。</li></ul>
+      <h4>三、日常写作习惯</h4>
+      <ul><li>随性而写：突然想吐槽或心情起伏就写，不限字数、不追求对写作的帮助；如写"窗外太阳""保安说过年好""看电影难过睡不着"；作者喜欢写以"我很愤怒"开头、以"我不愤怒了"结尾的东西。也可强迫自己看一部好电影/纪录片后写约 800 字。</li></ul>
+      <p class="tip"><b>重点：</b>批注操作法；语言/内容/结构三维拆解。<b>难点：</b>批注初期"无话可说"靠坚持；克服对同学文章的主观成见。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">1-7</span>浪淘沙（关于写作） <span class="author">李知恒</span></h3>
+      <h4>核心比喻</h4>
+      <p>写作是跨越时间、空间的"<b>时间胶囊</b>"；生活如大浪淘沙，拨动内心的"<b>闪光</b>"时刻是写作源泉。</p>
+      <h4>要点链</h4>
+      <ul>
+        <li><b>"闪光"具有时空各异性：</b>同一话题（如"我的父亲"）五岁/十五岁/二十五岁乃至七十五岁所表达的细节与情感不同——有些被察觉、有些被遗忘。</li>
+        <li><b>写作唯一"镣铐"是"功能"限制：</b>通知、论文等有特定读者与任务；作文 = "情感 + 表达 + 思考"的有机结合体，需"<b>带上镣铐跳舞</b>"——既要有真切的"闪光"，又不能脱离题目规则，绝非"模板+素材"堆砌。</li>
+        <li><b>思维：</b>不可评定高下，重在打开思路、形成自己的逻辑；要"广博而深入的热爱"（热爱美食问"这道菜咋诞生"，热爱书法问"这幅作品在写啥"），但警惕功利性追问磨灭"得趣"。</li>
+        <li><b>表达：</b>以思维为根基（"文以明道"），手法服务于思考情感。</li>
+        <li><b>积累运用：</b>调用的不仅是素材更是生活，素材与思考互相影响、一体运用。</li>
+      </ul>
+      <p class="tip">结语引"一日不作诗，心源如废井"：每刻提笔成文，是给未来的自己埋下时间胶囊。</p>
+      <p class="tip"><b>重点：</b>作文与写作之别（功能与规则的"镣铐"）。<b>难点：</b>思维不可评定与"广博深入热爱"的平衡；警惕功利追问消解"得趣"。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">1-8</span>凌云健笔意纵横 <span class="author">尚灵逸</span></h3>
+      <h4>（一）审题与立意（先定"要我写什么"，再定"我要写什么"）</h4>
+      <ul>
+        <li><b>① 反弹琵琶（逆向思维）：</b>先按大众角度浅写，再峰回路转提独到见解，凸显思辨；但别"左右互搏"没定论。</li>
+        <li><b>② 由小见大（联系现实）：</b>从生活小事悟深刻道理（记叙文常用）；避免"换题目也无违和"，需有贯穿全文的线索并点题，或描述心理活动建立联系。</li>
+        <li><b>③ 发散思维（深度思考）：</b>由材料这个"点"向外发散多立意，或纵向挖掘透过现象看本质，可深入社会/时代/价值/国家民族/文化传统/人生哲理。</li>
+      </ul>
+      <h4>（二）结构与语言</h4>
+      <ul>
+        <li><b>结构：</b>先写大纲（"清晰的写作来自清晰的思想"）——大纲开头写主旨，接着选材与段落安排，标注每段作用（示例：主题"我与奶奶的亲情"→引入旧物怀念 / 回忆理解感受 / 波折离别 / 明朗影响）。记叙文共通的引入-叙事-点题；也可结尾戛然而止（需前文铺垫）。</li>
+        <li><b>语言：</b><b>简明扼要</b>——删去"进行""通过"等废词（海明威式）；再叠加素材让语言诗意或幽默。素材来源：名家文章、语文书（词/造句/修辞）、日常观察思考。</li>
+        <li><b>描写窍门：</b>show, don't tell——用具体细节替代"想""觉得"等抽象动词（例："担心旅行时长"改为"看表已11:57，一眼望到路尽头却没有一辆公交车……"）。</li>
+      </ul>
+      <h4>（三）写作与情感</h4>
+      <p>引王国维"情动于中而形于言"；真情流露比炫技更打动人心。结语："万法归一，还是练习"。</p>
+      <p class="tip"><b>重点：</b>三种立意法及误区；show don't tell 示范。<b>难点：</b>逆向思维避免"左右互搏"；戛然而止的铺垫；简明文风驾驭。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">1-9</span>关于写作文这件事 <span class="author">柳楠</span></h3>
+      <h4>一、真情实感是好文章第一步</h4>
+      <p>引梁衡"<b>为文第一要激动</b>"：忘记自己在写作文、忘记学业压力、抛却功利，全身心投入文字世界，作文才注入灵魂。</p>
+      <h4>二、写什么？关键在切题</h4>
+      <p><b>切题第一</b>：先看题目，再思考生活/阅读/旅行中哪些见闻能被题目联想出来；而非先把素材一字排开、再"过度解读"题目去贴合素材（后者易跑题、失去本心）。</p>
+      <h4>三、语言要为主旨和内容服务</h4>
+      <p>语言不喧宾夺主，什么主题配什么风格；广泛阅读、记录"为之心灵一颤"的句子时常品味、自然化用；真正好的语言在于<b>契合文题、流畅自然</b>，而非堆砌高级词与排比。</p>
+      <h4>四、提升方法：阅读 + 动笔</h4>
+      <p>广泛涉猎、不功利、把书当艺术品品鉴；勤动笔把抽象感情具象成文字，锻炼"抽提思想、用语言表达"的能力（从"感受当下"到"变成永恒"）。</p>
+      <h4>五、作文的结构</h4>
+      <p>"八股文""三段体"是方法但非最好；个人做法：写作前列<b>"活动空间"式框架图</b>（不用很详细，不像思维导图），重点想好<b>开头结尾</b>的语言逻辑（环环相扣、体现主旨）。</p>
+      <p class="tip"><b>重点：</b>切题优先于素材堆砌；语言服务主旨。<b>难点：</b>从生活见闻联想切题（而非逆向套素材）；结尾升华的逻辑保持。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第②部分 数学 ============ -->
+  <section class="part" id="p2">
+    <h2 class="part-title">② 数学学习方法<span class="cnt">3 篇</span></h2>
+    <p class="part-lead">组内综述：3 篇分别对应「函数图像、均值不等式、几何/向量」三大主题，共同指向<b>辨考点、抓要素、多解法</b>。函数图像篇强调"由已知推未知"；均值不等式篇强调"用不用→怎么用→检验"的规范流程；几何篇强调"辨考点 + 向量法兜底"。</p>
+    <div class="svg-box">
+      <div class="cap">🌳 ② 数学（根在左 → 3 篇 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 540 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="数学学习方法结构">
+        <rect x="15" y="60" width="160" height="40" rx="9" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="95" y="85" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">数学学习方法</text>
+        <path d="M 175 80 H 200 V 30 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 80 H 200 V 80 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 80 H 200 V 130 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <rect x="240" y="14" width="285" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="382" y="35" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 函数与图像研究（胡恺文）</text>
+        <rect x="240" y="64" width="285" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="382" y="85" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 均值不等式问题思路（陈佳琦）</text>
+        <rect x="240" y="114" width="285" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="382" y="135" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 几何问题解法思路（侯毅）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">2-1</span>函数与图像研究 <span class="author">胡恺文</span></h3>
+      <p>核心论点：函数图像问题占很大比重，准确快速绘制图像对考试得分帮助大。<b>绘制图像抓住极值点、渐近线、奇偶性、单调性</b>；画陌生函数从熟悉函数入手。</p>
+      <h4>例1：对勾函数取倒数后的图像研究</h4>
+      <ul>
+        <li><b>对勾函数：</b>f(x) = ax + b/x（a,b＞0）= (ax²+b)/x，图像为"对勾型"。</li>
+        <li><b>问题：</b>g(x) = x/(ax²+b)（a,b＞0）图像什么样？推导六步：</li>
+        <li>① <b>单调性</b>：f 在 -√(b/a)&lt;x&lt;0 和 0&lt;x&lt;√(b/a) 递减、在 |x|&gt;√(b/a) 递增；g=1/f，故 g 在上述区间单调性<b>相反</b>（原减→增，原增→减）。</li>
+        <li>② <b>过原点</b>：g(0)=0。③ <b>奇偶性</b>：g(-x)=-g(x)，为<b>奇函数</b>。④ <b>渐近线</b>：f 的斜渐近线为 y=ax，g 的水平渐近线为 y=0（原文表述为 y=x / y=1/x，为简化，一般形式见注）。⑤ <b>连续性</b>：g 在 R 上连续。</li>
+        <li>⑥ <b>极值点（关键结论）</b>：最小值点 <b>(-√(b/a), -1/(2√(ab)))</b>，最大值点 <b>(√(b/a), 1/(2√(ab)))</b>。</li>
+      </ul>
+      <h4>例2：判断 f(x)=x²+bx+c 与 g(x)=2x 有无交点</h4>
+      <ul>
+        <li><b>法1（判别式法）：</b>令相等得 x²+(b-2)x+c=0，Δ=(b-2)²-4c=b²-4b-4c+4。<b>当 b²-4b-4c ≥ -4 时有交点；&lt; -4 时无交点</b>。</li>
+        <li><b>法2（切线斜率/瞬时变化率，导数雏形）：</b>[f(x+Δx)-f(x)]/Δx 化简 = 2x+b+Δx，令 Δx=0 得瞬时变化率 2x+b；令 2x+b=2（等于直线斜率）得 x=1-b/2，代入比较得同一结论。</li>
+      </ul>
+      <p class="warn"><b>注：</b>原文渐近线"y=x / y=1/x"为简化或笔误，一般形式斜渐近线应为 y=ax（g 的水平渐近线 y=0），仅 a=1 时与原文一致。</p>
+      <p class="tip"><b>重点：</b>对勾/倒数函数单调性区间、极值点坐标（含 √(b/a)、1/(2√(ab))）。<b>难点：</b>法2 用"瞬时变化率"求切线斜率并与直线斜率比较的思想。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">2-2</span>均值不等式问题思路 <span class="author">陈佳琦</span></h3>
+      <p>问题定位：均值不等式是典型的"会者不难，难者不会"，难点在<b>没有清晰解题思路</b>。三步法：<b>用不用 → 怎么用 → 检验</b>。</p>
+      <h4>一、用不用（先判断是否必要）</h4>
+      <ul>
+        <li><b>不要急于用均值不等式</b>——均值不等式是"推导出来的"（非规定），故任何能用它解决的题都能用已学方法解决；应先试常规方法，找不到思路或太复杂再考虑。</li>
+        <li>后置使用的原因：它有三条<b>易被忽略的限制条件</b>——①均值对象<b>必须都非负</b>；②必须考虑<b>能否取等</b>；③<b>和或积为定值</b>。</li>
+        <li>省时技巧：对常见结构有"感觉"——<b>a+n/a、a/b+b/a、√(ab)、(ma²+na+c)/b</b> 等需在练习中积累。</li>
+      </ul>
+      <h4>二、怎么用（正确使用）</h4>
+      <ul><li><b>错用是大部分错误的来源</b>，本身使用不难；关键是<b>变形</b>变出上述结构，方法含<b>换元、拆1</b>；每次使用都把限制条件写到答案上（提醒自己 + 更规范）。</li></ul>
+      <h4>三、检验（使用后验证）</h4>
+      <ul><li>检验<b>限制条件</b>（非负？定值？能否取等？）+ <b>计算检验</b>（可引入图像）；时间充裕可用<b>均值不等式本身证明</b>检验——它是用<b>完全平方公式</b>证明的，把结果带回完全平方公式看是否符合。</li></ul>
+      <p class="tip"><b>重点：</b>限制条件三要素（非负、定值、取等）；常见结构积累；变形（换元、拆1）。<b>难点：</b>把均值不等式定位为"备用工具"而非首选。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">2-3</span>几何问题解法思路 <span class="author">侯毅</span></h3>
+      <p>核心论点：几何题要求<b>对题目考点有清晰认识</b>，同时<b>不局限于以往做过的类似题</b>，才能更快找到最优解。</p>
+      <h4>例题：直角梯形求 EF（∠C=45°）的多解法</h4>
+      <ul>
+        <li><b>方法一（几何法·作辅助线）：</b>想求 EF 先求 AB；直角梯形 ∠C=45° 提示放到直角三角形，AB = DG = |BC|-|AD| = 3。</li>
+        <li><b>方法二（几何法·构造平行四边形）：</b>延长 FE 构造平行四边形求解。</li>
+        <li><b>方法三（向量法·几何联系代数）：</b>以 B 为原点建系，C(4,0)，设 A(0,α)、D(1,α)；由 ∠C=45° 得直线 DC 斜率 -1，解析式 y=-x+4，故 α=3；BE=½·BA=3/2，E(0,3/2)；EF∥CD 得 k=-1，EF：y=-x+3/2，故 BF=3/2；|EF|=|BF+BE|=(3/2)·√2。</li>
+      </ul>
+      <p class="key"><b>分享重点：</b>当做题无从下手、辅助线处处碰壁时，<b>用向量试一试</b>——通过建系、求斜率找到各线段间关系与大小。</p>
+      <p class="tip"><b>重点：</b>辨考点是前提；向量法"建系→设点→求斜率→写解析式→求长度"流程。<b>难点：</b>∠C=45° 得斜率 -1、平行得斜率相等这些关键转化；多解法提供备选路径。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第③部分 英语 ============ -->
+  <section class="part" id="p3">
+    <h2 class="part-title">③ 英语学习方法<span class="cnt">6 篇</span></h2>
+    <p class="part-lead">组内综述：6 篇围绕「词汇 + 素养」两条主线。词汇侧（写作词汇、速背单词、高效背单词、情境积累）共同强调<b>语境记忆、碎片时间、不要死背</b>；素养侧（素养养成、听力语感）强调<b>兴趣驱动、"用英语生活"、多说多听多读</b>。</p>
+    <div class="svg-box">
+      <div class="cap">🌳 ③ 英语（根在左 → 6 篇 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 560 290" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="英语学习方法结构">
+        <rect x="15" y="110" width="160" height="40" rx="9" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="95" y="135" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">英语学习方法</text>
+        <path d="M 175 130 H 200 V 30 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 130 H 200 V 70 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 130 H 200 V 110 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 130 H 200 V 150 H 240" fill="none" stroke="#7FB069" stroke-width="1.5"/>
+        <path d="M 175 130 H 200 V 190 H 240" fill="none" stroke="#7FB069" stroke-width="1.5"/>
+        <path d="M 175 130 H 200 V 230 H 240" fill="none" stroke="#E8A87C" stroke-width="1.5"/>
+        <rect x="240" y="14" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="35" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 提高英语写作能力（文韬）</text>
+        <rect x="240" y="54" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="75" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 速背大量单词方法（叶雨岩）</text>
+        <rect x="240" y="94" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="115" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 如何高效背单词（孟子杰）</text>
+        <rect x="240" y="134" width="305" height="32" rx="7" fill="#EFF5EA" stroke="#7FB069" stroke-width="1.5"/>
+        <text x="392" y="155" text-anchor="middle" fill="#3d5a2c" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 关于英语学习的一点建议（洪玮骏）</text>
+        <rect x="240" y="174" width="305" height="32" rx="7" fill="#EFF5EA" stroke="#7FB069" stroke-width="1.5"/>
+        <text x="392" y="195" text-anchor="middle" fill="#3d5a2c" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑤ 提高英语听力与语感（郑嘉敏）</text>
+        <rect x="240" y="214" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="235" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑥ 听说读写中背单词提素养（莫中鹿）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">3-1</span>如何提高英语写作能力 <span class="author">文韬</span></h3>
+      <p>核心：写作水平 = 词汇巩固 + 文法（句型）积累，两者都要靠<b>语境化训练</b>。</p>
+      <h4>1）词汇巩固</h4>
+      <ul><li>词汇是写作的基本；要写精致作文需词汇积累，关键是<b>不必偏、杂、难，但必须用得准确、地道</b>。例：表"抓住机会"用 <b>grasp/seize the opportunity</b>（而非 catch/get）。</li>
+      <li>地道用法平常都接触过，但因<b>间隔过长 + 考试临场紧张</b>落笔又变"机翻"，对策是<b>常注意语境下的词汇搭配并训练</b>；工具推荐<b>维克多高中词汇书</b>勤翻。</li></ul>
+      <h4>2）文法积累</h4>
+      <ul><li>文法 = 基本语法规则 + 平常句型积累；常见问题是"掌握新词却无从安置"。</li>
+      <li>方法论核心：<b>把词汇和语境一起记忆</b>。步骤：①阅读遇生词判断是否常用/地道；②是则记入积累本（附原文句子）；③可在词典/词汇书补例句。例：trail（小路）→ hit the trail（出发）、set out/set off。</li>
+      <li>另一渠道：<b>看电影时注意地道用法</b>，记入积累本日积月累。</li></ul>
+      <p class="tip"><b>重点：</b>词汇要"准而地道"；例句积累法（词汇+语境一起记）。<b>难点：</b>判断一个生词是否常用/地道以决定是否积累。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">3-2</span>速背大量单词方法 <span class="author">叶雨岩</span></h3>
+      <p>目的：<b>速记大量陌生单词、扩充词汇量</b>。操作流程：</p>
+      <ol>
+        <li>准备一张 A4 纸 + 单词表；</li>
+        <li>每背一个词，在纸上<b>随机位置</b>用最好看的字迹写下，并念中文 <b>5 遍</b>；</li>
+        <li>之后每写一个词，都<b>回头从头再念一遍中文</b>加深印象；</li>
+        <li>第二天背下一批时，<b>重温前一天单词</b>。</li>
+      </ol>
+      <p class="warn"><b>注意：</b>①适用程度因人而异；②<b>不要去记中文对应的位置</b>，而是记<b>英文单词形状对应的中文</b>（锚点是词形，非纸上位置）；③此法只建立"词形↔中文"初步印象，<b>只有中文意思印象，无法取代造句、英英互译等精背</b>，但可为精背做前期准备。</p>
+      <p class="tip"><b>核心机制：</b>随机位置书写 + 反复口头复述 + 逐词回头滚动复习 + 次日重温，用"滚动叠加式重复"强化记忆。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">3-3</span>如何高效背单词 <span class="author">孟子杰</span></h3>
+      <p>核心观点：<b>背单词是慢过程，需平常花时间，不靠考前突击</b>。</p>
+      <h4>1、单词来源</h4>
+      <ul><li>两类：<b>日常</b>（小说、空英、课堂）+ <b>刻意记忆</b>（单词书、软件），双管齐下。</li>
+      <li>阅读查词要"<b>有选择性</b>"：这个词<b>用得很漂亮</b>，或<b>不明白影响理解文意</b>才查；否则猜大意或跳过。</li>
+      <li>单词书：优点是<b>系统的整理形式</b>（词义+用法），但作者个人因"还有那么多要背"失去动力；按个人喜好取舍。</li></ul>
+      <h4>2、日常落实</h4>
+      <ol><li>抄<b>小纸条</b>随身携带，碎片时间（上下学、课间、排队）拿出来看；</li><li>总记不住的词做<b>特殊标记</b>，最后重点复习；</li><li>小纸条不易保存，每攒 <b>50 个词</b>抽半小时系统整理，<b>打到电脑上</b>保存。</li></ol>
+      <p class="tip"><b>重点：</b>查词的选择性标准；碎片时间利用。<b>难点：</b>平衡单词书系统性与个人排斥感——按喜好取舍。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">3-4</span>关于英语学习的一点建议 <span class="author">洪玮骏</span></h3>
+      <p>定位：应试英语不擅长，重点分享<b>英语素养养成</b>而非应试技巧。核心理念：<b>学习英语 = 学习西方文化</b>。</p>
+      <h4>素养的价值</h4>
+      <ul><li>让你对试卷材料感到自然，做题时"凭空多出试题以外的理解"，从语法词汇之外检验答案（"这题看着舒服"“我读过类似文章”）。</li></ul>
+      <h4>方法：让自己"用英语生活"</h4>
+      <ul><li>需<b>有意识地在生活中植入"英语的元素"</b>（英文演讲/电台、订 China Daily、听英文流行音乐并用歌词唱出来——歌词很重要），而非"英语学科的元素"（语法词汇分析、刷高考题）。</li></ul>
+      <h4>具体途径</h4>
+      <ul>
+        <li><b>小说阅读：</b>按兴趣选书（不必名著）。推荐：The Fault in Our Stars（John Green）、暮光之城系列（Twilight/Eclipse）、The Kite Runner、A Thousand Splendid Suns（Khaled Hosseini）。</li>
+        <li><b>英文演讲：</b>如 TED talk，跟其节奏复述一遍演讲词，casually 随意即可。</li>
+        <li>其他：看报（China Daily）、刷美剧（附属活动，对表达有增益但别上瘾）。</li>
+      </ul>
+      <p class="key">核心：<b>不把每天说英语当任务，而是不经意的习惯</b>；找到让自己爱上英语的方式（歌星、电影桥段、演讲、小说、英文日记），至少爱上"它属于你的一部分"。</p>
+      <p class="tip"><b>重点：</b>区分"英语的元素"与"英语学科的元素"；兴趣选材。<b>难点：</b>真正参与进英语背后的文化、让热爱成为持续动力。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">3-5</span>如何提高英语听力与语感 <span class="author">郑嘉敏</span></h3>
+      <p>核心：听力与语感<b>密不可分</b>，一起提升最有效；三法<b>多说、多听、多读</b>（无优劣之分）。</p>
+      <h4>一、多说</h4>
+      <ul><li>找英语母语者（朋友/外教/笔友）或家人朋友交谈；<b>不必过于重视文法</b>（口语本就随意）；可参考《老友记》。</li></ul>
+      <h4>二、多听</h4>
+      <ul><li>听<b>愿意听的</b>书/杂志（非听力练习），用碎片时间（吃饭、睡前）。</li>
+      <li><b>"听默"法</b>：播放一句、默写一句，提升最快（作者四年级前听默完《新概念》三、四全部课文 + 《英国语文》三至六册）。</li>
+      <li>重"量 + 兴趣"轻"全懂"：不必追求全听懂、不必记生词。</li>
+      <li>听力优于阅读处：极大促进对单词的<b>感受体会</b>（如 smirk/sneer/grin/beam 靠体会 get 意思）。</li></ul>
+      <p class="key"><b>关键数据：</b>小学一天听完一本哈利波特（7-10岁）→ FCE 听力裸考 186/190。</p>
+      <p class="key"><b>音频资源（喜马拉雅，按难度低到高）：</b>小木屋系列 → 39 Clues 系列 → The Martian → What Happened。</p>
+      <h4>三、多读</h4>
+      <ul><li>推荐<b>假期</b>进行；凭兴趣选书，<b>反对"每天读多少页"的量化</b>（会变成苦差事）。推荐书单：Educated、The Fault In Our Stars、Call Me By Your Name、Everything I Never Told You；经典 A Beautiful Mind、The Great Gatsby、Phantom of the Opera；社科 How To Win Friends &amp; Influence People；作者 Jane Austen、John Green、Khaled Hosseini。</li></ul>
+      <p class="tip"><b>重点：</b>听默法；重兴趣重数量不求全懂。<b>难点：</b>坚持大量输入靠兴趣驱动。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">3-6</span>在听、说、读、写中背单词，提升素养 <span class="author">莫中鹿</span></h3>
+      <p>核心问题：如何长久坚持背单词且保证质量（背了易忘、过程煎熬）。核心思路：<b>把"语境/情境"作为提升记忆质量的关键，在听说读写中积累，并"恩威并施"平衡数量与兴趣</b>。</p>
+      <h4>试错与改善</h4>
+      <ul><li>试错：纯看小说美剧后只记住三四个词——说明不能纯放松。</li>
+      <li>改善：①<b>目的明确、不能放松</b>（否则和娱乐无区别）；②<b>善用语境</b>（书/剧/歌提供语境，在单词旁摆例句）；③工具推荐 <b>kindle</b>（随时查词、自动积累、附原句）。</li></ul>
+      <h4>两个经验</h4>
+      <ul><li><b>经验一（控制量）：</b>一篇阅读/一页书强制查词量约 <b>5 个</b>；一词只积累<b>一个释义或一种词性</b>，不贪多。</li>
+      <li><b>经验二（例句记短语多义词）：</b>如 set up 用 set up meetings/roadblocks/a camera/in business/home、She was set up 分别记"安排、支起、调试、营业、安家、被陷害"。</li></ul>
+      <h4>对比：单词书 vs 情境积累</h4>
+      <ul><li>绿皮书单词书附例句用法，本质同阅读积累，但枯燥、加重负担；阅读/刷剧提供<b>情境</b>让语境先入为主，因好奇查生词，背单词可联想剧情。</li>
+      <li>客观承认传统 list 优点；情境积累的弊端是<b>时间成本</b>（40分钟背60词 vs 看剧只积累十几个，精但少）。</li></ul>
+      <p class="key"><b>最终建议"恩威并施"：</b>每周抽时间看小说看剧积累 + 同时找单词 list 规定每周背诵量 + 每天背完 list 再背积累本作"犒劳"。</p>
+      <h4>听说写扩展</h4>
+      <ul><li><b>泛听"磨耳朵"：</b>选"看过一遍的材料"听进去，避免沦为背景音；不求全懂，但不能成为没旋律的背景音乐。</li>
+      <li><b>口语"说出来"：</b>影子跟读 + 用手机录音（从"我今天干什么了"录5分钟，自听改进），对口语考试有用。</li>
+      <li><b>写作：</b>单元写作<b>强制用上几个积累的表达</b>，落笔前想更好替代。</li></ul>
+      <p class="tip"><b>重点：</b>附原文例句、查词限量5个、一词记一义、set up 多义例句、恩威并施。<b>难点：</b>情境积累"精但少"与单词书"多但枯燥"的取舍——二者结合。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第④部分 物理 ============ -->
+  <section class="part" id="p4">
+    <h2 class="part-title">④ 物理学习方法<span class="cnt">4 篇</span></h2>
+    <p class="part-lead">组内综述：4 篇（含一篇四人合写大文档）共同强调<b>"理解—推导—做题—拔高"</b>链条：理解概念（是什么/为什么/怎么用）→ 推公式 → 分难度做题 → 拔高。核心共识：<b>反对死记硬背与盲目刷题，注重概念理解、公式推导、模型建立、分析精神</b>。</p>
+    <div class="svg-box">
+      <div class="cap">🌳 ④ 物理（根在左 → 4 篇 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 560 210" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="物理学习方法结构">
+        <rect x="15" y="70" width="160" height="40" rx="9" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="95" y="95" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">物理学习方法</text>
+        <path d="M 175 90 H 200 V 34 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 90 H 200 V 90 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 90 H 200 V 146 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <rect x="240" y="18" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="39" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 物理学习上的一些方法（许景宁）</text>
+        <rect x="240" y="74" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="95" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 如何高效学习物理（黄颂涵）</text>
+        <rect x="240" y="130" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="151" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 学好物理应注意的三个关系（蔡继丰）</text>
+        <rect x="240" y="180" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="201" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 如何学好物理·大文档（王健祺等四人）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">4-1</span>物理学习上的一些方法 <span class="author">许景宁</span></h3>
+      <p>核心：物理偏理论，<b>最重要的是对概念的理解</b>——绝非背定义、记公式，而是要知道概念<b>从哪里产生、有什么用、怎么用、怎么用对用好</b>。三个方法：</p>
+      <h4>方法一：从生活里找例子、多观察</h4>
+      <ul><li>物理探究事物道理，老师常从实际问题引入；如"两小球在不同倾角斜面同时释放谁先落地"，算完后自己动手试试，看实际与计算是否一致，有差别时思考<b>实际与物理模型的差别</b>或遗漏的知识。</li></ul>
+      <h4>方法二：做题（分三种情况反思）</h4>
+      <ul><li>①死活想不出 → 分析是否"学到的没全用上"或"默认条件没发现"；②做得顺但做错 → 记住错点、更正错误理解；③做对但算得麻烦 → 可能是方法问题。做题就是"熟悉概念再使用"。</li></ul>
+      <h4>方法三：证明公式</h4>
+      <ul><li>公式定理要推熟练，清楚定理是实验归纳还是逻辑推理/数学证明；注意<b>严谨性、公式适用条件、每个推导的含义</b>，"把前人走过的路多走几遍"。</li></ul>
+      <p class="tip"><b>重点：</b>概念理解（产生、用途、用法）、做题分情况反思。<b>难点：</b>发现默认条件、区分实际与模型、公式严谨推导与适用条件。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">4-2</span>如何高效学习物理 <span class="author">黄颂涵</span></h3>
+      <p>"高效" = 把握最关键步骤，<b>不靠盲目大量刷题提高短期成绩</b>。</p>
+      <h4>1. 巩固基础</h4>
+      <ul><li>基础 = 概念、公式、定理。①体会概念定理的准确表达求深刻理解；②公式——解答题主要得分点在方程，公式准确应用是列方程基础。</li>
+      <li>方式：①<b>费曼学习法</b>（给别人讲一遍，找到不流畅不清晰处）；②<b>构建知识框架</b>（构建知识间联系）。</li></ul>
+      <h4>2. 关于模型</h4>
+      <ul><li>高中物理题通用思路：<b>列方程、解方程</b>；模型的本质 = 根据题干不同<b>约束条件</b>得到不同方程；方法 = 拆解题干、列方程。</li></ul>
+      <h4>3. 物理思维方法（针对难题新题）</h4>
+      <ul><li>注重题目中思维方法、思考角度的整理，对自己的思维方式<b>查缺补漏</b>。</li></ul>
+      <p class="tip"><b>重点：</b>费曼学习法、构建知识框架、列方程解方程。<b>难点：</b>模型本质（约束条件→方程）、思维查缺补漏。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">4-3</span>学好高中物理应该注意的三个关系 <span class="author">蔡继丰</span></h3>
+      <h4>一、概念与实践的关系</h4>
+      <ul><li>高中概念更多更抽象（力光电等）；三点：①观察日常生活现象、用知识解释、必要时记录；②概念定义定理<b>烂熟于心</b>、不与近似内容混淆、重点字词仔细"抠"；③理解熟记后建立<b>知识构架</b>（如"力"——包含哪些类型、特点、作用效果有何不同）。</li></ul>
+      <h4>二、课堂学习与课下练习的关系</h4>
+      <ul><li>课堂是提炼的精华，需专心听、专注看、独立思考；<b>课前预习打基础</b>、课下练习巩固提高。</li></ul>
+      <h4>三、课后练习难易程度的关系</h4>
+      <ul><li>简单题加深基础概念理解（与理解相辅相成）；中等题提升应用剖析、空间想象、数学计算能力；难度增加见更多题型、拓展思路，熟能生巧。</li></ul>
+      <p class="tip"><b>重点：</b>知识构架建立、预习与课下分工。<b>难点：</b>概念与近似内容辨析（抠字眼）、不同难度题目能力指向。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">4-4</span>如何学好物理（合写大文档） <span class="author">王健祺、孙虹毅、杨启明、徐亦峤</span></h3>
+      <p>说明：分享针对物理学科，兼听则明。分三板块。</p>
+      <h4>板块一：物理学科综述</h4>
+      <ul>
+        <li><b>高中物理难学原因：</b>知识大幅增多 + 能力要求更高，能力分<b>物理</b>（建物理模型、列方程）与<b>数学</b>（解方程、三角变换、矢量分解合成/正交分解与坐标变换）两方面。</li>
+        <li><b>理解物理量的三角度：</b>①<b>"是什么"</b>——量纲（单位）+ 相关公式（定义式→计算式）；②<b>"为什么"</b>——物理意义（速度=快慢）、为何这样定义（守恒量如能量动量，或代表快慢如速度加速度功率）；③<b>"怎么用"</b>——使用场合与用法。</li>
+        <li><b>公式分类：</b>①<b>瞬时</b>（牛二、力的计算）；②<b>过程</b>（运动学如 x=½at²）；③<b>守恒</b>（能量、动量、角动量）。关注公式<b>适用条件</b>（牛二只在惯性系成立、动量守恒需合外力为0）与场合。</li>
+        <li><b>推导与熟练：</b>从零推导公式可检验理解、加深印象；但"能推导≠能熟练应用"（考场上没时间），熟练靠做题。</li>
+        <li><b>刷题四档难度（时间配比 2:5:3）：</b>①<b>简单题</b>（无提示流畅做对，只保证熟练度，别花太多时间）；②<b>难度适中</b>（有思路但卡壳，看答案前先想10-15分钟，查漏补缺防"眼高手低"）；③<b>较难</b>（没思路但能看懂答案，是提高能力的关键，认真研究并记录、隔段复习）；④<b>过难</b>（答案都看不懂，暂时搁置或求助）。</li>
+        <li><b>刷题总结：</b>做完回想——用到了哪些公式？关键突破口？做过什么类似题？学到什么新思路？</li>
+        <li><b>错题本：</b>只记"<b>方法运用让人耳目一新且较难</b>"的题，每题给简短提示（难突破处），次日在本子最后重写推导过程检验掌握。</li>
+        <li><b>预习：</b>用带题教辅（王后雄、五三）看知识点总结→试做例题找理解漏洞；教辅逻辑链条不完善时自己补全（看例题、翻教材、问老师）；学有余力可读大学教材获"鸟瞰"感。</li>
+        <li><b>复习：</b>平时坚持为主；考前可从一个概念起串一遍知识、围绕它总结公式并逐个重推导、重做错题本。</li>
+      </ul>
+      <h4>板块二：已学知识汇总精炼（运动学/静力学/动力学）</h4>
+      <ul>
+        <li><b>运动学：</b>公式靠<b>推演</b>——①匀变速直线运动 x、t、v0、vt、a 五量<b>"知三求二"</b>；②<b>∆x=aT²</b>（判别式）；③中间时刻速度与中间位移速度（推十来遍了然于心）。<b>做题三思路：</b>①基本公式法（最普适，但部分题艰涩）；②<b>中间时刻法</b>（给平均速度/总位移总时间时用，如"水滴从屋檐滴落"）；③<b>比例关系</b>（由静止的匀加速：位移∝时间²、速度∝时间；如自由落体第一秒:第二秒=1:3）。</li>
+        <li><b>运动学图像题：</b>先看清 v-t 还是 x-t，判断运动状态，考察速度方向与图像面积含义。<b>特殊运动：</b>自由落体=a=g初速0；竖直上抛=两段自由落体；平抛=匀直+自由落体；斜抛=沿初速方向匀直+自由落体（或分解速度加速度）。<b>易错点：</b>①刹车算好何时停；②v-t 斜率负≠速度负（看y轴方向）；③确定正方向。</li>
+        <li><b>静力学：</b>三种力——<b>重力</b>（竖直向下，别于万有引力）、<b>弹力</b>（挤压产生）、<b>摩擦力</b>（最难）。<b>摩擦力要点：</b>①先决条件=有挤压 + 相对运动（或趋势）；②滑动摩擦 f=µN 方向与相对运动相反；<b>静摩擦无公式</b>，只能受力分析求得，变化趋势类常"先减小后反向增大"，用<b>极限思想</b>辅助判断。</li>
+        <li><b>受力分析：</b>按"<b>重力—弹力—摩擦力</b>"顺序防遗漏；不知摩擦方向就<b>假设一个方向</b>画在作用线上，写平衡方程用结果正负判方向。<b>正交分解：</b>"三力用合成、四力及以上用分解"。</li>
+        <li><b>动力学：</b>重点是"<b>分析</b>"二字 + <b>探究精神</b>（了解规律最初怎么被前人分析与总结）。<b>运动学与动力学双向互推</b>——动力学是原因可解释运动学（平抛受重力→竖直匀加速水平匀速→轨迹抛物线）；运动学也可反推动力学（轨迹弯曲方向估受力方向）。<b>受力分析前先做运动分析</b>（有摩擦/绳子弹力约束时更重要，如绳绷直时上下端加速度相等；支持力摩擦力是约束力）。<b>分离法与整体法：</b>对单质点=分离法，对系统（质心）="以大见小"整体法。<b>矢量方程与分解：</b>先分解再用牛二，考验矢量运算与三角函数。</li>
+      </ul>
+      <h4>板块三：拔高与竞赛建议（含附录教材）</h4>
+      <ul>
+        <li>"学到极致" = 高分位次 + 更深刻理解。两条路径：①<b>百遍的思考和验算</b>——耐住性子推翻错误想法、建新思路，并花时间<b>数学验算</b>（很多人卡在计算错而非思路错）；②<b>抱"探索的心"</b>——超越"刷完白本获得成就感"，追求"琢磨一个问题有滋味"的源动力。</li>
+        <li><b>附录教材（由浅入深）：</b>①《Classical dynamics: A contemporary approach》（José &amp; Saletan，分析力学经典，英语，PDF cowtransfer 链接）；②朗道《力学》（简洁，初学者不友好）；③Griffiths《电动力学导论》（需先学微积分）；④Sakurai《现代量子力学》。</li>
+      </ul>
+      <p class="key">结尾名句："苟利国家生死以，为国为民学物理！"</p>
+      <p class="tip"><b>重点：</b>物理量三角度、公式三类、刷题四档与2:5:3、错题本规则；∆x=aT²、知三求二、中间时刻法、自由落体1:3、静摩擦极限思想、受力分析顺序、整体法/分离法。<b>难点：</b>公式适用条件、静摩擦方向判断、约束下运动学关系、矢量分解、竞赛验算与探索心态。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第⑤部分 化学 ============ -->
+  <section class="part" id="p5">
+    <h2 class="part-title">⑤ 化学学习方法<span class="cnt">6 篇</span></h2>
+    <p class="part-lead">组内综述：6 篇共同强调<b>化学"文理兼备"</b>——既要有理科思维（抓"氧化还原"这一核心逻辑、理解原理、会配平），又要有文科式记忆（方程式、现象、步骤）。高频共识：<b>考点意识、难题拆分法、"配"重于"背"、以实验为线索串联、自建笔记与思维导图、安全底线</b>。</p>
+    <div class="svg-box">
+      <div class="cap">🌳 ⑤ 化学（根在左 → 6 篇 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 560 270" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="化学学习方法结构">
+        <rect x="15" y="110" width="160" height="40" rx="9" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="95" y="135" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">化学学习方法</text>
+        <path d="M 175 130 H 200 V 22 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 130 H 200 V 62 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 130 H 200 V 102 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 130 H 200 V 142 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 130 H 200 V 182 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 130 H 200 V 222 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <rect x="240" y="6" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="27" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 化学学习方法/考试方法（严绍恒·七板块）</text>
+        <rect x="240" y="46" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="67" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 化学实验大题的答题方法（鄢宇阳）</text>
+        <rect x="240" y="86" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="107" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 化学学习方法（邢函睿）</text>
+        <rect x="240" y="126" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="147" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 如何学习化学（刘心悦）</text>
+        <rect x="240" y="166" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="187" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑤ 如何更好理解记忆化学知识（杨翔宇）</text>
+        <rect x="240" y="206" width="305" height="32" rx="7" fill="#EFF5EA" stroke="#7FB069" stroke-width="1.5"/>
+        <text x="392" y="227" text-anchor="middle" fill="#3d5a2a" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑥ 化学怎么学（姚梦溪）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">5-1</span>化学学习方法 / 化学考试方法 <span class="author">严绍恒</span></h3>
+      <p>全文分"平时学习"（板块1–4）与"考试"（板块5–7）两大主线，共七板块。</p>
+      <h4>板块1：预习——超前预习与普通预习</h4>
+      <ul>
+        <li><b>预习必要性：</b>带来对知识的基础感知，保障课上听讲效率，避免"一时没跟上就全盘皆输"。</li>
+        <li><b>超前预习</b>（"降维打击"式提前学更深知识）：特异性大，可能大获成功也可能"连本带利全输"。关键原则——<b>平衡好与课内知识的关系</b>，勿以骄傲姿态否定课内（"考试按课内走，超前预习只为认识更深刻"）。三条建议：①明确目标（想拓展课外还是专心课内）；②制定合理计划（明确时间节点、抓紧时间、别拖）；③不断重复（不能看一遍就当全会）。</li>
+        <li>作者超前预习进度表（代码：p=plan、f=finished、u=unfinished）：初中 1f必修一/1f必修二/1u无机化学 → 高一上 1f选修一/1f选修二/1u分析化学 → 高一寒假 2f必修二/1p有机化学/1p选修三 → 高一下 2p选修一/2p无机化学/3p无机化学 → 高一暑假 2p分析化学。其中无机化学为掌握更快捷解题技巧，分析化学为提高家庭实验技术含量。</li>
+        <li><b>普通预习</b>：提前一两天至一两周，把即将讲的知识过一遍（最保守常见）。</li>
+      </ul>
+      <h4>板块2：出题检验——以出题巩固知识（学案）</h4>
+      <ul><li>老师名言："<b>能出题，是说明真的学会了</b>。"作者任班级化学小组长，借给组员出学案巩固必修二。益处：①促进同学合作互惠共同进步；②在帮助中纠正错误认知、建立更正确的化学思维体系。本质是"教是最好的学"。</li></ul>
+      <h4>板块3：课堂效率与做题速度</h4>
+      <ul>
+        <li><b>课堂效率</b>：课堂是主战场，偶尔走神不可救药，但必须留心听<b>考点、难点、易错点</b>。实例——气体摩尔体积"标况下1mol气体=22.4L"有两大易考点：①考"数量"（知不知道22.4这个数）；②考"标况"（会不会区分常温常压与标准状况）。课上要听见并发现，再经作业训练成本能。</li>
+        <li><b>做题速度</b>：提速 = 增加平时记忆量 + 增加方法熟练度。两条路径——<b>"背"</b>（记口诀，如稀硝酸与铜反应口诀"<b>38324</b>"立刻写出）与<b>"配"</b>（化合价法现配）。作者主张<b>"配"重于"背"</b>：方程式背不完，需具备配未知方程的能力。</li>
+      </ul>
+      <h4>板块4：思维导图梳理与家庭实验（含安全警示）</h4>
+      <ul>
+        <li><b>思维导图</b>：按模块分别梳理知识（作者示例"铜的化合物转换关系示意图"）。</li>
+        <li><b>家庭实验</b>：兴趣是化学学习最强助力，家庭实验培养兴趣，但伴随安全隐患，务必守则：①实验前查好资料，勿为"炫"随意混合试剂；②备好护目镜防溅伤；③远离高压容器，不玩爆炸物易燃物；④仪器用完立即释压清洗。</li>
+        <li><b>亲历事故</b>：做液态二氧化碳实验忘泄压，耐压管爆炸，厚七八毫米玻璃碎片飞散、座椅被炸穿、天花板被扎坑——务必安全第一。</li>
+      </ul>
+      <h4>板块5：考前准备与考前五分钟策略</h4>
+      <ul>
+        <li><b>心态：</b>考前紧张正常（重视的表现），勿太自信（"觉得自己稳了现实就当头一棒"），找<b>紧张与自信的平衡点</b>——紧张让人专注、自信让人从容。</li>
+        <li><b>状态：</b>考前有计划复习、规律作息、保证睡眠。</li>
+        <li><b>饮食：</b>上午考要吃早饭防低血糖心慌（肚子不适喝热豆浆）；下午考中午别吃太多（饱腹致倦意，管住嘴别吃撑）。</li>
+        <li><b>考前五分钟：</b>先浏览整卷，赶紧看选择题（能看多少看多少，计算除外）；铃声后最快速度审题（相当于再做一遍），与考前答案无异就相信、写在题号前，直接下一题；检查放全卷完成后。</li>
+      </ul>
+      <h4>板块6：审题圈画与答题思路</h4>
+      <ul>
+        <li><b>审题圈画五类：</b>①题设（目的、背景、现象）；②要求（正确、不正确）；③物质（难溶物、氧化剂、气体、弱电解质）；④条件（酸碱性、标况、浓度）；⑤数量（相对分子质量、物质的量）。</li>
+        <li><b>答题核心提醒：</b>时刻想"这道题在考什么、老师为什么这么出、学过什么相关的"。</li>
+        <li><b>完整例题（碘离子被氧化的推理）：</b>①酸性溶液、溶液变黄→碘离子可能被氧化；②生成使淀粉变蓝的物质→验证猜想；③无明确氧化剂→想到空气中的<b>氧气</b>（强氧化剂）；④写不完整方程 O2 + I⁻ + ? = I2 + ?；⑤氧气得电子后与水中氢离子结合成水，得 O2 + I⁻ + H⁺ = I2 + H2O；⑥配平得 <b>O2 + 4I⁻ + 4H⁺ = 2I2 + 2H2O</b>。方法总结：<b>所有难题都可拆分为熟悉的小知识点</b>。</li>
+      </ul>
+      <h4>板块7：考后总结与心态</h4>
+      <ul><li>考后常总结，勿懒勿把卷子扔一边；标注错题后分析"为什么出错 + 改变措施"。心态：不失去信心、也不自负，"胜负乃兵家常事"。收束："化学是变化之学"；寄语："不要盲从别人的经验，要有自己的思考，适合自己才是最好的"。</li></ul>
+      <p class="tip"><b>重点：</b>超前预习三步法、口诀38324、22.4L两大易考点、审题五类圈画、KI被氧气氧化完整推理、家庭实验安全守则。<b>难点：</b>超前预习的"度"、隐性氧化剂（空气中的氧气）识别、配平能力培养。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">5-2</span>化学实验大题的答题方法 <span class="author">鄢宇阳</span></h3>
+      <p>总论：实验大题是化学考试重要部分，比选择题更考综合能力。三条例题剖析后得四要点。</p>
+      <h4>例题1：探究铁及其化合物的氧化性和还原性</h4>
+      <ul><li>抓核心目的（探究铁及其化合物的氧化还原性），答题以"铁"为中心——如第⑤空应填"<b>Fe²⁺具有氧化性</b>"而非"Zn具有还原性"（作者险些犯错）。关注各列填表要求（如提示"离子方程式"就不写化学方程式）。看示例"实验现象"含溶液颜色+固体变化两项，也按此顺序填全。</li></ul>
+      <h4>例题2：制取纯净、干燥的 Cl₂</h4>
+      <ul>
+        <li>先明确实验目的：制取纯净干燥 Cl₂。①、②为除杂装置，需去除易挥发浓盐酸和水分，试剂分别为<b>饱和食盐水</b>与<b>浓硫酸</b>；因饱和食盐水也会使 Cl₂ 变湿润，故<b>先过饱和食盐水、再过浓硫酸</b>，再收集与尾气处理。</li>
+        <li>课内基础方程式应在理解基础上熟练记忆（不考场现配）；陌生方程式平时多练配平。</li>
+        <li>第三题现场配平：二氧化锰是催化剂，反应物/生成物分别为氯酸钾与"氧气+氯化钾"。</li>
+        <li>第四问（本题重点）：找化合价变化元素——两份氧从-2→0、两份氯从+5→0、两份锰从+4→+7，氧和锰两种元素被氯氧化，共转移 <b>10mol</b> 电子（作者因看错氯价态而算错）。</li>
+      </ul>
+      <h4>例题3：探究过氧化钠与水的反应</h4>
+      <ul><li>第一题考方程式（靠平时基础）；第二题考读表（第一行酚酞颜色示碱性强弱，第二三四行示酚酞因碱过强褪色时间→氧化性物质浓度）；第三题第一问探究双氧水浓度与颜色关系（改变双氧水浓度、观察颜色）；第三题第二问无假设，据资料此装置产大量氧气+氧气氧化性影响酚酞→探究氧气与酚酞颜色变化；计算题写出过氧化钠生成氢氧化钠反应、求物质的量除以体积；第五问对比过氧化钠量，固体过氧化钠即酚酞褪色原因。</li></ul>
+      <p class="key">化学实验大题答题四要点：①基础知识在理解基础上记牢，课内方程式完全掌握；②<b>明确题目实验探究目的</b>（核心，缩小答案范围）；③实验过程分析（内容、顺序、装置作用，注意对比与控制变量）；④正确计算（含正确单位，配平为前提）。</p>
+      <p class="tip"><b>重点：</b>四要点；Cl₂除杂顺序（先饱和食盐水后浓硫酸）。<b>难点：</b>电子转移计算（10mol，逐元素确认价态）、以"实验目的"为中心作答。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">5-3</span>化学学习方法 <span class="author">邢函睿</span></h3>
+      <p>引言：高中化学常"只知是这样，不知为何是这样"（真正原理要到选修才学），初高中区别巨大，不能靠背几个方程式应付。四要点：</p>
+      <h4>第一点：氧化还原最重要</h4>
+      <ul><li>学好氧化还原，必修一的 Na、Fe、Cl 差不多都会了——因为它教会反应的基本逻辑，见过的、没见过的方程式都应会写，并能由反应推断物质性质。建议：再见书上方程式时不要只抄，<b>自己配一遍</b>。验证标准：看期末附加方程式对多少、试卷最难几题的陌生方程写对与否。</li></ul>
+      <h4>第二点：化学是理科，请给它点尊重</h4>
+      <ul><li>破除"知识点多、背就完了"的误解——化学有自己内在的逻辑。</li></ul>
+      <h4>第三点：元素怎么学（两条主线）</h4>
+      <ul>
+        <li><b>主线1（价态与性质）：</b>按价态把元素穿成主线，每个价态列举熟悉物质、通过反应了解性质，实现"从已知到未知"推广（例：由二氧化硫知正四价硫有强还原性，再见 S₂O₅²⁻、SOCl₂、S₂O₇²⁻ 就不怕）。</li>
+        <li><b>主线2（元素周期律·族）：</b>按元素所属族学习，"知一推广"陌生物质的普遍性质。</li>
+        <li>再细分：形成"<b>物质线</b>"（单质、氢化物、氧化物、酸碱盐）与"<b>考点线</b>"（方程式、实验、简单计算、特殊物质）。</li>
+        <li><b>特殊点分析：</b>普适规律会翻车（如"强酸制弱酸"，但氢硫酸+硫酸铜生成硫酸）——因为引入新变量（生成硫化铜沉淀拉动平衡），故要<b>分析新变量、得新结论</b>，而非照抄死结论。</li>
+        <li>留作思考：①SO₂通入氯化钡溶液是否产生沉淀？（理论上亚硫酸钡溶于稀酸、与生成的氯化氢反应，应无沉淀，但实验可能并非如此——为什么？）②铁与浓硫酸反应一段时间后有何区别？</li>
+      </ul>
+      <h4>第四点：笔记</h4>
+      <ul><li>老师写的笔记是老师的，课后应<b>自己总结一遍属于自己的笔记</b>。</li></ul>
+      <p class="tip"><b>重点：</b>氧化还原是第一原理、元素学习两条主线及物质线/考点线。<b>难点：</b>特殊点"新变量"分析、两个思考题自主推理。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">5-4</span>如何学习化学 <span class="author">刘心悦</span></h3>
+      <p>作者心路：初入高中对化学无好感（气恼于"例外"多），后在选科"逼迫"下认真学，被老师起始课和化学世界的色彩吸引而爱上。认识：化学是<b>"文理兼备、有挑战"</b>的学科——理科思维（课上琢磨、讨论、题目演练）+ 文科记忆（方程式、现象、步骤）。问答式经验：</p>
+      <h4>Q：讲义和笔记，谁更好？</h4>
+      <ul><li>因人而异。作者记在讲义上（手速不够），但要充分利用讲义空白处和便签纸，把老师补充或重点标注，复习不杂乱。</li></ul>
+      <h4>Q：知识点零碎，怎么记忆？</h4>
+      <ul><li>以<b>实验为线索</b>把基础知识串起来，总结在化学作业本上。"现学现卖"（从实验室出来就补全报告）或"沉淀后输出"（章节复习时统一梳理）。</li></ul>
+      <h4>Q：实验探究题总有陌生反应，怎么办？</h4>
+      <ul><li>陌生反应是必然现象，不必心慌（别人也不会）。充分利用题目给的资料，尤其<b>括号</b>——和语文不同，化学试题括号里的内容很重要（出题人常"心软"告诉你反应条件、化学式），这根救命稻草要抓住。</li></ul>
+      <h4>Q：化学考试偏难、成绩心碎，怎么办？</h4>
+      <ul><li>心碎正常，可安慰"幸好高考卷不是这些人出"。分析<b>失分分布</b>五分：①非智力因素扣分；②审题分；③记忆分（方程式背错）；④方法步骤分（没按流程走）；⑤应用能力分（资料没用上）。看比重再应对。</li></ul>
+      <p>独特感受：像"受虐体质"——考完哀怨"好难不会"，讲评完又赞叹"题出得太好"。建议把好题整理在本子上，心力憔悴不白费。</p>
+      <p class="tip"><b>重点：</b>以实验为线索串联、利用括号资料、失分五分法。<b>难点：</b>陌生反应心理建设、失分分布对症。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">5-5</span>如何更好理解记忆化学知识 <span class="author">杨翔宇</span></h3>
+      <p>总论：化学作为理科，"理解"第一。与数理不同，化学更具体、计算较少、更重<b>形象思维的逻辑推理</b>，可用更形象的方法理解。</p>
+      <h4>例1：复分解反应（小球模型）</h4>
+      <ul><li>碳酸钠+氯化钙→碳酸钙+氯化钠为何发生？因碳酸根与钙离子生成碳酸钙沉淀；离子反应在产生<b>沉淀（更难溶物）、水/气体（更弱电解质）</b>时会进行。形象化：把 Na⁺、Ca²⁺、Cl⁻、CO₃²⁻ 看作四种小球在水中碰撞，其他离子相撞即分开，唯 Ca²⁺ 与 CO₃²⁻ 相撞"牢牢绑在一起"→复分解发生。</li></ul>
+      <h4>总论点（知识迁移）</h4>
+      <ul><li>觉得化学知识记不住，是因为没理解本质、没找到规律联系。利用规律联系做"<b>知识迁移</b>"，可更轻松记忆、合理推断未知。</li></ul>
+      <h4>例2：氧化钠中氧离子的确定（完整推理）</h4>
+      <ul>
+        <li>氧离子在水溶液中无法稳定存在，遇水即生成氢氧根（这也是 Na₂O、CaO 等碱性氧化物与水生成对应碱的原因）。如何确定氧化钠中的氧是氧离子：①氧非金属性很强（课内只显负价）、钠金属性很强，二者对电子束缚力差异极大，难形成稳定共价键；②非金属性比氧弱的硫、碘与钠形成的盐都是离子化合物→可确定氧离子存在。</li>
+        <li>应对质疑（盐与氧化物是不同类）→进一步迁移：碱性氧化物可否视作一种"盐"（酸根是氧离子、对应酸是水）？——<b>水某种意义上可当作一种酸</b>；再进一步，氢氧化物可否看作<b>氧离子的酸式盐</b>？沿此思路继续。</li>
+      </ul>
+      <p>收束：化学的趣味不仅在实验，也在学习思考、获得知识的过程中。</p>
+      <p class="tip"><b>重点：</b>离子反应本质的小球模型、知识迁移。<b>难点：</b>迁移层层递进（氧离子不稳定→类比硫碘化物→水视为酸→氢氧化物视为氧离子的酸式盐）。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">5-6</span>化学怎么学 <span class="author">姚梦溪</span></h3>
+      <ul>
+        <li><b>现阶段核心定位：</b>为高三打好基础、培养解题能力或化学思维，<b>没必要对成绩做过激反应</b>，保持良好学习状态即可。</li>
+        <li><b>对化学的重新认识：</b>化学在研究各种物质，而物质组成世界——学习化学也是在理解世界，带一丝探索未知的好奇与兴趣。</li>
+        <li><b>化学思维：</b>即从"化学"角度理解世界；能在生活中用化学知识解释现实现象，便算具备这般思维。</li>
+        <li><b>课内方法：</b>①课本最重要，课前预习课本（最好做做练习题），带疑问听课；②课后总结疑问与收获；③作业巩固知识、弥补漏洞；④一段知识完全掌握才算结束，只学一遍不够，适时回顾。</li>
+        <li><b>总结：</b>注重打基础（基础知识、基本方法、技能），经常归类总结、反思，基础熟练运用，考试顺其自然。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>以课本为核心、"预习—听课—总结—作业—回顾"闭环。<b>难点：</b>摆脱分数焦虑，把重心放长期能力培养。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第⑥部分 生物 ============ -->
+  <section class="part" id="p6">
+    <h2 class="part-title">⑥ 生物学习方法<span class="cnt">8 篇</span></h2>
+    <p class="part-lead">组内综述：8 篇（含1篇生物竞赛专题）共同主线——<b>重视教材（多遍读、画书、从目录建框架）→ 笔记落实（图文并茂、补拓展、记漏洞）→ 做题与错题（不盲目刷、概括错误事实）→ 定期复习</b>。反复强调的误区：死记硬背、无脑刷题、把知识点堆在一起、抄写式整理。贯穿价值观：<b>注重效率、不做无用功、主动输出与结构化思维、适合自己才是最好</b>。</p>
+    <div class="svg-box">
+      <div class="cap">🌳 ⑥ 生物（根在左 → 8 篇 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 560 350" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="生物学习方法结构">
+        <rect x="15" y="150" width="160" height="40" rx="9" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="95" y="175" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">生物学习方法</text>
+        <path d="M 175 170 H 200 V 14 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 170 H 200 V 54 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 170 H 200 V 94 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 170 H 200 V 134 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 170 H 200 V 174 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 170 H 200 V 214 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 170 H 200 V 254 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 170 H 200 V 294 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <rect x="240" y="2" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="23" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 如何学习生物（王若溪）</text>
+        <rect x="240" y="42" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="63" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 如何整理记忆生物知识点（李少轩）</text>
+        <rect x="240" y="82" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="103" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 如何做合格的生物竞赛生（苏楚石）</text>
+        <rect x="240" y="122" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="143" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 如何更高效地学习生物（黄悦琪）</text>
+        <rect x="240" y="162" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="183" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑤ 生物基础知识落实方法（杨静怡）</text>
+        <rect x="240" y="202" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="223" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑥ 如何全面高质量掌握生物知识（丁柏丰）</text>
+        <rect x="240" y="242" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="263" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑦ 每日每周学习如何落实好基础（王欣然）</text>
+        <rect x="240" y="282" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="303" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑧ 考前如何复习生物（杜泽淳）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">6-1</span>如何学习生物 <span class="author">王若溪</span></h3>
+      <p>从态度、方法、习惯三方面阐述。</p>
+      <h4>一、态度</h4>
+      <ul><li>树立积极态度，别把生物当困难和累赘，找一个感兴趣的点（作者被生物复杂反应机制吸引）。</li></ul>
+      <h4>二、方法（三点）</h4>
+      <ul>
+        <li><b>①强调用书：</b>至少仔细看两遍教科书。第一遍开学前用黑笔圈画重点；第二遍期末前用蓝笔巩固重点、重温遗漏小点。案例：问"细胞学说哪一条能说明在修正中前进"，书P3明确是"新细胞由老细胞分裂产生"。</li>
+        <li><b>②强调归纳（专题意识）：</b>必修一第五章各种图表与影响因素分析可整理成专题（名词辨析如净光合/真光合、结合图表）；细胞分裂做大专题（有丝/减数/二分裂/无丝分裂，分析异同及判断方法）；物质鉴别的试剂及现象。</li>
+        <li><b>③强调细水长流的记忆：</b>选择题很多细节知识点（如<b>光面内质网参与合成脂质、高尔基体参与合成糖类</b>），期末复习多抓主干，故建议当堂课课间就温习一遍。</li>
+      </ul>
+      <h4>三、习惯（不做无用功）</h4>
+      <ul>
+        <li><b>关于刷题：</b>一本顺手的练习册，课下跟老师进度做完，绝不拖到期末；滚瓜烂熟的知识点不再重复。</li>
+        <li><b>关于课下落实：</b>课后复习很重要，每节课后约10-20分钟把知识捋一遍。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>两遍读书法（黑笔/蓝笔圈画）、专题归纳。<b>难点：</b>细节知识点（光面内质网合成脂质、高尔基体合成糖类）靠平时细水长流。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">6-2</span>如何整理记忆生物知识点 <span class="author">李少轩</span></h3>
+      <h4>第一点：教科书的阅读（结构化思维）</h4>
+      <ul><li>生物知识点多而杂，避免死记硬背、无脑刷题。办法——<b>从目录入手</b>（目录是教材的结构图），注意整体框架，<b>从大到小</b>记忆（先整体"呼吸作用"再到每个细节），时刻想"我在记忆哪块知识"。复习笔记也注重整体到局部，考场上就不会只填碎片而忽略题目整体。</li></ul>
+      <h4>第二点：笔记（两个注意点）</h4>
+      <ul>
+        <li>前提：保证课堂内容理解（不能上课记入迷、下课看笔记像天书）。</li>
+        <li>①<b>核心知识点必记</b>（呼吸作用、光合作用流程、有丝分裂过程等）一定课上完成；书上有的、对理解不太重要的长知识可下课补。</li>
+        <li>②<b>老师补充的知识</b>（为高考打基础）要抓紧记在对应位置，<b>别都堆在笔记最后一页</b>（作者教训：堆一起不好记忆、很乱）。</li>
+        <li>最后：及时复习，别让前期准备白费。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>从目录建整体框架、从大到小记忆、核心知识当堂记、补充知识就近记。<b>难点：</b>克服死记硬背与无脑刷题误区。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">6-3</span>如何做一个合格的生物竞赛生 <span class="author">苏楚石</span></h3>
+      <h4>一、生物竞赛的特点</h4>
+      <ul><li>区别其他竞赛：<b>书非常多 + 题目只有选择题</b>。阅读任务重但<b>切忌无脑刷书</b>。近年题多考对生物过程的理解而非死知识，除少数重点（ATP泵的抑制剂、蓝光反应的逆转因素和作用位点）需知道，其余只需了解。</li></ul>
+      <h4>二、通过做题加深理解（而非刷题）</h4>
+      <ul><li>每本书先找老师画出最重点的主干知识（要记的），其余认真看一遍不刻意记忆。看完书后做配套练习，不会的去查书，用做题把次重要小知识点掌握。不必把所有细枝末节记下来（如生化、植物生理的一大堆蛋白），三五年不考的、参加竞赛碰不上的放弃即可。放过小点别内疚，<b>学竞赛最看重效率</b>。</li></ul>
+      <h4>三、处理竞赛和课内的关系</h4>
+      <ul><li>若目标只是冲省一、强基或减分，平时以课内为主，<b>每天竞赛不超过2小时</b>；冲金牌可课内少花时间，但<b>语文英语一定要坚持积累</b>（英语不努力高三"变火星语"）。</li></ul>
+      <h4>四、假期安排</h4>
+      <ul><li>要留退路但别当偷懒借口。计划不应"定时间学竞赛"，而是排出课内、锻炼、生活、休息后，用剩余时间填竞赛。<b>每天留2-3小时休息</b>；学竞赛2小时必休息（缓解海马体记忆疲劳）；休息时不想竞赛（听音乐打游戏）。作者假期每天7小时高效学竞赛（曾一天看11小时植物学反而没意义）。</li></ul>
+      <p class="key">附录竞赛书目（11本）：细胞生物学（翟中和）；遗传学（刘祖洞）；生物化学原理（建议杨荣武版）；植物学（马炜梁）；植物生理学（Lincoln Taiz &amp; Eduardo Zeiger版）；动物学（刘凌云）；生理学（朱大年）；脊椎动物比较解剖学（杨安峰）；基础生态学（牛翠娟）；动物行为学（尚玉昌）；微生物学（沈萍）。</p>
+      <p class="tip"><b>重点：</b>抓主干+做题查书、效率取舍。<b>难点：</b>竞赛与课内（尤其语文英语）平衡、放过小点不内疚。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">6-4</span>如何更高效地学习生物 <span class="author">黄悦琪</span></h3>
+      <p>针对高一科目多、时间紧，按课前—课上—课下三阶段。</p>
+      <h4>课前</h4>
+      <ul><li>通读一遍课本，了解本节课内容，重点留意不理解处，课堂上有侧重地学。</li></ul>
+      <h4>课上</h4>
+      <ul><li>老师讲的不是书上都有，很多细碎知识点、重难点靠课上强调拓展。课堂笔记=PPT内容+老师拓展+自己归纳+刷题漏洞。案例："<b>原核生物没有线粒体但也能进行有氧呼吸</b>"——课上PPT没写但易遗漏，做题时及时补进笔记。</li></ul>
+      <h4>课下</h4>
+      <ul><li>做题+记忆相辅相成。简单易懂、常考的知识点做完题就掌握；难懂的知识点（如光合、呼吸每一步场所、过程、影响因素）做完题后多次复习，时不时想一想、忘了翻笔记，不必反复刷会做的题。</li></ul>
+      <p class="tip"><b>重点：</b>课前通读找盲点、课堂笔记四来源。<b>难点：</b>区分"做题即可掌握"与"需反复记忆"两类知识点。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">6-5</span>生物基础知识落实方法 <span class="author">杨静怡</span></h3>
+      <p>方法核心：<b>"画书 + 课后默写笔记结构"</b>。步骤：①课上用画书方式记知识点（笔记做在课本上）；②课后经阅读教材后，<b>默写笔记结构</b>；③对照课本补充，用其他颜色笔标出没想出来的部分；④考前参照"结构+书"复习，借"学探诊"熟练化。</p>
+      <ul>
+        <li>两大优点：①让笔记中心在课本上（重视教材）；②课后整理笔记，克服"笔记缺完整体系和逻辑关系"的问题。</li>
+        <li><b>注意：</b>默写笔记结构≠照抄笔记，关键是<b>主动输出、构建思维链条和逻辑</b>，避免抄写降低效率。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>画书+课后默写结构+异色笔标遗忘。<b>难点：</b>默写结构是"主动输出"而非照抄。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">6-6</span>如何全面、高质量地掌握生物知识 <span class="author">丁柏丰</span></h3>
+      <p>目标：不漏知识点，方法以笔记为载体分四环节。</p>
+      <h4>【课中】笔记尽量图文并茂</h4>
+      <ul><li>对复杂过程补图，方便直观复习（如氨基酸与钠离子共转运、电子传递链作用原理）。</li></ul>
+      <h4>【课后】通读教科书，参考补充笔记</h4>
+      <ul><li>老师略讲的边缘知识点教科书有详讲，对照教材完善笔记（如书P41细胞间信息交流、P86载体蛋白磷酸化）。</li></ul>
+      <h4>【练习】完成练习题，补足知识点</h4>
+      <ul><li>做学探诊、测试卷时标注不确定的选择题选项和大题表述，查资料补充笔记（如复习植物根尖分区、查不具有细胞周期的细胞实例）。</li></ul>
+      <h4>【纠错】记录易错知识点及表述</h4>
+      <ul><li>分类整理错题；<b>无思路错误时，记录错过的知识点而非整道题</b>（活页本分课时整理）。</li></ul>
+      <p class="tip"><b>重点：</b>图文并茂、课后补边缘知识点、纠错记知识点而非整题。<b>难点：</b>区分"思路错误"与"知识点遗漏"。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">6-7</span>每日、每周学习如何落实好基础 <span class="author">王欣然</span></h3>
+      <p>5条每日每周落实基础的方法：</p>
+      <ul>
+        <li>①上课记笔记结合老师PPT和书，<b>抄一次、看一次、划一次</b>，记忆更牢。</li>
+        <li>②老师讲反应根本原理、科学实验、生活健康例子，用<b>铅笔</b>记下，帮助理解重点难点、开阔视野、应对科普文。</li>
+        <li>③做作业遇不确定选项用<b>荧光笔画</b>，找同学解决；解决不了<b>周五找老师集中答疑</b>，确保学探诊、练习册无遗漏。</li>
+        <li>④每周末选<b>五三、必刷题</b>固定内容集中大量练习，对照答案学<b>标准答题语言</b>。</li>
+        <li>⑤周末画<b>思维导图</b>整体复习：体现"基础→重点→细节"推导链、用关键词代替长句、结合多方材料（课本/笔记/学探诊选项）、合并关联知识划板块（≤单元数）、不直接全盘摘抄知识梳理本。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>每日抄看划、荧光笔标记+周五答疑、周末思维导图。<b>难点：</b>思维导图体现推导链、合并板块。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">6-8</span>考前如何复习生物 <span class="author">杜泽淳</span></h3>
+      <p>核心：分清"<b>优先级</b>"与"<b>顺序</b>"。优先级：<b>复习笔记 &gt; 复习错题 &gt; 看教科书 &gt; 做题</b>；操作顺序示例（三件事）：1.复习笔记 2.看教科书 3.复习错题。</p>
+      <h4>复习笔记</h4>
+      <ul><li>笔记未掌握完全则重点就是笔记；复习前先评估各章节掌握程度，从最薄弱入手（有时间全过）；<b>定义、模型、理论能自己推导的就不死记</b>。</li></ul>
+      <h4>复习错题</h4>
+      <ul><li>重平时积累（练习册+课堂提问+同学疑问）；<b>错题概括成一句简练的话</b>，用红笔标出错过部分；放最后回顾可加深记忆。</li></ul>
+      <h4>看教科书</h4>
+      <ul><li>抓<b>加黑加红文字、配图、课后问题</b>；看书时问三问：①笔记哪些内容书上没有/来自书上；②教科书为什么这么编；③如果我来编写会怎么写。最好过一遍。</li></ul>
+      <h4>做题</h4>
+      <ul><li>别指望考前靠做题找考点；用途：①找薄弱模块；②巩固某知识点；③找题感。后面填空可脑中想答案再对标答。</li></ul>
+      <h4>备注</h4>
+      <ul><li>复习抓主干、有能力的再看细碎小点；平时积累重于考前复习；方法因人而异，适合自己就是好的。</li></ul>
+      <p class="tip"><b>重点：</b>优先级与顺序的区分、错题概括一句话+红笔标注、看书三问。<b>难点：</b>不把"考前做题找考点"当主手段。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第⑦部分 历史 ============ -->
+  <section class="part" id="p7">
+    <h2 class="part-title">⑦ 历史学习方法<span class="cnt">7 篇</span></h2>
+    <p class="part-lead">组内综述：7 篇共同强调<b>历史"有逻辑"，反对"历史＝背背书"</b>。核心方法：<b>理解＋分层＋少量多次、按主线（时间线/分方面）梳理事件、反复看（艾宾浩斯）、记关键词而非整句、结构化笔记与错题</b>。高频共识：死记硬背与整句背诵低效，抓住主干与时代特征、适合自己的才是最好。</p>
+    <div class="svg-box">
+      <div class="cap">🌳 ⑦ 历史（根在左 → 7 篇 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 560 310" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="历史学习方法结构">
+        <rect x="15" y="130" width="160" height="40" rx="9" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="95" y="155" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">历史学习方法</text>
+        <path d="M 175 150 H 200 V 10 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 50 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 90 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 130 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 170 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 210 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 250 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <rect x="240" y="2" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="23" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 如何理解记忆历史（姚雨萱）</text>
+        <rect x="240" y="42" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="63" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 如何记忆历史知识点（何梓阳）</text>
+        <rect x="240" y="82" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="103" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 如何记忆历史（希禹皞）</text>
+        <rect x="240" y="122" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="143" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 如何记忆历史（王哲）</text>
+        <rect x="240" y="162" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="183" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑤ 如何做好历史学习与复习（王乐凡）</text>
+        <rect x="240" y="202" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="223" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑥ 如何复习历史（李姝亭）</text>
+        <rect x="240" y="242" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="263" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑦ 巩固基础与拓展视野（郝翰阳）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">7-1</span>如何理解记忆历史 <span class="author">姚雨萱</span></h3>
+      <p>核心主张："<b>理解＋分层＋少量多次</b>"，反对死记硬背整句话。六法：</p>
+      <ul>
+        <li><b>①记忆前先读一遍本课内容</b>：读中记住大致内容（通常标题），把标题下内容<b>分层</b>（如汉武帝"巩固统一"分政治加强皇权/加强中央集权、经济、军事等）。分层图只负责帮助记忆、不负责梳理知识，不必详细（潦草思维导图即可），可留空格用一字/图像提醒。考前几天借框架过书或合书默背。</li>
+        <li><b>②历史事件用表格记忆</b>：拆解背景、人物、事件、影响等要素，脑中建表格（鸦片战争例）；小的点（某朝代文化成就）直接记。</li>
+        <li><b>③古代史按逻辑层次对应记忆</b>：古代史逻辑层次明显（政治、经济、文化、军事、民族关系等），内部结构相似，可对应记忆。</li>
+        <li><b>④不背整句，记关键词</b>：考场用关键词造句。附"心理学玄学"：<b>最好别用圆圈圈重点</b>（圆圈会弱化圈起来的部分），尽量画方块或用荧光笔画住关键词。</li>
+        <li><b>⑤数字法（生硬背诵类）</b>：某方面有几个点怎么都背不全、找不到逻辑时，记住"这个方面有几个点"，用数字数着背（如"1+3"把式子与知识点套住）。</li>
+        <li><b>⑥最重要是"少量多次"</b>：考前几周开始，先看，再逐渐看自己梳理的图背，最后理想状态是看标题就能默背。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>分层记忆、表格记忆、关键词法、少量多次。<b>难点：</b>勿用圆圈圈重点、分层图只需潦草框架。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">7-2</span>如何记忆历史知识点 <span class="author">何梓阳</span></h3>
+      <p>围绕"笔记、划书、作业本、考前复习"四件工具，主张日常学习过程本身就是记忆过程。</p>
+      <ul>
+        <li><b>笔记：</b>呈现每课大体框架，不需太细；历史事件记名称即可，具体时间/背景/内容/意义影响背书时再看书。</li>
+        <li><b>划书：</b>在段落旁写该段主要内容，防复习觉得乱；用不同颜色笔划不同方面（如<b>红笔划史实、蓝笔划史论</b>）。</li>
+        <li><b>作业本：</b>良好的复习工具。每周写一次，完成本周课的知识填空；有时间先看书、合上书再写，写完对照书订正，错处红笔改；没时间就对着书抄空也能加强记忆。</li>
+        <li><b>考前复习：</b>顺序"先看书→再看作业本→最后看笔记"；大考前30分钟若还没复习完，不看书、直接看笔记；考前复习只能求"<b>全</b>"而不求"精"。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>红蓝笔划书（史实/史论）、作业本合书默写对照订正、考前求全。<b>难点：</b>笔记不过细、考前放弃"精"求"全"。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">7-3</span>如何记忆历史 <span class="author">希禹皞</span></h3>
+      <p>从记忆规律出发，分"史实、历史解释、比较"三层面，强调<b>反复看是第一要素</b>。</p>
+      <ul>
+        <li><b>记忆规律：</b>引用"<b>艾宾浩斯遗忘规律曲线</b>"——记忆要经常训练、大量反复看，把瞬时记忆变长时记忆。故记忆历史第一要素是<b>经常反复看，隔几天看一次</b>。</li>
+        <li><b>史实：</b>史实是故事、无太多专业名词，最好记。其中<b>时间的记忆</b>较困难但重要，方法有二：①先给史实排好序、弄清关系，再把时间带上；②列年份表，用表格记住时间。</li>
+        <li><b>历史的解释：</b>分清每段话讲什么意义（背景、意义、目的、原因）。可用<b>思维导图</b>：中心放一个史实，向四周发散其各要素，关联性好。</li>
+        <li><b>比较的方法：</b>相似事件因时间空间不同而有差别（如不同时期土地改革政策），可比较记忆；也可比较同一时期不同地区的做法。</li>
+        <li><b>总结：</b>第一要素是常常看，再深入理解、总结、比较。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>艾宾浩斯遗忘曲线、时间记忆两法、思维导图发散要素。<b>难点：</b>时间记忆、分清背景/意义/目的/原因。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">7-4</span>如何记忆历史 <span class="author">王哲</span></h3>
+      <p>聚焦"快速记忆"，四条途径：</p>
+      <ul>
+        <li><b>①荧光笔勾画重点：</b>醒目颜色勾画，一目了然加深印象，翻书时鲜艳颜色吸引扫几眼，重复看反复回忆就不易忘。</li>
+        <li><b>②"去除枝叶留主干"：</b>不能一字不落背。形容词多的可去<b>不重要的形容词</b>（但<b>重要形容词不可去除</b>，如"五四运动是一场彻底的反帝反封建的爱国运动"不可删减）。战争类重点记背景、目的、时间、交战双方，忽略过程与数据。</li>
+        <li><b>③课上认真听讲：</b>记忆不仅是课后复习，老师生动讲解历史事件，聚精会神听课后背诵有深刻印象，大幅减少课后复习时间。</li>
+        <li><b>④课后习题练习：</b>查缺补漏、加深记忆，每个题对应知识点，汇总落实。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>荧光笔勾画、去枝叶留主干、课上听讲。<b>难点：</b>区分"重要形容词"与"不重要形容词"，防删掉得分关键表述。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">7-5</span>如何做好历史学习与复习 <span class="author">王乐凡</span></h3>
+      <p>按"上课、课下、复习"三阶段。</p>
+      <h4>日常上课</h4>
+      <ul><li>提高上课效率；笔记不是全记，用<b>速记/简记</b>记知识框架或重要知识点。</li></ul>
+      <h4>课下学习（三点）</h4>
+      <ul>
+        <li>①时间充足时对照教材和课上笔记，总结每课内容；②周末/寒暑假把整本书知识逻辑与时间顺序粗略过一遍，发现不扎实处集中弄扎实；③仅靠课内不足以提升素养，可经老师/同学推荐读课外历史读物。</li>
+      </ul>
+      <h4>历史复习（四部分）</h4>
+      <ul>
+        <li>①（最重要）把握每个时间段的<b>时代特征</b>；②重要事件时间<b>精准记忆</b>（参考书后大事年表）；③用随身纸卡或固定时间复习薄弱部分、纯知识性内容；④考前一两日看错题及答题方法（背景类型题、图表题、总结概括题）。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>把握时代特征（复习最重要）、大事年表、纸卡复习。<b>难点：</b>上课笔记忌全记、课外读物需推荐。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">7-6</span>如何复习历史 <span class="author">李姝亭</span></h3>
+      <p>强调历史"<b>有逻辑</b>"，反对"历史＝背背书"（有人甚至放弃、考场自由发挥），方法——按主线梳理事件。</p>
+      <ul>
+        <li><b>①以时间为轴排列事件（适用于近现代史）：</b>最常见，缺点是细碎、无系统、不易加深印象（考试常考抗日战争事件排序）。</li>
+        <li><b>②分方面总结（适用于古代史）：</b>把每个朝代分巩固统治、民族关系、思想文化（科技）、经济等方面总结，捋清朝代发展规律，利于系统理解（古代史用时间线就不灵了）。</li>
+        <li><b>总结：</b>按不同主题整理、以时间为轴梳理，再强化记忆重大历史事件的意义，复习就相当完备。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>近现代史用时间线、古代史分方面归纳。<b>难点：</b>时间线法的缺陷（细碎无系统）、古代史照搬时间线"不灵"。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">7-7</span>巩固基础与拓展视野（历史） <span class="author">郝翰阳</span></h3>
+      <p>立意：引用德国总统魏茨泽克"对过去视而不见的人，对未来将是盲目的"、张鸣《重说中国近代史》"历史就是民族的记忆"，唯有尊重事实、总结教训才能行稳致远。</p>
+      <h4>巩固基础篇（四份材料：课本、历史笔记本、历史作业本、历史学探诊）</h4>
+      <ul>
+        <li><b>课前课上两件事：</b>①<b>着重理解记忆不熟悉的主干知识</b>（例：《明至清中叶的经济与文化》中你对子目三四大名著、《儒林外史》熟悉，就应细读子目二思想领域变化，认真听陆王心学背景"守仁格竹"、明清思想变化特征"提倡个性自由反对专制"）；②<b>明晰概念</b>（宗法制、党锢之祸、租庸调制、"理"与"器"、中体西用、府院之争、囚笼政策、三三制等都要弄懂，可记笔记、求助历史办公室/网络/同学）。</li>
+        <li><b>课后：</b>跟老师节奏写作业本和学探诊，重视作业本单元总结；最低要求考前做完范围内选择题，时间紧也必分析大题答案。</li>
+      </ul>
+      <h4>拓展视野篇</h4>
+      <ul>
+        <li>历史试卷满是材料分析题，材料是出题人从书籍文献"东拼西凑"的，可站<b>出题人角度"俯视"学科</b>。</li>
+        <li><b>用好学探诊"疑难解析"和"视野拓展"：</b>标画、主动分层、结合课内，理解社会发展与时代特征（例：《辽宋夏金元的文化》视野拓展讲活字印刷术未普及的六方面原因，可分层学习"从社会时代背景、技术自身特性、相关人事物因素"分析技术发展原因的思路）。</li>
+        <li><b>课外读物挑选：</b>①选自己不了解/感兴趣的朝代断代史；②据老师推荐选通史（附B站"刘明昊老师的桃花源"）。</li>
+        <li><b>阅读方法：</b>别有心理负担；有余力读完一章做提要和摘要。作用是更全面了解历史、摆脱"观念史"（例：西太后教育主要源于戏曲故重情义；百日维新不找西太后做靠山受"牝鸡司晨"观念影响）。扩展视野并非惟分数论。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>四份复习材料、主干查漏与概念明晰、活字印刷术六原因分层思路。<b>难点：</b>冷门概念、出题人视角、课外阅读重在摆脱"观念史"。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第⑧部分 地理与政治 ============ -->
+  <section class="part" id="p8">
+    <h2 class="part-title">⑧ 地理与政治学习方法<span class="cnt">7 篇</span></h2>
+    <p class="part-lead">组内综述：地理4篇 + 政治3篇。地理定位"<b>文科中的理科/边缘学科</b>"——最重要的是理解与读图，地图是最重要工具，可画示意图、讲给别人听来检验；政治强调<b>记忆与应用并重、以逻辑（思维导图/结构图）串联、术语精确（一字之差失分）</b>。</p>
+    <div class="svg-box">
+      <div class="cap">🌳 ⑧ 地理与政治（根在左 → 7 篇 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 560 310" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="地理与政治学习方法结构">
+        <rect x="15" y="130" width="160" height="40" rx="9" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="95" y="155" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">地理与政治学习</text>
+        <path d="M 175 150 H 200 V 10 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 50 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 90 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 130 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 170 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 210 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 150 H 200 V 250 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <rect x="240" y="2" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="23" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 如何梳理地理纷繁知识点（严嘉宁）</text>
+        <rect x="240" y="42" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="63" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 地理的日常预习和复习（徐紫晗）</text>
+        <rect x="240" y="82" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="103" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 地理复习思路和考试技巧（张可宜）</text>
+        <rect x="240" y="122" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="143" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 地理知识的积累（陈厚聪）</text>
+        <rect x="240" y="162" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="183" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑤ 日常学习政治的流程（崔一茗）</text>
+        <rect x="240" y="202" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="223" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑥ 政治知识点的记忆和应用（吴启航）</text>
+        <rect x="240" y="242" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="263" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑦ 关于政治如何整合知识点（朱天依）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">8-1</span>如何梳理地理纷繁复杂的知识点 <span class="author">严嘉宁</span></h3>
+      <p>核心观点：地理是"<b>文科中的理科</b>"，最重要是理解。面对每个知识点反复问两问：①<b>为什么是这样呢？</b>（追因）；②<b>我能不能把这个过程讲述清楚呢？</b>（验证）。</p>
+      <h4>方法一：找到串联知识点的关键因素（以"大气的组成和垂直分层"为例）</h4>
+      <ul>
+        <li>关键因素 = <b>大气垂直运动的原因</b>：冷空气下降、热空气上升 → <b>上冷下热则有对流，上热下冷则无对流</b>。各层性质可由"温度变化图（P31图2.5）"推导：<b>对流层</b>（上冷下热→对流旺盛→容易成云致雨）；<b>平流层</b>（上热下冷→平流为主→适合航空飞行）。</li>
+      </ul>
+      <h4>方法二：用"讲清过程"检验理解（两途径）</h4>
+      <ul>
+        <li>①找老师答疑、自己讲一遍（讲不通就说明没真懂，老师指出错误加深印象）；②画知识导图（思维导图）梳理思路。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>两自问、关键因素推导各层性质。<b>难点：</b>对流层/平流层易混，靠"关键因素"破解。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">8-2</span>地理的日常预习和复习 <span class="author">徐紫晗</span></h3>
+      <p>学科特点：地理虽属文科，但<b>没历史政治那么注重记忆，更需理解和运用</b>。考前复习重要但时间有限，功夫要下在平时。</p>
+      <h4>课前预习</h4>
+      <ul><li>前一天晚上通读教材要讲部分 → 有大概了解 → 记下不懂之处 → 带问题听课更有针对性。</li></ul>
+      <h4>课后复习（四步）</h4>
+      <ul>
+        <li>①写作业前再仔细读教材回顾知识点；②认真完成作业，<b>把作业当考试</b>，避免粗心错；③做完对照答案自判；④一定弄懂错题——<b>求精不求多，"弄明白一道错题比再做五道题更有用"</b>。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>把作业当考试、求精不求多。<b>难点：</b>弄懂错题优于多做新题。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">8-3</span>地理复习思路和考试技巧 <span class="author">张可宜</span></h3>
+      <p>定位：地理是"<b>边缘学科</b>"，既需理科思维（自然地理）也需文科方法（人文地理）。</p>
+      <h4>一、考试复习思路（5条）</h4>
+      <ul>
+        <li><b>①自然现象完全理解：</b>由原因一步步推到结果（太阳辐射削弱与保温、热力环流、水循环等），可考前自己讲或给同学讲。</li>
+        <li><b>②定义记牢且理解：</b>专有名词记牢能辨析题目，但也要理解本质（海啸=海底升降运动引起、风暴潮=海面大气运动引起，及其它区别）。</li>
+        <li><b>③利用地图：</b>读图能力最重要。多看多用地地图册（世界海陆分布要熟，否则分不清区域做不出题）；考试给图就尽量从图里找答案。</li>
+        <li><b>④利用示意图：</b>文字复杂就画示意图（如"海蚀柱形成"画图又快又直观）；地理不需一字一句死背，重理解与应用。</li>
+        <li><b>⑤关于题目：</b>考前刷题与成绩基本无关；把《学探诊》和历次考试题全部搞明白、总结错误原因，不额外补题；查看理解教材题目。</li>
+      </ul>
+      <h4>二、考试技巧（6条）</h4>
+      <ul>
+        <li><b>①审题：</b>注意设问（正确/不正确、限定范围、角度、解答方式；如工厂老板搬迁原因答环保意义不明确）；组合选择题开头部分常补背景却总被漏看；教材没有的知识点题干会解释，就着题干信息答；注意地图<b>标题、图例、方向标、比例尺</b>（尤其方向标，别默认上北下南）。</li>
+        <li><b>②极端法：</b>把事情放大到极限（例：黄赤交角变大→放到45度→只剩热带和寒带→热带与寒带随黄赤交角变大而变大）。</li>
+        <li><b>③找茬法：</b>找答题多角度/排除影响因素（例：华北春旱，问华南/东北/青藏为何不春旱——华南土壤水资源降水丰富且夏季风盛行、东北气温回升慢、青藏耕地少需水少）。</li>
+        <li><b>④材料优先：</b>先看材料，答案首先从材料找，再用课本知识。</li>
+        <li><b>⑤语言：</b>用笼统语言，太具体太绝对要小心；简答题精炼、少重复、标序号。</li>
+        <li><b>⑥答题角度（提供思路）：</b>空间（位置）+时间；气候、地形地貌、水、土壤、生物；交通、市场、劳动力、政策、科技。</li>
+      </ul>
+      <p class="key">结尾升华：技巧只是帮你写题；真正学好地理还需认真听讲、用心理解、观察生活、开拓视野、善于提问、多多积累——地理是生活的学科，用心体会便是最好技巧。</p>
+      <p class="tip"><b>重点：</b>读图能力、由因到果推理、极端法与找茬法。<b>难点：</b>审题（方向标、组合题开头）、由因到果推理。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">8-4</span>地理知识的积累 <span class="author">陈厚聪</span></h3>
+      <ul>
+        <li><b>核心：</b>地理积累不必痛苦，<b>地图是地理学习最重要的工具</b>，积累要跟兴趣走。没必要死背"乌克兰的首都是基辅"这类孤立知识。</li>
+        <li><b>兴趣契机（例）：</b>作者因对二战美国海军感兴趣，常找战舰命名的城市和州，看多了就认识了美国城市分布。</li>
+        <li><b>积累路径：</b>①旅游时熟悉所在国家地图，可自己用导航带父母规划路线（练方向感）；②旅游中感受其他地理要素（伦敦例：体验温带海洋性气候降水量而躲雨；吃英国美食时想农业受气候影响；牛津街购物想人口分布）。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>兴趣驱动、地图最重要工具。<b>难点：</b>把地理融入生活场景（导航、气候体验、产业人口联系）。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">8-5</span>日常学习政治的流程 <span class="author">崔一茗</span></h3>
+      <p>分预习—上课—复习三部分。</p>
+      <h4>（一）预习（简化版）</h4>
+      <ul><li>利用课前两分钟或课间，大致浏览大小标题；时间充裕看每段第一句（政治书自然段多第一句为中心句）。</li></ul>
+      <h4>（二）上课（听讲+做笔记）</h4>
+      <ul>
+        <li><b>听讲：</b>听知识点间/内的<b>逻辑关系</b>（做到理解）、听老师讲<b>实际运用例子</b>（助考试分析材料、联系现实）。</li>
+        <li><b>做笔记：</b>知识点长、不能全抄——荧光笔在书上画具体内容；笔记本记<b>标题（框架）</b>+页码；提炼关键词；感兴趣内容记侧面补充。</li>
+      </ul>
+      <h4>（三）复习</h4>
+      <ul>
+        <li><b>日常复习：</b>课前两分钟复习上节框架；当天或当周复习；闭眼能完成框架图、更好是能背下完整句子。</li>
+        <li><b>考前复习：</b>借助学案、书、笔记本、学探诊。用学案/书/笔记记忆知识点（<b>又加黑又加下划线的必背且理解</b>，荧光笔把学案内容画在书上）；用学探诊选择题检验。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>框架意识（笔记本记标题不抄全文）、逻辑关系理解。<b>难点：</b>把长知识点压缩为框架关键词、又能还原为完整句子。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">8-6</span>政治知识点的记忆和应用 <span class="author">吴启航</span></h3>
+      <p>政治=记忆（背诵）+应用，二者以"逻辑"为纽带。</p>
+      <h4>一、记忆（背诵）四要点</h4>
+      <ul>
+        <li>①<b>简明扼要</b>：从冗长文字提取最简练精华；理解基本概念代入逻辑，其余自然出现。</li>
+        <li>②<b>但不能过于精简</b>：随意删改术语会曲解概念——"<b>中国特色社会主义</b>"≠"社会主义"、"<b>国有资产</b>"≠"公有资产"，<b>一字之差也可能大意失分</b>。</li>
+        <li>③<b>专业性要求</b>：高中政治专业要求增加，不能只理解逻辑就完全用自己语言答题。</li>
+        <li>④<b>回顾课本</b>：最精确知识点在教科书中，回顾课本是重要一环。</li>
+        <li>工具：<b>思维导图</b>（参考学探诊或自绘，脑中形成自己思维体系，防思维定势）。</li>
+      </ul>
+      <h4>二、应用四要点</h4>
+      <ul>
+        <li>①现阶段<b>不大量刷题</b>，重在<b>总结已做过的题</b>（抓题目背后考察标准）；②将做过的题分类、概括考察类型反复训练；③<b>培养角度意识</b>（开放题多角度，但先审清题目要求）；④在生活中应用政治知识。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>术语精确性（一字之差）、逻辑串联（思维导图）、抓考察标准。<b>难点：</b>简明与精确的平衡。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">8-7</span>关于政治如何整合知识点 <span class="author">朱天依</span></h3>
+      <p>核心："<b>先结构化、再记忆、再检验</b>"。</p>
+      <h4>（一）时间安排</h4>
+      <ul><li>每次学完一课或周末整理，别拖太久（考前不到一周太赶）；<b>整合用整块时间，记知识点用碎片时间</b>（碎片时间反而很管用）。</li></ul>
+      <h4>（二）工具</h4>
+      <ul><li>课本、讲义、学探诊（主要目的先让知识点<b>结构化</b>）。</li></ul>
+      <h4>（三）六步流程</h4>
+      <ul>
+        <li>①<b>双色标画讲义重点</b>（结构类一种色、双横线加粗/黑体加粗一种色），弄懂不懂处；②打开课本先看<b>导语</b>，对照讲义画课本，看小字和链接材料；③看老师<b>结构图</b>、掌握整体框架（<b>最重要</b>），看熟讲义；④回到课本<b>导语</b>（几个疑问句）试着回答（用整课内容、明确总体方向）；⑤做学探诊选择题查漏；⑥碎片时间记最核心知识点+看熟讲义。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>结构图（整体框架）是核心、六步流程。<b>难点：</b>用课本导语疑问句自检、区分整块与碎片两种用途。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第⑨部分 习题与计划管理 ============ -->
+  <section class="part" id="p9">
+    <h2 class="part-title">⑨ 习题与计划管理<span class="cnt">4 篇</span></h2>
+    <p class="part-lead">组内综述：4 篇分两大主题——<b>习题整理</b>（吴霜多色笔分类法、胡景熙错误三分法）与<b>计划管理</b>（高嘉璐提高完成度、肖楚逸可执行的计划）。核心共识：<b>把分散内容"凝结"沉淀、可执行的计划就是好计划、持续修正而非自我否定</b>。</p>
+    <div class="svg-box">
+      <div class="cap">🌳 ⑨ 习题与计划（根在左 → 4 篇 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 560 190" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="习题与计划管理结构">
+        <rect x="15" y="70" width="160" height="40" rx="9" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="95" y="95" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">习题与计划管理</text>
+        <path d="M 175 90 H 200 V 34 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 90 H 200 V 74 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 90 H 200 V 114 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 90 H 200 V 154 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <rect x="240" y="18" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="39" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 如何整理习题（吴霜）</text>
+        <rect x="240" y="58" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="79" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 如何提高计划的完成度（高嘉璐）</text>
+        <rect x="240" y="98" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="119" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 计划本要快快利用起来（肖楚逸）</text>
+        <rect x="240" y="138" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="159" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 如何做题和进行题目整理（胡景熙）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">9-1</span>如何整理习题 <span class="author">吴霜</span></h3>
+      <p>目的：把分散习题"凝结"到一个本子，复习方便快捷、抓重点。方法本质：区别于单纯"整理错题"，提出覆盖<b>所有习题</b>（错题、疑问题、得老师补充的题）的多色笔分类＋汇总体系。</p>
+      <h4>（1）赋予笔一些意义（多色笔分类法）</h4>
+      <ul>
+        <li><b>红色</b>=本题紧密相关的内容（详细解法、标准答案）；<b>蓝色</b>=本题涉及的重要/不熟悉知识点；<b>绿色</b>=背后暗含、可推广到其他题的方法；<b>紫色</b>=自己不熟悉（第一次听说）的知识点（蓝紫曾纠结熟不熟，"随缘"即可）。</li>
+      </ul>
+      <h4>（2）在题目旁好好记录</h4>
+      <ul><li>两个阶段：自己做题/批改时的想法（知识点和方法）+ 老师讲评课笔记。</li></ul>
+      <h4>（3）把知识点和方法摘出来，汇总到整理本</h4>
+      <ul><li>在"合适时间"把蓝色、绿色（紫色）内容汇总到整理本；红色针对当道题的不收录。最终整理本留下所有习题的零碎知识点和方法，考前每科两三页纸过一遍。合适时间：<b>每堂课听完后 / 每项作业写完后</b>（工作量小、不易拖延），或一章学完总结。</li></ul>
+      <h4>（4）小补充</h4>
+      <ul><li>拿不准或很重要的题，在题号前标一下，之后好好看、整理。</li></ul>
+      <p class="tip"><b>重点：</b>颜色分工（红=本题、蓝/紫=知识点、绿=可迁移方法）。<b>难点：</b>区分"本题专属"与"可迁移沉淀"、把握汇总时机。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">9-2</span>如何提高计划的完成度 <span class="author">高嘉璐</span></h3>
+      <p>核心：不是"会不会做计划"，而是"计划为什么完不成、怎么提高完成度"。两大根因——执行感被束缚、未完成挫败感。以【症状—建议】结构化解。</p>
+      <h4>一、用哪种方法做计划</h4>
+      <ul>
+        <li><b>症状一</b>（没方法）：选定一种方法，<b>努力改造为适合自己的方式</b>，而非失败一次就否定。作者试过按小时划分、四象限法、待办罗列都不适合（完成度50%），踏实用好四中计划本后达90%+。</li>
+        <li><b>症状二</b>（完成度低）：<b>每天睡前记录未完成原因</b>，从自身找问题改进。五类典型问题及改法：①时区安排不合理（找清醒/困倦时段，清醒给理科、困倦给低脑力任务如写字帖运动，其余学文科）；②事项安排不合理（改"理科-文科-理科-文科"夹心饼干式）；③时间预留不合理（计时写作业，算平均用时留足，如物理作业实际1小时而非40分钟）；④事项间隔太短（每项间留≥10分钟）；⑤排到23:00逼熬夜（最晚排到22:30留机动）。</li>
+      </ul>
+      <h4>二、计划什么时候做</h4>
+      <ul><li><b>症状三</b>（昨写计划今睡过）：<b>当天计划当天做，最好三餐前做</b>（预防饭后懈怠、避免突发事件）。</li></ul>
+      <h4>三、哪些事需要做计划</h4>
+      <ul><li><b>症状四</b>（计划排满学习）：做计划目标是<b>规划生活而非控制生活</b>，至少为吃饭、洗澡、锻炼、练琴留足时间（洗澡要半小时就留半小时）。合理计划应"脚踏实地、充满烟火气"。</li></ul>
+      <p class="key">结尾：没人天生能做出100%完成的计划，持续修正才能靠近目标。</p>
+      <p class="tip"><b>重点：</b>睡前记录未完成原因+对症修正（夹心饼干、计时作业、留机动）。<b>难点：</b>把失败计划转化为改进依据，建立修正闭环。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">9-3</span>计划本要快快利用起来了 <span class="author">肖楚逸</span></h3>
+      <p>核心："<b>可执行的计划就是好计划</b>"（不必追求完善）。</p>
+      <h4>上学工作日计划</h4>
+      <ul><li>用计划本记作业+check完成情况；进阶：任务前<b>预估时间＋分配晚自习时段</b>，完不成就压缩/舍弃/改零碎时间；任务后核对实际用时、记下偏差，长期提升统筹与执行能力。警惕"重要不紧急"任务（口语、背书、复习）被挤压成"重要且紧急"。</li></ul>
+      <h4>周末计划</h4>
+      <ul><li>列得细但项间留空余，靠"余量"保证灵活性，一个任务超时不拖累下一个。</li></ul>
+      <h4>寒假计划</h4>
+      <ul><li>先记录几天真实日程，发现自己只能按"上午/下午/晚上"整块节奏安排，就按此节奏安排（半天写作业、半天看书/练水彩，穿插练琴跑步）；过细时间点反而执行不好。</li></ul>
+      <p class="tip"><b>重点：</b>预估与实际用时核对反馈。<b>难点：</b>按场景切换计划颗粒度（工作日精细、假期反而粗）。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">9-4</span>如何做题和进行题目整理 <span class="author">胡景熙</span></h3>
+      <p>提倡"刷题"但反对"题海战术"：大量无意义重复是不尊重时间，少量练习是查漏补缺、开拓思路。</p>
+      <h4>Part1 做题（分学科）</h4>
+      <ul>
+        <li><b>数学等纯理科：</b>①日常刷压轴难题（理清思维过程、拓展思路、写思路、对答案矫正，做不出果断看答案）；②考前刷套题（简单题也一步步写，求"<b>会的不错</b>"——错误常出现在自认熟悉处）。知识点巩固靠学探诊足矣。</li>
+        <li><b>生物等知识点型学科：</b>一块知识讲完刷整块巩固题，看薄弱再单刷；考前刷题同上；难题靠套卷即可。</li>
+        <li><b>语文英语：</b>基本不刷，考前练手感。</li>
+        <li><b>历史政治：</b>不选考。</li>
+      </ul>
+      <h4>Part2 题目整理（错误三分法）</h4>
+      <ul>
+        <li>整理是刷题后必要环节，不整理效果仅为整理后的30%~40%。</li>
+        <li><b>Ⅰ 真的不会的题：</b>详细记录、尽量不简记；不看答案写下完整过程（再过一遍思路）；标注"推不出来的环节"（学新方法、建新思维链条处）；标注出题点与本质，"把题榨干"。</li>
+        <li><b>Ⅱ 错了以后想抽自己的题：</b>别归因"马虎"（这次马虎下次仍马虎）；回忆当时看错哪个符号、2的4次方算成8；说明审题或计算能力问题，<b>"溯流回去"</b>看马虎（记本子背面）。</li>
+        <li><b>Ⅲ 知识点不熟：</b>记知识点，可用判断题形式（一个判断一个知识点）；或整题抄下仍强调知识点。</li>
+      </ul>
+      <h4>Part3 整理之后</h4>
+      <ul><li>有时间就看，考前必看（重点看"想抽自己"的题）；考前一天别盯着难题。</li></ul>
+      <p class="tip"><b>重点：</b>错误三分法及各自整理动作。<b>难点：</b>把"马虎"还原为可定位的审题/计算能力问题。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第⑩部分 情绪与生活管理 ============ -->
+  <section class="part" id="p10">
+    <h2 class="part-title">⑩ 情绪与生活管理<span class="cnt">5 篇</span></h2>
+    <p class="part-lead">组内综述：5 篇围绕"<b>身心健康是一切的基础</b>"展开——调控情绪（课余放松、考前心态、考中策略）、安排学校生活（8元素平衡）、快速走出 emo（用发展的眼光看问题）、平衡学习与娱乐、学科活动爱好的舍得兼顾。核心：<b>用发展的眼光看问题、把娱乐做进计划、适量有益超量有害、舍得之间见专注</b>。</p>
+    <div class="svg-box">
+      <div class="cap">🌳 ⑩ 情绪与生活（根在左 → 5 篇 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 560 230" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="情绪与生活管理结构">
+        <rect x="15" y="90" width="160" height="40" rx="9" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="95" y="115" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">情绪与生活管理</text>
+        <path d="M 175 110 H 200 V 18 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 110 H 200 V 58 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 110 H 200 V 98 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 110 H 200 V 138 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 110 H 200 V 178 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <rect x="240" y="2" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="23" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 如何在紧张学习中调控情绪（贾瑞希）</text>
+        <rect x="240" y="42" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="63" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 关于安排学校生活的一点想法（董一玮）</text>
+        <rect x="240" y="82" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="103" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 如何快速结束emo找到动力（纪天然）</text>
+        <rect x="240" y="122" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="143" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 如何平衡学习和娱乐（赵智轩）</text>
+        <rect x="240" y="162" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="183" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑤ 学科课余活动与爱好的舍得兼顾（邓文骐）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">10-1</span>如何在紧张的学习生活中调控情绪 <span class="author">贾瑞希</span></h3>
+      <p>引言：初入四中人人带忐忑（身边是"大神"、自己是"小菜鸡"），其实每个同学都如此，都需要调控情绪。三条建议：</p>
+      <ul>
+        <li><b>①课余时间，放松娱乐：</b>学业压力大，学习之余合理放松（打球、唱歌、下厨、冥想几分钟），"一根弦一直紧绷早晚会断"。</li>
+        <li><b>②考试来临，调整心态：</b>别担心"考砸怎么办""题会不会难"，心平气和。口诀："<b>我难人难，会的做完；我易人易，我不轻敌！</b>"结果出来也不必过于聚焦分数排名——把尺度放大（一学期、一学年、三年、一辈子、宇宙），一次失误只是一粒尘埃。"乾坤未定，你我皆是黑马！"</li>
+        <li><b>③考试途中，平稳情绪：</b>难题没思路、卡住、时间不够是正常的（考试总有几个空超能力范围）；做困难题时把"十全十美"变"<b>能拿一分是一分</b>"；试卷难度不是单调递增（后面大题某几个小空易得分），先通篇浏览心中有谱；不因惯性思维死磕小空而放弃后面简单题。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>考前心态口诀、把尺度放大、考中"能拿一分是一分"。<b>难点：</b>临场心态切换、克制惯性思维不因小失大。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">10-2</span>关于安排学校生活的一点想法 <span class="author">董一玮</span></h3>
+      <p>核心理论：<b>身体健康和心理健康是一切事情的基础</b>。学校生活由8元素组成（睡眠、洗漱、三餐、学习、学校事务、运动、社交、休闲），需通过调整时间与内容实现"<b>既合理（健康）又高效（进步）</b>"。判断调整是否有效：能否长期坚持 + 效率是否提高。</p>
+      <ul>
+        <li><b>①睡眠（最重要的元素）：</b>保持时长与规律（工作日休息日都规律，否则下周5天都用来调作息）；看起床是否精力充沛、上课是否高效判断；<b>午休最好睡20分钟</b>，再不济趴着闭眼几分钟。</li>
+        <li><b>②洗漱：</b>早起洗脸刷牙、睡前洗澡刷牙，保持卫生+积极生活心理暗示，不注意卫生会邋遢且让人"难以靠近"。</li>
+        <li><b>③三餐：</b>"人是铁，饭是钢"，心情不好大吃一顿会舒服。</li>
+        <li><b>④学习（学生本职）：</b>上进但易忽略其他元素（如错误坐姿、忽略喝水）；写作业时间集中在放学后（约60分钟）和晚自习（约130分钟）；结合选科规划缩短不重要任务时间（不选物理遇难题别死钻，"捡芝麻丢西瓜"）。</li>
+        <li><b>⑤学校事务：</b>锻炼能力、获荣誉，但量力而行，"学习与学校事务，<b>适量有益，超量有害</b>"。</li>
+        <li><b>⑥运动：</b>与健康直接相关，认真上体育课；常见运动（散步、快走、跑步、乒羽篮足排）；和伙伴约球对身心有益；长期不运动不可以。</li>
+        <li><b>⑦社交：</b>学习与不同辈份、职业的人交流，提升能力、获得良好情感。</li>
+        <li><b>⑧休闲：</b>课间不常写作业（否则经历7:30-12:05、12:05-17:00、17:25-21:10三大轮不间断学习）；课间目的是让大脑从上一科脱离、消化吸收，用于喝水、去卫生间、社交、愉悦心理。</li>
+      </ul>
+      <p class="key">判断调整是否有效（例）：学一整天回家尽快休闲，从"刷微信视频到深夜"改为"必要手机使用后洗漱睡觉"——反思发现那些视频刷不刷影响不大、还影响睡眠，且能长期坚持+更高效，即成功的调整。</p>
+      <p class="tip"><b>重点：</b>8元素分类、睡眠时长/规律/午休、写作业时间分配。<b>难点：</b>防止学习挤占其他元素、用"能否坚持+效率"反思每项调整。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">10-3</span>如何快速结束emo，找到动力，保持乐观向上 <span class="author">纪天然</span></h3>
+      <p>核心方法论：初中道法学过的"<b>用发展的眼光看问题</b>"是负面情绪（emo）的最佳解药。</p>
+      <ul>
+        <li><b>①"我明明努力了，为什么成绩不理想？"</b>影响成绩三因素——<b>学习方法、落实程度、考试心态</b>；"努力"一般只指"落实"，后两者没做到就会不理想（具体：一是知识点掌握但无关联无法调取运用；二是因努力而过于重视、给自己压力，多数是前者）。解决：<b>找老师主动分析</b>，找出 bug 就破除自我怀疑。</li>
+        <li><b>②"TA们样样优秀，我好垃圾？"</b>易陷"累了，毁灭吧"躺平。其实这是对以前没认真/放弃爱好的后悔；就此躺平会变成自己讨厌的样子、让未来更后悔。用发展的眼光：<b>现在培养一个终身受益的爱好，为时不晚</b>。</li>
+        <li><b>③"周围都是大神，好慌？"</b>引21届学姐"四中新人生活手册"：即使不在如此优秀的环境，高考仍要和同一拨人竞争；<b>能提前见识大佬是最幸运的事</b>。</li>
+        <li><b>辅助手段：</b><b>正念</b>（附视频 https://www.bilibili.com/video/BV1aK4y1Y7Uc）和<b>锻炼</b>亲测有效；想彻底解决推荐和父母沟通。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>成绩三因素模型与"找bug"、用发展的眼光看待。<b>难点：</b>区分"努力（落实）"与"方法、心态"，不把成绩问题归为自我否定。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">10-4</span>如何平衡学习和娱乐 <span class="author">赵智轩</span></h3>
+      <p>核心：学习与娱乐都不可缺少（只有学习生活单薄，一味娱乐本末倒置），找平衡点才能充实多彩。两大建议：</p>
+      <ul>
+        <li><b>①把娱乐做进每日计划：</b>每天规划一定娱乐时间（假期平时都规划）。例：想读深爱的文学作品，先反思该用哪些时间、每次读多久——保证娱乐时间、消除疑虑，学习时不受杂念干扰、更专注提效。</li>
+        <li><b>②培养良好的"摸鱼心态"：</b>肆无忌惮摸鱼会不安、结束转负罪感；若摸鱼在良好规划下（不影响学习时间），就<b>全神贯注地摸鱼、享受地摸鱼</b>，娱乐才能带来最长久快乐。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>娱乐做进计划、正当摸鱼心态。<b>难点：</b>从"愧疚式娱乐"转向"规划内尽情娱乐"。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">10-5</span>学科、课余活动与爱好的舍得与兼顾 <span class="author">邓文骐</span></h3>
+      <p>核心矛盾：高中时间"稀缺"，必须在学科、活动、爱好间取舍；把被吓跑的爱好拢回身边，实在无法兼顾的才放手。</p>
+      <ul>
+        <li><b>①学科选择：</b>先确定"<b>自己是否喜欢</b>"（兴趣优先），再考虑投入多少、对比付出转化成果，<b>有选择性地投入时间</b>（作者初中数学物理信息拿小奖，高中只留数学一科竞赛）。</li>
+        <li><b>②活动平衡：</b>面对丰富活动先"填鸭式塞满"再做减法，聚焦最爱的一个；活动减少反而换来专注，"<b>有舍亦有得</b>"（作者留足球队、舍学生会）。</li>
+        <li><b>③爱好兼顾：</b>时间减少不意味着放弃。以钢琴为例，没时间上课、连整段时间也没有，就把练琴时间<b>拆碎，穿插在学不动的间隙</b>里，也是调整学习状态的好方式。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>兴趣优先+投入产出对比、先加法后减法、拆碎时间穿插。<b>难点：</b>多重角色中做收敛性选择，把放弃转化为专注。</p>
+    </div>
+  </section>
+
+  <!-- ============ 第⑪部分 时间与手机管理 ============ -->
+  <section class="part" id="p11">
+    <h2 class="part-title">⑪ 时间与手机管理<span class="cnt">9 篇</span></h2>
+    <p class="part-lead">组内综述：9 篇分两大主题——<b>时间管理</b>（6篇：活页本总结、零碎时间四象限、碎片化时间、短期目标激励、周末计划、零碎时间两步走）与<b>手机管理</b>（3篇：周中周末规则、五要素体系、桌面整理）。核心共识：<b>区分整块与碎片时间、任务强度匹配身心状态、手机"关机+物理远离+定时集中使用"、可执行的计划就是好计划</b>。</p>
+    <div class="svg-box">
+      <div class="cap">🌳 ⑪ 时间与手机（根在左 → 9 篇 · 直角折线 · 静态SVG）</div>
+      <svg viewBox="0 0 560 390" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="时间与手机管理结构">
+        <rect x="15" y="170" width="160" height="40" rx="9" fill="#4A90A4" stroke="#3a7686" stroke-width="1.5"/>
+        <text x="95" y="195" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold" font-family="'Microsoft YaHei',sans-serif">时间与手机管理</text>
+        <path d="M 175 190 H 200 V 10 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 190 H 200 V 50 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 190 H 200 V 90 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 190 H 200 V 130 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 190 H 200 V 170 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 190 H 200 V 210 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 190 H 200 V 250 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 190 H 200 V 290 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <path d="M 175 190 H 200 V 330 H 240" fill="none" stroke="#4A90A4" stroke-width="1.5"/>
+        <rect x="240" y="2" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="23" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">① 如何高效利用时间准备考试（赵心然）</text>
+        <rect x="240" y="42" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="63" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">② 如何管理零碎时间（曹睿晨）</text>
+        <rect x="240" y="82" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="103" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">③ 如何利用碎片化时间（周心矩）</text>
+        <rect x="240" y="122" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="143" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">④ 高效利用时间（蔡昊翰）</text>
+        <rect x="240" y="162" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="183" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑤ 如何利用周末时间（肖雅迪）</text>
+        <rect x="240" y="202" width="305" height="32" rx="7" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+        <text x="392" y="223" text-anchor="middle" fill="#2c4b56" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑥ 零碎时间的管理（闵诗珈）</text>
+        <rect x="240" y="242" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="263" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑦ 如何合理的管理手机（陈思宇）</text>
+        <rect x="240" y="282" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="303" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑧ 如何管理手机（李心依）</text>
+        <rect x="240" y="322" width="305" height="32" rx="7" fill="#FCF1E7" stroke="#E8A87C" stroke-width="1.5"/>
+        <text x="392" y="343" text-anchor="middle" fill="#7a4a24" font-size="13" font-family="'Microsoft YaHei',sans-serif">⑨ 如何正确管理手机（王希尧）</text>
+      </svg>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">11-1</span>如何高效利用时间准备考试 <span class="author">赵心然</span></h3>
+      <p>核心方法：<b>活页本总结法</b>——平时积累 + 考前一周集中总结 + 考前二十分钟回顾，形成"日日清—周总结—考前巩固"链条。</p>
+      <h4>一、平时用好零碎时间</h4>
+      <ul><li>把每天应会的知识搞懂（"日日清"）；把错题、犹豫题、典型题整理起来（可打印不必抄写），闲暇翻看（睡前、午饭排队）；准备活页本，把错点（知识漏洞、粗心）或更好解题方法概括起来。</li></ul>
+      <h4>二、考前一周做好总结（整块时间）</h4>
+      <ul>
+        <li>①<b>总结科目总体做题方法与内容</b>：按科目特点复习（积累型学科如语英抓阅读写作技巧，逻辑型学科如数理化画思维导图强化灵活性）；②<b>总结细小易忽略点</b>：翻书和笔记，抓记忆不牢、易错易混点，以单元为单位记在总结本（三目标：不会的近期多看多想、增强记忆、巩固先前会的）；③<b>总结易错点</b>：错题重做（尤其知识点漏洞题），再错更要每天翻看、隔段抽查；总结要"<b>越简短越好但清楚明白</b>"；④晚上睡前回忆总结内容，用线索把知识串起来。</li>
+      </ul>
+      <h4>三、考前二十分钟</h4>
+      <ul><li>翻看总结，了解考试注意点、增强信心。</li></ul>
+      <p class="key">优点：分门别类提高效率与逻辑性、有效查漏补缺（不熟多学、极熟少复习）、灵活性强。缺点：依赖平时积累、过程可能枯燥、主观性强（可能误判"复习好了"）。</p>
+      <p class="tip"><b>重点：</b>总结越简短越清楚、睡前串知识、易错题重做+抽查。<b>难点：</b>依赖平时积累、主观误判。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">11-2</span>如何管理零碎时间 <span class="author">曹睿晨</span></h3>
+      <p>核心：按"兴趣"×"精力"两维度把零碎时间状态分四象限，匹配不同强度任务：</p>
+      <ul>
+        <li><b>①有兴趣且精力充沛 → 攻克难题</b>（画受力分析图、标化学方程式化合价与电子转移、列作文提纲）；</li>
+        <li><b>②有兴趣但疲惫 → 简易任务</b>（朗读古诗文言文、朗读英文练口语、朗读好词好句）；</li>
+        <li><b>③精力充沛但不想学 → 锻炼或放松</b>（深蹲、俯卧撑；活动头肩腕、按指关节、看窗外防颈椎病；准备之后学习资料）；</li>
+        <li><b>④疲惫又不想学 → 彻底休息</b>（闭目养神、听音乐、躺一会儿），能极大提高后续效率与积极性。</li>
+      </ul>
+      <p><b>"硬件"支持：</b>衣兜常放古诗小册子、记有未解难题的草稿纸、耐用的笔，排队等长零碎时间保持效率。</p>
+      <p class="tip"><b>重点：</b>任务强度与身心状态匹配。<b>难点：</b>如实判断自己当下兴趣与精力状态。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">11-3</span>如何利用碎片化时间 <span class="author">周心矩</span></h3>
+      <p>三条建议（认识—行动—意义，层层递进）：</p>
+      <ul>
+        <li><b>①了解可利用的碎片化时间：</b>无处不在，牺牲一点休息时间可多完成几篇学探诊（如坐车上下学不玩手机、背古诗词）；"不积跬步无以至千里"，一学期下来节省很多时间。</li>
+        <li><b>②学会利用：</b>利用碎片时间是习惯，"万事开头难"难在开始；建议<b>制定简单计划、先坚持一周</b>，从改变意识入手，变成常态。</li>
+        <li><b>③知道为什么：</b>根本目的提高时间利用率，但易忽视的是——通过时间利用<b>安排出整段放松时间愉悦身心</b>，且干的事越多满足感越高、娱乐时更能放松减压。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>先坚持一周养成习惯。<b>难点：</b>理解碎片利用的额外收益（挤整块放松时间、提升满足感）。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">11-4</span>高效利用时间 <span class="author">蔡昊翰</span></h3>
+      <p>问题：周末/假期时间利用差（平时学校作息机械化，周末两天自由却难集中注意力，常坐几小时翻书刷手机）。根因：缺少完成任务的<b>动力</b>——相比打游戏刷视频的短期回馈，写作业"对人类毫无吸引力"（动物行为学角度）。</p>
+      <p>解决方法——<b>短期目标激励法</b>：</p>
+      <ul><li>①明确一个周期内的任务总量与 ddl（截止日期）；②按阶段设置奖励措施（如完成某任务才能出门打球，是"不写完作业不许看电视"的主动改进版）；③详细列出每阶段奖励，就有了完成每个任务的动力。灵感源于日本马拉松选手"分段目标"跑步秘籍。</li></ul>
+      <p class="tip"><b>重点：</b>明确任务总量+ddl、阶段奖励。<b>难点：</b>奖励设计真正激励自己。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">11-5</span>如何利用周末时间 <span class="author">肖雅迪</span></h3>
+      <p>核心：利用周末（含寒暑假）最有效的方法是<b>写计划</b>。两种形式：</p>
+      <ul>
+        <li><b>①时间表：</b>分时间段详细计划（40分钟为单位，或以完成一件事为单位），紧凑利用一天，适合寒假等"一整天自己安排、每天复制性强"的情况；但机动性差、制作时间长，不了解自己耗时易打乱计划，不适合初学者。</li>
+        <li><b>②事项表：</b>把每天要做的事写在计划本，无严格时间要求，分必做、选做，用熟悉标志表示，机动性强，实践效率高（作者当前所用）。</li>
+      </ul>
+      <p><b>误区提醒：</b>计划的目的是规划生活，别太重视外观（打勾或涂掉都行）；计划不全是学习，把想买东西、去公园等娱乐也写进去，合理配比学习与娱乐。</p>
+      <p class="tip"><b>重点：</b>时间表vs事项表对比。<b>难点：</b>初学者慎用时间表、避免过度追求外观。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">11-6</span>零碎时间的管理 <span class="author">闵诗珈</span></h3>
+      <p>两步走 + 守住"不必占满"底线：</p>
+      <ul>
+        <li><b>第一步：找到每天的零碎时间</b>（记录一天找空缺，或认真想；易忽略时段：<b>到校后早读前、吃完饭到晚自习开始前</b>等）。</li>
+        <li><b>第二步：找到适合某时段做的事</b>（例：坐地铁上学，早晨地铁背英语单词或"临阵磨枪"复习早读测试内容，还防早上到校犯困；多尝试、选出效率最高且愿意坚持的事）。</li>
+        <li><b>特别提醒：管理零碎时间不是都占满</b>（例：下午坐地铁回家玩手机刷朋友圈，让学习一天后的自己放松，回家做作业效率更高）。一定别"好像一整天没闲过"却累够呛还无收获。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>发现—匹配—留白。<b>难点：</b>找到"效率最高且愿意做"的事需反复尝试。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">11-7</span>如何合理的管理手机 <span class="author">陈思宇</span></h3>
+      <p>核心理念：管理手机最重要的是<b>让它远离自己，一定关机，并定时集中使用</b>。</p>
+      <ul>
+        <li><b>周中：</b>每天睡前15分钟集中处理一天信息（微信聊天、班级重要事务、上网搜学习问题答案——最好是与同学讨论后仍未解决的）。</li>
+        <li><b>周末：</b>早上起来先用手机完成必做任务（如听英语听力），然后<b>关机、放在客厅</b>（不是卧室就行），直到晚上睡前40分钟集中处理信息或做喜欢的事（如听歌放松）。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>关机+物理远离（客厅）+定时集中。<b>难点：</b>真正执行关机、克制随时取用冲动。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">11-8</span>如何管理手机 <span class="author">李心依</span></h3>
+      <p>核心："健康使用手机"<b>不是完全不碰，而是收放自如、不沉溺</b>（该用就用、不该用及时收手）。四方面+借外力：</p>
+      <ul>
+        <li><b>①强烈意愿</b>（不言自明）。</li>
+        <li><b>②合理规划：</b>想清四问——有没有一直用手机的必要？什么时段用？最长用多久？哪些软件不必要打卡？（附期末网课一周使用计划）。</li>
+        <li><b>③硬件支持（物理隔离法）：</b>特定时段静音+放远，其他屋更好、有家长在更合适（碍于面子不好意思去拿）。</li>
+        <li><b>④软件支持：</b><b>forest</b>（简洁、种树有成就感、可组自习室、云端种树兑现真树苗）；<b>番茄todo</b>（定时锁机、自定义锁机时段、学习应用白名单、强制选项，但部分功能过于形式化浪费精力）；<b>华为"健康使用手机"</b>（实用功能更多、管控更精确、操作更简便——可编辑锁机时段、精确统计各应用时长、设应用限额与屏幕总时长，以秒管控，如B站微信≤40分钟、总时长≤2小时）。</li>
+        <li><b>借力他律：</b>实在无法自律就他律——作者把"健康使用手机"设好后给家长展示，<b>把密码交给母上</b>（自主且"被迫"自控）；还可让家长代管电子产品、和同伴打卡。</li>
+      </ul>
+      <p class="tip"><b>重点：</b>物理隔离、软件三选（forest/番茄todo/华为健康使用手机）。<b>难点：</b>抵制诱惑需借外力（交密码给家长、代管、打卡）。</p>
+    </div>
+
+    <div class="card">
+      <h3 class="art"><span class="no">11-9</span>如何正确管理手机 <span class="author">王希尧</span></h3>
+      <p>核心：通过"区分手机的工作与娱乐职能"来管理，两条路径（两个简单想法：<b>眼不见为净</b>和<b>集中使用</b>）。</p>
+      <ul>
+        <li><b>①桌面整理（眼不见为净）：</b>确保学习（"搬砖"）应用不与王者荣耀、B站同框，防"误"入歧途；最好把游戏藏文件夹；可用<b>抽屉式桌面</b>（华为：设置→桌面和壁纸→桌面风格），学习软件放桌面、其他应用收上滑抽屉。</li>
+        <li><b>②计划上动手脚（集中使用）：</b>把需要电子设备参与的任务做标记（如*），安排在一起，其他任务排一起。</li>
+      </ul>
+      <p class="key">升华：真正的手机管理不止于计划执行——"<b>百分之百的计划执行是管理好手机的充分而不必要条件</b>"；根本在于明确自己的目标、坚持计划、充分享受现实生活。</p>
+      <p class="tip"><b>重点：</b>学习与娱乐应用视觉/物理分离、集中使用。<b>难点：</b>从"计划执行"升华到"目标+现实生活"。</p>
+    </div>
+  </section>
+
+
+  <footer>
+    《原来还可以这么学》北京四中学霸学习方法 · 完整学习手册（68 篇知识点零遗漏）<br>
+    依据《学习助手工作流》完成：跨文档去重 → 交叉引用 → 终极合并 → 知识图谱 → 系统性总结 · 忠于原文
+  </footer>
+</div>
+</body>
+</html>
