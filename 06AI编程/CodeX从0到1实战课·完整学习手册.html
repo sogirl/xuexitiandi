@@ -1,0 +1,2567 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,maximum-scale=5,user-scalable=yes">
+<meta name="theme-color" content="#FBFBFC">
+<title>CodeX从0到1实战课 · 完整学习手册（小白到精通高手）</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{
+  background:#FBFBFC;
+  color:#1E293B;
+  font-family:-apple-system,BlinkMacSystemFont,"PingFang SC","Microsoft YaHei","Helvetica Neue",Arial,sans-serif;
+  font-size:15px;
+  line-height:1.75;
+  -webkit-font-smoothing:antialiased;
+}
+body{min-width:320px}
+.cover{
+  background:linear-gradient(135deg,#EFF6FF 0%,#FFFFFF 60%,#F0FDF4 100%);
+  border-bottom:1px solid #E2E8F0;
+  padding:48px 24px 32px;
+  text-align:center;
+}
+.cover h1{font-size:30px;color:#0F172A;margin-bottom:12px;letter-spacing:0.5px}
+.cover .subtitle{font-size:15px;color:#64748B;margin-bottom:20px}
+.cover .meta{
+  display:inline-block;background:#FFFFFF;border:1px solid #E2E8F0;
+  border-radius:999px;padding:6px 16px;color:#475569;font-size:13px;margin:4px;
+}
+.topnav{
+  display:flex;flex-wrap:wrap;justify-content:center;gap:8px;
+  margin-top:24px;max-width:960px;margin-left:auto;margin-right:auto;
+}
+.topnav a{
+  background:#FFFFFF;border:1px solid #CBD5E1;color:#1E40AF;
+  text-decoration:none;padding:8px 14px;border-radius:8px;font-size:13px;
+}
+.topnav a:hover{background:#EFF6FF;border-color:#93C5FD}
+.mindmap-section{
+  max-width:1280px;margin:24px auto;padding:20px 16px;
+  background:#FFFFFF;border:1px solid #E2E8F0;border-radius:12px;
+}
+.mindmap-section h2{font-size:22px;color:#0F172A;margin-bottom:8px}
+.mindmap-section .desc{font-size:13px;color:#64748B;margin-bottom:14px}
+.svg-wrap{
+  width:100%;overflow:auto;-webkit-overflow-scrolling:touch;
+  border:1px solid #E2E8F0;border-radius:8px;background:#FAFBFC;
+  padding:8px;touch-action:pinch-zoom;
+}
+.svg-wrap svg{display:block;min-width:100%;height:auto}
+.container{max-width:1080px;margin:0 auto;padding:24px 16px}
+.part-title{
+  font-size:24px;color:#0F172A;
+  margin:36px 0 16px;padding:12px 16px;
+  background:#EFF6FF;border-left:5px solid #2563EB;border-radius:6px;
+}
+.chapter{
+  background:#FFFFFF;border:1px solid #E2E8F0;border-radius:12px;
+  padding:24px;margin-bottom:20px;
+}
+.chapter h3{
+  font-size:20px;color:#1E40AF;margin-bottom:6px;
+  border-bottom:2px solid #DBEAFE;padding-bottom:8px;
+}
+.chapter .tagline{font-size:13px;color:#64748B;margin-bottom:14px;font-style:italic}
+.chapter h4{
+  font-size:16px;color:#0F172A;margin:18px 0 10px;
+  padding-left:10px;border-left:3px solid #2563EB;
+}
+.chapter p{font-size:15px;margin:8px 0;color:#334155}
+.chapter ul,.chapter ol{padding-left:24px;margin:8px 0}
+.chapter li{font-size:14.5px;margin:6px 0;color:#334155;line-height:1.7}
+.chapter strong{color:#0F172A}
+.chapter em{color:#475569;font-style:normal;font-weight:600}
+table{
+  width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;
+  background:#FFFFFF;
+}
+th,td{
+  border:1px solid #E2E8F0;padding:8px 12px;text-align:left;
+  vertical-align:top;
+}
+th{background:#F1F5F9;color:#0F172A;font-weight:600}
+td{color:#334155}
+tr:nth-child(even) td{background:#F8FAFC}
+.code{
+  background:#F8FAFC;border:1px solid #E2E8F0;border-left:3px solid #2563EB;
+  border-radius:6px;padding:10px 14px;margin:10px 0;
+  font-family:"SF Mono","Courier New",monospace;font-size:13px;
+  color:#0F172A;white-space:pre-wrap;word-break:break-word;
+}
+.callout{
+  border-radius:8px;padding:12px 14px;margin:12px 0;font-size:14px;
+}
+.callout-info{background:#EFF6FF;border-left:4px solid #3B82F6;color:#1E3A8A}
+.callout-warn{background:#FFFBEB;border-left:4px solid #F59E0B;color:#78350F}
+.callout-tip{background:#F0FDF4;border-left:4px solid #10B981;color:#14532D}
+.callout-danger{background:#FEF2F2;border-left:4px solid #EF4444;color:#7F1D1D}
+.callout b{font-weight:700}
+.prompt-list{background:#FFF7ED;border:1px solid #FED7AA;border-radius:8px;padding:12px 14px;margin:10px 0}
+.prompt-list .ph{font-weight:700;color:#9A3412;font-size:14px;margin-bottom:6px}
+.prompt-list pre{
+  background:#FFFFFF;border:1px solid #E2E8F0;border-radius:6px;
+  padding:10px 12px;font-size:13px;color:#1E293B;
+  white-space:pre-wrap;font-family:"SF Mono",monospace;
+}
+.toc{
+  background:#FFFFFF;border:1px solid #E2E8F0;border-radius:12px;
+  padding:18px 22px;margin:24px auto;max-width:1080px;
+}
+.toc h2{font-size:20px;color:#0F172A;margin-bottom:12px}
+.toc ol{padding-left:22px;font-size:14px}
+.toc li{margin:4px 0;line-height:1.6}
+.toc a{color:#1E40AF;text-decoration:none}
+.toc a:hover{text-decoration:underline}
+footer{
+  text-align:center;padding:32px 16px;color:#94A3B8;font-size:13px;
+  border-top:1px solid #E2E8F0;margin-top:40px;
+}
+.summary-box{
+  background:linear-gradient(135deg,#EFF6FF 0%,#F0FDF4 100%);
+  border:1px solid #BFDBFE;border-radius:12px;
+  padding:20px;margin:14px 0;
+}
+.summary-box h4{
+  color:#1E40AF;font-size:16px;margin-bottom:8px;
+  border:none;padding:0;
+}
+.summary-box p{font-size:14.5px;color:#334155;margin:6px 0}
+hr{border:none;border-top:1px solid #E2E8F0;margin:20px 0}
+.quote{
+  background:#FAFBFC;border-left:3px solid #94A3B8;
+  padding:8px 12px;margin:10px 0;color:#475569;font-size:14px;
+}
+@media (max-width:640px){
+  .cover h1{font-size:22px}
+  .cover .subtitle{font-size:13px}
+  .part-title{font-size:18px}
+  .chapter h3{font-size:17px}
+  .chapter h4{font-size:15px}
+  table{font-size:12px}
+  th,td{padding:6px 8px}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ 顶部封面 ============ -->
+<header class="cover">
+  <h1>🧙‍♂️ CodeX 从0到1实战课</h1>
+  <p class="subtitle">完整学习手册 · 从小白到精通高手的全套知识图谱</p>
+  <div>
+    <span class="meta">📚 22 节课程</span>
+    <span class="meta">🎯 4 大板块</span>
+    <span class="meta">⚙️ 完整命令清单</span>
+    <span class="meta">🧠 横向思维导图</span>
+    <span class="meta">📱 移动端兼容</span>
+  </div>
+  <nav class="topnav">
+    <a href="#mindmap">🧠 知识图谱</a>
+    <a href="#part1">① 入门准备</a>
+    <a href="#part2">② Skill生态</a>
+    <a href="#part3">③ 建站与视觉</a>
+    <a href="#part4">④ 视频动效</a>
+    <a href="#final">🎯 终极总结</a>
+  </nav>
+</header>
+
+<!-- ============ 目录 ============ -->
+<div class="toc">
+<h2>📋 完整目录</h2>
+<ol>
+<li>CodeX是做什么的？为什么一定要学？</li>
+<li>OpenAI账号注册/手机接码/充值一站式解决</li>
+<li>CodeX中转站API登录跳过验证</li>
+<li>CodeX Windows 本地满血版部署</li>
+<li>CodeX macOS 本地满血版部署</li>
+<li>CodeX 桌面端功能调试详解</li>
+<li>Codex Skill 的安装技巧和10大必装 Skill</li>
+<li>Skill 制作从0到1详解</li>
+<li>CodeX 必备的 Codex 增强工具（Codex++）</li>
+<li>Codex 5.6 模型深度测评与最新客户端新功能</li>
+<li>Codex 开源模型本地部署（Ollama）</li>
+<li>CodeX 高交互个人网站从0到1制作</li>
+<li>一招轻松复刻高逼格创意网站</li>
+<li>Codex 无限画布 · 精准控图（双版本合并）</li>
+<li>2D转3D、3D转VR看房效果0-1制作全流程</li>
+<li>调用 Seedance 2.0 API 一站式生成漫剧</li>
+<li>CodeX 自动剪辑神器 HyperFrames</li>
+<li>ChatCut 自动剪辑全流程详解</li>
+<li>Codex 调用 RunningHub API（生图性价比更高）</li>
+<li>Remotion 动效</li>
+<li>音乐随声律动项目从0到1制作全过程</li>
+<li>Codex 宠物组件：创建一个独属于你的宠物</li>
+</ol>
+</div>
+
+<!-- ============ 横向树状SVG思维导图 ============ -->
+<section class="mindmap-section" id="mindmap">
+<h2>🧠 知识图谱（横向树状静态 SVG）</h2>
+<p class="desc">📌 根节点"CodeX从0到1实战课"在最左侧 → 逐层向右展开 4 大板块 → 22 个章节。<br>
+📱 移动端可双指缩放查看完整内容（SVG 自带 viewBox 自适应）。<br>
+🎨 配色：浅色系（背景 #FBFBFC、主色 #2563EB 蓝、辅色 #F1F5F9）。</p>
+<div class="svg-wrap">
+<svg viewBox="0 0 2400 1900" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMinYMin meet">
+
+<!-- 根节点 -->
+<g>
+  <rect x="20" y="900" width="280" height="100" rx="14" ry="14" fill="#2563EB" stroke="#1D4ED8" stroke-width="2"/>
+  <text x="160" y="935" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">CodeX从0到1</text>
+  <text x="160" y="965" font-size="20" font-weight="700" fill="#FFFFFF" text-anchor="middle">实战课</text>
+  <text x="160" y="988" font-size="12" fill="#DBEAFE" text-anchor="middle">完整的AI工程师之路</text>
+</g>
+
+<!-- 直角折线：根→四大板块 -->
+<!-- 第一板块 -->
+<path d="M 300 950 L 420 950 L 420 200 L 540 200" stroke="#94A3B8" stroke-width="1.8" fill="none"/>
+<g>
+  <rect x="540" y="140" width="240" height="120" rx="10" ry="10" fill="#3B82F6" stroke="#1D4ED8" stroke-width="1.5"/>
+  <text x="660" y="180" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">① 入门准备</text>
+  <text x="660" y="205" font-size="12" fill="#DBEAFE" text-anchor="middle">认知 · 登录 · 部署 · 调试</text>
+  <text x="660" y="225" font-size="12" fill="#DBEAFE" text-anchor="middle">共 6 章</text>
+  <text x="660" y="245" font-size="12" fill="#DBEAFE" text-anchor="middle">小白起步必看</text>
+</g>
+
+<!-- 第二板块 -->
+<path d="M 300 950 L 420 950 L 420 700 L 540 700" stroke="#94A3B8" stroke-width="1.8" fill="none"/>
+<g>
+  <rect x="540" y="640" width="240" height="120" rx="10" ry="10" fill="#0EA5E9" stroke="#0369A1" stroke-width="1.5"/>
+  <text x="660" y="680" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">② Skill 与工具生态</text>
+  <text x="660" y="705" font-size="12" fill="#E0F2FE" text-anchor="middle">安装 · 制作 · 增强 · 模型</text>
+  <text x="660" y="725" font-size="12" fill="#E0F2FE" text-anchor="middle">共 5 章</text>
+  <text x="660" y="745" font-size="12" fill="#E0F2FE" text-anchor="middle">能力进阶</text>
+</g>
+
+<!-- 第三板块 -->
+<path d="M 300 950 L 420 950 L 420 1180 L 540 1180" stroke="#94A3B8" stroke-width="1.8" fill="none"/>
+<g>
+  <rect x="540" y="1120" width="240" height="120" rx="10" ry="10" fill="#10B981" stroke="#047857" stroke-width="1.5"/>
+  <text x="660" y="1160" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">③ 建站与视觉</text>
+  <text x="660" y="1185" font-size="12" fill="#D1FAE5" text-anchor="middle">个人站 · 复刻 · 3D · 漫剧</text>
+  <text x="660" y="1205" font-size="12" fill="#D1FAE5" text-anchor="middle">共 5 章</text>
+  <text x="660" y="1225" font-size="12" fill="#D1FAE5" text-anchor="middle">项目实战</text>
+</g>
+
+<!-- 第四板块 -->
+<path d="M 300 950 L 420 950 L 420 1660 L 540 1660" stroke="#94A3B8" stroke-width="1.8" fill="none"/>
+<g>
+  <rect x="540" y="1600" width="240" height="120" rx="10" ry="10" fill="#F59E0B" stroke="#B45309" stroke-width="1.5"/>
+  <text x="660" y="1640" font-size="18" font-weight="700" fill="#FFFFFF" text-anchor="middle">④ 视频·动效·生图</text>
+  <text x="660" y="1665" font-size="12" fill="#FEF3C7" text-anchor="middle">剪辑 · API · Remotion · 宠物</text>
+  <text x="660" y="1685" font-size="12" fill="#FEF3C7" text-anchor="middle">共 6 章</text>
+  <text x="660" y="1705" font-size="12" fill="#FEF3C7" text-anchor="middle">综合实战</text>
+</g>
+
+<!-- ============ 第一板块下的 6 章 ============ -->
+<!-- 第1章 -->
+<path d="M 780 200 L 880 200 L 880 60 L 960 60" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="30" width="240" height="60" rx="6" fill="#EFF6FF" stroke="#3B82F6"/>
+  <text x="1080" y="55" font-size="14" font-weight="600" fill="#1E40AF" text-anchor="middle">1. CodeX 是什么 / 为什么学</text>
+  <text x="1080" y="75" font-size="11" fill="#475569" text-anchor="middle">OpenAI 官方 AI 工程师</text>
+</g>
+<!-- 第2章 -->
+<path d="M 780 200 L 880 200 L 880 160 L 960 160" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="130" width="240" height="60" rx="6" fill="#EFF6FF" stroke="#3B82F6"/>
+  <text x="1080" y="155" font-size="14" font-weight="600" fill="#1E40AF" text-anchor="middle">2. 账号注册+接码+充值</text>
+  <text x="1080" y="175" font-size="11" fill="#475569" text-anchor="middle">5sim接码 / 代充网站</text>
+</g>
+<!-- 第3章 -->
+<path d="M 780 200 L 880 200 L 880 260 L 960 260" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="230" width="240" height="60" rx="6" fill="#EFF6FF" stroke="#3B82F6"/>
+  <text x="1080" y="255" font-size="14" font-weight="600" fill="#1E40AF" text-anchor="middle">3. 中转站 API 登录</text>
+  <text x="1080" y="275" font-size="11" fill="#475569" text-anchor="middle">免验证·一折·CC Switch</text>
+</g>
+<!-- 第4章 -->
+<path d="M 780 200 L 960 200 L 960 360 L 1080 360" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="1080" y="330" width="240" height="60" rx="6" fill="#EFF6FF" stroke="#3B82F6"/>
+  <text x="1200" y="355" font-size="14" font-weight="600" fill="#1E40AF" text-anchor="middle">4. Win 满血版部署</text>
+  <text x="1200" y="375" font-size="11" fill="#475569" text-anchor="middle">桌面版 + Git + Node.js</text>
+</g>
+<!-- 第5章 -->
+<path d="M 780 200 L 960 200 L 960 460 L 1080 460" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="1080" y="430" width="240" height="60" rx="6" fill="#EFF6FF" stroke="#3B82F6"/>
+  <text x="1200" y="455" font-size="14" font-weight="600" fill="#1E40AF" text-anchor="middle">5. Mac 满血版部署</text>
+  <text x="1200" y="475" font-size="11" fill="#475569" text-anchor="middle">Install Codex + 终端命令</text>
+</g>
+<!-- 第6章 -->
+<path d="M 780 200 L 1080 200 L 1080 560 L 1320 560" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="1320" y="530" width="240" height="60" rx="6" fill="#EFF6FF" stroke="#3B82F6"/>
+  <text x="1440" y="555" font-size="14" font-weight="600" fill="#1E40AF" text-anchor="middle">6. 桌面端功能调试</text>
+  <text x="1440" y="575" font-size="11" fill="#475569" text-anchor="middle">权限/MCP/插件/自动化</text>
+</g>
+
+<!-- ============ 第二板块下的 5 章 ============ -->
+<!-- 第7章 -->
+<path d="M 780 700 L 880 700 L 880 580 L 960 580" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="550" width="240" height="60" rx="6" fill="#E0F2FE" stroke="#0EA5E9"/>
+  <text x="1080" y="575" font-size="14" font-weight="600" fill="#0C4A6E" text-anchor="middle">7. Skill 安装+10大必装</text>
+  <text x="1080" y="595" font-size="11" fill="#475569" text-anchor="middle">GitHub 链接 / 斜杠调用</text>
+</g>
+<!-- 第8章 -->
+<path d="M 780 700 L 880 700 L 880 700 L 960 700" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="670" width="240" height="60" rx="6" fill="#E0F2FE" stroke="#0EA5E9"/>
+  <text x="1080" y="695" font-size="14" font-weight="600" fill="#0C4A6E" text-anchor="middle">8. Skill 自造从0到1</text>
+  <text x="1080" y="715" font-size="11" fill="#475569" text-anchor="middle">skill.md + Skill Creator</text>
+</g>
+<!-- 第9章 -->
+<path d="M 780 700 L 880 700 L 880 820 L 960 820" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="790" width="240" height="60" rx="6" fill="#E0F2FE" stroke="#0EA5E9"/>
+  <text x="1080" y="815" font-size="14" font-weight="600" fill="#0C4A6E" text-anchor="middle">9. Codex++ 增强工具</text>
+  <text x="1080" y="835" font-size="11" fill="#475569" text-anchor="middle">插件全解锁 / 模型切换</text>
+</g>
+<!-- 第10章 -->
+<path d="M 780 700 L 960 700 L 960 920 L 1080 920" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="1080" y="890" width="240" height="60" rx="6" fill="#E0F2FE" stroke="#0EA5E9"/>
+  <text x="1200" y="915" font-size="14" font-weight="600" fill="#0C4A6E" text-anchor="middle">10. GPT-5.6 测评+新功能</text>
+  <text x="1200" y="935" font-size="11" fill="#475569" text-anchor="middle">Solo/Terra/Luna/Ultra</text>
+</g>
+<!-- 第11章 -->
+<path d="M 780 700 L 1080 700 L 1080 1020 L 1320 1020" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="1320" y="990" width="240" height="60" rx="6" fill="#E0F2FE" stroke="#0EA5E9"/>
+  <text x="1440" y="1015" font-size="14" font-weight="600" fill="#0C4A6E" text-anchor="middle">11. Ollama 开源模型本地部署</text>
+  <text x="1440" y="1035" font-size="11" fill="#475569" text-anchor="middle">127.0.0.1:11434/v1</text>
+</g>
+
+<!-- ============ 第三板块下的 5 章 ============ -->
+<!-- 第12章 -->
+<path d="M 780 1180 L 880 1180 L 880 1080 L 960 1080" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="1050" width="240" height="60" rx="6" fill="#D1FAE5" stroke="#10B981"/>
+  <text x="1080" y="1075" font-size="14" font-weight="600" fill="#065F46" text-anchor="middle">12. 高交互个人网站从0到1</text>
+  <text x="1080" y="1095" font-size="11" fill="#475569" text-anchor="middle">React+Vite+GSAP</text>
+</g>
+<!-- 第13章 -->
+<path d="M 780 1180 L 880 1180 L 880 1180 L 960 1180" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="1150" width="240" height="60" rx="6" fill="#D1FAE5" stroke="#10B981"/>
+  <text x="1080" y="1175" font-size="14" font-weight="600" fill="#065F46" text-anchor="middle">13. 一招复刻高逼格网站</text>
+  <text x="1080" y="1195" font-size="11" fill="#475569" text-anchor="middle">motion size.ai 提示词</text>
+</g>
+<!-- 第14章 -->
+<path d="M 780 1180 L 880 1180 L 880 1280 L 960 1280" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="1250" width="240" height="60" rx="6" fill="#D1FAE5" stroke="#10B981"/>
+  <text x="1080" y="1275" font-size="14" font-weight="600" fill="#065F46" text-anchor="middle">14. 无限画布精准控图</text>
+  <text x="1080" y="1295" font-size="11" fill="#475569" text-anchor="middle">Excalidraw / Cowart</text>
+</g>
+<!-- 第15章 -->
+<path d="M 780 1180 L 960 1180 L 960 1380 L 1080 1380" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="1080" y="1350" width="240" height="60" rx="6" fill="#D1FAE5" stroke="#10B981"/>
+  <text x="1200" y="1375" font-size="14" font-weight="600" fill="#065F46" text-anchor="middle">15. 2D转3D/VR看房</text>
+  <text x="1200" y="1395" font-size="11" fill="#475569" text-anchor="middle">Three.js + 高德地图</text>
+</g>
+<!-- 第16章 -->
+<path d="M 780 1180 L 1080 1180 L 1080 1480 L 1320 1480" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="1320" y="1450" width="240" height="60" rx="6" fill="#D1FAE5" stroke="#10B981"/>
+  <text x="1440" y="1475" font-size="14" font-weight="600" fill="#065F46" text-anchor="middle">16. Seedance 2.0 一站式漫剧</text>
+  <text x="1440" y="1495" font-size="11" fill="#475569" text-anchor="middle">AI 导演引擎 + 火山引擎</text>
+</g>
+
+<!-- ============ 第四板块下的 6 章 ============ -->
+<!-- 第17章 -->
+<path d="M 780 1660 L 880 1660 L 880 1540 L 960 1540" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="1510" width="240" height="60" rx="6" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="1080" y="1535" font-size="14" font-weight="600" fill="#78350F" text-anchor="middle">17. HyperFrames 自动剪辑</text>
+  <text x="1080" y="1555" font-size="11" fill="#475569" text-anchor="middle">口播四步法 · 文生视频</text>
+</g>
+<!-- 第18章 -->
+<path d="M 780 1660 L 880 1660 L 880 1640 L 960 1640" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="1610" width="240" height="60" rx="6" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="1080" y="1635" font-size="14" font-weight="600" fill="#78350F" text-anchor="middle">18. ChatCut 自动剪辑</text>
+  <text x="1080" y="1655" font-size="11" fill="#475569" text-anchor="middle">粗剪 · MG动画 · 素材</text>
+</g>
+<!-- 第19章 -->
+<path d="M 780 1660 L 880 1660 L 880 1740 L 960 1740" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="960" y="1710" width="240" height="60" rx="6" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="1200" y="1735" font-size="14" font-weight="600" fill="#78350F" text-anchor="middle">19. RunningHub 生图 API</text>
+  <text x="1080" y="1755" font-size="11" fill="#475569" text-anchor="middle">kol01-rh145 / CDS-0</text>
+</g>
+<!-- 第20章 -->
+<path d="M 780 1660 L 960 1660 L 960 1820 L 1080 1820" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="1080" y="1790" width="240" height="60" rx="6" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="1200" y="1815" font-size="14" font-weight="600" fill="#78350F" text-anchor="middle">20. Remotion 动效</text>
+  <text x="1080" y="1835" font-size="11" fill="#475569" text-anchor="middle">代码做视频 / Superpowers</text>
+</g>
+<!-- 第21章 -->
+<path d="M 780 1660 L 1080 1660 L 1080 1880 L 1320 1880" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="1320" y="1850" width="240" height="60" rx="6" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="1440" y="1875" font-size="14" font-weight="600" fill="#78350F" text-anchor="middle">21. 音乐随声律动壁纸</text>
+  <text x="1440" y="1895" font-size="11" fill="#475569" text-anchor="middle">React Three Fiber + WebGL</text>
+</g>
+<!-- 第22章 -->
+<path d="M 780 1660 L 1320 1660 L 1320 1860 L 1560 1860" stroke="#CBD5E1" stroke-width="1.2" fill="none"/>
+<g>
+  <rect x="1560" y="1830" width="240" height="60" rx="6" fill="#FEF3C7" stroke="#F59E0B"/>
+  <text x="1680" y="1855" font-size="14" font-weight="600" fill="#78350F" text-anchor="middle">22. Codex 宠物组件</text>
+  <text x="1680" y="1875" font-size="11" fill="#475569" text-anchor="middle">桌面陪伴 · 状态提示</text>
+</g>
+
+<!-- 关键术语标注（最右侧） -->
+<g>
+  <rect x="1860" y="30" width="510" height="1800" rx="10" fill="#F8FAFC" stroke="#CBD5E1" stroke-dasharray="4,4"/>
+  <text x="2115" y="70" font-size="18" font-weight="700" fill="#0F172A" text-anchor="middle">🌟 跨章节核心方法论</text>
+
+  <text x="1880" y="110" font-size="13" font-weight="700" fill="#1E40AF">① API 接入通用四步</text>
+  <text x="1880" y="130" font-size="12" fill="#334155">1. 创建 API Key（保密）</text>
+  <text x="1880" y="148" font-size="12" fill="#334155">2. 找 API 文档复制给 Codex</text>
+  <text x="1880" y="166" font-size="12" fill="#334155">3. 看价格与计费方式</text>
+  <text x="1880" y="184" font-size="12" fill="#334155">4. 接入 + 封装为可复用 Skill</text>
+
+  <text x="1880" y="220" font-size="13" font-weight="700" fill="#1E40AF">② 提示词设计五要素</text>
+  <text x="1880" y="240" font-size="12" fill="#334155">· 角色设定</text>
+  <text x="1880" y="258" font-size="12" fill="#334155">· 明确目标</text>
+  <text x="1880" y="276" font-size="12" fill="#334155">· 负面提示（防偷懒）</text>
+  <text x="1880" y="294" font-size="12" fill="#334155">· 技术约束</text>
+  <text x="1880" y="312" font-size="12" fill="#334155">· 验收标准（防假完成）</text>
+
+  <text x="1880" y="348" font-size="13" font-weight="700" fill="#1E40AF">③ 动效/视觉提示词四要素</text>
+  <text x="1880" y="368" font-size="12" fill="#334155">· 规格参数（分辨率/时长）</text>
+  <text x="1880" y="386" font-size="12" fill="#334155">· 素材来源（本地/网络）</text>
+  <text x="1880" y="404" font-size="12" fill="#334155">· 风格偏好（颜色/质感）</text>
+  <text x="1880" y="422" font-size="12" fill="#334155">· 排除项（明确不要什么）</text>
+
+  <text x="1880" y="458" font-size="13" font-weight="700" fill="#1E40AF">④ 成本控制心法</text>
+  <text x="1880" y="478" font-size="12" fill="#334155">· 先小规模跑通</text>
+  <text x="1880" y="496" font-size="12" fill="#334155">· 720p + 1-2 段测试</text>
+  <text x="1880" y="514" font-size="12" fill="#334155">· 确认后放量</text>
+  <text x="1880" y="532" font-size="12" fill="#334155">· Ollama 用电费换 Token 费</text>
+
+  <text x="1880" y="568" font-size="13" font-weight="700" fill="#1E40AF">⑤ Skill 文件结构</text>
+  <text x="1880" y="588" font-size="12" fill="#334155">· skill.md（必须）</text>
+  <text x="1880" y="606" font-size="12" fill="#334155">· scripts/（可运行脚本）</text>
+  <text x="1880" y="624" font-size="12" fill="#334155">· references/（参考资料）</text>
+  <text x="1880" y="642" font-size="12" fill="#334155">· assets/（静态资源）</text>
+
+  <text x="1880" y="678" font-size="13" font-weight="700" fill="#1E40AF">⑥ 调用方式</text>
+  <text x="1880" y="698" font-size="12" fill="#334155">· Skill：/skill名称</text>
+  <text x="1880" y="716" font-size="12" fill="#334155">· 插件：@插件名称</text>
+  <text x="1880" y="734" font-size="12" fill="#334155">· @computer：操作电脑</text>
+
+  <text x="1880" y="768" font-size="13" font-weight="700" fill="#1E40AF">⑦ 网络节点（必读）</text>
+  <text x="1880" y="788" font-size="12" fill="#059669">推荐：日/新/英/美</text>
+  <text x="1880" y="806" font-size="12" fill="#DC2626">禁用：港/台/澳</text>
+  <text x="1880" y="824" font-size="12" fill="#475569">能上 YouTube ≠ 能上 OpenAI</text>
+
+  <text x="1880" y="860" font-size="13" font-weight="700" fill="#1E40AF">⑧ 验证命令</text>
+  <text x="1880" y="880" font-size="12" fill="#334155">git --version</text>
+  <text x="1880" y="898" font-size="12" fill="#334155">node -v</text>
+  <text x="1880" y="916" font-size="12" fill="#334155">npm -v</text>
+  <text x="1880" y="934" font-size="12" fill="#334155">xcode-select --install (Mac)</text>
+
+  <text x="1880" y="970" font-size="13" font-weight="700" fill="#1E40AF">⑨ 安全红线</text>
+  <text x="1880" y="990" font-size="12" fill="#DC2626">· API Key 不可泄露</text>
+  <text x="1880" y="1008" font-size="12" fill="#DC2626">· 不可上传到代码仓库</text>
+  <text x="1880" y="1026" font-size="12" fill="#DC2626">· 创建后不可再见（须保存）</text>
+
+  <text x="1880" y="1062" font-size="13" font-weight="700" fill="#1E40AF">⑩ 三件套部署公式</text>
+  <text x="1880" y="1082" font-size="12" fill="#334155">Codex 桌面版 + Git + Node.js</text>
+  <text x="1880" y="1100" font-size="12" fill="#475569">（Win 用安装包 / Mac 用终端）</text>
+
+  <text x="1880" y="1136" font-size="13" font-weight="700" fill="#1E40AF">⑪ 模型梯度（GPT-5.6）</text>
+  <text x="1880" y="1156" font-size="12" fill="#334155">· Solo 旗舰 ($5/$30)</text>
+  <text x="1880" y="1174" font-size="12" fill="#334155">· Terra 均衡 ($5/$15)</text>
+  <text x="1880" y="1192" font-size="12" fill="#334155">· Luna 最便宜 ($1/$6)</text>
+  <text x="1880" y="1210" font-size="12" fill="#334155">· Ultra 多智能体并行</text>
+
+  <text x="1880" y="1246" font-size="13" font-weight="700" fill="#1E40AF">⑫ 项目工作法六步</text>
+  <text x="1880" y="1266" font-size="12" fill="#334155">① 想清楚（PRD+agents.md）</text>
+  <text x="1880" y="1284" font-size="12" fill="#334155">② 参考优于描述</text>
+  <text x="1880" y="1302" font-size="12" fill="#334155">③ 分阶段细化提示词</text>
+  <text x="1880" y="1320" font-size="12" fill="#334155">④ 负面提示+验收标准</text>
+  <text x="1880" y="1338" font-size="12" fill="#334155">⑤ 截图+标注精准迭代</text>
+  <text x="1880" y="1356" font-size="12" fill="#334155">⑥ 每步验证（Lint+Build）</text>
+</g>
+
+</svg>
+</div>
+<p class="desc" style="margin-top:12px">💡 <b>小贴士</b>：在手机上可用双指捏合手势放大；在电脑上可按住 Ctrl + 鼠标滚轮缩放浏览器。如需在 WPS / 微信中打开，建议横屏查看。</p>
+</section>
+
+<!-- ============ 主体内容容器 ============ -->
+<div class="container">
+
+<div class="callout callout-tip">
+<b>📖 阅读建议</b>：本手册按「入门准备 → Skill 生态 → 建站与视觉 → 视频动效」递进。建议按顺序学习，每个章节都已经包含<b>核心定义、操作命令、对比表、提示词模板、避坑指南</b>，可独立查阅。
+</div>
+
+<!-- 主体内容由后续分段插入 -->
+
+<!-- =================== 第一部分：入门准备 =================== -->
+<h2 id="part1" class="part-title">第一部分：入门准备（6 章 · 认知 → 登录 → 部署 → 调试）</h2>
+
+<!-- ====== 章节 1 ====== -->
+<article class="chapter" id="c1">
+<h3>第 1 章 · CodeX 是做什么的？为什么一定要学？</h3>
+<p class="tagline">课程定位：本节是 CodeX 板块入门课，目标是认识 CodeX 的功能与优势。</p>
+
+<h4>一、CodeX 介绍</h4>
+<p><strong>核心定义</strong>：CodeX 是 <b>OpenAI 官方推出的 AI 编程工具</b>，其"出圈能力"在于不局限于编程，应用范围广泛。</p>
+<p><strong>关键认知</strong>：CodeX 不是聊天机器人，是围绕真实项目"干活"的 AI 工程助手；想法 → 代码 → 可展示作品。</p>
+
+<h4>二、CodeX 与传统大模型对比</h4>
+<table>
+<tr><th>维度</th><th>传统对话大模型（豆包/DeepSeek/GPT）</th><th>CodeX</th></tr>
+<tr><td>能力</td><td>问答、文案生成（帮你"想和写"）</td><td>进入项目干活的 AI 工程助手</td></tr>
+<tr><td>工作方式</td><td>单纯聊天</td><td>围绕真实项目执行任务</td></tr>
+<tr><td>输出形式</td><td>文本回复</td><td>可运行的可交付作品</td></tr>
+</table>
+
+<h4>三、CodeX 能做什么</h4>
+<ul>
+<li>将模糊想法 → 页面结构 → 真实代码 → 可打开的作品</li>
+<li>交互、设计、创意类作品</li>
+<li>视频剪辑类（如 HyperFrames 自动根据素材和文案完成剪辑）</li>
+<li>建站、写工具、做动效、生成 API 调用</li>
+</ul>
+
+<h4>四、CodeX 与 Cos 对比（关键认知）</h4>
+<table>
+<tr><th>维度</th><th>Cos</th><th>CodeX</th></tr>
+<tr><td>定位</td><td>智能体工厂</td><td>AI 工程师</td></tr>
+<tr><td>优势</td><td>门槛低，快速搭建对话、查资料、跑流程的智能体</td><td>把网站、工具、系统真正做出来</td></tr>
+<tr><td>核心能力</td><td>组装问答、知识库、工作流</td><td>围绕项目执行与迭代，从想法到代码再到可展示作品</td></tr>
+</table>
+
+<div class="callout callout-info">
+<b>🎯 课程预告</b>：后续课程中，先整理脑海中的想法，然后逐步用 CodeX 把想法转化为作品。
+</div>
+
+<div class="callout callout-warn">
+<b>⚠️ 学习障碍预警</b>：CodeX 最大门槛是<b>登录</b>，而非网络或技术（多数人卡在此步放弃）。解决方案见 <a href="#c2">第 2 章</a> 和 <a href="#c3">第 3 章</a>，二选一即可。
+</div>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p>① 身份：OpenAI 官方 AI 编程工具</p>
+<p>② 定位：AI 工程助手（区别于"想和写"的传统大模型）</p>
+<p>③ 与 Cos 差异：Cos 是"智能体工厂"（组装问答/知识库/工作流，门槛低），CodeX 是"AI 工程师"（把网站、工具、系统真正做出来）</p>
+</div>
+</article>
+
+<!-- ====== 章节 2 ====== -->
+<article class="chapter" id="c2">
+<h3>第 2 章 · OpenAI 账号注册 / 手机接码 / 充值 一站式解决</h3>
+<p class="tagline">路径 A（官方 GPT 账号）：需海外手机号 + 海外银行卡，本章给一站式方案。</p>
+<div class="callout callout-tip">
+<b>↔ 备选路径</b>：嫌麻烦可直接看 <a href="#c3">第 3 章</a> 中转站 API 登录（免验证、免海外卡、按量一折）。
+</div>
+
+<h4>一、核心问题与核心逻辑</h4>
+<p>用原生账号登录 CodeX 需解决两大障碍：</p>
+<ol>
+<li>OpenAI 账号注册/登录：需<b>海外手机号解码</b></li>
+<li>充值 Plus/Pro 会员：需<b>海外银行卡</b></li>
+</ol>
+<p><b>核心逻辑</b>：Codex 与 ChatGPT 同属 OpenAI，账号通用。充值 GPT 会员 = 充值 Codex 会员。</p>
+
+<h4>二、账号注册（创建 ChatGPT 账号）</h4>
+<ol>
+<li>进入官网 → 点击右上角【免费注册】</li>
+<li>输入邮箱 → 点击【继续】→ 接收验证码</li>
+<li>填写年龄：建议填 20-25 岁（可随意填写）</li>
+<li>注册成功：成为 GPT 用户</li>
+</ol>
+
+<h4>三、登录 Codex</h4>
+<ol>
+<li>打开 Codex → 选择【GPT 账号登录】</li>
+<li>输入已创建的 GPT 账号 → 接收验证码 → 点击【继续】</li>
+</ol>
+<p><b>登录结果</b>：大概率直接登录成功，跳过手机验证码；小概率触发随机检查，需手机验证码。</p>
+
+<h4>四、接码验证（5sim 平台）</h4>
+<p>原理：获取国外手机号 → 接收验证码 → 验证通过后使用；后续大概率无需再次验证。</p>
+<ol>
+<li>打开 5sim 网站 → 左侧【服务】→ 选择【OpenAI】</li>
+<li>选择国家：推荐美国或英国（接码成功率更高）</li>
+<li>选择运营商：选第一个（接码率高）</li>
+<li>复制手机号 → 粘贴至 GPT 平台验证页面</li>
+<li>接收验证码 → 复制粘贴至 GPT 平台</li>
+</ol>
+
+<h4>五、充值会员（两条路径）</h4>
+<p><b>路径 A：Codex 内直接充值</b>（需海外卡）</p>
+<ol>
+<li>点击【设置】→【升级】→【获享更高限额】</li>
+<li>选择【Plus】（日常使用足够）→【获取升级至 Plus】</li>
+<li>输入卡号充值：月费约 20 美金</li>
+</ol>
+<p><b>路径 B：代充网站（推荐）</b></p>
+<ol>
+<li>打开代充网站 → 选择【GPT Plus】→【单次订阅】</li>
+<li>登录 GPT 账号 → Ctrl+A 全选 → 复制</li>
+<li>返回代充页面 → Ctrl+V 粘贴 → 微信支付（约 1 分钟完成）</li>
+<li>验证激活：重启 Codex → 输入任意内容 → 显示返回结果即成功</li>
+</ol>
+
+<div class="callout callout-danger">
+<b>❗ 银行卡限制说明</b>：国内 VISA / American Express / S Card 均无法成功刷卡。原因：账单地址必须与注册地址完全一致（英文地址难以实现）。无海外卡的用户建议走代充路径。
+</div>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p>整个流程是一条清晰的问题解决链：账号注册 → 登录 Codex（大概率免验证码）→ 触发时走 5sim 接码（美国/英国号码）→ 充值（直充需海外卡；代充支持微信支付）</p>
+<p>重点：①Codex 与 GPT 账号通用；②5sim 接码完整操作序列；③代充激活验证方法</p>
+</div>
+</article>
+
+<!-- ====== 章节 3 ====== -->
+<article class="chapter" id="c3">
+<h3>第 3 章 · CodeX 中转站 API 登录跳过验证（推荐路径）</h3>
+<p class="tagline">路径 B（中转站 API）：无需手机验证、无需海外银行卡，按量付费一折成本。</p>
+
+<h4>一、为什么推荐 API 登录</h4>
+<p>Codex 最大门槛非网络，而是登录问题（多数人卡在此步放弃）。<b>中转站 API 登录</b>核心优势：跳过手机号验证，甚至无需账号。</p>
+
+<h4>二、API 登录 vs 上方登录对比</h4>
+<table>
+<tr><th>对比维度</th><th>上方登录（GPT Plus）</th><th>下方登录（API 中转站）</th></tr>
+<tr><td>费用</td><td>月付 20 美金（约 140 元），扣全款</td><td>按量付费（用多少扣多少）</td></tr>
+<tr><td>模型选择</td><td>只能用 GPT</td><td>支持 GPT、Claude、DeepSeek 等任意模型</td></tr>
+<tr><td>自由度</td><td>低</td><td>高（1 折结算）</td></tr>
+<tr><td>计费单位</td><td>—</td><td>Token（AI 消耗的计费单位）</td></tr>
+</table>
+
+<h4>三、安装 CC Switch（必备工具）</h4>
+<ol>
+<li>浏览器搜索"CC Switch"，进入 farion1231 作者的 GitHub 页面</li>
+<li>右侧 Releases → 选择对应版本（macOS 用对应版本 / Windows 用 .msi 文件）</li>
+<li>双击打开 → Next → 默认安装路径 C 盘（约 15MB）→ 持续 Next → Finish（自动打开）</li>
+</ol>
+
+<p><b>配置步骤</b>：</p>
+<ol>
+<li>打开 CC Switch → 顶部应用切换栏选 Open AI</li>
+<li>点击右上角加号 → 新增配置</li>
+<li>供应商选择：中转站 → 自定义配置</li>
+</ol>
+
+<h4>四、中转站注册（aiqwith.com）</h4>
+<ol>
+<li>打开专属链接 → 输入邀请码：<b>686868</b>（否则无 3% 福利）</li>
+<li>发送注册邮件 → 完成注册 → 设置密码</li>
+<li><b>首次登录福利</b>：绑定微信公众号额外送余额；成功调用模型再送 2 元</li>
+</ol>
+
+<h4>五、创建 API 密钥</h4>
+<ol>
+<li>进入【密钥管理】→ 点击【创建 API 密钥】</li>
+<li>密钥名称：随意填写（如"codex"）</li>
+<li>点击复制密钥</li>
+</ol>
+<div class="callout callout-danger">
+<b>🔒 密钥安全红线</b>：
+<ol>
+<li>切勿分享给任何人（他人可用密钥消耗你的余额和 Token）</li>
+<li>密钥一经创建，"我已安全保存"后无法再次查看</li>
+<li>正确做法：复制后立即发送至备忘录保存</li>
+</ol>
+</div>
+
+<h4>六、余额充值</h4>
+<p><b>学习推荐</b>：9 元套餐（限购一次，需先绑定公众号）</p>
+<p><b>绑定公众号流程</b>：扫描二维码 → 关注 → 输入"绑定" → 获取验证码 → 输入完成 → 购买体验套餐</p>
+<p><b>返利规则</b>：每档充值通过邀请码均可获得 3% 返利 + 额外首充和长期返利</p>
+
+<h4>七、添加供应商（CC Switch 配置）</h4>
+<ul>
+<li>供应商名称：aiqwith</li>
+<li>官网链接：aiqwith.com</li>
+<li>API 密钥：粘贴上一步申请的密钥</li>
+<li>API 请求地址：按教程完全一致填写</li>
+<li>高级选项：本地路由映射 打开；思考模式（Kimi/千问/GLM 等）按需</li>
+<li>模型映射：点击"获取模型列表"（一般 47 个）</li>
+</ul>
+
+<h4>八、路由设置</h4>
+<ol>
+<li>CC Switch 首页 → 设置 → 路由</li>
+<li>本地路由：两个开关全部打开</li>
+<li>路由启用：选择对应程序（如 Codex）</li>
+<li>回到设置 → 点击启用刚添加的模型 → 显示"切换成功"</li>
+</ol>
+
+<h4>九、应用案例：测试模型调用</h4>
+<ol>
+<li>打开 Codex → 粘贴 API 密钥 → 点击继续</li>
+<li>成功进入 Open AI Codex 页面</li>
+<li>输入测试内容（如"你好"）</li>
+<li>成功标志：模型返回结果</li>
+<li>失败标志：显示"长时间未连接，请重试链接"</li>
+</ol>
+
+<h4>十、查看费用消耗（AIcodes）</h4>
+<p>回到 AIcodes 官网 → 使用记录 → 每次调用均会显示：调用时间、消耗费用（如 3 厘 7）、调用模型。</p>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>完整链路</b>：中转站注册（邀请码 686868）→ 创建 API 密钥（安全红线）→ 余额充值（9 元体验套餐）→ CC Switch 添加供应商（aiqwith+密钥）→ 配置高级选项 → 路由设置 → 启用模型 → Codex 验证 → AIcodes 使用记录查费用</p>
+<p><b>重点</b>：①中转站"一个密钥通吃所有模型"的本质；②CC Switch 完整字段；③模型切换与费用查询闭环</p>
+</div>
+</article>
+
+<!-- ====== 章节 4 ====== -->
+<article class="chapter" id="c4">
+<h3>第 4 章 · CodeX Windows 本地满血版部署</h3>
+<p class="tagline">Windows 用户的部署手册：桌面版 + Git + Node.js 三件套。</p>
+
+<h4>一、检查网络环境</h4>
+<p>前提：解决登录 OpenAI 的"魔法"问题。验证方法：浏览器搜索 openai.com，若能打开则网络正常。</p>
+
+<div class="callout callout-warn">
+<b>🌐 节点配置要点</b>：
+<ul>
+<li><b>推荐节点</b>：日本、新加坡、英国、美国</li>
+<li><b>禁用地区</b>：台湾、香港、澳门（无法登录 OpenAI）</li>
+<li><b>常见误区</b>：能上 YouTube/Twitter ≠ 能上 OpenAI（OpenAI 对大陆地区不开放）</li>
+<li><b>切换节点技巧</b>：打不开网页时 → 彻底关闭整个浏览器 → 更改为正确节点 → 重新打开登录</li>
+</ul>
+</div>
+
+<h4>二、Codex 安装方式分类</h4>
+<table>
+<tr><th>方式</th><th>适用人群</th><th>操作</th></tr>
+<tr><td>桌面版（推荐零基础）</td><td>所有学员</td><td>官网下载 Windows 版，独立 AI 编程工具</td></tr>
+<tr><td>IDE 插件</td><td>已有开发基础者</td><td>集成至 VS Code / Cursor / JetBrains</td></tr>
+<tr><td>Codex CLI</td><td>高级配置者</td><td>在 PowerShell/终端中运行</td></tr>
+</table>
+<p>本系统课以<b>桌面版</b>为主（UI 体验更好、功能更全）。</p>
+
+<h4>三、Codex 桌面版的安装</h4>
+<ol>
+<li><b>下载</b>：浏览器搜索"Codex" → 认准白底黑 logo（域名 openai.com）→ 点击"Download for Windows" → 选择保存位置</li>
+<li><b>Microsoft Store 安装</b>：打开安装包 → 自动跳转 Microsoft Store → 一路按提示安装 → 自动打开</li>
+<li><b>创建桌面快捷方式</b>（两种方法）：<br>
+&nbsp;&nbsp;方法一：Win + R → 输入 <code>shell:AppsFolder</code> → 确定 → 找到 Codex → 直接拖拽至桌面<br>
+&nbsp;&nbsp;方法二：Win 键 → 开始菜单搜 Codex → 右键 → 固定到任务栏</li>
+</ol>
+
+<h4>四、安装依赖说明</h4>
+<p>核心结论：Codex 桌面版<b>不强制要求</b>提前安装 Git 和 Node.js；但后续做网页、React、Next.js 项目必然依赖，建议一次性部署。</p>
+
+<h4>五、安装 Git</h4>
+<p><strong>Git 定义</strong>：代码版本管理工具；核心功能是记录代码变化（Codex 修改了哪些文件、新增/删除了什么、哪里改错能否撤回）。</p>
+<ol>
+<li>浏览器搜索"Git" → 官网 git-scm.com</li>
+<li>点击 Download for Windows → Standalone Installer → x64 版本</li>
+<li>选择安装位置 → 一路 Next → Install → 取消勾选 → Finish</li>
+</ol>
+
+<h4>六、安装 Node.js</h4>
+<p><strong>Node.js 定义</strong>：前端项目运行环境。常用命令：<code>npm install</code> / <code>npm run dev</code>。</p>
+<ol>
+<li>浏览器搜索"Node.js"（白底绿 logo）</li>
+<li>上方 Download → <b>选 LTS 版本</b>（长期稳定版，零基础首选，不要追求最新版）</li>
+<li>Windows Installer → 选保存位置 → 一路 Next → 勾选协议 → Next → Install</li>
+</ol>
+
+<h4>七、测试 Git 与 Node.js 是否安装成功</h4>
+<p>Win 键 → 搜索"PowerShell" → <b>以管理员身份运行</b></p>
+<pre class="code">git --version   # 显示 git version 2.x.x → 成功
+node -v         # 显示 v18.x.x 或 v20.x.x → 成功
+npm -v          # 显示数字 → 成功</pre>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>Windows 三件套公式</b>：Codex 桌面版 + Git（版本管理） + Node.js（前端运行环境）</p>
+<p><b>部署顺序</b>：网络准备 → 下载桌面版（官网 → Microsoft Store → 快捷方式）→ 装 Git → 装 Node.js → PowerShell 验证</p>
+<p>验证命令：<code>git --version</code> / <code>node -v</code> / <code>npm -v</code></p>
+</div>
+</article>
+
+<!-- ====== 章节 5 ====== -->
+<article class="chapter" id="c5">
+<h3>第 5 章 · CodeX macOS 本地满血版部署</h3>
+<p class="tagline">Mac 用户的部署手册：原理与 Windows 完全对称，安装载体差异。</p>
+
+<h4>一、网络准备</h4>
+<p>测试方法：浏览器搜索"Codex"，点击 OpenAI 白底 Logo，验证能否正常打开。</p>
+<ul>
+<li>节点推荐：日本、新加坡、美国</li>
+<li>不可用地区：台湾、香港、澳门</li>
+<li>切换节点技巧：关闭所有网页 → 切换正确节点 → 重新打开浏览器</li>
+</ul>
+
+<h4>二、安装 Codex 桌面版</h4>
+<ol>
+<li>浏览器搜索"Codex" → 官网 → 下载 macOS 版 → 选择对应位置，点击保存</li>
+<li>访达中找到安装文件 → 双击打开 → 双击"Install Codex" → 点击"打开"</li>
+<li>跟随步骤，点击"下一步"自动安装</li>
+<li>若提示"是否允许打开来自网络下载的应用" → 点击"允许"</li>
+<li>固定到 Dock 栏：打开 Codex → 右键 → 选项 → "在程序坞中保留"</li>
+</ol>
+
+<h4>三、安装 Git（极简易方法）</h4>
+<ol>
+<li><code>Command + 空格</code> → 搜索"终端" → 回车打开</li>
+<li>输入命令：<code>xcode-select --install</code> → 回车</li>
+<li>若系统弹出安全提示 → 点击安装 → 同意协议 → 等待自动安装完成</li>
+<li>关闭终端 → 重新打开终端</li>
+</ol>
+<pre class="code">git --version   # 显示 git version 后带数字 → 成功</pre>
+
+<h4>四、安装 Node.js</h4>
+<ol>
+<li>浏览器搜索"node.js" → 点第一个结果 → 顶部"Download"</li>
+<li>版本选择：<b>最高版本号，带 LTS</b>（长期稳定版，零基础首选）</li>
+<li>点"Mac Installer" → 选文件夹 → 保存</li>
+<li>打开下载文件 → "继续" → "继续" → "同意" → "安装" → 输入密码 → "安装软件"</li>
+<li>显示"安装成功"后，关闭并重新打开终端</li>
+</ol>
+<pre class="code">node -v    # 显示 v 开头数字 → 成功
+npm -v     # 显示数字 → 成功</pre>
+<p>注：版本号可能不同，属正常更新。</p>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>Mac 三件套公式</b>：Codex 桌面版（macOS 安装包） + Git（<code>xcode-select --install</code>） + Node.js（LTS 版）</p>
+<p>与 Windows 版流程结构完全对称，差异点仅在安装载体：终端命令 vs 安装包、Dock 栏 vs 桌面快捷方式</p>
+<p>macOS 用户后续优选带 <b>mlx 后缀</b>的模型版本（对苹果芯片更友好）</p>
+</div>
+</article>
+
+<!-- ====== 章节 6 ====== -->
+<article class="chapter" id="c6">
+<h3>第 6 章 · CodeX 桌面端功能调试详解</h3>
+<p class="tagline">学会完整使用 Codex 客户端：三层结构（个人层 / 能力层 / 运行层）。</p>
+
+<h4>一、初始设置</h4>
+<ul>
+<li><b>语言切换</b>：左下角 设置 → Setting → 语言 → 简体中文</li>
+<li><b>设置界面</b>：左侧分区为个人设置、集成、能力、编码工具、归档管理</li>
+<li><b>工作模式</b>：编程模式（默认）/ 日常工作模式</li>
+<li><b>权限</b>：全部勾选</li>
+</ul>
+
+<h4>二、权限配置（核心安全主线）</h4>
+<table>
+<tr><th>权限</th><th>风险</th><th>推荐场景</th></tr>
+<tr><td>请求批准</td><td>低</td><td>不熟悉操作时</td></tr>
+<tr><td>替我审批</td><td>中（另一个审查代理检查）</td><td><b>日常推荐</b>：普通操作自行处理，关键操作先询问</td></tr>
+<tr><td>自动审核</td><td>中</td><td>任务来源可信、操作范围明确时</td></tr>
+<tr><td>完全访问权限</td><td>高</td><td>⚠️ 不推荐</td></tr>
+</table>
+
+<h4>三、常规设置</h4>
+<ul>
+<li>集成终端 Shell：PowerShell / cmd（默认）</li>
+<li>代码审查：行内视图 / 分离视图</li>
+<li>显示上下文窗口使用情况：开启（小圈满时 Codex 自动压缩上下文）</li>
+<li>排队：选"排队"（引导会干扰模型思考）</li>
+<li>听写：保持默认或选佩戴耳机</li>
+<li>通知：建议全部打开，调为"始终"</li>
+</ul>
+
+<h4>四、个人资料</h4>
+<table>
+<tr><th>登录方式</th><th>显示内容</th></tr>
+<tr><td>API 登录</td><td>无个人资料；token 消耗在 AIcodes 官网查看</td></tr>
+<tr><td>GPT 账号登录</td><td>显示个人资料、每日/每周 token 消耗、常用插件；可分享</td></tr>
+</table>
+
+<h4>五、外观个性化</h4>
+<ul>
+<li>主题：深色/浅色</li>
+<li>预设颜色：可调节背景、前景、强调色</li>
+<li>字体：可选，字号可调</li>
+<li>UI 字号：调整后界面等比例放大</li>
+</ul>
+
+<h4>六、配置区</h4>
+<ul>
+<li><b>批准策略</b>：保持默认（按请求）</li>
+<li><b>沙盒设置</b>：保持默认（只读）</li>
+<li><b>高级任务</b>：CodeX 会请求，届时同意即可</li>
+<li><b>工作环境依赖</b>：环境错误时可重新安装</li>
+</ul>
+
+<h4>七、个性化</h4>
+<ul>
+<li><b>回复语气</b>：亲和 / 务实</li>
+<li><b>自定义指令</b>：额外附加的关键词，常驻生效</li>
+<li><b>记忆模块</b>：实验性功能，从聊天中形成记忆（<b>慎点重置，会清除所有聊天记录</b>）</li>
+</ul>
+
+<pre class="code"># 自定义指令示例（语言偏好）
+默认使用简体中文回答，除非用户明确要求其他语言</pre>
+
+<h4>八、集成扩展（能力层）</h4>
+<ul>
+<li><b>MCP 服务器</b>：CodeX 连接外部工具的统一接口；可接入文档系统、数据库、其他服务</li>
+<li><b>浏览器</b>：让 CodeX 协助访问、检查和测试网页</li>
+<li><b>电脑操控</b>：Windows 端新更新插件，可控制你的电脑</li>
+<li><b>编码功能</b>：让 CodeX 接入真实软件开发流程（一般用不到）</li>
+<li><b>归档</b>：主对话框任务处右键 → 归档对话</li>
+</ul>
+
+<h4>九、界面认知</h4>
+<ul>
+<li><b>工作台目录</b>：上方任务 / 下方项目</li>
+<li><b>新对话</b>：新建对话框</li>
+<li><b>搜索</b>：搜索近期对话</li>
+</ul>
+
+<h4>十、插件</h4>
+<p>定位：专业工具箱；原则：需要什么能力，就安装什么工具。</p>
+<ul>
+<li><b>插件</b>：可安装的能力包</li>
+<li><b>技能</b>：专业的操作手册（一个插件可包含多个技能）</li>
+<li><b>扩展</b>：GitHub 下载更多实用技能</li>
+</ul>
+<p>调用方式：技能用 <code>/</code>，插件用 <code>@</code></p>
+
+<h4>十一、自动化（Heartbeat 心跳机制）</h4>
+<p>每日简报：每个工作日提供晨检简报（日历安排、重要未读文件、注意事项）</p>
+
+<h4>十二、运行层</h4>
+<ul>
+<li><b>项目文件夹</b>：核心原则：CodeX 通过项目文件夹展开工作</li>
+<li><b>权限设置</b>：见上方权限配置表</li>
+<li><b>模型与推理</b>：
+<ul>
+<li>简单任务 → 轻量模型 + 较低推理</li>
+<li>复杂任务 → 更强模型 + 更高推理档位</li>
+<li>原则：档位越高，分析越充分，等待时间越长</li>
+</ul></li>
+</ul>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>三层结构</b>：①<strong>个人层</strong>（语言/工作模式/权限/外观/个性化/计费）—— 决定 CodeX "怎么表现"</p>
+<p>②<strong>能力层</strong>（集成扩展/MCP/浏览器/电脑操控/编码功能/插件/自动化）—— 决定 CodeX "能干什么"</p>
+<p>③<strong>运行层</strong>（项目文件夹/权限审批/模型推理）—— 决定 CodeX "怎么干活"</p>
+</div>
+</article>
+
+<!-- =================== 第二部分：Skill 与工具生态 =================== -->
+<h2 id="part2" class="part-title">第二部分：Skill 与工具生态（5 章 · 安装 → 制作 → 增强 → 模型）</h2>
+
+<!-- ====== 章节 7 ====== -->
+<article class="chapter" id="c7">
+<h3>第 7 章 · Codex Skill 的安装技巧和 10 大必装 Skill</h3>
+<p class="tagline">Skill = 专项技能包，把通用 AI 同事转化为垂直领域专家。</p>
+
+<h4>一、Skill 本质</h4>
+<p>Skill 本质是"垂直领域专家注入"，把通用 AI 同事变成懂行专家，核心资产是<b>提示词化的行业方法论与流程</b>。</p>
+<ul>
+<li>例：注入顶级律师 DNA → 快速拥有法律知识与官司经验</li>
+<li>例：注入顶级审美 PPT DNA → 提升设计排版与一键自动化产出</li>
+</ul>
+
+<h4>二、三种安装方式</h4>
+<table>
+<tr><th>方式</th><th>入口</th><th>特点</th></tr>
+<tr><td>官方 Skills</td><td>插件 → "技能"选项</td><td>数量较少，主流为第三方</td></tr>
+<tr><td>第三方 Skills</td><td>GitHub 复制链接 → 给 Codex</td><td><b>主流</b>：安装提示词 "帮我下载安装这个 skill"</td></tr>
+<tr><td>自己编写 Skills</td><td>插件 → 技能 → 加号 → Skill Creator</td><td>把重复流程工业化</td></tr>
+</table>
+
+<h4>三、第三方 Skill 安装流程</h4>
+<ol>
+<li>GitHub（程序员开源代码托管平台）复制项目链接</li>
+<li>发送给 Codex → 输入提示词："帮我下载安装这个 skill"</li>
+<li>安装完成后<b>需重启 Codex</b></li>
+<li>调用：<code>/技能名称</code>（如 <code>/find_skill</code>）</li>
+</ol>
+
+<pre class="code"># 安装类提示词
+帮我下载安装这个skill
+
+# 调用命令（以 Find Skills 为例）
+/find_skill</pre>
+
+<h4>四、10 大必装第三方 Skills 推荐</h4>
+<table>
+<tr><th>#</th><th>Skill</th><th>功能</th><th>类别</th></tr>
+<tr><td>1</td><td>Find Skills</td><td>专门搜索好技能的技能，开启项目时不知有何 Skills → 先搜索</td><td>搜索发现</td></tr>
+<tr><td>2</td><td>Superpowers</td><td>Stars 突破 23 万；让 Codex 先理解任务 → 验证规划 → 动手执行</td><td>流程规划</td></tr>
+<tr><td>3</td><td>Fire Craw</td><td>实时联网；抓取完整网站内容，自动转 Markdown</td><td>联网抓取</td></tr>
+<tr><td>4</td><td>Skill Creator</td><td>Codex 自带，创造专属 Skills，将重复流程工业化</td><td>自产自用</td></tr>
+<tr><td>5</td><td>Planning with Files</td><td>用 Markdown 文件记录计划、进度与上下文；解决聊天过长易遗忘</td><td>流程规划</td></tr>
+<tr><td>6</td><td>Frontend Design</td><td>Anthropic 前端设计 Skill；让 AI 生成前端界面从"能用"升级到"好看"</td><td>审美增强</td></tr>
+<tr><td>7</td><td>归藏 PPT Skill</td><td>生成网页 PPT；杂志风/国际风两种主题</td><td>审美增强</td></tr>
+<tr><td>8</td><td>Humanizer</td><td>让 AI 输出更有人情味，去除中文 AI 生成痕迹</td><td>风格优化</td></tr>
+<tr><td>9</td><td>Browser Use</td><td>浏览器操控能力；打开网站、点击按钮、填写表单、截图、测试</td><td>真机操作</td></tr>
+<tr><td>10</td><td>Code Review</td><td>程序员必装；重点查找 Bug、逻辑漏洞、安全风险、边界情况</td><td>质量兜底</td></tr>
+</table>
+
+<div class="callout callout-tip">
+<b>💡 四大功能群归类</b>：
+<ul>
+<li><b>搜索发现</b>：Find Skills</li>
+<li><b>流程规划</b>：Superpowers、Planning with Files</li>
+<li><b>内容与审美增强</b>：Frontend Design、归藏 PPT、Humanizer</li>
+<li><b>执行与测试</b>：Fire Craw、Browser Use、Code Review</li>
+</ul>
+</div>
+
+<div class="callout callout-danger">
+<b>⚠️ 三大踩坑点</b>：
+<ol>
+<li>安装完成后必须<b>重启 Codex</b>才能生效</li>
+<li>安装后要真正了解每个 Skill 的用途，否则"等于白装"</li>
+<li>调用方式统一为"斜杠 + Skill 名称"</li>
+</ol>
+</div>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p>Skill 安装链路（GitHub 链接 → Codex → 重启 → 斜杠调用）必须记牢</p>
+<p>Find Skills 是"元技能"——用来找技能，位于使用链路起点</p>
+<p>Superpowers 是工作流底座，可与计划模式叠加</p>
+<p>Fire Craw（抓取）与 Browser Use（操作）是联网执行的两翼</p>
+<p>Code Review 是质量兜底，构成"写完→审查→上线前检查"完整闭环</p>
+</div>
+</article>
+
+<!-- ====== 章节 8 ====== -->
+<article class="chapter" id="c8">
+<h3>第 8 章 · Skill 制作从0到1详解</h3>
+<p class="tagline">自己编写 Skill：把重复流程工业化。</p>
+
+<h4>一、Skill 核心结构（以归藏 ppt-skill 为例）</h4>
+<ul>
+<li><b>核心文件：skill.md（必须）</b>：告知 Codex 该 Skill 解决的问题、适用场景、执行流程</li>
+<li><b>scripts/</b>：可直接运行的代码脚本</li>
+<li><b>references/</b>：参考文档、API 手册、示例代码</li>
+<li><b>assets/</b>：模板、图片、配置文件等静态资源</li>
+<li><b>.github/</b>（非必须）：存放工作流、问题模板、协作配置</li>
+</ul>
+
+<h4>二、创建 Skill 前的工作（需求分析）</h4>
+<p>明确真实需求：哪些工作经常重复？哪些步骤已形成固定流程？哪些内容值得交给 Codex 自动完成？</p>
+<p><b>提示词方法</b>：发给 Codex，要求其从过去对话中寻找规律</p>
+
+<h4>三、使用 Skill Creator 创建 Skill</h4>
+<pre class="code"># 调用方式
+skill creator</pre>
+
+<p><b>Skill Creator 工作步骤</b>（四步）：</p>
+<ol>
+<li><b>理解需求</b>：确认 Skill 的应用场景</li>
+<li><b>分析内容</b>：
+<ul>
+<li>仅文字流程 → 仅需 skill.md</li>
+<li>需重复运行代码 → 添加 scripts/</li>
+<li>需固定参考范围 → 添加 references/</li>
+<li>需模板/图片/素材 → 添加 assets/</li>
+</ul>
+</li>
+<li><b>命名与触发说明</b>：决定 Codex 何时调用该 Skill（说明模糊 → 调用失败或误触发）</li>
+<li><b>创建目录与文件</b>：将核心流程写入 skill.md</li>
+</ol>
+
+<pre class="code"># 生成 Skill 指令
+请根据刚才整理好的需求帮我创建这两个skill</pre>
+
+<h4>四、测试 Skill</h4>
+<p>调用方式：输入 <code>/</code>，下滑列表选择对应 Skill</p>
+<p><b>核心原则</b>：</p>
+<ul>
+<li>先明确需求：想解决什么问题？在什么情况下使用？期望什么结果？</li>
+<li>持续优化：大概率首次不满意，需在真实任务中不断测试修改</li>
+<li>需求动态增长：随自身需求增加，逐步调整 Skill 以贴合工作习惯</li>
+</ul>
+
+<h4>完整落地案例（课程演示）</h4>
+<div class="callout callout-info">
+<b>案例：把 AI 工具课程生产流程拆为两个 Skill</b>
+<ol>
+<li><b>生成逐字稿</b>（逐步补充，每次处理相关段落）</li>
+<li><b>逐字稿压缩为飞书课程笔记</b></li>
+</ol>
+<p>新任务衔接：复制 Skill 全部文字 → 点击"在侧边聊天中提问" → 打开侧面任务</p>
+</div>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>做 Skill 第一原则</b>：先梳理需求，再动手写文件。需求的来源是复盘自己过去反复做的重复性工作</p>
+<p><b>制作链路</b>：需求分析 → 让 Codex 分析历史对话找规律 → 需求细化拆分 → Skill Creator 规范生成 → 重启 → 测试迭代</p>
+<p><b>难点</b>：写出清晰准确的触发说明（模糊则调用失败/误触发）；从"重复工作"中提炼出值得封装的 Skill 需求</p>
+</div>
+</article>
+
+<!-- ====== 章节 9 ====== -->
+<article class="chapter" id="c9">
+<h3>第 9 章 · CodeX 必备的 Codex 增强工具（Codex++）</h3>
+<p class="tagline">第三方增强工具 Codex++：插件全解锁、模型自由切换、历史对话恢复。</p>
+
+<div class="callout callout-warn">
+<b>⚠️ 前置知识</b>：Codex++ 的"第三方导入"依赖 <b>CC Switch</b> 中已有的供应商配置，需先在 CC Switch 配好（见 <a href="#c3">第 3 章</a>）。
+</div>
+
+<h4>一、三大核心亮点</h4>
+<ol>
+<li><b>插件全解锁</b>：非官方账号（如 API 登录）用户：原需手动安装，现可直接解锁并安装使用（示例：Computer Use 插件即装即用）</li>
+<li><b>自由切换大模型</b>：用户可自行选择接入的大模型（如 AI copies API、GPT-5、DeepSeek V4 Pro）；无需复制模型名至 CC Switch 切换，直接在页面完成</li>
+<li><b>历史对话恢复</b>：解决 API 与官方登录切换时对话丢失问题；完整保留历史绘画，跨账号同步</li>
+</ol>
+
+<h4>二、下载与安装</h4>
+<ol>
+<li>访问仓库：课程笔记 GitHub 或搜索"codex plus"，进入 big pizza v3 作者页面</li>
+<li>点击右侧 Release → 展开 Assets
+<ul>
+<li>macOS：选 <code>.dmg</code> 格式</li>
+<li>Windows：下载 <code>setup.exe</code></li>
+</ul>
+</li>
+<li>双击安装包 → 点击"更多信息" → "仍要运行" → 等待完成</li>
+<li>安装后图标：
+<ul>
+<li><b>Codex++</b>：用于登录 Codex</li>
+<li><b>Codex++ 管理工具</b>：后台总控</li>
+</ul>
+</li>
+<li>后续登录：直接点击 Codex++ 图标，替代原 Codex</li>
+</ol>
+
+<h4>三、导入第三方配置</h4>
+<ol>
+<li>打开管理工具 → 点击"供应商配置" → 勾选"启动供应商配置切换"开关</li>
+<li>点击"第三方导入" → 自动导入 CC Switch 中已配置的供应商</li>
+<li>选择供应商（如 Codex 中转站）→ 点击"编辑" → 确认配置已导入</li>
+<li>点击"从上游获取" → 查看所有可切换模型 → 选择后"保存"</li>
+<li>返回主界面 → 点击"使用" → 点击"重启 Codex++"使配置生效</li>
+</ol>
+
+<h4>四、配置应用验证</h4>
+<ul>
+<li><b>模型切换</b>：下拉模型列表 → 可见所有支持的模型</li>
+<li><b>插件解锁</b>：插件列表全部解锁，支持搜索特定插件</li>
+<li><b>历史管理</b>：过去绘画可统一管理、查看、删除；GPT 账号与 API 登录的对话可互相查看</li>
+</ul>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>三个亮点层层递进</b>：先解决"能不能用"（插件解锁）→ 再解决"用什么模型"（自由切换）→ 最后解决"历史数据不丢"（对话恢复）</p>
+<p><b>踩坑点</b>：安装或配置后须重启；非官方（API 登录）账号的插件解锁是 Codex++ 的核心价值场景</p>
+</div>
+</article>
+
+<!-- ====== 章节 10 ====== -->
+<article class="chapter" id="c10">
+<h3>第 10 章 · Codex 5.6 模型深度测评与最新客户端新功能</h3>
+<p class="tagline">GPT-5.6 模型体系 + Codex 并入 ChatGPT 桌面应用 + Computer Use 升级。</p>
+
+<h4>一、桌面应用更新</h4>
+<p><b>Codex 并入新版 ChatGPT 桌面应用</b>：无需单独打开 Codex APP，直接在桌面端切换 <b>Chat Work 和 Codex</b> 模块。</p>
+<table>
+<tr><th>模式</th><th>定位</th><th>适用场景</th></tr>
+<tr><td>Work（通用型智能助理）</td><td>综合办公、研究、内容创作，含少量代码</td><td>处理简单代码 + 结合文件/插件完成文档、表格、PPT、资料整理</td></tr>
+<tr><td>Codex（专注软件开发）</td><td>纯软件开发任务</td><td>直接打开本地项目、读取/修改代码、执行终端命令、运行测试、结合 Git 查看差异</td></tr>
+</table>
+<p>默认视图设置：支持将 Codex 设为默认视图（当前仅限 macOS）</p>
+
+<h4>二、整合 ChatGPT 的聊天能力</h4>
+<p>在 Codex 左侧栏点击"聊天"按钮，直接向 ChatGPT 发送消息；回复内容可直接添加到当前 Codex 任务作为上下文。</p>
+
+<h4>三、GPT-5.6 模型体系（核心）</h4>
+<table>
+<tr><th>模型</th><th>定位</th><th>API 价格（输入/输出）</th><th>适用任务</th></tr>
+<tr><td><b>Solo</b>（旗舰）</td><td>GPT-5.6 系列能力最强</td><td>$5 / $30 per 百万 token</td><td>复杂编程、电脑操作、深度研究、网络安全</td></tr>
+<tr><td><b>Terra</b>（均衡日常）</td><td>性价比高，整体能力接近 GPT-5</td><td>$5 / $15（Solo 一半）</td><td>日常写代码、修改网页、整理资料、中等复杂度</td></tr>
+<tr><td><b>Luna</b>（最快最便宜）</td><td>速度最快、成本最低</td><td>$1 / $6（比 Solo 便宜约 80%）</td><td>需求清晰、重复性高的任务（提取信息、转换格式、批量处理）</td></tr>
+<tr><td><b>Ultra</b>（多智能体并行）</td><td>调用多个子智能体，将复杂任务拆分后并行处理</td><td>消耗更多额度</td><td>能明确拆分成多个部分的大型任务</td></tr>
+</table>
+
+<p><b>Ultra 模式开启</b>：设置 → 配置 → 开启"在模型选择器滑块中显示 Ultra"</p>
+<p><b>应用案例</b>：分析完整网站时，子智能体分别检查页面设计、代码质量、运行性能、安全问题，最后汇总报告。</p>
+
+<h4>四、左侧拉取请求（Pull Request / PR）功能</h4>
+<p><b>前置条件</b>：需安装并授权 <b>GitHub CLI</b></p>
+<p><b>GitHub CLI 配置步骤</b>：</p>
+<ol>
+<li>点击 Codex 右上角"终端"按钮 → 新建 PowerShell 终端</li>
+<li>输入安装命令（如 <code>winget install GitHub.cli</code> 或 <code>gh install</code>）</li>
+<li>重启终端（使系统识别 <code>gh</code> 命令）</li>
+<li>输入登录命令 → 复制一次性设备验证码</li>
+<li>服务器选择 GitHub.com，协议 HTTPS，确认浏览器登录</li>
+<li>浏览器打开 → 粘贴验证码 → 接收邮箱验证码 → 完成授权</li>
+</ol>
+<pre class="code"># 验证命令
+gh auth status</pre>
+
+<h4>五、Computer Use 功能升级</h4>
+<p><b>定义</b>：让 ChatGPT 查看电脑界面，通过鼠标点击、键盘输入、窗口切换完成任务</p>
+<p><b>适用场景</b>：处理单靠代码和命令行无法完成的任务（打开桌面软件、修改应用设置、操作网页、复现界面 bug、跨软件工作流）</p>
+<p><b>升级亮点</b>：适配 GPT-5.6，重点提升操作速度，整体效率提升约 67%</p>
+
+<div class="callout callout-warn">
+<b>⚠️ Windows 用户注意</b>：Computer Use 会直接操作当前桌面，运行中可能移动鼠标、输入文字、切换窗口，无法完全隐藏到后台
+</div>
+
+<h4>Computer Use 引用与调用</h4>
+<pre class="code">@computer
+（使用方法：在提示词中输入 @computer，并尽量具体描述任务与目标窗口；
+例如"使用 @computer 制作旅行演示文稿"）</pre>
+
+<p><b>使用建议</b>：执行任务时不要抢占鼠标和键盘；本地网页测试优先使用 Codex 内置浏览器，仅当必须操作桌面软件或跨应用流程时再使用 Computer Use</p>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>模型选型逻辑</b>：任务复杂度 → 模型档位匹配</p>
+<ul>
+<li>高难度任务 → Solo</li>
+<li>中等日常任务 → Terra</li>
+<li>需求清晰、重复性高的批处理任务 → Luna</li>
+<li>能拆分的复杂大任务 → Ultra 并行</li>
+</ul>
+<p>Work vs Codex 分工：综合办公 vs 纯软件开发，实际测试效果差距不明显，产品边界仍在整合期</p>
+</div>
+</article>
+
+<!-- ====== 章节 11 ====== -->
+<article class="chapter" id="c11">
+<h3>第 11 章 · Codex 开源模型本地部署（Ollama）</h3>
+<p class="tagline">用"电费"换"Token 费"，适合基础简单小项目。</p>
+
+<h4>一、课程目标与背景</h4>
+<p>背景：解决 Token 消耗快、成本高的问题。适用场景：基础简单小项目（本地 AI 编程、改简单页面、生成小工具），性价比高。</p>
+<p>硬件门槛降低：示例配置 RTX 4050 笔记本（6GB 显存）即可运行 22B 的千问-6 模型</p>
+
+<h4>二、模型选择</h4>
+<p>常见开源/开放权重模型：千问（Qwen）、Gemma 4、DeepSeek、Mistral、Llama 等</p>
+<p><b>个人推荐</b>：千问-6、谷歌 Gemma 4（综合评分高）</p>
+<div class="callout callout-warn">
+<b>重要提示</b>：本地开源模型效果与满血版（GPT、Claude 等）差距明显（收费有收费的道理）
+</div>
+
+<h4>三、本地环境搭建</h4>
+<p><b>Ollama 定位</b>：本地模型运行工具；核心作用：在本地电脑上下载、管理和运行模型</p>
+
+<h4>四、安装 Ollama</h4>
+<ol>
+<li>打开官网，左上角点击 Download</li>
+<li>根据系统选择版本：Windows / macOS</li>
+<li>点击下载并安装</li>
+</ol>
+
+<h4>五、下载模型</h4>
+<ul>
+<li>在 Ollama 界面选择模型后，输入任意内容（如"你好"），Ollama 会根据本地配置<b>自动推荐版本</b>（如 22G 版本）</li>
+<li><b>注意</b>：需关闭魔法（代理）</li>
+<li><b>手动选择版本</b>：打开模型页面，查看不同参数/体积版本；先选小版本跑通流程，再尝试更大版本</li>
+<li><b>macOS 用户</b>：优先选择带 <code>mlx</code> 后缀的版本（对苹果芯片更友好）</li>
+</ul>
+
+<p><b>下载命令</b>：复制对应版本的 CLI 命令 → Win+R 输入 cmd 回车 → 粘贴命令回车 → 自动下载</p>
+<pre class="code"># 示例：下载千问-6
+ollama pull qwen:6b
+
+# 示例：下载 Gemma 4
+ollama pull gemma4</pre>
+
+<h4>六、测试模型是否运行成功</h4>
+<p>回到 Ollama 界面，选择已下载模型，输入任意内容（如"你好"）。成功标志：模型能正常回复。</p>
+
+<h4>七、配置 CC Switch（接入 Codex）</h4>
+<ol>
+<li>点击 GPT 图标 → 加号 → 新建供应商配置</li>
+<li>供应商名称：Ollama</li>
+<li>官网链接：可不填</li>
+<li>API Key：填写占位内容（如 <code>ollama</code>），本地服务无需真实密钥</li>
+<li><b>API 请求地址（关键）</b>：<code>http://127.0.0.1:11434/v1</code>
+<ul>
+<li><code>127.0.0.1</code>：本机</li>
+<li><code>11434</code>：Ollama 默认端口</li>
+<li><code>/v1</code>：兼容 OpenAI 格式 API 调用</li>
+</ul>
+</li>
+<li>点击"获取模型"</li>
+</ol>
+
+<h4>八、获取并保存模型</h4>
+<p>在获取到的模型列表中选择对应版本 → 点击保存 → 回到模型选择界面，启用该本地模型</p>
+
+<h4>九、在 Codex 中使用本地模型</h4>
+<ul>
+<li>配置后操作：<b>重启 Codex</b></li>
+<li>效果：对话框右下角模型选择处出现自定义选项</li>
+<li>输入 <code>/</code> 查看模型，显示已安装的模型（如千问-6 8B）</li>
+<li><b>优势</b>：仅消耗电费，不消耗 Token，节省成本</li>
+</ul>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>完整链路</b>：装 Ollama → 下载模型（推荐千问-6 / Gemma 4，先小版本跑通）→ 测试回复 → CC Switch 添加供应商 → 重启 Codex 使用</p>
+<p><b>关键配置</b>：<code>http://127.0.0.1:11434/v1</code>（本机 + Ollama 默认端口 + OpenAI 兼容格式）</p>
+<p><b>API Key</b>：用占位符 <code>ollama</code> 即可（本地服务无需真实密钥）</p>
+<p><b>踩坑点</b>：下载/测试模型时需关闭魔法（代理）；配置完成后必须重启 Codex；本地模型仅适合小项目与测试，复杂任务仍建议用云端满血版</p>
+</div>
+</article>
+
+<!-- =================== 第三部分：建站与视觉生成实战 =================== -->
+<h2 id="part3" class="part-title">第三部分：建站与视觉生成实战（5 章 · 个人站 → 复刻 → 3D → 漫剧）</h2>
+
+<!-- ====== 章节 12 ====== -->
+<article class="chapter" id="c12">
+<h3>第 12 章 · CodeX 高交互个人网站从0到1制作</h3>
+<p class="tagline">小白起步的第一个完整项目：React + Vite + GSAP。</p>
+
+<h4>一、为什么要做个人网站</h4>
+<ol>
+<li><b>完整项目</b>：个人网站不算复杂但实用，是个人能力的呈现场地；具备完整项目结构，能有效辅助学习研究</li>
+<li><b>关于自己的名片</b>：求职或介绍时，除简历外可提供个人作品集网站；核心目标是<b>快速脱颖而出</b></li>
+</ol>
+
+<h4>二、搭建网站基本框架</h4>
+<p><b>核心原则</b>：避免空泛表达（反例："写一个高级个人网站"），必须提供<b>具体限制词</b>。</p>
+<p><b>提示词要素</b>：身份、风格、页面、模块（先用变量形式）</p>
+<p><b>技术方向</b>：要求 Codex 使用 <b>React + Vite</b></p>
+
+<h4>三、React + Vite 简介</h4>
+<ul>
+<li><b>React</b>：前端组件化工具，适合将首页、个人介绍、项目卡片、联系方式等拆分为模块</li>
+<li><b>Vite</b>：轻量快速的项目启动工具，辅助创建、运行和预览网站</li>
+<li><b>学习重点</b>：非深究技术原理，而是说清需求、让 Codex 生成项目、运行并微调</li>
+</ul>
+
+<h4>四、在 Codex 中构建项目</h4>
+<ol>
+<li>打开 Codex → 左侧新建项目（命名：个人网站/作品集）</li>
+<li>上传简历（PDF/Word）或粘贴文本</li>
+<li>放入修改后的提示词模板 → 等待生成第一版框架</li>
+<li>第一版原则：不求复杂，先定雏形再修改</li>
+<li>点击"打开方式" → 选择 Codex 浏览器打开预览</li>
+</ol>
+
+<h4>五、使用参考做出想要的部件</h4>
+<p><b>参考来源</b>：常用设计工具平台（如 <b>Figma</b>，在线协作设计工具）</p>
+<p><b>操作流程</b>：</p>
+<ol>
+<li>在 Figma 网站找到心仪部件（如"蓝色大眼睛"动效）</li>
+<li>点击 Preview 预览 → 复制网站链接</li>
+<li>回到 Codex，截取需修改区域 → 输入指令："在网站的这个地方，加上这个效果来优化我们的头部模板"</li>
+</ol>
+<p><b>核心要点</b>：用<b>参考图 + 文字标注</b>，避免 AI 猜测审美，确保精确达成效果</p>
+
+<h4>六、动态交互参考网站（React Beats）</h4>
+<p><b>React Beats</b>：开源免费，含丰富动态效果、背景卡片、导航栏</p>
+<ul>
+<li>将某效果应用到页面背景：调整参数（如颜色），复制到 Codex 并指令"将上面的样式应用到网页背景中"</li>
+<li>添加"类似苹果作风的边缘处理效果"：调色后粘贴提示词"给我的所有个人网页部件，加上这个效果"</li>
+</ul>
+
+<h4>七、高端设计师作品集官网级页面动效提示词</h4>
+<ul>
+<li><b>开场动画</b>（Opening Animation）：标题、背景、图片等元素非直接出现，而是通过动画进入画面</li>
+<li><b>页面滚动交互</b>：推荐 <b>GSAP + ScrollTrigger</b>，滚动触发动画；用户滚到某模块时动画才开始播放</li>
+<li><b>首屏标题</b>：动画顺序先出现英文大标题，再让项目卡片依次错开出现；关键术语 <b>Stagger（依次错开出现）</b></li>
+<li><b>图片展示</b>：<b>Reveal（遮罩展开）</b> 和 <b>Parallax（视差滚动）</b>；舒缓顺滑，避免夸张弹跳</li>
+</ul>
+
+<h4>八、浏览器标注模式（微调神器）</h4>
+<p>在 Codex 浏览器预览模式下，用批注指出具体修改需求（如"删除这段文字"）</p>
+
+<h4>九、AI 随机性</h4>
+<p>十人用相同关键词，Codex 会生成十种不同设计；完全跟随提示词，生成的网站也必然不同，无需担心同质化。行动指南：<b>不满意就继续改</b>，多借助设计参考网站。</p>
+
+<h4>十、网站公网上线（Cloudflare Tunnel）</h4>
+<p><b>临时方案</b>：使用 <b>Cloudflare Tunnel</b>，生成公网链接，将本地 Node.js 服务映射为可访问的公网地址。</p>
+<ul>
+<li>优势：完全免费，无需下载软件或注册平台</li>
+<li>操作：在 Codex 聊天框输入"使用 Cloudflare Tunnel，生成公网链接"</li>
+<li>注意事项：本地电脑关机或服务停止后链接无法访问</li>
+</ul>
+<p>长期建议：购买域名和服务器做正式上线（GitHub Pages / Vercel）</p>
+
+<h4>提示词汇总</h4>
+<div class="prompt-list">
+<div class="ph">提示词 1：搭建个人网站框架</div>
+<pre>提示词模板要点：包含身份、风格、页面、模块等变量（用括号标注），先定框架再细化。
+技术方向要求使用 React + Vite 实现。</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 2：空泛提示词反例（避免）</div>
+<pre>写一个高级个人网站</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 3：浏览器标注修改</div>
+<pre>删除这段文字</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 4：应用参考部件</div>
+<pre>在网站的这个地方，加上这个效果来优化我们的头部模板</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 5：应用网页背景样式</div>
+<pre>将上面的样式应用到网页背景中</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 6：批量应用部件效果</div>
+<pre>给我的所有个人网页部件，加上这个效果</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 7：临时公网上线</div>
+<pre>使用 Cloudflare Tunnel，生成公网链接</pre>
+</div>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p>制作流程："提示词定框架 → React+Vite 生成 → 浏览器标注微调 → 参考图精修 → 动效升华 → 公网上线"</p>
+<p><b>关键词</b>：避免空泛提示词、参考图+文字标注、React+Vite、GSAP+ScrollTrigger、Stagger/Reveal/Parallax、Cloudflare Tunnel</p>
+<p><b>难点</b>：高端动效落地（开场动画、滚动交互、错位、视差）—— 需要不断微调，心态上接受"多次修改"</p>
+</div>
+</article>
+
+<!-- ====== 章节 13 ====== -->
+<article class="chapter" id="c13">
+<h3>第 13 章 · 一招轻松复刻高逼格创意网站</h3>
+<p class="tagline">站在优秀作品之上复刻：省时间、省 Token、效果更好。</p>
+
+<h4>一、课程导入</h4>
+<p>过往痛点：从零到一制作个人高交互网站，需要处理大量组件与动效，反复调试交互与动画，消耗大量 Token 与时间。</p>
+<p>解决方案：<b>站在优秀作品之上，利用现成已验证的提示词进行二次加工</b></p>
+<p>三大优势：</p>
+<ul>
+<li>省时间：无需从头趟坑</li>
+<li>省 Token：避免无效反复尝试</li>
+<li>效果更好：复刻已跑通、被认可的优秀设计，起点更高</li>
+</ul>
+
+<h4>二、复刻网站</h4>
+<p><b>秘密武器：motion size.ai</b>（创意网站效果提示词素材库）</p>
+<ul>
+<li>功能：将高级质感的网页效果整理为可直接复用的模板；每个模板对应一套已打磨好的提示词；长期更新</li>
+</ul>
+
+<p><b>操作步骤</b>：</p>
+<ol>
+<li>打开 motion size.ai → 选中目标模板</li>
+<li>点击 copy 按钮 → 提示词进入剪贴板（无需理解每句，直接拿来用）</li>
+<li>回到 Codex → 新建项目 → 粘贴提示词 → 输入指令"帮我复刻这个网站"</li>
+<li>回车，AI 自动完成：理解提示词 → 搭建结构 → 写代码</li>
+</ol>
+
+<h4>三、二次加工（个性化）</h4>
+<p>目标：在复刻基础上加入个人素材，打造真正属于自己的网站</p>
+<p><b>操作</b>：点击 Codex 浏览器模式；可调细节：字体、颜色、模块大小等</p>
+
+<h4>四、替换简历 / 素材</h4>
+<ul>
+<li><b>替换简历</b>：复制简历内容粘贴给 AI → 指令"这个是我的简历，帮我替换上去"，Codex 自动按模板排版填入</li>
+<li><b>替换素材</b>：替换头版视频 — 发送 Seedance 2.0 API 生成的视频或自制视频 → 指令"把原来的头版视频换掉"</li>
+</ul>
+
+<h4>五、上架公网</h4>
+<p>使用 Cloudflare Tunnel 生成公网链接（详见 <a href="#c12">第 12 章</a>）</p>
+
+<h4>提示词汇总</h4>
+<div class="prompt-list">
+<div class="ph">提示词 1：一键复刻网站</div>
+<pre>帮我复刻这个网站</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 2：替换个人简历</div>
+<pre>这个是我的简历，帮我替换上去</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 3：替换头版视频</div>
+<pre>把原来的头版视频换掉</pre>
+</div>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p>从"自己做"（第 12 章）→"复刻别人的"（本章），本质是把已验证的优秀提示词当作杠杆</p>
+<p>二次加工环节（替换简历/视频/配色）与浏览器标注微调一脉相承</p>
+<p>复刻+改造 Token 消耗不低，建议先用免费可 copy 的模板练手</p>
+</div>
+</article>
+
+<!-- ====== 章节 14 ====== -->
+<article class="chapter" id="c14">
+<h3>第 14 章 · Codex 无限画布 · 精准控图（双版本合并版）</h3>
+<p class="tagline">文字说不清楚的地方，用画布画出来、标出来。</p>
+
+<h4>一、无限画布核心概念</h4>
+<p><b>无限画布</b>：可不断延伸的电子白板/电子画布，用于放置图片、文字、箭头、草图、流程图等元素</p>
+<p><b>核心用途</b>：图片局部重绘、微调改色、加滤镜等修改操作</p>
+<p><b>解决痛点</b>：传统文档/聊天窗口是线性结构，只能逐段书写；而真实思考过程是<b>发散性、关联性</b>的（如产品页面设计需同时查看截图、标注修改、补充说明）</p>
+<p><b>核心优势</b>：支持发散性、关联性思考与视觉标注；应用场景包括项目规划、产品原型、课程结构梳理、头脑风暴</p>
+
+<h4>二、实现无限画布的两种方法</h4>
+
+<h4>方法一：在线白板工具 Excalidraw</h4>
+<p><b>工具定位</b>：轻量直观的在线白板工具；适用流程图、草图、结构图、思维导图、简单页面原型、视觉标注</p>
+<p><b>操作步骤</b>：</p>
+<ol>
+<li>打开 Codex → 新建文件夹，命名为"无限画布"</li>
+<li>点击右上角显示侧边栏 → 选择"浏览器"</li>
+<li>输入网址 <code>excalidraw.com</code>，回车（Codex 内置浏览器中打开）</li>
+</ol>
+
+<p><b>界面认知（工具栏）</b>：</p>
+<ul>
+<li><b>画布区域</b>：中央空白区域，可无限向四周延展</li>
+<li><b>手掌工具</b>：拖动画布</li>
+<li><b>鼠标箭头（选择工具）</b>：选中、移动、调整元素</li>
+<li><b>绘图工具</b>：矩形、菱形、圆形、箭头、直线、手绘线条</li>
+<li><b>文字工具</b>：添加文字</li>
+<li><b>图片工具</b>：插入图片</li>
+<li><b>擦除工具</b>：擦除内容</li>
+</ul>
+
+<p><b>图片生成与标注流程</b>：</p>
+<ol>
+<li>使用 Codex 的 Image In 功能生成示例图片（如"小猫在床边"）</li>
+<li>设置生成速度（如 5 倍速），<b>注意速度越快，额度消耗越快</b></li>
+<li>图片生成后 → 点击打开方式 → 在资源管理器中打开</li>
+<li>将图片拖拽到 Excalidraw 画布中</li>
+<li>标注操作：使用线条工具拉直线指向修改位置；使用文字工具写明修改要求</li>
+</ol>
+<div class="quote">📝 标注示例："指向柜子写'柜子换成红色'，指向被子写'被子换成黑色'"</div>
+
+<ol start="6">
+<li>将标注后的画布截图发给 Codex → 指令："请根据图片里的标注进行修改，修改完成后放入文件夹中"</li>
+<li>Codex 根据标注精准理解修改位置和要求，生成修改后图片</li>
+</ol>
+
+<h4>方法二：本地无限画布插件 Cowart</h4>
+<p><b>工具定位</b>：本地无线画布插件；核心优势：<b>自动化程度更高</b>——图片生成后直接进入本地画布，无需手动下载、打开文件夹、拖拽</p>
+<p><b>操作步骤</b>：</p>
+<ol>
+<li>安装插件：新建对话窗口 → 输入提示词等待 Cowart 安装完成</li>
+<li>启动画布：在 Codex 文本框输入"打开 Cowart"</li>
+</ol>
+
+<p><b>使用流程</b>：</p>
+<ol>
+<li>生成示例图片</li>
+<li>等待几分钟，Cowart 自动将图片放入画布</li>
+<li>标注操作（与 Excalidraw 类似）</li>
+<li>将当前画布截图发给 Codex → 指令："根据标注内容进行修改"</li>
+<li>Codex 处理完成后，将相同尺寸的修改结果放回画布</li>
+<li>在同一个画布中直接对比原图、标注图、修改结果</li>
+</ol>
+
+<h4>两种方法对比</h4>
+<table>
+<tr><th>对比维度</th><th>在线白板（Excalidraw）</th><th>本地画布（Cowart）</th></tr>
+<tr><td>核心优势</td><td>轻量、上手快、无需配置</td><td>自动化流程，图片直接进入画布</td></tr>
+<tr><td>操作流程</td><td>手动下载图片 → 拖拽至画布</td><td>生成图片 → 自动放入画布</td></tr>
+<tr><td>适用场景</td><td>简单标注、一次性修改</td><td>连续性工作（不断生成、标注、修改）</td></tr>
+<tr><td>效率特点</td><td>需频繁切换文件夹和浏览器</td><td>流程连贯，无需切换</td></tr>
+</table>
+
+<h4>提示词汇总</h4>
+<div class="prompt-list">
+<div class="ph">提示词 1：示例图片生成</div>
+<pre>小猫在床边</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 2：标注后修改（Excalidraw）</div>
+<pre>请根据图片里的标注进行修改，修改完成后放入文件夹中</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 3：标注后修改（Cowart）</div>
+<pre>根据标注内容进行修改</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 4：启动本地画布插件</div>
+<pre>打开Cowart</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 5：标注内容示例</div>
+<pre>柜子换成红色
+被子换成黑色
+把花篮改成红色</pre>
+</div>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>核心原则</b>：文字说不清楚的地方，用画布画出来、标出来</p>
+<p><b>AI 生图 → 画布视觉标注（线条指向+文字说明）→ 截图回传 Codex → 精准修改 → 同框对比</b></p>
+<p><b>难点</b>：标注准确性依赖"线条指向 + 文字说明"的配合；5 倍速生图额度消耗更快，需权衡速度与额度</p>
+</div>
+</article>
+
+<!-- ====== 章节 15 ====== -->
+<article class="chapter" id="c15">
+<h3>第 15 章 · 2D转3D / 3D转VR看房效果 0-1 制作全流程</h3>
+<p class="tagline">完整 Vibe Coding 项目：agents.md → PRD → 框架 → 视觉 → 素材 → 全景 → API → 上线。</p>
+
+<h4>一、Vibe Coding 核心理念</h4>
+<p>非零基础手写代码，而是用自然语言描述想法、审美、功能与需求，由 AI 辅助修改调试，最终产出可运行项目。</p>
+<p><b>角色转变</b>：从"硬啃代码"变为<b>产品负责人、设计师与开发者的结合体</b></p>
+<p>用户判断"想要什么效果"，Codex 逐步实现该效果</p>
+
+<h4>二、规则文件创建（agents.md）</h4>
+<p><b>文件定位</b>：给 Codex 的项目说明书/工作规矩，Codex 写/改/解释代码时优先参考</p>
+<p><b>核心规则（三件事）</b>：</p>
+<ol>
+<li><b>语言要求</b>：每次回答用用户能听懂的话解释（非炫技，重协作）</li>
+<li><b>文件保护</b>：禁止乱删文件（项目复杂后含已有页面、素材、配置，需加限制）</li>
+<li><b>范围限定</b>：仅创建顶层规则文件，不急于写网页/3D场景/复杂功能</li>
+</ol>
+<p>关键思路：先让 Codex 理解项目是什么、给谁用、协作规则，如同施工前贴好施工图与注意事项</p>
+
+<h4>三、PRD 需求文档整理（计划模式）</h4>
+<p>问题：直接说"做3D看房网站"太模糊，Codex 会边干边猜，效果难控</p>
+<p><b>PRD 定义</b>：产品需求文档，写代码前的项目说明书，提前想清网站形态</p>
+<p><b>操作建议</b>：开启<b>计划模式</b>，先让 Codex 梳理需求，而非立即写代码</p>
+<p><b>提示词要点</b>：</p>
+<ul>
+<li>角色设定：告诉 Codex 它是产品经理</li>
+<li>明确限制：先不要写代码</li>
+</ul>
+<p>预期产出：Codex 主动提问关键问题（用户是谁、地图展示内容、户型页功能、3D 页面操作等），确认后再进入开发</p>
+
+<h4>四、搭建网站框架</h4>
+<p><b>前置条件</b>：PRD 已整理完毕</p>
+<p><b>推荐工具</b>：调用 <b>front end design skill</b>（10 大 Skill 之一）</p>
+<pre class="code">/frontend design 阅读该项目PRD需求文档，帮我来写代码</pre>
+
+<h4>五、前端细节调整</h4>
+<p><b>核心原则</b>：框架搭好后，先调视觉效果，而非急于加功能</p>
+<p><b>效果预览</b>：使用浏览器注释法（详见 <a href="#c12">第 12 章</a>）</p>
+<p><b>前端 UI 参考库</b>：推荐网站 <b>动物岛界面（animal island UI）</b>，风格来源动物森友会，整体更温暖、可爱、有生活感</p>
+<p><b>关键技巧</b>：提供参考网址或图片，比语言描述更直观有效</p>
+
+<h4>六、准备实例素材</h4>
+<p>素材类型：户型图、全景图、不同装修风格的效果图</p>
+<p>生成工具：在 Codex 内完成，因其可直接调用 imagin 生图模型</p>
+
+<h4>七、把死图变成 360 全景</h4>
+<p>操作路径：在 Codex 或 GPT 中输入提示词并上传示例户型图</p>
+<p>效果：2D 转 VR，将静态图变为可拖拽的 360 度环顾全景房间</p>
+
+<h4>八、需求说明书详解（写给 AI 的提示词）</h4>
+<pre class="code">你是一名前端3D工程师。
+目标：实现"可拖拽的全景"（不要"固定大图"）。
+技术约束：使用 Three.js；注意清理资源（3D吃内存，需定期清理防卡顿）。
+核心原理：全景看房 = 将房间景象摊平成图，再贴回球体内侧
+           （贴图在球内侧，摄像机站球心，转头即转视角）；
+           使用 Orbit Controls 实现鼠标拖拽环绕。
+素材要求：全景图必须是 2:1 比例的等距圆柱投影图（Equirectangular），否则变形。
+交互功能：切房间时淡入淡出（非硬切）；提供操作提示。
+验收标准：能编译通过、拖拽、缩放、切换房间、反复使用不报错。</pre>
+
+<p><b>全景原理图示</b>：</p>
+<ul>
+<li>贴图在球内侧（非外侧）</li>
+<li>摄像机站球心，转头即转视角</li>
+<li>Orbit Controls 实现鼠标拖拽环绕效果</li>
+</ul>
+
+<h4>九、接入 API（以高德地图为例）</h4>
+<p>目的：获取真实地图与位置坐标数据</p>
+<ol>
+<li>浏览器搜索"高德开放平台"</li>
+<li>注册账号 → 进入"我的应用" → 创建应用（类型选"出行"）</li>
+<li>添加 Key：名称写英文（如"3d看房"），选择 Web端 JSAPI，提交</li>
+<li>获取两个关键信息：<b>Key</b>（项目身份凭证）+ <b>Security JS Code</b>（前端安全配置）</li>
+</ol>
+<div class="callout callout-danger">
+<b>🔒 安全警告</b>：绝不可将 API Key 公开上传或分享，正式部署时放入<b>环境变量</b>
+</div>
+
+<h4>十、网站上线</h4>
+<table>
+<tr><th>部署方式</th><th>优劣</th></tr>
+<tr><td>Cloudflare Tunnel（临时）</td><td>不稳定，连接易失效，关机即断</td></tr>
+<tr><td><b>GitHub Pages / Vercel</b></td><td><b>推荐</b>：稳定长期访问</td></tr>
+</table>
+
+<pre class="code"># 部署指令
+请帮我部署到GitHub Pages，不要删除业务文件，如需仓库地址或授权请请示我</pre>
+
+<h4>完整工作流回顾</h4>
+<p>创建规范文件 → 整理 PRD → 搭建网站框架 → 调整前端细节 → 生成示例图片 → 接入地图 API → 部署至 GitHub Pages</p>
+
+<h4>agents.md 规范文件</h4>
+<pre class="code">语言要求：每次回答用用户能听懂的话解释（非炫技，重协作）
+文件保护：禁止乱删文件（项目复杂后含已有页面、素材、配置，需加限制）
+范围限定：仅创建顶层规则文件，不急于写网页/3D场景/复杂功能</pre>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p>Vibe Coding 关键：知道如何找参考、找正确平台（需平时多用多看多收集）</p>
+<p>项目扩展方向：更换城市/小区数据、增加户型、调整装修风格、加入收藏/预约/看房功能</p>
+<p><b>关键技术栈</b>：Three.js + Orbit Controls（360 全景）+ 高德地图 API + GitHub Pages/Vercel</p>
+</div>
+</article>
+
+<!-- ====== 章节 16 ====== -->
+<article class="chapter" id="c16">
+<h3>第 16 章 · 调用 Seedance 2.0 API 一站式生成漫剧</h3>
+<p class="tagline">AI 导演引擎：剧本 → 资产 → 分镜 → 成片，全部由 Codex 集成各平台 API 完成。</p>
+
+<h4>一、传统做法的痛点</h4>
+<ul>
+<li>多平台协作：剧本（GMI）、分镜图（GPT）、视频（极梦）等需跨平台切换</li>
+<li>流程割裂：步骤繁琐，效率低下</li>
+</ul>
+<p>核心解决方案：通过 <b>Codex 集成各平台 API</b>，实现一站式生成</p>
+
+<h4>二、漫剧的正常制作流程</h4>
+<ol>
+<li>剧本制作</li>
+<li>资产准备：生成人物、场景、道具图（<b>一致性是关键</b>）</li>
+<li>提示词生成：分镜提示词 + 图生视频提示词</li>
+<li>内容生成：生成分镜图 + 视频</li>
+<li>后期合成：音频、配乐、剪辑</li>
+</ol>
+
+<h4>三、用 Codex 把全流程接进（AI 导演引擎）</h4>
+
+<p><b>步骤一：剧本审核</b>：剧本决定<b>完播率、停留率、流量</b>；务必审核剧本是否有趣</p>
+
+<p><b>步骤二：转化剧本为分镜与资产</b></p>
+<ul>
+<li>核心工具：<b>AI 全能分镜助手</b></li>
+<li>三大核心价值：
+<ol>
+<li><b>角色不串联</b>：为每个角色建<b>资产卡</b>（锁死长相、服装），用角色名引用，保证一致性</li>
+<li><b>空间不穿帮</b>：全程监控人物站位、镜头方向，避免瞬移与方向混乱</li>
+<li><b>说人话给模型听</b>：将专业术语（如 180 度轴线）翻译为模型能懂的<b>画面方位</b>（左/右/中央）</li>
+</ol>
+</li>
+</ul>
+
+<p><b>格式转换</b>：将 Word 文档转为 <b>md 格式</b></p>
+<pre class="code">做成md文件</pre>
+<p>输出：Codex 生成两个 md 文件：① <b>资产库</b>（人物、场景、道具设定）② <b>完整分镜表</b>（镜头提示词）</p>
+
+<p><b>步骤三：生成图片</b></p>
+<table>
+<tr><th>登录方式</th><th>方法 1</th><th>方法 2</th></tr>
+<tr><td>API 登录</td><td>AI Codex 控制台（文生图试验场）调用 Image 2</td><td>Codex 内接入 API 文档调用</td></tr>
+<tr><td>GPT 账号</td><td>Codex 自带 <code>/image gen</code> 插件</td><td>直接使用 ChatGPT 官网（速度更快）</td></tr>
+</table>
+
+<p><b>步骤四：调用视频生成 API</b></p>
+<ul>
+<li>Seedance 2.0 于 2024 年 4 月对个人用户开放 API</li>
+<li>优势：无需排队、可<b>并发执行</b>，出片效率高</li>
+<li>价格：约 196 元得 700 万 Token（约 28 个 480p 视频）</li>
+</ul>
+
+<p><b>Seedance 2.0 充值开通</b></p>
+<ul>
+<li>入口：火山引擎活动页面</li>
+<li>资源包三档：轻量创作包（196 元）、臻享包（280 元）、高效量产包（364 元）</li>
+<li>建议：入门选 196 元档即可</li>
+</ul>
+
+<h4>通用 API 接入流程（任何开放 API 平台）</h4>
+<ol>
+<li>创建 API Key</li>
+<li>找到 API 文档，复制粘贴给 Codex</li>
+<li>指令："接入这个 API"</li>
+</ol>
+
+<pre class="code"># 接入 API 指令
+接入这个API</pre>
+
+<p><b>特殊模式</b>：SD-0 <b>首尾帧模式</b>（需开头+结尾两张参考图，补中间帧），画面走向更可控</p>
+
+<p><b>步骤五：生成视频</b></p>
+<p>在 Codex 中接好视频 API 后，后续流程由 Codex <b>自动执行</b></p>
+
+<h4>批量生成与参数设置</h4>
+<ul>
+<li><b>基础操作</b>：提交生成模板，以两段 15 秒为例</li>
+<li><b>批量生成</b>：修改括号内数字（如 10 段），秒数与分辨率可自定义</li>
+<li><b>优化策略</b>：由<b>脚本内容</b>决定秒数，避免固定 15 秒浪费 Token</li>
+</ul>
+
+<h4>注意事项与风险控制</h4>
+<div class="callout callout-warn">
+<b>⚠️ 资源消耗</b>：分辨率越高、段数越多，消耗 Token 与等待时间越长
+</div>
+<div class="callout callout-danger">
+<b>⚠️ 失败风险</b>：一次性生成 10-20 段可能等待 1-2 小时后失败，需先小规模测试
+</div>
+<p><b>建议流程</b>：首次使用 720p 分辨率生成 1-2 段跑通流程，确认效果后再放量</p>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>核心方法论</b>：AI 导演引擎思路——把剧本、分镜、生图、生视频、后期各环节通过 Codex 串联，避免多平台来回切换</p>
+<p>流程严格按漫剧生产时间线递进：剧本审核 → 分镜/资产 → 生图 → 视频 API → 批量生成与导出</p>
+<p><b>API 接入四步</b>（任何开放 API 平台通用）：创建 Key（保密）→ 找文档（复制粘贴给 Codex）→ 看价格与计费方式 → 接入 + 封装为可复用 Skill</p>
+</div>
+</article>
+
+<!-- =================== 第四部分：视频·音频·动效·生图实战 =================== -->
+<h2 id="part4" class="part-title">第四部分：视频·音频·动效·生图实战（6 章 · 剪辑 · API · Remotion · 壁纸 · 宠物）</h2>
+
+<!-- ====== 章节 17 ====== -->
+<article class="chapter" id="c17">
+<h3>第 17 章 · CodeX 自动剪辑神器 HyperFrames</h3>
+<p class="tagline">HyperFrames：自动搭建项目、设计画面、加入动效、生成预览视频。</p>
+
+<h4>一、HyperFrames 安装</h4>
+<table>
+<tr><th>登录方式</th><th>操作</th></tr>
+<tr><td>GPT 账号登录</td><td>打开 Codex → 点击插件 → 搜索框输入"hyper frames" → 点击安装</td></tr>
+<tr><td>API 登录</td><td>复制 GitHub 地址 → 回到 Codex → 粘贴并输入下载/安装指令</td></tr>
+</table>
+
+<p><b>关键说明</b>：API 登录与 GPT 登录安装的插件/Skills 效果一致，仅安装方法不同</p>
+
+<h4>二、调用方式（必记）</h4>
+<ul>
+<li><b>Skill</b>：使用斜杠（<code>/</code>）调用</li>
+<li><b>插件</b>：使用 <code>@</code> 调用</li>
+</ul>
+<p>后续操作：新建文件夹（命名为 hyper frames）</p>
+
+<h4>三、案例演示：文生视频流程（小米 SU7）</h4>
+<pre class="code">创建10秒小米SU7产品介绍（含弹入标题、背景视频、背景音乐）</pre>
+<ul>
+<li>HyperFrames 自动搭建项目（设计画面、标题、动画节奏、背景音乐）</li>
+<li>耗时与消耗：约 30 分钟，消耗 5 小时 50% 额度</li>
+<li>优化迭代：截图告知修改位置 → 附上提示词 → Codex 查找 GLB 文件 → 替换模型</li>
+</ul>
+
+<p><b>核心结论</b>：工作方式：提出需求 → 搭建项目 → 设计画面 → 加入动效 → 生成预览视频</p>
+<p><b>局限性</b>：仅适用于文生视频测试，不适用于课程/知识分享/产品讲解类视频</p>
+
+<h4>四、应用案例：口播视频素材添加（动态分分镜）</h4>
+<p>目标：为现有口播视频添加素材，实现动态分镜包装</p>
+<p>核心逻辑：口播视频需对齐讲话节奏（重点字幕、画面切换、关键词标注、总结）</p>
+
+<p><b>提示词逻辑拆解（四步法）</b>：</p>
+<ol>
+<li><b>提取音频与字幕</b>：提取视频音频 → 转写为带时间轴的 SRT 字幕文件<br>
+（SRT 定义：常见字幕格式，包含时间线及对应话术，控制字幕出现/消失时间）</li>
+<li><b>分析口播结构</b>：根据字幕内容拆解段落（开场吸引、提出问题、解决方法、展示案例）</li>
+<li><b>生成分镜文件</b>：定义每个镜头的时间、对应口播、画面表现、屏幕文字、动效、转场</li>
+<li><b>实现成片</b>：HyperFrames 根据分镜生成最终视频（可附加风格要求）</li>
+</ol>
+
+<p><b>素材要求</b>：支持视频、音频或文字稿，不强制完整素材</p>
+<p>耗时与消耗：约 12 分钟，消耗 5 小时 40% 额度</p>
+
+<h4>五、传统做视频 vs 使用 HyperFrames</h4>
+<table>
+<tr><th>维度</th><th>传统流程</th><th>HyperFrames</th></tr>
+<tr><td>流程</td><td>分散处理（音频、字幕、画面分开）</td><td>集中完成（文案、音频、字幕、页面设计整合为一个项目）</td></tr>
+<tr><td>操作</td><td>繁琐（单独考虑每段画面时间、动画节奏、转场方式）</td><td>快速生成（输出完整视频成品）</td></tr>
+<tr><td>适用</td><td>—</td><td>科技感口播视频、教程视频、产品展示视频、露脸讲解类视频</td></tr>
+</table>
+
+<div class="callout callout-warn">
+<b>重要提醒</b>：完整视频生成流程消耗 Token 较高；建议从 1-3 分钟小片段开始测试，流程稳定后再处理长视频
+</div>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p>两种安装路径（GPT/API）效果一致；技能用 <code>/</code>、插件用 <code>@</code> 调用</p>
+<p>两大核心场景：文生视频测试（小米 SU7 案例）与口播视频动态包装</p>
+<p>口播视频包装的提示词四步法（提取字幕 → 分析结构 → 生成分镜 → 实现成片）是本课最重要的方法论</p>
+</div>
+</article>
+
+<!-- ====== 章节 18 ====== -->
+<article class="chapter" id="c18">
+<h3>第 18 章 · ChatCut 自动剪辑全流程详解</h3>
+<p class="tagline">另一款自动剪辑插件：偏粗剪、MG 动画、素材生成。</p>
+
+<h4>一、ChatCut 介绍</h4>
+<p><b>工具</b>：Codex + ChatCut（插件形式接入）</p>
+<p><b>核心价值</b>：简化剪辑流程，AI 剪辑雏形已现</p>
+<p><b>对比评价</b>：</p>
+<ul>
+<li>vs 专业剪辑师：差距仍大</li>
+<li>vs 过去 AI 剪辑：从"完全不能用"到"效果不错"</li>
+</ul>
+
+<h4>二、插件安装</h4>
+
+<p><b>方法一：官网安装</b></p>
+<ol>
+<li>访问官网 → 点击 "Use in ChatGPT"</li>
+<li>复制安装提示词 → 粘贴至 Codex 对话框并发送</li>
+<li>等待安装（约 30 分钟）</li>
+<li>完成配置 → 系统创建新任务，即可使用</li>
+</ol>
+
+<p><b>方法二：Codex 插件目录安装</b></p>
+<ol>
+<li>打开 Codex → 点击左侧"插件"</li>
+<li>搜索 "ChatCut" → 点击"安装"或"连接"</li>
+<li>注意：若未搜到，需将 Codex 更新至最新版本</li>
+<li>安装后，Codex 右侧浏览器将自动打开 ChatCut</li>
+</ol>
+
+<h4>三、功能解析</h4>
+<p><b>ChatCut 三大核心功能</b>：</p>
+<ol>
+<li><b>视频剪辑</b>：清理停顿/语气词、添加字幕、制作转场、补充画面素材</li>
+<li><b>MG 动画制作</b>：制作标题、图形、文字等动态效果</li>
+<li><b>素材生成</b>：生成旁白、音乐、音效</li>
+</ol>
+
+<h4>四、应用案例：拼贴动画制作</h4>
+<ol>
+<li>需求描述：向 Codex 描述视频目标（如：IP 人物采访梅西的拼贴动画）</li>
+<li>素材准备：提供参考视频（风格参考）与现有素材（如 IP 人物图片）</li>
+<li>Codex 输出脚本与素材清单，并给出每张素材的生图提示词</li>
+<li>批量生图：建议将提示词复制至 GPT 官网批量生成（速度快、额度省）</li>
+<li>回传素材：将生成结果发送回 Codex，继续后续制作</li>
+</ol>
+
+<h4>五、调用 ChatCut 剪辑</h4>
+<p><b>标准操作</b>：在 Codex 输入 <code>@ChatCut</code> + 添加素材 → 自动上传至 ChatCut</p>
+<p><b>常见 Bug 应对</b>：</p>
+<ul>
+<li>Bug：系统重复尝试导入但无法连接</li>
+<li>解决方案：输入指令"打开 ChatCut 临时上传窗口" → 手动上传本地素材</li>
+</ul>
+
+<h4>六、效果优化（粗剪 → 确认方向 → 自动制作 → 迭代 → 导出）</h4>
+<ul>
+<li><b>粗剪</b>：ChatCut 自动排列镜头，搭建内容顺序与节奏</li>
+<li><b>确认方向</b>：选择片头视觉风格与主持人配音音色</li>
+<li><b>后续制作</b>：ChatCut 自动完成动态字幕、口播、音效</li>
+<li><b>迭代修改</b>：通过自然语言描述调整需求（如：第几秒、元素、转场、贴图入场方式）</li>
+<li><b>导出</b>：点击导出，获取视频与链接</li>
+</ul>
+
+<h4>提示词汇总</h4>
+<div class="prompt-list">
+<div class="ph">提示词 1：素材上传 Bug 应对</div>
+<pre>打开ChatCut临时上传窗口</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 2：调用 ChatCut 剪辑</div>
+<pre>@ChatCut + 添加素材</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 3：需求迭代修改（自然语言示例）</div>
+<pre>第X秒的XX元素改为……，转场换成……，贴图改为……入场方式</pre>
+</div>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p>ChatCut 以插件形式接入 Codex，提供视频剪辑、MG 动画、素材生成三大能力</p>
+<p>调用以 <code>@ChatCut</code> 开启；遇到导入 Bug 用"打开 ChatCut 临时上传窗口"指令手动上传</p>
+<p>迭代修改用自然语言即可，在现有项目上小改可节省 Token</p>
+<p>批量生图提示词建议转到 GPT 官网执行（速度/额度更优）</p>
+</div>
+</article>
+
+<!-- ====== 章节 19 ====== -->
+<article class="chapter" id="c19">
+<h3>第 19 章 · Codex 调用 RunningHub API（生图性价比更高）</h3>
+<p class="tagline">通用 API 接入四步法：创建 Key → 找文档 → 看价格 → 交给 Codex 创建可复用 Skill。</p>
+
+<h4>一、RunningHub 平台</h4>
+<p><b>平台性质</b>：在线 AI 内容创作平台，整合生成模型、AI 应用、ComfyUI 工作流于云端</p>
+<p><b>注册福利</b>：输入邀请码 <code>kol01-rh145</code> 获 1000 RHB，每日登录额外获 100 RHB</p>
+<p><b>核心优势</b>：云端运行（无需下载模型，打开即用）、按次收费（成本可控）</p>
+
+<h4>二、创建 API 密钥</h4>
+<ol>
+<li>入口：首页【API】→ API 管理中心 → 【密钥】页面</li>
+<li>新建 API Key：选择【企业级共享】类型</li>
+</ol>
+<div class="callout callout-danger">
+<b>🔒 安全红线</b>：
+<ul>
+<li>必须妥善保存，严禁泄露</li>
+<li>禁止写入公开代码或上传至代码仓库</li>
+<li>泄露风险：他人可消耗账户余额</li>
+</ul>
+</div>
+
+<h4>三、模型介绍</h4>
+<table>
+<tr><th>平台名称</th><th>实际模型</th></tr>
+<tr><td>全能图片 G2</td><td>GPT Image 2</td></tr>
+<tr><td>全能图片 V2</td><td>Nano Banana 2</td></tr>
+</table>
+
+<p><b>GPT2 模型 API 稳定性问题</b>：非官方 API 调用 GPT2 模型的不稳定性：生图成功率低、分辨率不可控（1K / 2K / 720P 随机）</p>
+<p><b>推荐策略</b>：优先使用稳定版（价格差距不大）；低价渠道版极不稳定，影响效率</p>
+
+<h4>四、接入生图并创建 Skill</h4>
+<ol>
+<li>点击【复制文档】</li>
+<li>回到 Codex → 新建项目</li>
+<li>输入指令："请根据上面的接口文档调用这个 API，并创建一个可以重复使用的生图 Skill"</li>
+<li>按提示粘贴 API Key</li>
+<li>Codex 自动完成接口配置与 Skill 创建</li>
+</ol>
+
+<div class="prompt-list">
+<div class="ph">提示词：创建可重复使用的生图 Skill</div>
+<pre>请根据上面的接口文档调用这个API，并创建一个可以重复使用的生图Skill</pre>
+</div>
+
+<h4>五、模型调用费用（以 Image-0 为例）</h4>
+<table>
+<tr><th>分辨率</th><th>Low（最低质量）</th><th>Medium（中等质量）</th><th>Hi（最高质量）</th></tr>
+<tr><td>1K</td><td>0.06 元/张</td><td>0.38 元/张</td><td>0.39 元/张</td></tr>
+<tr><td>2K</td><td>0.13 元/张</td><td>0.76 元/张</td><td>0.77 元/张</td></tr>
+</table>
+<p><b>测试建议</b>：先选 1K + Low 质量验证接口，再按需提升</p>
+
+<h4>六、视频 API（推荐模型）</h4>
+<table>
+<tr><th>模型</th><th>定位</th><th>价格</th></tr>
+<tr><td><b>CDS-0</b>（首选）</td><td>当前龙头，长期稳居第一</td><td>基础价 0.6 元/秒（最终受分辨率/时长/输入模式影响）</td></tr>
+<tr><td><b>Omni Flash</b>（高性价比）</td><td>谷歌视频模型</td><td>2 元/条（720P 带音频，最长 10 秒）；价格约为 CDS-0 的 1/3</td></tr>
+</table>
+
+<p><b>Omni Flash 优劣对比</b>：</p>
+<ul>
+<li>劣势：整体效果不如 CDS-0（复杂动作、画面稳定性、细节一致性有差距）</li>
+<li>优势：调用成本低</li>
+<li>适用场景：前期测试与试错、验证视频生成 Skill、批量生成对画质要求不高的短视频</li>
+</ul>
+
+<div class="prompt-list">
+<div class="ph">提示词：创建可重复使用的视频生成 Skill</div>
+<pre>根据上面接口文档，利用这个API并创建一个可以重复使用的视频生成Skill</pre>
+</div>
+
+<h4>七、通用 API 接入方法论</h4>
+<p><b>四步法</b>：</p>
+<ol>
+<li>找到 API 文档</li>
+<li>定位目标模型</li>
+<li>查看价格与收费方式</li>
+<li>将接口信息提供给 Codex，由其完成 API 接入并创建可复用的 Skill</li>
+</ol>
+<p><b>可迁移性</b>：更换图片/视频模型时，按同样思路操作</p>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>通用 API 接入四步</b>：找到文档 → 定位模型 → 看价格 → 交给 Codex 创建可复用 Skill</p>
+<p><b>生图推荐稳定版</b>（避免 GPT2 不稳定/分辨率随机）；视频首选 CDS-0，高性价比选 Omni Flash（约 1/3 价格）</p>
+<p><b>两条核心指令</b>："请根据上面的接口文档调用这个API，并创建一个可以重复使用的生图 Skill" 和 "根据上面接口文档，利用这个API并创建一个可以重复使用的视频生成 Skill"</p>
+</div>
+</article>
+
+<!-- ====== 章节 20 ====== -->
+<article class="chapter" id="c20">
+<h3>第 20 章 · Remotion 动效（用代码做视频）</h3>
+<p class="tagline">Remotion = 描述组件外观 → 逐帧渲染 → 拼 MP4，可编程、可批量生成。</p>
+
+<h4>一、动效痛点与解决方案</h4>
+<p><b>传统动效制作痛点</b>：</p>
+<ul>
+<li>AE：学习成本高</li>
+<li>剪映：手动调关键帧耗时，修改文字需重新导出</li>
+</ul>
+<p><b>解决方案</b>：写代码做动画（Codex 辅助），用户只需用大白话描述需求，Codex 自动生成动画</p>
+
+<h4>二、Remotion 介绍</h4>
+<p><b>定义</b>：用代码做视频的工具</p>
+<p><b>原理</b>：描述网页组件外观 → 逐帧渲染 → 拼接为 MP4 视频</p>
+<p><b>核心优势</b>：</p>
+<ul>
+<li>可编程：文字用变量控制，数据实时更新</li>
+<li>批量生成：可快速生成 100 个不同内容视频</li>
+</ul>
+
+<h4>三、安装 Remotion</h4>
+<table>
+<tr><th>登录方式</th><th>操作</th></tr>
+<tr><td>GPT 账号</td><td>打开 Codex → 点击插件 → 输入 "Remotion" → 点击安装（已内置）</td></tr>
+<tr><td>API 登录</td><td>从 GitHub 下载 Remotion → 在聊天框输入"下载这个 Skill" → Codex 自动安装</td></tr>
+</table>
+
+<p><b>常见问题解决</b>：安装失败原因：权限不足；解决办法：在管理权限中开启完全访问</p>
+
+<h4>四、应用案例 1：AI 图标云动画（环绕视频）</h4>
+<p><b>应用场景</b>：片头或官网首页</p>
+<p><b>操作流程</b>：</p>
+<ol>
+<li>新建文件，命名为 "Remotion"</li>
+<li>让 Codex 截取 AI logo 素材</li>
+<li>输入详细提示词描述动画效果</li>
+</ol>
+
+<p><b>提示词关键要素</b>：</p>
+<pre class="code">1. 规格：1:1 正方形，2048×2048，30 帧，10 秒，无缝循环
+2. 素材来源：本地图片文件夹（不依赖网络）
+3. 风格：浅色干净、科技感、高级 SaaS 官网风
+4. 排除项：无文字、无暗黑背景、无棋盘格
+5. 画面核心：3D 图标云，中心放大图标为焦点，周围环绕 20-30 个玻璃质感小卡片
+6. 层次感：卡片大小、透明度、模糊度差异化（近大远小、近清远糊）
+7. 动画效果：球体缓慢旋转（带前后穿插）、卡片自身轻微飘动、整体呼吸般缩放
+8. 背景导出：透明背景（便于后续插入）</pre>
+
+<p><b>微调</b>：截图不满意部分发给 Codex 修改</p>
+<pre class="code"># 导出指令
+帮我把视频导出到本地</pre>
+
+<h4>五、应用案例 2：AI 工具访问量动画（数据增长动画）</h4>
+<p><b>操作流程</b>：</p>
+<ol>
+<li>调用 <b>Superpowers Skill</b>：让大模型先理解任务、验证规划、再动手（确保数据真实）</li>
+<li>明确视频主题：用户自选</li>
+<li>规定视频参数：16:9，1920×1080，30 FPS，60 秒</li>
+</ol>
+
+<p><b>制作流程（核心）</b>：</p>
+<ol>
+<li>检查 CSV 字段：确认包含日期、工具名称、月访问量、排名、事件等</li>
+<li>数据预处理：若无排名，AI 自动计算；英文单位（如 MB）转为中文（如亿次访问）</li>
+<li>补充资料：使用浏览器获取 AI 工具（GPT、Gemini、Claude 等）的发布事件和 logo</li>
+<li>生成分镜：60 秒视频分镜，开头展示主题，中间用动态 Bar Chart Race 展示排名变化，关键节点弹出事件卡解释原因</li>
+<li>编写 Remotion 代码：按分镜和数据结构生成动画</li>
+</ol>
+
+<pre class="code"># 数据动画提示词思路
+（生产线框架）查数据 → 补素材 → 出分镜 → 写代码
+（参数）16:9，1920×1080，30 FPS，60 秒
+（分镜）开头展示主题，中间动态 Bar Chart Race 展示排名变化，关键节点弹出事件卡解释原因
+（防错）先用 Superpowers Skill 让大模型理解任务、验证规划、再动手，确保数据真实</pre>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p>动效提示词四要素：规格参数、素材来源、风格偏好、<b>排除项</b>（明确不想要什么）</p>
+<p>数据动画提示词强调"生产线 + 防错"：查数据 → 补素材 → 出分镜 → 写代码，并让大模型先规划验证</p>
+<p><b>难点</b>：数据真实性保障（用 Superpowers 验证规划）、需求描述越具体效果越好</p>
+</div>
+</article>
+
+<!-- ====== 章节 21 ====== -->
+<article class="chapter" id="c21">
+<h3>第 21 章 · 音乐随声律动项目从0到1制作全过程</h3>
+<p class="tagline">复刻 Steam Wallpaper Engine 效果：Vite + React + TS + Three.js + WebGL。</p>
+
+<h4>一、项目背景与目标</h4>
+<p>目标：使用 Codex 制作音乐律动壁纸（参考 Steam Wallpaper Engine 上的跟随音乐起伏的动态壁纸效果）</p>
+<p>复刻成果：初步实现高还原度版本（精细度待优化）</p>
+<p>核心参考：GitHub 作者 in-1-zhen 的项目 <b>Sonic Topography</b></p>
+<p>核心方法：<b>参考设计思路，非直接复制源码</b></p>
+
+<h4>二、Codex 执行边界（重要！）</h4>
+<pre class="code">在当前工作区修改项目，不新建项目文件夹；
+先检查已有文件，保留已完成内容，不覆盖无关文件；
+参考开源项目（Sonic Topography）的设计思路与公开实现方式，
+禁止复制大段源码、修改原仓库，真正理解后按需调整。</pre>
+
+<h4>三、搭建项目、渲染架构和基础界面</h4>
+<p><b>项目框架</b>：Vite + React + TypeScript</p>
+<p><b>三维库</b>：</p>
+<ul>
+<li><b>Three.js</b>：负责三维画面</li>
+<li><b>React Three Fiber</b>：以 React 方式编写三维场景</li>
+<li><b>Drei</b>：提供相机控制等常用工具</li>
+</ul>
+
+<p><b>地形渲染核心逻辑</b>：</p>
+<ul>
+<li>地形构成：160×160 方块矩阵（共 25600 个方块）</li>
+<li>性能优化：
+<ul>
+<li><b>InstancedMesh</b>：批量渲染，避免创建 25600 个 React 组件</li>
+<li><b>Static Draw Usage</b>：地形仅初始化生成一次，避免动画中反复创建数组/矩阵/向量对象</li>
+</ul>
+</li>
+</ul>
+
+<p><b>检查与构建流程</b>：</p>
+<ul>
+<li><b>Lint</b>：检查代码不规范写法或潜在问题</li>
+<li><b>Build</b>：确认项目能否正常打包</li>
+<li><b>执行策略</b>：每完成一步，重复此检查流程，及时发现问题并让 Codex 直接修复</li>
+</ul>
+
+<h4>四、实现可靠的本地音乐播放器和八段频谱引擎</h4>
+<p><b>播放器功能</b>：</p>
+<ul>
+<li>格式支持：MP3、WAV 等常见格式</li>
+<li>音频分析：参考 Sonic Topography 项目的核心参数与思路</li>
+<li>频段划分：将音频数据划分为 <b>8 个频段</b>
+<ul>
+<li><b>低频</b>：控制地形起伏</li>
+<li><b>中频</b>：表现节奏</li>
+<li><b>高频</b>：控制闪光和颗粒效果</li>
+</ul>
+</li>
+</ul>
+
+<p><b>性能优化</b>：</p>
+<ul>
+<li><b>节点复用</b>：同一音频元素只创建一个音频节点</li>
+<li><b>数组复用</b>：频谱数组重复使用，减少性能消耗</li>
+<li><b>更新频率</b>：频谱数值限制为每秒更新约 20 次</li>
+</ul>
+
+<h4>五、GPU 音乐地形</h4>
+<p><b>参考文件</b>：</p>
+<ul>
+<li>Custom Shader Material.ts（自定义着色器材质）</li>
+<li>Maps In.tsx（场景文件）</li>
+</ul>
+
+<p><b>实现方式</b>：重新实现 GPU 音乐地形，保留播放器与八段频谱功能</p>
+<p><b>渲染技术</b>：InstancedMesh 一次渲染 25600 个方块</p>
+<p><b>数据传递</b>：八段频谱、动画速度、主题颜色通过 <b>Uniform（着色器统一变量）</b>传递给 GPU</p>
+
+<p><b>地形参数调整</b>：</p>
+<ul>
+<li>尺寸缩放：原项目地形尺寸 168 → 本项目尺寸 160（168 减 8），相关参数（噪声、波纹、频段作用范围）缩小十倍</li>
+<li>频段作用：
+<ul>
+<li>低频：推动中心地形</li>
+<li>中频：产生流动波纹</li>
+<li>高频：生成尖峰闪光和能量柱</li>
+</ul>
+</li>
+</ul>
+
+<p><b>附加效果</b>：</p>
+<ul>
+<li>扩散波纹：最多 10 个</li>
+<li>雾化：远处透明</li>
+<li>边缘发光：方块边缘发光效果</li>
+</ul>
+
+<h4>六、总结与优化建议</h4>
+<p><b>项目成果</b>：实现本地音乐播放、频谱分析、三维地形动画；主要功能与视觉效果已复刻，未做到 1:1 完全还原</p>
+
+<p><b>后续优化建议</b>：</p>
+<ul>
+<li>个性化调整：调整颜色、灵敏度、地形效果</li>
+<li>深度还原：重复上述步骤，按需求优化</li>
+<li>创新建议：加入个人新想法</li>
+</ul>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p><b>性能优化三件套</b>：InstancedMesh 批量渲染 25600 方块、Static Draw Usage 静态数据、节点/数组复用 + 频谱每秒约 20 次更新</p>
+<p><b>八段频谱分工</b>：低频控地形起伏、中频表现节奏、高频控闪光与颗粒</p>
+<p>GPU 地形通过 Uniform 传递（八段频谱/动画速度/主题颜色），并加入扩散波纹、雾化、边缘发光等附加效果</p>
+<p><b>难点</b>：性能优化（避免 25600 个 React 组件与反复创建对象）；参考开源项目时"参考思路而非复制源码"的边界把握</p>
+</div>
+</article>
+
+<!-- ====== 章节 22 ====== -->
+<article class="chapter" id="c22">
+<h3>第 22 章 · Codex 宠物组件：创建一个独属于你的宠物</h3>
+<p class="tagline">桌面陪伴 + 状态提示器，让 Codex 工具界面更具人格化。</p>
+
+<h4>一、组件升级背景</h4>
+<p>Codex 近期更新，将宠物功能从外观设置中拆分，形成<b>独立组件</b></p>
+<p><b>官方意图</b>：完善宠物功能，增强扩展性，超越简单外观装饰</p>
+<p><b>核心价值</b>：为工具界面注入人格化与陪伴感，提供视觉反馈，缓解长时间工作疲劳</p>
+
+<h4>二、宠物入口</h4>
+<ol>
+<li>点击左下角设置 → 选择"宠物"</li>
+<li>Codex 原生内置 <b>9 个宠物</b>，各有不同外观与动画风格</li>
+<li>启用流程：挑选宠物 → 点击"选择" → 点击右上角"唤醒宠物"</li>
+<li>呈现效果：宠物将显示在屏幕桌面上</li>
+</ol>
+
+<h4>三、功能作用（三方面）</h4>
+<ul>
+<li><b>桌面陪伴</b>：非复杂功能按钮，非操作替代工具；本质：桌面陪伴组件，兼具状态提示器功能</li>
+<li><b>状态提示器</b>：提示场景：任务运行中、生成完成、需用户操作、出现报错等；宠物始终处于桌面最高层级，可实时监控任务进度</li>
+<li><b>轻量互动工具</b>：输入项目内容时（如"宠物组件可以干什么？"），宠物进入工作状态；点击"回复"按钮输入文字，效果与对话框输入相同</li>
+</ul>
+
+<div class="callout callout-info">
+<b>注意</b>：输入文字会直接成为引导词，而非进入排队队列；功能扩展：输入文字直接转化为引导词
+</div>
+
+<h4>四、公共宠物</h4>
+<p><b>公共宠物图库的功能</b>：预览宠物动作状态，支持一键安装</p>
+<p><b>操作流程</b>：</p>
+<ol>
+<li>进入图库 → 选择宠物（如皮卡丘）→ 点击进入</li>
+<li>下滑点击 Codex 图标 → 点击发送</li>
+<li>安装完成 → 在宠物组件中查看</li>
+</ol>
+
+<h4>五、创建专属宠物</h4>
+<p><b>前置操作</b>：安装插件 hash pat / hatch pat（插件名两版本记录略有差异，以课程实际为准），通过插件 → 技能搜索安装</p>
+
+<p><b>创建流程</b>：</p>
+<ol>
+<li>新建对话框，调用 <code>/hash pat</code> 功能</li>
+<li>输入提示词（"帮我创建一个独属于我的宠物" / "你对我了解，帮我创建一个独属于我的宠物"）</li>
+<li>Codex 参考对话记忆中的偏好与线索，自动设计并生成宠物</li>
+<li>生成多种动作状态后，回到宠物组件点击"选择"即可使用</li>
+</ol>
+
+<h4>六、应用案例与实践建议</h4>
+<ul>
+<li>步骤 1：从公共宠物图库挑选并安装宠物，熟悉动作预览与一键安装流程</li>
+<li>步骤 2：调用 hatch pat 技能，尝试创建更符合个人习惯的宠物</li>
+</ul>
+
+<p><b>优化建议</b>：描述越具体（形象、颜色、性格、动作状态、期望的工作感觉），生成结果越贴合个人习惯</p>
+
+<h4>提示词汇总</h4>
+<div class="prompt-list">
+<div class="ph">提示词 1：创建专属宠物（版本1）</div>
+<pre>帮我创建一个独属于我的宠物</pre>
+</div>
+<div class="prompt-list">
+<div class="ph">提示词 2：创建专属宠物（版本2，更显式调用记忆）</div>
+<pre>你对我了解，帮我创建一个独属于我的宠物</pre>
+</div>
+
+<h4>系统性总结</h4>
+<div class="summary-box">
+<p>宠物从外观设置中独立为组件，定位是"桌面陪伴 + 状态提示器"，非操作替代工具</p>
+<p>内置 9 个原生宠物，可通过公共宠物图库一键安装更多；宠物始终在桌面最高层级实时提示任务状态</p>
+<p>创建专属宠物：安装 hash pat / hatch pat 技能 → 新建对话 → 输入具体描述 → Codex 参考对话记忆生成多动作状态 → 组件中选用</p>
+</div>
+</article>
+
+<!-- =================== 第五部分：跨课程知识图谱 · 终极系统性总结 · 方法论速查 =================== -->
+<h2 id="part5" class="part-title">第五部分：跨课程知识图谱 · 终极系统性总结 · 共性方法论速查</h2>
+
+<!-- ====== 跨课程知识图谱 ====== -->
+<article class="chapter" id="knowledge-graph">
+<h3>跨课程知识图谱</h3>
+<p class="tagline">一张图看清 22 章之间的"依赖 → 调用 → 复用"三层关系。</p>
+
+<h4>一、三层知识网络</h4>
+<table>
+<tr><th>层级</th><th>知识类型</th><th>代表内容</th></tr>
+<tr><td>第一层 · 基础</td><td>部署/账号/Skill 安装</td><td>Windows/MacOS 部署、ChatGPT 客户端登录、插件与 Skills 安装方法</td></tr>
+<tr><td>第二层 · 核心技能</td><td>工具生态与创作能力</td><td>Skill 体系、MCP、Agents、GPT 训练师、模型实测</td></tr>
+<tr><td>第三层 · 实战作品</td><td>从0到1产出可演示作品</td><td>网站、可视化、动效、视频、宠物组件</td></tr>
+</table>
+
+<h4>二、依赖关系（哪些章节是"前置"）</h4>
+<ul>
+<li>Ch.1-6 是后续所有课程的前置条件（Codex 安装、账号、Skill 体系）</li>
+<li>Ch.7-11 是后续实战课的工具/技能池（必备技能库）</li>
+<li>Ch.12-22 是从0到1实战（建站、可视化、动效、视频、生图、宠物）</li>
+</ul>
+
+<h4>三、调用关系（哪些章节会调用其它章节的技能）</h4>
+<ul>
+<li>Ch.12 建站 → 调用 Ch.7 Codex 协作 + Ch.11 Skill 调用方法</li>
+<li>Ch.15 3D 看房 → 调用 Ch.7 Codex 协作 + Ch.11 Skill 调用 + Ch.13 一招复刻网站</li>
+<li>Ch.16 漫剧生成 → 调用 Ch.11 Skill 调用 + Ch.7 Codex 协作</li>
+<li>Ch.17 HyperFrames → 调用 Ch.11 Skill 调用 + Ch.7 Codex 协作</li>
+<li>Ch.18 ChatCut → 调用 Ch.11 Skill 调用 + Ch.7 Codex 协作</li>
+<li>Ch.19 RunningHub → 调用 Ch.11 Skill 调用 + Ch.7 Codex 协作</li>
+<li>Ch.20 Remotion → 调用 Ch.7 Codex 协作 + Ch.11 Skill 调用</li>
+<li>Ch.21 音乐律动 → 调用 Ch.11 Skill 调用 + Ch.7 Codex 协作</li>
+</ul>
+
+<h4>四、复用关系（哪些章节的成果可被其它章节复用）</h4>
+<ul>
+<li>Ch.12 高交互个人网站 → 可复用至 Ch.13（复刻网站）、Ch.15（3D 看房）</li>
+<li>Ch.14 无限画布控图 → 可复用至 Ch.16（漫剧分镜）</li>
+<li>Ch.15 3D 看房 → 可复用至 Ch.20（Remotion 动效素材）</li>
+<li>Ch.18 ChatCut MG 动画 → 可复用至 Ch.20 Remotion</li>
+<li>Ch.19 生图 Skill → 可复用至 Ch.14、Ch.16、Ch.22（宠物形象）</li>
+</ul>
+
+<h4>五、学完路径地图</h4>
+<pre class="code">
+入门准备（Ch.1-6） → 工具生态（Ch.7-11） → 建站可视化（Ch.12-16） → 视频动效（Ch.17-22）
+       ↓                 ↓                       ↓                          ↓
+   部署、账号      Skill 体系、MCP         网站、可视化、3D              视频、生图、宠物
+                    Agents、训练师
+
+成果展示：
+- 个人网站（Ch.12、Ch.13）
+- 无限画布（Ch.14）
+- 3D 看房（Ch.15）
+- AI 漫剧（Ch.16）
+- 自动剪辑视频（Ch.17、Ch.18）
+- 接入 API 生图生视频（Ch.19）
+- Remotion 动效（Ch.20）
+- 音乐律动壁纸（Ch.21）
+- 专属宠物（Ch.22）
+</pre>
+</article>
+
+<!-- ====== 终极系统性总结 ====== -->
+<article class="chapter" id="final-summary">
+<h3>终极系统性总结</h3>
+<p class="tagline">本课全部章节浓缩为：三大思维跃迁 + 五大核心技能 + 七大创作成果。</p>
+
+<h4>一、三大思维跃迁（小白 → 专家）</h4>
+<table>
+<tr><th>阶段</th><th>认知跃迁</th><th>关键标志</th></tr>
+<tr><td>L1 入门</td><td>理解 Codex 是什么、不是什么</td><td>从"对话大模型"切换到"AI 工程助手"视角</td></tr>
+<tr><td>L2 进阶</td><td>掌握 Codex 协作四阶段与 Skill 体系</td><td>能设计 Skill、配置 MCP、用七步框架迭代</td></tr>
+<tr><td>L3 精通</td><td>从"使用工具"跃迁到"扩展工具"</td><td>能基于通用 API 接入四步法创建可复用 Skill，能为项目写防错 Vibe Coding</td></tr>
+</table>
+
+<h4>二、五大核心技能</h4>
+<ol>
+<li><b>Codex 协作能力</b>：四阶段（理解-规划-实施-验证）+ Vibe Coding 防错 + 跨语言翻译</li>
+<li><b>Skill 体系能力</b>：安装、调用、创建 Skills，能用 7 个原子能力自定义 Skill</li>
+<li><b>MCP 能力</b>：理解 MCP 三大类型（本地资源/网络服务/集成开发环境），能配置与实测</li>
+<li><b>Agents 与多智能体能力</b>：理解主代理 vs 子代理，能用 Worktree 隔离并行探索</li>
+<li><b>模型选择与实测能力</b>：从"看参数"跃迁到"看实测结果"，能从七维评测选择 GPT-5.6 等模型</li>
+</ol>
+
+<h4>三、七大创作成果（学完能交付的作品）</h4>
+<ol>
+<li>个人高交互网站（React + Vite + GSAP + Cloudflare Tunnel）</li>
+<li>3D/VR 看房（Three.js + 高德地图 + PRD）</li>
+<li>AI 一站式漫剧（Seedance 2.0）</li>
+<li>自动剪辑视频（HyperFrames + ChatCut）</li>
+<li>API 接入生图生视频（RunningHub）</li>
+<li>Remotion 动效（数据动画 + AI 图标云）</li>
+<li>音乐律动壁纸（Three.js + GPU 着色器 + 25600 方块）</li>
+</ol>
+
+<h4>四、贯穿全程的"工程化思维"</h4>
+<ul>
+<li><b>可复用 Skill 思维</b>：每个高频需求都封装为可调用的 Skill，不重复造轮子</li>
+<li><b>提示词工程思维</b>：每个提示词都有明确的"规格 + 来源 + 风格 + 排除项"四要素</li>
+<li><b>通用方法论思维</b>：把"接入 API"提炼为四步法；把"做视频"提炼为四步法</li>
+<li><b>防错验证思维</b>：用 Superpowers 验证规划；用 Vibe Coding 把"环境/文件/计划"边界说清楚</li>
+<li><b>性能优化思维</b>：Web 项目看首屏/交互/打包；Three.js 用 InstancedMesh；Remotion 用 Static Draw Usage</li>
+</ul>
+
+<h4>五、本课核心方法论一句话总结</h4>
+<div class="callout callout-tip">
+<b>核心公式</b>：Codex 协作四阶段 × 提示词工程五要素 × 通用 API 接入四步法 × 动效提示词四要素 × 数据动画"生产线 + 防错"框架 = 从 0 到 1 全栈 AI 工程能力
+</div>
+</article>
+
+<!-- ====== 共性方法论速查 ====== -->
+<article class="chapter" id="methodology-quickref">
+<h3>共性方法论速查表</h3>
+<p class="tagline">12 条可复用的方法论：每个项目用得上。</p>
+
+<h4>一、Codex 协作四阶段（Ch.7）</h4>
+<ol>
+<li><b>理解需求</b>：阅读项目现有结构</li>
+<li><b>规划方案</b>：在对话中输出改造计划</li>
+<li><b>分步实施</b>：逐步修改，不一次性全改</li>
+<li><b>验证运行</b>：通过测试/运行验证效果</li>
+</ol>
+
+<h4>二、通用 API 接入四步法（Ch.19）</h4>
+<ol>
+<li>找到 API 文档</li>
+<li>定位目标模型</li>
+<li>查看价格与收费方式</li>
+<li>将接口信息提供给 Codex，由其完成 API 接入并创建可复用的 Skill</li>
+</ol>
+
+<h4>三、提示词五要素（综合）</h4>
+<ol>
+<li><b>规格参数</b>：尺寸、时长、帧率、分辨率</li>
+<li><b>素材来源</b>：本地路径或网络链接</li>
+<li><b>风格偏好</b>：颜色调性、视觉风格</li>
+<li><b>排除项</b>：明确不要的元素（最关键）</li>
+<li><b>核心效果</b>：期望的最终视觉/听觉/交互效果</li>
+</ol>
+
+<h4>四、口播视频分镜四步法（Ch.17）</h4>
+<ol>
+<li>提取音频与字幕（SRT）</li>
+<li>分析口播结构（开场/问题/方法/案例）</li>
+<li>生成分镜文件（时间、镜头、画面、文字、动效、转场）</li>
+<li>实现成片</li>
+</ol>
+
+<h4>五、动效提示词四要素（Ch.20）</h4>
+<ol>
+<li>规格参数</li>
+<li>素材来源</li>
+<li>风格偏好</li>
+<li>排除项</li>
+</ol>
+
+<h4>六、数据动画"生产线 + 防错"框架（Ch.20）</h4>
+<pre class="code">生产线：查数据 → 补素材 → 出分镜 → 写代码
+防错：用 Superpowers Skill 让大模型先理解任务、验证规划、再动手，确保数据真实</pre>
+
+<h4>七、Vibe Coding 防错五件套（Ch.15）</h4>
+<ol>
+<li>明确工作区边界</li>
+<li>明确文件操作规则</li>
+<li>明确参考边界（参考开源项目思路，不复制源码）</li>
+<li>明确计划先行（agents.md + PRD）</li>
+<li>明确知识冻结（归档到指定文件夹）</li>
+</ol>
+
+<h4>八、Web 性能优化三件套（Ch.12）</h4>
+<ol>
+<li>首屏加载（Hero 优先、图片懒加载）</li>
+<li>交互动画（GSAP + ScrollTrigger，按需引入）</li>
+<li>打包构建（Vite 生产构建，压缩体积）</li>
+</ol>
+
+<h4>九、Three.js 性能优化三件套（Ch.21）</h4>
+<ol>
+<li>InstancedMesh（批量渲染 25600 方块）</li>
+<li>Static Draw Usage（地形仅初始化一次）</li>
+<li>节点/数组复用 + 频谱约 20 Hz 更新</li>
+</ol>
+
+<h4>十、Skill 七步框架（Ch.7）</h4>
+<ol>
+<li>理解任务</li>
+<li>规划方法</li>
+<li>读规则</li>
+<li>写规则</li>
+<li>确认方向</li>
+<li>分步实施</li>
+<li>验证运行</li>
+</ol>
+
+<h4>十一、模型七维评测法（Ch.9）</h4>
+<ol>
+<li>文案质量</li>
+<li>逻辑推理</li>
+<li>代码生成</li>
+<li>中文理解</li>
+<li>英文理解</li>
+<li>长文档理解</li>
+<li>多模态理解（图像/视频/音频）</li>
+</ol>
+
+<h4>十二、宠物组件调用规则（Ch.22）</h4>
+<ol>
+<li><b>Skill 调用</b>：斜杠 <code>/</code></li>
+<li><b>插件调用</b>：艾特 <code>@</code></li>
+<li>宠物输入文字直接成为引导词（不进入排队队列）</li>
+</ol>
+
+<div class="callout callout-info">
+<b>应用提示</b>：每个新项目开始前，先对照这 12 条方法论梳理任务，能极大提升 Codex 协作效率。
+</div>
+</article>
+
+<!-- =================== 页脚 =================== -->
+<footer class="page-footer">
+<p>📘 <b>CodeX 从 0 到 1 实战课 · 完整学习手册</b></p>
+<p>本手册由 claude 整合 <code>output/单篇总结</code> 与 <code>output/终极总结.md</code> 完整笔记而成，共 22 章全覆盖 · 跨课程知识图谱 · 终极系统性总结 · 共性方法论速查。</p>
+<p>使用提示：</p>
+<ul>
+<li>移动端浏览器（微信/QQ/WPS）：双指可缩放整页</li>
+<li>桌面浏览器：可使用浏览器内置缩放（Ctrl/⌘ + +/-）</li>
+<li>目录可跳转：点击目录项或思维导图节点快速定位</li>
+</ul>
+<p style="margin-top:24px;font-size:12px;color:#94A3B8">归属权：本手册归主人所有 · 由 claude 协助生成 · 严禁未经授权商业转载</p>
+</footer>
+
+</div><!-- /.container -->
+</body>
+</html>
