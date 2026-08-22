@@ -1,0 +1,1035 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>大师兄短线必懂五事 · 完整知识体系</title>
+<style>
+  :root{
+    --blue:#4A90A4; --blue-l:#E8F2F5;
+    --green:#7FB069; --green-l:#EFF6EC;
+    --orange:#E8A87C; --orange-l:#FCF1E9;
+    --purple:#B07CC6; --purple-l:#F4ECF8;
+    --indigo:#5B8DEF; --indigo-l:#EAF0FD;
+    --gray:#8A9BAA; --gray-l:#EFF2F4;
+    --red:#D9796B; --red-l:#FBEFED;
+    --ink:#333333; --muted:#6b7680; --line:#E6ECF0; --bg:#F7F9FB; --card:#FFFFFF;
+  }
+  *{box-sizing:border-box;}
+  html{-webkit-text-size-adjust:100%;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:'Microsoft YaHei','PingFang SC','Helvetica Neue',sans-serif;
+    font-size:16px; line-height:1.8; padding:0 0 48px;
+  }
+  .wrap{max-width:960px; margin:0 auto; padding:0 16px;}
+  .topnote{
+    background:#FFF7E6; border:1px solid #F0DFAF; color:#8a6d3b;
+    font-size:14px; padding:10px 14px; margin:12px 16px 0; border-radius:8px;
+  }
+  header.hero{
+    background:linear-gradient(135deg,#4A90A4,#5B8DEF); color:#fff;
+    padding:34px 20px 30px; text-align:center;
+  }
+  header.hero h1{font-size:26px; margin:0 0 8px; letter-spacing:1px;}
+  header.hero p{margin:0; font-size:14px; opacity:.95;}
+  .tags{margin-top:14px; display:flex; flex-wrap:wrap; gap:8px; justify-content:center;}
+  .tag{background:rgba(255,255,255,.18); border:1px solid rgba(255,255,255,.4); border-radius:20px; padding:2px 12px; font-size:13px;}
+  .toc{
+    background:var(--card); border:1px solid var(--line); border-radius:12px;
+    padding:18px 20px; margin:20px auto 8px;
+  }
+  .toc h2{margin:0 0 12px; font-size:18px; color:var(--blue);}
+  .toc ol{margin:0; padding-left:22px;}
+  .toc li{margin:4px 0; font-size:15px;}
+  .toc a{color:var(--ink); text-decoration:none;}
+  .toc a:hover{color:var(--blue);}
+  section{background:var(--card); border:1px solid var(--line); border-radius:12px; padding:24px 22px; margin:22px auto;}
+  h2.sec{
+    font-size:22px; margin:0 0 6px; padding-left:12px;
+    border-left:5px solid var(--blue);
+  }
+  h2.sec .no{color:var(--blue); font-weight:bold; margin-right:6px;}
+  .subtitle{color:var(--muted); font-size:14px; margin:0 0 16px 17px;}
+  h3{font-size:18px; margin:22px 0 8px; color:#2b4a5c;}
+  h4{font-size:16px; margin:16px 0 6px; color:#40535f;}
+  p{margin:8px 0;}
+  .lead{font-size:16px;}
+  .hl{background:#FFF3D6; padding:1px 6px; border-radius:4px; font-weight:bold;}
+  .box{
+    border-radius:10px; padding:14px 16px; margin:14px 0; font-size:15px;
+  }
+  .box.core{background:var(--blue-l); border-left:4px solid var(--blue);}
+  .box.warn{background:var(--red-l); border-left:4px solid var(--red);}
+  .box.tip{background:var(--green-l); border-left:4px solid var(--green);}
+  .box.key{background:var(--orange-l); border-left:4px solid var(--orange);}
+  .box .bt{font-weight:bold; display:block; margin-bottom:4px;}
+  table{width:100%; border-collapse:collapse; margin:14px 0; font-size:14.5px;}
+  th,td{border:1px solid var(--line); padding:8px 10px; text-align:left; vertical-align:top;}
+  th{background:#F0F5F8; color:#2b4a5c; font-weight:bold;}
+  tr:nth-child(even) td{background:#FAFCFD;}
+  .layer{display:inline-block; border-radius:6px; padding:1px 10px; font-size:13px; color:#fff; font-weight:bold;}
+  .l1{background:var(--blue);} .l2{background:var(--green);} .l3{background:var(--orange);}
+  .l4{background:var(--purple);} .l5{background:var(--indigo);} .l6{background:var(--gray);} .l7{background:var(--red);}
+  .stage{display:flex; gap:10px; margin:10px 0; align-items:flex-start;}
+  .stage .num{
+    flex:0 0 42px; height:42px; border-radius:50%; color:#fff; font-weight:bold;
+    display:flex; align-items:center; justify-content:center; font-size:16px; background:var(--blue);
+  }
+  .stage .body{flex:1; background:#F8FAFB; border:1px solid var(--line); border-radius:10px; padding:10px 14px;}
+  .stage .body b{color:#2b4a5c;}
+  .stage .body small{color:var(--muted);}
+  .svg-wrap{
+    width:100%; overflow:visible; touch-action:manipulation;
+    background:#fff; border:1px solid var(--line); border-radius:10px; padding:10px 6px; margin:16px 0;
+  }
+  .svg-title{font-size:15px; font-weight:bold; color:#2b4a5c; margin:20px 0 4px; text-align:center;}
+  .svg-tip{font-size:12.5px; color:var(--muted); text-align:center; margin:4px 0 2px;}
+  .grid2{display:grid; grid-template-columns:1fr 1fr; gap:12px;}
+  @media(max-width:640px){ .grid2{grid-template-columns:1fr;} }
+  .card{background:#F8FAFB; border:1px solid var(--line); border-radius:10px; padding:12px 14px; margin:10px 0;}
+  .card b{color:#2b4a5c;}
+  ul,ol{margin:8px 0; padding-left:22px;}
+  li{margin:4px 0;}
+  .quote{border-left:3px solid var(--orange); background:var(--orange-l); padding:10px 14px; border-radius:0 8px 8px 0; margin:12px 0; font-style:italic; color:#7a5230;}
+  .formula{background:#F0F5F8; border:1px dashed var(--blue); border-radius:8px; padding:12px 16px; margin:12px 0; font-family:inherit; white-space:pre-wrap; font-size:14.5px; color:#2b4a5c;}
+  footer{text-align:center; color:var(--muted); font-size:13px; margin-top:30px;}
+  @media print{
+    body{max-width:210mm; margin:0 auto;}
+    .topnote,.toc{display:none;}
+    section{page-break-inside:avoid;}
+    .svg-wrap svg{page-break-inside:avoid;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topnote">
+  💡 <b>阅读提示</b>：如在 WPS 中打开出现排版模糊或 SVG 异常，请改用 <b>微信 / 浏览器</b> 打开本文件，体验更佳。思维导图支持 <b>双指捏合放大</b> 查看细节。
+</div>
+
+<header class="hero">
+  <h1>大师兄短线必懂五事</h1>
+  <p>A股短线交易完整知识体系 · 从小白到精通</p>
+  <div class="tags">
+    <span class="tag">5式主线</span>
+    <span class="tag">7篇答疑</span>
+    <span class="tag">12篇文档</span>
+    <span class="tag">浅色系</span>
+    <span class="tag">零JS静态SVG</span>
+  </div>
+</header>
+
+<div class="wrap">
+
+<nav class="toc">
+  <h2>📑 目录（快速跳转）</h2>
+  <ol>
+    <li><a href="#overview">课程体系全景图</a></li>
+    <li><a href="#path">学习路径（六阶段）</a></li>
+    <li><a href="#s1">第一式 · 定制看盘界面（工具层）</a></li>
+    <li><a href="#s2">第二式 · 一张表的复盘（信息层）</a></li>
+    <li><a href="#s3">第三式 · 制定交易计划（决策层）</a></li>
+    <li><a href="#s4">第四式 · 涨停板的分类（标准层）</a></li>
+    <li><a href="#s5">第五式 · 短线必懂F10（标的层）</a></li>
+    <li><a href="#qa">答疑系列（实战细节·07篇）</a></li>
+    <li><a href="#law">五大铁律 · 核心方法论</a></li>
+    <li><a href="#signal">关键操作信号汇总</a></li>
+    <li><a href="#risk">风险警示与红线</a></li>
+    <li><a href="#case">经典案例全景</a></li>
+    <li><a href="#glossary">小白术语速查表</a></li>
+  </ol>
+</nav>
+
+<!-- ===================== 全景图 ===================== -->
+<section id="overview">
+  <h2 class="sec"><span class="no">①</span>课程体系全景图</h2>
+  <p class="subtitle">本课程构建了从「工具」到「哲学」的完整短线交易闭环，共 7 层。</p>
+
+  <table>
+    <tr><th>层级</th><th>主题</th><th>回答的问题</th></tr>
+    <tr><td><span class="layer l1">工具层</span></td><td>第一式：定制看盘界面</td><td>怎么看到？（看盘工具）</td></tr>
+    <tr><td><span class="layer l2">信息层</span></td><td>第二式：一张表的复盘</td><td>怎么看得清？（信息提炼）</td></tr>
+    <tr><td><span class="layer l3">决策层</span></td><td>第三式：制定交易计划</td><td>怎么判断？（决策框架）</td></tr>
+    <tr><td><span class="layer l4">标准层</span></td><td>第四式：涨停板的分类</td><td>怎么介入？（介入标准）</td></tr>
+    <tr><td><span class="layer l5">标的层</span></td><td>第五式：短线必懂F10</td><td>买什么？（标的选择）</td></tr>
+    <tr><td><span class="layer l6">答疑层</span></td><td>答疑系列 06-12</td><td>实战细节怎么处理？</td></tr>
+    <tr><td><span class="layer l7">哲学层</span></td><td>答疑七：分歧与一致</td><td>短线交易的本质是什么？</td></tr>
+  </table>
+
+  <div class="svg-title">📐 课程体系全景图（横向树 · 双指可放大）</div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 570 512" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <!-- 连接线 -->
+      <path d="M 150 246 H 185 V 18 H 220" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 150 246 H 185 V 94 H 220" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 150 246 H 185 V 170 H 220" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 150 246 H 185 V 246 H 220" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 150 246 H 185 V 322 H 220" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 150 246 H 185 V 398 H 220" stroke="#8A9BAA" stroke-width="1.5" fill="none"/>
+      <path d="M 150 246 H 185 V 474 H 220" stroke="#D9796B" stroke-width="1.5" fill="none"/>
+      <path d="M 360 18 H 395 V 18 H 430" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 360 94 H 395 V 94 H 430" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 360 170 H 395 V 170 H 430" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 360 246 H 395 V 246 H 430" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 360 322 H 395 V 322 H 430" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 360 398 H 395 V 398 H 430" stroke="#8A9BAA" stroke-width="1.5" fill="none"/>
+      <path d="M 360 474 H 395 V 474 H 430" stroke="#D9796B" stroke-width="1.5" fill="none"/>
+      <!-- 根节点 -->
+      <rect x="20" y="224" width="130" height="44" rx="8" fill="#4A90A4"/>
+      <text x="85" y="251" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">短线必懂五事</text>
+      <!-- 第1层 -->
+      <rect x="220" y="0" width="140" height="36" rx="6" fill="#E8F2F5" stroke="#4A90A4"/>
+      <text x="290" y="23" text-anchor="middle" fill="#333" font-size="14">第一式·工具层</text>
+      <rect x="220" y="76" width="140" height="36" rx="6" fill="#EFF6EC" stroke="#7FB069"/>
+      <text x="290" y="99" text-anchor="middle" fill="#333" font-size="14">第二式·信息层</text>
+      <rect x="220" y="152" width="140" height="36" rx="6" fill="#FCF1E9" stroke="#E8A87C"/>
+      <text x="290" y="175" text-anchor="middle" fill="#333" font-size="14">第三式·决策层</text>
+      <rect x="220" y="228" width="140" height="36" rx="6" fill="#F4ECF8" stroke="#B07CC6"/>
+      <text x="290" y="251" text-anchor="middle" fill="#333" font-size="14">第四式·标准层</text>
+      <rect x="220" y="304" width="140" height="36" rx="6" fill="#EAF0FD" stroke="#5B8DEF"/>
+      <text x="290" y="327" text-anchor="middle" fill="#333" font-size="14">第五式·标的层</text>
+      <rect x="220" y="380" width="140" height="36" rx="6" fill="#EFF2F4" stroke="#8A9BAA"/>
+      <text x="290" y="403" text-anchor="middle" fill="#333" font-size="14">答疑层·06-12</text>
+      <rect x="220" y="456" width="140" height="36" rx="6" fill="#FBEFED" stroke="#D9796B"/>
+      <text x="290" y="479" text-anchor="middle" fill="#333" font-size="14">哲学层·分歧一致</text>
+      <!-- 第2层 -->
+      <rect x="430" y="0" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#4A90A4"/>
+      <text x="490" y="23" text-anchor="middle" fill="#2b4a5c" font-size="14">定制看盘界面</text>
+      <rect x="430" y="76" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#7FB069"/>
+      <text x="490" y="99" text-anchor="middle" fill="#2b4a5c" font-size="14">一张表的复盘</text>
+      <rect x="430" y="152" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="490" y="175" text-anchor="middle" fill="#2b4a5c" font-size="14">制定交易计划</text>
+      <rect x="430" y="228" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#B07CC6"/>
+      <text x="490" y="251" text-anchor="middle" fill="#2b4a5c" font-size="14">涨停板的分类</text>
+      <rect x="430" y="304" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="490" y="327" text-anchor="middle" fill="#2b4a5c" font-size="14">短线必懂F10</text>
+      <rect x="430" y="380" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#8A9BAA"/>
+      <text x="490" y="403" text-anchor="middle" fill="#2b4a5c" font-size="14">实战细节补充</text>
+      <rect x="430" y="456" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#D9796B"/>
+      <text x="490" y="479" text-anchor="middle" fill="#2b4a5c" font-size="14">打板抓拐点</text>
+    </svg>
+  </div>
+
+  <h3>跨课程知识依赖链路</h3>
+  <h4>链路一 · 信息获取路径（工具 → 标的）</h4>
+  <div class="formula">[01] 看盘界面（工具）→ [02] 一表复盘（信息）→ [03] 交易计划（决策）→ [04] 涨停板分类（介入标准）→ [05] F10补涨（标的）</div>
+  <h4>链路二 · 决策制定路径（环境 → 判断）</h4>
+  <div class="formula">[07] 市场环境判断 → [03] 交易计划 → [04] 涨停板分类 → [05] F10补涨 → [10][11] 板性判断 → [12] 分歧与一致判断</div>
+  <h4>链路三 · 风险控制路径（量能 → 买点）</h4>
+  <div class="formula">[09] 反弹有效量判断（环境验证）→ [10] 涨停板性质判断（10点封板）→ [11] 合理买点（避免炸板）→ [12] 分歧与一致（核心判断）</div>
+  <h4>核心概念互补关系</h4>
+  <table>
+    <tr><th>概念</th><th>主线位置</th><th>答疑补充</th><th>共同结论</th></tr>
+    <tr><td>看盘界面</td><td>[01] 三层架构</td><td>[06] 大智慧操作</td><td>工欲善其事，必先利其器</td></tr>
+    <tr><td>复盘表格</td><td>[02] 一表复盘</td><td>—</td><td>时间轴最重要</td></tr>
+    <tr><td>交易计划</td><td>[03] 四维框架</td><td>[08] 普通人策略</td><td>凡事预则立</td></tr>
+    <tr><td>涨停板分类</td><td>[04] 三维分类</td><td>[10][11] 板性/炸板</td><td>放量板最有参与价值</td></tr>
+    <tr><td>F10补涨</td><td>[05] 三维发掘</td><td>—</td><td>市场认可原则</td></tr>
+    <tr><td>市场环境</td><td>—</td><td>[07] 黄金时间</td><td>风格切换 + 止跌企稳</td></tr>
+    <tr><td>反弹量能</td><td>—</td><td>[09] 有效量</td><td>量在价先</td></tr>
+    <tr><td>分歧与一致</td><td>—</td><td>[12] 本质</td><td>打板即抓拐点</td></tr>
+  </table>
+</section>
+
+<!-- ===================== 学习路径 ===================== -->
+<section id="path">
+  <h2 class="sec"><span class="no">②</span>学习路径（六阶段）</h2>
+  <p class="subtitle">从工具到哲学，循序渐进，小白按此路径 6 阶段即可进阶。</p>
+
+  <div class="stage"><div class="num">1</div><div class="body"><b>基础建设（1-2周）</b> · 01 看盘界面 + 06 界面答疑<br><small>按三层架构实际搭建自己的看盘界面，熟练方向键 / 动态显示牌 / 图形叠加，设置自选股分类。</small></div></div>
+  <div class="stage"><div class="num">2</div><div class="body"><b>信息处理（2-3周）</b> · 02 一表复盘 + 03 交易计划<br><small>每天填写复盘表格（时间轴 + 周期 + 高度），按四维框架制定次日计划，坚持 1-2 周形成习惯。</small></div></div>
+  <div class="stage"><div class="num">3</div><div class="body"><b>标准建立（3-4周）</b> · 04 涨停板分类 + 10 封板性质 + 11 避免炸板<br><small>每天复盘涨停板按形态/时间/量能三维分类，重点放量板（一进二进三），学会识别强板与弱板。</small></div></div>
+  <div class="stage"><div class="num">4</div><div class="body"><b>标的选择（持续）</b> · 05 F10补涨 + 12 分歧与一致<br><small>龙头已成势后用三维体系（股东/主营/暗线）挖补涨，严守市场认可原则，体会"打板抓拐点"。</small></div></div>
+  <div class="stage"><div class="num">5</div><div class="body"><b>环境与策略（持续）</b> · 07 黄金时间 + 08 普通人方法 + 09 反弹量能<br><small>每日判断市场环境（牛市/震荡/下跌），识别黄金时间点，严格执行 5 万以内试水，用量价配合验证反弹。</small></div></div>
+  <div class="stage"><div class="num">6</div><div class="body"><b>综合实战（长期）</b> · 反复练习<br><small>严格执行交易计划，重视合理买点，避免贪心与知行不合一，反复练习找到"分歧到一致拐点"的盘感。</small></div></div>
+
+  <div class="box tip"><span class="bt">✅ 关键成功要素</span>
+    ① 从工具到哲学的递进 · ② 主线与答疑结合 · ③ 量变到质变（多练习多复盘多实战） · ④ 核心哲学回归「分歧与一致」 · ⑤ 风险控制贯穿始终。
+  </div>
+</section>
+
+<!-- ===================== 第一式 ===================== -->
+<section id="s1">
+  <h2 class="sec" style="border-color:#4A90A4;"><span class="no" style="color:#4A90A4;">③</span>第一式 · 定制看盘界面 <span class="layer l1">工具层</span></h2>
+  <p class="subtitle">回答：短线交易者如何在开盘时间内用最少的视觉切换获取最多的决策信息？</p>
+
+  <div class="box core"><span class="bt">核心理念</span>
+    <span class="hl">工欲善其事，必先利其器</span>。看盘界面服务于短线节奏——<span class="hl">「看的是中线，做的是短线」</span>。一切以个人看盘习惯与需求为主导，<b>内容决定形式</b>，绝不盲从他人。
+  </div>
+
+  <h3>3.1 操作系统选择</h3>
+  <table>
+    <tr><th>方向</th><th>侧重内容</th><th>推荐软件</th></tr>
+    <tr><td>中长线 / 价值投资</td><td>F10、基本面、业绩、行业研报</td><td>万得数据库</td></tr>
+    <tr><td>短线</td><td>动态数据 + 实时数据 + 跨市场信息（美股、期货联动）</td><td>通达信、大智慧、同花顺</td></tr>
+  </table>
+
+  <h3>3.2 三层界面架构（核心框架）</h3>
+  <div class="formula">宏观（大盘）→ 中观（自选/关联/涨速）→ 微观（个股）
+  趋势方向 · 资金流向 · 个股强弱
+  风格切换 · 板块轮动 · 突变信号
+  转势节点 · 龙头带动 · 第一档挂单</div>
+  <p><b>信息流方向</b>：宏观判断市场环境 → 中观锁定热点板块/龙头 → 微观决定介入时机。</p>
+
+  <div class="svg-title">📐 三层看盘界面架构</div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 620 664" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 150 322 H 185 V 94 H 220" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 150 322 H 185 V 322 H 220" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 150 322 H 185 V 550 H 220" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 400 94 H 435 V 18 H 470" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 400 94 H 435 V 94 H 470" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 400 94 H 435 V 170 H 470" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 400 322 H 435 V 246 H 470" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 400 322 H 435 V 322 H 470" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 400 322 H 435 V 398 H 470" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 400 550 H 435 V 474 H 470" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 400 550 H 435 V 550 H 470" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <path d="M 400 550 H 435 V 626 H 470" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+      <rect x="20" y="302" width="130" height="40" rx="8" fill="#4A90A4"/>
+      <text x="85" y="327" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">定制看盘界面</text>
+      <rect x="220" y="76" width="180" height="36" rx="6" fill="#E8F2F5" stroke="#4A90A4"/>
+      <text x="310" y="99" text-anchor="middle" fill="#333" font-size="14">宏观 · 大盘</text>
+      <rect x="220" y="304" width="180" height="36" rx="6" fill="#E8F2F5" stroke="#4A90A4"/>
+      <text x="310" y="327" text-anchor="middle" fill="#333" font-size="14">中观 · 自选/关联/涨速</text>
+      <rect x="220" y="532" width="180" height="36" rx="6" fill="#E8F2F5" stroke="#4A90A4"/>
+      <text x="310" y="555" text-anchor="middle" fill="#333" font-size="14">微观 · 个股</text>
+      <rect x="470" y="0" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#4A90A4"/>
+      <text x="535" y="23" text-anchor="middle" fill="#2b4a5c" font-size="14">趋势方向</text>
+      <rect x="470" y="76" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#4A90A4"/>
+      <text x="535" y="99" text-anchor="middle" fill="#2b4a5c" font-size="14">风格切换</text>
+      <rect x="470" y="152" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#4A90A4"/>
+      <text x="535" y="175" text-anchor="middle" fill="#2b4a5c" font-size="14">转势节点</text>
+      <rect x="470" y="228" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#4A90A4"/>
+      <text x="535" y="251" text-anchor="middle" fill="#2b4a5c" font-size="14">资金流向</text>
+      <rect x="470" y="304" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#4A90A4"/>
+      <text x="535" y="327" text-anchor="middle" fill="#2b4a5c" font-size="14">板块轮动</text>
+      <rect x="470" y="380" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#4A90A4"/>
+      <text x="535" y="403" text-anchor="middle" fill="#2b4a5c" font-size="14">龙头带动</text>
+      <rect x="470" y="456" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#4A90A4"/>
+      <text x="535" y="479" text-anchor="middle" fill="#2b4a5c" font-size="14">个股强弱</text>
+      <rect x="470" y="532" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#4A90A4"/>
+      <text x="535" y="555" text-anchor="middle" fill="#2b4a5c" font-size="14">突变信号</text>
+      <rect x="470" y="608" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#4A90A4"/>
+      <text x="535" y="631" text-anchor="middle" fill="#2b4a5c" font-size="14">第一档挂单</text>
+    </svg>
+  </div>
+
+  <h3>3.3 微观层面（个股主界面 · 占屏幕最大区域）</h3>
+  <ul>
+    <li><b>分时图</b>：看<b>白线（个股）vs 黄线（板块/大盘）</b>的对比，判断个股相对强弱；图形<b>不能过于扁平</b>（避免压缩导致波动看不清）。</li>
+    <li><b>看两天分时</b>：多数软件按<b>方向键下键</b>即可，对比「今日 vs 昨日」。</li>
+    <li><b>第一档挂单区宽度要够</b>：括号内撤单数要能显示，用于识别<b>撤单、藏单、集中买卖</b>。</li>
+    <li><b>K线</b>：要够长，能体现日线级别趋势变化、主力点位置、筹码分布；<b>成交量比例要到位</b>（能看清爆量/缩量）。</li>
+    <li><b>K线要简洁</b>：作者只用「价格 + 成交量」，连 MACD 都不用；个人习惯把<b>涨停K线变黄色</b>提醒。</li>
+  </ul>
+
+  <h3>3.4 中观层面（自选股 + 关联个股 + 涨速榜）</h3>
+  <ul>
+    <li><b>自选股分类</b>（关键在分类，而非堆砌）三种维度：① 按出现时间点 ② 按股票高度（两连板/三连板/四连板）③ 按市场地位（龙头/跟风/主线题材/竞技题材）。建议<b>按市场地位 + 按高度</b>分类最合理。</li>
+    <li><b>关联个股</b>：单独窗口盯<b>总龙头 + 题材龙头 + 支线龙头</b>，通过<b>分时叠加</b>同窗口显示，看竞争/替代关系。即使不操作龙头，也影响交易节奏，必须观察。</li>
+    <li><b>涨速榜</b>：看<b>前3-5名</b>（时段风向标）+ <b>前15-20只</b>（识别共性）。若某类股票持续出现在涨速榜，意味着<b>该类股票正在异动</b>。</li>
+  </ul>
+
+  <h3>3.5 宏观层面（大盘对比）</h3>
+  <ul>
+    <li><b>大盘窗口与个股分时图时间轴对位</b>（如都在10:00），便于个股-大盘对比。</li>
+    <li>大盘下跌波段中，<b>K线不跌反涨</b>的板块/个股 = 下一阶段<b>主线/热门题材候选</b>。</li>
+    <li><b>下午两点跳水</b>后常出现<b>转势板</b>，抓第一个转势龙头。</li>
+    <li>龙头股/中位股到<b>四板后犹豫</b>，等待大盘翻红（10:00或11:00转折），需多界面同步观察。</li>
+  </ul>
+
+  <h3>3.6 大智慧软件实操（答疑06补充）</h3>
+  <table>
+    <tr><th>功能</th><th>操作步骤</th></tr>
+    <tr><td>新建大盘窗口</td><td>任意股票 → 右键 → 打开新窗口 → 调位置大小；分时界面拐角箭头切换全屏趋势图。</td></tr>
+    <tr><td>多日行情</td><td>默认显示 2 天，向下键每按一次 +1 天（最多 5 天），向上键反向操作。</td></tr>
+    <tr><td>多窗口同时操作</td><td>菜单 → 系统管理 → 新建窗口 → 图形分析窗口；右键标题可选显示内容（基本行情/暴力/涨幅/涨速），推荐组合「涨幅+涨速+最新」（小窗口可仅看2项）。</td></tr>
+    <tr><td>动态显示牌/涨速榜</td><td>菜单 → 系统管理 → 新建窗口 → 动态显示牌 → 右侧品种 → 股票 → 加入上证、深圳 → 点「涨速」排名；显示范围可调长/短周期。</td></tr>
+    <tr><td>自选股代码切换</td><td>自选股二=062、自选股三=063、自选股四=064，输入代码切换。</td></tr>
+    <tr><td>图形叠加盯龙头</td><td>龙头单独窗口盯盘，对另一股：分时图形叠加 → 输入代码 → 叠加完成。</td></tr>
+  </table>
+
+  <h3>3.7 个性化原则</h3>
+  <table>
+    <tr><th>风格类型</th><th>盯盘界面侧重</th></tr>
+    <tr><td>中长线/价值投资</td><td>F10 + 基本面 + 财报</td></tr>
+    <tr><td>短线一进二操作者</td><td>早盘涨速榜 + 自选分类</td></tr>
+    <tr><td>半路介入者</td><td>大盘窗口 + 分时叠加</td></tr>
+    <tr><td>尾盘T+0操作者</td><td>尾盘异动监控 + 分时突变</td></tr>
+  </table>
+  <div class="quote">核心忠告：他人的界面设置自有其道理，不要照搬。没有最好的界面，只有最适合自己的界面。</div>
+
+  <div class="box key"><span class="bt">📌 五大设计原则</span>
+    ① 形式服从内容 ② 主次分明（微观占最大区域） ③ 简洁优于复杂（K线指标越少越好） ④ 时间轴对齐 ⑤ 个性化（拒绝盲从）。
+  </div>
+</section>
+
+<!-- ===================== 第二式 ===================== -->
+<section id="s2">
+  <h2 class="sec" style="border-color:#7FB069;"><span class="no" style="color:#7FB069;">④</span>第二式 · 一张表的复盘 <span class="layer l2">信息层</span></h2>
+  <p class="subtitle">回答：如何用一张表看懂整个市场？</p>
+
+  <div class="box core"><span class="bt">核心理念</span>
+    用一张表看懂整个市场——<b>剔除无效信号、信息提炼、全景回顾、市场倒影</b>。三大目的：<span class="hl">清晰判断</span> + <span class="hl">正确时机</span> + <span class="hl">高手共识</span>（个性化表格）。
+  </div>
+
+  <div class="svg-title">📐 复盘表三大支柱</div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 580 740" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 160 360 H 195 V 94 H 230" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 160 360 H 195 V 360 H 230" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 160 360 H 195 V 626 H 230" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 390 94 H 425 V 18 H 460" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 390 94 H 425 V 94 H 460" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 390 94 H 425 V 170 H 460" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 390 360 H 425 V 246 H 460" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 390 360 H 425 V 322 H 460" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 390 360 H 425 V 398 H 460" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 390 360 H 425 V 474 H 460" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 390 626 H 425 V 550 H 460" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 390 626 H 425 V 626 H 460" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <path d="M 390 626 H 425 V 702 H 460" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+      <rect x="20" y="340" width="140" height="40" rx="8" fill="#7FB069"/>
+      <text x="90" y="365" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">一张表的复盘</text>
+      <rect x="230" y="76" width="160" height="36" rx="6" fill="#EFF6EC" stroke="#7FB069"/>
+      <text x="310" y="99" text-anchor="middle" fill="#333" font-size="14">时间轴（横轴）</text>
+      <rect x="230" y="342" width="160" height="36" rx="6" fill="#EFF6EC" stroke="#7FB069"/>
+      <text x="310" y="365" text-anchor="middle" fill="#333" font-size="14">市场周期（分层）</text>
+      <rect x="230" y="608" width="160" height="36" rx="6" fill="#EFF6EC" stroke="#7FB069"/>
+      <text x="310" y="631" text-anchor="middle" fill="#333" font-size="14">龙头地位（颜色）</text>
+      <rect x="460" y="0" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#7FB069"/>
+      <text x="520" y="23" text-anchor="middle" fill="#2b4a5c" font-size="14">龙头周期</text>
+      <rect x="460" y="76" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#7FB069"/>
+      <text x="520" y="99" text-anchor="middle" fill="#2b4a5c" font-size="14">情绪周期</text>
+      <rect x="460" y="152" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#7FB069"/>
+      <text x="520" y="175" text-anchor="middle" fill="#2b4a5c" font-size="14">当天高度</text>
+      <rect x="460" y="228" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#7FB069"/>
+      <text x="520" y="251" text-anchor="middle" fill="#2b4a5c" font-size="14">上升期</text>
+      <rect x="460" y="304" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#7FB069"/>
+      <text x="520" y="327" text-anchor="middle" fill="#2b4a5c" font-size="14">下降期</text>
+      <rect x="460" y="380" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#7FB069"/>
+      <text x="520" y="403" text-anchor="middle" fill="#2b4a5c" font-size="14">回暖期</text>
+      <rect x="460" y="456" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#7FB069"/>
+      <text x="520" y="479" text-anchor="middle" fill="#2b4a5c" font-size="14">退潮期</text>
+      <rect x="460" y="532" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#7FB069"/>
+      <text x="520" y="555" text-anchor="middle" fill="#2b4a5c" font-size="14">主龙头</text>
+      <rect x="460" y="608" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#7FB069"/>
+      <text x="520" y="631" text-anchor="middle" fill="#2b4a5c" font-size="14">跟风股</text>
+      <rect x="460" y="684" width="120" height="36" rx="6" fill="#FFFFFF" stroke="#7FB069"/>
+      <text x="520" y="707" text-anchor="middle" fill="#2b4a5c" font-size="14">交棒日</text>
+    </svg>
+  </div>
+
+  <h3>4.1 时间轴：表格的灵魂</h3>
+  <ul>
+    <li><b>当前市场周期</b>：龙头股周期（处于哪个龙头周期）+ 市场情绪周期（上升期/下降期/回暖期/退潮期）。</li>
+    <li><b>时间点上的事件</b>：标记特定时间点通常出现的事件。</li>
+    <li><b>当天市场的高度</b>：每日空间高度量化（三板/四板/六板/七板），用<b>颜色区分</b>高度差异。</li>
+    <li><b>周期变化点</b>：退潮→回暖等关键节点用<b>突出颜色标记</b>（如宝鼎科技四板回暖日），是最重要的开仓/减仓时间点。</li>
+    <li><b>断板日</b>：龙头股未能进阶（如宝鼎科技五板失败）→ 标记为<b>退潮信号</b>，可能产生新机遇或对存量题材构成伤害。</li>
+    <li><b>空间高度预判</b>：前龙头三板四板挂掉，新龙头走到三板四板时，市场可能分歧。</li>
+  </ul>
+
+  <h3>4.2 主龙头股的周期</h3>
+  <ul>
+    <li><b>总龙头</b>：市场带节奏的龙头，定义周期。经典：<b>泰永长征周期、宝鼎科技周期、风范股份周期</b>。</li>
+    <li><b>颜色差异化</b>：主龙头宽度更宽、颜色更醒目；跟风股/一进二用<b>灰色</b>。</li>
+    <li><b>每日涨停板标记</b>：板数（第几板）+ 量能变化（缩量/放量）+ <b>爆量</b>（特别醒目标示，代表市场重大分歧）。</li>
+    <li><b>资金流向</b>：一部分做<b>补涨</b>（新支线逻辑），另一部分做<b>新题材</b>。</li>
+    <li><b>龙头末期首阴标记</b>：结束方式（闷杀/盖杀/出货/平稳过渡）。<b>交棒日</b>=首阴日，用<b>蓝色框框</b>显示，是一进二选手重点研究日。</li>
+  </ul>
+
+  <h3>4.3 经典案例：2018年12月—2019年1月</h3>
+  <table>
+    <tr><th>日期</th><th>关键事件</th><th>周期定位</th><th>操作意义</th></tr>
+    <tr><td>12月17日</td><td>汉嘉设计四板（前龙头三板）</td><td>回暖信号</td><td>关注新主线</td></tr>
+    <tr><td>12月24日</td><td>泰永长征五板（高于汉嘉四板）</td><td>一阶段</td><td>可开仓/加仓</td></tr>
+    <tr><td>12月26日</td><td>泰永长征六板结束，新题材新基建</td><td>交棒日</td><td>风范股份走出九板十板</td></tr>
+    <tr><td>1月2日</td><td>风范股份周期内，鹏启科技出现</td><td>叠加逻辑</td><td>5G+军工+特高压 → 特发信息五板</td></tr>
+  </table>
+
+  <div class="box key"><span class="bt">📌 四大关键方法论</span>
+    ① 周期定位（每日先判断周期阶段） ② 交棒日识别（首阴日=新题材活跃日） ③ 断板预警（龙头未进阶=退潮信号） ④ 量价异动（爆量=市场重大分歧）。
+  </div>
+  <div class="card"><b>📎 补充要点</b>
+    <b>表头设计</b>：时间轴通常放在表头（横轴），空间高度每日必须清晰标记。<b>长期价值</b>：通过切身制作表格加深理解、积累回顾，高手通过回顾过去总结避免被市场淘汰（市场进化）；建议<b>每月回顾半年内的表格</b>，发现规律。
+  </div>
+</section>
+
+<!-- ===================== 第三式 ===================== -->
+<section id="s3">
+  <h2 class="sec" style="border-color:#E8A87C;"><span class="no" style="color:#E8A87C;">⑤</span>第三式 · 制定交易计划 <span class="layer l3">决策层</span></h2>
+  <p class="subtitle">回答：如何避免被市场情绪支配，建立科学判断？</p>
+
+  <div class="box core"><span class="bt">核心理念</span>
+    <span class="hl">计划你的交易，交易你的计划</span>。散户常见问题：「开盘两条线（白线/黄线），收盘光软件」——每天盯盘却毫无章法。
+  </div>
+
+  <h3>5.1 三大核心功能</h3>
+  <ul>
+    <li><b>信息提炼</b>：盘前/盘中/盘后纷繁信息筛选。</li>
+    <li><b>盘感量化</b>：将强弱、赚钱效应等主观感受<b>大致量化</b>，形成连贯记忆。</li>
+    <li><b>预期更新</b>：对大盘、个股判断<b>动态修正</b>，形成系统计划。</li>
+  </ul>
+  <p><b>最终目标</b>：缩短看盘及交易过程中的反应时间。</p>
+
+  <div class="svg-title">📐 交易计划四维框架</div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 600 968" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 160 474 H 195 V 94 H 230" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 160 474 H 195 V 322 H 230" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 160 474 H 195 V 550 H 230" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 160 474 H 195 V 816 H 230" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 94 H 420 V 18 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 94 H 420 V 94 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 94 H 420 V 170 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 322 H 420 V 246 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 322 H 420 V 322 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 322 H 420 V 398 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 550 H 420 V 474 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 550 H 420 V 550 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 550 H 420 V 626 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 816 H 420 V 702 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 816 H 420 V 778 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 816 H 420 V 854 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <path d="M 380 816 H 420 V 930 H 460" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+      <rect x="20" y="454" width="140" height="40" rx="8" fill="#E8A87C"/>
+      <text x="90" y="479" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">制定交易计划</text>
+      <rect x="230" y="76" width="150" height="36" rx="6" fill="#FCF1E9" stroke="#E8A87C"/>
+      <text x="305" y="99" text-anchor="middle" fill="#333" font-size="14">复盘</text>
+      <rect x="230" y="304" width="150" height="36" rx="6" fill="#FCF1E9" stroke="#E8A87C"/>
+      <text x="305" y="327" text-anchor="middle" fill="#333" font-size="14">涨停分析</text>
+      <rect x="230" y="532" width="150" height="36" rx="6" fill="#FCF1E9" stroke="#E8A87C"/>
+      <text x="305" y="555" text-anchor="middle" fill="#333" font-size="14">核心票</text>
+      <rect x="230" y="798" width="150" height="36" rx="6" fill="#FCF1E9" stroke="#E8A87C"/>
+      <text x="305" y="821" text-anchor="middle" fill="#333" font-size="14">统计数据</text>
+      <rect x="460" y="0" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="23" text-anchor="middle" fill="#2b4a5c" font-size="14">指数趋势</text>
+      <rect x="460" y="76" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="99" text-anchor="middle" fill="#2b4a5c" font-size="14">分时题材贡献</text>
+      <rect x="460" y="152" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="175" text-anchor="middle" fill="#2b4a5c" font-size="14">顺势逆势</text>
+      <rect x="460" y="228" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="251" text-anchor="middle" fill="#2b4a5c" font-size="14">归类原因</text>
+      <rect x="460" y="304" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="327" text-anchor="middle" fill="#2b4a5c" font-size="14">题材主次</text>
+      <rect x="460" y="380" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="403" text-anchor="middle" fill="#2b4a5c" font-size="14">新题材关注</text>
+      <rect x="460" y="456" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="479" text-anchor="middle" fill="#2b4a5c" font-size="14">龙头新高度</text>
+      <rect x="460" y="532" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="555" text-anchor="middle" fill="#2b4a5c" font-size="14">前期龙头反抽</text>
+      <rect x="460" y="608" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="631" text-anchor="middle" fill="#2b4a5c" font-size="14">龙头自身周期</text>
+      <rect x="460" y="684" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="707" text-anchor="middle" fill="#2b4a5c" font-size="14">连板指数</text>
+      <rect x="460" y="760" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="783" text-anchor="middle" fill="#2b4a5c" font-size="14">涨停溢价率</text>
+      <rect x="460" y="836" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="859" text-anchor="middle" fill="#2b4a5c" font-size="14">封板/炸板率</text>
+      <rect x="460" y="912" width="140" height="36" rx="6" fill="#FFFFFF" stroke="#E8A87C"/>
+      <text x="530" y="935" text-anchor="middle" fill="#2b4a5c" font-size="14">龙头首阴</text>
+    </svg>
+  </div>
+
+  <h3>5.2 复盘维度</h3>
+  <ul>
+    <li><b>指数趋势</b>：不追求精确预测，但需判断一段时间内是否有系统性风险或突破/加速趋势。</li>
+    <li><b>分时叠加题材贡献</b>：明确上涨/下跌时点是哪个题材在表现，理解题材分布、人气走向与资金进攻方向。</li>
+    <li><b>顺势 vs 逆势题材</b>：顺势题材（如科技）指数上涨时表现；逆势题材（如军工）指数下跌时可能反复表现，<b>构成机会</b>。</li>
+  </ul>
+
+  <h3>5.3 涨停分析维度</h3>
+  <ul>
+    <li><b>归类与原因解析（重中之重）</b>：可参考他人分析，但<b>必须有自己的理解</b>；注意个股<b>叠加概念</b>，避免漏票（漏掉逻辑可能错失龙头）。</li>
+    <li><b>题材主次与强弱</b>：理清主线/支线、强/弱题材，判断主线是发酵放大还是压缩缩小；<b>梯队梳理</b>（四板/三板/二板了然于胸）。</li>
+    <li><b>新题材特别关注</b>：新题材出现时市场资金高度重视，判断<b>大级别 vs 小级别</b>，影响后续补涨股及一进二进三的优先选择。</li>
+  </ul>
+  <div class="card"><b>实战案例</b>：澳交所活跃时<b>压制</b> VPN 与瑞达期货；澳交所退潮时，另两个题材<b>反包</b>。</div>
+
+  <h3>5.4 核心票分析</h3>
+  <ul>
+    <li>范围：龙头股 + <b>对市场人气影响大的票</b>，影响市场整体节奏。</li>
+    <li><b>龙头打出新高度</b> → 市场周期可能进入新阶段。</li>
+    <li><b>前期龙头反抽涨停</b> → 退潮期可能结束，市场进入回暖期。</li>
+    <li><b>龙头自身周期</b>：缩量连板后爆量开板 → 周期可能结束，资金分流寻找新方向。</li>
+  </ul>
+  <div class="card"><b>实战案例（宝鼎科技）</b>：10月17日十天线附近反抽涨停 → 退潮期尾声；反抽四连板缩量 → 一旦开板爆量周期结束；爆量封不住时新题材（澳交所）出现。</div>
+
+  <h3>5.5 统计数据</h3>
+  <ul>
+    <li><b>连板指数走势</b>：判断是否连续偏离，预示风险。</li>
+    <li><b>涨停溢价率</b>：昨日涨停股今日高开比例。</li>
+    <li><b>封板成功率/炸板率</b>：对打板型选手的出手参考。</li>
+    <li><b>龙头股首阴走势</b>：尖顶还是平稳过渡。</li>
+    <li><b>盘后新闻与个股公告</b>：如宝鼎科技10月11日被交易所关注，次日结束。</li>
+  </ul>
+
+  <div class="box key"><span class="bt">📌 四大关键方法论</span>
+    ① 避免情绪化（用计划约束行为） ② 顺势+逆势双线判断 ③ 新题材优先级最高 ④ 核心票分析（龙头决定市场节奏）。
+  </div>
+  <div class="quote">凡事预则立，不预则废——充分复盘后，有准备、有底气地进入下一交易日博弈。</div>
+</section>
+
+<!-- ===================== 第四式 ===================== -->
+<section id="s4">
+  <h2 class="sec" style="border-color:#B07CC6;"><span class="no" style="color:#B07CC6;">⑥</span>第四式 · 涨停板的分类 <span class="layer l4">标准层</span></h2>
+  <p class="subtitle">回答：看懂涨停板——短线交易的核心基本功。</p>
+
+  <div class="box core"><span class="bt">核心理念</span>
+    涨停板是<b>短线交易的核心</b>。分析维度是<span class="hl">分歧与一致</span>——判断涨停板背后原因（<b>技术成因，非逻辑成因</b>），为预期判断提供技术依据，<b>大幅提高胜率</b>。
+  </div>
+
+  <div class="svg-title">📐 涨停板三维分类体系</div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 560 740" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 150 360 H 185 V 94 H 230" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 150 360 H 185 V 360 H 230" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 150 360 H 185 V 626 H 230" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 350 94 H 390 V 18 H 430" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 350 94 H 390 V 94 H 430" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 350 94 H 390 V 170 H 430" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 350 360 H 390 V 246 H 430" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 350 360 H 390 V 322 H 430" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 350 360 H 390 V 398 H 430" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 350 360 H 390 V 474 H 430" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 350 626 H 390 V 550 H 430" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 350 626 H 390 V 626 H 430" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <path d="M 350 626 H 390 V 702 H 430" stroke="#B07CC6" stroke-width="1.5" fill="none"/>
+      <rect x="20" y="340" width="130" height="40" rx="8" fill="#B07CC6"/>
+      <text x="85" y="365" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">涨停板分类</text>
+      <rect x="230" y="76" width="120" height="36" rx="6" fill="#F4ECF8" stroke="#B07CC6"/>
+      <text x="290" y="99" text-anchor="middle" fill="#333" font-size="14">形态维度</text>
+      <rect x="230" y="342" width="120" height="36" rx="6" fill="#F4ECF8" stroke="#B07CC6"/>
+      <text x="290" y="365" text-anchor="middle" fill="#333" font-size="14">时间维度</text>
+      <rect x="230" y="608" width="120" height="36" rx="6" fill="#F4ECF8" stroke="#B07CC6"/>
+      <text x="290" y="631" text-anchor="middle" fill="#333" font-size="14">量能维度</text>
+      <rect x="430" y="0" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#B07CC6"/>
+      <text x="495" y="23" text-anchor="middle" fill="#2b4a5c" font-size="14">一字板</text>
+      <rect x="430" y="76" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#B07CC6"/>
+      <text x="495" y="99" text-anchor="middle" fill="#2b4a5c" font-size="14">T字板</text>
+      <rect x="430" y="152" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#B07CC6"/>
+      <text x="495" y="175" text-anchor="middle" fill="#2b4a5c" font-size="14">阳线涨停板</text>
+      <rect x="430" y="228" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#B07CC6"/>
+      <text x="495" y="251" text-anchor="middle" fill="#2b4a5c" font-size="14">加速板</text>
+      <rect x="430" y="304" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#B07CC6"/>
+      <text x="495" y="327" text-anchor="middle" fill="#2b4a5c" font-size="14">大换手板</text>
+      <rect x="430" y="380" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#B07CC6"/>
+      <text x="495" y="403" text-anchor="middle" fill="#2b4a5c" font-size="14">跟风板</text>
+      <rect x="430" y="456" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#B07CC6"/>
+      <text x="495" y="479" text-anchor="middle" fill="#2b4a5c" font-size="14">尾盘偷袭</text>
+      <rect x="430" y="532" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#B07CC6"/>
+      <text x="495" y="555" text-anchor="middle" fill="#2b4a5c" font-size="14">缩量板</text>
+      <rect x="430" y="608" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#B07CC6"/>
+      <text x="495" y="631" text-anchor="middle" fill="#2b4a5c" font-size="14">放量板</text>
+      <rect x="430" y="684" width="130" height="36" rx="6" fill="#FFFFFF" stroke="#B07CC6"/>
+      <text x="495" y="707" text-anchor="middle" fill="#2b4a5c" font-size="14">爆量板</text>
+    </svg>
+  </div>
+
+  <h3>6.1 维度一：形态分类</h3>
+  <table>
+    <tr><th>类型</th><th>形态特征</th><th>次日预期</th></tr>
+    <tr><td><b>一字板</b></td><td>买方抢筹，卖方惜售，看法高度一致</td><td>高溢价预期；若次日平开或略低开 = 机会</td></tr>
+    <tr><td><b>T字板</b></td><td>与一字板相似，存在小分歧，承接更强</td><td>高位小心，低位是机会</td></tr>
+    <tr><td><b>中高开秒板缩量</b></td><td>开盘5-6个点，秒板缩量</td><td>可对标T字板</td></tr>
+    <tr><td><b>一根长阳</b></td><td>量价齐升，资金主动做多拉出7-8个点</td><td><b>最具攻击力</b>，后续会有新高</td></tr>
+    <tr><td><b>地天板</b></td><td>跌停到涨停（20点阳线）</td><td>溢价不高，走不远，<b>不建议接力</b>（更适合当天水下低吸）</td></tr>
+  </table>
+
+  <h3>6.2 维度二：时间分类（更重要）</h3>
+  <table>
+    <tr><th>类型</th><th>时间</th><th>案例</th><th>操作策略</th></tr>
+    <tr><td><b>加速板</b></td><td>10:30前封板</td><td>华谊嘉信3、4板</td><td>溢价高，一封可打；低位好题材次日可能进一步加速（进入一字/T字）；迷茫期可能再次换手（分歧加大）</td></tr>
+    <tr><td><b>大换手板</b></td><td>11:00-13:30回封（常见11:00-11:30，二封或放量回封）</td><td>深大通4板、四方精创2板回封</td><td>强加速预期（1小时内）；低位试错=造龙，中档换装=游资生态</td></tr>
+    <tr><td><b>跟风板</b></td><td>13:30-14:00</td><td>天龙光电跟风华谊嘉信</td><td>绝大部分质量差（例外：弱转强如深大通2板，小概率）</td></tr>
+    <tr><td><b>尾盘偷袭</b></td><td>14:30后</td><td>宏川智慧4板（例外）</td><td>多头信心不足，无溢价；极限回封属「有妖气」，一年难得一见</td></tr>
+  </table>
+
+  <h3>6.3 维度三：量能分类</h3>
+  <table>
+    <tr><th>类型</th><th>特征</th><th>案例</th><th>操作策略</th></tr>
+    <tr><td><b>缩量板</b></td><td>加速形态（一字板）</td><td>—</td><td>高位缩量成本差异大，<b>不利接力</b></td></tr>
+    <tr><td><b>放量板</b></td><td>换手充分，今日量&gt;昨日量</td><td>群兴玩具、凯盛科技</td><td><b>最有参与价值</b>：成本健康 + 参与性强 + 分歧到一致（一进二进三多发生于此）</td></tr>
+    <tr><td><b>爆量板</b></td><td>成交量暴增3倍+，或封板极晚、开开合合无封单（烂板）</td><td>顺灏股份3→4板、盘龙药业4→5板</td><td>弱转强机会（次日被做加速）：「烂而不弱」极罕见（如盘龙药业4板次日加速上5板），但风险大</td></tr>
+  </table>
+
+  <div class="box key"><span class="bt">📌 四大核心要点</span>
+    ① 一字板 = 极致一致 ② T字板 = 小分歧大承接 ③ 放量板 = 最有参与价值 ④ 地天板不接力。看封板时间：<b>10:30前 &gt; 11:00-13:30 &gt; 14:30后</b>。
+  </div>
+  <div class="quote">最大机会：预期差是超额收益的主要来源——看懂涨停板 = 把握预期差。</div>
+</section>
+
+<!-- ===================== 第五式 ===================== -->
+<section id="s5">
+  <h2 class="sec" style="border-color:#5B8DEF;"><span class="no" style="color:#5B8DEF;">⑦</span>第五式 · 短线必懂F10 <span class="layer l5">标的层</span></h2>
+  <p class="subtitle">回答：知道买什么——F10的题材炒作应用与补涨挖掘。</p>
+
+  <div class="box core"><span class="bt">核心理念</span>
+    将 F10 从「死信息」升级为「<b>立体、动态的决策工具</b>」——<span class="hl">带着目的看F10</span>。核心应用场景：<b>做补涨</b>（前提：龙头已成势之后）。
+  </div>
+
+  <div class="svg-title">📐 F10补涨三维发掘体系</div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 570 816" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 140 398 H 180 V 94 H 220" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 140 398 H 180 V 360 H 220" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 140 398 H 180 V 664 H 220" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 340 94 H 380 V 18 H 420" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 340 94 H 380 V 94 H 420" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 340 94 H 380 V 170 H 420" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 340 360 H 380 V 246 H 420" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 340 360 H 380 V 322 H 420" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 340 360 H 380 V 398 H 420" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 340 360 H 380 V 474 H 420" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 340 664 H 380 V 550 H 420" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 340 664 H 380 V 626 H 420" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 340 664 H 380 V 702 H 420" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <path d="M 340 664 H 380 V 778 H 420" stroke="#5B8DEF" stroke-width="1.5" fill="none"/>
+      <rect x="20" y="378" width="120" height="40" rx="8" fill="#5B8DEF"/>
+      <text x="80" y="403" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">F10补涨</text>
+      <rect x="220" y="76" width="120" height="36" rx="6" fill="#EAF0FD" stroke="#5B8DEF"/>
+      <text x="280" y="99" text-anchor="middle" fill="#333" font-size="14">股东共性</text>
+      <rect x="220" y="342" width="120" height="36" rx="6" fill="#EAF0FD" stroke="#5B8DEF"/>
+      <text x="280" y="365" text-anchor="middle" fill="#333" font-size="14">主营相似</text>
+      <rect x="220" y="646" width="120" height="36" rx="6" fill="#EAF0FD" stroke="#5B8DEF"/>
+      <text x="280" y="669" text-anchor="middle" fill="#333" font-size="14">暗线逻辑</text>
+      <rect x="420" y="0" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="495" y="23" text-anchor="middle" fill="#2b4a5c" font-size="14">普天系</text>
+      <rect x="420" y="76" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="495" y="99" text-anchor="middle" fill="#2b4a5c" font-size="14">大基金</text>
+      <rect x="420" y="152" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="495" y="175" text-anchor="middle" fill="#2b4a5c" font-size="14">东方系</text>
+      <rect x="420" y="228" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="495" y="251" text-anchor="middle" fill="#2b4a5c" font-size="14">5G</text>
+      <rect x="420" y="304" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="495" y="327" text-anchor="middle" fill="#2b4a5c" font-size="14">稀土永磁</text>
+      <rect x="420" y="380" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="495" y="403" text-anchor="middle" fill="#2b4a5c" font-size="14">垃圾分类</text>
+      <rect x="420" y="456" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="495" y="479" text-anchor="middle" fill="#2b4a5c" font-size="14">手机数据处理</text>
+      <rect x="420" y="532" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="495" y="555" text-anchor="middle" fill="#2b4a5c" font-size="14">老填权</text>
+      <rect x="420" y="608" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="495" y="631" text-anchor="middle" fill="#2b4a5c" font-size="14">外销比</text>
+      <rect x="420" y="684" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="495" y="707" text-anchor="middle" fill="#2b4a5c" font-size="14">低PE</text>
+      <rect x="420" y="760" width="150" height="36" rx="6" fill="#FFFFFF" stroke="#5B8DEF"/>
+      <text x="495" y="783" text-anchor="middle" fill="#2b4a5c" font-size="14">市销比</text>
+    </svg>
+  </div>
+
+  <h3>7.1 传统F10的认知局限</h3>
+  <p>传统F10只看个股基本面（主营业务、业绩、财务数据），是<b>「死信息」</b>、静态被动观看、单点视角，价值有限。新视角：通过F10寻找<b>个股相关性</b>，做<b>暗线关联</b>与<b>龙头补涨</b>。</p>
+
+  <h3>7.2 三维发掘体系详解</h3>
+  <h4>维度一：股东角度</h4>
+  <ul>
+    <li>东方通信（5G+普天系）→ 南京熊猫、法尔胜（加速）。</li>
+    <li>东方中科（「东方」股东属性）→ 银宝三星（一二板上车）。</li>
+    <li>兆易创新/北方华创（芯片+大基金）→ 国科微、长川科技、长电科技（一个月翻倍）。</li>
+  </ul>
+  <h4>维度二：主营角度</h4>
+  <ul>
+    <li>万兴科技（手机数据处理）→ 诚迈科技（连续连板）。</li>
+    <li>依托股份（农机属性）→ 疾风农机（当日涨停）。</li>
+    <li>国际实业（一带一路+创投+中西部）→ 西安旅游（6连板）。</li>
+    <li>金力永磁（稀土永磁+江西）→ 国泰集团（3连板）。</li>
+  </ul>
+  <h4>维度三：暗线角度（寻找涨停板共性）</h4>
+  <ul>
+    <li>华锋股份（老填权）→ 中钱股份、星光药业、永和智控（永和6板）。</li>
+    <li>永和智控（高外销比）→ 高斯贝尔、迪士尼（形成「补涨的补涨」链条）。</li>
+    <li>泰禾集团（市销比）→ 绿地控股、金地集团（明显补涨）。</li>
+    <li>五洲交通（低PE）→ 华茂股份、江苏舜天（次日良好反馈）。</li>
+  </ul>
+
+  <h3>7.3 12个经典补涨案例</h3>
+  <table>
+    <tr><th>#</th><th>龙头</th><th>关联属性</th><th>补涨标的</th><th>补涨表现</th></tr>
+    <tr><td>1</td><td>东方通信</td><td>5G+普天系</td><td>南京熊猫、法尔胜</td><td>加速</td></tr>
+    <tr><td>2</td><td>东方中科</td><td>「东方」股东属性</td><td>银宝三星</td><td>一二板上车</td></tr>
+    <tr><td>3</td><td>兆易创新/北方华创</td><td>芯片+大基金</td><td>国科微、长川科技、长电科技</td><td>一个月翻倍</td></tr>
+    <tr><td>4</td><td>万兴科技</td><td>手机数据处理</td><td>诚迈科技</td><td>连续连板</td></tr>
+    <tr><td>5</td><td>依托股份</td><td>农机属性</td><td>疾风农机</td><td>当日涨停</td></tr>
+    <tr><td>6</td><td>国际实业</td><td>一带一路+创投+中西部</td><td>西安旅游</td><td>6连板</td></tr>
+    <tr><td>7</td><td>金力永磁</td><td>稀土永磁+江西</td><td>国泰集团</td><td>3连板</td></tr>
+    <tr><td>8</td><td>华锋股份</td><td>老填权</td><td>中钱股份、星光药业、永和智控</td><td>永和6板</td></tr>
+    <tr><td>9</td><td>永和智控</td><td>高外销比</td><td>高斯贝尔、迪士尼</td><td>持续</td></tr>
+    <tr><td>10</td><td>泰禾集团</td><td>市销比</td><td>绿地控股、金地集团</td><td>明显补涨</td></tr>
+    <tr><td>11</td><td>五洲交通</td><td>低PE</td><td>华茂股份、江苏舜天</td><td>次日良好反馈</td></tr>
+  </table>
+
+  <div class="box warn"><span class="bt">⚠️ 市场认可原则（操作红线）</span>
+    <b>不能「意淫」</b>——不能仅凭个人理解操作。仅当你的理解和发掘<b>被市场认可时</b>才有参与价值。认可标志通常以<b>冲击涨停板</b>为代表（可不封涨停，但盘中必须冲击涨停板，以显示资金意图）。
+  </div>
+
+  <div class="box key"><span class="bt">📌 四大关键方法论</span>
+    ① 带着目的看F10 ② 暗线发掘思维（从涨停板共性反推F10暗线） ③ 市场认可原则 ④ 补涨的补涨（层层挖掘）。
+  </div>
+  <div class="card"><b>📎 案例背景补遗</b>
+    东方通信（反包两板最强波段，2019年）· 东方中科（9月18日中位）· 兆易创新/北方华创（2017年9月，大基金参股前十）· 万兴科技（龙头后期，诚迈一二三板抢筹明显，高度不亚于第一波）· 依托股份（垃圾分类处理车最高度龙，6月20日）· 国际实业（三板换手成功、四板加速，3月20日）· 泰禾集团（董事长「营收2000亿、市值应1000亿」言论，2018年1月）· 五洲交通（跟随科隆股份做预增，2019年4月30日）· 永和智控（外销占比&gt;50%）→ 高斯贝尔（外销比&gt;80%）、迪士尼（外销比极高）。
+  </div>
+</section>
+
+<!-- ===================== 答疑系列 ===================== -->
+<section id="qa">
+  <h2 class="sec" style="border-color:#8A9BAA;"><span class="no" style="color:#8A9BAA;">⑧</span>答疑系列 · 实战细节 <span class="layer l6">答疑层</span></h2>
+  <p class="subtitle">7 篇答疑补齐了主线课程未覆盖的实战细节。</p>
+
+  <h3>8.1 答疑二 · 市场环境与黄金时间点</h3>
+  <div class="box core"><span class="bt">核心问题</span>何种市场环境适合做短线？——<b>市场环境决定短线操作可行性</b>。</div>
+  <div class="svg-title">📐 市场环境三分法</div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 580 216" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 150 98 H 190 V 18 H 230" stroke="#8A9BAA" stroke-width="1.5" fill="none"/>
+      <path d="M 150 98 H 190 V 98 H 230" stroke="#8A9BAA" stroke-width="1.5" fill="none"/>
+      <path d="M 150 98 H 190 V 178 H 230" stroke="#8A9BAA" stroke-width="1.5" fill="none"/>
+      <path d="M 340 18 H 380 V 18 H 420" stroke="#8A9BAA" stroke-width="1.5" fill="none"/>
+      <path d="M 340 98 H 380 V 98 H 420" stroke="#8A9BAA" stroke-width="1.5" fill="none"/>
+      <path d="M 340 178 H 380 V 178 H 420" stroke="#8A9BAA" stroke-width="1.5" fill="none"/>
+      <rect x="20" y="78" width="130" height="40" rx="8" fill="#8A9BAA"/>
+      <text x="85" y="103" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">市场环境</text>
+      <rect x="230" y="0" width="110" height="36" rx="6" fill="#EFF2F4" stroke="#8A9BAA"/>
+      <text x="285" y="23" text-anchor="middle" fill="#333" font-size="14">牛市</text>
+      <rect x="230" y="80" width="110" height="36" rx="6" fill="#EFF2F4" stroke="#8A9BAA"/>
+      <text x="285" y="103" text-anchor="middle" fill="#333" font-size="14">震荡市</text>
+      <rect x="230" y="160" width="110" height="36" rx="6" fill="#EFF2F4" stroke="#8A9BAA"/>
+      <text x="285" y="183" text-anchor="middle" fill="#333" font-size="14">下跌市</text>
+      <rect x="420" y="0" width="160" height="36" rx="6" fill="#FFFFFF" stroke="#8A9BAA"/>
+      <text x="500" y="23" text-anchor="middle" fill="#2b4a5c" font-size="13">所有模式有效</text>
+      <rect x="420" y="80" width="160" height="36" rx="6" fill="#FFFFFF" stroke="#8A9BAA"/>
+      <text x="500" y="103" text-anchor="middle" fill="#2b4a5c" font-size="13">风格切换·题材爆发</text>
+      <rect x="420" y="160" width="160" height="36" rx="6" fill="#FFFFFF" stroke="#8A9BAA"/>
+      <text x="500" y="183" text-anchor="middle" fill="#2b4a5c" font-size="13">止跌企稳·探路→主升</text>
+    </svg>
+  </div>
+  <ul>
+    <li><b>牛市</b>：系统性上涨，所有模式均表现良好。</li>
+    <li><b>震荡市（风格切换）</b>：蓝筹单边 → 资金流向小票题材股，是<b>黄金时间</b>，题材热点爆发（如电力物联网、OLED 单日百股涨停），龙头战法单票翻倍（7个涨停板）。典型：3288点。案例：风华股份、银星能源、龙津药业、东方网络、复旦复华。</li>
+    <li><b>下跌市（止跌企稳）</b>：连续下跌后确认止跌，是<b>黄金时间</b>。第一阶段探路龙头（涨幅有限4-5板）→ 第二阶段主升龙头（新大龙头诞生）。典型：2733点、11月低点。案例：九鼎新材（2733点后）、宝鼎科技（11月低点后）、2015股灾后梅雁吉祥/中航光电。</li>
+  </ul>
+  <div class="box key"><span class="bt">📌 抛砖引玉 + 杠杆策略</span>
+    用「推背图工具」：<b>白字标记「砖」（探路龙头），黄字标记「玉」（主升龙头）</b>，<b>黄色机会（玉）确定性大于白色机会（砖）</b>。杠杆仅在确定性极高的黄金时间点考虑。
+  </div>
+
+  <h3>8.2 答疑三 · 普通人炒股方法</h3>
+  <div class="box core"><span class="bt">核心问题</span>普通小韭菜如何快速学会炒股？（案例：3个月40万亏至20万，亏损50%）</div>
+  <div class="box warn"><span class="bt">⚠️ 入场时机判断（被忽视的前提）</span>
+    入场时机错误是亏损的首要原因：市场不景气、短线生存环境近年最差，<b>震荡下跌（最磨人行情）</b>最易「闪婚把裤子赔掉」。对比数据：2018年90%资产负收益；2019上半年有行情、下半年持续震荡。炒股门槛虽低，但<b>成功概率仅10%</b>，务必先小资金试错。
+  </div>
+  <h4>资金控制</h4>
+  <ul>
+    <li><b>5万以内</b>试半年到一年，目标「<b>稳定亏损</b>」（非大起大伏），找到感觉后再加资金。</li>
+    <li>风险警示：<b>一赚二平七亏</b>是常态；<b>激流勇退极难</b>（染上赌性难退出）；<b>初始盈利更危险</b>（易无法自拔）。</li>
+  </ul>
+  <h4>方案一：有行情做，没行情不做（稳健）</h4>
+  <ul>
+    <li><b>空仓是交易的重要组成部分</b>：不操作也是一种操作，大部分时间空仓。</li>
+    <li><b>关键信号</b>：<b>爆量大阳线</b>（成交量突然放大，增量资金入场）——<b>个股易造假，大盘不易造假</b>，至少3天内安全。</li>
+    <li>操作标的：最傻做法买<b>ETF（如50ETF）</b>；稳健做法买<b>上证50十大权重股</b>；<b>白马股</b>大盘上涨时收益不会太差。</li>
+    <li>收益预期：指数涨20%，收益应接近20%。</li>
+  </ul>
+  <h4>方案二：做题材股（激进）</h4>
+  <ul>
+    <li><b>只做重大题材</b>（化工厂爆炸、重大政策规划），通常一个月一次。</li>
+    <li><b>看着龙头做跟风</b>：浙江龙盛（丽水化工厂爆炸）→ 鲁西化工，最高50%收益<b>取20%即可</b>。区块链消息首日130个涨停、次日60多个。</li>
+    <li><b>不贪心，只求10%</b>，一年做3-5个题材，收益可达50%。</li>
+    <li>避免两大错误：<b>贪心</b> + <b>知行不合一</b>。</li>
+  </ul>
+
+  <h3>8.3 答疑四 · 反弹有效量判断</h3>
+  <div class="box core"><span class="bt">核心逻辑</span>反弹有效性判断<b>非单一指标</b>，基于<b>K线重心 + 盘感</b>；核心原则：<span class="hl">量在价先，成交量先行确认</span>。</div>
+  <div class="card"><b>实战案例（11月25日）</b>22日冲高回落，25日<b>翘尾收阳线</b>且<b>成交量大于前一日</b>→ 放量吃掉前一日阴线，短期看多。补充：顶部爆量在强趋势中（如2014-2015年）可能反复，先兆信号后或再创新高，最终撑不住下跌。</div>
+  <table>
+    <tr><th>信号</th><th>特征</th><th>含义</th></tr>
+    <tr><td><b>有效</b></td><td>放量吃掉前一日阴线</td><td>短期看多，反弹有效</td></tr>
+    <tr><td><b>无效</b></td><td>缩量、阳线小</td><td>反弹存疑，连续性不确定</td></tr>
+    <tr><td><b>底部爆量</b></td><td>下跌尾声最后见底日爆量（恐慌盘+抄底资金集中交换）</td><td>形成<b>尖底</b>（单底），如2733点、8月6日</td></tr>
+    <tr><td><b>顶部爆量</b></td><td>高点异于常态的爆量（阳线/十字星/长下影线/阴十字星）</td><td><b>重大分歧</b>，如5178点、3478点、3288点</td></tr>
+  </table>
+
+  <h3>8.4 答疑五 · 10点封板性质判断</h3>
+  <div class="box core"><span class="bt">核心问题</span>10点上板后打开，14:30再次封板，属偷板还是弱转强？需区分<b>强板与弱板</b>。</div>
+  <table>
+    <tr><th>类型</th><th>量能</th><th>含义</th></tr>
+    <tr><td><b>放量板</b></td><td>放大</td><td>= 分歧板，多空分歧大，换手充分</td></tr>
+    <tr><td><b>缩量板</b></td><td>缩小</td><td>= 加速板，市场一致看多，抛压轻</td></tr>
+  </table>
+  <ul>
+    <li><b>10点关键时间点</b>：势强（主动上板或冲至8个点横盘，表明态度留筹码）；势弱（10点不试强会引发集中抛压，10点、10:30为砸盘高峰）。</li>
+    <li><b>10点封板两种类型</b>：① 一进二抢板（卡位）② 弱转强加速板（如海联讯，昨日分歧今日高开10:14封板）。</li>
+    <li><b>勉强板 vs 主动板</b>：勉强板（被动跟随，二封成交量极小、上板不坚决）→ 谨慎参与；主动板（主力主动引导，封板坚决、量配合、分时流畅）→ 可参与，次日溢价概率高。</li>
+    <li><b>弱转强</b>：弱板需观察次日集合竞价（高开带量则可能转强）。</li>
+  </ul>
+  <div class="box warn"><span class="bt">⚠️ 核心风险</span>混淆强板与弱板，会导致<b>次日操作方向完全相反</b>（如弱板次日跌停）。</div>
+
+  <h3>8.5 答疑六 · 避免打板炸板</h3>
+  <div class="box core"><span class="bt">核心问题</span>如何避免打板炸板？从<b>逻辑角度切入</b>，非单纯技术讨论。炸板概率：一半炸一半不炸（封板率60%）。</div>
+  <ul>
+    <li><b>对标的预期</b>：判断次日是否有强上板预期，用于<b>过滤无效板</b>。</li>
+    <li><b>分歧板 vs 加速板</b>：分歧板次日通常加速；加速板可能迎来新分歧，或极限「两板缝一致」（更强）。关键：明确票的<b>周期定位与定性</b>（上一板是什么板）。</li>
+    <li><b>强到更强的高风险</b>：若无法封住，获利盘倾泻而出（已有20%利润）；关键阈值 <b>20%</b>。</li>
+    <li><b>合理买点</b>：决定炸板后是否会被自救。合理买点 → 理论上会自救；非合理买点 → 可能无修复。</li>
+  </ul>
+  <table>
+    <tr><th>案例</th><th>定位</th><th>次日表现</th><th>后续修复</th></tr>
+    <tr><td>银禧科技</td><td>三版换手板+周期+新能源叠加（绝对高度安源煤业；当日周期股涨停时7个新能源涨停）</td><td>不被认可（韶钢、安阳煤业大阴线，周期走弱）</td><td>救回新高（因合理买点）</td></tr>
+    <tr><td>国风塑业</td><td>折叠屏龙头</td><td>大幅杀跌（盘中跌停）</td><td>被救回（因合理买点）</td></tr>
+  </table>
+  <div class="box key"><span class="bt">📌 核心结论</span>打板不炸的根本因素是<b>逻辑</b>（对市场的理解），非技术；<b>合理买点是打板前提</b>，决定是否会被自救。</div>
+
+  <h3>8.6 答疑七 · 分歧与一致的本质（哲学层）</h3>
+  <div class="box core"><span class="bt">核心观点</span>抓住<b>分歧与一致的本质</b>，比单纯看指标更重要。</div>
+  <div class="svg-title">📐 分歧与一致二维体系</div>
+  <div class="svg-wrap">
+    <svg viewBox="0 0 600 296" width="100%" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei','PingFang SC',sans-serif;">
+      <path d="M 150 138 H 190 V 58 H 230" stroke="#D9796B" stroke-width="1.5" fill="none"/>
+      <path d="M 150 138 H 190 V 218 H 230" stroke="#D9796B" stroke-width="1.5" fill="none"/>
+      <path d="M 340 58 H 380 V 18 H 420" stroke="#D9796B" stroke-width="1.5" fill="none"/>
+      <path d="M 340 58 H 380 V 98 H 420" stroke="#D9796B" stroke-width="1.5" fill="none"/>
+      <path d="M 340 218 H 380 V 178 H 420" stroke="#D9796B" stroke-width="1.5" fill="none"/>
+      <path d="M 340 218 H 380 V 258 H 420" stroke="#D9796B" stroke-width="1.5" fill="none"/>
+      <rect x="20" y="118" width="130" height="40" rx="8" fill="#D9796B"/>
+      <text x="85" y="143" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">分歧与一致</text>
+      <rect x="230" y="40" width="110" height="36" rx="6" fill="#FBEFED" stroke="#D9796B"/>
+      <text x="285" y="63" text-anchor="middle" fill="#333" font-size="14">量能</text>
+      <rect x="230" y="200" width="110" height="36" rx="6" fill="#FBEFED" stroke="#D9796B"/>
+      <text x="285" y="223" text-anchor="middle" fill="#333" font-size="14">结果</text>
+      <rect x="420" y="0" width="180" height="36" rx="6" fill="#FFFFFF" stroke="#D9796B"/>
+      <text x="510" y="23" text-anchor="middle" fill="#2b4a5c" font-size="13">放量 = 分歧</text>
+      <rect x="420" y="80" width="180" height="36" rx="6" fill="#FFFFFF" stroke="#D9796B"/>
+      <text x="510" y="103" text-anchor="middle" fill="#2b4a5c" font-size="13">缩量 = 一致(加速)</text>
+      <rect x="420" y="160" width="180" height="36" rx="6" fill="#FFFFFF" stroke="#D9796B"/>
+      <text x="510" y="183" text-anchor="middle" fill="#2b4a5c" font-size="13">涨停 = 一致</text>
+      <rect x="420" y="240" width="180" height="36" rx="6" fill="#FFFFFF" stroke="#D9796B"/>
+      <text x="510" y="263" text-anchor="middle" fill="#2b4a5c" font-size="13">未涨停 = 分歧</text>
+    </svg>
+  </div>
+  <ul>
+    <li><b>概念区分</b>：分析（个体偏好差异）vs 分歧（群体意见不统一）。</li>
+    <li><b>分歧的市场结果（两种形态）</b>：① <b>强</b>——下午拉升强势但未封涨停（大阳线）；② <b>板</b>——涨停板。分歧既可能走向「强」也可能走向「板」。</li>
+    <li><b>简化模型</b>：涨停 = 一致（过滤强势因素）；未涨停 = 分歧（含分歧板）；放量 = 分歧；缩量 = 加速（一致，惜售不卖）。</li>
+    <li><b>分歧到一致的瞬间</b>（打板最具艺术性的环节）：类比辩论赛——初始正反各半 → 真理越辩越明 → <b>有人带头点明逻辑（点火的人）</b> → 跟风资金一上形成一致。</li>
+    <li><b>T+1市场加速效应</b>：分歧到一致后，第二天通常加速一致；场外观望者当日无法买入，<b>次日会毫不犹豫冲进来</b>。</li>
+    <li><b>涨停板中的分歧</b>：已封涨停仍有大量抛单（1000手反复加撤、开板回封），本质是涨停板内资金仍有分歧。</li>
+    <li><b>判断标准</b>：量化指标中<b>没有明确的分歧与一致判断标准</b>，解决路径是<b>谈感觉、多练习</b>。</li>
+  </ul>
+  <div class="quote">哲学总结：短线不是纯技术，而是对人性的理解。<span class="hl">「打板即打分歧到一致的那个拐点」</span>是整个系列的核心方法论。经验的积累比任何指标都重要。</div>
+</section>
+
+<!-- ===================== 五大铁律 ===================== -->
+<section id="law">
+  <h2 class="sec"><span class="no">⑨</span>五大铁律 · 核心方法论</h2>
+  <p class="subtitle">短线交易的「五大铁律」，统领整套课程。</p>
+  <table>
+    <tr><th>#</th><th>铁律</th><th>要点</th></tr>
+    <tr><td>1</td><td><b>环境优先</b></td><td>市场环境决定策略：牛市所有模式有效 / 震荡（风格切换）题材股黄金时间 / 下跌末期探路龙头→主升龙头</td></tr>
+    <tr><td>2</td><td><b>计划先行</b></td><td>四维框架：复盘 + 涨停 + 核心票 + 统计数据；凡事预则立不预则废</td></tr>
+    <tr><td>3</td><td><b>标的选择</b></td><td>F10三维发掘：股东共性 + 主营相似 + 暗线逻辑；市场认可原则（冲击涨停板是标志）</td></tr>
+    <tr><td>4</td><td><b>介入标准</b></td><td>涨停板三维分类：形态（一致vs分歧）+ 时间（10:30前最佳）+ 量能（放量板最有参与价值）</td></tr>
+    <tr><td>5</td><td><b>核心哲学</b></td><td>分歧与一致：打板即打分歧到一致的那个拐点；短线不是纯技术而是对人性的理解</td></tr>
+  </table>
+</section>
+
+<!-- ===================== 信号汇总 ===================== -->
+<section id="signal">
+  <h2 class="sec"><span class="no">⑩</span>关键操作信号汇总</h2>
+  <table>
+    <tr><th>信号类型</th><th>识别方法</th><th>操作含义</th></tr>
+    <tr><td>黄金时间点</td><td>风格切换 + 止跌企稳</td><td>加杠杆狙击</td></tr>
+    <tr><td>交棒日</td><td>主龙头首阴日（蓝色框框）</td><td>新题材活跃，一进二重点</td></tr>
+    <tr><td>有效反弹</td><td>放量吃掉前一日阴线</td><td>短期看多</td></tr>
+    <tr><td>底部尖底</td><td>最后见底日爆量</td><td>反弹有效</td></tr>
+    <tr><td>顶部风险</td><td>高点异常放量</td><td>重大分歧</td></tr>
+    <tr><td>加速板</td><td>10:30前缩量封板</td><td>强板可参与</td></tr>
+    <tr><td>大换手板</td><td>11:00-13:30回封</td><td>强加速预期</td></tr>
+    <tr><td>放量板</td><td>今日量 &gt; 昨日量</td><td>最有参与价值</td></tr>
+    <tr><td>爆量板</td><td>成交量暴增3倍</td><td>弱转强机会</td></tr>
+    <tr><td>弱转强</td><td>昨日弱板 + 今日高开带量</td><td>次日溢价可能</td></tr>
+    <tr><td>合理买点</td><td>周期逻辑叠加</td><td>自救预期</td></tr>
+  </table>
+</section>
+
+<!-- ===================== 风险红线 ===================== -->
+<section id="risk">
+  <h2 class="sec" style="border-color:#D9796B;"><span class="no" style="color:#D9796B;">⑪</span>风险警示与红线</h2>
+  <div class="box warn"><span class="bt">⚠️ 六大风险红线</span>
+    <ol>
+      <li><b>不能「意淫」</b>（05）：F10逻辑必须等市场认可，没冲击涨停板就不参与。</li>
+      <li><b>强到更强高风险</b>（11）：20%获利盘是砸盘隐患，加速板失败概率大。</li>
+      <li><b>混淆强板与弱板</b>（10）：次日操作方向可能完全相反。</li>
+      <li><b>贪心与知行不合一</b>（08）：心态管理的两大错误。</li>
+      <li><b>激流勇退极难</b>（08）：一旦染上「赌性」难退出，初始盈利更危险。</li>
+      <li><b>高位缩量不利接力</b>（04）：成本差异巨大是隐患。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ===================== 案例全景 ===================== -->
+<section id="case">
+  <h2 class="sec"><span class="no">⑫</span>经典案例全景</h2>
+  <h3>主线课程案例</h3>
+  <div class="card">
+    <b>股东角度</b>：东方通信、东方中科、兆易创新、北方华创<br>
+    <b>主营角度</b>：万兴科技、依托股份、国际实业、金力永磁<br>
+    <b>暗线角度</b>：华锋股份、永和智控、泰禾集团、五洲交通
+  </div>
+  <h3>答疑系列案例</h3>
+  <div class="card">
+    <b>风格切换</b>：风华股份、银星能源、龙津药业、东方网络、复旦复华<br>
+    <b>止跌企稳</b>：九鼎新材、宝鼎科技、梅雁吉祥、中航光电<br>
+    <b>重大题材</b>：浙江龙盛（丽水化工厂爆炸）<br>
+    <b>弱转强</b>：海联讯<br>
+    <b>合理买点</b>：银禧科技、国风塑业<br>
+    <b>周期复盘</b>：泰永长征、宝鼎科技、风范股份、汉嘉设计、特发信息、鹏启科技
+  </div>
+</section>
+
+<!-- ===================== 术语速查 ===================== -->
+<section id="glossary">
+  <h2 class="sec"><span class="no">⑬</span>小白术语速查表</h2>
+  <p class="subtitle">零基础读者先看这里，扫清概念障碍。</p>
+  <table>
+    <tr><th>术语</th><th>含义</th></tr>
+    <tr><td>涨停板</td><td>个股当日涨幅达上限（主板10%、科创板20%），无法继续以更高价成交。</td></tr>
+    <tr><td>溢价</td><td>次日开盘高于昨日收盘的部分；高溢价 = 次日高开。</td></tr>
+    <tr><td>换手板</td><td>成交量充分、筹码交换充分的涨停板（放量板）。</td></tr>
+    <tr><td>一字板</td><td>全天封死在涨停价，几乎无成交，看法高度一致。</td></tr>
+    <tr><td>T字板</td><td>开盘即涨停，盘中开板后迅速回封，存在小分歧、承接强。</td></tr>
+    <tr><td>地天板</td><td>从跌停拉到涨停（20点阳线），过度透支买力。</td></tr>
+    <tr><td>分歧 / 一致</td><td>分歧=群体意见不统一（放量、未涨停）；一致=看法统一（缩量、涨停）。</td></tr>
+    <tr><td>打板</td><td>在涨停价上挂单买入。</td></tr>
+    <tr><td>炸板</td><td>已封涨停后又被打开，封板失败。</td></tr>
+    <tr><td>封板率</td><td>封涨停后能维持到收盘的比例（约60%）。</td></tr>
+    <tr><td>补涨</td><td>龙头大涨后，同属性（股东/主营/暗线）个股跟随上涨。</td></tr>
+    <tr><td>卡位</td><td>多只一板股竞争，谁先封二板即卡位龙头、抢先手。</td></tr>
+    <tr><td>弱转强</td><td>昨日弱板（分歧），今日高开带量加速，转为强势。</td></tr>
+    <tr><td>首阴</td><td>龙头连板后首次收阴线，标志龙头周期进入末期。</td></tr>
+    <tr><td>交棒日</td><td>龙头首阴日，新题材开始活跃，是一进二选手重点研究日。</td></tr>
+    <tr><td>探路龙头（砖）</td><td>止跌初期出现的龙头，涨幅有限（4-5板），白字标记。</td></tr>
+    <tr><td>主升龙头（玉）</td><td>市场确认企稳后诞生的大龙头，黄字标记，确定性更高。</td></tr>
+    <tr><td>黄金时间</td><td>风格切换、止跌企稳等确定性极高的赚钱时间点。</td></tr>
+    <tr><td>爆量</td><td>成交量异常放大（3倍+），代表市场重大分歧。</td></tr>
+    <tr><td>连板指数</td><td>反映连板股整体走势的统计指标，连续偏离预示风险。</td></tr>
+    <tr><td>涨停溢价率</td><td>昨日涨停股今日高开的比例。</td></tr>
+    <tr><td>F10</td><td>炒股软件中个股的基本面资料（主营、股东、财务等）。</td></tr>
+    <tr><td>市销比</td><td>市值与当年营收之比，差距越大补涨空间越大。</td></tr>
+    <tr><td>老填权</td><td>前一个季度有过除权（高送转后股价除权）的个股。</td></tr>
+    <tr><td>外销比</td><td>主营业务中境外销售占比。</td></tr>
+    <tr><td>低PE</td><td>市盈率低，估值便宜。</td></tr>
+    <tr><td>集合竞价</td><td>开盘前集中撮合定价阶段，反映开盘强弱。</td></tr>
+    <tr><td>合理买点</td><td>周期逻辑叠加下的买入位置，决定炸板后是否被自救。</td></tr>
+  </table>
+</section>
+
+<footer>
+  大师兄短线必懂五事 · 完整知识体系 · 12篇文档整合 · 归属权归主人<br>
+  浅色系 · 零JS · 横向树状静态SVG · 兼容微信/WPS/手机浏览器
+</footer>
+
+</div>
+</body>
+</html>
