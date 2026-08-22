@@ -1,0 +1,1952 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="format-detection" content="telephone=no">
+<title>2018短线实战训练营 · 完整教程（小白到精通）</title>
+<style>
+  :root{
+    --bg:#F7F9FC;
+    --card:#FFFFFF;
+    --ink:#2C3E50;
+    --text:#3A4750;
+    --muted:#7A8794;
+    --primary:#4A90A4;   /* 青蓝 */
+    --primary-soft:#E8F0F4;
+    --green:#7FB069;
+    --green-soft:#EEF5E9;
+    --orange:#E8A87C;
+    --orange-soft:#FBF0E8;
+    --line:#E3E8EE;
+    --warn-bg:#FFF8EC;
+    --warn-line:#F0D9A8;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--text);
+    font-family:'Microsoft YaHei','PingFang SC','Helvetica Neue',Arial,sans-serif;
+    font-size:16px;
+    line-height:1.85;
+    touch-action:manipulation;          /* 禁双击缩放，保留双指捏合 */
+    -webkit-tap-highlight-color:transparent;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 14px 60px;}
+
+  /* 顶部提示 */
+  .topbar{
+    background:var(--warn-bg);
+    border-bottom:1px solid var(--warn-line);
+    color:#8a6d3b;
+    font-size:13px;
+    padding:8px 14px;
+    text-align:center;
+  }
+
+  header.hero{
+    background:linear-gradient(135deg,#4A90A4 0%,#5BA3B5 55%,#7FB069 130%);
+    color:#fff;
+    padding:34px 22px 30px;
+    text-align:center;
+  }
+  header.hero h1{
+    margin:0 0 8px;
+    font-size:28px;
+    letter-spacing:1px;
+    font-weight:700;
+  }
+  header.hero p{
+    margin:0;
+    font-size:15px;
+    opacity:.94;
+    line-height:1.7;
+  }
+  header.hero .badge{
+    display:inline-block;
+    margin-top:14px;
+    background:rgba(255,255,255,.18);
+    border:1px solid rgba(255,255,255,.45);
+    border-radius:20px;
+    padding:4px 16px;
+    font-size:13px;
+  }
+
+  /* 目录 */
+  nav.toc{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:20px 22px;
+    margin:22px 0;
+  }
+  nav.toc h2{
+    margin:0 0 12px;
+    font-size:18px;
+    color:var(--ink);
+    border-left:4px solid var(--primary);
+    padding-left:10px;
+  }
+  nav.toc ol{margin:0;padding-left:20px;}
+  nav.toc li{margin:4px 0;}
+  nav.toc a{color:var(--primary);text-decoration:none;}
+  nav.toc a:hover{text-decoration:underline;}
+
+  /* 通用卡片 */
+  section.card{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:22px 22px;
+    margin:22px 0;
+  }
+  section.card h2{
+    margin:0 0 14px;
+    font-size:22px;
+    color:var(--ink);
+    border-left:5px solid var(--primary);
+    padding-left:12px;
+    line-height:1.4;
+  }
+  section.card h3{
+    margin:22px 0 10px;
+    font-size:18px;
+    color:var(--ink);
+  }
+  section.card h4{
+    margin:16px 0 6px;
+    font-size:16px;
+    color:var(--primary);
+  }
+  section.card p{margin:8px 0;}
+  section.card ul,section.card ol{margin:8px 0;padding-left:22px;}
+  section.card li{margin:5px 0;}
+
+  /* 章节色块 */
+  .chapter{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-left:6px solid var(--green);
+    border-radius:12px;
+    padding:24px 22px;
+    margin:34px 0 10px;
+  }
+  .chapter h2{
+    margin:0 0 6px;
+    font-size:24px;
+    color:var(--ink);
+  }
+  .chapter .sub{
+    color:var(--muted);
+    font-size:14px;
+    margin:0;
+  }
+
+  /* 提示/要点框 */
+  .callout{
+    border-radius:10px;
+    padding:14px 16px;
+    margin:14px 0;
+    font-size:15px;
+  }
+  .callout.key{background:var(--primary-soft);border-left:4px solid var(--primary);}
+  .callout.win{background:var(--green-soft);border-left:4px solid var(--green);}
+  .callout.lose{background:var(--orange-soft);border-left:4px solid var(--orange);}
+  .callout.warn{background:var(--warn-bg);border-left:4px solid #E2B93B;}
+  .callout .t{font-weight:700;color:var(--ink);}
+
+  /* 速查卡片 */
+  .speed{
+    display:grid;
+    grid-template-columns:repeat(auto-fill,minmax(280px,1fr));
+    gap:14px;
+    margin-top:12px;
+  }
+  .speed .item{
+    background:var(--card);
+    border:1px solid var(--line);
+    border-radius:10px;
+    padding:12px 14px;
+  }
+  .speed .item .n{
+    display:inline-block;
+    background:var(--primary);
+    color:#fff;
+    border-radius:12px;
+    font-size:12px;
+    padding:1px 9px;
+    margin-right:6px;
+    font-weight:700;
+  }
+  .speed .item b{color:var(--ink);}
+
+  /* 数据表格 */
+  table.data{
+    width:100%;
+    border-collapse:collapse;
+    margin:12px 0;
+    font-size:14px;
+  }
+  table.data th,table.data td{
+    border:1px solid var(--line);
+    padding:8px 10px;
+    text-align:left;
+    vertical-align:top;
+  }
+  table.data th{background:var(--primary-soft);color:var(--ink);font-weight:700;}
+  table.data tr:nth-child(even) td{background:#FAFBFD;}
+
+  /* SVG容器 */
+  .mindmap{
+    background:#FBFDFE;
+    border:1px solid var(--line);
+    border-radius:12px;
+    padding:10px;
+    margin:14px 0;
+    overflow-x:auto;
+    -webkit-overflow-scrolling:touch;
+  }
+  .mindmap svg{
+    width:100%;
+    height:auto;
+    display:block;
+    min-width:720px;
+  }
+  .mindmap .hint{
+    text-align:center;
+    color:var(--muted);
+    font-size:12px;
+    padding-top:6px;
+  }
+
+  footer{
+    text-align:center;
+    color:var(--muted);
+    font-size:13px;
+    margin-top:40px;
+    padding:18px 0;
+    border-top:1px solid var(--line);
+  }
+
+  .tag{
+    display:inline-block;
+    background:var(--green-soft);
+    color:#4F7A3D;
+    border-radius:6px;
+    font-size:12px;
+    padding:1px 8px;
+    margin-left:6px;
+    vertical-align:middle;
+  }
+  .tag.o{background:var(--orange-soft);color:#B06B3D;}
+  .tag.b{background:var(--primary-soft);color:#356A7C;}
+
+  @media (max-width:640px){
+    body{font-size:15px;}
+    header.hero h1{font-size:22px;}
+    section.card{padding:16px 14px;}
+    .chapter{padding:18px 14px;}
+  }
+</style>
+</head>
+<body>
+
+<div class="topbar">💡 提示：如用 WPS 打开出现模糊或排版异常，请改用微信、手机浏览器或电脑浏览器打开，即可获得最佳显示效果（支持双指放大查看思维导图）。</div>
+
+<header class="hero">
+  <h1>2018 短线实战训练营</h1>
+  <p>从短线小白到精通高手的完整教程 · 全部知识点无遗漏</p>
+  <p>1 篇预告 + 30 课 · 跟主力（龙虎榜/游资）· 会卖出（盘口/分时）</p>
+  <span class="badge">纯手写 · 浅色系 · 横向树状SVG思维导图</span>
+</header>
+
+<div class="wrap">
+
+  <!-- ============ 目录 ============ -->
+  <nav class="toc" id="目录">
+    <h2>📚 课程总目录</h2>
+    <ol>
+      <li><a href="#总览">全局知识图谱（8大模块）</a></li>
+      <li><a href="#速查30条">核心方法论速查30条</a></li>
+      <li><a href="#数据速查表">核心数据速查表</a></li>
+      <li><a href="#第1章">第一章 思想基础与复盘体系（预告 + 第01–10课）</a></li>
+      <li><a href="#第2章">第二章 龙头识别与龙虎榜（第11–16课）</a></li>
+      <li><a href="#第3章">第三章 K线形态技术（第17–20课）</a></li>
+      <li><a href="#第4章">第四章 分时预测与盘口操作（第21–27课）</a></li>
+      <li><a href="#第5章">第五章 消息板与高溢价首板（第28–30课）</a></li>
+      <li><a href="#学习路径">5条学习路径建议</a></li>
+    </ol>
+  </nav>
+
+  <!-- ============ 全局知识图谱 ============ -->
+  <section class="card" id="总览">
+    <h2>🧭 全局知识图谱（横向树状 · 根在左 · 逐层向右）</h2>
+    <p>本图将 31 篇课程内容聚合为 <b>8 大模块 → 26 个核心知识点</b>，是本教程的"总地图"。文字较小可用双指放大查看。</p>
+    <div class="mindmap">
+      <svg viewBox="0 0 940 1620" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="短线实战训练营全局知识图谱">
+        <style>
+          .root{fill:#4A90A4;}
+          .mod{fill:#E8F0F4;stroke:#4A90A4;stroke-width:1.5;}
+          .leaf{fill:#FFFFFF;stroke:#7FB069;stroke-width:1.2;}
+          .t-root{fill:#FFFFFF;font-size:20px;font-weight:700;font-family:'Microsoft YaHei',sans-serif;}
+          .t-mod{fill:#2C3E50;font-size:15px;font-weight:700;font-family:'Microsoft YaHei',sans-serif;}
+          .t-leaf{fill:#3A4750;font-size:14px;font-family:'Microsoft YaHei',sans-serif;}
+          .link{stroke:#B9C8D2;stroke-width:1.5;fill:none;}
+        </style>
+
+        <!-- 连接线：根 -> 模块 -->
+        <path class="link" d="M220,840 H270 V122 H320"/>
+        <path class="link" d="M220,840 H270 V302 H320"/>
+        <path class="link" d="M220,840 H270 V532 H320"/>
+        <path class="link" d="M220,840 H270 V662 H320"/>
+        <path class="link" d="M220,840 H270 V842 H320"/>
+        <path class="link" d="M220,840 H270 V1022 H320"/>
+        <path class="link" d="M220,840 H270 V1202 H320"/>
+        <path class="link" d="M220,840 H270 V1432 H320"/>
+
+        <!-- 连接线：模块 -> 子点（模块1） -->
+        <path class="link" d="M540,122 H590 V122 H640"/>
+        <path class="link" d="M540,122 H590 V172 H640"/>
+        <path class="link" d="M540,122 H590 V222 H640"/>
+        <!-- 模块2 -->
+        <path class="link" d="M540,302 H590 V302 H640"/>
+        <path class="link" d="M540,302 H590 V352 H640"/>
+        <path class="link" d="M540,302 H590 V402 H640"/>
+        <path class="link" d="M540,302 H590 V452 H640"/>
+        <!-- 模块3 -->
+        <path class="link" d="M540,532 H590 V532 H640"/>
+        <path class="link" d="M540,532 H590 V582 H640"/>
+        <!-- 模块4 -->
+        <path class="link" d="M540,662 H590 V662 H640"/>
+        <path class="link" d="M540,662 H590 V712 H640"/>
+        <path class="link" d="M540,662 H590 V762 H640"/>
+        <!-- 模块5 -->
+        <path class="link" d="M540,842 H590 V842 H640"/>
+        <path class="link" d="M540,842 H590 V892 H640"/>
+        <path class="link" d="M540,842 H590 V942 H640"/>
+        <!-- 模块6 -->
+        <path class="link" d="M540,1022 H590 V1022 H640"/>
+        <path class="link" d="M540,1022 H590 V1072 H640"/>
+        <path class="link" d="M540,1022 H590 V1122 H640"/>
+        <!-- 模块7 -->
+        <path class="link" d="M540,1202 H590 V1202 H640"/>
+        <path class="link" d="M540,1202 H590 V1252 H640"/>
+        <path class="link" d="M540,1202 H590 V1302 H640"/>
+        <path class="link" d="M540,1202 H590 V1352 H640"/>
+        <!-- 模块8 -->
+        <path class="link" d="M540,1432 H590 V1432 H640"/>
+        <path class="link" d="M540,1432 H590 V1482 H640"/>
+        <path class="link" d="M540,1432 H590 V1532 H640"/>
+        <path class="link" d="M540,1432 H590 V1582 H640"/>
+
+        <!-- 根节点 -->
+        <rect class="root" x="20" y="810" width="200" height="60" rx="10"/>
+        <text class="t-root" x="120" y="847" text-anchor="middle">短线实战训练营</text>
+
+        <!-- 模块1 交易思想层 -->
+        <rect class="mod" x="320" y="100" width="220" height="44" rx="8"/>
+        <text class="t-mod" x="430" y="128" text-anchor="middle">① 交易思想层</text>
+        <rect class="leaf" x="640" y="100" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="123">交易系统五大要素</text>
+        <rect class="leaf" x="640" y="150" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="173">7% 止损铁律</text>
+        <rect class="leaf" x="640" y="200" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="223">仓位管理（资金×情绪）</text>
+
+        <!-- 模块2 大盘复盘层 -->
+        <rect class="mod" x="320" y="280" width="220" height="44" rx="8"/>
+        <text class="t-mod" x="430" y="308" text-anchor="middle">② 大盘复盘层</text>
+        <rect class="leaf" x="640" y="280" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="303">成交量阈值判市</text>
+        <rect class="leaf" x="640" y="330" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="353">热门板块四大题材</text>
+        <rect class="leaf" x="640" y="380" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="403">个股四步筛选法</text>
+        <rect class="leaf" x="640" y="430" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="453">三大周期与股灾判断</text>
+
+        <!-- 模块3 开盘竞价层 -->
+        <rect class="mod" x="320" y="510" width="220" height="44" rx="8"/>
+        <text class="t-mod" x="430" y="538" text-anchor="middle">③ 开盘竞价层</text>
+        <rect class="leaf" x="640" y="510" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="533">量价涨型竞价</text>
+        <rect class="leaf" x="640" y="560" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="583">量增价低型竞价</text>
+
+        <!-- 模块4 盘中异动层 -->
+        <rect class="mod" x="320" y="640" width="220" height="44" rx="8"/>
+        <text class="t-mod" x="430" y="668" text-anchor="middle">④ 盘中异动层</text>
+        <rect class="leaf" x="640" y="640" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="663">箱体突破异动</text>
+        <rect class="leaf" x="640" y="690" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="713">情绪共振异动</text>
+        <rect class="leaf" x="640" y="740" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="763">突发涨停（放弃）</text>
+
+        <!-- 模块5 龙头战法层 -->
+        <rect class="mod" x="320" y="820" width="220" height="44" rx="8"/>
+        <text class="t-mod" x="430" y="848" text-anchor="middle">⑤ 龙头战法层</text>
+        <rect class="leaf" x="640" y="820" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="843">龙头三大指标</text>
+        <rect class="leaf" x="640" y="870" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="893">龙头级别（大/小/一日游）</text>
+        <rect class="leaf" x="640" y="920" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="943">大级别龙头案例</text>
+
+        <!-- 模块6 龙虎榜游资层 -->
+        <rect class="mod" x="320" y="1000" width="220" height="44" rx="8"/>
+        <text class="t-mod" x="430" y="1028" text-anchor="middle">⑥ 龙虎榜游资层</text>
+        <rect class="leaf" x="640" y="1000" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="1023">龙虎榜披露规则</text>
+        <rect class="leaf" x="640" y="1050" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="1073">合力板 vs 独食板</text>
+        <rect class="leaf" x="640" y="1100" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="1123">真假席位与排单习惯</text>
+
+        <!-- 模块7 K线技术层 -->
+        <rect class="mod" x="320" y="1180" width="220" height="44" rx="8"/>
+        <text class="t-mod" x="430" y="1208" text-anchor="middle">⑦ K线形态技术层</text>
+        <rect class="leaf" x="640" y="1180" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="1203">锤子线 / 上吊线</text>
+        <rect class="leaf" x="640" y="1230" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="1253">吞没 / 刺透 / 乌云盖顶</text>
+        <rect class="leaf" x="640" y="1280" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="1303">赚钱K线四形态</text>
+        <rect class="leaf" x="640" y="1330" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="1353">亏钱K线三形态</text>
+
+        <!-- 模块8 实战操作层 -->
+        <rect class="mod" x="320" y="1410" width="220" height="44" rx="8"/>
+        <text class="t-mod" x="430" y="1438" text-anchor="middle">⑧ 实战操作层</text>
+        <rect class="leaf" x="640" y="1410" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="1433">止盈止损（上/下）</text>
+        <rect class="leaf" x="640" y="1460" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="1483">盘口买卖点</text>
+        <rect class="leaf" x="640" y="1510" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="1533">消息板打板条件</text>
+        <rect class="leaf" x="640" y="1560" width="260" height="36" rx="6"/>
+        <text class="t-leaf" x="650" y="1583">高溢价首板（转势板）</text>
+      </svg>
+      <div class="hint">← 根在左，逐层向右展开 · 直角折线连接 · 零JS · 可双指放大</div>
+    </div>
+  </section>
+
+  <!-- ============ 速查30条 ============ -->
+  <section class="card" id="速查30条">
+    <h2>⚡ 核心方法论速查 30 条</h2>
+    <p>这是全课程最精华的 30 条实战铁律，建议反复背诵直至形成肌肉记忆。</p>
+    <div class="speed">
+      <div class="item"><span class="n">1</span><b>交易系统五大要素</b>：初衷、计划、纪律、仓位、买卖点，缺一不可。</div>
+      <div class="item"><span class="n">2</span><b>7% 止损铁律</b>：任何单只票亏损达 7% 无条件离场，不心存侥幸。</div>
+      <div class="item"><span class="n">3</span><b>量价涨型竞价双标准</b>：量 ≥ 昨日最大量 50%，且振幅 &lt; 3%。</div>
+      <div class="item"><span class="n">4</span><b>量增价低型唯一例外</b>：仅当"龙头第一次强转弱"时，开盘 3–10 分钟确认后低吸。</div>
+      <div class="item"><span class="n">5</span><b>箱体突破三要素</b>：≥3 个月震荡 + 放量 ≥ 箱体峰值 + 主线共振。</div>
+      <div class="item"><span class="n">6</span><b>情绪共振四指标</b>：自然涨停 &lt; 10 家、连板 ≈ 0、跌停 &gt; 20 家、指数连跌 &gt; 3 天。</div>
+      <div class="item"><span class="n">7</span><b>突发涨停一律放弃</b>：80% 冲高回落，宁可错过不做错。</div>
+      <div class="item"><span class="n">8</span><b>复盘三层次</b>：大盘 → 板块 → 个股，逐层收敛，不跳步。</div>
+      <div class="item"><span class="n">9</span><b>换手板类型</b>：区分首次封板、二次回封、频繁开板，股性由强到弱。</div>
+      <div class="item"><span class="n">10</span><b>龙头三大指标</b>：时机（情绪低迷 1 月+）、号召力、空间与赚钱效应。</div>
+      <div class="item"><span class="n">11</span><b>龙头级别</b>：大级别龙头 / 小级别龙头 / 一日游龙头，级别决定持仓周期。</div>
+      <div class="item"><span class="n">12</span><b>龙头小弟空间比</b>：看跟风股能否打开空间，判断龙头持续性。</div>
+      <div class="item"><span class="n">13</span><b>合力板 vs 独食板</b>：买一 ≥ 买二 3 倍或 ≥ 总成交 10% 即独食板，回避。</div>
+      <div class="item"><span class="n">14</span><b>明星游资跟随</b>：3 赚进、2 亏退，用游资历史战绩做概率判断。</div>
+      <div class="item"><span class="n">15</span><b>真假席位辨别</b>：看手法一致性，同名席位手法漂移即假席位。</div>
+      <div class="item"><span class="n">16</span><b>锤子线/上吊线</b>：下影线 1.5–2 倍实体、实体在上半部；位置决定看涨还是看跌。</div>
+      <div class="item"><span class="n">17</span><b>吞没形态</b>：阳吞阴（强）＞刺透/乌云盖顶（弱），刺透需吃进 &gt; 50%。</div>
+      <div class="item"><span class="n">18</span><b>赚钱K线四形态</b>：涨停突破、双响炮、反包、空中加油。</div>
+      <div class="item"><span class="n">19</span><b>亏钱K线三形态</b>：龙头见顶、连续下跌、高位震荡，出现即离场。</div>
+      <div class="item"><span class="n">20</span><b>黄白线判风格</b>：白线=蓝筹权重、黄线=题材小票，白在上做蓝筹、黄在上做题材。</div>
+      <div class="item"><span class="n">21</span><b>V型反转</b>：下午两点后、双V最安全，配合量能确认。</div>
+      <div class="item"><span class="n">22</span><b>弱转强分时</b>：前日烂板/冲高回落，次日 80 度角拉升、10 分钟内上板。</div>
+      <div class="item"><span class="n">23</span><b>三波上板</b>：3% + 3% + 3% 分三波，末波 6–7% 直接封板。</div>
+      <div class="item"><span class="n">24</span><b>止损硬底线</b>：竞价不及预期 + 台阶式下跌，9:40–10:00 果断执行。</div>
+      <div class="item"><span class="n">25</span><b>龙头炸板处理</b>：先卖一半锁利润，留一半观察 15 分钟，不再回封则清仓。</div>
+      <div class="item"><span class="n">26</span><b>三次冲板止盈</b>：一鼓作气、再而衰、三而竭，第三次冲不过即卖出。</div>
+      <div class="item"><span class="n">27</span><b>拉回均线止盈</b>：强势股跌破分时均线、回落至 -4% 左右即止盈。</div>
+      <div class="item"><span class="n">28</span><b>买在分时低点</b>：右侧优于左侧，低吸控制在涨幅 ≤ 3% 以内。</div>
+      <div class="item"><span class="n">29</span><b>卖在分时高点</b>：均线偏离 3%，强势股高点约 +5% 处左侧止盈。</div>
+      <div class="item"><span class="n">30</span><b>打板核心铁律</b>：上板必须放量；消息板只打三种模式，烂而不弱才可接力。</div>
+    </div>
+  </section>
+
+  <!-- ============ 数据速查表 ============ -->
+  <section class="card" id="数据速查表">
+    <h2>📊 核心数据速查表（量化指标一网打尽）</h2>
+    <table class="data">
+      <thead>
+        <tr><th>类别</th><th>指标</th><th>关键数值 / 标准</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>止损</td><td>单票止损线</td><td>亏损 7% 无条件离场</td></tr>
+        <tr><td>仓位</td><td>资金上限</td><td>≤ 200 万持股不超过 2 只</td></tr>
+        <tr><td>仓位</td><td>赚钱效应</td><td>好：7–8 成；差：2–3 成</td></tr>
+        <tr><td>竞价</td><td>量价涨型</td><td>9:20–9:25 窗口；量 ≥ 昨日最大量 50%；振幅 &lt; 3%</td></tr>
+        <tr><td>竞价</td><td>量增价低例外</td><td>龙头首次强转弱，开盘 3–10 分钟确认</td></tr>
+        <tr><td>异动</td><td>箱体突破</td><td>≥ 3 个月震荡；放量 ≥ 箱体峰值</td></tr>
+        <tr><td>异动</td><td>情绪共振四指标</td><td>自然涨停 &lt; 10、连板 ≈ 0、跌停 &gt; 20、指数连跌 &gt; 3 天</td></tr>
+        <tr><td>大盘</td><td>成交量阈值</td><td>牛市 10000 亿 / 平市 5000–6000 亿 / 熊市 1400–2500 亿</td></tr>
+        <tr><td>个股</td><td>精选成交量</td><td>5 亿以下（流动性适中）</td></tr>
+        <tr><td>龙虎榜</td><td>独食板判定</td><td>买一 ≥ 买二 3 倍，或买一 ≥ 总成交 10%</td></tr>
+        <tr><td>游资</td><td>欢乐海岸排单</td><td>8900 手</td></tr>
+        <tr><td>游资</td><td>金田路排单</td><td>9700 手</td></tr>
+        <tr><td>K线</td><td>锤子线/上吊线</td><td>下影线 1.5–2 倍实体，实体在上半部</td></tr>
+        <tr><td>K线</td><td>刺透形态</td><td>吃进前阴实体 &gt; 50%</td></tr>
+        <tr><td>K线</td><td>涨停突破</td><td>量 &gt; 平台 2 倍</td></tr>
+        <tr><td>K线</td><td>双响炮调整</td><td>调整 2–4 天</td></tr>
+        <tr><td>分时</td><td>弱转强角度</td><td>80 度角拉升；10 分钟内上板</td></tr>
+        <tr><td>分时</td><td>三波上板</td><td>3% × 3 波；末波 6–7% 封板</td></tr>
+        <tr><td>分时</td><td>单边上涨角度</td><td>30–45 度（健康）</td></tr>
+        <tr><td>分时</td><td>V型反转</td><td>下午两点后；双V最安全</td></tr>
+        <tr><td>止损</td><td>止损执行时段</td><td>9:40–10:00</td></tr>
+        <tr><td>止盈</td><td>拉回均线止盈</td><td>负 4% 左右</td></tr>
+        <tr><td>盘口</td><td>低吸上限</td><td>涨幅 ≤ 3%</td></tr>
+        <tr><td>盘口</td><td>均线偏离止盈</td><td>偏离 3%；强势股高点约 +5%</td></tr>
+        <tr><td>涨停盘口</td><td>炸板回封</td><td>回封 ≤ 5 分钟；回落不破均线 ≥ 8%；次数 ≤ 3 次</td></tr>
+        <tr><td>涨停盘口</td><td>抢筹回封</td><td>挂单 &gt; 5 万手，1–2 秒内回封</td></tr>
+        <tr><td>首板</td><td>高溢价首板</td><td>个股涨幅 40%+；指数杀跌 ≥ 半月</td></tr>
+        <tr><td>龙头</td><td>特力A</td><td>98 日 785%</td></tr>
+        <tr><td>龙头</td><td>贵州燃气</td><td>20 多日 238%</td></tr>
+        <tr><td>龙头</td><td>万兴科技</td><td>17 日 214%（九连板 + 五连板）</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ====================================================================
+       第一章 思想基础与复盘体系
+  ==================================================================== -->
+  <div class="chapter" id="第1章">
+    <h2>第一章 思想基础与复盘体系</h2>
+    <p class="sub">预告篇 + 第01–10课 · 建立交易认知、交易系统与复盘框架</p>
+  </div>
+
+  <!-- 章节导图 -->
+  <section class="card">
+    <h2>🧭 第一章知识导图</h2>
+    <div class="mindmap">
+      <svg viewBox="0 0 700 760" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="第一章知识导图">
+        <style>
+          .root{fill:#4A90A4;} .mod{fill:#E8F0F4;stroke:#4A90A4;stroke-width:1.5;}
+          .t-root{fill:#fff;font-size:18px;font-weight:700;font-family:'Microsoft YaHei',sans-serif;}
+          .t-mod{fill:#2C3E50;font-size:14px;font-family:'Microsoft YaHei',sans-serif;}
+          .link{stroke:#B9C8D2;stroke-width:1.5;fill:none;}
+        </style>
+        <path class="link" d="M180,380 H230 V60 H280"/>
+        <path class="link" d="M180,380 H230 V120 H280"/>
+        <path class="link" d="M180,380 H230 V180 H280"/>
+        <path class="link" d="M180,380 H230 V240 H280"/>
+        <path class="link" d="M180,380 H230 V300 H280"/>
+        <path class="link" d="M180,380 H230 V360 H280"/>
+        <path class="link" d="M180,380 H230 V420 H280"/>
+        <path class="link" d="M180,380 H230 V480 H280"/>
+        <path class="link" d="M180,380 H230 V540 H280"/>
+        <path class="link" d="M180,380 H230 V600 H280"/>
+        <path class="link" d="M180,380 H230 V660 H280"/>
+        <rect class="root" x="20" y="360" width="160" height="40" rx="8"/>
+        <text class="t-root" x="100" y="386" text-anchor="middle">第一章</text>
+        <rect class="mod" x="280" y="40" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="65">预告篇 · 两大主线（跟主力 / 会卖出）</text>
+        <rect class="mod" x="280" y="100" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="125">第01课 · 赚钱效应个股分时（弱转强/三波上板）</text>
+        <rect class="mod" x="280" y="160" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="185">第02课 · 交易系统和计划（五要素/7%止损/仓位）</text>
+        <rect class="mod" x="280" y="220" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="245">第03课 · 量价涨型竞价</text>
+        <rect class="mod" x="280" y="280" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="305">第04课 · 量增价低型竞价（含例外）</text>
+        <rect class="mod" x="280" y="340" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="365">第05课 · 箱体突破异动</text>
+        <rect class="mod" x="280" y="400" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="425">第06课 · 情绪共振异动</text>
+        <rect class="mod" x="280" y="460" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="485">第07课 · 突发涨停（放弃原则）</text>
+        <rect class="mod" x="280" y="520" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="545">第08课 · 市场底部与复盘</text>
+        <rect class="mod" x="280" y="580" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="605">第09课 · 热门板块复盘</text>
+        <rect class="mod" x="280" y="640" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="665">第10课 · 个股筛选（四步法）</text>
+      </svg>
+      <div class="hint">← 章节点在左 · 各课向右展开</div>
+    </div>
+  </section>
+
+  <!-- 预告篇 -->
+  <section class="card" id="预告篇">
+    <h2>预告篇 · 课程两大主线</h2>
+    <p>本课程解决散户两大核心痛点：<b>如何识别主力资金进场</b> 与 <b>如何避免卖飞（一卖就涨）</b>。</p>
+    <div class="callout key">
+      <div class="t">🔑 两大模块（贯穿全课程）</div>
+      <ul>
+        <li><b>模块一「跟主力」——龙虎榜 + 游资分析</b>：解析知名游资的选股习惯与下单特征，提升跟庄操作的安全性。</li>
+        <li><b>模块二「会卖出」——盘口 + 分时图</b>：总结五种见底盘口模型，解决"一卖就涨"难题。</li>
+      </ul>
+    </div>
+    <h4>关键词体系</h4>
+    <p>龙虎榜 · 明星游资 · 主力动向 · 选股技巧 · 盘口 · 分时图 · 五种盘口模型 · 盘中见底卖点。</p>
+    <p><b>目标受众</b>：买卖点判断困难、容易卖飞的散户投资者。</p>
+  </section>
+
+  <!-- 第01课 -->
+  <section class="card" id="第01课">
+    <h2>第01课 · 几种赚钱效应个股分时</h2>
+    <p class="sub" style="color:var(--muted);font-size:14px;">（本课与第22课内容高度重合，均讲解「弱转强」与「三波上板」两大赚钱分时形态，两课合并完整呈现）</p>
+
+    <h4>一、分时图基本构成</h4>
+    <ul>
+      <li><b>横轴</b>：交易时间（开盘至收盘全天时段）。</li>
+      <li><b>纵轴上半部</b>：股价与涨幅（价位区）。</li>
+      <li><b>纵轴下半部</b>：成交量（量能区）。</li>
+      <li><b>核心观察</b>：必须重点关注 <b>股价走势与成交量的配合关系</b>——价格反映方向，量能反映力度，二者共振才是真强势。</li>
+    </ul>
+
+    <h4>二、弱转强分时（最值得关注的短线形态）</h4>
+    <ul>
+      <li><b>前提</b>：前一交易日出现 <b>大烂板</b>（频繁开板）或 <b>冲高回落</b>等弱势表现。</li>
+      <li><b>正常预期</b>：次日常规应为低开低走或低开震荡。</li>
+      <li><b>异常信号（弱转强）</b>：竞价不弱反强，开盘后超预期快速拉升，分时呈 <b>80 度角直线拉伸</b>，<b>十分钟内完成上板</b>。</li>
+      <li><b>短线地位</b>：非常值得重点关注的赚钱形态。</li>
+    </ul>
+    <div class="callout key"><div class="t">📌 弱转强两大核心信号</div>① 竞价超预期；② 开盘后快速拉升（超预期）。二者共振即为弱转强。</div>
+
+    <h4>三、弱转强实战案例</h4>
+    <ul>
+      <li><b>案例1 · 粤传媒（4月17日—18日）</b>：4月17日日内封大烂板 → 4月18日早盘平开、快速拉升、80 度斜率上板（十分钟内封板），标准弱转强分时。</li>
+      <li><b>案例2 · 锋龙股份（5月2日—3日）</b>：5月2日午后上板封超级大烂板 → 5月3日小幅平开、快速拉板、80 度斜率上板（十分钟内封板），标准弱转强分时。</li>
+    </ul>
+
+    <h4>四、相对的弱（"弱"的界定）</h4>
+    <ul>
+      <li><b>相对概念</b>：烂板或下午跟风板，相对于早盘涨停龙头股即为「弱」。</li>
+      <li><b>资金心理</b>：内部资金倾向尽早离场换龙头。</li>
+    </ul>
+
+    <h4>五、股性层级（由强到弱）</h4>
+    <ul>
+      <li><b>龙头股强度 &gt; 跟风股</b>；</li>
+      <li><b>一次封板 &gt; 频繁开板</b>；</li>
+      <li><b>早盘封板 &gt; 午盘封板</b>。</li>
+    </ul>
+
+    <h4>六、弱转强的大盘环境考量</h4>
+    <ul>
+      <li><b>多数情况</b>：指数微低开或微高开，对个股影响小，重点看个股本身。</li>
+      <li><b>大利好（高开很多）</b>：个股高开高走多为大盘带动，<b>非真正弱转强，不可直接参与</b>。</li>
+      <li><b>大利空（低开很多）</b>：个股仍呈现弱转强竞价与开盘拉升，<b>效果更明显、更值得关注参与</b>。</li>
+    </ul>
+
+    <h4>七、弱转强的买点</h4>
+    <ul>
+      <li><b>参与方式</b>：半路追高 或 涨停板打板确认。</li>
+      <li><b>关键前提</b>：必须是弱转强。</li>
+      <li><b>风险提示</b>：若个股本身很强，次日通常为缩量加速板，<b>无好的参与点</b>，不宜参与。</li>
+    </ul>
+
+    <h4>八、三波上板分时（成功率最高的涨停分时形态）</h4>
+    <ul>
+      <li>分三段拉升：<b>3% + 3% + 3%</b>（分三波，每波约3%），最后一波从 <b>6–7%</b> 直接封板。</li>
+      <li><b>三波最优的原因</b>：一笔拉升（10%）易引发砸盘炸板；三波拉升调整震荡促进换手，筹码稳定性好。</li>
+      <li><b>关键特征</b>：每次拉升后的调整阶段，分时<b>不能跌破分时均线</b>（分时支撑强的标志）。</li>
+      <li><b>时间要求</b>：尽量在上午，最好 <b>十点前</b>，越早溢价越高；下午则沦为跟风，不值得参与。</li>
+      <li><b>变种对比</b>：两波上板（筹码换手不充分，✗）；四波上板（分时力度变弱，✗）；<b>三波上板（成功率最高，✓）</b>。</li>
+      <li><b>买点</b>：最确定性买点是 <b>7% 左右一笔拉板时打板买入</b>；点火拉升若吸引不到封板资金易冲高回落，故打板确定性最大。</li>
+    </ul>
+
+    <h4>九、三波上板实战案例</h4>
+    <ul>
+      <li><b>欣锐科技（6月26日）</b>：标准三波上板——每波拉升 3-4 个点、调整时不破分时均线、最后从 6% 左右位置一笔拉板，值得参与的涨停分时。</li>
+    </ul>
+    <div class="callout win"><div class="t">✅ 一句话记住</div>弱转强 + 三波上板，是日内最强的两种赚钱分时形态；股性越强（龙头、一次封板、早盘板），次日溢价越高。</div>
+  </section>
+
+  <!-- 第02课 -->
+  <section class="card" id="第02课">
+    <h2>第02课 · 交易系统和计划</h2>
+
+    <h4>一、交易初衷（为什么交易）</h4>
+    <ul>
+      <li>核心目标是 <b>财务自由</b>——例如用 10 万本金、规划 3 年时间实现。</li>
+      <li>实现路径多为 <b>超短打板</b>，标杆人物：<b>赵老哥 8 年 1 万倍</b>、<b>瑞鹤仙 3 年上亿</b>，证明超短是可行的复利路径。</li>
+      <li><b>误区</b>：无目标、无初衷的盲目交易，最容易亏损。</li>
+    </ul>
+
+    <h4>二、交易系统五大要素</h4>
+    <ul>
+      <li>① <b>初衷</b>：我为什么要交易（避免盲目）。</li>
+      <li>② <b>计划</b>：买入前必须有完整计划（买什么、买多少、什么价买、什么价卖）。</li>
+      <li>③ <b>纪律</b>：严格执行计划，不临时变卦。</li>
+      <li>④ <b>仓位</b>：根据赚钱效应动态调整。</li>
+      <li>⑤ <b>买卖点</b>：明确的进场与离场信号。</li>
+    </ul>
+
+    <h4>三、交易计划三要素</h4>
+    <ul>
+      <li><b>① 目标股</b>：明确准备交易的标的。</li>
+      <li><b>② 介入位置与方式</b>：在哪买、用什么手法买（打板/低吸等）。</li>
+      <li><b>③ 持仓处理</b>：买入后如何持有、何时加仓减仓离场。</li>
+    </ul>
+
+    <h4>四、纪律性（对抗侥幸心理）</h4>
+    <p>侥幸心理的两大典型场景：</p>
+    <ul>
+      <li><b>场景一</b>：亏损时"再等等，会反弹"→ 越套越深；</li>
+      <li><b>场景二</b>：盈利时"再拿拿，还能涨"→ 由盈转亏。</li>
+      <li><b>对策</b>：一切按既定计划执行，用纪律替代情绪。</li>
+    </ul>
+
+    <h4>五、7% 止损铁律</h4>
+    <p>任何单只股票亏损达到 <b>7%</b>，无条件离场。这是保命底线，不因任何"再等等"的侥幸心理改变。</p>
+    <div class="callout key"><div class="t">🔑 止损的两大分类</div>
+      <ul>
+        <li><b>时间止损</b>：买入后预期时间内（如 3 天）不涨反跌，无论盈亏先离场。</li>
+        <li><b>空间止损</b>：亏损达固定幅度（<b>7%</b>）无条件离场。</li>
+        <li><b>止损线设置边界</b>：止损线过低（如 3%）易被洗盘卖飞；过高（&gt;10%）则损失过大，是交易大忌。</li>
+      </ul>
+    </div>
+
+    <h4>六、仓位管理</h4>
+    <ul>
+      <li><b>资金上限</b>：≤ 200 万资金时，持股不超过 <b>2 只</b>；&gt;200 万资金 <b>强制分仓</b>。</li>
+      <li><b>赚钱效应好</b>（判断标准：<b>≥5 个两连板 + ≥30 只涨停</b>）：仓位加至 <b>7–8 成</b>。</li>
+      <li><b>赚钱效应差</b>（判断标准：<b>≤1–2 个连板 + 涨停 &lt;10 只 + 跌停 &gt;10 只</b>）：仓位降至 <b>2–3 成</b>。</li>
+      <li><b>半仓基准</b>：市场方向不明时，半仓是中性基准。</li>
+    </ul>
+
+    <h4>七、买卖点体系</h4>
+    <ul>
+      <li><b>短线买入</b>：打板、低吸。</li>
+      <li><b>中长线买入</b>：缩量调整到均线（支撑位）时买入。</li>
+      <li><b>短线卖出时间</b>：三个关键时点——<b>集合竞价</b>、<b>十点</b>、<b>两点半</b>，需结合盘面强弱择机离场。</li>
+    </ul>
+    <div class="callout key"><div class="t">🔑 核心逻辑</div>仓位是情绪的映射——市场赚钱效应好就重仓，差就轻仓，永远让资金管理与市场状态匹配。</div>
+  </section>
+
+  <!-- 第03课 -->
+  <section class="card" id="第03课">
+    <h2>第03课 · 量价涨型竞价</h2>
+
+    <h4>一、竞价观察窗口</h4>
+    <ul>
+      <li>核心窗口是 <b>9:20–9:25</b>（这一时段委托<b>不可撤单</b>，是真实买卖意图的体现）。</li>
+      <li><b>9:20 前的过滤</b>：9:20 前挂单可撤，多为<b>试盘异动</b>（主力试探性挂单后撤单），<b>不可信、需过滤</b>。</li>
+    </ul>
+
+    <h4>二、量价涨型双标准</h4>
+    <ul>
+      <li><b>标准1（量）</b>：竞价成交量 ≥ 昨日（或近期）最大成交量的 <b>50%</b>。</li>
+      <li><b>标准2（价）</b>：竞价振幅（波动幅度）<b>&lt; 3%</b>。</li>
+    </ul>
+
+    <h4>三、两种参与场景</h4>
+    <ul>
+      <li><b>追高</b>：竞价强势、量价配合好，直接追进。<b>注意：追高需小仓位</b>，控制风险。</li>
+      <li><b>低吸</b>：竞价强势但开盘有回落，等回踩低点再吸。</li>
+    </ul>
+
+    <h4>四、实战案例</h4>
+    <ul>
+      <li><b>案例1 · 斯尔特（追高）</b>：量价涨型竞价，直接追高进场，属于追高场景的标准应用。</li>
+      <li><b>案例2 · 赫美集团（低吸）</b>：竞价评分 <b>-10 分</b>（表面看弱），但博弈的是<b>大长腿</b>（低开后大幅拉起的形态），属于低吸场景，是"弱中寻机"的经典示范。</li>
+    </ul>
+    <div class="callout win"><div class="t">✅ 记忆点</div>量价涨型 = 放量（≥50%）+ 稳价（振幅&lt;3%），是竞价阶段最可靠的做多信号；追高要小仓位、低吸等回踩。</div>
+  </section>
+
+  <!-- 第04课 -->
+  <section class="card" id="第04课">
+    <h2>第04课 · 量增价低型竞价</h2>
+
+    <h4>一、常规定性：不良</h4>
+    <p>量增价低（放量下跌）型竞价，<b>常规定性为不良</b>，代表抛压沉重、主力可能出逃，一般应回避。</p>
+
+    <h4>二、唯一例外</h4>
+    <div class="callout key">
+      <div class="t">🔑 例外情形</div>
+      <p>当个股是 <b>龙头，且出现第一次"强转弱"</b>时，量增价低反而是低吸机会。</p>
+      <ul>
+        <li><b>确认方式</b>：开盘后 <b>3–10 分钟</b>观察，若能企稳、跌不动（止跌信号），则可低吸。</li>
+        <li><b>逻辑</b>：龙头第一次强转弱，是获利盘出逃 + 新资金接力的换手，而非趋势终结。</li>
+      </ul>
+    </div>
+
+    <h4>三、关键心法：先抑后扬优于先扬后抑</h4>
+    <ul>
+      <li><b>先抑后扬</b>（竞价先走弱、开盘后逐步拉升）：换手充分、筹码干净，后续更稳。</li>
+      <li><b>先扬后抑</b>（竞价先走强、开盘后逐步走弱）：冲高回落，抛压出逃，风险更大。</li>
+    </ul>
+
+    <h4>四、实战案例</h4>
+    <ul>
+      <li><b>案例1 · 万讯自控（反包失败）</b>：量增价低型竞价，试图反包但失败，属于常规不良情形，应回避。</li>
+      <li><b>案例2 · 贵州燃气（特停复牌大长腿）</b>：龙头特停复牌后竞价低开（量增价低），但走出<b>大长腿</b>（低开高走），是龙头第一次强转弱的低吸良机。</li>
+      <li><b>案例3 · 惠威科技（低开快速上板再连两板）</b>：低开（量增价低）后快速上板，随后连拉两个涨停，是先抑后扬、弱转强的成功范例。</li>
+    </ul>
+    <div class="callout warn"><div class="t">⚠️ 注意</div>仅限"龙头第一次"强转弱；第二次、第三次强转弱则大概率是真正见顶，不可套用。</div>
+  </section>
+
+  <!-- 第05课 -->
+  <section class="card" id="第05课">
+    <h2>第05课 · 箱体突破异动</h2>
+
+    <h4>一、异动识别三件套（看盘工具）</h4>
+    <ul>
+      <li>① <b>快速涨跌幅排名</b>：3 分钟内快速扫描涨幅榜/跌幅榜，第一时间发现异动个股。</li>
+      <li>② <b>短线精灵</b>：行情软件自带的盘中异动提示工具。</li>
+      <li>③ <b>分时 + 日K 同屏</b>：分时看日内强弱，日K 看趋势位置，二者结合判断异动性质。</li>
+    </ul>
+
+    <h4>二、箱体突破三要素</h4>
+    <ul>
+      <li>① <b>震荡时长</b>：≥ <b>3 个月</b>的箱体震荡（平台越久越有效）。</li>
+      <li>② <b>放量</b>：突破时放量 ≥ 箱体内 <b>峰值成交量</b>。</li>
+      <li>③ <b>主线共振</b>：突破方向与当下市场主线（热点题材）共振。</li>
+    </ul>
+
+    <h4>三、正例 · 风华高科（三要素齐全）</h4>
+    <ul>
+      <li><b>前期</b>：半年箱体震荡，蓄势充分。</li>
+      <li><b>先兆</b>：6.22 出现<b>未涨停的放量大阳线</b>，是资金进场的先兆信号。</li>
+      <li><b>突破日</b>：放量突破，成交额达 <b>16 亿</b>，天量有效突破。</li>
+      <li><b>结果</b>：15 日内股价从 16 元涨到 24 元，<b>涨幅 +50%</b>。</li>
+    </ul>
+
+    <h4>四、反例 · 汉嘉设计（突破失败三原因）</h4>
+    <ul>
+      <li>① <b>震荡不足</b>：震荡仅约 1 月，远未达到 ≥3 月的充分蓄势。</li>
+      <li>② <b>缩量</b>：突破时量能不足，未能放量消化抛压。</li>
+      <li>③ <b>次新股非热点</b>：突破方向并非当下市场主线，缺乏题材共振。</li>
+    </ul>
+    <div class="callout win"><div class="t">✅ 记忆点</div>箱体突破 = 长期震荡（≥3月）+ 天量突破（≥峰值）+ 主线共振，三者缺一不可。</div>
+  </section>
+
+  <!-- 第06课 -->
+  <section class="card" id="第06课">
+    <h2>第06课 · 情绪共振异动</h2>
+    <p>情绪共振是"雪中送炭"式异动——在大盘与情绪极度冰点时的逆势做多信号。</p>
+
+    <h4>一、情绪冰点四指标（量化标准）</h4>
+    <ul>
+      <li>① 自然涨停家数 <b>&lt; 10 家</b>（极弱）；</li>
+      <li>② 连板家数 <b>≈ 0</b>（高度板消失）；</li>
+      <li>③ 跌停家数 <b>&gt; 20 家</b>（恐慌弥漫）；</li>
+      <li>④ 指数 <b>连跌 &gt; 3 天</b>，且处于<b>5 日线之下</b>（持续走弱）。</li>
+    </ul>
+
+    <h4>二、真假共振的量化判断</h4>
+    <ul>
+      <li><b>真共振（情绪冰点）</b>：涨停 &lt;10 家、连板 ≈0、跌停 &gt;20 家、指数连跌 &gt;3 天且在 5 日线下。</li>
+      <li><b>假共振（情绪仍热）</b>：涨停 &gt;20 家、连板 &gt;2 家、跌停 &lt;3 家——此时跟涨只是锦上添花，非雪中送炭。</li>
+      <li><b>典型异动特征</b>：个股 <b>3 分钟内从平盘拉涨停</b>，是资金逆势抢筹的标志。</li>
+    </ul>
+
+    <h4>三、买点</h4>
+    <ul>
+      <li><b>买点一 · 打板</b>：涨停确认时打板介入。</li>
+      <li><b>买点二 · 共振低吸/半路</b>：在情绪转折的个股上，跟随共振做低吸或半路追进。</li>
+    </ul>
+
+    <h4>四、正例 · 超频三（真共振）</h4>
+    <ul>
+      <li><b>11:00 撬板</b>：盘中跌停被资金撬开，第一次展示承接力。</li>
+      <li><b>第二次撬板（半路）</b>：再度撬板，主力半路进场，力度更强。</li>
+      <li><b>带动效应</b>：带动 <b>亚夏汽车、中原特钢</b> 等跟风品种。</li>
+      <li><b>结果</b>：次日再涨停，走出妖股行情。</li>
+    </ul>
+
+    <h4>五、反例 · 新锐科技（假共振）</h4>
+    <ul>
+      <li><b>14:05 最低点</b>：盘中下探至最低点后反弹，看似逆势。</li>
+      <li><b>本质</b>：只是<b>新能源板块带动</b>的跟涨，并非真正的市场情绪转折共振，后续未成气候。</li>
+    </ul>
+    <div class="callout key"><div class="t">🔑 核心逻辑</div>真正的情绪共振是"雪中送炭"，在绝望中第一个站出来；锦上添花（情绪已热时跟涨）价值远低于雪中送炭。</div>
+  </section>
+
+  <!-- 第07课 -->
+  <section class="card" id="第07课">
+    <h2>第07课 · 突发涨停</h2>
+    <h4>核心结论：一律放弃</h4>
+    <p>盘中突发涨停（无预兆、无逻辑支撑的突然拉板），<b>80% 会冲高回落</b>，是最容易套人的陷阱。</p>
+
+    <h4>一、典型案例复盘（真假消息的教训）</h4>
+    <ul>
+      <li><b>文一科技（2018.7.25）</b>：盘中突发涨停，源于"清华紫光 22 亿欧元收购芯片资产"传闻。结果盘后清华紫光<b>否认</b>传闻，消息被证伪，次日冲高回落套人。</li>
+      <li><b>英飞拓（2018.7.26）</b>：盘中突发涨停，源于"某大使馆爆炸"传闻，实为<b>爆米花机故障</b>——纯乌龙消息，涨停毫无逻辑支撑，次日原形毕露。</li>
+    </ul>
+
+    <h4>二、判断依据：盘感与看盘方法论</h4>
+    <ul>
+      <li><b>盘感的定义</b>：盘感不是玄学，而是长期看盘积累的<b>对市场情绪、资金意图、消息真假的快速直觉判断</b>。</li>
+      <li><b>盘感的培养</b>：坚持每日复盘 + 大量看盘，把"什么消息能带动、什么消息是假的"沉淀成肌肉记忆。</li>
+      <li><b>看盘方法论</b>：突发涨停先问三句话——①消息是真还是假？②有逻辑支撑吗？③有板块共振吗？答不上来就放弃。</li>
+    </ul>
+
+    <h4>三、操作原则</h4>
+    <ul>
+      <li>宁可错过，不做错——突发涨停不参与。</li>
+      <li>突发涨停与第06课"情绪共振异动"有本质区别：共振是市场合力，突发是消息突袭，后者 80% 是陷阱。</li>
+    </ul>
+    <div class="callout lose"><div class="t">⚠️ 铁律</div>无逻辑、无预兆、无共振的"三无"突发涨停，直接放弃，不追高。</div>
+  </section>
+
+  <!-- 第08课 -->
+  <section class="card" id="第08课">
+    <h2>第08课 · 市场底部与复盘</h2>
+    <h4>一、成交量阈值判市</h4>
+    <table class="data">
+      <thead><tr><th>市场状态</th><th>成交量阈值</th></tr></thead>
+      <tbody>
+        <tr><td>牛市（活跃）</td><td>10000 亿</td></tr>
+        <tr><td>平市（正常）</td><td>5000–6000 亿</td></tr>
+        <tr><td>熊市（低迷）</td><td>1400–2500 亿</td></tr>
+      </tbody>
+    </table>
+
+    <h4>二、四大指数（观察市场的四个窗口）</h4>
+    <ul>
+      <li>① <b>上证指数</b>：代表蓝筹权重；</li>
+      <li>② <b>创业板指</b>：代表题材小票；</li>
+      <li>③ <b>深成指</b>：代表深市整体；</li>
+      <li>④ <b>上证50</b>：代表超级权重蓝筹。</li>
+    </ul>
+
+    <h4>三、三大周期（时间维度）</h4>
+    <ul>
+      <li><b>大周期（机构级别）</b>：半年至 1 年，由机构资金主导，决定大方向。</li>
+      <li><b>中周期（半月级别）</b>：半月至一个季度，由游资/主力主导，是短线操作的主战场。</li>
+      <li><b>小周期（日内级别）</b>：日内黄白线（第21课）、10 点前的分时强弱，决定当日进出。</li>
+    </ul>
+
+    <h4>四、股灾判断（识别风险）</h4>
+    <ul>
+      <li><b>判定标准</b>：至少两个指数<b>连续超过一周下跌</b>，且<b>没有连板股</b>——市场无赚钱效应，属股灾式下跌。</li>
+      <li>此时应<b>果断空仓</b>避险，保住本金。</li>
+    </ul>
+
+    <h4>五、股灾结束（识别机会）</h4>
+    <ul>
+      <li><b>结束信号</b>：指数<b>连续一周不创新低</b>，且<b>超跌股领涨</b>（跌得最多的先反弹）。</li>
+      <li>超跌领涨 = 资金回流抄底，是市场见底企稳的重要信号。</li>
+    </ul>
+
+    <h4>六、主线结束（识别退潮）</h4>
+    <ul>
+      <li><b>龙头两日跌 &gt;10%</b>：龙头崩塌，主线见顶；</li>
+      <li><b>跟风跌停潮</b>：跟风股批量跌停，赚钱效应退散；</li>
+      <li><b>低吸、打板双亏</b>：无论低吸还是打板都亏钱，说明主线已死，应撤离。</li>
+    </ul>
+
+    <h4>七、复盘三层次（每日必修）</h4>
+    <ul>
+      <li><b>层次一 · 复盘大盘</b>：看四大指数、成交量、涨跌家数，判断当前环境。</li>
+      <li><b>层次二 · 复盘板块</b>：看领涨/领跌板块，识别当前主线与退潮板块。</li>
+      <li><b>层次三 · 复盘个股</b>：看涨停股、跌停股、连板股、龙虎榜，沉淀盘感。</li>
+    </ul>
+
+    <h4>八、重要误区</h4>
+    <ul>
+      <li><b>主板日内异动涨停 ≠ 主线反转</b>：主板某天异动拉几个涨停，多数是"一日游"，不能据此判断主线反转。</li>
+      <li>判断主线反转要看持续性（连板高度 + 板块效应 + 量能延续），而非单日异动。</li>
+    </ul>
+  </section>
+
+  <!-- 第09课 -->
+  <section class="card" id="第09课">
+    <h2>第09课 · 热门板块复盘</h2>
+    <h4>一、炒新不炒旧</h4>
+    <p>市场永远追逐 <b>新题材、新热点</b>，老题材利好边际递减，应优先关注新板块。</p>
+
+    <h4>二、预期差理论</h4>
+    <ul>
+      <li><b>核心</b>：买在"预期差"最大的地方——市场尚未充分反映、但实际利好超预期的新题材，才有大空间。</li>
+      <li>预期差 = 市场认知 vs 真实基本面之间的差距，差距越大、弹性越大。</li>
+    </ul>
+
+    <h4>三、老题材三大弊端（为何不炒旧）</h4>
+    <ul>
+      <li>① <b>利好兑现</b>：利好已反映在股价里，缺乏预期差；</li>
+      <li>② <b>套牢盘重</b>：上方积累大量套牢筹码，拉升阻力大；</li>
+      <li>③ <b>审美疲劳</b>：资金对老题材无新鲜感，跟风意愿低。</li>
+    </ul>
+
+    <h4>四、历史大案例（炒新不炒旧的印证）</h4>
+    <ul>
+      <li><b>2016 恒大举牌</b>：举牌概念横空出世，带动一波行情；</li>
+      <li><b>2017 雄安新区</b>：国家级新题材，史诗级炒作；</li>
+      <li><b>2018 独角兽</b>：独角兽回归概念，成为当年主线之一。</li>
+    </ul>
+
+    <h4>五、四大题材来源（详细）</h4>
+    <ul>
+      <li>① <b>消息面题材</b>：政策、事件驱动的突发题材，热度通常 <b>持续约 2 个月</b>。</li>
+      <li>② <b>惯性题材</b>：次新、高送转等每年 <b>两波</b> 的惯性行情，节奏可预期。</li>
+      <li>③ <b>周期涨价题材</b>：看<b>期货价格</b>做股票，商品涨价带来业绩驱动。</li>
+      <li>④ <b>妖股题材</b>：纯情绪/资金推动，妖股往往 <b>7 天翻倍</b>，风险极高。</li>
+    </ul>
+
+    <h4>六、三类龙头（选股宝主题库分类）</h4>
+    <ul>
+      <li><b>人气龙头</b>：市场关注度最高、讨论最热的票；</li>
+      <li><b>行业龙头</b>：板块内基本面/地位最核心的票；</li>
+      <li><b>今日龙头</b>：当日领涨、最先封板的票。</li>
+    </ul>
+
+    <h4>七、工具</h4>
+    <ul>
+      <li>使用 <b>选股宝主题库</b>（约 <b>300 个精准股票池</b>）跟踪板块热点，快速识别当前主线，锁定各类龙头。</li>
+    </ul>
+  </section>
+
+  <!-- 第10课 -->
+  <section class="card" id="第10课">
+    <h2>第10课 · 个股筛选</h2>
+    <h4>一、四步粗选（每日从涨停里筛选）</h4>
+    <ul>
+      <li>① <b>龙头</b>：优先选板块龙头，分清<b>龙一 / 龙二 / 龙三</b>（龙一最强，跟风靠后）；</li>
+      <li>② <b>连板</b>：关注连板高度，连板口诀——<b>"三板看五板，五板看七板"</b>（三连板看能否冲五板，五连板看能否冲七板）；</li>
+      <li>③ <b>换手振幅</b>：关注<b>换手率与振幅前 10</b> 的活跃股；</li>
+      <li>④ <b>消息</b>：有无消息/题材支撑。</li>
+    </ul>
+
+    <h4>二、换手板三大类型（按换手分）</h4>
+    <ul>
+      <li><b>放量板</b>：换手充分放大，资金充分换手，后续合力强；</li>
+      <li><b>平量板</b>：量能持平，资金稳定接力；</li>
+      <li><b>缩量板</b>：缩量涨停，抛压小、惜售明显，主力控盘强。</li>
+    </ul>
+
+    <h4>三、粗选数量与反例</h4>
+    <ul>
+      <li><b>粗选池</b>：每日从涨停股中粗选出 <b>20–25 只</b> 候选。</li>
+      <li><b>反例 · 实达集团、福达合金</b>：看似涨停但缺乏持续逻辑，粗选后需在下一环节被淘汰，避免盲目追入。</li>
+    </ul>
+
+    <h4>四、利空排查</h4>
+    <p>粗选后逐一排查：基本面利空、减持、解禁、诉讼、业绩暴雷等，规避黑天鹅。</p>
+
+    <h4>五、四维度精选</h4>
+    <ul>
+      <li>① <b>成交量</b>：5 亿以下（流动性适中，避免巨量拥挤）；</li>
+      <li>② <b>K线</b>：形态健康、趋势向上；</li>
+      <li>③ <b>换手</b>：换手活跃、资金接力充分；</li>
+      <li>④ <b>龙虎榜</b>：有无知名游资/机构上榜。</li>
+    </ul>
+
+    <h4>六、消息面三大报（信息源）</h4>
+    <ul>
+      <li>① <b>中国证券报</b>；② <b>上海证券报</b>；③ <b>证券时报</b>。</li>
+      <li>三大报是权威消息来源，配合选股宝等工具交叉验证，过滤假消息。</li>
+    </ul>
+    <div class="callout key"><div class="t">🔑 流程</div>四步粗选（20–25 只）→ 利空排查 → 四维精选，层层过滤，把范围收敛到高胜率标的。</div>
+  </section>
+
+  <!-- ====================================================================
+       第二章 龙头识别与龙虎榜
+  ==================================================================== -->
+  <div class="chapter" id="第2章">
+    <h2>第二章 龙头识别与龙虎榜</h2>
+    <p class="sub">第11–16课 · 找龙头、辨游资、跟主力</p>
+  </div>
+
+  <section class="card">
+    <h2>🧭 第二章知识导图</h2>
+    <div class="mindmap">
+      <svg viewBox="0 0 700 400" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="第二章知识导图">
+        <style>
+          .root{fill:#4A90A4;} .mod{fill:#E8F0F4;stroke:#4A90A4;stroke-width:1.5;}
+          .t-root{fill:#fff;font-size:18px;font-weight:700;font-family:'Microsoft YaHei',sans-serif;}
+          .t-mod{fill:#2C3E50;font-size:14px;font-family:'Microsoft YaHei',sans-serif;}
+          .link{stroke:#B9C8D2;stroke-width:1.5;fill:none;}
+        </style>
+        <path class="link" d="M180,200 H230 V50 H280"/>
+        <path class="link" d="M180,200 H230 V110 H280"/>
+        <path class="link" d="M180,200 H230 V170 H280"/>
+        <path class="link" d="M180,200 H230 V230 H280"/>
+        <path class="link" d="M180,200 H230 V290 H280"/>
+        <path class="link" d="M180,200 H230 V350 H280"/>
+        <rect class="root" x="20" y="180" width="160" height="40" rx="8"/>
+        <text class="t-root" x="100" y="206" text-anchor="middle">第二章</text>
+        <rect class="mod" x="280" y="30" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="55">第11课 · 龙头三大指标</text>
+        <rect class="mod" x="280" y="90" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="115">第12课 · 大级别龙头（上）</text>
+        <rect class="mod" x="280" y="150" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="175">第13课 · 大级别龙头（下）</text>
+        <rect class="mod" x="280" y="210" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="235">第14课 · 龙虎榜</text>
+        <rect class="mod" x="280" y="270" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="295">第15课 · 明星游资入场</text>
+        <rect class="mod" x="280" y="330" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="355">第16课 · 游资习惯</text>
+      </svg>
+      <div class="hint">← 章节点在左 · 各课向右展开</div>
+    </div>
+  </section>
+
+  <!-- 第11课 -->
+  <section class="card" id="第11课">
+    <h2>第11课 · 龙头三大指标</h2>
+    <h4>一、龙头的定义</h4>
+    <ul>
+      <li>龙头 = 能<b>打破空间高度</b>（打开连板天花板）、<b>带动跟风股</b>、<b>影响不断扩大</b>的领涨股。</li>
+      <li>三者缺一不可：只涨自己不带人的不是龙头，带人但不破空间的也只是普通强势股。</li>
+    </ul>
+
+    <h4>二、龙头三大指标</h4>
+    <ul>
+      <li>① <b>时机</b>：龙头诞生于情绪低迷期（<b>情绪低迷 1 个月以上</b>），此时市场急需一个旗帜。</li>
+      <li>② <b>号召力</b>：龙头能否带动跟风小弟（板块效应），号召力越强越真。</li>
+      <li>③ <b>空间与赚钱效应</b>：龙头能打开多高的空间、让多少跟风资金赚钱，决定其级别。</li>
+    </ul>
+
+    <h4>三、空间比例（龙头 vs 跟风的涨幅差）</h4>
+    <ul>
+      <li>龙头涨 <b>4–5 倍</b> 时，跟风通常只涨 <b>2–3 倍</b>；</li>
+      <li>龙头涨 <b>8–9 倍</b> 时，跟风通常只涨 <b>5–6 倍</b>；</li>
+      <li>龙头与跟风之间始终存在"身位差"，这就是只打龙头、不打跟风的原因。</li>
+    </ul>
+
+    <h4>四、龙头级别（细节）</h4>
+    <ul>
+      <li><b>大级别龙头</b>：<b>大半年才出现一次</b>，涨幅 <b>2 倍以上</b>、持续时间 <b>20 天以上</b>（如方大炭素、中科信息）。</li>
+      <li><b>小级别龙头</b>：<b>每月 1–2 次</b>，涨幅 <b>50%–80%</b>、持续 <b>3–7 天</b>。</li>
+      <li><b>一日游龙头</b>：只有一天行情，次日即熄火，最易误判。</li>
+    </ul>
+
+    <h4>五、真伪龙头案例</h4>
+    <ul>
+      <li><b>贵州燃气（真龙头）</b>：虽<b>每天烂板</b>（频繁开板），但始终封得住、天天涨停，靠"烂而不弱"走出大行情。</li>
+      <li><b>三六零（非龙头）</b>：借壳上市 <b>18 个一字板</b>，但一字板买不进、无换手、无带动，<b>不算真龙头</b>——龙头必须让跟风资金参与并赚钱。</li>
+    </ul>
+    <div class="callout key"><div class="t">🔑 核心逻辑</div>龙头不是选出来的，是市场在冰点期"逼"出来的；时机（低迷1月+）+ 号召力 + 空间，三指标共振才是真龙头。</div>
+  </section>
+
+  <!-- 第12课 -->
+  <section class="card" id="第12课">
+    <h2>第12课 · 大级别龙头（上）</h2>
+    <h4>一、特力A · 三波行情复盘（经典妖王）</h4>
+    <ul>
+      <li><b>第一波</b>：股灾 1.0 后，股价从 <b>10 元涨到 50 元</b>，翻 <b>五倍</b>；</li>
+      <li><b>第二波</b>：股灾 2.0 后，股价从 <b>20 元涨到 100 元</b>，再翻 <b>五倍</b>；</li>
+      <li><b>第三波</b>：创出 <b>108 元新高</b>，走出完整三波大级别行情。</li>
+      <li><b>带动效应</b>：特力A 带动了 <b>海欣食品、梅雁吉祥、深深宝A</b> 等一批跟风股，充分体现龙头的号召力。</li>
+      <li><b>换手板机制</b>：期间两次停牌，复牌后一字跌停，随后 <b>反包</b> 继续走强——龙头的韧性。</li>
+    </ul>
+
+    <h4>二、贵州燃气 · 细节复盘</h4>
+    <table class="data">
+      <thead><tr><th>龙头</th><th>周期</th><th>涨幅</th></tr></thead>
+      <tbody>
+        <tr><td>特力A</td><td>98 日</td><td>785%</td></tr>
+        <tr><td>贵州燃气</td><td>20 多日</td><td>238%</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><b>外号"特力燃"</b>：因走势复刻特力A而得名，<b>9 天 6 板</b> 走出双头结构。</li>
+      <li><b>带动效应</b>：带动 <b>华森制药</b> 等跟风股。</li>
+      <li><b>特停炸板潮</b>：贵州燃气被特停后，引发 <b>德生科技、川恒股份、京华新材、润都股份</b> 等次新股集体炸板潮——龙头一倒，跟风崩盘。</li>
+    </ul>
+    <p>大级别龙头的共同特征：诞生于冰点、连续涨停打开空间、带动整个板块发酵。</p>
+  </section>
+
+  <!-- 第13课 -->
+  <section class="card" id="第13课">
+    <h2>第13课 · 大级别龙头（下）</h2>
+    <h4>一、万兴科技案例（细节复盘）</h4>
+    <ul>
+      <li><b>走势</b>：17 日涨幅 <b>214%</b>，最高涨幅达 <b>270%</b>，走出 <b>九连板 + 五连板</b> 的史诗级走势。</li>
+      <li><b>加速节奏</b>：<b>前六板换手充分</b>，<b>第七板一字加速</b>——从换手板过渡到一字板，是主升进入加速段的标志。</li>
+      <li><b>带动效应</b>：带动 <b>盘龙药业、澄迈科技、必创科技</b> 等一批跟风股，充分体现龙头号召力。</li>
+      <li><b>炸板潮</b>：跟风股 <b>创业黑马</b> 等出现炸板潮，预示情绪分歧。</li>
+      <li><b>行情终结</b>：<b>4 月 12 日必创科技</b> 出现大阴线，跟风股先于龙头见顶，随后整波行情终结。</li>
+    </ul>
+
+    <h4>二、龙头五大特点</h4>
+    <ul>
+      <li>① 诞生于情绪冰点（雪中送炭）；</li>
+      <li>② 题材新、想象空间大；</li>
+      <li>③ 连续涨停打开高度，不轻易开板；</li>
+      <li>④ 号召力强，跟风小弟众多（如梅雁吉祥、纵横通信等跟风股）；</li>
+      <li>⑤ 走完主升后，仍有反复（龙回头）机会。</li>
+    </ul>
+    <div class="callout key"><div class="t">🔑 观察要点</div>跟风股先于龙头见顶（如必创科技 4.12 大阴线）是行情即将终结的前兆——盯住跟风股的率先崩塌信号。</div>
+  </section>
+
+  <!-- 第14课 -->
+  <section class="card" id="第14课">
+    <h2>第14课 · 龙虎榜</h2>
+    <h4>一、龙虎榜披露规则（4 个触发条件）</h4>
+    <ul>
+      <li>① 日涨跌幅偏离值达 <b>7%</b>；</li>
+      <li>② 日振幅达 <b>15%</b>；</li>
+      <li>③ 三日累计涨跌幅偏离达 <b>20%</b>；</li>
+      <li>④ 日换手率达 <b>20%</b>。</li>
+      <li>达到任一条件即上榜，收盘后披露买入/卖出席位。</li>
+      <li><b>披露范围</b>：沪市披露 <b>前 3</b> 席位，深市披露 <b>前 5</b> 席位。</li>
+      <li><b>有效性</b>：约 <b>90% 的龙虎榜是无效</b> 的（普通资金进出），只有少数能看出主力意图。</li>
+    </ul>
+
+    <h4>二、龙虎榜的两类资金</h4>
+    <ul>
+      <li><b>纯游资</b>：纯粹短线投机，快进快出，上榜后需辨真伪。</li>
+      <li><b>机构参与</b>：机构（基金、保险等）买入，通常代表中长期看好，信号更可信。</li>
+      <li><b>买方前五 &gt; 卖方前五</b>：买方合计金额大于卖方，净买入为正，是偏多信号。</li>
+    </ul>
+
+    <h4>三、合力板 vs 独食板（判定标准 + 案例）</h4>
+    <div class="callout key">
+      <div class="t">🔑 判定标准</div>
+      <ul>
+        <li><b>独食板</b>：买一席位买入金额 ≥ 买二席位的 <b>3 倍</b>，或买一 ≥ 总成交的 <b>10%</b>——一家独大，次日抛压集中，应回避。</li>
+        <li><b>合力板</b>：多席位分散买入、金额相当——合力做多，持续性更好，是理想接力的对象。</li>
+      </ul>
+    </div>
+    <ul>
+      <li><b>合力板 · 丰隆股份</b>：<b>5 天 3 板</b>，多席位合力买入，接力顺畅。</li>
+      <li><b>独食板 · 中环环保</b>：佛山绿景路买入 <b>3800 万</b>，而买二仅 <b>540 万</b>——买一是买二的 7 倍，典型一家独大，次日抛压沉重。</li>
+    </ul>
+
+    <h4>四、游资 vs 机构的行为差异</h4>
+    <ul>
+      <li><b>机构 · 中兴通讯</b>：机构持续买入，股价从 <b>16 元 → 25 元 → 40 元</b> 稳步上行，机构是"装死"式持仓（不轻易割肉）。</li>
+      <li><b>游资割肉不自救 · 欢乐海岸（新锐科技）</b>：欢乐海岸在新锐科技上<b>割肉 7000 万</b>，游资一旦看错会果断止损离场，<b>不会死扛自救</b>——这是游资与机构的本质区别。</li>
+    </ul>
+
+    <h4>五、明星游资 4 步跟随法</h4>
+    <ol>
+      <li>① 确认游资上榜；</li>
+      <li>② 判断是否真席位（手法一致）；</li>
+      <li>③ 结合题材与量能判断持续性；</li>
+      <li>④ 次日低吸或打板跟进，设好止损。</li>
+    </ol>
+
+    <h4>六、欢乐海岸四阶段（明星游资的兴衰样本）</h4>
+    <ul>
+      <li><b>阶段一 · 起步</b>：操作耀世科技、华能水电等；</li>
+      <li><b>阶段二 · 成名</b>：贵州燃气一战成名，打出名气；</li>
+      <li><b>阶段三 · 巅峰</b>：万兴科技、盘龙药业等大级别龙头；</li>
+      <li><b>阶段四 · 衰退</b>：后期逐渐退潮，号召力下降。</li>
+    </ul>
+  </section>
+
+  <!-- 第15课 -->
+  <section class="card" id="第15课">
+    <h2>第15课 · 明星游资入场</h2>
+    <h4>一、三大应用场景</h4>
+    <ul>
+      <li>① <b>场内锁仓</b>：已持仓，看到明星游资入场则坚定持有（游资背书）；</li>
+      <li>② <b>场外跟随打板</b>：未持仓，游资入场后次日跟随打板；</li>
+      <li>③ <b>次日接力看承接</b>：次日重点看承接力度，判断游资是否继续加仓或撤退。</li>
+    </ul>
+
+    <h4>二、复盘委托单</h4>
+    <ul>
+      <li>通过复盘龙虎榜上的 <b>委托单</b> 细节，还原游资的下单节奏与意图。</li>
+    </ul>
+    <h4>三、深市 L2 数据（深市规则差异）</h4>
+    <ul>
+      <li>深市提供 <b>L2（Level-2）</b> 逐笔数据，可更精细地看清游资挂单与撤单行为；</li>
+      <li>深市规则与沪市有差异，深市可看 L2 逐笔委托，沪市披露席位更少（前 3），复盘时需区别对待。</li>
+    </ul>
+    <h4>四、案例（成功与失败都要看）</h4>
+    <ul>
+      <li><b>焦点科技（2018.8.10，成功）</b>：<b>9:34 上板</b>，买一挂 <b>5000 手</b>、买二 <b>4567 手</b>、买三至买五各 <b>500 多万</b>——大单接力明确，明星游资入场后次日及后续均有明显溢价。</li>
+      <li><b>宏川智慧（2018.5.24，失败）</b>：欢乐海岸<b>三个席位均亏损</b>——深圳后海亏 <b>6 个点</b>、云浮新街东堤北路亏 <b>7 个点</b>、深圳科技园亏 <b>6 点多</b>。说明<b>明星游资也会亏钱</b>，跟随不是盲从。</li>
+    </ul>
+
+    <h4>五、庄股识别（坚决不参与）</h4>
+    <ul>
+      <li><b>该涨不涨、该跌不跌</b>：大盘涨它不涨，大盘跌它不跌，走势独立诡异；</li>
+      <li><b>上下影线多</b>：K 线频繁出现长上下影线，是庄家对倒的痕迹；</li>
+      <li><b>结论</b>：庄股走势不可预测、易被操纵，<b>坚决不参与</b>。</li>
+    </ul>
+    <div class="callout win"><div class="t">✅ 跟随逻辑</div>明星游资入场 = 强资金背书，可作为次日跟进的加分项；但游资也会亏（宏川智慧三席位全亏），跟随 ≠ 盲从。</div>
+  </section>
+
+  <!-- 第16课 -->
+  <section class="card" id="第16课">
+    <h2>第16课 · 游资习惯</h2>
+    <h4>一、龙头游资 7 大席位</h4>
+    <ul>
+      <li>① 中信证券上海淮海中路；② 中信证券上海分公司；③ 中信证券上海古北路；</li>
+      <li>④ 银河证券北京；⑤ 银河证券绍兴；⑥ 福成北京；⑦ 浙商证券解放北路。</li>
+      <li>这 7 个席位是市场公认的"龙头游资"，专门操作大级别龙头。</li>
+    </ul>
+
+    <h4>二、机构型游资（中长线手法）</h4>
+    <ul>
+      <li><b>申万宏源上海东川路</b>、<b>东方证券银城中路</b>——手法偏机构，持股周期较长，追求稳健收益。</li>
+    </ul>
+
+    <h4>三、隔日操作型游资（超短线手法）</h4>
+    <ul>
+      <li><b>成都北一环路</b>、<b>华泰证券广州体育馆</b>、<b>国泰君安上海天山路</b>——隔日超短，今天买明天卖，快进快出。</li>
+    </ul>
+
+    <h4>四、帮派席位（坐庄式资金）</h4>
+    <ul>
+      <li><b>温州帮</b>、<b>浙江帮</b>、<b>北京帮</b>——庄股资金，手法凶悍，常通过对倒、拉升出货，散户参与风险极高。</li>
+    </ul>
+
+    <h4>五、真假席位辨别</h4>
+    <ul>
+      <li><b>真席位</b>：手法一致（每次上榜的买卖习惯、标的选择、节奏稳定）。</li>
+      <li><b>假席位</b>：同名席位但手法漂移、风格突变，可能是资金借壳或冒名，需警惕。</li>
+      <li><b>案例 · 隆盛科技（2018.6.5）</b>：上榜席位手法异常，疑似假席位或借壳资金，需谨慎甄别。</li>
+    </ul>
+
+    <h4>六、排单习惯（下单手数特征）</h4>
+    <table class="data">
+      <thead><tr><th>游资</th><th>标志性排单习惯</th></tr></thead>
+      <tbody>
+        <tr><td>欢乐海岸</td><td>8900 手</td></tr>
+        <tr><td>金田路</td><td>9700 手</td></tr>
+        <tr><td>中信上海</td><td>万手（大单）</td></tr>
+        <tr><td>光大解放南路</td><td>递减式排单</td></tr>
+        <tr><td>成都帮</td><td>拆小单、下午直线板</td></tr>
+        <tr><td>佛山帮</td><td>5000 万门槛、早盘竞价/尾盘竞价</td></tr>
+      </tbody>
+    </table>
+    <ul>
+      <li><b>光大解放南路</b>：排单金额<b>递减</b>，越排越小；</li>
+      <li><b>成都帮</b>：喜欢<b>拆成小单</b>，下午拉<b>直线板</b>；</li>
+      <li><b>佛山帮</b>：偏好 <b>5000 万</b> 以上大资金，早盘竞价或尾盘竞价突击。</li>
+    </ul>
+    <p>识别游资的固定排单习惯，可辅助判断当日是否是其本人操作。</p>
+  </section>
+
+  <!-- ====================================================================
+       第三章 K线形态技术
+  ==================================================================== -->
+  <div class="chapter" id="第3章">
+    <h2>第三章 K线形态技术</h2>
+    <p class="sub">第17–20课 · 反转形态与赚钱/亏钱K线</p>
+  </div>
+
+  <section class="card">
+    <h2>🧭 第三章知识导图</h2>
+    <div class="mindmap">
+      <svg viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="第三章知识导图">
+        <style>
+          .root{fill:#4A90A4;} .mod{fill:#E8F0F4;stroke:#4A90A4;stroke-width:1.5;}
+          .t-root{fill:#fff;font-size:18px;font-weight:700;font-family:'Microsoft YaHei',sans-serif;}
+          .t-mod{fill:#2C3E50;font-size:14px;font-family:'Microsoft YaHei',sans-serif;}
+          .link{stroke:#B9C8D2;stroke-width:1.5;fill:none;}
+        </style>
+        <path class="link" d="M180,140 H230 V50 H280"/>
+        <path class="link" d="M180,140 H230 V110 H280"/>
+        <path class="link" d="M180,140 H230 V170 H280"/>
+        <path class="link" d="M180,140 H230 V230 H280"/>
+        <rect class="root" x="20" y="120" width="160" height="40" rx="8"/>
+        <text class="t-root" x="100" y="146" text-anchor="middle">第三章</text>
+        <rect class="mod" x="280" y="30" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="55">第17课 · 锤子线 / 上吊线</text>
+        <rect class="mod" x="280" y="90" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="115">第18课 · 吞没 / 刺透 / 乌云盖顶</text>
+        <rect class="mod" x="280" y="150" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="175">第19课 · 涨停突破 / 双响炮</text>
+        <rect class="mod" x="280" y="210" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="235">第20课 · 反包 / 空中加油 / 亏钱三形态</text>
+      </svg>
+      <div class="hint">← 章节点在左 · 各课向右展开</div>
+    </div>
+  </section>
+
+  <!-- 第17课 -->
+  <section class="card" id="第17课">
+    <h2>第17课 · 锤子线 / 上吊线</h2>
+    <h4>一、K 线四要素（先懂结构）</h4>
+    <ul>
+      <li>① <b>开盘价</b>；② <b>收盘价</b>；③ <b>最高价</b>；④ <b>最低价</b>。</li>
+      <li>实体 = 开盘价与收盘价的区间；影线 = 最高/最低价超出实体的部分。</li>
+    </ul>
+
+    <h4>二、形态特征（两者外形相同）</h4>
+    <ul>
+      <li><b>下影线</b>为实体的 <b>1.5–2 倍</b>，<b>上影线越短越好</b>（理想状态没有上影线）；</li>
+      <li><b>实体位于上半部</b>（上影线很短或没有）。</li>
+    </ul>
+
+    <h4>三、位置决定方向 + 颜色决定强弱</h4>
+    <ul>
+      <li><b>锤子线（下跌末端）</b>：见底信号，看涨，<b>阳线锤子更强</b>；</li>
+      <li><b>上吊线（上涨末端）</b>：见顶信号，看跌，<b>阴线上吊更强</b>（阴线实体意味着当天收跌，见顶信号更可靠）。</li>
+      <li><b>趋势前提</b>：K 线形态必须放在<b>趋势</b>里看，横盘震荡中的锤子/上吊<b>无效</b>。</li>
+    </ul>
+
+    <h4>四、案例</h4>
+    <ul>
+      <li><b>大盘（12 月 3 日）</b>：下跌末端出现锤子线，随后止跌；</li>
+      <li><b>荣盛石化（20 日 10 日线附近）</b>：出现上吊线后见顶回落。</li>
+    </ul>
+
+    <h4>五、次日确认机制（关键）</h4>
+    <ul>
+      <li>单根 K 线只是"疑似信号"，必须<b>次日确认</b>；</li>
+      <li><b>次日低开</b>：信号存疑，<b>减仓</b>应对；</li>
+      <li><b>次日强势高开</b>：信号确认，可<b>抄底</b>（针对锤子线）。</li>
+      <li><b>单根 K 线的局限性</b>：任何单根 K 线都不足以下结论，必须结合趋势、位置、次日走势综合判断。</li>
+    </ul>
+    <div class="callout key"><div class="t">🔑 核心逻辑</div>同样一根 K 线，位置决定一切——下跌末端叫"锤子"（止跌），上涨末端叫"上吊"（见顶）；颜色决定强弱，次日确认才下单。</div>
+  </section>
+
+  <!-- 第18课 -->
+  <section class="card" id="第18课">
+    <h2>第18课 · 吞没 / 刺透 / 乌云盖顶</h2>
+    <h4>一、强弱排序</h4>
+    <p><b>吞没（强）&gt; 刺透 / 乌云盖顶（弱）</b>。</p>
+
+    <h4>二、各形态要点</h4>
+    <ul>
+      <li><b>吞没</b>：第二根阳线实体<b>完全覆盖</b>第一根阴线实体（高点更高、低点更低），且<b>颜色相反</b>，再配合<b>巨量</b>——是最强的看涨反转信号。</li>
+      <li><b>刺透</b>：阳线实体吃进前阴线实体 <b>&gt; 50%</b>（看涨，弱于吞没，必须超过 50% 才有效）。</li>
+      <li><b>乌云盖顶</b>：阴线实体吃进前阳线实体（看跌，弱于吞没）。</li>
+    </ul>
+
+    <h4>三、案例</h4>
+    <ul>
+      <li><b>创业板指数</b>：出现看涨吞没后反弹；</li>
+      <li><b>芯能科技、安达维尔</b>：个股层面吞没/刺透形态的实战案例。</li>
+    </ul>
+
+    <h4>四、底部判断的严格性（重要原则）</h4>
+    <ul>
+      <li><b>顶部判断错，不亏钱</b>：顶部形态误判，最多是少赚/踏空，不会伤本金；</li>
+      <li><b>底部判断错，亏大钱</b>：底部形态误判，抄底抄在半山腰，会实实在在亏钱。</li>
+      <li>因此<b>底部反转形态必须更严格</b>——宁可晚一步，确认后再进，也不抢跑抄底。</li>
+    </ul>
+    <div class="callout key"><div class="t">🔑 记忆点</div>反转力度：吞没 &gt; 刺透/乌云盖顶；刺透必须吃进 &gt; 50% 才算有效；底部判断必须比顶部更严格（顶部错不亏钱，底部错亏大钱）。</div>
+  </section>
+
+  <!-- 第19课 -->
+  <section class="card" id="第19课">
+    <h2>第19课 · 涨停突破 / 双响炮</h2>
+    <h4>一、涨停突破（平台突破）</h4>
+    <ul>
+      <li><b>定义</b>：股价在<b>至少半个月以上的平台</b>横盘后，放量涨停突破平台。</li>
+      <li><b>量能要求</b>：突破日成交量需 <b>&gt; 平台均量的 2 倍</b>，放量越充分，突破越可靠。</li>
+      <li><b>案例</b>：泰禾集团（2017.12.27 涨停突破）、盘龙药业（2018.3.26 涨停突破）。</li>
+    </ul>
+
+    <h4>二、涨停突破的卖点</h4>
+    <ul>
+      <li><b>小盘股</b>：突破后若<b>不连板</b>，则止盈离场（小盘难持续，见好就收）；</li>
+      <li><b>大盘股</b>：突破后若<b>连续两日跌破 5 日线</b>，则止盈离场（趋势破位）。</li>
+    </ul>
+
+    <h4>三、双响炮（N 字炮）</h4>
+    <ul>
+      <li><b>定义</b>：两根涨停（或大阳）之间，调整 <b>2–4 天</b>，随后再拉第二波，形似"N"字。</li>
+      <li><b>调整要求</b>：调整期间<b>不破首板实体</b>（守住首板低点），且调整形态为<b>冲高回落 + 探底回升</b>（先洗盘再拉起）。</li>
+      <li><b>案例</b>：蓝晓科技（2018.2）、凯伦股份——双响炮二次启动的典型。</li>
+      <li>双响炮是强势整理后的二次启动信号，代表资金洗盘后再度发力。</li>
+    </ul>
+  </section>
+
+  <!-- 第20课 -->
+  <section class="card" id="第20课">
+    <h2>第20课 · 反包 / 空中加油 / 亏钱三形态</h2>
+    <h4>一、反包</h4>
+    <ul>
+      <li><b>定义</b>：前日阴线/冲高回落后，次日阳线直接反包，弱转强信号。</li>
+      <li><b>阳线反包</b>：确定性高，直接确认弱转强；</li>
+      <li><b>阴线反包</b>（阴线吃掉前阳线）：确定性低，需<b>涨停确认</b>才算有效反转。</li>
+      <li><b>案例</b>：易见股份、南京证券。</li>
+    </ul>
+
+    <h4>二、空中加油（龙头专属）</h4>
+    <ul>
+      <li><b>定义</b>：龙头主升途中，出现<b>十字星</b>（或小阴小阳）的整理，中继后继续上攻。</li>
+      <li><b>关键特征</b>：<b>平量</b>（不缩不爆，资金没走）。</li>
+      <li><b>买点</b>：<b>尾盘竞价买</b>（确认十字星形态后，尾盘竞价介入）；</li>
+      <li><b>卖点</b>：<b>次日不涨停即出</b>；若<b>次日低开即走</b>，不恋战。</li>
+      <li><b>案例</b>：冀东装备。</li>
+      <li><b>注意</b>：空中加油只适用于<b>龙头</b>，跟风股出现十字星不是加油，是见顶。</li>
+    </ul>
+
+    <h4>三、亏钱三形态（出现即离场）</h4>
+    <ul>
+      <li>① <b>龙头见顶</b>：龙头高位出现 <b>振幅 &gt;10%</b>、<b>巨量</b>、<b>高换手</b>——天量长上影，见顶信号。</li>
+      <li>② <b>连续下跌</b>：趋势走坏，阴线连绵。<b>铁律：连续下跌中禁止低吸</b>，<b>5/10/20 日线全部向下</b>，股价在 <b>20 日线之下</b>——趋势彻底走坏，抄底必套。</li>
+      <li>③ <b>高位震荡（震荡周期）</b>：高位横盘迟迟不突破，<b>跟跌不跟涨</b>（大盘涨它不涨，大盘跌它跟跌），久盘必跌。</li>
+    </ul>
+
+    <h4>四、案例</h4>
+    <ul>
+      <li>新锐科技、红川智慧、猛士科技、美都能源——连续下跌/高位震荡的典型亏损形态。</li>
+    </ul>
+    <div class="callout lose"><div class="t">⚠️ 铁律</div>赚钱四形态（涨停突破、双响炮、反包、空中加油）做多；亏钱三形态（龙头见顶、连续下跌、高位震荡）坚决离场，连续下跌禁止低吸。</div>
+  </section>
+
+  <!-- ====================================================================
+       第四章 分时预测与盘口操作
+  ==================================================================== -->
+  <div class="chapter" id="第4章">
+    <h2>第四章 分时预测与盘口操作</h2>
+    <p class="sub">第21–27课 · 看大盘、判分时、定买卖、懂盘口</p>
+  </div>
+
+  <section class="card">
+    <h2>🧭 第四章知识导图</h2>
+    <div class="mindmap">
+      <svg viewBox="0 0 700 460" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="第四章知识导图">
+        <style>
+          .root{fill:#4A90A4;} .mod{fill:#E8F0F4;stroke:#4A90A4;stroke-width:1.5;}
+          .t-root{fill:#fff;font-size:18px;font-weight:700;font-family:'Microsoft YaHei',sans-serif;}
+          .t-mod{fill:#2C3E50;font-size:14px;font-family:'Microsoft YaHei',sans-serif;}
+          .link{stroke:#B9C8D2;stroke-width:1.5;fill:none;}
+        </style>
+        <path class="link" d="M180,230 H230 V50 H280"/>
+        <path class="link" d="M180,230 H230 V110 H280"/>
+        <path class="link" d="M180,230 H230 V170 H280"/>
+        <path class="link" d="M180,230 H230 V230 H280"/>
+        <path class="link" d="M180,230 H230 V290 H280"/>
+        <path class="link" d="M180,230 H230 V350 H280"/>
+        <path class="link" d="M180,230 H230 V410 H280"/>
+        <rect class="root" x="20" y="210" width="160" height="40" rx="8"/>
+        <text class="t-root" x="100" y="236" text-anchor="middle">第四章</text>
+        <rect class="mod" x="280" y="30" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="55">第21课 · 分时预测大盘（黄白线/V型）</text>
+        <rect class="mod" x="280" y="90" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="115">第22课 · 赚钱分时（弱转强/三波上板）</text>
+        <rect class="mod" x="280" y="150" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="175">第23课 · 止盈止损（上）</text>
+        <rect class="mod" x="280" y="210" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="235">第24课 · 止盈止损（下）</text>
+        <rect class="mod" x="280" y="270" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="295">第25课 · 盘口买在低点</text>
+        <rect class="mod" x="280" y="330" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="355">第26课 · 盘口卖在高点</text>
+        <rect class="mod" x="280" y="390" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="415">第27课 · 涨停板盘口</text>
+      </svg>
+      <div class="hint">← 章节点在左 · 各课向右展开</div>
+    </div>
+  </section>
+
+  <!-- 第21课 -->
+  <section class="card" id="第21课">
+    <h2>第21课 · 分时预测大盘</h2>
+    <p><b>分时定义</b>：分时图是盘中逐分钟的走势图，用黄白线、量能、角度预判当日及次日大盘方向，是短线操作的"盘中雷达"。</p>
+
+    <h4>一、黄白线判风格</h4>
+    <ul>
+      <li><b>白线</b>：代表蓝筹权重（大盘股）。</li>
+      <li><b>黄线</b>：代表题材小票（中小盘）。</li>
+      <li><b>白在上</b>：权重蓝筹强，做蓝筹；<b>黄在上</b>：题材小票强，做题材。</li>
+    </ul>
+
+    <h4>二、单边上涨四要素（预判大阳线 &gt;90%）</h4>
+    <ul>
+      <li>① <b>低开或平开</b>（起点不虚高）；</li>
+      <li>② <b>30–45 度角放量</b>（角度健康、量能配合）；</li>
+      <li>③ <b>黄线强</b>（题材活跃，赚钱效应好）；</li>
+      <li>④ <b>上午涨 2% 并维持</b>（涨幅与时间配合）。</li>
+      <li>四要素齐备，当日收大阳线概率 <b>&gt;90%</b>。</li>
+    </ul>
+
+    <h4>三、单边下跌警示（预判阴跌 &gt;90%）</h4>
+    <ul>
+      <li><b>高开冲高回落</b> + <b>持续下跌至 10:30</b>，是典型阴跌信号；</li>
+      <li>冲高回落不修复、越走越低，当日收阴概率 <b>&gt;90%</b>，应谨慎。</li>
+    </ul>
+
+    <h4>四、V型反转（细节）</h4>
+    <ul>
+      <li><b>前提</b>：前期<b>连续调整 3 天</b>；</li>
+      <li><b>确认</b>：<b>20 分钟不创新低</b>（企稳）；</li>
+      <li><b>时点</b>：<b>下午两点后</b>出现 V 型反转可靠性更高；</li>
+      <li><b>双V/双底</b>（两次探底回升）比单V更安全，配合量能确认更佳。</li>
+    </ul>
+
+    <h4>五、案例</h4>
+    <ul>
+      <li><b>创业板（2018.4.23）</b>：下午 V 型反转；</li>
+      <li><b>创业板（2018.8.20）</b>：双底形态。</li>
+    </ul>
+
+    <h4>六、熊市两大核心时机</h4>
+    <ul>
+      <li>熊市里大部分时间应空仓观望，只有两大时机值得出手——<b>超跌反弹</b>与<b>情绪冰点转折</b>。</li>
+      <li>其余时间管住手，是熊市生存的第一法则。</li>
+    </ul>
+  </section>
+
+  <!-- 第22课 -->
+  <section class="card" id="第22课">
+    <h2>第22课 · 赚钱分时（弱转强 + 三波上板 · 详细版）</h2>
+    <p class="sub" style="color:var(--muted);font-size:14px;">（本课与第01课内容高度重合，均讲解「弱转强」与「三波上板」两大赚钱分时形态，两课合并完整呈现）</p>
+
+    <h4>一、弱转强分时（详细）</h4>
+    <ul>
+      <li><b>前一日</b>：大烂板（频繁开板）或冲高回落，市场预期次日走弱。</li>
+      <li><b>当日信号</b>：不跌反涨，以 <b>80 度角</b>急速拉升，<b>10 分钟内上板</b>——超预期即弱转强。</li>
+      <li><b>两大核心信号</b>：① 前日烂板/冲高回落（预期走弱）；② 当日不跌反涨、快速上板（超预期转强）。</li>
+      <li><b>相对的弱</b>：判断"弱"要相对而言——相对大盘、相对板块、相对自身前期，弱转强必须是"预期弱 → 实际强"的反差。</li>
+    </ul>
+
+    <h4>二、弱转强案例</h4>
+    <ul>
+      <li><b>粤传媒（4.17–4.18）</b>：前日烂板，次日弱转强快速上板；</li>
+      <li><b>锋龙股份（5.2–5.3）</b>：前日冲高回落，次日弱转强；</li>
+      <li><b>欣锐科技（6.26）</b>：弱转强后走三波上板。</li>
+    </ul>
+
+    <h4>三、三波上板（详细）</h4>
+    <ul>
+      <li>分三段：<b>3% → 3% → 3%</b>，末段 <b>6–7%</b> 直接封板。</li>
+      <li><b>三波铁律</b>：两波上板 <b>✗</b>（资金不够坚决）、三波上板 <b>✓</b>（控盘有序）、四波上板 <b>✗</b>（反复太多、显犹豫）。</li>
+      <li><b>前提</b>：全程<b>不破分时均线</b>，且<b>10 点前</b>完成上板，节奏清晰、逐波抬高，是资金控盘有序的体现。</li>
+    </ul>
+
+    <h4>四、股性层级（详细）</h4>
+    <ul>
+      <li>龙头 &gt; 跟风；一次封板 &gt; 频繁开板；早盘封板 &gt; 午盘封板。</li>
+      <li>股性越强，次日溢价越高，越值得参与。</li>
+    </ul>
+
+    <h4>五、大盘环境考量</h4>
+    <ul>
+      <li><b>大利好下的弱转强</b>：可能是伪信号（利好掩盖了真实强弱）；</li>
+      <li><b>大利空下的弱转强</b>：更纯粹、更真实（逆势走强才是真强）。</li>
+      <li>环境越差、弱转强越真——雪中送炭的信号价值最高。</li>
+    </ul>
+
+    <h4>六、买点</h4>
+    <ul>
+      <li><b>半路</b>：拉升途中（如三波中的第二波）介入；</li>
+      <li><b>打板</b>：涨停确认时打板介入，确定性更高。</li>
+    </ul>
+  </section>
+
+  <!-- 第23课 -->
+  <section class="card" id="第23课">
+    <h2>第23课 · 止盈止损（上）</h2>
+    <h4>一、竞价预期三档（先判断预期）</h4>
+    <ul>
+      <li><b>低预期</b>：竞价低开/平开且抛压大，明显弱于预期；</li>
+      <li><b>预期内</b>：竞价走势符合前一日强弱；</li>
+      <li><b>超预期</b>：竞价高开/强势，好于前一日表现。</li>
+    </ul>
+
+    <h4>二、止损：竞价不及预期 + 台阶式下跌</h4>
+    <ul>
+      <li><b>核心形态</b>：开盘竞价<b>不及预期</b>，且盘中出现 <b>无抵抗的台阶式下跌</b>（一档比一档低，毫无反弹）。</li>
+      <li><b>触发条件</b>：竞价不及预期 + 台阶式下跌，两者同时出现即触发止损。</li>
+      <li><b>执行时段</b>：<b>9:40–10:00</b> 内果断执行，不拖延。</li>
+    </ul>
+
+    <h4>三、中国科传案例（早止损 vs 晚止损）</h4>
+    <ul>
+      <li><b>背景</b>：8.29 早盘硬板，知识产权龙头；</li>
+      <li><b>早止损</b>：竞价不及预期，9:40–10:00 果断止损，仅亏 <b>-1%</b>；</li>
+      <li><b>晚止损</b>：犹豫到尾盘才卖，亏损扩大到 <b>-5%</b>——拖延是止损的最大敌人。</li>
+    </ul>
+
+    <h4>四、龙头炸板止盈（三步骤）</h4>
+    <ul>
+      <li>① <b>炸板先卖一半</b>：锁定一半利润，降低风险；</li>
+      <li>② <b>留一半震荡观察 15 分钟</b>：看能否回封；</li>
+      <li>③ <b>彻底离场</b>：若 15 分钟内未回封，且<b>峰值在分时均线之下</b>，则清仓离场。</li>
+    </ul>
+
+    <h4>五、炸板后的两种结局（案例）</h4>
+    <ul>
+      <li><b>芯能科技（弱势）</b>：10 点后走弱跌停，炸板后应果断离场；</li>
+      <li><b>宏川智慧（强势）</b>：炸板后 <b>15 分钟内回封</b>，随后再走<b>四连板</b>——龙头炸板后回封，反而更强。</li>
+    </ul>
+    <div class="callout key"><div class="t">🔑 核心逻辑</div>止损要"快"（9:40–10:00 执行），止盈要"分批"（先卖一半再观察 15 分钟），用纪律对抗情绪；龙头炸板要看回封（15 分钟 + 峰值与均线关系）。</div>
+  </section>
+
+  <!-- 第24课 -->
+  <section class="card" id="第24课">
+    <h2>第24课 · 止盈止损（下）</h2>
+    <h4>一、三次冲板止盈（三次冲高不封板）</h4>
+    <ul>
+      <li><b>一鼓作气，再而衰，三而竭</b>：第三次冲板仍无法封住，则果断卖出。</li>
+      <li><b>案例 · 汉嘉设计</b>：<b>9:50、10:06、10:22</b> 三次冲高至 <b>8%</b> 附近均无法封板——第三次冲高是最后的离场机会。</li>
+      <li><b>案例 · 新华都</b>：同样三次冲高不封板后回落。</li>
+    </ul>
+
+    <h4>二、拉回均线止盈</h4>
+    <ul>
+      <li>强势股跌破分时均线，回落到 <b>负 4% 左右</b>，即止盈离场。</li>
+      <li><b>案例 · 华昌达</b>：7/11 首板、7/12 二连板，次日<b>高开 7% 后急杀至 -4%</b>，随后 <b>13:40 拉升到 +6%</b>——拉升是最后的卖点，而不是追涨点。</li>
+    </ul>
+
+    <h4>三、负 4% 心理锚点</h4>
+    <ul>
+      <li><b>-4%</b> 是短线止盈止损的重要心理锚点：一旦强势股跌破分时均线并回落到 -4%，就应无条件离场，不抱侥幸。</li>
+    </ul>
+
+    <h4>四、止损五项规则</h4>
+    <ol>
+      <li>① 开盘竞价不及预期，第一反应是卖，不是等；</li>
+      <li>② 台阶式无抵抗下跌，果断止损；</li>
+      <li>③ 跌破分时均线且回落 -4%，止盈离场；</li>
+      <li>④ 三次冲高不封板，第三次是最后机会；</li>
+      <li>⑤ 严格在 9:40–10:00 执行，不拖延、不幻想。</li>
+    </ol>
+    <div class="callout win"><div class="t">✅ 记忆点</div>三次冲不过就卖（三而竭）；跌破均线、回落 -4% 就卖（拉回均线止盈）；-4% 是心理锚点，纪律是保命符。</div>
+  </section>
+
+  <!-- 第25课 -->
+  <section class="card" id="第25课">
+    <h2>第25课 · 盘口买在低点</h2>
+    <h4>一、盘口量价关系定义</h4>
+    <ul>
+      <li>盘口 = 五档挂单 + 逐笔成交；通过<b>挂单量与成交量</b>的此消彼长，判断买卖双方真实力量，而非表面挂单。</li>
+    </ul>
+
+    <h4>二、多空力量转换</h4>
+    <ul>
+      <li>观察盘口买盘/卖盘挂单与成交的强弱转换，捕捉多方占据上风的转折点。</li>
+      <li><b>观察 2–3 分钟</b>：不要看到第一笔大单就冲动，连续观察 2–3 分钟确认资金持续承接。</li>
+    </ul>
+
+    <h4>三、德新交运案例（2018.8.30，盘口全过程）</h4>
+    <ul>
+      <li><b>9:43–9:47</b>：盘口出现连续的承接大单——<b>592 手</b> 承接后，又出现 <b>408 手、168 手、480 手、255 手</b> 等买单，随后 <b>1393 手和 456 手</b> 两笔大买单进场。</li>
+      <li><b>分时小双底</b>：盘口承接 + 分时走出小双底，是多方力量占据上风、买点出现的信号。</li>
+    </ul>
+
+    <h4>四、左侧 vs 右侧低吸</h4>
+    <ul>
+      <li><b>左侧低吸</b>：下跌中提前挂单买入（猜底，风险高）；</li>
+      <li><b>右侧低吸</b>：确认转强后再买（确定性高，优于左侧）。</li>
+      <li><b>结论</b>：右侧买入优于左侧抄底。</li>
+    </ul>
+
+    <h4>五、低吸上限与盈亏比</h4>
+    <ul>
+      <li><b>低吸上限</b>：低吸控制在涨幅 <b>≤ 3%</b> 以内，追高空间有限时不要强行低吸。</li>
+      <li><b>盈亏比</b>：低吸成功通常赚 <b>7–8%</b>，失败通常亏 <b>1–2%</b>——盈亏比约 4:1，这是低吸优于追高的根本原因。</li>
+    </ul>
+  </section>
+
+  <!-- 第26课 -->
+  <section class="card" id="第26课">
+    <h2>第26课 · 盘口卖在高点</h2>
+    <h4>一、左侧 / 右侧止盈点</h4>
+    <ul>
+      <li><b>左侧止盈</b>：上涨中提前挂卖，锁定利润（可能卖飞，但落袋为安）。</li>
+      <li><b>右侧止盈</b>：见顶回落确认后再卖，牺牲部分利润换确定性。</li>
+    </ul>
+
+    <h4>二、美联新材案例（2018.8.30，卖点全过程）</h4>
+    <ul>
+      <li><b>9:38–9:45</b>：强势拉升后见顶；</li>
+      <li><b>左侧卖点（9:40:58）</b>：拉升途中提前挂卖，锁定利润；</li>
+      <li><b>右侧卖点</b>：见顶回落确认，卖单 <b>2300 手</b> 出现后，右侧卖出。</li>
+    </ul>
+
+    <h4>三、均线偏离 3%</h4>
+    <ul>
+      <li>股价偏离分时均线 <b>3%</b> 时，短线超买，是左侧止盈参考点。</li>
+    </ul>
+
+    <h4>四、强势股高点约 +5%</h4>
+    <ul>
+      <li>强势股分时高点通常在 <b>正 5% 左右</b>，接近此位置考虑左侧止盈。</li>
+      <li><b>回落 2% 内未卖</b>：若见顶后回落在 2% 以内还没卖，就<b>等下一个反弹</b>再卖，不追低。</li>
+    </ul>
+
+    <h4>五、卖飞心态</h4>
+    <ul>
+      <li>左侧止盈常"卖飞"（卖完又涨），这是正常代价，<b>不必懊悔</b>——保住利润比卖在最高点更重要。</li>
+      <li>卖飞的正确心态：赚到手的才是钱，踏空的懊悔会让人在下一笔追高犯错。</li>
+    </ul>
+  </section>
+
+  <!-- 第27课 -->
+  <section class="card" id="第27课">
+    <h2>第27课 · 涨停板盘口</h2>
+    <h4>一、大卖单的两类（判断承接）</h4>
+    <ul>
+      <li><b>仅 1–2 个大卖单</b>、买方坚决顶住 → 大卖单是"吓人单"，承接有力，<b>继续持股</b>；</li>
+      <li><b>大卖单持续涌现</b>、买方顶不住 → 抛压真实，需警惕离场。</li>
+      <li><b>案例 · 西部牧业</b>：出现 <b>99000 手</b> 大卖单，但被坚决承接，属于"吓人单"，随后继续走强。</li>
+    </ul>
+
+    <h4>二、炸板三要素（判断回封质量）</h4>
+    <ul>
+      <li>① <b>回封时间</b>：炸板后 <b>≤ 5 分钟</b> 内回封（越快越好）；</li>
+      <li>② <b>回落幅度</b>：炸板回落 <b>不破分时均线，且回落 ≥ 8%</b>（跌得够深再回封更有承接力）；</li>
+      <li>③ <b>炸板次数</b>：炸板次数 <b>≤ 3 次</b>，越少越好。</li>
+    </ul>
+
+    <h4>三、砸盘炸板（区别对待）</h4>
+    <ul>
+      <li><b>惠博普案例</b>：大单砸盘导致炸板，抛压真实，需谨慎；</li>
+      <li><b>贵州燃气案例</b>：炸板后快速回封（龙头的"烂而不弱"），反而强势。</li>
+      <li>同样是炸板，要看<b>砸盘的性质</b>：真抛压 vs 洗盘，决定持有还是离场。</li>
+    </ul>
+
+    <h4>四、抢筹式回封（强信号）</h4>
+    <ul>
+      <li>炸板后挂单 <b>&gt; 5 万手</b>，<b>1–2 秒</b> 内快速回封——是资金抢筹的强信号。</li>
+      <li><b>适用</b>：<b>3–5 板</b> 高度的强势股，抢筹回封往往意味着继续连板。</li>
+      <li><b>案例 · 宏川智慧、永和智控</b>：炸板后抢筹式快速回封。</li>
+    </ul>
+
+    <h4>五、夹心饼干盘口（庄股规避）</h4>
+    <ul>
+      <li>盘口出现"大单压顶 + 大单托底"的夹心结构——上方压大单、下方托大单，把股价"夹"在中间，往往是庄股对倒迹象，应规避。</li>
+    </ul>
+    <div class="callout key"><div class="t">🔑 核心逻辑</div>炸板不可怕，关键看回封质量（5分钟/8%/3次三标准）；夹心饼干盘口是庄股陷阱，坚决回避；大卖单要看承接（顶得住=吓人单）。</div>
+  </section>
+
+  <!-- ====================================================================
+       第五章 消息板与高溢价首板
+  ==================================================================== -->
+  <div class="chapter" id="第5章">
+    <h2>第五章 消息板与高溢价首板</h2>
+    <p class="sub">第28–30课 · 打消息板、抓转势板</p>
+  </div>
+
+  <section class="card">
+    <h2>🧭 第五章知识导图</h2>
+    <div class="mindmap">
+      <svg viewBox="0 0 700 220" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMin meet" role="img" aria-label="第五章知识导图">
+        <style>
+          .root{fill:#4A90A4;} .mod{fill:#E8F0F4;stroke:#4A90A4;stroke-width:1.5;}
+          .t-root{fill:#fff;font-size:18px;font-weight:700;font-family:'Microsoft YaHei',sans-serif;}
+          .t-mod{fill:#2C3E50;font-size:14px;font-family:'Microsoft YaHei',sans-serif;}
+          .link{stroke:#B9C8D2;stroke-width:1.5;fill:none;}
+        </style>
+        <path class="link" d="M180,110 H230 V50 H280"/>
+        <path class="link" d="M180,110 H230 V110 H280"/>
+        <path class="link" d="M180,110 H230 V170 H280"/>
+        <rect class="root" x="20" y="90" width="160" height="40" rx="8"/>
+        <text class="t-root" x="100" y="116" text-anchor="middle">第五章</text>
+        <rect class="mod" x="280" y="30" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="55">第28课 · 消息板可打条件</text>
+        <rect class="mod" x="280" y="90" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="115">第29课 · 消息板买卖点</text>
+        <rect class="mod" x="280" y="150" width="380" height="40" rx="6"/>
+        <text class="t-mod" x="290" y="175">第30课 · 高溢价首板（转势板）</text>
+      </svg>
+      <div class="hint">← 章节点在左 · 各课向右展开</div>
+    </div>
+  </section>
+
+  <!-- 第28课 -->
+  <section class="card" id="第28课">
+    <h2>第28课 · 消息板可打条件</h2>
+    <h4>一、打板定义</h4>
+    <p>打板 = 在个股即将涨停或刚涨停时买入，博取次日溢价或连板。</p>
+
+    <h4>二、扫板 vs 排版（细节）</h4>
+    <ul>
+      <li><b>扫板</b>：在涨停价直接扫货买入（追涨停），主动吃进涨停价挂单，成交快、但成本在涨停价；</li>
+      <li><b>排版</b>：提前挂涨停价买单排队等待成交，被动等前面的人撤单，可能买不到、但能拿到涨停价。</li>
+    </ul>
+
+    <h4>三、首板三分类（按驱动逻辑）</h4>
+    <ul>
+      <li>① <b>新闻消息板</b>：突发消息驱动的首板；</li>
+      <li>② <b>转折共振板</b>：情绪转折点的首板（见第06/30课）；</li>
+      <li>③ <b>主线补涨板</b>：主线内跟风股的补涨首板。</li>
+    </ul>
+
+    <h4>四、新闻三方向（消息驱动，附案例）</h4>
+    <ul>
+      <li>① <b>黑科技</b>：新技术的突破性题材，如 <b>迦南云智 7 纳米</b>、<b>高升控股</b>；</li>
+      <li>② <b>政策利好</b>：国家/行业政策扶持，如 <b>大禹节水、新界泵业</b>；</li>
+      <li>③ <b>个股利好</b>：业绩、重组、订单等个股级利好，如 <b>东方新星、三联宏普、迎风环境</b>。</li>
+    </ul>
+
+    <h4>五、消息面三大报（信息源）</h4>
+    <ul>
+      <li>① <b>中国证券报</b>；② <b>上海证券报</b>；③ <b>证券时报</b>。</li>
+      <li>三大报是权威消息来源，消息板打板前先确认消息真实性与强度。</li>
+    </ul>
+
+    <h4>六、核心原则：打龙头不打跟风</h4>
+    <ul>
+      <li>消息出来时，<b>只打龙头、不打跟风</b>——龙头有身位优势（见第11课空间比例），跟风补涨板溢价低、风险高。</li>
+    </ul>
+  </section>
+
+  <!-- 第29课 -->
+  <section class="card" id="第29课">
+    <h2>第29课 · 消息板买卖点</h2>
+    <h4>一、三种参与模式（附案例）</h4>
+    <ul>
+      <li>① <b>震荡上板</b>：盘中反复震荡后封板，换手充分（案例：<b>通产丽星</b>）；</li>
+      <li>② <b>迅速上板</b>：开盘即快速拉升封板，主力强势（案例：<b>金安国际、实达集团</b>）；</li>
+      <li>③ <b>一字回封</b>：一字板炸开后快速回封，强势整理再封（案例：<b>恒银金融</b>）。</li>
+    </ul>
+
+    <h4>二、上板必须放量</h4>
+    <ul>
+      <li>无论哪种模式，<b>上板必须放量</b>——无量涨停缺乏承接，次日易炸板。</li>
+      <li>放量 = 资金真金白银进场，是消息板能打的核心硬指标。</li>
+    </ul>
+
+    <h4>三、龙头原则</h4>
+    <ul>
+      <li>消息板同样<b>只打龙头、不打跟风</b>——龙头有身位优势、号召力强，跟风补涨板溢价低、风险高。</li>
+    </ul>
+    <div class="callout key"><div class="t">🔑 核心逻辑</div>消息板的本质是"消息 + 资金"双确认；上板放量是资金真金白银进场的硬指标；只打龙头不打跟风。</div>
+  </section>
+
+  <!-- 第30课 -->
+  <section class="card" id="第30课">
+    <h2>第30课 · 高溢价首板（转势板）</h2>
+    <h4>一、转势板定义</h4>
+    <p>在<b>情绪转折点</b>上出现的第一只涨停板，往往是行情反转的旗帜，次日溢价最高。</p>
+
+    <h4>二、转势板两大必要条件（K 线级别转势）</h4>
+    <ul>
+      <li>① <b>指数杀跌 ≥ 半月</b>：指数已持续下跌半月以上，市场极度渴望转折；</li>
+      <li>② <b>个股涨幅 40%+</b>：个股前期已有 40% 以上涨幅，股性被激活。</li>
+      <li>两者共振，说明"指数跌到位 + 个股有基础"，转势板才有爆发力。</li>
+    </ul>
+
+    <h4>三、高溢价首板条件</h4>
+    <ul>
+      <li><b>雪中送炭 &gt; 锦上添花</b>：在情绪冰点第一个涨停，价值远高于情绪已热后的跟涨。</li>
+      <li><b>烂而不弱</b>：盘面看似烂（多次开板），但始终封得住、跌不动，是资金反复接力的强势表现。</li>
+      <li><b>个股涨幅 40%+</b>：个股前期已有 40% 以上涨幅，股性被激活。</li>
+      <li><b>指数杀跌 ≥ 半月</b>：指数已持续下跌半月以上，市场极度渴望转折。</li>
+    </ul>
+
+    <h4>四、操作流程（6 步）</h4>
+    <ol>
+      <li>① 判断指数是否杀跌 ≥ 半月；</li>
+      <li>② 判断市场情绪是否处于冰点；</li>
+      <li>③ 筛选前期涨幅 40%+ 的个股；</li>
+      <li>④ 锁定第一个封板的转势股（龙头）；</li>
+      <li>⑤ 次日高开/回封时打板接力；</li>
+      <li>⑥ 设好止损，跌破预期立即离场。</li>
+    </ol>
+
+    <h4>五、案例</h4>
+    <ul>
+      <li><b>任子行（2017.1）</b>：情绪转折点第一板，次日高溢价；</li>
+      <li><b>天永智能（2017.2）</b>：转势后走出<b>四连板</b>。</li>
+    </ul>
+    <div class="callout win"><div class="t">✅ 核心结论</div>转势板 = 雪中送炭 + 烂而不弱 + 前期涨幅 40%+ + 指数杀跌 ≥ 半月，四条件共振，是次日溢价最高、最值得接力打的首板。</div>
+  </section>
+
+  <!-- ============ 学习路径 ============ -->
+  <section class="card" id="学习路径">
+    <h2>🗺️ 5 条学习路径建议（从小白到精通）</h2>
+    <ol>
+      <li><b>路径一 · 打地基（先学会"不亏"）</b>：先学第02课（交易系统、7%止损、仓位）、第23–24课（止盈止损），建立交易纪律和资金管理，保住本金是所有技术的前提。</li>
+      <li><b>路径二 · 看懂大盘（判断"能不能做"）</b>：学第08课（成交量判市）、第09课（热门板块）、第21课（分时预测大盘），先判断市场环境，环境差时不动手。</li>
+      <li><b>路径三 · 选对方向（判断"做什么"）</b>：学第10课（个股筛选）、第11–13课（龙头识别）、第03–07课（竞价与异动），学会在正确的时点选出正确的标的。</li>
+      <li><b>路径四 · 跟对主力（提高胜率）</b>：学第14–16课（龙虎榜、明星游资、真假席位），把游资动向作为加分项，跟庄不盲从。</li>
+      <li><b>路径五 · 打磨盘感（精进买卖点）</b>：学第17–20课（K线形态）、第22课（赚钱分时）、第25–30课（盘口买卖、涨停盘口、消息板、转势板），用形态与盘口把每一笔交易做精细。</li>
+    </ol>
+    <div class="callout key"><div class="t">🔑 进阶心法</div>先"不亏"、再"能赚"、后"赚多"——纪律（第02/23/24课）是地基，环境（第08/09/21课）是开关，选股（第10–13课）是方向，跟庄（第14–16课）是加分，盘口形态（第17–30课）是精进。</div>
+  </section>
+
+  <footer>
+    本教程由 2018 短线实战训练营 31 篇课程深度整理而成 · 全部知识点无遗漏<br>
+    © 学习助手 · 本文件最终归属权归尊贵的主人所有
+  </footer>
+
+</div>
+</body>
+</html>
