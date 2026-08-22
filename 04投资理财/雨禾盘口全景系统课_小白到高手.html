@@ -1,0 +1,2752 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="description" content="雨禾盘口全景系统课33节精编版 - 从小白到精通高手 - 浅色系HTML复习报告">
+<meta name="author" content="归集整理：主人专属">
+<title>雨禾盘口全景系统课·小白到高手（33节精编版）</title>
+<style>
+/* ============ 全局基础 ============ */
+* { box-sizing: border-box; margin: 0; padding: 0; -webkit-text-size-adjust: 100%; }
+html, body {
+  font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #2D3748;
+  background: #F5F5F5;
+  -webkit-font-smoothing: antialiased;
+}
+body { max-width: 1200px; margin: 0 auto; padding: 0 16px 80px; }
+
+/* ============ WPS 提示条 ============ */
+.wps-tip {
+  background: linear-gradient(90deg, #FFF4E6, #FFE6CC);
+  border-left: 4px solid #E8A87C;
+  padding: 12px 16px;
+  margin: 16px 0;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #7B5E3C;
+  line-height: 1.6;
+}
+.wps-tip strong { color: #E8A87C; }
+
+/* ============ 顶部封面 ============ */
+.cover {
+  background: linear-gradient(135deg, #4A90A4 0%, #6BAFC0 100%);
+  color: #FFFFFF;
+  padding: 48px 24px;
+  border-radius: 12px;
+  margin: 24px 0;
+  text-align: center;
+  box-shadow: 0 8px 24px rgba(74, 144, 164, 0.15);
+}
+.cover h1 { font-size: 36px; margin-bottom: 12px; font-weight: 700; letter-spacing: 2px; }
+.cover .subtitle { font-size: 20px; opacity: 0.92; margin-bottom: 24px; }
+.cover .meta {
+  display: flex; justify-content: center; gap: 24px;
+  flex-wrap: wrap;
+  font-size: 14px;
+  opacity: 0.85;
+  margin-top: 16px;
+}
+.cover .meta span { padding: 6px 14px; background: rgba(255,255,255,0.18); border-radius: 20px; }
+
+/* ============ 导航 ============ */
+.nav {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 20px;
+  margin: 24px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+}
+.nav h2 {
+  color: #4A90A4; font-size: 22px; margin-bottom: 16px;
+  padding-bottom: 12px; border-bottom: 2px solid #E8F4F8;
+}
+.nav ol { padding-left: 22px; }
+.nav ol li { margin: 8px 0; color: #4A5568; }
+.nav ol li a { color: #4A90A4; text-decoration: none; }
+.nav ol li a:hover { text-decoration: underline; }
+.nav .layer-title { color: #E8A87C; font-weight: 700; margin-top: 12px; display: block; }
+
+/* ============ 章节卡片 ============ */
+.lesson {
+  background: #FFFFFF;
+  border-radius: 12px;
+  padding: 28px;
+  margin: 24px 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  border-left: 4px solid #4A90A4;
+}
+.lesson.layer-1 { border-left-color: #4A90A4; }
+.lesson.layer-2 { border-left-color: #7FB069; }
+.lesson.layer-3 { border-left-color: #E8A87C; }
+.lesson.layer-4 { border-left-color: #C95F77; }
+.lesson.layer-5 { border-left-color: #8B5FBF; }
+
+.lesson-header {
+  border-bottom: 2px dashed #E2E8F0;
+  padding-bottom: 16px; margin-bottom: 20px;
+}
+.lesson-level {
+  display: inline-block;
+  background: #4A90A4;
+  color: #FFFFFF;
+  font-size: 13px;
+  padding: 4px 12px;
+  border-radius: 14px;
+  margin-right: 8px;
+}
+.lesson.layer-2 .lesson-level { background: #7FB069; }
+.lesson.layer-3 .lesson-level { background: #E8A87C; }
+.lesson.layer-4 .lesson-level { background: #C95F77; }
+.lesson.layer-5 .lesson-level { background: #8B5FBF; }
+
+.lesson h2 {
+  color: #2D3748;
+  font-size: 26px;
+  margin: 12px 0;
+  font-weight: 700;
+}
+.lesson-goal {
+  background: #E8F4F8;
+  color: #2C5F6F;
+  padding: 10px 14px;
+  border-radius: 6px;
+  font-size: 15px;
+  margin: 12px 0;
+  border-left: 3px solid #4A90A4;
+}
+
+/* ============ 章节内子标题 ============ */
+.lesson h3 {
+  color: #4A90A4;
+  font-size: 19px;
+  margin: 24px 0 12px;
+  padding-left: 10px;
+  border-left: 4px solid #4A90A4;
+  font-weight: 700;
+}
+.lesson.layer-2 h3 { color: #5A8847; border-left-color: #7FB069; }
+.lesson.layer-3 h3 { color: #B57852; border-left-color: #E8A87C; }
+.lesson.layer-4 h3 { color: #A04A60; border-left-color: #C95F77; }
+.lesson.layer-5 h3 { color: #6F4A9B; border-left-color: #8B5FBF; }
+
+.lesson h4 {
+  color: #2D3748;
+  font-size: 17px;
+  margin: 16px 0 8px;
+  font-weight: 700;
+}
+
+/* ============ 段落与列表 ============ */
+.lesson p { margin: 10px 0; color: #2D3748; }
+.lesson ul, .lesson ol { padding-left: 26px; margin: 8px 0; }
+.lesson li { margin: 6px 0; color: #4A5568; }
+.lesson li strong { color: #2D3748; }
+.lesson strong { color: #2D3748; font-weight: 700; }
+.lesson em { color: #4A90A4; font-style: normal; font-weight: 700; }
+
+/* ============ 表格 ============ */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  background: #FFFFFF;
+  font-size: 14px;
+  border-radius: 6px;
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0,0,0,0.04);
+}
+table th {
+  background: #4A90A4;
+  color: #FFFFFF;
+  padding: 12px 10px;
+  text-align: left;
+  font-weight: 700;
+  border: 1px solid #4A90A4;
+}
+table td {
+  padding: 10px;
+  border: 1px solid #E2E8F0;
+  vertical-align: top;
+  color: #2D3748;
+}
+table tr:nth-child(even) td { background: #F8FAFB; }
+table tr:hover td { background: #E8F4F8; }
+
+/* ============ 特殊样式 ============ */
+.note {
+  background: #FFF8E7;
+  border-left: 4px solid #E8A87C;
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #6B5128;
+}
+.warning {
+  background: #FDEDED;
+  border-left: 4px solid #C95F77;
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #8B2F3F;
+}
+.tip {
+  background: #E8F4F8;
+  border-left: 4px solid #4A90A4;
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #2C5F6F;
+}
+.success {
+  background: #EFF6E8;
+  border-left: 4px solid #7FB069;
+  padding: 12px 16px;
+  margin: 14px 0;
+  border-radius: 6px;
+  font-size: 15px;
+  color: #4A6B3A;
+}
+
+.formula {
+  background: #F5F5F5;
+  border: 1px dashed #4A90A4;
+  padding: 10px 14px;
+  margin: 12px 0;
+  border-radius: 6px;
+  font-family: 'Consolas', 'Courier New', monospace;
+  color: #2C5F6F;
+  font-size: 15px;
+}
+
+.rhyme {
+  background: linear-gradient(90deg, #FFF4E6, #FFFAF0);
+  border: 1px solid #E8A87C;
+  padding: 14px 16px;
+  margin: 16px 0;
+  border-radius: 8px;
+  font-weight: 700;
+  color: #B57852;
+  font-size: 15px;
+  text-align: center;
+  letter-spacing: 1px;
+}
+
+/* ============ 标签徽章 ============ */
+.badge {
+  display: inline-block;
+  padding: 2px 10px;
+  font-size: 12px;
+  border-radius: 12px;
+  margin-right: 4px;
+  font-weight: 700;
+}
+.badge-green { background: #E8F4E8; color: #4A6B3A; border: 1px solid #7FB069; }
+.badge-orange { background: #FFF4E6; color: #B57852; border: 1px solid #E8A87C; }
+.badge-blue { background: #E8F4F8; color: #2C5F6F; border: 1px solid #4A90A4; }
+.badge-red { background: #FDEDED; color: #8B2F3F; border: 1px solid #C95F77; }
+.badge-purple { background: #F0E8F4; color: #6F4A9B; border: 1px solid #8B5FBF; }
+
+/* ============ 思维导图容器 ============ */
+.mindmap {
+  width: 100%;
+  overflow: visible;
+  touch-action: manipulation;
+  margin: 16px 0;
+  padding: 12px;
+  background: #FAFCFC;
+  border-radius: 8px;
+  border: 1px solid #E8F4F8;
+}
+.mindmap svg { width: 100%; height: auto; }
+
+/* ============ 章节分隔与底栏 ============ */
+.divider {
+  border: none;
+  border-top: 1px dashed #CBD5E0;
+  margin: 32px 0;
+}
+.footer {
+  background: #2C5F6F;
+  color: #E8F4F8;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 32px 0;
+  text-align: center;
+  font-size: 14px;
+  line-height: 1.7;
+}
+.footer strong { color: #E8A87C; }
+
+/* ============ 打印样式 ============ */
+@media print {
+  body { max-width: 210mm; margin: 0 auto; background: white; padding: 8mm; }
+  .no-print { display: none; }
+  .lesson { box-shadow: none; page-break-inside: avoid; }
+  .mindmap { page-break-inside: avoid; }
+  table { page-break-inside: avoid; }
+}
+
+/* ============ 移动端适配 ============ */
+@media (max-width: 768px) {
+  body { padding: 0 12px 60px; }
+  .cover { padding: 32px 16px; }
+  .cover h1 { font-size: 26px; }
+  .cover .subtitle { font-size: 16px; }
+  .cover .meta { gap: 8px; }
+  .lesson { padding: 18px; }
+  .lesson h2 { font-size: 22px; }
+  .lesson h3 { font-size: 17px; }
+  table { font-size: 12px; }
+  table th, table td { padding: 6px; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============== WPS 提示 ============== -->
+<div class="wps-tip">
+💡 <strong>温馨提示</strong>：如在 <strong>WPS 手机版</strong> 中打开出现模糊或排版异常，请改用 <strong>微信 / 手机浏览器</strong> 打开本文件。本报告采用静态 SVG 思维导图，在双指捏合时可放大查看细节。
+</div>
+
+<!-- ============== 封面 ============== -->
+<div class="cover">
+  <h1>雨禾盘口全景系统课</h1>
+  <div class="subtitle">从小白到精通高手 · 33节精编版</div>
+  <p style="opacity:0.92; font-size:15px;">A股盘口语言全景图 · 九大核心指标 · 八大集合竞价形态 · 五大涨停体系 · 主力挂单手法</p>
+  <div class="meta">
+    <span>📚 33节课完整收录</span>
+    <span>🧠 5层递进学习路径</span>
+    <span>📊 多张思维导图</span>
+    <span>📱 移动端双指放大</span>
+  </div>
+  <p style="margin-top:20px; opacity:0.85; font-size:13px;">📌 归属权归主人所有 · 仅供学习研究</p>
+</div>
+
+<!-- ============== 目录导航 ============== -->
+<nav class="nav">
+  <h2>📋 学习路径导航</h2>
+  <p style="margin-bottom:12px; color:#4A5568;">本报告将33节课重新编排为「小白→高手」5层递进路径，按顺序学习效果最佳。</p>
+  <ol>
+    <li><span class="layer-title">【第0层】开篇导读</span></li>
+    <li><a href="#layer1">第1层 基础认知层（小白起步）</a> → 课1-4</li>
+    <li><a href="#layer2">第2层 识别判断层（学会识主力）</a> → 课5-9</li>
+    <li><a href="#layer3">第3层 执行操作层（盘中实战）</a> → 课10-15</li>
+    <li><a href="#layer4">第4层 涨停专题层（学会抓涨停）</a> → 课16-24</li>
+    <li><a href="#layer5">第5层 风控落地层（高手必备）</a> → 课25-27</li>
+    <li><a href="#appendix">附录：速查表 + 术语词典 + 金句集</a></li>
+  </ol>
+</nav>
+
+<!-- ============== 第0层：开篇导读 ============== -->
+<section class="lesson layer-1">
+<div class="lesson-header">
+<span class="lesson-level">第0层 · 开篇</span>
+<h2>📖 全景导读：盘口为王的认知体系</h2>
+<p class="lesson-goal">🎯 学完本章你能：建立对A股盘口语言的整体认知，理解"盘口为王"的核心思想，掌握从指标→识别→操作→风控的完整闭环。</p>
+</div>
+
+<h3>🌟 雨禾老师的核心思想</h3>
+<p><strong>盘口，是主力与散户的对话窗口。</strong>每一笔成交、每一次挂单、每一根分时线条，背后都是资金的真实意图。读懂盘口，就能在主力拉升前发现机会、在主力出货前规避风险。</p>
+
+<h3>🗺️ 全景学习路径思维导图</h3>
+<div class="mindmap">
+<svg viewBox="0 0 1200 720" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+  <!-- 连接线（直角折线） -->
+  <path d="M 130,360 H 280 V 100 H 320" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 130,360 H 280 V 200 H 320" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 130,360 H 280 V 300 H 320" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 130,360 H 280 V 420 H 320" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 130,360 H 280 V 540 H 320" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 130,360 H 280 V 640 H 320" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+
+  <path d="M 480,100 H 620 V 60 H 660" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 480,100 H 620 V 130 H 660" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 480,200 H 620 V 200 H 660" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 480,300 H 620 V 270 H 660" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 480,300 H 620 V 330 H 660" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 480,420 H 620 V 400 H 660" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 480,420 H 620 V 460 H 660" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 480,540 H 620 V 530 H 660" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 480,540 H 620 V 580 H 660" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 480,540 H 620 V 630 H 660" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 480,640 H 620 V 680 H 660" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+
+  <!-- 根节点 -->
+  <rect x="20" y="342" width="110" height="36" rx="6" fill="#4A90A4"/>
+  <text x="75" y="365" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">盘口为王</text>
+
+  <!-- 一级节点 -->
+  <rect x="320" y="82" width="160" height="36" rx="6" fill="#7FB069"/>
+  <text x="400" y="105" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">基础认知层</text>
+
+  <rect x="320" y="182" width="160" height="36" rx="6" fill="#7FB069"/>
+  <text x="400" y="205" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">识别判断层</text>
+
+  <rect x="320" y="282" width="160" height="36" rx="6" fill="#7FB069"/>
+  <text x="400" y="305" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">执行操作层</text>
+
+  <rect x="320" y="402" width="160" height="36" rx="6" fill="#7FB069"/>
+  <text x="400" y="425" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">涨停专题层</text>
+
+  <rect x="320" y="522" width="160" height="36" rx="6" fill="#7FB069"/>
+  <text x="400" y="545" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">风控落地层</text>
+
+  <rect x="320" y="622" width="160" height="36" rx="6" fill="#7FB069"/>
+  <text x="400" y="645" text-anchor="middle" fill="#fff" font-size="14" font-weight="700">终极心法</text>
+
+  <!-- 二级节点 -->
+  <rect x="660" y="42" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#7FB069"/>
+  <text x="730" y="65" text-anchor="middle" fill="#333" font-size="13">盘口定义</text>
+
+  <rect x="660" y="112" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#7FB069"/>
+  <text x="730" y="135" text-anchor="middle" fill="#333" font-size="13">九大核心指标</text>
+
+  <rect x="660" y="182" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#7FB069"/>
+  <text x="730" y="205" text-anchor="middle" fill="#333" font-size="13">主线题材龙头</text>
+
+  <rect x="660" y="252" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#7FB069"/>
+  <text x="730" y="275" text-anchor="middle" fill="#333" font-size="13">主力挂单手法</text>
+
+  <rect x="660" y="312" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#7FB069"/>
+  <text x="730" y="335" text-anchor="middle" fill="#333" font-size="13">拉升波形</text>
+
+  <rect x="660" y="382" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#7FB069"/>
+  <text x="730" y="405" text-anchor="middle" fill="#333" font-size="13">五大涨停体系</text>
+
+  <rect x="660" y="442" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#7FB069"/>
+  <text x="730" y="465" text-anchor="middle" fill="#333" font-size="13">尾盘策略</text>
+
+  <rect x="660" y="512" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#7FB069"/>
+  <text x="730" y="535" text-anchor="middle" fill="#333" font-size="13">持仓管理</text>
+
+  <rect x="660" y="562" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#7FB069"/>
+  <text x="730" y="585" text-anchor="middle" fill="#333" font-size="13">口诀总结</text>
+
+  <rect x="660" y="612" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#7FB069"/>
+  <text x="730" y="635" text-anchor="middle" fill="#333" font-size="13">定性研判</text>
+
+  <rect x="660" y="662" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#7FB069"/>
+  <text x="730" y="685" text-anchor="middle" fill="#333" font-size="13">盘口为王心法</text>
+</svg>
+</div>
+
+<h3>💡 老师金句</h3>
+<div class="rhyme">看懂了盘口，就看懂了主力；看懂了主力，就看懂了股市。</div>
+
+<h3>🎓 学习方法建议</h3>
+<ul>
+<li><strong>顺序学习</strong>：从第1层到第5层，循序渐进，不要跳跃</li>
+<li><strong>边学边看</strong>：每学完一课，打开行情软件对照复盘</li>
+<li><strong>口诀背诵</strong>：每课的口诀是浓缩精华，要熟练于心</li>
+<li><strong>案例对照</strong>：把学到的形态套到历史涨停股上验证</li>
+<li><strong>实战检验</strong>：先模拟盘练习，再小资金实盘验证</li>
+</ul>
+</section>
+
+<hr class="divider">
+
+<!-- ============== 第1层：基础认知层 ============== -->
+<section id="layer1">
+<h2 style="color:#4A90A4; text-align:center; font-size:32px; margin:32px 0 8px;">第1层 · 基础认知层（小白起步）</h2>
+<p style="text-align:center; color:#4A5568; margin-bottom:24px;">掌握A股规则、9大核心指标、每日看盘流程、早盘预判方法——这是所有盘口语言的基石。</p>
+</section>
+
+<!-- ============== 第1课 ============== -->
+<section class="lesson layer-1">
+<div class="lesson-header">
+<span class="lesson-level">第1层 · 第1课</span>
+<h2>📚 第1课：认识盘口（盘口定义 + 看盘软件基础）</h2>
+<p class="lesson-goal">🎯 学完你能：理解"盘口"狭义与广义概念；知道A股交易规则（T+1、涨跌幅）；熟练使用同花顺/通达信等看盘软件；理解分时图与K线图的区别。</p>
+</div>
+
+<h3>📌 一、什么是"盘口"</h3>
+<p><strong>狭义盘口</strong>：指股票交易软件右侧的"盘口数据区"，包括买一到买五、卖一到卖五的委托挂单，以及最新成交价、成交量、换手率等实时数据。</p>
+<p><strong>广义盘口</strong>：指整个<strong>分时图</strong>所反映的所有信息——买卖盘、分时走势、量能变化、换手率、大单流向、分时均价线、量比、内外盘等所有盘中可观测数据的总称。</p>
+<div class="tip">📍 <strong>雨禾观点</strong>：本课讲的盘口是<em>广义盘口</em>——单看买卖五档是远远不够的，必须看分时、看量、看挂单变化、看均价线。</div>
+
+<h3>📌 二、A股核心交易规则</h3>
+<table>
+<thead><tr><th>规则项</th><th>具体内容</th><th>实操影响</th></tr></thead>
+<tbody>
+<tr><td><strong>交易时间</strong></td><td>9:30-11:30 / 13:00-15:00</td><td>9:15-9:25集合竞价；15:00-15:00盘后定价</td></tr>
+<tr><td><strong>T+1制度</strong></td><td>当日买入次日才能卖出</td><td>买错当日无法止损，必须提前预判</td></tr>
+<tr><td><strong>涨跌幅限制</strong></td><td>主板±10%、创业板/科创板±20%、ST股±5%</td><td>涨停封板难度差异巨大</td></tr>
+<tr><td><strong>最小交易单位</strong></td><td>1手 = 100股</td><td>买入必须是100的整数倍</td></tr>
+<tr><td><strong>印花税</strong></td><td>卖出时收取0.05%</td><td>卖出成本重要构成</td></tr>
+<tr><td><strong>交易规费</strong></td><td>约0.025%（买卖双向）</td><td>同券商略有差异</td></tr>
+<tr><td><strong>新股上市</strong></td><td>前5个交易日不设涨跌幅</td><td>新股风险与机会并存</td></tr>
+</tbody>
+</table>
+
+<h3>📌 三、看盘软件必备设置</h3>
+<h4>1. 同花顺 / 通达信 / 东方财富 三选一</h4>
+<p>推荐<strong>同花顺</strong>（功能齐全）或<strong>通达信</strong>（速度快、定制性强）。手机端推荐同花顺或东方财富。</p>
+
+<h4>2. 关键页面布局</h4>
+<ul>
+<li><strong>分时图页</strong>：左侧分时线+均价线，右侧买卖五档+成交明细</li>
+<li><strong>K线页</strong>：日K/周K/月K，配合成交量、MACD、KDJ指标</li>
+<li><strong>F10基本面</strong>：公司主营业务、营收、净利润、流通市值</li>
+<li><strong>板块联动</strong>：查看个股所属概念板块的实时涨跌情况</li>
+</ul>
+
+<h4>3. 自定义指标公式（盘口指标必备）</h4>
+<div class="formula">
+【量比】= 现成交总手 / 过去5日平均每分钟成交量 × 当日累计交易时间（分钟）
+【委比】= (委买手数 - 委卖手数) / (委买手数 + 委卖手数) × 100%
+【委差】= 委买手数 - 委卖手数
+【换手率】= 今日成交股数 / 流通股本 × 100%
+</div>
+
+<h3>📌 四、分时图核心要素</h3>
+<table>
+<thead><tr><th>要素</th><th>含义</th><th>实战作用</th></tr></thead>
+<tbody>
+<tr><td><strong>分时线（白线）</strong></td><td>实时价格走势</td><td>反映主力意图</td></tr>
+<tr><td><strong>均价线（黄线）</strong></td><td>开盘至今的平均成交价</td><td>多空力量分水岭</td></tr>
+<tr><td><strong>零轴（昨收价）</strong></td><td>昨日收盘价基准</td><td>判断股价相对位置</td></tr>
+<tr><td><strong>买卖五档</strong></td><td>买1-买5、卖1-卖5</td><td>看挂单意图</td></tr>
+<tr><td><strong>成交明细</strong></td><td>逐笔成交记录</td><td>识别大单/对倒</td></tr>
+<tr><td><strong>成交量柱</strong></td><td>每分钟成交手数</td><td>判断量能变化</td></tr>
+<tr><td><strong>量比</strong></td><td>现量与5日均量比值</td><td>判断量能异动</td></tr>
+</tbody>
+</table>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">盘口不只是买卖五档，分时均价量比换手全在内。<br>A股交易T+1，涨跌幅限要看清。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课将深入拆解<strong>九大核心指标</strong>，本课是基础认知准备。</p>
+</section>
+
+<!-- ============== 第2课 ============== -->
+<section class="lesson layer-1">
+<div class="lesson-header">
+<span class="lesson-level">第1层 · 第2课</span>
+<h2>📊 第2课：盘口九大核心指标（4个表全拆解）</h2>
+<p class="lesson-goal">🎯 学完你能：熟练使用委差委比、内外盘、总量量比、换手率、大单等9大指标判断资金意图；掌握大小盘划分标准（500亿/100亿/1万手/5000手/1000手）。</p>
+</div>
+
+<h3>📌 一、九大核心指标总览</h3>
+<table>
+<thead><tr><th>序号</th><th>指标</th><th>核心作用</th><th>关键阈值</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>委比</td><td>买卖盘力量对比</td><td>>50% 偏多，<-50% 偏空</td></tr>
+<tr><td>2</td><td>委差</td><td>买卖盘手数差</td><td>正数偏多，负数偏空</td></tr>
+<tr><td>3</td><td>内盘</td><td>主动卖出手数</td><td>放大警惕出货</td></tr>
+<tr><td>4</td><td>外盘</td><td>主动买入手数</td><td>放大看涨</td></tr>
+<tr><td>5</td><td>总量</td><td>当日累计成交</td><td>放量缩量对比</td></tr>
+<tr><td>6</td><td>量比</td><td>现量与5日均量比</td><td>>1 放量，<0.5 缩量</td></tr>
+<tr><td>7</td><td>换手率</td><td>成交股数/流通股本</td><td>3%-10% 活跃，>20% 异常</td></tr>
+<tr><td>8</td><td>大单</td><td>单笔成交金额</td><td>不同市值标准不同</td></tr>
+<tr><td>9</td><td>对敲</td><td>主力自买自卖</td><td>观察是否虚增成交</td></tr>
+</tbody>
+</table>
+
+<h3>📌 二、九大指标逐一拆解</h3>
+
+<h4>1️⃣ 委比（委托买卖比）</h4>
+<div class="formula">委比 = (委买手数 - 委卖手数) / (委买手数 + 委卖手数) × 100%</div>
+<p><strong>判断标准</strong>：</p>
+<ul>
+<li>委比 > +50%：买方力量强，多方占优</li>
+<li>委比在 -50% 到 +50%：多空平衡</li>
+<li>委比 < -50%：卖方力量强，空方占优</li>
+</ul>
+<div class="warning">⚠️ <strong>注意：委比是动态指标</strong>，会随着挂单的撤单、改单瞬间变化。主力常用"挂大单诱多"——瞬间挂出巨量买单后再撤，制造委比假象。</div>
+
+<h4>2️⃣ 委差（委托买卖差）</h4>
+<div class="formula">委差 = 委买手数 - 委卖手数（单位：手）</div>
+<p>委差为正表示买盘挂单多于卖盘，为负则反之。比委比更直观。<strong>雨禾观点</strong>：委差比委比更值得参考，因为它不受挂单撤单波动影响（撤单后委比变化大，委差变化小）。</p>
+
+<h4>3️⃣ 内盘（主动卖盘）</h4>
+<p>指以<strong>买一价</strong>主动成交的量，说明卖方以更低的价格急于卖出。在交易明细里显示为绿色"S"。</p>
+<p><strong>实战意义</strong>：内盘放大 + 股价不跌 = 主力可能吸筹（卖盘被主力吃掉）；内盘放大 + 股价下跌 = 真出货。</p>
+
+<h4>4️⃣ 外盘（主动买盘）</h4>
+<p>指以<strong>卖一价</strong>主动成交的量，说明买方以更高的价格急于买入。在交易明细里显示为红色"B"。</p>
+<p><strong>实战意义</strong>：外盘放大 + 股价上涨 = 健康上涨；外盘放大 + 股价不涨或下跌 = 主力可能在出货（诱多）。</p>
+
+<h4>5️⃣ 总量（当日累计成交）</h4>
+<p>从开盘到当前的累计成交手数。判断个股当日活跃度的基础指标。<strong>雨禾观点</strong>：早盘30分钟的总量大致能预测全天成交量的 1/3 到 1/4。</p>
+
+<h4>6️⃣ 量比（量能异动指标）</h4>
+<div class="formula">量比 = 现成交总手 / (过去5个交易日平均每分钟成交量 × 当日累计交易时间)</div>
+<p><strong>实战用法</strong>：</p>
+<ul>
+<li>量比 < 0.5：严重缩量，观望</li>
+<li>量比 0.5-1.0：缩量整理</li>
+<li>量比 1.0-2.0：温和放量</li>
+<li>量比 2.0-5.0：明显放量</li>
+<li>量比 > 5.0：剧烈放量，警惕异动</li>
+</ul>
+<div class="tip">📍 <strong>开盘量比</strong>（9:30量比）最具实战价值，是捕捉当日异动股的第一指标。</div>
+
+<h4>7️⃣ 换手率（流通性指标）</h4>
+<div class="formula">换手率 = 当日成交股数 / 流通股本 × 100%</div>
+<table>
+<thead><tr><th>换手率区间</th><th>含义</th><th>主力行为</th></tr></thead>
+<tbody>
+<tr><td>< 1%</td><td>极度低迷</td><td>无人问津，观望</td></tr>
+<tr><td>1%-3%</td><td>成交温和</td><td>正常波动</td></tr>
+<tr><td>3%-7%</td><td>成交活跃</td><td>开始有主力关注</td></tr>
+<tr><td>7%-10%</td><td>高度活跃</td><td>主力可能拉升</td></tr>
+<tr><td>10%-20%</td><td>异常活跃</td><td>可能是拉升或出货</td></tr>
+<tr><td>> 20%</td><td>极度活跃</td><td>警惕主力出货</td></tr>
+</tbody>
+</table>
+
+<h4>8️⃣ 大单（主力动向）</h4>
+<p><strong>大小盘划分标准</strong>（雨禾核心心法）：</p>
+<table>
+<thead><tr><th>股票类型</th><th>市值标准</th><th>大单标准</th><th>特大单标准</th></tr></thead>
+<tbody>
+<tr><td><strong>大盘股</strong></td><td>流通市值 > 500亿</td><td>≥ 1000手</td><td>≥ 5000手</td></tr>
+<tr><td><strong>中盘股</strong></td><td>100亿 ~ 500亿</td><td>≥ 500手</td><td>≥ 1000手</td></tr>
+<tr><td><strong>小盘股</strong></td><td>< 100亿</td><td>≥ 100手</td><td>≥ 500手</td></tr>
+</tbody>
+</table>
+<div class="tip">📍 <strong>雨禾心法</strong>：用固定金额（而非固定手数）判断大单更合理。大盘股1000手 = 1000万元左右，可能不构成大单；但小盘股100手 = 50万元就是大单。</div>
+
+<h4>9️⃣ 对敲（主力自买自卖）</h4>
+<p>主力左手卖给右手的虚假成交，目的通常是：</p>
+<ul>
+<li>制造成交量放大的假象，诱导散户跟进</li>
+<li>维持分时图的活跃度</li>
+<li>试探上下方接盘力度</li>
+</ul>
+<div class="warning">⚠️ <strong>对敲识别法</strong>：</div>
+<ol>
+<li>同一价位短时间内多次大额成交</li>
+<li>成交手数高度一致（如连续3笔都是500手）</li>
+<li>外盘/内盘同步放大但价格不涨不跌</li>
+<li>Level-2逐笔成交显示相同营业部反复出现</li>
+</ol>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">委比委差看多空，内外盘看主被动。总量看活跃，量比看异动。换手看流通，大单看主力，对敲看真假。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习每日看盘流程——把9大指标融入到5步流程中实战应用。</p>
+</section>
+
+<!-- ============== 第3课 ============== -->
+<section class="lesson layer-1">
+<div class="lesson-header">
+<span class="lesson-level">第1层 · 第3课</span>
+<h2>🔄 第3课：每日看盘流程（盘前→盘中→盘后）</h2>
+<p class="lesson-goal">🎯 学完你能：建立标准化的5步看盘流程；明确每个时段该看什么、做什么；理解"5分钟看盘法"和"60分钟定方向法"。</p>
+</div>
+
+<h3>📌 一、A股交易时段全图</h3>
+<table>
+<thead><tr><th>时段</th><th>时间</th><th>性质</th><th>核心任务</th></tr></thead>
+<tbody>
+<tr><td>集合竞价</td><td>9:15-9:25</td><td>竞价撮合</td><td>观察竞价形态，预判开盘</td></tr>
+<tr><td>早盘</td><td>9:30-10:30</td><td>主力试盘</td><td>判断方向，看是否拉升</td></tr>
+<tr><td>中盘</td><td>10:30-11:30</td><td>主力洗盘</td><td>观察回调与承接</td></tr>
+<tr><td>午休</td><td>11:30-13:00</td><td>停盘</td><td>复盘上午，分析下午</td></tr>
+<tr><td>下午盘</td><td>13:00-14:30</td><td>主力动作</td><td>关注拉升或出货信号</td></tr>
+<tr><td>尾盘</td><td>14:30-15:00</td><td>关键决战</td><td>尾盘拉升/砸盘识别</td></tr>
+</tbody>
+</table>
+
+<h3>📌 二、5步看盘流程</h3>
+
+<h4>第1步：盘前看竞价（9:15-9:25）</h4>
+<p><strong>看什么</strong>：</p>
+<ol>
+<li>9:15-9:20：观察竞价挂单变化（可撤单期，主力常挂大单后撤）</li>
+<li>9:20-9:25：观察真实挂单（不可撤单期）</li>
+<li>9:25：看开盘价、开盘量、竞价形态</li>
+</ol>
+<p><strong>做什么</strong>：</p>
+<ul>
+<li>识别竞价8大形态（一字/L/阶梯/凹/拱/锥/尖角/复合）</li>
+<li>预判今日是涨是跌</li>
+<li>确定是否关注该股</li>
+</ul>
+
+<h4>第2步：早盘看方向（9:30-10:00）</h4>
+<p><strong>看什么</strong>：</p>
+<ol>
+<li>开盘30分钟的分时走势</li>
+<li>量能变化（量比是否放大）</li>
+<li>主力挂单（压单/托单/夹板/蜂窝）</li>
+<li>是否突破均价线、开盘价</li>
+</ol>
+<p><strong>做什么</strong>：</p>
+<ul>
+<li>判断今日主方向（上涨/下跌/震荡）</li>
+<li>决定是否介入</li>
+</ul>
+
+<h4>第3步：中盘看洗盘（10:00-11:30）</h4>
+<p><strong>看什么</strong>：</p>
+<ol>
+<li>分时回调的力度（缩量/放量）</li>
+<li>回调是否破位（均价线/开盘价/最低价）</li>
+<li>拉升时的成交量配合</li>
+</ol>
+<p><strong>做什么</strong>：</p>
+<ul>
+<li>判断主力是洗盘还是出货</li>
+<li>寻找加仓点位</li>
+</ul>
+
+<h4>第4步：尾盘看决战（14:30-15:00）</h4>
+<p><strong>看什么</strong>：</p>
+<ol>
+<li>14:30后的方向选择</li>
+<li>尾盘拉升/砸盘</li>
+<li>最后5分钟的异动</li>
+</ol>
+<p><strong>做什么</strong>：</p>
+<ul>
+<li>决定是否持仓过夜</li>
+<li>捕捉尾盘机会</li>
+</ul>
+
+<h4>第5步：盘后看复盘（15:00之后）</h4>
+<p><strong>看什么</strong>：</p>
+<ol>
+<li>涨停板复盘（哪些涨停了、为什么涨停）</li>
+<li>板块联动（哪个板块最强）</li>
+<li>主力资金流向（北向、机构、游资）</li>
+<li>明日计划（关注哪些个股）</li>
+</ol>
+
+<h3>📌 三、雨禾核心：60分钟定方向</h3>
+<div class="tip">📍 <strong>60分钟MACD + 60分钟K线</strong>，判断个股中期方向。如果60分钟MACD在零轴上方金叉，中线看涨；零轴下方死叉，中线看跌。</div>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">竞价看形态，早盘看方向，中盘看洗盘，尾盘看决战，盘后看复盘。<br>60分钟定方向，30分钟定买卖。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>早盘预判与如意金箍棒</strong>——开盘前的具体预判方法。</p>
+</section>
+
+<!-- ============== 第4课 ============== -->
+<section class="lesson layer-1">
+<div class="lesson-header">
+<span class="lesson-level">第1层 · 第4课</span>
+<h2>🌅 第4课：早盘预判（如意金箍棒 + 竞价预判方法）</h2>
+<p class="lesson-goal">🎯 学完你能：使用"如意金箍棒"工具进行开盘前预判；学会从集合竞价预判全天走势；掌握竞价阶段的操作策略。</p>
+</div>
+
+<h3>📌 一、什么是"如意金箍棒"</h3>
+<p>"如意金箍棒"是雨禾自创的<strong>开盘预判工具</strong>，核心思想是：<strong>用昨天的关键数据，推断今天开盘后的可能走势</strong>。</p>
+
+<h3>📌 二、如意金箍棒的三大核心要素</h3>
+<table>
+<thead><tr><th>要素</th><th>具体内容</th><th>实战应用</th></tr></thead>
+<tbody>
+<tr><td><strong>昨收价</strong></td><td>昨日收盘价</td><td>作为今日强弱的基准线</td></tr>
+<tr><td><strong>昨最高/最低</strong></td><td>昨日最高价、最低价</td><td>判断今日压力位与支撑位</td></tr>
+<tr><td><strong>今开盘价</strong></td><td>今日9:25竞价开盘价</td><td>判断今日强弱</td></tr>
+</tbody>
+</table>
+
+<h3>📌 三、早盘三档划分</h3>
+<table>
+<thead><tr><th>开盘位置</th><th>含义</th><th>早盘预判</th></tr></thead>
+<tbody>
+<tr><td><strong>高开（>+1%）</strong></td><td>开盘价 > 昨收价</td><td>多头占优，看涨</td></tr>
+<tr><td><strong>平开（±1%内）</strong></td><td>开盘价 ≈ 昨收价</td><td>多空平衡，看方向</td></tr>
+<tr><td><strong>低开（<-1%）</strong></td><td>开盘价 < 昨收价</td><td>空头占优，看跌</td></tr>
+</tbody>
+</table>
+
+<h3>📌 四、开盘30分钟走势预判</h3>
+<h4>1. 高开后的三种走势</h4>
+<ul>
+<li><strong>高开高走</strong>：开盘后持续上涨，多头强势</li>
+<li><strong>高开低走</strong>：开盘后下跌回吐涨幅，多头乏力</li>
+<li><strong>高开震荡</strong>：开盘后窄幅震荡，等待方向选择</li>
+</ul>
+
+<h4>2. 平开后的三种走势</h4>
+<ul>
+<li><strong>平开上攻</strong>：先平开后拉升，多头开始发力</li>
+<li><strong>平开下跌</strong>：先平开后下跌，空头占优</li>
+<li><strong>平开震荡</strong>：全天窄幅震荡</li>
+</ul>
+
+<h4>3. 低开后的三种走势</h4>
+<ul>
+<li><strong>低开高走</strong>：探底回升，多头反攻（强势信号）</li>
+<li><strong>低开低走</strong>：持续下跌，空头强势</li>
+<li><strong>低开震荡</strong>：低位震荡，等待方向</li>
+</ul>
+
+<h3>📌 五、集合竞价预判方法</h3>
+<p>9:15-9:25的集合竞价是全天最重要的10分钟之一。雨禾核心预判原则：</p>
+<ol>
+<li><strong>9:15-9:20</strong>：观察挂单变化，识别主力诱多/诱空</li>
+<li><strong>9:20-9:25</strong>：观察真实挂单，这是最后的预判窗口</li>
+<li><strong>9:25</strong>：看开盘价、开盘量、竞价形态，确定今日方向</li>
+</ol>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">如意金箍棒，昨收昨高昨低，今开看强弱。<br>高开看持续，平开看方向，低开看反攻。</div>
+
+<h3>🔗 前后关联</h3>
+<p>第1层基础认知完成，下一章进入<strong>识别判断层</strong>——学会识别主线题材与龙头股。</p>
+</section>
+
+<!-- 由于内容长度，下面继续按相同模式输出剩余课程 -->
+<p style="text-align:center; color:#4A90A4; font-size:18px; margin:32px 0;">⬇️ 第1层完成，继续向下学习第2层：识别判断层 ⬇️</p>
+
+<!-- ============== 第2层：识别判断层 ============== -->
+<section id="layer2">
+<h2 style="color:#7FB069; text-align:center; font-size:32px; margin:32px 0 8px;">第2层 · 识别判断层（学会识主力）</h2>
+<p style="text-align:center; color:#4A5568; margin-bottom:24px;">学会识别主线题材、龙头股、集合竞价形态——让主力意图浮出水面。</p>
+</section>
+
+<!-- ============== 第5课 ============== -->
+<section class="lesson layer-2">
+<div class="lesson-header">
+<span class="lesson-level">第2层 · 第5课</span>
+<h2>🎯 第5课：主线题材识别（三大原则+四维度）</h2>
+<p class="lesson-goal">🎯 学完你能：识别当下市场的主线题材；判断题材的生命周期（启动/高潮/退潮）；理解"题材共振"的机会。</p>
+</div>
+
+<h3>📌 一、什么是"主线题材"</h3>
+<p><strong>主线题材</strong>是指在一段时间内持续受到资金关注、反复活跃、能带动整个板块甚至大盘上涨的题材。它具备以下特征：</p>
+<ul>
+<li><strong>持续性强</strong>：不是一两天的热度，而是持续数周甚至数月</li>
+<li><strong>规模大</strong>：涉及多只个股，形成板块效应</li>
+<li><strong>政策/事件驱动</strong>：背后有明确的政策支持或重大事件</li>
+<li><strong>龙头明确</strong>：有清晰的领涨龙头</li>
+</ul>
+
+<h3>📌 二、主线题材的三大识别原则</h3>
+
+<h4>原则1：政策驱动</h4>
+<p>国家级政策（如"双碳"、"数字经济"、"人工智能"等）一旦落地，会形成数月甚至数年的主线题材。<strong>识别方法</strong>：关注政策出台后的"行业渗透率变化"。</p>
+
+<h4>原则2：产业拐点</h4>
+<p>技术突破或需求拐点会带来主线题材（如新能源车的电池技术突破、ChatGPT引发的AI革命）。<strong>识别方法</strong>：关注龙头公司业绩拐点。</p>
+
+<h4>原则3：事件驱动</h4>
+<p>突发事件会催生短线主线（如突发地缘冲突、重要展会等）。<strong>识别方法</strong>：事件发生后看市场资金流向。</p>
+
+<h3>📌 三、题材的四维度评估</h3>
+<table>
+<thead><tr><th>维度</th><th>评估指标</th><th>高分特征</th></tr></thead>
+<tbody>
+<tr><td><strong>政策强度</strong></td><td>政策级别、文件力度</td><td>国家级 > 部委级 > 地方级</td></tr>
+<tr><td><strong>想象空间</strong></td><td>市场容量、未来增长</td><td>千亿级 > 百亿级 > 十亿级</td></tr>
+<tr><td><strong>持续性</strong></td><td>题材生命周期</td><td>长主线 > 中主线 > 短题材</td></tr>
+<tr><td><strong>资金认可度</strong></td><td>机构、游资、北向流入</td><td>持续流入 > 脉冲流入 > 流出</td></tr>
+</tbody>
+</table>
+
+<h3>📌 四、题材生命周期</h3>
+<table>
+<thead><tr><th>阶段</th><th>特征</th><th>操作策略</th></tr></thead>
+<tbody>
+<tr><td><strong>启动期</strong></td><td>政策/事件刚刚落地，龙头股开始异动</td><td>龙头低吸</td></tr>
+<tr><td><strong>高潮期</strong></td><td>板块全面爆发，多只个股涨停</td><td>持有龙头，不追涨杂毛</td></tr>
+<tr><td><strong>退潮期</strong></td><td>龙头滞涨，板块分化</td><td>减仓离场</td></tr>
+<tr><td><strong>冰点期</strong></td><td>板块沉寂，等待下一个催化</td><td>观望</td></tr>
+</tbody>
+</table>
+
+<h3>📌 五、题材共振机会</h3>
+<p><strong>题材共振</strong>是指一只个股同时具有多个热门题材属性（如"AI + 数字经济 + 国企改革"），往往上涨动能更强。<strong>雨禾观点</strong>：寻找具备"多重共振"的个股是高手的标志。</p>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">政策驱动看级别，产业拐点看龙头，事件驱动看资金。<br>主线题材四大维：政策、空间、持续、资金。<br>启动低吸，高潮持有，退潮离场。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>龙头股识别</strong>——主线题材中找到最强的那一只。</p>
+</section>
+
+<!-- ============== 第6课 ============== -->
+<section class="lesson layer-2">
+<div class="lesson-header">
+<span class="lesson-level">第2层 · 第6课</span>
+<h2>👑 第6课：龙头识别（短线情绪龙+中线趋势龙）</h2>
+<p class="lesson-goal">🎯 学完你能：区分短线情绪龙与中线趋势龙；掌握龙头的六大特征；学会在板块中快速锁定龙头股。</p>
+</div>
+
+<h3>📌 一、龙头股的定义</h3>
+<p><strong>龙头股</strong>是指在某个主线题材中，<strong>涨幅最大、走势最强、带动性最强</strong>的个股。它通常具备以下特征：</p>
+<ul>
+<li><strong>先于板块启动</strong>：在板块其他个股异动前就已经启动</li>
+<li><strong>涨幅领先</strong>：相同周期内涨幅大于板块其他个股</li>
+<li><strong>回撤最小</strong>：回调幅度小于其他个股</li>
+<li><strong>抗跌性强</strong>：大盘下跌时相对抗跌</li>
+<li><strong>带动板块</strong>：它的涨跌直接影响整个板块</li>
+</ul>
+
+<h3>📌 二、短线情绪龙 vs 中线趋势龙</h3>
+<table>
+<thead><tr><th>维度</th><th>短线情绪龙</th><th>中线趋势龙</th></tr></thead>
+<tbody>
+<tr><td><strong>持续时间</strong></td><td>3-10天</td><td>1-6个月</td></tr>
+<tr><td><strong>涨幅</strong></td><td>单波30%-100%</td><td>累计50%-300%</td></tr>
+<tr><td><strong>节奏</strong></td><td>急涨急跌，波动大</td><td>缓涨缓跌，波段上行</td></tr>
+<tr><td><strong>操作风格</strong></td><td>追涨打板，快进快出</td><td>低吸持有，波段操作</td></tr>
+<tr><td><strong>资金属性</strong></td><td>游资主导</td><td>机构+游资合力</td></tr>
+<tr><td><strong>典型案例</strong></td><td>某概念首板龙</td><td>某赛道趋势龙头</td></tr>
+</tbody>
+</table>
+
+<h3>📌 三、龙头股的六大特征</h3>
+<ol>
+<li><strong>高度</strong>：当前涨幅是板块内最高的</li>
+<li><strong>速度</strong>：拉升速度最快（连续涨停/连续大阳线）</li>
+<li><strong>带动性</strong>：它的涨停能带动板块其他个股</li>
+<li><strong>承接力</strong>：涨停打开后能回封</li>
+<li><strong>辨识度</strong>：名字/概念容易被市场记住</li>
+<li><strong>资金认可</strong>：龙虎榜显示机构/知名游资买入</li>
+</ol>
+
+<h3>📌 四、龙头的"五维选股法"</h3>
+<table>
+<thead><tr><th>维度</th><th>判断标准</th></tr></thead>
+<tbody>
+<tr><td><strong>题材强度</strong></td><td>所属题材是当前主线</td></tr>
+<tr><td><strong>涨幅领先</strong></td><td>板块涨幅前3</td></tr>
+<tr><td><strong>技术形态</strong></td><td>连续涨停/连续大阳</td></tr>
+<tr><td><strong>成交量</strong></td><td>温和放量（不超过10倍）</td></tr>
+<tr><td><strong>流通市值</strong></td><td>30-200亿最佳（流动性好）</td></tr>
+</tbody>
+</table>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">龙头先涨、龙头最高、龙头抗跌、龙头带动板块。<br>短线追情绪龙，中线持有趋势龙。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>龙头强弱判断</strong>——龙头之间也有强弱之分。</p>
+</section>
+
+<!-- ============== 第7课 ============== -->
+<section class="lesson layer-2">
+<div class="lesson-header">
+<span class="lesson-level">第2层 · 第7课</span>
+<h2>⚖️ 第7课：龙头强弱判断（六大强+六大弱）</h2>
+<p class="lesson-goal">🎯 学完你能：判断龙头处于强势还是弱势；识别假龙头的出货陷阱；找到龙头最佳的介入与离场时机。</p>
+</div>
+
+<h3>📌 一、龙头六大强势特征</h3>
+<table>
+<thead><tr><th>序号</th><th>强势特征</th><th>识别方法</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>连板不断</strong></td><td>连续涨停，中间不破板</td></tr>
+<tr><td>2</td><td><strong>一字加速</strong></td><td>高开后秒板，封单巨大</td></tr>
+<tr><td>3</td><td><strong>高位接力</strong></td><td>突破前高压力位</td></tr>
+<tr><td>4</td><td><strong>缩量涨停</strong></td><td>涨停时成交量小于昨日</td></tr>
+<tr><td>5</td><td><strong>板块共振</strong></td><td>整个板块同步上涨</td></tr>
+<tr><td>6</td><td><strong>资金涌入</strong></td><td>龙虎榜机构/游资持续买入</td></tr>
+</tbody>
+</table>
+
+<h3>📌 二、龙头六大弱势特征</h3>
+<table>
+<thead><tr><th>序号</th><th>弱势特征</th><th>识别方法</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><strong>频繁炸板</strong></td><td>涨停反复打开</td></tr>
+<tr><td>2</td><td><strong>放量滞涨</strong></td><td>放量但涨幅小</td></tr>
+<tr><td>3</td><td><strong>高位长上影</strong></td><td>K线留长上影线</td></tr>
+<tr><td>4</td><td><strong>板块分化</strong></td><td>龙头独自上涨，其他不跟</td></tr>
+<tr><td>5</td><td><strong>资金撤退</strong></td><td>龙虎榜显示机构/游资卖出</td></tr>
+<tr><td>6</td><td><strong>技术破位</strong></td><td>跌破5日线/10日线</td></tr>
+</tbody>
+</table>
+
+<h3>📌 三、龙头介入时机</h3>
+<ol>
+<li><strong>启动期介入</strong>：龙头第一个涨停板次日（最安全）</li>
+<li><strong>加速期介入</strong>：连续涨停后第一次分歧</li>
+<li><strong>高潮期持有</strong>：板块全面爆发时坚定持有</li>
+</ol>
+
+<div class="warning">⚠️ <strong>龙头离场时机</strong>：</div>
+<ul>
+<li>龙头连续2天炸板</li>
+<li>龙头放量滞涨</li>
+<li>板块开始退潮（其他个股率先跌停）</li>
+<li>龙头跌破5日线</li>
+</ul>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">六大强势六大弱，连续一字最强势，频繁炸板是出货。<br>介入看启动，离场看破位。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>集合竞价规则</strong>——龙头操作的入场时机离不开竞价。</p>
+</section>
+
+<!-- ============== 第8课 ============== -->
+<section class="lesson layer-2">
+<div class="lesson-header">
+<span class="lesson-level">第2层 · 第8课</span>
+<h2>📋 第8课：集合竞价规则与时段（三大时段+三大定价）</h2>
+<p class="lesson-goal">🎯 学完你能：理解集合竞价的三大时段机制；掌握开盘价、最大成交量、最高买价三大定价原则；识别主力竞价阶段的意图。</p>
+</div>
+
+<h3>📌 一、集合竞价三大时段</h3>
+<table>
+<thead><tr><th>时段</th><th>时间</th><th>特性</th><th>实战意义</th></tr></thead>
+<tbody>
+<tr><td>阶段1</td><td>9:15-9:20</td><td><strong>可挂单可撤单</strong></td><td>主力常用"挂大单诱多/诱空"，看挂单变化</td></tr>
+<tr><td>阶段2</td><td>9:20-9:25</td><td><strong>可挂单不可撤单</strong></td><td>真实意愿阶段，最后5分钟观察真实挂单</td></tr>
+<tr><td>阶段3</td><td>9:25-9:30</td><td><strong>等待撮合</strong></td><td>不能挂单，等待9:30开盘</td></tr>
+</tbody>
+</table>
+
+<h3>📌 二、集合竞价三大定价原则</h3>
+<p>9:25的开盘价由三个价格共同决定：</p>
+<ol>
+<li><strong>最大成交量原则</strong>：选取能使成交量最大的价格</li>
+<li><strong>高于该价格的所有买单全部成交</strong></li>
+<li><strong>低于该价格的所有卖单全部成交</strong></li>
+</ol>
+
+<div class="formula">
+开盘价 = max(成交量) 对应的价格
+即：使"买价 ≥ 开盘价的委托全部成交" + "卖价 ≤ 开盘价的委托全部成交"的价格
+</div>
+
+<h3>📌 三、9:15-9:20 主力的诱多诱空</h3>
+<p>9:15-9:20主力常用的两种诱骗手段：</p>
+<ul>
+<li><strong>诱多</strong>：9:15挂出巨额买单（买一买二），让散户以为有主力接盘，散户跟进后主力9:20前撤单</li>
+<li><strong>诱空</strong>：9:15挂出巨额卖单（卖一卖二），让散户以为有主力出货，散户恐慌后主力9:20前撤单</li>
+</ul>
+
+<h3>📌 四、9:20-9:25 真实意图识别</h3>
+<p>9:20-9:25不可撤单，此阶段的挂单代表<strong>真实意愿</strong>：</p>
+<ul>
+<li>买单持续增加 → 多方强势</li>
+<li>卖单持续增加 → 空方强势</li>
+<li>买卖单同时增加 → 多空博弈激烈，看开盘后方向</li>
+</ul>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">9:15-9:20看挂单，可撤单期主力演戏。<br>9:20-9:25看真实，不可撤单才是真意。<br>9:25开盘价，最大成交量原则定。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>集合竞价八大形态</strong>——从竞价形态预判全天走势。</p>
+</section>
+
+<!-- ============== 第9课 ============== -->
+<section class="lesson layer-2">
+<div class="lesson-header">
+<span class="lesson-level">第2层 · 第9课</span>
+<h2>🎨 第9课：集合竞价八大形态（小白→高手必学）</h2>
+<p class="lesson-goal">🎯 学完你能：识别一字/L/阶梯/凹/拱/锥/尖角/复合八大竞价形态；理解每种形态的主力意图；学会在竞价阶段做出买卖决策。</p>
+</div>
+
+<h3>📌 一、八大经典竞价形态</h3>
+
+<h4>1️⃣ 一字型（涨停一字/跌停一字）</h4>
+<div class="success">✅ <strong>特征</strong>：开盘价 = 涨停价（或跌停价），开盘后股价不波动</div>
+<p><strong>主力意图</strong>：</p>
+<ul>
+<li>涨停一字：主力极度看好，封单巨大，散户买不到</li>
+<li>跌停一字：主力或重大利空，散户卖不出</li>
+</ul>
+<p><strong>实战策略</strong>：</p>
+<ul>
+<li>涨停一字排队买入（一般买不到）</li>
+<li>跌停一字不能急于抄底，可能连续跌停</li>
+</ul>
+
+<h4>2️⃣ L型（开盘后稳步上行）</h4>
+<div class="success">✅ <strong>特征</strong>：竞价阶段挂单逐步增加，开盘价接近昨收或小幅高开，开盘后稳步上行</div>
+<p><strong>主力意图</strong>：主力温和吸筹，不急不缓。</p>
+<p><strong>实战策略</strong>：可在开盘价附近低吸。</p>
+
+<h4>3️⃣ 倒L型（开盘后急跌）</h4>
+<div class="warning">⚠️ <strong>特征</strong>：竞价挂单较多，但开盘后迅速下杀</div>
+<p><strong>主力意图</strong>：主力诱多后出货（9:15挂大买单→9:20撤单→9:25挂大卖单）。</p>
+<p><strong>实战策略</strong>：坚决不参与，可能持续下跌。</p>
+
+<h4>4️⃣ 阶梯型（挂单阶梯式递增）</h4>
+<div class="success">✅ <strong>特征</strong>：买一、买二、买三、买四、买五挂单量依次递增（如100、200、300、500、1000手）</div>
+<p><strong>主力意图</strong>：主力稳步吸筹，给散户"安全感"吸引跟买。</p>
+<p><strong>实战策略</strong>：可适量跟进，止损设在开盘价下方。</p>
+
+<h4>5️⃣ 凹型（开盘后探底回升）</h4>
+<div class="success">✅ <strong>特征</strong>：竞价小幅高开或平开，开盘后短暂下杀后快速拉起</div>
+<p><strong>主力意图</strong>：主力洗盘+吸筹，把不坚定的散户洗出去。</p>
+<p><strong>实战策略</strong>：在拉升过程中跟进，止损设在最低点下方。</p>
+
+<h4>6️⃣ 拱型（开盘后冲高回落）</h4>
+<div class="warning">⚠️ <strong>特征</strong>：竞价高开较多，开盘后冲高但很快回落</div>
+<p><strong>主力意图</strong>：主力诱多出货（拉升后借散户接盘卖出）。</p>
+<p><strong>实战策略</strong>：不参与，可能是出货形态。</p>
+
+<h4>7️⃣ 锥形（开盘后单边上行）</h4>
+<div class="success">✅ <strong>特征</strong>：竞价量能大，开盘后单边上行，几乎不回踩</div>
+<p><strong>主力意图</strong>：主力强势拉升，资金涌入。</p>
+<p><strong>实战策略</strong>：可追涨买入，但要注意高位风险。</p>
+
+<h4>8️⃣ 尖角形（开盘瞬间暴涨/暴跌）</h4>
+<div class="warning">⚠️ <strong>特征</strong>：开盘前最后一瞬间突然大幅高开或低开</div>
+<p><strong>主力意图</strong>：主力利用最后几秒钟突袭，打乱散户判断。</p>
+<p><strong>实战策略</strong>：观望，不轻易跟进。</p>
+
+<h3>📌 二、其他特殊形态</h3>
+
+<h4>虎口夺食型</h4>
+<p>竞价阶段买卖双方激烈博弈，最终开盘价大幅高于昨收，主力成功"夺走"散户的筹码。</p>
+
+<h4>牵牛花型</h4>
+<p>竞价阶段挂单很弱，但开盘后被主力逐步拉起，像牵牛花一样向上盛开。</p>
+
+<h4>断线型</h4>
+<p>竞价阶段看似强势（买单巨大），但开盘后瞬间暴跌，主力"断线"出货。</p>
+
+<h4>滑坡型</h4>
+<p>竞价阶段持续走弱，开盘后单边下跌，类似"滑坡"。</p>
+
+<h4>复合型</h4>
+<p>多种形态的混合，需要综合判断。</p>
+
+<h3>📌 三、竞价形态思维导图</h3>
+<div class="mindmap">
+<svg viewBox="0 0 1100 600" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+  <!-- 连接线 -->
+  <path d="M 110,300 H 240 V 80 H 280" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 110,300 H 240 V 160 H 280" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 110,300 H 240 V 240 H 280" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 110,300 H 240 V 320 H 280" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 110,300 H 240 V 400 H 280" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 110,300 H 240 V 480 H 280" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 110,300 H 240 V 560 H 280" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+
+  <!-- 根节点 -->
+  <rect x="20" y="282" width="90" height="36" rx="6" fill="#7FB069"/>
+  <text x="65" y="305" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">竞价形态</text>
+
+  <!-- 子节点 -->
+  <rect x="280" y="62" width="140" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="350" y="85" text-anchor="middle" fill="#333" font-size="13">一字型</text>
+
+  <rect x="280" y="142" width="140" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="350" y="165" text-anchor="middle" fill="#333" font-size="13">L型</text>
+
+  <rect x="280" y="222" width="140" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="350" y="245" text-anchor="middle" fill="#333" font-size="13">倒L型</text>
+
+  <rect x="280" y="302" width="140" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="350" y="325" text-anchor="middle" fill="#333" font-size="13">阶梯型</text>
+
+  <rect x="280" y="382" width="140" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="350" y="405" text-anchor="middle" fill="#333" font-size="13">凹型</text>
+
+  <rect x="280" y="462" width="140" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="350" y="485" text-anchor="middle" fill="#333" font-size="13">拱型</text>
+
+  <rect x="280" y="542" width="140" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="350" y="565" text-anchor="middle" fill="#333" font-size="13">锥形+尖角</text>
+
+  <!-- 注释节点 -->
+  <rect x="500" y="62" width="180" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="590" y="85" text-anchor="middle" fill="#333" font-size="13">涨停封单巨大/跌停封单</text>
+
+  <rect x="500" y="142" width="180" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="590" y="165" text-anchor="middle" fill="#333" font-size="13">温和吸筹，稳步上行</text>
+
+  <rect x="500" y="222" width="180" height="36" rx="6" fill="#FDEDED" stroke="#C95F77"/>
+  <text x="590" y="245" text-anchor="middle" fill="#333" font-size="13">诱多后急跌</text>
+
+  <rect x="500" y="302" width="180" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="590" y="325" text-anchor="middle" fill="#333" font-size="13">挂单阶梯递增</text>
+
+  <rect x="500" y="382" width="180" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="590" y="405" text-anchor="middle" fill="#333" font-size="13">探底回升</text>
+
+  <rect x="500" y="462" width="180" height="36" rx="6" fill="#FDEDED" stroke="#C95F77"/>
+  <text x="590" y="485" text-anchor="middle" fill="#333" font-size="13">冲高回落</text>
+
+  <rect x="500" y="542" width="180" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="590" y="565" text-anchor="middle" fill="#333" font-size="13">单边上行</text>
+
+  <!-- 连接线 - 第二层到第三层 -->
+  <path d="M 420,80 H 480" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 420,160 H 480" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 420,240 H 480" stroke="#C95F77" stroke-width="1.5" fill="none"/>
+  <path d="M 420,320 H 480" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 420,400 H 480" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 420,480 H 480" stroke="#C95F77" stroke-width="1.5" fill="none"/>
+  <path d="M 420,560 H 480" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+</svg>
+</div>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">一字最强最强封，L型稳步吸筹好。<br>倒L拱形要小心，主力出货在眼前。<br>阶梯凹型是真爱，锥形尖角看资金。</div>
+
+<h3>🔗 前后关联</h3>
+<p>第2层识别判断完成，下一章进入<strong>第3层执行操作层</strong>——把识别转化为盘中实战。</p>
+</section>
+
+<p style="text-align:center; color:#7FB069; font-size:18px; margin:32px 0;">⬇️ 第2层完成，继续向下学习第3层：执行操作层 ⬇️</p>
+
+<!-- ============== 第3层：执行操作层 ============== -->
+<section id="layer3">
+<h2 style="color:#E8A87C; text-align:center; font-size:32px; margin:32px 0 8px;">第3层 · 执行操作层（盘中实战）</h2>
+<p style="text-align:center; color:#4A5568; margin-bottom:24px;">把识别转化为盘中实战操作——掌握主力挂单、关键位、拉升波形等核心战法。</p>
+</section>
+
+<!-- ============== 第10课 ============== -->
+<section class="lesson layer-3">
+<div class="lesson-header">
+<span class="lesson-level">第3层 · 第10课</span>
+<h2>🚀 第10课：开盘三种盘面与六区间</h2>
+<p class="lesson-goal">🎯 学完你能：识别开盘后的三种盘面状态（强势/弱势/震荡）；掌握分时图的六大价格区间；理解每个区间的实战意义。</p>
+</div>
+
+<h3>📌 一、开盘后三种盘面状态</h3>
+
+<h4>1. 强势盘面（多头主导）</h4>
+<ul>
+<li>开盘后股价快速拉升，站稳均价线上方</li>
+<li>回调时均价线有强支撑</li>
+<li>量能温和放大</li>
+</ul>
+<p><strong>策略</strong>：持有为主，回调即机会</p>
+
+<h4>2. 弱势盘面（空头主导）</h4>
+<ul>
+<li>开盘后股价快速下跌，跌破均价线</li>
+<li>反弹时均价线有强压力</li>
+<li>量能放大</li>
+</ul>
+<p><strong>策略</strong>：减仓离场，不轻易抄底</p>
+
+<h4>3. 震荡盘面（多空平衡）</h4>
+<ul>
+<li>开盘后股价围绕均价线小幅波动</li>
+<li>买卖力量均衡</li>
+<li>等待方向选择</li>
+</ul>
+<p><strong>策略</strong>：观望等待方向突破</p>
+
+<h3>📌 二、分时图六大价格区间</h3>
+<table>
+<thead><tr><th>区间</th><th>位置</th><th>实战意义</th></tr></thead>
+<tbody>
+<tr><td>1️⃣ <strong>涨停价</strong></td><td>+10%（或+20%）</td><td>极端多头，是当日最高价</td></tr>
+<tr><td>2️⃣ <strong>最高价</strong></td><td>当日最高</td><td>强压力位，突破则看高一线</td></tr>
+<tr><td>3️⃣ <strong>昨收价</strong></td><td>昨日收盘</td><td>心理基准线，多空分水岭</td></tr>
+<tr><td>4️⃣ <strong>均价线</strong></td><td>实时均价</td><td>多空分水岭，盘中支撑/压力</td></tr>
+<tr><td>5️⃣ <strong>开盘价</strong></td><td>竞价开盘</td><td>今日强弱基准</td></tr>
+<tr><td>6️⃣ <strong>最低价</strong></td><td>当日最低</td><td>强支撑位，破位则看空</td></tr>
+<tr><td>7️⃣ <strong>跌停价</strong></td><td>-10%（或-20%）</td><td>极端空头，是当日最低价</td></tr>
+</tbody>
+</table>
+
+<h3>📌 三、均价线的实战应用</h3>
+<ul>
+<li><strong>支撑作用</strong>：股价在均价线上方运行时，回调至均价线往往止跌</li>
+<li><strong>压力作用</strong>：股价在均价线下方运行时，反弹至均价线往往遇阻</li>
+<li><strong>方向判断</strong>：股价站稳均价线 = 多头强势；跌破均价线 = 空头强势</li>
+</ul>
+
+<div class="tip">📍 <strong>雨禾心法</strong>："均价线是多空双方的成本线，站稳均价线就是站稳成本线"</div>
+
+<h3>📌 四、关键区间突破法则</h3>
+<ul>
+<li><strong>突破昨收</strong>：从下方突破昨收价，多头开始占优</li>
+<li><strong>突破开盘</strong>：从下方突破开盘价，今日多头确定</li>
+<li><strong>突破最高</strong>：突破昨日最高，今日强势特征确立</li>
+<li><strong>跌破开盘</strong>：跌破开盘价，多头弱势</li>
+</ul>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">强势盘面看均价支撑，弱势盘面看均价压力，震荡盘面等方向。<br>六区间：涨停、最高、昨收、均价、开盘、最低、跌停。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>早盘密码拉旗杆</strong>——开盘30分钟内最强势的拉升形态。</p>
+</section>
+
+<!-- ============== 第11课 ============== -->
+<section class="lesson layer-3">
+<div class="lesson-header">
+<span class="lesson-level">第3层 · 第11课</span>
+<h2>🚩 第11课：早盘密码——拉旗杆 + 3%法则 + 星舰发射</h2>
+<p class="lesson-goal">🎯 学完你能：识别早盘最强势的"拉旗杆"形态；掌握3%法则判断主力意图；理解"星舰发射"的入场时机。</p>
+</div>
+
+<h3>📌 一、什么是"拉旗杆"</h3>
+<p><strong>拉旗杆</strong>是指个股在开盘30分钟内出现一根<strong>垂直拉升</strong>的分时线，就像一根旗杆一样竖起来。这是主力强势拉升的明确信号。</p>
+
+<h3>📌 二、拉旗杆的三大特征</h3>
+<table>
+<thead><tr><th>特征</th><th>具体表现</th><th>主力意图</th></tr></thead>
+<tbody>
+<tr><td><strong>速度快</strong></td><td>3-5分钟内拉升3%-8%</td><td>主力资金雄厚</td></tr>
+<tr><td><strong>量能大</strong></td><td>伴随成交量急剧放大</td><td>资金涌入</td></tr>
+<tr><td><strong>突破关键位</strong></td><td>突破均价线、开盘价、昨收</td><td>多头确立</td></tr>
+</tbody>
+</table>
+
+<h3>📌 三、3%法则</h3>
+<div class="tip">📍 <strong>雨禾核心心法</strong>：早盘30分钟内，<strong>涨幅超过3%</strong>的个股值得重点关注。因为这意味着主力在短时间内投入了巨额资金。</div>
+
+<h3>📌 四、星舰发射</h3>
+<p><strong>星舰发射</strong>是指个股开盘后像火箭一样单边上扬，几乎没有回调的强势拉升形态。</p>
+<table>
+<thead><tr><th>阶段</th><th>特征</th></tr></thead>
+<tbody>
+<tr><td><strong>发射期</strong></td><td>开盘后1-3分钟内快速拉升</td></tr>
+<tr><td><strong>巡航期</strong></td><td>持续走高，量价配合</td></tr>
+<tr><td><strong>分离期</strong></td><td>突破关键阻力位后加速</td></tr>
+<tr><td><strong>登月期</strong></td><td>冲击涨停或阶段高点</td></tr>
+</tbody>
+</table>
+
+<h3>📌 五、拉旗杆的实战操作</h3>
+<ol>
+<li><strong>发现拉旗杆</strong>：早盘30分钟内重点盯盘，捕捉垂直拉升</li>
+<li><strong>确认强势</strong>：拉升后站稳均价线、回调不破拉升起点</li>
+<li><strong>入场时机</strong>：在首次回调至均价线附近时低吸</li>
+<li><strong>止损设置</strong>：止损设在拉旗杆起点下方</li>
+</ol>
+
+<div class="warning">⚠️ <strong>注意</strong>：拉旗杆后必须<strong>回踩确认</strong>，如果拉升后立刻暴跌，可能是"假拉升"诱多。</div>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">早盘30分看拉旗杆，3%法则挑强势股。<br>星舰发射是信号，回踩确认才安全。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>主力挂单四大手法</strong>——识别主力在分时图上的挂单意图。</p>
+</section>
+
+<!-- ============== 第12课 ============== -->
+<section class="lesson layer-3">
+<div class="lesson-header">
+<span class="lesson-level">第3层 · 第12课</span>
+<h2>🛡️ 第12课：主力挂单四大手法（压单/托单/夹板/蜂窝）</h2>
+<p class="lesson-goal">🎯 学完你能：识别压单、托单、夹板、蜂窝四大主力挂单手法；理解每种手法的位置-真假矩阵；判断主力挂单的真实意图。</p>
+</div>
+
+<h3>📌 一、压单</h3>
+<div class="warning">⚠️ <strong>定义</strong>：在卖一卖二卖三位置挂出大量卖单，压制股价上涨。</div>
+
+<h4>真假压单矩阵</h4>
+<table>
+<thead><tr><th>位置</th><th>量能</th><th>真假</th><th>主力意图</th></tr></thead>
+<tbody>
+<tr><td>卖一</td><td>巨量（>1000手）</td><td>真压单</td><td>出货或洗盘</td></tr>
+<tr><td>卖一</td><td>少量（<100手）</td><td>假压单</td><td>诱多试盘</td></tr>
+<tr><td>卖二/卖三</td><td>巨量</td><td>真压单</td><td>洗盘吸筹</td></tr>
+<tr><td>卖一</td><td>持续1小时以上</td><td>真压单</td><td>坚决出货</td></tr>
+</tbody>
+</table>
+
+<h4>压单实战意义</h4>
+<ul>
+<li>真压单在高位 → 主力出货，坚决离场</li>
+<li>真压单在低位 → 主力洗盘，可以低吸</li>
+<li>假压单 → 主力试盘拉升，随时可能突破</li>
+</ul>
+
+<h3>📌 二、托单</h3>
+<div class="success">✅ <strong>定义</strong>：在买一买二买三位置挂出大量买单，托起股价不下跌。</div>
+
+<h4>真假托单矩阵</h4>
+<table>
+<thead><tr><th>位置</th><th>量能</th><th>真假</th><th>主力意图</th></tr></thead>
+<tbody>
+<tr><td>买一</td><td>巨量（>1000手）</td><td>真托单</td><td>护盘或拉升</td></tr>
+<tr><td>买一</td><td>少量（<100手）</td><td>假托单</td><td>诱空试盘</td></tr>
+<tr><td>买二/买三</td><td>巨量</td><td>真托单</td><td>护盘吸筹</td></tr>
+</tbody>
+</table>
+
+<h4>托单实战意义</h4>
+<ul>
+<li>真托单在低位 → 主力护盘，可以跟随</li>
+<li>真托单在高位 → 主力掩护出货，警惕</li>
+<li>假托单 → 主力试探下方承接力</li>
+</ul>
+
+<h3>📌 三、夹板</h3>
+<div class="tip">📍 <strong>定义</strong>：在<strong>买一和卖一</strong>同时挂出巨量委托单，把股价"夹"在一个狭小空间内波动。</div>
+
+<h4>夹板的典型特征</h4>
+<ul>
+<li>买一挂 1000手，卖一挂 1000手</li>
+<li>股价在两价位之间窄幅波动</li>
+<li>挂单持续数分钟到数小时</li>
+</ul>
+
+<h4>夹板实战意义</h4>
+<ul>
+<li><strong>吸筹阶段</strong>：夹板下方吸筹，等待突破</li>
+<li><strong>出货阶段</strong>：夹板下方出货，准备砸盘</li>
+<li><strong>突破夹板</strong>：股价突破夹板区间，往往是真突破或假突破</li>
+</ul>
+
+<div class="warning">⚠️ <strong>夹板突破法则</strong>：</div>
+<ul>
+<li>放量突破夹板 → 真突破，跟进</li>
+<li>缩量突破夹板 → 假突破，警惕回落</li>
+<li>夹板被瞬间吃掉 → 主力意图明确</li>
+</ul>
+
+<h3>📌 四、蜂窝</h3>
+<div class="tip">📍 <strong>定义</strong>：在多个买卖价位都挂出小额委托单，形成密集如蜂窝的挂单网络。</div>
+
+<h4>蜂窝的特征</h4>
+<ul>
+<li>每个价位挂 50-200手</li>
+<li>挂单数量多，价位跨度广</li>
+<li>持续时间长</li>
+</ul>
+
+<h4>蜂窝实战意义</h4>
+<ul>
+<li><strong>吸筹型蜂窝</strong>：主力在多个价位挂买单，等待散户抛盘</li>
+<li><strong>出货型蜂窝</strong>：主力在多个价位挂卖单，等待散户接盘</li>
+<li><strong>识别关键</strong>：蜂窝出现在低位多为吸筹，出现在高位多为出货</li>
+</ul>
+
+<h3>📌 五、四大手法速查</h3>
+<table>
+<thead><tr><th>手法</th><th>位置特征</th><th>真假识别</th><th>实战策略</th></tr></thead>
+<tbody>
+<tr><td><strong>压单</strong></td><td>卖方挂单巨大</td><td>高位真压=出货，低位真压=洗盘</td><td>高位离场，低位低吸</td></tr>
+<tr><td><strong>托单</strong></td><td>买方挂单巨大</td><td>低位真托=护盘，高位真托=掩护</td><td>低位跟随，高位警惕</td></tr>
+<tr><td><strong>夹板</strong></td><td>买卖同时巨单</td><td>放量突破为真，缩量为假</td><td>突破跟进</td></tr>
+<tr><td><strong>蜂窝</strong></td><td>多价位小额挂单</td><td>低位吸筹，高位出货</td><td>顺势而为</td></tr>
+</tbody>
+</table>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">压单看位置，高低真假各不同。<br>托单看位置，低吸高警是心法。<br>夹板看突破，量能配合才为真。<br>蜂窝看位置，低吸高出顺势行。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>成交密度与上涨速度</strong>——用量化方法判断拉升质量。</p>
+</section>
+
+<!-- ============== 第13课 ============== -->
+<section class="lesson layer-3">
+<div class="lesson-header">
+<span class="lesson-level">第3层 · 第13课</span>
+<h2>⚡ 第13课：成交密度与上涨速度</h2>
+<p class="lesson-goal">🎯 学完你能：用"成交密度"判断主力意图；用"上涨速度"判断拉升质量；理解"价升量增"的健康形态。</p>
+</div>
+
+<h3>📌 一、成交密度</h3>
+<p><strong>成交密度</strong>是指在特定价格区间内的成交手数密集程度。密度高意味着主力在此区间大量吸筹或出货。</p>
+
+<h4>成交密度的判断标准</h4>
+<table>
+<thead><tr><th>密度</th><th>特征</th><th>主力意图</th></tr></thead>
+<tbody>
+<tr><td><strong>高密度</strong></td><td>某价位密集成交10万手+</td><td>主力大量吸筹或出货</td></tr>
+<tr><td><strong>中密度</strong></td><td>某价位密集成交1-10万手</td><td>主力试探性参与</td></tr>
+<tr><td><strong>低密度</strong></td><td>某价位成交<1万手</td><td>散户交易为主</td></tr>
+</tbody>
+</table>
+
+<h3>📌 二、上涨速度</h3>
+<p><strong>上涨速度</strong>是指股价在单位时间内的涨幅。速度越快说明主力拉升意愿越强。</p>
+
+<h4>上涨速度分级</h4>
+<table>
+<thead><tr><th>速度等级</th><th>涨幅/分钟</th><th>主力意图</th></tr></thead>
+<tbody>
+<tr><td><strong>急速</strong></td><td>>1%/分钟</td><td>主力强烈拉升</td></tr>
+<tr><td><strong>快速</strong></td><td>0.5-1%/分钟</td><td>主力强势拉升</td></tr>
+<tr><td><strong>中速</strong></td><td>0.2-0.5%/分钟</td><td>主力温和拉升</td></tr>
+<tr><td><strong>慢速</strong></td><td><0.2%/分钟</td><td>散户或弱势拉升</td></tr>
+</tbody>
+</table>
+
+<h3>📌 三、价升量增原则</h3>
+<div class="success">✅ <strong>健康上涨</strong>：股价上涨 + 成交量放大 = 价升量增（健康）<br>
+✅ <strong>缩量上涨</strong>：股价上涨 + 成交量萎缩 = 上涨乏力<br>
+⚠️ <strong>放量滞涨</strong>：股价不涨 + 成交量放大 = 主力出货</div>
+
+<h3>📌 四、实战组合判断</h3>
+<table>
+<thead><tr><th>价</th><th>量</th><th>主力意图</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td>↑涨</td><td>↑增</td><td>真拉升</td><td>持有/跟进</td></tr>
+<tr><td>↑涨</td><td>↓缩</td><td>上涨乏力</td><td>减仓</td></tr>
+<tr><td>↓跌</td><td>↑增</td><td>主力出货</td><td>离场</td></tr>
+<tr><td>↓跌</td><td>↓缩</td><td>洗盘</td><td>观望</td></tr>
+<tr><td>→平</td><td>↑增</td><td>主力吸筹</td><td>关注</td></tr>
+<tr><td>→平</td><td>↓缩</td><td>观望氛围</td><td>离场观望</td></tr>
+</tbody>
+</table>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">密度看主力参与，速度看拉升意愿。<br>价升量增最健康，放量滞涨是出货。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>关键支撑压力位</strong>——找准价格的支撑与压力。</p>
+</section>
+
+<!-- ============== 第14课 ============== -->
+<section class="lesson layer-3">
+<div class="lesson-header">
+<span class="lesson-level">第3层 · 第14课</span>
+<h2>📍 第14课：关键支撑压力位（均价线/中轴线/开盘价/高低价）</h2>
+<p class="lesson-goal">🎯 学完你能：识别分时图上的四大关键位；理解每个关键位的支撑与压力转化；找到最佳的买入卖出点位。</p>
+</div>
+
+<h3>📌 一、四大关键位详解</h3>
+
+<h4>1. 均价线（黄线）</h4>
+<p><strong>作用</strong>：多空双方成本线，是盘中最重要的支撑压力位。</p>
+<ul>
+<li>股价在均价线上方：均价线是支撑</li>
+<li>股价在均价线下方：均价线是压力</li>
+<li>突破均价线：支撑压力转化</li>
+</ul>
+
+<h4>2. 中轴线（昨收价）</h4>
+<p><strong>作用</strong>：多空心理基准线。</p>
+<ul>
+<li>开盘在中轴上方：多头占优</li>
+<li>开盘在中轴下方：空头占优</li>
+<li>突破中轴线：方向选择信号</li>
+</ul>
+
+<h4>3. 开盘价</h4>
+<p><strong>作用</strong>：今日强弱基准线。</p>
+<ul>
+<li>开盘后站稳开盘价：今日多头强势</li>
+<li>开盘后跌破开盘价：今日空头弱势</li>
+<li>回踩开盘价：重要买点</li>
+</ul>
+
+<h4>4. 当日最高价/最低价</h4>
+<p><strong>作用</strong>：当日极值，形成新的支撑压力。</p>
+<ul>
+<li>突破最高价：强势确立</li>
+<li>跌破最低价：弱势确立</li>
+<li>回踩最高价/最低价：支撑压力测试</li>
+</ul>
+
+<h3>📌 二、支撑压力转化法则</h3>
+<div class="success">✅ <strong>突破定律</strong>：股价突破压力位后，该压力位转化为支撑位<br>
+✅ <strong>跌破定律</strong>：股价跌破支撑位后，该支撑位转化为压力位</div>
+
+<h3>📌 三、关键位实战策略</h3>
+<table>
+<thead><tr><th>情景</th><th>策略</th></tr></thead>
+<tbody>
+<tr><td>股价回踩均价线</td><td>支撑企稳→低吸</td></tr>
+<tr><td>股价反弹到均价线</td><td>压力遇阻→离场</td></tr>
+<tr><td>股价回踩开盘价</td><td>支撑企稳→加仓</td></tr>
+<tr><td>股价反弹到开盘价</td><td>压力遇阻→减仓</td></tr>
+<tr><td>股价突破最高价</td><td>突破有效→追涨</td></tr>
+<tr><td>股价跌破最低价</td><td>跌破有效→止损</td></tr>
+</tbody>
+</table>
+
+<h3>📌 四、多个关键位的共振</h3>
+<div class="tip">📍 <strong>雨禾心法</strong>：当<strong>多个关键位重叠</strong>时（如均价线 = 开盘价 = 中轴线），这个位置具有超强的支撑或压力，是最佳买点或卖点。</div>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">均价多空成本线，站稳均价才安全。<br>开盘定强弱，昨收定方向，最高最低定极值。<br>支撑压力会转化，关键位重叠最有效。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>主力拉升波形</strong>——看主力如何用分时曲线讲故事。</p>
+</section>
+
+<!-- ============== 第15课 ============== -->
+<section class="lesson layer-3">
+<div class="lesson-header">
+<span class="lesson-level">第3层 · 第15课</span>
+<h2>📈 第15课：主力拉升波形（长/中/短波 + 拉伸/推动/锯齿）</h2>
+<p class="lesson-goal">🎯 学完你能：识别分时图的三大波形（拉伸波/推动波/锯齿波）；区分长波、中波、短波；理解不同波形的主力意图。</p>
+</div>
+
+<h3>📌 一、按时间长短分类的波形</h3>
+
+<h4>1. 长波（持续30分钟以上）</h4>
+<p>主力单边拉升或打压的波形，持续时间长、幅度大。多见于主流题材的龙头股。</p>
+
+<h4>2. 中波（持续10-30分钟）</h4>
+<p>主力分批拉升或打压的波形，常用于震荡行情。</p>
+
+<h4>3. 短波（持续3-10分钟）</h4>
+<p>主力试盘或洗盘的波形，常用于关键位突破或回踩。</p>
+
+<h3>📌 二、按走势特征分类的波形</h3>
+
+<h4>1. 拉伸波（单边拉升）</h4>
+<p><strong>特征</strong>：分时线像一根直线持续上涨，几乎不回调。</p>
+<p><strong>主力意图</strong>：强力拉升，多见于涨停前夕。</p>
+<p><strong>操作策略</strong>：追涨买入，注意高位风险。</p>
+
+<h4>2. 推动波（阶梯式上涨）</h4>
+<p><strong>特征</strong>：分时线呈阶梯状，每次上涨后小幅回调，然后继续上涨。</p>
+<p><strong>主力意图</strong>：稳健吸筹或拉升，多见于趋势股。</p>
+<p><strong>操作策略</strong>：在每次回调时低吸。</p>
+
+<h4>3. 锯齿波（震荡行情）</h4>
+<p><strong>特征</strong>：分时线反复震荡，无明显方向。</p>
+<p><strong>主力意图</strong>：震荡吸筹或洗盘。</p>
+<p><strong>操作策略</strong>：观望，等待方向突破。</p>
+
+<h3>📌 三、波形组合识别</h3>
+<table>
+<thead><tr><th>组合形态</th><th>分时特征</th><th>主力意图</th></tr></thead>
+<tbody>
+<tr><td>拉伸+拉伸</td><td>持续单边上行</td><td>强烈拉升</td></tr>
+<tr><td>拉伸+锯齿</td><td>先拉升后震荡</td><td>拉升后洗盘</td></tr>
+<tr><td>锯齿+拉伸</td><td>先震荡后拉升</td><td>洗盘后拉升</td></tr>
+<tr><td>推动+推动</td><td>持续阶梯上行</td><td>稳健拉升</td></tr>
+<tr><td>锯齿+锯齿</td><td>全天震荡</td><td>无明确方向</td></tr>
+</tbody>
+</table>
+
+<h3>📌 四、波形与买卖点</h3>
+<div class="tip">📍 <strong>雨禾心法</strong>："拉伸波追涨，推动波低吸，锯齿波观望"</div>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">拉伸追涨，推动低吸，锯齿观望。<br>长波看方向，中波看节奏，短波看突破。</div>
+
+<h3>🔗 前后关联</h3>
+<p>第3层执行操作完成，下一章进入<strong>第4层涨停专题层</strong>——抓涨停的核心战法。</p>
+</section>
+
+<p style="text-align:center; color:#E8A87C; font-size:18px; margin:32px 0;">⬇️ 第3层完成，继续向下学习第4层：涨停专题层 ⬇️</p>
+
+<!-- ============== 第4层：涨停专题层 ============== -->
+<section id="layer4">
+<h2 style="color:#C95F77; text-align:center; font-size:32px; margin:32px 0 8px;">第4层 · 涨停专题层（学会抓涨停）</h2>
+<p style="text-align:center; color:#4A5568; margin-bottom:24px;">A股的核心魅力在于涨停——这一层讲透所有涨停形态、烂板识别与定性研判。</p>
+</section>
+
+<!-- ============== 第16课 ============== -->
+<section class="lesson layer-4">
+<div class="lesson-header">
+<span class="lesson-level">第4层 · 第16课</span>
+<h2>🌟 第16课：四大经典分时走势（涨停的基础）</h2>
+<p class="lesson-goal">🎯 学完你能：识别高开高走/低开高走/高开低走/低开低走四种走势；判断每种走势的多空意图；找到最佳的涨停参与时机。</p>
+</div>
+
+<h3>📌 一、四大经典走势</h3>
+
+<h4>1️⃣ 高开高走（最强势）</h4>
+<div class="success">✅ <strong>特征</strong>：开盘价高于昨收价，开盘后持续上涨</div>
+<p><strong>主力意图</strong>：多头强势，多见于涨停股。</p>
+<p><strong>操作策略</strong>：持有/低吸，是最强的走势。</p>
+
+<h4>2️⃣ 低开高走（强势反转）</h4>
+<div class="success">✅ <strong>特征</strong>：开盘价低于昨收价，但开盘后强势拉升翻红</div>
+<p><strong>主力意图</strong>：主力洗盘后拉升，多见于龙头启动初期。</p>
+<p><strong>操作策略</strong>：开盘价附近低吸，是次强的走势。</p>
+
+<h4>3️⃣ 高开低走（多头乏力）</h4>
+<div class="warning">⚠️ <strong>特征</strong>：开盘价高于昨收价，但开盘后持续下跌</div>
+<p><strong>主力意图</strong>：主力诱多出货，多见于顶部。</p>
+<p><strong>操作策略</strong>：坚决离场，是最弱的走势之一。</p>
+
+<h4>4️⃣ 低开低走（最弱势）</h4>
+<div class="warning">⚠️ <strong>特征</strong>：开盘价低于昨收价，开盘后持续下跌</div>
+<p><strong>主力意图</strong>：空头主导，多见于弱势股。</p>
+<p><strong>操作策略</strong>：坚决不参与，是最弱的走势。</p>
+
+<h3>📌 二、四大走势对比</h3>
+<table>
+<thead><tr><th>走势</th><th>开盘相对昨收</th><th>盘中方向</th><th>强势度</th><th>主力意图</th></tr></thead>
+<tbody>
+<tr><td>高开高走</td><td>高</td><td>↑</td><td>⭐⭐⭐⭐⭐</td><td>多头强势</td></tr>
+<tr><td>低开高走</td><td>低</td><td>↑</td><td>⭐⭐⭐⭐</td><td>洗盘拉升</td></tr>
+<tr><td>高开低走</td><td>高</td><td>↓</td><td>⭐⭐</td><td>诱多出货</td></tr>
+<tr><td>低开低走</td><td>低</td><td>↓</td><td>⭐</td><td>空头主导</td></tr>
+</tbody>
+</table>
+
+<h3>📌 三、四大走势的变种</h3>
+<h4>高开高走的变种</h4>
+<ul>
+<li><strong>高开秒板</strong>：开盘瞬间涨停</li>
+<li><strong>高开慢涨</strong>：开盘后缓慢上涨至涨停</li>
+<li><strong>高开回调</strong>：开盘后短暂回调再涨停</li>
+</ul>
+
+<h4>低开高走的变种</h4>
+<ul>
+<li><strong>深V反转</strong>：开盘大幅低开，盘中深V反转</li>
+<li><strong>温和上涨</strong>：开盘小幅低开，缓慢上涨</li>
+<li><strong>探底回升</strong>：开盘后探底再拉升</li>
+</ul>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">高开高走最强势，低开高走洗盘拉升。<br>高开低走是诱多，低开低走是弱势。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>凤飞天模型</strong>——涨停股最经典的低吸形态。</p>
+</section>
+
+<!-- ============== 第17课 ============== -->
+<section class="lesson layer-4">
+<div class="lesson-header">
+<span class="lesson-level">第4层 · 第17课</span>
+<h2>🐦 第17课：凤飞天模型（涨停低吸核心）</h2>
+<p class="lesson-goal">🎯 学完你能：识别"凤飞天"涨停模型的四大特征；掌握凤飞天的入场时机；理解涨停股的最佳低吸方法。</p>
+</div>
+
+<h3>📌 一、什么是凤飞天</h3>
+<p><strong>凤飞天</strong>是雨禾总结的涨停低吸核心模型，指个股<strong>盘中短暂涨停后回调，尾盘或次日再次强势封板</strong>的形态。如同凤凰起飞前先低伏，起飞后直冲云霄。</p>
+
+<h3>📌 二、凤飞天的四大特征</h3>
+<div class="formula">
+【涨停幅度】≥ 8%（曾触板或封板）
+【回调幅度】< 3%（不能深幅回调）
+【时间窗口】> 30分钟（回调时间要足够）
+【强势再封】回调后再次冲击涨停
+</div>
+
+<h3>📌 三、凤飞天的形成机制</h3>
+<ol>
+<li><strong>第一次拉升</strong>：主力资金推动股价冲击涨停，触及涨停价</li>
+<li><strong>短暂回调</strong>：因抛压或主力洗盘，股价从涨停价回落</li>
+<li><strong>强势再封</strong>：洗盘结束，主力再次推动封板</li>
+</ol>
+
+<h3>📌 四、凤飞天 vs 其他形态</h3>
+<table>
+<thead><tr><th>形态</th><th>涨停后回调幅度</th><th>回调时间</th><th>后续走势</th></tr></thead>
+<tbody>
+<tr><td><strong>凤飞天</strong></td><td>< 3%</td><td>30分钟-数小时</td><td>再次涨停</td></tr>
+<tr><td><strong>炸板</strong></td><td>3-5%</td><td>瞬时</td><td>可能再封或下跌</td></tr>
+<tr><td><strong>烂板</strong></td><td>3-5%</td><td>反复</td><td>可能再封或下跌</td></tr>
+<tr><td><strong>出货</strong></td><td>> 5%</td><td>持续</td><td>持续下跌</td></tr>
+</tbody>
+</table>
+
+<h3>📌 五、凤飞天的入场时机</h3>
+<ol>
+<li><strong>第一次回调低点</strong>：最佳入场点（第一次涨停后回调的最低点）</li>
+<li><strong>均价线附近</strong>：回调至均价线附近时入场</li>
+<li><strong>再次启动时</strong>：回调结束开始再次拉升时入场</li>
+</ol>
+
+<div class="tip">📍 <strong>雨禾心法</strong>：凤飞天是涨停股中最具操作性的形态，因为它给了散户<strong>涨停价附近低吸</strong>的机会，是高手的标志性战法。</div>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">凤飞天：涨停回调<3%，回调时长>30分，再次拉升冲涨停。<br>低吸就在第一次回调点，均价线附近是良机。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>尾盘策略</strong>——凤飞天在尾盘的应用。</p>
+</section>
+
+<!-- ============== 第18课 ============== -->
+<section class="lesson layer-4">
+<div class="lesson-header">
+<span class="lesson-level">第4层 · 第18课</span>
+<h2>🌙 第18课：尾盘策略（拉尾+打尾+启示+多日分时图+T+0）</h2>
+<p class="lesson-goal">🎯 学完你能：识别尾盘拉升与砸盘的真实意图；掌握尾盘买入策略；理解多日分时图的关联；学会T+0操作。</p>
+</div>
+
+<h3>📌 一、尾盘拉升的四种类型</h3>
+
+<h4>1. 急升缓跌型（出货形态）</h4>
+<div class="warning">⚠️ <strong>特征</strong>：尾盘快速拉升，但拉升后缓慢下跌</div>
+<p><strong>主力意图</strong>：借尾盘拉升掩护出货。</p>
+<p><strong>识别要点</strong>：</p>
+<ul>
+<li>尾盘最后5-10分钟突然拉升</li>
+<li>拉升幅度大但速度慢</li>
+<li>拉升后成交量放大但股价不能维持</li>
+</ul>
+
+<h4>2. 急跌缓升型（吸筹形态）</h4>
+<div class="success">✅ <strong>特征</strong>：尾盘快速下跌，但下跌后缓慢回升</div>
+<p><strong>主力意图</strong>：借尾盘砸盘低位吸筹。</p>
+<p><strong>识别要点</strong>：</p>
+<ul>
+<li>尾盘最后5-10分钟突然下跌</li>
+<li>下跌幅度大但时间短</li>
+<li>下跌后股价缓慢回升，成交量温和</li>
+</ul>
+
+<h4>3. 缓升缓跌型（实质走势）</h4>
+<p><strong>特征</strong>：尾盘缓慢波动，无明显方向。</p>
+<p><strong>主力意图</strong>：真实的多空博弈结果。</p>
+
+<h4>4. 急涨急跌型（虚假走势）</h4>
+<div class="warning">⚠️ <strong>特征</strong>：尾盘大幅波动后再回落</div>
+<p><strong>主力意图</strong>：制造异动假象，诱导散户。</p>
+
+<h3>📌 二、尾盘心法</h3>
+<div class="rhyme">急升缓跌=出货，急跌缓升=吸筹，缓升缓跌=实，急涨急跌=虚。</div>
+
+<h3>📌 三、尾盘买入策略</h3>
+<ol>
+<li><strong>14:30方向选择</strong>：观察14:30后的方向，明确后跟进</li>
+<li><strong>14:50试盘</strong>：观察14:50的试盘动作</li>
+<li><strong>14:55决战</strong>：14:55的方向决定次日开盘</li>
+</ol>
+
+<h3>📌 四、多日分时图</h3>
+<p><strong>多日分时图</strong>是指连续多日的分时走势图叠加分析，可以揭示：</p>
+<ul>
+<li>主力的吸筹节奏（每天的同一时间段是否相同动作）</li>
+<li>主力的成本区间（多日分时图的密集成交区）</li>
+<li>主力的拉升计划（连续多日的低开高走或高开低走）</li>
+</ul>
+
+<div class="tip">📍 <strong>雨禾心法</strong>：多日分时图相同的形态，往往是主力刻意为之，是判断主力意图的重要工具。</div>
+
+<h3>📌 五、T+0 操作</h3>
+<p>由于A股实行T+1制度，<strong>T+0</strong>是利用<strong>已持有的股票</strong>进行日内高抛低吸：</p>
+<ul>
+<li>早盘冲高卖出部分仓位</li>
+<li>尾盘回调买回同样数量</li>
+<li>实现日内降低成本的目的</li>
+</ul>
+
+<div class="warning">⚠️ <strong>T+0 风险</strong>：必须有底仓；高抛后必须能买回；不能满仓操作。</div>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">急升缓跌出货，急跌缓升吸筹。<br>14:30定方向，14:55定开盘。<br>多日分时看主力意图，T+0降低成本靠节奏。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>阶梯型涨停</strong>——五大涨停体系的第一类。</p>
+</section>
+
+<!-- ============== 第19课 ============== -->
+<section class="lesson layer-4">
+<div class="lesson-header">
+<span class="lesson-level">第4层 · 第19课</span>
+<h2>🐍 第19课：阶梯型涨停（贪吃蛇/N字形/三种阶梯）</h2>
+<p class="lesson-goal">🎯 学完你能：识别阶梯型涨停的三大类；理解贪吃蛇涨停和N字形涨停的区别；找到阶梯型涨停的最佳介入点。</p>
+</div>
+
+<h3>📌 一、什么是阶梯型涨停</h3>
+<p><strong>阶梯型涨停</strong>是指个股在涨停过程中，分时线呈现明显的<strong>阶梯状</strong>形态，每次拉升后稳定一段时间，再继续拉升，最终封板。</p>
+
+<h3>📌 二、阶梯型涨停的三大类</h3>
+
+<h4>1. 贪吃蛇型（最常见）</h4>
+<div class="tip">📍 <strong>特征</strong>：分时线像贪吃蛇一样逐步向上推进，每涨一段后小幅整理，再涨一段。</div>
+<p><strong>形成机制</strong>：主力分批拉升，每次拉升后给散户跟进机会，但又不让股价大幅回调。</p>
+<p><strong>实战要点</strong>：</p>
+<ul>
+<li>每次阶梯高点抬高</li>
+<li>回调幅度小（<2%）</li>
+<li>成交量阶梯式放大</li>
+</ul>
+
+<h4>2. N字形</h4>
+<p><strong>特征</strong>：分时线呈标准的N字形态，先上涨后回调再上涨。</p>
+<p><strong>形成机制</strong>：第一次拉升吸引眼球，回调洗掉不坚定者，再次拉升突破。</p>
+
+<h4>3. 三种阶梯</h4>
+<table>
+<thead><tr><th>类型</th><th>阶梯数</th><th>持续时间</th><th>主力意图</th></tr></thead>
+<tbody>
+<tr><td><strong>小阶梯</strong></td><td>3-5个</td><td>15-30分钟</td><td>快速拉升</td></tr>
+<tr><td><strong>中阶梯</strong></td><td>5-8个</td><td>30-60分钟</td><td>稳健拉升</td></tr>
+<tr><td><strong>大阶梯</strong></td><td>>8个</td><td>>60分钟</td><td>边洗边拉</td></tr>
+</tbody>
+</table>
+
+<h3>📌 三、阶梯型涨停的入场时机</h3>
+<ol>
+<li><strong>第一个阶梯高点</strong>：确认阶梯形成后跟进</li>
+<li><strong>第二/第三个阶梯起点</strong>：低吸位置</li>
+<li><strong>封板瞬间</strong>：涨停板排队</li>
+</ol>
+
+<h3>📌 四、阶梯型涨停的操作要点</h3>
+<ul>
+<li>阶梯高点逐步抬高是关键</li>
+<li>回调时成交量萎缩（洗盘特征）</li>
+<li>涨停封单稳定（主力信心）</li>
+</ul>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">阶梯型涨停像贪吃蛇，步步抬高不回头。<br>N字形先涨再洗再涨，三种阶梯看节奏。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>斜坡型涨停</strong>——五大涨停体系的第二类。</p>
+</section>
+
+<!-- ============== 第20课 ============== -->
+<section class="lesson layer-4">
+<div class="lesson-header">
+<span class="lesson-level">第4层 · 第20课</span>
+<h2>📐 第20课：斜坡型涨停（45度角 + 大斜坡/小斜坡）</h2>
+<p class="lesson-goal">🎯 学完你能：识别斜坡型涨停的45度角特征；区分大斜坡与小斜坡；找到斜坡型涨停的最佳介入点。</p>
+</div>
+
+<h3>📌 一、什么是斜坡型涨停</h3>
+<p><strong>斜坡型涨停</strong>是指个股在涨停过程中，分时线呈现<strong>接近45度角</strong>的稳定上涨，最终封板。</p>
+
+<h3>📌 二、斜坡型涨停的分类</h3>
+
+<h4>1. 大斜坡型</h4>
+<p><strong>特征</strong>：</p>
+<ul>
+<li>涨幅大（开盘到涨停 > 5%）</li>
+<li>斜率陡（接近或超过45度）</li>
+<li>持续时间长（30-60分钟）</li>
+<li>成交活跃</li>
+</ul>
+<p><strong>主力意图</strong>：强势建仓或快速拉升。</p>
+
+<h4>2. 小斜坡型</h4>
+<p><strong>特征</strong>：</p>
+<ul>
+<li>涨幅小（开盘到涨停 < 5%）</li>
+<li>斜率缓（小于45度）</li>
+<li>持续时间长（30分钟-全天）</li>
+<li>成交温和</li>
+</ul>
+<p><strong>主力意图</strong>：稳健吸筹或慢牛拉升。</p>
+
+<h3>📌 三、斜坡角度与主力意图</h3>
+<table>
+<thead><tr><th>角度</th><th>含义</th><th>实战策略</th></tr></thead>
+<tbody>
+<tr><td>< 30度</td><td>弱势上涨</td><td>观望</td></tr>
+<tr><td>30-45度</td><td>稳健上涨</td><td>低吸</td></tr>
+<tr><td>45-60度</td><td>强势上涨</td><td>追涨</td></tr>
+<tr><td>> 60度</td><td>急速拉升</td><td>警惕回落</td></tr>
+</tbody>
+</table>
+
+<h3>📌 四、斜坡型涨停的入场时机</h3>
+<ol>
+<li><strong>斜坡初期</strong>：在斜率明确后跟进</li>
+<li><strong>斜坡中段</strong>：在回踩均价线时低吸</li>
+<li><strong>斜坡末端</strong>：在封板瞬间排队</li>
+</ol>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">斜坡型涨停45度角，大斜坡快速小斜坡慢。<br>30度观望，45度低吸，60度追涨，60度以上警惕。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>震荡型涨停</strong>——五大涨停体系的第三类。</p>
+</section>
+
+<!-- ============== 第21课 ============== -->
+<section class="lesson layer-4">
+<div class="lesson-header">
+<span class="lesson-level">第4层 · 第21课</span>
+<h2>🌊 第21课：震荡型涨停（顺势+逆势立式+高低位）</h2>
+<p class="lesson-goal">🎯 学完你能：识别震荡型涨停的三大子类型；理解顺势涨停与逆势涨停的区别；找到震荡型涨停的最佳介入点。</p>
+</div>
+
+<h3>📌 一、什么是震荡型涨停</h3>
+<p><strong>震荡型涨停</strong>是指个股在涨停过程中，分时线呈现<strong>明显的震荡形态</strong>，股价在均价线附近反复波动，最终封板。</p>
+
+<h3>📌 二、震荡型涨停的三大子类型</h3>
+
+<h4>1. 顺势震荡型</h4>
+<p><strong>特征</strong>：股价在均价线上方震荡，每次回踩均价线都获得支撑。</p>
+<p><strong>主力意图</strong>：多头强势，高位震荡洗盘。</p>
+<p><strong>实战策略</strong>：回踩均价线低吸。</p>
+
+<h4>2. 逆势立式型</h4>
+<p><strong>特征</strong>：股价在均价线下方震荡，但每次反弹都突破均价线。</p>
+<p><strong>主力意图</strong>：空头背景下的强势拉升。</p>
+<p><strong>实战策略</strong>：突破均价线后跟进。</p>
+
+<h4>3. 高低位型</h4>
+<p><strong>特征</strong>：股价先低位震荡，然后向上突破。</p>
+<p><strong>主力意图</strong>：低位吸筹后拉升。</p>
+<p><strong>实战策略</strong>：突破震荡区间时跟进。</p>
+
+<h3>📌 三、震荡型涨停的入场时机</h3>
+<ol>
+<li><strong>回踩均价线</strong>：顺势震荡型的最佳买点</li>
+<li><strong>突破震荡区间</strong>：高低位型的最佳买点</li>
+<li><strong>封板瞬间</strong>：所有震荡型涨停的共同买点</li>
+</ol>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">震荡型涨停看均价，顺势回踩是低吸。<br>逆势立式要突破，高低位型看启动。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>脉冲式涨停</strong>——五大涨停体系的第四类。</p>
+</section>
+
+<!-- ============== 第22课 ============== -->
+<section class="lesson layer-4">
+<div class="lesson-header">
+<span class="lesson-level">第4层 · 第22课</span>
+<h2>⚡ 第22课：脉冲式涨停（横盘式+眼镜王蛇+缺口式）</h2>
+<p class="lesson-goal">🎯 学完你能：识别脉冲式涨停的三大类；理解"眼镜王蛇"形态的特殊性；找到脉冲式涨停的最佳介入点。</p>
+</div>
+
+<h3>📌 一、什么是脉冲式涨停</h3>
+<p><strong>脉冲式涨停</strong>是指个股在涨停过程中，<strong>瞬间或短时间内</strong>从某个价位直接拉升到涨停价，伴随成交量急剧放大。</p>
+
+<h3>📌 二、脉冲式涨停的三大子类型</h3>
+
+<h4>1. 横盘脉冲型</h4>
+<p><strong>特征</strong>：</p>
+<ul>
+<li>开盘后长时间横盘（30分钟以上）</li>
+<li>在某一瞬间突然涨停</li>
+<li>涨停前几乎没有拉升迹象</li>
+</ul>
+<p><strong>主力意图</strong>：横盘吸筹后瞬间拉升。</p>
+
+<h4>2. 眼镜王蛇型（最具特色）</h4>
+<div class="warning">⚠️ <strong>特征</strong>：像眼镜王蛇一样突然攻击，涨停前往往有诱空动作</div>
+<ul>
+<li>开盘后先小幅下跌或横盘</li>
+<li>突然一根直线拉升封板</li>
+<li>拉升速度极快（1-3分钟内涨停）</li>
+</ul>
+<p><strong>主力意图</strong>：诱空后强势拉升，洗盘彻底。</p>
+<p><strong>实战策略</strong>：在拉升瞬间追涨，但风险较高。</p>
+
+<h4>3. 缺口脉冲型</h4>
+<p><strong>特征</strong>：</p>
+<ul>
+<li>在拉升过程中出现跳空缺口</li>
+<li>缺口短时间内回补或不回补</li>
+<li>封板坚决</li>
+</ul>
+<p><strong>主力意图</strong>：强势突破关键位。</p>
+
+<h3>📌 三、脉冲式涨停的入场时机</h3>
+<div class="warning">⚠️ <strong>风险提示</strong>：脉冲式涨停的入场时机较难把握，因为拉升速度极快。多数情况是<strong>提前埋伏</strong>或<strong>次日跟进</strong>。</div>
+
+<ol>
+<li><strong>横盘末端</strong>：横盘脉冲型的提前埋伏点</li>
+<li><strong>拉升瞬间</strong>：所有脉冲型的追涨点（难度高）</li>
+<li><strong>次日</strong>：稳健的跟进点</li>
+</ol>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">脉冲式涨停快如电，横盘末端是买点。<br>眼镜王蛇最凶猛，诱空拉升防踏空。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>烂板破板</strong>——涨停失败的识别。</p>
+</section>
+
+<!-- ============== 第23课 ============== -->
+<section class="lesson layer-4">
+<div class="lesson-header">
+<span class="lesson-level">第4层 · 第23课</span>
+<h2>⚠️ 第23课：烂板破板（良性烂板+出货烂板+破板偷袭）</h2>
+<p class="lesson-goal">🎯 学完你能：识别良性烂板与出货烂板；理解"破板偷袭"的特征；找到烂板的最佳离场时机。</p>
+</div>
+
+<h3>📌 一、什么是烂板</h3>
+<p><strong>烂板</strong>是指个股触及涨停后无法维持，反复开板，最终收盘可能涨停也可能不涨停的状态。</p>
+
+<h3>📌 二、良性烂板 vs 出货烂板</h3>
+
+<h4>1. 良性烂板（主力洗盘）</h4>
+<div class="success">✅ <strong>特征</strong>：</div>
+<ul>
+<li>涨停开板后成交量温和放大</li>
+<li>开板后股价在涨停价附近震荡，不大幅下跌</li>
+<li>最终能够再次封板</li>
+<li>封板后抛压较小</li>
+</ul>
+<p><strong>主力意图</strong>：通过开板洗掉不坚定的筹码。</p>
+<p><strong>实战策略</strong>：持有，甚至可以在开板时低吸。</p>
+
+<h4>2. 出货烂板（主力出货）</h4>
+<div class="warning">⚠️ <strong>特征</strong>：</div>
+<ul>
+<li>涨停开板后成交量急剧放大（数倍）</li>
+<li>开板后股价快速下跌远离涨停价</li>
+<li>最终无法封板，收盘可能涨幅很小</li>
+<li>封板后抛压极大</li>
+</ul>
+<p><strong>主力意图</strong>：借涨停掩护出货。</p>
+<p><strong>实战策略</strong>：坚决离场。</p>
+
+<h3>📌 三、良性与出货烂板的对比</h3>
+<table>
+<thead><tr><th>指标</th><th>良性烂板</th><th>出货烂板</th></tr></thead>
+<tbody>
+<tr><td>开板成交量</td><td>温和放大</td><td>急剧放大（数倍）</td></tr>
+<tr><td>开板后跌幅</td><td>小（<2%）</td><td>大（>2%）</td></tr>
+<tr><td>能否封板</td><td>最终能封</td><td>最终不能封</td></tr>
+<tr><td>封板后表现</td><td>稳定</td><td>持续抛压</td></tr>
+<tr><td>后续走势</td><td>可能再涨</td><td>持续下跌</td></tr>
+</tbody>
+</table>
+
+<h3>📌 四、什么是破板</h3>
+<p><strong>破板</strong>是指个股<strong>前一日涨停</strong>（封死），但<strong>次日开盘未能继续上涨</strong>，反而走弱。</p>
+
+<h3>📌 五、破板的三种类型</h3>
+
+<h4>1. 良性破板（洗盘）</h4>
+<p><strong>特征</strong>：</p>
+<ul>
+<li>次日小幅低开（<2%）</li>
+<li>开盘后探底回升</li>
+<li>收盘仍能维持小涨</li>
+</ul>
+<p><strong>主力意图</strong>：洗盘后继续拉升。</p>
+
+<h4>2. 出货破板（出货）</h4>
+<p><strong>特征</strong>：</p>
+<ul>
+<li>次日大幅低开（>3%）</li>
+<li>开盘后持续下跌</li>
+<li>收盘可能跌停或大跌</li>
+</ul>
+<p><strong>主力意图</strong>：彻底出货离场。</p>
+
+<h4>3. 破板偷袭（拉高出货）</h4>
+<div class="warning">⚠️ <strong>特征</strong>：</div>
+<ul>
+<li>次日开盘诱多（小幅高开）</li>
+<li>开盘后瞬间冲高（诱多）</li>
+<li>然后快速下跌</li>
+<li>出货动作干净利落</li>
+</ul>
+<p><strong>主力意图</strong>：借开盘诱多快速出货。</p>
+<p><strong>实战策略</strong>：坚决不参与。</p>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">良性烂板要持有，出货烂板要离场。<br>破板低开未必坏，破板偷袭最阴险。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>涨停优劣定性</strong>——综合评估涨停股的质量。</p>
+</section>
+
+<!-- ============== 第24课 ============== -->
+<section class="lesson layer-4">
+<div class="lesson-header">
+<span class="lesson-level">第4层 · 第24课</span>
+<h2>🎯 第24课：涨停优劣定性（位置+量能+盘口+换手+题材）</h2>
+<p class="lesson-goal">🎯 学完你能：从五个维度综合评估涨停股的质量；判断涨停是强势涨停还是弱势涨停；选择最有上涨空间的涨停股。</p>
+</div>
+
+<h3>📌 一、涨停五维定性</h3>
+
+<h4>1. 位置维度</h4>
+<table>
+<thead><tr><th>位置</th><th>涨停质量</th></tr></thead>
+<tbody>
+<tr><td>低位首板</td><td>⭐⭐⭐⭐⭐（最强）</td></tr>
+<tr><td>低位连板</td><td>⭐⭐⭐⭐⭐（龙头候选）</td></tr>
+<tr><td>中位突破</td><td>⭐⭐⭐⭐（强势）</td></tr>
+<tr><td>高位加速</td><td>⭐⭐⭐（风险较高）</td></tr>
+<tr><td>顶部涨停</td><td>⭐⭐（警惕见顶）</td></tr>
+<tr><td>超跌反弹</td><td>⭐⭐（弱势）</td></tr>
+</tbody>
+</table>
+
+<h4>2. 量能维度</h4>
+<table>
+<thead><tr><th>量能</th><th>涨停质量</th></tr></thead>
+<tbody>
+<tr><td>温和放量（1-2倍）</td><td>⭐⭐⭐⭐⭐（健康）</td></tr>
+<tr><td>地量涨停</td><td>⭐⭐⭐⭐（强势）</td></tr>
+<tr><td>大量涨停（>3倍）</td><td>⭐⭐（警惕出货）</td></tr>
+<tr><td>缩量涨停</td><td>⭐⭐⭐⭐（强势）</td></tr>
+</tbody>
+</table>
+
+<h4>3. 盘口维度</h4>
+<table>
+<thead><tr><th>盘口</th><th>涨停质量</th></tr></thead>
+<tbody>
+<tr><td>秒板封死</td><td>⭐⭐⭐⭐⭐（强势）</td></tr>
+<tr><td>反复开板</td><td>⭐⭐（弱）</td></tr>
+<tr><td>回封后稳定</td><td>⭐⭐⭐⭐（健康）</td></tr>
+<tr><td>封单巨大</td><td>⭐⭐⭐⭐⭐（强势）</td></tr>
+<tr><td>封单变小</td><td>⭐⭐（警惕）</td></tr>
+</tbody>
+</table>
+
+<h4>4. 换手维度</h4>
+<table>
+<thead><tr><th>换手率</th><th>涨停质量</th></tr></thead>
+<tbody>
+<tr><td>< 5%</td><td>⭐⭐⭐（缩量）</td></tr>
+<tr><td>5-10%</td><td>⭐⭐⭐⭐⭐（健康）</td></tr>
+<tr><td>10-20%</td><td>⭐⭐⭐⭐（活跃）</td></tr>
+<tr><td>> 20%</td><td>⭐⭐（警惕出货）</td></tr>
+</tbody>
+</table>
+
+<h4>5. 题材维度</h4>
+<table>
+<thead><tr><th>题材</th><th>涨停质量</th></tr></thead>
+<tbody>
+<tr><td>主流题材龙头</td><td>⭐⭐⭐⭐⭐（最强）</td></tr>
+<tr><td>主流题材跟涨</td><td>⭐⭐⭐⭐（次强）</td></tr>
+<tr><td>支线题材</td><td>⭐⭐⭐（一般）</td></tr>
+<tr><td>独立涨停</td><td>⭐⭐（弱势）</td></tr>
+</tbody>
+</table>
+
+<h3>📌 二、综合定性模型</h3>
+<table>
+<thead><tr><th>综合得分</th><th>涨停类型</th><th>操作策略</th></tr></thead>
+<tbody>
+<tr><td>20-25分</td><td>顶级涨停</td><td>追涨</td></tr>
+<tr><td>15-19分</td><td>强势涨停</td><td>跟进</td></tr>
+<tr><td>10-14分</td><td>普通涨停</td><td>观望</td></tr>
+<tr><td>5-9分</td><td>弱势涨停</td><td>不参与</td></tr>
+<tr><td>< 5分</td><td>垃圾涨停</td><td>坚决离场</td></tr>
+</tbody>
+</table>
+
+<h3>📌 三、涨停优劣速查</h3>
+<div class="rhyme">位置低好于高，量能温和好，地量更好，盘口秒板好，换手适中好，主流题材好。</div>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">位置看高低，量能看温和，盘口看封单，换手看适中，题材看主流。<br>五维综合评，强势涨停才跟进。</div>
+
+<h3>🔗 前后关联</h3>
+<p>第4层涨停专题完成，下一章进入<strong>第5层风控落地层</strong>——高手必备的实操能力。</p>
+</section>
+
+<p style="text-align:center; color:#C95F77; font-size:18px; margin:32px 0;">⬇️ 第4层完成，继续向下学习第5层：风控落地层 ⬇️</p>
+
+<!-- ============== 第5层：风控落地层 ============== -->
+<section id="layer5">
+<h2 style="color:#8B5FBF; text-align:center; font-size:32px; margin:32px 0 8px;">第5层 · 风控落地层（高手必备）</h2>
+<p style="text-align:center; color:#4A5568; margin-bottom:24px;">涨停后会如何、风险如何控制、心法如何升华——高手的最后一道门槛。</p>
+</section>
+
+<!-- ============== 第25课 ============== -->
+<section class="lesson layer-5">
+<div class="lesson-header">
+<span class="lesson-level">第5层 · 第25课</span>
+<h2>💼 第25课：持仓管理三大操作思路（实战高手必备）</h2>
+<p class="lesson-goal">🎯 学完你能：根据涨停后走势决定加仓/减仓/止盈/止损；掌握三种持仓思路；理解高手与散户的核心区别。</p>
+</div>
+
+<h3>📌 一、持仓管理的核心原则</h3>
+<ol>
+<li><strong>截断亏损</strong>：亏损达到预期立即止损</li>
+<li><strong>让利润奔跑</strong>：盈利时不要急于落袋为安</li>
+<li><strong>控制仓位</strong>：单只个股不超过总仓位的30%</li>
+<li><strong>分散风险</strong>：同时持有3-5只不同板块个股</li>
+</ol>
+
+<h3>📌 二、涨停后的三种持仓思路</h3>
+
+<h4>思路1：加仓思路（强势股）</h4>
+<p><strong>适用情景</strong>：</p>
+<ul>
+<li>涨停封板坚决，封单巨大</li>
+<li>所属题材是当前主线</li>
+<li>技术形态处于上涨初中期</li>
+<li>大盘环境配合</li>
+</ul>
+<p><strong>加仓时机</strong>：</p>
+<ol>
+<li>次日开盘高开高走时</li>
+<li>首次回调到均价线附近时</li>
+<li>突破前高压力位时</li>
+</ol>
+
+<h4>思路2：减仓思路（弱势股）</h4>
+<p><strong>适用情景</strong>：</p>
+<ul>
+<li>涨停反复开板（烂板）</li>
+<li>所属题材开始退潮</li>
+<li>技术形态处于高位</li>
+<li>大盘环境转弱</li>
+</ul>
+<p><strong>减仓时机</strong>：</p>
+<ol>
+<li>开盘价低于预期时</li>
+<li>反弹到均价线时</li>
+<li>跌破开盘价时</li>
+</ol>
+
+<h4>思路3：清仓思路（出货股）</h4>
+<p><strong>适用情景</strong>：</p>
+<ul>
+<li>次日大幅低开</li>
+<li>开盘后快速下跌</li>
+<li>破板偷袭</li>
+<li>所属题材彻底退潮</li>
+</ul>
+<p><strong>清仓时机</strong>：开盘就走，不犹豫。</p>
+
+<h3>📌 三、实战决策流程</h3>
+<div class="tip">📍 <strong>雨禾决策流程</strong>：</div>
+<ol>
+<li>次日开盘：观察开盘价是否符合预期？</li>
+<li>早盘方向：开盘后是强势还是弱势？</li>
+<li>量能配合：成交量是放量还是缩量？</li>
+<li>盘口信号：是否有主力护盘或出货信号？</li>
+<li>题材表现：所属板块是涨还是跌？</li>
+<li>综合判断：加仓/持有/减仓/清仓</li>
+</ol>
+
+<h3>📌 四、止损止盈法则</h3>
+<table>
+<thead><tr><th>法则</th><th>触发条件</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td><strong>固定止损</strong></td><td>亏损达 5%</td><td>立即止损</td></tr>
+<tr><td><strong>移动止损</strong></td><td>从最高点回落 8%</td><td>立即止损</td></tr>
+<tr><td><strong>技术止损</strong></td><td>跌破5日线</td><td>立即止损</td></tr>
+<tr><td><strong>分批止盈</strong></td><td>盈利 30% / 50% / 100%</td><td>分批卖出</td></tr>
+<tr><td><strong>目标止盈</strong></td><td>达到预期目标</td><td>清仓</td></tr>
+</tbody>
+</table>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">截断亏损，让利润奔跑，控制仓位，分散风险。<br>强势加仓，弱势减仓，出货清仓。</div>
+
+<h3>🔗 前后关联</h3>
+<p>下一课学习<strong>盘口口诀总结</strong>——把全课程核心浓缩成口诀。</p>
+</section>
+
+<!-- ============== 第26课 ============== -->
+<section class="lesson layer-5">
+<div class="lesson-header">
+<span class="lesson-level">第5层 · 第26课</span>
+<h2>📜 第26课：盘口口诀总结（终身受用）</h2>
+<p class="lesson-goal">🎯 学完你能：背诵全课程的核心口诀；建立快速决策的口诀库；在盘中随时调用。</p>
+</div>
+
+<h3>📌 一、盘口九大口诀</h3>
+
+<h4>1. 委比委差口诀</h4>
+<div class="rhyme">委比看多空，委差看真实。<br>委比>50偏多，委差正数偏多。</div>
+
+<h4>2. 内外盘口诀</h4>
+<div class="rhyme">外盘涨势，内盘跌势。<br>价升量增最健康，价升量缩是乏力。</div>
+
+<h4>3. 量比口诀</h4>
+<div class="rhyme">量比<0.5缩量，量比>2放量，量比>5剧烈放量。<br>开盘量比最关键。</div>
+
+<h4>4. 换手率口诀</h4>
+<div class="rhyme">3%-7%活跃，7%-10%主力介入，>20%警惕出货。<br>结合流通市值判断。</div>
+
+<h4>5. 大单口诀</h4>
+<div class="rhyme">大盘股千手为大单，中盘股五百手，小盘股百手。<br>大单流入看涨，大单流出看跌。</div>
+
+<h4>6. 集合竞价口诀</h4>
+<div class="rhyme">9:15-9:20看挂单可撤，9:20-9:25看真实挂单。<br>9:25开盘价，最大成交量原则。</div>
+
+<h4>7. 主力挂单口诀</h4>
+<div class="rhyme">压单看高低，高低真假各不同。<br>托单看位置，低吸高警是心法。<br>夹板看突破，蜂窝看位置。</div>
+
+<h4>8. 拉升波形口诀</h4>
+<div class="rhyme">拉伸追涨，推动低吸，锯齿观望。<br>长波看方向，中波看节奏，短波看突破。</div>
+
+<h4>9. 涨停形态口诀</h4>
+<div class="rhyme">阶梯贪吃蛇N字，斜坡45度有大小。<br>震荡看均价，脉冲看瞬间。<br>烂板看量能，破板看次日。</div>
+
+<h3>📌 二、买卖决策口诀</h3>
+<div class="rhyme">高开高走最强势，低开高走洗盘拉升。<br>高开低走是诱多，低开低走是弱势。<br>凤飞天涨停回调<3%，再次拉升冲涨停。<br>急升缓跌出货，急跌缓升吸筹。</div>
+
+<h3>📌 三、心法口诀</h3>
+<div class="rhyme">盘口为王，看懂主力；<br>主力意图，意图先行；<br>题材为魂，龙头为王；<br>风控为根，仓位为器。</div>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">盘口语言九大口诀，盘中随时能调用。<br>熟背于心，方能应手。</div>
+
+<h3>🔗 前后关联</h3>
+<p>最后一课：<strong>盘口为王终极心法</strong>——从认知层面升华。</p>
+</section>
+
+<!-- ============== 第27课 ============== -->
+<section class="lesson layer-5">
+<div class="lesson-header">
+<span class="lesson-level">第5层 · 第27课</span>
+<h2>👑 第27课：盘口为王（终极认知与心法）</h2>
+<p class="lesson-goal">🎯 学完你能：从认知层面理解盘口语言；建立完整的盘口思维框架；成为真正的盘口高手。</p>
+</div>
+
+<h3>📌 一、为什么盘口为王</h3>
+<p>在A股市场，<strong>所有公开信息都已经反映在价格上</strong>，但<strong>主力的真实意图</strong>却隐藏在盘口数据中。</p>
+
+<p>盘口是主力与市场的<strong>实时对话窗口</strong>，包括：</p>
+<ul>
+<li>主力<strong>想做什么</strong>（拉升/出货/洗盘）</li>
+<li>主力<strong>实力如何</strong>（大单/小单/对敲）</li>
+<li>主力<strong>成本如何</strong>（均价线/持仓区）</li>
+<li>主力<strong>下一步计划</strong>（挂单/分时形态）</li>
+</ul>
+
+<h3>📌 二、盘口为王的五大支柱</h3>
+
+<h4>支柱1：指标为基</h4>
+<p>九大指标是基础工具，必须熟练掌握。<strong>不懂指标的盘口高手是不存在的</strong>。</p>
+
+<h4>支柱2：形态为骨</h4>
+<p>八大竞价形态、五大涨停体系是盘口的"骨架"，决定了个股的中期走势。</p>
+
+<h4>支柱3：主力为魂</h4>
+<p>主力挂单四大手法是盘口的"灵魂"，揭示了主力的真实意图。</p>
+
+<h4>支柱4：题材为势</h4>
+<p>主线题材是盘口运行的"大势"，逆势操作的胜率远低于顺势操作。</p>
+
+<h4>支柱5：风控为根</h4>
+<p>没有风控就没有盈利，<strong>止损是盘口高手的生命线</strong>。</p>
+
+<h3>📌 三、盘口高手的三大特征</h3>
+
+<h4>1. 冷静客观</h4>
+<p>不受情绪影响，严格按照盘口信号决策。<strong>情绪是盘口高手的天敌</strong>。</p>
+
+<h4>2. 快速决策</h4>
+<p>能够在1-2分钟内完成盘口分析，做出买卖决策。这需要长期训练。</p>
+
+<h4>3. 严守纪律</h4>
+<p>严格按照自己的交易系统执行，不随意改变计划。</p>
+
+<h3>📌 四、终极心法</h3>
+<div class="rhyme">盘口为王，是看懂主力语言。<br>主力语言，是识别资金意图。<br>资金意图，是判断涨跌方向。<br>涨跌方向，是做出买卖决策。<br>买卖决策，是实现稳定盈利。</div>
+
+<h3>📌 五、学习的三个阶段</h3>
+<table>
+<thead><tr><th>阶段</th><th>时间</th><th>特征</th></tr></thead>
+<tbody>
+<tr><td><strong>小白</strong></td><td>0-3个月</td><td>学习基础指标，能看懂盘口</td></tr>
+<tr><td><strong>熟手</strong></td><td>3-12个月</td><td>能识别主力意图，做出基本决策</td></tr>
+<tr><td><strong>高手</strong></td><td>1-3年</td><td>形成自己的盘口体系，稳定盈利</td></tr>
+<tr><td><strong>大师</strong></td><td>3年+</td><td>盘感炉火纯青，超越指标看本质</td></tr>
+</tbody>
+</table>
+
+<h3>📌 六、雨禾老师的祝福</h3>
+<div class="success">✅ <strong>寄语</strong>：盘口语言不是一朝一夕能精通的，但只要坚持学习、坚持复盘、坚持实战，每一位认真学习的投资者都能成为盘口高手。</div>
+
+<h3>⚡ 本课口诀</h3>
+<div class="rhyme">盘口为王，看懂主力；<br>指标为基，形态为骨，主力为魂，题材为势，风控为根。<br>盘口高手，三大特征：冷静、快速、纪律。</div>
+
+<h3>🔗 课程总结</h3>
+<p>恭喜主人完成全部27课（按小白→高手路径重组）！从盘口小白到盘口高手的完整知识体系已掌握。下面是附录速查表，随时查阅。</p>
+</section>
+
+<p style="text-align:center; color:#8B5FBF; font-size:18px; margin:32px 0;">⬇️ 第5层完成，进入附录速查 ⬇️</p>
+
+<!-- ============== 附录 ============== -->
+<section id="appendix">
+<h2 style="color:#4A90A4; text-align:center; font-size:32px; margin:32px 0 8px;">📚 附录：速查表 + 术语词典 + 金句集</h2>
+<p style="text-align:center; color:#4A5568; margin-bottom:24px;">所有核心知识点的速查工具，建议收藏备用。</p>
+</section>
+
+<section class="lesson layer-1">
+<div class="lesson-header">
+<span class="lesson-level">附录A</span>
+<h2>📊 附录A：盘口九大核心指标速查表</h2>
+</div>
+
+<h3>九大指标全景图</h3>
+<div class="mindmap">
+<svg viewBox="0 0 1200 700" xmlns="http://www.w3.org/2000/svg" style="font-family:'Microsoft YaHei',sans-serif;">
+  <!-- 连接线 -->
+  <path d="M 110,350 H 240 V 50 H 280" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 110,350 H 240 V 130 H 280" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 110,350 H 240 V 210 H 280" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 110,350 H 240 V 290 H 280" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 110,350 H 240 V 370 H 280" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 110,350 H 240 V 450 H 280" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 110,350 H 240 V 530 H 280" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 110,350 H 240 V 610 H 280" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+
+  <!-- 根节点 -->
+  <rect x="20" y="332" width="90" height="36" rx="6" fill="#4A90A4"/>
+  <text x="65" y="355" text-anchor="middle" fill="#fff" font-size="13" font-weight="700">九大指标</text>
+
+  <!-- 子节点 -->
+  <rect x="280" y="32" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#4A90A4"/>
+  <text x="350" y="55" text-anchor="middle" fill="#333" font-size="13">委比/委差</text>
+
+  <rect x="280" y="112" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#4A90A4"/>
+  <text x="350" y="135" text-anchor="middle" fill="#333" font-size="13">内盘/外盘</text>
+
+  <rect x="280" y="192" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#4A90A4"/>
+  <text x="350" y="215" text-anchor="middle" fill="#333" font-size="13">总量</text>
+
+  <rect x="280" y="272" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#4A90A4"/>
+  <text x="350" y="295" text-anchor="middle" fill="#333" font-size="13">量比</text>
+
+  <rect x="280" y="352" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#4A90A4"/>
+  <text x="350" y="375" text-anchor="middle" fill="#333" font-size="13">换手率</text>
+
+  <rect x="280" y="432" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#4A90A4"/>
+  <text x="350" y="455" text-anchor="middle" fill="#333" font-size="13">大单</text>
+
+  <rect x="280" y="512" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#4A90A4"/>
+  <text x="350" y="535" text-anchor="middle" fill="#333" font-size="13">均价线</text>
+
+  <rect x="280" y="592" width="140" height="36" rx="6" fill="#E8F4F8" stroke="#4A90A4"/>
+  <text x="350" y="615" text-anchor="middle" fill="#333" font-size="13">主力挂单</text>
+
+  <!-- 注释 -->
+  <rect x="480" y="32" width="200" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="580" y="55" text-anchor="middle" fill="#333" font-size="12">多空力量对比</text>
+
+  <rect x="480" y="112" width="200" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="580" y="135" text-anchor="middle" fill="#333" font-size="12">主买/主卖</text>
+
+  <rect x="480" y="192" width="200" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="580" y="215" text-anchor="middle" fill="#333" font-size="12">累计成交</text>
+
+  <rect x="480" y="272" width="200" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="580" y="295" text-anchor="middle" fill="#333" font-size="12">量能异动</text>
+
+  <rect x="480" y="352" width="200" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="580" y="375" text-anchor="middle" fill="#333" font-size="12">流通性指标</text>
+
+  <rect x="480" y="432" width="200" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="580" y="455" text-anchor="middle" fill="#333" font-size="12">主力动向</text>
+
+  <rect x="480" y="512" width="200" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="580" y="535" text-anchor="middle" fill="#333" font-size="12">多空成本线</text>
+
+  <rect x="480" y="592" width="200" height="36" rx="6" fill="#FFF4E6" stroke="#E8A87C"/>
+  <text x="580" y="615" text-anchor="middle" fill="#333" font-size="12">主力意图</text>
+
+  <!-- 第三层注释 -->
+  <path d="M 680,50 H 720" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 680,130 H 720" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 680,210 H 720" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 680,290 H 720" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 680,370 H 720" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 680,450 H 720" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 680,530 H 720" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 680,610 H 720" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+
+  <rect x="720" y="32" width="220" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="830" y="55" text-anchor="middle" fill="#333" font-size="12">委比>50%偏多</text>
+
+  <rect x="720" y="112" width="220" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="830" y="135" text-anchor="middle" fill="#333" font-size="12">外盘大看涨</text>
+
+  <rect x="720" y="192" width="220" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="830" y="215" text-anchor="middle" fill="#333" font-size="12">早盘30分看全天1/3</text>
+
+  <rect x="720" y="272" width="220" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="830" y="295" text-anchor="middle" fill="#333" font-size="12">开盘量比最关键</text>
+
+  <rect x="720" y="352" width="220" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="830" y="375" text-anchor="middle" fill="#333" font-size="12">5-10%主力介入</text>
+
+  <rect x="720" y="432" width="220" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="830" y="455" text-anchor="middle" fill="#333" font-size="12">500亿/100亿分档</text>
+
+  <rect x="720" y="512" width="220" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="830" y="535" text-anchor="middle" fill="#333" font-size="12">支撑压力转化</text>
+
+  <rect x="720" y="592" width="220" height="36" rx="6" fill="#E8F4E8" stroke="#7FB069"/>
+  <text x="830" y="615" text-anchor="middle" fill="#333" font-size="12">压单/托单/夹板/蜂窝</text>
+</svg>
+</div>
+
+<h3>九大指标速查表</h3>
+<table>
+<thead><tr><th>序号</th><th>指标</th><th>核心公式/定义</th><th>实战阈值</th><th>操作建议</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>委比</td><td>(委买-委卖)/(委买+委卖)×100%</td><td>>50%偏多，<-50%偏空</td><td>需结合委差看</td></tr>
+<tr><td>2</td><td>委差</td><td>委买手数-委卖手数</td><td>正数偏多，负数偏空</td><td>比委比更真实</td></tr>
+<tr><td>3</td><td>内盘</td><td>主动卖出的成交量</td><td>放大警惕出货</td><td>结合股价看</td></tr>
+<tr><td>4</td><td>外盘</td><td>主动买入的成交量</td><td>放大看涨</td><td>结合股价看</td></tr>
+<tr><td>5</td><td>总量</td><td>当日累计成交手数</td><td>对比昨日同时段</td><td>看活跃度</td></tr>
+<tr><td>6</td><td>量比</td><td>现量/5日均量</td><td>>2放量，>5剧烈放量</td><td>开盘量比最关键</td></tr>
+<tr><td>7</td><td>换手率</td><td>成交股数/流通股本</td><td>3-10%活跃，>20%警惕</td><td>结合市值</td></tr>
+<tr><td>8</td><td>大单</td><td>单笔成交超阈值</td><td>500亿:1000手/100亿:500手/小盘:100手</td><td>看主力动向</td></tr>
+<tr><td>9</td><td>对敲</td><td>主力自买自卖</td><td>无固定阈值</td><td>警惕虚假成交</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="lesson layer-2">
+<div class="lesson-header">
+<span class="lesson-level">附录B</span>
+<h2>🎨 附录B：集合竞价八大形态速查表</h2>
+</div>
+
+<table>
+<thead><tr><th>序号</th><th>形态</th><th>特征</th><th>主力意图</th><th>操作建议</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>一字型</td><td>开盘价=涨停价/跌停价</td><td>最强/最弱</td><td>涨停排队/跌停观望</td></tr>
+<tr><td>2</td><td>L型</td><td>竞价温和，开盘后稳步上行</td><td>主力温和吸筹</td><td>开盘价附近低吸</td></tr>
+<tr><td>3</td><td>倒L型</td><td>竞价后开盘迅速下杀</td><td>诱多后出货</td><td>坚决不参与</td></tr>
+<tr><td>4</td><td>阶梯型</td><td>挂单阶梯递增</td><td>主力稳步吸筹</td><td>适量跟进</td></tr>
+<tr><td>5</td><td>凹型</td><td>开盘后探底回升</td><td>主力洗盘+吸筹</td><td>拉升时跟进</td></tr>
+<tr><td>6</td><td>拱型</td><td>开盘后冲高回落</td><td>主力诱多出货</td><td>坚决不参与</td></tr>
+<tr><td>7</td><td>锥形</td><td>开盘后单边上行</td><td>主力强势拉升</td><td>可追涨</td></tr>
+<tr><td>8</td><td>尖角形</td><td>开盘瞬间暴涨/暴跌</td><td>主力突袭</td><td>观望</td></tr>
+</tbody>
+</table>
+
+<h3>特殊形态补充</h3>
+<table>
+<thead><tr><th>形态</th><th>特征</th><th>主力意图</th></tr></thead>
+<tbody>
+<tr><td>虎口夺食型</td><td>竞价博弈激烈，最终大幅高开</td><td>主力成功抢筹</td></tr>
+<tr><td>牵牛花型</td><td>竞价弱，开盘后被主力拉起</td><td>主力低位吸筹</td></tr>
+<tr><td>断线型</td><td>竞价看似强势，开盘暴跌</td><td>主力断线出货</td></tr>
+<tr><td>滑坡型</td><td>竞价走弱，开盘单边下跌</td><td>空头主导</td></tr>
+<tr><td>复合型</td><td>多种形态混合</td><td>综合判断</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="lesson layer-3">
+<div class="lesson-header">
+<span class="lesson-level">附录C</span>
+<h2>🛡️ 附录C：主力挂单四大手法速查表</h2>
+</div>
+
+<table>
+<thead><tr><th>手法</th><th>位置特征</th><th>真假识别</th><th>实战策略</th></tr></thead>
+<tbody>
+<tr><td><strong>压单</strong></td><td>卖方挂单巨大</td><td>高位真压=出货，低位真压=洗盘</td><td>高位离场，低位低吸</td></tr>
+<tr><td><strong>托单</strong></td><td>买方挂单巨大</td><td>低位真托=护盘，高位真托=掩护</td><td>低位跟随，高位警惕</td></tr>
+<tr><td><strong>夹板</strong></td><td>买卖同时巨单</td><td>放量突破为真，缩量为假</td><td>突破跟进</td></tr>
+<tr><td><strong>蜂窝</strong></td><td>多价位小额挂单</td><td>低位吸筹，高位出货</td><td>顺势而为</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="lesson layer-4">
+<div class="lesson-header">
+<span class="lesson-level">附录D</span>
+<h2>🚀 附录D：五大涨停体系速查表</h2>
+</div>
+
+<table>
+<thead><tr><th>涨停类型</th><th>分时特征</th><th>主力意图</th><th>操作策略</th></tr></thead>
+<tbody>
+<tr><td><strong>阶梯型（贪吃蛇）</strong></td><td>分时阶梯式上行</td><td>分批拉升</td><td>阶梯起点低吸</td></tr>
+<tr><td><strong>斜坡型（45度）</strong></td><td>分时近45度稳定上行</td><td>稳健拉升</td><td>斜坡中段低吸</td></tr>
+<tr><td><strong>震荡型</strong></td><td>分时反复震荡</td><td>震荡洗盘</td><td>回踩均价线低吸</td></tr>
+<tr><td><strong>脉冲型</strong></td><td>瞬间直线拉升</td><td>强势突破</td><td>提前埋伏或次日跟进</td></tr>
+<tr><td><strong>烂板破板</strong></td><td>涨停反复开板</td><td>良性洗盘或出货</td><td>看量能判断</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="lesson layer-1">
+<div class="lesson-header">
+<span class="lesson-level">附录E</span>
+<h2>📖 附录E：盘口核心术语词典</h2>
+</div>
+
+<table>
+<thead><tr><th>术语</th><th>含义</th></tr></thead>
+<tbody>
+<tr><td>盘口</td><td>广义指分时图所反映的所有信息，狭义指买卖五档</td></tr>
+<tr><td>分时线</td><td>实时价格走势线（白线）</td></tr>
+<tr><td>均价线</td><td>开盘至今的平均成交价（黄线）</td></tr>
+<tr><td>委比</td><td>委买与委卖的手数比</td></tr>
+<tr><td>委差</td><td>委买与委卖的手数差</td></tr>
+<tr><td>内盘</td><td>主动卖出的成交量</td></tr>
+<tr><td>外盘</td><td>主动买入的成交量</td></tr>
+<tr><td>量比</td><td>现量与5日均量的比值</td></tr>
+<tr><td>换手率</td><td>成交股数与流通股本的比值</td></tr>
+<tr><td>大单</td><td>超过阈值手数的单笔成交</td></tr>
+<tr><td>对敲</td><td>主力自买自卖的虚假成交</td></tr>
+<tr><td>压单</td><td>卖方挂出的巨量委托单</td></tr>
+<tr><td>托单</td><td>买方挂出的巨量委托单</td></tr>
+<tr><td>夹板</td><td>买卖同时挂出的巨单</td></tr>
+<tr><td>蜂窝</td><td>多价位小额挂单</td></tr>
+<tr><td>凤飞天</td><td>涨停后小幅回调再封板的形态</td></tr>
+<tr><td>炸板</td><td>涨停后打开涨停</td></tr>
+<tr><td>烂板</td><td>涨停后反复开板</td></tr>
+<tr><td>破板</td><td>次日未能维持涨停</td></tr>
+<tr><td>龙头</td><td>板块中涨幅最大、走势最强的个股</td></tr>
+<tr><td>主线题材</td><td>持续受资金关注的热门题材</td></tr>
+<tr><td>拉旗杆</td><td>早盘垂直拉升的分时线</td></tr>
+<tr><td>阶梯型涨停</td><td>分时阶梯式上行至涨停</td></tr>
+<tr><td>斜坡型涨停</td><td>分时近45度稳定上行至涨停</td></tr>
+<tr><td>震荡型涨停</td><td>分时反复震荡后涨停</td></tr>
+<tr><td>脉冲式涨停</td><td>瞬间直线拉升至涨停</td></tr>
+</tbody>
+</table>
+</section>
+
+<section class="lesson layer-2">
+<div class="lesson-header">
+<span class="lesson-level">附录F</span>
+<h2>💎 附录F：雨禾老师金句集锦</h2>
+</div>
+
+<ol>
+<li><strong>"看懂了盘口，就看懂了主力；看懂了主力，就看懂了股市。"</strong></li>
+<li><strong>"盘口是主力与市场的实时对话窗口。"</strong></li>
+<li><strong>"所有公开信息都已经反映在价格上，但主力的真实意图却隐藏在盘口数据中。"</strong></li>
+<li><strong>"委差比委比更值得参考，因为它不受挂单撤单波动影响。"</strong></li>
+<li><strong>"开盘量比最具实战价值，是捕捉当日异动股的第一指标。"</strong></li>
+<li><strong>"60分钟定方向，30分钟定买卖。"</strong></li>
+<li><strong>"高开看持续，平开看方向，低开看反攻。"</strong></li>
+<li><strong>"均价线是多空双方的成本线，站稳均价线就是站稳成本线。"</strong></li>
+<li><strong>"早盘30分钟内，涨幅超过3%的个股值得重点关注。"</strong></li>
+<li><strong>"压单看位置，高低真假各不同。"</strong></li>
+<li><strong>"托单看位置，低吸高警是心法。"</strong></li>
+<li><strong>"夹板看突破，量能配合才为真。"</strong></li>
+<li><strong>"蜂窝看位置，低吸高出顺势行。"</strong></li>
+<li><strong>"拉伸波追涨，推动波低吸，锯齿波观望。"</strong></li>
+<tr><td><strong>"急升缓跌出货，急跌缓升吸筹。"</strong></li>
+<tr><td><strong>"多日分时图相同的形态，往往是主力刻意为之。"</strong></li>
+<tr><td><strong>"凤飞天是涨停股中最具操作性的形态。"</strong></li>
+<tr><td><strong>"盘口为王，是看懂主力语言。"</strong></li>
+<tr><td><strong>"情绪是盘口高手的天敌。"</strong></li>
+<tr><td><strong>"没有风控就没有盈利，止损是盘口高手的生命线。"</strong></li>
+</ol>
+</section>
+
+<section class="lesson layer-3">
+<div class="lesson-header">
+<span class="lesson-level">附录G</span>
+<h2>⚠️ 附录G：风险提示与免责说明</h2>
+</div>
+
+<div class="warning">
+<h4>重要风险提示</h4>
+<p>1. <strong>本报告仅供参考学习</strong>，不构成任何投资建议。</p>
+<p>2. <strong>股市有风险，投资需谨慎</strong>。任何技术分析方法都不能保证100%准确。</p>
+<p>3. <strong>历史规律不代表未来</strong>。市场环境变化，过去有效的策略可能失效。</p>
+<p>4. <strong>切勿盲目跟风</strong>。所有决策都应基于自己的判断和风险承受能力。</p>
+<p>5. <strong>建议先模拟盘练习</strong>，熟练后再用小资金实盘验证。</p>
+<p>6. <strong>严格控制仓位</strong>。单只个股不超过总仓位的30%。</p>
+<p>7. <strong>严格执行止损</strong>。亏损达5%立即止损。</p>
+</div>
+
+<h3>📜 学习路径建议</h3>
+<ol>
+<li><strong>第1个月</strong>：第1-2层基础认知 + 第3层执行操作（理论+模拟）</li>
+<li><strong>第2-3个月</strong>：第2层识别判断 + 第3层执行操作（小资金实盘）</li>
+<li><strong>第4-6个月</strong>：第4层涨停专题（专项突破）</li>
+<li><strong>第7-12个月</strong>：第5层风控落地 + 综合实战（持续优化）</li>
+<li><strong>1年以上</strong>：形成自己的盘口体系，稳定盈利</li>
+</ol>
+
+<h3>📞 反馈与改进</h3>
+<p>本报告由主人专属整理，仅供学习研究。如发现错误或需要补充的内容，请及时反馈。</p>
+
+<div class="success">
+<p style="text-align:center; font-size:18px; margin-top:24px;"><strong>🎉 恭喜主人完成雨禾盘口全景系统课全部学习！</strong></p>
+<p style="text-align:center; color:#4A5568; margin-top:8px;">从盘口小白到盘口高手，您已掌握完整的盘口语言体系。</p>
+<p style="text-align:center; color:#4A5568; margin-top:8px;">记住：<em>盘口为王，看懂主力；坚持学习，方成高手。</em></p>
+</div>
+</section>
+
+<hr class="divider">
+
+<!-- ============== 底栏 ============== -->
+<div class="footer">
+<p>📌 <strong>归属权声明</strong>：本报告由专属整理，归属权归<strong>主人</strong>所有，仅供学习研究使用。</p>
+<p>📚 <strong>课程来源</strong>：雨禾盘口全景系统课33节</p>
+<p>🎨 <strong>设计理念</strong>：浅色系 + 横向树状SVG + 零JS + 移动端兼容</p>
+<p>📱 <strong>使用建议</strong>：用微信/手机浏览器打开，双指可放大SVG思维导图</p>
+<p style="margin-top:16px; font-size:12px; opacity:0.8;">© 2026 雨禾盘口全景系统课·小白到高手</p>
+</div>
+
+</body>
+</html>
