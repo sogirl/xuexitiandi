@@ -1,0 +1,2408 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>《总龙头战法》情绪节点擒龙战法 · 完整教程（何敬乐）</title>
+<style>
+  :root{
+    --bg:#f6f7f9;
+    --card:#ffffff;
+    --ink:#2c3238;
+    --ink-soft:#5a6470;
+    --ink-faint:#8a94a0;
+    --line:#e6e8ec;
+    --brand:#3b5b78;
+    --accent:#4a7fa5;
+    --blue-bg:#eef4fb;
+    --green-bg:#f0f6f0;
+    --orange-bg:#fdf0e8;
+    --red-bg:#fbeef0;
+    --warn:#b0544a;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--bg);
+    color:var(--ink);
+    font-family:"PingFang SC","Microsoft YaHei","Hiragino Sans GB","Noto Sans CJK SC",-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+    line-height:1.75;
+    font-size:15px;
+    -webkit-text-size-adjust:100%;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:20px 16px 80px;}
+
+  /* ===== 顶部 ===== */
+  header.hero{
+    background:linear-gradient(135deg,#3b5b78 0%,#4a7fa5 100%);
+    color:#fff;border-radius:16px;padding:34px 28px;margin-bottom:22px;
+    box-shadow:0 6px 24px rgba(59,91,120,.18);
+  }
+  header.hero .kicker{font-size:13px;letter-spacing:2px;opacity:.85;margin-bottom:8px;}
+  header.hero h1{margin:0 0 10px;font-size:27px;line-height:1.35;font-weight:700;}
+  header.hero p{margin:0;font-size:14px;opacity:.92;}
+
+  .risk{
+    background:var(--red-bg);border:1px solid #f0d3d6;border-left:4px solid var(--warn);
+    border-radius:10px;padding:14px 16px;margin-bottom:22px;font-size:13.5px;color:#7a3a35;
+  }
+  .risk strong{color:var(--warn);}
+
+  /* ===== 目录 ===== */
+  nav.toc{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 22px;margin-bottom:26px;
+    box-shadow:0 2px 10px rgba(20,40,60,.05);
+  }
+  nav.toc h2{margin:0 0 6px;font-size:17px;color:var(--brand);}
+  nav.toc .sub{font-size:13px;color:var(--ink-faint);margin:0 0 12px;}
+  nav.toc .group{margin:10px 0 2px;font-size:14px;font-weight:700;color:var(--ink);}
+  nav.toc ol{list-style:none;margin:4px 0;padding:0;display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:4px 10px;}
+  nav.toc a{display:block;padding:5px 8px;border-radius:7px;color:var(--ink-soft);text-decoration:none;font-size:13.5px;}
+  nav.toc a:hover{background:var(--blue-bg);color:var(--brand);}
+  nav.toc a .no{color:var(--accent);font-weight:700;margin-right:5px;}
+
+  /* ===== 章节通用 ===== */
+  section.chapter{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:26px 26px 22px;margin-bottom:26px;box-shadow:0 2px 10px rgba(20,40,60,.05);
+    scroll-margin-top:14px;
+  }
+  section.chapter .chno{
+    display:inline-block;font-size:12px;font-weight:700;letter-spacing:1px;color:#fff;
+    background:var(--brand);border-radius:6px;padding:3px 9px;margin-bottom:8px;
+  }
+  section.chapter h2{margin:0 0 6px;font-size:21px;color:var(--brand);line-height:1.4;}
+  section.chapter .lead{margin:0 0 16px;color:var(--ink-soft);font-size:14px;background:var(--blue-bg);border-radius:8px;padding:9px 12px;border-left:3px solid var(--accent);}
+  section.chapter h3{font-size:16px;color:var(--ink);margin:18px 0 8px;padding-left:9px;border-left:3px solid var(--accent);}
+  section.chapter h4{font-size:14.5px;color:var(--brand);margin:12px 0 5px;}
+  section.chapter ul, section.chapter ol{margin:6px 0;padding-left:22px;}
+  section.chapter li{margin:3px 0;}
+  section.chapter li::marker{color:var(--accent);}
+
+  /* 卡片 */
+  .cards{display:grid;grid-template-columns:1fr;gap:12px;margin-top:14px;}
+  @media(min-width:680px){.cards{grid-template-columns:1fr 1fr;}.cards .full{grid-column:1 / -1;}}
+  .card{background:#fbfcfe;border:1px solid var(--line);border-radius:10px;padding:14px 16px;}
+  .card h4{margin:0 0 8px;font-size:14px;color:var(--brand);}
+  .card.key{background:var(--blue-bg);border-color:#d7e4f0;}
+  .card.logic{background:#fafbfc;}
+  .card.hard{background:var(--red-bg);border-color:#f0d3d6;}
+  .card ol,.card ul{padding-left:18px;font-size:13.5px;}
+  .card.hard h4{color:var(--warn);}
+
+  /* 表格 */
+  table{width:100%;border-collapse:collapse;margin:10px 0;font-size:13.5px;background:#fff;}
+  th,td{border:1px solid var(--line);padding:7px 9px;text-align:left;vertical-align:top;}
+  th{background:var(--blue-bg);color:var(--brand);font-weight:700;}
+
+  /* 标签 */
+  .tag{display:inline-block;background:var(--blue-bg);color:var(--brand);border-radius:5px;padding:1px 7px;font-size:12px;margin-right:4px;}
+  .tag.green{background:var(--green-bg);color:#3e6b3e;}
+  .tag.orange{background:var(--orange-bg);color:#a05a2a;}
+
+  /* ===== SVG 容器 ===== */
+  .graph{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px 14px 12px;margin-bottom:26px;box-shadow:0 2px 10px rgba(20,40,60,.05);}
+  .graph h2{margin:0 0 4px;font-size:17px;color:var(--brand);}
+  .graph .sub{font-size:13px;color:var(--ink-faint);margin:0 0 12px;}
+  .graph svg{width:100%;height:auto;display:block;}
+
+  /* ===== 速查 ===== */
+  .cheat{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:22px 24px;margin-bottom:26px;box-shadow:0 2px 10px rgba(20,40,60,.05);}
+  .cheat h2{margin:0 0 4px;font-size:18px;color:var(--brand);}
+  .cheat .sub{font-size:13px;color:var(--ink-faint);margin:0 0 14px;}
+
+  footer{text-align:center;color:var(--ink-faint);font-size:12.5px;margin-top:30px;line-height:1.9;}
+  footer .rule{display:inline-block;border-top:1px solid var(--line);width:100%;margin-bottom:14px;}
+
+  .backtop{position:fixed;right:16px;bottom:18px;background:var(--brand);color:#fff;text-decoration:none;
+    width:40px;height:40px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:19px;
+    box-shadow:0 3px 10px rgba(20,40,60,.25);opacity:.85;}
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <header class="hero">
+    <div class="kicker">总龙头战法 · 何敬乐 主讲</div>
+    <h1>情绪节点擒龙战法 · 完整教程</h1>
+    <p>一套完整的短线「情绪节点交易体系」——只在关键节点出手、低频高效。本教程覆盖全部 26 篇课程，逐条零遗漏，助您从零基础读到精通。</p>
+  </header>
+
+  <div class="risk">
+    <strong>⚠ 风险提示（学习前必读）：</strong>
+    本教程为<strong>短线情绪交易方法论</strong>，文中所有"买点 / 概率 / 收益"均为课程统计与历史案例，<strong>不构成任何投资建议</strong>；短线交易风险极高，盈亏自负。课程笔记由 AI 语音转写整理，文中大量股票名称存在<strong>语音转文字误差</strong>，学习时请以真实盘面为准，切勿按字面照搬个股名称。课程反复强调的核心风控纪律——「90% 时间不做」「退潮日空仓」「严禁竞价买票」「最高标控仓位」——是体系的基石，先于一切进攻技巧。
+  </div>
+
+  <nav class="toc">
+    <h2>📑 课程目录（点击跳转）</h2>
+    <p class="sub">三大板块 · 26 篇 + 知识图谱 + 学习路径 + 速查手册</p>
+
+    <div class="group">一、情绪节点篇（第 01-17 篇）</div>
+    <ol>
+      <li><a href="#ch01"><span class="no">01</span>课程大纲 · 总纲与理念</a></li>
+      <li><a href="#ch02"><span class="no">02</span>关键开仓节点汇总 · 总地基</a></li>
+      <li><a href="#ch03"><span class="no">03</span>情绪主升拐点（一）定义与分类</a></li>
+      <li><a href="#ch04"><span class="no">04</span>情绪主升拐点（二）上午/下午走强</a></li>
+      <li><a href="#ch05"><span class="no">05</span>情绪主升拐点（三）选股+操作+套利</a></li>
+      <li><a href="#ch06"><span class="no">06</span>情绪主升拐点（四）次日操作+预期差</a></li>
+      <li><a href="#ch07"><span class="no">07</span>情绪退潮拐点（一）退潮日定义</a></li>
+      <li><a href="#ch08"><span class="no">08</span>情绪退潮拐点（二）空仓纪律</a></li>
+      <li><a href="#ch09"><span class="no">09</span>退潮初期·反核抱团（一）四类风险</a></li>
+      <li><a href="#ch10"><span class="no">10</span>退潮初期·反核《必看》高性价比低吸</a></li>
+      <li><a href="#ch11"><span class="no">11</span>退潮初期·抱团（三）两天确认标准</a></li>
+      <li><a href="#ch12"><span class="no">12</span>退潮末期·试错（一）主观判断</a></li>
+      <li><a href="#ch13"><span class="no">13</span>退潮末期·试错（二）空间板反包</a></li>
+      <li><a href="#ch14"><span class="no">14</span>退潮末期·试错（三）抓超预期</a></li>
+      <li><a href="#ch15"><span class="no">15</span>主升结束·反包（一）定义与风险</a></li>
+      <li><a href="#ch16"><span class="no">16</span>主升结束·反包（二）趋势抱团</a></li>
+      <li><a href="#ch17"><span class="no">17</span>主升结束·反包（三）强板块选股</a></li>
+    </ol>
+
+    <div class="group">二、题材节点篇（第 18-19、21 篇）</div>
+    <ol>
+      <li><a href="#ch18"><span class="no">18</span>题材节点（一）发酵日玩法</a></li>
+      <li><a href="#ch19"><span class="no">19</span>题材节点（二）爆发日玩法</a></li>
+      <li><a href="#ch21"><span class="no">21</span>题材节点（三）强分歧抱团低吸</a></li>
+    </ol>
+
+    <div class="group">三、补充篇（第 20、22-26 篇）</div>
+    <ol>
+      <li><a href="#ch20"><span class="no">20</span>弱转强手法（一）形式+竞价量</a></li>
+      <li><a href="#ch22"><span class="no">22</span>弱转强手法（二）本质+何时何股</a></li>
+      <li><a href="#ch23"><span class="no">23</span>节点体系高效复盘 · 复盘八问</a></li>
+      <li><a href="#ch24"><span class="no">24</span>反核指数如何搭建</a></li>
+      <li><a href="#ch25"><span class="no">25</span>双节点共振·博弈情绪龙头（核心）</a></li>
+      <li><a href="#ch26"><span class="no">26</span>反核指数及情绪表制作</a></li>
+    </ol>
+
+    <div class="group">四、元层（收束与工具）</div>
+    <ol>
+      <li><a href="#graph2"><span class="no">图</span>跨课程知识图谱</a></li>
+      <li><a href="#path"><span class="no">径</span>六阶段学习路径</a></li>
+      <li><a href="#cheat"><span class="no">查</span>关键数字与纪律速查</a></li>
+    </ol>
+  </nav>
+
+  <!-- ================= 总知识图谱 SVG ================= -->
+  <div class="graph">
+    <h2>🗺 一、课程总知识图谱（横向树状 · 根在左 → 逐层向右）</h2>
+    <p class="sub">底部为全课核心「双节点共振」。手机端可双指放大查看细节。</p>
+    <svg viewBox="0 0 900 1440" role="img" aria-label="课程总知识图谱" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        .r{font-family:"PingFang SC","Microsoft YaHei",sans-serif;text-anchor:middle;}
+        .t1{font-size:14px;font-weight:700;fill:#2c3238;}
+        .t2{font-size:11px;fill:#5a6470;}
+        .root-t{font-size:15px;font-weight:700;fill:#2c3238;}
+        .root-s{font-size:12px;fill:#3b5b78;}
+        .ln{stroke:#9aa7b4;stroke-width:1.5;fill:none;}
+        .ln.acc{stroke:#c07a4a;stroke-width:2;stroke-dasharray:5 4;}
+      </style>
+
+      <!-- ===== 连线：根 -> 5 主干 ===== -->
+      <path class="ln" d="M 270 710 H 300 V 162 H 330"/>
+      <path class="ln" d="M 270 710 H 300 V 484 H 330"/>
+      <path class="ln" d="M 270 710 H 300 V 812 H 330"/>
+      <path class="ln" d="M 270 710 H 300 V 1056 H 330"/>
+      <path class="ln acc" d="M 270 710 H 300 V 1302 H 330"/>
+
+      <!-- ===== 连线：主干 -> 子项 ===== -->
+      <!-- 情绪周期 4 项 -->
+      <path class="ln" d="M 510 162 H 550 V 66 H 590"/>
+      <path class="ln" d="M 510 162 H 550 V 130 H 590"/>
+      <path class="ln" d="M 510 162 H 550 V 194 H 590"/>
+      <path class="ln" d="M 510 162 H 550 V 258 H 590"/>
+      <!-- 五大节点 5 项 -->
+      <path class="ln" d="M 510 484 H 550 V 356 H 590"/>
+      <path class="ln" d="M 510 484 H 550 V 420 H 590"/>
+      <path class="ln" d="M 510 484 H 550 V 484 H 590"/>
+      <path class="ln" d="M 510 484 H 550 V 548 H 590"/>
+      <path class="ln" d="M 510 484 H 550 V 612 H 590"/>
+      <!-- 题材节点 4 项 -->
+      <path class="ln" d="M 510 812 H 550 V 716 H 590"/>
+      <path class="ln" d="M 510 812 H 550 V 780 H 590"/>
+      <path class="ln" d="M 510 812 H 550 V 844 H 590"/>
+      <path class="ln" d="M 510 812 H 550 V 908 H 590"/>
+      <!-- 三大工具 3 项 -->
+      <path class="ln" d="M 510 1056 H 550 V 992 H 590"/>
+      <path class="ln" d="M 510 1056 H 550 V 1056 H 590"/>
+      <path class="ln" d="M 510 1056 H 550 V 1120 H 590"/>
+      <!-- 双节点共振 3 项 -->
+      <path class="ln acc" d="M 510 1302 H 550 V 1238 H 590"/>
+      <path class="ln acc" d="M 510 1302 H 550 V 1302 H 590"/>
+      <path class="ln acc" d="M 510 1302 H 550 V 1366 H 590"/>
+
+      <!-- ===== 根节点 ===== -->
+      <g>
+        <rect x="20" y="684" width="250" height="52" rx="10" fill="#dbe7f4" stroke="#3b6a94" stroke-width="1.6"/>
+        <text class="r root-t" x="145" y="708">总龙头战法</text>
+        <text class="r root-s" x="145" y="726">情绪节点擒龙战法</text>
+      </g>
+
+      <!-- ===== L1 主干 ===== -->
+      <g>
+        <rect x="330" y="136" width="190" height="52" rx="9" fill="#eef4fb" stroke="#4a7fa5" stroke-width="1.4"/>
+        <text class="r t1" x="425" y="160">情绪周期四阶段</text>
+        <text class="r t2" x="425" y="176">底层坐标系 · 框架</text>
+      </g>
+      <g>
+        <rect x="330" y="458" width="190" height="52" rx="9" fill="#eef4fb" stroke="#4a7fa5" stroke-width="1.4"/>
+        <text class="r t1" x="425" y="482">五大开仓节点</text>
+        <text class="r t2" x="425" y="498">何时做 · 操作抓手</text>
+      </g>
+      <g>
+        <rect x="330" y="786" width="190" height="52" rx="9" fill="#eef4fb" stroke="#4a7fa5" stroke-width="1.4"/>
+        <text class="r t1" x="425" y="810">题材节点四阶段</text>
+        <text class="r t2" x="425" y="826">做什么 · 选股体系</text>
+      </g>
+      <g>
+        <rect x="330" y="1030" width="190" height="52" rx="9" fill="#f0f6f0" stroke="#6a9a6a" stroke-width="1.4"/>
+        <text class="r t1" x="425" y="1054">三大工具手法</text>
+        <text class="r t2" x="425" y="1070">怎么做 · 落地工具</text>
+      </g>
+      <g>
+        <rect x="330" y="1276" width="190" height="52" rx="9" fill="#fdf0e8" stroke="#c07a4a" stroke-width="1.6"/>
+        <text class="r t1" x="425" y="1300">双节点共振（25·核心）</text>
+        <text class="r t2" x="425" y="1316">情绪×题材 → 节点龙头</text>
+      </g>
+
+      <!-- ===== L2 子项：情绪周期 ===== -->
+      <g><rect x="590" y="40" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="64">主升期</text><text class="r t2" x="725" y="80">赚钱效应最强 · 盈亏比最高</text></g>
+      <g><rect x="590" y="104" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="128">高位震荡期（混沌期）</text><text class="r t2" x="725" y="144">一般 · 修复或退潮二选一</text></g>
+      <g><rect x="590" y="168" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="192">退潮期</text><text class="r t2" x="725" y="208">亏钱效应显著 · 风险最高</text></g>
+      <g><rect x="590" y="232" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="256">低位震荡期（试错期）</text><text class="r t2" x="725" y="272">一般 · 低位试错</text></g>
+
+      <!-- ===== L2 子项：五大节点 ===== -->
+      <g><rect x="590" y="330" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="354">① 主升拐点当天</text><text class="r t2" x="725" y="370">最重要买点 · 必须预判</text></g>
+      <g><rect x="590" y="394" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="418">② 退潮拐点当天</text><text class="r t2" x="725" y="434">卖点 · 空仓避险</text></g>
+      <g><rect x="590" y="458" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="482">③ 退潮初期</text><text class="r t2" x="725" y="498">反核（性价比）· 抱团（确定性）</text></g>
+      <g><rect x="590" y="522" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="546">④ 退潮尾声</text><text class="r t2" x="725" y="562">试错 · 抓超预期</text></g>
+      <g><rect x="590" y="586" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="610">⑤ 主升结束日</text><text class="r t2" x="725" y="626">博弈二波 · 强板块趋势抱团</text></g>
+
+      <!-- ===== L2 子项：题材节点 ===== -->
+      <g><rect x="590" y="690" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="714">发酵日</text><text class="r t2" x="725" y="730">拿先手 · 做首板</text></g>
+      <g><rect x="590" y="754" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="778">爆发日</text><text class="r t2" x="725" y="794">龙头切入点 · 看竞价/盘中</text></g>
+      <g><rect x="590" y="818" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="842">滞涨日</text><text class="r t2" x="725" y="858">趋势票 · 抱团活口</text></g>
+      <g><rect x="590" y="882" width="270" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="906">退潮日</text><text class="r t2" x="725" y="922">取关 · 不再参与</text></g>
+
+      <!-- ===== L2 子项：三大工具 ===== -->
+      <g><rect x="590" y="966" width="270" height="52" rx="8" fill="#f0f6f0" stroke="#6a9a6a" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="990">弱转强手法（20/22）</text><text class="r t2" x="725" y="1006">烂板次日超预期 · 竞价量≥5%</text></g>
+      <g><rect x="590" y="1030" width="270" height="52" rx="8" fill="#f0f6f0" stroke="#6a9a6a" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="1054">复盘八问（23）</text><text class="r t2" x="725" y="1070">每日可执行决策清单</text></g>
+      <g><rect x="590" y="1094" width="270" height="52" rx="8" fill="#f0f6f0" stroke="#6a9a6a" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="1118">反核指数·情绪表（24/26）</text><text class="r t2" x="725" y="1134">亏钱效应的量化监测</text></g>
+
+      <!-- ===== L2 子项：双节点共振 ===== -->
+      <g><rect x="590" y="1212" width="270" height="52" rx="8" fill="#fdf0e8" stroke="#c07a4a" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="1236">三板 · 70% 成龙头</text><text class="r t2" x="725" y="1252">身位聚焦三板</text></g>
+      <g><rect x="590" y="1276" width="270" height="52" rx="8" fill="#fdf0e8" stroke="#c07a4a" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="1300">三进四博弈</text><text class="r t2" x="725" y="1316">确定性大门槛</text></g>
+      <g><rect x="590" y="1340" width="270" height="52" rx="8" fill="#fdf0e8" stroke="#c07a4a" stroke-width="1.2"/>
+        <text class="r t1" x="725" y="1364">退潮 2-3 天反转 80%</text><text class="r t2" x="725" y="1380">最佳出手时机</text></g>
+    </svg>
+  </div>
+
+  <!-- ================= 正文 26 章 ================= -->
+  <!-- CHAPTERS_START -->
+
+  <!-- ============ 第01章 ============ -->
+  <section class="chapter" id="ch01">
+    <span class="chno">第 01 章</span>
+    <h2>课程大纲 · 总纲与理念（《必看》）</h2>
+    <p class="lead">全课总纲：一套"只在关键节点出手、低频高效"的情绪节点交易体系，三大板块（情绪节点 / 题材节点 / 补充工具）构成完整闭环。</p>
+
+    <h3>一、课程背景与定位</h3>
+    <ul>
+      <li><strong>情绪节点交易体系</strong>：以录播课形式分享，便于反复观看。</li>
+      <li><strong>核心理念</strong>：穷则独善其身，达则兼济天下——把已验证有效的方法回馈市场。</li>
+      <li><strong>课程结构</strong>：约 20 节课，涵盖情绪节点、题材节点及补充内容三大板块。</li>
+    </ul>
+
+    <h3>二、情绪节点篇 · 五大关键节点</h3>
+    <ul>
+      <li><strong>情绪主升（2-4 节）</strong>：最佳龙头切入点。</li>
+      <li><strong>退潮判断</strong>：空仓避险日，识别初期拐点。</li>
+      <li><strong>反核与抱团</strong>：退潮初期的操作策略。</li>
+      <li><strong>退潮末期拐点</strong>：提前切入龙头。</li>
+      <li><strong>情绪主升结束拐点</strong>：博弈情绪龙、抱团龙的反包。</li>
+    </ul>
+
+    <h3>三、题材节点篇 · 五大操作策略</h3>
+    <ul>
+      <li><strong>发酵日</strong>：拿先手。</li>
+      <li><strong>爆发日</strong>：龙头切入点。</li>
+      <li><strong>主升后</strong>：围绕趋势龙做低吸。</li>
+      <li><strong>强分歧 / 滞涨日</strong>：博弈抱团走穿越。</li>
+      <li><strong>板块退潮</strong>：不再参与。</li>
+    </ul>
+
+    <h3>四、补充篇 · 实用工具</h3>
+    <ul>
+      <li><strong>高效复盘</strong>：节点体系复盘法，约 7-8 个问题，半小时内完成。</li>
+      <li><strong>弱转强应用技巧</strong>：贯穿情绪与题材节点。</li>
+      <li><strong>反核指数搭建</strong>：动态反映市场赚钱效应与亏钱效应。</li>
+      <li><strong>课程定位</strong>：全部干货，无藏私，多年心血总结；方法每年迭代，分享给团队内部粉丝。</li>
+    </ul>
+
+    <h3>五、交易生涯中 90% 的时间要做的事</h3>
+    <ul>
+      <li><strong>90% 时间不做</strong>（空仓或持股）：并非消极等待，而是保持学习与思考；条件未达则耐心等待。</li>
+      <li><strong>出手原则</strong>：稳、准、狠。</li>
+      <li><strong>交易模式：低频高效</strong>——仅符合节点时重点操作；关键节点（如情绪主升）可重仓出击；其他时间小仓位或不参与。</li>
+    </ul>
+
+    <h3>六、短线市场今年的变化</h3>
+    <ul>
+      <li><strong>今年变化剧烈</strong>：在量化与同质化交易影响下，不变则死，变则能活。</li>
+      <li><strong>体系迭代</strong>：总框架不变（主升、退潮等节点），操作手法优化。</li>
+      <li><strong>核心优化方向</strong>：<strong>买的早</strong>（龙头右侧交易窗口 3-5 天 → 2-3 天，需向前靠）；<strong>买的巧</strong>（精准切入爆发日，前后一天效果均大打折扣）。</li>
+      <li><strong>长期有效性</strong>：投机永不眠，节点框架不会变，手法随市场微调。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>完整情绪节点交易体系，约 20 节录播课，纯干货无藏私，核心逻辑"只在关键节点出手、低频高效"。</li>
+          <li>三大板块：情绪节点篇（五大关键节点）、题材节点篇（五大题材操作策略）、补充篇（复盘法、弱转强、反核指数）。</li>
+          <li>核心理念：90% 时间不做，出手"稳准狠"，只在符合节点的时点重点操作甚至重仓。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>情绪节点是"何时做"的择时体系，题材节点是"做什么"的选股体系，补充篇是"怎么做"的工具方法，三者构成完整闭环。</li>
+          <li>"90% 时间不做"是总纲，直接推导出"低频高效"的交易模式。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：情绪主升是最佳龙头切入点（2-4 节详解），是全课第一重点。</li>
+          <li><strong>难点</strong>：今年市场交易窗口大幅缩短（3-5 天 → 2-3 天），对"买的早、买的巧"提出更高要求，这是理解后续所有操作细节的时代背景。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第02章 ============ -->
+  <section class="chapter" id="ch02">
+    <span class="chno">第 02 章</span>
+    <h2>关键开仓节点汇总 · 总地基（《必看》）</h2>
+    <p class="lead">全课地基：情绪周期四阶段（底层框架）+ 五大开仓节点（具体抓手），先手优势贯穿所有买点。</p>
+
+    <h3>一、情绪周期四阶段（底层框架）</h3>
+    <ul>
+      <li><strong>主升期</strong>：赚钱效应最强，盈亏比最高。</li>
+      <li><strong>高位震荡期（高温震荡 / 混沌期）</strong>：一般。</li>
+      <li><strong>退潮期</strong>：亏钱效应显著，风险最高。</li>
+      <li><strong>低位震荡期（低位试错期）</strong>：一般。</li>
+    </ul>
+
+    <h3>二、先手优势（核心观点）</h3>
+    <ul>
+      <li>受量化与同质化交易影响，市场极度看重先手。</li>
+      <li><strong>主升期买点越早越好，最佳买点为主升当天</strong>：主升当天买入盈亏比最高，后续可躺赢或从容离场；主升第二、三天买入易买在山顶，面临强分歧兑现风险。</li>
+    </ul>
+
+    <h3>三、主升期开仓逻辑 · 两种演变路径</h3>
+    <ul>
+      <li><strong>路径一（龙空龙模式）</strong>：主升 → 高位震荡 → 二波主升失败 → 退潮 → 低位震荡 → 新主升。开仓点仅主升期。</li>
+      <li><strong>路径二（含二波主升）</strong>：主升 → 高位震荡 → 二波主升成功 → 高位震荡 → 退潮。开仓点为主升期 + 二波主升期。</li>
+      <li>节点划分依据：情绪周期演变规律。</li>
+    </ul>
+
+    <h3>四、五大开仓节点</h3>
+    <ul>
+      <li><strong>节点一 · 主升拐点当天</strong>：最重要、最具性价比的买点。本质是情绪由弱转强（类似抄底起爆点），<strong>必须预判、不能后知后觉</strong>。策略：提前一天预判 → 次日小心跟随 → 预判成立当天果断开仓。</li>
+      <li><strong>节点二 · 退潮拐点当天</strong>：性质是<strong>卖点而非买点</strong>。退潮当天风险最高，中高位票亏钱效应炸裂（两天亏 20-30 点常见）。操作：空仓最佳、尽量卖出持仓，<strong>必须提前一天预判</strong>。案例（7 月 4 日）：跌停板两位数，天地板雪迪龙 -18%、药皮玻璃等大面。</li>
+      <li><strong>节点三 · 退潮初期反核、抱团</strong>：<strong>反核（大长腿/地天板）</strong>——退潮日次日低开（-7% 至跌停），地位高/有资金自救可能修复出大长腿，盈亏比极高（失败约亏 5%、成功赚 15%+，盈亏比达 3）；<strong>抱团</strong>（量化主导下的衍生玩法）——游资对抗量化，个股独立于板块反复走多波，案例中毅达（四波抱团）、三峡、中金电子，不能预判、需盘后分析。</li>
+      <li><strong>节点四 · 退潮尾声的试错</strong>：市场亏钱效应明显递减、情绪跌不下去（类比个股抄底），是<strong>盘后（非盘中）的试错节点</strong>，博弈当天/次日/未来 1-2 天情绪走主升。</li>
+      <li><strong>节点五 · 主升结束日</strong>：市场进入高位震荡，博弈反包（走二波主升），成功概率约 <strong>50%</strong>。买点：尾盘买入或盘后（次日）买入，属偏博弈性买点。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>情绪周期四阶段：主升期 → 高位震荡期 → 退潮期 → 低位震荡期。</li>
+          <li>先手优势：买点越早越好，最佳买点主升当天；第二三天买易站岗。</li>
+          <li>五大开仓节点：主升拐点当天（最重要买点）、退潮拐点当天（卖点）、退潮初期反核抱团、退潮尾声试错、主升结束日（博弈二波约 50%）。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>情绪周期四阶段是底层框架，五大开仓节点是框架上的具体抓手。</li>
+          <li>五个节点中"主升拐点当天"是唯一高确定性核心买点，其余要么是卖点，要么是偏博弈/试错的辅助买点，性价比依次递减。</li>
+          <li>"先手优势"贯穿全文，是所有买点都要"前置预判"的根本原因。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：主升拐点当天是"最重要、最具性价比"的买点，核心是"必须提前预判、当天果断开仓"。</li>
+          <li><strong>难点一</strong>：退潮拐点必须提前一天预判，盘中后知后觉（跌停板两位数）已来不及。</li>
+          <li><strong>难点二</strong>：反核/抱团与退潮尾声试错都属"盘后分析、不能盘中预判"的节点，操作纪律与普通买点不同，易混淆。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第03章 ============ -->
+  <section class="chapter" id="ch03">
+    <span class="chno">第 03 章</span>
+    <h2>情绪主升拐点（一）· 定义与分类</h2>
+    <p class="lead">最重要节点：情绪主升拐点 = 情绪由弱转强、赚钱效应到来，是判断"题材成主线、个股成龙头"的唯一有效时点。</p>
+
+    <h3>一、情绪主升拐点的定义</h3>
+    <ul>
+      <li><strong>情绪主升拐点</strong>：情绪周期中最关键、最重要的节点，短线情绪由弱转强、市场（短线、题材）整体走强，胜率极高。</li>
+      <li><strong>图形示意</strong>：下跌周期 → 低位试错 → 情绪主升拐点 → 主升阶段。</li>
+      <li><strong>与主线题材的关系</strong>：主线题材往往在情绪主升时诞生并获得市场认可；选到核心股（龙头、偏核心、后排套利）均能保持较高胜率。</li>
+      <li><strong>操作原则</strong>：行情好时多做、行情差时少做；情绪主升日往后 2-5 天为赚钱效应窗口期。</li>
+    </ul>
+
+    <h3>二、情绪拐点主升的分类（往年 vs 今年）</h3>
+    <ul>
+      <li><strong>节点地位</strong>：四个关键节点中排第一（Number One），最适合开仓。</li>
+      <li><strong>往年特征</strong>：每月 2-3 次拐点（如去年 8 月 2 次、7 月 2 次、6 月 3 次、5 月 2 次）。</li>
+      <li><strong>今年特征</strong>：每月拐点次数增多（如 3 月 3 次、4 月 2 次、5 月 4 次、6 月 4 次）。</li>
+    </ul>
+
+    <h3>三、情绪拐点主升与往年的区别（核心差异）</h3>
+    <ul>
+      <li>① <strong>次数变多</strong>：今年拐点频率高于往年。</li>
+      <li>② <strong>持续时间变短</strong>：往年一波主升至少 3-5 天；今年多为 2-3 天（极少数 5 天）。</li>
+      <li><strong>影响</strong>：操作难度更高。往年当天进场享受大主升、慢一天仍有钱赚；今年未当天进场、第二天追高易挨刀。</li>
+      <li><strong>市场特征</strong>：情绪好时一天内各板块集体高潮，反应慢者次日接力极易亏损。</li>
+    </ul>
+
+    <h3>四、情绪拐点主升的对应操作</h3>
+    <ul>
+      <li><strong>情绪主升日</strong>：由弱转强，短线（龙空龙、龙头选手）必须出手甚至重仓；其他时间可休息不做（90% 时间为无效交易时间）。</li>
+      <li><strong>核心理念：低频高效</strong>——降低操作频率、只做关键节点；轮动行情下追高易追到半山腰。</li>
+      <li><strong>情绪主升的意义</strong>：题材成主线（与情绪共振获资金共识）、个股成龙头（主线中的板块龙头）；非情绪主升时无法判断题材是否为主线。</li>
+      <li><strong>操作建议</strong>：少出手，可围绕一只票做 T，避免胡乱开仓。</li>
+    </ul>
+
+    <h3>五、应用案例（定龙案例）</h3>
+    <ul>
+      <li><strong>博士眼镜</strong>（去年 8 月 14 日，AI 眼镜）：8 月 14 日定龙，能买则买、买不到次日低吸，两个 20 厘米涨停共 40 点收益。</li>
+      <li><strong>宝变电器</strong>（去年 9 月 19 日，国企改革）：当天能买躺两个板，买不到则无法介入。</li>
+      <li><strong>银之杰</strong>（去年 9 月 26 日，金融地产）：两点半涨停，次日存在弱转强机会，后续四个 20 厘米一字板；关键在 9 月 26 日确定龙头地位。</li>
+      <li><strong>金溢科技</strong>（去年 6 月 17 日，车联网）：已获市场共识，走势明朗。</li>
+      <li><strong>大众交通</strong>（去年 7 月 9 日，智能驾驶）、<strong>智能驾驶</strong>（7 月 9 日首板，确定主线后选核心个股）。</li>
+      <li><strong>总结</strong>：情绪主升的意义 = 题材成主线、个股成龙头。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>情绪主升拐点 = 最关键节点，情绪由弱转强、赚钱效应到来，是"Number One"开仓节点。</li>
+          <li>今年两大变化：拐点次数变多（每月 3-4 次）、持续时间变短（2-3 天），操作难度更高。</li>
+          <li>情绪主升日是判断"题材成主线、个股成龙头"的唯一有效时点；龙头本质 = 主线 + 领涨。</li>
+          <li>情绪主升日必须出手甚至重仓，其他时间可休息（低频高效）。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>情绪主升拐点定义（由弱转强）→ 唯一高胜率开仓节点 → 当天必须出手。</li>
+          <li>"次数变多、持续时间变短"→ 买点必须前置（第二天追高挨刀）。</li>
+          <li>情绪主升 → 题材获资金共识 → 成主线 → 板块龙头 → 成龙头，这是"定龙"的完整链条。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：情绪主升拐点 = 最重要开仓节点，当天是唯一高性价比买点（案例验证 40 点、四个一字板）。</li>
+          <li><strong>难点</strong>：今年"持续时间变短 + 当天不买次日挨刀"，要求把预判和出手都大幅前置。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第04章 ============ -->
+  <section class="chapter" id="ch04">
+    <span class="chno">第 04 章</span>
+    <h2>情绪主升拐点（二）· 上午/下午走强</h2>
+    <p class="lead">核心分水岭：主升按"走强时点"分上午走强（今年 70%+，次日无买点）与下午走强（次日还有买点），两种形式操作完全不同。</p>
+
+    <h3>一、情绪走强与拐点主升的意义</h3>
+    <ul>
+      <li><strong>情绪主升</strong>：情绪从某日起走强，赚钱效应到来；核心原则"行情来了多做，行情没了少做"。</li>
+      <li><strong>共振机制</strong>：情绪主升当天与情绪共振的题材 = 主线；<strong>龙头 = 主线 + 领涨（最核心本质）</strong>。</li>
+    </ul>
+
+    <h3>二、情绪拐点主升的分类</h3>
+    <ul>
+      <li><strong>往年模式 · 下午走强</strong>：尾盘或盘后确定，上午分歧、下午走强；龙头股往往下午涨停（有反应时间、买得到）。案例：银之杰（下午涨）、博士眼镜（午后涨停）、我爱我家（5 月 17 日房地产，快速弱转强）。</li>
+      <li><strong>今年模式 · 上午走强</strong>：核心股早上已涨停；<strong>次日只有卖点、无买点</strong>。</li>
+    </ul>
+
+    <h3>三、对应操作</h3>
+    <ul>
+      <li><strong>下午走强形式</strong>：顺价买入且买得到；龙头右侧交易（龙头主线确定后，次日竞价买大半 / 低吸买）。案例：深圳华强（8 月 30 日消费电子，次日才给买点）、大众交通（7 月 9 日智能驾驶，次日仍有买点）。</li>
+      <li><strong>上午走强形式</strong>：20cm 领涨龙头往往下午涨停、10cm 龙头往往上午涨停。<strong>核心结论：下午走强次日还有买点，上午走强次日无买点</strong>。</li>
+      <li><strong>今年市场特征</strong>：大多数为上午走强，导致次日无买点，短线玩家极不适应。</li>
+    </ul>
+
+    <h3>四、上午走强形式的问题（数据与案例）</h3>
+    <ul>
+      <li><strong>数据统计</strong>：今年上午走强概率 <strong>70% 以上</strong>，结果次日买入易吃大面。</li>
+      <li><strong>案例 6 月 30 日军工</strong>：当天板块已达高潮，核心股（长城军工、国瑞、恒宇通信、中兵红箭）次日多为卖点；追高即套（当天亏 8 点、次日再亏 8 点），除最核心龙头低吸可能不亏，其他票绝大概率亏钱。</li>
+      <li><strong>往年对比</strong>：银之杰（次日弱转强买点，后续 5 板 50%+）、深圳华强（后续 5 板）。</li>
+      <li><strong>今年案例 6 月 23 日数字经济</strong>：领涨核心（安妮、楚天龙、四方精创、恒宝）次日高开低走/跌停/水下，除最核心票低吸可能赚钱，其他基本亏。</li>
+      <li><strong>今年案例 6 月 9 日医药</strong>：龙头次日炸板后按跌停；极限低吸（零轴附近）当天可能不亏、次日大阴线。</li>
+      <li><strong>例外 · 下午走强</strong>：6 月 26 日浙江板块（数字经济），次日低吸仍可涨停、核心票仍有 10 点以上空间——前提是必须选到最核心个股。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>主升按走强时点分下午走强（次日还有买点）与上午走强（次日无买点），两种形式次日操作完全不同。</li>
+          <li>下午走强：龙头下午涨停有反应时间 → 次日可顺价/竞价/低吸买。</li>
+          <li>上午走强：核心股早上已涨停 → 次日只有卖点。</li>
+          <li>今年上午走强概率 70% 以上，次日买入极易吃大面。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>龙头定义（主线+领涨）→ 情绪主升当天确认主线与龙头 → "龙头何时涨停"决定买点顺延到次日还是当天即结束。</li>
+          <li>"今年 70% 以上上午走强"与 03 课"持续时间变短、买点前置"互为印证。</li>
+          <li>大量案例验证：只有"最核心龙头 + 低吸"才可能不亏，其余票绝大概率亏钱。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：两种走强形式的判别与对应操作。</li>
+          <li><strong>难点一</strong>：上午走强占比 70%+，操作必须"当日"完成，容错极低。</li>
+          <li><strong>难点二</strong>：必须"选到最核心个股"才可能赚钱，选股精度要求极高。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第05章 ============ -->
+  <section class="chapter" id="ch05">
+    <span class="chno">第 05 章</span>
+    <h2>情绪主升拐点（三）长篇 · 盘前选股与盘中确认</h2>
+    <p class="lead">把"两种走强形式"落到具体操作：盘前列出核心个股清单，盘中十点半前确认"一半以上超预期"即动手，分层应对不同角色个股，低吸套利 9:45–9:50。</p>
+
+    <h3>一、情绪拐点主升（第三讲）</h3>
+    <ul>
+      <li><strong>课程定位</strong>：情绪拐点主升第三讲，承接第二讲"上午走强/下午走强"两种形式，展开具体操作逻辑。</li>
+    </ul>
+
+    <h3>二、下午走强的盘前准备</h3>
+    <ul>
+      <li><strong>盘后确认</strong>：情绪拐点主升大多数情况为盘后确认，前一晚难以判断，具有随机性。</li>
+      <li><strong>盘前选股（核心个股清单）</strong>：
+        <ul>
+          <li><strong>做多核心（多头代表）</strong>：最高板（市场多头代表）、抱团票（核心做多力量）、进监管/临近监管票（差 2-3 个点触发监管）、强板块龙头（可为最高板或次高板）。</li>
+          <li><strong>空头代表</strong>：断板最高标，通常走 A 杀或回调 20-30% 止跌；若断板次日直接反包，则代表情绪走强。</li>
+        </ul>
+      </li>
+      <li><strong>选股工具</strong>：开盘啦 APP 的复盘人气榜，筛选抱团票、板块龙头等。</li>
+    </ul>
+
+    <h3>三、上午走强的盘中确认（十点半前）</h3>
+    <ul>
+      <li><strong>时间节点</strong>：十点半前可确定是否为"上午走强"。</li>
+      <li><strong>判断标准</strong>：核心个股中<strong>一半以上</strong>在上午出现超预期表现——最高板超预期晋级、抱团票超预期晋级、监管票无惧监管、板块龙头一起进攻。</li>
+      <li><strong>操作策略</strong>：拐点当天是重要出手点，建议重仓；具体手法为<strong>板上跟随</strong>。</li>
+      <li><strong>案例（6 月 30 日）</strong>：6 月 27 日为退潮期，6 月 30 日核心个股表现——
+        <ul>
+          <li>长城军工（抱团票/临近监管）：十点前封死涨停（超预期）；好上好（芯片龙头）：早上快速涨停；大东南（锂电池/板块龙头）：十点前触及涨停；红业期货（最高标）：早上快速涨停（炸板回封，具主动性）。</li>
+          <li>新通联（断板高标·一字板）、浙江东日（临近监管）：跌停（负反馈）。</li>
+          <li><strong>结论</strong>：大多数个股为正反馈，上午即可确认情绪走强，无需等到尾盘。</li>
+        </ul>
+      </li>
+    </ul>
+
+    <h3>四、情绪拐点主升的分层操作（对应不同角色个股）</h3>
+    <ul>
+      <li><strong>新的最高板（如红业期货）</strong>：连续缩量板安全性差，优选换手板；若操作需降低仓位。</li>
+      <li><strong>板块龙头（如大东南）</strong>：有换手（三板充分换手）优于缩量板，可打板或低吸，次日有板砸机会。</li>
+      <li><strong>弱转强标的（如好上好）</strong>：6 月 27 日为烂板，次日明显弱转强，打板次日卖出即盈利，持有可多获一板。</li>
+      <li><strong>抱团票（如长城军工）</strong>：断板后次日应震荡却早盘强势涨停（超预期），板上加仓次日大概率盈利。</li>
+      <li><strong>进监管票</strong>：规避新通联（一字板庄股，有套人风险，不参与）。</li>
+    </ul>
+
+    <h3>五、低吸套利策略（错过核心票的替补）</h3>
+    <ul>
+      <li><strong>抱团票低吸时间</strong>：9:45–9:50。逻辑：前 15 分钟扛住分歧（未杀跌/补跌）→ 可继续抱团；补跌则放弃。</li>
+      <li><strong>同板块套利</strong>：抱团股涨停后，选同板块个股套利。案例：长城军工（主板领涨）→ 最强 20cm 跟风北方长隆。</li>
+      <li><strong>低吸机会</strong>：长城军工涨停前，均线附近（5 个点）提供低吸机会。</li>
+      <li><strong>核心操作逻辑（二选一）</strong>：做最强领涨核心，或做其低吸套利。</li>
+      <li><strong>看 A 做 B</strong>：以核心股 A 为参照，操作跟风股 B；若 A 仓位未买够，可加仓 B 做套利。</li>
+    </ul>
+
+    <h3>六、历史案例（6 月 20–23 日）</h3>
+    <ul>
+      <li><strong>6 月 23 日前后</strong>：市场高标诺德股份（板块龙头）、恒宝股份。</li>
+      <li><strong>6 月 20 日复盘</strong>：抱团核心安妮股份；其他标的山东墨龙（次日弱转强涨停）、诺德股份（板块龙头）、恒宝股份。</li>
+    </ul>
+
+    <h3>七、最高标操作注意</h3>
+    <ul>
+      <li><strong>风险</strong>：位置已高，尤其一字板上来的票需警惕。</li>
+      <li><strong>案例</strong>：山东墨龙（换手板）遭遇黑天鹅事件。</li>
+    </ul>
+
+    <h3>八、安妮股份案例（黑天鹅与仓位）</h3>
+    <ul>
+      <li><strong>黑天鹅影响</strong>：意义冲突突然结束，本可吃溢价涨停被黑天鹅打断；启示是今年高标因监管/黑天鹅难以上行。</li>
+      <li><strong>仓位建议</strong>：最高标（连板最高标）需控制仓位；重点仓位放在抱团票、非高位强势板块龙头。</li>
+      <li><strong>低吸时机</strong>：9:45–9:50 附近，无需追高，在指定位置买入，结果超预期涨停。</li>
+      <li><strong>最高标属性</strong>：偏被动但为市场核心；情绪好时资金会选核心做套利；一路换手上来。</li>
+      <li><strong>高标晋级条件</strong>：市场情绪走主升 → 最高板大概率涨停 → 给到换手低吸机会可参与。</li>
+    </ul>
+
+    <h3>九、跟风套利与深水低吸</h3>
+    <ul>
+      <li><strong>套利标的</strong>：恒宝股份（6 月 23 日）、四方精创。</li>
+      <li><strong>跟风套利操作</strong>：抱团票涨停后，立即选板块内活跃、高辨识度的核心股。</li>
+      <li><strong>深水低吸</strong>：条件为市场情绪好转，标的为高辨识度个股；逻辑是水下吸引大量资金做低吸。</li>
+    </ul>
+
+    <h3>十、上午/下午走强的操作对照</h3>
+    <ul>
+      <li><strong>上午走强操作</strong>：出手时间上午；操作对象为领涨或套利（二选一或同时做）；套利成本 5 个点以下（创业板），8-9 个点无意义；核心股做其超预期涨停的领涨。</li>
+      <li><strong>下午走强操作</strong>：10:30 前无强表现则放弃，等 14:00 后；可操作标的仅剩 20cm 领涨股。</li>
+      <li><strong>退潮确认后的反核操作（案例 6 月 16 日稳定币主线）</strong>：恒宝股份下午涨停；四方精创 20cm 仍可打板，次日冲高至 14 个点。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>盘前选股清单：做多核心（最高板、抱团票、进监管/临近监管票、强板块龙头）与空头代表（断板最高标），是预判次日情绪主升的选股框架。</li>
+          <li>上午走强的盘中确认：十点半前，核心个股中"一半以上"出现超预期表现（最高板/抱团票超预期晋级、监管票无惧监管、板块龙头一起进攻），即可确认情绪走强。</li>
+          <li>分层操作策略：新最高板（缩量板减仓、优选换手板）、板块龙头（打板或低吸）、弱转强标的（打板次日卖）、抱团票（板上加仓）。</li>
+          <li>低吸套利核心手法：抱团票低吸时间 9:45–9:50，前 15 分钟扛住分歧则继续抱团；"看 A 做 B"以核心股为参照操作跟风股；套利成本 5 个点以下（创业板）。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>上节"两种走强形式"→ 本节分别展开具体操作：上午走强→当天上午出手（领涨或套利）；下午走强→10:30 前无表现则放弃、等 14:00 后仅做 20cm 领涨股。</li>
+          <li>"盘前选股清单 + 十点半前一半以上超预期"是一套完整的盘中确认流程，把"随机性盘后确认"转化为"可预判、可跟随"的操作。</li>
+          <li>黑天鹅/监管风险（安妮股份、山东墨龙）→ 推导出"最高标控制仓位、重点仓位放抱团票和非高位板块龙头"的仓位分配原则。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：上午走强的盘中确认标准（十点半前一半以上核心股超预期）与分层操作（不同角色个股对应不同手法）。</li>
+          <li><strong>难点一</strong>：低吸套利的时机与价格纪律——抱团票 9:45–9:50 低吸、创业板套利成本须在 5 个点以下，8-9 个点无意义，执行上容错极低。</li>
+          <li><strong>难点二</strong>：最高标（尤其一字板庄股如新通联）与黑天鹅/监管风险的规避，要求"控仓位 + 不参与"，与"做最强"的直觉相悖，需刻意训练。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第06章 ============ -->
+  <section class="chapter" id="ch06">
+    <span class="chno">第 06 章</span>
+    <h2>情绪主升拐点（四）· 拐点当天与次日操作</h2>
+    <p class="lead">买在拐点、卖在次日。核心一句话：上午走强以卖为主、下午走强以买为主；机会藏在"次强题材的预期差"里。</p>
+
+    <h3>一、拐点当天操作</h3>
+    <ul>
+      <li><strong>前提</strong>：复盘把核心票加入自选股，观察至 10:30 的表现。</li>
+      <li><strong>10:30 前走强（上午走强）</strong>：策略一做领涨核心（最高标）；策略二做套利（若高位错过或仓位不足）。</li>
+      <li><strong>10:30 后走强（下午走强，情绪反转）</strong>：10cm 票大概率买不到；20cm 票做领涨核心，可打板（次日仍有溢价，如四方精创）。</li>
+    </ul>
+
+    <h3>二、拐点次日操作（上午走强：卖为主）</h3>
+    <ul>
+      <li><strong>核心原则</strong>：上午走强，卖为主。</li>
+      <li><strong>卖出对象</strong>：前一日（拐点当天）买入的票，次日通常能卖在不错的位置（如大东南，次日炸板即卖）。</li>
+      <li><strong>禁止操作</strong>：不能加仓，不能格局，直接 S 掉（卖出）。</li>
+      <li><strong>套利票</strong>：冲高即卖，不再追。</li>
+      <li><strong>总结</strong>：买在拐点当天，卖在拐点次日。</li>
+    </ul>
+
+    <h3>三、"预期差"与次强题材选股（核心逻辑）</h3>
+    <ul>
+      <li><strong>核心逻辑</strong>：市场预期差。最强题材已被充分定价（无预期差），机会在<strong>次强题材的板块龙头</strong>。</li>
+      <li><strong>案例（6 月 23 日）</strong>：最强题材数字经济（稳定币强度最高），次强题材锂电池（存在预期差，如诺德股份）；操作做次强板块龙头的弱转强（诺德：烂板→次日低开快速翻红）。</li>
+      <li><strong>案例（6 月 30 日）</strong>：最强题材军工（无预期差），次强题材芯片（存在预期差，次日排第一）；龙头好上好（6 月 27 日烂板，已提前完成弱转强，6 月 30 日顺势涨停）。买点分析：已弱转强后次日无法再弱转强，应为顺势走强；潜在买点是板块极强时龙头可低吸（后手/踏空资金拉升），风险是尾盘可能炸板（如好上好），但次日仍可反包给离场机会。</li>
+      <li><strong>强趋势个股低吸</strong>：板块极强时作为领涨核心，有被后手/踏空资金拉升板的可能；即使买点偏高，次日仍有反包或赚钱离场机会。</li>
+    </ul>
+
+    <h3>四、下午走强与上午走强的具体操作</h3>
+    <ul>
+      <li><strong>下午走强操作</strong>：做当天情绪共振的主线题材；核心逻辑"情绪拐点共振的题材=主线，领涨个股=龙头"；手法为主线龙头做低吸或弱转强；或做<strong>第二主线（次强题材）</strong>的领涨龙头，手法为弱转强（烂板→快速翻红／带量高开秒板／抱团）。</li>
+      <li><strong>上午走强操作</strong>：做主线预期方向的领涨龙头。买点细节：开太高（如 6 个点）等回落至 3-4 个点低吸；开 5 个点同样等回落；开 2-3 个点直接买；创业板开太高（13-14 个点）无意义，6-7 个点可观察；主板 2-3 个点直接买（如 6 月 16 日恒宝股份）。</li>
+    </ul>
+
+    <h3>五、应用案例（数字经济）</h3>
+    <ul>
+      <li><strong>6 月 16 日数字经济</strong>：领涨核心 20cm 四方精创、主板恒宝股份；次日（6 月 17 日）恒宝 2% 开盘直接买当天涨停，后续次日最高再给涨停板、卖点也有 7 个点。</li>
+      <li><strong>收益计算</strong>：恒宝股份涨停板（约 8%）+ 次日 7% = 15 个点；四方精创前一日先手，次日最高 14 个点，取平均 7-8 个点。</li>
+      <li><strong>下午走强优势</strong>：更适合散户——上午走强需快速反应，下午走强有充足时间准备；心理优势是前一日已赚钱次日信心足，前一日未赚钱次日出手易犹豫。案例：5 月 26 日核电题材（哈华通等）。</li>
+    </ul>
+
+    <h3>六、退潮预期与同期案例</h3>
+    <ul>
+      <li><strong>哈华通 vs 海辰药业</strong>：同为 20cm 两板，哈华通高开回落、海辰药业成功，差异需结合退潮预期与市场环境分析。</li>
+      <li><strong>6 月 9 日走势</strong>：上午走强 vs 下午走强区别显著；个股案例：安华通（主板，上午无法买入）、中超（核电领涨个股，可操作，参考 5 月 27 日中超走势）。</li>
+    </ul>
+
+    <h3>七、超短情绪环境变化表</h3>
+    <ul>
+      <li><strong>开盘策略</strong>：开盘两三个点 → 直接买入。</li>
+      <li><strong>次日操作</strong>：情绪主升期可给格局，等待冲高机会卖出。</li>
+      <li><strong>核心龙头优势</strong>：好上好、中超次日均有反包预期；即便当日未涨停，人气仍在，存在反包可能性。</li>
+    </ul>
+
+    <h3>八、总结（关键区别与空间）</h3>
+    <ul>
+      <li><strong>拐点次日操作</strong>：早盘不符合预期，冲高即直接走人。</li>
+      <li><strong>关键区别</strong>：上午走强以卖为主，下午走强以买为主。</li>
+      <li><strong>空间对比</strong>：今年约 15% 空间，往年约 30% 空间；结论难度加大但总逻辑不变，前提是下午走强。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>主升拐点操作分两个节点：拐点当天（买入）、拐点次日（卖出），节奏为"买在拐点、卖在次日"。</li>
+          <li>拐点按时间分两种形式，对应完全相反的操作方向：上午走强（10:30 前）→ 以卖为主，冲高兑现，不格局、不加仓；下午走强（10:30 后）→ 以买为主，做情绪共振主线或次强题材龙头。</li>
+          <li>贯穿全篇的核心逻辑是"预期差"：最强题材已被充分定价（无预期差），机会在次强题材的板块龙头，手法是弱转强或低吸。</li>
+          <li>买点量化标准：主板 2-3 个点直接买、6 个点等高开回落至 3-4 点低吸；创业板 6-7 点可观察、13-14 点无意义。</li>
+          <li>收益基准：今年约 15% 空间、往年约 30%，难度加大但逻辑不变，前提是下午走强。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <p>拐点当天复盘选股 → 观察 10:30 强弱分界 → 区分"上午/下午走强" → 决定次日"卖为主"还是"买为主" → 买的方向又分"主线（情绪共振）"与"次强题材（预期差）"两条路径。其中"预期差"是串联次强题材选股、弱转强买点、反包离场等细节的总纲。</p>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：上午走强"卖为主"与下午走强"买为主"的区分，以及次日操作的纪律性（禁止加仓、禁止格局）。</li>
+          <li><strong>难点一</strong>：次强题材预期差的判断与弱转强的识别（烂板→快速翻红/带量高开秒板）。</li>
+          <li><strong>难点二</strong>：已弱转强个股"顺势走强"与"反包离场"的把握。</li>
+          <li><strong>难点三</strong>：20cm 与 10cm 票在下午走强时的不同应对（20cm 可打板仍有溢价、10cm 大概率买不到）。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第07章 ============ -->
+  <section class="chapter" id="ch07">
+    <span class="chno">第 07 章</span>
+    <h2>情绪退潮拐点（一）· 退潮日定义与预警</h2>
+    <p class="lead">退潮日 = 亏钱效应的开始。回答三问：退潮日是什么、何时容易退潮、如何识别。"无主升则无退潮"，两大预警信号：龙头断板、二次强分歧。</p>
+
+    <h3>一、退潮日核心三问</h3>
+    <ul>
+      <li><strong>定义</strong>：退潮日是什么；<strong>时机</strong>：何时容易退潮；<strong>应对</strong>：退潮日如何操作。</li>
+    </ul>
+
+    <h3>二、什么是退潮日</h3>
+    <ul>
+      <li><strong>定位</strong>：与主升节点（赚钱效应开始）相反，代表<strong>亏钱效应的开始</strong>。</li>
+      <li><strong>市场状态</strong>：市场进入冰点，操作难度极大。</li>
+      <li><strong>操作纪律</strong>：小仓或空仓避险。</li>
+      <li><strong>核心原则</strong>：退潮日禁止做票（情绪流选手仅做主升期，其他时间可少做或不做）。</li>
+    </ul>
+
+    <h3>三、什么时候容易退潮（预判）</h3>
+    <ul>
+      <li><strong>风险特征</strong>：退潮当天是风险最大的开仓日。</li>
+      <li><strong>核心要求</strong>：需要预判（复盘时或开仓前预判次日是否可能退潮）；若预判退潮，开仓计划需打折或取消。</li>
+      <li><strong>必要条件</strong>：退潮发生在主升期之后或主升结束之后；无主升则无退潮，主升未结束也不会退潮；市场进入混沌期（高位震荡期）才可能发生退潮。</li>
+    </ul>
+
+    <h3>四、混沌期（退潮预警）的两大信号</h3>
+    <ul>
+      <li><strong>信号一：龙头断板</strong>——特指主线龙头（主线板块、次主线或活跃板块的连板龙头）；排除一字板独立个股（对短线市场影响小，可忽略）。案例：诺德（固态电池龙头，6 月下旬主线），6 月 26 日断板即代表市场进入混沌期，存在退潮预期。</li>
+      <li><strong>信号二：主升阶段情绪出现两次强分歧</strong>——第一次强分歧多为洗盘，市场心态积极，修复概率高；第二次强分歧时个股已涨一大波，资金开始退缩，市场正式进入混沌期。二次强分歧代表主升结束，存在退潮预期。</li>
+      <li><strong>信号意义</strong>：龙头断板与二次强分歧均为识别退潮的关键信号；二波主升后常出现"分歧→修复→二次分歧"的循环。</li>
+      <li><strong>操作提示</strong>：混沌期次日做票前，必须预判次日是否可能退潮。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>退潮日是"亏钱效应的开始"，与主升（赚钱效应）对立，操作纪律是小仓或空仓，原则上禁止做票。</li>
+          <li>退潮有严格前提：必须先经历主升，主升结束后进入"混沌期（高位震荡期）"，才可能退潮——"无主升则无退潮"。</li>
+          <li>识别混沌期（退潮预警）的两大信号：龙头断板（主线/次主线/活跃板块连板龙头断板，一字板独立个股不算）；主升阶段出现两次强分歧（第一次多洗盘易修复，第二次资金退缩、进入混沌期）。</li>
+          <li>预判是应对退潮的第一步：复盘或开仓前必须预判次日是否退潮，若预判退潮则开仓计划打折或取消。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <p>主升期（赚钱效应）→ 主升结束（龙头断板 或 二次强分歧）→ 进入混沌期/高位震荡期 → 混沌期次日存在退潮预期 → 必须预判次日是否退潮 → 决定是否缩减/取消开仓。全篇是"退潮如何被识别出来"的因果链，为下一讲"退潮日怎么做（空仓）"做铺垫。</p>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：退潮的两大触发信号（龙头断板、二次强分歧），以及"无主升则无退潮"的前提逻辑。</li>
+          <li><strong>难点一</strong>：区分"第一次强分歧（洗盘、可修复）"与"第二次强分歧（主升结束、退潮预警）"。</li>
+          <li><strong>难点二</strong>：识别哪些"断板"具有信号意义（主线连板龙头才有效，一字板独立个股可忽略）。</li>
+          <li><strong>难点三</strong>：养成"做票前先预判次日是否退潮"的前置习惯。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第08章 ============ -->
+  <section class="chapter" id="ch08">
+    <span class="chno">第 08 章</span>
+    <h2>情绪退潮拐点（二）· 退潮日怎么做（空仓）</h2>
+    <p class="lead">退潮日应对大原则：空仓 + 严禁竞价买票。用核心票开盘走势做群体信号判断：大面积向下＝分歧＝退潮。</p>
+
+    <h3>一、什么时候容易退潮（承接）</h3>
+    <ul>
+      <li><strong>高位震荡期的两种情形</strong>：龙头断板（连板龙头断板）；主升阶段出现两次强分歧。</li>
+      <li><strong>后续走向</strong>：高位震荡后，可能主升，也可能退潮。</li>
+    </ul>
+
+    <h3>二、退潮日怎么做</h3>
+    <ul>
+      <li><strong>大原则</strong>：空仓。</li>
+      <li><strong>核心策略</strong>：发现次日可能退潮需提前警觉；<strong>严禁竞价买票</strong>——市场可能直接退潮，无容错率。</li>
+    </ul>
+
+    <h3>三、开盘走势分类与应对</h3>
+    <ul>
+      <li><strong>主升结束次日</strong>：修复与退潮概率各约 50%；千万不能竞价买票。</li>
+      <li><strong>高开</strong>：风险最大，易形成大阴线（上不去被砸）。</li>
+      <li><strong>平开</strong>：可能上下震荡，往下无买点，往上需观察是否扛跌。</li>
+      <li><strong>低开（小低开）</strong>：翻红代表有资金承接，可跟随或等均线站稳。</li>
+      <li><strong>低开（大低开）</strong>：不好处理，可能直接按跌停；若震荡且情绪修复，可考虑低吸。</li>
+      <li><strong>核心结论</strong>：无论高开、平开、低开，均需开盘后观察再买，避免竞价无容错率。</li>
+      <li><strong>观察指标</strong>：高标核心票开盘走势（大面积向下则退潮概率大）。</li>
+    </ul>
+
+    <h3>四、核心票开盘走势判断分歧</h3>
+    <ul>
+      <li><strong>案例（7 月 3 日核心标）</strong>：城邦、极星、雪迪龙、博敏电子均开盘往下；好上好（反包板/抱团票）大低开，开盘直接按跌停。</li>
+      <li><strong>判断标准</strong>：多个核心票/高标/抱团票开盘即往下 → 代表分歧。</li>
+      <li><strong>应对</strong>：继续等待，不买。</li>
+      <li><strong>案例（7 月 4 日盘面，9:36/9:44）</strong>：高位情绪分歧很大，好上好跌停、长城军工走弱；高位票早盘往下杀 → 市场情绪分歧 → 退潮。</li>
+    </ul>
+
+    <h3>五、高位震荡的二选一逻辑</h3>
+    <ul>
+      <li><strong>市场走向</strong>：高位震荡期，修复（主升）或退潮二选一。</li>
+      <li><strong>应对</strong>：修复可继续观察；退潮/分歧直接视为退潮，继续等待不买。</li>
+      <li><strong>退潮日原则</strong>：空仓，避免买在半山腰或尖尖上（如雪迪龙一面两吃）。</li>
+      <li><strong>补充</strong>：主升结束次日修复，修复后再看一天是主升还是退潮。</li>
+    </ul>
+
+    <h3>六、主升结束后的三种走向（7 月 2–4 日案例）</h3>
+    <ul>
+      <li>7 月 2 日进入高位震荡期 → 次日修复 → 第三天修复失败，开始退潮。</li>
+      <li><strong>三种走向</strong>：修复次日走主升（二波）；修复次日直接退潮（常见）；修复次日延续修复失败，开始退潮（易被忽略）。</li>
+      <li><strong>修复概率</strong>：约 50%，资金愿博弈反包（后续课程详述）。</li>
+    </ul>
+
+    <h3>七、退潮日操作总结</h3>
+    <ul>
+      <li><strong>大原则</strong>：空仓；严禁竞价买票，开盘观望再买。</li>
+      <li><strong>重点关注核心票</strong>：多个核心票开盘往下 → 分歧 → 继续等待不买；分歧力度加大 → 基本断定退潮；多个核心票下跌后回升 → 可能修复，可适当操作。</li>
+      <li><strong>最理想走势</strong>：小低开后翻红，缓慢上行。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>退潮日应对的大原则是"空仓"，最关键纪律是严禁竞价买票——因市场可能直接退潮，竞价买入无容错率。</li>
+          <li>主升结束次日，修复与退潮概率各约 50%；修复次日是"走主升还是退潮"的决定日。</li>
+          <li>主升结束后的三种走向：修复次日走主升（二波）、修复次日直接退潮（常见）、修复次日修复失败开始退潮（易被忽略）。</li>
+          <li>开盘走势分类应对：高开风险最大（易成大阴线）、平开需观察、低开分小低开（翻红可跟随）与大低开（可能直接跌停）。</li>
+          <li>退潮核心判断信号是核心票/高标/抱团票开盘走势：多个核心票开盘即往下 → 分歧；分歧力度加大 → 基本断定退潮。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <p>高位震荡期 → 修复/退潮二选一 → 修复次日的开盘核心票走势决定方向 → 大面积向下＝分歧＝退潮（空仓等待）／下跌后回升＝可能修复（适当操作）。全篇用"7 月 2 日—7 月 4 日"的完整时间链条（高位震荡→修复→修复失败退潮）把"预判退潮→确认退潮→空仓应对"串成一个可复用的流程。</p>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：退潮日的空仓纪律与"禁止竞价买票"的铁律；核心票开盘走势作为退潮确认的观察指标。</li>
+          <li><strong>难点一</strong>：高开/平开/低开的精细分类应对（尤其"大低开"可能直接按跌停、"小低开翻红"才有承接）。</li>
+          <li><strong>难点二</strong>：识别第三种易被忽略的走向"修复次日修复失败"。</li>
+          <li><strong>难点三</strong>：把"多个核心票开盘往下"的群体信号与单票走势区分开。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第09章 ============ -->
+  <section class="chapter" id="ch09">
+    <span class="chno">第 09 章</span>
+    <h2>情绪退潮初期节点（一）· 反核抱团的风险篇</h2>
+    <p class="lead">退潮初期是"风险远大于机会"的阶段。先讲风险再讲机会：四类核心风险按序排列——情绪票 > 高位票 > 追高 > 板块尾声低位票。</p>
+
+    <h3>一、退潮节点确认</h3>
+    <ul>
+      <li><strong>定义</strong>：个股主升结束，且未走出二波主升，则视为进入退潮。</li>
+      <li><strong>二波主升概率</strong>：约 30%-40%，概率偏小。</li>
+      <li><strong>操作警示</strong>：主升结束后需谨慎操作，防范高位震荡及大面风险。</li>
+      <li><strong>核心风险</strong>：退潮日买入易导致较大回撤，需做好仓位与风控。</li>
+    </ul>
+
+    <h3>二、退潮期的四类风险</h3>
+    <ul>
+      <li><strong>总体原则</strong>：退潮期风险远大于机会，市场仅少数个股（约千分之十）能继续上涨，需考量介入点与把握能力。</li>
+      <li><strong>① 情绪票</strong>：争一口气，一旦断板易 A 杀；一字板（无换手）风险最大，有换手稍好。退潮确认日案例：周五为退潮确认日、周三为退潮预期（主升结束）；关键时间窗口为主升结束后未来 1-2 天决定是否正式退潮；情绪票（连板票）在退潮期最容易亏钱。</li>
+      <li><strong>② 高位票</strong>：涨幅临近翻倍等高位股，受量化与监管影响，市场高度受限，短期翻倍后需时间震荡消化（如中裕达典型走势）。案例：周五雪迪龙负 18% 大面，为追高买入的情绪票（连板票）；低吸趋势票亏损幅度相对可控，低吸情绪票同样容易吃面。</li>
+      <li><strong>③ 追高</strong>：退潮期行情差，追高买入极易产生大面；低吸都可能亏钱，追高则更容易亏钱，是主要亏损来源。</li>
+      <li><strong>④ 板块到了尾声的低位票</strong>：案例博敏电子一进二即大面，说明低位票同样存在风险；该风险与板块阶段强相关，仅当板块到了尾声时低位票风险巨大；情愿不做。</li>
+    </ul>
+
+    <h3>三、今年市场新特征（与往年对比）</h3>
+    <ul>
+      <li><strong>往年</strong>：退潮期可空仓 2-3 天，机会极少。</li>
+      <li><strong>今年</strong>：受中裕达等样本影响，个股多走多波趋势/情绪抱团；在量化主导、无高度行情下，可选择趋势股或情绪股抱团操作。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>退潮节点确认标准：主升结束且未走出二波主升，即视为退潮；二波主升概率仅约 30%-40%。</li>
+          <li>关键时间窗口：主升结束后未来 1-2 天决定是否正式退潮（周三=退潮预期、周五=退潮确认）。</li>
+          <li>退潮期四类核心风险（由大到小）：情绪票（断板易 A 杀、一字板无换手风险最大）> 高位票（涨幅临近翻倍、量化监管压制）> 追高操作（最大亏损来源）> 板块尾声低位票（板块见顶时同样大面）。</li>
+          <li>今年新特征：往年退潮期空仓 2-3 天机会极少；今年量化主导、无高度行情下，个股多走多波趋势/情绪抱团，可顺势选择趋势股或情绪股抱团。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <p>主升结束 → 二波概率小（30%-40%）→ 大概率退潮 → 退潮初期风险远大于机会 → 风险集中在"情绪票、高位票、追高、板块尾声低位票"四个方向且可排序 → 因今年市场特征变化，退潮期并非只能空仓，还可抱团趋势股/情绪股。全篇以"风险识别与排序"为主线，为下一篇"反核（高性价比低吸）"做铺垫——先讲风险、再讲在风险中仅存的低吸机会。</p>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：退潮期四类风险及其排序；主升结束后 1-2 天的关键判断窗口。</li>
+          <li><strong>难点一</strong>：区分"情绪票"与"高位票"及"一字板（无换手）风险最大"的细节。</li>
+          <li><strong>难点二</strong>：理解"低位票并非绝对安全"——风险与板块阶段强相关（板块尾声时低位票同样大面）。</li>
+          <li><strong>难点三</strong>：今年与往年的市场特征差异，决定退潮期应对从"空仓"扩展为"抱团趋势股/情绪股"。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第10章 ============ -->
+  <section class="chapter" id="ch10">
+    <span class="chno">第 10 章</span>
+    <h2>退潮初期拐点（二）· 反核《必看》</h2>
+    <p class="lead">退潮期唯一高性价比机会——反核：退潮日次日在深跌（-7%）位置低吸，而非追高。胜率（含小肉）85%–90%，次日处理铁律"仅大烂板+次日弱转强可持有"。</p>
+
+    <h3>一、反核机会的定义与高性价比</h3>
+    <ul>
+      <li><strong>退潮节点确认</strong>：主升结束后 1-2 天市场大概率走退潮；若未走退潮，则大概率走情绪二波主升。</li>
+      <li><strong>反核定义</strong>：在个股深跌（如 -7%）时低吸，而非追高。</li>
+      <li><strong>风险收益比</strong>：追高当日冲高回落亏损风险大；反核即便当日跌停仅亏 3 个点，若涨停收益可达 17-18 个点。</li>
+      <li><strong>胜率与赔率</strong>：胜率约 50% 时一次成功可抵 4-5 次失败；实际胜率（含小肉）85%-90%，并非低胜率。</li>
+      <li><strong>典型形态（地天板/大长腿，涨幅 15%+）</strong>：今年案例国芳集团、连云港；去年案例常山北明、天娱数科、建设工业。</li>
+    </ul>
+
+    <h3>二、反核的关键条件（特定时间）</h3>
+    <ul>
+      <li><strong>时间窗口</strong>：退潮日的次日或隔日。逻辑：此时大量资金（含主力）被套，有解套、减亏或打造新主升的需求。</li>
+      <li><strong>案例</strong>：建设工业（1 月 14 日）前一天为退潮日，次日反核；金奥博（1 月 22 日）大长腿；拓维信息（2 月 18 日）低开约 -2%、收盘涨约 10 个点；光线传媒（2 月 18 日）低开约 -7% 至 -6%，当日买入不亏、次日保本或冲高卖出。</li>
+      <li><strong>杭钢股份（2 月 19 日）</strong>：反核形态，当日收盘约 -4% 至 -5% 小幅盈利，次日冲高可获 7-8 个点。</li>
+      <li><strong>浙江众成（4 月 17 日）</strong>、连云港、国芳集团：反核形态。</li>
+    </ul>
+
+    <h3>三、反核 vs 追高（光线传媒/成飞集成案例）</h3>
+    <ul>
+      <li><strong>光线传媒</strong>：追高当日涨停板买入收盘跌至 -14%，单日亏损超 30 个点；反核当日 -7% 低吸不亏钱。</li>
+      <li><strong>成飞集成</strong>：追高红盘追高，当日高开回落亏 7-8 个点；反核 -7% 低吸当日赚 2 个点，次日冲高离场。</li>
+      <li><strong>结论</strong>：退潮期追高风险极大，低吸反核性价比高。</li>
+    </ul>
+
+    <h3>四、反核的规避原则（一次性特征）</h3>
+    <ul>
+      <li><strong>天保基建（4 月 28 日）</strong>：此前已反核过一次，本次反核属预期兑现，失败。</li>
+      <li><strong>规避原则</strong>：若个股前一天已出现反核，则次日反核预期被提前消耗，应规避。</li>
+    </ul>
+
+    <h3>五、反核的选股标准（位置 + 辨识度 + 人气）</h3>
+    <ul>
+      <li><strong>位置（不能太高，牛市除外）</strong>：10 板以上无意义；6-7 板 OK；2-3 板属反包（非反核），需高开（如零轴附近）。</li>
+      <li><strong>辨识度</strong>：空间板或次高板（最常见）。</li>
+      <li><strong>人气</strong>：中高位超人气票（出现强亏钱效应）。</li>
+      <li><strong>案例</strong>：国芳集团 6-7 板空间板反核；连云港高位强人气票反核成功。</li>
+    </ul>
+
+    <h3>六、反核的竞价资金与量能指标</h3>
+    <ul>
+      <li><strong>资金要求</strong>：竞价大单净额 > 2000 万。</li>
+      <li><strong>量能要求</strong>：量净左比（指标）越高越好（套牢盘竞价出清越多越利于拉升）。</li>
+      <li><strong>开盘价</strong>：越高越好，越低越买（负 7、负 8 为佳）。</li>
+      <li><strong>追高原则</strong>：仅限水下已拿货后的加仓（如负 8 买 2 成、零轴加 1 成）。</li>
+      <li><strong>案例（4 月 16 日竞价）</strong>：连云港竞价大单净额 4700 万；国芳集团竞价大单净额 2100 万、开盘比 6%（高于 4% 标准）。</li>
+    </ul>
+
+    <h3>七、反核的次日处理铁律</h3>
+    <ul>
+      <li><strong>持有/做 T 条件</strong>：当天大烂板涨停，且次日弱转强。</li>
+      <li><strong>卖出条件</strong>：其他所有情况（必须卖，不加仓，不做 T）。</li>
+      <li><strong>浙江众成</strong>：反核力度强、缩量涨停，次日只能卖不能加仓，加仓会导致前盈回吐。</li>
+      <li><strong>中超控股</strong>：反核缩量成功，次日不能加仓；高位加仓连续 3 个大阴线、盈利回吐。</li>
+      <li><strong>国芳集团</strong>：反核大长腿大烂板，次日超预期弱转强持有，后续 5 天理论 60%+。</li>
+    </ul>
+
+    <h3>八、今年反核环境变化</h3>
+    <ul>
+      <li><strong>量化资金介入</strong>：导致地天板、大长腿案例减少。</li>
+      <li><strong>往年</strong>：反核机会多易把握；今年极少出现连续一字跌停，反核机会相应减少。</li>
+      <li><strong>主升周期缩短</strong>：仅 2-3 天；频率增加一个月 3-4 次；退潮更温和（高位情绪票极少连续 A 杀或一字跌停，如共创草坪）。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>反核是退潮期唯一高性价比交易模式：深跌（-7%）低吸而非追高，风险收益比极优（跌停仅亏 3 点、涨停赚 17-18 点），实际胜率（含小肉）高达 85%-90%。</li>
+          <li>时间窗口是"退潮日的次日或隔日"，逻辑是被套资金（含主力）有解套、减亏或打造新主升需求；每次退潮均有反核机会。</li>
+          <li>选股标准：位置不能太高（6-7 板最佳，10 板以上无意义，2-3 板属反包需高开）、辨识度为空间板或次高板、人气为中高位超人气票（强亏钱效应）。</li>
+          <li>竞价指标：竞价大单净额 > 2000 万；量净左比越高越好；开盘价越低越买（负 7、负 8 为佳）。</li>
+          <li>次日处理铁律：只有"大烂板涨停 + 次日弱转强"可持有/做 T，其余一律卖出（不加仓、不做 T），否则前盈回吐。</li>
+          <li>规避原则：个股前一天已反核则次日反核预期被提前消耗，应规避。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <p>退潮确认 → 退潮日次日/隔日 → 竞价反核（资金>2000万、量净左比高、低开深跌 -7/-8）→ 选股（6-7 板空间板/次高板、超人气票）→ 次日处理（大烂板+弱转强才持有/做T，否则卖）→ 实现"以低吸换取高赔率"的确定性。全篇用"风险（追高 vs 反核）→ 机会（反核定义与胜率赔率）→ 落地（选股、竞价指标、次日纪律）"三层递进，把反核从概念落到可执行的量化规则。</p>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：反核的风险收益比（低吸深跌而非追高）；次日处理铁律（仅"大烂板+次日弱转强"可持有）；选股三标准（位置、辨识度、人气）。</li>
+          <li><strong>难点一</strong>：区分"反核"与"反包"（2-3 板需高开属反包，反核是深跌低吸）。</li>
+          <li><strong>难点二</strong>：竞价资金与量能指标（>2000 万、量净左比）的落地判断。</li>
+          <li><strong>难点三</strong>：反核预期的"一次性"特征——已反核过的票次日规避。</li>
+          <li><strong>难点四</strong>：在量化主导新环境下，反核机会虽减少但仍属退潮期最佳策略。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第11章 ============ -->
+  <section class="chapter" id="ch11">
+    <span class="chno">第 11 章</span>
+    <h2>退潮初期拐点（三）· 抱团</h2>
+    <p class="lead">退潮期三大机会：反核（高性价比）、抱团（高确定性）、抱团低吸。抱团确认靠"两天标准"——扛住分歧 + 次日不补跌，买点永远是"扛住分歧的第二天"。</p>
+
+    <h3>一、反核——高性价比交易（承接）</h3>
+    <ul>
+      <li><strong>定位</strong>：退潮期高性价比交易机会；胜率实操可达 80% 以上；收益成功可获 20% 以上超级大肉。</li>
+      <li><strong>现状</strong>：今年符合条件标的显著减少——往年每月 1-2 个，今年月均不足 1 个（如 6 月无，最近为 5 月中超）。</li>
+      <li><strong>卖点规则</strong>：持有条件为次日弱转强（烂板涨停后）；除弱转强外一律卖出。</li>
+    </ul>
+
+    <h3>二、抱团——高确定性交易</h3>
+    <ul>
+      <li><strong>性质</strong>：对抗量化与监管（高度受限）的妥协手段；核心是以多波结构替代单波高度。</li>
+      <li><strong>交易属性</strong>：退潮期相对高确定性交易（与反核的"高性价比"互补）。</li>
+      <li><strong>触发条件</strong>：市场或板块强分歧时。</li>
+      <li><strong>角色</strong>：力挽狂澜（扛跌、逆势上涨）。</li>
+      <li><strong>确认标准（扛住分歧两天）</strong>：第一天板块强分歧时逆势涨停（可烂板）；第二天不补跌（如收小阳线），则确认成为市场选择的抱团个股。</li>
+    </ul>
+
+    <h3>三、经典案例：大众交通</h3>
+    <ul>
+      <li><strong>背景</strong>：无人驾驶板块，情绪龙头星网宇达出现两个一字跌停（板块强分歧）。</li>
+      <li><strong>表现</strong>：大众交通在板块强分歧日逆势涨停（超级大烂板）。</li>
+      <li><strong>确认</strong>：次日不补跌（收小阳线），确认抱团地位。</li>
+      <li><strong>结果</strong>：后续上涨，带动星网宇达开板，扮演力挽狂澜角色。</li>
+    </ul>
+
+    <h3>四、抱团确认与主动性（核心筛选）</h3>
+    <ul>
+      <li><strong>千红制药</strong>：医药板块情绪主升后强分歧，逆势涨停（抱团预期），但次日补跌 → 抱团失败。结论：抱团票买点非首日，而是扛住分歧的第二天。</li>
+      <li><strong>安妮股份（6 月 19 日）</strong>：板块强度降至负值、超强分歧（滞涨/退潮预期），安妮扛住分歧成为市场抱团票；同期抱团票楚天龙、东信和平。</li>
+      <li><strong>次日表现对比</strong>：楚天龙次日上涨但为被动跟风（受安妮带动）；东信和平次日直接补跌；安妮股份次日具有主动性，为唯一值得买入的抱团票。</li>
+      <li><strong>主动性确认</strong>：恒宝股份 6 月 19 日表现较差、6 月 20 日无主动性；安妮 6 月 20 日有主动性，确认抱团地位。</li>
+      <li><strong>核心规则</strong>：买点 = 板块/情绪强分歧日的人气活口，在扛住分歧的次日。</li>
+    </ul>
+
+    <h3>五、抱团低吸买点（9:45 窗口）</h3>
+    <ul>
+      <li><strong>前提</strong>：量化时代退潮期杀跌不狠，资金选择强人气、强趋势、有逻辑的票抱团。</li>
+      <li><strong>操作</strong>：次日观望 15 分钟（9:45 前），观察是否补跌（冲高回落则不行），理想走势是晃晃悠悠向上。</li>
+      <li><strong>安妮买点细节</strong>：9:30 开盘翻红，9:45–9:50 未补跌（前 15 分钟补跌风险已过），大概率不会补跌，后续收回涨停板。</li>
+    </ul>
+
+    <h3>六、永安药业案例（抱团走妖）</h3>
+    <ul>
+      <li><strong>背景</strong>：5 月 21 日退潮日、情绪强分歧，永安药业扛住分歧。</li>
+      <li><strong>买点</strong>：5 月 22 日（次日）。高开杀跌直接杀至水下风险极高（可能补跌停）；观望至 9:45 确认扛住分歧；买入位置均线附近（2-3 个点），不追高（5-6 个点）。</li>
+      <li><strong>结果</strong>：当日涨停，后续继续涨停，成为抱团走妖股。</li>
+      <li><strong>抱团票带动作用</strong>：抱团票超级涨停 → 带动情绪回暖、板块回暖；确认后确定性极高。</li>
+    </ul>
+
+    <h3>七、莲花科技案例（6 月 4 日）</h3>
+    <ul>
+      <li><strong>表现</strong>：6 月 4 日退潮日扛住分歧。</li>
+      <li><strong>确认</strong>：次日（6 月 5 日）9:45 后确认扛住分歧；在 2-3 个点位置低吸。</li>
+      <li><strong>结果</strong>：当日涨停，后续持续上涨无卖点。</li>
+    </ul>
+
+    <h3>八、抱团与主升的联动（套利模式）</h3>
+    <ul>
+      <li><strong>核心逻辑</strong>：抱团票涨停 → 力挽狂澜 → 板块助攻 → 情绪共振 → 主线预期。</li>
+      <li><strong>买点</strong>：情绪主升拐点日，上午强势涨停的抱团票。</li>
+      <li><strong>套利模式</strong>：20 厘米跟风套利——抱团票涨停后，低吸其所在题材的 20 厘米核心股。案例：联化科技（6 月 9 日涨停）→ 苏太神（同日 20 厘米涨停）。</li>
+      <li><strong>联动性</strong>：与"情绪主升日"的王法套利模式相通。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>退潮期三大进攻机会：反核（高性价比，胜率 80%+ 获利 20%+，但今年标的月均不足 1 个）、抱团（高确定性，多波结构替代单波高度）、抱团低吸（抱团的落地买法）。</li>
+          <li>抱团确认的"两天标准"：第一天板块/情绪强分歧时逆势涨停（可烂板）成为"人气活口"；第二天不补跌（收小阳线、有主动性）→ 确认抱团地位。</li>
+          <li>关键铁律：买点永远是"扛住分歧的第二天"，而非首日（首日买入次日可能补跌，如千红制药）。</li>
+          <li>抱团低吸：次日观望 15 分钟（9:45 前）确认不补跌后低吸，买点均线附近 2-3 个点、不追高 5-6 个点。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>抱团股的"主动性"是唯一筛选标准——同期抱团票中只有次日具有主动性的才值得买入（安妮主动 vs 楚天龙被动跟风、东信和平补跌、恒宝无主动）。</li>
+          <li>抱团票的"带动作用"决定其龙头地位——超级涨停 → 情绪回暖、板块回暖，确认后确定性极高（大众交通带动星网宇达开板；永安药业成为抱团走妖股）。</li>
+          <li>抱团与主升联动——抱团票涨停 → 力挽狂澜 → 板块助攻 → 情绪共振 → 主线预期，与"情绪主升日"王法套利模式相通，20 厘米跟风套利是典型落地手段。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：抱团确认的"两天标准"；抱团低吸的 9:45 时间窗口与"均线附近 2-3 个点、不追高 5-6 个点"的买点纪律。</li>
+          <li><strong>难点一</strong>：区分"主动上涨"与"被动跟风"（楚天龙受安妮带动即为反面）。</li>
+          <li><strong>难点二</strong>：退潮期杀跌不狠的环境下如何等待、不抢跑（永安药业高开杀至水下的风险警示）。</li>
+          <li><strong>总体要求</strong>：所有节点融会贯通，今年"反核减少、抱团增多"，抱团玩法需重点掌握。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第12章 ============ -->
+  <section class="chapter" id="ch12">
+    <span class="chno">第 12 章</span>
+    <h2>退潮末期试错节点（一）· 主观判断</h2>
+    <p class="lead">退潮末期 = 试错期，亏钱效应递减至极值、向上概率更高。主观判断两大维度：亏钱效应是否递减 + 退潮时间是否到位；确认信号 = 断板空间板的反包日。</p>
+
+    <h3>一、退潮末期的定义与定位</h3>
+    <ul>
+      <li><strong>定义</strong>：退潮末期 = 试错期（多情绪退潮尾声阶段）。</li>
+      <li><strong>核心价值</strong>：亏钱效应递减至极值，向上概率更高。</li>
+      <li><strong>操作目标</strong>：选中潜龙，享受龙头溢价 + 情绪溢价。</li>
+    </ul>
+
+    <h3>二、主观判断两大维度</h3>
+    <ul>
+      <li><strong>维度一：亏钱效应是否递减</strong>——核心指标是当天被核票的数量；被核票定义 = 断板票、高位回落票；数量越多 → 亏钱效应越大。</li>
+      <li><strong>维度二：退潮时间是否到位</strong>——绝大多数反转发生在退潮日后前三天（例：退潮日 7 月 6 日 → 第一天 7 月 7 日 → 第二天 7 月 8 日 → 第三天 7 月 9 日大概率出反转信号）；时间过长（如 12 月 13 日至 1 月 7 日）→ 大退潮，需稳一稳、避免无脑试错。</li>
+      <li><strong>操作建议</strong>：主观判断不明时，重点看确认信号。</li>
+    </ul>
+
+    <h3>三、退潮末期的确认信号</h3>
+    <ul>
+      <li><strong>确认信号定义</strong>：断板空间板的反包日 = 退潮末期；反包日即退潮末期确认节点。</li>
+      <li><strong>后续安排</strong>：具体拆解第二堂课（第 13 篇）专门讲解。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>退潮末期本质 = 试错期，是"亏钱效应递减至极值"的阶段，向上概率更高；操作目标是"选中潜龙"享受龙头溢价 + 情绪溢价。</li>
+          <li>主观判断两大维度：一是"亏钱效应是否递减"（看当天被核票数量，被核票=断板票、高位回落票）；二是"退潮时间是否到位"（绝大多数反转发生在退潮日后前三天）。</li>
+          <li>确认信号：断板空间板的反包日 = 退潮末期确认节点。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>主观判断与确认信号是"两手准备"：主观判断（两大维度）用于日常预判，但主观判断不明时重点看确认信号（空间板反包）。</li>
+          <li>亏钱效应的"被核票数量"是核心量化指标——数量越多亏钱效应越大，递减至极值即接近反转。</li>
+          <li>时间维度提供节奏约束——退潮后前三天是反转高发窗口，超过此时间（如 12 月 13 日至 1 月 7 日）则属"大退潮"，应谨慎、避免无脑试错。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：退潮末期 = 试错期的定义；被核票的定义（断板票、高位回落票）；反转多在退潮日后前三天的统计规律。</li>
+          <li><strong>难点一</strong>：如何量化"亏钱效应递减"（被核票数量的变化趋势）。</li>
+          <li><strong>难点二</strong>：如何区分正常退潮与大退潮（时间维度）从而控制试错节奏。</li>
+          <li><strong>衔接</strong>：本篇仅提出"断板空间板反包日=退潮末期确认信号"这一结论，具体拆解留待第 13 篇。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第13章 ============ -->
+  <section class="chapter" id="ch13">
+    <span class="chno">第 13 章</span>
+    <h2>退潮模式试错节点（二）· 空间板反包确认</h2>
+    <p class="lead">把"断板空间板反包 = 退潮末期确认信号"展开：空间板反包涨停 → 亏钱效应递减至极限 → 当日或次日即反转。操作核心：做中高位连板股（非最高板）。</p>
+
+    <h3>一、断板空间板反包 = 退潮末期确认信号</h3>
+    <ul>
+      <li><strong>原理</strong>：退潮期亏钱效应最高的标的是空间板（常 A 杀）。若空间板未 A 杀，甚至反包涨停，则代表亏钱效应已递减至极限，情绪退潮进入尾声。</li>
+      <li><strong>拐点出现时间</strong>：反包当日可能直接反转出现主升拐点；反包次日大概率出拐点；极少数延后至第三、四日。</li>
+      <li><strong>操作准备</strong>：退潮期将断板空间板纳入自选池；一旦其涨停，需立即准备，当日或次日即为反转日。</li>
+    </ul>
+
+    <h3>二、案例（空间板反包时间节奏）</h3>
+    <ul>
+      <li><strong>丽人丽妆（5 月）</strong>：5 月 22 日断板 → 5 月 23 日下午反包涨停 → 5 月 26 日（次日）直接出拐点。提示：需提前预判主线板块与龙头个股，抢占先手。</li>
+      <li><strong>中超控股（5 月）</strong>：5 月 9 日断板 → 5 月 12 日上午快速涨停（反包）→ 5 月 12 日（当日）直接出拐点。提示：反应迅速者可当日参与板块内核心个股。</li>
+    </ul>
+
+    <h3>三、反包日操作策略：做中高位连板股</h3>
+    <ul>
+      <li><strong>时间窗口</strong>：重点关注反包当日及次日（隔日情况极少）。</li>
+      <li><strong>目标选择</strong>：中高位连板股（非最高板）。例：最高板为 5 板，则重点关注 4 板、3 板；逻辑是空间不高、中间位置更优。</li>
+      <li><strong>买点模式</strong>：做日内弱转强或隔日弱转强的换手板。</li>
+      <li><strong>案例（5 月 12 日）</strong>：空间板（中超控股）反包涨停，操作 4 板、3 板、2 板换手板；成功案例天健科技（次日一字板）、丽君（次日涨停、后续 3-4 个板）、成飞集成（换手板，可能买不到）。结论：空间板反包完成，第一时间参与中位股连板票。</li>
+    </ul>
+
+    <h3>四、应用案例（4 月 7 日凯美特气）</h3>
+    <ul>
+      <li><strong>凯美特气（4 月 7 日）</strong>：上午反包，操作策略放弃最高板、重点关注 3 板、2 板。</li>
+      <li><strong>海鸥住工</strong>：未给机会（除非顶一字），后续 3 个板。</li>
+      <li><strong>中旗新材</strong>：未给机会。</li>
+      <li><strong>美农生物</strong>：下午日内弱转强换手板（20cm，可放弃）。</li>
+      <li><strong>连云港</strong>：回封板，存在参与机会。</li>
+      <li><strong>湘佳股份</strong>：正常情况反包日机会多在 3 板、4 板（如成飞集成、丽君、天剑）。</li>
+      <li><strong>国方集团（4 月 16 日）</strong>：尾盘（2:30 后）涨停，无操作意义；反包日应关注 3 板、4 板的回封板。</li>
+      <li><strong>祖名股份、爱丽家居（两面针）</strong>：烂板（2:30 涨停）后无弱转强。</li>
+    </ul>
+
+    <h3>五、竞价弱转强的强度取舍</h3>
+    <ul>
+      <li><strong>中创物流</strong>：竞价爆量弱转强，优先带量高开秒板、避免低开翻红。</li>
+      <li><strong>强度对比</strong>：带量高开秒板 > 低开翻红；为追求强度，选择竞价阶段即带量高开的涨停板。</li>
+      <li><strong>案例验证</strong>：国光连锁满足量能条件；鸣眼份高开秒板次日涨停可盈利；乐山电力（4 月 16 日）一字板放弃；双成药业机会不大；安基食品（4 月 16 日）大烂板、同板块（消费类）弱转强为加分项、后续一字板。</li>
+    </ul>
+
+    <h3>六、操作模式三层</h3>
+    <ul>
+      <li><strong>当日</strong>：做日内换手板。</li>
+      <li><strong>次日</strong>：做竞价弱转强。</li>
+      <li><strong>隔日（少见）</strong>：中高位地板反合，要求为板块核心龙头，出现频率约半年一次。</li>
+    </ul>
+
+    <h3>七、退潮末期补充打法</h3>
+    <ul>
+      <li><strong>趋势抱团</strong>：情绪退潮末期做趋势抱团，扛住 15 分钟低吸。</li>
+      <li><strong>超预期买点</strong>：早盘 45 分涨 2-3 个点，10 点前缩量弱转强涨停，此为高位第一次加速买点，仓位可达三成。</li>
+      <li><strong>联化科技</strong>：退潮末期 + 趋势抱团，低吸后快速弱转强，仓位可稍重；反包当天与反包次日为极佳买点。</li>
+      <li><strong>长城精工/长城军工</strong>：第一次加速明显加速板、次日有板砸机会；第二次加速板可打但需控制仓位。</li>
+    </ul>
+
+    <h3>八、空间板反包的操作总结</h3>
+    <ul>
+      <li><strong>新度份</strong>：空间板反包信号若断板后上午早盘即涨停，则当日可能直接反转；确认主线龙头后做中位连板票后续可躺赢；反包次日策略：若尾盘（两点后）涨停则次日可能出现拐点。</li>
+      <li><strong>神农种业</strong>：操作标的为中位连板股的换手板弱转强；常见位置通常在三板左右；此为退潮末期确认信号的核心玩法。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>确认信号原理：空间板是退潮期亏钱效应最高的标的（常 A 杀），若其不 A 杀反而反包涨停，说明亏钱效应递减至极限，退潮进入尾声。</li>
+          <li>拐点时间：反包当日可能直接反转；反包次日大概率出拐点；极少数延后至第三、四日。</li>
+          <li>高效操作核心：反包完成后第一时间参与"中高位连板股"（非最高板，如最高 5 板则重点 4 板、3 板），做日内/隔日弱转强换手板。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>空间板断板 → 纳入自选池观察 → 反包涨停（上午反包强于下午反包）→ 当日或次日即为反转日 → 提前预判主线板块与龙头抢占先手。</li>
+          <li>反包强弱决定节奏：上午早盘反包→当日可能直接反转（中超控股 5 月 12 日）；下午反包→次日出拐点（丽人丽妆 5 月 23 日反包、5 月 26 日出拐点）；尾盘（2:30 后）涨停→无操作意义。</li>
+          <li>标的筛选强调"中位"而非"最高"：空间不高、中间位置更优；3 板、4 板是反包日机会高发区。</li>
+          <li>买点强度排序：带量高开秒板 > 低开翻红；竞价爆量弱转强优先。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：空间板反包作为退潮末期确认信号的原理；"做中位连板股、非最高板"的选股逻辑；反包时间的强弱对应关系。</li>
+          <li><strong>难点一</strong>：把握"反包当日/次日"的极佳买点窗口（丽人丽妆需提前预判抢占先手，中超控股需反应迅速当日参与）。</li>
+          <li><strong>难点二</strong>：区分可参与的回封板与无意义的尾盘板；竞价弱转强中"带量高开秒板 vs 低开翻红"的强度取舍。</li>
+          <li><strong>附加策略</strong>：趋势抱团（扛住 15 分钟低吸）与"高位第一次加速"三成仓位的超预期买点，是退潮末期的重要补充打法。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第14章 ============ -->
+  <section class="chapter" id="ch14">
+    <span class="chno">第 14 章</span>
+    <h2>退潮模式试错节点（三）· 抓超预期</h2>
+    <p class="lead">多数退潮末期无明确信号（空间板反包概率小，1-2 月/次），此时操作思路与情绪主升拐点（上午走强）相通：抓"超预期个股 / 超预期题材"。</p>
+
+    <h3>一、退潮末期操作思路</h3>
+    <ul>
+      <li><strong>主观判断</strong>：（亏钱）效应递减、退潮时间。</li>
+      <li><strong>明确信号</strong>：空间板反包（概率小，1-2 月/次）。</li>
+      <li><strong>核心问题</strong>：多数情况无明确信号，如何操作？</li>
+      <li><strong>关联思路</strong>：与情绪主升拐点思路相通；退潮末期一旦开始主升，即为上午走强形式。</li>
+    </ul>
+
+    <h3>二、超预期个股维度（抱团涨停）</h3>
+    <ul>
+      <li><strong>核心思路</strong>：看超预期的个股或题材，判断是否成主线。</li>
+      <li><strong>逻辑链条</strong>：超预期个股（抱团涨停）→ 带动板块 → 带动情绪走强。</li>
+      <li><strong>典型案例：联化科技（6 月 9 日）</strong>——断板后本应被核，却超预期涨停，带动短线市场情绪直接走主升；限制是量化与监管双重因素致空间上不去，次日仅一板。</li>
+      <li><strong>操作策略</strong>：留意超预期个股所在题材；打板龙头（直接买入领涨高标）；20 厘米套利（套利板块内 20 厘米核心）。</li>
+      <li><strong>买点判断</strong>：退潮尾声，抱团票缩量涨高位第一次加速构成买点。</li>
+    </ul>
+
+    <h3>三、超预期题材维度（竞价共振）</h3>
+    <ul>
+      <li><strong>识别条件</strong>：题材要走强超预期，竞价必须有表现。</li>
+      <li><strong>案例（5 月 26 日核电）</strong>：竞价上维股份、荣发、中超、雪人均为核电题材 → 题材共振；判断题材超预期，预判当天可能大爆发；当天题材大爆发（万以上），与情绪形成共振走强、情绪直接走下午主升；结论该题材很可能成为市场主线。</li>
+    </ul>
+
+    <h3>四、核电题材完整发酵案例（5 月）</h3>
+    <ul>
+      <li><strong>5 月 23 日</strong>：首次发酵。</li>
+      <li><strong>5 月 26 日</strong>：大爆发，与情绪共振确定主线（当天"万以上"成交）。</li>
+      <li><strong>领涨核心分化</strong>：上维股份一字板买不到；中超控股给买入机会、次日继续涨停；王者心态次日不及预期（只能低吸、不可追高）；华通、荣发核电、晨光均有买入机会、后续表现不差。</li>
+    </ul>
+
+    <h3>五、提前锁定龙头的核心心法</h3>
+    <ul>
+      <li><strong>核心逻辑</strong>：退潮末期从个股维度（超预期抱团涨停）和题材维度（超预期表现）判断。</li>
+      <li><strong>操作步骤</strong>：发现题材超预期（竞价表现）→ 回溯前一日找出板块龙头/领涨核心 → 判断能否买入（如上维股份开板可买）→ 套利做 20 厘米套利（如浩瀚华通给出 40% 空间）。</li>
+      <li><strong>关键原则</strong>：提前买龙头，等市场确认时龙头可能买不到。</li>
+      <li><strong>替代策略</strong>：一字板买不到 → 做同身位换手板（可能卡掉一字板成为龙头）；做 20 厘米核心套利。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>退潮末期一旦主升，即属"上午走强"形式——与情绪主升拐点的上午走强形式几乎为一类。</li>
+          <li>核心思路：看超预期的个股或题材，判断是否成主线；逻辑链条为超预期个股（抱团涨停）→ 带动板块 → 带动情绪走强。</li>
+          <li>两条操作路径：个股维度（超预期抱团涨停→打板领涨高标+20 厘米套利）；题材维度（超预期题材→竞价共振→大爆发确定主线）。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>个股维度：发现超预期领涨股快速涨停 → 打板领涨高标 + 20 厘米套利（联化科技 6 月 9 日典型）。</li>
+          <li>题材维度：题材走强超预期竞价必须有表现（5 月 26 日核电竞价共振→大爆发与情绪共振→确定主线）。</li>
+          <li>提前锁定龙头：提前买龙头，等市场确认时龙头可能买不到；回溯前一日 + 同身位换手板替代策略。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：退潮末期操作思路与情绪主升拐点（上午走强）的相通性；超预期个股与超预期题材两大判断维度；核电题材"竞价共振"的识别方法。</li>
+          <li><strong>难点一</strong>：如何通过竞价表现判断题材是否"超预期"。</li>
+          <li><strong>难点二</strong>：如何在市场确认前抢到龙头先手（回溯法 + 替代策略）。</li>
+          <li><strong>难点三</strong>：20 厘米套利的空间测算。</li>
+          <li><strong>总纲</strong>：操作方向=超预期个股、超预期题材；套利方式=20 厘米套利；买点=退潮尾声抱团票缩量涨高位第一次加速。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第15章 ============ -->
+  <section class="chapter" id="ch15">
+    <span class="chno">第 15 章</span>
+    <h2>主升结束回流反包节点（一）· 定义与风险</h2>
+    <p class="lead">主升结束日 = 情绪由主升转高位震荡的当天。两大识别标准：高位连板龙头断板、两次强分歧。风险集中在"退潮日"：严禁竞价买票。</p>
+
+    <h3>一、什么是主升结束日</h3>
+    <ul>
+      <li><strong>定义</strong>：情绪由主升转为高位震荡的当天，即为主升结束日；主升后经历第一次/第二次分歧，进入高位震荡期。</li>
+      <li><strong>识别标准一：高位连板龙头断板</strong>——条件为六板/七板以上，且具有板块效应（主线/次主线板块）；排除无板块效应的独立个股（影响小）、一字板连板（对短线影响小）。</li>
+      <li><strong>识别标准二：主升阶段出现两次强分歧</strong>——第一次强分歧市场仍看多，可做弱转强/低吸搏修复；第二次强分歧修复力度预期减弱，市场进入高位震荡期。</li>
+    </ul>
+
+    <h3>二、主升结束日的风险</h3>
+    <ul>
+      <li><strong>后续走势两种可能</strong>：走退潮（风险）；走二波主升（机会）。</li>
+      <li><strong>核心风险</strong>：修复失败走退潮；退潮特征为负反馈 → 延续分歧 → 退潮。</li>
+      <li><strong>退潮日风险</strong>：市场风险最大的一天，追高套牢十几个点，次日低开至 20 个点，进退两难。</li>
+    </ul>
+
+    <h3>三、操作纪律（应对风险）</h3>
+    <ul>
+      <li><strong>严禁竞价买票</strong>：无容错率，易买在退潮日。</li>
+      <li><strong>应对策略</strong>：等待几分钟，观察关键个股走势（正反馈/负反馈）后再决策。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>主升结束日定义：情绪由主升转为高位震荡的当天；主升后经历第一次/第二次分歧，进入高位震荡期。</li>
+          <li>两大识别标准：高位连板龙头断板（六板/七板以上、有板块效应；排除无板块效应独立个股与一字板连板）；主升阶段出现两次强分歧（第一次可搏修复，第二次进入高位震荡）。</li>
+          <li>后续两种走向：走退潮（风险）或走二波主升（机会）。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>主升结束日之后的分岔：修复成功→二波主升（机会）；修复失败→负反馈→延续分歧→退潮（风险）。</li>
+          <li>两次强分歧是识别主升是否结束的关键节奏——第一次分歧市场仍看多（可搏修复），第二次分歧修复力度预期减弱（进入震荡）。</li>
+          <li>风险集中在"退潮日"：追高套牢十几个点、次日低开至 20 个点、进退两难。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：主升结束日的定义；"高位连板龙头断板"与"两次强分歧"两大识别标准；排除项（无板块效应独立个股、一字板连板）。</li>
+          <li><strong>难点一</strong>：区分"第一次分歧（可搏修复）"与"第二次分歧（进入震荡）"的边界。</li>
+          <li><strong>难点二</strong>：在主升结束日规避"退潮日"这一最大风险窗口（严禁竞价买票、等待观察正负反馈）。</li>
+          <li><strong>衔接</strong>：本篇为定义与风险，机会部分（二波主升/回流反包）留待后续篇展开。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第16章 ============ -->
+  <section class="chapter" id="ch16">
+    <span class="chno">第 16 章</span>
+    <h2>主升结束回流反包节点（二）· 趋势抱团</h2>
+    <p class="lead">主升结束后的出路是"趋势抱团票"：不做低位（太卷买不到）、不做高位连板（退潮大面），主升初做连板、主升末做抱团。</p>
+
+    <h3>一、主升结束日的机会与误区</h3>
+    <ul>
+      <li><strong>常见误区</strong>：主升结束后的第一反应是"高切低"（做低位补涨票）。</li>
+      <li><strong>高切低现状</strong>：可做但问题严重——<strong>低位太卷</strong>，优质低位票一旦被资金看好次日直接顶一字板，普通投资者没有买入机会。</li>
+      <li><strong>案例：西上海</strong>——典型低位连板 A 杀，二板三板均为一字板，随后直接走 A；这是市场缩影并非个例。</li>
+      <li><strong>案例：金一文化</strong>——低位票现状优质票需隔夜顶一字无法买入；补涨龙特征要么买不到、买到即有问题；结论高切低在当前市场不好买、买不到。</li>
+    </ul>
+
+    <h3>二、高位情绪连板票分析</h3>
+    <ul>
+      <li><strong>可行性</strong>：盈亏不划算。高位票（7-8 板）无太好机会、操作艰难；情绪退潮风险——修复日次高标可能晋级，但退潮日易出现日内大面、A 杀（如炸板、高开低走）。</li>
+      <li><strong>操作建议</strong>：主升初期做情绪连板票；主升结束做趋势抱团票。</li>
+    </ul>
+
+    <h3>三、趋势抱团票的特征与优势</h3>
+    <ul>
+      <li><strong>典型案例</strong>：中毅达（典型趋势抱团）、联化科技、永安药业、中旗新材、中京电子（疑为"中金电子"）、三峡等。今年（2023 年）走出大量抱团票，短线资金应对量化交易的一种方式。</li>
+      <li><strong>三大优势</strong>：低位不好做、情绪连板不吃香时的优选；走趋势提供低吸买点；安全性有保障。</li>
+      <li><strong>买入方式差异</strong>：情绪连板票需打板确认；趋势抱团票越低越好、无需打板。</li>
+      <li><strong>风险对比</strong>：打板买入一旦炸板大面风险；零轴买入即便日内分歧仅亏几个点、风险可控。</li>
+    </ul>
+
+    <h3>四、操作思路</h3>
+    <ul>
+      <li><strong>核心结论</strong>：主升结束后做趋势抱团票。</li>
+      <li><strong>选股方向</strong>：市场唯一抱团股不常有（如中毅达、永安药业，一年仅几个）；板块抱团个股是最终操作思路，各板块均有抱团标的。</li>
+      <li><strong>修复预期博弈</strong>：主升结束日 = 分歧日；分歧次日 = 修复预期；策略选择强板块回流，博弈该板块内趋势抱团股，效果更佳。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>主升结束后的两大误区与出路：高切低（低位太卷买不到）、高位情绪连板（7-8 板退潮日炸板 A 杀），正确出路是"趋势抱团票"。</li>
+          <li>主升初/末操作切换：主升初期做情绪连板票（靠打板确认），主升结束改做趋势抱团票（靠低吸，越低越好、无需打板）。</li>
+          <li>趋势抱团票三大优势：低位不好做、情绪连板不吃香时的优选；走趋势提供低吸买点；安全性有保障（零轴买入即使分歧只亏几个点）。</li>
+          <li>抱团盛行背景：2023 年短线资金为应对量化交易大量流行做趋势抱团。</li>
+          <li>修复预期博弈框架：主升结束日＝分歧日 → 分歧次日＝修复预期 → 选强板块回流 → 博弈该板块内趋势抱团股。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>市场风格 → 操作模式：量化交易盛行 → 抱团风格流行 → 主升结束后首选趋势抱团票。</li>
+          <li>风险对比 → 选择依据：打板炸板=大面 vs 零轴低吸=亏几个点，风险不对称性决定抱团票更安全。</li>
+          <li>分歧 → 修复节奏：把主升结束日理解为分歧日，为下一节点（修复日）提前布局，即"低吸抱团股、博弈次日回流"。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：主升初/末操作切换（连板票→抱团票）是核心；"低位太卷、高位有退潮风险"两条排除逻辑要牢记。</li>
+          <li><strong>难点</strong>：如何识别"趋势抱团票"（强趋势、单波、走趋势提供低吸点），以及如何选"强板块"——本片仅给出方向，具体选股标准在下一篇（17 篇）展开。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第17章 ============ -->
+  <section class="chapter" id="ch17">
+    <span class="chno">第 17 章</span>
+    <h2>主升结束回流反包节点（三）长篇 · 选股与买点</h2>
+    <p class="lead">主升结束日做"强板块内的中高位趋势抱团个股"，博弈次日回流。强板块双标准（活跃≥3天 + 强度前三）+ 个股三要素（人气靠前 + 单波 + 强趋势）+ 依开盘灵活定买点。</p>
+
+    <h3>一、核心策略与操作模型</h3>
+    <ul>
+      <li><strong>核心策略</strong>：主升结束日不做低位、不做中高位连板票；操作方向为中高位趋势抱团个股；选股前提是强板块内的抱团个股；逻辑是博弈板块次日回流。</li>
+      <li><strong>操作模型</strong>：标的为强板块内的强人气、强趋势个股（抱团）；仓位不宜过高（情绪正常看修复，但存在延续退潮风险）；回避高位情绪偏好。</li>
+    </ul>
+
+    <h3>二、强板块定义（双标准）</h3>
+    <ul>
+      <li><strong>活跃</strong>：近 5-6 个交易日中，一半以上（≥3 天）板块活跃；逻辑是板块越活跃资金介入越深。</li>
+      <li><strong>强势</strong>：板块强度排名市场前三；逻辑是强度高回流可能性越高。</li>
+    </ul>
+
+    <h3>三、个股选择标准（三要素）</h3>
+    <ul>
+      <li><strong>人气靠前</strong>：板块内人气靠前 + 市场人气靠前。</li>
+      <li><strong>形态</strong>：单波 > 多波，强趋势。</li>
+      <li><strong>开盘特征（趋势票）</strong>：小低开占比 > 50%；小高开/大低开占比约 20-30%。</li>
+    </ul>
+
+    <h3>四、买点体系（依开盘形态灵活应对）</h3>
+    <ul>
+      <li><strong>小低开</strong>：开盘往上（大单扫货）跟随买，或站稳均线买。</li>
+      <li><strong>小高开</strong>：重新翻绿后站稳零轴买，或 9:50 左右均线低吸（均线在 2% 左右最佳）。</li>
+      <li><strong>超预期高开</strong>：站稳均线、均线附近震荡时激进者可买。</li>
+    </ul>
+
+    <h3>五、案例：7 月 2 日强分歧日（7 月 3 日操作）</h3>
+    <ul>
+      <li><strong>筛选板块</strong>（7 月 2 日往前推至 6 月 25 日共 6 个交易日）：活跃天数 ≥ 3 天 + 强度市场前三；符合条件为芯片、军工、医药。</li>
+      <li><strong>芯片 - 好上好</strong>：市场人气靠前、走抱团形态（4 板后 2 天炸板）；7 月 3 日小低开（-3% 左右）符合预期；买点开盘往上（大单扫货）跟随或站稳均线买；当日震荡涨停，次日（7 月 4 日）情绪退潮跌停但低吸者不亏钱、安全性有保障。结论半对（若情绪不极端退潮应有红盘机会）。</li>
+      <li><strong>军工 - 长城军工</strong>：已进监管、筹码分散、分歧力度不够，性价比与确定性不如好上好；7 月 3 日小高开（抢到零轴）非理想买点；买点重新翻绿后站稳零轴或 9:50 左右均线低吸（均线 2% 左右最佳）。结论可做可不做。</li>
+      <li><strong>医药 - 树太深（疑为"舒泰神"）</strong>：7 月 3 日小高开（约 4.2%，原文"-42%"疑为语音识别误差）；买点翻绿后再次站上零轴；当日大阳线（9%），次日获利了结赚 7-8 个点。结论正确操作。</li>
+    </ul>
+
+    <h3>六、案例：6 月 26 日强分歧日（6 月 27 日操作）</h3>
+    <ul>
+      <li><strong>筛选板块</strong>：锂电池、军工、数字经济。</li>
+      <li><strong>数字经济 - 恒宝股份</strong>：6 月 27 日小高开（约 1.5%，原文"-15%"疑为语音识别误差）；买点跳水翻绿后再次翻红（符合）或站稳均线（2% 左右，时间较晚成本偏高）；结果次日涨停。</li>
+      <li><strong>锂电池 - 金龙鱼（疑为"金龙羽"）</strong>：6 月 27 日小高开；买点跳水翻绿后再次翻红（符合）、9:50 左右均线低吸 2% 左右（符合）；结果当日涨停、次日充分卖点。</li>
+      <li><strong>军工 - 长城军工</strong>：6 月 27 日未给到理想买点（未翻绿无跳水买点、9:50 成本过高 5% 左右无均线低吸买点）；从稳健安全角度不符合。</li>
+    </ul>
+
+    <h3>七、案例：5 月 15 日（板块筛选与个股）</h3>
+    <ul>
+      <li><strong>方法论核心</strong>：单一月份有效不足，需长期（一年/两年）持续有效。</li>
+      <li><strong>板块筛选逻辑</strong>：化工强度明显可入选；纺织服装可列为候选；航运强度不足（未进前三）虽活跃但淘汰；外贸若剔除 SST 板块则强度达标可入选。当日选定板块：化工、外贸、军工。</li>
+      <li><strong>化工 - 中毅达、于三峡（疑为"三峡"相关）</strong>：抱团最厉害的两个标的。中毅达（5 月 16 日）超预期高开，前一日回撤近 15 点大阴线次日仍能高开不回落属强势，站稳均线震荡时激进者可买，后续再收涨停。于三峡（5 月 15 日）买点翻红买（5 月 16 日高开后跳水翻红买）或均线低吸（零轴附近提前买），成本约零轴、预期一个涨停板，风险次日遇黑天鹅但仍有冲高离场机会。</li>
+      <li><strong>外贸 - 华纺股份</strong>：开盘水下低开（约 -7%）；低吸买点板块回流符合预期、早盘站稳均线低吸；加仓点十点前站稳零轴可加仓；涨停时间十点半不符合早盘涨停标准故仅一个低吸点；收益低吸成本约 -7%、收盘 -2%、当日 5% 收益，次日冲高走人，形态属阳线。</li>
+      <li><strong>军工 - 成飞集成</strong>：属情绪票、强度低（仅 100 多），结论 Pass（放弃）；虽后续涨两个板但从风险角度仍应放弃。</li>
+    </ul>
+
+    <h3>八、案例：4 月 11 日（芯片抱团）</h3>
+    <ul>
+      <li><strong>当日强势板块</strong>：芯片（强度够）；外贸、化工不符合。芯片抱团股：红宝丽、中旗新材（红宝丽更典型）。</li>
+      <li><strong>红宝丽（4 月 11 日）</strong>：明显抱团形态、存在明确买点，后续开启四连板。</li>
+      <li><strong>中旗新材（4 月 11 日）</strong>：此日后持续创新高，4 月 14 日收获涨停板。</li>
+    </ul>
+
+    <h3>九、方法论总结</h3>
+    <ul>
+      <li><strong>选时</strong>：选对分歧日或主升结束日。</li>
+      <li><strong>次日策略</strong>：看修复，选择抢板块。</li>
+      <li><strong>选股</strong>：选市场人气股 + 板块人气股。</li>
+      <li><strong>买点</strong>：根据开盘（小低开/平开等）制定交易计划。</li>
+      <li><strong>前提</strong>：市场不退潮。</li>
+      <li><strong>频率与效率</strong>：每月约 1-2 波或以上买点，属低频高效模式。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>主升结束日/分歧日的操作模型：不做低位、不做中高位连板票，只做"强板块内的中高位趋势抱团个股"，博弈次日回流。</li>
+          <li>"强板块"双标准：①活跃度——近 5-6 个交易日活跃天数≥3 天（资金介入深）；②强度——板块强度排名市场前三（回流概率高）。</li>
+          <li>个股选择标准：板块内人气靠前 + 市场人气靠前；单波形态优于多波；趋势票开盘以小低开为主（>50%），小高开/大低开约占 20-30%。</li>
+          <li>买点体系（依开盘形态）：小低开→开盘往上/站稳均线买；小高开→翻绿后站稳零轴或 9:50 均线低吸；超预期高开→站稳均线震荡激进者可买。</li>
+          <li>低频高效模式：每月约 1-2 波或以上买点；方法论需长期（一年/两年）持续有效。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>"强板块 → 强个股 → 强买点"层层收敛：先筛板块（活跃+强度双门槛），再选个股（人气+单波形态），最后定买点（依开盘形态决定低吸/翻红/均线三类买点）。</li>
+          <li>"分歧日布局 → 次日修复"：主升结束日即分歧日，提前在强板块抱团股上低吸，博弈次日板块回流（修复）。</li>
+          <li>"仓位与风控"：因存在"延续退潮"风险，仓位不宜过高；即使次日退潮跌停，低吸买入者仍不亏钱（安全性来源）。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：强板块双标准（活跃≥3 天 + 强度前三）与个股三要素（人气靠前、单波形态、强趋势）。</li>
+          <li><strong>难点一</strong>：买点需"依开盘灵活判断"，同一策略在不同开盘形态下买点完全不同（低吸/翻红/均线）。</li>
+          <li><strong>难点二</strong>："放弃"的艺术——成飞集成（情绪抱团、强度低）、长城军工（进监管、筹码分散）即使后续上涨也应从风险角度放弃。</li>
+          <li><strong>难点三</strong>：数字类参数（小高开/大低开占比、翻红后买点等）原文多处存在语音识别误差，需以实际盘面为准。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第18章 ============ -->
+  <section class="chapter" id="ch18">
+    <span class="chno">第 18 章</span>
+    <h2>题材节点（一）· 发酵日玩法</h2>
+    <p class="lead">题材四阶段：发酵 → 爆发 → 滞涨 → 退潮。发酵日分大爆发（涨停≥10 个）与小发酵（3-5 个）；竞价一字板≥3 个即大超预期，当天介入做首板。</p>
+
+    <h3>一、题材节点定义</h3>
+    <ul>
+      <li><strong>题材四阶段</strong>：发酵 → 爆发 → 滞涨 → 退潮。</li>
+      <li><strong>图形类比</strong>：类似个股情绪周期（发酵→加强→分歧→见顶→回落）。</li>
+      <li><strong>核心任务</strong>：判断题材节点，制定交易策略。</li>
+    </ul>
+
+    <h3>二、发酵日分类</h3>
+    <ul>
+      <li><strong>大爆发</strong>：当天涨停板 ≥ 10 个。</li>
+      <li><strong>小发酵</strong>：当天涨停板 3-5 个。</li>
+      <li><strong>核心关注点</strong>：大爆发（小发酵仅需留意）。</li>
+    </ul>
+
+    <h3>三、发酵力度判断：竞价表现</h3>
+    <ul>
+      <li><strong>案例背景</strong>：6 月 22 日晚突发消息，伊朗与以色列直接冲突（中东石油出口国），全球石油供应关键事件，市场预期突变。</li>
+      <li><strong>核心指标</strong>：竞价大幅抢筹（超预期）。</li>
+      <li><strong>一字板数量</strong>：≥3 个（大超预期）；仅 1 个则发酵力度不足。</li>
+      <li><strong>案例个股</strong>：通源石油、准油、中曼石油、贝肯能源、潜能恒信（竞价共振）。</li>
+    </ul>
+
+    <h3>四、交易策略：大爆发（竞价超预期 + 一字板≥3）</h3>
+    <ul>
+      <li><strong>核心逻辑</strong>：与主力同一起跑线，当天介入。</li>
+      <li><strong>操作标的</strong>：10 厘米首板（梯子板/换手板）、20 厘米首板（换手板/梯子板）。</li>
+      <li><strong>盈亏比</strong>：极高（第二天 90% 以上概率赚钱）。</li>
+      <li><strong>后续走势</strong>：发酵好则持续一字板。</li>
+    </ul>
+
+    <h3>五、交易策略：小发酵（竞价无表现）</h3>
+    <ul>
+      <li><strong>操作</strong>：当天不出手。</li>
+      <li><strong>关注重点</strong>：10 厘米或 20 厘米领涨股（原文作"零端股"，应为"领涨股"）。</li>
+    </ul>
+
+    <h3>六、发酵日总结</h3>
+    <ul>
+      <li><strong>触发条件</strong>：盘面突发利好、新发布政策、影响力广的重大消息。</li>
+      <li><strong>竞价表现</strong>：一字板 ≥ 3 个 → 题材可能爆发走强。</li>
+      <li><strong>操作</strong>：做首板个股（10 厘米/20 厘米梯子板）。</li>
+      <li><strong>案例</strong>：石油概念（6 月）、海洋经济（7 月，首板次日均有溢价）。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>题材四阶段：发酵 → 爆发 → 滞涨 → 退潮，图形类比个股情绪周期。</li>
+          <li>发酵日分两类：大爆发（涨停≥10 个）与小发酵（涨停 3-5 个），重点做大爆发，小发酵仅留意。</li>
+          <li>发酵力度判断看竞价：竞价大幅抢筹（超预期）是关键指标；一字板数量≥3 个＝大超预期，仅 1 个＝发酵力度不足。</li>
+          <li>大爆发操作：与主力同一起跑线当天介入做首板（10cm 梯子板/换手板、20cm 换手板/梯子板），盈亏比极高（次日 90% 以上概率赚钱）。</li>
+          <li>小发酵操作：当天不出手，只关注 10cm/20cm 领涨股等待后续表现。</li>
+          <li>触发条件：盘面突发利好、新发布政策、影响力广的重大消息。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>"事件 → 竞价 → 力度"传导链：重大消息 → 竞价抢筹/一字板数量 → 判断大爆发还是小发酵。</li>
+          <li>"力度 → 策略"匹配：大爆发（超预期）＝当天介入做首板；小发酵（无表现）＝当天观望、只盯领涨股。</li>
+          <li>"先于主力"的收益逻辑：大爆发当天介入与主力同一起跑线，次日 90% 以上概率赚钱，发酵好则连续一字板。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：一字板≥3 个的竞价判断标准；10cm/20cm 首板（梯子板/换手板）的操作标的。</li>
+          <li><strong>难点</strong>：竞价表现需在开盘集合竞价阶段快速识别"超预期抢筹"，以及区分"大爆发当天出手"与"小发酵观望"的边界。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第19章 ============ -->
+  <section class="chapter" id="ch19">
+    <span class="chno">第 19 章</span>
+    <h2>题材节点（二）· 爆发日玩法</h2>
+    <p class="lead">爆发是题材走向持续（主线）的必经环节。两种形式：首次发酵次日爆发（看竞价）、发酵活跃数日再爆发（看盘中弱转强）。共振 = 主线。</p>
+
+    <h3>一、发酵日两种玩法（承接）</h3>
+    <ul>
+      <li><strong>大爆发当天出手</strong>：直接参与。</li>
+      <li><strong>小爆发不出手</strong>：观察后续表现。</li>
+    </ul>
+
+    <h3>二、主升爆发日的两种形式（覆盖 90% 情况）</h3>
+    <ul>
+      <li><strong>形式一：首次发酵后，次日大爆发</strong>——流程首次发酵 → 次日再次爆发；案例 5 月 7 日军工首次爆发 → 5 月 8 日再次爆发；意义大概率走出持续性；关键条件是爆发日最好与情绪主升阶段共振（避免情绪退潮日）。</li>
+      <li><strong>形式二：发酵后活跃数日，某天再大爆发</strong>——流程发酵 → 活跃数日（每日 3-5 个涨停）→ 某日突然 10 个以上涨停；案例锂电池（6 月 17 日发酵 → 6 月 24 日大爆发）。</li>
+    </ul>
+
+    <h3>三、形式一的操作规律：看竞价</h3>
+    <ul>
+      <li><strong>判断依据</strong>：竞价是否超预期（是否有共振表现）。</li>
+      <li><strong>操作策略</strong>：竞价有共振表现 → 预判板块当日继续爆发；介入方式——10cm 领涨股做前排核心（打板/半路）、20cm 领涨股做套利（均线附近低吸）。</li>
+      <li><strong>案例</strong>：5 月 8 日军工（城际航空套利、华伍股份前排打板，"城际航空"疑为"晨曦航空"）。</li>
+      <li><strong>风险提示</strong>：情绪主升阶段操作风险更小。</li>
+    </ul>
+
+    <h3>四、形式二的操作规律：看盘中</h3>
+    <ul>
+      <li><strong>判断</strong>：无法通过竞价判断，只能观察盘中表现。</li>
+      <li><strong>最佳介入方式</strong>：做领涨龙头的弱转强。</li>
+      <li><strong>案例</strong>：锂电池（6 月 24 日大爆发，领涨龙头弱转强介入），弱转强形式为大烂板、高开快速秒板、低开快速翻红；芯片（6 月 20 日发酵 → 6 月 27 日大爆发，好上好弱转强二板）。</li>
+    </ul>
+
+    <h3>五、核心结论</h3>
+    <ul>
+      <li><strong>首次发酵 + 次日爆发</strong>：看竞价，有超预期表现就做，没有就不做（可能转为活跃）。</li>
+      <li><strong>发酵后活跃 + 再爆发</strong>：看领涨龙头是否有大烂板/弱转强机会。</li>
+      <li><strong>最佳状态</strong>：爆发节点与情绪节点共振 → 直接确定主线。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>爆发日的必要性：题材发酵后为走出持续性，必须经历一次集中爆发。</li>
+          <li>爆发的两种主要形式（覆盖 90%）：形式一首次发酵后次日大爆发（5 月 7 日军工→5 月 8 日）；形式二发酵后活跃数日再某天大爆发（锂电池 6 月 17 日→6 月 24 日）。</li>
+          <li>形式一操作（看竞价）：竞价有共振/超预期 → 预判当日继续爆发并介入；10cm 前排核心（打板/半路）、20cm 套利（均线附近低吸）。</li>
+          <li>形式二操作（看盘中）：无法靠竞价判断，只能盘中观察，最佳介入是"领涨龙头弱转强"（大烂板、高开快速秒板、低开快速翻红）。</li>
+          <li>最佳状态：爆发节点与情绪节点共振 → 直接确定主线。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>"持续性 → 必须爆发"：爆发是题材从发酵走向持续（主线）的必经环节。</li>
+          <li>"形式决定观察窗口"：形式一看竞价（盘前决策），形式二看盘中（盘中决策）——两种形式对应两种不同的介入时机。</li>
+          <li>"共振 = 主线"：爆发日与情绪主升阶段共振时题材最可能确立为主线、操作风险最小；反之应回避情绪退潮日。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：两种爆发形式的区分与对应策略（看竞价 vs 看盘中）；10cm 前排核心 vs 20cm 套利的差异化打法。</li>
+          <li><strong>难点一</strong>：判断"竞价是否有共振表现"（超预期的程度）。</li>
+          <li><strong>难点二</strong>：形式二的"弱转强"介入需盘中快速识别（大烂板、高开秒板、低开快速翻红），是进阶操作（详见 20 篇展开）。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第20章 ============ -->
+  <section class="chapter" id="ch20">
+    <span class="chno">第 20 章</span>
+    <h2>补充篇 · 弱转强手法（一）· 如何弱转强</h2>
+    <p class="lead">弱转强 = 前一天烂板/炸板 → 次日超预期走强，是除打板外最常用手法。两种形式：带量高开 / 小低开快速翻红；规避骗炮的硬核量化标准：竞价量≥前日总成交额 5%。</p>
+
+    <h3>一、核心定义与逻辑</h3>
+    <ul>
+      <li><strong>弱转强</strong>：情绪节点中最常用、最实用的操作手法（除打板外）。</li>
+      <li><strong>划分维度</strong>：何时、何股、如何弱转强。</li>
+      <li><strong>本质</strong>：前一天烂板/炸板 → 次日超预期走强。</li>
+      <li><strong>关键问题</strong>："行"（形式）与"神"（内在逻辑）的区分。</li>
+    </ul>
+
+    <h3>二、如何弱转强（典型特征）</h3>
+    <ul>
+      <li><strong>诺德</strong>：典型弱转强案例，核心是烂板次日涨停。前一天明显烂板（尾盘 14:50 左右涨停），次日直接涨停；本质烂板 → 持股者预期低开 → 实际走势超预期。</li>
+      <li><strong>关键点</strong>：烂板次日预期低开（低开低走或低开高走不确定）；超预期情形高开（如好上好）。</li>
+      <li><strong>好上好</strong>：前一天大烂板，次日超预期高开 → 快速涨停。</li>
+    </ul>
+
+    <h3>三、弱转强两种形式</h3>
+    <ul>
+      <li>前一天烂板/炸板 → 次日低开 → 快速翻红。</li>
+      <li>前一天烂板/炸板 → 次日高开。</li>
+      <li><strong>风险提示</strong>：高开可能高开低走（骗炮），例雪迪龙（烂板后高开带量却炸板）；只知形式（行）不知内在逻辑（神）→ 失败根源。</li>
+    </ul>
+
+    <h3>四、规避骗炮技巧（竞价量 5% 阈值）</h3>
+    <ul>
+      <li><strong>关键指标</strong>：竞价量。</li>
+      <li><strong>标准</strong>：次日竞价成交额 ≥ 前一天总成交额的 5%。例：好上好（前一天成交额 5 亿 → 5% ≈ 1.75 亿 → 次日竞价量需 > 约 1.8 亿；原文"175 亿""18 亿"疑为语音识别误差，实为约 1.75 亿/1.8 亿）。</li>
+      <li><strong>好上好实际数据</strong>：次日竞价成交额约 1.16 亿（原文"-116 亿"），与阈值约 1.8 亿接近；辅助指标开盘量占比（开盘成交量/昨日总成交量）约 4.4%（原文"-44%"，接近 5% 可接受）。核心原则：必须带量，不带量成功率低。</li>
+      <li><strong>昂利康（反面）</strong>：前一天明显烂板，次日高开但竞价量不足（约 0.6%，原文"-6%" < 5%）；结论弱转强骗炮概率高 → 不宜买入；买入当天可能见顶、次日容易被洗走。</li>
+      <li><strong>总结</strong>：不带量高开（远多于带量高开）；核心标准竞价成交量 ≥ 昨日总成交量的 5%，有效规避骗炮风险。</li>
+    </ul>
+
+    <h3>五、如何弱转强的总结（两种形式细化）</h3>
+    <ul>
+      <li><strong>技术面总结</strong>：前一天烂板/炸板；持股者预期低开（正常预期）；超预期情形带量高开或小低开快速翻红。</li>
+      <li><strong>带量高开</strong>：作用锁住筹码（持股者愿持有）+ 吸引场外资金（超预期），主力顺势拉板。</li>
+      <li><strong>小低开快速翻红</strong>：低开幅度不超过 -3%（-2% 至 -3%）；翻红时间 5 分钟内（越早越好）；作用锁住筹码 → 减少拉升抛压。</li>
+      <li><strong>关键</strong>：行（形式）= 上述两种形态；神（内在逻辑）= 何时、何股（下节重点）。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>弱转强本质：前一天烂板/炸板 → 次日超预期走强；是除打板外最常用、最实用的情绪节点操作手法。</li>
+          <li>弱转强两种形式：前一天烂板/炸板 → 次日低开快速翻红；或次日高开（超预期）。</li>
+          <li>"行"与"神"的区分：只知形式（行）不知内在逻辑（神）是失败根源——雪迪龙烂板后高开带量却炸板，即典型"骗炮"。</li>
+          <li>规避骗炮的核心量化标准（竞价量）：次日竞价成交额 ≥ 前一天总成交额的 5%，且必须带量（不带量成功率低）。</li>
+          <li>两种形式的细化要求：带量高开（锁筹码+吸引场外资金）；小低开快速翻红（低开幅度不超过 -3%、翻红时间 5 分钟内越早越好）。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>"烂板/炸板 → 低开预期"：持股者普遍预期次日低开，因此"高开"或"快速翻红"即构成超预期，这是弱转强的内在动力。</li>
+          <li>"形式 vs 神"：高开≠一定转强，需"带量"确认（竞价量≥5% 门槛）才能锁住筹码、吸引场外资金；不带量高开大概率骗炮（如昂利康）。</li>
+          <li>"案例链条"：诺德（烂板次日涨停·典型成功）→ 好上好（大烂板+超预期高开·成功）→ 雪迪龙（高开带量却炸板·失败）→ 昂利康（竞价量不足·大概率骗炮）。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：弱转强两种形式（带量高开 / 小低开快速翻红）及各自的量化参数（低开≤-3%、翻红≤5 分钟）。</li>
+          <li><strong>难点一</strong>：竞价量 5% 阈值这一"神"的判断，是本篇最硬核的量化工具，用以区分真弱转强与骗炮。</li>
+          <li><strong>难点二</strong>：原文中竞价量相关数值（"175 亿""18 亿""116 亿""44%""6%"等）存在明显语音识别误差，实值应为"约 1.75 亿/1.8 亿/1.16 亿/4.4%/0.6%"量级，具体需以实际盘面为准。</li>
+          <li><strong>难点三</strong>："何时、何股"（神的内在逻辑）留待下节展开，本篇仅完成"如何弱转强"的形式部分。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第21章 ============ -->
+  <section class="chapter" id="ch21">
+    <span class="chno">第 21 章</span>
+    <h2>题材节点（三）· 强分歧抱团低吸</h2>
+    <p class="lead">题材生命周期收官篇。爆发即"预期兑现"，之后操作重心从"情绪票"逐步切到"趋势票"再到"抱团活口"；活口要"活过两天 + 前15分钟不补跌"才可低吸博弈穿越。</p>
+
+    <h3>一、题材节点核心逻辑</h3>
+    <ul>
+      <li><strong>主升爆发日</strong>：题材"首次发酵"后，核心关注点是竞价是否超预期——超预期可继续介入（题材可能直接大爆发）；未超预期则继续观望。</li>
+      <li><strong>关键观察对象：连板龙头</strong>——核心信号是"弱转强表现"，弱转强可能带动题材爆发走强。</li>
+      <li><strong>龙头分类</strong>：题材龙头（仅带动自身板块）vs 市场龙头（与整体情绪形成共振）。</li>
+    </ul>
+
+    <h3>二、题材参与思路</h3>
+    <ul>
+      <li><strong>爆发后预期即兑现</strong>：后续走势是未知数，两种可能——分歧后再次大回流/大爆发，或直接结束。</li>
+      <li><strong>第一次爆发 = 最佳接入节点</strong>：买入龙头后持股待涨；若再次回流则更优，若无回流则直接离场。</li>
+      <li><strong>大爆发后板块状态</strong>：走出持续性，但预期差已兑现；例外——若恰逢情绪拐点或大盘行情好，可活跃数日。</li>
+    </ul>
+
+    <h3>三、题材发酵次日（后手资金策略）</h3>
+    <ul>
+      <li><strong>情绪龙</strong>：弱转强日可买入，但后续可能高开秒板或一字板，难以介入。</li>
+      <li><strong>趋势龙头票</strong>：作为后手资金的主要目标；换手充分、资金承接更强，上升空间虽低于情绪龙但安全性高。</li>
+      <li><strong>回流预期</strong>：板块再次走强或回流时，情绪龙与趋势龙必收大阳线（案例：恒宝股份情绪回流时走出涨停板/大阳线）。</li>
+      <li><strong>风险</strong>：若板块无强回流，需另行应对。</li>
+    </ul>
+
+    <h3>四、滞涨日</h3>
+    <ul>
+      <li><strong>核心策略</strong>：主要看趋势票，博弈板块分歧后回流。</li>
+      <li><strong>操作逻辑</strong>：爆发日情绪票应已买入；若未买入则转向趋势票；大爆发次日通常为分歧日；分歧后再次回流则趋势票将创新高。</li>
+    </ul>
+
+    <h3>五、退潮日</h3>
+    <ul>
+      <li><strong>滞涨信号</strong>：题材强度极低，出现 1-2 次强分歧；量化指标开盘数值为负值（如 7 月 1 日数字经济、锂电池均为负值）；板块接近尾声。</li>
+      <li><strong>机会来源：抱团票（活口）</strong>——板块内出现 1-2 个抱团个股，扮演力挽狂澜角色；抱团票涨停可能带动板块再次走强，走弱则板块基本结束。</li>
+      <li><strong>典型案例</strong>：大众交通（无人驾驶，情绪龙头断板后作为活口/趋势票抗跌，后续走强）；恒宝股份（数字经济，6 月 9 日确立板块龙头，回流时绝不离席）；百利电气（核电，5 月 30 日强分歧后成为活口，次日不补跌即可低吸博弈回流）。</li>
+      <li><strong>低吸策略</strong>：红盘抗分歧、均线低吸，博弈穿越并带动板块回流。</li>
+      <li><strong>退潮确认</strong>：抱团活口未走出来 → 板块结束 → 删自选，不再关注。</li>
+    </ul>
+
+    <h3>六、总结 · 题材节点体系全盘归纳</h3>
+    <ul>
+      <li><strong>发酵日</strong>：强发酵（≥3 个一字板）做首板，盈亏比高；小发酵不做、仅留意表现。</li>
+      <li><strong>主升爆发日</strong>：首次发酵后次日出现超预期竞价表现 → 做一进二（首板/一进二，主板或创业板；案例：军工）。</li>
+      <li><strong>例题1（进攻的一进二）</strong>：案例 5 月 8 日首板、5 月 9 日一进二（如成飞集成）；核心是概率博弈——无法确定某票一进二必成龙头，但可确定"龙头必出自一进二"；应对是分仓买入（看 2-3 个票一起买，总有一个走出来）。</li>
+      <li><strong>主升爆发后</strong>：板块持续活跃无强分歧 → 目标为持续换手的连板龙头，观察弱转强表现，出现则早盘试错买入（逻辑：弱转强→带动板块走强→龙头次日一字板或高溢价）。</li>
+      <li><strong>例题2（弱转强）</strong>：好上好（弱转强案例）、诺德（弱转强后走出 7 连板）。</li>
+      <li><strong>情绪票 vs 趋势票（爆发后）</strong>：大爆发后预期差消失，放弃情绪票、转向趋势票。对比——情绪票：板块无回流可能大面（A 杀）、板块强回流则高收益；趋势票：板块无回流亏损有限（几个点）、板块强回流可创新高。</li>
+      <li><strong>滞涨日操作</strong>：板块 1-2 次强分歧、强度为负值进入尾声 → 目标为资金抱团个股（活口）；活口筛选"活过两天"——第一天活下来、第二天前 15 分钟扛住分歧（未补跌）；扛住分歧时低吸博弈穿越（案例：恒宝，带动板块回流）。</li>
+      <li><strong>退潮日操作</strong>：活口未走出来则板块结束、无参与价值，取关（删自选）。</li>
+      <li><strong>题材节点 + 情绪节点共振</strong>：效果最突出；难度对比"情绪节点 > 题材节点"（情绪节点多节讲解、题材节点两节讲完）；共振时通常能"提前买到龙头"。</li>
+      <li><strong>课程收尾</strong>：系列课（情绪篇、题材篇）全部结束，体系首次公开，期望学员完善自身交易体系。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>题材生命周期完整时间线：发酵日 → 主升爆发日 → 发酵次日 → 滞涨日 → 退潮日，每阶段对应明确打法与标的切换。</li>
+          <li>发酵日：强发酵（≥3 个一字板）才做首板，小发酵只看不动。</li>
+          <li>主升爆发日：竞价超预期 → 做一进二；"龙头必出自一进二"，用分仓概率博弈对冲不确定性。</li>
+          <li>发酵次日（后手资金）：情绪龙难上车，转攻趋势龙头（换手充分、承接强）。</li>
+          <li>滞涨日：板块 1-2 次强分歧、量化开盘值为负 → 聚焦趋势票博弈分歧后回流创新高。</li>
+          <li>退潮日：唯一机会是抱团票/活口；活口"活过两天 + 第二天前 15 分钟扛住分歧不补跌"才可低吸博弈穿越；活口走不出来即板块结束、取关。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>"预期兑现"是贯穿全篇的主线：题材爆发即预期兑现，之后预期差消失，操作重心从"情绪票（吃预期）"→"趋势票（吃承接与创新高）"→"抱团活口（吃穿越与回流）"。</li>
+          <li>情绪票 vs 趋势票：情绪票高收益但可能 A 杀大面，趋势票亏损有限但可创新高——爆发后性价比逆转，决定资金迁移方向。</li>
+          <li>抱团活口是退潮期的"力挽狂澜"变量，其能否涨停/不补跌，是判断板块"回流重生"还是"彻底结束"的分水岭。</li>
+          <li>题材节点 &lt; 情绪节点，两者共振时才能"提前买到龙头"，是本系列课的最终落点。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：题材生命周期各阶段的标的切换逻辑（情绪票→趋势票→抱团活口）；"活口活过两天 + 前 15 分钟不补跌"的筛选标准。</li>
+          <li><strong>难点</strong>：滞涨与退潮的临界判断（量化开盘值为负、1-2 次强分歧）；抱团活口"能否带动回流"的前瞻性判断——这是区分"穿越成功"与"板块结束"的关键，也最考验盘感。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第22章 ============ -->
+  <section class="chapter" id="ch22">
+    <span class="chno">第 22 章</span>
+    <h2>补充篇 · 弱转强手法（二）· 何时做与何股</h2>
+    <p class="lead">弱转强成败关键不在技术形态，而在"何时 + 何股"——只在核心龙头个股上有效。三种节点：情绪主升节点（上午做次主线/下午做主线）> 主升结束节点（做趋势核心）> 主升首次强分歧节点（今年小节点失效）。</p>
+
+    <h3>一、弱转强的本质与成败关键</h3>
+    <ul>
+      <li><strong>技术面核心</strong>：烂板/炸板后，次日主力需锁住筹码；锁筹条件为带量高开或低开后快速翻红；目的是吸引场外资金、助力拉升。</li>
+      <li><strong>成败关键</strong>：技术面之外，更关键的是"何时"与"何股"——只有核心个股才具备人气与潜在买盘；弱转强仅在龙头个股上有效，非龙头个股时而有效、时而无效。</li>
+    </ul>
+
+    <h3>二、"何时"与"何股"</h3>
+    <ul>
+      <li><strong>何时（人气要求）</strong>：弱转强需极高人气，主力拉升需"锁住前日筹码 + 吸引场外资金"；越核心的个股 → 场外潜在买盘越高 → 弱转强成功率越高。</li>
+      <li><strong>何股（最核心个股类型）</strong>：板块龙头、市场龙头——场外资金潜在买盘最多；散户心理"明牌龙头大烂板 → 次日低开即买入 → 形成源源不断买盘"；主力顺势拉升封板。</li>
+    </ul>
+
+    <h3>三、应用案例</h3>
+    <ul>
+      <li><strong>诺德股份</strong>：持续换手、持续涨停，场外资金源源不断；拉升平稳干净，弱转强不断超预期。</li>
+      <li><strong>圣龙股份</strong>：不断换手、不断涨停，本质是弱转强持续超预期。</li>
+    </ul>
+
+    <h3>四、弱转强升华：何时做（三种节点）</h3>
+    <ul>
+      <li><strong>核心问题</strong>：龙头个股也非 100% 成功，能否在未成龙头前提前发现？提前进场有底仓则操作更安心。</li>
+      <li><strong>关键时间节点——主升首次强分歧节点</strong>：正常规律"一波主升（3-5 天）→ 第一次强分歧 → 次日强修复"；但今年主升仅 2-3 天即一次强分歧结束 → 方法失效；例外是超级大题材（如 Deep Seek）仍有效。结论：小节点失效，暂放弃此方法，重点聊前三个节点。</li>
+      <li><strong>主升结束节点</strong>：主升趋势结束但"壮年效应"仍在、存在修复预期；操作对象是趋势核心（非情绪票）；原因是情绪票在主升末期易 A 杀（如诺德股份、成飞集成）、性价比低。</li>
+      <li><strong>例题：好上好</strong>（7 月 2 日主升结束进入高位筑顶/震荡期）：做趋势票/抱团票的弱转强；信号为低开快速翻红 → 半路买点 → 涨停；结论是主升结束节点做趋势核心。</li>
+    </ul>
+
+    <h3>五、情绪主升节点（更重要）</h3>
+    <ul>
+      <li><strong>上午走强 → 做次主线（第二主线预期）</strong>：操作次主线板块领涨龙头的超预期弱转强；案例 6 月 23 日上午走强，最强题材为数字经济+金融，次主线为诺德股份（大烂板）→ 次日低开快速翻红。</li>
+      <li><strong>下午走强 → 做主线</strong>：操作主线预期方向领涨龙头的弱转强；买点为开盘价低则直接买、开盘价高则回落低吸；预期差在于"下午走强 → 多数人认为无预期 → 弱转强即预期差"；案例 6 月 16 日恒宝股份（烂板）→ 次日小高开 → 快速涨停。</li>
+    </ul>
+
+    <h3>六、"得意忘形"：不拘泥技术面形态</h3>
+    <ul>
+      <li><strong>恒宝股份（6 月 16 日）</strong>：烂板 → 次日小高开 → 快速涨停；技术面不必局限于带量高开等竞价形态；本质是核心龙头的右侧玩法 → 次日高开低吸即可，定位为顺势买点。</li>
+      <li><strong>颜志杰（9 月 26 日）</strong>：确定情绪走主升 → 烂板 → 次日高开 → 弱转强涨停；核心是"下午走强 → 顺势操作，不拘泥于技术面形态"；关键是理解内在的"神"，而非陷入"形"的陷阱。</li>
+    </ul>
+
+    <h3>七、退潮末期节点</h3>
+    <ul>
+      <li><strong>难度</strong>：稍高，但盈亏比最高。</li>
+      <li><strong>逻辑</strong>：退潮末期买到龙头 → 走一致/加速；若弱转强成功 + 当日情绪主升 → 次日高溢价。</li>
+      <li><strong>建议</strong>：重点看退潮末期节点思路解析（系列课，约三节）。</li>
+    </ul>
+
+    <h3>八、强度判据（反例）</h3>
+    <ul>
+      <li><strong>好上好（6 月 27 日-6 月 30 日）</strong>：6 月 27 日大烂板（分歧巨大）；6 月 30 日高开 +4% 与情绪共振；合理预期应为高开 8-9 个点、高开秒板或一字板，实际仅高开 4 个多点 → 偏弱、不及预期；结论：虽最终涨停，但强度不足、不符合龙头标准。</li>
+      <li><strong>板块龙头标准走势</strong>：板块效应强时，标准走势是高开秒板乃至一字板；次日预期继续加速（高开秒板或一字板）。</li>
+      <li><strong>核心逻辑</strong>：弱转强本质是"技术面与情绪共振的节点龙头"，盈亏比最高；关键节点是"情绪共振 → 弱转强 → 加速一字"。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>弱转强的本质是"主力锁筹 + 吸引场外资金"，技术信号为"带量高开或低开快速翻红"。</li>
+          <li>成败关键不在技术形态，而在"何时 + 何股"：只有核心龙头个股（板块龙头/市场龙头）才具备足够人气与潜在买盘，弱转强才有高成功率。</li>
+          <li>三种应用节点（何时做）：①主升首次强分歧节点（往年有效，今年主升缩短至 2-3 天即一次分歧结束、小节点失效暂弃用，仅超级大题材仍有效）；②主升结束节点（做趋势核心，信号低开快速翻红→半路买点）；③情绪主升节点（更重要，上午走强做次主线龙头、下午走强做主线龙头，下午走强自带"无预期"的预期差）。</li>
+          <li>技术面要"得意忘形"：不拘泥竞价形态（带量高开），核心是理解"右侧顺势买点"的内在逻辑，避免陷入"形的陷阱"。</li>
+          <li>强度判据：板块龙头标准走势应为"高开秒板/一字板"，若仅高开 4 个点（如好上好 6 月 30 日），即便最终涨停也"不及预期、不符合龙头标准"。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>全篇从"本质 → 条件 → 场景 → 案例 → 强度判断"逐层递进：人气决定买盘 → 买盘决定成功率 → 成功率只在高辨识度核心龙头 + 正确节点上兑现。</li>
+          <li>"何时"与"何股"是弱转强成立的两根支柱，缺一不可；技术形态只是最表层的载体。</li>
+          <li>三种节点的优先级：情绪主升节点 &gt; 主升结束节点 &gt; 主升首次强分歧节点（后者今年因市场节奏变化而失效）。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>："何时 + 何股"的定性判断——弱转强只做核心龙头；情绪主升节点"上午做次主线/下午做主线"的分流；退潮末期盈亏比最高的结论。</li>
+          <li><strong>难点</strong>：如何"得意忘形"——把弱转强从"竞价形态信号"升维到"情绪节点 + 龙头地位的右侧顺势买点"；以及如何用"强度（高开幅度）"来证伪一个看似成功的弱转强（好上好的反例）。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第23章 ============ -->
+  <section class="chapter" id="ch23">
+    <span class="chno">第 23 章</span>
+    <h2>补充篇 · 节点体系如何高效复盘（复盘八问）</h2>
+    <p class="lead">把"情绪节点 + 题材节点"理论落地为每日可执行决策的清单化工具——通过八个问题自问自答，层层收敛出明日"能否做、做什么、做谁"。情绪三问定仓位、题材两问定方向、个股一问定打法、回顾两问兜底风险。</p>
+
+    <h3>一、情绪复盘三问（定时间与仓位）</h3>
+    <ul>
+      <li><strong>第一问：明天是否可能为情绪主升拐点当天</strong>——判断依据是"上午还是下午走强"，目的为确定情绪流最佳切入时机。</li>
+      <li><strong>第二问：明天是否可能为情绪拐点次日</strong>——关键区分"上午走强 vs 下午走强"，不同走强形式对应不同操作方法。</li>
+      <li><strong>第三问：明天是否可能为退潮末期（情绪拐点前一天）</strong>——核心逻辑是情绪拐点为情绪流最佳切入时机。</li>
+      <li><strong>三问结论</strong>：直接决定明日重仓 / 轻仓 / 不做。</li>
+    </ul>
+
+    <h3>二、题材复盘两问（定方向）</h3>
+    <ul>
+      <li><strong>第四问：明天是否可能有走主升的题材</strong>——主升题材两种形式：①发酵初期（首次发酵 → 次日加强）；②活跃多天后大爆发（板块持续活跃，某日集中爆发）。</li>
+      <li><strong>第五问：明天是否可能有超预期走强的板块</strong>——超预期三种来源：①新信息驱动（政策面消息、影响力大的全国/全球事件）；②竞价强共振（出现时首板可做）；③正常运作题材异动（板块持续活跃，内部持续换手的三板/四板连板股突然走强，带动板块爆发）。</li>
+    </ul>
+
+    <h3>三、个股复盘一问（定打法）</h3>
+    <ul>
+      <li><strong>第六问：操作个股的参与方式</strong>——关注对象为高辨识度个股（尤其是龙头股）；操作分类：低吸（成本线低吸 vs 拉红低吸）或追高（半路买 vs 打板买）。</li>
+    </ul>
+
+    <h3>四、回顾两问（风险兜底）</h3>
+    <ul>
+      <li><strong>第七、八问：风险与机会回顾</strong>——核心原则是"不可忽略市场整体风险"；示例（7 月 6 日退潮市场）：风险为延续退潮，机会为情绪拐点出现。</li>
+      <li><strong>操作建议</strong>：将八个问题答案写在一张纸上，形成明日明确思路（该做什么、做谁）。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>复盘八问是一套把"情绪节点 + 题材节点"理论落地为每日可执行决策的清单化工具，分四层。</li>
+          <li>情绪层面（三问）问清"时间定位"：明天是否情绪主升拐点当天、是否情绪拐点次日、是否退潮末期/拐点前一天；三问结论直接决定仓位级别（重仓/轻仓/不做）。</li>
+          <li>题材层面（两问）问清"方向"：是否有走主升的题材（发酵初期加强 or 活跃多天后大爆发）；是否有超预期走强的板块（新信息驱动/竞价强共振/持续换手连板股突然走强）。</li>
+          <li>个股层面（一问）问清"打法"：对高辨识度龙头，是低吸（成本线/拉红）还是追高（半路/打板）。</li>
+          <li>回顾（两问：风险 + 机会）：不可忽略市场整体风险，最终把八个答案落在一张纸上形成明日思路。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>八问是层层收敛的结构：情绪定"能不能做、做多重"（时间与仓位）→ 题材定"往哪做"（方向与板块）→ 个股定"怎么做、做谁"（手法与标的）→ 回顾做"风险兜底"（全局校验）。</li>
+          <li>时间定位是第一优先级：同一套题材机会，在"拐点当天/次日/前一天"的对应操作完全不同，所以情绪三问排在首位并直接决定仓位。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：八问的清单结构本身（可复制为每日复盘模板）；情绪三问对仓位的直接决定作用；题材主升的两种形式与超预期的三种来源。</li>
+          <li><strong>难点</strong>：对"明天是拐点当天/次日/前一天"的提前预判（依赖前序情绪节点课程积累的盘感）；把抽象的"超预期来源"（尤其"持续换手连板股突然走强带动爆发"）识别出来。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第24章 ============ -->
+  <section class="chapter" id="ch24">
+    <span class="chno">第 24 章</span>
+    <h2>补充篇 · 反核指数如何搭建</h2>
+    <p class="lead">反核指数 = "亏钱效应指数"，用三类标的（连板断板票 + 人气票大跌 + 大幅回撤票）构建实时指数；指数变红 → 亏钱效应基本被消灭，常出现在情绪转折点。需每日"删止跌、增新亏钱"动态维护。</p>
+
+    <h3>一、反核指数的定位与工具</h3>
+    <ul>
+      <li><strong>定位</strong>：节点体系中非常关键的一环。</li>
+      <li><strong>核心功能</strong>：代表市场情绪是否大幅回暖——转折点处反核指数通常出现红盘。</li>
+      <li><strong>核心逻辑</strong>：表征日内情绪表现，即亏钱效应的量化。</li>
+      <li><strong>搭建工具</strong>：必须使用同花顺（其他软件不支持）。</li>
+    </ul>
+
+    <h3>二、构建标的池（三类标的）</h3>
+    <ul>
+      <li><strong>① 连板断板票</strong>：使用"动态板块"功能，筛选"前日涨停/昨日连板"，找出连板失败的断板个股（被核的票）。示例：周五构建、基于周四数据（7 月 3 日的连板股即"被核的票"）。</li>
+      <li><strong>② 人气票大跌</strong>：人气前 100 的票中，跌幅 ≥ -6% 的个股——人气票大跌代表亏钱效应。新建板块命名为"反核"（或"亏钱效应"）。</li>
+      <li><strong>③ 大幅回撤票</strong>：开盘大幅回撤（冲高回落、回头波）的票；示例万里股份（若不在板块中则加入）。</li>
+    </ul>
+
+    <h3>三、导出为网址（指数化）</h3>
+    <ul>
+      <li><strong>导出方式</strong>：同花顺 APP → 板块 → 导出为网址（手机 APP 自建板块可导出为网址）。</li>
+      <li><strong>网址功能</strong>：自动量化成指数（含涨跌幅，盘中动态变化）。</li>
+      <li><strong>分享方式</strong>：同花顺 APP → 分享为链接，手机或浏览器打开即自动量化成指数；收盘时收集整理该指数数据。</li>
+    </ul>
+
+    <h3>四、每日维护规则（核心，非一次性构建）</h3>
+    <ul>
+      <li><strong>删除</strong>：已止跌的票（跌幅 &lt;3% 或收阳线）——亏钱效应已缓解，不再代表被市场抛弃。</li>
+      <li><strong>新增</strong>：当日断板票 + 人气靠前且出现亏钱效应的票。</li>
+      <li><strong>核心</strong>：反核指数需每日动态增减，非一次性构建。</li>
+    </ul>
+
+    <h3>五、关键判读与注意事项</h3>
+    <ul>
+      <li><strong>反核指数变红（红盘）→ 亏钱效应基本被消灭</strong>，往往出现在情绪转折点。</li>
+      <li><strong>数据差异说明</strong>：讲师的反核指数已跟踪多年、每日增减；新建指数与讲师指数数值会有差异（如讲师 -3，新建可能 -4 或 -2）；核心思路一致——人气靠前断板票 + 冲高回落票 = 亏钱效应代表，不必追求数值完全对齐。</li>
+      <li><strong>构建思路总结</strong>：将人气票中跌幅≥-6% 的个股 + 连板断板票 + 大幅回撤票三者共同构成亏钱效应板块池 → 反核指数的标的池。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>反核指数本质是"亏钱效应的量化指数"，通过三类标的构建：①连板断板票（被核的票）；②人气票大跌（人气前 100 中跌幅≥-6%）；③大幅回撤票（冲高回落、回头波）。</li>
+          <li>三类标的放进同花顺"反核"板块，导出为网址即自动量化为实时指数（含涨跌幅、盘中动态变化）。</li>
+          <li>关键判读规则：反核指数变红（红盘）→ 亏钱效应基本被消灭，往往出现在情绪转折点。</li>
+          <li>每日维护规则（核心）：删除已止跌的票（跌幅&lt;3% 或收阳线）；新增当日断板票 + 人气靠前且出现亏钱效应的票。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>"反核指数 = 亏钱效应指数"：逻辑链条是"今日被核的票 → 次日平均表现 → 判断情绪是否修复/回暖"；被核票集体收红说明亏钱效应被消化、情绪回暖。</li>
+          <li>三类标的都指向"被市场抛弃"的证据：断板（攻击失败）、人气票大跌（关注度高的票亏钱）、冲高回落（盘中套牢），它们是亏钱效应最直观的载体。</li>
+          <li>每日增减维护的意义：指数必须动态反映最新一天的亏钱效应，滞留在池子里已止跌的票会污染信号。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：三类标的池的构成标准（断板票、人气前 100 跌幅≥-6%、大幅回撤票）；"反核指数变红=亏钱效应被消灭"的判读；每日"删止跌、增新亏钱"的维护规则。</li>
+          <li><strong>难点</strong>：工具的实操细节（同花顺动态板块、导出网址、手机 APP 分享）；理解新建指数与讲师多年跟踪指数之间"数值有差异但思路一致"的容忍度。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第25章 ============ -->
+  <section class="chapter" id="ch25">
+    <span class="chno">第 25 章</span>
+    <h2>双节点共振博弈情绪节点龙头（长篇 · 全课程核心）</h2>
+    <p class="lead">当题材节点（题材爆发走主升）与情绪节点（情绪主升）共振时诞生"节点龙头"。退潮末期（试错期）第 2、3 天出手，反转概率 80%；题材主升仅三种形式、龙头身位聚焦三板（70%），博弈"三进四"，竞价需"高开+快速涨停"。</p>
+
+    <h3>板块一 · 双节点共振理论框架</h3>
+    <ul>
+      <li><strong>定义</strong>：确定情绪龙头的时机——题材节点（题材爆发走主升）+ 情绪节点（情绪主升节点），共振结果诞生"节点龙头"。</li>
+      <li><strong>历史高度</strong>：往年 6-7 板（4 板上车，收益 20-30 点，题材大则 40-50 点）。</li>
+      <li><strong>当前高度</strong>：受监管等限制，天花板约 6 板（4 板上车，预期约 20 个点）。</li>
+      <li><strong>退潮期新特征</strong>：退潮阶段即试错期；时间周期以往约 5 天 → 当前 2-3 天；操作策略以往规避风险 → 当前为出手时机；<strong>退潮第 2、3 天出现反转概率达 80%</strong>。</li>
+      <li><strong>核心结论</strong>：情绪节点已基本确认（80% 反转概率），当前重点是板块节点的把握。</li>
+    </ul>
+
+    <h3>板块二 · 板块持续性的三种形式与操作思路</h3>
+    <ul>
+      <li><strong>形式一：刚发酵的新题材（发酵后继续加强）</strong>——首日 8 个涨停板 → 次日飙至 15 个涨停板；资金认可、竞价即有表现；案例 5 月 26 日核电（上尾、荣发、中超等竞价前 10 个股同板块共振，上尾排名第一）；关键：一字板 + 板块效应 → 必须留意。</li>
+      <li><strong>形式二：近期活跃后某天大爆发</strong>——板块近期活跃（如 5 天：4 板→5 板→3 板→6 板）但未出现强爆发；关键：缺一次证明自己的机会（如第 5 天突然飙至 12 个涨停板），走出板块效应与主升。</li>
+      <li><strong>形式三：新爆发题材第三天强回流</strong>——某天因新闻/政策发酵爆发 12 个涨停板 → 次日分歧（剩 4 板）→ 第三天强回流（加至 11 板）；结论：爆发→分歧→强回流，即板块走主升。</li>
+      <li><strong>总结</strong>：三种形式覆盖市场 90% 以上题材主升可能性；其他（如多轮爆发）属少数，暂不深究。</li>
+      <li><strong>双节点共振操作思路</strong>——时机为情绪可能走反转的当天；步骤：①列出候选板块（A、B、C、D 等）；②逐一对照三种形式判断可能性；③找出板块内情绪龙头（领涨股，如 A1、B1、C1、D1）；④将领涨票放入自选股；⑤超预期表现（如高开秒板）→ 直接打板。</li>
+    </ul>
+
+    <h3>板块三 · 情绪龙头身位选择与三进四博弈</h3>
+    <ul>
+      <li><strong>身位概率分布</strong>：三板 70% 概率成为情绪龙头；二板 20%；四板及以上 10%。目光聚焦三板、博弈三进四。</li>
+      <li><strong>三进四的重要性</strong>：龙头必经之劫，三进四是大门槛；二进三仍含情绪成分，三进四才是确定性博弈点。</li>
+      <li><strong>三进四前置条件</strong>：①身位要求——三板必须是当前最高板或次高板（最高/次高天然具有辨识度；例外若最高板已到 7-8 板则三板辨识度低，需找四板或五板但盈亏比已大幅降低）；②板块地位——必须是板块龙头（若板块内已有四板或五板则不看三板）。</li>
+      <li><strong>次日竞价要求</strong>：三板烂板 → 次日必须"高开 + 快速涨停"（承担情绪节点与板块情绪龙头角色，需主动进攻不可示弱）；低开拉涨停属被动式（被情绪反推）、次日无溢价；高开快速涨停可享受次日高溢价（秒板/一字板）。</li>
+      <li><strong>加速板规则</strong>：低位加速可加速一次（如三板）；三进四可再加速一次（T 字板或高开秒板）；高位加速（三板以上）绝对不行。</li>
+      <li><strong>例题：成飞集成走势分解</strong>——首板换手板 → 二板放量换手板 → 三板一字板加速 → 四板高开秒板（小 T 字 K 线）。</li>
+      <li><strong>加速板超预期逻辑</strong>：常规预期是"弱→更弱、强→分歧（转弱）"，而"强更强"是超预期（买点要求更高、难度大于弱转强）；限制条件为<strong>不可连续两天加速</strong>——反例"首板实体 + 二板一字 + 三板一字（加速两次，不行）"；正例"共创草坪（二板加速，三板换手，四板加速）"。</li>
+    </ul>
+
+    <h3>板块四 · 二板三板对比、打板条件与个股案例</h3>
+    <ul>
+      <li><strong>例题：共创草坪（二板个股条件）</strong>——核心前提是题材"刚发酵、未大爆发过"；二板表现为弱转强或日内 T 字板（高开 9 个点→分歧→直线拉板/板上硬换手）。</li>
+      <li><strong>题材优先级</strong>：新发酵题材 = 一周内活跃题材（近 5 日）&gt; 老题材（审美疲劳）；爆发轮次：第一轮爆发 = 第二轮爆发（性价比相同），第三轮及以后性价比递减（空间有限、易成强分歧、资金提前埋伏）；身位优先级：三板 &gt; 二板 &gt; 四板。</li>
+      <li><strong>值得打板的条件总结</strong>——三板：最高/次高板 + 新发酵或近期活跃题材 + 未爆发/有二次爆发可能；竞价要求高开 + 带量（量比≥5%）；板块强（有低位助攻/强趋势票）可半路买入。二板：题材必须未大爆发过，买点同三板（弱转强高开 / 日内大换手 T 字板）。</li>
+      <li><strong>例题：金安国际（PCB，7 月 8 日）</strong>——同板块参照工业富联（大盘股，高开高走，起"打样"作用）；买点：半路买入（板块内标杆股走强、盘口硬：大单托底/推升）、打板买入（弱转强板上买）、竞价买入（竞价符合量 + 板块无问题，板上再加仓）、T 字板（直接开在涨停板附近）。</li>
+      <li><strong>超预期一字板套利</strong>：同题材超预期一字板 → 关注同身位换手板做套利（案例上海物贸 vs 蓝生股份）；20cm 套利同理。</li>
+      <li><strong>例题：工业富联（二板 vs 三板差异）</strong>——二板：同身位票多（3-6 个）、不确定性高（易被卡位），题材必须未大爆发过，买点弱转强高开/日内大换手 T 字板（板上硬换手/高开后下杀再拉 T 字）；三板：同身位通常仅剩 2 个、确定性更高，题材可爆发过一次、博弈第二次爆发。</li>
+      <li><strong>情绪节点选股流程</strong>：退潮确认当晚筛选可能大爆发的题材；笨方法逐一排查三种可能性（a/b/c）罗列候选板块；剔除"板块仅有一个板 + 无板块效应、无爆发可能"的板块；案例 7 月 14 日/15 日选股。</li>
+    </ul>
+
+    <h3>板块五 · 实战复盘案例（7 月 14 日 / 15 日）</h3>
+    <ul>
+      <li><strong>例题 1：7 月 14 日（退潮日）超短情绪分析</strong>——市场最高板为四板（国生科技，光伏）；光伏有板块效应但 7 月 8 日大爆发后分歧、5 天内仅活跃 2 天（活跃度不足），结论光伏线忽略不计。三板筛选：剩余标的绿地（RWA/稳定币/数字经济）、连环药业（创新药），均属多轮板块（非刚发酵）符合条件；7 月 14 日开盘绿地开在 -6% → 基本放弃，连环药业开在 -3%（需高开但低开）→ 放弃，结果三板票全部淘汰。二板筛选：二板票多但普遍难做；排除逻辑——机器人当天未大爆发 → 排除，蓝生（RWA）已有三板 → 排除，汇通无板块效应 → 排除，稀土/电力已爆发过 → 排除，中大立德、西头永磁多为 RWA/数字稳定币；结论二板票多且难选、整体可操作性差。</li>
+      <li><strong>例题 2：7 月 15 日超短情绪分析</strong>——稀土永磁 7 月 11 日首日大爆发、7 月 14-15 日为第三天但未出现强回流 → 预期降低、可能走活跃路线；机器人 7 月 14-15 日为分歧后，第三天（7 月 16 日）存在强回流可能性。个股筛选：蓝生、上海物贸同一板块（RWA/数字经济）；华虹前期炒稀土永磁、无板块效应；达一龙、汇通发展属房地产板块、前期已爆发过一次。</li>
+      <li><strong>退潮期关注方向</strong>：机器人（分歧后第三天 7 月 16 日存在强回流可能）；RWA/数字经济/金融（多轮板块，可继续关注）。</li>
+      <li><strong>应用案例（板块效应·三板筛选）</strong>：绿田机械无板块效应（业绩增长线不算）；蓝生、上海物贸、华虹中华虹无板块效应仅剩独苗；达一龙算一个；汇通连续一字板不能买；符合条件为蓝生、上海物贸、达一龙。</li>
+      <li><strong>达一龙分析</strong>：当日换手板，开盘高开且带量，竞价进左笔 -6% 符合条件；结论上半可操作但走势较恶劣，手快可赚到钱。</li>
+      <li><strong>蓝生股分析</strong>：非常超预期的一字板，优先买入、盘中可能走 T 字板；条件为"早上 10 点前出现 T 字板可打板，下午则不行"。</li>
+      <li><strong>上海物贸分析</strong>：一字板，操作策略做其换手板套利，可行。</li>
+      <li><strong>二板筛选</strong>：排除手电筒、三个管桩、业绩线；保留潍柴重机（算力新题材，算力前两年新出题材、7 月 15 日为新发酵），结论二进三可打。</li>
+      <li><strong>最终自选股</strong>：共 4 只（三板优先、二板次选）——蓝生、上海物贸、达一龙、潍柴重机；逻辑是双节点共振，退潮日按此思路试错打板、博弈情绪龙头。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>时机层：退潮第 2、3 天出手，反转概率 80%（情绪节点基本锁定）。</li>
+          <li>题材层：题材走主升只有三种形式（发酵加强 / 活跃后爆发 / 爆发-分歧-强回流），覆盖 90% 以上，用三种形式逐一校验候选板块。</li>
+          <li>身位层：情绪龙头聚焦三板（70% 概率），博弈"三进四"这一确定性大门槛。</li>
+          <li>竞价层：三板烂板次日必须"高开+快速涨停"（主动进攻）；加速板"低位可加速、三进四可再加速、三板以上禁止、不可连续两天加速"。</li>
+          <li>打板层：三板"最高/次高板+新发酵或近期活跃题材+未爆发/二次爆发可能+高开带量（量比≥5%）"；二板"题材未大爆发+弱转强高开/日内大换手 T 字板"；三板&gt;二板&gt;四板。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>全篇是逐层收窄的漏斗：先用情绪节点（80% 概率）锁定"何时做"，再用题材三种形式锁定"哪个板块"，再用身位概率锁定"哪个板位"，再用竞价/加速规则锁定"如何验证强度"，最终用 7 月 14/15 日复盘把整套规则落到 4 只自选股。</li>
+          <li>每一层的排除规则（无板块效应、已爆发过、已有更高板、低开即弃、连续一字不能买）共同构成一个证伪优先的决策树。</li>
+          <li>三板概率分布（三板 70% &gt; 二板 20% &gt; 四板 10%）决定主攻方向；"三进四是大门槛/确定性博弈点"解释为何盯三板。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：双节点共振的定义与触发；题材持续性三形式；三板 70% 概率与三进四博弈；加速板"不可连续两天加速"规则；量比≥5% 竞价标准；7 月 14/15 日的复盘决策链。</li>
+          <li><strong>难点一</strong>："三进四前置条件"（最高/次高板 + 板块龙头）的严格筛选。</li>
+          <li><strong>难点二</strong>："强更强"超预期（难度高于弱转强）的识别。</li>
+          <li><strong>难点三</strong>：加速板的边界判断（成飞集成正例 vs 连续两天一字反例）。</li>
+          <li><strong>难点四</strong>：复盘中大量证伪性排除对纪律的要求（不因一两个看似可做的票而放松标准）。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ 第26章 ============ -->
+  <section class="chapter" id="ch26">
+    <span class="chno">第 26 章</span>
+    <h2>补充篇 · 反核指数及情绪表如何制作</h2>
+    <p class="lead">把"情绪表 + 反核指数"做成可量化、每日可维护的情绪监测系统，判断情绪节点处于试错/震荡/主升阶段。情绪表采集涨跌停/人气/涨幅前 20/人气前 20；反核指数量化亏钱效应，以 -5 为基准做红绿判读。</p>
+
+    <h3>一、情绪表（数据采集层）</h3>
+    <ul>
+      <li><strong>涨跌停数据</strong>：基础数据，获取简单（软件/网页一键查询）；数据来源示例"五羊量化"——可查连板数量（十板、五板、四板等）、涨停/跌停、高度连板数量；"打板资金"是量化指标之一，用于情绪节点分析。</li>
+      <li><strong>人气数据</strong>：风向标"开盘啦"软件功能，近期热门股票列表，指标为涨幅（如 +3%、-2%），代表当日赚钱效应强度；负值（如 -3%）赚钱效应差，正值（如 +3%、+4%）赚钱效应强。</li>
+      <li><strong>涨幅前 20</strong>：数据来源同花顺，操作"60 回车 → 添加五日涨幅指标"；筛选规则剔除大阴线个股（如北方长隆、新汉新材）；动态板块设置范围涨幅前 30，剔除新股、ST 股、北交所个股，最终结果涨幅前 20。</li>
+      <li><strong>涨幅前 20 筛选逻辑（课前回顾）</strong>：剔除条件为形态破坏（如爆量大阴线）；示例——加圆形态正常保留、信材（信号信材）形态差剔除、辐射电子非爆量大阴线保留、中孚新材爆量阴线剔除；最终保留前 20 只形态健康的个股。</li>
+      <li><strong>动态板块操作流程</strong>：①设置动态板块涨幅前 30；②剔除新股、ST 股、北交所；③手动剔除形态破坏（爆量大阴线）个股；④最终保留前 20 只。</li>
+    </ul>
+
+    <h3>二、涨幅前 20 分析（股票池指数化）</h3>
+    <ul>
+      <li><strong>同花顺特色功能"股票池指数化"</strong>：根据盘中变化实时计算个股平均涨幅（示例 +9 → 平均涨幅 9 个点）。</li>
+      <li><strong>次日走势关注</strong>：正常预期高举高打、大概率红盘、平均涨幅 3% 左右；异常信号次日平均涨幅 -1% → 前排票涨势不佳、当日分歧。</li>
+      <li><strong>市场人气排名</strong>：数据来源同花顺（东财、通达信类似），人气前 20 与涨幅前 20 同理；判断标准——平均涨幅 +3% 市场良好、+1% 一般或略微分歧、-2% 强分歧；案例周五涨幅前 20 平均涨幅 -5% → 当日分歧。</li>
+    </ul>
+
+    <h3>三、同花顺情绪指数与反核指数</h3>
+    <ul>
+      <li><strong>同花顺情绪指数</strong>：代表短线情绪整体趋势；当前状态大趋势向上（中间有震荡），结论超短期趋势向上。</li>
+      <li><strong>反核指数与"日内被核"的本质</strong>：衡量亏钱效应在次日的表现——当日产生亏钱效应的票（如 50 只）次日观察其平均涨幅；正常预期低开低走平均涨幅 -2%，弱修复 -1%，强修复 +1% 至 +2%，反转信号为红盘甚至大阳线（亏钱效应被消化）。</li>
+      <li><strong>结合其他指标</strong>：涨跌停数据、打板资金、连板高度等，若多项指标同时好转 → 市场走反转。案例：7 月 16 日与 17 日反核票变红、风向标指数变红、打板资金/连板高度明显好转；7 月 8 日反转信号非常明显。</li>
+      <li><strong>日内被核标的（来源）</strong>：①断板票——无论涨跌（+8% 或 -8%）均列入；②人气票跌幅靠前——人气前 100 中跌幅超过 -6% 的票（示例北纬科技、中大立德、上我新材等）；③冲高回落的票。</li>
+    </ul>
+
+    <h3>四、人气票 / 冲高回落票 / 近期被核池</h3>
+    <ul>
+      <li><strong>冲高回落票</strong>：第三个来源；数据位置"开盘啦 → 市场情绪 → 大幅回撤"；将大幅回撤中的票全部加入"日内被核池子"。</li>
+      <li><strong>日内被核池子</strong>：包含三方面来源——断板票、人气票跌幅靠前、冲高回落票；次日观察这些票的平均表现（低开低走延续分歧 / 高开收大阳线强修复）。</li>
+      <li><strong>近期被核票</strong>（原文"近期背合标"，与"日内"不同）：代表近 5 天或 10 天的累计数据；每日清空（每天收盘后 4-5 点或 7-8 点重新加入）；剔除规则为已止跌的票（平均涨幅在 -3% 以内）剔除。</li>
+      <li><strong>反核指数</strong>（原文"反合指数"）：近期被核票的指数化；操作先剔除止跌票、再加入新被核票；示例周五有 20 个票、周一有 27 个新票——第一步剔除周五中已止跌（-3% 以内）的票，第二步加入周一新产生的 27 个票，得到新数值（如 31）。</li>
+      <li><strong>转移效应（反比例函数）</strong>：基于反核指数做的反比例函数；基准 100；关系为数值越低（如 27）指数越高、数值越高（如 30）指数越低。最终应用：通过数值判断情绪节点（试错阶段、震荡阶段、主升阶段）。</li>
+    </ul>
+
+    <h3>五、红绿判读（以 -5 为基准线）</h3>
+    <ul>
+      <li><strong>人气基准设定</strong>：以 -5 作为基准线；数据处理最终数值 = 原始数值 - (-5) = 原始数值 + 5。</li>
+      <li><strong>计算方式</strong>：原始涨幅 - 基准(-5) = 真实数据；例涨幅 4% → 4 - (-5) = +9（红色，正值）。</li>
+      <li><strong>情绪判断标准</strong>：红色多 → 市场情绪好；绿色多 → 市场情绪差。</li>
+      <li><strong>应用场景</strong>：指数红但指标绿 → 情绪不佳；指标大多红 → 情绪修复；核心结论——通过红绿数量对比得出关键情绪节点。</li>
+    </ul>
+
+    <div class="cards">
+      <div class="card key"><h4>核心要点</h4>
+        <ol>
+          <li>情绪表（数据采集层）：涨跌停数据（连板数量、涨停/跌停、高度连板、打板资金，来源五羊量化等）；人气数据（开盘啦风向标，涨幅正负值代表赚钱效应强弱）；涨幅前 20（同花顺 60 回车+五日涨幅，剔除新股/ST/北交所+形态破坏大阴线，保留前 20 只形态健康票）；人气前 20（+3% 良好、+1% 一般/略微分歧、-2% 强分歧）。</li>
+          <li>反核指数（亏钱效应量化层）：标的池三来源——断板票（无论涨跌）+ 人气前 100 跌幅超 -6% + 冲高回落票。</li>
+          <li>两个概念：日内被核池（当日被核的票，次日观察平均涨幅：-2% 低开低走延续分歧 / -1% 弱修复 / +1%~+2% 强修复 / 红盘大阳线=反转）；近期被核票 → 反核指数（近 5-10 天累计，每日"剔止跌（-3% 以内）+ 加新被核票"，做反比例函数基准 100、票数越低指数越高）。</li>
+          <li>红绿判读：以 -5 为基准线，真实数据 = 原始涨幅 + 5，红多情绪好、绿多情绪差；最终用于判断情绪节点处于试错/震荡/主升阶段。</li>
+        </ol>
+      </div>
+      <div class="card logic"><h4>逻辑关系</h4>
+        <ul>
+          <li>"数据采集 → 指数化 → 红绿判读 → 节点定位"是一条完整流水线：先用涨跌停/人气/涨幅前 20 采集原始数据，再通过股票池指数化、反核指数把数据量化成"平均涨幅/红绿状态"，最后用红绿数量对比定位情绪节点。</li>
+          <li>反核指数是情绪表中最核心的"亏钱效应"指标，专门解决"亏钱效应是否被消化/是否反转"这一关键问题；必须与涨跌停数据、打板资金、连板高度等多项指标共振才能确认反转（如 7 月 16/17 日、7 月 8 日案例）。</li>
+          <li>"日内被核 vs 近期被核"是一对时间维度：前者看"今天亏钱明天怎么走"（情绪修复即时反馈），后者看"近 5-10 天亏钱效应累计存量"（节点阶段背景判断）。</li>
+        </ul>
+      </div>
+      <div class="card hard full"><h4>重点与难点</h4>
+        <ul>
+          <li><strong>重点</strong>：涨幅前 20 的筛选流程（60 回车+五日涨幅+三层剔除）；反核指数标的池三来源；"剔止跌（-3% 以内）+加新被核票"的每日维护；以 -5 为基准的红绿判读；多项指标共振确认反转。</li>
+          <li><strong>难点一</strong>：同花顺股票池指数化、开盘啦"大幅回撤"等具体工具操作。</li>
+          <li><strong>难点二</strong>："反比例函数（基准 100，票数越低指数越高）"的理解——票数反映亏钱效应存量、与指数方向相反。</li>
+          <li><strong>难点三</strong>：红绿判读中"指数红但指标绿=情绪不佳"的交叉验证，避免单一指标误判。</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CHAPTERS_END -->
+
+  <!-- ================= 跨课程知识图谱 ================= -->
+  <div class="graph" id="graph2">
+    <h2>🔗 二、跨课程知识图谱（依赖链路）</h2>
+    <p class="sub">横向树状：从「地基」到「核心综合」的学习顺序。</p>
+    <svg viewBox="0 0 900 470" role="img" aria-label="知识点依赖链路" xmlns="http://www.w3.org/2000/svg">
+      <style>
+        .r{font-family:"PingFang SC","Microsoft YaHei",sans-serif;text-anchor:middle;}
+        .t1{font-size:13.5px;font-weight:700;fill:#2c3238;}
+        .t2{font-size:11px;fill:#5a6470;}
+        .ln{stroke:#9aa7b4;stroke-width:1.5;fill:none;}
+        .ln.acc{stroke:#c07a4a;stroke-width:2;}
+      </style>
+      <!-- 连线 -->
+      <path class="ln" d="M 250 235 H 285 V 60 H 330"/>
+      <path class="ln" d="M 250 235 H 285 V 160 H 330"/>
+      <path class="ln" d="M 250 235 H 285 V 235 H 330"/>
+      <path class="ln" d="M 250 235 H 285 V 310 H 330"/>
+      <path class="ln" d="M 250 235 H 285 V 410 H 330"/>
+      <path class="ln acc" d="M 250 235 H 285 V 470 H 300"/>
+      <path class="ln" d="M 610 60 H 660 V 235 H 690"/>
+      <path class="ln" d="M 610 160 H 660 V 235 H 690"/>
+      <path class="ln" d="M 610 235 H 690"/>
+      <path class="ln" d="M 610 310 H 660 V 235 H 690"/>
+      <path class="ln" d="M 610 410 H 660 V 235 H 690"/>
+
+      <!-- 地基 -->
+      <g><rect x="20" y="209" width="230" height="52" rx="9" fill="#dbe7f4" stroke="#3b6a94" stroke-width="1.5"/>
+        <text class="r t1" x="135" y="232">02 情绪周期+五大节点</text><text class="r t2" x="135" y="249">全课地基</text></g>
+      <!-- 情绪节点主线 -->
+      <g><rect x="330" y="34" width="280" height="52" rx="8" fill="#eef4fb" stroke="#4a7fa5" stroke-width="1.2"/>
+        <text class="r t1" x="470" y="57">03→06 情绪主升拐点</text><text class="r t2" x="470" y="73">赚钱效应开始 · 最重要</text></g>
+      <g><rect x="330" y="134" width="280" height="52" rx="8" fill="#eef4fb" stroke="#4a7fa5" stroke-width="1.2"/>
+        <text class="r t1" x="470" y="157">07→08 情绪退潮拐点</text><text class="r t2" x="470" y="173">亏钱效应开始 · 空仓避险</text></g>
+      <g><rect x="330" y="209" width="280" height="52" rx="8" fill="#eef4fb" stroke="#4a7fa5" stroke-width="1.2"/>
+        <text class="r t1" x="470" y="232">09→11 退潮初期</text><text class="r t2" x="470" y="248">反核 · 抱团</text></g>
+      <g><rect x="330" y="284" width="280" height="52" rx="8" fill="#eef4fb" stroke="#4a7fa5" stroke-width="1.2"/>
+        <text class="r t1" x="470" y="307">12→14 退潮末期</text><text class="r t2" x="470" y="323">空间板反包 · 超预期</text></g>
+      <g><rect x="330" y="384" width="280" height="52" rx="8" fill="#eef4fb" stroke="#4a7fa5" stroke-width="1.2"/>
+        <text class="r t1" x="470" y="407">15→17 主升结束日</text><text class="r t2" x="470" y="423">博弈二波 · 趋势抱团</text></g>
+      <!-- 题材 + 工具 -->
+      <g><rect x="690" y="134" width="200" height="52" rx="8" fill="#f5f8fb" stroke="#8aa7bd" stroke-width="1.2"/>
+        <text class="r t1" x="790" y="157">18→19→21 题材节点</text><text class="r t2" x="790" y="173">发酵/爆发/滞涨/退潮</text></g>
+      <g><rect x="690" y="209" width="200" height="52" rx="8" fill="#f0f6f0" stroke="#6a9a6a" stroke-width="1.2"/>
+        <text class="r t1" x="790" y="232">20→22 弱转强 · 23/24/26 工具</text><text class="r t2" x="790" y="248">贯穿前后的落地手法</text></g>
+      <!-- 核心综合 -->
+      <g><rect x="300" y="444" width="300" height="52" rx="9" fill="#fdf0e8" stroke="#c07a4a" stroke-width="1.6"/>
+        <text class="r t1" x="450" y="467">25 双节点共振（核心综合）</text><text class="r t2" x="450" y="483">反复精读 2-3 遍</text></g>
+    </svg>
+  </div>
+
+  <!-- ================= 学习路径 ================= -->
+  <div class="cheat" id="path">
+    <h2>🎯 三、六阶段学习路径（小白 → 精通）</h2>
+    <p class="sub">按此顺序循序渐进，每一阶段学完即进入下一阶段。</p>
+    <table>
+      <tr><th style="width:120px;">阶段</th><th>学习内容</th><th style="width:130px;">建议遍数</th></tr>
+      <tr><td><strong>一 · 打地基</strong></td><td>啃透 <strong>02</strong>「情绪周期四阶段 + 五大开仓节点」，这是全课总纲与坐标系。</td><td>约 1 遍</td></tr>
+      <tr><td><strong>二 · 情绪节点主线</strong></td><td>按序 03→06（主升）→ 07→08（退潮）→ 09→11（退潮初期）→ 12→14（退潮末期）→ 15→17（主升结束）。每节点学完，用 <strong>23 复盘八问</strong>自检「明天是哪个节点？能不能做、做什么、做谁？」</td><td>2-3 遍</td></tr>
+      <tr><td><strong>三 · 题材节点</strong></td><td>18 → 19 → 21：发酵日、爆发日、强分歧抱团低吸，与情绪节点对照理解。</td><td>1-2 遍</td></tr>
+      <tr><td><strong>四 · 补工具手法</strong></td><td>20 → 22（弱转强：先形式后本质）；24 → 26（反核指数与情绪表，动手搭建监测工具）。</td><td>1-2 遍</td></tr>
+      <tr><td><strong>五 · 核心综合</strong></td><td><strong>25 双节点共振</strong>：情绪×题材合一，是「找龙头」的终极落点。</td><td>反复精读 2-3 遍</td></tr>
+      <tr><td><strong>六 · 落地固化</strong></td><td>以 <strong>23 复盘八问</strong>为每日模板，以 <strong>24/26 反核指数</strong>为每日数据，把理论转化为可重复、可检验的交易纪律。</td><td>每日执行</td></tr>
+    </table>
+  </div>
+
+  <!-- ================= 速查手册 ================= -->
+  <div class="cheat" id="cheat">
+    <h2>⚡ 四、关键数字与纪律速查手册</h2>
+    <p class="sub">一页速查，高手随身。</p>
+
+    <h3 style="margin-top:4px;">📐 关键数字（背熟）</h3>
+    <table>
+      <tr><th>场景</th><th>数字 / 标准</th></tr>
+      <tr><td>情绪周期</td><td>主升期 → 高位震荡期（混沌期）→ 退潮期 → 低位震荡期（试错期）</td></tr>
+      <tr><td>今年拐点频率/持续</td><td>次数变多（月 3-4 次）、持续变短（<strong>2-3 天</strong>，往年 3-5 天）</td></tr>
+      <tr><td>上午走强占比</td><td>今年 <strong>70% 以上</strong> → 次日以卖为主</td></tr>
+      <tr><td>二波主升概率</td><td>主升结束博弈二波，约 <strong>50%</strong>（二次分歧退潮约 30%-40%）</td></tr>
+      <tr><td>退潮反转窗口</td><td>退潮后 <strong>第 2、3 天</strong>反转概率 <strong>80%</strong></td></tr>
+      <tr><td>反核胜率/赔率</td><td>实际胜率（含小肉）<strong>85%-90%</strong>；跌停仅亏 3 点、涨停赚 17-18 点</td></tr>
+      <tr><td>反核竞价指标</td><td>竞价大单净额 <strong>&gt; 2000 万</strong>；量净左比越高越好；低开 -7/-8 为佳</td></tr>
+      <tr><td>弱转强竞价量</td><td>次日竞价成交额 <strong>≥ 前日总成交额的 5%</strong> 才不是骗炮</td></tr>
+      <tr><td>弱转强低开/翻红</td><td>低开 ≤ -3%；翻红 ≤ <strong>5 分钟</strong>内</td></tr>
+      <tr><td>三板成龙头概率</td><td>三板 <strong>70%</strong>、二板 20%、四板及以上 10%</td></tr>
+      <tr><td>三进四前置条件</td><td>三板须为 <strong>最高/次高板</strong> + <strong>板块龙头</strong>；次日「高开 + 快速涨停」</td></tr>
+      <tr><td>打板量比</td><td>高开 + 带量（量比 <strong>≥ 5%</strong>）</td></tr>
+      <tr><td>套利成本线</td><td>创业板套利 <strong>5 个点以下</strong>，8-9 个点无意义</td></tr>
+      <tr><td>抱团低吸窗口</td><td>9:45-9:50 前观望 15 分钟，确认不补跌后低吸</td></tr>
+      <tr><td>强板块标准</td><td>近 5-6 日活跃 <strong>≥ 3 天</strong> + 板块强度排名 <strong>前三</strong></td></tr>
+      <tr><td>反核指数判读</td><td>断板票 + 人气前100跌幅≥-6% + 冲高回落票 → 指数<strong>变红</strong>=亏钱效应被消灭</td></tr>
+    </table>
+
+    <h3>🛡 核心纪律（铁律，先于技巧）</h3>
+    <table>
+      <tr><th>纪律</th><th>内容</th></tr>
+      <tr><td>90% 时间不做</td><td>空仓或持股等待，保持学习与思考，条件未达则耐心等待。</td></tr>
+      <tr><td>低频高效</td><td>只做关键节点，出手「稳、准、狠」，情绪主升可重仓。</td></tr>
+      <tr><td>退潮日空仓</td><td>退潮拐点当天是卖点，空仓避险，严禁竞价买票。</td></tr>
+      <tr><td>严禁竞价买票</td><td>市场可能直接退潮，竞价买入无容错率。</td></tr>
+      <tr><td>最高标控仓</td><td>连板最高标需控制仓位；重点仓位放抱团票、非高位板块龙头。</td></tr>
+      <tr><td>反核次日铁律</td><td>只有「大烂板涨停 + 次日弱转强」才持有/做 T，其余一律卖出。</td></tr>
+      <tr><td>抱团买点铁律</td><td>买点永远是「扛住分歧的第二天」，而非首日。</td></tr>
+      <tr><td>加速板规则</td><td>低位可加速、三进四可再加速、三板以上禁止、不可连续两天加速。</td></tr>
+    </table>
+
+    <h3>🎨 口诀记忆</h3>
+    <div style="background:#fbfcfe;border:1px solid var(--line);border-radius:10px;padding:14px 16px;font-size:14px;line-height:2;">
+      <span class="tag">总纲</span> 一个框架（情绪周期）+ 五个节点（开仓）+ 一套共振（双节点）+ 三类工具（弱转强/复盘八问/反核指数）<br>
+      <span class="tag green">节奏</span> 主升（赚钱效应开始）→ 退潮（亏钱效应开始）→ 主升结束（博弈二波）→ 退潮末期（试错抄底）<br>
+      <span class="tag orange">找龙头</span> 情绪主升日定「主线 + 领涨」= 龙头；双节点共振 + 三板三进四 = 节点龙头<br>
+      <span class="tag">手法</span> 弱转强看「何时 + 何股」；反核看「深跌低吸」；抱团看「扛住分歧第二天」<br>
+      <span class="tag green">落地</span> 复盘八问定决策，反核指数测亏钱效应，红盘即情绪回暖
+    </div>
+  </div>
+
+  <footer>
+    <div class="rule"></div>
+    本教程文档由「学习助手工作流」基于何敬乐《总龙头战法·情绪节点擒龙战法》26 篇课程笔记整理生成，仅供学习交流。<br>
+    课程方法版权归原作者所有；本整理文档归<b>尊贵的主人</b>所有，请勿用于任何商业用途。<br>
+    <b>股市有风险，投资需谨慎。本文不构成任何投资建议，据此操作盈亏自负。</b>
+  </footer>
+
+</div>
+<a class="backtop" href="#" title="回到顶部">↑</a>
+</body>
+</html>
