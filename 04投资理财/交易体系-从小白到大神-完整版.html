@@ -1,0 +1,3303 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<title>交易体系 · 从小白进阶为大神 · 完整版</title>
+<style>
+/* ========== 全局变量 ========== */
+:root {
+  --bg-primary: #fafbfc;
+  --bg-card: #ffffff;
+  --bg-soft: #f5f7fa;
+  --bg-accent: #fef9e7;
+  --bg-warn: #fff5f5;
+  --bg-ok: #f0f9f4;
+  --bg-blue: #eff6ff;
+  --bg-purple: #f5f3ff;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-muted: #718096;
+  --border-color: #e2e8f0;
+  --border-strong: #cbd5e0;
+  --accent-primary: #2c5282;
+  --accent-secondary: #2b6cb0;
+  --accent-warm: #c05621;
+  --accent-green: #2f855a;
+  --accent-red: #c53030;
+  --accent-purple: #6b46c1;
+  --accent-gold: #d97706;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 12px rgba(0,0,0,0.08);
+  --shadow-lg: 0 8px 24px rgba(0,0,0,0.12);
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0; padding: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  font-size: 16px; line-height: 1.85;
+  color: var(--text-primary);
+  background: var(--bg-primary);
+  -webkit-font-smoothing: antialiased;
+}
+
+h1, h2, h3, h4, h5, h6 { margin: 0; line-height: 1.4; font-weight: 700; }
+h1 { font-size: 2.2rem; color: var(--accent-primary); }
+h2 { font-size: 1.7rem; color: var(--accent-primary); border-bottom: 3px solid var(--accent-primary); padding-bottom: 10px; margin: 50px 0 24px; }
+h3 { font-size: 1.35rem; color: var(--accent-secondary); margin: 32px 0 14px; padding-left: 14px; border-left: 6px solid var(--accent-secondary); }
+h4 { font-size: 1.15rem; color: var(--accent-warm); margin: 22px 0 10px; }
+h5 { font-size: 1.05rem; color: var(--accent-purple); margin: 16px 0 8px; }
+p { margin: 10px 0; }
+ul, ol { padding-left: 28px; }
+li { margin: 6px 0; }
+code { background: var(--bg-soft); padding: 2px 8px; border-radius: 4px; font-family: Consolas, Monaco, monospace; font-size: 0.9em; color: var(--accent-red); }
+pre { background: #2d3748; color: #f7fafc; padding: 14px; border-radius: 8px; overflow-x: auto; font-size: 0.9em; line-height: 1.65; }
+blockquote {
+  margin: 18px 0; padding: 14px 22px;
+  background: var(--bg-accent);
+  border-left: 6px solid var(--accent-warm);
+  border-radius: 0 8px 8px 0;
+  font-style: normal; color: var(--text-secondary);
+  font-size: 0.97rem;
+}
+
+/* ========== 容器 ========== */
+.container { max-width: 1180px; margin: 0 auto; padding: 0 22px; }
+@media (max-width: 768px) { .container { padding: 0 14px; } }
+
+/* ========== 顶部 Banner ========== */
+header.banner {
+  background: linear-gradient(135deg, #1a365d 0%, #2c5282 50%, #2b6cb0 100%);
+  color: white;
+  padding: 50px 24px 38px;
+  text-align: center;
+  box-shadow: var(--shadow-lg);
+  position: relative;
+  overflow: hidden;
+}
+header.banner::before {
+  content: ""; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+  background: radial-gradient(ellipse at top, rgba(255,255,255,0.15), transparent 70%);
+  pointer-events: none;
+}
+header.banner h1 { color: white; font-size: 2.6rem; margin-bottom: 12px; letter-spacing: 2px; position: relative; }
+header.banner .subtitle { font-size: 1.15rem; opacity: 0.95; position: relative; }
+header.banner .meta {
+  margin-top: 18px; font-size: 0.9rem; opacity: 0.85; position: relative;
+  display: inline-block; background: rgba(255,255,255,0.12); padding: 6px 18px; border-radius: 20px;
+}
+header.banner .creators {
+  margin-top: 12px; font-size: 0.88rem; opacity: 0.85; position: relative;
+}
+
+/* ========== 学习路径卡 ========== */
+.learning-path {
+  background: linear-gradient(135deg, #fef9e7 0%, #fefcbf 100%);
+  padding: 28px 24px; border-radius: 14px; margin: 36px 0;
+  border: 1px solid #f6e05e;
+}
+.learning-path h2 { color: #744210; border-color: #d69e2e; margin-top: 0; }
+.path-steps { display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr)); gap: 14px; margin-top: 18px; }
+.path-step {
+  background: white; padding: 16px; border-radius: 10px;
+  border: 1px solid var(--border-color); position: relative;
+  transition: transform 0.2s;
+}
+.path-step:hover { transform: translateY(-2px); box-shadow: var(--shadow-md); }
+.path-step .num {
+  display: inline-block; width: 30px; height: 30px; line-height: 30px;
+  background: var(--accent-warm); color: white; border-radius: 50%;
+  text-align: center; font-weight: 700; margin-right: 8px;
+}
+.path-step .title { font-weight: 700; color: var(--accent-primary); margin-bottom: 6px; font-size: 1.02rem; }
+.path-step .desc { font-size: 0.88rem; color: var(--text-secondary); line-height: 1.5; }
+
+/* ========== 目录导航 ========== */
+nav.toc {
+  background: white; border: 1px solid var(--border-color);
+  border-radius: 10px; padding: 22px 28px; margin: 30px 0;
+  box-shadow: var(--shadow-sm);
+}
+nav.toc h2 { margin-top: 0; font-size: 1.45rem; border: none; }
+nav.toc ul { list-style: none; padding: 0; }
+nav.toc > ul > li { margin: 8px 0; }
+nav.toc a { color: var(--accent-secondary); text-decoration: none; padding: 4px 0; display: inline-block; }
+nav.toc a:hover { color: var(--accent-warm); text-decoration: underline; }
+nav.toc .level-1 { font-weight: 700; font-size: 1.05rem; }
+nav.toc .level-2 { padding-left: 22px; font-size: 0.95rem; }
+
+/* ========== 卡片 ========== */
+.card {
+  background: var(--bg-card); border: 1px solid var(--border-color);
+  border-radius: 10px; padding: 20px 24px; margin: 20px 0;
+  box-shadow: var(--shadow-sm);
+}
+.card.soft { background: var(--bg-soft); }
+.card.warn { background: var(--bg-warn); border-color: #feb2b2; }
+.card.ok { background: var(--bg-ok); border-color: #9ae6b4; }
+.card.gold { background: var(--bg-accent); border-color: #f6e05e; }
+.card.blue { background: var(--bg-blue); border-color: #90cdf4; }
+.card.purple { background: var(--bg-purple); border-color: #d6bcfa; }
+.card-title { font-weight: 700; color: var(--accent-primary); margin-bottom: 10px; font-size: 1.1rem; }
+
+/* ========== 表格 ========== */
+.table-wrap { overflow-x: auto; margin: 18px 0; border-radius: 8px; box-shadow: var(--shadow-sm); }
+/* 兼容：.table-wrap 直接用在 <table> 上时的横向滚动 */
+table.table-wrap { display: block; max-width: 100%; }
+table {
+  width: 100%; border-collapse: collapse; background: white;
+  font-size: 0.93rem;
+}
+th, td { padding: 10px 14px; text-align: left; border-bottom: 1px solid var(--border-color); }
+th { background: var(--bg-soft); color: var(--accent-primary); font-weight: 700; }
+tr:hover td { background: var(--bg-soft); }
+table.compact th, table.compact td { padding: 8px 10px; font-size: 0.88rem; }
+
+/* ========== 标签 / 徽章 ========== */
+.badge {
+  display: inline-block; padding: 3px 10px; border-radius: 12px;
+  font-size: 0.82rem; font-weight: 600; margin-right: 6px;
+}
+.badge-red { background: #fed7d7; color: #742a2a; }
+.badge-green { background: #c6f6d5; color: #22543d; }
+.badge-blue { background: #bee3f8; color: #2a4365; }
+.badge-gold { background: #fefcbf; color: #744210; }
+.badge-purple { background: #e9d8fd; color: #44337a; }
+
+/* ========== 高亮 ========== */
+.highlight { background: linear-gradient(transparent 60%, #fef9e7 60%); padding: 0 2px; font-weight: 600; }
+.highlight-red { background: linear-gradient(transparent 60%, #fed7d7 60%); padding: 0 2px; font-weight: 600; color: var(--accent-red); }
+.highlight-green { background: linear-gradient(transparent 60%, #c6f6d5 60%); padding: 0 2px; font-weight: 600; color: var(--accent-green); }
+.highlight-blue { background: linear-gradient(transparent 60%, #bee3f8 60%); padding: 0 2px; font-weight: 600; color: var(--accent-secondary); }
+
+/* ========== 思维导图区 ========== */
+.mindmap-block {
+  background: white; border: 1px solid var(--border-color);
+  border-radius: 12px; padding: 22px; margin: 28px 0;
+  box-shadow: var(--shadow-sm);
+}
+.mindmap-block .mm-title { font-weight: 700; font-size: 1.15rem; color: var(--accent-primary); margin-bottom: 6px; }
+.mindmap-block .mm-desc { color: var(--text-muted); font-size: 0.9rem; margin-bottom: 16px; }
+.mindmap-svg-wrap {
+  overflow: auto; -webkit-overflow-scrolling: touch;
+  background: #fafbfc; border-radius: 8px; padding: 14px;
+  border: 1px solid var(--border-color);
+  touch-action: pinch-zoom; max-height: 700px;
+}
+.mindmap-svg-wrap svg { display: block; max-width: none; }
+
+/* ========== 速查卡 ========== */
+.cheatsheet {
+  background: linear-gradient(135deg, #f0f9f4 0%, #c6f6d5 100%);
+  border: 2px dashed var(--accent-green);
+  border-radius: 12px; padding: 26px; margin: 32px 0;
+}
+.cheatsheet h2 { color: var(--accent-green); border-color: var(--accent-green); margin-top: 0; }
+.cheat-item { background: white; border-radius: 8px; padding: 12px 18px; margin: 8px 0; border-left: 5px solid var(--accent-green); }
+.cheat-item .label { font-weight: 700; color: var(--accent-green); }
+.cheat-item .content { margin-top: 4px; color: var(--text-secondary); font-size: 0.94rem; }
+
+/* ========== 章节锚点 ========== */
+.section-anchor { padding-top: 80px; margin-top: -60px; }
+
+/* ========== 返回顶部 ========== */
+.back-to-top {
+  position: fixed; bottom: 30px; right: 30px;
+  width: 52px; height: 52px;
+  background: var(--accent-primary); color: white;
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-size: 1.4rem; text-decoration: none;
+  box-shadow: var(--shadow-md); z-index: 100;
+  transition: background 0.2s;
+}
+.back-to-top:hover { background: var(--accent-warm); }
+
+/* ========== 移动端适配 ========== */
+@media (max-width: 768px) {
+  header.banner { padding: 28px 16px 22px; }
+  header.banner h1 { font-size: 1.7rem; }
+  .container { padding: 0 12px; }
+  body { font-size: 15px; }
+  h2 { font-size: 1.4rem; }
+  h3 { font-size: 1.18rem; }
+  .card { padding: 16px; }
+  .table-wrap { margin: 12px -12px; }
+  table { font-size: 0.85rem; }
+  th, td { padding: 8px 10px; }
+  .back-to-top { width: 44px; height: 44px; bottom: 16px; right: 16px; }
+}
+
+/* ========== 打印优化 ========== */
+@media print {
+  body { font-size: 11pt; }
+  .card, .cheatsheet, nav.toc, .mindmap-block { box-shadow: none; border: 1px solid #ccc; page-break-inside: avoid; }
+  h2 { page-break-before: always; }
+  nav.toc, .back-to-top { display: none; }
+}
+
+.tip {
+  display: inline-block; background: var(--bg-accent); color: var(--accent-warm);
+  padding: 2px 8px; border-radius: 4px; font-size: 0.85em; font-weight: 600;
+}
+
+/* ========== SOP清单复选框 ========== */
+.checklist { list-style: none; padding-left: 4px; }
+.checklist li { position: relative; padding-left: 26px; margin: 8px 0; }
+.checklist li::before {
+  content: "☑"; position: absolute; left: 0; top: 0;
+  color: var(--accent-green); font-weight: 700;
+}
+
+.warning-box {
+  background: linear-gradient(135deg, #fff5f5 0%, #fed7d7 100%);
+  border: 2px solid var(--accent-red);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 20px 0;
+}
+
+.success-box {
+  background: linear-gradient(135deg, #f0fff4 0%, #c6f6d5 100%);
+  border: 2px solid var(--accent-green);
+  border-radius: 10px;
+  padding: 16px 20px;
+  margin: 20px 0;
+}
+
+.motto {
+  text-align: center;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: var(--accent-primary);
+  padding: 20px;
+  background: linear-gradient(135deg, #fef9e7 0%, #fefcbf 100%);
+  border-radius: 10px;
+  margin: 30px 0;
+  border: 1px dashed var(--accent-warm);
+}
+</style>
+</head>
+<body>
+
+<header class="banner">
+  <h1>📈 交易体系 · 从小白进阶为大神</h1>
+  <div class="subtitle">一站式揉合六大交易课程精华 · 完整版</div>
+  <div class="meta">13大章节 · 渐进式学习 · 适用于沪深A股 · 短线+波段+趋势全覆盖</div>
+  <div class="creators">揉合：良泽弟子班四天课程 + 刘琛闭门直播 + 小琛买二买四短线战法</div>
+</header>
+
+<div class="container">
+
+<!-- ============ 学习路径 ============ -->
+<section class="learning-path" id="learning-path">
+  <h2>🎯 七阶学习路径（小白→大神）</h2>
+  <p>本体系从认知、纪律、技术、策略、实战、心态、工具七个维度，渐进式带您从入门到精通。建议每阶段花1-2周时间反复研读+小资金试水。</p>
+  <div class="path-steps">
+    <div class="path-step"><span class="num">1</span><div class="title">认知篇</div><div class="desc">理解A股结构化牛市本质，建立"听党的话"的投资世界观</div></div>
+    <div class="path-step"><span class="num">2</span><div class="title">心法篇</div><div class="desc">纪律/时间/专注/复盘四词铁律，严格卡尺风控理念</div></div>
+    <div class="path-step"><span class="num">3</span><div class="title">技术篇</div><div class="desc">MACD两对半框架、K线组合、均线系统、缺口理论</div></div>
+    <div class="path-step"><span class="num">4</span><div class="title">选股篇</div><div class="desc">十大赛道、520战法、三大原则、机构票 vs 庄股区分</div></div>
+    <div class="path-step"><span class="num">5</span><div class="title">买入篇</div><div class="desc">四买入策略、买二买四、W型、两阴反包、突破板主升浪</div></div>
+    <div class="path-step"><span class="num">6</span><div class="title">卖出篇</div><div class="desc">四卖出策略、顶部四方法、补缺口止损、T+0三波理论</div></div>
+    <div class="path-step"><span class="num">7</span><div class="title">工具篇</div><div class="desc">ETF投资、T+0战法、软件设置、十二铁律速查</div></div>
+  </div>
+</section>
+
+<!-- ============ 全局目录 ============ -->
+<nav class="toc">
+  <h2>📑 全局目录</h2>
+  <ul>
+    <li class="level-1"><a href="#ch1">📘 第1章 · 认知篇：A股结构化牛市与投资世界观</a>
+      <ul>
+        <li class="level-2"><a href="#ch1-1">1.1 结构化牛市新阶段</a></li>
+        <li class="level-2"><a href="#ch1-2">1.2 中美对比与国家战略</a></li>
+        <li class="level-2"><a href="#ch1-3">1.3 上证指数 vs 深圳成指</a></li>
+        <li class="level-2"><a href="#ch1-4">1.4 软件设置（均线简化）</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch2">📗 第2章 · 心法篇：交易纪律与风控铁律</a>
+      <ul>
+        <li class="level-2"><a href="#ch2-1">2.1 收盘四词铁律</a></li>
+        <li class="level-2"><a href="#ch2-2">2.2 严格卡尺与盈亏比</a></li>
+        <li class="level-2"><a href="#ch2-3">2.3 不要跨周期原则</a></li>
+        <li class="level-2"><a href="#ch2-4">2.4 ST避雷与平台监管</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch3">📙 第3章 · 技术篇：MACD两对半与K线组合</a>
+      <ul>
+        <li class="level-2"><a href="#ch3-1">3.1 MACD两对半框架</a></li>
+        <li class="level-2"><a href="#ch3-2">3.2 5日均线核心地位</a></li>
+        <li class="level-2"><a href="#ch3-3">3.3 K线5组顶部+5组底部形态</a></li>
+        <li class="level-2"><a href="#ch3-4">3.4 缺口理论</a></li>
+        <li class="level-2"><a href="#ch3-5">3.5 上吊线六句话法则</a></li>
+        <li class="level-2"><a href="#ch3-6">3.6 单双数规则</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch4">📕 第4章 · 选股篇：十大赛道与三大原则</a>
+      <ul>
+        <li class="level-2"><a href="#ch4-1">4.1 选股三大原则</a></li>
+        <li class="level-2"><a href="#ch4-2">4.2 庄股 vs 机构票 vs 游资</a></li>
+        <li class="level-2"><a href="#ch4-3">4.3 520战法三大策略</a></li>
+        <li class="level-2"><a href="#ch4-4">4.4 绝对避雷规则</a></li>
+        <li class="level-2"><a href="#ch4-5">4.5 十五五新质生产力十大赛道</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch5">📘 第5章 · 买入篇：四买入+短线三大战法</a>
+      <ul>
+        <li class="level-2"><a href="#ch5-1">5.1 MACD四买入策略</a></li>
+        <li class="level-2"><a href="#ch5-2">5.2 买二买四（弱涨停+缺口）</a></li>
+        <li class="level-2"><a href="#ch5-3">5.3 W型买入法（波段）</a></li>
+        <li class="level-2"><a href="#ch5-4">5.4 两阴反包（短线最快）</a></li>
+        <li class="level-2"><a href="#ch5-5">5.5 突破板=主升浪</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch6">📗 第6章 · 卖出篇：四卖出+顶部识别+T+0</a>
+      <ul>
+        <li class="level-2"><a href="#ch6-1">6.1 MACD四卖出策略</a></li>
+        <li class="level-2"><a href="#ch6-2">6.2 顶部判断四大方法</a></li>
+        <li class="level-2"><a href="#ch6-3">6.3 补缺口止损铁律</a></li>
+        <li class="level-2"><a href="#ch6-4">6.4 T+0真涨假涨判断法</a></li>
+        <li class="level-2"><a href="#ch6-5">6.5 T+0三波理论</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch7">📙 第7章 · 工具篇：ETF与软件配置</a>
+      <ul>
+        <li class="level-2"><a href="#ch7-1">7.1 ETF核心优势</a></li>
+        <li class="level-2"><a href="#ch7-2">7.2 基金分类与公募私募</a></li>
+        <li class="level-2"><a href="#ch7-3">7.3 主动管理型ETF</a></li>
+        <li class="level-2"><a href="#ch7-4">7.4 东方财富软件设置</a></li>
+        <li class="level-2"><a href="#ch7-5">7.5 ETF实战工具箱</a></li>
+        <li class="level-2"><a href="#ch7-6">7.6 ETF识别与进阶技巧</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch8">📕 第8章 · 突破体系：四种突破+策略1234+520/521</a>
+      <ul>
+        <li class="level-2"><a href="#ch8-1">8.1 庄家四步骤：突破的根基</a></li>
+        <li class="level-2"><a href="#ch8-2">8.2 突破板：主升浪启动信号</a></li>
+        <li class="level-2"><a href="#ch8-3">8.3 四种突破形态</a></li>
+        <li class="level-2"><a href="#ch8-4">8.4 追板技术：一进二/二进三/倍量板</a></li>
+        <li class="level-2"><a href="#ch8-5">8.5 策略1234：MACD红柱买卖</a></li>
+        <li class="level-2"><a href="#ch8-6">8.6 520战法：方法1234</a></li>
+        <li class="level-2"><a href="#ch8-7">8.7 521战法：升级版</a></li>
+        <li class="level-2"><a href="#ch8-8">8.8 看资金与择时</a></li>
+        <li class="level-2"><a href="#ch8-9">8.9 介入热点与龙头接力</a></li>
+        <li class="level-2"><a href="#ch8-10">8.10 止损斩仓与十句心法</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch9">📕 第9章 · 仓位篇：小琛23样本选股法</a>
+      <ul>
+        <li class="level-2"><a href="#ch9-1">9.1 23样本→10精选</a></li>
+        <li class="level-2"><a href="#ch9-2">9.2 季度再平衡</a></li>
+        <li class="level-2"><a href="#ch9-3">9.3 降仓纪律</a></li>
+        <li class="level-2"><a href="#ch9-4">9.4 2亿统一标准</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch10">📘 第10章 · 主升浪战法大全</a>
+      <ul>
+        <li class="level-2"><a href="#ch10-1">10.1 周线5/20/40均线系统</a></li>
+        <li class="level-2"><a href="#ch10-2">10.2 40均线牛熊转换</a></li>
+        <li class="level-2"><a href="#ch10-3">10.3 T+0战法：1+1=3.3</a></li>
+        <li class="level-2"><a href="#ch10-4">10.4 水下策略1234</a></li>
+        <li class="level-2"><a href="#ch10-5">10.5 箱体突破：六条买入标准</a></li>
+        <li class="level-2"><a href="#ch10-6">10.6 旗形整理突破：七条标准</a></li>
+        <li class="level-2"><a href="#ch10-7">10.7 反包技术：五类战法</a></li>
+        <li class="level-2"><a href="#ch10-8">10.8 筹码分布：看庄家底仓</a></li>
+        <li class="level-2"><a href="#ch10-9">10.9 二区定律：判断大盘方向</a></li>
+        <li class="level-2"><a href="#ch10-10">10.10 解套技术：高抛低吸+日内T+0</a></li>
+        <li class="level-2"><a href="#ch10-11">10.11 复盘流程：每天必做</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch11">📗 第11章 · 交易体系全景图</a>
+      <ul>
+        <li class="level-2"><a href="#ch11-1">11.1 完整流程闭环</a></li>
+        <li class="level-2"><a href="#ch11-2">11.2 短线/波段/趋势对应</a></li>
+        <li class="level-2"><a href="#ch11-3">11.3 人群适配策略</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch12">📙 第12章 · 速查卡与SOP操作清单</a>
+      <ul>
+        <li class="level-2"><a href="#ch12-1">12.1 十二大铁律速查卡</a></li>
+        <li class="level-2"><a href="#ch12-2">12.2 SOP操作清单（每日执行）</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch13">📕 第13章 · 学员答疑Q&A</a>
+      <ul>
+        <li class="level-2"><a href="#ch13-1">13.1 认知与选股</a></li>
+        <li class="level-2"><a href="#ch13-2">13.2 技术实战</a></li>
+        <li class="level-2"><a href="#ch13-3">13.3 纪律与风控</a></li>
+        <li class="level-2"><a href="#ch13-4">13.4 常见误区</a></li>
+      </ul>
+    </li>
+    <li class="level-1"><a href="#ch14">📕 第14章 · 风险提示与核心心法</a></li>
+  </ul>
+</nav>
+
+<div class="motto">
+  🌟 "买二买四=涨停+缺口+不补=持有；补=卖" —— 短线铁律<br>
+  🌟 "不预测，只应对" —— 一切战法的底层哲学<br>
+  🌟 "在A股投资要坚决听党的话" —— 国家战略=财富风口
+</div>
+
+<!-- ===================================================== -->
+<!-- ============== 第1章 认知篇 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch1" class="section-anchor">📘 第1章 · 认知篇：A股结构化牛市与投资世界观</h2>
+
+<h3 id="ch1-1">1.1 结构化牛市新阶段（中国股市的根本变化）</h3>
+
+<div class="card gold">
+<strong>💎 核心结论：</strong>未来中国股市将呈现"<span class="highlight">结构化牛市</span>"——仅 <strong>1/3 至 1/2</strong> 的股票具备持续上涨潜力，其余多数股票将无行情、不涨甚至退市。历史上的全面牛市（2006-2007、2014-2015）已成过去，未来不再普涨。
+</div>
+
+<h4>① 五一节后大量ST只是开始</h4>
+<p>2026年五一节后大量股票被ST只是开始，未来退市和边缘化趋势将加剧。这意味着选股能力将比过去任何时候都更重要——<span class="highlight-red">乱买不如不买</span>。</p>
+
+<h4>② 全面牛市已成过去</h4>
+<p>过去那种"随便买一只股票都能涨"的时代一去不复返。新时代的核心矛盾是：<strong>资金只会聚集在政策+基本面双优的少数标的</strong>，垃圾股将持续被边缘化。</p>
+
+<div class="card">
+<strong>本章核心要点：</strong>
+<ul>
+  <li>中国股市进入结构化牛市新阶段（1/3~1/2 股票才有行情）</li>
+  <li>全面普涨的时代一去不复返</li>
+  <li>ST风险加剧，选股能力成核心竞争力</li>
+  <li>未来退市常态化，散户要学会"避雷+聚焦"</li>
+</ul>
+</div>
+
+<h3 id="ch1-2">1.2 中美对比与国家战略（听党的话）</h3>
+
+<h4>① 中美股市结构对比</h4>
+<table class="table-wrap">
+<thead><tr><th>对比项</th><th>美股（标普500）</th><th>A股（沪深两市）</th></tr></thead>
+<tbody>
+<tr><td>明星成分</td><td>七公主（苹果、微软、谷歌、亚马逊、Meta、英伟达、特斯拉）</td><td>高科技板块（创业板、科创板）</td></tr>
+<tr><td>贡献涨幅</td><td>贡献绝大部分涨幅，市值曾达18万亿美元</td><td>涨幅显著高于主板</td></tr>
+<tr><td>其余标的</td><td>493只长期横盘或表现平庸</td><td>多数股票边缘化</td></tr>
+<tr><td>共同特征</td><td>典型的"结构化牛市"</td><td>复制美国路径</td></tr>
+</tbody>
+</table>
+
+<h4>② 国家战略驱动资本市场方向</h4>
+<div class="card ok">
+<strong>🎯 投资逻辑："坚决听党的话"</strong>
+<p>在中国做投资要"坚决听党的话"。国家五年规划集中了政策、资金、人才等全部资源，相关领域"不涨都不行"。</p>
+<ul>
+  <li><strong>中美竞争本质</strong>：科技竞争 → 依赖"人才+资本"</li>
+  <li><strong>银行体系短板</strong>：风险偏好低，无法支撑高风险高科技产业</li>
+  <li><strong>资本市场定位</strong>：为高科技企业提供长期资金，是国家战略</li>
+  <li><strong>未来方向</strong>：传统"铁公基"无未来，AI、新能源等新型基础设施是重点</li>
+</ul>
+</div>
+
+<blockquote>
+<strong>主人提示：</strong>这意味着我们做投资必须把视角提升到"国家战略"层面——从"国家要什么"反推"市场会涨什么"。这才是结构化牛市时代的根本生存之道。
+</blockquote>
+
+<h3 id="ch1-3">1.3 上证指数 vs 深圳成指（弃上证用成指）</h3>
+
+<div class="warning-box">
+<strong>⚠️ 核心结论：</strong><span class="highlight-red">弃用上证指数，聚焦深圳成指（399001）</span>
+</div>
+
+<table class="table-wrap">
+<thead><tr><th>指数</th><th>特点</th><th>历史表现</th><th>评价</th></tr></thead>
+<tbody>
+<tr><td>上证指数</td><td>编制方法失真</td><td>历史上仅6次翻倍牛市</td><td>❌ 不推荐</td></tr>
+<tr><td>深圳成指（399001）</td><td>真实反映市场活跃度</td><td>历史7次牛市，当前处于第八次（7700点→16000点）</td><td>✅ 推荐主用</td></tr>
+</tbody>
+</table>
+
+<div class="card">
+<strong>为什么上证指数失真？</strong>
+<p>上证指数包含了大量传统行业大盘股（银行、地产、基建等），而这些板块正是国家战略要淘汰的方向。用上证指数判断市场会严重低估高科技、新能源等新兴行业的真实热度。</p>
+</div>
+
+<h3 id="ch1-4">1.4 软件设置：均线简化（仅留5日+20日）</h3>
+
+<h4>① 520战法：仅保留5日与20日均线</h4>
+<p>删除软件默认的其他均线（10日、30日、60日、120日、250日），仅保留：</p>
+<ul>
+  <li><strong>5日均线</strong> —— 短期趋势线，多空分水岭</li>
+  <li><strong>20日均线</strong> —— 牛市生命线，强支撑</li>
+</ul>
+
+<h4>② 东方财富修改均线方式</h4>
+<div class="card">
+<strong>电脑端：</strong>显示 → 图表设置 → 均线设置 → 删除其他均线 → 仅留5日、20日<br>
+<strong>手机端：</strong>在K线界面 → 设置图标 → 均线 → 自定义 → 删除其他 → 仅留5日、20日
+</div>
+
+<h4>③ 发散=强势</h4>
+<div class="card ok">
+<strong>📈 均线发散原理：</strong>当5日与20日均线"发散"（明显分开）时，代表市场处于强势状态，宽度越大越强。这是用最简均线判断趋势强度的核心方法。
+</div>
+
+<!-- ===================================================== -->
+<!-- ============== 第2章 心法篇 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch2" class="section-anchor">📗 第2章 · 心法篇：交易纪律与风控铁律</h2>
+
+<h3 id="ch2-1">2.1 收盘四词铁律</h3>
+
+<div class="motto">
+📌 <strong>纪律 · 时间 · 专注 · 复盘</strong> —— 收盘后必做的四件事
+</div>
+
+<table class="table-wrap">
+<thead><tr><th>四词</th><th>含义</th><th>落地动作</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-red">纪律</span></td><td>信号出现=立即执行</td><td>不到收盘不松懈，破位即斩</td></tr>
+<tr><td><span class="badge badge-blue">时间</span></td><td>早盘10:10是关键时点</td><td>个股高点常与大盘同步</td></tr>
+<tr><td><span class="badge badge-gold">专注</span></td><td>只做自己模式内的票</td><td>不熟悉的票不碰</td></tr>
+<tr><td><span class="badge badge-green">复盘</span></td><td>亏损的票翻出来对照</td><td>用亏损经验反推信号识别</td></tr>
+</tbody>
+</table>
+
+<h3 id="ch2-2">2.2 严格卡尺与盈亏比</h3>
+
+<div class="card warn">
+<strong>🛑 严格卡尺原则：</strong>小亏损<strong>2-5%</strong>，大盈利<strong>30-50%</strong>。用严格卡尺约束每一次操作。
+</div>
+
+<h4>① 严格止损：单次2-5%</h4>
+<p>任何单次操作的亏损必须严格控制在 <strong>2-5%</strong> 之内。这是从小琛23样本买2买4方法中提炼出的风控核心。</p>
+
+<h4>② 严守止盈：30-50%</h4>
+<p>当盈利达到 30-50% 区间时，必须评估是否兑现部分利润，避免坐电梯。</p>
+
+<h4>③ 盈亏比设计</h4>
+<p>严格卡尺的本质是"概率优势+纪律执行"——买二买四会亏钱也赚钱，关键是 <strong>概率优势</strong> 和 <strong>纪律执行</strong>。</p>
+
+<h3 id="ch2-3">2.3 不要跨周期原则</h3>
+
+<div class="warning-box">
+<strong>⚠️ 核心禁忌：</strong><span class="highlight-red">周线买+日线卖=绝对禁止！</span>
+</div>
+
+<p>买入周期和卖出周期必须严格匹配：</p>
+<ul>
+  <li><strong>短线操作</strong>（1-5天）：用日线选股→用日线/分时图判断止盈止损</li>
+  <li><strong>波段操作</strong>（数周-数月）：用日线选股→用日线/周线判断止盈止损</li>
+  <li><strong>趋势操作</strong>（数月以上）：用周线选股→用周线/月线判断止盈止损</li>
+</ul>
+
+<p>跨周期的最大危害是：周线选出的票可能在日线上已经严重超买，此时你按"周线持有"的逻辑不肯卖，结果错过了日线级别的最佳卖点。</p>
+
+<h3 id="ch2-4">2.4 ST避雷与平台监管</h3>
+
+<h4>① ST股票——绝对不碰</h4>
+<div class="card warn">
+<strong>🚨 铁律：</strong>ST股票一律不参与，列入黑名单。原因：退市风险高、流动性差、容易被恶意操纵。
+</div>
+
+<h4>② 平台监管：现阶段不能点评个股</h4>
+<ul>
+  <li>平台监测规则：评论区、直播间说的话、微信私聊同样监测</li>
+  <li>监管规则：直播可以继续，但不能点评股票，只能讲方法和逻辑</li>
+  <li>全行业规定：现在整个中国所有的平台只要去点评股票就是违规</li>
+  <li>应对方案：现阶段只能反复讲方法，未来排周课表每周提前通知</li>
+</ul>
+
+<!-- ===================================================== -->
+<!-- ============== 第3章 技术篇 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch3" class="section-anchor">📙 第3章 · 技术篇：MACD两对半与K线组合</h2>
+
+<h3 id="ch3-1">3.1 MACD两对半框架</h3>
+
+<div class="motto">
+🌟 MACD的"两对半"：<strong>快慢线（DIF/DEA）</strong> + <strong>红绿柱（动能）</strong> + <strong>零轴（水上水下分界）</strong>
+</div>
+
+<p>MACD指标虽然复杂，但本质只有 <strong>"两对半"</strong> 三要素：</p>
+
+<table class="table-wrap">
+<thead><tr><th>要素</th><th>含义</th><th>作用</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-red">快慢线</span></td><td>DIF（快线）与DEA（慢线）</td><td>判断方向与交叉</td></tr>
+<tr><td><span class="badge badge-green">红绿柱</span></td><td>MACD柱（红柱=上涨动能，绿柱=下跌动能）</td><td>判断动能强弱</td></tr>
+<tr><td><span class="badge badge-blue">零轴</span></td><td>0.5分界</td><td>水上=强势，水下=弱势</td></tr>
+</tbody>
+</table>
+
+<figure style="margin:16px 0; text-align:center;">
+<svg viewBox="0 0 560 380" width="100%" style="max-width:640px; background:#fff; border:1px solid var(--border-color); border-radius:10px;" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <title>MACD两对半框架示意</title>
+  <text x="280" y="28" text-anchor="middle" font-size="15" font-weight="700" fill="#2d3748">MACD「两对半」框架示意：快慢线 + 红绿柱 + 零轴</text>
+  <rect x="40" y="56" width="480" height="112" fill="#e8f7ee"/>
+  <text x="46" y="74" font-size="11.5" fill="#1e7e43" font-weight="700">◤ 水上 = 强势区（只做多，策略有效）</text>
+  <rect x="40" y="168" width="480" height="100" fill="#fdeeea"/>
+  <text x="46" y="186" font-size="11.5" fill="#c0392b" font-weight="700">◤ 水下 = 弱势区（只做卖出管理）</text>
+  <line x1="40" y1="168" x2="520" y2="168" stroke="#8898aa" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="523" y="172" font-size="11.5" fill="#4a5568" font-weight="700">零轴</text>
+  <g stroke="#eef1f5" stroke-width="1">
+    <line x1="120" y1="56" x2="120" y2="268"/><line x1="200" y1="56" x2="200" y2="268"/>
+    <line x1="280" y1="56" x2="280" y2="268"/><line x1="360" y1="56" x2="360" y2="268"/>
+    <line x1="440" y1="56" x2="440" y2="268"/>
+  </g>
+  <polyline fill="none" stroke="#f39c12" stroke-width="2.2" points="70,262 135,248 200,228 250,188 268,176 302,140 352,116 408,126 462,206 510,244"/>
+  <polyline fill="none" stroke="#2f6fed" stroke-width="3" points="70,264 130,244 185,222 235,196 258,166 315,106 365,82 408,132 462,202 510,240"/>
+  <circle cx="258" cy="166" r="5" fill="#2f6fed" stroke="#fff" stroke-width="1.5"/>
+  <line x1="258" y1="166" x2="300" y2="120" stroke="#2f6fed" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="300" y="114" font-size="11.5" fill="#1a4fc0" font-weight="700">金叉 = 买入信号</text>
+  <circle cx="408" cy="130" r="5" fill="#c0392b" stroke="#fff" stroke-width="1.5"/>
+  <line x1="408" y1="130" x2="452" y2="96" stroke="#c0392b" stroke-width="1" stroke-dasharray="3 3"/>
+  <text x="452" y="90" font-size="11.5" fill="#c0392b" font-weight="700">死叉 = 卖出信号</text>
+  <rect x="40" y="282" width="480" height="74" fill="#fafbfc"/>
+  <line x1="40" y1="320" x2="520" y2="320" stroke="#a0aec0" stroke-width="1"/>
+  <text x="44" y="350" font-size="11" fill="#4a5568" font-weight="700">MACD柱：红柱↑动能增强 / 绿柱↓动能减弱</text>
+  <rect x="74" y="320" width="18" height="26" fill="#27ae60" opacity="0.85"/>
+  <rect x="114" y="320" width="18" height="20" fill="#27ae60" opacity="0.75"/>
+  <rect x="154" y="320" width="18" height="12" fill="#27ae60" opacity="0.55"/>
+  <rect x="194" y="296" width="18" height="24" fill="#e74c3c"/>
+  <rect x="234" y="288" width="18" height="32" fill="#e74c3c"/>
+  <rect x="274" y="284" width="18" height="36" fill="#e74c3c"/>
+  <rect x="314" y="290" width="18" height="30" fill="#e74c3c"/>
+  <rect x="354" y="302" width="18" height="18" fill="#e74c3c" opacity="0.8"/>
+  <rect x="394" y="320" width="18" height="10" fill="#27ae60" opacity="0.55"/>
+  <rect x="434" y="320" width="18" height="20" fill="#27ae60" opacity="0.75"/>
+  <rect x="474" y="320" width="18" height="28" fill="#27ae60" opacity="0.85"/>
+  <g font-size="11" fill="#4a5568">
+    <line x1="300" y1="364" x2="322" y2="364" stroke="#2f6fed" stroke-width="3"/><text x="326" y="368">DIF快线</text>
+    <line x1="392" y1="364" x2="414" y2="364" stroke="#f39c12" stroke-width="2.5"/><text x="418" y="368">DEA慢线</text>
+    <rect x="60" y="356" width="12" height="12" fill="#e74c3c"/><text x="76" y="368">红柱=动能增</text>
+    <rect x="160" y="356" width="12" height="12" fill="#27ae60" opacity="0.8"/><text x="176" y="368">绿柱=动能减</text>
+  </g>
+</svg>
+<figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:6px;">图1 · 快慢线金叉/死叉 + 水上水下分界 + 红绿柱动能，构成MACD全部用法</figcaption>
+</figure>
+
+<h4>① 快慢线（DIF/DEA）</h4>
+<ul>
+  <li><strong>金叉</strong>：DIF上穿DEA = 买入信号</li>
+  <li><strong>死叉</strong>：DIF下穿DEA = 卖出信号</li>
+  <li><strong>水下</strong>（零轴之下）的金叉：弱势反弹，需谨慎</li>
+  <li><strong>水上</strong>（零轴之上）的金叉：强势启动，可重仓</li>
+</ul>
+
+<h4>② 红绿柱（动能指标）</h4>
+<div class="card">
+<strong>核心口诀：</strong>
+<ul>
+  <li>红柱由长变短 = 上涨动能减弱 = 警惕见顶</li>
+  <li>红柱由短变长 = 上涨动能增强 = 趋势延续</li>
+  <li>绿柱由长变短 = 下跌动能减弱 = 阶段底</li>
+  <li>绿柱由短变长 = 下跌动能增强 = 趋势延续</li>
+</ul>
+</div>
+
+<h4>③ 零轴（水上水下分界）</h4>
+<div class="card blue">
+<strong>📊 5日均线 vs 零轴：</strong>在日线级别上，5日均线是"股价的均线"，零轴是"MACD的均线"。两者本质相同：站上=强势，跌破=弱势。
+</div>
+
+<h3 id="ch3-2">3.2 5日均线核心地位</h3>
+
+<div class="motto">
+🌟 5日均线 = 短线操盘的核心标尺
+</div>
+
+<p>5日均线在所有均线中地位最特殊：</p>
+<table class="table-wrap">
+<thead><tr><th>位置关系</th><th>意义</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td>股价站上5日线</td><td>短期强势</td><td>持股待涨</td></tr>
+<tr><td>股价跌破5日线</td><td>短期转弱</td><td>减仓/清仓观察</td></tr>
+<tr><td>5日线向上</td><td>趋势向好</td><td>积极操作</td></tr>
+<tr><td>5日线向下</td><td>趋势转坏</td><td>不参与</td></tr>
+</tbody>
+</table>
+
+<blockquote>
+<strong>主人的核心交易原则：</strong>5日均线就是我的"保护伞"——站上5日线我就在伞下避雨，跌破5日线我就主动离场找新伞。
+</blockquote>
+
+<h3 id="ch3-3">3.3 K线5组顶部+5组底部形态</h3>
+
+<h4>① 5组顶部形态（卖点信号）</h4>
+<table class="table-wrap">
+<thead><tr><th>序号</th><th>形态</th><th>K线特征</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><span class="badge badge-red">上吊线</span></td><td>实体小、下影线短、上影线长（位于上涨末端）</td><td>看跌→减仓</td></tr>
+<tr><td>2</td><td><span class="badge badge-red">倒上吊线</span></td><td>无上影线、实体大、下影线长（见顶信号）</td><td>看跌→减仓</td></tr>
+<tr><td>3</td><td><span class="badge badge-red">看跌吞没</span></td><td>后一根阴线实体完全包裹前一根阳线</td><td>看跌→减仓</td></tr>
+<tr><td>4</td><td><span class="badge badge-red">向下穿透</span></td><td>阴线从上往下显著插入前一根阳线实体下半部</td><td>看跌→减仓</td></tr>
+<tr><td>5</td><td><span class="badge badge-red">看跌孕线</span></td><td>后一根阴线实体被前一根阳线实体完全包裹</td><td>看跌→减仓</td></tr>
+</tbody>
+</table>
+
+<h4>② 5组底部形态（买点信号）</h4>
+<table class="table-wrap">
+<thead><tr><th>序号</th><th>形态</th><th>K线特征</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><span class="badge badge-green">锤子线</span></td><td>实体小、上影线短、下影线长（位于下跌末端）</td><td>看涨→关注</td></tr>
+<tr><td>2</td><td><span class="badge badge-green">倒锤线</span></td><td>实体小、下影线短、上影线长</td><td>看涨→关注</td></tr>
+<tr><td>3</td><td><span class="badge badge-green">看涨吞没</span></td><td>后一根阳线实体完全包裹前一根阴线</td><td>看涨→买入</td></tr>
+<tr><td>4</td><td><span class="badge badge-green">向上穿透</span></td><td>阳线从下往上显著插入前一根阴线实体上半部</td><td>看涨→买入</td></tr>
+<tr><td>5</td><td><span class="badge badge-green">看涨孕线</span></td><td>后一根阳线实体被前一根阴线实体完全包裹</td><td>看涨→关注</td></tr>
+</tbody>
+</table>
+
+<h4>③ 验证信号（辅助确认）</h4>
+<div class="card">
+<strong>📐 4个验证维度：</strong>
+<ol>
+  <li><strong>位置验证</strong>：形态必须出现在关键位置（前期高点/低点附近）</li>
+  <li><strong>成交量验证</strong>：顶部放量、底部缩量为更可信信号</li>
+  <li><strong>均线验证</strong>：站上/跌破5日均线确认突破/破位</li>
+  <li><strong>多周期验证</strong>：日线形态 + 周线形态共振更可靠</li>
+</ol>
+<p><strong>满足规则：</strong>满足任意1个→警惕/关注；满足2个以上→减仓/买入；满足3个以上→清仓/重仓</p>
+</div>
+
+<h3 id="ch3-4">3.4 缺口理论</h3>
+
+<h4>① 缺口的存在标准（以涨停价10元为例）</h4>
+<table class="table-wrap">
+<thead><tr><th>价格</th><th>判定结果</th></tr></thead>
+<tbody>
+<tr><td>涨停价 = 10元</td><td>基准价</td></tr>
+<tr><td>超过 10.01元（哪怕一分钱）</td><td><span class="highlight">产生缺口</span></td></tr>
+<tr><td>10.01元及以上</td><td>缺口还在</td></tr>
+<tr><td>10.00元</td><td><span class="highlight-red">也算补缺口</span>（没有空隙了）</td></tr>
+<tr><td>9.99元及以下</td><td><span class="highlight-red">补缺口</span></td></tr>
+</tbody>
+</table>
+
+<div class="card warn">
+<strong>⚠️ 缺口的生死线：</strong>
+<ul>
+  <li><strong>10.01元及以上</strong>：缺口存在 ✅</li>
+  <li><strong>10.00元</strong>：也算补缺口 ❌</li>
+  <li><strong>9.99元及以下</strong>：缺口已补 ❌</li>
+</ul>
+</div>
+
+<h4>② 向下跳空缺口=反弹强压力</h4>
+<p>向下跳空缺口（如7月10号和7月13号的缺口）= 反弹时的强压力位。例如15000点附近的向下跳空缺口，就是非常强的阻力。</p>
+
+<h3 id="ch3-5">3.5 上吊线六句话法则</h3>
+
+<div class="card gold">
+<strong>💎 上吊线六句话法则：</strong>
+<ol>
+  <li>上吊线必须有<strong>小的实体</strong>（位于价格区间的上端）</li>
+  <li>下影线长度<strong>至少是实体的两倍</strong>以上</li>
+  <li>实体颜色不重要（红绿都行）</li>
+  <li>上影线很短或没有</li>
+  <li>必须出现在<strong>上涨趋势的末端</strong></li>
+  <li>需要<strong>次日红色阳线确认</strong>（不能光看形态）</li>
+</ol>
+</div>
+
+<h3 id="ch3-6">3.6 单双数规则</h3>
+
+<div class="card blue">
+<strong>📏 数字规则：</strong>单数（1/3/5/7/9）= 顶部信号/卖出窗口；双数（2/4/6/8/10）= 底部信号/买入窗口。
+</div>
+
+<p>这一规则在买二买四方法中被极致运用：</p>
+<ul>
+  <li><strong>单数=标杆</strong>：第一天（单数1）是"标杆"，确定买二买四的基础，不买入</li>
+  <li><strong>双数=买入</strong>：在第2、4、6、8……天寻找买点</li>
+  <li><strong>不存在买三</strong>：买入了以后成功不成功都没有买三的事情</li>
+</ul>
+
+<blockquote>
+<strong>核心口诀：</strong>单数只标杆，双数才买入 —— 短线操作的数字节奏
+</blockquote>
+
+<!-- ===================================================== -->
+<!-- ============== 第4章 选股篇 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch4" class="section-anchor">📕 第4章 · 选股篇：十大赛道与三大原则</h2>
+
+<h3 id="ch4-1">4.1 选股三大原则</h3>
+
+<div class="card ok">
+<strong>✅ 牛市选股三大原则（缺一不可）：</strong>
+<ol>
+  <li><strong>5日均线持续站在20日均线上方</strong>（多头排列基础）</li>
+  <li><strong>5日、20日均线明显分离</strong>（间距越大=多头趋势越强）</li>
+  <li><strong>阶段日均换手率维持10%-15%</strong>（流通盘越小换手要求越高）</li>
+</ol>
+</div>
+
+<h3 id="ch4-2">4.2 庄股 vs 机构票 vs 游资</h3>
+
+<table class="table-wrap">
+<thead><tr><th>类型</th><th>流通市值</th><th>持仓周期</th><th>行为特征</th><th>典型案例</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-red">游资</span></td><td>—</td><td>1-2天</td><td>快进快出，拉涨停</td><td>—</td></tr>
+<tr><td><span class="badge badge-blue">庄股</span></td><td>200亿以内</td><td>3-5年甚至更长</td><td>底部吸筹→洗盘→突破主升→出货</td><td>—</td></tr>
+<tr><td><span class="badge badge-green">机构票</span></td><td>200亿以上</td><td>长期持有</td><td>公募/私募/保险重仓，资金合力推动</td><td>招商银行</td></tr>
+</tbody>
+</table>
+
+<div class="card gold">
+<strong>🎯 庄股操作四步法：</strong>
+<ol>
+  <li><strong>底部吸筹</strong>（放量）</li>
+  <li><strong>洗盘</strong>（缩量黄金坑）</li>
+  <li><strong>突破主升浪</strong>（核心参与阶段）</li>
+  <li><strong>高位出货</strong>（坚决不参与）</li>
+</ol>
+<p><strong>操作纪律：</strong>只参与突破板之后行情，突破前震荡、下跌全程放弃。</p>
+</div>
+
+<h3 id="ch4-3">4.3 520战法三大策略</h3>
+
+<h4>① 策略一：强势追涨（均线发散+阴线不破5日线）</h4>
+<div class="card">
+<strong>条件：</strong>5日与20日均线已发散，大盘出现阴线但收盘未跌破5日均线<br>
+<strong>操作：</strong>次日若阳线反包（实体超过前日阴线实体一半以上）即大胆买入或加仓<br>
+<strong>适用：</strong>主升浪阶段（如2025年6月、8月、9月）
+</div>
+
+<h4>② 策略二：轻度回调买入（跌破5日线但20日线获支撑）</h4>
+<div class="card">
+<strong>条件：</strong>大盘跌破5日均线，但未跌破20日均线，且5日线未下穿20日线<br>
+<strong>激进买点：</strong>在20日均线处获得支撑当日即可买入<br>
+<strong>稳健买点：</strong>次日重新站上5日均线后再买入
+</div>
+
+<h4>③ 策略三：深度回调介入（跌破20日线后重新站上5日线）</h4>
+<div class="card blue">
+<strong>条件：</strong>大盘跌破20日均线，且5日线下穿20日线，形成深度调整<br>
+<strong>买点信号：</strong>某日收盘价重新站上5日均线（必须收盘确认，盘中无效）<br>
+<strong>案例：</strong>2025年10月21日、11月25日、2026年2月9日、4月8日均为有效买点
+</div>
+
+<div class="card warn">
+<strong>⚠️ 适用范围与注意事项：</strong>
+<ul>
+  <li><strong>适用品种：</strong>大盘指数、ETF、流通市值200亿以上的机构票</li>
+  <li><strong>不适用：</strong>庄股（流通市值200亿以下个股）—— 庄家可能反向操作</li>
+  <li><strong>仅适用：</strong>日线级别，周线、分钟线不适用此战法</li>
+</ul>
+</div>
+
+<h3 id="ch4-4">4.4 绝对避雷规则</h3>
+
+<div class="warning-box">
+<strong>🚨 绝对避雷4铁律（违反任意一条=不参与）：</strong>
+<ol>
+  <li><span class="highlight-red">空头排列（5日线在20日线下方）一律不看</span>，过往牛股也会走熊</li>
+  <li><span class="highlight-red">长期无量个股</span>无资金关注，不存在上涨逻辑</li>
+  <li><span class="highlight-red">单纯低价股不布局</span>，无政策、资金加持无行情</li>
+  <li><span class="highlight-red">好公司≠好股票</span>，有成交量、主力进场才是好标的</li>
+</ol>
+</div>
+
+<h4>成交量关键补充</h4>
+<p>2010年后交易所监控严格，对敲造假成交量难度极大，量能真实性高。<span class="highlight">放量=资金进场核心信号</span>。</p>
+
+<h3 id="ch4-5">4.5 十五五新质生产力十大赛道</h3>
+
+<div class="motto">
+🌟 听党的话——十五五规划重点=未来5年财富风口
+</div>
+
+<h4>① 新质生产力（8大科技赛道）</h4>
+<table class="table-wrap">
+<thead><tr><th>序号</th><th>赛道</th><th>核心逻辑</th><th>重点关注</th></tr></thead>
+<tbody>
+<tr><td>1</td><td><span class="badge badge-blue">AI+</span></td><td>AI+核聚变/新材料/创新药</td><td>科学家研发效率翻倍</td></tr>
+<tr><td>2</td><td><span class="badge badge-purple">芯片深水区</span></td><td>从"跟跑"变"并跑"</td><td>高端光刻机替代</td></tr>
+<tr><td>3</td><td><span class="badge badge-red">脑机接口</span></td><td>人脑与机器直接交换信息</td><td>马斯克带动</td></tr>
+<tr><td>4</td><td><span class="badge badge-gold">太空经济+月球开发</span></td><td>2030年中国登月，月球建科研站、挖矿</td><td>就地用月壤制砖</td></tr>
+<tr><td>5</td><td><span class="badge badge-red">可控核聚变</span></td><td>"人造太阳"——能源格局巨变</td><td>不依赖中东石油</td></tr>
+<tr><td>6</td><td><span class="badge badge-green">绿色产业</span></td><td>钙钛矿光伏、氢能</td><td>氢能是未来重点</td></tr>
+<tr><td>7</td><td><span class="badge badge-blue">人形机器人</span></td><td>2026年是元年，春晚有机器人表演</td><td>未来纳米机器人疏通血管</td></tr>
+<tr><td>8</td><td><span class="badge badge-purple">6G</span></td><td>"异地闻味道、尝味道"</td><td>中国制定全球标准</td></tr>
+</tbody>
+</table>
+
+<h4>② 战略安全2大赛道</h4>
+<table class="table-wrap">
+<thead><tr><th>赛道</th><th>逻辑</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-red">军工</span></td><td>保护发展权与话语权</td></tr>
+<tr><td><span class="badge badge-gold">有色金属</span></td><td>小金属=AI时代关键资源；贵金属因美元泛滥重获货币属性</td></tr>
+<tr><td><span class="badge badge-blue">华为产业链</span></td><td>科技自主之魂：Mate X\AI手机\鸿蒙生态\光刻胶自研，贯穿「软硬通吃」国产替代主线</td></tr>
+</tbody>
+</table>
+
+<div class="card blue">
+<strong>📌 华为产业链 + 十大赛道 = 第十一大板块：</strong>第四天课程「145只科技股回测池」正是按这<strong>十一大板块</strong>分组——人工智能、芯片、脑机接口、太空与月球、可控核聚变、绿色产业、机器人、6G、军工、有色金属、华为产业链。想跟庄家主线，先把这11组吃透。
+</div>
+
+<div class="success-box">
+<strong>🎯 终极聚焦建议：</strong>将5800只股票<strong>浓缩至上述十一大板块（十大赛道+华为产业链）的20余只ETF和数百只股票</strong>，长期聚焦，踩准国策风口。
+</div>
+
+<!-- ===================================================== -->
+<!-- ============== 第5章 买入篇 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch5" class="section-anchor">📘 第5章 · 买入篇：四买入+短线三大战法</h2>
+
+<h3 id="ch5-1">5.1 MACD四买入策略</h3>
+
+<div class="motto">
+🌟 4个MACD买入策略 = "两对半框架" 的实战应用
+</div>
+
+<h4>① 策略一：逼空点（"该绿不绿"）</h4>
+<div class="card">
+<strong>原理：</strong>股价在水下运行时，应该出现绿柱但没出现，反而出现红柱——这是主力"逼空"信号。<br>
+<strong>操作：</strong>立即买入，短线爆发力极强。
+</div>
+
+<h4>② 策略二：绿柱缩短</h4>
+<div class="card">
+<strong>形态：</strong>绿柱开始缩短，意味着下跌动能减弱。<br>
+<strong>模型：</strong>010/121/12321/1234321（数字代表绿柱长度比例）<br>
+<strong>操作：</strong>出现缩短模式后，准备介入。
+</div>
+
+<h4>③ 策略三：姚明形态（长绿柱+快线拐头+站上5日线）</h4>
+<div class="card ok">
+<strong>形态：</strong>长时间绿柱+快线向上拐头+收盘价站上5日均线<br>
+<strong>本质：</strong>从水下即将穿越零轴的强势信号<br>
+<strong>操作：</strong>重仓买入
+</div>
+
+<h4>④ 策略四：底背离（首次零轴+背离+快线拐头+站上5日线）</h4>
+<div class="card gold">
+<strong>形态：</strong>股价创新低，但MACD绿柱未同步创新低（底背离）<br>
+<strong>确认：</strong>首次穿越零轴 + 快线拐头 + 收盘价站上5日均线<br>
+<strong>操作：</strong>重仓买入，胜率最高
+</div>
+
+<h4>⑤ 强势股五大特点（策略一的入场前置过滤器）</h4>
+<div class="card warn">
+<strong>⚠️ 老师反复强调：「这五点要背」</strong>——这是策略一（逼空点）买入前的<strong>前置条件</strong>，四点全中才谈得上「立即买入」：
+<table class="table-wrap">
+<thead><tr><th>特点</th><th>具体表现</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>1. 放量</td><td>成交量必须明显放大</td><td>说明<strong>庄家在上班</strong>（资金流入）</td></tr>
+<tr><td>2. 红肥绿瘦</td><td>上涨阳线实体大、下跌阴线实体小</td><td>说明庄家<strong>在洗盘而非出货</strong></td></tr>
+<tr><td>3. 连续阳线</td><td>连续3–4根阳线最佳</td><td>上涨惯性已确认</td></tr>
+<tr><td>4. 向上跳空缺口</td><td>跳空高开且不回补</td><td>强势启动的典型信号</td></tr>
+<tr><td>5. 快慢线在零轴以上</td><td>DIF必须水上（强势区域）</td><td><span class="highlight-red">水下不算</span>，趋势确认</td></tr>
+</tbody>
+</table>
+</div>
+
+<h3 id="ch5-2">5.2 买二买四（弱涨停+缺口）</h3>
+
+<div class="motto">
+🌟 "买二买四=涨停+缺口+不补=持有；补=卖" —— 短线铁律
+</div>
+
+<figure style="margin:16px 0; text-align:center;">
+<svg viewBox="0 0 560 360" width="100%" style="max-width:640px; background:#fff; border:1px solid var(--border-color); border-radius:10px;" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <title>买二买四缺口示意</title>
+  <text x="280" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#2d3748">买二买四：涨停 → 跳空缺口 → 横盘洗盘不补 → 双日买入</text>
+  <line x1="85" y1="162" x2="85" y2="254" stroke="#c0392b" stroke-width="2"/>
+  <rect x="70" y="252" width="30" height="82" fill="#e74c3c"/>
+  <text x="85" y="146" text-anchor="middle" font-size="12" fill="#c0392b" font-weight="700">涨停</text>
+  <rect x="130" y="158" width="390" height="12" fill="#fde68a" opacity="0.9"/>
+  <text x="150" y="148" font-size="11" fill="#b7791f" font-weight="700">跳空缺口（哪怕一分钱也算缺口）</text>
+  <line x1="130" y1="170" x2="520" y2="170" stroke="#8898aa" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="132" y="196" font-size="11" fill="#4a5568">缺口上沿 = 支撑（不破 = 持有）</text>
+  <line x1="155" y1="116" x2="155" y2="170" stroke="#a0aec0" stroke-width="1.5"/><rect x="150" y="136" width="10" height="34" fill="#e74c3c"/>
+  <line x1="195" y1="136" x2="195" y2="170" stroke="#a0aec0" stroke-width="1.5"/><rect x="190" y="150" width="10" height="20" fill="#27ae60"/>
+  <line x1="235" y1="104" x2="235" y2="170" stroke="#a0aec0" stroke-width="1.5"/><rect x="230" y="126" width="10" height="44" fill="#e74c3c"/>
+  <line x1="275" y1="134" x2="275" y2="170" stroke="#a0aec0" stroke-width="1.5"/><rect x="270" y="148" width="10" height="22" fill="#27ae60"/>
+  <line x1="315" y1="94" x2="315" y2="170" stroke="#a0aec0" stroke-width="1.5"/><rect x="310" y="118" width="10" height="52" fill="#e74c3c"/>
+  <line x1="355" y1="132" x2="355" y2="170" stroke="#a0aec0" stroke-width="1.5"/><rect x="350" y="146" width="10" height="24" fill="#27ae60"/>
+  <line x1="395" y1="90" x2="395" y2="170" stroke="#a0aec0" stroke-width="1.5"/><rect x="390" y="114" width="10" height="56" fill="#e74c3c"/>
+  <line x1="435" y1="130" x2="435" y2="170" stroke="#a0aec0" stroke-width="1.5"/><rect x="430" y="144" width="10" height="26" fill="#27ae60"/>
+  <line x1="475" y1="86" x2="475" y2="170" stroke="#a0aec0" stroke-width="1.5"/><rect x="470" y="110" width="10" height="60" fill="#e74c3c"/>
+  <g font-size="11" fill="#4a5568" text-anchor="middle">
+    <text x="155" y="292">买二</text><text x="235" y="292">买四</text><text x="315" y="292">买六</text>
+    <text x="395" y="292">买八</text><text x="475" y="292">买十</text>
+  </g>
+  <path d="M 520 205 L 520 232 M 514 226 L 520 236 L 526 226" stroke="#c0392b" stroke-width="2" fill="none"/>
+  <text x="520" y="252" text-anchor="middle" font-size="11" fill="#c0392b" font-weight="700">补缺=卖</text>
+  <text x="280" y="330" text-anchor="middle" font-size="11.5" fill="#4a5568">短线铁律：涨停 + 缺口 + 不补 = 持有；补 = 卖。买点在双日（2、4、6、8…）</text>
+</svg>
+<figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:6px;">图2 · 涨停后跳空缺口不补 = 庄家横向洗盘，未来上涨是大概率事件</figcaption>
+</figure>
+
+<h4>① 核心定义</h4>
+<div class="card blue">
+<strong>📏 买二买四规则：</strong>
+<ul>
+  <li>股票涨停后<strong>第一天</strong>会产生一个<strong>跳空缺口</strong>（哪怕一分钱也叫缺口）</li>
+  <li>缺口价格 ≈ 涨停后第一天的<strong>最低价附近</strong></li>
+  <li>关键特征：第二天、第三天、第四天……第N天，<strong>缺口始终没有被补</strong></li>
+  <li>这种形态叫<strong>庄家横向洗盘</strong>，未来上涨是大概率事件</li>
+  <li>买双日：<span class="highlight">2、4、6、8、10、12、14</span></li>
+</ul>
+</div>
+
+<h4>② 两种入场模式</h4>
+<table class="table-wrap">
+<thead><tr><th>对比项</th><th>买早（情形一）</th><th>买晚（情形二）</th></tr></thead>
+<tbody>
+<tr><td>次日开盘</td><td>低开后往上走</td><td>高开（不能直接买）→ 高开低走形成阴线</td></tr>
+<tr><td>关键形态</td><td>早上股价往上走</td><td>收盘价又回到<strong>缺口附近</strong></td></tr>
+<tr><td>买入时机</td><td>早上（缺口附近）</td><td>下午<strong>2:50左右</strong>（收盘前）</td></tr>
+<tr><td>买入原则</td><td>必须在缺口附近买入</td><td>必须在缺口附近买入</td></tr>
+</tbody>
+</table>
+
+<h4>③ 核心原则</h4>
+<div class="card warn">
+<strong>⚠️ 三大核心原则：</strong>
+<ol>
+  <li><strong>必须产生缺口</strong>（哪怕一分钱也算缺口）</li>
+  <li><strong>买卖都在缺口附近</strong>（买入价不能远离缺口）</li>
+  <li><strong>买早或买晚</strong>两种入场模式</li>
+</ol>
+</div>
+
+<h4>④ 补缺口的精确定义</h4>
+<table class="table-wrap">
+<thead><tr><th>价格</th><th>判定</th></tr></thead>
+<tbody>
+<tr><td>10.01元及以上</td><td>缺口存在 ✅</td></tr>
+<tr><td>10.00元</td><td>也算补缺口 ❌（没有空隙了）</td></tr>
+<tr><td>9.99元及以下</td><td>缺口已补 ❌</td></tr>
+</tbody>
+</table>
+
+<h4>⑤ 买早 vs 买晚 对照表</h4>
+<table class="table-wrap">
+<thead><tr><th>维度</th><th>买早</th><th>买晚</th></tr></thead>
+<tbody>
+<tr><td>入场时间</td><td>早晨（集合竞价后/早盘）</td><td>下午 2:50-2:55</td></tr>
+<tr><td>形态</td><td>V型反转（或W型）站稳均线</td><td>创低未补缺口 + 40分钟未创新低</td></tr>
+<tr><td>核心要求</td><td>V上去后必须站上当天的均线</td><td>缺口必须在</td></tr>
+<tr><td>适用场景</td><td>买四、买六（连续5天缺口）</td><td>买二（标准买晚）</td></tr>
+</tbody>
+</table>
+
+<h4>⑥ 关键案例：四川黄金（001337）</h4>
+<div class="card ok">
+<strong>📌 标准买2形态：</strong>
+<ul>
+  <li>涨停后第一天产生<strong>跳空缺口</strong></li>
+  <li>第二天<strong>平开</strong>（略微高开一点点）</li>
+  <li>开盘后<strong>一路向下走</strong>，但<strong>始终没补这个缺口</strong></li>
+  <li>在<strong>重新站上当天的均线</strong>那一刻买入</li>
+  <li>案例结果：<strong>两天涨幅约19%</strong>，对应四川黄金</li>
+</ul>
+</div>
+
+<h4>⑦ 买早/买晚判定标准</h4>
+<div class="card">
+<strong>🌙 买晚判定（2:50-2:55买入）：</strong>
+<ul>
+  <li>早晨高开远离缺口 → 等</li>
+  <li>下午 2:20 左右<strong>创了新低</strong>，但<strong>没补缺口</strong></li>
+  <li>收盘前 2:50-2:55 这40分钟内<strong>未再创新低</strong> → 买入</li>
+</ul>
+</div>
+
+<div class="card">
+<strong>☀️ 买早判定（V型反转）：</strong>
+<ul>
+  <li>早晨<strong>低开往下走</strong></li>
+  <li>若没补缺口，立刻拉上去 → 形成 <strong>V 型反转</strong></li>
+  <li>V上去<strong>站上当天的均线</strong> → 立刻买入</li>
+</ul>
+</div>
+
+<h4>⑧ 买二买四六大铁律</h4>
+<div class="warning-box">
+<strong>📜 不可违背：</strong>
+<ol>
+  <li><strong>必须在缺口附近买</strong>（位置铁律，板块最高原则）</li>
+  <li><strong>唯一止损 = 补缺口一刀斩</strong>（2-5%）</li>
+  <li><strong>只买双数（2/4/6/8/10），不买单数</strong></li>
+  <li><strong>只看"涨停+缺口"现象</strong>，排除其他变量</li>
+  <li><strong>以最近的有效缺口为锚</strong></li>
+  <li><strong>突破板后买二买四 = 主升浪起点</strong></li>
+</ol>
+</div>
+
+<h3 id="ch5-3">5.3 W型买入法（波段操作）</h3>
+
+<h4>① V / N / W 三种进攻形态对照</h4>
+<table class="table-wrap">
+<thead><tr><th>形态</th><th>特征</th><th>操作意义</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-red">V型</span></td><td>单针探底、直接反转</td><td>短线最强势，但稳定性差</td></tr>
+<tr><td><span class="badge badge-blue">N型</span></td><td>上涨→回调→再上涨（一次）</td><td>短线主力形态</td></tr>
+<tr><td><span class="badge badge-green">W型</span></td><td>上涨→回调→再上涨→再回调→再上涨</td><td><strong>最稳定的波段形态</strong></td></tr>
+</tbody>
+</table>
+
+<h4>② W型买入法三个核心条件</h4>
+<div class="card gold">
+<strong>💎 公式：</strong>
+<pre>
+【条件一】曾经涨停（一根或两三根为佳）
+            ↓
+【条件二】形成W型（右底比左底高，即 C > A）
+            ↓
+【条件三】红肥绿瘦 + 重新站上5日均线
+            ↓
+       C点（底部）= 买入点
+</pre>
+</div>
+
+<h4>③ 大小W嵌套规律</h4>
+<table class="table-wrap">
+<thead><tr><th>层级</th><th>位置</th><th>有效性</th></tr></thead>
+<tbody>
+<tr><td><strong>大W</strong></td><td>长周期视角下的多个涨停+调整组</td><td>高</td></tr>
+<tr><td><strong>小W</strong></td><td>主升浪阶段的二次回踩</td><td><span class="badge badge-green">极高</span></td></tr>
+</tbody>
+</table>
+
+<p><strong>操作要点：</strong>小W往往出现在主升浪的第二波或第三波。每个"小W"都可单独买入，不必一涨就追。</p>
+
+<h4>④ 典型案例：002192（融捷股份）</h4>
+<div class="card ok">
+<strong>📊 标准范本：</strong>002192 融捷股份，完美W型案例，在水上形成：<br>
+一组涨停 → 下来、上去 → 再下来、再上去 → 完成一轮标准W型波段
+</div>
+
+<h4>⑤ W型5条铁律</h4>
+<ol>
+  <li><strong>5日均线是核心</strong>：跌破=调整开始；重新站上=启动信号</li>
+  <li><strong>右底抬升是核心</strong>：C点必须高于A点，否则不是有效W型</li>
+  <li><strong>红肥绿瘦是辅助</strong>：成交量配合确认突破有效性</li>
+  <li><strong>波段操作不盯盘</strong>：相比买二买四的15分钟筛选，W型更适合不常盯盘者</li>
+  <li><strong>位置必在水上</strong>：W型不可能在水下形成（水下没有调整的物理空间）</li>
+</ol>
+
+<h3 id="ch5-4">5.4 两阴反包（短线最快赚钱方式）</h3>
+
+<div class="card gold">
+<strong>💎 核心定位：</strong>反包技术是<span class="highlight">比"买二买四"更快、更激进</span>的短线赚钱方式。共有5种方式，本节讲最系统的"两阴反包"。
+</div>
+
+<h4>① 前提条件</h4>
+<div class="card">
+<strong>前置条件：</strong>
+<ol>
+  <li>首先涨停（最好是1-4个板）</li>
+  <li>涨停之后连续两根阴线</li>
+  <li>第二根阴线的成交量必须<strong>萎缩</strong></li>
+  <li>阴线实体比前一天实体小（缩量+实体收缩=抛压衰竭）</li>
+</ol>
+</div>
+
+<h4>② 两大类型</h4>
+<table class="table-wrap">
+<thead><tr><th>类型</th><th>触发条件</th><th>买点数量</th><th>核心动作</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-red">低开反包</span></td><td>第三天低于昨日收盘价</td><td>3个买点（风险递增）</td><td>站上当日均线即买</td></tr>
+<tr><td><span class="badge badge-gold">高开反包</span></td><td>第三天高于昨日收盘价</td><td>2个买点</td><td>一柱擎天/快V快回</td></tr>
+</tbody>
+</table>
+
+<h4>③ 低开反包3个买点</h4>
+<table class="table-wrap">
+<thead><tr><th>买点</th><th>买入标准</th><th>风险/收益</th><th>适用人群</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-red">买点一</span></td><td>超过昨日收盘价即买</td><td>风险高/收益最高</td><td>激进短线</td></tr>
+<tr><td><span class="badge badge-blue">买点二</span></td><td>超过昨日阴线实体一半即买</td><td>风险中/收益中</td><td>平衡型</td></tr>
+<tr><td><span class="badge badge-green">买点三</span></td><td>直接涨停打板即买</td><td>风险最低/收益最低</td><td>保守型</td></tr>
+</tbody>
+</table>
+
+<h4>④ 高开反包2个买点</h4>
+<div class="card">
+<strong>形态1：一柱擎天</strong>
+<ul><li>高开后直接一根快速拉升直线封涨停 → <strong>直接追</strong></li></ul>
+</div>
+
+<div class="card">
+<strong>形态2：快V快回（快速回踩快速上拉）</strong>
+<ul>
+  <li>高开后<strong>先回踩</strong>（不能补缺口，即不能跌破昨日收盘价）</li>
+  <li><strong>5-10分钟内快速V上去</strong>站上当日的分时均线</li>
+  <li>操作：<strong>站上当日均线即买</strong></li>
+</ul>
+</div>
+
+<h4>⑤ 6条铁律</h4>
+<ol>
+  <li><strong>第二根阴线必须缩量</strong>——反包成立的前提</li>
+  <li><strong>涨停越多越好</strong>——4个涨停比1个涨停的反包更强势</li>
+  <li><strong>高开回踩不能补缺口</strong>——补了则转为低开反包逻辑</li>
+  <li><strong>风险和收益成正比</strong>——想博高收益就早买，求稳就打板</li>
+  <li><strong>站上当日均线即买</strong>——低开反包的核心触发器</li>
+  <li><strong>一柱擎天直接追</strong>——不犹豫</li>
+</ol>
+
+<h3 id="ch5-5">5.5 突破板=主升浪（平淡发展案例）</h3>
+
+<div class="card ok">
+<strong>🚀 突破板案例：平淡发展（标准主升浪）：</strong>
+<ol>
+  <li><strong>起点</strong>：去年 10 月 17 号标准突破板</li>
+  <li><strong>承接</strong>：连续3天缺口（第1、2、3天）</li>
+  <li><strong>入场</strong>：第4天开盘往下走 → V上去 → 演变为 <strong>W形态</strong> → 站上去买入</li>
+  <li><strong>主升浪爆发</strong>：买四之后 → 当天+后续多次涨停（"1234567 八九十板"）</li>
+  <li><strong>关键数据</strong>：<strong>41个交易日涨幅3.5倍</strong></li>
+</ol>
+</div>
+
+<div class="card">
+<strong>📌 案例指导意义：</strong>
+<ul>
+  <li>这种主升浪的票很多</li>
+  <li>反复用买二买四方法，可能遇到主升浪</li>
+  <li>哪怕当天涨5%，第二天卖也是5%以上收益</li>
+  <li>突破板 + 缺口不补 + W形态买入 = <strong>教科书级的主升浪入场</strong></li>
+</ul>
+</div>
+
+<!-- ===================================================== -->
+<!-- ============== 第6章 卖出篇 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch6" class="section-anchor">📗 第6章 · 卖出篇：四卖出+顶部识别+T+0</h2>
+
+<h3 id="ch6-1">6.1 MACD四卖出策略（镜像买入）</h3>
+
+<div class="motto">
+🌟 卖出的本质是"买"的镜像——四买入策略反过来用
+</div>
+
+<table class="table-wrap">
+<thead><tr><th>策略</th><th>买入（对应）</th><th>卖出（镜像）</th></tr></thead>
+<tbody>
+<tr><td>策略一</td><td>逼空点（该绿不绿）</td><td>该红不红</td></tr>
+<tr><td>策略二</td><td>绿柱缩短</td><td>红柱缩短</td></tr>
+<tr><td>策略三</td><td>姚明形态（长绿+快线拐头+站上5日线）</td><td>长红+快线拐头</td></tr>
+<tr><td>策略四</td><td>底背离（首次零轴+背离+快线拐头+站上5日线）</td><td>顶背离（大一到四大）</td></tr>
+</tbody>
+</table>
+
+<h4>策略一：该红不红</h4>
+<p>股价在水上运行时，应该出现红柱但没出现，反而出现绿柱——这是主力"假突破"信号。立即减仓或清仓。</p>
+
+<h4>策略二：红柱缩短</h4>
+<p>红柱开始缩短，意味着上涨动能减弱。出现缩短模式后，准备减仓。</p>
+
+<h4>策略三：长红柱+快线拐头</h4>
+<p>长时间红柱+快线向下拐头+收盘价跌破5日均线。立即减仓。</p>
+
+<h4>策略四：顶背离（大一→大四）</h4>
+<div class="card warn">
+<strong>🎯 顶背离的四个层次：</strong>
+<ol>
+  <li><strong>大一级</strong>：红柱顶背离（价格新高，红柱未新高）</li>
+  <li><strong>大二级</strong>：母浪背离（两个红柱山峰中第二个低于第一个）</li>
+  <li><strong>大三级</strong>：快线顶背离（DIF与价格不创新高）</li>
+  <li><strong>大四级</strong>：成交量顶背离（量能萎缩）</li>
+</ol>
+</div>
+
+<h3 id="ch6-2">6.2 顶部判断四大方法</h3>
+
+<div class="motto">
+🌟 顶部完全可以判断——市场走出来就看你执行不执行
+</div>
+
+<table class="table-wrap">
+<thead><tr><th>序号</th><th>方法</th><th>核心信号</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td>一</td><td><span class="badge badge-red">股价与MACD动能顶背离</span></td><td>股价创新高，但MACD红柱未同步创新高</td><td>坚决卖出</td></tr>
+<tr><td>二</td><td><span class="badge badge-red">前期高点构成压力位</span></td><td>无量突破前期高点</td><td>顶部信号</td></tr>
+<tr><td>三</td><td><span class="badge badge-red">长上影线伴随天量</span></td><td>极长上影线+巨量，次日低开或下跌</td><td>确认顶部，必须离场</td></tr>
+<tr><td>四</td><td><span class="badge badge-red">高位放量滞涨</span></td><td>连续3天以上高位放巨量但股价不涨</td><td>典型顶部特征</td></tr>
+</tbody>
+</table>
+
+<h4>① 顶部判定的"三看法"</h4>
+<div class="card">
+<pre>
+【第一看】看位置 → 是否在前期高点附近？
+【第二看】看量能 → 是否缩量？是否放量滞涨？
+【第三看】看形态 → 是否长上影？是否顶背离？
+==================
+满足任意一个 → 警惕
+满足两个以上 → 减仓
+满足三个以上 → 坚决清仓
+</pre>
+</div>
+
+<h4>② 操作心态金句</h4>
+<blockquote>
+"市场走出来，不要去预测" —— 顶部是事后确认的，不要猜<br>
+"出现卖的信号，坚决执行" —— 哪怕执行错了也要执行<br>
+"走错了都坚决走" —— 保住本金比赚更多更重要
+</blockquote>
+
+<h3 id="ch6-3">6.3 补缺口止损铁律</h3>
+
+<div class="warning-box">
+<strong>🛑 唯一止损：补缺口一刀斩</strong>
+</div>
+
+<h4>① 止损触发情形</h4>
+<ol>
+  <li>买的时候V上去了，但当天就补了缺口 → 第二天早晨集合竞价一刀斩</li>
+  <li>买入后第二天把缺口补了 → 一刀斩</li>
+  <li>总体原则：只要补了缺口就一刀斩</li>
+</ol>
+
+<h4>② 止损幅度控制</h4>
+<table class="table-wrap">
+<thead><tr><th>项目</th><th>标准</th></tr></thead>
+<tbody>
+<tr><td>每次止损</td><td><strong>2-5%</strong></td></tr>
+<tr><td>纪律</td><td>错了都执行，过了都执行</td></tr>
+<tr><td>核心</td><td>风险牢牢锁定</td></tr>
+</tbody>
+</table>
+
+<h4>③ "没有补缺口就一直拿着"的具体情形</h4>
+<table class="table-wrap">
+<thead><tr><th>情形</th><th>判断</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td>买入后三天阴线</td><td>没关系</td><td>只要当天没补缺口就持有</td></tr>
+<tr><td>买入后第二天没涨停</td><td>短线交易</td><td>可视为获利了结卖出</td></tr>
+<tr><td>买入后第二天补缺口又拉上去</td><td>不管拉不拉</td><td><strong>补缺口就卖</strong></td></tr>
+</tbody>
+</table>
+
+<h3 id="ch6-4">6.4 T+0真涨假涨判断法</h3>
+
+<h4>① 三要素</h4>
+<div class="card blue">
+<strong>📊 真涨假涨判断三要素：</strong>
+<ol>
+  <li>当日股价上涨</li>
+  <li>五日内存在前期高点</li>
+  <li>冲高时<strong>成交量不足</strong>（相较于前期高点当日）</li>
+</ol>
+</div>
+
+<h4>② 核心逻辑</h4>
+<p>股价上涨至前期高点附近时，若成交量未明显放大（无量），则为"假涨"，因前期套牢盘解套后会形成抛压，导致股价回落。</p>
+
+<h4>③ 操作方法</h4>
+<p>在假涨高点附近卖出，待股价回落后买回，实现<strong>反向T+0</strong>，摊薄成本。</p>
+
+<h3 id="ch6-5">6.5 T+0三波理论</h3>
+
+<h4>① 核心逻辑</h4>
+<div class="card">
+<strong>📊 三波理论：</strong>源自"一而再，再而三，三而竭"的传统智慧，认为连续三波上涨或下跌后动能衰竭，市场易发生变盘。
+</div>
+
+<h4>② 下跌三波（买入）</h4>
+<p>观察MACD绿柱形成的三个"山峰"，若<strong>第三波动能（绿柱高度）弱于前两波</strong>，则视为下跌动能衰竭，可在低点买入做正向T+0。</p>
+
+<h4>③ 上涨三波（卖出）</h4>
+<p>观察MACD红柱形成的三个"山峰"，若<strong>第三波动能（红柱高度）弱于前两波</strong>，则视为上涨动能衰竭，可在高点卖出做反向T+0。</p>
+
+<h4>④ 关键工具</h4>
+<p>使用MACD指标的红绿柱高度比较动能强弱，而非仅看价格。</p>
+
+<h4>⑤ 风险控制</h4>
+<div class="card warn">
+<strong>⚠️ 三波理论失效：</strong>若出现第四波，应在反弹时果断止损（"一刀斩"）；同时务必选择低佣金的券商，降低交易成本。
+</div>
+
+<h4>⑥ 仓位管理</h4>
+<ul>
+  <li><strong>初期</strong>：10%仓位练习（如10000股每次操作1000股）</li>
+  <li><strong>进阶</strong>：若连续三个月有效，可增至50%</li>
+  <li><strong>高级</strong>：半年后可考虑全仓操作</li>
+</ul>
+
+<!-- ===================================================== -->
+<!-- ============== 第7章 工具篇 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch7" class="section-anchor">📙 第7章 · 工具篇：ETF与软件配置</h2>
+
+<h3 id="ch7-1">7.1 ETF核心优势</h3>
+
+<div class="card ok">
+<strong>💎 ETF核心优势：</strong>让散户能与机构"<span class="highlight">平起平坐</span>"，避免个股被收割的风险，是普通投资者的理想工具。
+</div>
+
+<h4>① 交易策略</h4>
+<p>对ETF同样适用"520战法"（基于均线系统），并可进行T+0交易（尤其外盘和商品ETF）。</p>
+
+<h4>② 定投策略</h4>
+<div class="card">
+<strong>📊 "不定时、不定额、择时"策略：</strong>优于传统定额定投。核心是：便宜时多买，昂贵时少买或不买。
+</div>
+
+<h4>③ 6类策略ETF</h4>
+<table class="table-wrap">
+<thead><tr><th>类型</th><th>特点</th></tr></thead>
+<tbody>
+<tr><td>宽基ETF</td><td>沪深300、中证500、中证1000等</td></tr>
+<tr><td>窄基ETF</td><td>行业/主题（如半导体ETF、医药ETF）</td></tr>
+<tr><td>策略ETF</td><td>红利低波、质量价值等</td></tr>
+<tr><td>黄金ETF</td><td>对冲通胀</td></tr>
+<tr><td>债券ETF</td><td>避险资产</td></tr>
+<tr><td>境外ETF</td><td>纳指、标普500、港股等</td></tr>
+</tbody>
+</table>
+
+<h3 id="ch7-2">7.2 基金分类与公募私募</h3>
+
+<h4>① 基金参与人铁三角</h4>
+<table class="table-wrap">
+<thead><tr><th>角色</th><th>身份</th><th>通俗称呼</th></tr></thead>
+<tbody>
+<tr><td>1. 基金份额持有人</td><td>出钱的人</td><td>金主爸爸/我们自己</td></tr>
+<tr><td>2. 管理人</td><td>基金经理和基金公司</td><td>—</td></tr>
+<tr><td>3. 托管人</td><td>商业银行（独家）</td><td>—</td></tr>
+</tbody>
+</table>
+
+<div class="card warn">
+<strong>⚠️ 关于托管人：</strong>基金从业资格考试教材上写的托管人还包括信托公司（理论上），但<strong>实际中只有商业银行</strong>才能做托管人。如果某基金产品的托管人是"信托投资公司"，要特别小心，可能是骗子。
+</div>
+
+<h4>② 公募基金 vs 私募基金</h4>
+<table class="table-wrap">
+<thead><tr><th>维度</th><th>公募基金</th><th>私募基金</th></tr></thead>
+<tbody>
+<tr><td>持有人数</td><td>≥ 200人</td><td>2人以上，200人以下</td></tr>
+<tr><td>宣传</td><td>可以打广告</td><td>严禁打广告</td></tr>
+<tr><td>起步门槛</td><td>500元</td><td>100万起步，10万的倍数</td></tr>
+<tr><td>收入来源</td><td>管理费（旱涝保收）</td><td>业绩分成（2:8/4:6）</td></tr>
+</tbody>
+</table>
+
+<h4>③ 大基金（集成电路产业基金）</h4>
+<div class="card gold">
+<strong>🏭 大基金运作架构：</strong>
+<p>国务院牵头，地方政府参股，金融科技平台（如腾讯、阿里等）出资成立的<strong>股份有限公司</strong>，专门投资上市和非上市公司的产业基金身份。</p>
+<p><strong>背景：</strong>西方国家对中国集成电路行业进行专利和技术限制甚至禁止出口，行业特别费钱，一般企业烧不起。</p>
+</div>
+
+<h3 id="ch7-3">7.3 主动管理型ETF</h3>
+
+<div class="card warn">
+<strong>📰 关键政策事件：</strong>
+<ul>
+  <li><strong>2025年6月17日上午</strong>，证监会主席<strong>吴清</strong>在<strong>陆家嘴论坛</strong>上表态</li>
+  <li>内容：<strong>要抓紧推进主动管理型ETF</strong></li>
+  <li>一个月后（7月17日）已有18只主动管理型ETF在排队准备成立</li>
+</ul>
+</div>
+
+<h4>① 主动管理型 vs 被动管理型</h4>
+<table class="table-wrap">
+<thead><tr><th>类型</th><th>决策权</th><th>操作方式</th></tr></thead>
+<tbody>
+<tr><td>主动管理型</td><td>基金经理说了算</td><td>发挥主观认知</td></tr>
+<tr><td>被动管理型</td><td>指数说了算</td><td>复制粘贴（Ctrl+C/V抄作业）</td></tr>
+</tbody>
+</table>
+
+<h4>② 主动管理型ETF的特点</h4>
+<ul>
+  <li>不复制某个指数</li>
+  <li>全靠基金经理自主决策（拍脑袋）</li>
+  <li><strong>持仓明细天天发公告</strong>（收盘后）</li>
+  <li>代表：木头姐（Cathie Wood，ARK Invest创始人）</li>
+</ul>
+
+<h4>③ 盘后定价交易（2025年7月6日开始）</h4>
+<table class="table-wrap">
+<thead><tr><th>维度</th><th>内容</th></tr></thead>
+<tbody>
+<tr><td>起始时间</td><td>2025年7月6日</td></tr>
+<tr><td>时段</td><td>15:05-15:30（收盘后25分钟）</td></tr>
+<tr><td>价格</td><td>按15:00集合竞价收盘价定价交易（无涨跌停）</td></tr>
+<tr><td>范围</td><td>全市场品种都可以（以前只有创业板）</td></tr>
+</tbody>
+</table>
+
+<h3 id="ch7-4">7.4 东方财富软件设置</h3>
+
+<h4>① 必备四件套</h4>
+<table class="table-wrap">
+<thead><tr><th>设置项</th><th>显示颜色</th><th>作用</th></tr></thead>
+<tbody>
+<tr><td>涨停板变色</td><td>浅蓝色</td><td>一目了然识别涨停</td></tr>
+<tr><td>跌停板变色</td><td>深蓝色</td><td>识别跌停</td></tr>
+<tr><td>炸板变色</td><td>绿色</td><td>涨停当天打开叫"炸板"</td></tr>
+<tr><td>显示三个缺口</td><td>—</td><td>开启缺口提示，<strong>对找买二买四帮助很大</strong></td></tr>
+</tbody>
+</table>
+
+<h4>② 均线简化</h4>
+<p>删除10日/30日/60日/120日/250日均线，仅保留5日和20日均线。</p>
+
+<h4>③ 涨停池入口</h4>
+<ol>
+  <li>东方财富左侧"机会"菜单</li>
+  <li>点开后横过来，呈现四个子栏目：
+    <ul>
+      <li>🔥 涨停池</li>
+      <li>🔥 连板池</li>
+      <li>🔥 炸板池</li>
+      <li>🔥 跌停池</li>
+    </ul>
+  </li>
+  <li>以上四类构成"涨停监控"系列</li>
+</ol>
+
+<h3 id="ch7-5">7.5 ETF实战工具箱（方老师精选）</h3>
+
+<div class="card gold">
+<strong>🎯 核心理念：</strong>方老师看盘很少看A股——把<strong>ETF涨幅榜排序</strong>一拉出来，当天市场热点一目了然。ETF是散户最简单、最稳、最有性价比的投资工具。
+</div>
+
+<h4>① "隔山打牛"——用ETF反向走势预判A股大势</h4>
+<div class="card">
+<strong>📊 红利ETF与科技股ETF是跷跷板：</strong>
+<ul>
+  <li><strong>市场风险偏好降低</strong>（资金胆子小了）→ 撤到避风港（红利ETF/国债ETF）</li>
+  <li><strong>市场风险偏好提升</strong>（资金胆子大了）→ 从避风港出来回股票市场</li>
+</ul>
+<p><strong>实操逻辑链：</strong>红利ETF出现<strong>双重顶背离</strong>/卖出信号/下跌走势 → 红利ETF要跌 → 资金从避风港出来 → 流入股票市场 → 股票市场"日子好过"（牛市启动）。</p>
+<p><strong>注意：</strong>煤炭ETF = 类红利ETF（"不要嫌弃煤炭涨得黑"）。创业板ETF（159915）代表科技股，与红利ETF走势相反。</p>
+</div>
+
+<h4>② 交易成本对比（ETF完胜）</h4>
+<table class="table-wrap">
+<thead><tr><th>产品</th><th>一个来回成本</th><th>定投成本</th></tr></thead>
+<tbody>
+<tr><td>股票</td><td>13‱（万13：佣金万3+印花税10‱）</td><td>13‱</td></tr>
+<tr><td><strong>ETF</strong></td><td><span class="highlight-green">3‱（免印花税）</span></td><td><span class="highlight-green">1.5‱</span></td></tr>
+<tr><td>传统股票型开放式基金</td><td>170‱（申购1.2%+赎回0.5%）</td><td>120‱</td></tr>
+</tbody>
+</table>
+<p><strong>关键结论：</strong>ETF交易成本仅为传统开放式基金的<strong>1/56</strong>（3‱ vs 170‱）。</p>
+
+<h4>③ ETF池与多周期应用</h4>
+<table class="table-wrap">
+<thead><tr><th>池子</th><th>数量</th><th>来源</th><th>调整频率</th></tr></thead>
+<tbody>
+<tr><td>师傅精炼版</td><td><strong>85只</strong></td><td>从1600个标的砍出的"不能再减"</td><td>相对稳定</td></tr>
+<tr><td>方老师版</td><td><strong>246只</strong></td><td>85只基础上多了策略指数ETF</td><td>半年调整一次</td></tr>
+</tbody>
+</table>
+<div class="card">
+<strong>📐 19×3=57个：</strong>ETF波动幅度远不如股票，同一批ETF可<strong>多时间周期</strong>使用。以19个"20厘米ETF"为例：日线19个 + 120分钟19个 + 60分钟19个 = <strong>57个</strong>（有时间盯盘用60分钟）。
+</div>
+
+<h4>④ 合并同类项：死磕成交金额最大</h4>
+<div class="card ok">
+<strong>🏆 选ETF核心方法：</strong>同类型多个ETF中，<strong>永远选成交金额最大</strong>的那个。
+<ul>
+  <li><strong>流动性最强</strong>（容易成交）</li>
+  <li><strong>市场认同度最高</strong>（投资者用脚投票）</li>
+  <li><strong>连贯性最强</strong>（每分钟都有密集交易）</li>
+</ul>
+<p><strong>反面案例：</strong>中药ETF全天仅成交252万元、家电ETF全天成交3000元——"不如ICU里的芯片，想买都买不到"。</p>
+</div>
+
+<h4>⑤ 六朵金花（宽基ETF代码速记）</h4>
+<table class="table-wrap">
+<thead><tr><th>宽基</th><th>代码</th><th>大中小盘分级</th></tr></thead>
+<tbody>
+<tr><td>上证50ETF</td><td><span class="highlight">510050</span></td><td rowspan="3">沪深300=大盘股<br>中证500=中盘股</td></tr>
+<tr><td>沪深300ETF</td><td><span class="highlight">510300</span></td></tr>
+<tr><td>中证500ETF</td><td><span class="highlight">510500</span></td></tr>
+<tr><td>中证1000ETF</td><td><span class="highlight">512100</span></td><td>小盘股</td></tr>
+<tr><td>创业板ETF</td><td><span class="highlight">159915</span></td><td>成长风格</td></tr>
+<tr><td>科创50ETF</td><td><span class="highlight">588000</span></td><td>硬科技</td></tr>
+</tbody>
+</table>
+<div class="card soft">
+<strong>🔑 代码识别：</strong>代码开头 <strong>15 = 深交所</strong>，<strong>5 = 上交所</strong>。<br>
+<strong>大中小盘分级：</strong>第1-300名=沪深300（大盘）→ 301-800名=中证500（中盘）→ 801-1800名=中证1000（小盘）→ 1801-3800名=国证2000（微盘）。
+</div>
+
+<h4>⑥ 全球ETF地图（当A股没行情时的备选）</h4>
+<table class="table-wrap">
+<thead><tr><th>地区</th><th>重点标的</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td>北美洲</td><td>纳指100ETF <span class="highlight">513100</span></td><td>道琼斯/标普/纳斯达克三指数必看</td></tr>
+<tr><td><strong>韩国</strong></td><td>中韩半导体ETF <span class="highlight">513310</span></td><td>唯一涉及韩国股票的ETF；重仓三星、SK海力士；<strong>半导体首选</strong></td></tr>
+<tr><td>日本</td><td>日经225ETF</td><td>2023年A股下跌时学姐全仓日经225拿一年大赚</td></tr>
+<tr><td>东南亚</td><td>东南亚科技ETF</td><td>成分股含冬海(Sea)等，科技含量高</td></tr>
+</tbody>
+</table>
+<div class="card warn">
+<strong>💰 中韩半导体ETF 513310：</strong>最低1.3元、最高7元多。长周期快慢线贴着零轴上方=飞机跑道加速形态（贴地跑→拉机头起飞）。策略123应用：短红柱变长红柱=策略二（两颗粒），红柱缩短即动手。
+</div>
+
+<h4>⑦ ETF实物申购赎回机制（一级市场）</h4>
+<div class="card">
+<strong>📋 传统开放式基金 vs ETF：</strong>传统=现金申购/现金赎回；ETF=<strong>实物申购/实物赎回</strong>。
+<ul>
+  <li>申购：必须<strong>按指数权重配齐所有成分股</strong>（如上证50必须50只全配、茅台权重8%就要800万/1000万）——个人投资者几乎做不到</li>
+  <li>赎回：给的<strong>不是钱，是一篮子股票</strong>，想变现得自己卖</li>
+  <li>一级市场申赎对手方<strong>确定</strong>（基金经理）；二级市场买卖对手方<strong>不确定</strong>（不知卖方是谁）</li>
+</ul>
+</div>
+
+<h4>⑧ ETF市场数据全景</h4>
+<div class="card ok">
+<strong>📊 关键数据：</strong>上交所ETF总成交额<strong>51.33万亿</strong>（2025年）；ETF总数<strong>1676个</strong>（正常交易1638个）；<strong>2025年6月底上交所成为全亚洲最大ETF市场</strong>（超过日本）；股票类ETF 7个月增5000亿 = 场外资金流入A股的判断方法；债券类ETF规模翻3倍；30年国债ETF 2024年涨23%。<br>
+<strong>🆕 重磅新品种：</strong>北证50ETF（投向北交所，涨跌幅<strong>±30%</strong>，一天理论输赢60%）。T+0识别：看名称下是否标注"T+0"（如中韩半导体ETF）。
+</div>
+
+<h3 id="ch7-6">7.6 ETF识别与进阶技巧</h3>
+
+<h4>① 北上资金 vs H股股东（识别法）</h4>
+<table class="table-wrap">
+<thead><tr><th>股东名称</th><th>实质含义</th><th>标识特征</th></tr></thead>
+<tbody>
+<tr><td><strong>"香港中央结算有限公司"</strong></td><td>北上资金持有的A股总数</td><td>名称中<strong>无"代理人"</strong>三字</td></tr>
+<tr><td><strong>"香港中央结算（代理人）有限公司"</strong></td><td>H股股东持有的合计数</td><td>后面有"境外可流通"字样</td></tr>
+</tbody>
+</table>
+<div class="card soft">
+<strong>📌 实战：</strong>招商银行股东列表中"跑了2338万"的股东即北上资金总额，名称为<strong>不带"代理人"</strong>的"香港中央结算有限公司"。
+</div>
+
+<h4>② 托管人三大核心功能（基金安全基石）</h4>
+<div class="card ok">
+<ol>
+  <li><strong>资金流向保护</strong>：基金经理和管理人<strong>碰不到投资者一分钱</strong>——基金公司发产品先到商业银行开专户，投资人的钱全部进入商业银行托管账户，不用担心"卷款潜逃"</li>
+  <li><strong>契约监督</strong>：托管人监督基金经理遵守基金契约（如"国防军工类基金前十大重仓不能出现万科"）</li>
+  <li><strong>净值双重计算</strong>：每个工作日收市后基金公司先算一次净值，商业银行作为第三方<strong>独立再算一次</strong>，两个答案一致才能公布</li>
+</ol>
+</div>
+
+<h4>③ 私募股权基金 vs 私募证券基金（仅两字之差）</h4>
+<table class="table-wrap">
+<thead><tr><th>类别</th><th>投资标的</th><th>上市状态</th></tr></thead>
+<tbody>
+<tr><td>私募股权基金</td><td>股份有限公司的<strong>股权</strong></td><td><strong>非上市</strong>公司</td></tr>
+<tr><td>私募证券基金</td><td>股份有限公司的<strong>股份</strong></td><td><strong>已上市</strong>（交易所挂牌）</td></tr>
+</tbody>
+</table>
+
+<h4>④ 1个亿投资人的三个问题（专业思维）</h4>
+<div class="card gold">
+<strong>💰 案例：</strong>某投资人拟出资1个亿成立私募产品（人数下限2人，公司让其爱人出100万凑数）。这个"极端聪明"的投资人问了三个问题——<strong>顺序揭示专业投资人的思维</strong>：
+<ol>
+  <li><strong>第一问（不是赚多少）：一年最多亏多少？</strong>（公司答：年化亏损负5%以内，内部实控回撤3%）</li>
+  <li><strong>第二问：一年能否跑过通货膨胀率？</strong>（关注购买力）</li>
+  <li><strong>第三问：预计能赚多少钱？</strong>（最后才问收益）</li>
+</ol>
+<p><strong>启示：</strong>先关注风险，其次关注购买力，最后才是收益——这就是专业投资人的顺序。</p>
+</div>
+
+<h4>⑤ 主动管理型基金的天然痛点</h4>
+<div class="card warn">
+<strong>⚠️ 残酷现实：</strong>身边做基金亏损的，<strong>大部分都选了主动管理型基金</strong>。<br>
+<strong>本质：</strong>基金经理说了算 → 配什么股票、每只配多少全凭主观判断 → <strong>认知决定配置</strong>。
+</div>
+
+<h4>⑥ IOPV参考净值线与HALO概念</h4>
+<div class="card">
+<strong>📈 IOPV线：</strong>白色线=ETF的交易价格，紫色线=IOPV参考净值；套利时才用IOPV线（全自动套利，不是人工）。<br>
+<strong>💎 HALO概念（高盛提出）</strong>= Heavy Assets, Low Obsolescence（重资产、低淘汰性）：H=重资产（矿业/有色/稀土/工业母机/电网）、A=AI基础设施（电力/半导体设备）、L=物流与生活（船舶/交运）、O=旧能源（石油/煤炭）。
+</div>
+
+<div class="card soft">
+<strong>📜 2025年证监会新规：</strong>所有开放式基金公司的名字必须挂在产品名字后面 → 投资者一眼就能看到管理人。<br>
+<strong>🖱️ ETF找盘：</strong>东方财富顶部"沪深基金排行"→"场内/纯ETF"，或直接输入<strong>1500</strong>回车直达ETF页面。
+</div>
+
+<!-- ===================================================== -->
+<!-- ============== 第8章 突破体系 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch8" class="section-anchor">📕 第8章 · 突破体系：四种突破+策略1234+520/521</h2>
+
+<div class="motto">
+🌟 一辈子找突破板，一辈子只做突破后的第二波、第三波<br>
+🌟 买240、反包、W型都是枝节——突破后做第二波、第三波才是主干、才是正道
+</div>
+
+<h3 id="ch8-1">8.1 庄家四步骤：突破的根基</h3>
+
+<div class="card gold">
+<strong>💎 理解突破必须先理解庄家：</strong>庄家的操作一定是四个步骤，一个都不能少：<span class="highlight">吸筹 → 洗盘 → 拉升 → 出货</span>。
+</div>
+
+<table class="table-wrap">
+<thead><tr><th>步骤</th><th>关键要点</th></tr></thead>
+<tbody>
+<tr><td><strong>① 吸筹</strong></td><td>要吸够<strong>不低于30%的筹码</strong>；吸筹动作本身就是第一波上涨，第一波大概能吸到 <strong>15%～20%</strong> 的筹码</td></tr>
+<tr><td><strong>② 洗盘</strong></td><td>把「不坚定的人」洗出去——在低位逼着你把筹码交出来</td></tr>
+<tr><td><strong>③ 拉升</strong></td><td><span class="highlight-green">主升浪，我们最想要的阶段</span></td></tr>
+<tr><td><strong>④ 出货</strong></td><td>派发离场</td></tr>
+</tbody>
+</table>
+
+<div class="card soft">
+<strong>🔑 突破板的定位：</strong>突破板出现在吸筹、洗盘完成之后的拐点，意味着<strong>主升浪即将开启</strong>。
+</div>
+
+<h4>① 好股票的唯一标准：「有人买」</h4>
+<div class="card">
+<strong>⚠️ 好公司 ≠ 好股票。</strong>好股票只有一个标准——<span class="highlight">「有人买」就叫好股票</span>。
+<ul>
+  <li>成交量大就是好股票，别管业绩；没事别研究基本面</li>
+  <li>记住「<strong>成交量、水上、水上</strong>」六个字</li>
+  <li><strong>水上</strong>＝股价在多条均线之上、MACD零轴之上等强势区；<strong>水下</strong>＝均线下方、空头排列</li>
+</ul>
+</div>
+
+<h4>② 庄票 vs 机构票（先看流通市值）</h4>
+<table class="table-wrap">
+<thead><tr><th>类型</th><th>流通市值</th><th>主力性质</th></tr></thead>
+<tbody>
+<tr><td><strong>庄票</strong></td><td><span class="badge badge-red">200亿以内</span></td><td>庄家可能控盘（600亿做不了庄：需30%筹码→180亿资金，没有庄家拿得出）</td></tr>
+<tr><td><strong>机构票</strong></td><td><span class="badge badge-blue">200亿以上</span></td><td>基本是公募/机构长期持仓，做法是另外一回事</td></tr>
+</tbody>
+</table>
+
+<h3 id="ch8-2">8.2 突破板：主升浪启动信号</h3>
+
+<div class="card gold">
+<strong>🎯 突破板 = 主升浪开启信号（十有八九）</strong>，是吸筹、洗盘完成后的拐点。做股票只做、尽可能只做<strong>主升浪</strong>。
+</div>
+
+<h4>① 三个判定维度</h4>
+<table class="table-wrap">
+<thead><tr><th>维度</th><th>判定标准</th></tr></thead>
+<tbody>
+<tr><td><strong>时间基准</strong></td><td>统一以 <span class="highlight">924（2024年9月24日本轮牛市启动点）</span>为基准，认定924以后形成的突破才叫突破板</td></tr>
+<tr><td><strong>空间判定</strong></td><td><strong>接近、达到、超过</strong>前期箱体高点，都认定为突破板——并不一定要超过前面的最高点</td></tr>
+<tr><td><strong>两类方式</strong></td><td>突破板分<strong>涨停板突破</strong>和<strong>非涨停板突破</strong>两类；非涨停的突破找不到（每天要把涨停板全部看一次）</td></tr>
+</tbody>
+</table>
+
+<div class="card warn">
+<strong>🚨 核心心法：</strong><span class="highlight">一辈子找突破板</span>——每天所有股票的涨停（100只以内）全部翻一次，找到突破板。重中之重就是干这件事。
+</div>
+
+<h4>② 突破判定补充要点</h4>
+<ul>
+  <li><strong>放量突破 vs 缩量突破</strong>：缩量突破没用，<span class="highlight-green">放量突破更可靠</span></li>
+  <li><strong>上吊线要谨慎</strong>：突破后又出现上吊线，要看<strong>收盘是否站稳</strong>；收盘站不稳要谨慎</li>
+  <li><strong>周期不能跨用（重要纪律）</strong>：看日线做的就按日线卖，看周线做的就按周线卖，不能跨周期使用买卖信号</li>
+  <li><strong>超跌多年股</strong>：如从2021年12月开始五年没涨的票，突破超过2020年9月最高点，只具备"有可能成为妖股"的可能性，需量能、形态进一步确认</li>
+</ul>
+
+<h3 id="ch8-3">8.3 四种突破形态</h3>
+
+<table class="table-wrap">
+<thead><tr><th>突破形态</th><th>特征</th><th>强度</th><th>买入点</th></tr></thead>
+<tbody>
+<tr><td><strong>强势突破</strong></td><td>突破板后紧接着继续涨停</td><td><span class="badge badge-red">最牛、最少</span></td><td>必须有大的故事/题材（热点）</td></tr>
+<tr><td><strong>回调突破</strong></td><td>突破板→涨一波→回调→再起</td><td><span class="badge badge-green">最常见、最大多数</span></td><td>重新站上5日均线买入（主干）</td></tr>
+<tr><td><strong>斜坡突破</strong></td><td>低斜率阳线阴线交替，边走边吸货</td><td><span class="badge badge-blue">第二强</span></td><td>再突破点进去，或第二天进去</td></tr>
+<tr><td><strong>横盘突破</strong></td><td>横盘2~3天到1个月再突破</td><td>比较强势</td><td>哪天突破哪天追（第二天追）</td></tr>
+</tbody>
+</table>
+
+<h4>① 强势突破（第一种，最牛最少）</h4>
+<div class="card">
+<strong>🔥 先决条件（双轮驱动）：</strong>一支票要单独强势突破<strong>很少很少</strong>，必须有大的故事（大的题材），必须是热点。
+<ul>
+  <li><strong>长城军工</strong>：2025年强势突破，因为<strong>九三大阅兵</strong>（9月3日大阅兵）催化</li>
+  <li><strong>平潭发展</strong>：国家在福建平潭搞综合试验区，为未来解放台湾后福建和台湾一个共同的大的产业园</li>
+</ul>
+</div>
+<div class="card ok">
+<strong>📌 长城军工强势突破复盘（教学案例）：</strong>
+<ol>
+  <li><strong>信息预判</strong>：催化是6月23号<strong>国新办记者招待会</strong>，预判通报九三大阅兵。推荐信息源：<strong>新加坡早报网（zaobao.com）</strong>——境外华语网站、相对真实、不用翻墙，能提前预知很多事件</li>
+  <li><strong>吸筹阶段</strong>：924前长城军工是完美下降通道；924后跟着涨了一波、两波、三波，成交量放出来——庄家第一阶段吸筹</li>
+  <li><strong>洗盘阶段</strong>：成交量明显下降，但每一波都是「<strong>上涨放量、回调缩量</strong>＝红肥绿瘦」——庄家舍不得卖，是标准洗盘</li>
+  <li><strong>突破板出现</strong>：6月18号有一个涨停，基本接近整个箱体最高价——这就叫突破板</li>
+  <li><strong>追击</strong>：次日早晨追入，这叫<strong>一进二</strong>（一个门进第二个门）</li>
+  <li><strong>板块效应确认</strong>：6月23号军工板块才形成板块效应，此时长城军工已是<strong>第四个板</strong>——<span class="highlight">龙头先于板块启动（提前三个交易日）</span></li>
+  <li><strong>结果</strong>：去年走出<strong>两波主升浪</strong></li>
+</ol>
+</div>
+
+<h4>② 回调突破（第二种，最常见 · 主干）</h4>
+<div class="card gold">
+<strong>🎯 回调突破是最大的多数、最常见的突破方式，是全体系的主干。</strong><br>
+定义：一只股票<strong>突破板出来后 → 涨一波 → 回调 → 再起</strong>。准确说是「突破后的回调」。绝大多数股票都是这种。
+</div>
+<div class="card">
+<strong>💡 关键认知：</strong>
+<ul>
+  <li>突破板出来以后涨了一波，回调了以后再起来，<span class="highlight-green">那一次往往就是主升浪</span></li>
+  <li>如果第二波起来的不是很多，又回调了，那么<strong>第三波就是主升浪</strong>——这是最要追求的东西</li>
+  <li><strong>策略1234最漂亮的时候，就是突破板以后吃第二波和第三波</strong>——这才是炒股的核心</li>
+  <li><strong>第二波成交量决定第三波</strong>：第二波成交量更大，就一定有第三波；「长这么高了」关你啥事，为什么不敢买？</li>
+  <li><strong>回调时间长又有什么关系</strong>——就是让你等第二波启动信号。等待期间还有别的票已经回调结束了，可以先买一些。<span class="highlight">不要死守一只钟情</span>，两不耽误</li>
+</ul>
+</div>
+
+<h4>③ 斜坡突破（第三种，第二强）</h4>
+<div class="card">
+<strong>📈 形态：</strong>斜率很低的<strong>阳线、阴线、阳线、阴线交替</strong>，不暴涨也不回调。哪一天再出一个涨停板，这个涨停板叫<strong>再突破</strong>，主升浪就来了。庄家<strong>边走边吸货、边走边洗</strong>——还有「再一次吸筹」的标准动作。
+</div>
+<div class="card ok">
+<strong>📌 案例（华工科技）：</strong>
+<ul>
+  <li>前面有涨停、有成交量 → 洗盘 → 突破 → <strong>低斜率缓推</strong></li>
+  <li>数一下 <strong>21个交易日</strong>（整整一个月）涨一点跌一点</li>
+  <li>关键：<span class="highlight">全程没跌破5日均线</span>，非常厉害</li>
+  <li><strong>成交量是祖师爷</strong>：22天换手率 <strong>344%</strong>（日均换手率15%以上），天天都有人在买卖 → 未来的大票。当时流通市值只有一百多亿（标准庄票，现在涨到381亿）</li>
+  <li><strong>买点：再突破点进去，或第二天进去</strong>。结果：后来斜率变高，回调又是W型、又是策略一买点，约<strong>200块买入、最高涨到410</strong>（约翻倍）</li>
+</ul>
+</div>
+<div class="card soft">
+<strong>📏 三把识别尺：</strong>① 突破后不暴涨不回调、低斜率缓推；② 始终不破5日均线（强势整理）；③ 高换手率说明资金持续活跃。
+</div>
+
+<h4>④ 横盘突破（第四种）</h4>
+<div class="card">
+<strong>📐 形态：</strong>突破板出来 → <strong>横盘</strong>（不涨不跌，2~3天到1个月）→ <strong>再突破</strong> → 第二波启动。属于比较强势、未来涨得也可能较好的一种。
+<ul>
+  <li><strong>平潭发展</strong>：突破板后横两天 → 再突破（当晚复盘看见，第二天早上追）</li>
+  <li><strong>001896</strong>：突破（离前高还有一点差距，但没叫突破板）后横19天，没用涨停板突破，而是 <strong>一阳穿20（一阳穿20日均线）收盘创新高</strong> 确认突破</li>
+  <li><strong>长城军工第二波</strong>：第一波涨得好 → 横一个月（21个交易日）→ 再突破 → 第二波（<span class="highlight-green">第二波比第一波涨得还好</span>）</li>
+</ul>
+</div>
+<div class="card warn">
+<strong>🚨 操作总纲：</strong>突破板出来以后横着的，<strong>哪天突破哪天追（第二天追）</strong>，盯着它就行。再突破后的追入形态常见两种：<strong>一柱擎天</strong> 或 <strong>V型</strong>（高开跌下来、五分钟站回可直接追）。
+</div>
+<div class="card soft">
+<strong>📊 强弱对比：</strong>强势突破、斜坡突破、横盘突破——涨得都比较好，但<strong>机会较少</strong>；绝大多数是<strong>回调突破（第二种）</strong>。这几种突破的<strong>成交量都非常漂亮</strong>。记住：把掌握的所有票都判断属于哪种突破，<span class="highlight">这辈子只干这件事</span>。
+</div>
+
+<h3 id="ch8-4">8.4 追板技术：一进二/二进三/倍量板</h3>
+
+<div class="card gold">
+<strong>⚔️ 核心：</strong>突破板出来后怎么追，核心是「<span class="highlight">放量承接</span>」背后的庄家意图。
+</div>
+
+<h4>① 突破点第二个板的两个条件</h4>
+<div class="card">
+<strong>✅ 必要条件：</strong>突破点第二天必须要两件事——第一 <span class="highlight">跳空高开</span>，第二 <span class="highlight">放大量</span>，这个板才可靠，才可以追。
+</div>
+
+<h4>② 为什么第二个板必须放量</h4>
+<div class="card ok">
+<strong>🔍 原理：</strong>跳空高开后它会下来（下杀），因为突破距离924已有9个月，套了很多人，<strong>解套的人要跑</strong>。<br>
+所以突破板的第二个板必须放量——<strong>放量＝庄家承接解套盘＝庄家非常强势</strong>。<br>
+如果不放量，一定还会下来（庄家不愿意买、抛盘太重）。
+</div>
+
+<h4>③ 倍量板与两倍板</h4>
+<table class="table-wrap">
+<thead><tr><th>名称</th><th>定义</th></tr></thead>
+<tbody>
+<tr><td><strong>倍量板</strong></td><td>今天的涨停板成交量是昨天涨停板的<strong>一倍以上</strong></td></tr>
+<tr><td><strong>两倍板</strong></td><td>成交量≥前一涨停板的<strong>2倍</strong></td></tr>
+</tbody>
+</table>
+<div class="card">
+<strong>📌 案例（合富中国）：</strong>第一个板不是突破板，第二个板才是突破板（卖过了前期所有高点），突破板（第三个板）是<strong>两倍板</strong>——说明庄家愿意承接前面所有套牢盘，所以一定还会涨。<br>
+<strong>最强形态：</strong>早上起来<strong>跳空高开缺口没补</strong>，说明庄家强势，一定要把它拉上去。
+</div>
+
+<h4>④ 买点与前提（重要）</h4>
+<div class="card warn">
+<strong>⚠️ 追板前提：</strong>一进二或二进三是有前提的——<span class="highlight">突破前期高点出现了两连板就有第三个板</span>。不是任何两个板就肯定有第三个板，<strong>一定是突破板以后的</strong>。脱离突破板的两连板不具备确定性。
+</div>
+<div class="card">
+<strong>⚡ 核心逻辑：</strong>以后出现突破板，第二个板只要是放量就敢追。逻辑是：<strong>庄家今天买那么多（承接所有抛盘），会不会让自己明天是阴线？自己套自己？所以第二天一定又是涨停。</strong><br>
+<strong>验证方法：</strong>把这几年的妖股都找出来看（可用DeepSeek等工具查历年妖股，验证「突破后两连板必有第三板」规律）。
+</div>
+
+<h3 id="ch8-5">8.5 策略1234：MACD红柱买卖</h3>
+
+<div class="card gold">
+<strong>🎯 MACD是唯一教的技术指标</strong>：K线看方向（做不做）、量能看资金（有没有钱）、MACD看买卖（何时进出）。策略1234是基于MACD红柱的买卖策略，是回调突破战法的落地操作，被称为「命根子」。
+</div>
+
+<div class="card warn">
+<strong>⚠️ 易混淆第一组：</strong><strong>策略1234</strong>＝基于MACD红柱的买卖策略（看红柱）；<strong>方法1234</strong>＝520战法的四种买卖方法（看均线）。<span class="highlight">记忆锚点：「策略看红柱，方法看均线」</span>。
+</div>
+
+<h4>① 策略1234反复做波段的完整流程</h4>
+<ol>
+  <li>涨高、成交量不够、<strong>红柱缩短</strong> → <span class="highlight">卖</span></li>
+  <li>卖了就等，等买点信号出来就买</li>
+  <li>再到成交量不够、红柱很小、<strong>绿柱一出现</strong> → <span class="highlight">卖</span>，再等</li>
+</ol>
+<div class="card soft">
+<strong>📌 说明：</strong>每一波都这样操作，一支票一年可做无数次（因它全部在水上、成交量大）。逮着一只票不是死捏放着，按波段做就行。
+</div>
+
+<h4>② 520战法打开后的卖点切换（关键）</h4>
+<div class="card ok">
+<strong>⚡ 卖点规则总结（两种情形）：</strong>
+<ul>
+  <li>① <strong>红柱缩短</strong> → 卖</li>
+  <li>② <strong>红柱很高 + 520战法已打开</strong> → 不要再用「红柱缩短」卖，等<strong>快线（DIF）向下拐头</strong>那天再卖</li>
+</ul>
+</div>
+
+<h4>③ 其他要点</h4>
+<ul>
+  <li><strong>红柱两个一样高</strong>（这一波与上一波红柱等高）→ 涨不上去，要消化洗盘一次</li>
+  <li><strong>买点后的跟踪纪律</strong>：买就是出现哪一点必须买，买了以后它后面的走势很关键。如果没有红柱，就想都不要想太高，把它卖了，卖了以后再等机会</li>
+  <li><strong>多种回调形态与「只认1234」</strong>：还有一种就是W（W底），还有一种甚至可能还要调到更低再来。<span class="highlight">我只认1234</span>。买了以后开始放量、红柱增长，你就踏实了，捏着拿着</li>
+  <li><strong>出货阶段判断</strong>：第一次下来显示、第二次起来幅度大不大；幅度不够大，技术大概率就是第三波了</li>
+  <li><strong>卖票心法</strong>：出现卖点必须卖；「我觉得这波还要涨」<span class="highlight">永远是错的</span></li>
+</ul>
+
+<h3 id="ch8-6">8.6 520战法：方法1234（5日/20日均线）</h3>
+
+<div class="card gold">
+<strong>💞 520战法</strong>是另一核心体系，用<strong>双均线（5日与20日）</strong>来划分回调深浅，给出四档买法。「520」谐音「我爱你」，好记。
+</div>
+
+<h4>① 均线设置</h4>
+<div class="card">
+<strong>⚙️ 设置：</strong>右键「设置技术指标MA参数」，只保留两根线——<span class="highlight">5日均线与20日均线</span>（不要10/30/60/120/250日）。<br>
+<strong>周期通用：</strong>周线＝5周与20周；分钟线＝5分钟与20分钟；日线＝5日与20日，统称「五线和20线」。
+</div>
+
+<h4>② 四种方法（回调由浅到深）</h4>
+<table class="table-wrap">
+<thead><tr><th>方法</th><th>前提条件（回调深度）</th><th>核心买点</th></tr></thead>
+<tbody>
+<tr><td><strong>方法一</strong></td><td>上升趋势（520打开），阴线不破5日</td><td>次日反包（阳线）买入</td></tr>
+<tr><td><strong>方法二</strong></td><td>跌破5日，轻度回调，20日支撑</td><td>20日支撑买入 / 重新站上5日最稳妥</td></tr>
+<tr><td><strong>方法三</strong></td><td>同时跌破5日和20日，5日下穿20日</td><td>重新站上5日买入</td></tr>
+<tr><td><strong>方法四</strong></td><td>5日20日同时向下空头排列，底背离</td><td>底背离 + 重新站上5日买入</td></tr>
+</tbody>
+</table>
+
+<div class="card">
+<strong>📋 四种方法详解：</strong>
+<ul>
+  <li><strong>方法一（上升趋势反包）</strong>：520打开（5日在20日之上）→ 收阴线但不破5日 → 次日反包（阳线即可，不必完全反包）买入。持股要诀：不怕阴线，没破5日一路持有；<span class="highlight">连续两天跌破5日均线必须卖</span></li>
+  <li><strong>方法二（轻度回调）</strong>：跌破5日 → 20日支撑买入（左侧）→ 最稳妥是<strong>重新站上5日买入</strong>（右侧）。判断「洗盘还是见顶」两把尺：<strong>量能是否上升 + 红柱是否长高（无顶背离）</strong></li>
+  <li><strong>方法三（深度回调）</strong>：同时跌破5日、20日，5日下穿20日 → <strong>重新站上5日买入</strong>。随后常出现<strong>一阳穿520</strong></li>
+  <li><strong>方法四（底背离抢反弹）</strong>：5日20日同时向下（空头排列）+ 重度回调 + <strong>底背离（重中之重）</strong> + 重新站上5日。这是<strong>左侧抢反弹</strong>；下跌途中V反转概率低，反弹用于减仓而非抄底；必须「底背离 + 重新站上5日」双条件同时满足</li>
+</ul>
+</div>
+
+<h4>③ 大盘研判（大盘是炒股之母）</h4>
+<div class="card blue">
+<strong>📊 大盘谁都做不了假</strong>，能完完全全看到阶段顶部与底部。<br>
+<strong>上证指数（03）</strong>、<strong>深证成指（399001）</strong>是最核心两大指数；<strong>天天把399001看一次</strong>。大盘不好就赶快卖股票；按持仓风格辅助看创业板/科创板指数。
+</div>
+
+<h4>④ 上吊线与止损卖票纪律</h4>
+<div class="card warn">
+<strong>☠️ 上吊线：</strong>见顶预警K线，成立需<strong>次日低开</strong>确认；确认后9:25集合竞价低开即卖，可少亏5%以上。<br>
+<strong>止损心理建设：</strong>「浮亏不是亏」是误区——<span class="highlight">市值即身价</span>（20块买10万股投入200万，跌到10块市值就是100万了）；卖后再低吸可摊低成本；下不了手就<strong>先卖一半</strong>；关键在执行，不是靠预判。
+</div>
+
+<h3 id="ch8-7">8.7 521战法：升级版（5日/21日均线）</h3>
+
+<div class="card gold">
+<strong>🚀 521战法</strong>是下午的升级版双均线战法，核心同样是「双均线 + 破5日线减仓」。
+</div>
+
+<div class="card warn">
+<strong>⚠️ 易混淆第二组：</strong>520＝5日/<strong>20日</strong>；521＝5日/<strong>21日</strong>（下午升级版）。<span class="highlight">记忆锚点：20日 vs 21日，差一天</span>。
+</div>
+
+<h4>① 双均线的定位</h4>
+<div class="card">
+<strong>📏 5日线</strong>＝短周期强弱分界线；<strong>21日线</strong>＝中长期强弱分界线。
+</div>
+
+<h4>② 破5日线减仓纪律（三段式）</h4>
+<table class="table-wrap">
+<thead><tr><th>顺序</th><th>触发</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td>第一步</td><td>破5日线</td><td>先卖 <span class="highlight">50%</span></td></tr>
+<tr><td>第二步</td><td>次日续跌</td><td>再卖 <span class="highlight">30%</span>（累计80%）</td></tr>
+<tr><td>第三步</td><td>剩 20% 等21日线</td><td><strong>支撑则买回、不支撑则清仓</strong></td></tr>
+</tbody>
+</table>
+<div class="card ok">
+<strong>💰 结果：本金全回、利润裸奔。</strong>
+</div>
+
+<h4>③ 521战法四个条件（需同时满足）</h4>
+<ol>
+  <li>5日均线上穿21日均线形成<strong>金叉</strong>（趋势向上，MACD快慢线接近零轴或零轴上方；<strong>80%以上牛票快慢线在水上</strong>）</li>
+  <li>金叉次日K线<strong>收阳线</strong></li>
+  <li>阳线幅度<strong>大于5%</strong></li>
+  <li>金叉当天成交量<strong>放量且为倍量</strong></li>
+</ol>
+
+<h4>④ 三个买卖点</h4>
+<table class="table-wrap">
+<thead><tr><th>买点/卖点</th><th>触发条件</th></tr></thead>
+<tbody>
+<tr><td><strong>第一入场点</strong></td><td>满足条件的金叉（<strong>利通电子案例</strong>：一阳穿两线 + 倍量 + 快慢线水上）</td></tr>
+<tr><td><strong>第二入场点</strong></td><td>回调至5日均线后放量上涨</td></tr>
+<tr><td><strong>卖出点</strong></td><td>高开放量收阴线，或跌破5日均线</td></tr>
+</tbody>
+</table>
+<div class="card soft">
+<strong>📌 收阴卖30%而非清仓：</strong>连续拉升后首阴，卖30%留反包机会（明天反包则买回，不反包则继续卖），且安全垫足够高。
+</div>
+
+<h3 id="ch8-8">8.8 看资金与择时：情绪周期+开盘金额</h3>
+
+<h4>① 看资金（选方向的核心）</h4>
+<div class="card gold">
+<strong>💰 核心理念：</strong>钱往哪去，我就去哪。<br>
+<strong>A股只能做多</strong>：有钱买这个公司就涨；没钱买，就回调或震荡。<strong>只看资金、资金去了哪我就去哪、跟踪资金做跟随</strong>。
+</div>
+<table class="table-wrap">
+<thead><tr><th>时间段</th><th>市场成交区间</th><th>大盘点位</th></tr></thead>
+<tbody>
+<tr><td>4月—5月</td><td>1万亿 ~ 1.5万亿</td><td>3000点</td></tr>
+<tr><td>5月—6月</td><td>1.5万亿 ~ 2万亿</td><td>3300点</td></tr>
+<tr><td>6月—7月</td><td>2万亿 ~ 2.5万亿</td><td>3600点</td></tr>
+<tr><td>8月—9月</td><td>2.5万亿 ~ 3万亿</td><td>3800~3900点</td></tr>
+</tbody>
+</table>
+<div class="card ok">
+<strong>📊 铁律：</strong>市场<strong>每增加5000亿成交，大盘向上推动约300点</strong>（3000→3300→3600→3800→3900）。做个股同理：资金往哪个方向去，哪个就「拔地而起」。
+</div>
+<div class="card">
+<strong>🔍 看资金的具体方法：</strong>
+<ul>
+  <li>看「<strong>总金额</strong>」栏（当天总成交量），涨幅红＝流入、绿＝流出；按总金额排序，涨得好的前排科技股就代表资金流向</li>
+  <li><strong>前100名个股每天过一遍</strong> + 板块核心股（券商看东方财富、医药看药明康德、电池看宁德时代、新能源看隆基绿能）</li>
+  <li>核心股异动即切板块；两条路径：<strong>稳健型围核心股转，激进型切板块找当天最强个股</strong></li>
+  <li><strong>每日复盘</strong>：看当天涨停的100只股票中哪个行业涨停最多 = 资金方向</li>
+  <li><strong>为什么不看「大单流入/流出」</strong>：每个软件口径不同——<span class="highlight">东财500万、同花顺800万、通达信1000万</span>以上才叫大单</li>
+</ul>
+</div>
+
+<h4>② 情绪周期三分法（做情绪龙头/日内板块转强的节奏）</h4>
+<table class="table-wrap">
+<thead><tr><th>阶段</th><th>特征</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td><strong>第一天</strong></td><td>板块第一次涨停</td><td>盘中买不到，只有收盘复盘才发现</td></tr>
+<tr><td><strong>第二天</strong></td><td>跳空高开、强势延续</td><td>可以<strong>无脑买</strong>——但买复盘作业里上过涨停板的那类强势股</td></tr>
+<tr><td><strong>第三天</strong></td><td>分歧</td><td><strong>不追</strong>，盲目追可能追到山顶；要买只买它「弱转强」的阶段</td></tr>
+</tbody>
+</table>
+
+<h4>③ 明牌效应（重要纪律）</h4>
+<div class="card warn">
+<strong>📢 当消息把市场打成明牌（人人皆知）时，是撤退、谨慎的时候，不是上车的时候。</strong><br>
+<strong>原理：</strong>消息一出所有人都会知道 → 一致拔高；大资金最容易在「所有人都去追」时出货；明牌正是出货最佳时点。<br>
+<strong>案例：</strong>医药股周四爆发、周五哈药跌停。<br>
+<span class="highlight">核心心法：情绪周期：第一天发现不了、第二天无脑买、第三天分歧谨慎；明牌即撤退。</span>
+</div>
+
+<h4>④ 开盘金额（9:25集合竞价）</h4>
+<div class="card">
+<strong>⏰ 定义：</strong>恒定在 <span class="highlight">9:25</span> 的这一笔金额——集合竞价阶段所有<strong>真实成交</strong>（不是挂单），9:25结束后定格不变。9:25到9:30还有5分钟做计划。
+</div>
+<table class="table-wrap">
+<thead><tr><th>情况</th><th>开盘价</th><th>开盘金额</th><th>含义</th></tr></thead>
+<tbody>
+<tr><td><strong>理想强势</strong></td><td>高开</td><td>显著放大</td><td>抢筹、做多强烈 → 高开高走收大阳</td></tr>
+<tr><td><strong>强势陷阱</strong></td><td>高开</td><td>明显缩小</td><td>假利好、诱多 → 高开低走回落</td></tr>
+<tr><td><strong>极端弱势</strong></td><td>低开</td><td>显著放大</td><td>恐慌出逃 → 低开低走收大阴</td></tr>
+<tr><td><strong>弱势试探</strong></td><td>低开</td><td>明显缩小</td><td>抛压不重、洗盘 → 低开回升跌幅有限</td></tr>
+<tr><td><strong>平淡无奇</strong></td><td>平开/微幅</td><td>正常偏低</td><td>多空观望 → 震荡整理</td></tr>
+</tbody>
+</table>
+<div class="card soft">
+<strong>📌 记忆要点：</strong>高开「<span class="highlight-green">放量抢筹 / 缩量诱多</span>」，低开「<span class="highlight-red">放量出逃 / 缩量洗盘</span>」。<br>
+<strong>⚠️ 绝不单独使用：</strong>必须结合五因素——① K线形态（高位/低位）；② 消息面；③ <strong>大盘环境（核心中的核心）</strong>；④ 板块效应；⑤ 后续量价（开盘后半小时到1小时）。绝对值/相对值要与前几日均值比较。
+</div>
+
+<h3 id="ch8-9">8.9 介入热点与龙头接力</h3>
+
+<h4>① 介入热点的操作方式</h4>
+<div class="card">
+<strong>🎯 要点：</strong>
+<ol>
+  <li>尽量介入<strong>龙头股和技术面较强</strong>的强势股（技术面较强＝股价在「水上」，即均线上方）</li>
+  <li><strong>龙头定义</strong>：热点板块形成后，涨幅最高、涨得最高的那只（<strong>不等于当天涨停</strong>）；龙头也可能切换，要动态识别</li>
+  <li><strong>用「板块指数」找龙头</strong>：看板块指数前三天（20/30日）是否强势 → 按涨幅排序 → 涨幅最高即龙头 → 龙头过高跟进龙二、龙三</li>
+  <li>介入热点板块要看：<strong>持续炒作空间 + 大盘中期风险</strong></li>
+  <li>买到热点股要<strong>敢于持股、不随意调仓</strong>，只有技术面走弱才调整；龙头趋势在就能涨</li>
+</ol>
+</div>
+<div class="card ok">
+<strong>🛡️ 安全垫（利润垫）——拿住牛股的关键：</strong><br>
+拿不住牛股（如哈药、万邦）的根源是<strong>没做安全垫</strong>。8元买、10元涨到后回落，谨慎者在9.5~9.9就卖；解决方法是<strong>「破5日线先卖50%锁利 → 转强再买回」</strong>，账户是红的就敢买回。
+</div>
+
+<h4>② 左右手与量化轮动（市场生态）</h4>
+<table class="table-wrap">
+<thead><tr><th>角色</th><th>构成</th><th>偏好</th></tr></thead>
+<tbody>
+<tr><td><strong>左手</strong></td><td>国家队（机构）</td><td>924起牛市主推手，安全为主、不配中小板 → 拉大票</td></tr>
+<tr><td><strong>右手</strong></td><td>游资 + 量化</td><td>体量有限、只能拉中小市值小票</td></tr>
+</tbody>
+</table>
+<div class="card warn">
+<strong>⚠️ 量化主导后的生态变化：</strong><span class="highlight">助涨助跌</span>；快速把主线打到高度，退潮即暴跌；以往消费白酒高位回落要三个月到半年，现在科技<strong>两个礼拜</strong>走完。板块轮动集中在<strong>头部几只个股</strong>；科技个股永远是<strong>新易盛、中际旭创、天孚通信</strong>那几只。
+</div>
+
+<h4>③ 龙头股特征</h4>
+<ol>
+  <li>涨幅最高、<strong>最先涨停</strong></li>
+  <li>技术面与资金面<strong>共振</strong></li>
+  <li>量价配合、突破放量，<span class="highlight">缩量上涨不可持续</span>（科技股碰前高缩量必须减仓）</li>
+  <li>介入时间：<strong>突破回踩关键均线（5日线）或缺口支撑不破</strong>就是介入时机</li>
+  <li>短期均线<strong>多头排列</strong></li>
+</ol>
+
+<h4>④ 板块龙头接力案例（医药三波）</h4>
+<table class="table-wrap">
+<thead><tr><th>波次</th><th>时间</th><th>龙头</th></tr></thead>
+<tbody>
+<tr><td>第一波</td><td>6月22—23日</td><td>海南海药</td></tr>
+<tr><td>第二波</td><td>7月9日附近</td><td>立方制药（第四板断板）→ <strong>哈药（卡位）</strong></td></tr>
+<tr><td>第三波</td><td>后期</td><td>疫苗方向（外围消息）</td></tr>
+</tbody>
+</table>
+<div class="card">
+<strong>🔑 判断板块是否消亡：</strong>看是否还有<strong>新龙头崛起</strong>——有则继续接力，龙头死掉且无新龙则消亡。<br>
+<strong>券商套利模式：</strong>回调半年以上 + 幅度30%以上 → 套利反弹15%~20%以上。<br>
+<strong>核心个股有效性：</strong><strong>舒泰神</strong>（20厘米股，第一波翻倍、第二波30%），市场有记忆力，核心股「不会缺席」。
+</div>
+
+<h4>⑤ 量化资金风格变化与规避</h4>
+<div class="card warn">
+<strong>🛑 五种量化陷阱：</strong>
+<ol>
+  <li><strong>涨停走弱，一砸一个坑</strong>（案例：奇正藏药、新天药业、皖通科技）。纪律：<span class="highlight">一字板绝对不能排队买</span>——一字板打开大部分是跌停或大幅下挫，好的东西不可能轻易让你买到</li>
+  <li><strong>高抛低吸制造上影线</strong>（案例：维康药业20厘米）。量化套利空间约<strong>6.5%~7%</strong>；主板上影线幅度<strong>7%~8%</strong>，20厘米股票<strong>15%左右</strong>。应对：拉到这个位置不能涨停就跟着砸（跟随卖出）</li>
+  <li><strong>爬虫搜集一致性预期</strong>：量化用机器搜集小作文、捕捉市场一致度后直线拉升（案例：育儿补贴·贝因美；脑机接口·创新医疗）</li>
+  <li><strong>消息明牌化谨慎</strong>：育儿补贴每月约<strong>300元</strong>（一年3600元）不够激励；贝因美、创新医疗都是「涨停开、跌停收」</li>
+  <li>生态变化需主动适应：<strong>持之以恒做好某一种策略，盘感才能形成</strong></li>
+</ol>
+</div>
+
+<h3 id="ch8-10">8.10 止损斩仓与十句核心心法</h3>
+
+<h4>① 止损斩仓（守本金）</h4>
+<div class="card warn">
+<strong>🚨 止损是天大难题（机构、股神亦然）；斩仓是反人性的，但学不会斩仓就学不会控制风险。</strong>做股票必须先守本金——市场上没人会借钱给你做，只能靠自己。
+</div>
+
+<h4>② 五种错误心态（务必对照自查）</h4>
+<ol>
+  <li><strong>获利焦躁不安、深度被套异常平静</strong>（「迟早涨回来」——注册制下退市股增加，可能等来退市或仙股）</li>
+  <li><strong>满仓永远满仓</strong>（满仓时间全年约<strong>4个月</strong>：上半年约2个月 + 下半年约1.5~2个月；四月份是季报坎）</li>
+  <li><strong>卖掉上涨的、留下没涨和套牢的</strong>（套50%需涨<strong>100%</strong>才能解套，能让你解套说明发生了根本变化）</li>
+  <li><strong>这山望着那山高、频繁换股</strong></li>
+  <li><strong>不愿认赔、没有操作纪律</strong></li>
+</ol>
+
+<h4>③ 涨停指数 · 一招鲜 · 固定周期</h4>
+<div class="card">
+<ul>
+  <li><strong>涨停指数沿45度斜角向上</strong> → 做右侧交易、选强势股、跟涨停做朋友</li>
+  <li><strong>满仓进满仓出，要不了一个月本金归零</strong></li>
+  <li>缩量阳线（连2万亿都没有）不构成抄底理由，等确定性机会</li>
+  <li><strong>一招鲜吃遍天</strong>：找一套适合自己的固定盈利模式，不要十八般武艺全学；<span class="highlight">每套模式有每套模式的止盈止损</span></li>
+  <li><strong>固定交易周期</strong>：日线进日线出，不要日线交易切周线找安慰。主板日±10%、周±50%</li>
+</ul>
+</div>
+
+<h4>④ 三图结合看（强中选强）</h4>
+<div class="card gold">
+<strong>📊 K线看方向</strong>（做不做）· <strong>量能看资金</strong>（有没有钱）· <strong>MACD看买卖</strong>（何时进出）。<br>
+三图<strong>必须结合看</strong>，三图共振的股票，被套是小概率。
+</div>
+
+<h4>⑤ 分时图做T（白线与黄线）</h4>
+<table class="table-wrap">
+<thead><tr><th>位置</th><th>操作</th><th>要点</th></tr></thead>
+<tbody>
+<tr><td><strong>白线在黄线上方</strong></td><td><span class="highlight">正T（先买后卖）</span></td><td>卖出点看前高量能或 <strong>4%/7%</strong>（20厘米8%/15%）关键位；买入点是回踩均线放量；前三次可大胆、三次后需谨慎；均线上方不能做反T（会卖飞）</td></tr>
+<tr><td><strong>白线在黄线下方</strong></td><td><span class="highlight">反T（先卖后买）</span></td><td>每次反弹碰均线<strong>无量</strong>就是卖点；反T后当天收盘破5日线该笔可不接回；买回两法：<strong>W型激进买法</strong>与<strong>站上均线安全买法</strong>（弱转强）</td></tr>
+</tbody>
+</table>
+<div class="card soft">
+<strong>📌 白线</strong>＝分时价格线；<strong>黄线</strong>＝分时均价线（当天最强支撑与压力，类比无穷成本均线CYC）。分时图有<strong>20秒延迟</strong>。<br>
+<strong>三分钟K线图：</strong>分时图看不清量时切换（一分钟太敏感，<span class="highlight">三分钟稳定性最高</span>）。
+</div>
+
+<h4>⑥ 十句核心心法（原文）</h4>
+<div class="card gold">
+<ol>
+  <li><span class="highlight">一辈子找突破板，一辈子只做突破后的第二波、第三波。</span></li>
+  <li>吸筹、洗盘、拉升、出货——理解庄家四步骤，才懂突破板。</li>
+  <li>突破板不是一定要涨停，也不是一定要超过前高（接近即可），以924为基准。</li>
+  <li>好公司≠好股票，好股票的唯一标准是「有人买」——成交量大、在水上。</li>
+  <li>策略1234（看红柱）与520方法1234（看均线）不可混淆；MACD是唯一教的指标。</li>
+  <li>A股只能做多，所以只看资金、钱往哪去我去哪；成交额每增5000亿推大盘约300点。</li>
+  <li>情绪周期：第一天发现不了、第二天无脑买、第三天分歧谨慎；明牌即撤退。</li>
+  <li>开盘金额（9:25）绝不单独用，必须结合大盘（核心中的核心）与后续半小时量价。</li>
+  <li>量化时代：一字板不买、上影线（主板7%~8%/20厘米15%）跟着砸、暴涨暴跌是常态。</li>
+  <li><span class="highlight">出现卖点必须卖，快线拐头（MACD的DIF线向下拐头）就走人——一杆子弄死</span>；「我觉得还要涨」永远是错的——本金第一、敬畏市场。</li>
+</ol>
+</div>
+
+<h4>⑦ 关键数据速查总表</h4>
+<table class="table-wrap">
+<thead><tr><th>数据</th><th>数值</th></tr></thead>
+<tbody>
+<tr><td>庄家吸筹目标</td><td>≥30%筹码（第一波吸15%~20%）</td></tr>
+<tr><td>庄票/机构票分界</td><td>流通市值200亿</td></tr>
+<tr><td>突破板基准</td><td>2024-09-24（924行情）</td></tr>
+<tr><td>板块数量 / 快捷键</td><td>400个 / 敲302（概念板块）</td></tr>
+<tr><td>倍量板</td><td>成交量≥前一涨停板1倍；两倍板=2倍</td></tr>
+<tr><td>华工科技换手率</td><td>22天换手344%（日均15%以上）</td></tr>
+<tr><td>成交额阶梯</td><td>每增5000亿推大盘约300点</td></tr>
+<tr><td>大单口径</td><td>东财500万 / 同花顺800万 / 通达信1000万</td></tr>
+<tr><td>开盘金额定格</td><td>9:25（开盘前5分钟）</td></tr>
+<tr><td>强势股仓位</td><td>≤本金5%，先做好亏10%准备</td></tr>
+<tr><td>首板/二板溢价</td><td>首板降低、二板升高</td></tr>
+<tr><td>一柱擎天高开</td><td>5%~7%以上</td></tr>
+<tr><td>量化套利空间</td><td>6.5%~7%；上影线主板7%~8%、20厘米15%</td></tr>
+<tr><td>满仓时间</td><td>全年约4个月</td></tr>
+<tr><td>解套涨幅</td><td>套50%需涨100%</td></tr>
+<tr><td>破5日线减仓</td><td>50% → 30%（累计80%）→ 留20%等21日线</td></tr>
+<tr><td>521战法四条件</td><td>金叉 / 次日收阳 / 阳线&gt;5% / 放量倍量</td></tr>
+<tr><td>MACD快慢线分布</td><td>80%以上牛票在零轴上方</td></tr>
+</tbody>
+</table>
+
+<!-- ===================================================== -->
+<!-- ============== 第9章 仓位篇 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch9" class="section-anchor">📕 第9章 · 仓位篇：小琛23样本选股法</h2>
+
+<h3 id="ch9-1">9.1 23样本→10精选</h3>
+
+<div class="card gold">
+<strong>💎 小琛仓位机制：</strong>从 <strong>23个样本</strong> → 精选 <strong>10只个股</strong>，每季度再平衡
+</div>
+
+<h4>① 23样本的来源</h4>
+<p>覆盖新质生产力十大领域的数百只股票中，先筛选23个候选标的进入观察池。</p>
+
+<h4>② 10精选的筛选标准</h4>
+<ul>
+  <li>技术面：5/20/40均线多头排列</li>
+  <li>资金面：换手率10-15%，成交量持续放大</li>
+  <li>基本面：业绩+政策双驱动</li>
+  <li>市场面：板块龙头+机构抱团</li>
+</ul>
+
+<h3 id="ch9-2">9.2 季度再平衡</h3>
+
+<p>每季度对持仓进行评估与调整：</p>
+<ul>
+  <li>强势保留：符合标准的10只继续持有</li>
+  <li>弱势剔除：跌破关键均线或基本面恶化的剔除</li>
+  <li>新进调入：从23样本中筛选符合条件的替补</li>
+  <li>权重调整：根据市值、流动性调整持仓比例</li>
+</ul>
+
+<h3 id="ch9-3">9.3 降仓纪律</h3>
+
+<div class="warning-box">
+<strong>🚨 降仓纪律（必须严格执行）：</strong>
+</div>
+
+<h4>① 三大减仓信号（大盘层面）</h4>
+<table class="table-wrap">
+<thead><tr><th>序号</th><th>信号</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>阴线+跌破5日线（上吊线成立）</td><td>仓位降下来，超过半仓者<strong>降为半仓</strong></td></tr>
+<tr><td>2</td><td>快线向下拐头（水下策略三）</td><td><strong>减仓</strong></td></tr>
+<tr><td>3</td><td>反弹到15000点附近向下跳空缺口</td><td>视为<strong>强压力</strong></td></tr>
+</tbody>
+</table>
+
+<h4>② 关键数据时点</h4>
+<div class="card warn">
+<strong>⏰ 14:30 数据时点：</strong>每天下午 <strong>14:30</strong> 的数据是重要参考。基金经理会<strong>亲自下单</strong>，需要严格执行既定策略。
+</div>
+
+<h3 id="ch9-4">9.4 2亿统一标准</h3>
+
+<div class="card blue">
+<strong>💰 2亿统一标准：</strong>无论资金量大小，方法论统一。10万资金和2亿资金用同一套战法，区别只在仓位比例。
+</div>
+
+<p>这是小琛体系的核心：</p>
+<ul>
+  <li>方法不变（MACD+K线+买二买四+W型）</li>
+  <li>仓位灵活（资金大→分散；资金小→聚焦）</li>
+  <li>纪律统一（错了都执行，过了都执行）</li>
+</ul>
+
+<!-- ===================================================== -->
+<!-- ============== 第10章 主升浪战法 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch10" class="section-anchor">📘 第10章 · 主升浪战法大全</h2>
+
+<h3 id="ch10-1">10.1 周线5/20/40均线系统</h3>
+
+<div class="motto">
+🌟 周线5/20/40系统 = 日线5/20/40的镜像放大版
+</div>
+
+<p>主升浪战法将日线级别的均线系统放大到周线级别，形成完整的中期判断框架：</p>
+
+<table class="table-wrap">
+<thead><tr><th>均线</th><th>对应日线</th><th>作用</th></tr></thead>
+<tbody>
+<tr><td>5周均线</td><td>5日均线</td><td>短期趋势</td></tr>
+<tr><td>20周均线</td><td>20日均线</td><td>中期趋势</td></tr>
+<tr><td><span class="badge badge-red">40周均线</span></td><td>40日均线</td><td><strong>牛熊转换位（最关键！）</strong></td></tr>
+</tbody>
+</table>
+
+<h3 id="ch10-2">10.2 40均线牛熊转换</h3>
+
+<div class="card warn">
+<strong>🚨 40均线 = 牛熊转换位（最重要的一条线）</strong>
+</div>
+
+<p>40均线（周线级别）是判断牛熊的根本性指标：</p>
+<ul>
+  <li><strong>股价站上40周均线</strong>：进入牛市格局</li>
+  <li><strong>股价跌破40周均线</strong>：进入熊市格局</li>
+  <li><strong>40周均线拐头向上</strong>：牛市确认</li>
+  <li><strong>40周均线拐头向下</strong>：熊市确认</li>
+</ul>
+
+<div class="card gold">
+<strong>📌 40均线核心地位：</strong>这是良泽体系中"最关键的一条线"。在主升浪战法中，40均线是判断主升浪启动的根本标尺——只有当40周均线开始走平甚至拐头向上时，主升浪才真正开始。
+</div>
+
+<h3 id="ch10-3">10.3 T+0战法：1+1=3.3</h3>
+
+<div class="motto">
+🌟 T战法核心公式：日均4次T操作 ≈ 1.5%超额收益，周累计≈5%
+</div>
+
+<h4>① 1+1=3.3的含义</h4>
+<p>在T+0交易中，通过1次正向T+1次反向T（约等于1+1=2），但实际可能实现3.3%甚至更高的超额收益——这来源于：</p>
+<ul>
+  <li>早盘判断 → 上午卖出</li>
+  <li>下午低点 → 尾盘买回</li>
+  <li>持仓不变 + 成本降低</li>
+</ul>
+
+<h4>② T+0战法的两大前提</h4>
+<div class="card">
+<strong>✅ 适用前提：</strong>
+<ol>
+  <li>已经持有底仓（底仓不能动）</li>
+  <li>标的活跃、波动大、有规律可循</li>
+</ol>
+</div>
+
+<h4>③ 关键工具</h4>
+<p>使用钱龙经典、东方财富等软件，通过按"向下键"叠加多日分时图，获得更全面的短期走势视角。</p>
+
+<h3 id="ch10-4">10.4 水下策略1234</h3>
+
+<div class="card">
+<strong>📊 水下策略：</strong>当股价在水下（5日均线下方）运行时，通过<span class="highlight">自主解套</span>实现降本自救。
+</div>
+
+<h4>① 策略1：分批高抛</h4>
+<p>在水下反弹的高点分批卖出，降低总体持仓成本。</p>
+
+<h4>② 策略2：分批低吸</h4>
+<p>在水下回落的低点分批买回，摊薄成本。</p>
+
+<h4>③ 策略3：等待破位减仓</h4>
+<p>如果股价跌破关键支撑位（如下方平台下沿），果断减仓而非加仓。</p>
+
+<h4>④ 策略4：等待反转信号</h4>
+<p>出现底背离、长下影、吞没等底部形态时，准备重新加仓。</p>
+
+<div class="card gold">
+<strong>🎯 水下策略的本质：</strong>不预测，只应对。在水下的每一步操作都是为了降低成本或控制风险，直到股价重新回到水上。
+</div>
+
+<h3 id="ch10-5">10.5 箱体突破：六条买入标准</h3>
+
+<div class="motto">
+🌟 牛市中经过充分调整后的个股，一旦突破不回头——主升浪总口诀
+</div>
+
+<figure style="margin:16px 0; text-align:center;">
+<svg viewBox="0 0 560 360" width="100%" style="max-width:640px; background:#fff; border:1px solid var(--border-color); border-radius:10px;" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <title>箱体突破示意图</title>
+  <text x="280" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#2d3748">箱体突破：横盘吸筹 → 放量突破 → 回踩确认 → 主升浪</text>
+  <text x="108" y="126" font-size="11" fill="#4a5568">① 曾经涨停 + 调整30-80日 + 振幅≤30% + 回撤不破涨停起点</text>
+  <text x="108" y="110" font-size="11" fill="#4a5568">② 收盘价突破最高收盘价 = 买入触发（盘中不算）</text>
+  <rect x="105" y="185" width="230" height="80" fill="none" stroke="#8898aa" stroke-width="1.5" stroke-dasharray="6 4"/>
+  <text x="107" y="178" font-size="11" fill="#4a5568">箱体上沿（最高收盘价 = 颈线）</text>
+  <text x="107" y="277" font-size="11" fill="#4a5568">箱体下沿</text>
+  <text x="112" y="248" font-size="10.5" fill="#a0aec0">横盘30-80个交易日 · 振幅≤30% · 红肥绿瘦</text>
+  <polyline fill="none" stroke="#2f6fed" stroke-width="3" points="115,240 150,215 185,235 220,205 255,230 290,200 325,215"/>
+  <polyline fill="none" stroke="#e74c3c" stroke-width="3" points="325,215 355,150 380,105 400,100"/>
+  <text x="362" y="92" font-size="11.5" fill="#c0392b" font-weight="700">放量突破</text>
+  <polyline fill="none" stroke="#2f6fed" stroke-width="3" points="400,100 430,165 455,150"/>
+  <text x="408" y="183" font-size="11" fill="#2f6fed" font-weight="700">回踩确认（不破上沿）</text>
+  <polyline fill="none" stroke="#2f6fed" stroke-width="3" points="455,150 500,70"/>
+  <text x="505" y="66" font-size="11.5" fill="#2f6fed" font-weight="700">主升浪</text>
+  <rect x="40" y="285" width="480" height="70" fill="#fafbfc"/>
+  <line x1="40" y1="320" x2="520" y2="320" stroke="#a0aec0" stroke-width="1"/>
+  <text x="44" y="348" font-size="10.5" fill="#4a5568">量能：横盘缩量 → 突破放量 → 回踩缩量 → 再放量</text>
+  <rect x="115" y="310" width="18" height="10" fill="#e2a33b" opacity="0.8"/><rect x="145" y="312" width="18" height="8" fill="#e2a33b" opacity="0.8"/>
+  <rect x="175" y="308" width="18" height="12" fill="#e2a33b" opacity="0.8"/><rect x="205" y="313" width="18" height="7" fill="#e2a33b" opacity="0.8"/>
+  <rect x="235" y="309" width="18" height="11" fill="#e2a33b" opacity="0.8"/><rect x="265" y="311" width="18" height="9" fill="#e2a33b" opacity="0.8"/>
+  <rect x="295" y="307" width="18" height="13" fill="#e2a33b" opacity="0.8"/><rect x="325" y="310" width="18" height="10" fill="#e2a33b" opacity="0.8"/>
+  <rect x="355" y="296" width="18" height="24" fill="#e74c3c"/><rect x="380" y="290" width="18" height="30" fill="#e74c3c"/>
+  <rect x="400" y="292" width="18" height="28" fill="#e74c3c"/><rect x="430" y="310" width="18" height="10" fill="#e2a33b" opacity="0.8"/>
+  <rect x="455" y="308" width="18" height="12" fill="#e2a33b" opacity="0.8"/><rect x="480" y="294" width="18" height="26" fill="#e74c3c"/>
+  <rect x="505" y="290" width="18" height="30" fill="#e74c3c"/>
+</svg>
+<figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:6px;">图3 · 前五条标准负责「选股与等待」，第六条「收盘突破」负责扣动扳机</figcaption>
+</figure>
+
+<p>箱体突破战法出自<strong>福建滚雪球私募</strong>（林波、林涛兄弟）：从「亏到卖房」到「牛市翻身」，用真金白银验证过的实战体系。中国私募二十多年里三次进全国前十的只有两家——<strong>福建滚雪球 + 徐翔的上海泽熙投资</strong>。</p>
+
+<h4>① 六条买入标准（务必背熟）</h4>
+<table class="table-wrap">
+<thead><tr><th>#</th><th>标准</th><th>详解</th><th>一句话记忆</th></tr></thead>
+<tbody>
+<tr><td>①</td><td><strong>曾经涨停</strong></td><td>一般2-3个涨停，且至少有一个非一字板（一字板吸不了货）。涨停暴露庄家吸筹行踪。</td><td>涨停暴露吸筹</td></tr>
+<tr><td>②</td><td><strong>调整30-80个交易日</strong></td><td>按一个月20个交易日算，≈一个半月到4个月。太短洗盘不充分，太长主力乏力。</td><td>限时洗盘</td></tr>
+<tr><td>③</td><td><strong>振幅不超过30%</strong></td><td>窄幅整理，说明庄家控盘非常好。</td><td>限幅震荡</td></tr>
+<tr><td>④</td><td><strong>回撤不低于涨停起点</strong></td><td>跌破了就是旗形整理，不是箱体。</td><td>守住底线</td></tr>
+<tr><td>⑤</td><td><strong>红肥绿瘦</strong></td><td>每次上涨都有量、每次回调都缩量，标标准准的庄家控盘行为。</td><td>量价健康</td></tr>
+<tr><td>⑥</td><td><strong>收盘突破最高收盘价买入</strong></td><td>是「收盘价」破「最高收盘价」，不是「最高价」破「最高价」。盘中冲高可能是假突破，收盘站上才算有效。</td><td>突破信号</td></tr>
+</tbody>
+</table>
+<div class="card">
+<strong>📌 前五条是「选股与等待」的标准，第六条是「扣动扳机」的触发条件。</strong>庄家为什么敢用涨停暴露行踪？因为要么行情来了、要么上市公司有利好，来不及慢慢吸货，只能快速吸货——「长城军工924行情」一来马上开始吸货，反而暴露了行踪。
+</div>
+
+<h4>② 买卖规则（官方版）</h4>
+<div class="card gold">
+<strong>🔑 收盘突破箱体最高收盘价 → 买入；收盘破5日成本均线 → 卖出；两日内重回5日成本均线 → 买回。</strong>卖出与买回共用同一条5日成本均线，规则简洁、边界清晰、可机械执行。买卖有规矩，不靠感觉、不靠预测，只按信号与纪律执行。
+</div>
+
+<h4>③ 实战案例：华东重机（002685）</h4>
+<p>箱体运行<strong>40个交易日</strong>，最高点到最低点振幅<strong>19.68%</strong>，整个回调没有低于涨停起点、红肥绿瘦特征明确，前五条标准全部达标。按收盘价突破买入，随后分辨真假主升浪、按5日线卖出，进入第二箱体再操作。</p>
+<div class="card warn">
+<strong>⚠️ 两条最重要的实战教训：</strong>① 主升浪不允许有阴线；② 盘中破位不算破，<strong>收盘价才是唯一裁判</strong>（学员在「两天盘中跌破5日均线」时想卖，师傅纠正——收盘价全部收上去了，不卖。这就是「执行纪律、不卖飞」的关键）。突破后若出现阴线，说明不是主升浪，可能进入第二个箱体，<strong>最多经历三个箱体才是主升浪</strong>。
+</div>
+<p>华东重机这一组主升浪后，又走出「下来、上去、再下来、再上去」的形态，<strong>这一波又涨了60%</strong>——是在前面已翻两三倍的基础上再涨60%。<strong>多重背离</strong>：量价背离 + 快慢线（MACD）背离 → 「快慢线三重背离」：① K线顶背离；② 量价（量柱）背离；③ 快慢线（MACD）背离。</p>
+
+<h4>④ 5种经典K线顶部组合（必须背记）</h4>
+<table class="table-wrap">
+<thead><tr><th>名称</th><th>形态核心</th><th>确认</th></tr></thead>
+<tbody>
+<tr><td>① 上吊线</td><td>短实体 + 长下影（下影线 ≥ 实体2倍）</td><td>次日阴线</td></tr>
+<tr><td>② 倒上吊线</td><td>短实体 + 长上影（上影线 ≥ 实体2倍）</td><td>次日阴线</td></tr>
+<tr><td>③ 向下穿透线</td><td>高开低走、阴线实体穿透前日阳线</td><td>第三天阴线</td></tr>
+<tr><td>④ 看跌吞没线</td><td>阴实体包住昨日阳实体</td><td>第三天阴线</td></tr>
+<tr><td>⑤ 孕线</td><td>今日实体在昨日实体之内</td><td>上方顶、下方底</td></tr>
+</tbody>
+</table>
+<p><strong>庄家出货两种方式</strong>：① 创新高假突破诱多；② 拉高后高原晃悠再下。出货阶段本身也是投资机会（离场/规避的机会），而不是让我们去接盘。</p>
+
+<h3 id="ch10-6">10.6 旗形整理突破：七条标准</h3>
+
+<div class="motto">
+🌟 涨停后跌破涨停起点 → 高点越来越低、低点越来越高 → 出现地量（冲锋号）→ 以涨停过前高
+</div>
+
+<figure style="margin:16px 0; text-align:center;">
+<svg viewBox="0 0 560 360" width="100%" style="max-width:640px; background:#fff; border:1px solid var(--border-color); border-radius:10px;" xmlns="http://www.w3.org/2000/svg" font-family="'PingFang SC','Microsoft YaHei',sans-serif">
+  <title>旗形整理突破示意图</title>
+  <text x="280" y="26" text-anchor="middle" font-size="15" font-weight="700" fill="#2d3748">旗形整理突破：旗杆拉升 → 旗面收敛（高降低升）→ 地量冲锋号 → 放量突破</text>
+  <text x="112" y="52" font-size="11" fill="#4a5568">旗杆（放量拉升）</text>
+  <polyline fill="none" stroke="#e74c3c" stroke-width="4" points="80,300 120,215 165,115"/>
+  <polygon points="165,115 425,165 425,180 165,195" fill="#f5f0ff"/>
+  <line x1="165" y1="115" x2="425" y2="165" stroke="#9f7aea" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <line x1="165" y1="195" x2="425" y2="180" stroke="#9f7aea" stroke-width="1.5" stroke-dasharray="5 4"/>
+  <text x="296" y="98" font-size="11" fill="#6b46c1" font-weight="700">旗面收敛 · 高点越来越低 · 低点越来越高</text>
+  <polyline fill="none" stroke="#2f6fed" stroke-width="3" points="165,195 215,125 250,188 295,140 330,184 365,152 400,182 425,160"/>
+  <polyline fill="none" stroke="#e74c3c" stroke-width="4" points="425,160 455,95 500,70"/>
+  <text x="502" y="62" font-size="11.5" fill="#c0392b" font-weight="700">放量突破</text>
+  <text x="502" y="78" font-size="10.5" fill="#c0392b">（以涨停过前高）</text>
+  <line x1="322" y1="232" x2="322" y2="208" stroke="#6b46c1" stroke-width="1.5"/>
+  <text x="322" y="250" text-anchor="middle" font-size="11" fill="#6b46c1" font-weight="700">地量 = 冲锋号</text>
+  <rect x="40" y="285" width="480" height="70" fill="#fafbfc"/>
+  <line x1="40" y1="320" x2="520" y2="320" stroke="#a0aec0" stroke-width="1"/>
+  <text x="44" y="348" font-size="10.5" fill="#4a5568">量能：旗杆放量 → 旗面地量（冲锋号）→ 温和放大 → 突破放量</text>
+  <rect x="85" y="294" width="16" height="26" fill="#e74c3c"/><rect x="120" y="298" width="16" height="22" fill="#e74c3c"/>
+  <rect x="165" y="315" width="16" height="5" fill="#e2a33b" opacity="0.6"/><rect x="205" y="316" width="16" height="4" fill="#e2a33b" opacity="0.6"/>
+  <rect x="245" y="316" width="16" height="4" fill="#e2a33b" opacity="0.6"/><rect x="285" y="317" width="16" height="3" fill="#e2a33b" opacity="0.6"/>
+  <rect x="325" y="317" width="16" height="3" fill="#e2a33b" opacity="0.6"/><rect x="365" y="316" width="16" height="4" fill="#e2a33b" opacity="0.6"/>
+  <rect x="405" y="315" width="16" height="5" fill="#e2a33b" opacity="0.6"/>
+  <rect x="445" y="292" width="16" height="28" fill="#e74c3c"/><rect x="480" y="290" width="16" height="30" fill="#e74c3c"/>
+</svg>
+<figcaption style="font-size:0.85rem; color:var(--text-muted); margin-top:6px;">图4 · 跌破涨停起点是旗形与箱体的分界铁证，地量之后才是买入起点</figcaption>
+</figure>
+
+<h4>① 旗形 vs 箱体</h4>
+<table class="table-wrap">
+<thead><tr><th>维度</th><th>箱体突破</th><th>旗形整理突破</th></tr></thead>
+<tbody>
+<tr><td>定位</td><td>相对多见、收益稳健</td><td>不多见、收益更高、易出黑马</td></tr>
+<tr><td>涨停起点</td><td>守住（不跌破）</td><td><strong>跌破</strong>（跌幅更大）</td></tr>
+<tr><td>震荡形态</td><td>水平箱体（窄幅）</td><td>收敛旗形（振幅逐级收敛）</td></tr>
+<tr><td>高低点</td><td>基本水平</td><td>高点越来越低、低点越来越高</td></tr>
+<tr><td>独有关键点</td><td>——</td><td><strong>出现地量（冲锋号）</strong></td></tr>
+</tbody>
+</table>
+
+<h4>② 七条标准</h4>
+<table class="table-wrap">
+<thead><tr><th>#</th><th>标准</th><th>说明</th><th>层级</th></tr></thead>
+<tbody>
+<tr><td>①</td><td>曾经涨停</td><td>同箱体第一前提</td><td>启动层</td></tr>
+<tr><td>②</td><td>形成旗形</td><td>高点越来越低、低点越来越高</td><td>形态层</td></tr>
+<tr><td>③</td><td>红肥绿瘦</td><td>涨有量、跌缩量</td><td>形态层</td></tr>
+<tr><td>④</td><td>出现地量</td><td>旗形独有关键点，成交量极少</td><td>形态层</td></tr>
+<tr><td>⑤</td><td>成交量温和放大</td><td>地量之后</td><td>形态层</td></tr>
+<tr><td>⑥</td><td>以涨停方式过前期涨停高点</td><td>突破时用涨停板越过前高</td><td>突破层</td></tr>
+<tr><td>⑦</td><td>有二必有三</td><td>有第二个涨停就一定有第三个</td><td>突破层</td></tr>
+</tbody>
+</table>
+<div class="card">
+<strong>🔑 旗形最大核心：</strong>涨停以后要<strong>跌破涨停起点</strong>，随后高点越来越低、低点越来越高，两条线交叉后选择方向（向上突破大概率），很容易形成主升浪。<strong>地量最重要的作用是「调整到位了，要开始进攻了」</strong>——这是师傅自己无数次实战中总结发现的，不是别人教的。
+</div>
+
+<h4>③ 实战案例：冠豪生物（300238）</h4>
+<p>三个放量涨停 → 股价往下走跌破涨停起点创新低<strong>15.67块</strong>（旗形与箱体区分的铁证）→ 地量出现在<strong>2020年6月5号</strong> → 地量后成交量温和放大 → 7月13号以涨停过前高（天量，主要是庄家筹码）→ 7月14号一字板。</p>
+<div class="card gold">
+<strong>💡 三重确认：</strong>地量后温和放量 + 快慢线进水上水（MACD金叉、上穿零轴）+ 涨停过前高。
+</div>
+
+<h4>④ 四大买入点（由激进到稳健）</h4>
+<table class="table-wrap">
+<thead><tr><th>买点</th><th>名称</th><th>特点</th></tr></thead>
+<tbody>
+<tr><td>一</td><td>跳空高开买入</td><td>最激进、抢筹（7月13号跳空高开7%直接买）</td></tr>
+<tr><td>二</td><td>超开盘价 / 站上均线买</td><td>折中</td></tr>
+<tr><td>三</td><td>即将涨停买入</td><td>最稳妥</td></tr>
+<tr><td>四</td><td>翘板追</td><td>涨停打开不破均线、快速回封</td></tr>
+</tbody>
+</table>
+<p><strong>跳空高开不补缺口三条件（缺一不可）</strong>：跳空高开 + 不补缺口 + 快拉5分钟（最长不超10分钟）。<strong>涨停板时间质量排名</strong>：第一 9:30-9:45（开盘15分钟）；第二（并列）11:15-11:30 与 13:00-13:15。</p>
+
+<h4>⑤ 卖出方法与卖票三件套</h4>
+<div class="card gold">
+<strong>🔑 卖票三件套：</strong>① 涨7%单头、半小时不创新高 → 止盈；② 跌破均线 → 卖出；③ 高开低走补缺口 → 必须走。
+</div>
+<p>实操：卖出价<strong>40.05块</strong>（根本没看见40.5块）。心法：买卖有据，中间不带任何感情色彩和「我觉得」。</p>
+
+<h4>⑥ 特殊形态：T字板 / 省长板 / 有二必有三</h4>
+<ul>
+<li><strong>有二必有三</strong>：两个涨停板过前期最高点 + 放量 → 必有第三板（「二进三」标准）；次日一字板，至少吃10%。</li>
+<li><strong>T字板</strong>：开盘即涨停、中间打开出下影线、又回封；两条有效条件——V型不破当天均线 + 快速回封（约一两三分钟）。</li>
+<li><strong>省长板（倒车接人）</strong>：底部第一个涨停出现「快拉、不破均线、突然打开两三分钟、马上封回、再没打开」，属可遇不可求的高价值形态。</li>
+<li><strong>连板巨量阴线次日大概率反包</strong>：次日阴线才跑。</li>
+</ul>
+
+<h3 id="ch10-7">10.7 反包技术：五类战法</h3>
+
+<div class="motto">
+🌟 反包技术 = 短线收入增长最快的模式，只适用于强势股（连板股）
+</div>
+
+<p>上涨途中三种调整：<strong>回调调整</strong>（策略一二三低吸）、<strong>横盘调整</strong>、<strong>快速洗盘</strong>（反包技术用武之地）。巨量阳线反包 + 巨量阴线反包 = 强势股空中加油。</p>
+
+<h4>① 五类反包战法总纲</h4>
+<table class="table-wrap">
+<thead><tr><th>序号</th><th>模型名称</th><th>一句话定义</th></tr></thead>
+<tbody>
+<tr><td>1</td><td>连板巨量<strong>阳线</strong>反包</td><td>3连板以上 + 一根不涨停的巨量阳线，次日大概率继续涨停</td></tr>
+<tr><td>2</td><td>连板巨量<strong>阴线</strong>反包</td><td>3连板以上 + 一根放量大阴线，次日一柱擎天</td></tr>
+<tr><td>3</td><td><strong>一字板</strong>反包</td><td>连续一字板后，出现第一根放量阴线，次日反包</td></tr>
+<tr><td>4</td><td><strong>跌停板</strong>反包</td><td>一波上涨中有涨停，随后跌停，次日反包</td></tr>
+<tr><td>5</td><td><strong>多胞胎</strong>反包</td><td>涨停后K线连续收在涨停「肚子里」，随时可能突然发力向上</td></tr>
+</tbody>
+</table>
+
+<h4>② 关键纪律与买入时机</h4>
+<div class="card gold">
+<strong>🔑 阳线可提前尾盘买，阴线不行；阴线必须次日看情况、高开才能买。</strong>巨量阳线可当天2:55尾盘提前买（次日若失败，成本更接近、一刀斩损失更小）；巨量阴线后可能连续阴线，必须次日高开才买。
+</div>
+<ul>
+<li><strong>止损铁律</strong>：当天买错或次日错 → <strong>一刀斩</strong>（眼睛都不眨）；次日早晨集合竞价低开即一刀斩。失败案例002172（低吸位买入，反包失败但不亏）；<strong>002716</strong>（标准失败案例，当天买次日低开立即一刀斩，<strong>亏23%</strong>）。<strong>没有斩仓勇气别做反包，回退「策略一二三」。</strong></li>
+<li><strong>跌停板反包不看成交量</strong>（涨停、跌停都没量）；必须真跌停——深蓝色跌停，跌幅<strong>9.90%-10.0X%</strong>封死，不是跌9个点。买入信号 = 股价超过昨日跌停价即买。<strong>颠覆性认知：跌停也是投资机会，每天敲60键翻看跌停板。</strong></li>
+<li><strong>多胞胎前置条件</strong>：须过前期高点才能买，前面有压力的不算；唯一难点是不知道哪天发作，需盯盘，发作即等同「一柱擎天」。</li>
+</ul>
+
+<h4>③ 位置判断（第一道闸门）+ 海上生明月</h4>
+<p>关键区分：<strong>主升浪突破</strong>（前面无压力，可做）vs <strong>下降途中反弹</strong>（有压力，不可做）。</p>
+<div class="card">
+<strong>🌙 海上生明月：</strong>无历史高点压制，主升浪完全超过前面很多年高点。位置不一样，效果完全不一样；先看位置再决定能否用反包。
+</div>
+<p><strong>票性判断（关键环节）</strong>：京东方000725是早市市值两千多亿的大盘股，庄家要做需花六百多亿 → 机构票不是庄票 → 用策略一二，不做反包。<strong>底层逻辑（市场分歧理论）</strong>：连续三四个板后出阳线 = 庄家洗盘 = 市场分歧；分歧越大后续涨得越好。</p>
+
+<h4>④ 实战数字速记</h4>
+<p><strong>长城军工601606</strong>：四个涨停板 → 带上下影线的放天量阳线 → 次日低开一柱擎天（或快速拉升）。<strong>买入铁律</strong>：9:25-9:30提前输好代码601606、价格<strong>33.51元</strong>、数量<strong>5000股</strong>，手放回车键，开盘往上拉就找回撤买入。<strong>加仓节奏</strong>：缩量处多次加仓；再突破不需连板，放巨量阳线即机会。</p>
+<p><strong>603280</strong>：四个板后放量大阴线（开盘冲高、尾盘炸板）→ 次日一柱擎天 → 再涨四个板。<strong>一字板反包</strong>：603065、603221、603137（阴线炸板次日低开一柱擎天）、002437（一根阴线两个板，早盘一柱擎天）。<strong>合富中国</strong>：1-9的九连板 + 放量阳线 + 次日一柱擎天。</p>
+
+<h3 id="ch10-8">10.8 筹码分布：判断庄家底仓</h3>
+
+<div class="motto">
+🌟 筹码分布是一面「照妖镜」，只用它回答一个终极问题——庄家还在不在场
+</div>
+
+<p>筹码分布由<strong>指南针软件</strong>开发（王志杰先生、陈浩先生，90年代末约98年），属盘后软件、盘中意义不大。两个看家本领：无穷成本均线 + 筹码分布。软件里红黄白绿颜色无实际意义（收费噱头）。<strong>核心作用只有一个：看庄家还在不在。</strong></p>
+
+<h4>① 庄家底仓判断方法（筹码峰上移）</h4>
+<ol>
+<li><strong>观察低位筹码峰</strong>：股价未启动前，筹码集中在低位形成「筹码山」。</li>
+<li><strong>筹码峰上移</strong>：主升浪启动，股价上涨，筹码峰上移。</li>
+<li><strong>判断底仓还在不在</strong>：股价接近翻倍时看低位筹码峰是否还在——还在的就是庄家底仓。</li>
+</ol>
+<div class="card">
+<strong>🔑 核心结论：</strong>第一个高度（第一个拉升平台）绝不是庄家目标位，后面还要涨。底层心理：散户10块买涨到12就急着卖，跌到8块死扛；翻倍还不跑、底仓不动的只能是庄家。
+</div>
+
+<h4>② 从底仓消失看目标位与出货</h4>
+<table class="table-wrap">
+<thead><tr><th>筹码状态</th><th>说明</th><th>结论</th></tr></thead>
+<tbody>
+<tr><td>底仓在</td><td>低位筹码峰还在</td><td>不是目标位，后面还要涨</td></tr>
+<tr><td>底仓消失</td><td>低位筹码峰没有了</td><td>已达目标位，但庄家未全部出货（还有过程筹码）</td></tr>
+<tr><td>过程筹码也消失</td><td>拉升中形成的新筹码也没有了</td><td>庄家出货完毕，行情转向下跌</td></tr>
+</tbody>
+</table>
+<div class="card warn">
+<strong>⚠️ 反直觉警告：</strong>下跌途中补仓 = 接庄家的盘，必死。<strong>补仓唯一条件：上升通道回调才可补仓（右侧补仓，均线都向上）</strong>；下跌区间绝不补仓（所有均线向下补仓 = 找死）。坚决反对左侧买票，唯一例外：底背离 + 小资金尝试。<strong>「右侧进、左侧退」</strong>，筹码分布帮你看清你在行情周期的哪一侧。
+</div>
+
+<h4>③ 顶部四大特征 + 三根香</h4>
+<div class="card gold">
+<strong>🔑 顶部四大特征：</strong>① 前面是高点（压力位）；② 背离（股价创新高指标没同步）；③ 长上影线；④ 放量滞涨。
+</div>
+<p><strong>「三根香」</strong>：连续三根长上影线，主力出货典型形态。<strong>终极工具</strong>：筹码分布（底仓消失 = 见顶）+ 顶部特征 = 顶底通吃。</p>
+
+<h4>④ 案例：长城军工坐庄全过程</h4>
+<p>图形特征：双箱体 + 成交量漂亮（涨放量跌缩量）+ 股价全部在水上（均线上方）。去年（2024年）走势时间长达<strong>176天</strong>（等消息，九三大阅兵），标准箱体运行，突破板拿下前期最高收盘价；对比华东重机只调整3天。用筹码分布判断顶底：第一次主升底仓还在（不是目标位不跑）→ 底仓消失（目标位）→ 过程筹码也消失（出货完毕离场）。<strong>引申策略：只做主升浪，一浪追不上做二浪突破。</strong></p>
+
+<h4>⑤ 机构股 vs 庄股 + 防坑提醒</h4>
+<ul>
+<li><strong>工具边界</strong>：筹码分布只用于庄股，不用于机构股。</li>
+<li><strong>防坑提醒</strong>：任何付费软件推销、「自称与老师合作」都是假的；老师从不和任何人/软件公司合作。用指南针基础版（免费版），只用筹码分布功能，别交钱。</li>
+</ul>
+
+<h3 id="ch10-9">10.9 二区定律：判断上证指数方向</h3>
+
+<div class="motto">
+🌟 二区定律 = 用10:00-10:30的白线走势，预判上证指数当天是涨、跌、还是走平
+</div>
+
+<p><strong>唯一适用范围</strong>：只能用在上证指数，不用于其他指数、也不用于个股；可做大环境参考。准确率：2024年<strong>87%</strong>、2025年<strong>89%</strong>、2026年1-4月<strong>94%</strong>、2026年1-6月<strong>90%</strong>。</p>
+
+<div class="card blue">
+<strong>📌 辨析：与第1章「弃用上证指数」矛盾吗？不矛盾——两个工具服务不同周期：</strong>
+<ul>
+  <li><strong>1.3 弃用上证、聚焦深圳成指（399001）</strong>：用于<strong>中期牛熊 / 结构性行情</strong>判断——上证被传统大盘股拖累严重失真，看中期方向应以深圳成指为准（铁律2）。</li>
+  <li><strong>10.9 二区定律看上证</strong>：用于<strong>当日短线方向</strong>预判——上证指数分时<strong>白线（加权）</strong>反映权重股动向，专门回答「今天大盘会不会跌」这一个短线问题。</li>
+  <li>一句话：<span class="highlight">中期方向看成指，当日涨跌看上证白线</span>。二区定律不改变1.3的结论，只是新增一个短周期的观察窗口。</li>
+</ul>
+</div>
+
+<h4>① 白线 vs 黄线（加权 vs 等权）</h4>
+<table class="table-wrap">
+<thead><tr><th>线条</th><th>计算方式</th><th>代表对象</th><th>与指数关系</th></tr></thead>
+<tbody>
+<tr><td>白线</td><td>加权</td><td>权重股/大盘股/指标股/蓝筹股</td><td>决定指数涨跌</td></tr>
+<tr><td>黄线</td><td>等权</td><td>全体个股（含小盘股）平均</td><td>不影响指数</td></tr>
+</tbody>
+</table>
+<p>只看白线：小盘股连续<strong>40个涨停</strong>也摇不动指数（茅台占指数25%权重）。</p>
+
+<h4>② 判断逻辑（好二区与坏二区）</h4>
+<div class="card gold">
+<strong>🔑 A股全天4小时 = 8个半小时区。二区 = 10:00-10:30；五区 = 13:00-13:30。</strong>好二区 = 大盘今天不会跌（最糟走平）；坏二区 = 大盘大概率涨不上去（最好走平）。
+</div>
+<p>出发点 = 当天开盘价与收盘价相比。三细节：不看K线红绿；走平 = 「大差不差」（不追求精确点位）；看白线不看黄线。未来方向只有三个：涨、跌、走平。<strong>看「过程」不看「结果」</strong>：只看10:00-10:30白线低点、高点是否同步下降；不拿10点半点位和10点点位比。</p>
+
+<h4>③ 五区的修正与延续</h4>
+<table class="table-wrap">
+<thead><tr><th>二区结论</th><th>五区要修正的条件</th><th>修正后的结果</th></tr></thead>
+<tbody>
+<tr><td>坏二区</td><td>创新高（1-5区新高）</td><td>大盘不会跌太快/下不去</td></tr>
+<tr><td>好二区</td><td>创新低（1-5区新低）</td><td>大盘涨不上去</td></tr>
+<tr><td>任意</td><td>既不创新高也不创新低</td><td>五区失效，维持二区结论</td></tr>
+</tbody>
+</table>
+<p><strong>延续</strong>：坏二区 + 坏五区 = 「落井下石」；好二区 + 好五区 = 「锦上添花」。<strong>特殊形态</strong>：V型/倒V两条硬条件——时间对半（各15分钟/各5分钟）+ 幅度一致（下去多少上来多少）。通俗记忆：一个底部 = 单底；两个底部 = 双底；一个头部 = 单头；两个头部 = 双头。<strong>心态：失效就失效，不纠结，只看「五区有没有修正」。</strong></p>
+<p><strong>实战参考</strong>：白黄线远离 = 权重护盘、小盘被砸；白线在上 = 权重稳、小盘弱。<strong>银行ETF（512800）避险属性</strong>——7月底、8月初涨了一个月 = A股跌最惨的时候 = 风险厌恶资金进场。</p>
+
+<h3 id="ch10-10">10.10 解套技术：高抛低吸 + 日内T+0</h3>
+
+<div class="motto">
+🌟 必须学会主动解套，而不是被动等待——绝大多数股票未来会退市，不主动解套就是「等死」
+</div>
+
+<h4>① 股市盈亏真相</h4>
+<p><strong>721定律</strong>：70%亏钱、20%平、10%赚钱。股龄超五年以上赚钱的只占<strong>8.6%</strong>，即中国股民91.4%亏钱。三大亏钱原因：市场太专业未经训练进入；牛短熊长；恐惧与贪婪。被套本质：股数不变、市值缩水（20块买10万股投入200万，跌到10块剩100万）。</p>
+
+<h4>② 解套核心原理：高抛低吸做波段</h4>
+<p><strong>摊薄成本逻辑</strong>：10块卖得100万，8块买回可买125000股（多25000股）；原本要等回20块解套，现因股数增加「8块涨到16块翻一倍」即可解套。前提：被套股处于下行通道、空头排列（5日线在20日线下、20日线掉头向下）、快慢线在水下。</p>
+
+<h4>③ 水下策略与水上策略（与10.4互补）</h4>
+<ul>
+<li><strong>水下策略一：看MACD/DIF箭头</strong>——向上拐头买、向下拐头卖；「该红不红」卖出；红柱缩短 + 底背离买回。实战：反弹后向下拐头卖<strong>22.56块</strong>，跌到<strong>21.46块</strong>赚约5%；红柱缩短底背离<strong>19.09块</strong>买回（又是5%）。</li>
+<li><strong>水上策略四条</strong>：快慢线上穿/下穿零轴；底背离/顶背离；快线向上/向下拐头；站上5日均线买、跌破卖。</li>
+</ul>
+
+<h4>④ 520方法（5日 + 20日均线）</h4>
+<ul>
+<li><strong>卖出</strong>：DIF箭头向上后向下拐头且阴线跌破5日均线、向下下穿520即卖。</li>
+<li><strong>上升持有</strong>：上升反包用520一路持有。</li>
+<li><strong>下跌持有</strong>：下跌中「一阳穿过20日均线」且底背离为止。</li>
+</ul>
+
+<h4>⑤ 日内T+0操作与执行纪律</h4>
+<div class="card gold">
+<strong>🔑 盘中不能算盈亏只看信号；不看价格只看图/MACD箭头。小资金练手艺（100股、200股试，每次150块练一星期）。</strong>
+</div>
+<ul>
+<li><strong>分批</strong>：开始分10份（5000股每份550股），练熟后分5份。</li>
+<li><strong>买卖信号</strong>：红蜘蛛（MACD红柱）+ 快慢线——红柱缩短就卖、快线向下拐头就卖；底背离/水下测力器信号买回。</li>
+<li><strong>期望收益</strong>：一天6-8次下单，错1次、平2次、对3-4次，对的那次赚2%-3%，平均全天约1%，一周约5%。</li>
+<li><strong>辅助技巧</strong>：翻转坐标（把下降通道翻转成上涨形态看）。作业格式：写一个数（做几笔）+ 全天赚百分之几（如「7+5」）。</li>
+</ul>
+<p><strong>东方财富综合案例</strong>：25块被套跌到17块，连续三次操作（5% + 5% + 约20%）合计约20%，成本从25降到约20块，反弹到20块即解套。</p>
+
+<h3 id="ch10-11">10.11 复盘流程：每天必做</h3>
+
+<div class="motto">
+🌟 复盘是每天必做的减法工作——看多了无益，只盯策略一二三四信号出手
+</div>
+
+<p><strong>工具</strong>：指南针 / 东方财富（敲<strong>60</strong>看全天涨停板排序）。</p>
+
+<h4>① 第一件事：基础复盘·涨停板归类（必修）</h4>
+<table class="table-wrap">
+<thead><tr><th>类别</th><th>定义</th><th>放哪里</th></tr></thead>
+<tbody>
+<tr><td>20厘米涨停板</td><td>涨幅约19.9%以上（科创板688、创业板300）</td><td>「20厘米」自选</td></tr>
+<tr><td>15厘米（大阳线）</td><td>涨幅超10%未涨停的非涨停大阳线</td><td>大阳线自选</td></tr>
+<tr><td>10厘米涨停板</td><td>涨幅9.9%以上（从第21名往后）</td><td>「10厘米」自选</td></tr>
+</tbody>
+</table>
+<p><strong>操作要点</strong>：两个月一归类；Shift批量选中右键加自选；北交所不管。</p>
+
+<h4>② 第二件事：找突破板（必修）</h4>
+<p>十来分钟找出20/15/10厘米中的突破板放「突破」自选（做第二波、第三波是最赚钱最轻松的模型）。</p>
+
+<h4>③ 第三件事起（选修）</h4>
+<ul>
+<li><strong>连板自选</strong>（两连板，为反包准备）；</li>
+<li><strong>买二买四</strong>（买二买四之前，每天清空）；</li>
+<li><strong>跌停板反包</strong>（连板后第一、第二个跌停板，下降通道跌停不看）。</li>
+</ul>
+
+<h4>④ 核心动作：建立「关注」自选</h4>
+<div class="card gold">
+<strong>🔑 关注自选 ≤10只（习惯5只以内），第二天只看「关注」。</strong>核心原则：看多了无益，只盯策略一二三四信号出手。极简方法：沪深300精简5只 + 145只合并，最多留100只自选，只建一个「关注」自选。
+</div>
+
+<h4>⑤ 145只股票回测作业</h4>
+<p>145只股票用Excel回测，每只100万本金，出现策略一二三四就操作，以收盘价为准算收益（2025-01-01到2025-08-21，约20个月）。每人报一个数，用「报的数 + 70」得到第二只股票编号，每人领两只。全仓进、全仓出。现阶段只拿投入股市资金的<strong>30%</strong>开始小资金实践，不需要按板块分开操作、没有任何偏重。</p>
+
+<div class="card">
+<strong>📌 贯穿全课的核心心法：</strong>① 买卖有据、不靠感觉、纪律优先；② 只做主升浪第二波第三波；③ 找不到机会就休息、看多了无益；④ 敬畏市场、30%资金打小麻将。<strong>严格按方法一定赚钱，只是赚多赚少；学了之后更要敬畏市场。</strong>
+</div>
+
+<div class="cheatsheet">
+<h2>🚀 第四天主升浪速查卡</h2>
+
+<div class="cheat-item">
+<strong>📦 箱体突破六条买入标准</strong><br>
+① 大箱体：横盘时间越久、振幅越大越好 ② 颈线位突破要有力度 ③ 突破必须放量 ④ 突破后回踩颈线确认 ⑤ 有政策/消息催化 ⑥ 大盘环境配合（避开普跌）
+</div>
+
+<div class="cheat-item">
+<strong>🚩 旗形整理七条标准</strong><br>
+① 旗杆陡峭拉升 ② 旗面向下倾斜、幅度小 ③ 旗面整理缩量 ④ 不跌破旗面下沿 ⑤ 突破旗面上沿必须放量 ⑥ 回踩不破突破位 ⑦ MACD零轴上方金叉确认
+</div>
+
+<div class="cheat-item">
+<strong>💼 卖票三件套（赚钱的票怎么卖）</strong><br>
+① 顶部三根香：涨停后连收3日小阳不破=继续持 ② 一刀斩：跌破关键支撑（5日线/颈线）果断清仓 ③ 均线死叉：5日与20日死叉前分批减
+</div>
+
+<div class="cheat-item">
+<strong>🔝 顶部四大特征 + 三根香</strong><br>
+① 高位放量滞涨 ② MACD顶背离 ③ 长上影线频繁 ④ 利好兑现主力出货。<strong>三根香</strong>：顶部收3根长上影/阴线，庄家三炷香上完就走，见到先卖为敬
+</div>
+
+<div class="cheat-item">
+<strong>📉 二区定律速记口诀</strong><br>
+白线（权重）在黄线（题材）上方=坏二区=今天要跌；白线在黄线下方=好一区=今天稳。只在<strong>上证指数</strong>用，不用于个股
+</div>
+
+<div class="cheat-item">
+<strong>🔁 每天复盘三步曲</strong><br>
+① 涨停板归类（20/15/10厘米） ② 找突破板（做二波三波最赚） ③ 关注自选≤10只，只盯策略一二三四信号
+</div>
+</div>
+
+<!-- ===================================================== -->
+<!-- ============== 第11章 交易体系全景图 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch11" class="section-anchor">📗 第11章 · 交易体系全景图</h2>
+
+<h3 id="ch11-1">11.1 完整流程闭环</h3>
+
+<div class="motto">
+🌟 盘前20分钟 + 盘中5分钟 + 次日5分钟 = 一套闭环系统
+</div>
+
+<h4>① 盘前准备（约20分钟）</h4>
+<ol>
+  <li>看韩国股市KS11（预判A股方向）</li>
+  <li>检查大盘是否触发三大减仓信号</li>
+  <li>打开东方财富 → 涨停池</li>
+  <li>找买二（周一涨停+周二跳空）/ 买四（上周四涨停+连续三天缺口）</li>
+  <li>入自选股/记笔记</li>
+</ol>
+
+<h4>② 盘中入场</h4>
+<table class="table-wrap">
+<thead><tr><th>方式</th><th>触发条件</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td>☀️ 买早</td><td>早晨V/W型反转</td><td>V上去站上均线 → 买早（买四、买六）</td></tr>
+<tr><td>🌙 买晚</td><td>下午2:20-2:55观察</td><td>缺口未补+40分钟未创新低 → 买晚（买二）</td></tr>
+</tbody>
+</table>
+
+<h4>③ 盘中风控</h4>
+<div class="card warn">
+<strong>🛑 任何时点补缺口 → 一刀斩</strong>
+</div>
+
+<h4>④ 次日处理</h4>
+<table class="table-wrap">
+<thead><tr><th>次日形态</th><th>操作</th></tr></thead>
+<tbody>
+<tr><td>补缺口</td><td>集合竞价一刀斩</td></tr>
+<tr><td>涨但不涨停</td><td>立即止盈（落袋5%+）</td></tr>
+<tr><td>涨过均线</td><td>继续持有（可能主升浪）</td></tr>
+<tr><td>第二天没涨停+没补缺口</td><td>持有</td></tr>
+</tbody>
+</table>
+
+<h3 id="ch11-2">11.2 短线/波段/趋势对应</h3>
+
+<table class="table-wrap">
+<thead><tr><th>周期</th><th>代表策略</th><th>时间标尺</th><th>使用工具</th><th>收益预期</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-red">短线</span></td><td>买二买四/两阴反包/突破板</td><td>1-5天</td><td>日线+分时</td><td>5%-15%/次</td></tr>
+<tr><td><span class="badge badge-blue">波段</span></td><td>W型买入法</td><td>数周-数月</td><td>日线+5日均线</td><td>30-50%</td></tr>
+<tr><td><span class="badge badge-green">趋势</span></td><td>主升浪（5/20/40周线）</td><td>数月-1年</td><td>周线+40周均线</td><td>50%-200%+</td></tr>
+</tbody>
+</table>
+
+<h3 id="ch11-3">11.3 人群适配策略</h3>
+
+<table class="table-wrap">
+<thead><tr><th>人群</th><th>推荐策略</th><th>核心理由</th></tr></thead>
+<tbody>
+<tr><td><span class="badge badge-green">企业家/中老年</span></td><td><strong>W型</strong></td><td>不需要盯盘、节奏匹配</td></tr>
+<tr><td><span class="badge badge-red">年轻/能盯盘</span></td><td><strong>两阴反包</strong></td><td>下手快、利润丰厚</td></tr>
+<tr><td><span class="badge badge-blue">通用投资者</span></td><td><strong>买二买四</strong></td><td>标准流程、每天15分钟</td></tr>
+<tr><td><span class="badge badge-gold">进阶交易者</span></td><td><strong>主升浪+周线5/20/40</strong></td><td>战略性持有+波段操作</td></tr>
+</tbody>
+</table>
+
+<div class="card gold">
+<strong>🌟 老师的人群关怀：</strong>
+<ul>
+  <li><strong>W型</strong>：最适合企业家和中老年投资者 —— "我特别建议我们在座的各位企业家各位，比我年长的大哥大姐们"</li>
+  <li><strong>两阴反包</strong>：适合能盯盘、下手快的人群</li>
+  <li><strong>解决方案</strong>：<span class="highlight">"提前把价格设置好"</span>（条件单/限价单）</li>
+  <li><strong>买二买四</strong>：通用型 —— 短线交易，每天15分钟筛选</li>
+</ul>
+</div>
+
+<h3 id="ch11-4">11.4 跨课程知识图谱：四天课程串成一张网</h3>
+
+<div class="motto">
+🌟 第一天打地基、第二天选战场、第三天教突破、第四天教主升——四天不是四门课，是一条流水线
+</div>
+
+<h4>① 四天课程全景（各司其职）</h4>
+<table class="table-wrap">
+<thead><tr><th>课程</th><th>核心任务</th><th>在体系中的角色</th></tr></thead>
+<tbody>
+<tr><td>第一天 · 基础篇</td><td>庄家思维 + MACD两对半框架 + 软件设置</td><td>地基：看懂K线、均线、量能、MACD</td></tr>
+<tr><td>第二天 · ETF篇</td><td>十五五十大赛道 + ETF + 避雷4铁律</td><td>选战场：先选对赛道，再选对个股</td></tr>
+<tr><td>第三天 · 突破篇</td><td>突破板 + 买二买四 + 五大战法</td><td>起爆点：捕捉主升启动信号</td></tr>
+<tr><td>第四天 · 主升浪篇</td><td>主升浪战法 + 筹码 + 二区定律 + 复盘</td><td>深化：确认主升、识别顶底、每日复盘</td></tr>
+</tbody>
+</table>
+
+<h4>② 知识点依赖链（必须按顺序学）</h4>
+<table class="table-wrap">
+<thead><tr><th>先掌握</th><th>才能学会</th></tr></thead>
+<tbody>
+<tr><td>MACD两对半框架（DIF快慢线、水上水下）</td><td>策略一二三四、快慢线判断强弱</td></tr>
+<tr><td>均线体系（5/20/40/60周线）</td><td>主升浪、箱体、旗形、卖票三件套</td></tr>
+<tr><td>量能 + 红肥绿瘦</td><td>判断庄家洗盘还是出货</td></tr>
+<tr><td>突破概念（缺口、颈线）</td><td>买二买四、五类反包</td></tr>
+<tr><td>筹码分布（峰、顶、底）</td><td>判断庄家底仓是否还在</td></tr>
+</tbody>
+</table>
+
+<h4>③ 重难点标注（★★★ 必须吃透）</h4>
+<table class="table-wrap">
+<thead><tr><th>难度</th><th>知识点</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td>★★★</td><td>强势股五大特点</td><td>策略一前置过滤器，五点全背</td></tr>
+<tr><td>★★★</td><td>买二买四缺口逻辑</td><td>弱涨停+缺口不补=持有；补=卖</td></tr>
+<tr><td>★★★</td><td>二区定律白线黄线</td><td>只在指数用，看当日方向</td></tr>
+<tr><td>★★</td><td>箱体六条 / 旗形七条</td><td>宁缺毋滥，标准不全不出手</td></tr>
+<tr><td>★★</td><td>顶部三根香 / 卖票三件套</td><td>会买更要会卖，保住利润</td></tr>
+<tr><td>★</td><td>每日复盘三件事</td><td>每天必做，20/15/10厘米归类</td></tr>
+</tbody>
+</table>
+
+<!-- ===================================================== -->
+<!-- ============== 第12章 速查卡 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch12" class="section-anchor">📙 第12章 · 速查卡与SOP操作清单</h2>
+
+<h3 id="ch12-1">12.1 十二大铁律速查卡</h3>
+
+<div class="cheatsheet">
+<h2>🃏 速查卡 · 12条铁律</h2>
+
+<div class="cheat-item">
+<div class="label">铁律1 · 听党的话</div>
+<div class="content">做投资要坚决听党的话——五年规划集中了政策、资金、人才资源，相关领域不涨都不行。</div>
+</div>
+
+<div class="cheat-item">
+<div class="label">铁律2 · 弃上证用成指</div>
+<div class="content">弃用上证指数，聚焦深圳成指（399001）—— 上证严重失真，成指真实反映市场热度。</div>
+</div>
+
+<div class="cheat-item">
+<div class="label">铁律3 · 520战法</div>
+<div class="content">软件仅留5日+20日均线。均线发散=强势，发散宽度越大越强。</div>
+</div>
+
+<div class="cheat-item">
+<div class="label">铁律4 · MACD两对半</div>
+<div class="content">MACD=快慢线+红绿柱+零轴。三个要素联动判断买卖。</div>
+</div>
+
+<div class="cheat-item">
+<div class="label">铁律5 · 5日均线=保护伞</div>
+<div class="content">5日均线是短线操盘的核心标尺。站上持股，跌破减仓。</div>
+</div>
+
+<div class="cheat-item">
+<div class="label">铁律6 · 买二买四=涨停+缺口+不补</div>
+<div class="content">买二买四=涨停+缺口+不补=持有；补=卖。这是短线最系统的战法。</div>
+</div>
+
+<div class="cheat-item">
+<div class="label">铁律7 · 必须在缺口附近买</div>
+<div class="content">位置铁律：买入价不能远离缺口，远离缺口=有风险。</div>
+</div>
+
+<div class="cheat-item">
+<div class="label">铁律8 · 唯一止损=补缺口一刀斩</div>
+<div class="content">哪怕一分钱也算补。每次止损2-5%，错了都执行，过了都执行。</div>
+</div>
+
+<div class="cheat-item">
+<div class="label">铁律9 · 只买双不买单</div>
+<div class="content">单数（1/3/5/7/9）=标杆不买入；双数（2/4/6/8/10）=买入窗口。</div>
+</div>
+
+<div class="cheat-item">
+<div class="label">铁律10 · 以最近缺口为锚</div>
+<div class="content">多个缺口叠加时，永远以最近的缺口为准判断是否补缺口。</div>
+</div>
+
+<div class="cheat-item">
+<div class="label">铁律11 · 不预测只应对</div>
+<div class="content">市场走出来，不要去预测。信号出现=立即执行。</div>
+</div>
+
+<div class="cheat-item">
+<div class="label">铁律12 · 40周均线=牛熊分界</div>
+<div class="content">主升浪战法的根本标尺。站上40周均线=进入牛市，跌破=进入熊市。</div>
+</div>
+
+</div>
+
+<h3 id="ch12-2">12.2 SOP操作清单（每日执行）</h3>
+
+<h4>盘前（9:00-9:30）</h4>
+<ul class="checklist">
+<li>查看韩国股市KS11（9:30前）</li>
+<li>检查大盘是否触发三大减仓信号</li>
+<li>打开东方财富 → 涨停池 → 选日期</li>
+<li>查看9.90%以上+缺口的股票</li>
+<li>找买二/买四候选标的 → 入自选股</li>
+</ul>
+
+<h4>盘中（9:30-15:00）</h4>
+<ul class="checklist">
+<li>买早：观察V型反转 + 站上均线</li>
+<li>买晚：2:20-2:55观察缺口未补+40分钟不创新低</li>
+<li>任何时点补缺口 → 一刀斩</li>
+<li>严格执行止损（2-5%）</li>
+</ul>
+
+<h4>盘后（15:00-15:30）</h4>
+<ul class="checklist">
+<li>复盘当日操作：哪些对了？哪些错了？</li>
+<li>记录原因：是否违反纪律？是否执行到位？</li>
+<li>更新自选股：剔除跌破位的，纳入新候选</li>
+<li>准备次日：候选标的的预设买点/止损位</li>
+</ul>
+
+<h4>每周</h4>
+<ul class="checklist">
+<li>复盘一周：胜率、盈亏比、最大亏损</li>
+<li>检查10只持仓：是否符合"23→10"标准</li>
+<li>检查是否触发季度再平衡条件</li>
+</ul>
+
+<h4>每月</h4>
+<ul class="checklist">
+<li>月收益复盘：跑赢大盘？跑赢基准？</li>
+<li>方法论校准：是否需要调整？</li>
+<li>心态检查：是否贪婪/恐惧？</li>
+</ul>
+
+<!-- ===================================================== -->
+<!-- ============== 第13章 学员答疑Q&A ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch13" class="section-anchor">📕 第13章 · 学员答疑Q&A：高频疑问精讲</h2>
+
+<div class="motto">
+🌟 老师直播答疑精华 + 学员高频疑问——用一问一答，把整个体系串起来
+</div>
+
+<h3 id="ch13-1">13.1 认知与选股（4问）</h3>
+
+<div class="card">
+<strong>❓ Q1：躲过下跌之后，什么时候买回来？</strong><br>
+<strong>答（老师原话）：</strong>水下没有买入信号就<strong>不硬买</strong>——"哪里有买卖？现在都还在水下，哪里有买卖？"即使要买，也必须等<strong>快慢线回到水上</strong>再考虑。"你不要从这里跳，水上它就过不去，你为什么要非要跟着这支票？"<br>
+<span class="badge badge-red">关键</span> 水下策略只管卖；重新买入必须等水上信号成立，不在水下反复猜底。
+</div>
+
+<div class="card">
+<strong>❓ Q2：为什么老师说"好公司≠好股票"？</strong><br>
+<strong>答：</strong>好公司只代表基本面，股价要涨必须有<strong>成交量、主力进场</strong>。有政策、资金加持才是好标的；长期无量、空头排列的牛股照样走熊。<br>
+<span class="badge badge-red">关键</span> 选股三看：先看趋势（5日在20日上）、再看量能（有资金）、最后看逻辑（政策/赛道）。
+</div>
+
+<div class="card">
+<strong>❓ Q3：回调时间好长，等得好心焦怎么办？</strong><br>
+<strong>答：</strong>突破后的洗盘是常态，关键是看<strong>标准有没有被破坏</strong>：缺口没补、箱体没破、旗面下沿没破=洗盘，继续持有或等回踩确认；一旦<strong>放量跌破关键位=离场</strong>，不与市场讲道理。<br>
+<span class="badge badge-red">关键</span> 用规则替代情绪，回调越久、越充分，二次启动越有力。
+</div>
+
+<div class="card">
+<strong>❓ Q4：股票太多盯不过来怎么办？</strong><br>
+<strong>答：</strong>做<strong>减法</strong>：赛道先浓缩到十一大板块，个股聚焦「沪深300精简5只 + 145只合并」，关注自选≤10只（习惯5只以内），第二天只看关注自选。<br>
+<span class="badge badge-red">关键</span> 看多了无益，只盯策略一二三四信号出手。
+</div>
+
+<h3 id="ch13-2">13.2 技术实战（5问）</h3>
+
+<div class="card">
+<strong>❓ Q5：买二买四的缺口补掉了怎么办？</strong><br>
+<strong>答：</strong>铁律：<span class="highlight">涨停+缺口+不补=持有；补=卖</span>。缺口被补=庄家横向洗盘结束/失败，毫不犹豫离场，不心存侥幸。<br>
+<span class="badge badge-red">关键</span> 每天15分钟检查：缺口还在，它就是你的菜。
+</div>
+
+<div class="card">
+<strong>❓ Q6：怎么快速判断快慢线在水上还是水下？</strong><br>
+<strong>答：</strong>看DIF与零轴的位置：DIF在零轴<strong>上方=水上=强势区</strong>，策略才有效；在零轴下方=水下=弱势区，只能做卖出管理。<br>
+<span class="badge badge-red">关键</span> "两对半"=快慢线（DIF/DEA）一对 + 零轴 一半 + 红绿柱 一半，先看水上水下定强弱。
+</div>
+
+<div class="card">
+<strong>❓ Q7：箱体和旗形怎么区分？</strong><br>
+<strong>答：</strong>箱体=长时间<strong>横盘</strong>无方向，突破看六条标准（越久越大越好）；旗形=陡峭拉升后<strong>斜向洗盘</strong>，旗面向下倾斜、缩量，突破看七条标准。<br>
+<span class="badge badge-red">关键</span> 箱体重"时间与振幅"，旗形重"旗杆陡峭+旗面缩量"，标准不全宁可不做。
+</div>
+
+<div class="card">
+<strong>❓ Q8：为什么二区定律只能用在指数，不能用在个股？</strong><br>
+<strong>答：</strong>白线（加权权重）与黄线（题材）反映的是<strong>大盘整体情绪</strong>，个股有自己的庄家和节奏，分时被资金操控，看指数即可做当日大环境参考。<br>
+<span class="badge badge-red">关键</span> 白线在黄线下方=好一区=稳；白线在黄线上方=坏二区=防跌；中期方向看深圳成指、当日涨跌看上证白线。
+</div>
+
+<div class="card">
+<strong>❓ Q9：为什么"突破就追"会经常被套？</strong><br>
+<strong>答：</strong>突破不是涨了就买，而是<strong>标准确认才买</strong>：放量突破、回踩确认、趋势向上、政策催化、大盘配合。假突破（无量/背离/破位）是主要陷阱。<br>
+<span class="badge badge-red">关键</span> 突破六条/旗形七条=过滤器，宁缺毋滥；突破后回踩颈线再上车更稳。
+</div>
+
+<h3 id="ch13-3">13.3 纪律与风控（3问）</h3>
+
+<div class="card">
+<strong>❓ Q10：止损到底怎么定？</strong><br>
+<strong>答：</strong>用<strong>卖票三件套</strong>：①顶部三根香=涨停后三日不破继续持；②一刀斩=跌破关键支撑（5日线/颈线/缺口）果断清仓；③均线死叉=5日与20日死叉前分批减。<br>
+<span class="badge badge-red">关键</span> 会买更要会卖，卖错也要卖，纪律优先于盈亏。
+</div>
+
+<div class="card">
+<strong>❓ Q11：为什么只拿30%资金实战？</strong><br>
+<strong>答：</strong>敬畏市场，先用小资金<strong>验证胜率</strong>、锻炼纪律，而不是追求快速暴富。145只回测作业也是先模拟再实盘。<br>
+<span class="badge badge-red">关键</span> "不敢买就买100股"；先活下去，再谈赚大钱。
+</div>
+
+<div class="card">
+<strong>❓ Q12：今天亏了，明天要不要急着翻本？</strong><br>
+<strong>答：</strong>不预测、只应对。翻本心理=赌徒心理，会破坏纪律。找不到机会就休息，空仓也是一种操作。<br>
+<span class="badge badge-red">关键</span> "错了都必须执行，过了都必须执行"——盈亏同源，靠概率优势+纪律执行取胜。
+</div>
+
+<h3 id="ch13-4">13.4 常见误区（3问）</h3>
+
+<div class="card warn">
+<strong>❓ Q13：水下看到MACD绿柱缩短就抄底，对吗？</strong><br>
+<strong>答：</strong>不对。绿柱缩短只是下跌动能减弱，不代表反转；<strong>水下没有买入信号</strong>。必须等快慢线回水上+金叉/拐头+站上5日线才算入场条件。<br>
+<span class="badge badge-red">关键</span> 抄底=接飞刀，水上做多、水下观望是铁律。
+</div>
+
+<div class="card warn">
+<strong>❓ Q14：低价的股票是不是更安全、更有空间？</strong><br>
+<strong>答：</strong>不是。单纯低价股<strong>不布局</strong>——无政策、资金加持无行情。价格高低≠涨跌空间，趋势+量能+逻辑才是核心。<br>
+<span class="badge badge-red">关键</span> 避雷4铁律：空头排列不看、长期无量不看、单纯低价不布局、好公司≠好股票。
+</div>
+
+<div class="card warn">
+<strong>❓ Q15：模拟盘和实盘有什么区别，可以直接实盘吗？</strong><br>
+<strong>答：</strong>模拟盘练方法，实盘练心态与纪律。直接实盘前，建议先完成145只回测作业、用30%资金小仓位试水，待胜率稳定再放大。<br>
+<span class="badge badge-red">关键</span> "严格按方法一定赚钱，只是赚多赚少；学了之后更要敬畏市场。"
+</div>
+
+<!-- ===================================================== -->
+<!-- ============== 第14章 风险与心法 ============== -->
+<!-- ===================================================== -->
+
+<h2 id="ch14" class="section-anchor">📕 第14章 · 风险提示与核心心法</h2>
+
+<h3>⚠️ 风险提示</h3>
+
+<div class="warning-box">
+<strong>🚨 本体系性质：</strong>
+<ul>
+  <li>本课程为<strong>方法论教学</strong>，不构成任何投资建议</li>
+  <li>所有具体股票案例（603259/300679/002724/四川黄金/旭光电子/融捷股份/平淡发展）<strong>仅为方法演示</strong>，非推荐买卖</li>
+  <li>市场有风险，决策需谨慎</li>
+</ul>
+</div>
+
+<div class="warning-box">
+<strong>⚠️ 短线交易风险：</strong>
+<ul>
+  <li>短线交易<strong>风险较大</strong>，可能造成本金损失</li>
+  <li>过往业绩不代表未来表现</li>
+  <li>请根据自身风险承受能力谨慎决策</li>
+  <li>建议先小资金试水：<strong>"不敢买就买100股"</strong></li>
+</ul>
+</div>
+
+<div class="warning-box">
+<strong>📚 课程限制：</strong>
+<ul>
+  <li>课程来源于<strong>老师直播课转录稿</strong>，可能存在口误或简化</li>
+  <li>实际操作请结合最新数据与个人判断</li>
+  <li>市场环境不断变化，方法需与时俱进</li>
+</ul>
+</div>
+
+<h3>💎 核心心法（终极版）</h3>
+
+<div class="motto">
+🌟 "买二买四 = 涨停 + 缺口 + 不补 = 持有；补 = 卖"<br>
+🌟 "不预测，只应对" —— 一切战法的底层哲学<br>
+🌟 "在A股投资要坚决听党的话" —— 国家战略=财富风口<br>
+🌟 "错了都必须执行，过了都必须执行" —— 纪律高于一切
+</div>
+
+<h3>📜 老师寄语（多源汇总）</h3>
+
+<div class="card gold">
+<strong>🗣️ 良泽老师：</strong>
+<ul>
+  <li>"W型给中老年、两阴反包给年轻人、买二买四给所有人"</li>
+  <li>"提前把价格设置好，是中老年弥补盯盘劣势的关键技巧"</li>
+  <li>"盈亏同源：买2买4会亏钱也赚钱，关键是概率优势+纪律执行"</li>
+  <li>"4个买入策略 = '两对半框架'的实战应用"</li>
+</ul>
+</div>
+
+<div class="card blue">
+<strong>🗣️ 刘琛老师：</strong>
+<ul>
+  <li>"弃用上证指数，聚焦深圳成指"</li>
+  <li>"ETF让散户能与机构平起平坐"</li>
+  <li>"好公司≠好股票"</li>
+  <li>"三波理论：连续三波后动能衰竭，市场易变盘"</li>
+</ul>
+</div>
+
+<div class="card ok">
+<strong>🗣️ 小琛老师：</strong>
+<ul>
+  <li>"买二买四要成为必修课"</li>
+  <li>"只要你那个缺口还在，它就是你的菜"</li>
+  <li>"突破板后买二买四往往就是主升浪"</li>
+  <li>"买二买四是减法操作：用规则代替决策"</li>
+  <li>"每天5-15分钟搞定"</li>
+</ul>
+</div>
+
+<h3>🎯 给主人的最终建议</h3>
+
+<div class="card gold">
+<strong>📌 主人，您的成长路径：</strong>
+<ol>
+  <li><strong>第1-2周</strong>：熟读第1-3章（认知+心法+技术），建立基础认知</li>
+  <li><strong>第3-4周</strong>：研读第4-5章（选股+买入），小资金试水（100股起）</li>
+  <li><strong>第5-6周</strong>：精读第6章（卖出），强化止损纪律</li>
+  <li><strong>第7-8周</strong>：学习第7-10章（ETF+突破体系+仓位+主升浪），建立完整体系</li>
+  <li><strong>第9周起</strong>：持续实战+复盘+迭代</li>
+</ol>
+</div>
+
+<div class="motto">
+🌟 <strong>最终寄语：</strong><br><br>
+交易体系的本质是"概率优势+纪律执行"。<br>
+方法可以学，但纪律要靠每一次亏损的复盘来强化。<br>
+主人，请记住：<br>
+"<span class="highlight">你赚不到认知以外的钱，也守不住纪律以外的钱。</span>"
+</div>
+
+<hr style="margin: 40px 0; border: none; border-top: 2px solid var(--border-color);">
+
+<div style="text-align: center; color: var(--text-muted); font-size: 0.92rem; padding: 20px;">
+  <p><strong>📘 交易体系 · 从小白进阶为大神 · 完整版</strong></p>
+  <p>揉合良泽弟子班四天课程 + 刘琛闭门直播 + 小琛买二买四短线战法</p>
+  <p>所有内容仅供学习参考，不构成投资建议。市场有风险，决策需谨慎。</p>
+  <p>本体系为方法论教学，非个股推荐。</p>
+</div>
+
+</div><!-- /.container -->
+
+<a href="#ch1" class="back-to-top" title="返回顶部">↑</a>
+
+</body>
+</html>
