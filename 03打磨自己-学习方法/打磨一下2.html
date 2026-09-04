@@ -1,0 +1,1628 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>龙头周期交易体系 · 完全版 — 从新手到进阶的系统化交易体系</title>
+<style>
+  :root{
+    --bg:#f4f6fb;            /* 页面浅背景 */
+    --bg2:#e8ecf5;           /* 侧边 / 表头 / 折叠底 */
+    --card:#ffffff;          /* 卡片 */
+    --card2:#eef1f8;         /* 次级卡片 / hover */
+    --border:#d9e0ec;        /* 边框 */
+    --txt:#1e2438;           /* 正文 */
+    --sub:#4a5872;           /* 次级文字 */
+    --red:#e04b4b;           /* 涨 / 买点 / 机会 */
+    --red-bg:rgba(224,75,75,.08);
+    --green:#1f9d62;         /* 跌 / 止损 */
+    --green-bg:rgba(31,157,98,.08);
+    --gold:#a97c09;          /* 强调 / 心法 */
+    --gold-bg:rgba(169,124,9,.12);
+    --blue:#3b82f6;
+    --blue-bg:rgba(59,130,246,.08);
+    --purple:#8b5cf6;
+    --purple-bg:rgba(139,92,246,.09);
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  html{scroll-behavior:smooth;scroll-padding-top:70px;}
+  body{
+    font-family:"Microsoft YaHei","PingFang SC","Segoe UI",sans-serif;
+    background:
+      radial-gradient(1200px 500px at 85% -10%, rgba(59,130,246,.12), transparent 60%),
+      radial-gradient(900px 400px at 0% 0%, rgba(209,154,18,.09), transparent 55%),
+      var(--bg);
+    color:var(--txt);
+    line-height:1.75;
+    font-size:15px;
+  }
+  a{color:var(--blue);text-decoration:none;transition:.12s;}
+  a:hover{color:var(--gold);}
+  .main a{border-bottom:1px dashed transparent;}
+  .main a:hover{border-bottom-color:var(--gold);}
+  a:hover{text-decoration:underline;}
+
+  /* ============ 布局 ============ */
+  .layout{display:flex;min-height:100vh;}
+  .sidebar{
+    width:272px;flex:0 0 272px;position:fixed;top:0;left:0;bottom:0;overflow-y:auto;
+    background:rgba(240,244,252,.97);border-right:1px solid var(--border);
+    padding:20px 14px 80px;z-index:50;
+  }
+  .sidebar::-webkit-scrollbar{width:6px;}
+  .sidebar::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+  .main{flex:1;margin-left:272px;min-width:0;padding-bottom:120px;}
+  .container{max-width:1080px;margin:0 auto;padding:0 34px;}
+
+  /* ============ 侧边导航 ============ */
+  .brand{display:flex;align-items:center;gap:10px;padding:6px 10px 16px;border-bottom:1px solid var(--border);margin-bottom:12px;}
+  .brand .logo{font-size:26px;}
+  .brand .bt{font-weight:700;font-size:16px;line-height:1.3;}
+  .brand .bt small{display:block;font-weight:400;color:var(--sub);font-size:11px;margin-top:2px;}
+  .search-wrap{position:relative;margin-bottom:14px;padding:0 10px;}
+  .search-wrap input{width:100%;padding:9px 12px;border-radius:8px;border:1px solid var(--border);background:var(--bg2);color:var(--txt);font-size:13px;outline:none;transition:.15s;}
+  .search-wrap input:focus{border-color:var(--gold);background:#ffffff;}
+  .search-wrap input::placeholder{color:#97a2b8;}
+  #searchResults{position:absolute;top:calc(100% + 4px);left:10px;right:10px;background:#ffffff;border:1px solid var(--border);border-radius:10px;max-height:280px;overflow-y:auto;z-index:80;display:none;box-shadow:0 10px 30px rgba(23,32,55,.16);}
+  #searchResults::-webkit-scrollbar{width:5px;}
+  #searchResults::-webkit-scrollbar-thumb{background:var(--border);border-radius:3px;}
+  #searchResults .sr-h{display:block;padding:8px 12px;font-size:12px;color:var(--sub);border-bottom:1px solid rgba(23,32,55,.06);}
+  #searchResults a{display:flex;align-items:center;gap:8px;padding:8px 12px;font-size:12.5px;color:var(--txt);border-bottom:1px solid rgba(23,32,55,.05);transition:.12s;}
+  #searchResults a:hover{background:var(--card2);color:var(--gold);text-decoration:none;}
+  #searchResults a .sr-tag{flex:0 0 30px;font-size:10px;color:var(--gold);border:1px solid var(--gold);border-radius:4px;text-align:center;padding:1px 0;}
+  .nav-group{margin-bottom:6px;}
+  .nav-group>.ng{font-size:11px;letter-spacing:1px;color:var(--sub);padding:10px 10px 5px;font-weight:700;}
+  .nav-group a{display:flex;align-items:center;gap:8px;padding:7px 10px;border-radius:9px;font-size:13.5px;color:var(--txt);transition:.15s;}
+  .nav-group a:hover{background:var(--card2);color:var(--gold);text-decoration:none;}
+  .nav-group a.active{background:linear-gradient(90deg,var(--red-bg),transparent);color:var(--red);font-weight:700;border-left:3px solid var(--red);box-shadow:inset 0 0 0 1px rgba(224,75,75,.12);}
+  .nav-group a .num{font-size:11px;opacity:.7;min-width:20px;}
+
+  /* ============ 顶部横幅 ============ */
+  .hero{
+    position:relative;padding:58px 34px 42px;margin-bottom:36px;overflow:hidden;
+    background:
+      linear-gradient(135deg,rgba(246,247,251,.96) 0%,rgba(226,233,247,.89) 50%,rgba(240,243,250,.93) 100%);
+    border-bottom:1px solid var(--border);
+    border-radius:0 0 20px 20px;
+    box-shadow:0 12px 32px rgba(23,32,55,.09);
+  }
+  .hero::before{content:"";position:absolute;inset:0;background:
+    linear-gradient(rgba(23,32,55,.04) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(23,32,55,.04) 1px,transparent 1px);
+    background-size:36px 36px;}
+  .hero-inner{position:relative;max-width:1080px;margin:0 auto;}
+  .hero .kicker{display:inline-block;font-size:12px;letter-spacing:3px;color:var(--gold);border:1px solid var(--gold);border-radius:999px;padding:4px 14px;margin-bottom:18px;}
+  .hero h1{font-size:38px;font-weight:800;letter-spacing:1px;line-height:1.25;}
+  .hero h1 .hl{color:var(--red);}
+  .hero p.sub{color:#3f4b66;margin-top:14px;max-width:760px;font-size:15px;}
+  .hero .coreline{margin-top:22px;padding:16px 20px;border-left:4px solid var(--gold);background:var(--gold-bg);border-radius:0 10px 10px 0;font-size:15.5px;color:#7a5d12;font-weight:600;}
+  .fig{margin:18px 0;border-radius:12px;overflow:hidden;border:1px solid var(--border);background:var(--card);}
+  .fig img{display:block;width:100%;height:auto;}
+  .fig .cap{padding:9px 14px;font-size:12.5px;color:var(--sub);border-top:1px solid var(--border);background:var(--bg2);line-height:1.6;}
+  .fig .cap b{color:var(--gold);}
+  .fig.right{display:grid;grid-template-columns:220px 1fr;align-items:center;gap:0;}
+  .fig.right img{width:100%;height:100%;object-fit:cover;}
+  .fig.right .cap{border-top:none;border-left:1px solid var(--border);height:100%;display:flex;flex-direction:column;justify-content:center;}
+  @media(max-width:760px){.fig.right{grid-template-columns:1fr;}.fig.right img{max-height:200px;}}
+  .version{margin-top:44px;padding:18px 22px;border:1px dashed var(--gold);border-radius:12px;background:var(--gold-bg);}
+  .version h3{color:var(--gold);font-size:16px;}
+  .version p{color:#6f5a20;line-height:1.8;margin-top:8px;}
+
+  /* ============ 章节 ============ */
+  section.chapter{margin-top:52px;}
+  .sec-head{display:flex;align-items:flex-start;gap:14px;margin-bottom:18px;padding-bottom:14px;border-bottom:1px solid var(--border);}
+  .sec-no{flex:0 0 46px;height:46px;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;background:linear-gradient(135deg,var(--red),#ff7a45);border-radius:12px;box-shadow:0 4px 14px rgba(224,75,75,.3);}
+  .sec-head h2{font-size:26px;font-weight:800;line-height:1.3;color:#1a2136;}
+  .sec-head .en{color:var(--sub);font-size:12px;margin-top:4px;letter-spacing:1.5px;}
+
+  h3{font-size:19px;font-weight:800;margin:36px 0 12px;padding:9px 14px;border-left:4px solid var(--red);background:linear-gradient(90deg,var(--red-bg),transparent 72%);border-radius:0 10px 10px 0;line-height:1.4;color:#1a2136;}
+  h4{font-size:16px;font-weight:700;margin:22px 0 10px;color:#1a2136;}
+
+  p{margin:10px 0;color:var(--txt);}
+  .sub-text{color:var(--sub);}
+  strong{color:#1f2740;font-weight:700;}
+  .red{color:var(--red);}
+  .gold{color:var(--gold);}
+  .green{color:var(--green);}
+  .blue{color:var(--blue);}
+  .purple{color:var(--purple);}
+
+  ul,ol{margin:10px 0 10px 24px;}
+  li{margin:6px 0;}
+
+  /* ============ 组件 ============ */
+  .card,.rule,.mini,.case,details,.fig,.version,.note,.tip,.warn,.done{box-shadow:0 1px 2px rgba(23,32,55,.04),0 8px 22px rgba(23,32,55,.06);}
+  .card{background:var(--card);border:1px solid var(--border);border-radius:14px;padding:20px 22px;margin:14px 0;}
+  .card h4{margin-top:0;}
+
+  .rule{position:relative;background:var(--card);border:1px solid var(--border);border-radius:14px;padding:18px 20px 18px 54px;margin:14px 0;overflow:hidden;transition:.2s;}
+  .rule:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(23,32,55,.1);}
+  .rule::before{content:attr(data-tag);position:absolute;left:0;top:0;bottom:0;width:44px;display:flex;align-items:center;justify-content:center;font-size:20px;}
+  .rule.t-red{border-color:rgba(224,75,75,.4);background:linear-gradient(90deg,var(--red-bg),transparent 60%),var(--card);}
+  .rule.t-red::before{content:"铁";color:var(--red);font-weight:800;}
+  .rule.t-gold{border-color:rgba(209,154,18,.4);background:linear-gradient(90deg,var(--gold-bg),transparent 60%),var(--card);}
+  .rule.t-gold::before{content:"要";color:var(--gold);font-weight:800;}
+  .rule.t-blue{border-color:rgba(59,130,246,.4);background:linear-gradient(90deg,var(--blue-bg),transparent 60%),var(--card);}
+  .rule.t-blue::before{content:"买";color:var(--blue);font-weight:800;}
+  .rule.t-green{border-color:rgba(31,157,98,.4);background:linear-gradient(90deg,var(--green-bg),transparent 60%),var(--card);}
+  .rule.t-green::before{content:"卖";color:var(--green);font-weight:800;}
+  .rule.t-purple{border-color:rgba(139,92,246,.4);background:linear-gradient(90deg,var(--purple-bg),transparent 60%),var(--card);}
+  .rule.t-purple::before{content:"妖";color:var(--purple);font-weight:800;}
+  .rule .tag{display:inline-block;font-size:11px;padding:2px 10px;border-radius:999px;margin-right:8px;font-weight:700;}
+  .tag.red{background:var(--red-bg);color:var(--red);}
+  .tag.green{background:var(--green-bg);color:var(--green);}
+  .tag.gold{background:var(--gold-bg);color:var(--gold);}
+  .tag.blue{background:var(--blue-bg);color:var(--blue);}
+  .tag.purple{background:var(--purple-bg);color:var(--purple);}
+
+  table{width:100%;border-collapse:collapse;margin:14px 0;font-size:13.5px;}
+  th,td{border:1px solid var(--border);padding:9px 12px;text-align:left;vertical-align:top;}
+  th{background:linear-gradient(180deg,#f4f6fb,#e9edf6);color:#1f2740;font-weight:700;}
+  tr:nth-child(even) td{background:rgba(23,32,55,.03);}
+  tr:hover td{background:rgba(59,130,246,.05);}
+  td .dot{display:inline-block;width:8px;height:8px;border-radius:50%;margin-right:6px;}
+  .dot.red{background:var(--red);}
+  .dot.gold{background:var(--gold);}
+  .dot.green{background:var(--green);}
+  .dot.blue{background:var(--blue);}
+
+  details{background:var(--card);border:1px solid var(--border);border-radius:12px;margin:10px 0;overflow:hidden;}
+  details summary{cursor:pointer;padding:14px 18px;font-weight:700;color:#252c3f;list-style:none;position:relative;transition:.15s;}
+  details summary:hover{background:var(--card2);}
+  details summary::after{content:"▾";position:absolute;right:18px;top:50%;transform:translateY(-50%);color:var(--sub);}
+  details[open] summary::after{transform:translateY(-50%) rotate(180deg);}
+  details .d-body{padding:6px 20px 18px;border-top:1px dashed var(--border);}
+  details .d-body ul,details .d-body ol{margin-left:20px;}
+
+  .case{background:#f2f4fa;border:1px solid var(--border);border-left:4px solid var(--purple);border-radius:12px;padding:18px 22px;margin:14px 0;transition:.2s;}
+  .case:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(23,32,55,.1);}
+  .case h4{color:var(--purple);}
+  .case .ts{font-size:12.5px;color:var(--sub);margin:10px 0;}
+  .case .lesson{margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);}
+  .case .lesson b{color:var(--gold);}
+
+  .grid2{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;}
+  @media(max-width:900px){.grid2,.grid3{grid-template-columns:1fr;}}
+
+  .mini{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:16px 18px;transition:.2s;}
+  .mini:hover{transform:translateY(-2px);box-shadow:0 12px 28px rgba(23,32,55,.1);}
+  .mini h5{font-size:14.5px;font-weight:700;margin-bottom:8px;color:#1a2136;}
+  .mini h5 .ic{margin-right:6px;}
+  .mini p,.mini li{font-size:13.5px;color:var(--sub);}
+  .mini li{margin:4px 0;}
+
+  .warn{background:var(--red-bg);border:1px solid rgba(224,75,75,.35);border-radius:12px;padding:14px 18px;margin:14px 0;}
+  .warn .w-title{color:var(--red);font-weight:800;margin-bottom:6px;}
+  .note{background:var(--blue-bg);border:1px solid rgba(59,130,246,.35);border-radius:12px;padding:14px 18px;margin:14px 0;}
+  .note .n-title{color:var(--blue);font-weight:800;margin-bottom:6px;}
+  .tip{background:var(--gold-bg);border:1px solid rgba(169,124,9,.35);border-radius:12px;padding:14px 18px;margin:14px 0;}
+  .tip .t-title{color:var(--gold);font-weight:800;margin-bottom:6px;}
+  .done{background:var(--green-bg);border:1px solid rgba(31,157,98,.35);border-radius:12px;padding:14px 18px;margin:14px 0;}
+  .done .d-title{color:var(--green);font-weight:800;margin-bottom:6px;}
+
+  /* 时间线 */
+  .timeline{position:relative;margin:16px 0 16px 8px;padding-left:26px;}
+  .timeline::before{content:"";position:absolute;left:6px;top:6px;bottom:6px;width:2px;background:linear-gradient(var(--red),var(--gold),var(--green));border-radius:2px;}
+  .tl-item{position:relative;margin:14px 0;}
+  .tl-item::before{content:"";position:absolute;left:-26px;top:6px;width:12px;height:12px;border-radius:50%;background:#fff;border:3px solid var(--red);}
+  .tl-item.gold::before{border-color:var(--gold);}
+  .tl-item.green::before{border-color:var(--green);}
+  .tl-item.blue::before{border-color:var(--blue);}
+  .tl-item .tl-time{font-weight:800;color:var(--gold);font-size:14px;}
+  .tl-item .tl-c{color:var(--txt);font-size:14px;}
+
+  .flow{display:flex;flex-wrap:wrap;align-items:center;gap:6px;margin:14px 0;}
+  .flow .f-node{background:var(--card);border:1px solid var(--border);border-radius:9px;padding:7px 13px;font-size:13px;font-weight:600;box-shadow:0 2px 6px rgba(23,32,55,.05);transition:.15s;}
+  .flow .f-node:hover{border-color:var(--gold);color:var(--gold);}
+  .flow .f-node.hot{background:var(--red-bg);border-color:var(--red);color:var(--red);}
+  .flow .f-arrow{color:var(--sub);}
+
+  .term{display:inline-block;background:var(--card);border:1px solid var(--border);border-radius:8px;padding:6px 12px;margin:4px;font-size:13px;cursor:help;box-shadow:0 2px 6px rgba(23,32,55,.05);}
+  .term b{color:var(--gold);}
+
+  .backtop{position:fixed;right:26px;bottom:26px;width:46px;height:46px;border-radius:50%;background:linear-gradient(135deg,var(--red),#ff7a45);color:#fff;border:none;font-size:20px;cursor:pointer;box-shadow:0 6px 18px rgba(224,75,75,.4);z-index:90;opacity:0;pointer-events:none;transition:.25s;}
+  .backtop.show{opacity:1;pointer-events:auto;}
+  .backtop:hover{transform:translateY(-3px);}
+
+  /* 移动端 */
+  .menu-btn{display:none;}
+  .overlay{display:none;}
+  @media(max-width:900px){
+    .sidebar{transform:translateX(-100%);transition:.3s;box-shadow:0 0 40px rgba(23,32,55,.35);}
+    .sidebar.open{transform:translateX(0);}
+    .main{margin-left:0;}
+    .menu-btn{display:flex;position:fixed;top:14px;left:14px;z-index:100;width:44px;height:44px;border-radius:12px;background:var(--card2);border:1px solid var(--border);color:#252c3f;align-items:center;justify-content:center;font-size:20px;cursor:pointer;}
+    .overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:49;}
+    .overlay.show{display:block;}
+    .hero h1{font-size:27px;}
+    .container{padding:0 20px;}
+  }
+
+  footer{margin-top:70px;padding:30px 34px;border-top:1px solid var(--border);color:var(--sub);font-size:13px;text-align:center;background:var(--bg2);}
+</style>
+</head>
+<body>
+
+<!-- 移动端菜单 -->
+<button class="menu-btn" onclick="toggleMenu(true)">☰</button>
+<div class="overlay" id="overlay" onclick="toggleMenu(false)"></div>
+
+<div class="layout">
+  <!-- ================= 侧边导航 ================= -->
+  <aside class="sidebar" id="sidebar">
+    <div class="brand">
+      <div class="logo">🐉</div>
+      <div class="bt">龙头周期交易体系<small>从新手到进阶 · 完全版</small></div>
+    </div>
+    <div class="search-wrap">
+      <input type="text" id="searchInput" placeholder="🔍 搜索 回马枪 / 承接 / T字板…">
+      <div id="searchResults"></div>
+    </div>
+    <div id="navList"></div>
+  </aside>
+
+  <!-- ================= 主内容 ================= -->
+  <main class="main">
+
+    <!-- ============ HERO ============ -->
+    <div class="hero">
+      <div class="hero-inner">
+        <div class="kicker">🐲 御龙交易体系 · 完全融合版</div>
+        <h1>龙头周期交易体系<br><span class="hl">从新手到进阶</span>的系统化进阶之路</h1>
+        <p class="sub">本体系融合原《我的交易体系》（横向环节全覆盖）与《我的交易体系2》（纵向深度 + 演变全谱），去除已退役的N字战法（海底捞一进二炸板反弹），重组为一条完整的学习成长路径：<b>认知周期 → 识别能量柱 → 主升六件套 → 精确买点 → 核心战法 → PK博弈 → 周期演变 → 二元玄机 → 风控护城 → 完美剧本 → 实战推演</b>。</p>
+        <div class="coreline">🧠 必记心法：情绪不好的时候（特别是核心票换帅的时候），别四处找屎吃，专注核心才能让你赚到钱。</div>
+      </div>
+    </div>
+
+    <div class="container">
+
+      <!-- ============ 序章 ============ -->
+      <section class="chapter" id="s0">
+        <div class="sec-head"><div class="sec-no">序</div><div><h2>交易之道 · 核心心法</h2><div class="en">TRADING PHILOSOPHY</div></div></div>
+
+        <div class="rule t-gold"><div><b>一句话总纲：</b>围绕<b>"新周期"做文章</b>。</div>
+        <p class="sub-text">核心标断板 → 退潮反核 / 回马枪 → 能量柱诞生 → 话事人主升 → 盛极点卖出 → 新周期，全链路覆盖。</p></div>
+
+        <div class="rule t-red"><div><b>🎯 当前实战纲领（2026-08 进化 · 化繁为简）</b></div>
+        <p class="sub-text">现在只做两件事 —— ① <b>专注核心</b>（紧盯核心标的 / 能量柱，情绪不好时别的都不碰）；② <b>二板以上的 99 式</b>做辅助（不喧宾夺主）。<b>专注节点、专注核心才是重点</b>，不做那么杂了。</p></div>
+
+        <div class="grid2">
+          <div class="mini"><h5><span class="ic">🎯</span>复盘主流程</h5>
+            <p>① 定位当前周期处于哪一环节、哪一种模式 → ② 查该环节的精确买点 / 卖点步骤 → ③ 对照历史同构案例验证。</p>
+          </div>
+          <div class="mini"><h5><span class="ic">🧭</span>两套体系的互补</h5>
+            <p>体系1 = 横向环节全覆盖（按能量柱生命周期组织，操作步骤细）；体系2 = 纵向深度 + 演变全谱 + 实战案例库。本页已完全融合。</p>
+          </div>
+        </div>
+
+        <h3>进阶之路总览（本页学习地图）</h3>
+        <div class="flow">
+          <span class="f-node">新手期<br>① 认知</span><span class="f-arrow">→</span>
+          <span class="f-node">② 周期起点</span><span class="f-arrow">→</span>
+          <span class="f-node hot">③ 能量柱<br>核心</span><span class="f-arrow">→</span>
+          <span class="f-node hot">④ 主升六件套</span><span class="f-arrow">→</span>
+          <span class="f-node">⑤ 买点体系</span><span class="f-arrow">→</span>
+          <span class="f-node">⑥ 核心战法<br>99/96/969</span><span class="f-arrow">→</span>
+          <span class="f-node">⑦ PK博弈</span><span class="f-arrow">→</span>
+          <span class="f-node">⑧ 周期演变<br>回马枪</span><span class="f-arrow">→</span>
+          <span class="f-node">⑨ 二元玄机</span><span class="f-arrow">→</span>
+          <span class="f-node">⑩ 风控护城</span><span class="f-arrow">→</span>
+          <span class="f-node">⑪ 完美剧本</span><span class="f-arrow">→</span>
+          <span class="f-node hot">⑫ 实战推演</span>
+        </div>
+
+        <h3>🗺️ 周期全链路总览（一眼全局）</h3>
+        <div class="card" style="overflow-x:auto;">
+        <svg viewBox="0 0 1180 440" style="width:100%;min-width:900px;display:block;" xmlns="http://www.w3.org/2000/svg" font-family="Microsoft YaHei, PingFang SC, sans-serif">
+          <defs>
+            <linearGradient id="cLine" x1="0" y1="0" x2="1" y2="0">
+              <stop offset="0" stop-color="#3b82f6"/>
+              <stop offset="0.38" stop-color="#8b5cf6"/>
+              <stop offset="0.55" stop-color="#b07f0e"/>
+              <stop offset="0.72" stop-color="#e04b4b"/>
+              <stop offset="1" stop-color="#1f9d62"/>
+            </linearGradient>
+            <linearGradient id="cArea" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#3b82f6" stop-opacity="0.22"/>
+              <stop offset="1" stop-color="#1f9d62" stop-opacity="0.02"/>
+            </linearGradient>
+          </defs>
+
+          <!-- 情绪周期曲线 -->
+          <path d="M30,150 C110,110 180,95 236,88 C300,78 360,58 432,42 C500,26 560,32 628,30 C690,28 750,52 824,88 C890,120 950,112 1020,118 L1020,440 L30,440 Z" fill="url(#cArea)"/>
+          <path d="M30,150 C110,110 180,95 236,88 C300,78 360,58 432,42 C500,26 560,32 628,30 C690,28 750,52 824,88 C890,120 950,112 1020,118" fill="none" stroke="url(#cLine)" stroke-width="3" stroke-linecap="round"/>
+          <text x="30" y="178" font-size="12" fill="#3b82f6">低迷</text>
+          <text x="1000" y="142" font-size="12" fill="#1f9d62">再启</text>
+
+          <!-- 开仓点标记 -->
+          <text x="432" y="162" text-anchor="middle" font-size="15" font-weight="bold" fill="#b07f0e">★ 开仓点①</text>
+          <text x="628" y="162" text-anchor="middle" font-size="15" font-weight="bold" fill="#e04b4b">★ 开仓点②</text>
+
+          <!-- 节点1 断板 -->
+          <rect x="40" y="170" width="140" height="100" rx="10" fill="#f8fafc" stroke="#3b82f6" stroke-width="1.5"/>
+          <circle cx="55" cy="186" r="11" fill="#3b82f6"/><text x="55" y="191" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">1</text>
+          <text x="72" y="194" font-size="13" fill="#1c2333" font-weight="bold">核心标断板</text>
+          <text x="110" y="219" text-anchor="middle" font-size="10" fill="#5d6b85">周期起点</text>
+          <text x="110" y="302" text-anchor="middle" font-size="11" fill="#3d4a63">断板=高低切节点</text>
+          <text x="110" y="324" text-anchor="middle" font-size="11" fill="#3d4a63">跌停次日不反包=结束</text>
+          <text x="110" y="346" text-anchor="middle" font-size="11" fill="#3d4a63">次日二进三兵家必争</text>
+
+          <!-- 节点2 反核 -->
+          <rect x="236" y="170" width="140" height="100" rx="10" fill="#f8fafc" stroke="#8b5cf6" stroke-width="1.5"/>
+          <circle cx="251" cy="186" r="11" fill="#8b5cf6"/><text x="251" y="191" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">2</text>
+          <text x="268" y="194" font-size="13" fill="#1c2333" font-weight="bold">退潮反核</text>
+          <text x="306" y="219" text-anchor="middle" font-size="10" fill="#5d6b85">回马枪上位</text>
+          <text x="306" y="302" text-anchor="middle" font-size="11" fill="#3d4a63">先核后反+跳空高开</text>
+          <text x="306" y="324" text-anchor="middle" font-size="11" fill="#3d4a63">反包三板是坎</text>
+          <text x="306" y="346" text-anchor="middle" font-size="11" fill="#3d4a63">≥3标的才有效</text>
+
+          <!-- 节点3 能量柱 -->
+          <rect x="432" y="170" width="140" height="100" rx="10" fill="#f8fafc" stroke="#b07f0e" stroke-width="1.5"/>
+          <circle cx="447" cy="186" r="11" fill="#b07f0e"/><text x="447" y="191" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">3</text>
+          <text x="464" y="194" font-size="13" fill="#1c2333" font-weight="bold">能量柱诞生</text>
+          <text x="502" y="219" text-anchor="middle" font-size="10" fill="#5d6b85">开仓点①</text>
+          <text x="502" y="302" text-anchor="middle" font-size="11" fill="#3d4a63">三要素·节点/预期差/情绪</text>
+          <text x="502" y="324" text-anchor="middle" font-size="11" fill="#3d4a63">T字板=教科书上车点</text>
+          <text x="502" y="346" text-anchor="middle" font-size="11" fill="#3d4a63">一字板炸的不能接</text>
+
+          <!-- 节点4 话事人 -->
+          <rect x="628" y="170" width="140" height="100" rx="10" fill="#f8fafc" stroke="#e04b4b" stroke-width="1.5"/>
+          <circle cx="643" cy="186" r="11" fill="#e04b4b"/><text x="643" y="191" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">4</text>
+          <text x="660" y="194" font-size="13" fill="#1c2333" font-weight="bold">话事人主升</text>
+          <text x="698" y="219" text-anchor="middle" font-size="10" fill="#5d6b85">六件套</text>
+          <text x="698" y="302" text-anchor="middle" font-size="11" fill="#3d4a63">首开=开仓点②</text>
+          <text x="698" y="324" text-anchor="middle" font-size="11" fill="#3d4a63">次日须一字/最次T字</text>
+          <text x="698" y="346" text-anchor="middle" font-size="11" fill="#3d4a63">谁开得好谁活</text>
+
+          <!-- 节点5 盛极卖出 -->
+          <rect x="824" y="170" width="140" height="100" rx="10" fill="#f8fafc" stroke="#ff7a45" stroke-width="1.5"/>
+          <circle cx="839" cy="186" r="11" fill="#ff7a45"/><text x="839" y="191" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">5</text>
+          <text x="856" y="194" font-size="13" fill="#1c2333" font-weight="bold">盛极点卖出</text>
+          <text x="894" y="219" text-anchor="middle" font-size="10" fill="#5d6b85">缠打到死</text>
+          <text x="894" y="302" text-anchor="middle" font-size="11" fill="#3d4a63">加速≥4天=卖点</text>
+          <text x="894" y="324" text-anchor="middle" font-size="11" fill="#3d4a63">获利&gt;90%抛压临界</text>
+          <text x="894" y="346" text-anchor="middle" font-size="11" fill="#3d4a63">断板后过渡周期不做</text>
+
+          <!-- 节点6 新周期 -->
+          <rect x="1020" y="170" width="140" height="100" rx="10" fill="#f8fafc" stroke="#1f9d62" stroke-width="1.5"/>
+          <circle cx="1035" cy="186" r="11" fill="#1f9d62"/><text x="1035" y="191" text-anchor="middle" font-size="11" fill="#ffffff" font-weight="bold">6</text>
+          <text x="1052" y="194" font-size="13" fill="#1c2333" font-weight="bold">新周期开启</text>
+          <text x="1090" y="219" text-anchor="middle" font-size="10" fill="#5d6b85">双冰 / 试错</text>
+          <text x="1090" y="302" text-anchor="middle" font-size="11" fill="#3d4a63">双冰次日取最高标</text>
+          <text x="1090" y="324" text-anchor="middle" font-size="11" fill="#3d4a63">次高试错新周期</text>
+          <text x="1090" y="346" text-anchor="middle" font-size="11" fill="#3d4a63">等新梯队才猛干</text>
+
+          <!-- 箭头 -->
+          <path d="M184,220 L230,220" stroke="#c3cddd" stroke-width="2" fill="none"/><path d="M226,214 L234,220 L226,226" fill="none" stroke="#c3cddd" stroke-width="2"/>
+          <path d="M380,220 L426,220" stroke="#c3cddd" stroke-width="2" fill="none"/><path d="M422,214 L430,220 L422,226" fill="none" stroke="#c3cddd" stroke-width="2"/>
+          <path d="M576,220 L622,220" stroke="#c3cddd" stroke-width="2" fill="none"/><path d="M618,214 L626,220 L618,226" fill="none" stroke="#c3cddd" stroke-width="2"/>
+          <path d="M772,220 L818,220" stroke="#c3cddd" stroke-width="2" fill="none"/><path d="M814,214 L822,220 L814,226" fill="none" stroke="#c3cddd" stroke-width="2"/>
+          <path d="M968,220 L1014,220" stroke="#c3cddd" stroke-width="2" fill="none"/><path d="M1010,214 L1018,220 L1010,226" fill="none" stroke="#c3cddd" stroke-width="2"/>
+
+          <!-- 底部说明 -->
+          <rect x="40" y="384" width="1120" height="44" rx="10" fill="#e8ecf5" stroke="#c3cddd"/>
+          <text x="600" y="403" text-anchor="middle" font-size="12.5" fill="#5d6b85">开仓窗口：节点前一天 ≤3成 → 节点当天 3-5成 → 节点次日 6-8成 ｜ 开仓点仅两个：能量柱当天 + 能量柱次日（首开）</text>
+          <text x="600" y="421" text-anchor="middle" font-size="11" fill="#6a7690">情绪不好时专注核心，别四处找屎吃 ｜ 只做新周期，过渡周期不做</text>
+        </svg>
+        </div>
+
+        <div class="tip"><div class="t-title">📈 情绪周期曲线心法</div>
+        <b>情绪周期曲线：</b>断板冰点（低迷）→ 反核回升 → 能量柱启动 → 主升登顶（高潮）→ 盛极回落 → 再启新周期。记心法——<b>情绪在谷底反核，在高峰守心</b>。</div>
+
+        <div class="note"><div class="n-title">📌 已退役战法说明</div>
+          原体系中的 <b>N字战法（海底捞一进二炸板反弹战法）</b> 已按主人要求整体退役，本页不再收录。所有"海底捞/低吸次高票"相关表述，仅保留<b>周期内的低吸逻辑</b>（0轴 / -5 / 深水区低吸），不含一进二炸板反弹的N字判定细节。</div>
+      </section>
+
+      <!-- ============ 第1章 认知 ============ -->
+      <section class="chapter" id="s1">
+        <div class="sec-head"><div class="sec-no">1</div><div><h2>入门筑基 · 认知与术语</h2><div class="en">FOUNDATION · TERMS</div></div></div>
+        <p>工欲善其事，必先利其器。先建立完整的<b>术语体系</b>与<b>周期认知</b>，这是所有战法的基础。</p>
+
+        <h3>1.1 核心术语词典</h3>
+        <div class="card">
+          <span class="term" title="由核心票断板/跌停触发的市场情绪切换节点，是开仓的最高优先级时机"><b>节点</b> — 情绪切换的关键时刻，= 能量柱形成的当天</span>
+          <span class="term" title="周期启动的关键信号，需节点正确+预期差+情绪三要素"><b>能量柱</b> — 周期启动的核心信号，卡位的新周期话事人</span>
+          <span class="term" title="以一字板/大单强势封板确立周期地位的核心标的"><b>核心标 / 核心票</b> — 新周期的最强卡位者</span>
+          <span class="term" title="连板高度最高的标的，负责打开市场空间"><b>空间标 / 空间板</b> — 当前连板高度最高的标的</span>
+          <span class="term" title="通过涅槃/回马枪等完成身份蜕变，成为整个周期的总龙头"><b>周期龙</b> — 一个完整周期内真正的总龙头</span>
+          <span class="term" title="粤语：揸fit人，指能量柱=当期周期的核心控盘标的"><b>话事人</b> — 即能量柱，当期周期的核心</span>
+          <span class="term" title="与核心票/节点票所处连板位置的相对远近，如低一个身位"><b>身位</b> — 标的与核心票/节点票的相对位置</span>
+          <span class="term" title="能量柱形成后第一个打开涨停板换手的交易日"><b>首开</b> — 能量柱首个开板换手日</span>
+          <span class="term" title="当日打开涨停板充分换手后再封板的K线，代表真实资金换手"><b>换手板</b> — 充分换手后回封的涨停板</span>
+          <span class="term" title="早盘一字开盘、中途打开又迅速回封，形成T字形态"><b>T字板</b> — 一字开板后迅速回封的形态，常为核心上车点</span>
+          <span class="term" title="以一字板封死一天不开板"><b>一字板</b> — 开盘即涨停并全天封死</span>
+          <span class="term" title="涨停后开板多次、封板不坚决，但仍在涨停价附近反复"><b>烂板</b> — 反复开板的弱封板形态</span>
+          <span class="term" title="不再涨停，结束连板"><b>断板</b> — 连板中断</span>
+          <span class="term" title="断板/跌停后次日重新封涨停"><b>反包</b> — 断板后次日再涨停</span>
+          <span class="term" title="跌停后隔日竞价先被核按钮，随后反转跳空高开——最强的修复信号"><b>反核</b> — 被核后反向修复、跳空高开</span>
+          <span class="term" title="高位爆量洗盘后，隔日缩量/主动板定性周期龙的动作"><b>涅槃</b> — 爆量后二次凝聚共识、重新启动</span>
+          <span class="term" title="PK输家隔日反包/弱转强逆袭赢家，夺取周期龙头地位"><b>回马枪</b> — PK败者反杀上位</span>
+          <span class="term" title="由弱转强的过程，如烂板次日低开直线拉升"><b>弱转强</b> — 弱势标的次日转强</span>
+          <span class="term" title="资金对强弱切换的认知差，PK买点的关键，而非强更强"><b>预期差</b> — 弱者转强/强者转弱的认知差</span>
+          <span class="term" title="股价下跌时承接盘的强弱，用十以内/五以内的加减法观察"><b>承接</b> — 下杀时的接盘力度</span>
+          <span class="term" title="情绪与获利盘达临界点（加速≥4天、获利比例>90%）"><b>盛极点</b> — 情绪最高潮、卖点</span>
+          <span class="term" title="杀情绪+杀指数双重冰点"><b>双冰</b> — 情绪与指数双冰点</span>
+          <span class="term" title="龙头倒下后的跟风补涨周期，承接再强也不接"><b>补涨周期</b> — 龙头倒后的跟风周期</span>
+          <span class="term" title="周期衔接期的小周期，不参与"><b>过渡周期</b> — 新旧周期之间的过渡</span>
+          <span class="term" title="以资金优势强控小盘股、急拉+一字+撤单砸盘收割的游资庄"><b>三板组</b> — 需要规避的收割型游资</span>
+        </div>
+
+        <h3>1.2 短周期与大周期</h3>
+        <table>
+          <tr><th>周期类型</th><th>时间跨度</th><th>分界线</th><th>操作重点</th></tr>
+          <tr><td><span class="dot blue"></span><b>小级别周期</b></td><td>5-8 天</td><td>以"龙头首阴"为分界线</td><td>话事人出现后的 N 字低吸 / 打板、首开 T 字回封、一进二</td></tr>
+          <tr><td><span class="dot gold"></span><b>大级别周期</b></td><td>8-14 天</td><td>以"龙头跌停或掉出 10 日线"为分界线</td><td>断板后次日的妖股分时、大周期双冰后隔日的最高标</td></tr>
+        </table>
+        <p class="sub-text">一个完整周期包括"主线上涨到结束"和"轮动上涨到结束"。周期更替是市场资金流动和情绪转换的结果，需准确把握节点。</p>
+
+        <h3>1.3 市场进化认知</h3>
+        <div class="card">
+          <p>传统周期多以<b>连续涨停（连板）</b>带动周期，但市场逐渐出现"连板瓶颈"——高度难以持续打开。资金开始探索多种非连板周期龙头模式：<b>涅槃成周期龙</b>、<b>卡节点/超预期能量柱</b>、<b>换手卡一字</b>、<b>吸核成龙</b>，以及当前主流的<b>回马枪反杀上位</b>（详见第8章）。</p>
+        </div>
+      </section>
+
+      <!-- ============ 第2章 周期起点 ============ -->
+      <section class="chapter" id="s2">
+        <div class="sec-head"><div class="sec-no">2</div><div><h2>周期起点 · 断板、退潮反核与新周期开启</h2><div class="en">CYCLE START</div></div></div>
+        <p>一切周期从<b>核心票断板</b>开始。抓住断板后的退潮反核，是新手进阶的第一个关键能力。</p>
+
+        <h3>2.1 核心票断板当日的 5 条铁律</h3>
+        <div class="rule t-red"><div><span class="tag red">铁律 1</span><b>高低切换节点</b>：梯队核心票断板或者跌停的当日，是一个高低切换的节点，切换的方式是<b>低位的一进二</b>。</div></div>
+        <div class="rule t-red"><div><span class="tag red">铁律 2</span><b>断板 ≠ 周期结束</b>：还要看次日是否会超预期等续命动作；如果是<b>跌停且次日不反包涨停</b>，则意味着结束的概率很大。</div></div>
+        <div class="rule t-red"><div><span class="tag red">铁律 3</span><b>兵家必争之地</b>：核心票跌停且次日不强势反包 → 次日<b>二进三</b>就是兵家必争之地！密切留意<b>弱转强 / 极限弱转强</b>，第一时间上车拿先手！</div></div>
+        <div class="rule t-red"><div><span class="tag red">铁律 4</span><b>妖股战法</b>：核心票走到 <b>9 板以上</b>高度，注意断板第二天的妖股战法——点403找出近期翻倍个股，看核心票断板第二天时，这个个股有没有走妖股分时。</div></div>
+        <div class="rule t-red"><div><span class="tag red">铁律 5</span><b>集体退潮 → 隔日反核</b>：周期标 / 大批量高位股<b>集体单日内退潮</b>，隔日考虑反核。这批货也是周期标反包当天的首板。</div></div>
+
+        <h3>2.2 退潮反核战法（重点）</h3>
+        <div class="timeline">
+          <div class="tl-item"><div class="tl-time">① 节点</div><div class="tl-c">以"周期标断板当天"为起点，操作在"<b>断板隔日</b>"。</div></div>
+          <div class="tl-item gold"><div class="tl-time">② 初筛</div><div class="tl-c">断板当天找"<b>≥3 板早盘主动上板炸板股</b>"，及与它关联性强的"<b>尾盘偷袭上板股</b>"。</div></div>
+          <div class="tl-item gold"><div class="tl-time">③ 确认</div><div class="tl-c">隔日竞价（<b>24 分尾-25 分</b>）需"<b>先核后反 + 跳空高开</b>"，达标即操作标的。</div></div>
+          <div class="tl-item red"><div class="tl-time">④ 介入</div><div class="tl-c">竞价和开盘就上；如果开盘马上拉，<b>回调到 3-5 区间也要上</b>；如果顶一字开盘，<b>炸板在 3-5 个点区间上</b>。（如 12-14 的日上集团，11-7 的海马汽车）</div></div>
+        </div>
+        <details><summary>退潮反核标的如何筛选？</summary><div class="d-body">
+          <ul>
+            <li><b>多选一局面</b>：结合竞价的<b>爆量跳空强度 / 力度</b>来做甄选。</li>
+            <li>这些标的要么是<b>周期标涅槃当天的首板</b>，要么是<b>回马枪反包当天的首板</b>，要么是<b>妖股背离成妖当天的首板</b>。</li>
+            <li><b>退潮反核标的 ≥ 3 才有效</b>。</li>
+            <li>一句话：标的首板诞生节点，要么是能量柱当天，要么是涅槃当天，要么是回马枪当天，然后跟着周期标一起断板。</li>
+          </ul>
+        </div></details>
+        <details><summary>反核成功后的处置？</summary><div class="d-body">
+          <ul>
+            <li>反核标被市场认可 / 有大涨动作，后面新周期浮出水面，<b>可酌情持 T</b>。</li>
+            <li>若<b>新周期不明晰</b>（老周期与新周期间隔太长），反核标<b>以冲高落袋为主</b>。</li>
+          </ul>
+        </div></details>
+
+        <details><summary>周期标反核宝典（反核成败与空间板反馈）</summary><div class="d-body">
+  <p>周期标断板之后，竞价反核是有意义的，基本都是为<b>周期的延续</b>而博弈。而成功与否的关键，在于其周期内的<b>空间板能否在其反核的节骨眼，给出强烈的正反馈</b>：</p>
+  <ul>
+    <li>倘若空间标<b>主动走强（一字 / 秒板）</b>，能极大程度增强周期标反核成功的可能性。</li>
+    <li>倘若空间标<b>被动走强</b>，则周期标反核往往失败。</li>
+    <li>如国芳集团 4-16 反核时，同周期的空间板泰慕士顶一字。<b>如果次日顶一字板的标的是跟周期标同属性时才能去做周期标的反核。</b></li>
+  </ul>
+  <p class="sub-text"><b>一言以蔽之：</b>周期标的反核，需结合其本身的反核动作 + 叠加其周期内最高空间板的反馈来做介入与否的裁定（最高空间板 / 属性相近，最好一字 / 秒板表态）。</p>
+</div></details>
+
+<div class="rule t-red"><div><span class="tag red">规则二十一</span><b>退潮反核标"主动上板"的可执行定义（2026-09-01 沉淀）：</b>
+  <br>· <b>反例：</b>香江控股——深中华A 涅槃成龙当天（8-27）首板，二连板后 8-31 顶一字炸板断板，9-1 竞价跳空高开但反核失败。一字板是排队封出来的，<b>无盘中攻击行为</b>，不具备"主动性"；且一字=过强易炸，本就是体系明示的接板禁区。
+  <br>· <b>定义：</b><b>主动上板 = 开盘后 5 分钟内主动攻击上板；顶一字板 / 一字炸板不算主动上板</b>。
+  <br>· <b>执行：</b>凡以一字板形式"上板"后炸板的，直接剔除退潮反核候选池——<b>下次不玩</b>。</div></div>
+
+<div class="rule t-red"><div><span class="tag red">规则二十二</span><b>退潮反核标的板数下限（2026-09-01 沉淀）：</b>
+  <br>· <b>反例：</b>香江控股仅二连板即断板。节点条件（涅槃当天首板 / 回马枪反包当天首板 / 背离成妖当天首板）只是<b>入场券</b>，初筛三要素——<b>板数 ≥3 + 主动上板形态 + 竞价先核后反</b>——缺一不可。
+  <br>· <b>执行：</b><b>退潮反核标必须三连板以上，二连板就断板的不选；没有合格的宁可不做</b>（精要主义：宁可错过，不可做错）。</div></div>
+
+<h3>2.3 新周期开启的三种模式</h3>
+        <div class="grid3">
+          <div class="mini"><h5><span class="ic">🔥</span>模式一 · 反核成功</h5>
+            <p>周期标断板次日，新空间标以秒板 / 一字板助力其反核；待反核后的周期标与助反核的新空间标"<b>双双挂逼</b>"，次日出现的新高标仅作"<b>挡刀</b>"用，核心操作是<b>选择次高标试错新周期</b>。</p>
+            <p class="green">⚠ 过渡周期仓位一定要小，强转强不上。</p>
+          </div>
+          <div class="mini"><h5><span class="ic">🔥</span>模式二 · 反核失败</h5>
+            <p>周期标断板次日，新空间标虽尝试助其反核但未成功，新空间标将<b>独立走完自身周期并断板</b>。</p>
+            <p>· 断板时<b>过 7 板</b> → 后续按"周期标模式"延续操作。</p>
+            <p>· 断板时<b>在 5 板以内</b> → 核心操作是在其断板次日布局<b>二进三</b>机会。</p>
+          </div>
+          <div class="mini"><h5><span class="ic">❄️</span>模式三 · 双冰</h5>
+            <p>周期标断板后需经历"<b>双冰</b>"阶段，双冰次日遵循"<b>先杀后立</b>"——先规避最高标风险，再介入次高标，该次高标将开启新周期。</p>
+            <p class="blue">仅当双冰后新周期的空间板断板、形成新梯队时，才可"<b>猛干</b>"。</p>
+          </div>
+        </div>
+
+        <h4>🔍 模式一 · 进化点：同身位标的是挡刀角色</h4>
+        <div class="tip"><div class="t-title">📌 关键判断（神剑股份实战案例）</div>
+          <p>如果<b>助反核标的有同身位</b>（如 3-30 的美诺华还活着），那么它就是<b>挡刀角色</b>，过渡周期会让<b>次高神剑股份试错新周期</b>。</p>
+          <p><b>两条核心纪律：</b></p>
+          <ul>
+            <li><b>次高的过渡周期仓位一定要小</b>。</li>
+            <li><b>强转强不上</b>：如 5-25 的 14 个小弟助攻的机器人龙星科技，居然被四环生物给卡位了。可是龙星也是弱转强啊，只能怪它<b>换手不够</b>，先杀后立咯。</li>
+          </ul>
+        </div>
+
+        <h4>🔍 模式三 · 双冰模式的"先杀后立"细化</h4>
+        <div class="card">
+          <p><b>双冰后第 1 天（杀情绪）：</b>先规避最高标风险（不接次新最高标）。</p>
+          <p><b>双冰后第 2 天（立核心）：</b>若此时空间板反核 + 板块回流 → 介入次高标（次高标将开启新周期）。</p>
+          <p class="red">⚠ <b>关键警告：</b>双冰次日核心操作是"<b>先杀后立</b>"——先杀后立不等于直接接次日涨停。必须等最高标杀完、空间标出清，再考虑次高试错。</p>
+        </div>
+
+        <div class="card">
+  <h4>🧭 新旧周期的经典三种演绎（新周期信号观察）</h4>
+  <ol>
+    <li><b>看能量柱信号：</b>优先观察二进三标的是否出现<b>能量柱顶一字、大单强势封板</b>，这是新周期核心标的最直接强势信号。</li>
+    <li><b>看二进三平铺机会：</b>若没有强势顶一字标的，观察二进三板块是否<b>批量涨停</b>，若出现多只涨停标的，采取<b>平铺布局</b>策略把握板块机会。</li>
+    <li><b>看能量向上转移：</b>若二进三板块整体低迷，第一时间优先看高处是不是在<b>吸收低位的能量</b>，警惕市场能量向上转移，高位标可能吸收板块能量走出超预期行情（<b>神剑股份典型案例</b>）。</li>
+  </ol>
+</div>
+
+<h3>2.4 新旧周期衔接 · 混沌阶段</h3>
+        <div class="card">
+          <p><b>特征：</b>旧周期核心标（空间龙）断板后，未出现大幅低开或跌停，仅宽幅震荡；同身位标的反复反包；旧周期标未完全清退，新题材尝试启动 → <b>新旧周期拉扯的混沌阶段</b>。此阶段梯队很鸡肋：要升未升 / 将退未退。</p>
+          <p class="red">⚠ 操作原则：此阶段<b>严格控制仓位，避免满仓</b>；核心矛盾在于判断方向。</p>
+          <p><b>新周期确立信号：</b>旧周期剩余最高标出现快速下跌、大跌或跌停等明确退潮信号时，若此时新题材核心票启动 → 新周期诞生，可针对性布局。</p>
+        </div>
+
+        <h3>2.5 "新周期一直来不了"（每次必亏钱就在这里）</h3>
+        <ol>
+          <li><b>周期延续：</b>旧周期空间标不断板，新周期难启动。</li>
+          <li><b>双冰触发：</b>大周期需"双冰"（指数+情绪回调）触发；双冰次日最优是"<b>次次高先杀后立卡最高</b>"启新周期，但此周期无梯队，难参与。</li>
+          <li><b>猛干时机：</b>等"双冰后新周期"的空间标断板，后续新周期形成梯队时，再猛干。</li>
+          <li><b>三冰孕育回马枪：</b>三冰后的恐慌更容易孕育走出妖的回马枪。故<b>寒冰后第一个周期</b>要注意回马枪的首板反包打板或低吸。</li>
+          <li><b>回马枪发散妖股 buff：</b>回马枪反包二板后跟空间板背离走妖次日，会发散妖股属性 buff，这是旧周期的新节点开仓、旧周期的新梯队补涨。<br>
+            <b>两个重要出手点：</b>① 妖股背离走妖当天直接上妖股；② 妖股走妖当天的二进三梯队之争，次日可再上同一梯队赢家。<br>
+            当梯队没有票能帮周期标延续周期了，那就差不多会有新周期出现了。</li>
+        </ol>
+
+        <div class="warn"><div class="w-title">🚫 次高试错三铁律（模式一专属 · 2026-09-03 短剧 4 板位沉淀）</div>
+          <p><b>空间标助攻核心标反核成功后双双挂逼 → 次日新空间标仅作挡刀，核心操作是选择次高标试错新周期——必须满足以下三铁律，任一不满足坚决不参与：</b></p>
+          <ol>
+            <li><b>预期差铁律：</b>只做"<b>有预期差</b>"的次高标 = 昨天相对弱但今天有转强信号的标的；不做"<b>昨天明牌最强今天强更强</b>"的标的。反面案例：2026-09-03 欢瑞世纪（昨日一字 3 板封单 5.86 亿，今日高开 5% 快速秒板 = 强更强 = 被龙版传媒逆袭卡掉）。</li>
+            <li><b>换手逆袭铁律：</b>只做"<b>换手逆袭</b>"路径 = 昨天换手 3 板今天平低开或小高开走换手 4 板的标的；不做"<b>一字板上来的标的高开秒板</b>"的标的。反面案例：2026-09-03 大晟文化（一字 3 板跟风，今日平开上板又被炸，最终被龙版传媒卡掉）。<b>正面案例：</b>2026-09-03 龙版传媒（昨日换手 3 板，今日平开 1% → 上板 → 炸板 → 换手卡位逆袭 4 板成功）。</li>
+            <li><b>个股+板块综合铁律：</b>次高试错不能只看个股逆袭，还必须叠加<b>板块弱转强</b>验证（混江龙四层框架：基线判定 6 维 + 弱转强买点 4 信号），单纯个股逆袭 ≠ 新周期成立。<b>仓位纪律：过渡周期 ≤ 20%，且只能选换手逆袭路径。</b></li>
+          </ol>
+        </div>
+
+        <div class="rule t-red"><div><span class="tag red">附加红线</span><b>次高试错"中高开秒板"具体红线（2026-09-04 补丁）：</b>对最危险的"强更强 + 一字双杀"形态做量化红线——
+          <br>① <b>一字板 + 中高开（≥3%）秒板</b> = 三重红线叠加（连续一字不上 + 中高开秒板不上 + 强更强必死）→ <b>必弃，最怕这种板</b>；
+          <br>② <b>一字板 + 高开 ≥5% 秒板</b> = 体系绝对禁区（参见第 9 章 9.4 节）；
+          <br>③ <b>一字板 + 平开后秒板</b>（如 2026-09-03 大晟文化）= 即便开得不高也无法换手逆袭 = <b>必弃</b>。
+          <br>📌 <b>金句：</b>"<b>次高只做有预期差的换手逆袭，一字板和强更强一律不接；个股逆袭叠加板块弱转强才确认新周期。</b>"</div></div>
+
+        <h3>2.6 第十六部分 · 关于试错（7板以下 vs 9板以上的断板天数差异）</h3>
+        <div class="card">
+          <p><b>核心原则：</b>试错时机的核心是"<b>断板天数 + 周期高度</b>"的组合判断——不同高度走出来的妖股节奏不同，断板后第几天试错也不同。</p>
+        </div>
+        <div class="rule t-gold"><div><span class="tag gold">情形 A · 连板高度在 7 板以下</span>
+          · <b>最快可断板后的第 1 天去试错</b>。
+          <br>· 走妖的这两天也可能孕育小周期——可在断板后第 1 天再去试错<b>二进三</b>，这是一个小节点。
+        </div></div>
+        <div class="rule t-gold"><div><span class="tag gold">情形 B · 9 板以上（含 N+N 模式）</span>
+          · <b>大周期归到 9 板以上的高度</b>（如国芳这样 7 板断板后再连 5 板）→ 试错要等到<b>断板的第 2 天</b>去看有没有妖股走妖股分时。
+          <br>· <b>操作：</b>点 403 看这个周期的翻倍个股的活口当天走妖股分时。
+          <br>· <b>妖股分时定义：</b>① 高开下杀后快速翻红弱转强；② 低开快速翻红弱转强（即前十分钟的弱转强）。
+          <br>· <b>之后节奏：</b>走完妖股分时，到了<b>断板后的第 4 天</b>再去试错（大节点）。
+        </div></div>
+        <div class="done"><div class="d-title">📌 试错节奏速记</div>
+          <b>7 板以下小周期：</b>断板后第 1 天（小节点）→ 第 2-3 天观察 → 大节点仍在 <b>断板的第 4-5 天</b>。
+          <br><b>9 板以上大周期：</b>断板后第 2 天（妖股分时）→ 第 4 天（大节点）。
+          <br><b>金句：</b>"<b>大节点还是在断板的第四、第五天才到。</b>"
+        </div>
+      </section>
+
+      <!-- ============ 第3章 能量柱体系 ============ -->
+      <section class="chapter" id="s3">
+        <div class="sec-head"><div class="sec-no">3</div><div><h2>核心生命 · 能量柱全生命周期</h2><div class="en">ENERGY PILLAR · FULL CYCLE</div></div></div>
+        <div class="tip"><div class="t-title">⚡ 能量柱心法</div>
+        <b>能量柱 = 周期启动的关键信号</b>，需同时满足 <b>节点正确、预期差、情绪</b> 三要素。它是<b>核心中的核心</b>——T 字板 = 教科书上车点，开仓窗口只有两天（能量柱当天 + 次日首开）。</div>
+        <p class="red">★ 本体系的心脏。整个体系围绕"能量柱"从诞生、首开、到死的完整生命周期展开。</p>
+
+        <h3>3.1 能量柱的本质与识别</h3>
+        <div class="card">
+          <p><b>能量柱 = 周期启动的关键信号</b>，需符合<b>节点正确、预期差、情绪</b>三要素。</p>
+          <p class="red">⚠ <b>能量柱与周期龙不可共存</b>，需警惕"一山不容二虎"的局面。</p>
+          <p class="sub-text">若节点日出现<b>两个能量柱</b>（如安泰科技 vs 庄园牧场）：</p>
+          <ul>
+            <li>选择<b>逻辑更强、封单更稳、竞价中加单</b>的（安泰封单递增，庄园封单递减）。</li>
+            <li>若难以分辨强弱，等待两者"<b>内斗</b>"分胜负（如品茗科技 vs 嘉泽新能）。</li>
+          </ul>
+        </div>
+
+        <div class="note"><div class="n-title">📌 20cm 也能走能量柱路径</div>
+<p>20cm 的标的同样可以走能量柱的路径（如<b>品茗科技</b>）。注：这与总纲铁律"20cm 再也不做"并存——前者是操作红线，后者是形态识别认知，理解两者关系需结合当下市场阶段与自身纪律。</p></div>
+
+<h3>3.2 核心票能否成为能量柱（四大指标）</h3>
+        <table>
+          <tr><th>指标</th><th>内容</th></tr>
+          <tr><td><span class="dot red"></span><b>A 预期差</b></td><td>本身有预期差（强弱切换的认知差）。</td></tr>
+          <tr><td><span class="dot gold"></span><b>B 情绪提振</b></td><td>情绪有提振（板块共振/新主线）。</td></tr>
+          <tr><td><span class="dot blue"></span><b>C 高切低节点</b></td><td>符合高切低的节点牌。</td></tr>
+          <tr><td><span class="dot green"></span><b>D 次日一字</b></td><td>成为能量柱<b>次日必须一字开</b>，不然不能引领新周期，<b>当天最好是 T 板上车</b>。次日非一字板开盘，不参与这个周期。</td></tr>
+        </table>
+        <div class="case"><h4>💡 2026-08 实战验证 · 深中华A 能量柱</h4>
+          <p class="ts">8-24（周一）二进三一字板 → 8-25（周二）走 <b>T 字板</b>（核心中的核心 = 上车点）→ 8-26 小高开 2.8% 上板回归王者。</p>
+          <div class="lesson"><b>关键教训：</b>一字板当天不能确定题材归属（医药 MRNA 主线判断被暗线黄金证伪），<b>要多等一天看次日是否 T 字</b>。T 字板 = 能量柱确认信号 = 教科书式上车点。</div>
+        </div>
+
+        <h3>3.3 能量柱出现当天（开仓点 ①）</h3>
+        <div class="rule t-blue"><div><span class="tag blue">开仓</span><b>必须等待能量柱出现才可开仓</b>，能量柱出现当天操作<b>同身位换手板标的</b>。</div></div>
+        <ul>
+          <li><b>先手买点：</b>未变现的 9 式二板刚刚破平台，在二进三时<b>低平开（就是换手日当天）</b>，然后进攻分时可以在换手板日先手买点。如果是弱时分时开盘的话，要快速拉升进攻、有弹性（新题材容易走出龙头）。</li>
+          <li><b>深坑成龙：</b>单边推升 / 箱体平台控盘，然后沿着 5 日线下跌-9 形态，然后深坑里强 9 启动的很有可能成龙，<b>尽量在 2 板就要上（K1 后马上 K2 就上）</b>。</li>
+          <li><b>多个换手板：</b>切换日没有核心出现，而是出现多个换手板 → <b>平铺两三个</b>，次日用逆袭方法切回核心（见第7章）。</li>
+          <li><b>能量向上转移：</b>切换日二进三不作为时，能量有可能会向上转移，也就是那个<b>次高往上走</b>。</li>
+        </ul>
+
+        <h4>终极晋级买点（战法抓妖股的精髓）</h4>
+        <div class="rule t-purple"><div><span class="tag purple">妖股买点</span>买点落在<b>有效换手板当天</b>，需满足<b>四项严苛条件</b>：<br>
+        ① 标的是<b>前期未被炒作、从深坑底部启动的低位股</b>；<br>
+        ② 此前已拉出 <b>2 个以主力低位吃货为目的的实体阳线涨停</b>；<br>
+        ③ <b>换手日当天股价出现 -8% 以下的大低开，或下探至 5 日线附近</b>；<br>
+        ④ 随后分时快速猛攻，此时果断买入。</div></div>
+        <p class="sub-text">买入后若标的呈现"<b>天天高开秒板，即便炸板也始终保持高开</b>"的走势，即可判定为妖股成型，进入主升浪阶段，坚定持有。</p>
+
+        <h3>3.4 能量柱次日 · 首开当天（开仓点 ②）</h3>
+        <ol>
+          <li><b>优秀级先上核心能量柱标</b>，一般是 <b>T 字回封板</b>（无核心时用逆袭切入）。</li>
+          <li>做<b>同身位换手板标的</b>。</li>
+          <li><b>低吸低身位主动标的：</b>前一天早盘<b>表现主动（5 分钟内快速上板）</b>的靠近节点票一个身位的标的，可在<b>深水区 -5 或 0 轴</b>上低吸。<b>前提是核心票还在</b>。</li>
+          <li><b>低吸 PK 失败的大容量票：</b>与能量柱 PK 失败的大容量票，<b>深水区或 0 轴低吸</b>。<span class="red">注意：节点梯队亏钱效应炸裂，再低价也不去吸。</span></li>
+          <details><summary>容量票 PK 败后 · 开盘速记</summary><div class="d-body">
+  <ol>
+    <li>败次日低开：<b>深水 / 零轴吸</b>。</li>
+    <li>吸后当天红 K → <b>次日等溢价（冲板）</b>。</li>
+    <li>吸后当天绿 K → <b>隔次日开盘出</b>。</li>
+    <li>如果节点梯队亏钱效应炸裂，再低价也不去吸。</li>
+  </ol>
+</div></details>
+<li><b>二进三生死赛逆袭上位者可打板上</b>。<span class="red">注意：自由流通市值超过 30 亿的别想逆袭（换手不足），直接放弃。</span></li>
+          <li><b>节点票的 99 / 96 模式：</b>特别是高开或低开后<b>大斜率拉升</b>，哪怕接近打板也要上——这是当天<b>最可能涨停的票</b>最优先做；高开量换够也可上（次之）。</li>
+          <li><b>上一周期高位震荡票的 969 模式：</b>震荡过程中有涨停，再洗再拉两根红 K，次日竞价先上一笔，<b>大斜率拉升换量够后就上</b>。</li>
+        </ol>
+
+        <h3>3.5 能量柱首开次日</h3>
+        <ol>
+          <li><b>核心标低吸：</b>用"<b>十以内的加减法</b>"观察承接进行低吸。<span class="red">一定要看其有承接再去吸。</span></li>
+          <li><b>背离上空间标：</b>还有空间的标，当空间标与能量柱<b>背离</b>时，上空间标。</li>
+          <li><b>低吸低身位主动标的</b>（同 3.4 第 3 条，前提核心票还在）。</li>
+          <li><span class="red">⚠ <b>开太高非常容易死：</b>能量柱首开次日，大高开或伪一字开盘，容易被套利盘砸死，尽可能不要做 10 加减振幅后的承接。一定要低中开，然后以大单买上去，这种才会活下来。</span>（12-1 茂业商业案例）</li>
+          <li>节点票的 99 / 96 模式（同 3.4 第 6 条）。</li>
+          <li>上一周期 969 模式（同 3.4 第 7 条）。</li>
+        </ol>
+
+        <div class="card">
+  <h4>🐉 龙头生命周期的两个阶段与介入点</h4>
+  <p><b>第一阶段 · 小龙 PK（首次分歧转一致，约 3-5 板）：</b>多个板块龙头竞争，决出最强候选者。两种模式：</p>
+  <ul>
+    <li><b>轮动周期（情绪试错期）：</b>策略是"<b>冒头就打</b>"。在情绪冰点期，新题材的连板股（如"三进四"）一旦冒头，即可试错。</li>
+    <li><b>补涨周期（前龙头企稳期）：</b>策略是"<b>突破就打</b>"。新龙头的连板高度必须<b>突破前龙头首阴时的高度限制</b>。</li>
+  </ul>
+  <p><b>第二阶段 · 大龙出现（第二次分歧转一致，成为总龙）：</b>成功晋级的龙头确认其市场总龙地位，进入主升浪。<b>三个精确介入点</b>（风险与确定性逐级递增）：</p>
+  <ol>
+    <li><b>介入点 1（低吸）：</b>分歧当日，用"十以内的加减法"观察承接，进行低吸。</li>
+    <li><b>介入点 2（确认）：</b>放量换手后，股价回封涨停板时打板，确认其地位。</li>
+    <li><b>介入点 3（加速）：</b>确认地位的次日，享受市场合力的加速涨停时打板。</li>
+  </ol>
+</div>
+
+<h3>3.6 能量柱（周期标）到死 · 缠打</h3>
+        <div class="rule t-gold"><div><span class="tag gold">缠打</span>优先级：<b>缠打核心</b>。前期用"<b>十以内的加减法</b>"观察承接低吸；明牌后用"<b>五以内的加减法</b>"观察承接低吸。<span class="red">重点是承接，必须有承接才去吸。</span></div></div>
+        <div class="warn"><div class="w-title">🚫 补涨周期绝对不接</div>
+          如果是<b>补涨周期</b>的话，怎么样的承接都不去接。补涨周期涅槃 + 主动破异动也会死，<b>不能缠打</b>。</div>
+        <div class="done"><div class="d-title">🛑 最终离场信号</div>
+          当龙头股盘中出现"十以内的加减法"原则所定义的<b>弱承接信号（如瀑布杀、跌停）</b>时，即为最终离场信号。</div>
+      </section>
+
+      <!-- ============ 第4章 六件套 ============ -->
+      <section class="chapter" id="s4">
+        <div class="sec-head"><div class="sec-no">4</div><div><h2>主升盛宴 · 话事人六件套</h2><div class="en">MASTER PIECES</div></div></div>
+        <p>出能量柱当日 = 主升期。常规"六件套"操作全图：</p>
+        <div class="flow">
+          <span class="f-node hot">① 先手格局能量柱</span><span class="f-arrow">→</span>
+          <span class="f-node">② 同身位换手板</span><span class="f-arrow">→</span>
+          <span class="f-node">③ 一进二护法</span><span class="f-arrow">→</span>
+          <span class="f-node">④ 最强伴随</span><span class="f-arrow">→</span>
+          <span class="f-node">⑤ 反核</span><span class="f-arrow">→</span>
+          <span class="f-node">⑥ 中军 / 空间标看情绪</span>
+        </div>
+        <div class="note"><div class="n-title">📌 最重要的一条</div>
+          <b>能量柱标的次日要一字开，最次也要是 T 字板</b>，否则不能生成新的周期，更加忌讳是<b>临时更换能量柱</b>。</div>
+
+        <h3>4.1 低吸最强伴随</h3>
+        <p><b>如何找伴随标：</b>它是<b>上一个周期的产物</b>，起码在 <b>3 板以上断板</b>，并且要<b>维持在高位震荡</b>。如 3-25 晚可找出巨力索具（6 板后震荡成交 14 亿收红 K）、神开股份（7 板震荡成交 17.2 亿收红 K）、南方精工（4 板跌停断板后反包涨停成交 27 亿）。</p>
+        <details><summary>伴随标选择原则（完整版）</summary><div class="d-body">
+          <ul>
+            <li>做伴随标，原则是：<b>唯一 / 最强伴随</b>。否则新周期稍有动荡，次强伴随死得更惨。</li>
+            <li>宽幅持 T 要求：<b>必须能继续确认它是最强伴随标</b>；只要能量柱还能封板，就反复 T 这个最强伴随。</li>
+            <li>能量柱的<b>成长性越好，伴随票吃肉空间越大</b>。</li>
+            <li><b>伴随周期次数</b>是筛选重要因素，优先选择有<b>穿越基因</b>的标。</li>
+            <li>尽量以<b>跟随老周期退潮有过调整</b>的标的为主。</li>
+            <li>属性尽量<b>跟新周期更靠近</b>。</li>
+            <li>若主板四点不满足，可考虑<b>弹性伴随</b>。</li>
+          </ul>
+        </div></details>
+        <details><summary>历史案例（能量柱 → 最强伴随）</summary><div class="d-body">
+          <ul>
+            <li>湖北广电 3/11 → 华丰股份</li>
+            <li>云鼎科技 3/6 → 杭齿前进</li>
+            <li>圣阳股份 2/26 → 杭钢股份</li>
+            <li>新炬网络 1/24 → 冀凯股份</li>
+            <li>金奥博 1/14 → 电光科技</li>
+          </ul>
+        </div></details>
+
+        <h3>4.2 低吸反核</h3>
+        <p><b>如何反核：</b>在<b>昨日断板的梯队高标</b>里面找；最好是昨天<b>有冲板动作</b>的；最好是<b>跟能量柱关系更密切</b>的。</p>
+        <div class="tip"><div class="t-title">💡 正常反核思路——吃一顿就走</div>
+          <p>反核的票，绝大多数都是吃一顿就跑的思路。成功的反核标，基本日内都有 10cm 或以上的利润。</p>
+          <p>隔日低开往往是常态，但如果被按跌停，<b>尽量不要卖在地板上</b>，往往都有脉冲式的冲高，届时再从容落袋。</p>
+          <p>一个周期退潮，主要是周期标断板隔日考虑退潮反核；被市场认可可酌情持 T，新周期不明晰以冲高落袋为主。</p>
+        </div>
+        <details><summary>历史案例（能量柱 → 最强反核）</summary><div class="d-body">
+          <ul>
+            <li>湖北广电 3/11 → 信隆健康 / 云鼎科技</li>
+            <li>云鼎科技 3/6 → 征和工业</li>
+            <li>圣阳股份 2/26 → 浙江众成</li>
+            <li>新炬网络 1/24 → 华脉科技 / 冀凯股份</li>
+            <li>金奥博 1/14 → 弘讯科技</li>
+          </ul>
+        </div></details>
+
+        <h3>4.3 打板或低吸比能量柱更高标</h3>
+        <p>若话事人前面有更高板的标 D，可在确定话事人能量柱后<b>低吸这个更高板标的</b>，因为其往往有续命可能。</p>
+        <p class="sub-text">逻辑：最高度不是能量柱标 D 的时候，最高板会<b>窃取能量柱标 D 的能量</b>替能量柱往上走，所以在确认能量柱当天，我们可以去低吸这个比能量柱标 D 更高的标 D。</p>
+        <ul>
+          <li>如<b>信隆健康</b>吸了<b>湖北广电</b>的能量晋级，<b>一鸣食品</b>窃取了<b>跨境通</b>的能量。</li>
+          <li><span class="red">⚠ 前提：这些最高标都不愿意示弱。只有空间标跟核心票走背离时才能上空间标。</span></li>
+        </ul>
+
+        <h3>4.4 同身位低吸或打板</h3>
+        <p>出现能量柱前一天大概已经知道谁是下一个周期的话事人，那么第二天能量柱一字，我们是可以去<b>低吸同身位</b>的。如尤夫股份一字的前一天，已经大概知道它会逆袭太阳电缆且位置相对较低（三进四），这一天可以去低吸太阳电缆，买点是<b>看到走 N 字的时候，上冲回落就是买点</b>。另外梯队还是向上的时候才能去做，还在主升期。</p>
+        <details><summary>同身位低吸的 8 条铁规</summary><div class="d-body">
+          <ol>
+            <li>PK 位置相对在低位，<b>4 板以下</b>。</li>
+            <li>PK 个股<b>不是同一题材</b>。</li>
+            <li>当天环境有修复更好，<b>梯队向上主升</b>。</li>
+            <li>PK 个股没有走弱，而<b>上冲回落就是买点</b>。</li>
+            <li>一般来说一个顶一字，另外一个<b>不可能跌停死</b>。</li>
+            <li>如有几个同身位票，一般只能活一个，另外一个就必须要<b>逢高就出</b>。</li>
+            <li>同身位换手<b>有且只做第一个上板的、价格便宜的、盘子小的</b>。不符合要求宁可舍弃，马上去做一进二。</li>
+            <li><b>同节点位置：周期标 + 换手板</b>（换手板 = 周期标的替补）。周期生死存亡之际，第一时间平铺是最优方案。</li>
+          </ol>
+        </div></details>
+
+        <h3>4.5 开盘主动上板靠近身位的标的 · 深水低吸</h3>
+        <div class="rule t-blue"><div><span class="tag blue">买点</span>在能量柱首开日或首开次日：早盘表现<b>主动（5 分钟内快速上板）</b>的靠近节点票一个身位的标的，可在<b>深水区 -5 或者 0 轴</b>上去低吸。<b>前提是核心票还在</b>。</div></div>
+        <ul>
+          <li>4-30 华阳新材 3 板早上主动上板，次日 0 轴吸，渝三峡A 4 板首开当天。</li>
+          <li>5-9 中超控股 2 板 5 分钟内上板，成飞集成 3 板成能量柱，次日 5-12 能量柱首开日，开盘 0 轴低吸中超控股。</li>
+        </ul>
+
+        <h3>4.6 做一进二护法</h3>
+        <div class="rule t-blue"><div><span class="tag blue">必上</span>肯定要上<b>当日最强板块</b>，看哪个<b>盘子小、爆量、价格便宜、不带可转债</b>的。这个一进二，可能量柱产生当天，也可次日，<b>两天的一进二都可上，而且是必上</b>！预期就是 <b>1.5 个板 - 2 个板</b>左右。</div></div>
+        <ul>
+          <li><span class="red">⚠ 一进二失败之源：</span>打了三板组的票（首板一根直线拉升，二板特大封单全天）。</li>
+          <li><span class="red">⚠ PK 前期还没确定好核心票，别做一进二。</span></li>
+          <li><span class="gold">💡 可以疯狂做一进二的宝贵阶段：</span>周期标背离空间标走妖股之后，直到妖股断板之后的第一个空间板断板前，都可以疯狂地做一进二，<b>仓位要小</b>。</li>
+        </ul>
+
+        <h3>4.7 入局大容量中军</h3>
+        <p>能量柱产生的当天，<b>60 总成交量排名</b>，跟能量柱<b>同题材的中军</b>可以直接买入，可打板，后期看着能量柱反复做 T 中军。</p>
+        <p class="sub-text">近期案例：周二国芳集团一字能量柱产生；当天的一进二万向德农爆量成最强补涨躺板 1.5 个板；凯美特气成最强羁绊；永辉超市中军首板。周三能量柱次日：最强一进二瑞茂通躺板 1.5 个板。</p>
+        <details><summary>同身位 PK 的大容量玩法（4 条）</summary><div class="d-body">
+          <ol>
+            <li>节点位置遭遇板块题材集体爆发，容量票有博弈价值，但<b>容量票最好具备唯一性</b>。</li>
+            <li>同身位容量票<b>盘子不要太大（流通盘 100 亿以内）</b>，晋级过程中最好不要走加速；尽量不要玩大幅高开的戏码（大幅高开容易夭折）；每天小幅高开 / 低开 / 平开，然后走强势分时承接上板更稳妥，可低吸上车。</li>
+            <li>容量票可与核心票同题材同属性，也可不同；有消息面发酵是加分项；同身位有 2 个或以上容量票彼此竞争，则要考虑最强的那个。</li>
+            <li><b>同身位 PK 开仓节点只有两天：</b>核心标出现当天和次日。最核心是<b>节点</b>！必须在周期启动大节点（新主线争夺日）才值得博弈容量票，否则宁可放弃。</li>
+          </ol>
+        </div></details>
+
+        <h3>4.8 量化时代 · 趋势为王</h3>
+        <p>在能量柱当天和次日，点 403 找出<b>近两个周期涨幅前排</b>的标 D：</p>
+        <table>
+          <tr><th>维度</th><th>要求</th></tr>
+          <tr><td><b>历史涨幅</b></td><td>需涨过一段时间，涨幅至少达到 <b>50% 以上</b>。</td></tr>
+          <tr><td><b>趋势特征</b></td><td>处于明确趋势中，量能越大越好（建议 10 亿以上），<b>20 厘米标</b>更优。</td></tr>
+          <tr><td><b>均线位置</b></td><td>收盘时<b>无限靠近 5 日线</b>为最佳，绝对不能跌破 10 日线，5 日线是关键支撑。</td></tr>
+          <tr><td><b>题材梳理</b></td><td>需明确所属题材，便于结合板块热度判断。</td></tr>
+        </table>
+        <p><b>介入时机与条件：</b>① 关键时间点 = 能量柱出现的当天（首日）及次日，重点在首日介入；② 板块热度 = 首日开盘观察所属板块一致性强势（有<b>一字板</b>或多个<b>涨停板开盘</b>的板块）；③ 竞价筛选 = 标 D 未匹配量显示<b>红色</b>，或匹配量与未匹配量均<b>红色</b>，呈现<b>量价齐升</b>；④ 介入方式 = 符合条件的标 D，在<b>集合竞价阶段直接买入</b>。</p>
+
+        <h3>4.9 大题材启动策略</h3>
+        <ol>
+          <li><b>第一时间抓弹性标的：</b>题材启动首日，优先参与 <b>20 厘米首板</b>标的，借助更大涨幅弹性抢占先机。</li>
+          <li><b>次日锁定换手先锋：</b>若首日出现多个一字板（5 个以上），次日重点关注"<b>盘子小、价格低、最先换手封板</b>"的标的。</li>
+          <li><b>次日盯紧炸板回封：</b>针对首日一字板次日炸板的标的，优先参与"<b>最早炸板且第一时间回封</b>"的个股。</li>
+        </ol>
+      </section>
+
+      <!-- ============ 第5章 买点体系 ============ -->
+      <section class="chapter" id="s5">
+        <div class="sec-head"><div class="sec-no">5</div><div><h2>开仓与选股 · 买点优先级与仓位</h2><div class="en">ENTRY SYSTEM</div></div></div>
+
+        <h3>5.1 开仓时机（仅 2 次，追求稳定性）</h3>
+        <div class="rule t-gold"><div><span class="tag gold">开仓点</span>① <b>能量柱出现当天</b>　② <b>能量柱次日（首开）</b>。除此之外一律不开仓。</div></div>
+
+        <h3>5.2 选股优先级（按顺序优先选择）</h3>
+        <table>
+          <tr><th>优先级</th><th>标的</th></tr>
+          <tr><td>1</td><td><b>同身位的节点票</b></td></tr>
+          <tr><td>2</td><td><b>一进二（趋势票）</b></td></tr>
+          <tr><td>3</td><td><b>低吸最强羁绊</b></td></tr>
+          <tr><td>4</td><td><b>低吸大容量标的</b></td></tr>
+          <tr><td>5</td><td><b>打板低平开的空间板</b></td></tr>
+        </table>
+
+        <h3>5.3 节点总结 · 三天进攻窗口与仓位</h3>
+        <div class="timeline">
+          <div class="tl-item blue"><div class="tl-time">节点前一天（试错）</div><div class="tl-c">试错，<b>不超过三成仓</b>。</div></div>
+          <div class="tl-item red"><div class="tl-time">节点当天（主攻）</div><div class="tl-c"><b>3-5 成仓</b>。节点 = 能量柱形成的当天。</div></div>
+          <div class="tl-item gold"><div class="tl-time">节点次日（加码）</div><div class="tl-c">加码到 <b>6-8 成仓</b>。</div></div>
+        </div>
+        <p class="gold">这三天就是理想的进攻点！按重要性排序：<b>节点当天 &gt; 节点前一天 &gt; 节点后一天</b>。开仓点只有这三天，别的一律不开仓。</p>
+        <details><summary>和大部分人反着来（心法）</summary><div class="d-body">
+          <ul>
+            <li>越是看到行情正式宣告退潮，你越是要跟打了兴奋剂一样兴奋！因为往往新的节点即将出现！</li>
+            <li>一旦你拿到了先手优势，后续往往容易遇到一字板躺赢的局面，尤其是核心票！</li>
+            <li>越是行情进入后半段收尾的阶段，你越是要高度警惕，千万别贪，宁愿卖飞也不要可惜，否则利润很可能大幅回吐！</li>
+          </ul>
+        </div></details>
+
+        <h3>5.4 预期管理（每个买点对应的收益预期）</h3>
+        <table>
+          <tr><th>买入场景</th><th>预期</th><th>卖出提示</th></tr>
+          <tr><td>二进三买入同身位 PK 票（四进五梯队情绪向上）</td><td>约 <b>2 个板</b></td><td>可能不都躺板，但会存活两天</td></tr>
+          <tr><td>二进三买入核心标</td><td><b>躺板 2-4 个板</b></td><td>—</td></tr>
+          <tr><td>核心标产生当天买一进二</td><td><b>2 个板</b></td><td>二板炸板应卖出</td></tr>
+          <tr><td>核心标产生次日买一进二</td><td><b>2 个板</b></td><td>第二个板炸板时卖出</td></tr>
+          <tr><td>周期票通过 N 字走二波</td><td><b>反包三板是坎</b></td><td>第二波基本不会超过第一波；大周期二波中切换的空间票高度也不超周期标第一波高度</td></tr>
+        </table>
+
+        <h3>5.5 试错规则</h3>
+        <table>
+          <tr><th>连板高度</th><th>试错时机</th></tr>
+          <tr><td>7 板以下</td><td>最快可<b>断板后第一天</b>去试错。</td></tr>
+          <tr><td>9 板以上（含 N+N 大周期）</td><td>试错到<b>断板第二天</b>，看有没有妖股走妖股分时（点 403 看翻倍个股活口当天走妖股分时）。</td></tr>
+        </table>
+        <ul>
+          <li><b>妖股分时：</b>① 高开下杀后快速翻红弱转强；② 低开快速翻红弱转强——即<b>前十分钟的弱转强</b>。</li>
+          <li>妖股完成后，到<b>断板后的第四天</b>再试错。</li>
+          <li>走妖股期间也会有一个小周期，可在断板后第一天试错<b>二进三</b>（小节点）。</li>
+          <li><b>大节点还是在断板的第四、第五天才到。</b></li>
+        </ul>
+
+        <h3>5.6 次高的玩法</h3>
+        <div class="card">
+          <p>梯队开仓博弈，都有一个核心主旨：<b>围绕新周期做文章</b>。</p>
+          <p>要出新周期，必须有一个必要条件：<b>老周期谢幕，上个周期的核心票跌停</b>。而这个时候，新周期试错，<b>以次高为妙</b>。这个是针对周期龙死了之后的过渡周期。</p>
+        </div>
+
+        <h3>5.6.1 第十三部分 · 次高试错铁律一至五（2026-09-03 / 09-04 沉淀）</h3>
+        <div class="rule t-red"><div><span class="tag red">铁律一</span><b>只做换手，不做一字：</b>次高试错只选<b>昨天换手 3 板今天走换手 4 板</b>的标的；连续一字板上来的标的不管第二天开得多好（哪怕高开秒板），都不接。<b>一字板 = 没有换手定价 = 没有预期差 = 没有逆袭可能性 = 必弃</b>。</div></div>
+        <div class="rule t-red"><div><span class="tag red">铁律二</span><b>只做有预期差的逆袭，不做强更强：</b>次高试错选的是"<b>昨天相对弱但今天转强</b>"的标的（<b>逆袭路径</b>），不是"昨天最强今天继续强"的标的（<b>强更强路径 = 反核陷阱</b>）。反面教材：连续一字 3 板今日高开秒板（被卡掉）；正面教材：换手 3 板今日平开 → 上板 → 炸板 → 换手卡位逆袭。</div></div>
+        <div class="rule t-red"><div><span class="tag red">铁律三</span><b>个股逆袭 + 板块弱转强，综合判定：</b>次高试错不能只看个股分时形态，必须叠加<b>板块弱转强四层框架</b>验证（基线判定 6 维 + 弱转强买点 4 信号），单纯个股逆袭成功 ≠ 新周期成立，仍属过渡期弱分歧。</div></div>
+        <div class="rule t-red"><div><span class="tag red">铁律四</span><b>同题材次高互卡 → 尾盘 99 战法（窄边界例外）：</b>过渡周期内<b>几个同题材次高互相卡位</b>（谁都上不去，PK 僵持），但<b>题材整体强度还行</b>（非退潮、非题材已死）时——
+          <br>· <b>不再追次高本身</b>（互卡 = 空间标已废）
+          <br>· <b>只在尾盘</b>再去找该题材内符合 99 战法的标的（<b>尾盘 = 一天情绪定型 + 换手充分</b>）
+          <br>· <b>必须是尾盘再上</b>，早盘参与 = 接炸板（第二十八部分·零"99 战法生命周期适用边界"中过渡周期禁用的唯一窄边界例外）
+          <br>· 仓位 ≤ 20%（过渡周期上限）
+          <br>📌 金句：<b>"过渡周期同题材次高互卡 + 题材还行 → 尾盘找 99 战法标的，一定是尾盘再上。"</b></div></div>
+        <div class="rule t-red"><div><span class="tag red">铁律五</span><b>梯队平铺的生命周期适配（核心边界）：</b>
+          <br>· <b>过渡周期 → 禁止平铺梯队</b>，只做有预期差的单一标的（次高互卡时尤其不能铺，等题材走出"新周期核心"再铺）
+          <br>· <b>主升周期 → 才可平铺梯队</b>，才可做同身位换手（核心标确认后，N 个同身位换手板可以同时上）
+          <br>· 判定口诀：<b>先看周期阶段 → 再决定是否平铺</b>。过渡期平铺 = 把仓位分散到一堆互相卡的次高 = 全部炸板。主升期不平铺 = 错过梯队溢价 = 利润上不去。
+          <br>📌 金句：<b>"过渡周期不能平铺梯队，只能上有预期差的标的；只有过了过渡周期到主升后，主升周期才可以平铺梯队，也就是才能做同身位换手。"</b>
+          <br>📌 金句（汇总）：<b>"次高只做有预期差的换手逆袭，一字板和强更强一律不接；个股逆袭叠加板块弱转强才确认新周期。"</b></div></div>
+
+        <h3>5.7 龙头反包（只看三天）低吸战法</h3>
+        <div class="grid2">
+          <div class="mini"><h5><span class="ic">🔥</span>模式一 · 隔日反包（最强形态）</h5>
+            <p><b>买点1（开盘）：</b>开盘弱转强时介入——博取情绪修复预期。</p>
+            <p><b>买点2（板上）：</b>确认涨停板时打板——分歧转一致，确定性最高。</p>
+            <p class="sub-text">两个买点分笔操作，可平滑成本和风险。</p>
+          </div>
+          <div class="mini"><h5><span class="ic">🛡️</span>模式二 · 震荡企稳后反包</h5>
+            <p><b>前提：</b>首阴后 3 天内；绝对龙头主动修复、板块 3+ 小弟涨停、分时低到高拉 10 点左右（暴力拉升）。</p>
+            <p><b>买点：</b>5 日线或 10 日线企稳后观察分时承接低吸；若暴力 10 个点拉升，则在其回调至均线企稳时介入（偏离 ≤ 1 点）。</p>
+            <p class="sub-text">核心：强拉升定强度，板块效应托底。</p>
+          </div>
+        </div>
+        <div class="warn"><div class="w-title">⚠ 铁律</div>两种模式都要<b>板块的小弟助攻</b>，不能单纯地看龙头表现。</div>
+      </section>
+
+      <!-- ============ 第6章 核心战法 ============ -->
+      <section class="chapter" id="s6">
+        <div class="sec-head"><div class="sec-no">6</div><div><h2>决胜战法 · 99 式 / 96 式 / 969 式</h2><div class="en">WINNING STRATEGIES</div></div></div>
+        <p>三套战法均以"<b>连续 2 板及以上涨停标的（主流题材龙头）</b>"为核心选股池，捕捉主力吃货、洗盘、拉升的完整操盘链路。<b>持仓核心原则：不破 5 日线不出，出现贯穿覆盖 K 线时离场。</b></p>
+
+        <h3>6.0 第二十八部分·零 · 99 战法生命周期适用边界（2026-09-04 核心补丁）</h3>
+        <div class="warn"><div class="w-title">🚫 99 战法的两条生死红线（任一触发 → 一律不上 99 战法）</div>
+          <ol>
+            <li><b>大周期 &gt; 7 板后已结束</b> → 99 战法<b>永久禁用</b>（此高度之后已经是频繁失败，不可重仓介入）</li>
+            <li><b>过渡周期</b>（核心标/空间标双双挂逼后，到双冰触发并完成"先杀后立"之前）→ 99 战法<b>绝对禁用</b>（会跌停死人）</li>
+          </ol>
+        </div>
+        <div class="rule t-gold"><div><span class="tag gold">金句</span><b>"99 战法在 &gt; 7 板的大周期结束后不能再玩，已经是频繁失败了；过渡周期是不能玩 99 战法的，是会跌停死人。"</b></div></div>
+        <div class="tip"><div class="t-title">🔓 唯一例外窗口（窄边界，谨慎启用）</div>
+          过渡周期内<b>同题材次高互卡 + 题材整体强度还行</b>时，可<b>仅在尾盘</b>用 99 战法找该题材内符合换手 + 预期差的标的（详见 <a href="#sec-5-6-1">5.6.1 次高玩法·铁律四"互卡情景下的尾盘 99 战法"</a>）。<b>早盘 99 战法 = 过渡周期绝对禁区。</b>
+        </div>
+        <div class="done"><div class="d-title">判定口诀</div>
+          <b>先看周期阶段</b>（过渡？主升？退潮？）→ <b>再看大周期高度</b>（&gt; 7 板？）→ <b>都过关才考虑 99 战法</b>。
+        </div>
+
+        <h3>6.1 99 式战法 · 连续涨停大阳线换手板</h3>
+        <h4>核心前提：有效换手板硬性判定</h4>
+        <p>纳入选股池的标的需出现符合标准的换手板。<b>一字破板形成的 T 字板、高开 5 个点直接秒板，均不属于有效换手板</b>。若标的高开 5 个点后下砸震荡，随后拉升走出大长腿形态，或直接拉出实体大阳线涨停（无论封板、炸板），则判定为有效换手板——代表资金真实换手、主力主动吃货。</p>
+        <h4>两大核心买点体系</h4>
+        <ol>
+          <li><b>常规基础买点（有效换手板次日 = 法定开仓日）：</b>一是次日高开，分时呈现<b>红肥绿瘦的猛攻走势</b>，择机买入；二是次日低开，但股价快速翻红，且分时保持红肥绿瘦的猛攻状态，确认资金强承接后买入。</li>
+          <li><b>终极晋级买点（抓妖精髓，买点落在有效换手板当天）：</b>需满足四项严苛条件——标的是前期未被炒作、从深坑底部启动的低位股；此前已拉出 2 个以主力低位吃货为目的的实体阳线涨停；换手日当天股价出现 -8% 以下的大低开，或下探至 5 日线附近；随后分时快速猛攻，此时果断买入。（详见第 3 章 3.3）</li>
+          <li><b>换手日特殊先手买点：</b>未变现的 9 式二板刚刚破平台，在二进三时低平开，然后进攻分时可以在换手板日先手买点。</li>
+        </ol>
+        <h4>终极卖点（4 条）</h4>
+        <ol>
+          <li>炸板也不出（在 <b>5 日线之上</b>）。</li>
+          <li>加速后的<b>爆量断板</b>出货。</li>
+          <li><b>破 5 日线</b>。</li>
+          <li><b>覆盖式 K 线</b>出现。</li>
+        </ol>
+
+        <h3>6.2 96 式战法 · 换手日 + 破 5 日线 + 3 日吃货反攻</h3>
+        <p><b>核心筛选与走势硬性条件：</b>纳入选股池的标的需经历<b>换手日</b>（当天炸板或不炸板均可），且换手日的下一个交易日，股价必须<b>跌破 5 日线</b>——这是主力深度洗盘、清理浮筹的关键信号。"6"代表换手日之后的 3 个交易日，其中首日需完成破 5 日线动作，后两日必须出现<b>主力吃货型 K 线</b>（分时呈"红肥绿瘦"进攻形态）。</p>
+        <h4>三大核心买点（均需红肥绿瘦分时验证）</h4>
+        <ol>
+          <li><b>次日高开买点：</b>破 5 日线后的首个交易日，股价直接高开，且分时走"红肥绿瘦"进攻走势，即可择机买入。</li>
+          <li><b>第三日高开买点：</b>若次次日未出现买点，在换手日后的第三个交易日，股价高开且分时呈"红肥绿瘦"进攻形态，同样可介入。</li>
+          <li><b>双 K 模式进阶买点：</b>下跌波段中出现明确底部支撑——以一根<b>大阳线作为支撑底</b>，后续出现一根<b>高开的进攻型阳线</b>，且后者分时为"红肥绿瘦"吃货走势，两根 K 线形成"<b>支撑阳 + 进攻阳</b>"组合，即为双 K 买点信号。</li>
+        </ol>
+        <p class="sub-text">卖点同 99 式。</p>
+
+        <h3>6.3 969 式战法 · 高位震荡箱体专属</h3>
+        <p><b>适用前提：</b>① 标的属性 = <b>上一周期高位标的</b>，具备持续市场人气（优先选择有知名游资参与、关注度未衰减的核心标的）；② 阶段特征 = 进入"<b>高位震荡阶段</b>"，历经 6 这个细分阶段后形成明确<b>箱体结构</b>，震荡区间清晰可辨。</p>
+        <h4>买点一：双 K 节奏买点（箱体震荡内买点）</h4>
+        <ul>
+          <li>先出现启动 K 线（K1），K1 后标的正常回落，随后诞生关键确认 K 线（K2）；K2 需满足"<b>高开</b>"核心条件，且 K2 涨幅需显著强于 K1（K1 为趋势铺垫、K2 为进攻信号）。</li>
+          <li><b>分时特征：</b>K2 当日开盘后"<b>强分时拉升</b>"，分时斜率 <b>≥ 45 度</b>，拉升坚决无明显犹豫。</li>
+          <li><b>量能标准：</b>开盘前 4 分钟（前四根成交量柱），<b>换手率需达到前一交易日总换手率的 15% 以上</b>。</li>
+          <li>三重条件满足时<b>即时介入</b>，无需等待回调。</li>
+        </ul>
+        <h4>买点二：箱体突破买点 + 站上 5 日线</h4>
+        <ul>
+          <li><b>情形一（高开突破）：</b>当日高开后直接发起突破，强分时拉升（斜率 ≥ 45 度），突破后不回踩箱体上沿；前 4 分钟换手 ≥ 昨日 15%，突破时量能持续放大。</li>
+          <li><b>情形二（低开贯穿突破）：</b>当日低开，开盘后迅速启动强势分时拉升（斜率 ≥ 45 度），伴随"<b>贯穿式分时走势</b>"（早盘完成贯穿为佳），快速摆脱低位区间后突破箱体；前 4 分钟换手 ≥ 昨日 15%，贯穿拉升中量能无明显萎缩。</li>
+        </ul>
+        <h4>持仓与离场</h4>
+        <div class="done"><div class="d-title">持仓底线 / 离场信号</div>
+          <b>持仓：</b>只要股价不跌破 5 日线，且未出现"贯穿覆盖 K 线"，则持续持有。<br>
+          <b>离场：</b>一旦股价有效跌破 5 日线，或出现实体较长的贯穿覆盖 K 线（暗示趋势反转），立即止损或止盈离场。</div>
+
+        <h3>6.4 9 式战法 · 分时分类及操作策略</h3>
+        <table>
+          <tr><th>开盘类型</th><th>分时形态</th><th>操作</th></tr>
+          <tr><td rowspan="2"><b>高开</b></td><td><b>大斜率上攻分时</b></td><td class="green">✓ 最佳买点，可直接介入</td></tr>
+          <tr><td><b>锁仓震荡分时</b></td><td class="blue">✓ 锁仓信号，满足战法其他条件时可介入</td></tr>
+          <tr><td rowspan="3"><b>低开</b></td><td><b>大斜率上攻翻红分时</b></td><td class="green">✓ 明确买点，可择机介入</td></tr>
+          <tr><td><b>锁仓 + 贯穿式分时</b></td><td class="blue">✓ 冲高回落时为买点</td></tr>
+          <tr><td><b>大斜率下跌分时</b></td><td class="red">✗ 风险信号，坚决不能买入；持有该股需立即卖出</td></tr>
+        </table>
+
+        <h3>6.5 九九 + 九六 速记版</h3>
+        <div class="grid2">
+          <div class="mini"><h5><span class="ic">⚡</span>九九战法（断板次日节点票）</h5>
+            <p><b>高开情形：</b>断板次日高开，呈现强势分时；<b>开盘前 4 分钟换手率 ≥ 昨日总换手率的 15%</b>，换手充足 → 可直接打板介入。</p>
+            <p><b>低开情形：</b>断板次日低开，但开盘有强势分时；早盘出现贯穿式走势（<b>一气呵成穿四格，别拖拉</b>），且换手充足 → 按九九模式上车。</p>
+          </div>
+          <div class="mini"><h5><span class="ic">⚡</span>九六战法（节点票换手周期）</h5>
+            <p><b>前置（第1-2天）：</b>第一天换手阶段股价必须跌至 5 日线以下；第二天资金回流，大振幅、大换手。</p>
+            <p><b>第三天 = 核心上车点：</b>高开高走 + 换手充足 → 最佳买点直接介入；低开但早盘强分时 + 换手充足 + 贯穿式回落 → 可介入。</p>
+          </div>
+        </div>
+
+        <h3>6.6 次高票低吸规则</h3>
+        <div class="rule t-blue"><div><span class="tag blue">低吸</span><b>适用前提：</b>核心票仍在持续，标的为接近核心票地位的次高票。<br>
+        <b>触发条件：</b>① 次高票当日早盘 5 分钟内触及涨停板，随后炸板；② 次日股价需呈现<b>强势分时</b>（弱势分时无论跌幅多少均不参与）；③ 次日股价回落至 <b>0 轴或 -5%</b> 位置时，低吸介入。</div></div>
+
+        <h3>6.7 独三苗</h3>
+        <div class="card">
+          <p><b>定义：</b>A 股短线炒作中的一种梯队结构战法，特指在涨停梯队初步形成时，位于<b>三板位置、具有唯一性且承担梯队衔接作用的关键换手板</b>。核心逻辑在于捕捉梯队成型初期的"空间板溢价"。</p>
+          <p>一般二板有一个一字板之后，更高位置（3 板 or 4 板的换手板）可以做留意——因为二三板有涨停票之后，首板再来一个板，就构成梯队。正常情况，<b>梯队成型的首日，最高主动板的票，隔日至少都有 8cm 左右的溢价空间</b>（如 7-7 华银电力）。</p>
+          <p><b>三特征：</b>① <b>唯一性</b>（当日三板仅有 1 只，无竞争者，如四板空缺）；② <b>承上启下</b>（衔接下方一字二板和上方四板预期）；③ <b>换手属性</b>（充分换手 = 市场合力认可，而非通道党独食，抛压更轻）。</p>
+        </div>
+      </section>
+
+      <!-- ============ 第7章 PK博弈 ============ -->
+      <section class="chapter" id="s7">
+        <div class="sec-head"><div class="sec-no">7</div><div><h2>群雄逐鹿 · 晋级 · 淘汰 · 生死赛</h2><div class="en">TOURNAMENT</div></div></div>
+        <div class="tip"><div class="t-title">⚔️ PK 博弈心法</div>
+        <b>晋级 · 淘汰 · 生死赛</b>——同身位只能活一个。<b>谁开得好谁活</b>：能量柱逆袭空间标、空间标卡掉能量柱，开盘前十分钟揭晓。专注核心，就是在这一局里只押真正的龙头。</div>
+
+        <h3>7.1 赛制认知</h3>
+        <div class="flow">
+          <span class="f-node">一进二<br>晋级赛</span><span class="f-arrow">→</span>
+          <span class="f-node">二进三<br>晋级赛</span><span class="f-arrow">→</span>
+          <span class="f-node hot">三进四<br>淘汰赛</span><span class="f-arrow">→</span>
+          <span class="f-node hot">四进五<br>淘汰赛</span><span class="f-arrow">→</span>
+          <span class="f-node hot">剩1-3个<br>生死赛</span>
+        </div>
+        <p class="sub-text">三进四后淘汰赛还有 4 个选手，则次日四进五继续淘汰赛；淘汰赛后只剩 1-3 个选手，则称之为<b>生死赛</b>。</p>
+
+        <h3>7.2 淘汰赛应对策略（总原则：弃弱留强）</h3>
+        <div class="grid2">
+          <div class="mini"><h5><span class="ic">A</span> 只有一个一字板</h5><p>剩下的几个参赛票要么放弃，要么选<b>最强的那个非一字板</b>，<b>后排的一律不要</b>。</p></div>
+          <div class="mini"><h5><span class="ic">B</span> 超过 2 个一字板</h5><p>考虑一字板的<b>先炸板先回封</b>的那个标的，后排的一律不要。</p></div>
+          <div class="mini"><h5><span class="ic">C</span> 盘子与 R 标</h5><p>优先选择<b>盘子小、价格便宜</b>的，<b>不要带 R 标的</b>（带 R 一般过不了 7 板）。</p></div>
+          <div class="mini"><h5><span class="ic">D</span> 竞价爆量</h5><p>结合<b>竞价爆量 10%</b>，且<b>换手 Z 最高排名第一</b>的；如果换手 Z 超过 9、爆量超过 20% 以上的通常为<b>骗炮</b>。</p></div>
+          <div class="mini"><h5><span class="ic">E</span> 二板一字</h5><p><b>二板走一字板</b>的，在后续核心票角逐中往往落败。</p></div>
+          <div class="mini"><h5><span class="ic">F</span> 封单标准</h5><p>一般核心票在<b>三板的时候顶 20W 封单</b>。</p></div>
+          <div class="mini"><h5><span class="ic">G</span> 加速板队伍 PK（关键）</h5><p>前一日均为加速板的队伍次日 PK 时，<b>买点应后置</b>，选择经历大分歧换手后封板的标的。<b>谁先量换够后先上板者打，别打那个没换量又先上板的</b>。</p></div>
+        </div>
+
+        <h4>💥 能量柱还没有形成前的 PK（加速板队伍次日 PK）</h4>
+<div class="card">
+  <p>特别是在<b>妖股反包二板形成的同节点梯队 PK</b> 之时：</p>
+  <ol>
+    <li><b>核心前提：</b>参与 PK 的两支标的前一日均为<b>加速板</b>形态。</li>
+    <li><b>买点原则：</b>必须采用"<b>买点后置</b>"策略，不急于在早盘介入。</li>
+    <li><b>标的选择：</b>坚决放弃"优先上板"的标的，重点关注并选择"<b>经历大分歧、完成充分换手后封板</b>"的标的。</li>
+    <li><b>关键结论：</b>完成大分歧换手封板的标的，才是该轮 PK 中真正的胜出者。</li>
+  </ol>
+  <p class="sub-text">案例：9-23 福龙马 VS 红豆股份（三进四）；9-17 百利科技 VS 香江控股（首开做妖）。</p>
+</div>
+
+<h3>7.3 生死赛应对策略（总原则：取最终赢家）</h3>
+        <ol>
+          <li><b>一开盘被摁死：</b>如果当天一开盘就其中某 1-2 个标的被摁死跌停，或者一开盘就直线下杀奔跌停或接近跌停，则另一个票即便去冲击涨停也<b>不要去参与</b>。</li>
+          <li><b>多留意逆袭事件：</b>头天相对弱的选手，次日反而领先、逆袭成赢家（详见 7.5）。</li>
+          <li><b>重视 20 分后的加单情况：</b>如果出现两个一字的备选核心标，<b>炸的那个一定不能买</b>。你既然做了能量柱，当天就不能炸板，炸板就不是能量柱，就不能买。（9-29 品茗/嘉泽一字，嘉泽炸板因为有品茗；10-13 安泰/庄园一字，庄园炸板因为有安泰）</li>
+        </ol>
+
+        <h3>7.4 PK 博弈的关键：预期差</h3>
+        <div class="rule t-gold"><div><span class="tag gold">核心</span>PK 的买点，在于<b>弱者转强、强者转弱</b>的<b>预期差</b>，而<b>绝非买强更强</b>。</div></div>
+        <ul>
+          <li>案例对比：<b>华丰卡位圣阳</b>有预期差（可做）；<b>澄星股份</b>昨日已强于安泰，今日再追涨无预期差 → <b>天地板</b>。</li>
+        </ul>
+        <details><summary>节点位置多标的的博弈（进阶）</summary><div class="d-body">
+          <ul>
+            <li>节点位置，如果有两个或以上标的，绝大多数情况下<b>不可能同时倒戈</b>，要么周期标本身延续周期，要么能量转移延续周期（如华丰股份）。</li>
+            <li>节点位置的博弈，如果<b>整体全部弱于预期</b>，这个时候就不要考虑预期差，而是<b>直接考虑做最强</b>。在周期生死存亡的节骨眼，还去玩花板眼，会毁了这个家。（5-12 成飞集成 / 天箭 / 利君竞价全弱于预期，直接强更强做成飞；1-17 金奥博 / 苏豪鸿业 / 来伊份全弱于预期，直接做强更强做金奥博）</li>
+            <li>节点正确的情况下，梯队情绪通杀之际，主动上板 / PK 最强赢家、延续周期的选手，同样也是周期标。节点位置有多个标的时，绝大多数都是<b>周期标 + 换手板</b>配置。</li>
+            <li>总结：① 节点位置多个标，周期大概率能延续；② 竞价集体弱于预期，不考虑预期差直接做强更强；③ 情绪通杀之际延续周期的选手同样是周期标，但大前提是节点位置。</li>
+          </ul>
+        </div></details>
+
+        <h3>7.5 逆袭战法</h3>
+        <p>二进三，我们做生死赛的 PK，注意的就是<b>烂板的逆袭一字板</b>。</p>
+        <div class="grid2">
+          <div class="mini"><h5><span class="ic">🌅</span>早盘逆袭（竞价~开盘10分钟内）</h5>
+            <p>昨天对比：强标 = 秒板/一字板；弱标 = 烂板、换手不流畅。</p>
+            <p>今天：逆袭标（昨天烂板）<b>低开 → 直接一根线拉上去</b>；昨天秒板/一字的强标走弱。</p>
+            <p><b>信号：低开弱转强，开盘直接反超、卡位昨天更强的票。</b></p>
+          </div>
+          <div class="mini"><h5><span class="ic">🌆</span>盘中逆袭（重点做）</h5>
+            <p>昨天：A 票秒板上板明牌强；B 票烂板充分换手。</p>
+            <p>今天开盘：A 票开一字/伪一字；B 票高开 → 直接下杀 → 长时间横盘换手。</p>
+            <p><b>关键触发：A 票炸板且迟迟不能回封；B 票换手充分承接稳住。B 看到 A 彻底废了，突然一根线直线拉升，完成卡位逆袭上板。</b></p>
+          </div>
+        </div>
+        <p class="sub-text">还有一种：<b>盘中逆袭</b> = 换手票逆袭本该一字却炸板不回封的票。</p>
+      </section>
+
+      <!-- ============ 第8章 周期演变 ============ -->
+      <section class="chapter" id="s8">
+        <div class="sec-head"><div class="sec-no">8</div><div><h2>市场进化 · 周期模式演变与回马枪</h2><div class="en">EVOLUTION</div></div></div>
+
+        <h3>8.1 周期模式的演变历程</h3>
+        <table>
+          <tr><th>模式</th><th>案例</th><th>关键点</th><th>加分点</th></tr>
+          <tr><td><b>涅槃成周期龙</b></td><td>圣龙股份、信隆健康</td><td>分歧中完成"弱转强"，反复换手资金接力；需经历一次以上"假摔"爆量后重新启动涅槃</td><td>强势破异动（6-7 时）并且涅槃，<b>龙头不言顶</b></td></tr>
+          <tr><td><b>卡节点/超预期能量柱</b></td><td>国芳集团、渝三峡A</td><td>关键情绪节点超预期高开或放量涨停卡位；需结合情绪转折点，分时强度显著强于同类</td><td>—</td></tr>
+          <tr><td><b>换手卡一字</b></td><td>山东墨龙</td><td>一字板因流动性不足被换手板逆袭；换手标的分歧日承接强势 + 次日加速确认</td><td>—</td></tr>
+          <tr><td><b>吸核成龙</b></td><td>神剑股份吸海南发展能量</td><td>核心因板块拉胯不行或二次换帅时，高位股吸核成龙，取代核心票位置</td><td>—</td></tr>
+        </table>
+        <div class="tip"><div class="t-title">💡 所谓涅槃（周期龙共性）</div>
+          5 板 or 更高位置完成<b>爆量动作</b>之后，隔日<b>缩量 / 主动板</b>，视为涅槃成功，定性周期龙——无论是粤桂 / 海能达，还是更早的圣龙 / 深中华，均有这种动作（2023-10-13 圣龙）。</div>
+
+        <div class="tip"><div class="t-title">📜 传统连板周期的经典案例</div>
+<p>传统周期标的多以连续涨停（连板）形式带动周期，如 <b>大东南、森林股份、兰生股份、西藏发展</b> 等。依赖连板高度突破，但市场逐渐出现"连板瓶颈"，持续性受监管与获利盘抛压影响，资金开始探索非连板模式（见上表）。</p></div>
+
+<h3>8.2 当前主流 · 回马枪反杀上位</h3>
+        <div class="rule t-purple"><div><span class="tag purple">主流</span><b>定义：</b>在 PK 赛中，原本的"输家"标的通过<b>隔日反包或强势弱转强</b>，逆袭"赢家"标的，夺取周期龙头地位。<b>本质是资金对"预期差"的博弈</b>，利用市场对 PK 结果的惯性认知进行反向操作。</div></div>
+        <details><summary>经典案例解析</summary><div class="d-body">
+          <ul>
+            <li><b>航锦科技（2 月）：</b>PK 输给浙江东方后，次日反包涨停，完成周期卡位。关键：需在主线分歧日出现，反包分时快速封板彰显强度。</li>
+            <li><b>北纬科技（长城周期）：</b>断板后反杀连板赢家国机精工，成为最终周期龙。关键：反杀需伴随主线修复（军工板块回流），且带动板块内其他标的助攻。</li>
+            <li><b>腾龙股份（液冷主线）：</b>最先断板，但通过回马枪反杀飞龙股份、金田股份确立周期地位。关键：反杀日需放量突破前高，板块情绪同步修复。</li>
+            <li><b>金田股份：</b>虽被反杀，但周一的一字板与周二竞价强度仍巩固其周期内地位。关键：一字板标的需观察开板后的承接，若抗跌可能二次争夺龙头。</li>
+          </ul>
+        </div></details>
+
+        <div class="tip"><div class="t-title">💡 回马枪的升级（补刀买点）</div>
+出现能量柱当天 <b>PK 失败</b>的节点正确且有逻辑的大票，隔日可<b>均线上低吸</b>它。</div>
+
+<h4>对周期标的要求（必须苛刻）</h4>
+        <div class="warn"><div class="w-title">⚠ 回马枪周期的周期标位置</div>
+          <p>不能在 <b>6-7 破异动这天失败</b>——一是位置尴尬，给多一天也可能不敢破异动（特别是断板当天龙虎榜是量化的更要死，没骨头）。<b>要么在 5-6 之前，要么就在 7-8 之后</b>。</p>
+          <p>周期标回马枪当天的竞价最好是从<b>地板反核到 0 轴</b>，会更加酣畅淋漓，别一上一下的杂乱。</p>
+        </div>
+        <h4>回马枪反包三板是坎 · 当天修复三条件</h4>
+        <ol>
+          <li><b>空间板未核按钮</b>（如吉视传媒）。</li>
+          <li><b>主线板块有资金回流</b>（如军工）。</li>
+          <li><b>反包标的带动性强</b>（如北纬科技）。</li>
+        </ol>
+        <div class="rule t-gold"><div><span class="tag gold">总结</span>回马枪上位的周期：开仓点是<b>盘子小的断板反包当天必打，预期反包三板</b>；周期结束的标志是：<b>同一周期的节点票没有涨停，次日可二进二试错新周期</b>。</div></div>
+
+        <h3>8.3 回马枪晋级周期龙的演变及后续</h3>
+        <h4>① 节点票断板次日（三种上车方式）</h4>
+        <ol>
+          <li><b>A. 打板回马枪节点票：</b>节点票断板后次日通过空间标秒板 / 顶一字 / 同题材强势反包首板当天（如 9-12 青山纸业助攻首开股份反包）。</li>
+          <li><b>B. 低吸次高断板票：</b>0 轴或 -5 低吸或深水吸；如果竞价是先核再反上 0 轴，开盘直接上。同节点票断板的（<b>炸板的成功率更高</b>）次高票。如 9-12 卧龙新能三进四炸板断板次日低开 -7 直接深水低吸，隔日涨停。</li>
+          <li><b>C. 一进二失败票的低吸</b>（保留周期内低吸逻辑，不涉及已退役的 N 字判定）。</li>
+        </ol>
+        <h4>② 回马枪晋级周期龙 · 反包二板</h4>
+        <ol>
+          <li><b>A. 优先上周期标</b>，有时会先背离其中一个空间标也是可以上的（如平潭发展反包二板背离瑞尔特）。</li>
+          <li><b>B. 低吸次高断板票</b>（同上）。</li>
+          <li><b>C. 一进二失败票低吸</b>。</li>
+        </ol>
+        <h4>③ 回马枪晋级周期龙 · 反包三板</h4>
+        <ul>
+          <li><b>A. 优先看周期龙会不会背离走妖。</b>周期龙能走多高关键看第一波多少个板，<b>反包高度在 N-1</b>。买点：打板周期龙。<b>最大可能就是反包三板的时候背离走妖，不过仓位要小点</b>。走妖逻辑如 9/15 首开强于青山；4/17 国芳强于泰慕士。反面案例：1/23 金奥博弱于冀凯，周期标弱于连板补涨标，则有隐患。</li>
+          <li><b>B. 梯队里的同身位换手票。</b>这批梯队在跟回马枪反包当天产生，<b>要高度重视这个二进三</b>。这也是周期龙里补涨 PK 节点，补涨票的高度也是在周期龙第一波的高度以内 N-1。<b>这个节点的 PK 买点一定要后置</b>，PK 前一天同为加速板的，一定忌讳一下再次加速。<b>宁可不做，也不要乱上二次加速板。</b></li>
+        </ul>
+        <h4>④ 周期龙断板</h4>
+        <p><b>次日退潮反核：</b>当周期龙断板当天大面积退潮，次日可做退潮反核。标的选择，同周期龙出来的那波补涨节点票（参考第 2 章 2.2）。</p>
+
+        <h3>8.4 妖股后续的新周期演绎</h3>
+        <div class="grid2">
+          <div class="mini"><h5><span class="ic">🐉</span>第一种 · 反包三板背离走妖后</h5>
+            <p>· <b>A.</b> 妖股于 <b>10 日线或 20 日线</b>等重要均线<b>站稳</b>。</p>
+            <p>· <b>B.</b> <b>突破空间高度压制</b>。</p>
+            <p class="sub-text">案例：国芳集团 5-6 站稳 20 日线；渝三峡A 突破 4 板高度压制；首开股份 9-29 站稳 10 日线；蓝丰生化突破 5 板高度压制。</p>
+          </div>
+          <div class="mini"><h5><span class="ic">🕳️</span>第二种 · 反包二板就失败没走妖</h5>
+            <p>周期结束的标志：<b>同一周期的节点票没有涨停，次日可二进二试错新周期</b>（节点票 = 同回马枪同时期的节点票）。</p>
+          </div>
+        </div>
+        <div class="card"><p><b>妖股挂后的节奏：</b>妖股挂了之后会反复震荡几天，这时候的高标受制于妖股第一波的高度，<b>这个空间挂了之后的次日才考虑去开启新周期</b>。做完退潮反核后的空间标受制于妖股第一波断板后，考虑开启新周期，<b>以能量柱形式当日做同身位换手，隔日做能量柱 T 字板</b>。</p>
+        <p class="sub-text">案例：国芳集团第一波 7 板，反包三板背离泰慕士走妖后，4-23 断板，次日天保基建（5 板断板退潮反核标的 ≥ 4 才有效）竞价高开退潮反核；首开股份 9-19 妖股断板次日，山子高科竞价跳空高开反核。</p></div>
+
+        <h3>8.5 老龙二波</h3>
+        <div class="rule t-blue"><div><span class="tag blue">二波</span><b>节点：</b>有能量柱或者说新周期生成前一天。<br><b>条件：</b>对于当天主流题材相关性要高。如 10-27 当日最火题材台海，可上漳州发展的老龙二波。</div></div>
+
+        <div class="note"><div class="n-title">📌 老龙多波套利（能量柱生成前一天）</div>
+<p>在周期节点日前一天，前期老龙头容易走出二波行情。案例：<b>安泰节点日的长城军工</b>、<b>品茗节点日的山子高科</b>、<b>首开周期的淳中科技</b>。</p></div>
+
+<h3>8.6 大周期后的双冰 · 无缝衔接</h3>
+        <p>大周期之后，隔日<b>无缝衔接小周期</b>——关键点：需要高位仍滞留<b>活口标，越多越好</b>，这是维系继续主升的关键。如果只有个别活口，要看更低位置出现能量柱 / 新周期。</p>
+        <ul>
+          <li>不然就会出现<b>双冰</b>：杀情绪杀指数后，双冰后<b>次日无脑去取空间最高标</b>。注意<b>先杀后立</b>，先杀最高标，次高成为新的最高再去上。</li>
+          <li>如果又连续双冰（<b>三冰四冰</b>），空间的成长性会打折扣，故舍弃。不去最高标的，<b>空仓等</b>。</li>
+          <li>如果只是<b>单冰</b>（只杀情绪不杀指数），隔日的空间板不仅没有确定性，反而有巨大风险。</li>
+        </ul>
+        <details><summary>总结</summary><div class="d-body">
+          <ul>
+            <li>大周期断板当天空仓看戏，隔日抓妖股分时。</li>
+            <li>隔日有新的能量柱出现 → 六件套。</li>
+            <li>双冰 → 第二天无脑取空间最高标。</li>
+            <li>单冰（只杀情绪不杀指数）或三冰 → 最高标也不能去，空仓看戏。</li>
+          </ul>
+        </div></details>
+      </section>
+
+      <!-- ============ 第9章 二元博弈 ============ -->
+      <section class="chapter" id="s9">
+        <div class="sec-head"><div class="sec-no">9</div><div><h2>二元玄机 · 空间标与核心标的博弈</h2><div class="en">DUALITY</div></div></div>
+        <p>一句话：<b>空间标背离核心标时就可以上车</b>。这一章是体系中最深的博弈精髓。</p>
+
+        <h3>9.1 空间标与核心标的关系（基础）</h3>
+        <ol>
+          <li>核心标成为能量柱当天和次日，都可以根据空间标的强势去打这个最高标。</li>
+          <li><b>空间标成周期龙的判断：</b>核心标要示弱（如平低开，不能一字板），然后空间标<b>低平开秒板，比核心票快速上板</b>。如 3-13 信隆健康低平开秒板强势于湖北广电，后示弱，信隆健康成为周期龙。</li>
+          <li><b>空间标成最强羁绊：</b>空间标不能高开秒板，而要<b>低开、平开走换手板</b>，逻辑才清晰。</li>
+        </ol>
+        <div class="rule t-gold"><div><span class="tag gold">总结</span>空间标想要活就一定得<b>低平开走换手板</b>。如果核心票不顶一字 → 空间票有希望<b>涅槃成龙</b>；如果核心票顶一字 → 空间票就成<b>最强羁绊</b>。</div></div>
+
+        <h3 id="sec-9-2">9.2 终极二元判定（规则十八 · 2026-08 沉淀）</h3>
+        <p class="sub-text">前置条件：当能量柱（核心标）与空间标同时存在（<b>二虎坐一山</b>）时，启用本判定体系。</p>
+        <table>
+          <tr><th>情景</th><th>核心标开盘行为</th><th>操作策略</th></tr>
+          <tr><td><span class="dot red"></span><b>A 核心强攻</b></td><td>核心标<b>一字 或 高开秒板</b></td><td><b>放弃空间标</b>，哪怕空间标低平开 → 只做核心标的 <b>T 字回封</b></td></tr>
+          <tr><td><span class="dot green"></span><b>B 核心不强</b></td><td>核心标非一字、非高开秒板（低平开 / 小高开 / 震荡）</td><td><b>可做空间板</b>低平开后的 N 字，或直接打板上</td></tr>
+        </table>
+        <div class="card">
+          <p><b>底层规则：</b></p>
+          <ul>
+            <li>空间标想要赢 = <b>不能开太高</b>（开太高易炸板，汉森 9 个点开盘案例）。</li>
+            <li>能量柱想要逆袭 = <b>必须低平开</b>（深中华A 小高开 2.8% 完美）。</li>
+            <li><b>二虎坐一山时，谁开得好谁活。</b></li>
+          </ul>
+          <p><b>配套规则：</b>预判次日有"二进三能量柱" + 梯队更高空间标<b>不放权</b>时 → <b>两手抓</b>：① 不放过上面的放权者（空间标的接力机会）；② 多看一天真正的能量柱次日是不是 <b>T 字板</b>（= 核心中的核心 = 上车点）。第三日时，看更高空间标是否开太高 → <b>开太高 = 能量柱必然逆袭</b>。</p>
+        </div>
+
+        <h3 id="sec-9-3">9.3 空间板谨慎三铁律（规则十七 · 2026-08 沉淀）</h3>
+        <div class="rule t-red"><div><span class="tag red">铁律 1</span>空间板在核心票或周期龙<b>没有倒下之前务必谨慎</b>，因为它随时可能跟着陪葬。</div></div>
+        <div class="rule t-red"><div><span class="tag red">铁律 2</span>如果核心票或周期龙倒下，且核心票或周期龙高度并不高，而空间板次日还能<b>背离继续晋级</b>，则有开仓博弈的价值。</div></div>
+        <div class="rule t-red"><div><span class="tag red">铁律 3</span>空间票即便能背离走穿越，<b>仓位也不能重</b>，因为要提防核心票和周期龙倒下带来的负反馈过于严重的 <b>A 杀风险</b>。</div></div>
+
+        <h3 id="sec-9-4">9.4 涅槃成龙开太高 = 易成烧鸡（2026-08 新增）</h3>
+        <div class="warn"><div class="w-title">⚠ 关键经验（8-26 汉森制药案例）</div>
+          每次<b>涅槃成龙开得太高都是非常容易成烧鸡的</b>。空间标若在前一交易日爆量回封（弱转强先手），次日一旦高开幅度过大（如汉森开盘直接拉到 9 个点），就远离了弱转强买点（5-6 低平开），进入高位接筹区，板上获利盘涌出极易炸板。<b>涅槃成龙的标准开盘形态 = 低平开或小高开（≤3%），然后以大单买上去才活</b>。</div>
+        <ul>
+          <li><b>涅槃成龙日，高开 ≥5% 或一字 → 放弃</b>（无论空间标还是核心标，开太高都不追）。</li>
+          <li><b>低平开或小高开（≤3%）→ 小仓位试错</b>。</li>
+          <li>若炸板后没有多大负反馈（未 A 杀），<b>重点看次日能否给正反馈</b>（断板次日修复窗口）。</li>
+        </ul>
+      </section>
+
+      <!-- ============ 第10章 风控 ============ -->
+      <section class="chapter" id="s10">
+        <div class="sec-head"><div class="sec-no">10</div><div><h2>风控护城河 · 卖出、监管与陷阱</h2><div class="en">RISK CONTROL</div></div></div>
+        <div class="tip"><div class="t-title">🚪 盛极点卖出心法</div>
+        <b>盛极点卖出：</b>加速 ≥4 天 + 持筹获利 &gt;90% = 抛压临界，此刻不贪、落袋为安。<b>断板后是过渡周期，不做</b>——守住心，等下一个能量柱。</div>
+
+        <h3>10.1 盛极点卖出</h3>
+        <div class="rule t-green"><div><span class="tag green">卖点</span>当龙头股<b>加速到第四天且出现缩量涨停</b>时，是绝佳卖点。因为此时处于情绪盛极阶段，大概率会出现分歧，继续持有易被反噬。</div></div>
+        <ul>
+          <li>如华电辽能 3-23 五进六加速，到了 3-26 八进九时的<b>缩量加速</b>就是卖点。</li>
+          <li><b>加速天数 ≥ 4 → 持筹者获利比例 &gt; 90% → 抛压临界点</b></li>
+          <li><b>人性与筹码博弈：</b>多数交易者因贪婪和侥幸心理，在涨停板时难以果断卖出。先是砸，如果你觉得还看好是总龙的，就在水下吸。</li>
+        </ul>
+
+        <h3>10.2 龙头断板后的耐心</h3>
+        <div class="warn"><div class="w-title">⚠ 龙头断板是亏钱的开始</div>
+          特别是过 <b>7 板</b>后，别被胜利冲晕了大脑，后面的<b>过渡周期别去做</b>，等过渡周期结束后，获利筹码出清后再去做。</div>
+
+        <h3>10.3 买点等待标准（三阶段低位卡位）</h3>
+        <ol>
+          <li>流通市值 <b>&lt; 50 亿</b>。</li>
+          <li>首板突破平台 + <b>地名概念</b>。</li>
+          <li>逆指数属性（与大宗商品负相关）——针对华电辽能后续。</li>
+        </ol>
+
+        <h3>10.4 千万别接三板组（红牌）</h3>
+        <p>短线里的<b>三板组</b>是一类短线游资庄。以资金优势强控小盘股，通过"<b>急拉涨停 + 一字板造势 + 突然撤单砸盘</b>"的模式收割跟风资金。</p>
+        <table>
+          <tr><th>阶段</th><th>识别特征</th></tr>
+          <tr><td><b>首板</b></td><td>分时"一线天"或"厂字"快速拉板，直线拉升几乎无回调；封单量极大远超流通盘（小盘股出现 3-4 亿+封单），买一超大联排单全天几乎不撤单。</td></tr>
+          <tr><td><b>二板至三板</b></td><td>多为大单一字板加速，封单维持高位；龙虎榜买入席位多为关联席位（联储证券宁波分公司、华源证券深圳分公司、天风证券江阴人民东路、华鑫证券等 3 家以上联动席位）。</td></tr>
+          <tr><td><b>出货</b></td><td>2-3 板或 3-5 板时利用高开或一字开盘，突然撤掉封单反手砸盘出货，结果多为 <b>A 杀</b>，股价瞬间跳水。</td></tr>
+        </table>
+        <p class="red">三板组操作的标的多为市值小、流通盘低的微盘股，便于资金控盘。面对此类股票应保持警惕，避免盲目跟风。</p>
+
+        <div class="card">
+  <h4>📐 三板持仓纪律与狙击点</h4>
+  <p><b>持仓纪律：</b>二板进场后，三板如果<b>继续换手则留</b>；如果三板是<b>大幅高开或者缩量加速</b>，<span class="green">直接板砸</span>。</p>
+  <p><b>狙击点（二进三跌停开盘）：</b>满足两点直接上车——① <b>绝对低位</b>：历史低位、首次低位连板；② <b>前置形态</b>：2 个连续实体涨停，<b>换手 14%-25%（主力涨停吃货）</b>。</p>
+</div>
+
+<h3>10.5 关于监管（周期标 6 进 7）</h3>
+        <ol>
+          <li><b>6 进 7 遇首次监管，标的主动涅槃、强势突破异动</b> → 监管为<b>利好，看涨</b>。</li>
+          <li><b>6 进 7 惧异动横盘，9 天严控不碰 10 天 100% 异动</b> → <b>第 10 天尾盘买入，第 11 天大概率涨停释放</b>。</li>
+        </ol>
+
+        <h3>10.6 连板破局（压制很久后）</h3>
+        <p>连板破局的核心，是<b>天时（监管释放信号）、地利（市场空间节点）、人和（龙头正反馈）</b>三者的共振，缺一不可。</p>
+        <div class="grid3">
+          <div class="mini"><h5><span class="ic">🗺️</span>地利 · 空间突破节点</h5><p>锁定当前连板高度的关键突破节点（如华电能源 4 进 5）。只有在节点上形成有效放量与封板，才能打破市场高度压制。</p></div>
+          <div class="mini"><h5><span class="ic">⏰</span>天时 · 监管释放信号</h5><p>被监管标的表现是连板破局的核心情绪开关：负反馈（安分、怂、下跌）→ 破局无望；正反馈（高开高走、涨停）→ 扫清制度障碍。</p></div>
+          <div class="mini"><h5><span class="ic">👥</span>人和 · 龙头正反馈</h5><p>龙头需主线核心、资金共识高、带动效应强；出狱后不怂敢涨，带动市场情绪高昂，形成做多合力。</p></div>
+        </div>
+        <p><b>实战流程：</b>先看监管票 → 再定节点票 → 最后定人和。<b>结论：连板能破局，但必须同时满足监管释放正反馈 + 节点龙头强势突破 + 市场情绪高昂，三者缺一连板破局皆难成。</b></p>
+
+        <h3>10.7 判断主升还是过渡周期</h3>
+        <ul>
+          <li><b>强势晋级标的带来板块提振</b> → 后天配享一字 / T 字，来到<b>情绪主升</b>的拐点。</li>
+          <li><b>没有带来板块提振</b> → 这个周期偏<b>过渡周期</b>。</li>
+        </ul>
+
+        <h3>10.8 交易总纲铁律</h3>
+        <div class="warn"><div class="w-title">🚫 红线</div>
+          <p>· <b>20cm、可转债再也不做。</b></p>
+          <p>· 要处理好空间标跟核心标的关系，<b>但凡核心标高开秒板或者一字，都不去做空间标</b>。</p>
+          <p>· 其他（反核反包、最强羁绊）只用来看做情绪的指标，量化情绪条件的一种，<b>只看不做</b>。</p>
+        </div>
+      </section>
+
+      <!-- ============ 第11章 完美剧本 ============ -->
+      <section class="chapter" id="s11">
+        <div class="sec-head"><div class="sec-no">11</div><div><h2>完美剧本 · 交易总纲</h2><div class="en">PERFECT PLAY</div></div></div>
+
+        <h3>11.1 旧周期结束的关键信号</h3>
+        <ul>
+          <li>上一周期核心标的断板后，<b>次日开盘需出现水下低开甚至跌停</b>——这是旧周期彻底结束的明确信号。</li>
+          <li><b>大周期结束后的小周期过渡只做低位的一进二，高位的首开也不做。</b></li>
+        </ul>
+
+        <h3>11.2 新周期核心标的诞生条件</h3>
+        <ol>
+          <li><b>二进三强势特征：</b>二板时充分换手（经过市场分歧，筹码充分交换）；三板时顶出<b>超 20 万手的大单封板</b>，且封单量能持续维持"一致"状态（大单封死、无明显撤单）。</li>
+          <li><b>核心标的的唯一性原则：</b>核心标必须"<b>由始至终不换帅</b>"——从三板起至后续连板始终由同一标的顶大单一字板，禁止中途更换（今日 A 标顶一字、次日突然换 B 标顶一字，此为大忌）。</li>
+          <li><b>空间标 ≥ 5 板时完成涅槃动作</b>，也是相当于能量柱的角色。</li>
+        </ol>
+
+        <h3>11.3 核心标的最佳上车点</h3>
+        <ol>
+          <li><b>新核心标确认当日：</b>可参与同身位竞争标的，或通过低吸方式参与核心标同身位个股；若核心标三板顶大单一字，可关注其所属板块助攻标的一进二套利。</li>
+          <li><b>核心标后续连板阶段：</b>核心三板后继续顶一字时，次日若出现 <b>T 字板（开盘短暂开板后迅速回封），开板小口是最佳上车时机</b>。</li>
+        </ol>
+
+        <h3>11.4 完整逻辑链条</h3>
+        <div class="flow">
+          <span class="f-node hot">旧核心断板</span><span class="f-arrow">→</span>
+          <span class="f-node">次日水下/跌停确认旧周期结束</span><span class="f-arrow">→</span>
+          <span class="f-node">新核心二板换手</span><span class="f-arrow">→</span>
+          <span class="f-node hot">三板20万手大单封死</span><span class="f-arrow">→</span>
+          <span class="f-node">确立唯一性后次日 T 字板上车</span><span class="f-arrow">→</span>
+          <span class="f-node hot">持续锁仓至核心走弱</span>
+        </div>
+        <p class="sub-text">此流程通过"新旧周期切换""龙头唯一性""买点时机"三重逻辑，构建短线交易的高确定性机会。</p>
+
+        <h3>11.5 补充纪律</h3>
+        <ul>
+          <li>若上个周期空间标超过 <b>9 板</b>，断板结束后需等待"<b>双冰</b>"机会，出现双冰后的周期才可参与。</li>
+          <li><b>大周期空间标断板次日属于过渡周期，不参与。</b></li>
+          <li>可参与新周期的确定时间点为<b>断板后第 4 或第 5 天</b>。</li>
+          <li><b>最安全的交易是高度九板时去做二板的补涨。</b></li>
+        </ul>
+
+        <h3>11.6 交易体系总纲（小周期 / 大周期 / 其他）</h3>
+        <table>
+          <tr><th>类型</th><th>操作</th></tr>
+          <tr><td><b>小周期</b></td><td>出现话事人 → 做同身位 N 字低吸或打板；然后话事人的首开 T 字回封；或出现话事人当日或次日的一进二。</td></tr>
+          <tr><td><b>大周期</b></td><td>断板后次日的妖股分时，哪怕极致的弱转强；再就是大周期双冰后隔日的最高标。</td></tr>
+          <tr><td><b>其他</b>（反核反包、最强羁绊）</td><td>只用来看做情绪的指标，<b>只看不做</b>。</td></tr>
+        </table>
+        <div class="rule t-gold"><div><span class="tag gold">优先级</span><b>核心首开 &gt; 同身位 PK &gt; 现话事人当日的一进二 &gt; 首开当日的一进二</b></div></div>
+
+        <h3>11.7 周期龙后的剧本演绎</h3>
+        <p>当一个空间标通过爆量次日完成缩量涅槃成功成周期龙后，不管第二天因为特别原因死或者不死，它已经完成了<b>空间标蜕变周期龙</b>的过程。</p>
+        <ul>
+          <li><b>如果周期龙不死</b> → 意味着新周期开辟，对前面相邻的老周期标，绝大多数情况不做反核考虑（除非属性一致）；新周期开辟，仅考虑老周期标 / 辨识度标的<b>打野套利</b>。</li>
+          <li><b>如果周期标死了</b> → 能不能做其反核？周期标的反核，结合周期内的空间板来做裁定。如果大退潮之后，其周期内的空间板隔日继续一字连板，作为周期标往往有反核的空间。</li>
+          <li><b>当期助周期标反核的空间标和周期标双双挂逼后</b> → 意味着本周期结束。剩下的新空间板一般是<b>挡刀工具</b>，次空间标才可能是新周期的话事人。（案例：5-30 尚纬股份涅槃次日变烧鸡；6-3 德邦股份助尚纬反核；6-4 双双结束；6-5 御银股份挡刀，次高共创草坪成新话事人）</li>
+        </ul>
+        <p class="sub-text">当然出不出大的行情就要看指数的配合，要么大阴线走背离，要么大阳线走共振。</p>
+      </section>
+
+      <!-- ============ 第12章 实战案例库 ============ -->
+      <section class="chapter" id="s12">
+        <div class="sec-head"><div class="sec-no">12</div><div><h2>实战推演 · 案例库（2026-08 医药 / 黄金双线周期）</h2><div class="en">CASE LIBRARY</div></div></div>
+        <p>收录近期真实复盘的实战案例，作为体系的活体验证。每个案例标注对位章节 + 教训沉淀。复盘时可反向从案例库查找历史同构。</p>
+
+        <div class="case">
+          <h4>案例一 · 汉森制药 6 板炸板（8-26）— 涅槃成龙开太高的反面教材</h4>
+          <p class="ts">周期背景：8-21 金健米业 5 板断板 = 旧周期（粮食题材）结束，医药 MRNA 新周期开启，汉森制药 3 板领头。</p>
+          <p class="ts">· <b>8-24（周一）二进三：</b>深中华A、中关村一字板，汉森制药开盘秒板（不放权）。盘后看中关村已是 T 字（被验掉），体感汉森是核心。</p>
+          <p class="ts">· <b>8-25（周二）分化日：</b>中关村等医药分歧，汉森加速秒板 → 上汉森 5 板（先手爆量回封）。再次忽视了暗线黄金的深中华A（人家才是真正的 T 字板 = 核心中的核心 = 上车点）。</p>
+          <p class="ts">· <b>8-26（周三）：</b>汉森 5-6 开盘弱转强直接上板 → <b>炸板</b>。核心原因：<b>开盘直接拉到 9 个点（开太高）</b>。好在负反馈不大，重点看次日正反馈。</p>
+          <div class="lesson"><b>对位章节：</b><a href="#s9">第9章 · 空间标与核心标</a>；<a href="#sec-9-4">第9.4节 · 涅槃成龙开太高 = 烧鸡</a>；<a href="#sec-9-3">规则十七铁律1</a>（核心标未倒下，空间板陪葬）。<br>
+          <b>教训沉淀：</b>① 开太高 = 烧鸡（正确开盘 = 低平开 / 小高开 ≤3% 大单买上去）；② 空间板在核心标未倒下前务必谨慎；③ 8-25 重仓上汉森违反铁律 3（空间票背离穿越时仓位不能重，防 A 杀）。</div>
+        </div>
+
+        <div class="case">
+          <h4>案例二 · 深中华A 能量柱回归王者（8-26）— T 字板上车点的教科书</h4>
+          <p class="ts">身份确认：深中华A（暗线黄金）= 8-21 周期中真正的能量柱，而非医药 MRNA 主线的汉森。</p>
+          <p class="ts">· <b>8-24（周一）一字板：</b>能量柱候选（但一字板当天不能确定题材归属——误判为医药 MRNA 主线，实际是暗线黄金）。</p>
+          <p class="ts">· <b>8-25（周二）T 字板：</b>T 字 = 能量柱确认信号 = 核心中的核心 = 上车点（连续第 2 次错过）。</p>
+          <p class="ts">· <b>8-26（周三）小高开 2.8% → 上板回归王者：</b>能量柱逆袭空间标，成为周期真正的王者。</p>
+          <div class="lesson"><b>对位章节：</b><a href="#s3">第3章 · 能量柱体系</a>（T 字板上车 + 次日必须一字开/最次 T 字）；<a href="#sec-9-2">第9.2节 · 终极二元判定</a>。<br>
+          <b>教训沉淀：</b>① 能量柱 = 核心中的核心；② 一字板当天不能判断题材归属，需多等一天看 T 字；③ 能量柱想逆袭也要低平开，空间标想赢不能开太高，<b>谁开得好谁活</b>；④ 终极二元判定应用：核心标小高开 2.8% 非一字非秒板 → 情景 B（核心不强）→ 可做空间板 / 直接打板深中华A。</div>
+        </div>
+
+        <div class="case">
+          <h4>案例三 · 8-21 → 8-26 完整周期复盘（体系对位练习）</h4>
+<pre style="background:#f3f5fa;padding:14px;border-radius:10px;overflow-x:auto;font-size:12.5px;color:#3d4a63;line-height:1.7;border:1px solid #d9e0ec;">8-21 金健米业5板断板 = 粮食题材天花板已现
+   ↓ 医药MRNA新周期开启，汉森3板领头
+8-24 二进三：深中华A/中关村一字，汉森秒板（不放权）→ 汉森按剧本B续走到5板
+8-25 分化：中关村医药分歧，汉森加速秒板 → 上汉森；深中华A T字（能量柱确认，错过）
+8-26 汉森6板炸板（开太高9个点），深中华A小高开2.8%上板回归王者
+   ↓ 沉淀规则十七（空间标谨慎三铁律）+ 规则十八（终极二元判定）
+8-27 明日剧本：深中华A 4-5爆量涅槃成龙 → 高开放弃 / 低平小高开小仓试错</pre>
+          <div class="lesson"><b>核心判断：</b>当预判次日有二进三能量柱 + 梯队更高空间标不放权时，应<b>两手抓</b>（详见 <a href="#sec-9-2">9.2 终极二元判定</a>）——一是不放过上面的放权者（空间标接力）；二是再多看一天真正的能量柱次日是不是 T 字板（T 字 = 核心 = 上车点，详见 <a href="#s3">第3章</a>）。第三日若更高空间标开太高，能量柱就会逆袭它（详见 <a href="#sec-9-4">9.4 开太高 = 烧鸡</a>）。</div>
+        </div>
+
+        <div class="case">
+          <h4>案例四 · 2026-09-03 短剧 4 板位换手逆袭 + 次高试错（过渡周期 · 体系对位练习）</h4>
+          <p class="ts"><b>背景：</b>短剧板块于 8 月底至 9 月初走出独立行情，空间标（核心标）达到 4 板高度后，双双挂逼 → 短剧进入过渡周期。此时板块内次高争夺新周期主导权。</p>
+          <p class="ts">· <b>9-1 ~ 9-2（空间标/核心标 4 板）：</b>短剧板块短剧（空间标）和另一核心票（核心标）双双达到 4 板 → <b>双双挂逼</b>。核心标 / 空间标全部阵亡 → 短剧进入过渡周期。</p>
+          <p class="ts">· <b>9-3（过渡周期次日）：</b>板块内次高 A（4 板组 → 昨日换手 3 板）vs 次高 B（4 板组 → 昨日一字 3 板）争夺新周期主导权。</p>
+          <p class="ts">· <b>最终走势：</b>次高 A（换手 3 板 → <b>换手逆袭成功</b>）vs 次高 B（一字 3 板 → <b>高开秒板被卡掉</b>）。</p>
+<pre style="background:#f3f5fa;padding:14px;border-radius:10px;overflow-x:auto;font-size:12.5px;color:#3d4a63;line-height:1.7;border:1px solid #d9e0ec;">9-2 短剧板块：空间标+核心标双双4板 → 双双挂逼 → 短剧过渡周期
+9-3 过渡周期次日：次高A（昨日换手3板）vs 次高B（昨日一字3板）
+   → 次高A平开 → 上板 → 炸板 → 换手逆袭 → 拿下新周期主导权
+   → 次高B高开秒板 → 被卡掉（铁律一"只做换手不做一字"验证）
+   → 题材整体还行（非退潮、非题材已死）→ 符合铁律四互卡情景</pre>
+          <div class="lesson"><b>对位章节：</b><a href="#sec-5-6-1">5.6.1 次高玩法·铁律一</a>（只做换手不做一字）；<a href="#sec-5-6-1">铁律二</a>（只做逆袭不做强更强）；<a href="#sec-6-0">6.0 99战法生命周期适用边界</a>（过渡周期绝对禁用 99 战法）。<br>
+          <b>教训沉淀：</b>① 一字板 = 没有预期差 = 没有逆袭可能性 = 必弃（次高 B 高开秒板被卡掉验证铁律一）；② 换手 3 板才是次高试错的合法标的（次高 A 换手逆袭成功验证铁律一）；③ 强更强（一字板高开秒板）≠ 逆袭路径 = 反核陷阱；④ 过渡周期内题材整体还行时，同题材次高互卡 → <b>不在次高本身追高</b>（铁律四），而是尾盘找 99 战法标的。</div>
+        </div>
+      </section>
+
+      <!-- ============ 附录 ============ -->
+      <section class="chapter" id="sA">
+        <div class="sec-head"><div class="sec-no">附</div><div><h2>速查宝典 · 一日操作与红牌清单</h2><div class="en">QUICK REFERENCE</div></div></div>
+
+        <h3>A.1 一日操作时间线速查</h3>
+        <div class="timeline">
+          <div class="tl-item blue"><div class="tl-time">盘前</div><div class="tl-c">复盘定位当前周期阶段（断板/退潮/能量柱/主升）；点403找翻倍个股、近期涨幅前排趋势标的。</div></div>
+          <div class="tl-item gold"><div class="tl-time">集合竞价 24 分尾-25 分</div><div class="tl-c">退潮反核标的确认（先核后反 + 跳空高开）；核心标加单情况；竞价爆量 10% + 换手 Z 排名；量价齐升红色。</div></div>
+          <div class="tl-item red"><div class="tl-time">开盘（前10分钟）</div><div class="tl-c">早盘逆袭信号（低开弱转强直线拉）；大斜率上攻分时确认；前 4 分钟换手 ≥ 昨日 15%；强分时斜率 ≥ 45 度。</div></div>
+          <div class="tl-item gold"><div class="tl-time">盘中</div><div class="tl-c">盘中逆袭（A 炸板不回封、B 直线拉升卡位）；换手板形成确认；同身位低吸（上冲回落买点）；承接观察（十以内/五以内加减法）。</div></div>
+          <div class="tl-item green"><div class="tl-time">尾盘</div><div class="tl-c">监管策略（惧异动第 10 天尾盘买入）；断板红 K 确认；复盘记录、沉淀教训。</div></div>
+        </div>
+
+        <h3>A.2 核心速查表（环节 → 买点）</h3>
+        <table>
+          <tr><th>周期环节</th><th>核心操作</th><th>对应章节</th></tr>
+          <tr><td>能量柱出现当天</td><td>同身位换手板、终极晋级买点、多个换手板平铺</td><td>第3章</td></tr>
+          <tr><td>能量柱次日（首开）</td><td>T 字回封、同身位换手板、低吸低身位主动标的、PK失败大容量票低吸</td><td>第3章</td></tr>
+          <tr><td>能量柱首开次日</td><td>十以内加减法承接低吸、背离上空间标、开太高不做承接</td><td>第3章</td></tr>
+          <tr><td>周期标到死</td><td>缠打核心，五以内加减法；补涨周期不接</td><td>第3章</td></tr>
+          <tr><td>断板退潮次日</td><td>退潮反核（≥3 有效）、二进三兵家必争之地</td><td>第2章</td></tr>
+          <tr><td>回马枪断板反包日</td><td>盘子小的断板反包当天必打，预期反包三板</td><td>第8章</td></tr>
+          <tr><td>空间标 vs 核心标</td><td>二元判定：核心强攻做 T 字回封；核心不强做空间板</td><td>第9章</td></tr>
+        </table>
+
+        <h4>📋 每日复盘模板（照着填）</h4>
+<div class="card">
+  <p><b>① 周期定位：</b>今天处于什么环节？（断板日 / 退潮隔日 / 能量柱当天 / 首开日 / 首开次日 / 缠打到死 / 新周期试错）　模式是哪一种？（连板 / 涅槃 / 卡节点 / 换手卡一字 / 吸核成龙 / 回马枪）</p>
+  <p><b>② 今日情绪：</b>空间板表现？核心标是否倒下？有没有板块提振？是主升还是过渡周期？</p>
+  <p><b>③ 今日操作与对错：</b>开仓点是否落在节点三天内？买点是否命中（T 字 / 换手板 / 低吸承接）？有没有违反红牌清单？</p>
+  <p><b>④ 明日剧本：</b>核心标明日预期开盘（高开 / 低平开 / 一字）？是否两手抓（放权者 + T 字板）？若核心倒下，二进三是否兵家必争？</p>
+  <p><b>⑤ 沉淀：</b>今天像哪个历史同构案例？有哪些新规则 / 教训要写进体系？</p>
+</div>
+
+<h3>A.3 红牌禁忌清单（坚决不做）</h3>
+        <div class="grid2">
+          <div class="mini"><h5><span class="ic">🚫</span>明确红线</h5>
+            <ul>
+              <li>20cm、可转债再也不做。</li>
+              <li>核心标高开秒板或一字，不做空间标。</li>
+              <li>情绪不好时别四处找屎吃，专注核心。</li>
+              <li>补涨周期任何承接都不接。</li>
+              <li>过渡周期不做；大周期空间标断板次日不参与。</li>
+              <li>单冰 / 三冰四冰的最高标不去。</li>
+            </ul>
+          </div>
+          <div class="mini"><h5><span class="ic">⚠️</span>高危情形</h5>
+            <ul>
+              <li>能量柱首开次日大高开 / 伪一字（易被套利盘砸死）。</li>
+              <li>涅槃成龙日高开 ≥5% 或一字（易成烧鸡）。</li>
+              <li>自由流通市值 &gt; 30 亿的逆袭者（换手不足）。</li>
+              <li>三板组的微盘股（一线天 + 超大封单 + 关联席位）。</li>
+              <li>换手 Z 超 9、爆量超 20% 的（通常为骗炮）。</li>
+              <li>周期标 6-7 破异动这天失败的回马枪。</li>
+            </ul>
+          </div>
+          <div class="mini"><h5><span class="ic">🎯</span>必须放弃</h5>
+            <ul>
+              <li>周期标断板后，次日 ≥ 4 板的票都是风险都不能上。</li>
+              <li>非节点位置（情绪修复或周期启动点）的连板博弈，只能做一进二。</li>
+              <li>加速板队伍 PK 中，没换量又先上板的票。</li>
+              <li>一开盘被摁死跌停对手的另一个票。</li>
+              <li>出现能量柱当天一字板炸的不能去接。</li>
+            </ul>
+          </div>
+          <div class="mini"><h5><span class="ic">📈</span>必须执行的纪律</h5>
+            <ul>
+              <li>开仓点只有三天：节点前（≤3成）/ 当天（3-5成）/ 次日（6-8成）。</li>
+              <li>能量柱次日必须一字开 / 最次 T 字，否则不参与该周期。</li>
+              <li>核心标由始至终不换帅，禁止中途更换。</li>
+              <li>龙头断板过 7 板后，等获利筹码出清再做。</li>
+              <li>两种反包都要板块小弟助攻，不能只看龙头。</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="note"><div class="n-title">📖 复盘三问（每日必问）</div>
+          <p>① 当前周期处于哪一环节？是哪种模式（连板 / 涅槃 / 卡节点 / 换手卡一字 / 吸核成龙 / 回马枪）？</p>
+          <p>② 按环节查买点/卖点，我该做什么？不该做什么？</p>
+          <p>③ 对照案例库，今天像哪个历史同构？明天剧本怎么推演？</p>
+        </div>
+      </section>
+
+      <div class="version">
+        <h3>📌 版本记录 · 当前作战纲领（2026-08 进化）</h3>
+        <p><b>模式进化：</b>已从"多路出击"收窄为 <b>专注核心 + 二板以上 99 式辅助</b> —— ① 一切围绕核心标的 / 能量柱展开，情绪不好（尤其核心票换帅）时只守核心，不乱找票；② 99 式只做 <b>2 板以上</b> 的，作为辅助仓位，不喧宾夺主。</p>
+        <p><b>心法：</b>专注节点、专注核心才是重点，不做那么杂了。</p>
+      </div>
+
+      <footer>
+        🐉 龙头周期交易体系 · 完全融合版　｜　融合自《我的交易体系》与《我的交易体系2》　｜　已去除 N 字战法（海底捞）　｜　当前纲领：专注核心 + 二板以上 99 式辅助　｜　仅供学习参考，不构成投资建议<br>
+        愿尊贵的主人：专注核心，只做新周期，情绪好时吃大肉，情绪差时守住心。
+      </footer>
+    </div>
+  </main>
+</div>
+
+<button class="backtop" id="backtop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<script>
+  // ============ 导航构建 ============
+  const NAV = [
+    {g:"开篇", items:[
+      {id:"s0", num:"序", t:"交易之道 · 心法"},
+    ]},
+    {g:"新手进阶之路", items:[
+      {id:"s1", num:"1", t:"入门筑基 · 认知与术语"},
+      {id:"s2", num:"2", t:"周期起点 · 断板与新周期"},
+      {id:"s3", num:"3", t:"能量柱全生命周期"},
+      {id:"s4", num:"4", t:"主升盛宴 · 六件套"},
+    ]},
+    {g:"高手深化之路", items:[
+      {id:"s5", num:"5", t:"开仓与选股 · 买点体系"},
+      {id:"s6", num:"6", t:"决胜战法 · 99/96/969"},
+      {id:"s7", num:"7", t:"PK博弈 · 晋级淘汰生死"},
+      {id:"s8", num:"8", t:"周期演变 · 回马枪"},
+      {id:"s9", num:"9", t:"二元玄机 · 空间标博弈"},
+    ]},
+    {g:"进阶守护之路", items:[
+      {id:"s10", num:"10", t:"风控护城河 · 卖出监管"},
+      {id:"s11", num:"11", t:"完美剧本 · 交易总纲"},
+      {id:"s12", num:"12", t:"实战推演 · 案例库"},
+      {id:"sA", num:"附", t:"速查宝典 · 操作与红牌"},
+    ]},
+  ];
+  const navList = document.getElementById('navList');
+  NAV.forEach(g=>{
+    const div = document.createElement('div');
+    div.className = 'nav-group';
+    div.innerHTML = '<div class="ng">'+g.g+'</div>';
+    g.items.forEach(it=>{
+      div.innerHTML += '<a href="#'+it.id+'" data-nav="'+it.id+'"><span class="num">'+it.num+'</span>'+it.t+'</a>';
+    });
+    navList.appendChild(div);
+  });
+
+  // ============ 站内搜索 ============
+  const searchIndex = [];
+  document.querySelectorAll('section.chapter h2, section.chapter h3, section.chapter h4').forEach(h=>{
+    const sec = h.closest('section.chapter');
+    const t = h.textContent.trim();
+    if(!t) return;
+    searchIndex.push({title: t, id: sec.id, tag: h.tagName.replace('H','')});
+  });
+  const searchInput = document.getElementById('searchInput');
+  const searchResults = document.getElementById('searchResults');
+  searchInput.addEventListener('input', ()=>{
+    const q = searchInput.value.trim();
+    if(!q){ searchResults.style.display='none'; return; }
+    const hits = searchIndex.filter(it=>it.title.toLowerCase().includes(q.toLowerCase())).slice(0,14);
+    if(!hits.length){
+      searchResults.innerHTML = '<span class="sr-h">未找到「'+q+'」相关内容，试试：回马枪 / 承接 / T字板 / 双冰</span>';
+      searchResults.style.display='block'; return;
+    }
+    searchResults.innerHTML = hits.map(h=>'<a href="#'+h.id+'" onclick="jumpToSearch()"><span class="sr-tag">'+h.tag+'</span>'+h.title+'</a>').join('');
+    searchResults.style.display='block';
+  });
+  function jumpToSearch(){ setTimeout(()=>{ searchInput.value=''; searchResults.style.display='none'; }, 120); }
+  document.addEventListener('click', e=>{ if(!e.target.closest('.search-wrap')) searchResults.style.display='none'; });
+
+  // ============ 滚动监听高亮 ============
+  const secs = document.querySelectorAll('section.chapter');
+  const navLinks = document.querySelectorAll('a[data-nav]');
+  function onScroll(){
+    const pos = window.scrollY + 120;
+    let cur = 's0';
+    secs.forEach(s=>{ if(s.offsetTop <= pos) cur = s.id; });
+    navLinks.forEach(a=>{
+      a.classList.toggle('active', a.dataset.nav === cur);
+    });
+    document.getElementById('backtop').classList.toggle('show', window.scrollY > 600);
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+
+  // ============ 移动端菜单 ============
+  function toggleMenu(open){
+    document.getElementById('sidebar').classList.toggle('open', open);
+    document.getElementById('overlay').classList.toggle('show', open);
+  }
+  navLinks.forEach(a=> a.addEventListener('click', ()=> toggleMenu(false)));
+</script>
+</body>
+</html>
