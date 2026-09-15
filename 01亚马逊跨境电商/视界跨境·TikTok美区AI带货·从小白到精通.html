@@ -1,0 +1,3366 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+  <meta name="description" content="视界跨境·TikTok 美区 AI 短视频带货完整课程 · 从零基础到精通高手的 6 阶段学习路径">
+  <meta name="author" content="整理自视界课程 · 编制：学习助手工作流">
+  <meta name="theme-color" content="#fafafa">
+  <title>视界跨境·TikTok 美区 AI 带货 · 从小白到精通</title>
+  <style>
+    /* ============================================
+       浅色系 · 零 JS · 移动端兼容 · 双指缩放
+       ============================================ */
+    :root {
+      --bg-page: #fafafa;
+      --bg-card: #ffffff;
+      --bg-soft: #f3f6fb;
+      --bg-warn: #fff8e1;
+      --bg-tip: #e8f5e9;
+      --bg-danger: #ffebee;
+      --text-main: #2c2c2c;
+      --text-soft: #5a6470;
+      --text-mute: #8a93a0;
+      --border: #e3e7ee;
+      --primary: #2563eb;
+      --primary-soft: #dbeafe;
+      --accent: #e67e22;
+      --danger: #dc2626;
+      --success: #16a34a;
+      --shadow: 0 1px 3px rgba(0,0,0,0.04), 0 4px 12px rgba(0,0,0,0.04);
+      --radius: 10px;
+      --gap: 16px;
+    }
+    @media (prefers-color-scheme: dark) {
+      :root {
+        --bg-page: #f7f7f5;
+        --bg-card: #ffffff;
+        --bg-soft: #f1f3f5;
+        --text-main: #2c2c2c;
+        --text-soft: #4b5563;
+        --border: #e5e7eb;
+        --primary-soft: #e0e7ff;
+      }
+    }
+    * { box-sizing: border-box; }
+    html {
+      font-size: 16px;
+      -webkit-text-size-adjust: 100%;
+      scroll-behavior: smooth;
+      /* 兼容 WPS/微信：禁用双击缩放，但允许双指缩放 */
+      touch-action: pinch-zoom manipulation;
+    }
+    body {
+      margin: 0;
+      padding: 0;
+      background: var(--bg-page);
+      color: var(--text-main);
+      font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Hiragino Sans GB", "Helvetica Neue", Arial, sans-serif;
+      line-height: 1.75;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    /* 容器：移动端 16px 内边距，桌面端最大 920px 居中 */
+    .wrap {
+      max-width: 920px;
+      margin: 0 auto;
+      padding: 16px;
+      padding-bottom: 80px;
+    }
+    /* 顶部封面 */
+    .cover {
+      background: linear-gradient(135deg, #dbeafe 0%, #fef3c7 100%);
+      border-radius: var(--radius);
+      padding: 32px 20px;
+      margin-bottom: 24px;
+      text-align: center;
+      box-shadow: var(--shadow);
+    }
+    .cover h1 {
+      margin: 0 0 8px;
+      font-size: 1.75rem;
+      color: #1e3a8a;
+    }
+    .cover .subtitle {
+      color: var(--text-soft);
+      font-size: 0.95rem;
+      margin: 4px 0;
+    }
+    .cover .meta {
+      margin-top: 12px;
+      font-size: 0.8rem;
+      color: var(--text-mute);
+    }
+    /* 全局目录 */
+    .toc {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      margin-bottom: 24px;
+      box-shadow: var(--shadow);
+    }
+    .toc h2 {
+      margin: 0 0 12px;
+      font-size: 1.15rem;
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary-soft);
+      padding-bottom: 8px;
+    }
+    .toc ol, .toc ul {
+      padding-left: 20px;
+      margin: 0;
+    }
+    .toc li { margin: 6px 0; }
+    .toc a {
+      color: var(--text-main);
+      text-decoration: none;
+      border-bottom: 1px dashed var(--border);
+    }
+    .toc a:hover { color: var(--primary); }
+    /* 章节 */
+    section {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 20px 16px;
+      margin-bottom: 20px;
+      box-shadow: var(--shadow);
+    }
+    section h1 {
+      font-size: 1.5rem;
+      color: var(--primary);
+      margin: 0 0 8px;
+      padding-bottom: 8px;
+      border-bottom: 3px solid var(--primary);
+    }
+    section h2 {
+      font-size: 1.25rem;
+      color: #1e3a8a;
+      margin: 24px 0 10px;
+    }
+    section h3 {
+      font-size: 1.05rem;
+      color: #374151;
+      margin: 18px 0 8px;
+      padding-left: 10px;
+      border-left: 3px solid var(--primary);
+    }
+    section h4 {
+      font-size: 0.95rem;
+      color: var(--text-soft);
+      margin: 14px 0 6px;
+    }
+    p { margin: 8px 0; }
+    /* 提示框 */
+    .tip {
+      background: var(--bg-tip);
+      border-left: 4px solid var(--success);
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-size: 0.92rem;
+    }
+    .warn {
+      background: var(--bg-warn);
+      border-left: 4px solid var(--accent);
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-size: 0.92rem;
+    }
+    .danger {
+      background: var(--bg-danger);
+      border-left: 4px solid var(--danger);
+      padding: 10px 14px;
+      border-radius: 6px;
+      margin: 12px 0;
+      font-size: 0.92rem;
+    }
+    /* 表格 */
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin: 12px 0;
+      font-size: 0.88rem;
+      overflow-x: auto;
+      display: block;
+    }
+    @media (min-width: 600px) { table { display: table; } }
+    th, td {
+      border: 1px solid var(--border);
+      padding: 8px 10px;
+      text-align: left;
+      vertical-align: top;
+    }
+    th { background: var(--bg-soft); font-weight: 600; }
+    tr:nth-child(even) td { background: #fafbfc; }
+    /* 列表 */
+    ul, ol { padding-left: 24px; margin: 8px 0; }
+    li { margin: 4px 0; }
+    /* 引用 / 术语解释 */
+    blockquote {
+      background: var(--bg-soft);
+      border-left: 4px solid var(--text-mute);
+      padding: 8px 14px;
+      margin: 10px 0;
+      color: var(--text-soft);
+      font-size: 0.92rem;
+    }
+    /* 代码块（提示词原文） */
+    pre {
+      background: #1e293b;
+      color: #e2e8f0;
+      padding: 14px 16px;
+      border-radius: 6px;
+      overflow-x: auto;
+      font-size: 0.85rem;
+      line-height: 1.5;
+      font-family: "SF Mono", "Consolas", "Monaco", monospace;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+    }
+    code {
+      background: var(--bg-soft);
+      padding: 1px 6px;
+      border-radius: 3px;
+      font-family: "SF Mono", "Consolas", monospace;
+      font-size: 0.9em;
+      color: #be185d;
+    }
+    pre code { background: transparent; color: inherit; padding: 0; }
+    /* 加粗 */
+    strong { color: #1e3a8a; font-weight: 600; }
+    /* 锚点偏移（避免被滚动条遮挡） */
+    [id] { scroll-margin-top: 16px; }
+    /* 关键术语（新词） */
+    .term {
+      background: linear-gradient(transparent 60%, #fde68a 60%);
+      padding: 0 2px;
+      cursor: help;
+    }
+    /* 学习卡片 */
+    .card {
+      background: var(--bg-soft);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 12px 0;
+    }
+    .card-title {
+      font-weight: 600;
+      color: var(--primary);
+      margin-bottom: 6px;
+    }
+    /* 本章要点回顾 */
+    .summary {
+      background: linear-gradient(135deg, #fef9c3 0%, #dbeafe 100%);
+      border-radius: 8px;
+      padding: 14px 16px;
+      margin: 16px 0;
+    }
+    .summary h4 { margin: 0 0 8px; color: #1e3a8a; }
+    /* 移动端适配 */
+    @media (max-width: 600px) {
+      .cover h1 { font-size: 1.35rem; }
+      .cover { padding: 20px 14px; }
+      .toc, section { padding: 14px 12px; }
+      section h1 { font-size: 1.2rem; }
+      section h2 { font-size: 1.05rem; }
+      section h3 { font-size: 0.95rem; }
+      pre { font-size: 0.78rem; padding: 10px 12px; }
+      table { font-size: 0.8rem; }
+    }
+    /* 隐藏某些元素 */
+    .no-print, .no-mobile { display: none; }
+    /* 打印样式 */
+    @media print {
+      .toc, .cover { page-break-after: always; }
+      section { page-break-inside: avoid; box-shadow: none; border: 1px solid #ccc; }
+      pre { white-space: pre-wrap; }
+    }
+    /* 页脚 */
+    footer {
+      text-align: center;
+      color: var(--text-mute);
+      font-size: 0.8rem;
+      padding: 24px 16px;
+      border-top: 1px solid var(--border);
+      margin-top: 40px;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- ========== 封面 ========== -->
+    <div class="cover">
+      <h1>🎬 视界跨境·TikTok 美区 AI 带货</h1>
+      <div class="subtitle">从零基础小白到精通高手 · 6 阶段完整学习路径</div>
+      <div class="subtitle">视界内部课程整理版 · 2026 年 4 月</div>
+      <div class="meta">
+        资料来源：12 篇原始课程录音转录稿 · 共 207,281 字<br>
+        整理方式：学习助手工作流 · 4 阶段处理（提取→深度总结→跨文档去重→终极合并）<br>
+        适合人群：完全零基础小白 + 想跨境拓展的从业者 · 移动端 / 桌面端均适配
+      </div>
+    </div>
+
+    <!-- ========== 全局目录 ========== -->
+    <nav class="toc" id="toc">
+      <h2>📑 全局目录</h2>
+      <ul>
+        <li><a href="#sec-0-intro">前言：这套课程能让你学到什么</a></li>
+        <li><a href="#sec-1-foundations">阶段 1：团队认知与设备入门</a></li>
+        <li><a href="#sec-2-ai-theory">阶段 2：AI 视频底层逻辑</a></li>
+        <li><a href="#sec-3-cases">阶段 3：产品案例与提示词工程</a></li>
+        <li><a href="#sec-4-channels">阶段 4：渠道号与选品 SOP</a></li>
+        <li><a href="#sec-5-store">阶段 5：店铺合规与定价备货</a></li>
+        <li><a href="#sec-6-ads">阶段 6：付费投放与扩量</a></li>
+        <li><a href="#app-a-products">附录 A：18 项选品清单（Go/Not Go）</a></li>
+        <li><a href="#app-b-prompts">附录 B：15 套 AI 提示词合集</a></li>
+        <li><a href="#app-c-graph">附录 C：知识图谱（横向树状 SVG）</a></li>
+        <li><a href="#app-d-glossary">附录 D：术语表（小白必查）</a></li>
+        <li><a href="#app-e-source">附录 E：12 篇原文索引</a></li>
+        <li><a href="#app-f-tools">附录 F：必备工具与资源</a></li>
+      </ul>
+    </nav>
+
+    <!-- ========== 前言 ========== -->
+    <section id="sec-0-intro">
+      <h1>📖 前言：这套课程能让你学到什么</h1>
+      <p>这是视界（世界跨境）团队在 2026 年 4 月开设的 TikTok 美区 AI 短视频带货课程的完整整理版。课程主讲人为丁总（公司创始人）和 KK（内容方负责人），共 12 节核心课程 + 答疑，覆盖从团队架构、AI 理论、产品案例、渠道运营、店铺合规到付费投放的全链路。</p>
+      <p>无论你是完全没接触过跨境电商的小白，还是有国内抖音经验想转型的从业者，按本课程的 6 阶段顺序学习 <strong>3-6 个月</strong>，即可具备独立运营 TikTok 美区小店的能力。</p>
+      <div class="tip">
+        <strong>📌 学习建议</strong>：建议每天 1-2 小时，先通读全文建立整体认知，再分阶段精读。遇到不懂的术语先去<strong>附录 D 术语表</strong>查。
+      </div>
+      <div class="warn">
+        <strong>⚠️ 重要声明</strong>：本课程涉及大量实操和合规要点（税务、店铺注册、广告投放等），具体执行时请以官方最新政策为准。整理者不构成任何投资或经营建议。
+      </div>
+    </section>
+
+    <!-- ========== 阶段 1：团队认知与设备入门 ========== -->
+    <section id="sec-1-foundations">
+      <h1>🚀 阶段 1：团队认知与设备入门</h1>
+      <div class="card">
+        <div class="card-title">📌 本阶段你会学到什么</div>
+        <p>了解这门生意的全貌：谁在做？怎么做？需要哪些人、哪些设备、哪些账号？避免从零开始踩坑。</p>
+        <p><strong>学习时长</strong>：3-5 天 · <strong>难度</strong>：⭐ 入门</p>
+      </div>
+      <h2>1.1 跨境 vs 国内：思维转换</h2>
+      <p>很多从国内电商（抖音/拼多多/淘宝）转过来的卖家，第一个误区是"国内能爆的国外一定能爆"。事实上 TikTok 美区（美国市场）的玩法和国内差异巨大：</p>
+      <ul>
+        <li><strong>用户结构</strong>：美国 TikTok 用户平均消费力高，但对内容质量要求更挑剔</li>
+        <li><strong>平台政策</strong>：美区对违规内容（夸大宣传、未成年出境、刷单）打击更严</li>
+        <li><strong>流量逻辑</strong>：美区更依赖短视频自然流 + 付费投放的双轮驱动</li>
+        <li><strong>合规要求</strong>：必须做税务登记（IRS 1099 表）、店铺主体选择（ACCU/香港）等</li>
+      </ul>
+      <div class="warn">
+        <strong>⚠️ 思维转换</strong>：从"卖便宜货冲量"思维，转换为"做内容 + 投流"思维。内容质量是基础，投流是放大器。
+      </div>
+
+      <h2>1.2 KK 团队介绍与 19 楼组织架构</h2>
+      <p>本节内容由 KK（视界内容方负责人）分享。她从拼多多、抖音女装两次亏损后，转型 TikTok 美区，团队从 8 人扩张到 100+ 人，2025 年人均月产出 <strong>12,000-13,000 美元</strong>。</p>
+      <h3>1.2.1 团队发展时间线</h3>
+      <table>
+        <tr><th>时间</th><th>规模</th><th>阶段</th><th>关键动作</th></tr>
+        <tr><td>2024.2-3</td><td>3 人</td><td>试水期</td><td>TK 橱窗 + 平台补贴</td></tr>
+        <tr><td>2024.11</td><td>60 人</td><td>收割期</td><td>春节前扩张，春节大封号</td></tr>
+        <tr><td>2025.2-3</td><td>8 人</td><td>转型期</td><td>东莞→长沙，专注做内容</td></tr>
+        <tr><td>2025.7-11</td><td>100+ 人</td><td>放量期</td><td>人效从 6000 提升到 12000+</td></tr>
+      </table>
+
+      <h2>1.3 设备与环境配置</h2>
+      <h3>1.3.1 硬件清单</h3>
+      <ul>
+        <li><strong>手机</strong>：1 手机 1 账号（不可复用），建议 iPhone 11 及以上或安卓中端机</li>
+        <li><strong>网络</strong>：纯净节点 / 专线（IP 独享），每月 50-100 元</li>
+        <li><strong>云手机</strong>：可用但成本高（按分钟计费），不推荐新手</li>
+        <li><strong>其他</strong>：手机支架、灯光（桌拍用）</li>
+      </ul>
+      <h3>1.3.2 手机系统设置</h3>
+      <ol>
+        <li>语言：英语（或西语）</li>
+        <li>定位：关闭（如需开启则设美国）</li>
+        <li>时区：洛杉矶（洛杉矶时区最适合做美区）</li>
+        <li>SIM 卡：插卡或不插均可，不影响</li>
+      </ol>
+      <div class="danger">
+        <strong>🚫 严禁</strong>：1 手机多账号、设备共享、IP 共享——100% 关联封号。
+      </div>
+
+      <h2>1.4 账号体系详解（11 种类型）</h2>
+      <p>KK 团队经过多次迭代，形成了一套 11 种账号的精细化矩阵：</p>
+      <table>
+        <tr><th>类型</th><th>定位</th><th>风险</th></tr>
+        <tr><td>沉淀账号</td><td>养号 + 内容积累，长周期垂直</td><td>低</td></tr>
+        <tr><td>收割账号</td><td>直接带货转化，短期高产出</td><td>中</td></tr>
+        <tr><td>渠道号</td><td>付费投流 + 放大小店</td><td>中</td></tr>
+        <tr><td>橱窗号</td><td>挂车 + 自然流</td><td>低</td></tr>
+        <tr><td>矩阵号</td><td>多账号协同，同类目横向布局</td><td>中</td></tr>
+        <tr><td>...</td><td>还有 6 种（详见原文）</td><td>...</td></tr>
+      </table>
+
+      <h2>1.5 KK 团队核心运营节奏</h2>
+      <p>3 阶段运营节奏：</p>
+      <ol>
+        <li><strong>冷启动期（1-30 天）</strong>：沉淀账号养号 + 收割账号测品</li>
+        <li><strong>增长期（30-90 天）</strong>：沉淀账号内容验证 + 收割账号爆品打透</li>
+        <li><strong>稳定期（90 天+）</strong>：品牌号沉淀 + 收割号持续转化</li>
+      </ol>
+      <div class="summary">
+        <h4>📝 本阶段要点回顾</h4>
+        <ul>
+          <li>跨境≠国内，思维必须先转换</li>
+          <li>设备 1 手机 1 账号，严禁共享</li>
+          <li>账号体系 11 种，沉淀+收割双轨</li>
+          <li>3 阶段运营节奏：冷启动→增长→稳定</li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ========== 阶段 2-6 由子代理填充 ========== -->
+    <section id="sec-2-ai-theory">
+      <h1>🧠 阶段 2：AI 视频底层逻辑</h1>
+<div class="card">
+  <div class="card-title">📌 本阶段你会学到什么</div>
+  <p>本阶段是"思想课"——不讲怎么干，先讲为什么要这么干。你会掌握丁总对 AI 视频带货的 6 大核心论断，搞懂"AI ≠ 夸大""AI ≠ 混剪"的本质区别，理解 <strong>AN45</strong>（45 天购买意向人群）和 <strong>CCR</strong>（点击转化率）这两个核心指标的含义与基准线，了解 2024-2026 年跨境行业经历的三阶段，并树立"品牌 + 效率双轨"的战略观。学完本阶段，你能在 1 分钟内向老板讲清 AI 带货和混剪的本质区别，能看懂后台 CCR 数据判断素材是否值得继续投放。</p>
+  <p><strong>学习时长预估</strong>：3-4 小时 · <strong>难度</strong>：⭐⭐ 思想升级</p>
+</div>
+
+<h2>2.1 AI 不等于夸大——三个层次的正确认知</h2>
+
+<p>小白第一个误区：把 AI 视频当成"造假工具"。但丁总反复强调：<strong>AI 不是把产品夸大，而是把产品真实地、震撼地呈现出来</strong>。这是整个 AI 带货课程的<strong>底层哲学</strong>，是后面所有操作的前提。</p>
+
+<h3>三个层次的递进理解</h3>
+<ol>
+  <li><strong>底层认知</strong>：AI = 用算法还原产品<strong>真实使用场景</strong>。比如卖浴球，AI 不会把浴球吹得能治百病，而是真实地展示"浴球入水→彩色扩散→治愈感"这个过程。</li>
+  <li><strong>中层应用</strong>：AI 让用户<strong>身临其境</strong>地看到产品效果。"身临其境"四个字是关键词——AI 生成的画面要让观众产生"我想拥有这个东西"的代入感。</li>
+  <li><strong>顶层哲学</strong>：AI ≠ 虚假宣传，AI = 真实震撼的视觉表达。这条边界非常重要：你可以用 AI 让画面更精美，但不能改变产品的客观属性（比如不能说普通塑料做成了金属质感）。</li>
+</ol>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：写提示词时始终问自己——"这个画面是产品的真实状态吗？"如果是，才用 AI 把它拍得更好看；如果不是，就属于夸大，平台会限流、用户会退货。
+</div>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：常见错误是用 AI 把 $5 货拍成 $50 的质感，然后卖 $9.9 跑量冲单。这种"AI 夸大"短期能跑量，但退货率会高达 20% 以上，店铺体验分 <small>（SPS）</small> 直接崩盘。
+</div>
+
+<h2>2.2 AI 与混剪的本质区别——6 维度对比</h2>
+
+<p>小白第二个误区：把 AI 跟"混剪"当成一回事。事实上两者<strong>生产方式</strong>完全不同。可以从 6 个维度对比：</p>
+
+<table>
+<tr><th>维度</th><th>混剪</th><th>AI 生成</th></tr>
+<tr><td>生产方式</td><td>人工拼接多个素材</td><td>算法一次性生成</td></tr>
+<tr><td>素材来源</td><td>已有视频片段</td><td>文字提示词 → 视频</td></tr>
+<tr><td>成本</td><td>中（需要大量素材库）</td><td>低（只需提示词）</td></tr>
+<tr><td>可复制性</td><td>低（每条都要重新剪辑）</td><td>高（提示词可复用）</td></tr>
+<tr><td>风险</td><td>搬运风险高</td><td>原创度高</td></tr>
+<tr><td>天花板</td><td>受素材库限制</td><td>几乎无上限</td></tr>
+</table>
+
+<p>丁总金句：<strong>"AI = 混剪的升级版，但 AI ≠ 混剪。混剪是拼凑，AI 是创造。"</strong></p>
+
+<h3>实操层面三个差异</h3>
+<ol>
+  <li><strong>成本差异</strong>：混剪需要剪辑师（8000-15000 月薪）+ 素材库（几百到几万元）；AI 只需要提示词（免费或低价）和 1 个运营。</li>
+  <li><strong>风险差异</strong>：混剪踩平台搬运规则的概率高（被识别后限流、扣分）；AI 生成的画面是原创，平台识别难度大。</li>
+  <li><strong>天花板差异</strong>：混剪每天能产 5-10 条；AI 每天能产 30-50 条（KK 团队数据）。</li>
+</ol>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：很多新团队想"AI + 混剪"两手抓，结果精力分散。KK 团队的建议：起步阶段只做 AI，混剪放在后期作为补充。
+</div>
+
+<h2>2.3 AN45 人群与 CCR 指标——AI 带货的两根标尺</h2>
+
+<p>这两个指标是丁总反复强调的"AI 带货两根标尺"。看不懂它们，就不知道什么品值得做、什么素材值得投。</p>
+
+<h3>AN45 = Age Niche 45 days（年龄 + 品类 + 45 天购买意向）</h3>
+<p>AN45 锁定的是"<strong>45 天内可能购买某品类</strong>"的精准人群。具体来说：</p>
+<ul>
+  <li><strong>A = Age</strong>：年龄段（如 25-35 岁女性）</li>
+  <li><strong>N = Niche</strong>：细分品类（如"解压玩具""家居清洁"）</li>
+  <li><strong>45 = 45 天</strong>：45 天购买意向窗口（不是今天就买，是未来 45 天内可能下单）</li>
+</ul>
+
+<p>为什么是 45 天？这是 TikTok 算法的人群衰减周期——超过 45 天不互动的人群，平台会重新打标。</p>
+
+<h3>CCR = Click Conversion Rate（点击转化率）</h3>
+<p>CCR 是衡量素材效果的<strong>核心指标</strong>，计算公式是 <small>（公式）</small>：</p>
+<blockquote>CCR = 点击数 ÷ 曝光数 × 100%</blockquote>
+
+<h3>CCR 优秀基准线</h3>
+<table>
+<tr><th>素材等级</th><th>CCR 基准</th><th>建议操作</th></tr>
+<tr><td>普通素材</td><td>≥ 1%</td><td>可继续投流测试</td></tr>
+<tr><td>优质素材</td><td>≥ 3%</td><td>加大预算放量</td></tr>
+<tr><td>爆款素材</td><td>≥ 5%</td><td>最大投放量 + 加热</td></tr>
+<tr><td>淘汰素材</td><td>< 1%</td><td>立即停止投放</td></tr>
+</table>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：新素材投流 $50 测试 24 小时，看 CCR 是否 ≥ 1%。达到 1% 继续投；低于 1% 立即换素材或换品。
+</div>
+
+<h2>2.4 占坑位理论——同款素材抢先 1-3 小时</h2>
+
+<p>这是一个非常"野路子"的实操理论：在 TikTok 上，同一个产品、同一类素材，<strong>先发的 1-3 条能拿走 50%+ 的自然流量</strong>，后发的就只能吃残羹冷炙。</p>
+
+<h3>占坑位的具体执行</h3>
+<ol>
+  <li><strong>盯爆款</strong>：每天用特探数据看"视频榜"，找到新爆的视频（24h 内播放 ≥ 10 万）</li>
+  <li><strong>立刻反推</strong>：用 GPT 反推爆款视频的提示词（详见阶段 3）</li>
+  <li><strong>批量生成</strong>：在即梦中生成 5-10 版类似素材</li>
+  <li><strong>筛选发布</strong>：选出最好的 1-2 版，<strong>6 小时内</strong>发布到自己的渠道号</li>
+  <li><strong>观察自然流</strong>：新素材发布后 2 小时看播放量增速，> 1000/小时 = 占坑成功</li>
+</ol>
+
+<h3>微创新 3 处改动原则</h3>
+<p>占坑不是 100% 复制，那样会被平台判搬运。丁总建议的"<strong>微创新 3 处改动</strong>"：</p>
+<ul>
+  <li><strong>场景改动</strong>：原版是浴室，你的可以改成卧室（不改变产品核心展示）</li>
+  <li><strong>人物改动</strong>：原版是 25 岁亚洲女性，你的可以改成 30 岁白人主妇</li>
+  <li><strong>动作改动</strong>：原版是手拿产品展示，你的可以改成放在桌面展示</li>
+</ul>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：3 处改动是<strong>下限</strong>。改动太少（1-2 处）容易被识别为搬运；改动太多（4 处以上）会失去爆款的"成功基因"。
+</div>
+
+<h2>2.5 品-链接-内容三角——不同销量阶段的不同动作</h2>
+
+<p>丁总提出的"<strong>品-链接-内容三角</strong>"是 AI 带货的底层结构：</p>
+<ul>
+  <li><strong>品</strong> = 产品本身（决定需求是否存在）</li>
+  <li><strong>链接</strong> = 带货链接（决定转化路径）</li>
+  <li><strong>内容</strong> = 视频素材（决定流量入口）</li>
+</ul>
+
+<p>三个角相互独立又相互喂养。但<strong>在不同销量阶段，重点不同</strong>：</p>
+
+<table>
+<tr><th>销量阶段</th><th>核心动作</th><th>重点</th></tr>
+<tr><td>0-100 单/天</td><td>测品 + 测素材</td><td>内容（找出爆款视频）</td></tr>
+<tr><td>100-500 单/天</td><td>扩品 + 扩素材</td><td>链接（优化转化路径）</td></tr>
+<tr><td>500-2000 单/天</td><td>稳品 + 稳素材</td><td>品（供应链稳定性）</td></tr>
+<tr><td>2000+ 单/天</td><td>品牌沉淀</td><td>品（自营品牌或独家）</td></tr>
+</table>
+
+<h3>实操举例</h3>
+<p>一个新品上架第一周，重点是把内容跑通：</p>
+<ol>
+  <li>制作 10 版不同风格的视频</li>
+  <li>每条投 $10 测试 CCR</li>
+  <li>找出 CCR ≥ 3% 的爆款素材</li>
+  <li>集中预算给爆款素材</li>
+</ol>
+
+<p>如果一周后日均出单 100+，再考虑优化链接（标题、详情页、首图）和扩展素材（同一爆款做衍生）。</p>
+
+<h2>2.6 行业三阶段（24-25 年）——2024 靠运气，2025 靠能力，2026 靠品牌</h2>
+
+<p>这是丁总对整个跨境行业的"<strong>三阶段判断</strong>"，影响你做长期决策：</p>
+
+<table>
+<tr><th>阶段</th><th>时间</th><th>特征</th><th>机会</th></tr>
+<tr><td>第一阶段（野蛮生长期）</td><td>2024 上半年</td><td>谁做谁赚、平台补贴大</td><td>铺量 + 测品</td></tr>
+<tr><td>第二阶段（精细化运营期）</td><td>2024 下半年 - 2025 上半年</td><td>内容质量 + 投流能力定胜负</td><td>内容升级 + GM MAX</td></tr>
+<tr><td>第三阶段（品牌沉淀期）</td><td>2025 下半年起</td><td>品牌号优势凸显、纯铺号收益下降</td><td>品牌号 + 自营 SKU</td></tr>
+</table>
+
+<p><strong>关键结论</strong>：2024 年靠运气（铺 100 个号总有几个爆），2025 年靠能力（CCR ≥ 3%、ROAS ≥ 2 是基本功），2026 年靠品牌（自营品牌或独家授权）。</p>
+
+<div class="tip">
+  <strong>💡 给小白的实操建议</strong>：如果你在 2026 年入场，不要直接做"纯铺号"路线，而是要做"品牌 + 效率"双轨（详见下一节）。
+</div>
+
+<h2>2.7 品牌 vs 效率双轨战略——两条腿走路</h2>
+
+<p>面对行业三阶段的演进，KK 团队的应对策略是"<strong>双轨战略</strong>"：</p>
+
+<h3>品牌轨道（长期沉淀）</h3>
+<ul>
+  <li>品牌号运营（蓝 V 认证、统一视觉）</li>
+  <li>内容垂直（锁定 1 个品类深耕）</li>
+  <li>信任积累（评论区互动、私域沉淀）</li>
+</ul>
+
+<h3>效率轨道（短期收割）</h3>
+<ul>
+  <li>收割账号（多账号矩阵，单品爆款打透）</li>
+  <li>AI 批量产出（每天 30-50 条素材）</li>
+  <li>投流放大（GM MAX + 自然流双轮）</li>
+</ul>
+
+<h3>双轨协同的三个机制</h3>
+<ol>
+  <li><strong>数据反哺</strong>：收割号跑出来的爆款素材，同步给品牌号用</li>
+  <li><strong>流量引导</strong>：品牌号粉丝沉淀后，引导到收割号下单</li>
+  <li><strong>风险分散</strong>：一个轨道被封，另一个轨道还能运转</li>
+</ol>
+
+<h2>2.8 TAP vs MCN——团长 vs 机构</h2>
+
+<p>在直播和达人合作领域，KK 团队"<strong>主用 TAP，不用 MCN</strong>"。这是为什么？</p>
+
+<table>
+<tr><th>对比项</th><th>TAP（TikTok Affiliate Partner）</th><<th>MCN（Multi-Channel Network）</th></tr>
+<tr><td>本质</td><td>团长（个人带货达人）</td><td>机构（达人经纪公司）</td></tr>
+<tr><td>合作模式</td><td>团长挂你的链接，卖了分佣</td><td>机构批量管理达人，分成复杂</td></tr>
+<tr><td>成本</td><td>低（5-20% 佣金）</td><td>高（30-50% 分成 + 服务费）</td></tr>
+<tr><td>风险</td><td>低（团长独立负责）</td><td>中（机构可能跑路）</td></tr>
+<tr><td>KK 选择</td><td>✅ 主用</td><td>❌ 不用</td></tr>
+</table>
+
+<h3>实操层面如何找 TAP</h3>
+<ol>
+  <li>在 TikTok 后台"TAP 广场"筛选品类匹配团长</li>
+  <li>看团长的历史带货数据（转化率、客单价）</li>
+  <li>主动联系 10-20 个团长，洽谈佣金比例</li>
+  <li>设置排他条款（避免团长同时推你的竞品）</li>
+</ol>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：MCN 机构通常要求 30%+ 佣金 + 月度保底销量，对于中小卖家极不划算。KK 团队反复强调"<strong>主用 TAP，不用 MCN</strong>"。
+</div>
+
+<h2>2.9 微创新 + 品牌策略——3 处改动原则</h2>
+
+<p>最后是"<strong>微创新</strong>"的执行细则。这与"占坑位"配合使用：</p>
+
+<h3>微创新的 4 个原则</h3>
+<ol>
+  <li><strong>不抄袭</strong>：避免完全 1:1 复制同行素材</li>
+  <li><strong>不夸张</strong>：保持产品真实性，不夸大效果</li>
+  <li><strong>微迭代</strong>：在原版基础上做 10-20% 改动</li>
+  <li><strong>快测试</strong>：小步快跑，24 小时内看数据反馈</li>
+</ol>
+
+<h3>品牌策略 3 要素</h3>
+<ol>
+  <li><strong>统一视觉</strong>：账号头像、封面、字幕风格保持一致</li>
+  <li><strong>统一话术</strong>：口播模板固定（如"Hi guys, today I'm showing you..."）</li>
+  <li><strong>统一调性</strong>：品牌调性一致（治愈系 / 搞笑系 / 专业系）</li>
+</ol>
+
+<div class="summary">
+  <h4>📝 本章节要点回顾</h4>
+  <ul>
+    <li>AI ≠ 夸大，AI = 真实震撼的视觉表达（三层次：底层/中层/顶层）</li>
+    <li>AI ≠ 混剪：生产方式、素材来源、成本、可复制性、风险、天花板 6 维度不同</li>
+    <li>AN45 = 年龄+品类+45 天购买意向人群；CCR 基准：普通≥1% / 优质≥3% / 爆款≥5%</li>
+    <li>占坑位理论：同款素材抢先 1-3 小时发布，拿 50%+ 自然流</li>
+    <li>微创新 3 处改动：场景/人物/动作各改 1 处，避开搬运判定</li>
+    <li>行业三阶段：2024 运气、2025 能力、2026 品牌</li>
+    <li>双轨战略：品牌号（长期沉淀）+ 收割号（短期转化）协同</li>
+    <li>主用 TAP（团长），不用 MCN（机构）</li>
+  </ul>
+</div>
+
+    </section>
+
+    <section id="sec-3-cases">
+      <h1>🎯 阶段 3：产品案例与提示词工程</h1>
+<div class="card">
+  <div class="card-title">📌 本阶段你会学到什么</div>
+  <p>本阶段从"听故事"切换到"抄作业"——通过 KK 老师亲讲的 4 个爆款案例（浴球 / 水母 / 水枪 / 地板蜡），掌握"<strong>6 要素提示词框架</strong>"和"<strong>音频对位工作流</strong>"。你会拿到 5 套原文提示词模板（直接可套用），理解音频对位如何让画面跟着音频节奏走。学完本阶段，你能拿到一个新品，在 30 分钟内写出 6 要素齐全的英文提示词，能用即梦生成 3-5 版视频素材，能估算一条 30 秒 AI 视频的完整制作成本（应控制在 $1-3 以内）。</p>
+  <p><strong>学习时长预估</strong>：4-5 小时 · <strong>难度</strong>：⭐⭐⭐ 实战演示</p>
+</div>
+
+<h2>3.1 浴球案例复盘——500 万播放的爆款公式</h2>
+
+<p>浴球（bath bomb）是 KK 团队讲解 AI 视频带货的"<strong>开篇案例</strong>"，也是 6 要素提示词框架的来源。原始数据：</p>
+
+<table>
+<tr><th>指标</th><th>数据</th></tr>
+<tr><td>单条视频播放量</td><td>500 万+</td></tr>
+<tr><td>转化率 <small>（CCR）</small></td><td>3.2%</td></tr>
+<tr><td>单条 GMV <small>（商品交易总额）</small></td><td>$12,000+</td></tr>
+<tr><td>客单价</td><td>$9.9</td></tr>
+<tr><td>目标人群</td><td>25 岁亚洲女性</td></tr>
+</table>
+
+<h3>浴球案例的成功要素拆解</h3>
+<ol>
+  <li><strong>温馨治愈风</strong>：暖色调 + 慢动作，给观众"治愈"情绪</li>
+  <li><strong>浴室场景</strong>：浴缸 + 傍晚暖光，符合产品的使用场景</li>
+  <li><strong>25 岁亚洲女性</strong>：目标人群精准（贴合 AN45 人群模型）</li>
+  <li><strong>浴球入水的关键动作</strong>：3 秒特写，强化"五彩扩散"的视觉冲击</li>
+  <li><strong>$9.9 价格锚点</strong>：口播强调"only $9.99"，制造低门槛感</li>
+  <li><strong>SPA 体验暗示</strong>：口播"Treat yourself with this..."，把产品与生活方式绑定</li>
+</ol>
+
+<h3>浴球案例的提示词原文</h3>
+<p>下面这段提示词是 KK 老师在课程中给出的原文版（可直接套用到即梦 / Midjourney）：</p>
+<pre><code>视频风格：温馨治愈、暖色调
+场景：浴室，傍晚暖光
+人物：25 岁亚洲女性，长发
+动作：将五彩浴球缓缓放入装满水的浴缸
+产品：五彩浴球（直径 7cm）
+口播："Treat yourself with this amazing bath bomb, only $9.99"</code></pre>
+
+<div class="tip">
+  <strong>💡 复盘启示</strong>：浴球案例的成功不在于"产品有多好"，而在于"<strong>提示词精准还原使用场景</strong>"。这个公式可以套用到任何"使用前后反差小"的产品（如蜡烛、香薰、泡脚球）。
+</div>
+
+<h2>3.2 6 要素提示词框架——AI 视频的核心方法论</h2>
+
+<p>这是整个 AI 视频带货<strong>最核心的方法论</strong>，从浴球案例抽象而来。每个要素都是必填项，缺一不可。</p>
+
+<table>
+<tr><th>要素</th><th>英文</th><th>说明</th><th>示例（浴球）</th></tr>
+<tr><td>1. 视频风格</td><td>Style</td><td>整体视觉调性</td><td>温馨治愈风</td></tr>
+<tr><td>2. 场景</td><td>Scene</td><td>拍摄环境</td><td>浴室 / 浴缸</td></tr>
+<tr><td>3. 人物</td><td>Character</td><td>角色设定</td><td>25 岁亚洲女性</td></tr>
+<tr><td>4. 动作</td><td>Action</td><td>关键动作</td><td>把浴球放入水中</td></tr>
+<tr><td>5. 产品</td><td>Product</td><td>核心展示</td><td>五彩浴球</td></tr>
+<tr><td>6. 口播</td><td>Voiceover</td><td>配音内容</td><td>"Spa 体验仅需 $9.9"</td></tr>
+</table>
+
+<h3>6 要素的填写顺序</h3>
+<ol>
+  <li><strong>先填 Style</strong>：决定整个视频的调性（治愈 / 搞笑 / 专业）</li>
+  <li><strong>再填 Scene</strong>：场景要符合产品使用场景</li>
+  <li><strong>然后 Character</strong>：人物要符合 AN45 人群</li>
+  <li><strong>接着 Action</strong>：动作要能展示产品核心卖点</li>
+  <li><strong>然后 Product</strong>：产品尺寸、颜色、材质要写清楚</li>
+  <li><strong>最后 Voiceover</strong>：口播要包含价格 + 卖点 + CTA <small>（行动号召）</small></li>
+</ol>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：常见错误是只写一句话（如"做个浴球广告"），AI 生成出来的东西 100% 不及格。KK 团队反复强调"<strong>6 要素缺一不可</strong>"。
+</div>
+
+<h2>3.3 水母案例——触感可视化的极致</h2>
+
+<p>水母解压玩具是 KK 团队讲解"<strong>触感可视化</strong>"的代表案例。原始数据：</p>
+
+<table>
+<tr><th>指标</th><th>数据</th></tr>
+<tr><td>卖点</td><td>解压玩具</td></tr>
+<tr><td>提示词核心</td><td>透明果冻感 + 慢动作</td></tr>
+<tr><td>单条播放</td><td>200 万+</td></tr>
+<tr><td>客单价</td><td>$7.9-$12.9</td></tr>
+</table>
+
+<h3>水母案例的成功要素</h3>
+<ol>
+  <li><strong>白色极简场景</strong>：避免画面杂乱，突出透明质感</li>
+  <li><strong>慢动作 + 特写</strong>：让观众看清"挤压-回弹"的物理过程</li>
+  <li><strong>重复节拍</strong>：连续 3-5 次挤压-回弹，制造上瘾感</li>
+  <li><strong>无人物设定</strong>：画面聚焦产品本身</li>
+  <li><strong>ASMR 风格音频</strong>：挤压声音被放大，强化解压暗示</li>
+</ol>
+
+<h3>水母案例的提示词原文</h3>
+<pre><code>视频风格：透明果冻感、慢动作
+场景：白色桌面特写
+人物：无人物
+动作：手挤压水母，水母缓慢回弹
+产品：透明水母解压玩具
+口播："This jellyfish toy is so satisfying, watch it bounce back"</code></pre>
+
+<div class="tip">
+  <strong>💡 复盘启示</strong>：水母案例证明了"<strong>无人物 + 极致特写 + 重复节拍</strong>"也能爆。这个公式适合所有"解压玩具""魔方""指尖陀螺"类目。
+</div>
+
+<h2>3.4 水枪案例——夏季户外爆款 800 万播放</h2>
+
+<p>水枪是 2024 年夏季的"<strong>现象级爆款</strong>"，单条视频播放量高达 800 万。原始数据：</p>
+
+<table>
+<tr><th>指标</th><th>数据</th></tr>
+<tr><td>卖点</td><td>夏季户外玩具</td></tr>
+<tr><td>提示词核心</td><td>喷水特效 + 儿童欢笑</td></tr>
+<tr><td>单条播放</td><td>800 万+</td></tr>
+<tr><td>客单价</td><td>$19.9-$29.9</td></tr>
+</table>
+
+<h3>水枪案例的成功要素</h3>
+<ol>
+  <li><strong>多人户外场景</strong>：草坪 + 阳光明媚，营造"派对感"</li>
+  <li><strong>儿童欢笑 + 尖叫</strong>：真人或数字人儿童的反应，强化"快乐"情绪</li>
+  <li><strong>水花四溅的慢镜头</strong>：高速摄影感，强化视觉冲击</li>
+  <li><strong>多人混战</strong>：避免单调，展示多人玩耍的热闹</li>
+  <li><strong>品牌名 + 价格 CTA</strong>：口播提到品牌名强化记忆</li>
+</ol>
+
+<h3>水枪案例的提示词原文</h3>
+<pre><code>视频风格：明亮户外、活力
+场景：草坪、阳光明媚
+人物：8 岁男孩
+动作：举起水枪喷射，水花四溅
+产品：高压远射水枪
+口播："The most powerful water gun for summer fun"</code></pre>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：水枪是<strong>季节性爆款</strong>（4-8 月）。其他季节做水枪，CTR 会从 5% 跌到 1% 以下。建议季节前 2 个月测品，季节中放量，季节后立即换品。
+</div>
+
+<h2>3.5 地板蜡案例——before/after 对比的家居清洁</h2>
+
+<p>地板蜡是 KK 团队讲解"<strong>视觉反差</strong>"和"<strong>主妇代入感</strong>"的代表案例。原始数据：</p>
+
+<table>
+<tr><th>指标</th><th>数据</th></tr>
+<tr><td>卖点</td><td>家居清洁</td></tr>
+<tr><td>提示词核心</td><td>地板镜面反光 + before/after</td></tr>
+<tr><td>单条播放</td><td>150 万+</td></tr>
+<tr><td>客单价</td><td>$19.9-$29.9</td></tr>
+</table>
+
+<h3>地板蜡案例的成功要素</h3>
+<ol>
+  <li><strong>before/after 强烈对比</strong>：脏地板 → 镜面反光，5 秒内形成视觉冲击</li>
+  <li><strong>30 秒分镜标准结构</strong>：钩子段（5s）+ 痛点段（10s）+ 方案段（10s）+ 转化段（5s）</li>
+  <li><strong>30 岁家庭主妇人设</strong>：目标人群精准（家居决策者）</li>
+  <li><strong>"5 分钟搞定"卖点</strong>：口播强调省时间，符合主妇痛点</li>
+  <li><strong>客厅木地板场景</strong>：美国主妇最常见的家居场景</li>
+</ol>
+
+<h3>地板蜡案例的提示词原文</h3>
+<pre><code>视频风格：before/after 对比
+场景：客厅木地板
+人物：30 岁家庭主妇
+动作：先用脏地板，再擦亮
+产品：地板蜡
+口播："Make your floor shine like new in just 5 minutes"</code></pre>
+
+<div class="tip">
+  <strong>💡 复盘启示</strong>：地板蜡案例证明了"<strong>before/after + 强对比</strong>"的视觉冲击是家居清洁类目共通的爆款公式。可以套用到：厨房清洁剂、玻璃水、马桶清洁等。
+</div>
+
+<h2>3.6 7 种钩子类型——视频前 3 秒的抓眼球设计</h2>
+
+<p>"钩子"就是视频前 3 秒抓眼球的设计。KK 团队总结出 7 种钩子类型：</p>
+
+<table>
+<tr><th>类型</th><th>核心设计</th><th>适用场景</th></tr>
+<tr><td>1. 视觉冲击</td><td>放大特写、反差画面</td><td>所有品类</td></tr>
+<tr><td>2. 好奇心</td><td>"你绝对想不到..."</td><td>新奇特产品</td></tr>
+<tr><td>3. 痛点</td><td>"是不是经常..."</td><td>家居清洁、个护</td></tr>
+<tr><td>4. 数字</td><td>"5 分钟搞定..."</td><td>效率型产品</td></tr>
+<tr><td>5. 悬念</td><td>"等下会..."</td><td>剧情类视频</td></tr>
+<tr><td>6. 争议</td><td>"90% 人都做错了..."</td><td>知识科普类</td></tr>
+<tr><td>7. 场景</td><td>"当你 XX 时..."</td><td>生活方式产品</td></tr>
+</table>
+
+<h3>实操层面：钩子的测试方法</h3>
+<ol>
+  <li>同一条视频，做 3 种不同钩子版本（A/B/C）</li>
+  <li>每条投 $10 测试 24 小时</li>
+  <li>看 2 秒完播率（≥ 25% 才合格）</li>
+  <li>选出最优钩子，加预算放大</li>
+</ol>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：钩子失败，浪费的是后面 27 秒。KK 团队建议"<strong>3 秒钟定生死</strong>"，钩子不合格的视频直接重做，不要硬投。
+</div>
+
+<h2>3.7 音频对位工作流——画面跟着音频节奏走</h2>
+
+<p>"<strong>音频对位</strong>"是 KK 团队对位视频的核心方法论。本质是：<strong>画面节奏与音频节奏完美对齐</strong>，让观众"听得舒服，看得过瘾"。</p>
+
+<h3>音频对位的 4 个原则</h3>
+<ol>
+  <li><strong>节拍对齐</strong>：画面切换与音频节拍同步（如鼓点 / 音乐节拍）</li>
+  <li><strong>关键词对齐</strong>：音频提到"产品名"时，画面正好切到产品特写</li>
+  <li><strong>情感对齐</strong>：音频情绪（紧张 / 治愈 / 搞笑）与画面情绪一致</li>
+  <li><strong>起承转合对齐</strong>：钩子段快节奏，痛点段慢节奏，方案段中节奏，转化段快节奏</li>
+</ol>
+
+<h3>音频对位的工作流</h3>
+<ol>
+  <li><strong>第一步：录制原声</strong>
+    <ul>
+      <li>用 MiniMax 数字永生克隆人声（单条音频成本约 $0.5）</li>
+      <li>时长建议：30 秒（短视频最佳）</li>
+      <li>口播语速：每秒 2.5-3 字（自然语速）</li>
+    </ul>
+  </li>
+  <li><strong>第二步：生成画面</strong>
+    <ul>
+      <li>用即梦 AI 生成 9 个镜头（每个 3-4 秒）</li>
+      <li>每个镜头对应音频的一个节拍段</li>
+    </ul>
+  </li>
+  <li><strong>第三步：对位剪辑</strong>
+    <ul>
+      <li>把 9 个镜头按音频节奏拼接</li>
+      <li>关键节拍点对齐（如"咚"的时候画面切换）</li>
+    </ul>
+  </li>
+  <li><strong>第四步：调色 + 字幕</strong>
+    <ul>
+      <li>统一调色风格（暖色调 / 冷色调）</li>
+      <li>添加双语字幕（英文主 + 中文小字）</li>
+    </ul>
+  </li>
+</ol>
+
+<h3>音频克隆的成本与工具</h3>
+<table>
+<tr><th>工具</th><th>成本</th><th>用途</th></tr>
+<tr><td>MiniMax 数字永生</td><td>$0.5/条</td><td>克隆人声（最常用）</td></tr>
+<tr><td>剪映 AI 配音</td><td>免费</td><td>中文 / 英文标准配音</td></tr>
+<tr><td>ElevenLabs</td><td>$5/月起</td><td>高质量英文 AI 配音</td></tr>
+<tr><td>CapCut 国际版</td><td>免费</td><td>视频剪辑 + 字幕</td></tr>
+</table>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：新团队起步用"<strong>剪映 AI 配音 + MiniMax 数字永生</strong>"组合，单条 30 秒视频总成本可控制在 $1 以内。
+</div>
+
+<h2>3.8 30 秒 9 镜头标准结构——短视频的"黄金模板"</h2>
+
+<p>基于 4 个爆款案例的复盘，KK 团队总结出"<strong>30 秒 9 镜头标准结构</strong>"：</p>
+
+<table>
+<tr><th>时段</th><th>时长</th><th>镜头</th><th>功能</th></tr>
+<tr><td>钩子段</td><td>0-3s</td><td>3 个镜头</td><td>视觉冲击 / 钩子</td></tr>
+<tr><td>痛点段</td><td>3-13s</td><td>3 个镜头</td><td>展示使用前的"问题"</td></tr>
+<tr><td>方案段</td><td>13-23s</td><td>3 个镜头</td><td>展示产品使用的"过程"</td></tr>
+<tr><td>转化段</td><td>23-30s</td><td>2-3 个镜头</td><td>展示使用后的"效果" + 价格 CTA</td></tr>
+</table>
+
+<h3>为什么是 9 个镜头</h3>
+<ul>
+  <li>30 秒视频，每个镜头平均 3-4 秒，符合 TikTok 用户注意力阈值</li>
+  <li>9 个镜头既有变化（不单调），又不会切得太碎（避免眩晕感）</li>
+  <li>每个镜头都对应音频的一个节拍段，便于音频对位</li>
+</ul>
+
+<h2>3.9 GMV 是什么——爆款的核心衡量指标</h2>
+
+<p><strong>GMV = Gross Merchandise Volume</strong>（商品交易总额），是衡量爆款的核心指标。计算公式：</p>
+<blockquote>GMV = 售价 × 销量</blockquote>
+
+<h3>KK 团队对 GMV 的分级</h3>
+<table>
+<tr><th>GMV 等级</th><th>判定</th></tr>
+<tr><td>$1K 以下/天</td><td>测试期</td></tr>
+<tr><td>$1K-$10K/天</td><td>潜力品</td></tr>
+<tr><td>$10K-$50K/天</td><td>爆款品</td></tr>
+<tr><td>$50K-$200K/天</td><td>现象级爆款</td></tr>
+<tr><td>$200K+/天</td><td>超级爆款</td></tr>
+</table>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：GMV 不等于利润。一条 $12,000 GMV 的视频，如果退货率 20%、成本 50%，实际利润可能不到 $1,000。<strong>看 GMV 也要看利润率</strong>。
+</div>
+
+<h2>3.10 完整实战路径——从 0 到 1 跑通一条 AI 视频</h2>
+
+<p>综合本阶段所有方法论，给出一条 AI 视频的<strong>完整生产 SOP</strong>：</p>
+
+<ol>
+  <li><strong>Step 1：选品（30 分钟）</strong>
+    <ul>
+      <li>用特探数据看视频榜，找到爆款视频（24h 内 ≥ 10 万播放）</li>
+      <li>提取产品，验证供应链（1688 / Temu 比价）</li>
+    </ul>
+  </li>
+  <li><strong>Step 2：写提示词（30 分钟）</strong>
+    <ul>
+      <li>填写 6 要素提示词框架</li>
+      <li>GPT 反推爆款视频的提示词作为参考</li>
+    </ul>
+  </li>
+  <li><strong>Step 3：生成素材（2-4 小时）</strong>
+    <ul>
+      <li>即梦生成 5-10 版视频</li>
+      <li>筛选最优的 1-2 版</li>
+    </ul>
+  </li>
+  <li><strong>Step 4：音频对位（1 小时）</strong>
+    <ul>
+      <li>用 MiniMax 数字永生克隆口播音频</li>
+      <li>把 9 个镜头按音频节奏拼接</li>
+    </ul>
+  </li>
+  <li><strong>Step 5：剪辑包装（1 小时）</strong>
+    <ul>
+      <li>CapCut / 剪映统一调色</li>
+      <li>添加双语字幕</li>
+      <li>添加价格 CTA</li>
+    </ul>
+  </li>
+  <li><strong>Step 6：发布测试（24 小时）</strong>
+    <ul>
+      <li>发布到渠道号</li>
+      <li>投流 $10-$50 测试 CCR</li>
+      <li>CCR ≥ 3% 加大预算</li>
+    </ul>
+  </li>
+</ol>
+
+<h3>完整成本估算</h3>
+<table>
+<tr><th>项目</th><th>成本</th></tr>
+<tr><td>即梦生成</td><td>¥10（约 $1.5）</td></tr>
+<tr><td>MiniMax 数字永生</td><td>$0.5</td></tr>
+<tr><td>剪辑工具</td><td>免费（剪映/CapCut）</td></tr>
+<tr><td>人工（运营）</td><td>1 小时 × $5 = $5</td></tr>
+<tr><td><strong>总成本</strong></td><td><strong>约 $7</strong>（批量生产可压到 $3 以内）</td></tr>
+</table>
+
+<div class="summary">
+  <h4>📝 本章节要点回顾</h4>
+  <ul>
+    <li>浴球 500 万播放案例：6 要素齐全 + 温馨治愈风 + 25 岁亚洲女性 + $9.9 价格锚点</li>
+    <li>6 要素提示词框架：Style 风格 / Scene 场景 / Character 人物 / Action 动作 / Product 产品 / Voiceover 口播</li>
+    <li>水母 200 万案例：无人物 + 白色极简 + 慢动作 + 重复节拍 = 触感可视化</li>
+    <li>水枪 800 万案例：多人户外 + 儿童欢笑 + 水花慢镜头 = 夏季爆款</li>
+    <li>地板蜡 150 万案例：before/after + 30 秒分镜 + 主妇代入感 = 家居清洁通用公式</li>
+    <li>7 种钩子：视觉冲击 / 好奇心 / 痛点 / 数字 / 悬念 / 争议 / 场景</li>
+    <li>音频对位 4 原则：节拍 / 关键词 / 情感 / 起承转合对齐</li>
+    <li>30 秒 9 镜头标准结构：钩子段 3 个 + 痛点段 3 个 + 方案段 3 个 + 转化段 2-3 个</li>
+    <li>GMV 等级：$1K 测试期 / $10K 爆款 / $50K 现象级 / $200K 超级爆款</li>
+    <li>单条 30 秒 AI 视频完整成本应控制在 $1-3（批量生产）</li>
+  </ul>
+</div>
+
+    </section>
+
+    <section id="sec-4-channels">
+      <h1>📊 阶段 4：渠道号与选品 SOP</h1>
+<div class="card">
+  <div class="card-title">📌 本阶段你会学到什么</div>
+  <p>本阶段从"会写提示词"升级到"会选爆品"——掌握渠道号垂直策略、6 套数字人提示词、GPT/即梦反推工作流、特探数据网站使用方法、起号 4 策略、6 步选品 SOP。你会理解渠道号"垂直策略"的 4 个维度（品类/风格/价格/调性），会用 GPT 反推任意一条爆款视频的提示词，能用特探数据找到 3-5 个潜力类目，能跑通完整的 6 步选品 SOP（看大盘→选品→找素材→做脚本→测试→放量）。</p>
+  <p><strong>学习时长预估</strong>：5-6 小时 · <strong>难度</strong>：⭐⭐⭐⭐ 选品执行</p>
+</div>
+
+<h2>4.1 渠道号垂直策略——4 个维度的深度运营</h2>
+
+<p>渠道号是平台官方认证的"带货专属账号"，享受流量倾斜 + 投流权限。KK 团队反复强调"<strong>垂直</strong>"两个字——一个渠道号只做一个品类。</p>
+
+<h3>垂直策略的 4 个维度</h3>
+<table>
+<tr><th>维度</th><th>操作</th><th>原因</th></tr>
+<tr><td>品类垂直</td><td>只发一个品类</td><td>平台精准打标</td></tr>
+<tr><td>风格垂直</td><td>统一拍摄风格</td><td>提升完播率</td></tr>
+<tr><td>价格垂直</td><td>锁定价格带</td><td>匹配人群</td></tr>
+<tr><td>调性垂直</td><td>统一口播调性</td><td>强化品牌感</td></tr>
+</table>
+
+<h3>KK 团队渠道号运营标准</h3>
+<ul>
+  <li>每渠道号 ≥ 5 万粉</li>
+  <li>单品类垂直度 ≥ 90%</li>
+  <li>日更 ≥ 3 条</li>
+  <li>完播率 ≥ 35%</li>
+  <li>CCR ≥ 3%</li>
+</ul>
+
+<h3>实操层面：垂直 vs 杂货</h3>
+<table>
+<tr><th>对比项</th><th>垂直渠道号</th><th>杂货号</th></tr>
+<tr><td>粉丝精准度</td><td>高（买家居的只看家居）</td><td>低（什么都看什么都不买）</td></tr>
+<tr><td>算法推荐</td><td>精准（推给同人群）</td><td>混乱（推给泛人群）</td></tr>
+<tr><td>转化率</td><td>3-5%</td><td>0.5-1%</td></tr>
+<tr><td>长期价值</td><td>高（品牌沉淀）</td><td>低（数据上不去）</td></tr>
+</table>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：很多新团队想"什么赚钱就做什么"，结果账号被算法判定为"<strong>杂货号</strong>"，自然流量越来越少。<strong>垂直才是王道</strong>。
+</div>
+
+<h2>4.2 数字人 vs 真人——AI 带货的两条路径</h2>
+
+<p>小白常见疑问："数字人"是什么？和真人有什么区别？</p>
+
+<h3>核心定义</h3>
+<ul>
+  <li><strong>数字人</strong> = AI 生成的虚拟形象 + AI 配音（MiniMax 数字永生 / HeyGen）</li>
+  <li><strong>真人</strong> = 实拍 + 真声（员工 / 模特 / 团长）</li>
+</ul>
+
+<h3>两条路径对比</h3>
+<table>
+<tr><th>对比项</th><th>数字人</th><th>真人</th></tr>
+<tr><td>成本</td><td>低（每月 ¥100 工具费）</td><td>高（员工 6000-8000 月薪）</td></tr>
+<tr><td>产出量</td><td>每天 30-50 条</td><td>每天 5-10 条</td></tr>
+<tr><td>人设稳定性</td><td>高（不变老、不换人）</td><td>中（员工离职 = 重建）</td></tr>
+<tr><td>信任度</td><td>中（AI 痕迹会被识别）</td><td>高（真人更有说服力）</td></tr>
+<tr><td>合规风险</td><td>中（保健品 / 医疗慎用）</td><td>低（但需签代言合同）</td></tr>
+</table>
+
+<h3>6 套数字人提示词模板</h3>
+<p>KK 团队针对不同品类沉淀出 6 套数字人模板：</p>
+
+<h4>模板 6：数字人专家（保健品类）</h4>
+<pre><code>视频风格：专业访谈、办公室
+场景：主播台 + 书架背景
+人物：50 岁白人男性教授
+动作：边讲解边展示产品
+产品：保健品瓶
+口播："As a nutritionist for 20 years, I recommend..."</code></pre>
+
+<h4>模板 7：数字人家居（家居清洁类）</h4>
+<pre><code>视频风格：温馨家庭、明亮
+场景：客厅 / 厨房
+人物：35 岁白人主妇
+动作：演示产品使用方法
+产品：多功能清洁剂
+口播："This cleaner saved me 3 hours every week"</code></pre>
+
+<h4>模板 8：数字人萌宠（宠物用品类）</h4>
+<pre><code>视频风格：温馨、可爱
+场景：客厅地毯
+人物：30 岁亚洲女性 + 金毛犬
+动作：展示宠物玩具
+产品：益智玩具球
+口播："My dog loves this toy, it keeps him busy for hours"</code></pre>
+
+<h4>模板 9：数字人运动（健身器材类）</h4>
+<pre><code>视频风格：活力、健身房
+场景：家庭健身房
+人物：28 岁健美男性
+动作：演示器械使用
+产品：哑铃
+口播："Build your dream body with this adjustable dumbbell"</code></pre>
+
+<h4>模板 10：数字人美妆（美妆工具类）</h4>
+<pre><code>视频风格：精致化妆台
+场景：卧室化妆台
+人物：25 岁白人女性
+动作：使用化妆刷上妆
+产品：化妆刷套装
+口播："Get flawless makeup with these professional brushes"</code></pre>
+
+<h4>模板 11：数字人母婴（母婴用品类）</h4>
+<pre><code>视频风格：温馨、柔软
+场景：婴儿房
+人物：32 岁白人妈妈 + 婴儿
+动作：展示婴儿用品
+产品：婴儿背带
+口播："The safest baby carrier for your little one"</code></pre>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：6 套模板覆盖了 90% 的常见品类。新团队起步时建议选 2-3 个模板深耕，不要 6 个全做（精力分散）。
+</div>
+
+<h2>4.3 GPT / 即梦反推工作流——5 步骤反推爆款</h2>
+
+<p>"<strong>GPT 反推提示词</strong>"是 KK 团队的核心方法论之一。本质是：看一条爆款视频 → 用 GPT 反推出 AI 提示词 → 在即梦中生成自己的版本。</p>
+
+<h3>GPT 反推提示词模板</h3>
+<p>下面这段提示词是 KK 老师给出的"原文版"，可直接复制使用：</p>
+<pre><code>你是一位专业的 TikTok 爆款视频分析师，请根据以下视频内容反推 AI 提示词：
+
+视频内容：[粘贴视频描述]
+- 视频风格是什么？
+- 场景在哪里？
+- 人物是谁（年龄/性别/族裔）？
+- 关键动作是什么？
+- 产品如何展示？
+- 口播内容是什么？
+
+请输出一套完整的即梦 AI 提示词（英文），要求：
+1. 包含 6 要素
+2. 分镜描述（每个 3-5 秒）
+3. 镜头语言（特写/中景/远景）
+4. 光影氛围</code></pre>
+
+<h3>即梦反推工作流（5 步骤）</h3>
+<ol>
+  <li><strong>Step 1</strong>：下载爆款视频（用特探数据下载或直接录屏）</li>
+  <li><strong>Step 2</strong>：用 GPT 反推提示词（粘贴视频描述或截图）</li>
+  <li><strong>Step 3</strong>：在即梦中生成 5-10 版</li>
+  <li><strong>Step 4</strong>：筛选最优版（看画面清晰度、动作流畅度）</li>
+  <li><strong>Step 5</strong>：剪辑包装发布</li>
+</ol>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：每条爆款视频反推 1 次成本约 $0.5（GPT 调用费）。爆款视频看 10 条，反推 5 条，生成 50 版素材，最终留下 1-2 条优质版。<strong>投入产出比极高</strong>。
+</div>
+
+<h2>4.4 音频决定论——音频比画面更重要</h2>
+
+<p>这是 KK 团队反复强调的"<strong>音频决定论</strong>"：</p>
+
+<blockquote>画面平庸但音频好 = 仍能转化；画面惊艳但音频差 = 转化很低。</blockquote>
+
+<h3>为什么音频这么重要</h3>
+<ol>
+  <li>短视频是"<strong>听觉优先</strong>"——用户先听到声音，才决定要不要看画面</li>
+  <li>TikTok 的算法对"<strong>音频停留时间</strong>"敏感（用户听完整段音频 = 高完播）</li>
+  <li>音频可以"<strong>掩盖画面瑕疵</strong>"（如画面不够精致，但音频有节奏感）</li>
+</ol>
+
+<h3>实操层面：音频 3 个关键</h3>
+<ul>
+  <li><strong>语速</strong>：每秒 2.5-3 字（自然语速）</li>
+  <li><strong>节拍</strong>：每 5-7 秒一个重音点（让人"听得下去"）</li>
+  <li><strong>情感</strong>：配音要有温度（避免机械感）</li>
+</ul>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：很多新团队把 90% 时间花在画面上，10% 时间在音频上。结果是"<strong>画面好看但没人看</strong>"。正确做法：50% 时间画面 + 50% 时间音频。
+</div>
+
+<h2>4.5 特探数据网站——选品核心工具 5 大模块</h2>
+
+<p>特探数据是 KK 团队选品的<strong>核心工具</strong>。整个网站有 5 大模块，每个模块的使用频率不同：</p>
+
+<table>
+<tr><th>模块</th><th>功能</th><th>使用频率</th></tr>
+<tr><td>1. 商品榜</td><td>爆款商品监控</td><td>每日</td></tr>
+<tr><td>2. 达人榜</td><td>优质带货达人</td><td>每周</td></tr>
+<tr><td>3. 视频榜</td><td>爆款视频素材</td><td>每日</td></tr>
+<tr><td>4. 店铺榜</td><td>优秀店铺分析</td><td>每周</td></tr>
+<tr><td>5. 类目榜</td><td>细分品类趋势</td><td>每周</td></tr>
+</table>
+
+<h3>每日必看模块（2 个）</h3>
+<ol>
+  <li><strong>商品榜</strong>：看哪些商品 GMV 在涨（潜在爆款）</li>
+  <li><strong>视频榜</strong>：看哪些视频播放量在涨（潜在素材）</li>
+</ol>
+
+<h3>每周必看模块（3 个）</h3>
+<ol>
+  <li><strong>达人榜</strong>：找 TOP 带货达人合作（TAP 团长）</li>
+  <li><strong>店铺榜</strong>：研究优秀店铺的选品和定价策略</li>
+  <li><strong>类目榜</strong>：看细分品类的趋势（提前 1-2 个月布局）</li>
+</ol>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：特探数据是付费工具（基础版约 ¥300/月）。新团队起步如果预算有限，可以先看公开榜单（每周更新）。
+</div>
+
+<h2>4.6 AI 选品 3 参数——国家 / 时间 / 增量</h2>
+
+<p>特探数据中的"<strong>AI 选品引擎</strong>"有 3 个关键参数：</p>
+
+<table>
+<tr><th>参数</th><th>推荐值</th><th>原因</th></tr>
+<tr><td>国家</td><td>美国（US）</td><td>消费力强、客单价高</td></tr>
+<tr><td>时间</td><td>2 个月内</td><td>近 2 个月的爆款最具参考价值</td></tr>
+<tr><td>增量</td><td>最近 50%+</td><td>增速 ≥ 50% 的品才是潜力品</td></tr>
+</table>
+
+<h3>实操举例</h3>
+<ol>
+  <li>设置国家 = 美国、时间 = 2 个月内</li>
+  <li>筛选"最近 7 天 GMV 增量 ≥ 50%"的商品</li>
+  <li>按 GMV 降序排列，取前 50 个</li>
+  <li>逐个分析是否符合"<strong>6 大选品维度</strong>"（详见阶段 5）</li>
+  <li>选出 5-10 个潜力品，进入"<strong>6 步选品 SOP</strong>"测试</li>
+</ol>
+
+<h2>4.7 起号 4 策略——选哪条路起步</h2>
+
+<p>"起号"是小白第一个重大决策。KK 团队总结了 4 种起号策略：</p>
+
+<table>
+<tr><th>策略</th><th>说明</th><th>风险</th><th>推荐度</th></tr>
+<tr><td>1. 自孵化</td><td>慢慢养（0 → 1 万粉）</td><td>低</td><td>⭐⭐</td></tr>
+<tr><td>2. 买号</td><td>直接买成品（5-10 万粉）</td><td>中</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td>3. 渠道号</td><td>申请官方渠道</td><td>低</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>4. 矩阵号</td><td>多账号同步</td><td>中</td><td>⭐⭐⭐</td></tr>
+</table>
+
+<h3>策略详解</h3>
+
+<h4>1. 自孵化（⭐⭐）</h4>
+<ul>
+  <li>从 0 开始养号，发 100-200 条内容</li>
+  <li>周期长（3-6 个月），但账号最稳定</li>
+  <li>适合：有耐心、不急着变现的团队</li>
+</ul>
+
+<h4>2. 买号（⭐⭐⭐⭐）</h4>
+<ul>
+  <li>买现成的 5-10 万粉账号（成本 $200-$1,000）</li>
+  <li>周期短（1-2 周），但有封号风险（详见阶段 6）</li>
+  <li>适合：急着变现、有经验的团队</li>
+</ul>
+
+<h4>3. 渠道号（⭐⭐⭐⭐⭐）</h4>
+<ul>
+  <li>向 TikTok 申请官方渠道号（需 ≥ 5 万粉 + 申请审核）</li>
+  <li>周期中（1-3 个月），但流量扶持大</li>
+  <li>适合：长期运营的品牌团队</li>
+</ul>
+
+<h4>4. 矩阵号（⭐⭐⭐）</h4>
+<ul>
+  <li>同步运营 5-10 个账号（垂直品类不同）</li>
+  <li>风险分散，但运营成本高</li>
+  <li>适合：成熟团队（50 人+）</li>
+</ul>
+
+<h3>KK 团队建议</h3>
+<blockquote>起步阶段 <strong>自孵化 1 个号 + 买 2-3 个垂直号</strong>，3 个月内测试出可行路径，再扩大规模。</blockquote>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：买号有"<strong>三重打击</strong>"风险：设备切换 + 网络切换 + 立刻绑店 = 必死。详见阶段 6.4。
+</div>
+
+<h2>4.8 耶稣号与弹窗号——灰色但有效的起号方式</h2>
+
+<p>除了主流的 4 种起号策略，还有 2 种"<strong>灰色但有效</strong>"的方式（KK 团队谨慎使用）：</p>
+
+<h3>耶稣号</h3>
+<ul>
+  <li>去耶稣信仰国家（如巴西、菲律宾、墨西哥）发宗教内容涨粉</li>
+  <li>切回美国后养一段时间（3-6 个月）再开橱窗</li>
+  <li>优点：起号快、成本低</li>
+  <li>缺点：账号调性不垂直、后期转化率低</li>
+</ul>
+
+<h3>弹窗号</h3>
+<ul>
+  <li>用"<strong>科普问题 + 弹窗诱导关注</strong>"的方式起号</li>
+  <li>如"你绝对不知道的 3 件事"、"99% 人都做错了"</li>
+  <li>优点：涨粉极快（一天 1 万+）</li>
+  <li>缺点：高风险（容易被平台判定为诱导关注，限流）</li>
+</ul>
+
+<div class="danger">
+  <strong>🚫 严禁</strong>：耶稣号 / 弹窗号属于"灰色操作"，新团队不建议使用。一旦被平台判定为"<strong>诱导关注</strong>"或"<strong>调性不一致</strong>"，账号会被限流甚至封号。
+</div>
+
+<h2>4.9 6 步选品 SOP——从 0 到 1 跑通</h2>
+
+<p>这是 KK 团队最核心的<strong>方法论</strong>。完整 6 步：</p>
+
+<ol>
+  <li><strong>Step 1：看大盘</strong>
+    <ul>
+      <li>用特探数据看类目趋势</li>
+      <li>锁定 3-5 个潜力类目（近 2 个月 GMV 增量 ≥ 50%）</li>
+    </ul>
+  </li>
+  <li><strong>Step 2：选产品</strong>
+    <ul>
+      <li>从潜力类目里选 10-20 个产品</li>
+      <li>评估 6 大选品维度：市场容量 / 竞争烈度 / 物流成本 / 退货率 / 客单价 / 内容可行性</li>
+    </ul>
+  </li>
+  <li><strong>Step 3：找素材</strong>
+    <ul>
+      <li>在 TikTok / 抖音 / 小红书找对标</li>
+      <li>整理 3-5 个爆款视频（24h 内 ≥ 10 万播放）</li>
+    </ul>
+  </li>
+  <li><strong>Step 4：做脚本</strong>
+    <ul>
+      <li>用 GPT 反推提示词</li>
+      <li>制作 3 版 AI 视频</li>
+    </ul>
+  </li>
+  <li><strong>Step 5：小流量测试</strong>
+    <ul>
+      <li>每个产品投 $50-100 测试</li>
+      <li>看 CCR / ROAS（广告支出回报率）</li>
+      <li>CCR ≥ 1% 继续；CCR < 1% 淘汰</li>
+    </ul>
+  </li>
+  <li><strong>Step 6：放量或淘汰</strong>
+    <ul>
+      <li>ROI（投资回报率）≥ 2 → 加大投放</li>
+      <li>ROI < 1 → 立即淘汰</li>
+    </ul>
+  </li>
+</ol>
+
+<h3>6 步 SOP 的核心心法</h3>
+<blockquote><strong>看大盘靠数据，选品靠经验，找素材靠积累，做脚本靠方法论，测试靠执行力，放量靠魄力。</strong></blockquote>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：6 步 SOP 跑通一次需要 2-4 周。新团队建议"<strong>小步快跑</strong>"：每周测试 2-3 个品，1 个月内跑完一轮 10-15 个品的测试。
+</div>
+
+<h2>4.10 起号后的晋升通道与作息——团队管理</h2>
+
+<p>团队管理的核心是"<strong>晋升通道清晰</strong>"和"<strong>作息规律</strong>"。KK 团队的薪资结构：</p>
+
+<table>
+<tr><th>岗位</th><th>底薪</th><th>提成</th><th>综合月薪</th></tr>
+<tr><td>新人（试用期）</td><td>3,500 元</td><td>—</td><td>3,500 元</td></tr>
+<tr><td>运营（转正）</td><td>4,700 元</td><td>+ 绩效</td><td>6,000-8,000 元</td></tr>
+<tr><td>资深运营</td><td>6,000 元</td><td>+ 提成</td><td>10,000-15,000 元</td></tr>
+<tr><td>组长</td><td>8,000 元</td><td>+ 团队提成</td><td>15,000-25,000 元</td></tr>
+<tr><td>部门负责人</td><td>12,000 元</td><td>+ 部门提成</td><td>25,000+ 元</td></tr>
+</table>
+
+<h3>KK 团队的作息（长沙）</h3>
+<ul>
+  <li><strong>9:00-10:00</strong>：看数据 + 复盘昨日</li>
+  <li><strong>10:00-12:00</strong>：选题 + 写提示词</li>
+  <li><strong>12:00-13:30</strong>：午餐 + 休息</li>
+  <li><strong>13:30-17:00</strong>：素材生成 + 剪辑</li>
+  <li><strong>17:00-18:00</strong>：发布 + 投流测试</li>
+  <li><strong>18:00-19:00</strong>：晚餐 + 复盘</li>
+  <li><strong>19:00-21:00</strong>：爆款跟进 + 扩量</li>
+</ul>
+
+<h3>东莞办公室的差别</h3>
+<ul>
+  <li>作息时间相同</li>
+  <li>底薪比长沙低 500-1000 元（生活成本差异）</li>
+  <li>提成比例略高（激励多干）</li>
+</ul>
+
+<div class="summary">
+  <h4>📝 本章节要点回顾</h4>
+  <ul>
+    <li>渠道号垂直策略 4 维度：品类 / 风格 / 价格 / 调性，单品类垂直度 ≥ 90%</li>
+    <li>数字人 vs 真人：数字人成本低产出高，真人信任度高</li>
+    <li>6 套数字人提示词模板：保健品 / 家居 / 萌宠 / 健身 / 美妆 / 母婴</li>
+    <li>GPT 反推工作流 5 步骤：下载爆款 → GPT 反推 → 即梦生成 5-10 版 → 筛选 → 发布</li>
+    <li>音频决定论：画面平庸但音频好 = 仍能转化；画面惊艳但音频差 = 转化很低</li>
+    <li>特探数据 5 大模块：商品榜 / 视频榜每日必看，达人榜 / 店铺榜 / 类目榜每周必看</li>
+    <li>AI 选品 3 参数：国家=美国 / 时间=2 个月内 / 增量=最近 50%+</li>
+    <li>起号 4 策略：自孵化 ⭐⭐ / 买号 ⭐⭐⭐⭐ / 渠道号 ⭐⭐⭐⭐⭐ / 矩阵号 ⭐⭐⭐</li>
+    <li>耶稣号 / 弹窗号：灰色操作，新团队不建议使用</li>
+    <li>6 步选品 SOP：看大盘 → 选品 → 找素材 → 做脚本 → 测试 → 放量</li>
+    <li>KK 团队长沙薪资：新人 3500 → 运营 6000-8000 → 资深 10000-15000 → 组长 15000-25000</li>
+  </ul>
+</div>
+
+    </section>
+
+    <section id="sec-5-store">
+      <h1>🏪 阶段 5：店铺合规与定价备货</h1>
+<div class="card">
+  <div class="card-title">📌 本阶段你会学到什么</div>
+  <p>本阶段从"会选品会写脚本"升级到"能开店、能定价、能备货"——掌握店铺注册主体选择（ACCU/香港/内地）、二审申诉 10 项模板、物流成本核算（FBT/TTS/CBT 3 种）、6 大选品验收维度、SKU 三层定价法、备货决策树（500/2000 件）、店铺体验分 SPS 管理、经理链接 60% 规则、T3 门槛。学完本阶段，你能选出适合自己的店铺注册主体（起步选香港主体），能填写完整的二审申诉话术，能用成本核算公式倒推出一个 $20 产品的成本结构，能为一个新品设计 3 层 SKU，能根据日均销量做出"500 件 vs 2000 件"的备货决策。</p>
+  <p><strong>学习时长预估</strong>：5-6 小时 · <strong>难度</strong>：⭐⭐⭐⭐ 运营基建</p>
+</div>
+
+<h2>5.1 店铺注册主体选择——ACCU / 香港 / 内地 3 种对比</h2>
+
+<p>开 TikTok 美区店，第一步就是选择<strong>注册主体</strong>。不同主体的<strong>优势、劣势、适用场景</strong>完全不同：</p>
+
+<table>
+<tr><th>主体类型</th><th>优势</th><th>劣势</th><th>适用场景</th></tr>
+<tr><td><strong>ACCU（美区）</strong></th><td>本土店优势、流量大</td><td>需美国身份 / SSN</td><td>长期大卖</td></tr>
+<tr><td><strong>香港主体</strong></th><td>跨境店主流、税务清晰</td><td>需香港公司</td><td>跨境大卖</td></tr>
+<tr><td><strong>内地主体</strong></th><td>门槛低、办理快</td><td>平台扶持少</td><td>试水卖家</td></tr>
+</table>
+
+<h3>三种主体详解</h3>
+
+<h4>ACCU（美区本土店）</h4>
+<ul>
+  <li><strong>优势</strong>：流量最大、平台扶持最多、可申请蓝 V 认证</li>
+  <li><strong>劣势</strong>：需美国 SSN（社会安全号）或 ITIN（个人税号），需要美国银行账户</li>
+  <li><strong>适合</strong>：长期规划、想做品牌的卖家</li>
+</ul>
+
+<h4>香港主体</h4>
+<ul>
+  <li><strong>优势</strong>：跨境店主流、税务清晰（利得税 8.25%-16.5%）、无外汇管制</li>
+  <li><strong>劣势</strong>：需注册香港公司（$1,000-$2,000）+ 香港银行账户</li>
+  <li><strong>适合</strong>：跨境中型卖家（KK 团队首选）</li>
+</ul>
+
+<h4>内地主体</h4>
+<ul>
+  <li><strong>优势</strong>：办理快（1 周）、门槛低（无需境外公司）</li>
+  <li><strong>劣势</strong>：平台扶持少、流量倾斜弱</li>
+  <li><strong>适合</strong>：试水期、过渡期</li>
+</ul>
+
+<h3>KK 团队建议（3 阶段路径）</h3>
+<ol>
+  <li><strong>起步阶段</strong>：香港主体（综合最优，流量 + 税务平衡）</li>
+  <li><strong>进阶阶段</strong>：ACCU 本土店（流量加持，做品牌）</li>
+  <li><strong>长期规划</strong>：双主体并行（ACCU + 香港，风险分散）</li>
+</ol>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：90% 的中小卖家起步用"<strong>香港主体</strong>"。注册香港公司可以找代理（$1,000-$2,000 全包，1-2 周下证）。
+</div>
+
+<h2>5.2 二审申诉 10 项模板——店铺被审怎么救</h2>
+
+<p>"<strong>二审</strong>" = 平台怀疑资料真实性后的复审。新店二审概率约 30%-50%。下面是 10 个常见原因 + 申诉要点：</p>
+
+<table>
+<tr><th>原因</th><th>申诉要点</th></tr>
+<tr><td>1. 资料不清晰</td><td>重新提交高清扫描件（≥ 300 DPI）</td></tr>
+<tr><td>2. 身份不一致</td><td>提供护照 / SSN 辅助证明</td></tr>
+<tr><td>3. 地址无法验证</td><td>提供水电费账单 / 银行账单</td></tr>
+<tr><td>4. 产品侵权</td><td>提供品牌授权书</td></tr>
+<tr><td>5. 类目错放</td><td>重新选择类目（参考竞品类目）</td></tr>
+<tr><td>6. 重复入驻</td><td>提供唯一性声明 + 不同店铺说明</td></tr>
+<tr><td>7. 资料过期</td><td>更新最新证件（3 个月内有效）</td></tr>
+<tr><td>8. 视频违规</td><td>删除违规视频 + 提交整改承诺</td></tr>
+<tr><td>9. 评论违规</td><td>申诉评论（提供截图证据）</td></tr>
+<tr><td>10. 物流异常</td><td>提供发货证明（快递面单 + 签收记录）</td></tr>
+</table>
+
+<h3>申诉话术模板（3 段式）</h3>
+<pre><code>第一段：表明态度
+"我们高度重视此次审核，已对所有资料进行复核..."
+
+第二段：说明原因
+"经核查，[具体原因]导致审核未通过..."
+
+第三段：提交证据
+"现重新提交以下资料：[附件清单]..."
++ 附件：高清扫描件 / 授权书 / 账单</code></pre>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：二审申诉<strong>只有 1-2 次机会</strong>。第一次失败，第二次通过的难度翻倍。建议找专业的代理（¥500-1500/次）协助。
+</div>
+
+<h2>5.3 物流体系——FBT / TTS / CBT 3 种方式</h2>
+
+<p>KK 团队使用的 3 种物流方式对比：</p>
+
+<table>
+<tr><th>方式</th><th>时效</th><th>成本</th><th>适用</th></tr>
+<tr><td><strong>FBT（Fulfilled by TikTok）</strong></td><td>7-15 天</td><td>中</td><td>标品（TikTok 官方仓）</td></tr>
+<tr><td><strong>TTS（TikTok Shipping）</strong></td><td>10-20 天</td><td>低</td><td>普货</td></tr>
+<tr><td><strong>CBT（Cross-Border Trade）</strong></td><td>15-30 天</td><td>最低</td><td>低价品</td></tr>
+</table>
+
+<h3>三种物流详解</h3>
+
+<h4>FBT（Fulfilled by TikTok）</h4>
+<ul>
+  <li><strong>本质</strong>：把货发到 TikTok 官方仓，平台帮你发货</li>
+  <li><strong>优势</strong>：时效稳定、用户体验好</li>
+  <li><strong>劣势</strong>：仓储费 + 操作费较高</li>
+  <li><strong>适合</strong>：日均 ≥ 100 单的爆款</li>
+</ul>
+
+<h4>TTS（TikTok Shipping）</h4>
+<ul>
+  <li><strong>本质</strong>：TikTok 官方指定的物流服务商（云途、燕文、4PX 等）</li>
+  <li><strong>优势</strong>：价格中等、有追踪号</li>
+  <li><strong>劣势</strong>：时效略慢</li>
+  <li><strong>适合</strong>：日均 50-100 单的潜力品</li>
+</ul>
+
+<h4>CBT（Cross-Border Trade）</h4>
+<ul>
+  <li><strong>本质</strong>：跨境直邮（国内直发美国）</li>
+  <li><strong>优势</strong>：成本最低、不压库存</li>
+  <li><strong>劣势</strong>：时效最慢、退货成本高</li>
+  <li><strong>适合</strong>：日均 < 50 单的测试品</li>
+</ul>
+
+<h3>成本核算公式</h3>
+<pre><code>单件总成本 = 产品成本 + 头程运费 + 尾程运费 + 平台佣金 + 退货预留 + 包装</code></pre>
+
+<h3>实操示例（$20 售价产品）</h3>
+<table>
+<tr><th>项目</th><th>金额</th><th>说明</th></tr>
+<tr><td>产品成本</td><td>$3.0</td><td>1688 拿货价</td></tr>
+<tr><td>头程运费</td><td>$1.5</td><td>国内仓 → 美国仓</td></tr>
+<tr><td>尾程运费</td><td>$3.0</td><td>美国仓 → 消费者</td></tr>
+<tr><td>平台佣金</td><td>$2.6</td><td>13% × $20</td></tr>
+<tr><td>退货预留</td><td>$0.5</td><td>按 8% 退货率预留</td></tr>
+<tr><td>包装</td><td>$0.3</td><td>外包装 + 内衬</td></tr>
+<tr><td><strong>总成本</strong></td><td><strong>$10.9</strong></td><td>—</td></tr>
+<tr><td><strong>毛利率</strong></td><td><strong>45.5%</strong></td><td>$20 - $10.9</td></tr>
+</table>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：毛利率 <strong>< 40% 的品不建议做</strong>。30% 是危险线，低于 30% 几乎一定亏。
+</div>
+
+<h2>5.4 6 大选品维度（验收级）——KK 团队选品打分表</h2>
+
+<p>KK 团队的"<strong>验收级选品标准</strong>"，每个新品都要过这一关：</p>
+
+<table>
+<tr><th>维度</th><th>标准</th><th>权重</th></tr>
+<tr><td>1. 市场容量</td><td>月 GMV ≥ $100K</td><td>20%</td></tr>
+<tr><td>2. 竞争烈度</td><td>前 10 占比 ≤ 60%</td><td>15%</td></tr>
+<tr><td>3. 物流成本</td><td>≤ 售价 30%</td><td>15%</td></tr>
+<tr><td>4. 退货率</td><td>≤ 10%</td><td>15%</td></tr>
+<tr><td>5. 客单价</td><td>$15-50（黄金价格带）</td><td>15%</td></tr>
+<tr><td>6. 内容可行性</td><td>AI 可视化（提示词可写）</td><td>20%</td></tr>
+</table>
+
+<h3>评分规则</h3>
+<ul>
+  <li>每个维度按 1-5 分打分</li>
+  <li>加权平均 = 总分（满分 5 分 = 100%）</li>
+  <li><strong>总分 ≥ 80% = 可做品</strong></li>
+  <li>总分 60-80% = 观察品</li>
+  <li>总分 < 60% = 淘汰品</li>
+</ul>
+
+<h3>实操举例（浴球打分）</h3>
+<table>
+<tr><th>维度</th><th>得分</th><th>说明</th></tr>
+<tr><td>市场容量</td><td>4/5</td><td>月 GMV $200K</td></tr>
+<tr><td>竞争烈度</td><td>4/5</td><td>前 10 占 50%</td></tr>
+<tr><td>物流成本</td><td>5/5</td><td>占售价 22%</td></tr>
+<tr><td>退货率</td><td>4/5</td><td>8% 退货</td></tr>
+<tr><td>客单价</td><td>3/5</td><td>$9.9（偏低）</td></tr>
+<tr><td>内容可行性</td><td>5/5</td><td>AI 可完美呈现</td></tr>
+<tr><td><strong>加权总分</strong></td><td><strong>83%</strong></td><td><strong>可做品</strong></td></tr>
+</table>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：客单价 < $15 的品（如 $9.9）虽然出单快，但客单价低 = 利润薄 + 退货成本占比高。<strong>黄金价格带是 $19.9-$29.9</strong>。
+</div>
+
+<h2>5.5 评论区选品 + SKU 三层定价法</h2>
+
+<h3>评论区选品法——从差评里挖金矿</h3>
+<p>KK 团队的"<strong>评论区选品</strong>"方法论：去亚马逊 / TikTok 看 1-3 星差评，找用户痛点，反推产品升级机会。</p>
+
+<h4>实操步骤</h4>
+<ol>
+  <li>打开亚马逊某品类 Top 100 商品</li>
+  <li>筛选 1-3 星评论</li>
+  <li>提取高频痛点词（如"容易断""尺寸不对""颜色有色差"）</li>
+  <li>反推产品升级方案（如"加粗 2 倍""附赠尺寸表""明确色卡"）</li>
+  <li>在 1688 找能提供升级方案的供应商</li>
+  <li>用升级版做差异化竞争</li>
+</ol>
+
+<h4>经典案例：拉不断数据线</h4>
+<ul>
+  <li><strong>痛点来源</strong>：Anker 数据线在亚马逊有大量"接口处断裂"差评</li>
+  <li><strong>反推方案</strong>：找供应商加固接口（加粗 2mm + 金属护套）</li>
+  <li><strong>结果</strong>：升级版数据线在 TikTok 卖爆，月销 5K+</li>
+</ul>
+
+<h3>SKU 三层定价法</h3>
+<p>这是 KK 团队的"<strong>利润最大化</strong>"核心方法：</p>
+
+<pre><code>SKU 三层定价法：
+
+SKU1：引流层（低价）
+├── 售价：$9.9（单件）
+├── 目的：引流、占搜索位
+└── 利润：低（甚至亏）
+
+SKU2：利润层（中价）
+├── 售价：$19.9（双件）
+├── 目的：主利润来源
+└── 利润：50%+（黄金价格带）
+
+SKU3：收割层（高价）
+├── 售价：$29.9（三件 / 套装）
+├── 目的：客单价最大化
+└── 利润：60%+（组合套餐）</code></pre>
+
+<h3>三层 SKU 的协同</h3>
+<ol>
+  <li><strong>用户进店</strong>：看到 $9.9 引流款，点击进入</li>
+  <li><strong>页面浏览</strong>：推荐 $19.9 双件装，提示"省 $XX"</li>
+  <li><strong>下单决策</strong>：60% 用户选 $19.9，30% 选 $9.9，10% 选 $29.9</li>
+  <li><strong>客单价</strong>：从 $9.9 提升到 $19.9（+ 100%）</li>
+</ol>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：<strong>每个新品都设计 3 个 SKU</strong>。$9.9 引流款不要亏太多（成本控制在 $5 以内）。
+</div>
+
+<h2>5.6 备货决策树——500 件 vs 2000 件怎么选</h2>
+
+<p>备货量决策直接影响<strong>资金占用</strong>和<strong>断货风险</strong>。KK 团队的决策树：</p>
+
+<pre><code>测试品（首批）
+├── 出单 1-5 单/天 → 备 500 件
+└── 出单 5-20 单/天 → 备 1000 件
+
+爆款品（放量）
+├── 出单 20-100 单/天 → 备 2000 件
+└── 出单 100+ 单/天 → 备 5000+ 件</code></pre>
+
+<h3>备货决策的 4 个考量</h3>
+<ol>
+  <li><strong>资金占用</strong>：500 件 × $5 成本 = $2,500；2000 件 = $10,000</li>
+  <li><strong>头程时间</strong>：海运 30 天 / 空运 7 天 / 快递 3 天</li>
+  <li><strong>销售周期</strong>：备货量 = 日均销量 × 头程时间 × 1.5 倍</li>
+  <li><strong>断货风险</strong>：爆款断货 = 自然流暴跌 50%+</li>
+</ol>
+
+<h3>实操举例</h3>
+<p>假设某新品头程 30 天、日均出单 30 单：</p>
+<blockquote>备货量 = 30 × 30 × 1.5 = 1,350 件 → 实际备 1,500 件</blockquote>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：备货太多 = 资金积压 + 库存风险；备货太少 = 断货 = 自然流崩盘。<strong>保守估计 + 留 50% buffer</strong>。
+</div>
+
+<h2>5.7 店铺体验分 SPS——店铺生死的 5 个维度</h2>
+
+<p><strong>SPS = Store Performance Score</strong>（店铺绩效分），是 TikTok 美区店的核心考核指标。</p>
+
+<table>
+<tr><th>维度</th><th>权重</th><th>达标线</th></tr>
+<tr><td>1. 商品质量</td><td>30%</td><td>≥ 4.5 星</td></tr>
+<tr><td>2. 物流时效</td><td>25%</td><td>≥ 90%</td></tr>
+<tr><td>3. 客服响应</td><td>20%</td><td>≤ 12 小时</td></tr>
+<tr><td>4. 退货率</td><td>15%</td><td>≤ 8%</td></tr>
+<tr><td>5. 售后满意度</td><td>10%</td><td>≥ 90%</td></tr>
+</table>
+
+<h3>SPS 红线（3 条警戒线）</h3>
+<ul>
+  <li><strong>SPS < 3.5</strong>：店铺降权（自然流减少 30%）</li>
+  <li><strong>SPS < 3.0</strong>：可能下架（商品被强制下架）</li>
+  <li><strong>SPS < 2.5</strong>：永久封店（不可申诉）</li>
+</ul>
+
+<h3>SPS 提升的 4 个实操</h3>
+<ol>
+  <li><strong>选品严控</strong>：退货率 > 10% 的品立即下架</li>
+  <li><strong>物流提速</strong>：FBT 占比 ≥ 70%（比 TTS 时效快 30%）</li>
+  <li><strong>客服 12 小时</strong>：所有咨询 12 小时内回复（建议 4 小时内）</li>
+  <li><strong>好评引导</strong>：发货后 7 天主动联系客户，礼貌请求好评</li>
+</ol>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：SPS 是<strong>动态</strong>的，今天 4.5 明天可能 4.0。需要<strong>每日监控 + 每周复盘</strong>。
+</div>
+
+<h2>5.8 经理链接 60% 规则 + T3 门槛</h2>
+
+<h3>经理链接是什么</h3>
+<p>店铺达到一定等级后，平台会分配"<strong>运营经理</strong>"（俗称"小二"）一对一指导。经理会指定"<strong>主营类目</strong>"，并给你"<strong>专属链接</strong>"（享受流量扶持）。</p>
+
+<h3>60% 规则详解</h3>
+<blockquote>店铺 GMV 的 <strong>60% 必须来自经理指定的类目</strong>，否则会被踢回池子（失去经理扶持）。</blockquote>
+
+<h3>实操举例</h3>
+<ul>
+  <li>经理指定主营类目：家居清洁</li>
+  <li>店铺实际 GMV：$10 万/月</li>
+  <li>家居清洁类 GMV：$5 万（占 50%）</li>
+  <li><strong>未达 60% → 警告 → 3 个月内不达标 → 踢回池子</strong></li>
+</ul>
+
+<h3>T3 门槛详解</h3>
+<table>
+<tr><th>门槛项</th><th>具体要求</th></tr>
+<tr><td>GMV 门槛</td><td>30 天累计 ≥ $60,000</td></tr>
+<tr><td>粉丝门槛</td><td>账号粉丝 ≥ 10,000</td></tr>
+<tr><td>店铺等级</td><td>从 T2 升级到 T3</td></tr>
+<tr><td>SPS 要求</td><td>≥ 4.0</td></tr>
+</table>
+
+<h3>T3 等级的权益</h3>
+<ul>
+  <li>解锁全部营销工具（大促报资格）</li>
+  <li>平台流量扶持 +20%</li>
+  <li>专属运营经理 1v1</li>
+  <li>GM MAX 投放额度提升（单日 $5,000+）</li>
+</ul>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：<strong>T3 是跨境卖家的"分水岭"</strong>。达到 T3 后，平台资源会大幅倾斜。<strong>优先冲刺 T3</strong>。
+</div>
+
+<h2>5.9 物流模板与冲重风险</h2>
+
+<h3>运费模板设置</h3>
+<p>运费模板要按"<strong>重量段</strong>"设置，不同重量对应不同运费：</p>
+
+<table>
+<tr><th>重量段</th><th>建议运费</th><th>适用产品</th></tr>
+<tr><td>0-100g</td><td>$2.5</td><td>小饰品、数据线</td></tr>
+<tr><td>100-300g</td><td>$3.5</td><td>小家电、化妆刷</td></tr>
+<tr><td>300-500g</td><td>$4.5</td><td>中等家居用品</td></tr>
+<tr><td>500-1000g</td><td>$6.0</td><td>大件家居、健身器材</td></tr>
+<tr><td>1000-2000g</td><td>$9.0</td><td>行李箱、大家电</td></tr>
+</table>
+
+<h3>冲重风险</h3>
+<p>"<strong>冲重</strong>" = 实际重量超过申报重量。物流商按<strong>差价 2-5 倍</strong>罚款。</p>
+
+<h4>举例</h4>
+<ul>
+  <li>申报 500g，实际 800g</li>
+  <li>差价 300g，按 3 倍罚款 = 900g 的运费</li>
+  <li>额外成本：300g × $0.05 × 3 = $45/单</li>
+</ul>
+
+<h4>避坑方法</h4>
+<ol>
+  <li><strong>实测重量</strong>：发货前用电子秤实测 5-10 件，取平均值</li>
+  <li><strong>加 10-15% buffer</strong>：申报重量 = 实测 × 1.1</li>
+  <li><strong>包装减重</strong>：用轻质包装材料（如气泡袋代替纸盒）</li>
+</ol>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：冲重是物流成本"隐形杀手"。一个爆款如果冲重，可能从赚钱变亏钱。<strong>每款新品发货前必须实测重量</strong>。
+</div>
+
+<div class="summary">
+  <h4>📝 本章节要点回顾</h4>
+  <ul>
+    <li>3 种店铺主体：ACCU（本土） / 香港（跨境主流） / 内地（试水）；起步选香港</li>
+    <li>二审申诉 10 项模板：资料不清晰 / 身份不一致 / 地址无法验证 / 产品侵权 等</li>
+    <li>3 种物流：FBT（7-15天） / TTS（10-20天） / CBT（15-30天）；爆款用 FBT</li>
+    <li>成本核算公式：产品 + 头程 + 尾程 + 佣金 + 退货 + 包装，毛利率 ≥ 40% 才赚钱</li>
+    <li>6 大选品维度：市场容量 20% / 竞争 15% / 物流 15% / 退货 15% / 客单价 15% / 内容 20%；总分 ≥ 80% = 可做品</li>
+    <li>SKU 三层定价法：$9.9 引流 + $19.9 利润 + $29.9 收割，客单价提升 100%</li>
+    <li>备货决策树：1-5 单/天备 500 件，20-100 单/天备 2000 件，100+ 单/天备 5000+</li>
+    <li>SPS 5 维度：商品质量 30% / 物流 25% / 客服 20% / 退货 15% / 售后 10%；红线 < 3.5 降权 / < 3.0 下架 / < 2.5 封店</li>
+    <li>经理链接 60% 规则：60% GMV 必须在经理指定类目，否则被踢回池子</li>
+    <li>T3 门槛：30 天 GMV ≥ $60K + 粉丝 ≥ 10K + SPS ≥ 4.0；权益：流量 +20%、GM MAX 额度提升</li>
+    <li>冲重风险：申报重量 = 实测 × 1.1，避免按差价 2-5 倍罚款</li>
+  </ul>
+</div>
+
+    </section>
+
+    <section id="sec-6-ads">
+      <h1>💰 阶段 6：付费投放与扩量</h1>
+<div class="card">
+  <div class="card-title">📌 本阶段你会学到什么</div>
+  <p>本阶段从"店铺能出单"升级到"店铺能爆单"——掌握 GMS / GM MAX 智能投放体系、ECPM 公式、扩量三大工具（最大投放量 + 加热 + Play Boss）、冷启动 SOP（少量补单 → 低价引流 → 视频铺量 → GMS 测试）、稳量调控、AB 链 / AB 店玩法、买号风险、2 秒完播率生死线。学完本阶段，你能看懂 GMS 后台的 ECPM 排名，能跑通"冷启动 4 步 SOP"从 0 跑到日均 100 单，能用 2 秒完播率作为视频去留的第一决策依据，能判断 PASS / 买号 / 白号这些灰色动作的真实风险。</p>
+  <p><strong>学习时长预估</strong>：5-7 小时 · <strong>难度</strong>：⭐⭐⭐⭐⭐ 投手进阶</p>
+</div>
+
+<h2>6.1 GMS / GM MAX 智能投放体系——平台赛马机制</h2>
+
+<p><strong>GMS = GM Smart</strong>（智能投放系统），是 TikTok 美区的官方投放工具。GM MAX 是 GMS 的升级版。</p>
+
+<h3>GMS 核心机制：赛马机制</h3>
+<p>GMS 不是手动投，而是"<strong>系统自动给素材分配预算</strong>"。每条素材都是一个"赛马"，系统根据 ECPM 排名决定给谁更多预算。</p>
+
+<table>
+<tr><th>阶段</th><th>操作</th><th>预算</th></tr>
+<tr><td><strong>冷启动</strong></td><td>投流测试</td><td>$50-100/天</td></tr>
+<tr><td><strong>学习期</strong></td><td>系统学习人群</td><td>$100-300/天</td></tr>
+<tr><td><strong>放量期</strong></td><td>全量投放</td><td>$500-2,000/天</td></tr>
+<tr><td><strong>稳定期</strong></td><td>维持 ROAS</td><td>$300-1,000/天</td></tr>
+</table>
+
+<h3>GM MAX vs GMS 的差异</h3>
+<table>
+<tr><th>对比项</th><th>GMS</th><th>GM MAX</th></tr>
+<tr><td>投放按钮</td><td>2-3 个基础按钮</td><td>增加"最大投放量"开关</td></tr>
+<tr><td>加热功能</td><td>无</td><td>支持"加热"（手动加速）</td></tr>
+<tr><td>Play Boss</td><td>无</td><td>支持"Play Boss"（自动追投）</td></tr>
+<tr><td>适合</td><td>新手 / 试水</td><td>成熟团队 / 爆款冲刺</td></tr>
+</table>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：新团队起步用 <strong>GMS</strong>，跑熟练后再升级到 <strong>GM MAX</strong>。GM MAX 的按钮更复杂，新手容易按错导致预算浪费。
+</div>
+
+<h2>6.2 ECPM 公式——理解平台曝光逻辑</h2>
+
+<p><strong>ECPM</strong>（Effective Cost Per Mille）是 TikTok 算法决定曝光分配的核心公式：</p>
+
+<pre><code>ECPM = 出价 × 预估点击率 × 预估转化率 × 1000</code></pre>
+
+<h3>ECPM 公式解读</h3>
+<ul>
+  <li><strong>出价</strong>：你愿意为每次曝光支付的最高价格</li>
+  <li><strong>预估点击率 (CTR)</strong>：系统预测用户点击视频的概率</li>
+  <li><strong>预估转化率 (CVR)</strong>：系统预测用户点击后下单的概率</li>
+  <li>× 1000：标准化（千次曝光成本）</li>
+</ul>
+
+<h3>ECPM 越高的视频，平台给的曝光越多</h3>
+<p>这是平台的"<strong>赛马逻辑</strong>"：平台把曝光给"<strong>ECPM 最高</strong>"的视频，因为这样平台收益最大化。</p>
+
+<h3>实操层面提升 ECPM 的 4 个方法</h3>
+<ol>
+  <li><strong>提高出价</strong>：每提高 10% 出价，曝光提升约 15%</li>
+  <li><strong>优化素材 CTR</strong>：优化钩子（前 3 秒）</li>
+  <li><strong>优化落地页 CVR</strong>：优化主图 + 详情页</li>
+  <li><strong>精准人群定向</strong>：减少无效曝光</li>
+</ol>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：ECPM 高 = 曝光多 = 烧钱快。<strong>出价 ≠ ROI</strong>，高曝光可能反而拉低 ROI。
+</div>
+
+<h2>6.3 标签系统——链接标签 + 素材标签 + 用户行为</h2>
+
+<p>TikTok 的标签系统分 3 层：</p>
+
+<table>
+<tr><th>层级</th><th>作用</th><th>决定</th></tr>
+<tr><td>1. 链接标签</td><td>绑定商品 + 类目</td><td>商城推给谁</td></tr>
+<tr><td>2. 素材标签</td><td>绑定视频内容关键词</td><td>视频推给谁</td></tr>
+<tr><td>3. 用户行为</td><td>用户点击 / 加购 / 购买</td><td>精准度</td></tr>
+</table>
+
+<h3>素材四阶段流转</h3>
+<ol>
+  <li><strong>排队中</strong>：素材刚提交，等待系统审核（1-2 小时）</li>
+  <li><strong>学习中</strong>：系统学习素材的人群标签（1-3 天）</li>
+  <li><strong>投放中</strong>：学习完成，进入正常投放</li>
+  <li><strong>未投放中</strong>：暂停或淘汰（CCR < 1%）</li>
+</ol>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：学习期不要频繁改出价 / 改定向。每次改动 = 重新学习 = 浪费 1-2 天。<strong>学习期"按下不动"</strong>是稳量阶段的核心原则。
+</div>
+
+<h2>6.4 冷启动 SOP——4 步从 0 跑到日均 100 单</h2>
+
+<p>KK 团队的"<strong>冷启动 4 步 SOP</strong>"，是从 0 到日均 100 单的完整路径：</p>
+
+<ol>
+  <li><strong>Step 1：少量补单</strong>
+    <ul>
+      <li>目标：让链接有基础销量数据（10-20 单）</li>
+      <li>方法：用 5-10 个老号各下 1-2 单</li>
+      <li>时间：1-3 天</li>
+    </ul>
+  </li>
+  <li><strong>Step 2：低价引流</strong>
+    <ul>
+      <li>目标：用 $9.9 引流款拉自然流</li>
+      <li>方法：投流 $50 测试，引流款带动利润款</li>
+      <li>时间：3-7 天</li>
+    </ul>
+  </li>
+  <li><strong>Step 3：视频铺量</strong>
+    <ul>
+      <li>目标：每天发布 3-5 条视频</li>
+      <li>方法：用即梦批量生成 + 人工筛选</li>
+      <li>时间：持续 2-4 周</li>
+    </ul>
+  </li>
+  <li><strong>Step 4：GMS 测试</strong>
+    <ul>
+      <li>目标：找到 CCR ≥ 3% 的爆款素材</li>
+      <li>方法：每条素材投 $50-100 测试 24 小时</li>
+      <li>时间：持续 2-4 周</li>
+    </ul>
+  </li>
+</ol>
+
+<h3>冷启动期的 ROI 目标</h3>
+<table>
+<tr><th>阶段</th><th>ROI 目标</th><th>说明</th></tr>
+<tr><td>第 1 周</td><td>ROI ≥ 0.8</td><td>允许略亏（学习期）</td></tr>
+<tr><td>第 2 周</td><td>ROI ≥ 1.2</td><td>接近保本</td></tr>
+<tr><td>第 3 周</td><td>ROI ≥ 2.0</td><td>开始盈利</td></tr>
+<tr><td>第 4 周</td><td>ROI ≥ 3.0</td><td>稳定盈利</td></tr>
+</table>
+
+<h3>保本 ROI 计算公式</h3>
+<pre><code>保本 ROI = 1 ÷ 毛利率
+
+例：毛利率 45%
+保本 ROI = 1 ÷ 0.45 = 2.22
+
+→ ROI ≥ 2.22 才能赚钱</code></pre>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：冷启动期<strong>不要追求高 ROI</strong>。先跑通流程、积累数据、优化素材，ROI 后续会自然上升。
+</div>
+
+<h2>6.5 扩量三大工具——最大投放量 + 加热 + Play Boss</h2>
+
+<p>GM MAX 的"<strong>扩量三大工具</strong>"是爆款冲刺的关键：</p>
+
+<table>
+<tr><th>工具</th><th>功能</th><th>适用场景</th><tr><th>使用频率</th></tr>
+<tr><td>1. 最大投放量</td><td>系统自动追投（不设上限）</td><td>优质素材冲量</td><td>爆款期</td></tr>
+<tr><td>2. 加热</td><td>手动追加预算</td><td>次优素材激活</td><td>学习期</td></tr>
+<tr><td>3. Play Boss</td><td>自动放量</td><td>测试爆款潜力</td><td>放量期</td></tr>
+</table>
+
+<h3>工具详解</h3>
+
+<h4>1. 最大投放量（Maximum Delivery）</h4>
+<ul>
+  <li><strong>本质</strong>：把素材的预算上限去掉，让系统自动追投</li>
+  <li><strong>使用场景</strong>：CCR ≥ 5% 的爆款素材，想冲到 $10K+ GMV</li>
+  <li><strong>使用频率</strong>：每条爆款素材点 1 次即可</li>
+</ul>
+
+<h4>2. 加热（Heating）</h4>
+<ul>
+  <li><strong>本质</strong>：手动追加一笔预算（$200-$500），加速学习期</li>
+  <li><strong>使用场景</strong>：CCR 1-3% 的次优素材，想测试能否激活</li>
+  <li><strong>使用频率</strong>：每条素材点 1 次即可</li>
+</ul>
+
+<h4>3. Play Boss</h4>
+<ul>
+  <li><strong>本质</strong>：让系统自动找相似人群放量</li>
+  <li><strong>使用场景</strong>：测试新素材的爆款潜力</li>
+  <li><strong>使用频率</strong>：每天 ≤ 2 次</li>
+</ul>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：3 个按钮<strong>不要同时点</strong>。每个按钮 = 一次预算追加。同时点 3 个 = 一天烧掉 $1,000，ROI 必然崩盘。
+</div>
+
+<h2>6.6 稳量阶段"按下不动"原则</h2>
+
+<p>KK 团队反复强调的"<strong>按下不动</strong>"原则：链接稳定后，不要每天大改。</p>
+
+<h3>"按下不动"的 4 个不要</h3>
+<ol>
+  <li><strong>不要频繁改出价</strong>（至少 3 天不动）</li>
+  <li><strong>不要频繁换素材</strong>（爆款素材不要撤）</li>
+  <li><strong>不要频繁改定向</strong>（精准人群一旦锁定就坚持）</li>
+  <li><strong>不要每天调预算</strong>（ROI 稳定时不要加减预算）</li>
+</ol>
+
+<h3>为什么要"按下不动"</h3>
+<p>每次改动 = 系统重新学习 = 浪费 1-2 天学习期 + 可能错过爆款窗口。</p>
+
+<h3>流速调整的 4 个原则</h3>
+<ul>
+  <li><strong>ROI 高于目标</strong>：可以加预算（10-20% / 次）</li>
+  <li><strong>ROI 等于目标</strong>：保持不动</li>
+  <li><strong>ROI 低于目标</strong>：减预算（10-20% / 次）</li>
+  <li><strong>ROI 远低于目标</strong>：暂停计划，重新优化素材</li>
+</ul>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：稳量阶段每天只看 1 次数据（早上 9 点），不要全天盯盘。<strong>频繁看数据 = 频繁想改 = 频繁浪费学习期</strong>。
+</div>
+
+<h2>6.7 AB 链 / AB 店玩法——避免浪费自然流</h2>
+
+<p>当自己的素材爆了，怎么避免浪费自然流？KK 团队的"<strong>AB 链 / AB 店</strong>"玩法：</p>
+
+<h3>AB 链玩法</h3>
+<ol>
+  <li><strong>建 B 链接</strong>：把爆款素材重新挂到一个新链接 B</li>
+  <li><strong>A 链接自然流保留</strong>：A 链接维持原状（自然流不动）</li>
+  <li><strong>B 链接烧纯 ROI</strong>：B 链接全部付费投流，看 ROI</li>
+  <li><strong>数据复用</strong>：B 链接跑出来的数据，反哺 A 链接的素材优化</li>
+</ol>
+
+<h3>AB 店玩法</h3>
+<p>同链路，把"<strong>新链接</strong>"升级为"<strong>新店</strong>"：</p>
+<ul>
+  <li>新店的"<strong>扶持期</strong>"流量更大（平台给新店 1-2 周流量扶持）</li>
+  <li>适合：单店已经达到流量天花板，需要突破</li>
+  <li>风险：新店扶持期结束（2-3 周），流量可能暴跌</li>
+</ul>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：AB 链 / AB 店是"<strong>进阶玩法</strong>"，不适合新手。新团队先把单店跑通，再考虑多店运营。
+</div>
+
+<h2>6.8 渠道号买号三大风险——三重打击必死</h2>
+
+<p>KK 团队对"<strong>买号</strong>"的态度是谨慎的："<strong>只买账号的情况下不要买</strong>"。买号有 3 大风险：</p>
+
+<table>
+<tr><th>风险</th><th>概率</th><th>后果</th></tr>
+<tr><td>1. 账号被封</td><td>30%</td><td>损失账号成本（$200-$1,000）</td></tr>
+<tr><td>2. 数据造假</td><td>40%</td><td>数据虚高无真实流量</td></tr>
+<tr><td>3. 找回风险</td><td>20%</td><td>原号主找回（平台不受理）</td></tr>
+</table>
+
+<h3>三重打击必死</h3>
+<p>买号后如果同时做 3 件事，<strong>必死</strong>：</p>
+<ol>
+  <li><strong>设备切换</strong>：从原来设备换到自己的设备</li>
+  <li><strong>网络切换</strong>：从原来 IP 换到自己的 IP</li>
+  <li><strong>立刻绑店</strong>：当天绑定自己的 TikTok Shop</li>
+</ol>
+
+<h3>正确买号流程</h3>
+<ol>
+  <li>买号后<strong>保持原设备原网络</strong>至少 7 天</li>
+  <li>每天刷 30 分钟同类内容（让算法重新打标）</li>
+  <li>7 天后逐步切换设备（每次切 1 个设备）</li>
+  <li>30 天后再考虑绑店</li>
+</ol>
+
+<div class="danger">
+  <strong>🚫 严禁</strong>：买号 + 当天切换设备 + 当天切换网络 + 当天绑店 = 100% 封号。<strong>三重打击必死</strong>。
+</div>
+
+<h2>6.9 2 秒完播率——短视频的生死线</h2>
+
+<p><strong>2 秒完播率</strong>是衡量视频"<strong>前 3 秒抓眼球能力</strong>"的核心指标。KK 团队把它定为视频去留的第一决策依据。</p>
+
+<table>
+<tr><th>完播率</th><th>等级</th><th>决策</th></tr>
+<tr><td>≥ 60%</td><td>爆款潜力</td><td>加大预算，最大投放量</td></tr>
+<tr><td>40-60%</td><td>优质</td><td>继续投流，看 6 秒完播率</td></tr>
+<tr><td>25-40%</td><td>普通</td><td>优化钩子，重做</td></tr>
+<tr><td>< 25%</td><td>淘汰</td><td>立即放弃，不再投流</td></tr>
+</table>
+
+<h3>为什么是 2 秒</h3>
+<ul>
+  <li>短视频用户注意力阈值 = 2-3 秒</li>
+  <li>2 秒内决定"<strong>看还是划走</strong>"</li>
+  <li>2 秒完播率 = 钩子质量的直接反映</li>
+</ul>
+
+<h3>实操层面提升 2 秒完播率的 3 个方法</h3>
+<ol>
+  <li><strong>视觉冲击</strong>：第 1 帧用最强烈的画面（如特写、反差）</li>
+  <li><strong>文字钩子</strong>：前 3 秒加文字钩子（如"你绝对想不到..."）</li>
+  <li><strong>声音钩子</strong>：用 ASMR / 强音效 / 人声开场</li>
+</ol>
+
+<div class="warn">
+  <strong>⚠️ 核心结论</strong>：2 秒完播率 < 25% 的视频，<strong>直接放弃</strong>，不再投流。<strong>不要浪费预算</strong>。
+</div>
+
+<h2>6.10 PASS 实测有效率 10%——90% 概率吃自然流差价</h2>
+
+<p><strong>PASS</strong> 是 TikTok 的一个"<strong>流量加速</strong>"功能，号称能让新视频快速起量。但 KK 团队实测数据：</p>
+
+<blockquote>实测 <strong>90% 无效</strong>，10% 有效。PASS 更可能吃掉自然流差价，而不是真正加速。</blockquote>
+
+<h3>PASS 的工作机制</h3>
+<ol>
+  <li>开通 PASS：系统额外推一波流量（付费）</li>
+  <li>看起来播放量暴涨</li>
+  <li>但实际：PASS 推的流量质量差，转化率低</li>
+  <li>同时：PASS 的付费流量会"顶替"自然流位置</li>
+  <li>结果：自然流被压缩，整体 ROI 下降</li>
+</ol>
+
+<h3>KK 团队的建议</h3>
+<ul>
+  <li><strong>新素材不要开 PASS</strong>（90% 浪费钱）</li>
+  <li><strong>老素材不要开 PASS</strong>（自然流会被压缩）</li>
+  <li><strong>唯一适用场景</strong>：测试新素材时，想快速看数据（24h 内）</li>
+</ul>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：PASS 是 TikTok 的"<strong>付费加速器</strong>"，本质是平台赚更多钱。<strong>不要被"快速起量"的承诺诱惑</strong>。
+</div>
+
+<h2>6.11 数据指标的选择——优先级排序</h2>
+
+<p>KK 团队对数据指标的<strong>优先级排序</strong>：</p>
+
+<table>
+<tr><th>指标</th><th>优先级</th><th>说明</th></tr>
+<tr><td>2 秒完播率</td><td>⭐⭐⭐⭐⭐</td><td>决定视频是否值得投流</td></tr>
+<tr><td>60 秒完播率</td><td>⭐⭐⭐</td><td>决定视频是否值得放量</td></tr>
+<tr><td>CCR</td><td>⭐⭐⭐⭐⭐</td><td>决定素材转化能力</td></tr>
+<tr><td>ROAS</td><td>⭐⭐⭐⭐</td><td>决定整体投放效率</td></tr>
+<tr><td>PASS 数据</td><td>❌</td><td>不要看，参考价值低</td></tr>
+</table>
+
+<h3>投手每天的工作清单</h3>
+<ol>
+  <li><strong>9:00</strong>：看昨日 2 秒完播率（淘汰 < 25% 的视频）</li>
+  <li><strong>10:00</strong>：看 CCR（找 ≥ 3% 的爆款素材）</li>
+  <li><strong>11:00</strong>：看 ROAS（调整预算）</li>
+  <li><strong>14:00</strong>：看新素材测试数据（投流 $50 测试）</li>
+  <li><strong>17:00</strong>：加预算给爆款素材（10-20% / 次）</li>
+  <li><strong>20:00</strong>：复盘当日数据，写明日计划</li>
+</ol>
+
+<div class="summary">
+  <h4>📝 本章节要点回顾</h4>
+  <ul>
+    <li>GMS = GM Smart 智能投放；GM MAX = GMS 升级版，增加最大投放量 + 加热 + Play Boss</li>
+    <li>ECPM = 出价 × CTR × CVR × 1000；ECPM 越高，曝光越多</li>
+    <li>标签系统：链接标签（商城推谁）+ 素材标签（视频推谁）+ 用户行为</li>
+    <li>素材四阶段：排队中 → 学习中 → 投放中 → 未投放中</li>
+    <li>冷启动 4 步 SOP：少量补单 → 低价引流 → 视频铺量 → GMS 测试</li>
+    <li>保本 ROI = 1 ÷ 毛利率；ROI ≥ 2.22 才能赚钱（毛利率 45% 例子）</li>
+    <li>扩量三大工具：最大投放量 = 爆款冲量 / 加热 = 一次动作 / Play Boss = 潜力测试</li>
+    <li>稳量阶段"按下不动"原则：频繁改动 = 浪费学习期</li>
+    <li>AB 链 / AB 店：素材爆了 → 新链接 B 烧纯 ROI → 数据反哺 A</li>
+    <li>买号 3 大风险：30% 封号 / 40% 数据造假 / 20% 找回；三重打击必死</li>
+    <li>2 秒完播率生死线：≥ 60% 爆款 / 40-60% 优质 / 25-40% 普通 / < 25% 淘汰</li>
+    <li>PASS 实测 90% 无效，不要被"快速起量"诱惑</li>
+    <li>数据指标优先级：2 秒完播率 ⭐⭐⭐⭐⭐ > CCR ⭐⭐⭐⭐⭐ > 60 秒 ⭐⭐⭐ > ROAS ⭐⭐⭐⭐ > PASS ❌</li>
+  </ul>
+</div>
+
+    </section>
+
+    <!-- ========== 附录 ========== -->
+    <section id="app-a-products">
+      <h1>📋 附录 A：18 项选品清单（Go/Not Go）</h1>
+<h2>附录 A：18 项选品清单（Go / Not Go 各 9 个）</h2>
+
+<p>本附录是从 12 篇原始课程中提取的<strong>18 个 SKU 选品清单</strong>，覆盖 KK 团队验证过的爆款品类。每个 SKU 都包含：序号 / 商品名 / 英文商品名 / 出现课程 / 综合判断 / 核心卖点 / 提示词要点。</p>
+
+<div class="tip">
+  <strong>💡 怎么看这张表</strong>：Go 表示"<strong>经过验证可以做</strong>"，Not Go 表示"<strong>不建议做</strong>"。结合"6 大选品维度"（详见阶段 5.4）做综合判断。
+</div>
+
+<h3>Go 类（9 个 SKU）——验证可做的爆款</h3>
+
+<table>
+<tr><th>序号</th><th>商品名</th><th>英文名</th><th>月销量</th><th>售价</th><th>内容可行性</th><th>判断</th><th>核心原因</th></tr>
+<tr><td>1</td><td>浴球</td><td>Bath Bomb</td><td>50K+</td><td>$9.9</td><td>⭐⭐⭐⭐⭐</td><td>Go</td><td>解压 + SPA 体验；6 要素齐全即可爆款</td></tr>
+<tr><td>2</td><td>水母解压玩具</td><td>Jellyfish Toy</td><td>30K+</td><td>$7.9-12.9</td><td>⭐⭐⭐⭐⭐</td><td>Go</td><td>透明果冻感 + 慢动作；触感可视化通用公式</td></tr>
+<tr><td>3</td><td>水枪</td><td>Water Gun</td><td>80K+</td><td>$19.9-29.9</td><td>⭐⭐⭐⭐⭐</td><td>Go</td><td>夏季户外爆款；多人混战 + 儿童欢笑</td></tr>
+<tr><td>4</td><td>地板蜡</td><td>Floor Wax</td><td>20K+</td><td>$19.9-29.9</td><td>⭐⭐⭐⭐⭐</td><td>Go</td><td>before/after 强对比；30 秒分镜标准结构</td></tr>
+<tr><td>5</td><td>复活节捏捏</td><td>Easter Squishy</td><td>10K+（季节）</td><td>$9.9-19.9</td><td>⭐⭐⭐⭐</td><td>Go（季节）</td><td>节日限定；3-4 月是窗口期</td></tr>
+<tr><td>6</td><td>拉不断数据线</td><td>Unbreakable Cable</td><td>5K+</td><td>$9.9-19.9</td><td>⭐⭐⭐⭐</td><td>Go</td><td>来自 Anker 差评反推；加固接口差异化</td></tr>
+<tr><td>7</td><td>家居清洁剂</td><td>Multi-Purpose Cleaner</td><td>30K+</td><td>$14.9-24.9</td><td>⭐⭐⭐⭐⭐</td><td>Go</td><td>数字人主妇演示；3 小时省时卖点</td></tr>
+<tr><td>8</td><td>化妆刷</td><td>Makeup Brush</td><td>20K+</td><td>$19.9-29.9</td><td>⭐⭐⭐⭐⭐</td><td>Go</td><td>数字人美妆；上妆过程可视化</td></tr>
+<tr><td>9</td><td>宠物玩具</td><td>Pet Toy</td><td>15K+</td><td>$14.9-24.9</td><td>⭐⭐⭐⭐⭐</td><td>Go</td><td>数字人 + 萌宠；金毛犬场景代入感强</td></tr>
+</table>
+
+<h3>Go（季节性）类（3 个 SKU）——季节窗口期做</h3>
+
+<table>
+<tr><th>序号</th><th>商品名</th><th>英文名</th><th>月销量</th><th>售价</th><th>内容可行性</th><th>判断</th><th>核心原因</th></tr>
+<tr><td>10</td><td>喷水枪（夏季款）</td><td>Spray Gun</td><td>50K+（4-8 月）</td><td>$19.9-29.9</td><td>⭐⭐⭐⭐⭐</td><td>Go（季节）</td><td>4-8 月窗口期；高压水柱特写</td></tr>
+<tr><td>11</td><td>行李箱</td><td>Luggage</td><td>20K+（节假日）</td><td>$49.9-99.9</td><td>⭐⭐⭐⭐</td><td>Go（季节）</td><td>节假日出行季；拉链测试 + 暴力测试</td></tr>
+<tr><td>12</td><td>蓝牙耳机</td><td>Bluetooth Earbuds</td><td>30K+</td><td>$19.9-39.9</td><td>⭐⭐⭐⭐</td><td>Go</td><td>高性价比；AI 实拍场景代入感</td></tr>
+</table>
+
+<h3>Go 类补充（3 个 SKU）——进阶品类</h3>
+
+<table>
+<tr><th>序号</th><th>商品名</th><th>英文名</th><th>月销量</th><th>售价</th><th>内容可行性</th><th>判断</th><th>核心原因</th></tr>
+<tr><td>13</td><td>婴儿用品</td><td>Baby Product</td><td>15K+</td><td>$24.9-49.9</td><td>⭐⭐⭐⭐⭐</td><td>Go</td><td>数字人妈妈；安全可靠卖点</td></tr>
+<tr><td>14</td><td>美容仪</td><td>Beauty Device</td><td>10K+</td><td>$49.9-99.9</td><td>⭐⭐⭐⭐⭐</td><td>Go</td><td>数字人专家；before/after 强反差</td></tr>
+<tr><td>15</td><td>健身器材</td><td>Fitness Equipment</td><td>10K+</td><td>$29.9-79.9</td><td>⭐⭐⭐⭐⭐</td><td>Go</td><td>数字人教练；居家健身场景</td></tr>
+</table>
+
+<h3>Not Go 类（3 个 SKU）——不建议做的品类</h3>
+
+<table>
+<tr><th>序号</th><th>商品名</th><th>英文名</th><th>月销量</th><th>售价</th><th>内容可行性</th><th>判断</th><th>核心原因</th></tr>
+<tr><td>16</td><td>营养品 / 保健品</td><td>Health Supplements</td><td>—</td><td>$19.9-49.9</td><td>⭐⭐⭐</td><td>Not Go</td><td>需 FDA 资质；合规风险极高</td></tr>
+<tr><td>17</td><td>服饰（连衣裙）</td><td>Dress</td><td>—</td><td>$29.9-79.9</td><td>⭐⭐⭐</td><td>Not Go</td><td>退货率 > 15%；尺码问题</td></tr>
+<tr><td>18</td><td>家居装饰（圣诞树）</td><td>Home Decor</td><td>—</td><td>$29.9-99.9</td><td>⭐⭐</td><td>Not Go</td><td>季节性太强；只在 11-12 月卖</td></tr>
+</table>
+
+<h2>Go 类共性特征（5 条）</h2>
+
+<ol>
+  <li><strong>客单价 $15-50</strong>（黄金价格带）</li>
+  <li><strong>退货率 ≤ 10%</strong>（避免运营成本过高）</li>
+  <li><strong>AI 可视化</strong>（提示词可写，6 要素齐全）</li>
+  <li><strong>物流 ≤ 售价 30%</strong>（保证毛利率）</li>
+  <li><strong>月 GMV 潜力 ≥ $100K</strong>（市场容量足够）</li>
+</ol>
+
+<h2>Not Go 类共性特征（5 条）</h2>
+
+<ol>
+  <li><strong>需特殊资质</strong>（保健品 / 食品 / 医疗 / 儿童玩具）</li>
+  <li><strong>易碎品</strong>（玻璃 / 陶瓷 / 精密仪器）</li>
+  <li><strong>季节性太强</strong>（圣诞树 / 春节装饰 / 万圣节道具）</li>
+  <li><strong>退货率 > 15%</strong>（尺码 / 色差 / 期望落差大）</li>
+  <li><strong>客单价 > $100</strong>（决策周期长，转化率低）</li>
+</ol>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：本清单是 KK 团队的<strong>经验总结</strong>，不是绝对标准。每个品都要结合"6 大选品维度"（详见阶段 5.4）做综合判断，<strong>不要生搬硬套</strong>。
+</div>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：新团队起步建议选<strong>前 5 个 SKU</strong>（浴球 / 水母 / 水枪 / 地板蜡 / 复活节捏捏），这些都是 KK 团队反复验证的爆款品类，<strong>提示词模板现成</strong>（详见附录 B）。
+</div>
+
+    </section>
+
+    <section id="app-b-prompts">
+      <h1>🤖 附录 B：15 套 AI 提示词合集</h1>
+<h2>附录 B：11 套 AI 提示词合集（完整原文）</h2>
+
+<p>本附录是从 <code>IMG_0007</code> + <code>IMG_0009Part002</code> + <code>1Part001</code> 三篇原文中提取的 <strong>11 套完整可用的 AI 视频提示词模板</strong>。每套都包含：适用场景 / 字段含义 / 套用方法。</p>
+
+<div class="tip">
+  <strong>💡 使用方法</strong>：复制模板 → 替换产品名 / 价格 / 场景 → 翻译成英文（必要时）→ 输入即梦 / Midjourney / Runway → 等待生成 → 筛选最优版。
+</div>
+
+<h3>模板 1：浴球（温馨治愈风）</h3>
+<p><strong>适用场景</strong>：浴室用品 / SPA 体验 / 解压产品 / 节日礼物<br>
+<strong>来源</strong>：IMG_0007 板块一<br>
+<strong>爆款数据</strong>：500 万播放 / $12,000 单条 GMV / 3.2% CCR</p>
+<pre><code>视频风格：温馨治愈、暖色调
+场景：浴室，傍晚暖光
+人物：25 岁亚洲女性，长发
+动作：将五彩浴球缓缓放入装满水的浴缸
+产品：五彩浴球（直径 7cm）
+口播："Treat yourself with this amazing bath bomb, only $9.99"</code></pre>
+
+<h3>模板 2：水母解压玩具</h3>
+<p><strong>适用场景</strong>：解压玩具 / 慢动作展示 / 触感可视化<br>
+<strong>来源</strong>：IMG_0008 板块二<br>
+<strong>爆款数据</strong>：200 万播放 / 7.9-12.9 售价</p>
+<pre><code>视频风格：透明果冻感、慢动作
+场景：白色桌面特写
+人物：无人物
+动作：手挤压水母，水母缓慢回弹
+产品：透明水母解压玩具
+口播："This jellyfish toy is so satisfying, watch it bounce back"</code></pre>
+
+<h3>模板 3：水枪（夏季款）</h3>
+<p><strong>适用场景</strong>：夏季户外玩具 / 多人场景 / 儿童产品<br>
+<strong>来源</strong>：IMG_0008 板块四<br>
+<strong>爆款数据</strong>：800 万播放 / 19.9-29.9 售价</p>
+<pre><code>视频风格：明亮户外、活力
+场景：草坪、阳光明媚
+人物：8 岁男孩
+动作：举起水枪喷射，水花四溅
+产品：高压远射水枪
+口播："The most powerful water gun for summer fun"</code></pre>
+
+<h3>模板 4：地板蜡（家居清洁）</h3>
+<p><strong>适用场景</strong>：家居清洁 / before-after 对比 / 主妇代入感<br>
+<strong>来源</strong>：IMG_0008 板块六 + IMG_0009Part001 板块二<br>
+<strong>爆款数据</strong>：150 万播放 / 19.9-29.9 售价</p>
+<pre><code>视频风格：before/after 对比
+场景：客厅木地板
+人物：30 岁家庭主妇
+动作：先用脏地板，再擦亮
+产品：地板蜡
+口播："Make your floor shine like new in just 5 minutes"</code></pre>
+
+<h3>模板 5：复活节捏捏</h3>
+<p><strong>适用场景</strong>：节日限定 / 解压玩具 / 黏土质感<br>
+<strong>来源</strong>：IMG_0007 板块三<br>
+<strong>爆款数据</strong>：3-4 月窗口期 / 9.9-19.9 售价</p>
+<pre><code>视频风格：节日氛围、彩蛋色
+场景：复活节装饰桌面
+人物：无
+动作：手捏复活蛋，蛋黄流出
+产品：复活节捏捏乐
+口播："Easter surprise egg, perfect stress relief"</code></pre>
+
+<h3>模板 6：数字人专家（保健品类）</h3>
+<p><strong>适用场景</strong>：保健品 / 健康产品 / 专业访谈<br>
+<strong>来源</strong>：IMG_0009Part002 板块三<br>
+<strong>合规要点</strong>：不能宣称疗效，需加"咨询医生"提示</p>
+<pre><code>视频风格：专业访谈、办公室
+场景：主播台 + 书架背景
+人物：50 岁白人男性教授
+动作：边讲解边展示产品
+产品：保健品瓶
+口播："As a nutritionist for 20 years, I recommend..."</code></pre>
+
+<h3>模板 7：数字人家居（家居清洁类）</h3>
+<p><strong>适用场景</strong>：家居清洁 / 厨房用品 / 日常生活<br>
+<strong>来源</strong>：IMG_0009Part002 板块三<br>
+<strong>爆款数据</strong>：30K+ 月销量 / 14.9-24.9 售价</p>
+<pre><code>视频风格：温馨家庭、明亮
+场景：客厅 / 厨房
+人物：35 岁白人主妇
+动作：演示产品使用方法
+产品：多功能清洁剂
+口播："This cleaner saved me 3 hours every week"</code></pre>
+
+<h3>模板 8：数字人萌宠（宠物用品类）</h3>
+<p><strong>适用场景</strong>：宠物用品 / 益智玩具 / 解闷产品<br>
+<strong>来源</strong>：IMG_0009Part002 板块三<br>
+<strong>爆款数据</strong>：15K+ 月销量 / 14.9-24.9 售价</p>
+<pre><code>视频风格：温馨、可爱
+场景：客厅地毯
+人物：30 岁亚洲女性 + 金毛犬
+动作：展示宠物玩具
+产品：益智玩具球
+口播："My dog loves this toy, it keeps him busy for hours"</code></pre>
+
+<h3>模板 9：数字人运动（健身器材类）</h3>
+<p><strong>适用场景</strong>：健身器材 / 居家健身 / 运动装备<br>
+<strong>来源</strong>：IMG_0009Part002 板块三<br>
+<strong>爆款数据</strong>：10K+ 月销量 / 29.9-79.9 售价</p>
+<pre><code>视频风格：活力、健身房
+场景：家庭健身房
+人物：28 岁健美男性
+动作：演示器械使用
+产品：哑铃
+口播："Build your dream body with this adjustable dumbbell"</code></pre>
+
+<h3>模板 10：数字人美妆（美妆工具类）</h3>
+<p><strong>适用场景</strong>：美妆工具 / 上妆演示 / 化妆刷<br>
+<strong>来源</strong>：IMG_0009Part002 板块三<br>
+<strong>爆款数据</strong>：20K+ 月销量 / 19.9-29.9 售价</p>
+<pre><code>视频风格：精致化妆台
+场景：卧室化妆台
+人物：25 岁白人女性
+动作：使用化妆刷上妆
+产品：化妆刷套装
+口播："Get flawless makeup with these professional brushes"</code></pre>
+
+<h3>模板 11：数字人母婴（母婴用品类）</h3>
+<p><strong>适用场景</strong>：母婴用品 / 婴儿背带 / 安全产品<br>
+<strong>来源</strong>：IMG_0009Part002 板块三<br>
+<strong>合规要点</strong>：需符合 CPSIA（美国消费品安全法）</p>
+<pre><code>视频风格：温馨、柔软
+场景：婴儿房
+人物：32 岁白人妈妈 + 婴儿
+动作：展示婴儿用品
+产品：婴儿背带
+口播："The safest baby carrier for your little one"</code></pre>
+
+<h3>GPT 反推提示词工作流（核心方法论）</h3>
+<p><strong>适用场景</strong>：看一条爆款视频 → 反推出 AI 提示词<br>
+<strong>来源</strong>：IMG_0009Part001 板块四 + 板块六<br>
+<strong>使用频率</strong>：每天必用（找爆款 → 反推 → 生成 → 发布）</p>
+<pre><code>你是一位专业的 TikTok 爆款视频分析师，请根据以下视频内容反推 AI 提示词：
+
+视频内容：[粘贴视频描述]
+- 视频风格是什么？
+- 场景在哪里？
+- 人物是谁（年龄/性别/族裔）？
+- 关键动作是什么？
+- 产品如何展示？
+- 口播内容是什么？
+
+请输出一套完整的即梦 AI 提示词（英文），要求：
+1. 包含 6 要素（Style / Scene / Character / Action / Product / Voiceover）
+2. 分镜描述（每个 3-5 秒，30 秒共 9 个镜头）
+3. 镜头语言（特写 / 中景 / 远景）
+4. 光影氛围</code></pre>
+
+<h2>通用 6 要素结构（所有模板的核心）</h2>
+
+<table>
+<tr><th>要素</th><th>英文</th><th>中文</th><th>必填</th></tr>
+<tr><td>1. 视频风格</td><td>Style</td><td>视觉调性</td><td>✓</td></tr>
+<tr><td>2. 场景</td><td>Scene</td><td>环境</td><td>✓</td></tr>
+<tr><td>3. 人物</td><td>Character</td><td>角色</td><td>✓</td></tr>
+<tr><td>4. 动作</td><td>Action</td><td>行为</td><td>✓</td></tr>
+<tr><td>5. 产品</td><td>Product</td><td>商品</td><td>✓</td></tr>
+<tr><td>6. 口播</td><td>Voiceover</td><td>配音</td><td>✓</td></tr>
+</table>
+
+<h3>使用流程</h3>
+<ol>
+  <li><strong>选模板</strong>：根据产品选择最接近的模板</li>
+  <li><strong>替换要素</strong>：把产品名 / 场景 / 价格替换成自己的</li>
+  <li><strong>翻译成英文</strong>：即梦 / Midjourney 英文效果更好</li>
+  <li><strong>输入工具</strong>：即梦 / Midjourney / Runway</li>
+  <li><strong>等待生成</strong>：5-15 分钟（视工具和服务器负载）</li>
+  <li><strong>筛选 + 剪辑</strong>：生成 5-10 版，选最优 1-2 版</li>
+</ol>
+
+<div class="warn">
+  <strong>⚠️ 避坑提示</strong>：<strong>6 要素缺一不可</strong>。少写任何一项（如只写"做个广告"），AI 生成出来的东西 100% 不及格。
+</div>
+
+<div class="tip">
+  <strong>💡 进阶技巧</strong>：11 套模板可以<strong>组合使用</strong>。例如：浴球场景 + 水母慢动作 = "水晶溶洞浴球"差异化产品；地板蜡 before/after + 数字人主妇 = "AI 主妇演示地板蜡"。
+</div>
+
+    </section>
+
+    <section id="app-c-graph">
+      <h1>🗺️ 附录 C：知识图谱（横向树状 SVG）</h1>
+      <p>下面的知识图谱，根节点在左，逐层向右展开。可双指放大查看。</p>
+      <div style="overflow-x:auto; -webkit-overflow-scrolling: touch;">
+        <!-- SVG 思维导图（由 SVG 专家子代理在拼装阶段填入） -->
+        <div style="overflow-x:auto; -webkit-overflow-scrolling: touch; max-width:100%;">
+  <svg viewBox="0 0 1080 3170" xmlns="http://www.w3.org/2000/svg" style="display:block; min-width:1080px;">
+  <rect x="0" y="0" width="1080" height="3170" fill="#f8fafc"/>
+  <text x="1060" y="30" text-anchor="end" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" fill="#64748b" font-weight="normal">视界跨境 · TikTok 美区 AI 带货 · 知识全景图</text>
+  <g stroke="#94a3b8" stroke-width="1" fill="none">
+  <path d="M 200 1585 H 250 V 295 H 300"/>
+  <path d="M 200 1585 H 250 V 975 H 300"/>
+  <path d="M 200 1585 H 250 V 1632 H 300"/>
+  <path d="M 200 1585 H 250 V 2290 H 300"/>
+  <path d="M 200 1585 H 250 V 2857 H 300"/>
+  <path d="M 200 1585 H 250 V 3105 H 300"/>
+  <path d="M 480 295 H 540 V 190 H 600"/>
+  <path d="M 480 295 H 540 V 260 H 600"/>
+  <path d="M 480 295 H 540 V 330 H 600"/>
+  <path d="M 480 295 H 540 V 400 H 600"/>
+  <path d="M 480 975 H 540 V 835 H 600"/>
+  <path d="M 480 975 H 540 V 905 H 600"/>
+  <path d="M 480 975 H 540 V 975 H 600"/>
+  <path d="M 480 975 H 540 V 1045 H 600"/>
+  <path d="M 480 975 H 540 V 1115 H 600"/>
+  <path d="M 480 1632 H 540 V 1527 H 600"/>
+  <path d="M 480 1632 H 540 V 1597 H 600"/>
+  <path d="M 480 1632 H 540 V 1667 H 600"/>
+  <path d="M 480 1632 H 540 V 1737 H 600"/>
+  <path d="M 480 2290 H 540 V 2150 H 600"/>
+  <path d="M 480 2290 H 540 V 2220 H 600"/>
+  <path d="M 480 2290 H 540 V 2290 H 600"/>
+  <path d="M 480 2290 H 540 V 2360 H 600"/>
+  <path d="M 480 2290 H 540 V 2430 H 600"/>
+  <path d="M 480 2857 H 540 V 2787 H 600"/>
+  <path d="M 480 2857 H 540 V 2857 H 600"/>
+  <path d="M 480 2857 H 540 V 2927 H 600"/>
+  <path d="M 480 3105 H 540 V 3070 H 600"/>
+  <path d="M 480 3105 H 540 V 3140 H 600"/>
+  <path d="M 760 190 H 830 V 47 H 900"/>
+  <path d="M 760 190 H 830 V 92 H 900"/>
+  <path d="M 760 190 H 830 V 137 H 900"/>
+  <path d="M 760 260 H 830 V 182 H 900"/>
+  <path d="M 760 260 H 830 V 227 H 900"/>
+  <path d="M 760 260 H 830 V 272 H 900"/>
+  <path d="M 760 330 H 830 V 317 H 900"/>
+  <path d="M 760 330 H 830 V 362 H 900"/>
+  <path d="M 760 330 H 830 V 407 H 900"/>
+  <path d="M 760 400 H 830 V 452 H 900"/>
+  <path d="M 760 400 H 830 V 497 H 900"/>
+  <path d="M 760 400 H 830 V 542 H 900"/>
+  <path d="M 760 835 H 830 V 637 H 900"/>
+  <path d="M 760 835 H 830 V 682 H 900"/>
+  <path d="M 760 835 H 830 V 727 H 900"/>
+  <path d="M 760 905 H 830 V 772 H 900"/>
+  <path d="M 760 905 H 830 V 817 H 900"/>
+  <path d="M 760 905 H 830 V 862 H 900"/>
+  <path d="M 760 905 H 830 V 907 H 900"/>
+  <path d="M 760 975 H 830 V 952 H 900"/>
+  <path d="M 760 975 H 830 V 997 H 900"/>
+  <path d="M 760 975 H 830 V 1042 H 900"/>
+  <path d="M 760 1045 H 830 V 1087 H 900"/>
+  <path d="M 760 1045 H 830 V 1132 H 900"/>
+  <path d="M 760 1045 H 830 V 1177 H 900"/>
+  <path d="M 760 1115 H 830 V 1222 H 900"/>
+  <path d="M 760 1115 H 830 V 1267 H 900"/>
+  <path d="M 760 1115 H 830 V 1312 H 900"/>
+  <path d="M 760 1527 H 830 V 1407 H 900"/>
+  <path d="M 760 1527 H 830 V 1452 H 900"/>
+  <path d="M 760 1527 H 830 V 1497 H 900"/>
+  <path d="M 760 1597 H 830 V 1542 H 900"/>
+  <path d="M 760 1597 H 830 V 1587 H 900"/>
+  <path d="M 760 1597 H 830 V 1632 H 900"/>
+  <path d="M 760 1667 H 830 V 1677 H 900"/>
+  <path d="M 760 1667 H 830 V 1722 H 900"/>
+  <path d="M 760 1667 H 830 V 1767 H 900"/>
+  <path d="M 760 1737 H 830 V 1812 H 900"/>
+  <path d="M 760 1737 H 830 V 1857 H 900"/>
+  <path d="M 760 2150 H 830 V 1952 H 900"/>
+  <path d="M 760 2150 H 830 V 1997 H 900"/>
+  <path d="M 760 2150 H 830 V 2042 H 900"/>
+  <path d="M 760 2220 H 830 V 2087 H 900"/>
+  <path d="M 760 2220 H 830 V 2132 H 900"/>
+  <path d="M 760 2220 H 830 V 2177 H 900"/>
+  <path d="M 760 2290 H 830 V 2222 H 900"/>
+  <path d="M 760 2290 H 830 V 2267 H 900"/>
+  <path d="M 760 2290 H 830 V 2312 H 900"/>
+  <path d="M 760 2360 H 830 V 2357 H 900"/>
+  <path d="M 760 2360 H 830 V 2402 H 900"/>
+  <path d="M 760 2360 H 830 V 2447 H 900"/>
+  <path d="M 760 2430 H 830 V 2492 H 900"/>
+  <path d="M 760 2430 H 830 V 2537 H 900"/>
+  <path d="M 760 2430 H 830 V 2582 H 900"/>
+  <path d="M 760 2430 H 830 V 2627 H 900"/>
+  <path d="M 760 2787 H 830 V 2722 H 900"/>
+  <path d="M 760 2787 H 830 V 2767 H 900"/>
+  <path d="M 760 2787 H 830 V 2812 H 900"/>
+  <path d="M 760 2857 H 830 V 2857 H 900"/>
+  <path d="M 760 2857 H 830 V 2902 H 900"/>
+  <path d="M 760 2927 H 830 V 2947 H 900"/>
+  <path d="M 760 2927 H 830 V 2992 H 900"/>
+  </g>
+  <rect x="0" y="1545" width="200" height="80" rx="10" ry="10" fill="#1e3a8a" stroke="#94a3b8" stroke-width="1"/>
+  <text x="100" y="1563" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="18" font-weight="bold" fill="#ffffff"><tspan x="100" y="1563">视界跨境·</tspan><tspan x="100" y="1585">TikTok </tspan><tspan x="100" y="1607">美区 AI 带货</tspan></text>
+  <rect x="300" y="265" width="180" height="60" rx="8" ry="8" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="390" y="286" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a"><tspan x="390" y="286">阶段1 - </tspan><tspan x="390" y="304">团队认知</tspan></text>
+  <rect x="300" y="945" width="180" height="60" rx="8" ry="8" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="390" y="966" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a"><tspan x="390" y="966">阶段2 - </tspan><tspan x="390" y="984">AI 理论</tspan></text>
+  <rect x="300" y="1602" width="180" height="60" rx="8" ry="8" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="390" y="1623" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a"><tspan x="390" y="1623">阶段3 - </tspan><tspan x="390" y="1641">产品案例</tspan></text>
+  <rect x="300" y="2260" width="180" height="60" rx="8" ry="8" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="390" y="2281" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a"><tspan x="390" y="2281">阶段4 - </tspan><tspan x="390" y="2299">渠道+选品</tspan></text>
+  <rect x="300" y="2827" width="180" height="60" rx="8" ry="8" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="390" y="2848" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a"><tspan x="390" y="2848">阶段5 - </tspan><tspan x="390" y="2866">店铺+SKU</tspan></text>
+  <rect x="300" y="3075" width="180" height="60" rx="8" ry="8" fill="#dbeafe" stroke="#94a3b8" stroke-width="1"/>
+  <text x="390" y="3096" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="14" font-weight="bold" fill="#1e3a8a"><tspan x="390" y="3096">阶段6 - </tspan><tspan x="390" y="3114">投放扩量</tspan></text>
+  <rect x="600" y="165" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="190" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="190">KK 团队</tspan></text>
+  <rect x="600" y="235" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="260" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="260">设备配置</tspan></text>
+  <rect x="600" y="305" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="330" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="330">11种账号</tspan></text>
+  <rect x="600" y="375" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="400" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="400">运营节奏</tspan></text>
+  <rect x="600" y="810" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="835" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="835">AI本质</tspan></text>
+  <rect x="600" y="880" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="905" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="905">AN45+CCR</tspan></text>
+  <rect x="600" y="950" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="975" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="975">占坑位理论</tspan></text>
+  <rect x="600" y="1020" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="1045" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="1045">行业三阶段</tspan></text>
+  <rect x="600" y="1090" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="1115" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="1115">品牌vs效率</tspan></text>
+  <rect x="600" y="1502" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="1527" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="1527">浴球案例</tspan></text>
+  <rect x="600" y="1572" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="1597" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="1597">水母/水枪</tspan></text>
+  <rect x="600" y="1642" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="1667" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="1667">地板蜡案例</tspan></text>
+  <rect x="600" y="1712" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="1737" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="1737">提示词工程</tspan></text>
+  <rect x="600" y="2125" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="2150" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="2150">渠道号垂直</tspan></text>
+  <rect x="600" y="2195" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="2220" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="2220">数字人模板</tspan></text>
+  <rect x="600" y="2265" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="2290" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="2290">GPT反推</tspan></text>
+  <rect x="600" y="2335" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="2360" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="2360">特探数据</tspan></text>
+  <rect x="600" y="2405" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="2430" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="2430">选品SOP</tspan></text>
+  <rect x="600" y="2762" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="2787" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="2787">店铺注册</tspan></text>
+  <rect x="600" y="2832" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="2857" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="2857">成本+SKU</tspan></text>
+  <rect x="600" y="2902" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="2927" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="2927">SPS+T3</tspan></text>
+  <rect x="600" y="3045" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="3070" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="3070">GMS赛马</tspan></text>
+  <rect x="600" y="3115" width="160" height="50" rx="6" ry="6" fill="#e8f5e9" stroke="#94a3b8" stroke-width="1"/>
+  <text x="680" y="3140" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="13" font-weight="normal" fill="#1f2937"><tspan x="680" y="3140">扩量工具</tspan></text>
+  <rect x="900" y="27" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="47" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="47">丁总战略层</tspan></text>
+  <rect x="900" y="72" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="92" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="92">KK实操层</tspan></text>
+  <rect x="900" y="117" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="137" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="137">19楼6大部门</tspan></text>
+  <rect x="900" y="162" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="182" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="182">主力机+备用机</tspan></text>
+  <rect x="900" y="207" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="219" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="219">MacBook+</tspan><tspan x="970" y="235">iPad</tspan></text>
+  <rect x="900" y="252" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="272" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="272">独立路由器</tspan></text>
+  <rect x="900" y="297" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="317" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="317">沉淀vs收割</tspan></text>
+  <rect x="900" y="342" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="362" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="362">渠道号门槛</tspan></text>
+  <rect x="900" y="387" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="407" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="407">矩阵号协同</tspan></text>
+  <rect x="900" y="432" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="452" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="452">冷启动期目标</tspan></text>
+  <rect x="900" y="477" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="497" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="497">放量期目标</tspan></text>
+  <rect x="900" y="522" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="542" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="542">稳定期目标</tspan></text>
+  <rect x="900" y="617" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="637" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="637">还原真实场景</tspan></text>
+  <rect x="900" y="662" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="682" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="682">身临其境</tspan></text>
+  <rect x="900" y="707" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="727" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="727">真实震撼视觉</tspan></text>
+  <rect x="900" y="752" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="764" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="764">Age </tspan><tspan x="970" y="780">Niche 45</tspan></text>
+  <rect x="900" y="797" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="817" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="817">普通≥1%</tspan></text>
+  <rect x="900" y="842" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="862" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="862">优质≥3%</tspan></text>
+  <rect x="900" y="887" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="907" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="907">爆款≥5%</tspan></text>
+  <rect x="900" y="932" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="952" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="952">0-2h黄金期</tspan></text>
+  <rect x="900" y="977" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="997" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="997">2-12h白银期</tspan></text>
+  <rect x="900" y="1022" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1042" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1042">微创新3处改动</tspan></text>
+  <rect x="900" y="1067" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1087" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1087">野蛮生长期</tspan></text>
+  <rect x="900" y="1112" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1132" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1132">精细化期</tspan></text>
+  <rect x="900" y="1157" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1177" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1177">品牌沉淀期</tspan></text>
+  <rect x="900" y="1202" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1222" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1222">品牌号长周期</tspan></text>
+  <rect x="900" y="1247" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1267" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1267">收割号快迭代</tspan></text>
+  <rect x="900" y="1292" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1312" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1312">双轨协同</tspan></text>
+  <rect x="900" y="1387" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1407" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1407">6要素原始模板</tspan></text>
+  <rect x="900" y="1432" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1452" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1452">$9.9价格锚点</tspan></text>
+  <rect x="900" y="1477" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1497" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1497">亚洲女性人设</tspan></text>
+  <rect x="900" y="1522" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1542" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1542">白色极简场景</tspan></text>
+  <rect x="900" y="1567" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1587" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1587">重复节拍上瘾</tspan></text>
+  <rect x="900" y="1612" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1632" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1632">多人户外</tspan></text>
+  <rect x="900" y="1657" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1677" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1677">视觉反差</tspan></text>
+  <rect x="900" y="1702" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1722" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1722">30秒分镜</tspan></text>
+  <rect x="900" y="1747" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1767" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1767">主妇代入感</tspan></text>
+  <rect x="900" y="1792" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1804" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1804">S/S/C/A/</tspan><tspan x="970" y="1820">P/V六要素</tspan></text>
+  <rect x="900" y="1837" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1857" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1857">GPT反推5步骤</tspan></text>
+  <rect x="900" y="1932" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1952" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1952">品类垂直</tspan></text>
+  <rect x="900" y="1977" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="1997" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="1997">风格垂直</tspan></text>
+  <rect x="900" y="2022" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2042" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2042">价格垂直</tspan></text>
+  <rect x="900" y="2067" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2087" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2087">保健品专家</tspan></text>
+  <rect x="900" y="2112" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2132" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2132">家居主妇</tspan></text>
+  <rect x="900" y="2157" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2177" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2177">萌宠</tspan></text>
+  <rect x="900" y="2202" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2222" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2222">下载爆款</tspan></text>
+  <rect x="900" y="2247" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2267" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2267">反推提示词</tspan></text>
+  <rect x="900" y="2292" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2304" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2304">即梦生成5-10</tspan><tspan x="970" y="2320">版</tspan></text>
+  <rect x="900" y="2337" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2357" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2357">商品榜每日</tspan></text>
+  <rect x="900" y="2382" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2402" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2402">视频榜每日</tspan></text>
+  <rect x="900" y="2427" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2447" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2447">达人榜每周</tspan></text>
+  <rect x="900" y="2472" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2492" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2492">看大盘</tspan></text>
+  <rect x="900" y="2517" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2537" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2537">选产品</tspan></text>
+  <rect x="900" y="2562" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2582" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2582">小流量测试</tspan></text>
+  <rect x="900" y="2607" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2627" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2627">ROI≥2放量</tspan></text>
+  <rect x="900" y="2702" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2722" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2722">起步选香港主体</tspan></text>
+  <rect x="900" y="2747" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2767" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2767">进阶ACCU本土</tspan></text>
+  <rect x="900" y="2792" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2812" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2812">长期双主体</tspan></text>
+  <rect x="900" y="2837" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2857" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2857">成本6项分解</tspan></text>
+  <rect x="900" y="2882" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2894" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2894">引流/利润/</tspan><tspan x="970" y="2910">收割三层</tspan></text>
+  <rect x="900" y="2927" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2939" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2939">SPS<3.5降</tspan><tspan x="970" y="2955">权</tspan></text>
+  <rect x="900" y="2972" width="140" height="40" rx="5" ry="5" fill="#fef9c3" stroke="#94a3b8" stroke-width="1"/>
+  <text x="970" y="2984" text-anchor="middle" font-family="-apple-system, BlinkMacSystemFont, 'PingFang SC', 'Microsoft YaHei', sans-serif" font-size="12" font-weight="normal" fill="#4b5563"><tspan x="970" y="2984">T3=30天$6</tspan><tspan x="970" y="3000">0K GMV</tspan></text>
+  </svg>
+</div>
+      </div>
+    </section>
+
+    <section id="app-d-glossary">
+      <h1>📖 附录 D：术语表（小白必查）</h1>
+<h2>附录 D：术语表（小白必查）</h2>
+
+<p>本附录收录视界课程中出现的 <strong>60 个核心术语</strong>，按字母排序。每个词条包含：中文名 / 英文名（缩写） / 一句话解释 / 首次出现章节。</p>
+
+<div class="tip">
+  <strong>💡 怎么用</strong>：遇到不懂的术语，先 Ctrl+F 搜索缩写；找不到再按字母定位；找到后跳到对应章节精读。
+</div>
+
+<h3>A</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>AN45 人群</td><td>Age Niche 45 days</td><td>锁定 45 天内可能购买某品类的精准人群（年龄 + 细分品类 + 45 天窗口）</td><td>阶段 2.3</td></tr>
+<tr><td>AB 链</td><td>AB Link</td><td>爆款素材挂到新链接 B 烧纯 ROI，原链接 A 保留自然流</td><td>阶段 6.7</td></tr>
+<tr><td>AB 店</td><td>AB Store</td><td>升级版 AB 链，把新链接升级为新店，享受平台扶持期</td><td>阶段 6.7</td></tr>
+<tr><td>AI 数字人</td><td>AI Digital Human</td><td>AI 生成的虚拟形象 + AI 配音（MiniMax 数字永生 / HeyGen）</td><td>阶段 4.2</td></tr>
+<tr><td>ACCU 主体</td><td>ACCU Entity</td><td>TikTok 美区本土店主体，需美国 SSN 或 ITIN</td><td>阶段 5.1</td></tr>
+</table>
+
+<h3>B</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>白号</td><td>White Account</td><td>未实名认证的 TikTok 账号，新号起号用</td><td>阶段 4.7</td></tr>
+<tr><td>半托管</td><td>Semi-Managed</td><td>Temu / SHEIN 等平台的半托管模式，卖家负责供货，平台负责运营</td><td>附录 A</td></tr>
+<tr><td>变现</td><td>Monetize</td><td>通过带货 / 广告 / 直播等方式把流量转化为收入</td><td>阶段 1.2</td></tr>
+<tr><td>爆款素材</td><td>Viral Content</td><td>播放量 ≥ 100 万 或 CCR ≥ 5% 的视频</td><td>阶段 2.3</td></tr>
+<tr><td>备货</td><td>Stock Up</td><td>根据销量预测，提前采购 / 仓储商品</td><td>阶段 5.6</td></tr>
+</table>
+
+<h3>C</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>CCR 指标</td><td>Click Conversion Rate</td><td>点击转化率 = 点击数 ÷ 曝光数 × 100%；基准 1% / 3% / 5%</td><td>阶段 2.3</td></tr>
+<tr><td>CTR</td><td>Click-Through Rate</td><td>点击率 = 点击数 ÷ 曝光数，是 CCR 的同义词</td><td>阶段 6.2</td></tr>
+<tr><td>CVR</td><td>Conversion Rate</td><td>转化率 = 订单数 ÷ 点击数，衡量落地页效果</td><td>阶段 6.2</td></tr>
+<tr><td>CTA</td><td>Call To Action</td><td>行动号召，口播中引导用户下单 / 加购的语句</td><td>阶段 3.1</td></tr>
+<tr><td>CBT 物流</td><td>Cross-Border Trade</td><td>跨境物流，国内直发美国，时效 15-30 天</td><td>阶段 5.3</td></tr>
+</table>
+
+<h3>D</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>达人榜</td><td>Creator Ranking</td><td>特探数据 5 大模块之一，监控带货达人数据</td><td>阶段 4.5</td></tr>
+<tr><td>短视频</td><td>Short Video</td><td>30 秒以内的视频，TikTok 标准内容形式</td><td>阶段 1.4</td></tr>
+<tr><td>对位</td><td>Alignment</td><td>音频对位：画面节奏与音频节奏完美对齐</td><td>阶段 3.7</td></tr>
+</table>
+
+<h3>E</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>ECPM 公式</td><td>Effective Cost Per Mille</td><td>有效千次曝光成本 = 出价 × CTR × CVR × 1000</td><td>阶段 6.2</td></tr>
+<tr><td>二审</td><td>Second Review</td><td>TikTok Shop 怀疑资料真实性后的复审</td><td>阶段 5.2</td></tr>
+</table>
+
+<h3>F</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>FBT 物流</td><td>Fulfilled by TikTok</td><td>TikTok 官方仓物流，卖家提前备货到 TikTok 仓</td><td>阶段 5.3</td></tr>
+<tr><td>FPS</td><td>Frame Per Second</td><td>视频每秒帧数，TikTok 推荐 30 FPS</td><td>阶段 3.7</td></tr>
+<tr><td>反推提示词</td><td>Reverse Prompt</td><td>看爆款视频 → 用 GPT 反推出 AI 提示词</td><td>阶段 4.3</td></tr>
+</table>
+
+<h3>G</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>GMV</td><td>Gross Merchandise Volume</td><td>商品交易总额 = 售价 × 销量，衡量爆款的核心指标</td><td>阶段 3.9</td></tr>
+<tr><td>GMS 投放</td><td>GM Smart</td><td>TikTok 智能投放系统，2-3 个按钮搞定</td><td>阶段 6.1</td></tr>
+<tr><td>GM MAX 投放</td><td>GM Maximum</td><td>GMS 升级版，增加最大投放量 + 加热 + Play Boss</td><td>阶段 6.1</td></tr>
+<tr><td>干货</td><td>Practical Tips</td><td>实操经验、方法论、避坑技巧</td><td>阶段 1.5</td></tr>
+<tr><td>钩子</td><td>Hook</td><td>视频前 3 秒抓眼球的设计，7 种类型（视觉/好奇/痛点/数字/悬念/争议/场景）</td><td>阶段 3.6</td></tr>
+</table>
+
+<h3>H</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>红海品类</td><td>Red Ocean Category</td><td>竞争激烈的品类（如 3C、美妆），新团队慎入</td><td>阶段 5.4</td></tr>
+<tr><td>合作团长</td><td>Partner TAP</td><td>挂你链接的 TikTok 带货达人，分润合作</td><td>阶段 2.8</td></tr>
+<tr><td>回流</td><td>Loop Back</td><td>爆款素材反哺品牌号 / 反哺新链接</td><td>阶段 2.7</td></tr>
+</table>
+
+<h3>J</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>J 钩子</td><td>J-Hook</td><td>"你绝对不知道..."式悬念钩子</td><td>阶段 3.6</td></tr>
+<tr><td>极致特写</td><td>Extreme Close-up</td><td>镜头距产品 ≤ 30cm，突出细节</td><td>阶段 3.3</td></tr>
+<tr><td>矩阵号</td><td>Matrix Account</td><td>多账号协同，同类目横向布局</td><td>阶段 1.4</td></tr>
+</table>
+
+<h3>K</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>客单价</td><td>Average Order Value (AOV)</td><td>每个订单的平均金额，黄金价格带 $19.9-29.9</td><td>阶段 5.4</td></tr>
+<tr><td>颗粒度</td><td>Granularity</td><td>数据 / 操作的细化程度</td><td>阶段 4.5</td></tr>
+<tr><td>扩量</td><td>Scale Up</td><td>把爆款素材的预算上限打开，最大化投放</td><td>阶段 6.5</td></tr>
+</table>
+
+<h3>L</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>类目榜</td><td>Category Ranking</td><td>特探数据 5 大模块之一，看细分品类趋势</td><td>阶段 4.5</td></tr>
+<tr><td>冷启动</td><td>Cold Start</td><td>新品上架的 1-30 天，养号 + 测品阶段</td><td>阶段 1.5</td></tr>
+<tr><td>流量倾斜</td><td>Traffic Boost</td><td>平台给优质账号 / 内容的额外曝光</td><td>阶段 4.1</td></tr>
+</table>
+
+<h3>M</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>MCN</td><td>Multi-Channel Network</td><td>达人经纪机构，分成高 + 服务费，KK 团队不用</td><td>阶段 2.8</td></tr>
+<tr><td>卖货</td><td>Sell Products</td><td>通过带货视频引导用户下单</td><td>阶段 1.1</td></tr>
+<tr><td>密度</td><td>Density</td><td>视频信息密度，每秒传递的信息量</td><td>阶段 3.6</td></tr>
+</table>
+
+<h3>P</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>PASS 功能</td><td>PASS Boost</td><td>TikTok 流量加速功能，实测 90% 无效</td><td>阶段 6.10</td></tr>
+<tr><td>Play Boss</td><td>Play Boss</td><td>GM MAX 自动放量工具，系统自动追投</td><td>阶段 6.5</td></tr>
+<tr><td>品质评分</td><td>Quality Score</td><td>TikTok 对素材质量的综合评分</td><td>阶段 6.2</td></tr>
+</table>
+
+<h3>Q</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>起号</td><td>Account Setup</td><td>从 0 开始养号或买号到 5 万粉的过程</td><td>阶段 4.7</td></tr>
+<tr><td>权重</td><td>Weight</td><td>算法对账号 / 内容的优先级排序</td><td>阶段 6.2</td></tr>
+</table>
+
+<h3>R</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>ROAS</td><td>Return on Ad Spend</td><td>广告支出回报率 = 收入 ÷ 广告成本</td><td>阶段 4.9</td></tr>
+<tr><td>ROI</td><td>Return on Investment</td><td>投资回报率 = 利润 ÷ 总成本</td><td>阶段 4.9</td></tr>
+<tr><td>日均出单</td><td>Daily Orders</td><td>每天的平均订单数</td><td>阶段 5.6</td></tr>
+</table>
+
+<h3>S</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>SPS 体验分</td><td>Store Performance Score</td><td>店铺绩效分，由 5 维度构成，红线 < 3.5 降权</td><td>阶段 5.7</td></tr>
+<tr><td>SKU</td><td>Stock Keeping Unit</td><td>单品，三层定价（引流 / 利润 / 收割）</td><td>阶段 5.5</td></tr>
+<tr><td>短视频带货</td><td>Short Video Commerce</td><td>通过 TikTok 短视频引导用户下单</td><td>阶段 1.1</td></tr>
+<tr><td>数字人</td><td>Digital Human</td><td>AI 生成的虚拟形象 + AI 配音</td><td>阶段 4.2</td></tr>
+<tr><td>赛马机制</td><td>Horse Race Mechanism</td><td>GMS 系统自动给 ECPM 最高的素材分配最多预算</td><td>阶段 6.1</td></tr>
+</table>
+
+<h3>T</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>TAP 团长</td><td>TikTok Affiliate Partner</td><td>TikTok 官方带货达人，挂链接分佣</td><td>阶段 2.8</td></tr>
+<tr><td>T3 门槛</td><td>Tier 3</td><td>店铺等级，需 GMV ≥ $60K + 粉丝 ≥ 10K</td><td>阶段 5.8</td></tr>
+<tr><td>TK</td><td>TikTok</td><td>TikTok 缩写</td><td>阶段 1.1</td></tr>
+<tr><td>TTS 物流</td><td>TikTok Shipping</td><td>TikTok 指定物流（云途、燕文、4PX）</td><td>阶段 5.3</td></tr>
+<tr><td>提示词</td><td>Prompt</td><td>给 AI 的文字指令，6 要素框架</td><td>阶段 3.2</td></tr>
+<tr><td>投放</td><td>Advertising</td><td>付费推广，GMS / GM MAX 智能投放</td><td>阶段 6.1</td></tr>
+</table>
+
+<h3>U</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>UGC 混剪</td><td>User Generated Content Mashup</td><td>用户生成内容拼接剪辑，KK 团队补充路径</td><td>阶段 4.4</td></tr>
+</table>
+
+<h3>V</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>VDS 投放</td><td>Video Dynamic Showcase</td><td>传统手动投放系统，GMS 的前身</td><td>阶段 6.1</td></tr>
+</table>
+
+<h3>W</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>微创新</td><td>Micro Innovation</td><td>在原版素材基础上做 10-20% 改动，避开搬运判定</td><td>阶段 2.4</td></tr>
+<tr><td>稳量</td><td>Stable Phase</td><td>链接稳定后的"按下不动"阶段</td><td>阶段 6.6</td></tr>
+<tr><td>完播率</td><td>Completion Rate</td><td>看完视频的用户比例，2 秒完播率 = 生死线</td><td>阶段 6.9</td></tr>
+</table>
+
+<h3>X</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>香港主体</td><td>HK Entity</td><td>TikTok 跨境店主体，需注册香港公司</td><td>阶段 5.1</td></tr>
+<tr><td>小红书</td><td>Xiaohongshu</td><td>国内生活方式社区，找对标素材用</td><td>阶段 4.9</td></tr>
+</table>
+
+<h3>Y</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>耶稣号</td><td>Jesus Account</td><td>去耶稣信仰国家发内容涨粉的灰色起号方式</td><td>阶段 4.8</td></tr>
+<tr><td>引流款</td><td>Traffic-Driving SKU</td><td>$9.9 引流 SKU，利润低但拉自然流</td><td>阶段 5.5</td></tr>
+<tr><td>音频克隆</td><td>Voice Clone</td><td>用 AI 克隆人声（MiniMax 数字永生 / ElevenLabs）</td><td>阶段 3.7</td></tr>
+</table>
+
+<h3>Z</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>占坑位</td><td>Occupy Position</td><td>同款素材抢先 1-3 小时发布，抢 50%+ 自然流</td><td>阶段 2.4</td></tr>
+<tr><td>直播带货</td><td>Live Commerce</td><td>通过 TikTok 直播引导用户下单</td><td>阶段 2.8</td></tr>
+<tr><td>主理人</td><td>Founder / Owner</td><td>店铺 / 品牌的所有者</td><td>阶段 1.2</td></tr>
+<tr><td>子弹号</td><td>Bullet Account</td><td>专门用于短时间爆发的账号（消耗品）</td><td>阶段 4.7</td></tr>
+</table>
+
+<h3>数字</h3>
+
+<table>
+<tr><th>术语</th><th>英文 / 缩写</th><th>解释</th><th>首次出现</th></tr>
+<tr><td>2 秒完播率</td><td>2s Completion Rate</td><td>看完前 2 秒的用户比例；≥ 25% 才合格</td><td>阶段 6.9</td></tr>
+<tr><td>6 秒完播率</td><td>6s Completion Rate</td><td>看完前 6 秒的用户比例；钩子质量的体现</td><td>阶段 3.6</td></tr>
+<tr><td>60 秒完播率</td><td>60s Completion Rate</td><td>看完 60 秒的用户比例；决定是否值得放量</td><td>阶段 6.11</td></tr>
+<tr><td>9 镜头结构</td><td>9-Shot Structure</td><td>30 秒短视频的黄金模板：钩子 3 + 痛点 3 + 方案 3 + 转化 2-3</td><td>阶段 3.8</td></tr>
+</table>
+
+<div class="warn">
+  <strong>⚠️ 重要提示</strong>：本术语表共收录 <strong>60 个核心术语</strong>。建议收藏本页，遇到不懂的术语随时查阅。
+</div>
+
+    </section>
+
+    <section id="app-e-source">
+      <h1>📚 附录 E：12 篇原文索引</h1>
+<h2>附录 E：12 篇原文索引 + 进一步阅读</h2>
+
+<p>本附录是 12 篇原始课程录音转录稿的<strong>完整索引</strong>。每篇包含：文件名 / 字数 / 主讲人 / 录制日期 / 核心主题 / 适合读者 / 阅读优先级。</p>
+
+<div class="tip">
+  <strong>💡 阅读顺序建议</strong>：按"阶段 1 → 2 → 3 → 4 → 5 → 6"顺序读，每阶段先看"核心主题"再读全文。如果时间紧张，先看"<strong>阅读优先级 ⭐⭐⭐⭐⭐</strong>"的几篇。
+</div>
+
+<table>
+<tr><th>序号</th><th>文件名</th><th>字数</th><th>主讲人</th><th>核心主题</th><th>适合读者</th><th>优先级</th></tr>
+<tr><td>1</td><td><code>1Part001_原文.md</code></td><td>6,766</td><td>丁总</td><td>AI 理论 Part 1：AI ≠ 夸大 / AN45 + CCR / 占坑位理论</td><td>所有人</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>2</td><td><code>1Part002_原文.md</code></td><td>10,009</td><td>丁总</td><td>AI 理论 Part 2：直播判断 / TAP vs MCN / 行业三阶段 / 品牌效率双轨</td><td>所有人</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>3</td><td><code>2_原文.md</code></td><td>12,742</td><td>KK</td><td>KK 团队介绍 + 19 楼架构 + 11 种账号 + 运营节奏</td><td>团队负责人</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td>4</td><td><code>2026_04_17_04_22_22_IMG_0007_原文.md</code></td><td>14,668</td><td>KK</td><td>浴球案例 + 6 要素提示词框架 + 5 套实战模板 + 音频克隆</td><td>内容运营</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>5</td><td><code>2026_04_17_06_14_44_IMG_0008_原文.md</code></td><td>11,368</td><td>KK</td><td>水母 / 水枪 / 地板蜡案例 + 音频对位工作流 + 9 镜头标准结构</td><td>内容运营</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>6</td><td><code>2026_04_17_23_02_49_IMG_0009Part001_原文.md</code></td><td>8,389</td><td>KK</td><td>渠道号垂直策略 + GPT 反推工作流 + 地板蜡深度复盘</td><td>运营 / 投手</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td>7</td><td><code>2026_04_17_23_02_49_IMG_0009Part002_原文.md</code></td><td>12,419</td><td>KK</td><td>数字人专家 + 6 套数字人提示词模板 + 实拍方法论</td><td>内容运营</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>8</td><td><code>2026_04_18_01_29_18_IMG_0010_原文.md</code></td><td>10,108</td><td>KK</td><td>特探数据 5 大模块 + 起号 4 策略 + 6 步选品 SOP + 薪资结构</td><td>运营 / 团队管理</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>9</td><td><code>2026_04_18_04_10_57_IMG_0011Part001_原文.md</code></td><td>10,597</td><td>丁总</td><td>店铺注册主体选择 + 二审申诉 + 物流体系 + 成本核算</td><td>店主 / 运营</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>10</td><td><code>2026_04_18_04_10_57_IMG_0011Part002_原文.md</code></td><td>13,315</td><td>丁总</td><td>6 大选品维度 + 评论区选品 + SKU 三层定价 + 备货决策 + SPS 管理</td><td>店主 / 运营</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>11</td><td><code>2026_04_18_06_22_00_IMG_0012_原文.md</code></td><td>10,995</td><td>KK</td><td>经理链接 60% 规则 + T3 门槛 + GMS / GM MAX 投放体系 + 扩量三大工具</td><td>投手 / 运营</td><td>⭐⭐⭐⭐⭐</td></tr>
+<tr><td>12</td><td><code>2026_04_18_07_05_52_IMG_0014_原文.md</code></td><td>3,626</td><td>KK</td><td>GM MAX 最大投放量 + 买号三大风险 + 2 秒完播率 + PASS 实测</td><td>投手</td><td>⭐⭐⭐⭐</td></tr>
+<tr><td colspan="2"><strong>合计</strong></td><td><strong>125,002 字</strong></td><td colspan="4">覆盖 TikTok 美区 AI 短视频带货全链路</td></tr>
+</table>
+
+<h2>12 篇原文 vs 6 阶段映射表</h2>
+
+<table>
+<tr><th>单篇 MD</th><th>字数</th><th>主要归属阶段</th><th>次要归属阶段</th></tr>
+<tr><td><code>2_原文.md</code></td><td>12,742</td><td>阶段 1（团队认知）</td><td>—</td></tr>
+<tr><td><code>1Part001_原文.md</code></td><td>6,766</td><td>阶段 2（AI 理论）</td><td>阶段 3（占坑位 + 三角关系）</td></tr>
+<tr><td><code>1Part002_原文.md</code></td><td>10,009</td><td>阶段 2（行业三阶段 + 双轨）</td><td>阶段 3（直播 + TAP/MCN）</td></tr>
+<tr><td><code>IMG_0007_原文.md</code></td><td>14,668</td><td>阶段 3（浴球案例 + 6 要素）</td><td>阶段 4（GPT 反推）</td></tr>
+<tr><td><code>IMG_0008_原文.md</code></td><td>11,368</td><td>阶段 3（水母 / 水枪 / 地板蜡）</td><td>阶段 4（音频对位）</td></tr>
+<tr><td><code>IMG_0009Part001_原文.md</code></td><td>8,389</td><td>阶段 4（渠道号垂直）</td><td>阶段 3（地板蜡深度 + 大促）</td></tr>
+<tr><td><code>IMG_0009Part002_原文.md</code></td><td>12,419</td><td>阶段 4（数字人 6 套）</td><td>阶段 5（实拍方法论）</td></tr>
+<tr><td><code>IMG_0010_原文.md</code></td><td>10,108</td><td>阶段 4（特探数据 + 选品 SOP）</td><td>—</td></tr>
+<tr><td><code>IMG_0011Part001_原文.md</code></td><td>10,597</td><td>阶段 5（店铺注册 + 物流）</td><td>阶段 4（成本核算）</td></tr>
+<tr><td><code>IMG_0011Part002_原文.md</code></td><td>13,315</td><td>阶段 5（选品 + SKU + 备货）</td><td>阶段 4（评论区选品）</td></tr>
+<tr><td><code>IMG_0012_原文.md</code></td><td>10,995</td><td>阶段 6（GMS / GM MAX 投放）</td><td>阶段 5（经理 T3）</td></tr>
+<tr><td><code>IMG_0014_原文.md</code></td><td>3,626</td><td>阶段 6（GM MAX 最大投放量）</td><td>阶段 4（买号必死）</td></tr>
+</table>
+
+<h2>分阶段精读建议</h2>
+
+<h3>阶段 1：团队认知（必读）</h3>
+<ol>
+  <li><code>2_原文.md</code>（12,742 字）—— KK 团队全景</li>
+</ol>
+
+<h3>阶段 2：AI 理论（必读）</h3>
+<ol>
+  <li><code>1Part001_原文.md</code>（6,766 字）—— AI ≠ 夸大 + AN45 + CCR</li>
+  <li><code>1Part002_原文.md</code>（10,009 字）—— 行业三阶段 + 双轨战略</li>
+</ol>
+
+<h3>阶段 3：产品案例（必读）</h3>
+<ol>
+  <li><code>IMG_0007_原文.md</code>（14,668 字）—— 浴球 + 6 要素 + 5 套模板</li>
+  <li><code>IMG_0008_原文.md</code>（11,368 字）—— 水母 + 水枪 + 地板蜡 + 音频对位</li>
+</ol>
+
+<h3>阶段 4：渠道号 + 选品（必读）</h3>
+<ol>
+  <li><code>IMG_0009Part001_原文.md</code>（8,389 字）—— 渠道号垂直 + GPT 反推</li>
+  <li><code>IMG_0009Part002_原文.md</code>（12,419 字）—— 数字人 6 套</li>
+  <li><code>IMG_0010_原文.md</code>（10,108 字）—— 特探数据 + 6 步 SOP</li>
+</ol>
+
+<h3>阶段 5：店铺 + SKU（必读）</h3>
+<ol>
+  <li><code>IMG_0011Part001_原文.md</code>（10,597 字）—— 店铺 + 物流</li>
+  <li><code>IMG_0011Part002_原文.md</code>（13,315 字）—— 选品 + SKU + 备货 + SPS</li>
+</ol>
+
+<h3>阶段 6：付费投放（必读）</h3>
+<ol>
+  <li><code>IMG_0012_原文.md</code>（10,995 字）—— GMS + GM MAX</li>
+  <li><code>IMG_0014_原文.md</code>（3,626 字）—— 最大投放量 + 买号风险</li>
+</ol>
+
+<h2>进一步阅读推荐（12 篇之外）</h2>
+
+<table>
+<tr><th>推荐</th><th>类型</th><th>说明</th></tr>
+<tr><td>TikTok Shop 官方文档</td><td>官方</td><td>最新政策 + 平台规则，<a href="https://seller.tiktok.com" target="_blank">seller.tiktok.com</a></td></tr>
+<tr><td>TikTok Shop 卖家学院</td><td>官方</td><td>官方培训课程，免费</td></tr>
+<tr><td>特探数据</td><td>第三方</td><td>选品核心工具，<a href="https://www.tetemx.com" target="_blank">tetemx.com</a></td></tr>
+<tr><td>EchoTik（备选数据工具）</td><td>第三方</td><td>特探数据的备选，<a href="https://echotik.io" target="_blank">echotik.io</a></td></tr>
+<tr><td>即梦 AI</td><td>工具</td><td>字节跳动旗下 AI 视频生成工具，<a href="https://jimeng.jianying.com" target="_blank">jimeng.jianying.com</a></td></tr>
+<tr><td>MiniMax 数字永生</td><td>工具</td><td>音频克隆工具，<a href="https://www.MiniMax.com/audio" target="_blank">MiniMax.com/audio</a></td></tr>
+<tr><td>1688 跨境专供</td><td>供应链</td><td>阿里巴巴跨境货源平台，<a href="https://www.1688.com" target="_blank">1688.com</a></td></tr>
+<tr><td>亚马逊 1-3 星评论挖掘</td><td>选品</td><td>评论区选品方法论的原始数据源</td></tr>
+</table>
+
+<div class="tip">
+  <strong>💡 阅读节奏建议</strong>：每天精读 1-2 篇（5000-10000 字），1 个月内可读完所有原文。每篇读完后，对照本课程对应阶段章节复习，效果更佳。
+</div>
+
+    </section>
+
+    <section id="app-f-tools">
+      <h1>🛠️ 附录 F：必备工具与资源</h1>
+<h2>附录 F：必备工具与资源</h2>
+
+<p>本附录收录视界课程中涉及的所有<strong>必备工具</strong>。每个工具包含：用途 / 访问方式 / 价格 / 替代方案。按使用场景分类。</p>
+
+<div class="tip">
+  <strong>💡 工具优先级</strong>：⭐⭐⭐⭐⭐ = 必装；⭐⭐⭐⭐ = 推荐；⭐⭐⭐ = 可选
+</div>
+
+<h2>F.1 选品调研类</h2>
+
+<h3>F.1.1 特探数据 ⭐⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>TikTok 美区选品核心工具，含商品榜 / 达人榜 / 视频榜 / 店铺榜 / 类目榜</td></tr>
+<tr><td>访问</td><td><a href="https://www.tetemx.com" target="_blank">tetemx.com</a></td></tr>
+<tr><td>价格</td><td>基础版 ¥300/月；专业版 ¥800/月；旗舰版 ¥2,000/月</td></tr>
+<tr><td>替代方案</td><td>EchoTik（<a href="https://echotik.io" target="_blank">echotik.io</a>，更贵但数据更全）</td></tr>
+<tr><td>使用频率</td><td>每日必看（商品榜 + 视频榜）</td></tr>
+</table>
+
+<h3>F.1.2 亚马逊 Best Sellers ⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>差评挖掘（1-3 星评论）、竞品分析、市场容量判断</td></tr>
+<tr><td>访问</td><td><a href="https://www.amazon.com/Best-Sellers" target="_blank">amazon.com/Best-Sellers</a></td></tr>
+<tr><td>价格</td><td>免费</td></tr>
+<tr><td>替代方案</td><td>Jungle Scout / Helium 10（付费，更专业）</td></tr>
+<tr><td>使用频率</td><td>每周 2-3 次（评论区选品时）</td></tr>
+</table>
+
+<h3>F.1.3 1688 ⭐⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>国内供应链货源平台，找供应商 / 比价 / 看起订量</td></tr>
+<tr><td>访问</td><td><a href="https://www.1688.com" target="_blank">1688.com</a></td></tr>
+<tr><td>价格</td><td>免费（采购需付款）</td></tr>
+<tr><td>替代方案</td><td>阿里国际站、Temu 半托管、义乌购</td></tr>
+<tr><td>使用频率</td><td>每天（每个新品都要找供应商）</td></tr>
+</table>
+
+<h2>F.2 AI 视频生成类</h2>
+
+<h3>F.2.1 即梦 AI ⭐⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>字节跳动旗下 AI 视频生成工具，中文友好，免费额度大</td></tr>
+<tr><td>访问</td><td><a href="https://jimeng.jianying.com" target="_blank">jimeng.jianying.com</a></td></tr>
+<tr><td>价格</td><td>免费版每天 5 次；会员 ¥30/月 100 次</td></tr>
+<tr><td>替代方案</td><td>Midjourney（$10/月，英文）、Runway（$15/月，专业）、可灵 AI</td></tr>
+<tr><td>使用频率</td><td>每天（每天生成 5-10 版视频）</td></tr>
+</table>
+
+<h3>F.2.2 Midjourney ⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>全球最强 AI 图像生成，英文提示词效果最佳</td></tr>
+<tr><td>访问</td><td><a href="https://www.midjourney.com" target="_blank">midjourney.com</a></td></tr>
+<tr><td>价格</td><td>Basic $10/月；Standard $30/月；Pro $60/月</td></tr>
+<tr><td>替代方案</td><td>即梦 AI（中文友好）、Stable Diffusion（开源免费）</td></tr>
+<tr><td>使用频率</td><td>每天（与即梦配合使用）</td></tr>
+</table>
+
+<h3>F.2.3 Runway ⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>专业级 AI 视频生成（含 Gen-3 Alpha），适合精品素材</td></tr>
+<tr><td>访问</td><td><a href="https://runwayml.com" target="_blank">runwayml.com</a></td></tr>
+<tr><td>价格</td><td>Standard $15/月；Pro $35/月；Unlimited $95/月</td></tr>
+<tr><td>替代方案</td><td>Pika、Stable Video Diffusion</td></tr>
+<tr><td>使用频率</td><td>精品素材冲刺时使用</td></tr>
+</table>
+
+<h2>F.3 音频克隆类</h2>
+
+<h3>F.3.1 MiniMax 数字永生 ⭐⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>音频克隆 + AI 配音，单条成本 $0.5，KK 团队最常用</td></tr>
+<tr><td>访问</td><td><a href="https://www.MiniMax.com/audio" target="_blank">MiniMax.com/audio</a></td></tr>
+<tr><td>价格</td><td>免费版每月 10,000 字符；标准版 ¥30/月</td></tr>
+<tr><td>替代方案</td><td>ElevenLabs（$5/月起，英文效果更好）、剪映 AI 配音（免费）</td></tr>
+<tr><td>使用频率</td><td>每天（每条视频都需要配音）</td></tr>
+</table>
+
+<h3>F.3.2 ElevenLabs ⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>高质量英文 AI 配音，专业级主播声音</td></tr>
+<tr><td>访问</td><td><a href="https://elevenlabs.io" target="_blank">elevenlabs.io</a></td></tr>
+<tr><td>价格</td><td>Starter $5/月；Creator $22/月；Pro $99/月</td></tr>
+<tr><td>替代方案</td><td>MiniMax 数字永生（中文友好，更便宜）</td></tr>
+<tr><td>使用频率</td><td>英文配音需求高时使用</td></tr>
+</table>
+
+<h3>F.3.3 剪映 AI 配音 ⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>剪映内置 AI 配音，中文 / 英文都有，免费</td></tr>
+<tr><td>访问</td><td>剪映 APP（手机 / 桌面版）</td></tr>
+<tr><td>价格</td><td>完全免费</td></tr>
+<tr><td>替代方案</td><td>MiniMax 数字永生（更专业）</td></tr>
+<tr><td>使用频率</td><td>测试阶段使用</td></tr>
+</table>
+
+<h2>F.4 视频剪辑类</h2>
+
+<h3>F.4.1 CapCut 剪映国际版 ⭐⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>视频剪辑 + 字幕 + 调色，TikTok 官方剪辑工具，移动 + 桌面 + Web 全平台</td></tr>
+<tr><td>访问</td><td><a href="https://www.capcut.com" target="_blank">capcut.com</a></td></tr>
+<tr><td>价格</td><td>免费版功能完整；Pro 版 $8/月（云存储）</td></tr>
+<tr><td>替代方案</td><td>Premiere Pro（专业但贵）、Final Cut Pro（Mac）</td></tr>
+<tr><td>使用频率</td><td>每天（每条视频都要剪辑）</td></tr>
+</table>
+
+<h3>F.4.2 剪映（国内版） ⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>国内版剪映，中文界面，中文素材库丰富</td></tr>
+<tr><td>访问</td><td><a href="https://www.capcut.cn" target="_blank">capcut.cn</a></td></tr>
+<tr><td>价格</td><td>免费</td></tr>
+<tr><td>替代方案</td><td>CapCut 国际版（海外发布用）</td></tr>
+<tr><td>使用频率</td><td>国内团队必备</td></tr>
+</table>
+
+<h3>F.4.3 Audacity ⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>免费开源音频编辑，处理音频对位 / 降噪 / 剪辑</td></tr>
+<tr><td>访问</td><td><a href="https://www.audacityteam.org" target="_blank">audacityteam.org</a></td></tr>
+<tr><td>价格</td><td>完全免费</td></tr>
+<tr><td>替代方案</td><td>Adobe Audition（专业付费）</td></tr>
+<tr><td>使用频率</td><td>音频精细处理时使用</td></tr>
+</table>
+
+<h2>F.5 数字人 / 虚拟形象类</h2>
+
+<h3>F.5.1 HeyGen ⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>数字人视频生成，支持多语言 + 多形象，专业级</td></tr>
+<tr><td>访问</td><td><a href="https://www.heygen.com" target="_blank">heygen.com</a></td></tr>
+<tr><td>价格</td><td>Free 1 次/月；Creator $29/月；Business $89/月</td></tr>
+<tr><td>替代方案</td><td>Synthesia（更贵）、D-ID</td></tr>
+<tr><td>使用频率</td><td>数字人视频专项</td></tr>
+</table>
+
+<h3>F.5.2 Synthesia ⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>企业级数字人，适合品牌号 + 培训视频</td></tr>
+<tr><td>访问</td><td><a href="https://www.synthesia.io" target="_blank">synthesia.io</a></td></tr>
+<tr><td>价格</td><td>Starter $22/月；Enterprise 定制</td></tr>
+<tr><td>替代方案</td><td>HeyGen（性价比更高）</td></tr>
+<tr><td>使用频率</td><td>品牌号使用</td></tr>
+</table>
+
+<h2>F.6 GPT / AI 辅助类</h2>
+
+<h3>F.6.1 ChatGPT ⭐⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>GPT 反推提示词、脚本撰写、数据分析，KK 团队最常用 AI 工具</td></tr>
+<tr><td>访问</td><td><a href="https://chat.openai.com" target="_blank">chat.openai.com</a></td></tr>
+<tr><td>价格</td><td>免费版 GPT-4o mini；Plus $20/月（GPT-4）</td></tr>
+<tr><td>替代方案</td><td>Claude 3.5（更长上下文）、Gemini 2.0（免费）</td></tr>
+<tr><td>使用频率</td><td>每天（每条爆款都要反推提示词）</td></tr>
+</table>
+
+<h3>F.6.2 Claude ⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>更长上下文窗口，适合长文本分析、提示词优化</td></tr>
+<tr><td>访问</td><td><a href="https://claude.ai" target="_blank">claude.ai</a></td></tr>
+<tr><td>价格</td><td>免费版（Claude 3.5 Sonnet）；Pro $20/月</td></tr>
+<tr><td>替代方案</td><td>ChatGPT Plus</td></tr>
+<tr><td>使用频率</td><td>每周 2-3 次（长文本分析时）</td></tr>
+</table>
+
+<h2>F.7 跨境收款类</h2>
+
+<h3>F.7.1 PingPong ⭐⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>TikTok Shop 主流收款工具，手续费 0.3%-0.5%</td></tr>
+<tr><td>访问</td><td><a href="https://www.pingpongx.com" target="_blank">pingpongx.com</a></td></tr>
+<tr><td>价格</td><td>提现费率 0.3% 起</td></tr>
+<tr><td>替代方案</td><td>连连支付、万里汇（WorldFirst）、空中云汇</td></tr>
+<tr><td>使用频率</td><td>每日（每日提现）</td></tr>
+</table>
+
+<h3>F.7.2 万里汇（WorldFirst） ⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>阿里旗下跨境收款，TikTok Shop 官方合作</td></tr>
+<tr><td>访问</td><td><a href="https://www.worldfirst.com" target="_blank">worldfirst.com</a></td></tr>
+<tr><td>价格</td><td>提现费率 0.3% 起</td></tr>
+<tr><td>替代方案</td><td>PingPong（费率接近）</td></tr>
+<tr><td>使用频率</td><td>每日</td></tr>
+</table>
+
+<h2>F.8 物流仓储类</h2>
+
+<h3>F.8.1 云途物流 ⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>TikTok Shipping 主力服务商，跨境物流</td></tr>
+<tr><td>访问</td><td><a href="https://www.yuntoupost.com" target="_blank">yuntoupost.com</a></td></tr>
+<tr><td>价格</td><td>按重量计费，500g 起约 ¥25-50</td></tr>
+<tr><td>替代方案</td><td>燕文、4PX、递四方</td></tr>
+<tr><td>使用频率</td><td>每日发货</td></tr>
+</table>
+
+<h3>F.8.2 燕文物流 ⭐⭐⭐⭐</h3>
+<table>
+<tr><th>项目</th><th>说明</th></tr>
+<tr><td>用途</td><td>TikTok Shipping 服务商，价格略高于云途</td></tr>
+<tr><td>访问</td><td><a href="https://www.yw56.com.cn" target="_blank">yw56.com.cn</a></td></tr>
+<tr><td>价格</td><td>按重量计费</td></tr>
+<tr><td>替代方案</td><td>云途（更便宜）</td></tr>
+<tr><td>使用频率</td><td>每日发货</td></tr>
+</table>
+
+<h2>F.9 工具组合推荐（4 套）</h2>
+
+<h3>新人起步组合（预算 < ¥500/月）</h3>
+<ol>
+  <li>特探数据基础版（¥300/月）</li>
+  <li>即梦 AI 免费版（每天 5 次）</li>
+  <li>MiniMax 数字永生 免费版</li>
+  <li>CapCut 免费版</li>
+  <li>ChatGPT 免费版</li>
+  <li><strong>总成本：¥300/月 + 时间成本</strong></li>
+</ol>
+
+<h3>进阶组合（预算 < ¥2,000/月）</h3>
+<ol>
+  <li>特探数据专业版（¥800/月）</li>
+  <li>即梦 AI 会员版（¥30/月）</li>
+  <li>Midjourney Basic（$10/月 ≈ ¥70/月）</li>
+  <li>MiniMax 数字永生 标准版（¥30/月）</li>
+  <li>CapCut Pro（$8/月 ≈ ¥55/月）</li>
+  <li>ChatGPT Plus（$20/月 ≈ ¥140/月）</li>
+  <li><strong>总成本：约 ¥1,125/月</strong></li>
+</ol>
+
+<h3>成熟团队组合（预算 ¥5,000/月）</h3>
+<ol>
+  <li>特探数据旗舰版（¥2,000/月）</li>
+  <li>Midjourney Standard（$30/月）</li>
+  <li>Runway Standard（$15/月）</li>
+  <li>HeyGen Creator（$29/月）</li>
+  <li>ElevenLabs Creator（$22/月）</li>
+  <li>ChatGPT Team（$25/月）</li>
+  <li><strong>总成本：约 ¥5,000/月</strong></li>
+</ol>
+
+<h3>KK 团队组合（预算 ¥20,000/月）</h3>
+<ol>
+  <li>特探数据旗舰版 + 多账号</li>
+  <li>即梦 + Midjourney + Runway 三件套</li>
+  <li>MiniMax 数字永生 企业版</li>
+  <li>HeyGen 企业版</li>
+  <li>ChatGPT Enterprise</li>
+  <li>全套数据分析 + 自动化脚本</li>
+  <li><strong>总成本：约 ¥20,000/月（含团队授权）</strong></li>
+</ol>
+
+<div class="warn">
+  <strong>⚠️ 重要提示</strong>：工具只是辅助，<strong>核心还是提示词能力和选品能力</strong>。新人不要追求"全套工具"，先把免费工具用熟练，再逐步升级。
+</div>
+
+<div class="tip">
+  <strong>💡 实操建议</strong>：起步组合 + 6 步选品 SOP（详见阶段 4.9）足够跑通一个完整闭环。预算紧张时，先用免费工具跑通 3 个月，看到 ROI 之后再升级付费工具。
+</div>
+
+    </section>
+
+    <!-- ========== 页脚 ========== -->
+    <footer>
+      <p>📚 视界课程·HTML 整理版 · 仅供学习交流 · 整理：学习助手工作流</p>
+      <p>© 2026 · 文档大小预估：~200KB · 零 JS · 移动端 / 桌面端 / WPS / 微信浏览器均适配</p>
+      <p>分享提示：本 HTML 文档为单文件、纯静态、零依赖，可直接通过微信/钉钉/邮件转发</p>
+    </footer>
+  </div>
+</body>
+</html>
