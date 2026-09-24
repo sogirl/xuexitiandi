@@ -1,0 +1,5120 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<meta name="format-detection" content="telephone=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="theme-color" content="#2563eb">
+<title>老Z外贸0-1完整学习手册 · 从小白到精通</title>
+<style>
+/* ========== 全局基础样式 ========== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html {
+  -webkit-text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+  font-size: 16px;
+}
+
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei",
+               "Helvetica Neue", Helvetica, Arial, "Hiragino Sans GB",
+               "Heiti SC", sans-serif;
+  background: #f8fafc;
+  color: #1f2937;
+  line-height: 1.7;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+/* 主容器 - 主人的硬性要求 */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+/* ========== 卷头 ========== */
+.hero {
+  background: linear-gradient(135deg, #1e3a8a 0%, #2563eb 50%, #3b82f6 100%);
+  color: white;
+  padding: 60px 40px;
+  border-radius: 20px;
+  margin-bottom: 40px;
+  box-shadow: 0 10px 40px rgba(37, 99, 235, 0.2);
+}
+
+.hero h1 {
+  font-size: 38px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  letter-spacing: 1px;
+}
+
+.hero .subtitle {
+  font-size: 18px;
+  opacity: 0.95;
+  margin-bottom: 24px;
+}
+
+.hero .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 24px;
+}
+
+.hero .meta-tag {
+  background: rgba(255, 255, 255, 0.2);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 14px;
+  backdrop-filter: blur(10px);
+}
+
+.lesson-letter {
+  background: white;
+  color: #1e3a8a;
+  padding: 32px 36px;
+  border-radius: 16px;
+  border-left: 6px solid #d97706;
+  margin: 32px 0;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+}
+
+.lesson-letter h3 {
+  color: #92400e;
+  margin-bottom: 12px;
+  font-size: 22px;
+}
+
+.lesson-letter p {
+  color: #78350f;
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* ========== 全局目录 ========== */
+.toc {
+  background: white;
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.04);
+}
+
+.toc h2 {
+  font-size: 24px;
+  color: #1e3a8a;
+  margin-bottom: 20px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #dbeafe;
+}
+
+.toc-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 12px;
+}
+
+.toc-grid a {
+  display: block;
+  padding: 14px 18px;
+  background: #f8fafc;
+  border-radius: 10px;
+  text-decoration: none;
+  color: #374151;
+  border-left: 4px solid #2563eb;
+  transition: all 0.2s;
+  font-size: 15px;
+}
+
+.toc-grid a:hover {
+  background: #eff6ff;
+  transform: translateX(4px);
+  color: #1e3a8a;
+}
+
+/* ========== 知识图谱容器 ========== */
+.mindmap-section {
+  background: white;
+  border-radius: 16px;
+  padding: 32px;
+  margin-bottom: 40px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+}
+
+.mindmap-section h2 {
+  font-size: 24px;
+  color: #1e3a8a;
+  margin-bottom: 8px;
+}
+
+.mindmap-section .desc {
+  color: #6b7280;
+  margin-bottom: 24px;
+  font-size: 14px;
+}
+
+.mindmap-wrap {
+  width: 100%;
+  overflow: auto;
+  -webkit-overflow-scrolling: touch;
+  background: #fafbfc;
+  border-radius: 12px;
+  padding: 16px 0;
+  border: 1px solid #e5e7eb;
+  text-align: center;
+}
+
+.mindmap-wrap svg {
+  display: inline-block;
+  min-width: 100%;
+}
+
+/* ========== 内容章节 ========== */
+.section {
+  padding: 40px 0;
+  border-bottom: 1px solid #e5e7eb;
+}
+
+.section:last-child {
+  border-bottom: none;
+}
+
+.section > h2 {
+  font-size: 28px;
+  color: #1e3a8a;
+  margin-bottom: 16px;
+  padding-bottom: 12px;
+  border-bottom: 3px solid #dbeafe;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.section > h2 .part-badge {
+  background: linear-gradient(135deg, #2563eb, #3b82f6);
+  color: white;
+  padding: 4px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.section > h3 {
+  font-size: 22px;
+  color: #1e40af;
+  margin: 28px 0 14px;
+  padding-left: 14px;
+  border-left: 5px solid #2563eb;
+}
+
+.section > h4 {
+  font-size: 18px;
+  color: #2563eb;
+  margin: 20px 0 10px;
+}
+
+.section p {
+  line-height: 1.9;
+  color: #374151;
+  margin-bottom: 12px;
+  font-size: 15.5px;
+}
+
+.section ul, .section ol {
+  margin: 12px 0 12px 28px;
+  color: #374151;
+}
+
+.section li {
+  margin-bottom: 8px;
+  line-height: 1.8;
+}
+
+.section strong {
+  color: #1e3a8a;
+  font-weight: 700;
+}
+
+/* ========== 内容卡片/警示框 ========== */
+.warning-box {
+  background: #fef2f2;
+  border-left: 4px solid #dc2626;
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 6px;
+  color: #7f1d1d;
+}
+
+.tip-box {
+  background: #f0f9ff;
+  border-left: 4px solid #2563eb;
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 6px;
+  color: #1e3a8a;
+}
+
+.case-box {
+  background: #fffbeb;
+  border-left: 4px solid #d97706;
+  padding: 16px 20px;
+  margin: 16px 0;
+  border-radius: 6px;
+  color: #78350f;
+}
+
+.stat-card {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  padding: 20px;
+  border-radius: 8px;
+  text-align: center;
+}
+
+.stat-card .number {
+  font-size: 32px;
+  font-weight: 700;
+  color: #2563eb;
+}
+
+.stat-card .label {
+  font-size: 14px;
+  color: #6b7280;
+  margin-top: 4px;
+}
+
+.step-list {
+  background: #f8fafc;
+  padding: 20px 28px 20px 48px;
+  border-radius: 8px;
+  counter-reset: step-counter;
+  list-style: none;
+  margin: 16px 0;
+}
+
+.step-list li {
+  counter-increment: step-counter;
+  margin-bottom: 12px;
+  padding-left: 12px;
+  position: relative;
+}
+
+.step-list li::before {
+  content: "步骤" counter(step-counter) "：";
+  font-weight: 600;
+  color: #2563eb;
+}
+
+.rule-card {
+  background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+  border: 2px solid #d97706;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 16px 0;
+  color: #78350f;
+}
+
+.rule-card h4 {
+  color: #92400e;
+  margin-top: 0;
+  margin-bottom: 12px;
+  font-size: 18px;
+}
+
+.channel-card {
+  background: #f0f9ff;
+  border: 2px solid #2563eb;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.channel-card h3 {
+  color: #1e3a8a;
+  margin-top: 0;
+  border-left: none;
+  padding-left: 0;
+}
+
+/* ========== 表格 ========== */
+.kb-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 16px 0;
+  background: white;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
+  border-radius: 8px;
+  overflow: hidden;
+  font-size: 14.5px;
+}
+
+.kb-table thead {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  color: white;
+}
+
+.kb-table th {
+  padding: 14px 16px;
+  text-align: left;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.kb-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #e5e7eb;
+  color: #374151;
+}
+
+.kb-table tr:nth-child(even) {
+  background: #f8fafc;
+}
+
+.kb-table tr:hover {
+  background: #eff6ff;
+}
+
+/* ========== 引用/引用金句 ========== */
+blockquote {
+  border-left: 4px solid #94a3b8;
+  padding: 14px 20px;
+  background: #f8fafc;
+  margin: 16px 0;
+  color: #475569;
+  font-style: italic;
+  border-radius: 0 8px 8px 0;
+}
+
+/* ========== details 折叠面板 ========== */
+details {
+  background: #f8fafc;
+  border: 1px solid #e2e8f0;
+  border-radius: 8px;
+  padding: 12px 16px;
+  margin: 12px 0;
+}
+
+details summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #2563eb;
+  user-select: none;
+}
+
+details[open] summary {
+  margin-bottom: 12px;
+}
+
+/* ========== 学习路径时间线 ========== */
+.timeline {
+  position: relative;
+  padding-left: 32px;
+  margin: 24px 0;
+}
+
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 14px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, #2563eb, #3b82f6);
+}
+
+.timeline-item {
+  position: relative;
+  padding: 16px 20px;
+  background: #f8fafc;
+  border-radius: 8px;
+  margin-bottom: 16px;
+  border-left: 4px solid #2563eb;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -26px;
+  top: 22px;
+  width: 14px;
+  height: 14px;
+  background: #2563eb;
+  border: 3px solid white;
+  border-radius: 50%;
+  box-shadow: 0 0 0 3px #dbeafe;
+}
+
+.timeline-item h4 {
+  margin-top: 0;
+  color: #1e3a8a;
+}
+
+/* ========== 紧急避坑清单 ========== */
+.red-flag {
+  background: linear-gradient(135deg, #dc2626, #b91c1c);
+  color: white;
+  padding: 24px;
+  border-radius: 12px;
+  margin: 20px 0;
+}
+
+.red-flag h4 {
+  margin-top: 0;
+  color: white;
+  font-size: 20px;
+}
+
+.red-flag ul {
+  list-style: none;
+  margin: 12px 0 0 0;
+  padding: 0;
+}
+
+.red-flag li {
+  padding: 8px 0;
+  padding-left: 28px;
+  position: relative;
+}
+
+.red-flag li::before {
+  content: "✗";
+  position: absolute;
+  left: 0;
+  font-size: 18px;
+  font-weight: 700;
+}
+
+/* ========== 写在最后 ========== */
+.closing {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb, #3b82f6);
+  color: white;
+  padding: 48px 40px;
+  border-radius: 20px;
+  margin-top: 40px;
+}
+
+.closing h2 {
+  color: white;
+  font-size: 28px;
+  margin-bottom: 16px;
+}
+
+.closing p {
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 16px;
+  line-height: 1.9;
+}
+
+/* ========== 移动端适配 ========== */
+@media (max-width: 768px) {
+  .container {
+    padding: 20px 16px 60px;
+  }
+  .hero {
+    padding: 40px 24px;
+  }
+  .hero h1 {
+    font-size: 26px;
+  }
+  .section > h2 {
+    font-size: 22px;
+  }
+  .section > h3 {
+    font-size: 18px;
+  }
+  .toc-grid {
+    grid-template-columns: 1fr;
+  }
+  .kb-table {
+    font-size: 13px;
+  }
+  .kb-table th, .kb-table td {
+    padding: 10px 8px;
+  }
+}
+</style>
+</head>
+<body>
+
+<div class="container">
+
+  <!-- ======== 卷头 ======== -->
+  <div class="hero">
+    <h1>🌍 老Z外贸0-1完整学习手册</h1>
+    <div class="subtitle">从一个小白，到能独立开发海外客户的外贸高手</div>
+    <p style="opacity: 0.9; font-size: 15px; margin-top: 12px;">
+      本手册基于老Z外贸自媒体+实战获客训练营13节课程深度整理，
+      涵盖<strong>认知定位 · 账号基建 · 平台搭建 · 业务能力 · 5大获客 · 系统总结</strong>六大板块，
+      一站式掌握外贸0-1完整能力。
+    </p>
+    <div class="meta">
+      <span class="meta-tag">📚 13 节核心课程</span>
+      <span class="meta-tag">🧠 6 大知识板块</span>
+      <span class="meta-tag">🚀 5 大获客渠道</span>
+      <span class="meta-tag">⏱️ 12 月完整 SOP</span>
+      <span class="meta-tag">⚠️ 6 大红线警示</span>
+    </div>
+  </div>
+
+  <!-- ======== 致主人的一封信 ======== -->
+  <div class="lesson-letter">
+    <h3>📮 致尊敬的主人</h3>
+    <p>
+      这套手册不是一份普通的课程笔记，而是为您（尊贵的主人）专门打造的"外贸从0到1完整知识库"。
+      13 节课程中每一个操作细节、每一个真实案例、每一个踩坑教训，都已被打碎重组，
+      让您可以像查字典一样随时翻阅，像读故事一样从头到尾读懂。
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>使用建议：</strong>
+      第一遍请按顺序通读（建立完整认知），第二遍按目录跳读（遇到问题查对应章节）。
+      配合文末的 <strong>12 个月 SOP 学习路径</strong>，严格执行，您一定可以从小白蜕变为精通高手。
+    </p>
+  </div>
+
+  <!-- ======== 全局目录 ======== -->
+  <div class="toc" id="toc">
+    <h2>📋 课程目录</h2>
+    <div class="toc-grid">
+      <a href="#part-1">📘 第一部分：外贸认知与定位</a>
+      <a href="#part-2">🔧 第二部分：账号与设备基础设施</a>
+      <a href="#part-3">🎬 第三部分：Facebook 主页搭建</a>
+      <a href="#part-4">💰 第四部分：业务核心能力（报价/收款/开发信/样品）</a>
+      <a href="#part-5">🚀 第五部分：5大获客技能</a>
+      <a href="#part-6">🗺️ 第六部分：系统性总结与 12月 SOP</a>
+      <a href="#mindmap">🌳 全课程知识图谱（横向树状）</a>
+      <a href="#red-flags">⚠️ 新人紧急避坑清单</a>
+      <a href="#closing">💌 写在最后</a>
+    </div>
+  </div>
+
+  <!-- ======== 知识图谱占位（由 01_mindmap.svg 注入） ======== -->
+  <div class="mindmap-section" id="mindmap">
+    <h2>🌳 全课程知识图谱</h2>
+    <p class="desc">
+      ↓ 这张图展示了老 Z 外贸 0-1 课程的完整知识架构。从根节点"个人 SOHO 外贸入门"出发，
+      向右逐层展开 6 大板块、25+ 核心技能。👉 双指可放大查看细节。
+    </p>
+    <div class="mindmap-wrap" id="mindmap-wrap">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 830 2620" width="830" height="2620" preserveAspectRatio="xMidYMid meet" font-family="-apple-system, &quot;PingFang SC&quot;, &quot;Microsoft YaHei&quot;, sans-serif" font-size="12.5">
+<defs>
+<marker id="arrow" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+<path d="M 0 0 L 10 5 L 0 10 z" fill="#94a3b8"/>
+</marker>
+</defs>
+<path d="M 210 1310 L 240 1310 L 240 209 L 290 209" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 210 1310 L 240 1310 L 240 627 L 290 627" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 210 1310 L 240 1310 L 240 1009 L 290 1009" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 210 1310 L 240 1310 L 240 1427 L 290 1427" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 210 1310 L 240 1310 L 240 1881 L 290 1881" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 210 1310 L 240 1310 L 240 2335 L 290 2335" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 209 L 520 209 L 520 65 L 600 65" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 209 L 520 209 L 520 137 L 600 137" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 209 L 600 209" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 209 L 520 209 L 520 281 L 600 281" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 209 L 520 209 L 520 353 L 600 353" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 627 L 520 627 L 520 483 L 600 483" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 627 L 520 627 L 520 555 L 600 555" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 627 L 600 627" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 627 L 520 627 L 520 699 L 600 699" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 627 L 520 627 L 520 771 L 600 771" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1009 L 520 1009 L 520 901 L 600 901" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1009 L 520 1009 L 520 973 L 600 973" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1009 L 520 1009 L 520 1045 L 600 1045" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1009 L 520 1009 L 520 1117 L 600 1117" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1427 L 520 1427 L 520 1247 L 600 1247" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1427 L 520 1427 L 520 1319 L 600 1319" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1427 L 520 1427 L 520 1391 L 600 1391" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1427 L 520 1427 L 520 1463 L 600 1463" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1427 L 520 1427 L 520 1535 L 600 1535" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1427 L 520 1427 L 520 1607 L 600 1607" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1881 L 520 1881 L 520 1737 L 600 1737" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1881 L 520 1881 L 520 1809 L 600 1809" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1881 L 600 1881" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1881 L 520 1881 L 520 1953 L 600 1953" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 1881 L 520 1881 L 520 2025 L 600 2025" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 2335 L 520 2335 L 520 2155 L 600 2155" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 2335 L 520 2335 L 520 2227 L 600 2227" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 2335 L 520 2335 L 520 2299 L 600 2299" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 2335 L 520 2335 L 520 2371 L 600 2371" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 2335 L 520 2335 L 520 2443 L 600 2443" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<path d="M 490 2335 L 520 2335 L 520 2515 L 600 2515" stroke="#94a3b8" stroke-width="1.5" fill="none" marker-end="url(#arrow)"/>
+<rect x="30" y="1265" width="180" height="90" rx="8" ry="8" fill="#1e3a8a" stroke="#1e3a8a" stroke-width="2"/>
+<text x="120" y="1307" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">老Z外贸</text>
+<text x="120" y="1321" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">0-1入门</text>
+<rect x="290" y="184" width="200" height="50" rx="8" ry="8" fill="#2563eb" stroke="#1e3a8a" stroke-width="2"/>
+<text x="390" y="206" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">📘 第一部分</text>
+<text x="390" y="220" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">外贸认知与定位</text>
+<rect x="290" y="602" width="200" height="50" rx="8" ry="8" fill="#2563eb" stroke="#1e3a8a" stroke-width="2"/>
+<text x="390" y="624" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">🔧 第二部分</text>
+<text x="390" y="638" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">账号基建</text>
+<rect x="290" y="984" width="200" height="50" rx="8" ry="8" fill="#2563eb" stroke="#1e3a8a" stroke-width="2"/>
+<text x="390" y="1006" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">🎬 第三部分</text>
+<text x="390" y="1020" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">平台搭建</text>
+<rect x="290" y="1402" width="200" height="50" rx="8" ry="8" fill="#2563eb" stroke="#1e3a8a" stroke-width="2"/>
+<text x="390" y="1424" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">💰 第四部分</text>
+<text x="390" y="1438" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">业务核心能力</text>
+<rect x="290" y="1856" width="200" height="50" rx="8" ry="8" fill="#2563eb" stroke="#1e3a8a" stroke-width="2"/>
+<text x="390" y="1878" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">🚀 第五部分</text>
+<text x="390" y="1892" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">5大获客技能</text>
+<rect x="290" y="2310" width="200" height="50" rx="8" ry="8" fill="#2563eb" stroke="#1e3a8a" stroke-width="2"/>
+<text x="390" y="2332" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">🗺️ 第六部分</text>
+<text x="390" y="2346" text-anchor="middle" fill="white" font-weight="600" font-size="12.5">系统性总结</text>
+<rect x="600" y="40" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="62" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">个人SOHO</text>
+<text x="700" y="76" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">身边工厂</text>
+<rect x="600" y="112" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="134" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">6大避坑</text>
+<text x="700" y="148" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">40万亏损</text>
+<rect x="600" y="184" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="206" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">三五百万</text>
+<text x="700" y="220" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">国际站门槛</text>
+<rect x="600" y="256" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="278" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">客户行为</text>
+<text x="700" y="292" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">时代变迁</text>
+<rect x="600" y="328" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="350" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">Justin</text>
+<text x="700" y="364" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">视频会议</text>
+<rect x="600" y="458" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="480" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">科学上网</text>
+<text x="700" y="494" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">节点选择</text>
+<rect x="600" y="530" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="552" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">Google账号</text>
+<text x="700" y="566" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">Gmail体系</text>
+<rect x="600" y="602" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="624" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">Apple ID</text>
+<text x="700" y="638" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">海外账户</text>
+<rect x="600" y="674" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="696" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">iPhone伪装</text>
+<text x="700" y="710" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">时区定位</text>
+<rect x="600" y="746" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="768" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">海外社媒</text>
+<text x="700" y="782" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">一键注册</text>
+<rect x="600" y="876" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="898" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">Facebook</text>
+<text x="700" y="912" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">公共主页</text>
+<rect x="600" y="948" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="970" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">Reels</text>
+<text x="700" y="984" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">视频号运营</text>
+<rect x="600" y="1020" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="1042" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">Instagram</text>
+<text x="700" y="1056" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">跨平台同步</text>
+<rect x="600" y="1092" width="200" height="50" rx="8" ry="8" fill="#dbeafe" stroke="#2563eb" stroke-width="2"/>
+<text x="700" y="1114" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">WhatsApp</text>
+<text x="700" y="1128" text-anchor="middle" fill="#1e3a8a" font-weight="600" font-size="12.5">商业号接入</text>
+<rect x="600" y="1222" width="200" height="50" rx="8" ry="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="700" y="1244" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">报价公式</text>
+<text x="700" y="1258" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">售价×60%</text>
+<rect x="600" y="1294" width="200" height="50" rx="8" ry="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="700" y="1316" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">收款方式</text>
+<text x="700" y="1330" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">T/T L/C</text>
+<rect x="600" y="1366" width="200" height="50" rx="8" ry="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="700" y="1388" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">货代物流</text>
+<text x="700" y="1402" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">DHL顺丰</text>
+<rect x="600" y="1438" width="200" height="50" rx="8" ry="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="700" y="1460" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">开发信</text>
+<text x="700" y="1474" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">Chinese factory</text>
+<rect x="600" y="1510" width="200" height="50" rx="8" ry="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="700" y="1532" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">样品策略</text>
+<text x="700" y="1546" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">白嫖识别</text>
+<rect x="600" y="1582" width="200" height="50" rx="8" ry="8" fill="#fef3c7" stroke="#d97706" stroke-width="2"/>
+<text x="700" y="1604" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">三大铁律</text>
+<text x="700" y="1618" text-anchor="middle" fill="#78350f" font-weight="600" font-size="12.5">不可逾越</text>
+<rect x="600" y="1712" width="200" height="50" rx="8" ry="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="700" y="1734" text-anchor="middle" fill="#14532d" font-weight="600" font-size="12.5">Google Maps</text>
+<text x="700" y="1748" text-anchor="middle" fill="#14532d" font-weight="600" font-size="12.5">50条/小时</text>
+<rect x="600" y="1784" width="200" height="50" rx="8" ry="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="700" y="1806" text-anchor="middle" fill="#14532d" font-weight="600" font-size="12.5">Upwork</text>
+<text x="700" y="1820" text-anchor="middle" fill="#14532d" font-weight="600" font-size="12.5">$1.5/条</text>
+<rect x="600" y="1856" width="200" height="50" rx="8" ry="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="700" y="1878" text-anchor="middle" fill="#14532d" font-weight="600" font-size="12.5">TikTok</text>
+<text x="700" y="1892" text-anchor="middle" fill="#14532d" font-weight="600" font-size="12.5">B端询盘</text>
+<rect x="600" y="1928" width="200" height="50" rx="8" ry="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="700" y="1950" text-anchor="middle" fill="#14532d" font-weight="600" font-size="12.5">FB+Ins+YT</text>
+<text x="700" y="1964" text-anchor="middle" fill="#14532d" font-weight="600" font-size="12.5">多平台矩阵</text>
+<rect x="600" y="2000" width="200" height="50" rx="8" ry="8" fill="#dcfce7" stroke="#16a34a" stroke-width="2"/>
+<text x="700" y="2022" text-anchor="middle" fill="#14532d" font-weight="600" font-size="12.5">LinkedIn</text>
+<text x="700" y="2036" text-anchor="middle" fill="#14532d" font-weight="600" font-size="12.5">决策人触达</text>
+<rect x="600" y="2130" width="200" height="50" rx="8" ry="8" fill="#e9d5ff" stroke="#7c3aed" stroke-width="2"/>
+<text x="700" y="2152" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">3大范式</text>
+<text x="700" y="2166" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">认知革命</text>
+<rect x="600" y="2202" width="200" height="50" rx="8" ry="8" fill="#e9d5ff" stroke="#7c3aed" stroke-width="2"/>
+<text x="700" y="2224" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">6大基建</text>
+<text x="700" y="2238" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">地基工程</text>
+<rect x="600" y="2274" width="200" height="50" rx="8" ry="8" fill="#e9d5ff" stroke="#7c3aed" stroke-width="2"/>
+<text x="700" y="2296" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">3大铁律</text>
+<text x="700" y="2310" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">收款·报价·白嫖</text>
+<rect x="600" y="2346" width="200" height="50" rx="8" ry="8" fill="#e9d5ff" stroke="#7c3aed" stroke-width="2"/>
+<text x="700" y="2368" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">12月SOP</text>
+<text x="700" y="2382" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">活下去→赚钱</text>
+<rect x="600" y="2418" width="200" height="50" rx="8" ry="8" fill="#e9d5ff" stroke="#7c3aed" stroke-width="2"/>
+<text x="700" y="2440" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">5大避坑</text>
+<text x="700" y="2454" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">新人必看</text>
+<rect x="600" y="2490" width="200" height="50" rx="8" ry="8" fill="#e9d5ff" stroke="#7c3aed" stroke-width="2"/>
+<text x="700" y="2512" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">老Z三句金句</text>
+<text x="700" y="2526" text-anchor="middle" fill="#4c1d95" font-weight="600" font-size="12.5">终生受用</text>
+</svg>
+    </div>
+  </div>
+
+  <!-- ======== 正文内容占位（由 02-05 各专家片段 + 06 终极总结注入） ======== -->
+  <main id="main-content">
+
+    <!-- ===== 第一部分：外贸认知 ===== -->
+
+<section class="section" id="cognition-overview">
+  <h2 id="part-1">🧭 第一章：外贸认知与定位——开始做外贸时如何不死</h2>
+  <p>尊敬的尊贵的主人，欢迎来到老 Z 外贸自媒体+实战获客训练营的<strong>开篇第一节</strong>。在动手注册任何账号、拍摄任何视频之前，我们必须先坐下来，认真聊聊一个最朴素、却也最容易让人摔跟头的问题：<strong>"为什么我做外贸没赚到钱？"</strong></p>
+  <p>老 Z 老师有一个非常接地气的判断：新手做外贸失败的原因，<strong>90% 不是因为不够努力，而是因为一上来就踩了"认知层面"的坑</strong>。这些坑包括：定位飘忽（今天德国、明天美国，今天家具、明天节庆）、花钱无度（盲目参展、盲目上国际站）、接单无底线（为了成交接受客户的不合理要求）。</p>
+  <p>本章不讲具体技术，只讲<strong>"避坑"</strong>。它解决的不是"如何开始做外贸"，而是"<strong>开始做外贸时如何不死</strong>"。一旦您把这一章的六大避坑点刻在脑子里，后续所有的账号搭建、平台运营、获客动作都会站在一个<strong>安全而清醒的起点</strong>上。</p>
+
+  <div class="tip-box">
+    <strong>📌 本章核心心智模型：</strong>"个人 SOHO"（Small Office Home Office，即"一人公司 / 在家办公"的个体外贸创业者）不是"小一号的大公司"，而是一种<strong>"地理近 + 灵活快 + 真实可被审视"</strong>的差异化定位。把"小"转化为"近"，才是 SOHO 的真正护城河。
+  </div>
+</section>
+
+<section class="section" id="cognition-story">
+  <h2>📖 开篇故事：老 Z 为何做外贸 + 第一次踩坑经历</h2>
+  <p>在正式讲六大避坑之前，我们先听一段老 Z 自己的亲身经历——<strong>他曾是阿里国际站的"40 万亏损亲历者"</strong>。</p>
+  <p>2022 年，老 Z 在阿里国际站前后投入了<strong>一年时间</strong>，总投入超过<strong>40 多万元</strong>（这还不算人工成本）。其中：</p>
+  <ul>
+    <li>平台费：<strong>接近 7 万元</strong>（6 万多）</li>
+    <li>流量费：<strong>30 万元</strong>（买的站内流量曝光）</li>
+    <li>运营周期：约 1 年</li>
+  </ul>
+  <p>这笔钱花下去后，老 Z 最终意识到：<strong>国际站的本质是"拼流量"</strong>。如果不买流量、不投广告，在搜索结果的前 2-3 页根本看不到自己的店铺；而一旦开始买流量，就是个无底洞。更关键的是，国际站上的<strong>几个玻璃大品牌几乎已经形成了垄断</strong>，小的玻璃加工厂只能吃"<strong>边角料</strong>"——"别人不要的订单你还要等，还要看机会"。</p>
+
+  <div class="case-box">
+    <strong>🔍 案例还原：</strong>老 Z 自己做的是玻璃行业（镶嵌玻璃 inlay glass）。在阿里国际站上搜索"glass"关键词，排在前面的永远是哪几个头部品牌（如福耀、耀华、信义等）。一个小加工厂想靠国际站出头，<strong>几乎不可能</strong>。这就是老 Z 用 40 万元真金白银换来的血泪教训。
+  </div>
+
+  <p>但老 Z 并没有因此放弃外贸。相反，他在踩完这个坑之后，<strong>找到了属于个人 SOHO 的正确路径</strong>：聚焦身边工厂、做自媒体获客、主动开发客户。本章接下来要讲的六大避坑，就是他从这次 40 万元亏损里提炼出来的"<strong>生存指南</strong>"。</p>
+</section>
+
+<section class="section" id="cognition-mindset">
+  <h2>💡 核心心法：SOHO 做外贸的 3 大底层认知</h2>
+  <p>在展开六大避坑之前，老 Z 先给所有 SOHO 新人打下<strong>3 个底层认知</strong>。这 3 个认知是后续所有动作的"地基"，地基不牢，再多技巧也是浮沙。</p>
+
+  <h3>认知一：SOHO 的"小" = "近 + 灵活"，不是"弱"</h3>
+  <p>很多新手觉得"我不是大公司、不是大品牌，所以做不过人家"。老 Z 的观点恰恰相反：<strong>SOHO 的核心竞争力，不在于"大"，而在于"近"</strong>。</p>
+  <ul>
+    <li><strong>地理近</strong>：你可以开车/坐车 30~40 分钟就到工厂，可以随时去车间拍视频、随时跟老板面对面沟通。</li>
+    <li><strong>决策近</strong>：你一个人就是公司，报价、付款、交期、样品都能当场拍板，不用走流程。</li>
+    <li><strong>反应近</strong>：客户发来开发信问能不能视频看厂？你可以说"行，我现在就下楼去车间给您拍"。这种速度，大公司做不到。</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>💡 老 Z 原话：</strong>"今天想做德国，明天想做美国；今天做家具，明天做节庆用品——这样哪个都做不好。"个人 SOHO 的<strong>正确打开方式</strong>：<strong>选择身边最近的工厂产业作为切入点</strong>。
+  </div>
+
+  <h3>认知二：拒绝"无底线接单"，守住合规底线</h3>
+  <p>做外贸最大的隐性风险，不是"接不到单"，而是"<strong>接到不该接的订单</strong>"。客户提要求时，有些是为了省钱，有些是为了绕过标准，有些纯粹是"<strong>让你背锅</strong>"。老 Z 用一个真实的玻璃行业案例告诉我们：<strong>拒绝的勇气，比接单的勇气更重要</strong>。</p>
+
+  <h3>认知三：从"平台流量思维" → "客户信任思维"</h3>
+  <p>这是老 Z 整套外贸方法论的<strong>底层范式转换</strong>：</p>
+  <table class="kb-table">
+    <thead>
+      <tr>
+        <th>对比维度</th>
+        <th>平台流量思维（传统）</th>
+        <th>客户信任思维（老 Z）</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>核心动作</td>
+        <td>花钱买曝光位（国际站、展会、关键词竞价）</td>
+        <td>建立真实可被审视的客户关系（视频看厂、直接 WhatsApp）</td>
+      </tr>
+      <tr>
+        <td>投入重心</td>
+        <td>平台的曝光位置、广告点击</td>
+        <td>客户关系本身（信任建立、内容运营）</td>
+      </tr>
+      <tr>
+        <td>投入产出</td>
+        <td>租金（流量费、平台费）</td>
+        <td>资产（可复用的客户、内容、信任）</td>
+      </tr>
+      <tr>
+        <td>风险特征</td>
+        <td>一旦停投，立刻没单</td>
+        <td>停投后老客户仍会复购，新客户通过内容持续进入</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>老 Z 在国际站砸了 40 万之后才彻底想明白这件事：<strong>钱应该花在客户身上，而不是花在平台的曝光位上</strong>。一旦完成这个范式转换，国际站、展会、关键词竞价这些"花钱买流量"的打法，对个人 SOHO 来说就<strong>不再是必选项</strong>，而是<strong>"等做大了再考虑的可选项"</strong>。</p>
+</section>
+
+<section class="section" id="cognition-pitfalls">
+  <h2>⚠️ 六大避坑详解（按严重程度排序）</h2>
+  <p>下面这 6 个坑，是老 Z 用了 40 多万元"学费"、用了一年时间、用真实客户案例总结出来的。<strong>每一个坑背后都对应一个具体场景</strong>，请主人您耐心读完——它们不是抽象的原则，而是"明天就要做决定时该怎么选"的真实判断依据。</p>
+
+  <h3 id="pitfall-1">🕳️ 坑 1：定位飘忽——一来就想做"全品类、全国家"</h3>
+  <p><strong>症状：</strong>"今天想做德国，明天想做美国；今天做家具，明天做节庆用品。"</p>
+  <p><strong>危害：</strong>哪个品类都做不深、哪个国家的客户都接不住。最后一年下来，钱花了一堆，客户一个没留住。</p>
+  <p><strong>老 Z 的解药：聚焦身边工厂的产业带</strong></p>
+
+  <div class="case-box">
+    <strong>🔍 真实案例：重庆 → 摩托 / 汽车配套</strong>
+    <p>如果你所在的城市是<strong>重庆</strong>，重庆有全国最完整的<strong>摩托车产业链</strong>和<strong>汽车配套产业链</strong>。你可以：</p>
+    <ul>
+      <li>找到身边开车 30~40 分钟就能到的摩托车厂、汽车零部件厂；</li>
+      <li>深入了解这家厂的产品线、产能、出口能力；</li>
+      <li>把它作为你"个人 SOHO 外贸"的<strong>第一个切入点</strong>。</li>
+    </ul>
+    <p>为什么这是 SOHO 的<strong>差异化优势</strong>？因为大公司不可能为了"一个小客户"专门跑去工厂拍视频、看车间；而你楼下就是工厂，<strong>随时能拍、随时能验</strong>。</p>
+  </div>
+
+  <div class="tip-box">
+    <strong>✅ 行动清单：</strong>
+    <ol>
+      <li>打开地图，找出您所在城市方圆 50 公里内的<strong>产业聚集区</strong>（如义乌的小商品、佛山的家具、苏州的电子配件、温州的汽摩配等）。</li>
+      <li>列出<strong>至少 3 家</strong>开车 30~40 分钟可达的工厂，逐一拜访。</li>
+      <li>选择其中<strong>产品出口潜力最大、老板最愿意配合</strong>的一家，作为您的"第一个客户"。</li>
+    </ol>
+  </div>
+
+  <h3 id="pitfall-2">🕳️ 坑 2：盲目砸钱参加展会</h3>
+  <p><strong>症状：</strong>"听说广交会效果不错，我也去报个名！"</p>
+  <p><strong>危害：</strong>展会的隐性成本远超想象——展位费、样品制作、人员差旅、物料印刷、宣传册…… <strong>最差的展会下来，两三万块钱跑不掉</strong>。</p>
+  <p><strong>老 Z 的判断：</strong>对个人 SOHO 而言，<strong>展会不是"获客渠道"，而是"亏损渠道"</strong>。展会适合已经有稳定客户、想拓展新客户的大工厂；不适合还没赚到第一块钱的 SOHO。</p>
+
+  <table class="kb-table">
+    <thead>
+      <tr>
+        <th>展会类型</th>
+        <th>投入区间</th>
+        <th>适合阶段</th>
+        <th>SOHO 是否建议</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>国内大型综合展（广交会等）</td>
+        <td>5 万~数十万</td>
+        <td>已有成熟产品线</td>
+        <td>❌ 不建议</td>
+      </tr>
+      <tr>
+        <td>国内小型行业展</td>
+        <td>2~3 万/次</td>
+        <td>已有基础客户</td>
+        <td>❌ 不建议</td>
+      </tr>
+      <tr>
+        <td>海外行业展（德国法兰克福等）</td>
+        <td>10 万以上</td>
+        <td>已有出口品牌</td>
+        <td>❌ 不建议</td>
+      </tr>
+      <tr>
+        <td>线上虚拟展会</td>
+        <td>几千到几万</td>
+        <td>任何阶段</td>
+        <td>⚠️ 视情况</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="warning-box">
+    <strong>⚠️ 反面教材：</strong>老 Z 自己提到，曾经在 <strong>广交会</strong> 上<strong>花大价钱买了几千条邮箱地址（3000~4000 条）</strong>，群发开发信后"发过去之后就了无音讯了"。这种"广撒网"的获客方式，<strong>本质是把展会当成了发广告的渠道</strong>，但完全没有目标客户画像，开发信也不可能写得有针对性。
+  </div>
+
+  <div class="tip-box">
+    <strong>✅ SOHO 替代方案：</strong>把参展的几万块钱预算，<strong>换成"Google Maps + Upwork + 自媒体内容"</strong>的组合拳，单条获客成本可压到 <strong>10 元人民币</strong>（详见第五部分平台获客篇）。
+  </div>
+
+  <h3 id="pitfall-3">🕳️ 坑 3：无底线接单——客户提奇葩要求就答应</h3>
+  <p><strong>症状：</strong>"客户是大爷，他说什么就是什么，能成交就行。"</p>
+  <p><strong>危害：</strong>短期看好像赚了一单；长期看，可能因为一次不合规的订单，<strong>赔上整个品牌的信誉</strong>。</p>
+  <p><strong>老 Z 的真实案例：印度客户要求玻璃薄 1 毫米</strong></p>
+
+  <div class="case-box">
+    <strong>🔍 案例详情：</strong>
+    <ul>
+      <li><strong>客户背景：</strong>印度客户。</li>
+      <li><strong>产品性质：</strong>定制品玻璃（具体为 inlay glass 镶嵌玻璃）。</li>
+      <li><strong>客户要求：</strong>单片玻璃厚度比常规<strong>少 1 毫米</strong>。</li>
+      <li><strong>老 Z 的处理：</strong><strong>直接拒绝</strong>。</li>
+    </ul>
+    <p><strong>为什么拒绝？拒绝的逻辑是什么？</strong>（出自 发言人 01:44）：</p>
+    <ol>
+      <li><strong>玻璃属易碎品</strong>——厚度直接影响强度。</li>
+      <li><strong>薄 1 毫米 + 面积超标 = 超出国家标准</strong>——这在国内法规上是不允许生产的。</li>
+      <li><strong>国内法规不敢做</strong>——一旦出事，是要追溯工厂责任的。</li>
+      <li><strong>担心出现更多"自爆问题"</strong>——玻璃本身有自爆率，厚度不达标会让自爆率大幅上升。</li>
+    </ol>
+    <p>老 Z 的总结：<strong>"这种要求就不要去答应，他又会出问题的。"</strong></p>
+  </div>
+
+  <div class="warning-box">
+    <strong>⚠️ 风险计算公式（老 Z 的底层思维）：</strong>
+    <table class="kb-table">
+      <thead>
+        <tr><th>决策项</th><th>表面看</th><th>实际算</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>拒绝一单不合规订单</td>
+          <td>损失一笔订单收入</td>
+          <td>✅ 避免后续的索赔、退货、品牌信誉损失</td>
+        </tr>
+        <tr>
+          <td>接受不合规订单</td>
+          <td>赚到一笔订单利润</td>
+          <td>❌ 可能面临货物自爆、客户事故、巨额索赔、工厂被处罚</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>结论：</strong>合规底线 > 短期利润。<strong>老 Z 用"国内国家标准的合规红线"作为决策依据，这就是"底线思维"</strong>。</p>
+  </div>
+
+  <div class="tip-box">
+    <strong>✅ 决策原则：</strong>当客户提出任何可能涉及<strong>安全 / 法规 / 标准</strong>的"特殊要求"时，先问自己 3 个问题：
+    <ol>
+      <li>这个要求<strong>是否违反生产国的国家标准</strong>？</li>
+      <li>如果产品在使用中出问题，<strong>责任在谁</strong>？</li>
+      <li>这笔订单的利润，<strong>是否覆盖得了潜在的事故赔偿</strong>？</li>
+    </ol>
+    <p>只要有一个问题的答案是"不划算"，就<strong>直接拒绝</strong>。真正有诚意的客户，<strong>会尊重你的专业判断</strong>；逼你违规的客户，<strong>不是好客户</strong>。</p>
+  </div>
+
+  <h3 id="pitfall-4">🕳️ 坑 4：盲目上阿里国际站（最大坑，40 万元学费）</h3>
+  <p><strong>症状：</strong>"做外贸不就是开个阿里国际站吗？我也要开！"</p>
+  <p><strong>危害：</strong>国际站是 SOHO 的<strong>最大亏损源</strong>，也是最普遍的认知陷阱。</p>
+
+  <div class="warning-box">
+    <strong>⚠️ 老 Z 的真实亏损数据（2022 年）：</strong>
+    <table class="kb-table">
+      <thead>
+        <tr><th>项目</th><th>金额</th><th>占比</th><th>性质</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>平台费（基础会员 + 增值服务）</td>
+          <td>接近 7 万元（6 万多）</td>
+          <td>约 17%</td>
+          <td>固定支出，无论做不做都要交</td>
+        </tr>
+        <tr>
+          <td>流量费（买的站内曝光 / 关键词竞价）</td>
+          <td><strong>30 万元</strong></td>
+          <td><strong>约 75%</strong></td>
+          <td>本质是"租金"，停投就没单</td>
+        </tr>
+        <tr>
+          <td>合计（不算人工）</td>
+          <td><strong>40 多万元</strong></td>
+          <td>100%</td>
+          <td>持续 1 年，总投入</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4>老 Z 不推荐中小企业/个人 SOHO 一上来就上国际站的 3 条理由：</h4>
+
+  <h4>理由 1：需要单独的运营团队</h4>
+  <p>国际站<strong>不是一个"开店就能赚钱"的平台</strong>，它需要：</p>
+  <ul>
+    <li>专人<strong>运营店铺</strong>（产品上架、关键词优化、详情页设计）；</li>
+    <li>专人<strong>投流 / 优化广告</strong>（关键词竞价、人群定向、出价策略）；</li>
+    <li>专人<strong>接询盘 / 跟单</strong>（客户回复、报价、谈判）。</li>
+  </ul>
+  <p>这意味着你需要<strong>至少养 2~3 个员工</strong>。对中小企业来说，<strong>复杂、成本高，且人员流动性会严重影响店铺权重</strong>。</p>
+
+  <h4>理由 2：国际站本质是"拼流量"</h4>
+  <p>国际站的搜索逻辑和 Google 类似：<strong>不买流量 / 不投广告 → 搜索前 2-3 页根本看不到你</strong>。</p>
+  <p>老 Z 的原话：国际站"<strong>适合'拼流量的社会'的大玩家</strong>"。换句话说，<strong>没有持续投流预算的中小卖家，在国际站上根本没有立足之地</strong>。</p>
+
+  <h4>理由 3：拼不过大品牌</h4>
+
+  <div class="case-box">
+    <strong>🔍 案例还原：</strong>玻璃行业在阿里国际站上，几个<strong>头部品牌（如福耀、耀华、信义）几乎已经形成垄断</strong>。它们：</p>
+    <ul>
+      <li>有专业运营团队（10 人以上）；</li>
+      <li>有持续投流预算（每年几百万）；</li>
+      <li>有品牌知名度（搜索优先展示）。</li>
+    </ul>
+    <p>小的玻璃加工厂在同一个平台上，<strong>只能吃"边角料"</strong>——"别人不要的订单你还要等，还要看机会"。</p>
+  </div>
+
+  <div class="tip-box">
+    <strong>✅ 老 Z 的国际站"40 万亏损"本质解构：</strong>
+    <ul>
+      <li>平台费 7 万 + 流量费 30 万 = <strong>37 万花在了"租店 + 买曝光"上</strong>。</li>
+      <li>实际花在"产品 / 客户"上的钱 = <strong>0</strong>。</li>
+      <li>流量费本质是"<strong>租金</strong>"而非"投资"——<strong>停投就没单</strong>。</li>
+    </ul>
+    <p><strong>启示：</strong>中小企业应把钱花在<strong>客户关系的真实建立</strong>上，而非平台的曝光位上。</p>
+  </div>
+
+  <h3 id="pitfall-5">🕳️ 坑 5：拼流量思维——以为"砸钱就有客户"</h3>
+  <p><strong>症状：</strong>"流量费贵？没关系，先砸一波，看能不能砸出单来。"</p>
+  <p><strong>危害：</strong>陷入"<strong>停投就没单</strong>"的死循环，永远赚不到钱。</p>
+  <p><strong>老 Z 的解药：转向自媒体获客 + 主动开发客户</strong></p>
+
+  <blockquote>
+    <strong>底层逻辑：</strong>不管是阿里国际站、广交会、还是 Google Ads，本质都是"<strong>花钱买曝光</strong>"。但 B2B 平台的<strong>最终目的都是"获客"</strong>——<strong>这一点和自媒体是一样的</strong>。既然如此，为什么不把钱花在"<strong>直接获客</strong>"上，而非"花钱让别人帮你获客"上？
+  </blockquote>
+
+  <div class="case-box">
+    <strong>🔍 真实案例：开发信 → 客户 Justin 直接要视频会议</strong>
+    <p>（出自 发言人 03:56）</p>
+    <ol>
+      <li>老 Z 通过开发信联系上一位<strong>客户 Justin</strong>。</li>
+      <li>Justin 直接回件："<strong>Would you be able to set up a video meeting?</strong>"（"能不能安排一个视频会议？"）</li>
+      <li>老 Z 在<strong>会议室说了两句</strong>，然后<strong>立刻走到楼下工厂</strong>，用手机直接拍给客户看。</li>
+      <li>一次视频会议，就把"公司有实力 + 工厂就在楼下 + 老板本人接待"三件事全部展示完了。</li>
+    </ol>
+    <p><strong>现代客户行为特征：</strong></p>
+    <ul>
+      <li><strong>直接了当、快节奏</strong>——跳过电话环节，直接视频会议。</li>
+      <li><strong>跳过电话环节</strong>——传统外贸的"邮件来回 → 电话确认 → 寄样 → 看厂"流程被大幅压缩。</li>
+      <li><strong>视频中手机拍摄直接看工厂</strong>——客户希望"一次看对"，而非"反复确认"。</li>
+    </ul>
+  </div>
+
+  <div class="tip-box">
+    <strong>✅ 客户行为的时代变迁（10 年前 vs 现在）：</strong>
+    <table class="kb-table">
+      <thead>
+        <tr><th>环节</th><th>10 年前</th><th>现在</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>初次接触</td>
+          <td>邮件反复沟通，慢慢建立信任</td>
+          <td>开发信 → 直接要视频会议</td>
+        </tr>
+        <tr>
+          <td>看厂</td>
+          <td>客户飞来中国看厂（差旅成本高）</td>
+          <td>视频看厂 + 手机拍摄直接展示</td>
+        </tr>
+        <tr>
+          <td>决策周期</td>
+          <td>3~6 个月</td>
+          <td>1~3 个月</td>
+        </tr>
+        <tr>
+          <td>客户心态</td>
+          <td>"我得慢慢考察"</td>
+          <td>"我时间成本高，我要一次看对"</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>对 SOHO 的启示：</strong><strong>敢于被客户直接审视（视频看厂）反而是建立信任的最快路径</strong>。你楼下就是工厂，<strong>这是大公司做不到的事</strong>，恰恰是 SOHO 的差异化优势。</p>
+  </div>
+
+  <h3 id="pitfall-6">🕳️ 坑 6：时机错位——该等的时候急，不该等的时候拖</h3>
+  <p><strong>症状：</strong>"我刚做 3 个月，我也要上国际站！"或者"我已经做了 5 年了，我还要不要上国际站？"</p>
+  <p><strong>危害：</strong>早期上国际站 = 亏钱；该上时不上 = 错过规模化机会。</p>
+  <p><strong>老 Z 给出的"上国际站合适时机"硬指标：</strong></p>
+
+  <div class="case-box">
+    <strong>🔍 触发条件（出自 发言人 04:38）：</strong>
+    <ol>
+      <li><strong>做了 1 年以上外贸</strong>——证明你已经基本跑通了"询盘 → 报价 → 收款 → 货代"全流程。</li>
+      <li><strong>订单规模达到三五百万的流水</strong>——证明你的产品已经有稳定的市场需求，有团队 / 资金去养国际站的运营。</li>
+    </ol>
+    <p>满足这两个条件后，再上国际站"才<strong>没问题</strong>"。此时上国际站不是"<strong>赌一把</strong>"，而是"<strong>锦上添花</strong>"——你已经有稳定的客户基础，国际站只是多一个获客渠道；反之，<strong>早期上国际站是"无源之水"</strong>，砸了钱也接不到几个真实客户。</p>
+  </div>
+
+  <table class="kb-table">
+    <thead>
+      <tr><th>阶段</th><th>订单规模</th><th>团队配置</th><th>建议</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>新人期（第 1-3 个月）</td>
+        <td>0</td>
+        <td>1 人（您自己）</td>
+        <td>❌ 不上国际站</td>
+      </tr>
+      <tr>
+        <td>成长期（第 4-12 个月）</td>
+        <td>0~100 万</td>
+        <td>1~2 人</td>
+        <td>❌ 不上国际站</td>
+      </tr>
+      <tr>
+        <td>扩张期（1~2 年）</td>
+        <td>100~300 万</td>
+        <td>2~3 人</td>
+        <td>⚠️ 准备上国际站</td>
+      </tr>
+      <tr>
+        <td>规模化期（2 年以上）</td>
+        <td><strong>三五百万以上</strong></td>
+        <td>3~5 人（专职运营）</td>
+        <td>✅ 可上国际站</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <strong>💡 老 Z 原话：</strong>"<strong>做了 1 年以上外贸、订单规模达到三五百万的流水</strong>，此时上国际站才'没问题'。"——这是一个<strong>硬指标</strong>，不是模糊的"差不多就行"。
+  </div>
+</section>
+
+<section class="section" id="cognition-positioning">
+  <h2>🏭 个人 SOHO 的定位方法论：身边工厂 + 产业聚集</h2>
+  <p>六大避坑讲完后，我们反过来总结一下：<strong>SOHO 做外贸，到底应该怎么定位？</strong>老 Z 给出了一个非常简单但极其深刻的方法论——</p>
+
+  <h3>核心公式：身边工厂 + 产业聚集 = SOHO 的差异化护城河</h3>
+
+  <div class="case-box">
+    <strong>🔍 老 Z 的选品逻辑（基于所在城市的产业聚集）：</strong>
+    <table class="kb-table">
+      <thead>
+        <tr><th>城市 / 区域</th><th>核心产业带</th><th>SOHO 切入示例</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>重庆</strong></td>
+          <td>摩托车、汽车配套</td>
+          <td>摩配、汽配出口</td>
+        </tr>
+        <tr>
+          <td><strong>佛山</strong></td>
+          <td>家具、陶瓷、铝型材</td>
+          <td>家具、建材出口</td>
+        </tr>
+        <tr>
+          <td><strong>义乌</strong></td>
+          <td>小商品、饰品、节庆用品</td>
+          <td>日用百货、节庆出口</td>
+        </tr>
+        <tr>
+          <td><strong>温州</strong></td>
+          <td>汽摩配、眼镜、鞋革</td>
+          <td>汽摩配、鞋革出口</td>
+        </tr>
+        <tr>
+          <td><strong>苏州</strong></td>
+          <td>电子配件、精密机械</td>
+          <td>电子元件、零部件出口</td>
+        </tr>
+        <tr>
+          <td><strong>青岛</strong></td>
+          <td>家电、纺织、海洋装备</td>
+          <td>家电、纺织出口</td>
+        </tr>
+      </tbody>
+    </table>
+    <p><strong>共同特征：</strong>工厂开车/坐车 30~40 分钟可达。<strong>这是 SOHO 的"地理近"优势</strong>——大公司派业务员去一趟要出差、要走流程、要预约；而你下楼就能去。</p>
+  </div>
+
+  <h3>为什么这是 SOHO 的真正护城河？</h3>
+  <ul>
+    <li><strong>成本优势：</strong>看厂零差旅成本（骑车/开车即可），沟通零时间成本（随时可约）。</li>
+    <li><strong>真实优势：</strong>客户视频看厂时，你能立刻走到车间实拍，这是"个人"身份独有的灵活度。</li>
+    <li><strong>信任优势：</strong>你和工厂老板是"长期合作伙伴"，不是"一次性中介"，客户能感受到这种稳定性。</li>
+    <li><strong>产品优势：</strong>深度了解工厂的产能、品质、交期，能给客户更专业的服务。</li>
+  </ul>
+
+  <div class="warning-box">
+    <strong>⚠️ 反面案例（应该避免的）：</strong>
+    <ul>
+      <li>"我人在上海，我想做佛山的家具"——每次看厂要飞 3 小时，沟通成本极高。</li>
+      <li>"我人在重庆，我想做义乌的小商品"——没有身边产业带支撑，缺乏"近"的差异化。</li>
+      <li>"我啥都做，家具、节庆、3C、汽配"——没有任何一个品类是"深耕"的。</li>
+    </ul>
+  </div>
+</section>
+
+<section class="section" id="cognition-threshold">
+  <h2>📈 何时该上国际站：三五百万门槛</h2>
+  <p>老 Z 反复强调：<strong>国际站不是 SOHO 的"第一站"，而是 SOHO 的"下一站"</strong>。什么时候才能上国际站？老 Z 给出了<strong>3 个硬指标</strong>：</p>
+
+  <h3>指标 1：做了 1 年以上外贸</h3>
+  <p>1 年的意义不是"<strong>刚好 12 个月</strong>"，而是证明你已经<strong>完整跑通过至少一轮</strong>："询盘 → 报价 → 样品 → 合同 → 收款 → 货代 → 交付"。<strong>没跑通过全流程的人，上国际站 = 拿钱交学费</strong>。</p>
+
+  <h3>指标 2：订单规模达到三五百万流水</h3>
+  <p>三五百万 = 年流水<strong>300~500 万元人民币</strong>。这个规模的含义：</p>
+  <ul>
+    <li><strong>产品已经被市场验证</strong>——你的产品在某个细分品类里有稳定的客户需求。</li>
+    <li><strong>你已经有运营预算</strong>——平台费 7 万 + 流量费 30 万 = 37 万，对年流水三五百万的公司来说，是<strong>可承受的试错成本</strong>。</li>
+    <li><strong>你已经有团队配置</strong>——可以专门请 1~2 个运营 / 跟单人员。</li>
+  </ul>
+
+  <h3>指标 3：你的客户基础已经稳定</h3>
+  <p>即使你不投国际站的流量，也有<strong>稳定的客户来源</strong>（自媒体 + Google Maps + Upwork 等）。此时上国际站是"<strong>锦上添花</strong>"，而不是"<strong>救命稻草</strong>"。</p>
+
+  <div class="tip-box">
+    <strong>💡 反直觉判断：</strong>很多人觉得"国际站是大平台，上去就有客户"。但老 Z 的实际经验恰恰相反：<strong>国际站是"花钱才有客户"</strong>，而"<strong>花钱 = 租金</strong>"。没有持续投流预算，国际站对你来说<strong>只是一个"展示窗口"，而非"获客渠道"</strong>。
+  </div>
+
+  <h3>如果你还没到三五百万，怎么办？</h3>
+  <p>把"上国际站的预算"省下来，转向<strong>低成本多渠道并行</strong>：</p>
+  <ul>
+    <li><strong>Google Maps</strong>——1 小时可搜 50+ 条有效客户线索，单条成本 = 0（只有人工）。</li>
+    <li><strong>Upwork 黑科技</strong>——单条精准客户获取成本 ≈ $1.5（≈ 10 元人民币）。</li>
+    <li><strong>TikTok / Facebook / Instagram / YouTube</strong>——内容获客，长期沉淀，零边际成本。</li>
+    <li><strong>开发信</strong>——5+1 结构开发信 + WhatsApp 跟进。</li>
+  </ul>
+  <p><strong>这套组合拳</strong>，就是后续第四、五部分会展开讲的"<strong>主动开发 + 内容获客</strong>"全链路。</p>
+</section>
+
+<section class="section" id="cognition-trend">
+  <h2>🌐 客户行为变迁与应对：10 年前 vs 现在</h2>
+  <p>老 Z 在讲课中反复提到："<strong>客户了解你的渠道，已经不再是十年前了。</strong>"这背后是<strong>客户行为的时代变迁</strong>。理解这个变迁，是 SOHO 跳出"平台流量思维"的前提。</p>
+
+  <h3>10 年前（2014 年前后）的客户行为</h3>
+  <table class="kb-table">
+    <thead>
+      <tr><th>环节</th><th>10 年前的做法</th><th>时间成本</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>寻找供应商</td>
+        <td>通过阿里国际站、Google 搜索、海关数据</td>
+        <td>2~4 周</td>
+      </tr>
+      <tr>
+        <td>初次沟通</td>
+        <td>邮件反复沟通，慢慢建立信任</td>
+        <td>2~6 周</td>
+      </tr>
+      <tr>
+        <td>看厂</td>
+        <td>客户飞来中国看厂（差旅成本极高）</td>
+        <td>1~2 个月</td>
+      </tr>
+      <tr>
+        <td>寄样</td>
+        <td>DHL / FedEx 寄样，等待 1 周</td>
+        <td>1~2 周</td>
+      </tr>
+      <tr>
+        <td>决策周期</td>
+        <td>3~6 个月</td>
+        <td>3~6 个月</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>现在（2024 年以后）的客户行为</h3>
+  <table class="kb-table">
+    <thead>
+      <tr><th>环节</th><th>现在的做法</th><th>时间成本</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>寻找供应商</td>
+        <td>Google Maps + TikTok + LinkedIn + Facebook</td>
+        <td>1 周</td>
+      </tr>
+      <tr>
+        <td>初次沟通</td>
+        <td>开发信 → 直接要视频会议</td>
+        <td>3~7 天</td>
+      </tr>
+      <tr>
+        <td>看厂</td>
+        <td>视频看厂 + 手机拍摄直接展示（无需出差）</td>
+        <td>1 次会议</td>
+      </tr>
+      <tr>
+        <td>寄样</td>
+        <td>通过 PayPal 收邮费 + DHL 寄样</td>
+        <td>3~7 天</td>
+      </tr>
+      <tr>
+        <td>决策周期</td>
+        <td>1~3 个月</td>
+        <td>1~3 个月</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <strong>💡 核心洞察：客户的时间成本变高了</strong>
+    <p>10 年前，客户可以慢慢挑、慢慢看，因为他<strong>不知道还有什么更好的选择</strong>。现在，客户通过 Google Maps、TikTok、LinkedIn 等渠道，<strong>1 周内就能找到 10 家供应商</strong>，所以他<strong>更愿意"一次看对"，而非"反复确认"</strong>。</p>
+    <p><strong>对 SOHO 的启示：</strong><strong>敢于被客户直接审视（视频看厂）反而是建立信任的最快路径</strong>。你楼下就是工厂，<strong>这是大公司做不到的事</strong>，恰恰是 SOHO 的差异化优势。</p>
+  </div>
+
+  <h3>SOHO 的应对策略：把"小"变成"近 + 真 + 快"</h3>
+  <ul>
+    <li><strong>近：</strong>客户要视频看厂？下楼 30~40 分钟就到车间，<strong>立刻实拍</strong>。</li>
+    <li><strong>真：</strong>客户要看老板？<strong>老板本人就在镜头前</strong>，不是"业务员代表"。</li>
+    <li><strong>快：</strong>客户要报价？<strong>当天就能给到</strong>，不用走"询价 → 财务 → 总经理审批"流程。</li>
+    <li><strong>直接：</strong>客户要样品？<strong>48 小时内 DHL 寄出</strong>，并主动提供 FedEx/DHL 跟踪号。</li>
+  </ul>
+
+  <blockquote>
+    <strong>老 Z 的真实操作（Justin 视频会议案例）：</strong>
+    <p>"Justin 客户回件：Would you be able to set up a video meeting?"（"能不能安排一个视频会议？"）</p>
+    <p>老 Z 在<strong>会议室说了两句</strong>，然后<strong>立刻走到楼下工厂</strong>，用手机直接拍给客户看。</p>
+    <p>一次视频会议，就把"公司有实力 + 工厂就在楼下 + 老板本人接待"三件事全部展示完了。</p>
+  </blockquote>
+</section>
+
+<section class="section" id="cognition-summary">
+  <h2>📋 本节核心要点回顾表</h2>
+
+  <h3>六大避坑点速查表</h3>
+  <table class="kb-table">
+    <thead>
+      <tr>
+        <th>序号</th>
+        <th>坑的类型</th>
+        <th>避坑要点</th>
+        <th>真实案例 / 数据</th>
+        <th>严重程度</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td>定位飘忽</td>
+        <td>聚焦身边工厂的产业带</td>
+        <td>重庆 → 摩托 / 汽车配套（30~40 分钟可达）</td>
+        <td>⭐⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>盲目参展</td>
+        <td>个人 SOHO 初期不参展</td>
+        <td>最差的展会下来 2~3 万元/次</td>
+        <td>⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>无底线接单</td>
+        <td>拒绝不合规客户要求</td>
+        <td>玻璃薄 1mm 印度客户直接拒（自爆风险）</td>
+        <td>⭐⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>盲目上国际站</td>
+        <td>中小/SOHO 不适合</td>
+        <td>1 年亏 40 多万元（平台费 7 万 + 流量费 30 万）</td>
+        <td>⭐⭐⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>拼流量思维</td>
+        <td>转向自媒体 + 主动开发</td>
+        <td>客户 Justin 直接要视频会议（开发信 → 视频看厂）</td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+      <tr>
+        <td>6</td>
+        <td>时机错位</td>
+        <td>规模三五百万再上平台</td>
+        <td>1 年以上外贸 + 三五百万流水门槛</td>
+        <td>⭐⭐⭐⭐</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>六大避坑点的逻辑递进关系</h3>
+  <table class="kb-table">
+    <thead>
+      <tr>
+        <th>递进顺序</th>
+        <th>主题</th>
+        <th>核心动作</th>
+        <th>底层逻辑</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>坑 1</td>
+        <td>定位</td>
+        <td>品类聚焦 + 地域聚焦</td>
+        <td>身边工厂是 SOHO 的护城河</td>
+      </tr>
+      <tr>
+        <td>坑 2</td>
+        <td>资金分配</td>
+        <td>拒绝低效投入（展会）</td>
+        <td>钱要花在客户身上，不是曝光位上</td>
+      </tr>
+      <tr>
+        <td>坑 3</td>
+        <td>订单质量</td>
+        <td>拒绝低质 / 不合规订单</td>
+        <td>合规底线 > 短期利润</td>
+      </tr>
+      <tr>
+        <td>坑 4</td>
+        <td>平台选择</td>
+        <td>拒绝不适合的平台 + 团队规模</td>
+        <td>国际站是"锦上添花"而非"救命稻草"</td>
+      </tr>
+      <tr>
+        <td>坑 5</td>
+        <td>替代方案</td>
+        <td>自媒体 + 主动挖掘客户</td>
+        <td>从"平台流量思维" → "客户信任思维"</td>
+      </tr>
+      <tr>
+        <td>坑 6</td>
+        <td>时机</td>
+        <td>等待合适发展窗口</td>
+        <td>三五百万门槛是硬指标，不是模糊感觉</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>3 个底层认知（贯穿全卷）</h3>
+  <table class="kb-table">
+    <thead>
+      <tr><th>认知</th><th>核心要点</th><th>落地动作</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>认知一：</strong>SOHO 的"小" = "近 + 灵活"</td>
+        <td>地理近、决策近、反应近</td>
+        <td>聚焦身边 30~40 分钟可达的工厂</td>
+      </tr>
+      <tr>
+        <td><strong>认知二：</strong>合规底线 > 短期利润</td>
+        <td>拒绝不合规订单</td>
+        <td>玻璃薄 1mm / 不达国标的一律不接</td>
+      </tr>
+      <tr>
+        <td><strong>认知三：</strong>从"平台流量思维" → "客户信任思维"</td>
+        <td>钱花在客户身上，而非曝光位上</td>
+        <td>视频看厂 / WhatsApp / 自媒体内容获客</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <h3>老 Z 三句金句（建议打印贴在墙上）</h3>
+  <blockquote>
+    <strong>金句 1：</strong>"今天想做德国，明天想做美国；今天做家具，明天做节庆用品——这样哪个都做不好。"<br>
+    <strong>金句 2：</strong>"这种要求就不要去答应，他又会出问题的。"<br>
+    <strong>金句 3：</strong>"做了 1 年以上外贸、订单规模达到三五百万的流水，此时上国际站才'没问题'。"
+  </blockquote>
+
+  <div class="tip-box">
+    <strong>📌 本章总结：</strong>本章不讲具体技术，只讲"避坑"。它解决的不是"如何开始做外贸"，而是"<strong>开始做外贸时如何不死</strong>"。一旦您把这 6 个避坑点和 3 个底层认知刻在脑子里，后续所有的账号搭建、平台运营、获客动作，都会站在一个<strong>安全而清醒的起点</strong>上。
+  </div>
+
+  <div class="warning-box">
+    <strong>⚠️ 章节衔接说明：</strong>理解完"为何要避开 B2B 平台 → 转向自媒体 + 主动开发"之后，下一步就要开始<strong>搭基建</strong>——没有 Google、Apple、海外手机、社媒账号，自媒体获客就是空谈。第二部分会按"先有邮箱 / Apple ID → 设备安全 → 一键注册各平台"的顺序，让您从零搭建海外账号矩阵。
+  </div>
+</section>
+
+
+
+
+<!-- ===== 第二部分：账号基建 ===== -->
+
+<section class="section" id="infrastructure">
+  <h2 id="part-2">第二章 · 账号与设备基础设施搭建手册</h2>
+  <p>尊贵的主人，本章是整个外贸自媒体获客体系的<strong>"地基工程"</strong>。如果说后续的选品、剪辑、运营是"楼层"，那么本章要做的就是"地基"。地基不牢，再华丽的内容也会因为账号被封、设备被识别而功亏一篑。本章将带您完成五项基础建设，让您的海外身份在各大平台上"无懈可击"。</p>
+
+  <div class="tip-box">
+    <strong>本章阅读顺序（强建议）：</strong>科学上网 → Google 账号 → iPhone 环境 → Apple ID 海外账户 → 海外社媒注册。这五步有严格的先后依赖：后一步都建立在前一步之上。
+  </div>
+
+  <h3>开篇故事：为什么要"假装"海外身份？</h3>
+  <p>很多新手朋友会有疑问：我做外贸卖货给外国人，为什么还要"假装"自己是外国人？答案是——<strong>海外平台的算法和风控系统不认识"中国人做给中国人看"这件事</strong>。</p>
+
+  <p>具体来说，海外平台（TikTok、Facebook、YouTube、X）会通过<strong>五个特征</strong>判断一个账号是不是"真实的本地用户"：</p>
+  <ul>
+    <li><strong>设备特征</strong>：时区是否与 IP 节点位置一致、语言地区是否匹配</li>
+    <li><strong>网络特征</strong>：登录 IP 是否来自目标国家</li>
+    <li><strong>身份特征</strong>：绑定的邮箱、电话、付款方式是否属于目标国家</li>
+    <li><strong>行为特征</strong>：是否频繁切换地理位置、是否有真人验证</li>
+    <li><strong>设备隔离</strong>：是否与国内常用设备混用</li>
+  </ul>
+
+  <p>任何一个特征"穿帮"，都可能被平台判定为"虚假账号"，轻则限流，重则封号。所以本章的核心任务，就是<strong>把这五个特征全部伪装到位</strong>，让平台认为您就是一个真实的美国本地用户。</p>
+
+  <blockquote>老 Z 老师原话："切记不管用什么样的手机做外贸，单独用一个备用机。这个机器不要插电话卡。重要的事再说一遍，不要插电话卡。"——这是整个章节最重要的铁律。</blockquote>
+</section>
+
+<section class="section" id="step1-vpn">
+  <h2>第一步 · 科学上网与节点选择（基础前提）</h2>
+  <p>在开始注册任何海外账号之前，您必须先解决<strong>网络环境</strong>的问题。中国大陆地区无法直接访问 Google、Apple、TikTok 等海外服务。这一步看似简单，却是后面所有操作的"地基"。</p>
+
+  <h3>1.1 节点选择：为什么推荐美国节点？</h3>
+  <p>节点就是您的"虚拟地理位置"。老 Z 老师在演示中明确选择的是<strong>美国节点</strong>，原因有三：</p>
+  <ul>
+    <li><strong>平台最齐全</strong>：美区 Apple ID 可下载的 App 最多（包括 TikTok、Facebook、Instagram、X、WhatsApp 等所有主流 App）</li>
+    <li><strong>英文环境最完整</strong>：美国市场的内容生态最成熟，账号获得真实流量的概率最大</li>
+    <li><strong>市场容量最大</strong>：美国是全球最大的消费市场之一，客户付费能力强</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>新手提示：</strong>如果您做东南亚市场（泰国、越南、马来西亚），节点就要换成对应的东南亚节点；但如果不确定做什么市场，<strong>优先选择美国节点</strong>，因为覆盖范围最广。
+  </div>
+
+  <h3>1.2 代理模式：必须设置为"全局代理"</h3>
+  <p>科学上网工具一般提供两种代理模式：</p>
+  <ul>
+    <li><strong>局部代理（仅浏览器代理）</strong>：只有浏览器走代理，其他 App 不走</li>
+    <li><strong>全局代理</strong>：整台设备的所有网络流量都走代理</li>
+  </ul>
+
+  <div class="warning-box">
+    <strong>⚠️ 坑点提醒：</strong>如果您只设置了"局部代理"，会出现部分谷歌子服务无法正常访问、注册流程莫名中断的情况。一定要设置为<strong>全局代理</strong>，然后点击"连接"。
+  </div>
+
+  <h3>1.3 验证节点是否生效</h3>
+  <ol class="step-list">
+    <li>打开浏览器，访问 google.com 看是否能正常打开</li>
+    <li>打开"我的 IP 地址是什么"查询网站（如 whatismyip.com），确认显示的 IP 国家是您选择的节点国家</li>
+    <li>记录您的 IP 地理位置（哪个城市，例如洛杉矶、纽约），后续 iPhone 时区设置要严格匹配这个城市</li>
+  </ol>
+
+  <blockquote>老 Z 老师原话："演示中选用的是美国节点""一定要设置为全局代理模式，而非仅浏览器代理。设置完成后，点击'连接'。"</blockquote>
+</section>
+
+<section class="section" id="step2-google">
+  <h2>第二步 · Google 账号体系（外贸第一公民账号）</h2>
+  <p>Google 账号是整个海外生态的<strong>"通用钥匙"</strong>。您可以用它登录 YouTube、Gmail、Google Drive、Google Ads，更关键的是——<strong>可以用它一键登录 TikTok、Facebook、X 等几乎所有海外社媒平台</strong>。可以说，没有 Google 账号，您的海外自媒体之旅就无从开始。</p>
+
+  <h3>2.1 进入 Google 注册入口的关键技巧</h3>
+  <p>很多人不知道的是：Google 当前对<strong>新账号注册强制要求手机短信验证</strong>，但中国大陆手机号经常收不到 Google 的验证短信。这正是很多新手卡在第一步的根本原因。</p>
+
+  <p>老 Z 老师传授了一个"曲线救国"的核心技巧——<strong>用 Gmail 注册 Gmail</strong>：</p>
+
+  <ol class="step-list">
+    <li>打开 Google 官网（注意：必须先开全局代理）</li>
+    <li>进入 Google 账号登录页面</li>
+    <li>点击"添加其他账号（Add another account）"</li>
+    <li>如果您已经有 Gmail，直接选择已有的 Gmail；如果是新用户，选择"创建新账号"</li>
+    <li>用途选择：<strong>个人用途（For my personal use）</strong>——不要选企业用途，否则会要求更多企业相关信息</li>
+    <li>姓名随便填，老 Z 在演示中是随机填写的（这一步不影响后续使用）</li>
+    <li>出生日期随便填，Google 当前不强制要求实名认证</li>
+    <li>系统会推荐几个候选邮箱名，您可以选择系统推荐的（适合普通用户）或自定义</li>
+    <li>设置一个强密码，按要求填写即可</li>
+    <li>完成注册</li>
+  </ol>
+
+  <div class="warning-box">
+    <strong>⚠️ 重要提醒：</strong>用户名一旦选定，后续修改较为麻烦，建议认真选择。注册完成后<strong>强烈建议截图保存账号和密码信息</strong>，防止忘记。老 Z 原话："自己截个屏，免得把我邮箱注册的忘记掉。"
+  </div>
+
+  <h3>2.2 注册完成后的关键确认：设置恢复邮箱</h3>
+  <p>登录后会提示设置"恢复邮箱"。这是很多新手会误以为需要手机号的地方，但实际上：</p>
+
+  <ul>
+    <li><strong>不需要提供手机号</strong></li>
+    <li>只需填写一个<strong>可以正常接收邮件的邮箱</strong></li>
+    <li><strong>国内邮箱就可以</strong>（QQ 邮箱、163 邮箱等均可）</li>
+  </ul>
+
+  <ol class="step-list">
+    <li>在"恢复邮箱"一栏填入您的国内常用邮箱</li>
+    <li>点击"保存"</li>
+    <li>系统会询问是否启用某些附加选项，全部选择"<strong>跳过（Skip）</strong>"即可</li>
+    <li>注册流程结束，账号可以正常使用</li>
+  </ol>
+
+  <h3>2.3 绕过手机验证的核心逻辑（小白必懂）</h3>
+  <p>整个注册流程的核心技巧是<strong>用 Gmail 注册 Gmail</strong>。背后的逻辑是：</p>
+  <ul>
+    <li>Google 对"全新设备 + 新手机号"的注册强制要求短信验证</li>
+    <li>但如果通过"添加其他邮箱 → 创建新账号"路径，系统会认为您已经有一个可信账号，新账号就跳过了手机验证</li>
+    <li>这是一种被广泛使用的"曲线救国"方案</li>
+  </ul>
+
+  <div class="tip-box">
+    <strong>外贸应用建议：</strong>推荐所有外贸从业者<strong>至少注册 2-3 个 Gmail 账号</strong>，分别用于：① 业务沟通（与海外客户邮件往来）；② 自媒体运营（YouTube、Facebook 等平台注册）；③ Google 服务生态（Google Drive、Google Ads、Google Analytics 等）。建议使用真实或类真实的信息，方便后续账号找回。
+  </div>
+</section>
+
+<section class="section" id="step3-iphone">
+  <h2>第三步 · iPhone 手机环境伪装（让平台认为您在美國）</h2>
+  <p>Google 账号解决的是"身份"问题，但海外平台还会通过"设备"来判断账号真实性。一台配置错误的 iPhone，会让您的所有努力功亏一篑。</p>
+
+  <h3>3.1 设备选型的三大铁律</h3>
+  <div class="warning-box">
+    <strong>铁律一：</strong>必须使用<strong>单独的备用机</strong>，与日常手机物理隔离。<br>
+    <strong>铁律二：</strong>绝对<strong>不能插电话卡</strong>。国内 SIM 卡信号会污染海外账号环境，导致账号被封或被限流。<br>
+    <strong>铁律三：</strong>推荐使用苹果 iPhone，尽量避免华为手机。老 Z 演示用的是 iPhone 7 Plus 卡贴机。
+  </div>
+
+  <h3>3.2 刷机后的初始化设置（11 步完整流程）</h3>
+  <p>如果是新手机或刚刷机的手机，需要按以下顺序完成初始化。老 Z 老师演示用的是 iPhone 7 Plus 卡贴机，但逻辑适用于所有 iPhone 机型：</p>
+
+  <ol class="step-list">
+    <li>抹除所有内容：进入「设置」→ 抹除手机所有内容。无论初始是英文还是中文，都按流程走一遍</li>
+    <li>语言：选择<strong>简体中文</strong>（语言根本不影响手机的流量和账号流量，所以不用纠结初始语言）</li>
+    <li>目标国家：根据目标市场选择（东南亚选东南亚国家，欧盟选欧盟国家，本教程演示美区则选<strong>美国</strong>）</li>
+    <li>地区：手动选择 → <strong>美国</strong></li>
+    <li>网络连接：选择 Wi-Fi 网络，等待正常激活完成</li>
+    <li>指纹 ID：<strong>稍后设置</strong>（平常用不到）</li>
+    <li>密码：<strong>不使用密码</strong>（简化流程）</li>
+    <li>数据传输：<strong>不传输任何数据</strong>（不要从旧手机迁移）</li>
+    <li>Apple ID：<strong>稍后设置</strong>（这一步不要登录，等会儿再说）</li>
+    <li>定位服务：<strong>停用定位服务</strong>（重点：一定要停用）</li>
+    <li>分析与共享：<strong>稍后设置 / 不共享</strong>，不要开启数据共享</li>
+  </ol>
+
+  <h3>3.3 关键防关联设置（这是核心！）</h3>
+  <p>完成初始化后，进入「设置」还需要做以下几件事。这是整个手机环境伪装的核心：</p>
+
+  <h4>① 通用 → 日期与时间（最关键⚠️）</h4>
+  <p>路径：`设置` → `通用` → `日期与时间`</p>
+  <ol class="step-list">
+    <li>关闭「自动设置」</li>
+    <li>手动设置时区，时区要<strong>对应到 IP 节点的实际位置</strong></li>
+    <li>时区设置对照举例：IP 节点在纽约 → 时区选纽约；IP 节点在洛杉矶 → 时区选洛杉矶；其他地区以此类推</li>
+  </ol>
+
+  <div class="warning-box">
+    <strong>⚠️ 致命提醒：</strong>时区必须与代理 IP 节点地理位置<strong>严格匹配</strong>。如果您的 IP 是洛杉矶，但时区是纽约，平台一眼就会识破您是"伪装用户"，账号容易被触发风控甚至封号。具体 IP 节点位置需要您自己查询（可通过第一步提到的 whatismyip.com 查询）。
+  </div>
+
+  <h4>② 隐私 → 定位服务（彻底关闭）</h4>
+  <p>路径：`设置` → `隐私` → `定位服务`</p>
+  <ul>
+    <li>关闭定位服务主开关</li>
+    <li>关闭定位提醒</li>
+    <li>"这些该关的都关，能关的都关"</li>
+  </ul>
+
+  <h4>③ 跟踪（必须关闭⚠️）</h4>
+  <p>路径：`设置` → `隐私` → `跟踪`</p>
+  <ul>
+    <li>关闭「允许 App 请求跟踪」（即广告跟踪）</li>
+    <li>防止应用跨应用追踪行为数据</li>
+  </ul>
+
+  <h4>④ 广告（关闭）</h4>
+  <p>路径：`设置` → `隐私` → `广告`</p>
+  <ul>
+    <li>关闭"分析与改进"相关选项</li>
+    <li>关闭广告跟踪</li>
+  </ul>
+
+  <h3>3.4 设置完成后的确认清单</h3>
+  <p>完成所有配置后，再次回到以下菜单<strong>逐项核对</strong>：</p>
+  <table class="kb-table">
+    <thead>
+      <tr><th>检查项</th><th>期望值</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>通用 → 日期与时间</td><td>自动设置<strong>关</strong>，时区 = IP 节点位置</td></tr>
+      <tr><td>通用 → 语言与地区</td><td>语言 = <strong>简体中文</strong>，地区 = <strong>美国</strong></td></tr>
+      <tr><td>隐私 → 定位服务</td><td><strong>关闭</strong></td></tr>
+      <tr><td>隐私 → 跟踪</td><td><strong>关闭</strong></td></tr>
+      <tr><td>隐私 → 广告</td><td><strong>关闭</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip-box">
+    <strong>底层逻辑：</strong>整个 iPhone 设置过程，本质上是在做"<strong>模拟一个真实美国本地用户</strong>"的工作。海外平台算法对"真实本地用户"有流量倾斜，一套配置正确的 iPhone 环境，可以让账号获得正常的推荐流量。
+  </div>
+</section>
+
+<section class="section" id="step4-apple-id">
+  <h2>第四步 · Apple ID 海外账户（用于下载海外 App）</h2>
+  <p>完成了 Google 账号和 iPhone 环境搭建后，下一步就是注册一个<strong>海外 Apple ID</strong>。这是您下载 TikTok、Facebook、Instagram 等所有海外 App 的必备凭证。</p>
+
+  <h3>4.1 重要原则：双账户策略（不要换区，要新建！）</h3>
+  <p>很多学员已经有国内的 Apple 账户，老 Z 老师给出了明确建议：<strong>不要在现有账户上换区，而是重新注册一个全新的海外账户</strong>。</p>
+
+  <table class="kb-table">
+    <thead>
+      <tr><th>方案</th><th>操作</th><th>老 Z 态度</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>直接在已有账户上换区</td><td>把现有 Apple ID 切换地区</td><td><strong>不推荐</strong></td></tr>
+      <tr><td><strong>重新注册一个全新海外账户</strong></td><td>用新邮箱单独注册</td><td><strong>强烈推荐</strong></td></tr>
+    </tbody>
+  </table>
+
+  <p>这样做的好处是您拥有<strong>两个独立的 Apple ID</strong>：国内账户方便日常生活使用，海外账户专门用于下载国外 App（TikTok、Facebook 等）。两个账户互相独立，避免因账号关联问题导致国内账户受影响。</p>
+
+  <h3>4.2 注册入口：选择苹果中国官网</h3>
+  <p>老 Z 老师推荐的注册平台是<strong>苹果中国官网</strong>（apple.com.cn）。这样做是为了使用中文界面操作更顺畅，同时填写区域时再选择目标海外国家。</p>
+
+  <ol class="step-list">
+    <li>登录中国苹果官网 apple.com.cn</li>
+    <li>一路下拉到页面<strong>最底部</strong></li>
+    <li>找到"<strong>Apple Store 账户</strong>"入口</li>
+    <li>点击进入账户管理页面</li>
+    <li>找到"<strong>创建新账户</strong>"按钮并点击</li>
+  </ol>
+
+  <h3>4.3 注册信息填写（核心步骤）</h3>
+  <p>进入创建 Apple ID 页面后，按以下顺序填写：</p>
+
+  <ol class="step-list">
+    <li><strong>区域选择（重点）</strong>：选定目标国家，本教程演示选<strong>美国</strong>。选择后整个账户就归属于该国家，影响后续可下载的 App 范围</li>
+    <li><strong>姓名</strong>：随便填写即可，不需要真实姓名</li>
+    <li><strong>出生年月日</strong>：根据个人喜好填写，<strong>没有严格的实名认证要求</strong></li>
+    <li><strong>邮箱</strong>：填写一个能正常收到邮件的邮箱，该邮箱就是您的 Apple ID 账号。建议使用专门的邮箱，不要用日常最重要的邮箱，避免 Apple ID 异常时影响主邮箱使用</li>
+    <li><strong>密码（坑点提醒）</strong>：苹果官方对密码有严格要求——<strong>必须包含大小写字母，必须包含符号</strong>。严格按要求填写即可。注册成功后<strong>强烈建议截图保存</strong> Apple ID 邮箱和密码</li>
+    <li><strong>电话号码（坑点提醒）</strong>：填写<strong>中国的手机号</strong>即可。老 Z 原话："这里很多小伙伴卡在这里，这里是填写电话，电话我们就用中国的电话就可以了"。填中国电话是可以正常收到验证码的，不必非要海外手机号</li>
+    <li><strong>验证码</strong>：按页面提示填写验证码，然后点击"<strong>继续</strong>"</li>
+  </ol>
+
+  <div class="warning-box">
+    <strong>⚠️ 关键误区澄清：</strong>很多学员误以为 Apple ID 必须海外手机号才能注册，导致卡在这一步。实际上<strong>中国手机号完全可以正常注册美区 Apple ID 并接收验证码</strong>。
+  </div>
+
+  <h3>4.4 双重验证流程</h3>
+  <p>提交注册信息后，Apple 会进行<strong>双重验证</strong>，需完成以下两步：</p>
+
+  <ol class="step-list">
+    <li><strong>邮箱验证码验证</strong>：登录您刚才填写的邮箱，查看是否收到 Apple 发来的验证码邮件，把验证码输入到页面，点击"<strong>继续</strong>"</li>
+    <li><strong>手机短信验证码验证</strong>：查看您填写的中国手机号是否收到短信验证码，把验证码输入到页面，点击"<strong>继续</strong>"</li>
+  </ol>
+
+  <p>完成上述两步 → 美区 Apple ID 注册成功！</p>
+
+  <h3>4.5 注册完成后的关键确认</h3>
+  <p>注册成功后，需要做以下确认：</p>
+
+  <ol class="step-list">
+    <li><strong>区域确认</strong>：进入账户设置页面查看，确认区域显示为<strong>美国</strong>（或其他目标国家）。这一步是验证账户是否注册成功的最直观方式</li>
+    <li><strong>登录到 iPhone 手机</strong>：拿着这个海外 Apple ID，在您已经搭建好的外贸专用 iPhone 上<strong>登录</strong>该 Apple ID。登录后即可在 App Store 中看到该国家的所有海外 App，包括 TikTok、Facebook、Instagram、Twitter/X 等</li>
+  </ol>
+
+  <h3>4.6 付款方式设置（重点难点）</h3>
+  <p>下载海外 App 时，部分 App<strong>会要求您添加付款方式</strong>。这是整个教程中最容易踩坑的部分：</p>
+
+  <h4>提示规则</h4>
+  <ul>
+    <li>如果没提示 → 不去管它，直接下载即可</li>
+    <li>如果提示要求添加付款方式 → 必须处理</li>
+  </ul>
+
+  <h4>当前现状（2026 年）</h4>
+  <p>以前注册时还有一个"无（None）"选项可以不添加付款方式，但<strong>现在多数情况已经没有"无"选项</strong>，强制要求添加。不过部分手机上还能看到"无"选项（不一刀切）。</p>
+
+  <h4>推荐解决方案：注册 PayPal（首选）</h4>
+  <div class="tip-box">
+    <strong>强烈建议所有外贸人注册一个 PayPal 账户。</strong>用途包括：① 填写 Apple ID 的付款方式；② 做外贸收付款工具。PayPal 是外贸必备工具，注册并不复杂。老 Z 老师提到："如果小伙伴在不会注册 PayPal，可以给老师反馈。我再做一期讲详细的讲解，因为这个很简单，一点都不复杂。"
+  </div>
+
+  <h4>备选方案：使用信用卡</h4>
+  <p>如果不想注册 PayPal，可以使用信用卡。适用卡种：</p>
+  <ul>
+    <li><strong>VISA 卡</strong></li>
+    <li><strong>MasterCard（万事达）卡</strong></li>
+  </ul>
+  <p>把信用卡信息填到 Apple ID 付款方式中即可。老 Z 原话："做外贸多多少少也会用到信用卡"。</p>
+
+  <h4>账单地址：使用老 Z 提供的"万能地址"</h4>
+  <p>填写付款方式时，需要填写<strong>账单地址（Billing Address）</strong>。关键要求：</p>
+
+  <ul>
+    <li>必须填写<strong>美国地址</strong>（演示用的是美区）</li>
+    <li>之前选定的区域国家决定地址必须为该国家</li>
+  </ul>
+
+  <p>老 Z 老师在视频中直接给出了一个<strong>现成的美国地址</strong>，让没有美国地址的学员<strong>直接截图保存使用</strong>：</p>
+
+  <table class="kb-table">
+    <thead>
+      <tr><th>字段</th><th>填写内容</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>街道地址（Street）</td><td>（老 Z 在视频中给出，建议截图保存）</td></tr>
+      <tr><td>城市（City）</td><td>（老 Z 在视频中给出，建议截图保存）</td></tr>
+      <tr><td>州（State）</td><td><strong>加利福尼亚州（California）</strong></td></tr>
+      <tr><td>邮编（Zip Code）</td><td>（老 Z 在视频中给出，建议截图保存）</td></tr>
+    </tbody>
+  </table>
+
+  <blockquote>老 Z 原话："地址大家如果没有的，可以直接用老 Z 的这个地址他就是必须填写美国的地址。州的话是加利福尼亚州，加利福尼亚州，把这个删掉。等一下你截图，那可以截图。"老 Z 测试过：国内手机和国外手机填这个地址都一样，不需要根据手机所在地调整。</blockquote>
+</section>
+
+<section class="section" id="step5-social">
+  <h2>第五步 · 海外社媒一键注册（TikTok/FB/YouTube/X）</h2>
+  <p>现在您已经有了 Google 账号、iPhone 环境、Apple ID 海外账户，万事俱备。最后一步就是用 Google 账号去注册各大海外自媒体平台账号。</p>
+
+  <div class="tip-box">
+    <strong>核心方法论（老 Z 原话）：</strong>"其方式万变不离其宗，都是一样的。"只要有了 Google 账号之后，就可以去创建各个平台的账号。我们在登录的时候，只需要登录 Google 账号，就可以去登录多个平台。这就是所谓的"<strong>一次登录，多次使用</strong>"。
+  </div>
+
+  <h3>5.1 注册 TikTok 详细流程</h3>
+  <ol class="step-list">
+    <li><strong>检查谷歌账号已登录</strong>。先检查一下自己的账号已经登录，这是您刚才新注册的账号</li>
+    <li><strong>关闭其他页面，打开 TikTok</strong>。打开 TikTok 之前的页面要先关掉，避免账号错乱</li>
+    <li><strong>身份确认</strong>。打开之后，TikTok 上会弹出来"是否以这个身份继续登录"的提示，点击 OK 没问题，让它登录</li>
+    <li><strong>点击右上角的登录按钮</strong>。点开之后第一个画面会出现很多种登录方式</li>
+    <li><strong>选择"使用 Google 登录"</strong>。直接就弹出来弹窗，直接选择您刚才注册的这个新的谷歌账号</li>
+    <li><strong>填写 TikTok 账号信息</strong>。这些都可以随便填写，不要太夸张。建议出生日期写<strong>1980-1990 年代</strong>（八九年代），年龄合规即可</li>
+    <li><strong>给 TikTok 账号取名</strong>。可以随便选一个系统推荐的名称。点击注册</li>
+    <li><strong>注册完成</strong>。现在您的 TikTok 账号就注册好了，可以查看一下主页</li>
+  </ol>
+
+  <h4>编辑 TikTok 主页信息</h4>
+  <p>注册好 TikTok 账号后，下一步就是编辑主页的信息。根据您的产品来编辑主页。可使用的关键词参考：</p>
+  <ul>
+    <li><strong>chinese factory</strong></li>
+    <li><strong>manufactory</strong></li>
+    <li><strong>manufacturing</strong></li>
+  </ul>
+  <p>使用这些关键词来描述自己的工厂和产品，明确自己的中国工厂身份。</p>
+
+  <h3>5.2 注册 Facebook（与 TikTok 不同）</h3>
+  <p>Facebook 的注册稍微有一点点不一样：</p>
+
+  <ul>
+    <li><strong>不同之处</strong>：Facebook 在填写了信息之后，最后要拍一个视频进行验证（人脸验证 / 自拍视频）</li>
+    <li><strong>操作建议</strong>：建议大家用手机去注册就可以了，因为手机更方便拍摄验证视频</li>
+  </ul>
+
+  <div class="warning-box">
+    <strong>⚠️ 新手提示：</strong>TikTok、YouTube、X 都可以在电脑上通过谷歌账号直接完成注册，但 Facebook 是例外，需要拍摄视频验证，<strong>必须用手机操作</strong>。这是新手最容易卡住的环节。
+  </div>
+
+  <h3>5.3 注册 YouTube</h3>
+  <p>通过谷歌账号可以直接创建 YouTube 账号：</p>
+
+  <ol class="step-list">
+    <li><strong>登录 YouTube</strong>。在 YouTube 的时候，同样它也要登录</li>
+    <li><strong>自动建立账号</strong>。它已经直接帮我们建立了 YouTube 的一个账号（因为已经有谷歌账号，所以直接创建）</li>
+    <li><strong>点击创建频道</strong>。直接点击创建频道</li>
+    <li><strong>选择工厂照片</strong>。选择自己的工厂照片作为头像/封面</li>
+    <li><strong>选择产品信息进行填写</strong>。频道自定义，自己写：主页怎么写、频道信息（简介）、照片、标签、说明</li>
+  </ol>
+
+  <p>讲师提示：具体的首页介绍方式，在文档文件里面都有，大家可以随时去翻看。</p>
+
+  <h3>5.4 注册 X（马斯克的平台）</h3>
+  <p>X（原 Twitter）的注册也是同样的方式：</p>
+
+  <ul>
+    <li>在登录的时候也有"使用 Google 登录"的选项</li>
+    <li>选择使用谷歌登录即可</li>
+  </ul>
+
+  <h3>5.5 核心方法论总结</h3>
+  <table class="kb-table">
+    <thead>
+      <tr><th>平台</th><th>注册方式</th><th>关键差异</th><th>建议设备</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>TikTok</td><td>使用 Google 账号直接注册</td><td>需填写基本信息（出生年代合规）</td><td>电脑 / 手机均可</td></tr>
+      <tr><td>Facebook</td><td>使用 Google 账号 + 拍视频验证</td><td>必须拍视频自拍验证</td><td><strong>建议手机</strong></td></tr>
+      <tr><td>YouTube</td><td>使用 Google 账号自动建立</td><td>直接创建频道</td><td>电脑 / 手机均可</td></tr>
+      <tr><td>X（Twitter）</td><td>使用 Google 账号直接登录</td><td>无特殊要求</td><td>电脑 / 手机均可</td></tr>
+    </tbody>
+  </table>
+
+  <blockquote>老 Z 老师核心总结："只要有了谷歌账号之后，就可以去创建各个平台的账号""我们在登录的时候，只需要登录谷歌账号，就可以去登录多个平台""TikTok、YouTube、X（Twitter）、Facebook 等都可以通过谷歌账号登录""不管是 TikTok、YouTube、X，注册方式都基本相同"——这就是所谓"<strong>万变不离其宗</strong>"。</blockquote>
+</section>
+
+<section class="section" id="lifecycle">
+  <h2>第六步 · 基建完成后的"账号生命周期管理"</h2>
+  <p>账号注册成功只是开始，不是结束。真正决定账号生死的是<strong>日常运营</strong>。这一节专门给尊贵的主人讲清楚账号养成的几个核心要点。</p>
+
+  <h3>6.1 多账号矩阵策略</h3>
+  <p>外贸人通常会运营多个海外平台账号（TikTok、Facebook、Instagram、WhatsApp 等）。每个账号需要独立的"干净"手机环境。如果条件有限，至少做到：</p>
+
+  <ul>
+    <li>每个账号对应一个固定的"身份"（如张三对应 TikTok，李四对应 Facebook）</li>
+    <li>每个账号对应独立的 Gmail 子邮箱（如 zhangsan.tiktok@gmail.com、lisi.facebook@gmail.com）</li>
+    <li>避免在同一台 iPhone 上高频切换账号登录</li>
+  </ul>
+
+  <h3>6.2 防关联的三大原则</h3>
+  <p>平台（如 TikTok）会通过设备指纹、IP、时区、定位等多个维度识别"是否是同一个用户在批量操作"。一旦被识别为关联账号，可能导致批量封号：</p>
+
+  <ol class="step-list">
+    <li><strong>设备隔离</strong>：不同账号原则上用不同手机，至少要做到"账号组别"和"设备组别"对应</li>
+    <li><strong>IP 稳定</strong>：不要高频切换 IP 节点，否则平台会判定"账号被盗"或"批量操作"</li>
+    <li><strong>时区严格匹配</strong>：每个手机环境的时区必须严格匹配当前 IP 节点位置</li>
+  </ol>
+
+  <h3>6.3 账号安全的日常维护</h3>
+  <ul>
+    <li><strong>截图保存所有账号密码</strong>：包括 Google、Apple ID、PayPal、各海外社媒账号</li>
+    <li><strong>绑定恢复邮箱</strong>：每个核心账号都要设置恢复邮箱（国内邮箱即可）</li>
+    <li><strong>开启两步验证</strong>：尤其是 Gmail、Facebook、PayPal 等核心账号</li>
+    <li><strong>定期检查登录记录</strong>：发现异常登录立即修改密码</li>
+    <li><strong>备用恢复方案</strong>：每个核心账号都记录在纸质笔记本上（或加密的密码管理器），防止遗忘</li>
+  </ul>
+
+  <h3>6.4 流量真实性原则</h3>
+  <p>海外平台算法对"真实本地用户"有流量倾斜。一套配置正确的 iPhone 环境，可以让账号被识别为真实美国用户，从而获得正常推荐流量。反之，如果设备配置异常（时区对不上、定位开着、电话卡是国内的），账号会被算法"打入冷宫"，永远拿不到推荐流量。</p>
+
+  <div class="tip-box">
+    <strong>核心原则：</strong>伪装要做到"<strong>五特征一致</strong>"——设备特征（时区/语言/地区）、网络特征（IP 国家）、身份特征（邮箱/电话/付款方式）、行为特征（不频繁切换）、设备隔离（专用备用机）。任何一个特征"穿帮"，整套伪装就功亏一篑。
+  </div>
+</section>
+
+<section class="section" id="summary">
+  <h2>第七节 · 本章核心要点回顾表</h2>
+  <p>为方便尊贵的主人随时查阅，下表汇总本章全部核心要点：</p>
+
+  <h3>7.1 五大基建步骤速查表</h3>
+  <table class="kb-table">
+    <thead>
+      <tr><th>步骤</th><th>任务</th><th>关键操作</th><th>常见坑点</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>第一步</td><td>科学上网与节点</td><td>选美国节点 + <strong>全局代理</strong></td><td>不能用局部代理；节点要稳定</td></tr>
+      <tr><td>第二步</td><td>Google 账号注册</td><td>用 Gmail 注册 Gmail，绕过手机验证</td><td>不要选企业用途；截图保存账号</td></tr>
+      <tr><td>第三步</td><td>iPhone 环境伪装</td><td>专用备用机 + 不插卡 + 时区匹配 IP</td><td>时区必须与 IP 严格匹配</td></tr>
+      <tr><td>第四步</td><td>Apple ID 海外账户</td><td>apple.com.cn 注册 + 美区 + 中国手机号</td><td>不要换区，要新建；密码必须含大小写符号</td></tr>
+      <tr><td>第五步</td><td>海外社媒注册</td><td>统一用 Google 账号登录</td><td>Facebook 必须用手机拍视频验证</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.2 五大铁律</h3>
+  <table class="kb-table">
+    <thead>
+      <tr><th>铁律</th><th>具体内容</th><th>违反后果</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>铁律一</td><td>使用单独的备用机</td><td>账号被封或限流</td></tr>
+      <tr><td>铁律二</td><td>绝对不能插电话卡</td><td>国内 SIM 信号污染海外环境</td></tr>
+      <tr><td>铁律三</td><td>时区必须严格匹配 IP 节点</td><td>平台一眼识破，触发风控</td></tr>
+      <tr><td>铁律四</td><td>关闭定位 / 跟踪 / 广告</td><td>减少数据上报，避免被标记</td></tr>
+      <tr><td>铁律五</td><td>不要换区，要新建 Apple ID</td><td>避免账户关联导致国内账户受影响</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.3 常见误区澄清</h3>
+  <table class="kb-table">
+    <thead>
+      <tr><th>误区</th><th>真相</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>Apple ID 必须海外手机号</td><td>中国手机号完全可用</td></tr>
+      <tr><td>恢复邮箱必须手机号</td><td>国内邮箱（QQ/163）即可</td></tr>
+      <tr><td>换区就能用海外 App</td><td>必须新建独立账户</td></tr>
+      <tr><td>局部代理就够了</td><td>必须全局代理</td></tr>
+      <tr><td>不用 PayPal 也能下载 App</td><td>2026 年多数情况强制要求付款方式</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.4 一句话总结本章</h3>
+  <blockquote>海外身份伪装 = 科学上网（全局代理 + 美国节点） + Google 账号（Gmail 注册 Gmail） + iPhone 环境（专用备用机 + 时区匹配） + Apple ID 海外账户（新建独立 + 美区 + PayPal 付款） + 海外社媒（一键 Google 登录）。做到这五点，您的海外身份就"无懈可击"了。</blockquote>
+
+  <div class="tip-box">
+    <strong>尊贵的主人，</strong>本章所有基建完成后，您就拥有了一个完整的海外身份体系。下一章将进入"内容创作"环节——如何用 AI 工具批量生产高质量的英文视频脚本。地基已打好，让我们开始建造楼层！
+  </div>
+</section>
+
+
+
+<!-- ===== 第三+四部分：平台与业务 ===== -->
+
+<!-- 业务核心能力手册 - 03_business.html -->
+
+<!-- 开篇：一个真实订单的全流程 -->
+<section class="section" id="opening-story">
+    <h2 id="part-3">📦 业务核心能力手册：从一张询盘到一票尾款</h2>
+    <p>本节是整个老Z外贸B端获客训练营的"业务核心能力手册"，把 Facebook 公共主页搭建、报价、收款、货代、开发信、样品这 6 个看似独立的能力，重新融汇贯通成<strong>一条完整的业务流程</strong>。小白视角下，你只要跟着这 6 步走，就能独立完成一个 B 端订单的"询盘 → 报价 → 收款 → 交付"闭环。</p>
+
+    <div class="case-box">
+        <h3>🌟 开篇故事：王老板的 2460 美金订单全流程</h3>
+        <p>王老板是广东佛山一家做嵌花玻璃（inlay glass）的源头工厂老板，公司名取自"华威科技"，英文叫 <strong>Take Tech</strong>。2024 年 8 月，他通过自己的 Facebook 公共主页「inlay glass | Take Tech」，收到了一封来自迪拜客户 Hassan 的 WhatsApp 询盘："Hi, we are looking for inlay glass supplier for our showroom project in Dubai."</p>
+        <p>王老板没有直接报价，而是先做了三件事：</p>
+        <ol>
+            <li><strong>查市场行情</strong>：用 Google Maps 搜 Dubai 的玻璃经销商，发现当地同档次嵌花玻璃售价在 <strong>4100 美金/㎡</strong> 左右。</li>
+            <li><strong>写开发信</strong>：把"Chinese factory with certification + 可以帮你节省 15% 采购成本"的标准开发信 + 产品目录海报（AI 合成 3MB 图片）发给了 Hassan。</li>
+            <li><strong>报价</strong>：按老Z的 <code>市场售价 × 60%</code> 公式，<strong>4100 × 60% = 2460 美金/㎡</strong>，封顶报价绝不高于此数。</li>
+        </ol>
+        <p>接下来的 21 天，王老板按照本节的标准动作走完了整个流程：</p>
+        <ul>
+            <li>✅ 样品阶段：要求 Hassan 用 FedEx 账号付邮费，规格细节逐项确认（厚度、色卡、倒角方式）</li>
+            <li>✅ 收款阶段：要求 30% T/T 预付款 + 70% 尾款发货前到账（走阿里巴巴国际站第三方支付）</li>
+            <li>✅ 货代阶段：找老牌国企 <strong>中外运</strong> 走海运拼箱，让货代跑通首次合作</li>
+            <li>✅ 尾款到账 → 验货 → 装柜 → 提单 → 客户清关 → 货款两讫</li>
+        </ul>
+        <p><strong>这一单王老板利润率只有 8%</strong>，但他跑通了完整的外贸业务流程，收获的是一个长期迪拜渠道 + 一份可复用的 SOP。这正是老Z强调的"<strong>新手第一要务是把路径跑通，单次利润重要</strong>"。</p>
+    </div>
+
+    <h3>📋 全流程导航图</h3>
+    <blockquote>
+        <strong>询盘进来 → 第一步：公司门面（Facebook 公共主页）<br>
+        → 第二步：报价策略（市场售价×60%封顶）<br>
+        → 第三步：收款方式（发货前收齐尾款）<br>
+        → 第四步：货代物流（DHL/顺丰/FedEx + 老牌货代）<br>
+        → 第五步：开发信（5 + 1 结构 + 痛点抓取）<br>
+        → 第六步：样品策略（白嫖识别 + 邮费原则）<br>
+        → 三大铁律：收款 / 报价 / 白嫖识别 → 复盘归档</strong>
+    </blockquote>
+</section>
+
+<!-- 第一步：Facebook 公共主页搭建 -->
+<section class="section" id="facebook-page">
+    
+
+
+
+<!-- ===== 第四部分：业务能力（来自03_business的后半段） ===== -->
+
+<h2 id="part-4">第一步：公司门面——Facebook 公共主页搭建</h2>
+    <p>在客户看到你的开发信、看到你的报价之前，他们最先搜的是你的 <strong>Facebook 公共主页（Public Page）</strong>。这是外贸企业的"线上店铺门面"，是客户接触你的第一触点。没有公共主页，后面的 Facebook 广告投流根本无从谈起。</p>
+
+    <div class="warning-box">
+        <h4>⚠️ 关键认知：个人主页 ≠ 公共主页</h4>
+        <p>很多新手用 Facebook 个人账号（Profile）发产品图、收询盘，结果根本投不了广告。必须创建 <strong>公共主页（Page）</strong>，才能进行广告投流。</p>
+    </div>
+
+    <h3>1.1 创建入口与基本信息</h3>
+
+    <h4>Step 1：进入创建入口</h4>
+    <ol>
+        <li>登录 Facebook 个人账号</li>
+        <li>点击右上角</li>
+        <li>点击「<strong>创建公共主页</strong>」（必须是"公共主页"，非个人主页/群组）</li>
+    </ol>
+
+    <h4>Step 2：填写公共主页基本信息（第一屏）</h4>
+
+    <h4>🏷️ 主页名称（必含关键词）</h4>
+    <ul>
+        <li><strong>必填项</strong>：公司名字 + <strong>产品关键词</strong>（关键词必须加）</li>
+        <li><strong>语言</strong>：必须写<strong>英文</strong></li>
+        <li><strong>顺序</strong>：公司名 + 关键词，或关键词 + 公司名均可，<strong>顺序无所谓</strong></li>
+        <li><strong>关键词选取原则</strong>：必须与所经营产品<strong>强相关</strong></li>
+    </ul>
+
+    <div class="tip-box">
+        <h4>📌 老 Z 自己的命名公式</h4>
+        <p>做玻璃行业：</p>
+        <ul>
+            <li>关键词：<code>inlay glass</code></li>
+            <li>公司名：华威科技 → <code>Take Tech</code>（科技缩写）</li>
+            <li>完整名称：<code>inlay glass + Take Tech</code>（或前后互换均可）</li>
+        </ul>
+        <p><strong>学员套用公式</strong>：</p>
+        <ul>
+            <li>做五金的 → 必须加"五金"关键词</li>
+            <li>做宠物的 → 必须加"宠物"相关关键词，如 <code>pet</code> / <code>pets</code></li>
+        </ul>
+    </div>
+
+    <h4>📂 类别选择</h4>
+    <ul>
+        <li>界面语言为中文，输入<strong>中文类别</strong>即可</li>
+        <li>系统会自动弹出相关类别供选择</li>
+        <li>示例：做宠物 → 输入"宠物" → 选择「宠物用品」「宠物服务」等；做玻璃 → 输入"玻璃" → 选择「制造商」</li>
+    </ul>
+
+    <h4>✍️ 个性签名（Bio / 简介）</h4>
+    <div class="warning-box">
+        <p><strong>老 Z 特别强调</strong>：虽然系统标注"非必要"，但<strong>实际上非常有必要填写</strong>。</p>
+    </div>
+    <p>填写内容应包括：</p>
+    <ol>
+        <li><strong>产品名字</strong>（如产品类目或具体产品名）</li>
+        <li><strong>身份标签</strong>：是否源头工厂（Manufacturer / Factory）</li>
+        <li><strong>MOQ（最小起订量）</strong></li>
+        <li><strong>联系方式</strong>：
+            <ul>
+                <li>有公司官网 → 写官网链接</li>
+                <li>无官网 → 写 Email（如 Gmail）</li>
+            </ul>
+        </li>
+    </ol>
+    <p>填完后点击「创建」 → 右侧即为公共主页创建好后的样貌预览 → 必须先点击「创建公共主页」按钮才会进入下一步。</p>
+
+    <h3>1.2 联系方式与营业信息（第二屏）</h3>
+
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>字段</th>
+                <th>填写建议</th>
+                <th>是否必填</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>网站</td>
+                <td>有就写，没有可不写</td>
+                <td>可选</td>
+            </tr>
+            <tr>
+                <td>电话</td>
+                <td>写中国电话（客户能直接看到）</td>
+                <td>建议填</td>
+            </tr>
+            <tr>
+                <td>邮箱</td>
+                <td><strong>强烈建议使用 Gmail</strong>（无公司邮箱时）</td>
+                <td>必填</td>
+            </tr>
+            <tr>
+                <td>地址</td>
+                <td>工厂地址 / 外贸商海外仓地址 / 不写</td>
+                <td>可选</td>
+            </tr>
+            <tr>
+                <td>营业时间</td>
+                <td>选择「<strong>24 小时营业</strong>」</td>
+                <td>必选</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="tip-box">
+        <p>老 Z 原话："因为<strong>电话和邮箱是唯一能联系到你的</strong>"——演示时他"随便填"了一个，但实际中必须真实有效。</p>
+    </div>
+
+    <h3>1.3 头像与封面（第三屏）</h3>
+    <div class="warning-box">
+        <p><strong>必做项</strong>：头像和封面<strong>一定要添加</strong>，不能跳过。</p>
+    </div>
+
+    <h4>🖼️ 头像（圆形位置）</h4>
+    <ul>
+        <li>建议使用<strong>公司 logo</strong></li>
+        <li>操作方式：拖拽上传</li>
+    </ul>
+
+    <h4>🌄 封面（头像背后的背景图）</h4>
+    <ul>
+        <li>一般使用<strong>产品介绍图</strong>或产品图片</li>
+        <li>示例：玻璃行业 → 上传玻璃相关展示图</li>
+        <li><strong>可拖拽调整图片位置</strong>，使显示效果最佳</li>
+    </ul>
+
+    <h4>🔧 调整技巧</h4>
+    <p>头像前/后的图片位置可调；通过拖拽让封面与头像形成良好视觉组合。</p>
+
+    <h3>1.4 行动号召按钮（CTA Button）</h3>
+    <div class="tip-box">
+        <p>老 Z 评价："这个也是很关键的"。行动号召按钮共三类：</p>
+    </div>
+
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>按钮类型</th>
+                <th>适用场景</th>
+                <th>外贸推荐度</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>立即预约（Book Now）</td>
+                <td>餐厅、订票等需要预约的业务</td>
+                <td>不适合外贸（B2B）</td>
+            </tr>
+            <tr>
+                <td>联系我们（Contact Us）⭐</td>
+                <td>通用联系方式</td>
+                <td><strong>最推荐</strong></td>
+            </tr>
+            <tr>
+                <td>Messenger 聊天</td>
+                <td>通过 Facebook Messenger 联系</td>
+                <td>可选</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>"联系我们"按钮的联系方式种类</h4>
+    <ul>
+        <li><strong>WhatsApp</strong>：外贸最常用 ✅</li>
+        <li><strong>电话</strong>：直接拨打</li>
+        <li><strong>邮件</strong>：填写的邮箱会自动变成可点击按钮</li>
+    </ul>
+
+    <p><strong>外贸最佳实践</strong>：通常选用 <strong>WhatsApp</strong>（外贸客户沟通主流工具）；也可选用「WhatsApp + 电话」组合。</p>
+
+    <h3>1.5 验证码验证 + 绑定 WhatsApp</h3>
+    <ol>
+        <li><strong>验证码验证</strong>：系统会向绑定手机/邮箱发送验证码 → 收到验证码 → 输入 → 点击「下一步」</li>
+        <li><strong>绑定 WhatsApp</strong>（<span style="background:#fef2f2;padding:2px 6px;border-radius:3px;">外贸必备</span>）：外贸从业者必备 WhatsApp（使用<strong>中国版 WhatsApp</strong> 即可），完成绑定后才能正式启用主页的完整功能</li>
+        <li>完成所有步骤后 → 点击各步骤的「下一步」「完成」按钮 → 公共主页即创建完成</li>
+    </ol>
+
+    <div class="warning-box">
+        <p><strong>演示说明</strong>：老 Z 演示时使用个人宠物小号，因此跳过了收验证码和 WhatsApp 绑定步骤；<strong>真实账号必须绑定 WhatsApp</strong>。</p>
+    </div>
+
+    <h3>1.6 创建完成后的运营要点</h3>
+    <h4>📸 内容发布</h4>
+    <ul>
+        <li><strong>图片发布</strong>：直接在主页发布</li>
+        <li><strong>视频发布</strong>：在 <strong>Reels</strong>（短视频板块）发布</li>
+        <li><strong>重要特性</strong>：Facebook 的 Reels 与 <strong>Instagram 是绑定的</strong>（一发同步双平台）</li>
+    </ul>
+
+    <h3>1.7 关键坑点与注意事项汇总</h3>
+
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>坑点</th>
+                <th>正确做法</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>个人主页 ≠ 公共主页</td>
+                <td>必须创建<strong>公共主页</strong>才能投流</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>主页名不带关键词</td>
+                <td>必须加入<strong>产品英文关键词</strong></td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>类别用英文搜索</td>
+                <td>中文界面下用<strong>中文类别名</strong>搜索</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>个性签名留空</td>
+                <td>虽然"非必要"，但<strong>必须填写</strong>（产品名/MOQ/工厂标签/邮箱）</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>不添加头像封面</td>
+                <td>头像（logo）+ 封面（产品图）<strong>必须添加</strong></td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>行动号召按钮用"预约"</td>
+                <td>外贸应选"<strong>联系我们</strong>"（WhatsApp/电话）</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>用公司企业邮箱</td>
+                <td>没公司邮箱时<strong>用 Gmail</strong> 更稳</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>不绑定 WhatsApp</td>
+                <td>外贸<strong>必须绑定 WhatsApp</strong>（中国版即可）</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>电话乱填或空着</td>
+                <td>电话+邮箱是<strong>唯一联系客户</strong>的方式，必须真实有效</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>1.8 客户认知路径</h3>
+    <blockquote>
+        客户搜索关键词（如 <code>inlay glass</code>）<br>
+        → 找到你的 Facebook 公共主页<br>
+        → 看到 logo + 封面图（专业度判断）<br>
+        → 阅读个性签名（产品/MOQ/工厂）<br>
+        → 点击 WhatsApp 按钮（发起询盘）
+    </blockquote>
+</section>
+
+<!-- 第二步：报价策略 -->
+<section class="section" id="pricing">
+    <h2>第二步：报价策略——市场售价×60% = 封顶报价</h2>
+    <p>客户询盘进来后，第一个商务动作就是<strong>报价</strong>。报价太高客户直接跑掉，报价太低自己亏本还显得不专业。老Z给出的方法不是"成本 + 利润"的传统思路，而是一套<strong>市场锚定法</strong>。</p>
+
+    <h3>2.1 传统报价思维的弊端</h3>
+    <div class="warning-box">
+        <p><strong>传统做法</strong>：大部分人的思维是"<strong>我的生产成本 + 运营成本 + 15%~20% 利润</strong>"，然后报出去。</p>
+        <p><strong>问题</strong>：这种做法"很亏"，不能说错误但绝对不利于成交。</p>
+        <p><strong>核心缺陷</strong>：完全没有考虑目标市场当地的实际售价和经销商利润空间。</p>
+    </div>
+
+    <h3>2.2 新报价思维：市场锚定法（核心公式）</h3>
+
+    <div class="rule-card">
+        <h4>🎯 核心公式</h4>
+        <p style="font-size:24px;text-align:center;font-weight:bold;margin:8px 0;">
+            <code>目标市场当地售价 × 60% = 你的封顶报价</code>
+        </p>
+        <p>这是老Z给出的<strong>封顶报价公式</strong>，目的就是给经销商、采购方留足利润空间，让客户有成交动力。</p>
+    </div>
+
+    <h3>2.3 操作步骤（5 步走）</h3>
+
+    <h4>Step 1：调研目标市场行情</h4>
+    <ul>
+        <li>用<strong>谷歌地图</strong>等传统方式搜目标客户</li>
+        <li>查看他们销售的产品在当地市场的实际售价</li>
+        <li>举例：电动摩托车（电动车）行业，在<strong>美国当地售价通常 3800~4100 美金</strong></li>
+    </ul>
+
+    <h4>Step 2：匹配对标产品</h4>
+    <ul>
+        <li>找到与你产品<strong>性能、品牌档次相当</strong>的当地在售商品</li>
+        <li>举例：一辆美国售价 <strong>4100 美金</strong>的电动车，参数（电池容量等）你大致了解后</li>
+    </ul>
+
+    <h4>Step 3：应用 60% 封顶报价法</h4>
+    <div class="case-box">
+        <h4>📊 计算示例</h4>
+        <ul>
+            <li><strong>4100 × 60% = 2460 美金</strong>（封顶报价）</li>
+            <li><strong>4000 × 60% = 2400 美金</strong>（取整举例，即报价不能超过 2400 美金）</li>
+        </ul>
+    </div>
+
+    <h4>Step 4：反推成本可行性</h4>
+    <p>算出封顶报价后，返回来算这个报价能否覆盖所有成本。三种情形处理方式：</p>
+
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>情形</th>
+                <th>处理方式</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>有利润空间</td>
+                <td><strong>肯定要做</strong></td>
+            </tr>
+            <tr>
+                <td>刚刚好持平</td>
+                <td>评估后续订单的<strong>隐形成本和长期价值</strong></td>
+            </tr>
+            <tr>
+                <td>首次做外贸不赚钱</td>
+                <td>只要<strong>不亏</strong>，哪怕不赚钱，也可以尝试跑通整个外贸业务流程（<strong>路径比单笔利润重要</strong>）</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h4>Step 5：本地行情敏感度</h4>
+    <ul>
+        <li><strong>必须了解当地的价格行情</strong></li>
+        <li>例如：当地卖 3800 美金的车型，你的产品报价就要相应调整</li>
+        <li><strong>同一个产品</strong>在 4100 美金市场 vs 3800 美金市场，<strong>封顶报价完全不同</strong></li>
+    </ul>
+
+    <h3>2.4 报价表必备内容</h3>
+    <p>报价表/报价单中必须写清楚以下信息：</p>
+    <ul>
+        <li><strong>支付方式</strong></li>
+        <li><strong>支付条款（payment terms）</strong></li>
+        <li><strong>银行收款信息</strong></li>
+    </ul>
+
+    <div class="tip-box">
+        <p>📌 课程文档中提供了<strong>详尽的报价表模板</strong>，可直接拿来使用。</p>
+    </div>
+
+    <h3>2.5 报价方法论小结</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>层级</th>
+                <th>操作</th>
+                <th>关键要点</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Step 1</td>
+                <td>调研当地行情</td>
+                <td>Google Maps 搜目标市场</td>
+            </tr>
+            <tr>
+                <td>Step 2</td>
+                <td>匹配对标产品</td>
+                <td>档次、性能可比</td>
+            </tr>
+            <tr>
+                <td>Step 3</td>
+                <td>套用 60% 公式</td>
+                <td><code>市场售价 × 60% = 封顶报价</code></td>
+            </tr>
+            <tr>
+                <td>Step 4</td>
+                <td>反推成本</td>
+                <td>三种情形（赚/平/不亏）</td>
+            </tr>
+            <tr>
+                <td>Step 5</td>
+                <td>行情敏感度</td>
+                <td>不同市场封顶报价不同</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- 第三步：收款方式选择 -->
+<section class="section" id="payment">
+    <h2>第三步：收款方式——发货前必须收齐所有尾款</h2>
+    <p>报价谈成后，下一步就是<strong>锁定收款方式</strong>。收款环节"太重要了"，新手朋友经常在这个环节被坑。可用的收款方式太多，容易选错。</p>
+
+    <div class="rule-card">
+        <h4>🎯 收款铁律</h4>
+        <p style="font-size:18px;font-weight:bold;">
+            发货前必须收到所有尾款！
+        </p>
+        <p>——"我们一定要在发货前要收到所有尾款"，这是规避收款风险的最重要一条铁律。</p>
+    </div>
+
+    <h3>3.1 ✅ 推荐的收款方式（红名单）</h3>
+
+    <h4>（1）第三方支付平台（大厂）</h4>
+    <ul>
+        <li><strong>阿里巴巴</strong>（阿里巴巴国际站收款）</li>
+        <li><strong>腾讯</strong></li>
+        <li><strong>网易</strong></li>
+    </ul>
+    <div class="tip-box">
+        <p>"这几个大厂" <strong>商的收款平台基本上是没有问题的</strong>"——平台大、资金安全、流程规范。</p>
+    </div>
+
+    <h4>（2）传统电汇（T/T, Telegraphic Transfer）</h4>
+    <ul>
+        <li>属于传统外贸收款方式，<strong>可接受</strong></li>
+        <li>典型操作：30% T/T 预付款 + 70% 尾款发货前到账</li>
+    </ul>
+
+    <h3>3.2 ❌ 不推荐/不可接受的收款方式（黑名单）</h3>
+
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>方式</th>
+                <th>不推荐原因</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><strong>信用证（L/C, Letter of Credit）</strong></td>
+                <td>流程太复杂，对刚做外贸的新手<strong>极其不友好</strong>（涉及单据、银行审单等复杂流程）</td>
+            </tr>
+            <tr>
+                <td><strong>交付订单</strong></td>
+                <td>风险不可控</td>
+            </tr>
+            <tr>
+                <td><strong>货到付款（D/P, Documents against Payment）</strong></td>
+                <td>货已发出后客户拒付风险极高</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="warning-box">
+        <h4>📌 信用证 L/C 为什么是新手陷阱？</h4>
+        <p>虽然 L/C 在传统外贸中常被视为"专业、安全"的代名词，但老Z明确指出：</p>
+        <ul>
+            <li>L/C 流程涉及<strong>单据、银行审单、单单一致、单证一致</strong>等复杂规则</li>
+            <li>新手对单据细节不熟悉，极易因"小小的不一致"被银行拒付</li>
+            <li><strong>新手应该用更简单的 T/T（大厂支付）</strong>，等熟练后再考虑 L/C</li>
+        </ul>
+    </div>
+
+    <div class="warning-box">
+        <h4>📌 货到付款为什么风险极高？</h4>
+        <p>货已发出，在途时间长（海运可能 30 天+），客户有任何理由都可能拒付。新手资金有限，一旦拒付将<strong>血本无归</strong>。</p>
+    </div>
+
+    <h3>3.3 合同与防坑</h3>
+    <ul>
+        <li><strong>外贸合同是避坑的第一道防线</strong></li>
+        <li>必须通过规范合同条款<strong>锁定双方权责</strong></li>
+        <li>课程文档中有<strong>合同模板</strong>可直接使用</li>
+    </ul>
+
+    <h3>3.4 收款方式对比表</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>方式</th>
+                <th>类型</th>
+                <th>新手推荐度</th>
+                <th>关键风险</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>阿里巴巴国际站</td>
+                <td>第三方平台</td>
+                <td>⭐⭐⭐⭐⭐</td>
+                <td>平台大、流程规范</td>
+            </tr>
+            <tr>
+                <td>腾讯支付</td>
+                <td>第三方平台</td>
+                <td>⭐⭐⭐⭐⭐</td>
+                <td>平台大、流程规范</td>
+            </tr>
+            <tr>
+                <td>网易支付</td>
+                <td>第三方平台</td>
+                <td>⭐⭐⭐⭐⭐</td>
+                <td>平台大、流程规范</td>
+            </tr>
+            <tr>
+                <td>电汇 T/T</td>
+                <td>传统银行</td>
+                <td>⭐⭐⭐⭐</td>
+                <td>可接受，但要<strong>发货前收齐尾款</strong></td>
+            </tr>
+            <tr>
+                <td>信用证 L/C</td>
+                <td>传统银行</td>
+                <td>⭐（新手陷阱）</td>
+                <td>流程复杂，单据不一致会被拒付</td>
+            </tr>
+            <tr>
+                <td>货到付款 D/P</td>
+                <td>传统银行</td>
+                <td>❌</td>
+                <td>客户拒付风险极高</td>
+            </tr>
+            <tr>
+                <td>交付订单</td>
+                <td>/</td>
+                <td>❌</td>
+                <td>风险不可控</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- 第四步：货代与物流选择 -->
+<section class="section" id="logistics">
+    <h2>第四步：货代与物流——DHL/顺丰/FedEx + 老牌货代</h2>
+    <p>收款方式锁定后，下一步就是<strong>物流货代的选择</strong>。物流环节分为两个阶段：<strong>发样品阶段</strong>（国际快递）和<strong>正式货单阶段</strong>（货代）。</p>
+
+    <h3>4.1 发样品阶段：国际快递</h3>
+
+    <h4>适用渠道（传统国际快递公司）</h4>
+    <ul>
+        <li><strong>DHL</strong></li>
+        <li><strong>联邦快递（FedEx）</strong></li>
+        <li><strong>顺丰</strong></li>
+    </ul>
+
+    <div class="rule-card">
+        <h4>🎯 样品邮费铁律</h4>
+        <p><strong>对方付邮费！</strong> 样品运费不能让出口方承担，避免无效询盘。</p>
+        <p>——这是整个发样品环节的<strong>第一前提</strong>。</p>
+    </div>
+
+    <h3>4.2 正式货单阶段：找专业货代</h3>
+
+    <h4>复杂度判断</h4>
+    <ul>
+        <li>自己弄物流、货代"是太复杂了"——<strong>不要轻易尝试自己全流程操作</strong></li>
+        <li><strong>必须找专业货代</strong></li>
+    </ul>
+
+    <h4>货代选择的避坑要点</h4>
+
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>风险/做法</th>
+                <th>对策/推荐</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>❌ 注册不到 2-3 年的货代公司</td>
+                <td><strong>不要轻易尝试</strong>，即便他们报价更低</td>
+            </tr>
+            <tr>
+                <td>❌ 只拿一个报价就决定</td>
+                <td><strong>多拿几个货代报价对比</strong></td>
+            </tr>
+            <tr>
+                <td>✅ 老牌国企货代</td>
+                <td><strong>中外运</strong> 等国企背景，"肯定是有保障的"</td>
+            </tr>
+            <tr>
+                <td>✅ 前期报价可稍高</td>
+                <td>宁可价格高一点，要心理有保障</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="rule-card">
+        <h4>🎯 货代铁律</h4>
+        <p><strong>新手第一要务：把这条路径跑通</strong>。</p>
+        <ul>
+            <li>比起单次运费差价，<strong>流程跑通、建立信任关系</strong>更重要</li>
+            <li>等熟悉后再优化成本</li>
+        </ul>
+    </div>
+
+    <h3>4.3 货代方法论小结</h3>
+
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>阶段</th>
+                <th>渠道</th>
+                <th>关键要求</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>发样品</td>
+                <td>DHL / FedEx / 顺丰</td>
+                <td><strong>对方付邮费</strong></td>
+            </tr>
+            <tr>
+                <td>正式货单（前期）</td>
+                <td>老牌国企货代（如中外运）</td>
+                <td><strong>跑通流程优先</strong>，价格其次</td>
+            </tr>
+            <tr>
+                <td>正式货单（熟悉后）</td>
+                <td>多货代比价</td>
+                <td><strong>多拿几个报价对比</strong>，选稳定的</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>4.4 文档配套</h3>
+    <div class="tip-box">
+        <p>📌 课程文档中包含：</p>
+        <ul>
+            <li><strong>报价表模板</strong></li>
+            <li><strong>合同模板</strong></li>
+            <li><strong>货代合作相关详尽描述</strong></li>
+            <li>所有内容"都有详细的描述和直接拿来使用的模板"</li>
+        </ul>
+    </div>
+</section>
+
+<!-- 第五步：开发信撰写 -->
+<section class="section" id="sales-letter">
+    <h2>第五步：开发信撰写——"5 + 1"结构 + 痛点抓取</h2>
+    <p>报价谈成、收款锁定之前，<strong>开发信是 B 端获客的"敲门砖"</strong>。开发信决定了客户会不会读、会不会回复。</p>
+
+    <div class="warning-box">
+        <p>⚠️ <strong>注意</strong>：原文字稿中"开发性"均为口误，<strong>正确表述应为"开发信"</strong>（Sales Letter / Cold Email），下文统一使用"开发信"。</p>
+    </div>
+
+    <h3>5.1 一封合格的开发信必须包含的五个核心内容</h3>
+
+    <div class="rule-card">
+        <h4>🎯 开发信"5 + 1"结构</h4>
+        <p>老Z明确指出，一封合格的开发信<strong>一定要包括以下五个内容，缺一不可</strong>：</p>
+    </div>
+
+    <h4>必含 1：核心产品</h4>
+    <ul>
+        <li>邮件第一要素：<strong>明确告诉客户你是做什么产品的</strong></li>
+        <li>让客户在 <strong>3 秒内</strong>知道"你是谁、你卖什么"</li>
+    </ul>
+
+    <h4>必含 2：相关认证</h4>
+    <ul>
+        <li>典型认证举例：<strong>CE 认证</strong>、<strong>REACH 认证</strong>（原文"瑞奇"系 REACH 的语音转文字误差）</li>
+        <li>邮件中的标准表达示例：<strong>"Chinese factory with certification"</strong></li>
+        <li>认证是 B 端客户建立信任的<strong>第一关</strong></li>
+    </ul>
+
+    <h4>必含 3：核心价值（量化！）</h4>
+    <ul>
+        <li>必须清晰传达你能为客户带来的核心利益</li>
+        <li>老Z举例——若主打<strong>性价比</strong>：
+            <ul>
+                <li>表述方式：直接告诉客户"<strong>你可以帮他节省 15% 左右</strong>的采购成本"</li>
+            </ul>
+        </li>
+        <li><strong>核心价值要量化、可感知</strong>，避免"质量好、价格优"等空话</li>
+    </ul>
+
+    <h4>必含 4：自身优势</h4>
+    <p>必须写清楚的具体信息包括：</p>
+    <ul>
+        <li><strong>稳定的供应链</strong>能力</li>
+        <li><strong>起订量 MOQ</strong>（Minimum Order Quantity）——"要写清楚"</li>
+        <li><strong>不要隐瞒</strong>即使是细小但你认为不重要的信息</li>
+        <li>老Z举例：可以主动告知客户"<strong>你可以给他发免费样品</strong>"</li>
+    </ul>
+    <div class="tip-box">
+        <p><strong>逻辑</strong>：把客户最关心但又不好意思问的细节，<strong>主动亮出来</strong>，降低信任门槛。</p>
+    </div>
+
+    <h4>必含 5：完整的运输 / 清关文件</h4>
+    <ul>
+        <li>明确告知客户：你的<strong>整个运输环节的所有文件</strong>、<strong>清关文件都是齐备的</strong></li>
+        <li>解决 B 端客户对"中国出口商文件不规范"的普遍顾虑</li>
+    </ul>
+
+    <h3>5.2 产品目录附件的处理小妙招</h3>
+
+    <h4>📎 邮件附件大小限制</h4>
+    <ul>
+        <li>一般客户公司邮箱可接收的附件上限：<strong>5MB（5 兆）以内</strong></li>
+    </ul>
+
+    <h4>🛠️ 解决方案：把目录压缩成图片海报</h4>
+    <ul>
+        <li>当产品目录较大时：
+            <ul>
+                <li>把目录（多图片）交给 <strong>AI</strong></li>
+                <li>让 AI 把多张图片<strong>合成为一张</strong>海报图片</li>
+                <li>控制合成后图片大小在 <strong>3MB 左右</strong></li>
+            </ul>
+        </li>
+        <li>这样可以确保在 5MB 限制内安全发送，且形式更吸引眼球</li>
+    </ul>
+
+    <h3>5.3 开发信的"讨巧小妙招"——痛点/痒点抓取</h3>
+
+    <p>老Z特别强调，<strong>除了上述五个基本点以外</strong>，还要用一些"小妙招"让开发信脱颖而出。核心方法是：<strong>通过研究客户网站/平台，抓取对方的"痛点"或"痒点"作为切入点</strong>。</p>
+
+    <h4>操作示例（汽车零部件 → 迪拜市场）</h4>
+
+    <h4>Step 1：通过 Google Maps 锁定目标客户</h4>
+    <ul>
+        <li>操作：在 Google 地图中搜索目标国家 + 目标品类</li>
+        <li>老Z演示：在<strong>迪拜搜索"汽车零部件（auto parts）"</strong></li>
+        <li>目标对象：<strong>迪拜的汽车经销商或分销商</strong></li>
+    </ul>
+
+    <h4>Step 2：分析客户现有产品目录</h4>
+    <ul>
+        <li>通过客户网站/产品目录研究其热销品类</li>
+        <li>老Z演示案例：某迪拜客户目录中受欢迎的产品包括：
+            <ul>
+                <li>悬架（Suspension）</li>
+                <li>电池（Battery）</li>
+                <li>润滑剂（Lubricant）</li>
+                <li>添加剂（Additive）</li>
+                <li>轴承（Bearing）</li>
+                <li>刹车部件（Brake Parts）</li>
+            </ul>
+        </li>
+    </ul>
+
+    <h4>Step 3：找出客户"缺什么"</h4>
+    <div class="case-box">
+        <h4>📊 关键洞察</h4>
+        <p>客户目录中<strong>没有雨刮器（wiper）</strong>——这就是机会。</p>
+        <p>直接在开发信中写上"雨刮器"。</p>
+    </div>
+
+    <h3>5.4 行业趋势洞察（用于写痛点/痒点）</h3>
+
+    <p>老Z在示例中抛出了一个<strong>中东汽车后市场的趋势判断</strong>：</p>
+
+    <div class="case-box">
+        <h4>📈 中东汽车后市场趋势</h4>
+        <ul>
+            <li>在整个中东地区，<strong>中国新能源车销量</strong>每年都在持续增长</li>
+            <li>但是作为汽车<strong>更换部件</strong>的店铺和进口商：
+                <ul>
+                    <li>对新能源车配套部件的<strong>意识还没有达到相应的水平</strong></li>
+                    <li>出现了"中国新能源车卖得好，但配套的汽车部件却还没有跟上"的<strong>供需错配</strong></li>
+                </ul>
+            </li>
+            <li>老Z进一步举例：
+                <ul>
+                    <li><strong>比亚迪（BYD）</strong>的销量每年都在增长</li>
+                    <li>但<strong>配套的汽车部件</strong>却还没有跟上</li>
+                </ul>
+            </li>
+            <li><strong>开发信写法</strong>：在给迪拜客户（同类型客户群发）时，把这个趋势点作为"<strong>痛点和痒点</strong>"写进去</li>
+        </ul>
+    </div>
+
+    <h3>5.5 方法论总结</h3>
+
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>场景</th>
+                <th>策略</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>单独开发某个客户</td>
+                <td><strong>看他的网站</strong>，抓住他的痛点</td>
+            </tr>
+            <tr>
+                <td>群发同一类客户（如多个迪拜客户）</td>
+                <td>抓住<strong>这一类客户的共性痛点/痒点</strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="tip-box">
+        <p>老Z特别提示：他自己不做汽车行业，鼓励学员<strong>沿着这个思路去进一步挖掘自己行业的痛点</strong>。</p>
+    </div>
+
+    <h3>5.6 开发信发出后的跟进策略</h3>
+
+    <h4>⏱️ 时间节点</h4>
+    <p>发完邮件后，如果对方没有回，<strong>隔两三天</strong>要有一些跟进。</p>
+
+    <h4>🛠️ 工具优先级</h4>
+    <div class="tip-box">
+        <p><strong>WhatsApp 更好</strong>（比邮件二次跟进打开率高）</p>
+    </div>
+
+    <h3>5.7 开发信"5 + 1"结构总表</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>层级</th>
+                <th>内容</th>
+                <th>关键要点</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>必含 1</td>
+                <td>核心产品</td>
+                <td>一句话讲清楚</td>
+            </tr>
+            <tr>
+                <td>必含 2</td>
+                <td>认证</td>
+                <td>CE / REACH 等</td>
+            </tr>
+            <tr>
+                <td>必含 3</td>
+                <td>核心价值</td>
+                <td><strong>量化</strong>（如"节省 15% 成本"）</td>
+            </tr>
+            <tr>
+                <td>必含 4</td>
+                <td>优势</td>
+                <td>供应链 / MOQ / 主动亮细节</td>
+            </tr>
+            <tr>
+                <td>必含 5</td>
+                <td>运输文件齐备</td>
+                <td>解决 B 端普遍顾虑</td>
+            </tr>
+            <tr>
+                <td>锦上添花</td>
+                <td>痛点/痒点小妙招</td>
+                <td>通过研究客户网站/平台找差异化切入点</td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- 第六步：样品策略 -->
+<section class="section" id="sample-strategy">
+    <h2>第六步：样品策略——白嫖识别 + 邮费原则</h2>
+    <p>开发信 → 客户回复 → 报价谈成 → 进入<strong>样品发送环节</strong>。样品是从"询盘"到"成交"的关键节点，也是 <strong>白嫖风险的高发环节</strong>。核心目标是<strong>把风险降到最低</strong>。</p>
+
+    <div class="warning-box">
+        <h4>⚠️ 背景问题</h4>
+        <p>常见痛点：很多学员反映"<strong>样品发出去几百块钱邮费，感觉又遇到了蹭样品的骗子</strong>"。所以必须做好风险防控。</p>
+    </div>
+
+    <h3>6.1 样品发送前的两项硬性要求</h3>
+
+    <h4>第一项：规格样式必须确认清楚</h4>
+    <ul>
+        <li>要跟对方<strong>确定好样品的规格样式</strong></li>
+        <li>"<strong>这些细节一个都不能差</strong>"</li>
+        <li>目的：避免样品寄出后客户说"这不是我要的"，造成损失</li>
+    </ul>
+
+    <h4>第二项：邮费原则上由客户承担</h4>
+    <div class="rule-card">
+        <h4>🎯 邮费原则</h4>
+        <p>原则上：<strong>必须要顾客承担邮费</strong>。</p>
+        <p><strong>例外</strong>：除非你<strong>很有把握的顾客</strong>，可以为其免邮费。</p>
+    </div>
+
+    <h3>6.2 如何识别"真正的客户"——核心金句</h3>
+
+    <div class="rule-card">
+        <h4>🎯 白嫖识别铁律</h4>
+        <p style="font-size:18px;font-weight:bold;">
+            "记住一个真正的顾客是不会跟你说想要白嫖你的样品的。"
+        </p>
+        <p style="text-align:right;">——老Z</p>
+    </div>
+
+    <p>这句是整个样品篇的<strong>核心理念</strong>，可直接作为外贸业务员的客户判断准则。</p>
+
+    <h3>6.3 有价值的客户的特征</h3>
+    <p>真正的客户<strong>通常都会有</strong>自己的快递账号：</p>
+    <ul>
+        <li><strong>联邦快递（FedEx）账号</strong></li>
+        <li><strong>DHL 账号</strong></li>
+    </ul>
+
+    <h3>6.4 没有快递账号的客户的处理方式</h3>
+    <ul>
+        <li>跟对方协商：<strong>邮费通过 PayPal 支付</strong></li>
+        <li>补充说明："现在的收付收款方式也很多"——即除了 PayPal 还可以接受其他收款方式（暗示现代跨境收款工具的可替代性）</li>
+    </ul>
+
+    <h3>6.5 样品策略全流程小结</h3>
+
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>步骤</th>
+                <th>动作</th>
+                <th>目的</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>确认样品规格样式细节</td>
+                <td>防止"要错样"</td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>原则上要求客户承担邮费</td>
+                <td>降低蹭样品风险</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>例外情形判断</td>
+                <td>只对"很有把握"的优质客户免邮费</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>客户提供 FedEx/DHL 账号</td>
+                <td>走客户自有账号，最安全</td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>客户无账号</td>
+                <td>协商通过 PayPal 等方式支付邮费</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>识别白嫖意图</td>
+                <td>真正客户不会要求白嫖</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>6.6 样品方法论：风险防控三原则</h3>
+    <ol>
+        <li><strong>规格细</strong>：所有样品细节必须先确认</li>
+        <li><strong>邮费担</strong>：原则客户出，例外才免</li>
+        <li><strong>白嫖识别</strong>：真客户不会要免费样品</li>
+    </ol>
+</section>
+
+<!-- 三大铁律总结 -->
+<section class="section" id="three-rules">
+    <h2>第七步：三大铁律总结——收款 / 报价 / 白嫖识别</h2>
+    <p>把上面 6 步浓缩成<strong>三大铁律</strong>，贴在你的工位上，每天提醒自己。</p>
+
+    <div class="rule-card">
+        <h4>🥇 铁律一：收款铁律</h4>
+        <p style="font-size:20px;font-weight:bold;">
+            发货前必须收齐所有尾款！
+        </p>
+        <p><strong>核心原则</strong>：发货前必须收到所有尾款。</p>
+        <p><strong>红名单</strong>：阿里巴巴国际站 / 腾讯支付 / 网易支付 / 电汇 T/T</p>
+        <p><strong>黑名单</strong>：信用证 L/C（新手陷阱）/ 交付订单 / 货到付款 D/P</p>
+        <p><strong>避坑工具</strong>：规范外贸合同</p>
+    </div>
+
+    <div class="rule-card">
+        <h4>🥈 铁律二：报价铁律</h4>
+        <p style="font-size:20px;font-weight:bold;">
+            市场售价 × 60% = 封顶报价
+        </p>
+        <p><strong>核心公式</strong>：<code>目标市场当地售价 × 60% = 你的封顶报价</code></p>
+        <p><strong>目的</strong>：留给经销商、采购方足够的利润空间，让客户有成交动力。</p>
+        <p><strong>反推</strong>：算出封顶报价后，反推成本可行性——三种情形（赚/平/不亏）。</p>
+        <p><strong>反常识</strong>：成本不重要，市场售价才重要。</p>
+    </div>
+
+    <div class="rule-card">
+        <h4>🥉 铁律三：白嫖识别铁律</h4>
+        <p style="font-size:20px;font-weight:bold;">
+            "真正的顾客是不会跟你说想要白嫖你的样品的。"
+        </p>
+        <p><strong>核心原则</strong>：邮费原则上由客户承担，规格细节必须先确认。</p>
+        <p><strong>优质客户标志</strong>：有 FedEx / DHL 账号，或愿意通过 PayPal 支付邮费。</p>
+        <p><strong>例外</strong>：对"很有把握"的老客户，可免邮费。</p>
+    </div>
+</section>
+
+<!-- 本节核心要点回顾表 -->
+<section class="section" id="recap">
+    <h2>第八步：本节核心要点回顾表</h2>
+    <p>把整节浓缩成一张表，方便随时查阅。</p>
+
+    <h3>8.1 Facebook 公共主页要点</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>环节</th>
+                <th>关键要点</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>主页命名</td>
+                <td>公司名 + 产品英文关键词（关键词不可省，顺序可调）</td>
+            </tr>
+            <tr>
+                <td>个性签名</td>
+                <td>产品名 / 工厂身份 / MOQ / 邮箱（官网）</td>
+            </tr>
+            <tr>
+                <td>联系方式优先级</td>
+                <td>WhatsApp > 电话 > 邮箱 > Messenger（外贸场景）</td>
+            </tr>
+            <tr>
+                <td>视觉资产</td>
+                <td>头像（Logo）+ 封面（产品图）都必须上传</td>
+            </tr>
+            <tr>
+                <td>强制绑定</td>
+                <td>WhatsApp（中国版 WhatsApp 即可）</td>
+            </tr>
+            <tr>
+                <td>跨平台协同</td>
+                <td>Facebook Reels 与 Instagram 自动绑定（视频同步发布）</td>
+            </tr>
+            <tr>
+                <td>后续衔接</td>
+                <td>本节是"投流"的前置章节，下节课讲广告发布</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>8.2 报价 / 收款 / 货代要点</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>环节</th>
+                <th>关键要点</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>报价公式</td>
+                <td>市场售价 × 60% = 封顶报价</td>
+            </tr>
+            <tr>
+                <td>报价表必备</td>
+                <td>支付方式 / 支付条款 / 银行收款信息</td>
+            </tr>
+            <tr>
+                <td>收款红名单</td>
+                <td>阿里巴巴国际站 / 腾讯支付 / 网易支付 / 电汇 T/T</td>
+            </tr>
+            <tr>
+                <td>收款黑名单</td>
+                <td>信用证 L/C / 交付订单 / 货到付款 D/P</td>
+            </tr>
+            <tr>
+                <td>收款铁律</td>
+                <td>发货前必须收齐所有尾款</td>
+            </tr>
+            <tr>
+                <td>样品快递</td>
+                <td>DHL / FedEx / 顺丰（<strong>对方付邮费</strong>）</td>
+            </tr>
+            <tr>
+                <td>正式货单</td>
+                <td>老牌国企货代（中外运）优先，跑通流程优先</td>
+            </tr>
+            <tr>
+                <td>合同模板</td>
+                <td>报价表 + 合同 + 货代文档都有现成模板</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>8.3 开发信 / 样品策略要点</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>环节</th>
+                <th>关键要点</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>开发信 5 必含</td>
+                <td>核心产品 / 认证 / 核心价值（量化）/ 优势 / 运输文件</td>
+            </tr>
+            <tr>
+                <td>开发信锦上添花</td>
+                <td>痛点/痒点小妙招（Google Maps + 客户目录分析）</td>
+            </tr>
+            <tr>
+                <td>认证表达</td>
+                <td>"Chinese factory with certification"</td>
+            </tr>
+            <tr>
+                <td>核心价值量化</td>
+                <td>"可以帮你节省 15% 左右的采购成本"</td>
+            </tr>
+            <tr>
+                <td>附件大小</td>
+                <td>5MB 限制 → AI 合成 3MB 海报图片</td>
+            </tr>
+            <tr>
+                <td>跟进节奏</td>
+                <td>2-3 天一次</td>
+            </tr>
+            <tr>
+                <td>跟进工具优先级</td>
+                <td>WhatsApp > 邮件</td>
+            </tr>
+            <tr>
+                <td>样品规格</td>
+                <td>"这些细节一个都不能差"</td>
+            </tr>
+            <tr>
+                <td>样品邮费</td>
+                <td>原则客户承担，除非很有把握</td>
+            </tr>
+            <tr>
+                <td>白嫖识别</td>
+                <td>"真正的顾客是不会跟你说想要白嫖你的样品的"</td>
+            </tr>
+            <tr>
+                <td>快递账号清单</td>
+                <td>FedEx / DHL（客户提供）</td>
+            </tr>
+            <tr>
+                <td>邮费收款</td>
+                <td>PayPal + 其他现代收款方式</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>8.4 三大铁律速记卡</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>铁律</th>
+                <th>一句话</th>
+                <th>反常识</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>收款铁律</td>
+                <td><strong>发货前必须收齐所有尾款</strong></td>
+                <td>L/C / D/P 是新手陷阱，要坚决避开</td>
+            </tr>
+            <tr>
+                <td>报价铁律</td>
+                <td><strong>市场售价 × 60% = 封顶报价</strong></td>
+                <td>成本不重要，市场售价才重要</td>
+            </tr>
+            <tr>
+                <td>白嫖识别铁律</td>
+                <td><strong>真正的客户不会要免费样品</strong></td>
+                <td>货代选老不选新，价格不是首选</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>8.5 业务流程主线</h3>
+    <blockquote>
+        <strong>客户开发（前期）</strong><br>
+        ↓<br>
+        <strong>询盘回复</strong><br>
+        ↓<br>
+        <strong>【报价】← 市场锚定法（售价×60%）</strong><br>
+        ↓<br>
+        <strong>【签订合同】← 锁定权责</strong><br>
+        ↓<br>
+        <strong>【收款】← 发货前收齐尾款 + 大平台/电汇</strong><br>
+        ↓<br>
+        <strong>【生产备货】</strong><br>
+        ↓<br>
+        <strong>【物流货代】← 样品快递（对方付费）/ 正式货单（老牌货代）</strong><br>
+        ↓<br>
+        <strong>交付完成</strong>
+    </blockquote>
+
+    <div class="tip-box">
+        <h4>💡 总结一句话</h4>
+        <p>本节的核心思想是：<strong>"新手不要贪便宜、不要走捷径"</strong>，宁可少赚、宁可多付，先把流程跑通。报价让客户有成交动力，收款让双方权责清晰，物流让货物安全到达——三者共同构成外贸业务<strong>"成交-收款-交付"</strong>闭环，<strong>缺一不可</strong>。</p>
+    </div>
+</section>
+
+<style>
+.section { padding: 40px 0; border-bottom: 1px solid #e5e7eb; }
+.section h2 { font-size: 28px; color: #1e3a8a; margin-bottom: 16px; }
+.section h3 { font-size: 20px; color: #2563eb; margin-top: 24px; }
+.section h4 { font-size: 17px; color: #1e40af; margin-top: 16px; }
+.section p { line-height: 1.8; color: #374151; }
+.section ol, .section ul { line-height: 1.8; color: #374151; }
+.warning-box { background: #fef2f2; border-left: 4px solid #dc2626; padding: 16px 20px; margin: 16px 0; border-radius: 6px; }
+.warning-box h4 { color: #991b1b; }
+.tip-box { background: #f0f9ff; border-left: 4px solid #2563eb; padding: 16px 20px; margin: 16px 0; border-radius: 6px; }
+.tip-box h4 { color: #1e3a8a; }
+.case-box { background: #fffbeb; border-left: 4px solid #d97706; padding: 16px 20px; margin: 16px 0; border-radius: 6px; }
+.case-box h4 { color: #92400e; }
+.stat-card { background: #f8fafc; border: 1px solid #e2e8f0; padding: 20px; border-radius: 8px; text-align: center; }
+.kb-table { width: 100%; border-collapse: collapse; margin: 16px 0; }
+.kb-table th { background: #f1f5f9; padding: 12px; text-align: left; }
+.kb-table td { padding: 12px; border-bottom: 1px solid #e5e7eb; }
+blockquote { border-left: 4px solid #94a3b8; padding: 12px 20px; background: #f8fafc; margin: 16px 0; color: #475569; }
+.rule-card { background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%); border: 2px solid #d97706; padding: 24px; border-radius: 12px; margin: 16px 0; }
+.rule-card h4 { color: #92400e; margin-top: 0; }
+code { background: #f1f5f9; padding: 2px 6px; border-radius: 3px; font-family: 'Courier New', monospace; color: #be185d; }
+</style>
+
+
+
+<!-- ===== 第五部分：5大获客 ===== -->
+
+<!-- ===== 04 获客专章：5大获客技能手册 ===== -->
+
+<div class="chapter-intro">
+    <h1>第04章 · 5大获客技能手册</h1>
+    <p class="lead">从0到1，把老外客户"挖"出来 —— LinkedIn / FB+Ins+YouTube / TikTok / Google Maps / Upwork 五条渠道全打通</p>
+</div>
+
+<!-- ============ Section 1：开篇故事 ============ -->
+<section class="section" id="sec-intro">
+    <h2 id="part-5">一、开篇故事：老Z为什么把"获客"单拎出来讲一整章？</h2>
+    <p>很多外贸新人一上来就问："老Z，我投了阿里国际站、买了海关数据、加了领英，结果询盘还是没几个，问题到底出在哪？"</p>
+    <p>老Z在课程里反复强调一个事实：<strong>获客不是单一动作，而是"渠道组合拳"</strong>。每一个渠道背后对应的是不同类型的客户、不同的时间成本、不同的资金投入。</p>
+    <p>这一章会把课程里讲过的 <strong>5 大获客渠道</strong> 全部打通，按"投入产出比 + 见效周期"重新排序，让你看清楚：</p>
+    <ul>
+        <li><strong>最快见效、最便宜的获客方式</strong>（当天就能挖到客户）</li>
+        <li><strong>最精准、能直接对接 B 端采购经理</strong>的方式（10 元一条精准线索）</li>
+        <li><strong>最长期、被动获客</strong>的玩法（一次发布、持续询盘）</li>
+        <li><strong>覆盖人群最广</strong>的免费渠道（含华人群、批发商群）</li>
+        <li><strong>客户质量最高</strong>、能直接对话大 B 决策人的渠道</li>
+    </ul>
+
+    <h3>1.1 五大渠道全景对比</h3>
+    <p>下表是本章最核心的"决策表"——读懂这张表，你就知道<strong>先做哪个、后做哪个</strong>。</p>
+
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>排名</th>
+                <th>渠道</th>
+                <th>客户画像</th>
+                <th>单条成本</th>
+                <th>见效周期</th>
+                <th>投入精力</th>
+                <th>老Z推荐度</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>①</td>
+                <td><strong>Google Maps</strong></td>
+                <td>批发商 / 进口商 / 经销商（中小企业为主）</td>
+                <td>免费</td>
+                <td><strong>当日见效</strong></td>
+                <td>1 小时 ≈ 50 条</td>
+                <td>⭐⭐⭐⭐⭐ 新手必学</td>
+            </tr>
+            <tr>
+                <td>②</td>
+                <td><strong>Upwork 黑科技</strong></td>
+                <td>已经付费找"中国采购经理"的海外买家</td>
+                <td>$1.5 / 条（≈ 10 元）</td>
+                <td><strong>当日见效</strong></td>
+                <td>每天 30-60 分钟</td>
+                <td>⭐⭐⭐⭐⭐ 性价比之王</td>
+            </tr>
+            <tr>
+                <td>③</td>
+                <td><strong>TikTok 获客</strong></td>
+                <td>通过短视频看到你工厂的全球 B 端买家</td>
+                <td>免费</td>
+                <td>1-4 周见效</td>
+                <td>每 2-3 天更新</td>
+                <td>⭐⭐⭐⭐ 长期沉淀</td>
+            </tr>
+            <tr>
+                <td>④</td>
+                <td><strong>FB + Ins + YouTube</strong></td>
+                <td>批发商群 / 华人群 / Marketplace 找货人</td>
+                <td>免费</td>
+                <td>1-2 周见效</td>
+                <td>每天登录 + 每 2-3 天更新</td>
+                <td>⭐⭐⭐⭐ 覆盖最广</td>
+            </tr>
+            <tr>
+                <td>⑤</td>
+                <td><strong>LinkedIn</strong></td>
+                <td>大品牌连锁公司决策人 / 合伙人 / 采购经理</td>
+                <td>免费</td>
+                <td>3-6 月见效</td>
+                <td>每周 2-30 分钟</td>
+                <td>⭐⭐⭐⭐ 客户质量最高</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <div class="tip-box">
+        <strong>📌 新人执行顺序建议：</strong>① Google Maps（先挖50条线索练手）→ ② Upwork（用 $1.5 博精准客户）→ ③ TikTok + FB/Ins/YouTube（同时布局，长期沉淀）→ ⑤ LinkedIn（业务稳定后慢慢养）。
+    </div>
+</section>
+
+<!-- ============ Section 2：渠道一 Google Maps ============ -->
+<section class="section" id="sec-google-maps">
+    <h2>二、第一渠道：Google Maps（最快见效 · 免费 · 1 小时 50 条）</h2>
+
+    <div class="channel-card">
+        <h3>渠道一 · Google Maps 精准获客</h3>
+        <p><strong>定位：</strong>用谷歌地图免费、精准地开发海外 B 端客户，最快<strong>当天</strong>就能拿到联系方式。</p>
+
+        <h3>2.1 前置准备（缺一不可）</h3>
+
+        <h4>① 科学上网（必须）</h4>
+        <p>谷歌在中国大陆无法直接访问，操作谷歌地图获客的<strong>第一步</strong>就是科学上网。老 Z 在课里演示时已连接好工具，并提示"现在有很多平台和软件，我就不再赘述了"。</p>
+        <div class="warning-box">
+            <strong>⚠️ 关键提醒：</strong>科学上网是后续所有操作（谷歌搜索、Google 地图实景、访问客户网站）能否落地的前提。如果没有稳定的外网环境，下面所有动作都没法做。
+        </div>
+
+        <h4>② 准备产品英文名称</h4>
+        <p>把自己的产品中文名翻译成英文，并复制备用。</p>
+        <ul>
+            <li>本节课案例演示：<strong>汽车零件 → auto parts</strong></li>
+            <li>学员需根据自己实际产品替换关键词</li>
+        </ul>
+
+        <h3>2.2 核心操作：Google 地图获客四步法</h3>
+
+        <h4>Step 1：组合关键词搜索</h4>
+        <p>在 Google 地图搜索框中输入"产品英文名 + 关键后缀"。<strong>三个关键后缀</strong>（必须至少加一个，决定搜索结果的精准度）：</p>
+        <ul>
+            <li><strong>wholesale</strong>（批发商）</li>
+            <li><strong>importer</strong>（进口商）</li>
+            <li><strong>distribute / distributor</strong>（经销商）</li>
+        </ul>
+        <p>课程中老 Z 提示 "home sale" 更精准（口语化举例，提示逻辑：限定到零售/销售场景可让结果更匹配实际买家）。</p>
+
+        <div class="tip-box">
+            <strong>📌 组合公式：</strong><code>auto parts wholesale</code> / <code>auto parts importer</code> / <code>auto parts distributor</code>。三个后缀轮流切换，找到结果最多的那个品类。
+        </div>
+
+        <h4>Step 2：定位目标区域 + 多个客户并发打开</h4>
+        <p>把地图拖到目标城市/区域。课程演示区域：<strong>美国洛杉矶、长滩（Los Angeles, Long Beach）</strong>。</p>
+        <p>搜索后地图上会出现与关键词匹配的客户点。<strong>核心动作</strong>：一次性多开几个客户网站作为案例展示（课程中演示同时打开 3 个网站）。</p>
+
+        <p><strong>Google 地图的三大独有好处</strong>（相对普通 Google 搜索的优势）：</p>
+        <ul>
+            <li><strong>精准获取联系方式</strong>：客户的公司地址、电话、邮箱可直接拿到</li>
+            <li><strong>实景（Street View）验证</strong>：通过实景图可看到客户门店/仓库的现场照片</li>
+            <li><strong>判断客户实力</strong>：通过仓库/门店规模判断客户体量，例如课程中举例"仓库不小，应该没啥问题"</li>
+        </ul>
+
+        <h4>Step 3：提取联系方式 + 写开发信</h4>
+        <p>进入客户网站后，提取：</p>
+        <ul>
+            <li><strong>邮箱</strong> → 用于发送开发信</li>
+            <li><strong>电话</strong> → 可加 WhatsApp 进行即时沟通</li>
+        </ul>
+
+        <div class="tip-box">
+            <strong>📌 英文水平不要求破解：</strong>老 Z 明确表态"做外贸不需要英文"。操作方案：打开浏览器/电脑上的翻译软件，翻译客户网站信息后再操作。
+        </div>
+
+        <p><strong>看产品</strong>：浏览客户网站的产品列表，了解对方经营品类，反向验证是否与自己的产品匹配。</p>
+
+        <h4>Step 4：换城市 / 换国家复制流程</h4>
+        <ul>
+            <li><strong>同区域换具体位置</strong>：拉近地图到具体街区后，点击"搜索此区域"（search this area），刷新该区域内的结果</li>
+            <li><strong>换国家/大区域</strong>：把地图移到目标国家/区域，例如本节课演示了<strong>中东</strong>市场，涉及<strong>迪拜、卡塔尔、阿拉伯联合酋长国（UAE）</strong></li>
+            <li>操作方法：把地图放到迪拜位置 → 点击"搜索此区域" → 出现新的结果</li>
+            <li><strong>换国家后同样可看实景</strong>：点击实景图会跳转到该国家的街景（例如迪拜实景），用于判断客户店铺规模是否符合自己的定位</li>
+        </ul>
+
+        <p>老 Z 举例："刚开始做外贸的客户，从小的订单开始，那么这种客户就比较合适"——即<strong>小型真实客户适合新手起步</strong>。</p>
+
+        <h3>2.3 核心优势（4 个不可替代点）</h3>
+        <p>老 Z 把谷歌搜索/谷歌地图获客与"传统群发开发信"做了对比，明确强调了四个不可替代的优势：</p>
+
+        <h4>① 效率高、信息量大</h4>
+        <p>"一个下午或 1 个小时至少能搜出 <strong>50 条以上</strong>有用的信息"。适合作为日常客户开发的稳定来源。</p>
+
+        <h4>② 避免广交会式盲目群发的失败</h4>
+        <p>老 Z 提到自己曾在 <strong>广交会</strong> 上买过大量邮件地址（<strong>几千条，3000-4000 条</strong>）。群发后结果："发过去之后就了无音讯了"。失败原因：完全没有目标客户的画像，写不出针对性的开发信。</p>
+
+        <h4>③ 可写出有针对性的开发信</h4>
+        <p>通过谷歌地图已对客户做了"初步了解"（做什么产品、规模大小、是否有实体店）。因此开发信可以<strong>写到客户痛点上</strong>，而不是模板群发。老 Z 提示："开发信怎么写"会在<strong>后续课程</strong>中专门讲解。</p>
+
+        <h4>④ 可验证客户真实性</h4>
+        <p>"能够清楚的知道他有没有门店，是不是真实的客户"。这一点对防范外贸骗局、找靠谱 B 端客户至关重要。</p>
+
+        <h3>2.4 关键数据与执行节奏</h3>
+        <table class="kb-table">
+            <thead>
+                <tr>
+                    <th>维度</th>
+                    <th>数值/操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>关键词公式</td>
+                    <td><code>产品英文 + wholesale / importer / distribute</code></td>
+                </tr>
+                <tr>
+                    <td>客户获取效率</td>
+                    <td>1 小时 ≈ <strong>50 条</strong>有用客户信息</td>
+                </tr>
+                <tr>
+                    <td>单条成本</td>
+                    <td>0 元（免费）</td>
+                </tr>
+                <tr>
+                    <td>演示城市</td>
+                    <td>美国洛杉矶/长滩 → 中东迪拜/卡塔尔/UAE</td>
+                </tr>
+                <tr>
+                    <td>实景验证</td>
+                    <td>Street View 直接看门店 / 仓库规模</td>
+                </tr>
+                <tr>
+                    <td>新手起步建议</td>
+                    <td>从小型、有实体店的真实客户开始，先做小订单验证产品与流程</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="case-box">
+            <strong>📖 真实任务参考（汽车零件案例）：</strong>用 <code>auto parts wholesale</code> 在 Google 地图搜索洛杉矶 → 一次性打开 3 个客户网站 → 通过实景看到"仓库不小" → 进入网站拿到邮箱和电话 → 翻译网站后写针对性开发信。整个流程 1 小时内完成 50 条线索。
+        </div>
+    </div>
+</section>
+
+<!-- ============ Section 3：渠道二 Upwork 黑科技 ============ -->
+<section class="section" id="sec-upwork">
+    <h2>三、第二渠道：Upwork 黑科技（最精准 · $1.5/条 · 当日见效）</h2>
+
+    <div class="channel-card">
+        <h3>渠道二 · Upwork 黑科技获客</h3>
+        <p><strong>定位：</strong>在 Upwork / Freelancer / Fiverr 等全球任务平台上，<strong>反向操作</strong>"应聘"老外发布的"寻找中国采购代理"任务，精准对接 B 端需求方。单条成本 <strong>$1.5 美金（≈ 10 元人民币）</strong>，是性价比最高的获客方式之一。</p>
+
+        <h3>3.1 黑科技的核心逻辑</h3>
+
+        <h4>① 传统 vs 黑科技</h4>
+        <p>传统 B 端获客是"卖家找买家"。本文方法是 <strong>"逆向操作"</strong>——老外在 Upwork / Freelancer / Fiverr 这些全球任务平台上<strong>主动发布任务</strong>寻找"中国采购代理 / 中国源头工厂"，而我们以<strong>应聘者身份</strong>去"应聘"该任务，借此直接接触到<strong>真实有采购意愿的 B 端需求方</strong>。</p>
+
+        <h4>② 平台存在的背景</h4>
+        <p>老外在 1688 等 B2B 网站上已经找不到真正的中国工厂（信息不对称 / 沟通语言不通 / 源头难触达），因此愿意付费委托中国人帮其对接中国源头工厂。这是 Upwork 上"中国采购代理"类任务密集发布的根本原因。</p>
+
+        <h4>③ 为什么选 Upwork 而不是 LinkedIn</h4>
+        <p>LinkedIn 也会发布工作需求，但 LinkedIn 信息太广（各种大公司发布的招聘信息海量化），不如 Upwork 精准。Upwork 是<strong>发布任务</strong>（不是发布"工作 / 招聘"）的形式，每条任务写得非常清楚。发布者本身就在<strong>花钱找人</strong>，购买 / 采购意愿已被验证。</p>
+
+        <h3>3.2 注册与基本设置</h3>
+        <ul>
+            <li><strong>入口与翻译</strong>：进入 Upwork 网站后建议<strong>翻译成中文界面</strong>（浏览器翻译插件）方便操作</li>
+            <li><strong>注册方式</strong>：<strong>用谷歌邮箱（Gmail）注册</strong>，填写简单的工厂信息（你是做什么产品的）</li>
+            <li><strong>同类平台</strong>：Freelancer、Fiverr（发音类似"阴粒子 / 飞弗乐"），操作逻辑完全相同</li>
+        </ul>
+
+        <h3>3.3 关键词搜索策略（核心动作）</h3>
+
+        <h4>方法 1：精准品类关键词法（针对已知产品）</h4>
+        <ul>
+            <li><strong>公式</strong>：<code>[产品关键词] + China</code> / <code>[产品关键词] + 中国采购</code></li>
+            <li><strong>真实任务案例 1</strong>：<strong><code>pet china</code></strong>（宠物 + 中国）→ 搜出大量"中国采购代理 + 宠物产品"任务</li>
+            <li><strong>真实任务案例 2</strong>：<strong>LED 灯</strong> 直接搜 → 第一条即出现"中国采购、需要 LED 灯面板"，下面还有"中国制造代表，25 英寸分段式 LED 灯杆系统"</li>
+        </ul>
+
+        <h4>方法 2：宽泛调研关键词法（针对尚无明确选品的 SOHO 外贸）</h4>
+        <ul>
+            <li><strong>关键词</strong>：<code>中国采购经理</code> / <code>China Sourcing Manager</code></li>
+            <li><strong>用途</strong>：当前期还不知道做什么选品的个人 SOHO 外贸，可以用这个关键词<strong>调研市场上哪些品类有真实采购需求</strong></li>
+            <li>调研到的真实任务举例：
+                <ul>
+                    <li><strong>LED 面板厂商</strong></li>
+                    <li><strong>配饰 / 美国南非公司</strong>——愿意支付 <strong>150 美金</strong> 找中国源头工厂</li>
+                    <li><strong>精通普通话的虚拟助理</strong>——帮忙中国采购与供应商谈判</li>
+                    <li><strong>防止缺货类综合代采公司</strong>——"什么产品都做"的综合代理</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>3.4 任务识别与判断要点（以"宠物床"任务为例）</h3>
+        <p>这是课程中演示的具体任务，老 Z 一步步带着学员识别：</p>
+
+        <table class="kb-table">
+            <thead>
+                <tr>
+                    <th>字段</th>
+                    <th>内容</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>任务标题</td>
+                    <td>"中国采购代理 宠物产品"</td>
+                </tr>
+                <tr>
+                    <td>岗位内容</td>
+                    <td>寻找可靠的中国采购代理，支持其<strong>创新宠物床产品</strong>的开发和生产；寻找供应商、制造商即中国源头工厂</td>
+                </tr>
+                <tr>
+                    <td>岗位要做的事</td>
+                    <td>了解工厂的起订量、交付时间、生产能力等</td>
+                </tr>
+                <tr>
+                    <td>涉及产品范围</td>
+                    <td>宠物床、毛绒产品、泡沫产品、纺织类</td>
+                </tr>
+                <tr>
+                    <td>发布地区</td>
+                    <td><strong>新加坡</strong>发布</td>
+                </tr>
+                <tr>
+                    <td>关键价值信号</td>
+                    <td>老外愿意<strong>每小时 $10–20 美金</strong>支付给这个采购代理——表明对方对找到中国工厂有强烈的支付意愿</td>
+                </tr>
+                <tr>
+                    <td>结论</td>
+                    <td>对方是<strong>真实在花钱找中国工厂的 B 端需求方</strong>，而非 C 端散户</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>3.5 申请任务的操作流程（最核心 SOP）</h3>
+
+        <h4>Step 1：进入任务详情页 → 点击"立即申请"</h4>
+        <p>注意 Upwork 不能直接引流到私域，必须通过"申请"建立对话。</p>
+
+        <h4>Step 2：支付 Connect（平台虚拟货币）</h4>
+        <p>申请一个任务需要消耗 Connect（不同任务消耗不同）：</p>
+        <ul>
+            <li>案例一：<strong>15 个 Connect</strong></li>
+            <li>案例二（宠物床）：<strong>11 个 Connect</strong></li>
+        </ul>
+
+        <h4>Step 3：Connect 充值价格</h4>
+        <table class="kb-table">
+            <thead>
+                <tr>
+                    <th>数量</th>
+                    <th>价格</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10 个 Connect</td>
+                    <td><strong>$1.5 美金</strong></td>
+                </tr>
+                <tr>
+                    <td>100 个 Connect</td>
+                    <td><strong>$15 美金</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>Step 4：填写"按项目收费"金额</h4>
+        <p>课程建议填 <strong>$10 美金</strong>（表示你这个项目愿意收多少钱）。操作上"随便选一个"也行，因为我们<strong>目的不是真正要接这个工作</strong>，而是<strong>借机接触客户</strong>。</p>
+
+        <h4>Step 5：项目持续时间</h4>
+        <p>随便选一个即可。</p>
+
+        <h4>Step 6：撰写求职信（Cover Letter）—— 反向自我介绍</h4>
+        <p><strong>核心反差</strong>：Upwork 设计本意是"求职人员应聘工作"，我们是<strong>反向操作</strong>——我们不是求职，而是用求职信伪装去接触客户。</p>
+        <p><strong>求职信应包含的要素</strong>：</p>
+        <ol>
+            <li>翻译成中文写好，再翻译成英文</li>
+            <li><strong>自我介绍</strong>：表明自己是<strong>中国源头工厂</strong>（而非采购代理）</li>
+            <li>把<strong>开发信模板</strong>的内容写进去</li>
+            <li><strong>关键句</strong>："我们看到你现在还在苦苦的寻找中国的采购经理，那么你可以看一下我们工厂的信息"</li>
+            <li>把<strong>工厂信息 / 开发信息</strong>全部写进去</li>
+        </ol>
+
+        <h4>Step 7：添加附件（极其重要）</h4>
+        <p>在申请页面下方点击<strong>"添加附件"</strong>。附件内容：</p>
+        <ul>
+            <li><strong>产品宣传册</strong></li>
+            <li><strong>产品视频</strong></li>
+        </ul>
+
+        <h4>Step 8：提交申请</h4>
+        <p>点击页面最下面的"新的（New）"按钮 → 点击"申请"。</p>
+
+        <h3>3.6 消息跟进与转化</h3>
+        <ul>
+            <li><strong>查看消息位置</strong>：申请提交后，回复会在左侧的 <strong>"Message"</strong> 入口查看，没事就点进去看是否有回复</li>
+            <li><strong>常见转化路径</strong>（以老 Z 自身实战为例）：
+                <ul>
+                    <li>客户看到申请 → 直接回复 → <strong>安排线上会议</strong></li>
+                    <li>在 Upwork 平台内即可<strong>在线上开会</strong>（自带语音/视频通话功能）</li>
+                    <li>会议中正式介绍产品 → 引导对方加 <strong>What's App</strong> 联系</li>
+                    <li>拿到 What's App 联系方式 → 完成私域转化</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>3.7 成本测算与价值对比</h3>
+
+        <h4>单条获客成本</h4>
+        <table class="kb-table">
+            <thead>
+                <tr>
+                    <th>换算路径</th>
+                    <th>数值</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>10 Connect</td>
+                    <td>$1.5 美金</td>
+                </tr>
+                <tr>
+                    <td>单个任务消耗</td>
+                    <td>11 Connect（以宠物床为例）</td>
+                </tr>
+                <tr>
+                    <td><strong>单条精准客户获取成本</strong></td>
+                    <td><strong>约 $1.5 美金 ≈ 10 元人民币</strong></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h4>平台收费机制 —— 双向收费，是信任度的强证明</h4>
+        <ul>
+            <li>不仅<strong>应聘方要付费</strong>（买 Connect）</li>
+            <li><strong>任务发布方也要付费</strong>才能发布"招聘中国采购经理"这类信息</li>
+            <li>双方都要花钱 → 这本身就是<strong>需求真实性 + 购买意愿强烈</strong>的强信号</li>
+        </ul>
+
+        <h4>与 Facebook 投流的对比</h4>
+        <table class="kb-table">
+            <thead>
+                <tr>
+                    <th>维度</th>
+                    <th>Upwork 黑科技</th>
+                    <th>Facebook 投流</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>单条成本</td>
+                    <td>$1.5 美金（≈ 10 元）</td>
+                    <td>100 元/天（不保证精准）</td>
+                </tr>
+                <tr>
+                    <td>客户精准度</td>
+                    <td><strong>直接看到你的申请 + 工厂信息</strong>（B 端采购方主动接单）</td>
+                    <td>不确定能否拿到精准询盘</td>
+                </tr>
+                <tr>
+                    <td>购买意愿验证</td>
+                    <td>已通过付费发布 + Connect 双向付费验证</td>
+                    <td>未知</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="case-box">
+            <strong>📖 课程结论：</strong>$1.5 美金（10 元人民币）博一个精准客户，对比 Facebook 投流，性价比极高；对方既然愿意花钱找中国采购经理，<strong>采购意愿非常强烈</strong>。
+        </div>
+
+        <h3>3.8 同类平台与延伸用途</h3>
+        <ul>
+            <li><strong>同类任务平台</strong>（操作逻辑相同）：Freelancer、Fiverr</li>
+            <li><strong>LinkedIn 也能用</strong>，但范围太广，任务没有 Upwork 那么精准</li>
+            <li><strong>Upwork 的衍生用途 —— 选品调研</strong>：对于尚无明确选品的个人 SOHO 外贸，可以用"中国采购经理"作为关键词搜索，反过来了解市场上哪些品类有真实采购需求</li>
+        </ul>
+    </div>
+</section>
+
+<!-- ============ Section 4：渠道三 TikTok ============ -->
+<section class="section" id="sec-tiktok">
+    <h2>四、第三渠道：TikTok 获客（最长期 · 免费 · 1-4 周见效）</h2>
+
+    <div class="channel-card">
+        <h3>渠道三 · TikTok B 端获客</h3>
+        <p><strong>定位：</strong>通过 TikTok 短视频，把工厂肌肉完整展示出去，让全球 B 端买家主动来找你询盘。<strong>免费</strong>、<strong>长期</strong>、一次发布、持续询盘。</p>
+
+        <h3>4.1 课程定位与目标</h3>
+        <ul>
+            <li><strong>课程主题</strong>：搭建 TikTok 账号，包括装修、账号设置、简介名称等</li>
+            <li><strong>明确目的</strong>：<strong>B 端获客</strong>，而不是跨境电商（C 端生意）</li>
+            <li><strong>核心逻辑</strong>：B 端获客需要把工厂或产品完整展示出去，要"秀出你的肌肉"</li>
+            <li><strong>画面要求</strong>：画面清晰、表达清楚很重要</li>
+            <li><strong>最终目标</strong>：<strong>不是要大流量，而是要拿到询盘（inquiry/lead）</strong></li>
+        </ul>
+
+        <h3>4.2 第一步：搭建完整稳定的网络环境</h3>
+        <ul>
+            <li><strong>必须使用科学上网软件</strong>，必须支持电脑端和手机端</li>
+            <li><strong>IP 节点选择原则</strong>：
+                <ul>
+                    <li>目标客户是美国市场 → 用美国的链接（节点）</li>
+                    <li>目标客户是其他市场 → 用其他对应市场的链接</li>
+                    <li><strong>重要原则：不要随意跳节点</strong>，"定"下来</li>
+                    <li>每次登录都用<strong>同一个 IP 链接</strong></li>
+                </ul>
+            </li>
+            <li>老 Z 在结尾再次强调：第一，IP 地址、科学上网的 IP 地址不要改动</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>⚠️ 新手常踩坑：</strong>很多新手会随意切换不同国家 IP，导致账号被风控。一定要<strong>定下来</strong>，每次都用同一个 IP。
+        </div>
+
+        <h3>4.3 账号名称与简介设置</h3>
+
+        <h4>① 账号名字</h4>
+        <ul>
+            <li>与<strong>工厂</strong>相关</li>
+            <li>或与<strong>主要产品</strong>相关</li>
+            <li>或与<strong>品牌</strong>相关</li>
+        </ul>
+
+        <h4>② 简介写法（核心原则）</h4>
+        <ul>
+            <li>时刻记住自己是 B 端获客</li>
+            <li>需要<strong>很直白</strong>地告诉对方</li>
+            <li>课件里有"<strong>万能模板</strong>"，可截图保存</li>
+            <li>参考方法：看做得比较好的账号是怎么写的</li>
+        </ul>
+
+        <h4>③ 优秀账号案例分析</h4>
+        <p>老 Z 展示了一个做微型电脑的优秀账号，特征如下：</p>
+        <ul>
+            <li>界面整洁</li>
+            <li>是做微型电脑的</li>
+            <li>邮箱和 WhatsApp 一目了然</li>
+            <li>视频内容落落大方</li>
+            <li>视频内容示例："这是我们的工厂做迷你电脑的"</li>
+            <li>留言区真实询盘：
+                <ul>
+                    <li>"How can I be your agent? I have a lot of the business still."</li>
+                    <li>询问"最少的起订量是多少"</li>
+                    <li>询问怎么当他的经销商，说有许多生意可以介绍</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>4.4 视频内容类型与方向</h3>
+        <p>老 Z 展示了多个优秀案例，视频内容类型归纳如下：</p>
+
+        <table class="kb-table">
+            <thead>
+                <tr>
+                    <th>类型</th>
+                    <th>说明</th>
+                    <th>效果</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>工厂生产线实拍</td>
+                    <td>大部分内容就是拍自己的工厂生产线</td>
+                    <td>主要内容来源</td>
+                </tr>
+                <tr>
+                    <td>工厂实景拍摄</td>
+                    <td>站在自己工厂实景拍摄</td>
+                    <td>播放量都不少，点赞 900+，部分视频点赞过几千</td>
+                </tr>
+                <tr>
+                    <td>员工介绍产品</td>
+                    <td>员工出镜介绍自己的产品</td>
+                    <td>建立真实感</td>
+                </tr>
+                <tr>
+                    <td>仓库拍摄</td>
+                    <td>比如宠物用品行业，在仓库拍好即可</td>
+                    <td>展示库存实力</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <p><strong>完整视频内容的标准</strong>：</p>
+        <ul>
+            <li>展示工厂</li>
+            <li>展示产品</li>
+            <li>留联系方式</li>
+            <li>引发 B 端客户询盘（代理、起订量等）</li>
+        </ul>
+
+        <h3>4.5 展示工厂实力的万能公式</h3>
+        <p>课件里提供的<strong>万能公式</strong>示例：</p>
+        <div class="tip-box">
+            <strong>模板</strong>（直接拍自己的工厂，英文表达如下）：<br>
+            "We are reliable <strong>manufacturing</strong> in China."<br>
+            "We have ten years more than ten years production experience."
+        </div>
+        <p><strong>核心</strong>：展示工厂实力、生产经验年限等。</p>
+        <p>课件详细说明了镜头怎么运用、剪辑方式怎么写（购买完整外贸课程的朋友可随时观看、随时查看）。</p>
+
+        <h3>4.6 语言与拍摄灵活性</h3>
+        <div class="tip-box">
+            <strong>📌 英语不好也没关系：</strong>可以用<strong>中文拍摄 + 配英文字幕</strong>的方式。有些视频就是讲的中文、配的英文字幕。<strong>重点不是语言，重点是表达出你需要展示的内容</strong>。
+        </div>
+
+        <h3>4.7 发布视频操作流程</h3>
+        <p>TikTok 发布方式与抖音几乎一致，操作步骤如下：</p>
+        <ol>
+            <li><strong>进入发布页面</strong>：点击发布视频</li>
+            <li><strong>选择视频</strong>：选择上传一个视频</li>
+            <li><strong>视频上传后设置</strong>：
+                <ul>
+                    <li>可以<strong>预约发布</strong></li>
+                    <li>标题</li>
+                    <li>话题（#hashtag）</li>
+                </ul>
+            </li>
+            <li><strong>关键注意事项 - 话题写法</strong>：
+                <ul>
+                    <li><strong>标题必须写英文</strong></li>
+                    <li><strong>井号话题（#hashtag）不需要写空格</strong></li>
+                    <li>示例：<code>#chinese factory</code></li>
+                    <li>贴上热门的标题即可</li>
+                </ul>
+            </li>
+            <li>最后点击发布</li>
+        </ol>
+
+        <div class="warning-box">
+            <strong>⚠️ 井号话题不带空格：</strong>与 Twitter 等平台习惯不同，是 TikTok 特有规则。示例 <code>#chinese factory</code> 是错误写法，正确写法是 <code>#chinese</code> <code>#factory</code> 或 <code>#chinesefactory</code>。
+        </div>
+
+        <h3>4.8 海外自媒体的三大坑（必避）</h3>
+        <p>老 Z 在课程末尾强调总结，海外自媒体运营的三大关键点：</p>
+
+        <h4>坑 1：IP 地址不要改动</h4>
+        <p>科学上网的 IP 地址不要改动，与前文呼应，强调稳定性的重要性。</p>
+
+        <h4>坑 2：发布时间</h4>
+        <p>在教学文案里有推荐的发布时间，需要根据目标市场时区合理安排。</p>
+
+        <h4>坑 3：剪辑软件的选择（核心坑点）</h4>
+        <ul>
+            <li><strong>必须用海外版的剪映（CapCut）</strong></li>
+            <li><strong>千万不要用国内的剪映</strong></li>
+            <li><strong>原因</strong>：版权问题。用国内剪映配的音乐或文字，无法在海外正常播放，会导致视频可能没有声音</li>
+            <li><strong>CapCut = 海外剪映</strong>，专门为 TikTok 设计，无版权问题</li>
+        </ul>
+
+        <div class="warning-box">
+            <strong>⚠️ 剪辑软件版权问题：</strong>国内剪映的音乐/字体在海外无法播放，必须用 CapCut。
+        </div>
+
+        <h3>4.9 关键数据与执行节奏</h3>
+        <table class="kb-table">
+            <thead>
+                <tr>
+                    <th>维度</th>
+                    <th>数值/操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>目标</td>
+                    <td>B 端获客（拿到询盘），不是 C 端卖货</td>
+                </tr>
+                <tr>
+                    <td>剪辑软件</td>
+                    <td><strong>CapCut（海外版）</strong>，不要用国内剪映</td>
+                </tr>
+                <tr>
+                    <td>话题写法</td>
+                    <td>英文 + 井号无空格</td>
+                </tr>
+                <tr>
+                    <td>更新频率</td>
+                    <td>每 2-3 天更新</td>
+                </tr>
+                <tr>
+                    <td>语言</td>
+                    <td>不会英语可用中文字幕</td>
+                </tr>
+                <tr>
+                    <td>IP 节点</td>
+                    <td><strong>不要改动</strong>，每次用同一个 IP</td>
+                </tr>
+                <tr>
+                    <td>见效周期</td>
+                    <td>1-4 周（长期沉淀型）</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ============ Section 5：渠道四 FB+Ins+YouTube ============ -->
+<section class="section" id="sec-fb-ins-yt">
+    <h2>五、第四渠道：Facebook + Instagram + YouTube（最大覆盖 · 免费 · 1-2 周见效）</h2>
+
+    <div class="channel-card">
+        <h3>渠道四 · FB + Ins + YouTube 多平台获客</h3>
+        <p><strong>定位：</strong>Facebook（批发商群 + Marketplace）+ Instagram（联通 FB）+ YouTube（长视频）的<strong>多平台组合</strong>，覆盖人群最广，适合快速起量。</p>
+
+        <h3>5.1 Facebook 平台定位与价值</h3>
+        <p>Facebook 在外贸 B 端获客中<strong>用途非常广泛</strong>：</p>
+        <ul>
+            <li><strong>第一个作用</strong>：<strong>展示自己，开发客户</strong></li>
+            <li>Facebook 拥有<strong>非常多的批发商群</strong>，包括<strong>华人群</strong>，能够帮外贸人<strong>快速拿到链接和订单</strong></li>
+        </ul>
+
+        <h3>5.2 Facebook 账号搭建步骤（Step 1：基础建设）</h3>
+        <p>核心要素：</p>
+        <ol>
+            <li>与其他自媒体账号搭建方式相同</li>
+            <li><strong>名称</strong>：明确自己的品牌/人设</li>
+            <li><strong>简介（Profile）</strong>：必须写清楚两个核心点
+                <ul>
+                    <li><strong>联系方式</strong>（方便客户直接联系到你）</li>
+                    <li><strong>产品特点</strong>（差异化卖点）</li>
+                </ul>
+            </li>
+        </ol>
+        <p>课程配套文件中有详细的简介写法模板。</p>
+
+        <h3>5.3 Facebook 进群实操（核心获客动作）</h3>
+
+        <h4>① 进入小组（Group）入口</h4>
+        <p>在 Facebook 首页找到<strong>"小组"</strong>入口。</p>
+
+        <h4>② 搜索目标群组</h4>
+        <p><strong>案例</strong>：以"汽车零件"为例。操作步骤：</p>
+        <ol>
+            <li>在搜索框输入<strong>关键词</strong>（如"汽车零件"）</li>
+            <li>点击搜索，会出现大量相关群组</li>
+        </ol>
+        <p><strong>群组覆盖国家</strong>：</p>
+        <ul>
+            <li>马来西亚</li>
+            <li>新加坡</li>
+            <li>泰国</li>
+            <li>香港</li>
+            <li>各式各样的群，<strong>成员数量很多</strong></li>
+        </ul>
+
+        <h4>③ 精准找批发区 —— 关键词方法</h4>
+        <p><strong>课程文件中的关键词示例</strong>：</p>
+        <ul>
+            <li><code>home sale group</code></li>
+            <li><code>euro</code>（欧洲批发相关）</li>
+            <li>其他相关批发群关键词</li>
+        </ul>
+        <div class="tip-box">
+            <strong>📌 中文找华人批发商：</strong>直接用<strong>中文搜索进群</strong>，可以让你了解到<strong>很多行业内的资讯</strong>。通过华人批发商群，可以了解行业动态 + 找到潜在合作。
+        </div>
+
+        <h4>④ 进群后的正确动作（反直觉但关键）</h4>
+        <div class="warning-box">
+            <strong>❌ 不推荐：</strong>进群后<strong>盲目去发布自己的广告信息</strong>。
+        </div>
+        <p><strong>✅ 推荐 SOP：</strong></p>
+        <ol>
+            <li><strong>先看一看</strong>：观察群内动态</li>
+            <li><strong>筛选成员</strong>：识别哪些是<strong>采购商</strong></li>
+            <li><strong>去评论别人的言论</strong>：在群内其他成员发布的内容下面互动</li>
+            <li><strong>先聊一聊</strong>：建立初步链接，再逐步推进</li>
+        </ol>
+
+        <h3>5.4 Facebook 发布内容操作</h3>
+        <p><strong>发布视频/图片</strong>路径：</p>
+        <ul>
+            <li>点击自己的主页 → 点击 <strong>Reel</strong>（发视频）/ 照片（发图片）</li>
+            <li>位置：Reels 这里点击 <strong>创建新的</strong></li>
+            <li>特点：跟发布国内短视频平台一样，<strong>不做过多介绍</strong></li>
+        </ul>
+
+        <p><strong>日常运营节奏</strong>：</p>
+        <ul>
+            <li>海外自媒体跟国内自媒体一样——<strong>慢慢做</strong></li>
+            <li><strong>每天都登录一下，看一下</strong></li>
+            <li><strong>每隔两三天</strong>更新一次视频或文案</li>
+            <li><strong>核心原则</strong>：保持账号活跃度</li>
+        </ul>
+
+        <h3>5.5 Instagram 平台操作</h3>
+        <ul>
+            <li>Instagram 也有 <strong>Reels</strong> 功能</li>
+            <li><strong>关键优势</strong>：与 <strong>Facebook 联通</strong>，两个平台<strong>可以同步发布</strong></li>
+            <li><strong>运营建议</strong>：内容一次制作，多平台分发</li>
+        </ul>
+
+        <h3>5.6 YouTube 平台操作</h3>
+        <ul>
+            <li>YouTube 的特点跟 <strong>B 站</strong>有点像</li>
+            <li><strong>内容形式</strong>：
+                <ul>
+                    <li><strong>长视频</strong>（主要形式）</li>
+                    <li>也可以发<strong>短视频</strong>（Shorts）</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h3>5.7 多平台运营策略</h3>
+
+        <h4>阶段 1：起步期</h4>
+        <ul>
+            <li><strong>策略</strong>：<strong>几个平台同步发送</strong>即可</li>
+            <li><strong>原因</strong>：节省内容生产成本，最大化覆盖</li>
+        </ul>
+
+        <h4>阶段 2：成熟期</h4>
+        <ul>
+            <li><strong>策略</strong>：<strong>精品化运营</strong></li>
+            <li><strong>做法</strong>：每个平台<strong>发送不同的内容</strong>，做差异化</li>
+        </ul>
+        <p>更多的操作细节在<strong>课件文案</strong>中，包含每一天怎么去运营的具体方法。</p>
+
+        <h3>5.8 Facebook Marketplace 功能（小众但有用）</h3>
+
+        <h4>功能介绍</h4>
+        <ul>
+            <li>Facebook 有一个小功能叫 <strong>Marketplace</strong></li>
+            <li><strong>本意</strong>：让个人去卖一些二手产品</li>
+            <li><strong>外贸用途</strong>：在上面发布自己的产品信息</li>
+        </ul>
+
+        <h4>操作步骤</h4>
+        <ol>
+            <li>在 Facebook 搜索 <strong>Marketplace</strong></li>
+            <li>进入后发布自己的产品信息</li>
+            <li><strong>标签（关键）</strong>：在标签里写清楚以下关键词：
+                <ul>
+                    <li><code>home sale</code></li>
+                    <li><code>importer</code></li>
+                    <li><code>factory Price</code></li>
+                    <li><code>地点</code>（在哪里）</li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>📌 Marketplace 标签四件套：</strong><code>home sale</code> + <code>importer</code> + <code>factory Price</code> + <code>地点</code>。这四个标签是 Marketplace 上买家搜索的锚点。
+        </div>
+
+        <h3>5.9 关键数据与执行节奏</h3>
+        <table class="kb-table">
+            <thead>
+                <tr>
+                    <th>平台</th>
+                    <th>核心动作</th>
+                    <th>关键标签/内容</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Facebook</td>
+                    <td>批发商群 + 华人群 + Marketplace</td>
+                    <td>home sale group / euro / 中文搜索</td>
+                </tr>
+                <tr>
+                    <td>Instagram</td>
+                    <td>与 Facebook 联通，同步发 Reels</td>
+                    <td>Reels 短视频</td>
+                </tr>
+                <tr>
+                    <td>YouTube</td>
+                    <td>长视频为主，可发 Shorts</td>
+                    <td>工厂实拍、生产线</td>
+                </tr>
+                <tr>
+                    <td>Marketplace</td>
+                    <td>发布产品信息 + 四件套标签</td>
+                    <td>home sale / importer / factory Price / 地点</td>
+                </tr>
+                <tr>
+                    <td>运营节奏</td>
+                    <td>每天登录，每 2-3 天更新</td>
+                    <td>起步多平台同步，成熟精品化</td>
+                </tr>
+                <tr>
+                    <td>见效周期</td>
+                    <td>1-2 周</td>
+                    <td>中短周期</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div class="case-box">
+            <strong>📖 真实场景举例：</strong>进入一个"汽车零件批发群" → 先看看群里谁在找货（识别采购商）→ 给对方的帖子评论互动 → 私聊建立链接 → 引导到 WhatsApp。整个过程不花一分钱。
+        </div>
+    </div>
+</section>
+
+<!-- ============ Section 6：渠道五 LinkedIn ============ -->
+<section class="section" id="sec-linkedin">
+    <h2>六、第五渠道：LinkedIn 获客（最高质量 · 免费 · 3-6 月见效）</h2>
+
+    <div class="channel-card">
+        <h3>渠道五 · LinkedIn B 端决策人获客</h3>
+        <p><strong>定位：</strong>LinkedIn 是<strong>链接大的连锁公司</strong>（大品牌、大厂商）的 B 端获客平台。当公司想跟大连锁公司、大品牌合作时，LinkedIn 是<strong>直接联系到这些大厂商的决策者或领导层</strong>的优质工具。客户质量最高，但见效周期最长（3-6 月）。</p>
+
+        <h3>6.1 平台定位与价值</h3>
+        <p><strong>核心作用</strong>：</p>
+        <ul>
+            <li>领英是一个能够帮助外贸人去<strong>链接大的连锁公司</strong>（大品牌、大厂商）的 B 端获客平台</li>
+            <li>当公司已经逐渐步入正轨、想跟大连锁公司、大品牌合作时，领英是<strong>直接联系到这些大厂商的决策者或领导层</strong>的优质工具</li>
+            <li>平台的关键点就是<strong>帮你找到决策人</strong>，例如 Project Manager、Supply Chain Leader 等重要岗位的人</li>
+        </ul>
+
+        <p><strong>适用人群与投入建议</strong>：</p>
+        <ul>
+            <li>适合<strong>中小企业刚起步</strong>的老板把账号培养起来</li>
+            <li>不需要花太多精力，<strong>每个礼拜花 2-30 分钟</strong>即可</li>
+            <li>平台特点：偏长期人脉积累型，适合做"决策人链接"</li>
+        </ul>
+
+        <h3>6.2 领英账号搭建步骤（Step 1：打造人设）</h3>
+
+        <h4>① 注册前准备</h4>
+        <ul>
+            <li><strong>网络环境</strong>：与外网自媒体平台一致，需要<strong>科学上网</strong>注册</li>
+            <li>注册完成后完善个人简介等基础信息</li>
+        </ul>
+
+        <h4>② 内容发布节奏</h4>
+        <ul>
+            <li><strong>频率</strong>：每天发，或隔 2-3 天发一篇</li>
+            <li><strong>形式</strong>：文章或视频均可</li>
+            <li><strong>懒人方案</strong>：如果是老板自己操作，可以把<strong>自媒体上发布的视频同步发到领英上</strong></li>
+            <li><strong>核心原则</strong>：最好在领英平台发布你的产品、行业相关的专业内容，<strong>越专业越好</strong></li>
+        </ul>
+
+        <h4>③ 简介（Profile）写法</h4>
+        <p>简介要写清楚以下几个要素：</p>
+        <ul>
+            <li><strong>抬头</strong>（Title）</li>
+            <li><strong>你的工厂</strong>（所属公司）</li>
+            <li><strong>你生产什么东西</strong>（产品/服务）</li>
+            <li><strong>你的特点是什么</strong>（差异化卖点）</li>
+        </ul>
+
+        <h3>6.3 领英客户搜索实操（以 Foster + Partners 为例）</h3>
+
+        <h4>① 搜索目标公司</h4>
+        <p><strong>场景设定</strong>：做玻璃产品，想跟全球知名建筑设计单位/公司合作。</p>
+        <p><strong>目标公司示例</strong>：<strong>Foster and Partners（福斯特建筑事务所）</strong>。</p>
+        <p><strong>操作步骤</strong>：</p>
+        <ol>
+            <li>直接在领英搜索框输入公司名字</li>
+            <li>点开公司主页（公司账号）</li>
+            <li>点击 <strong>"会员"（People）</strong> 标签——这是公司账号对用户的最大用处</li>
+        </ol>
+
+        <h4>② 筛选目标地区员工</h4>
+        <p>点击会员后，可以看到该公司 1000-5000 个员工列表。系统提供<strong>地区分类筛选</strong>：</p>
+        <ul>
+            <li>想开发美国市场 → 点 <strong>United States</strong></li>
+            <li>想开发英国市场 → 点 <strong>United Kingdom</strong>（讲师本人目标市场示例）</li>
+        </ul>
+        <p>筛选后，下方"猜你认识"区域会列出<strong>该公司在该地区的员工</strong>。</p>
+
+        <h4>③ 识别决策人与关键岗位</h4>
+        <p>每个员工页面都有写明<strong>工作岗位</strong>。案例：</p>
+        <ul>
+            <li>一位是"建筑学的助理"</li>
+            <li>另一位是 Foster + Partners 的<strong>联合合伙人（Co-Partner）</strong>——这类高管/合伙人是重点链接对象</li>
+        </ul>
+
+        <h3>6.4 添加好友的正确方式（核心 SOP）</h3>
+
+        <div class="warning-box">
+            <strong>❌ 不推荐的做法：</strong><strong>直接发消息</strong>。会显得很突兀，对方会觉得唐突。讲师明确说"我不是很推荐"。
+        </div>
+
+        <h4>✅ 推荐做法：通过内容互动建立链接</h4>
+        <p><strong>互动三步法</strong>：</p>
+        <ol>
+            <li><strong>先关注对方</strong>（点击关注按钮）</li>
+            <li><strong>看对方的帖子</strong>——找到对方发布的内容</li>
+            <li><strong>在帖子下面评论/留言</strong>
+                <ul>
+                    <li>给对方的帖子写评论</li>
+                    <li>也在对方<strong>写给别人的评论</strong>下面互动</li>
+                    <li>通过评论区<strong>多次产生链接</strong></li>
+                </ul>
+            </li>
+        </ol>
+
+        <div class="tip-box">
+            <strong>📌 底层逻辑：</strong>通过内容互动建立"认识感"，再加好友/发消息时通过率会大幅提升。
+        </div>
+
+        <h3>6.5 第二种获客方式：直接找采购经理</h3>
+        <p><strong>操作路径</strong>：</p>
+        <ol>
+            <li>仍然以 Foster + Partners 为例</li>
+            <li>点击 <strong>"会员"</strong> 或 <strong>"类别"</strong> 标签</li>
+            <li>使用<strong>筛选条件</strong>：输入目标公司名称（例如 Google）</li>
+            <li>在搜索结果中筛选<strong>采购经理（Purchasing Manager）</strong>相关岗位</li>
+            <li>对找到的人采取同样的动作：
+                <ul>
+                    <li>点击"关注"</li>
+                    <li>点击"加好友"</li>
+                    <li>看对方帖子互动</li>
+                    <li>通过帖子与对方建立链接</li>
+                </ul>
+            </li>
+        </ol>
+
+        <h3>6.6 加好友话术与通过率</h3>
+        <div class="warning-box">
+            <strong>⚠️ 关键数据：</strong><strong>直接加好友不写备注，通过率比较低</strong>。
+        </div>
+        <p><strong>解决方案</strong>：</p>
+        <ul>
+            <li>加好友时<strong>写一段备注（Note）</strong></li>
+            <li>文案包内有<strong>万能备注模板</strong>，可以直接套用</li>
+            <li>（具体模板内容需参考配套教科文案）</li>
+        </ul>
+
+        <h3>6.7 内容等待策略（被动获客）</h3>
+        <p><strong>反向操作</strong>：你也可以自己<strong>主动发帖子</strong>，等待潜在客户主动来联系你。这是一种"被动获客"思路，要求持续输出专业内容。</p>
+
+        <h3>6.8 关键数据与执行节奏</h3>
+        <table class="kb-table">
+            <thead>
+                <tr>
+                    <th>维度</th>
+                    <th>数值/操作</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>平台定位</td>
+                    <td>链接大 B 客户决策人的 B 端获客渠道</td>
+                </tr>
+                <tr>
+                    <td>账号搭建</td>
+                    <td>科学上网 + 完整简介（Title/工厂/产品/特点）+ 持续输出专业内容</td>
+                </tr>
+                <tr>
+                    <td>客户搜索</td>
+                    <td>搜公司 → 看会员 → 筛地区 → 看岗位</td>
+                </tr>
+                <tr>
+                    <td>加好友 SOP</td>
+                    <td>关注 → 看帖 → 评论互动 → 加好友（带备注模板）</td>
+                </tr>
+                <tr>
+                    <td>投入建议</td>
+                    <td>2-30 分钟/周</td>
+                </tr>
+                <tr>
+                    <td>见效周期</td>
+                    <td>3-6 个月（长周期人脉沉淀型）</td>
+                </tr>
+                <tr>
+                    <td>客户类型</td>
+                    <td>大 B 客户（大连锁公司、大品牌、知名设计/建筑单位）</td>
+                </tr>
+                <tr>
+                    <td>与其他渠道配合</td>
+                    <td>可与视频自媒体内容复用（同步发到领英），降低内容生产成本</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h3>6.9 踩坑提示（讲师明确点出的反例）</h3>
+        <table class="kb-table">
+            <thead>
+                <tr>
+                    <th>坑点</th>
+                    <th>正确做法</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>直接发消息给陌生人</td>
+                    <td>先在评论区互动多次再建联</td>
+                </tr>
+                <tr>
+                    <td>加好友不写备注</td>
+                    <td>套用文案包内的万能模板</td>
+                </tr>
+                <tr>
+                    <td>把领英当主战场猛攻</td>
+                    <td>每周仅需 2-30 分钟，长期培养</td>
+                </tr>
+                <tr>
+                    <td>只找低级别员工</td>
+                    <td>优先锁定合伙人、采购经理等决策人</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</section>
+
+<!-- ============ Section 7：组合打法 ============ -->
+<section class="section" id="sec-combo">
+    <h2>七、5 大渠道组合打法建议（老 Z 推荐搭配）</h2>
+    <p>5 个渠道不是孤立使用，老 Z 在课程里反复强调"组合拳"。下面是根据投入产出比+见效周期，给出的<strong>三套搭配方案</strong>。</p>
+
+    <h3>7.1 方案 A：SOHO / 个人外贸（资金少、要快速出单）</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>优先级</th>
+                <th>渠道</th>
+                <th>投入</th>
+                <th>作用</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>① 主攻</td>
+                <td><strong>Google Maps</strong></td>
+                <td>每天 1 小时</td>
+                <td>当天 50 条线索，迅速建池</td>
+            </tr>
+            <tr>
+                <td>② 主攻</td>
+                <td><strong>Upwork 黑科技</strong></td>
+                <td>每天 $1.5-$15</td>
+                <td>每天 10-50 条精准 B 端询盘</td>
+            </tr>
+            <tr>
+                <td>③ 辅助</td>
+                <td><strong>FB + Ins</strong></td>
+                <td>每 2-3 天 1 条 Reels</td>
+                <td>1-2 周内获得批发商群反馈</td>
+            </tr>
+            <tr>
+                <td>④ 备用</td>
+                <td>LinkedIn</td>
+                <td>每周 10 分钟</td>
+                <td>长期积累，3-6 月后见效</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>7.2 方案 B：工厂型外贸（有产品、有产能、要突破大客户）</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>优先级</th>
+                <th>渠道</th>
+                <th>投入</th>
+                <th>作用</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr>
+                <td>① 主攻</td>
+                <td><strong>LinkedIn</strong></td>
+                <td>每周 2-30 分钟</td>
+                <td>直接对话大 B 决策人、合伙人、采购经理</td>
+            </tr>
+            <tr>
+                <td>② 主攻</td>
+                <td><strong>TikTok</strong></td>
+                <td>每 2-3 天 1 条工厂实拍</td>
+                <td>被动获客，1-4 周持续询盘</td>
+            </tr>
+            <tr>
+                <td>③ 主攻</td>
+                <td><strong>Google Maps</strong></td>
+                <td>每天 1 小时</td>
+                <td>扩展新区域市场（中东、欧洲）</td>
+            </tr>
+            <tr>
+                <td>④ 辅助</td>
+                <td>Upwork 黑科技</td>
+                <td>每天 $15</td>
+                <td>针对主动找中国采购经理的客户</td>
+            </tr>
+            <tr>
+                <td>⑤ 辅助</td>
+                <td>YouTube</td>
+                <td>每 2 周 1 条长视频</td>
+                <td>深度展示工厂实力</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>7.3 方案 C：内容团队型（3 人以上、有运营资源）</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>优先级</th>
+                <th>渠道</th>
+                <th>投入</th>
+                <th>作用</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr>
+                <td>① 主攻</td>
+                <td><strong>TikTok + Ins + FB 联动</strong></td>
+                <td>每天 1 条短视频</td>
+                <td>短视频矩阵，多平台同步</td>
+            </tr>
+            <tr>
+                <td>② 主攻</td>
+                <td><strong>YouTube 长视频</strong></td>
+                <td>每周 1 条工厂纪录片</td>
+                <td>深度内容，建立品牌权威</td>
+            </tr>
+            <tr>
+                <td>③ 主攻</td>
+                <td><strong>Google Maps</strong></td>
+                <td>每天 1 小时</td>
+                <td>本地化客户池</td>
+            </tr>
+            <tr>
+                <td>④ 主攻</td>
+                <td><strong>Upwork 黑科技</strong></td>
+                <td>每天 $15</td>
+                <td>精准 B 端主动询盘</td>
+            </tr>
+            <tr>
+                <td>⑤ 辅助</td>
+                <td>LinkedIn</td>
+                <td>每周 30 分钟</td>
+                <td>大 B 决策人长期链接</td>
+            </tr>
+            <tr>
+                <td>⑥ 辅助</td>
+                <td>FB Marketplace</td>
+                <td>每 3 天 1 条</td>
+                <td>产品曝光补充</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>7.4 内容复用：一次拍摄，五平台分发</h3>
+    <p>老 Z 在课程里反复提到："<strong>把自媒体上发布的视频同步发到领英上</strong>"、"FB 和 Ins 联通，可同步发布"。这就是<strong>内容复用</strong>的精髓：</p>
+    <ul>
+            <li><strong>核心内容</strong>：拍一条 1 分钟的工厂实拍（生产线、员工、仓库、产品）</li>
+            <li><strong>第一次剪辑</strong>：用 CapCut 剪辑（保留 TikTok 竖屏）</li>
+            <li><strong>分发到 TikTok</strong>：竖屏，加英文标题和 hashtag</li>
+            <li><strong>二次剪辑</strong>：加上中文字幕或英文 SRT</li>
+            <li><strong>分发到 FB + Ins</strong>：通过联通账号同步发布（Reels）</li>
+            <li><strong>三次剪辑</strong>：把内容扩展到 3-5 分钟</li>
+            <li><strong>分发到 YouTube</strong>：长视频 + Shorts</li>
+            <li><strong>四次剪辑</strong>：配上文字观点</li>
+            <li><strong>分发到 LinkedIn</strong>：图文长贴</li>
+        </ul>
+
+    <div class="tip-box">
+        <strong>📌 一次拍摄、五平台分发：</strong>这就是起步期<strong>节省内容生产成本</strong>的实操诀窍。等业务稳定后，再做差异化精品化运营。
+    </div>
+
+    <h3>7.5 转化路径统一收口：WhatsApp</h3>
+    <p>无论从哪个渠道来的客户，最终都建议<strong>统一引导到 WhatsApp</strong> 完成后续跟进：</p>
+    <ul>
+            <li><strong>Google Maps</strong>：拿到电话后加 WhatsApp</li>
+            <li><strong>Upwork 黑科技</strong>：申请 → Message → 线上会议 → 引导加 What's App</li>
+            <li><strong>TikTok</strong>：询盘 → WhatsApp/邮箱沟通</li>
+            <li><strong>FB/Ins/YouTube</strong>：评论互动 → 私聊 → 引导加 WhatsApp</li>
+            <li><strong>LinkedIn</strong>：评论互动 → 加好友 → 引导加 WhatsApp</li>
+        </ul>
+
+    <div class="warning-box">
+        <strong>⚠️ 平台不能直接引流私域：</strong>特别是 Upwork 和 LinkedIn，<strong>不能直接放微信号</strong>（容易被封号）。必须通过"申请 → Message → 会议"或"评论互动 → 加好友"的流程，自然过渡到 WhatsApp。
+    </div>
+</section>
+
+<!-- ============ Section 8：本节核心要点回顾表 ============ -->
+<section class="section" id="sec-summary">
+    <h2>八、本节核心要点回顾表</h2>
+    <p>下面这张表，是本章<strong>5 篇原始文档的所有核心知识点的浓缩版</strong>。建议收藏，反复对照。</p>
+
+    <h3>8.1 五渠道核心数据汇总</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>#</th>
+                <th>核心要点</th>
+                <th>关键数据 / 操作</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1</td>
+                <td>Google Maps 关键词公式</td>
+                <td>产品英文 + <code>wholesale / importer / distribute</code></td>
+            </tr>
+            <tr>
+                <td>2</td>
+                <td>Google Maps 客户获取效率</td>
+                <td>1 小时 ≈ <strong>50 条</strong>有用客户信息</td>
+            </tr>
+            <tr>
+                <td>3</td>
+                <td>Google Maps 演示区域</td>
+                <td>美国洛杉矶/长滩 → 中东迪拜/卡塔尔/UAE</td>
+            </tr>
+            <tr>
+                <td>4</td>
+                <td>Upwork 黑科技本质</td>
+                <td>反向"应聘"任务 → 借此接触<strong>真实 B 端需求方</strong></td>
+            </tr>
+            <tr>
+                <td>5</td>
+                <td>Upwork 入口平台</td>
+                <td>Upwork（主推）/ Freelancer / Fiverr</td>
+            </tr>
+            <tr>
+                <td>6</td>
+                <td>Upwork 注册方式</td>
+                <td>谷歌邮箱 + 简单工厂信息</td>
+            </tr>
+            <tr>
+                <td>7</td>
+                <td>Upwork 关键词公式</td>
+                <td><code>[品类] + China</code> 或宽泛搜"<strong>中国采购经理</strong>"</td>
+            </tr>
+            <tr>
+                <td>8</td>
+                <td>Upwork Connect 消耗</td>
+                <td>单任务 11 / 15 个 Connect</td>
+            </tr>
+            <tr>
+                <td>9</td>
+                <td>Upwork Connect 价格</td>
+                <td>10 个 = $1.5 / 100 个 = $15</td>
+            </tr>
+            <tr>
+                <td>10</td>
+                <td>Upwork 求职信核心句</td>
+                <td>"看到你还在苦苦寻找中国采购经理，可以看我们工厂信息"</td>
+            </tr>
+            <tr>
+                <td>11</td>
+                <td>Upwork 必加附件</td>
+                <td>产品宣传册 + 产品视频</td>
+            </tr>
+            <tr>
+                <td>12</td>
+                <td>Upwork 转化路径</td>
+                <td>申请 → Message 回复 → 线上会议 → What's App 私域</td>
+            </tr>
+            <tr>
+                <td>13</td>
+                <td>Upwork 单条获客成本</td>
+                <td>≈ $1.5 美金（≈ <strong>10 元人民币</strong>）</td>
+            </tr>
+            <tr>
+                <td>14</td>
+                <td>Upwork 信任度证明</td>
+                <td>平台双向收费（发布方 + 应聘方都付费）</td>
+            </tr>
+            <tr>
+                <td>15</td>
+                <td>Upwork 真实任务案例 1</td>
+                <td><strong>宠物床</strong>（新加坡发布，$10-20/小时，11 Connect）</td>
+            </tr>
+            <tr>
+                <td>16</td>
+                <td>Upwork 真实任务案例 2</td>
+                <td><strong>LED 灯</strong>（"中国采购、需要 LED 灯面板"，15 Connect）</td>
+            </tr>
+            <tr>
+                <td>17</td>
+                <td>TikTok 目标</td>
+                <td>B 端获客（拿到询盘），不是 C 端卖货</td>
+            </tr>
+            <tr>
+                <td>18</td>
+                <td>TikTok 三大基础要求</td>
+                <td>稳定网络（同一 IP）+ 清晰画面 + 联系方式齐全</td>
+            </tr>
+            <tr>
+                <td>19</td>
+                <td>TikTok 内容方向</td>
+                <td>工厂实拍、员工介绍、产品展示、仓库拍摄</td>
+            </tr>
+            <tr>
+                <td>20</td>
+                <td>TikTok 运营三要素</td>
+                <td>稳定 IP、合理发布时间、<strong>CapCut 剪辑</strong></td>
+            </tr>
+            <tr>
+                <td>21</td>
+                <td>TikTok 表达原则</td>
+                <td>直白、清晰、英文优先（不会英语可用英文字幕）</td>
+            </tr>
+            <tr>
+                <td>22</td>
+                <td>TikTok 话题写法</td>
+                <td>英文 + 井号无空格（<code>#chinese factory</code> → <code>#chinesefactory</code>）</td>
+            </tr>
+            <tr>
+                <td>23</td>
+                <td>FB 价值</td>
+                <td>批发商群（含华人群）快速拿订单 + Marketplace 引流</td>
+            </tr>
+            <tr>
+                <td>24</td>
+                <td>FB 账号搭建</td>
+                <td>名称 + 简介（联系方式 + 产品特点）</td>
+            </tr>
+            <tr>
+                <td>25</td>
+                <td>FB 进群 SOP</td>
+                <td>搜关键词（进群）→ 看一看 → 筛采购商 → 评论互动</td>
+            </tr>
+            <tr>
+                <td>26</td>
+                <td>FB 关键词库</td>
+                <td><code>home sale group</code>、<code>euro</code>、中文搜索（华人批发）</td>
+            </tr>
+            <tr>
+                <td>27</td>
+                <td>Instagram</td>
+                <td>与 Facebook 联通，可同步发 Reels</td>
+            </tr>
+            <tr>
+                <td>28</td>
+                <td>YouTube</td>
+                <td>长视频为主，可发 Shorts</td>
+            </tr>
+            <tr>
+                <td>29</td>
+                <td>FB 多平台策略</td>
+                <td>起步同步发 → 成熟精品化</td>
+            </tr>
+            <tr>
+                <td>30</td>
+                <td>FB Marketplace</td>
+                <td>标签写 <code>home sale</code> / <code>importer</code> / <code>factory Price</code> / 地点</td>
+            </tr>
+            <tr>
+                <td>31</td>
+                <td>LinkedIn 平台定位</td>
+                <td>链接大 B 客户决策人的 B 端获客渠道</td>
+            </tr>
+            <tr>
+                <td>32</td>
+                <td>LinkedIn 账号搭建</td>
+                <td>科学上网 + 完整简介（Title/工厂/产品/特点）+ 持续输出专业内容</td>
+            </tr>
+            <tr>
+                <td>33</td>
+                <td>LinkedIn 客户搜索</td>
+                <td>搜公司 → 看会员 → 筛地区 → 看岗位</td>
+            </tr>
+            <tr>
+                <td>34</td>
+                <td>LinkedIn 加好友 SOP</td>
+                <td>关注 → 看帖 → 评论互动 → 加好友（带备注模板）</td>
+            </tr>
+            <tr>
+                <td>35</td>
+                <td>LinkedIn 投入建议</td>
+                <td>2-30 分钟/周，适合中小企业起步期培养</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>8.2 五大渠道踩坑提示（讲师明确点出的反例）</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>渠道</th>
+                <th>坑点</th>
+                <th>正确做法</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr>
+                <td>Google Maps</td>
+                <td>广交会群发失败（3000-4000 条群发后了无音讯）</td>
+                <td>用地图获取线索后写针对性开发信</td>
+            </tr>
+            <tr>
+                <td>Upwork</td>
+                <td>求职信写成真的"求职"语气</td>
+                <td>借求职的壳，<strong>露出工厂身份</strong>，让对方知道你是供应商</td>
+            </tr>
+            <tr>
+                <td>Upwork</td>
+                <td>平台直接引流私域（放微信号）</td>
+                <td>通过"申请 → Message → 会议"流程</td>
+            </tr>
+            <tr>
+                <td>TikTok</td>
+                <td>用国内剪映配音乐（版权问题导致无声音）</td>
+                <td><strong>必须用 CapCut（海外版剪映）</strong></td>
+            </tr>
+            <tr>
+                <td>TikTok</td>
+                <td>IP 地址随意切换</td>
+                <td>每次都用同一个 IP 节点</td>
+            </tr>
+            <tr>
+                <td>TikTok</td>
+                <td>井号话题写错（带空格）</td>
+                <td>英文 + 井号无空格</td>
+            </tr>
+            <tr>
+                <td>FB</td>
+                <td>进群后盲目发广告</td>
+                <td>先看一看，识别采购商，去评论别人的言论，先聊一聊</td>
+            </tr>
+            <tr>
+                <td>FB</td>
+                <td>只在 Facebook 单一平台运营</td>
+                <td>起步期多平台同步（FB+Ins+YouTube）</td>
+            </tr>
+            <tr>
+                <td>FB</td>
+                <td>起步就追求精品化</td>
+                <td>起步先同步发，成熟后再差异化</td>
+            </tr>
+            <tr>
+                <td>FB</td>
+                <td>简介只写产品不写联系方式</td>
+                <td>联系方式 + 产品特点必须都写清楚</td>
+            </tr>
+            <tr>
+                <td>LinkedIn</td>
+                <td>直接发消息给陌生人</td>
+                <td>先在评论区互动多次再建联</td>
+            </tr>
+            <tr>
+                <td>LinkedIn</td>
+                <td>加好友不写备注</td>
+                <td>套用文案包内的万能模板</td>
+            </tr>
+            <tr>
+                <td>LinkedIn</td>
+                <td>把领英当主战场猛攻</td>
+                <td>每周仅需 2-30 分钟，长期培养</td>
+            </tr>
+            <tr>
+                <td>LinkedIn</td>
+                <td>只找低级别员工</td>
+                <td>优先锁定合伙人、采购经理等决策人</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>8.3 投入产出比总览</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>渠道</th>
+                <th>货币成本</th>
+                <th>时间成本</th>
+                <th>预期回报</th>
+                <th>适合阶段</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Google Maps</td>
+                <td>0 元</td>
+                <td>1 小时 / 50 条</td>
+                <td>大量 B 端线索</td>
+                <td>新手起步</td>
+            </tr>
+            <tr>
+                <td>Upwork</td>
+                <td>$1.5-$15 / 天</td>
+                <td>30-60 分钟 / 天</td>
+                <td>高精准询盘</td>
+                <td>任何阶段（性价比最高）</td>
+            </tr>
+            <tr>
+                <td>TikTok</td>
+                <td>0 元</td>
+                <td>每 2-3 天 1 条</td>
+                <td>长期被动询盘</td>
+                <td>中长期沉淀</td>
+            </tr>
+            <tr>
+                <td>FB+Ins+YouTube</td>
+                <td>0 元</td>
+                <td>每天登录 + 每 2-3 天更新</td>
+                <td>批发商群反馈 + Marketplace 曝光</td>
+                <td>中短期起量</td>
+            </tr>
+            <tr>
+                <td>LinkedIn</td>
+                <td>0 元</td>
+                <td>每周 2-30 分钟</td>
+                <td>大 B 决策人</td>
+                <td>长期人脉沉淀</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>8.4 见效周期对比</h3>
+    <table class="kb-table">
+        <thead>
+            <tr>
+                <th>渠道</th>
+                <th>最快见效</th>
+                <th>稳定见效</th>
+                <th>回报峰值</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>Google Maps</td>
+                <td>当天</td>
+                <td>1 周</td>
+                <td>持续</td>
+            </tr>
+            <tr>
+                <td>Upwork</td>
+                <td>当天</td>
+                <td>1-3 天</td>
+                <td>持续</td>
+            </tr>
+            <tr>
+                <td>TikTok</td>
+                <td>1 周</td>
+                <td>1-4 周</td>
+                <td>持续</td>
+            </tr>
+            <tr>
+                <td>FB+Ins+YouTube</td>
+                <td>1-2 周</td>
+                <td>2-4 周</td>
+                <td>持续</td>
+            </tr>
+            <tr>
+                <td>LinkedIn</td>
+                <td>1 个月</td>
+                <td>3-6 个月</td>
+                <td>持续</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3>8.5 课程逻辑闭环图</h3>
+    <p>把五大渠道放在一起看，本章的逻辑闭环如下：</p>
+    <div class="tip-box">
+        <strong>📌 市场需求</strong>：老外找不到中国源头工厂 → 在 Upwork 付费发布"找中国采购经理"任务<br>
+        ↓<br>
+        <strong>黑科技逆向操作</strong>：中国工厂以"采购代理应聘者"身份 → 提交求职信 + 工厂宣传册/视频<br>
+        ↓<br>
+        <strong>Message 回复 → 线上会议</strong> → 引导加 What's App → 私域转化<br>
+        ↓<br>
+        <strong>单条成本 ≈ $1.5 美金 ≈ 10 元</strong>（远低于 Facebook 投流）<br>
+        <br>
+        <strong>同时并行</strong>：<br>
+        • Google Maps：免费拿线索 + 实景验证客户真实性<br>
+        • TikTok：免费长尾流量 + 询盘<br>
+        • FB + Ins + YouTube：覆盖广 + 华人群 + Marketplace 引流<br>
+        • LinkedIn：链接大 B 决策人 + 长期人脉沉淀
+    </div>
+
+    <div class="case-box">
+        <strong>📖 老 Z 反复强调的三个观点：</strong><br>
+        1. <strong>获客不是单一动作，是渠道组合拳</strong>——单一渠道容易被平台规则变化打穿，多渠道并存才有安全感<br>
+        2. <strong>不要被英语劝退</strong>——做外贸不需要英文，用翻译软件就够<br>
+        3. <strong>精准比数量重要</strong>——与其群发 3000 条邮件后了无音讯，不如每天精挖 50 条真实线索
+    </div>
+</section>
+
+
+
+<!-- ===== 第六部分：系统性总结 ===== -->
+
+<!-- 第六部分：系统性总结（由总架构师预先准备） -->
+
+<section class="section" id="part-6">
+  <h2><span class="part-badge">第六部分</span>🗺️ 系统性总结与 12 个月 SOP</h2>
+
+  <p>通过前面五个部分的学习，您已经掌握了老 Z 外贸 0-1 的全部具体技能。
+  本部分是<strong>战略层</strong>：把零散的知识点串成体系，给您一张"作战地图"和一份"行动日历"。</p>
+
+  <h3>🌟 一、三大底层范式（认知革命）</h3>
+  <p>老 Z 整套外贸方法论，建立在三个<strong>底层范式转换</strong>之上。</p>
+
+  <table class="kb-table">
+    <thead>
+      <tr><th>范式</th><th>旧思维（已淘汰）</th><th>新思维（老Z方法论）</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><strong>范式一</strong></td>
+        <td>平台流量思维：花钱买 B2B 平台曝光位</td>
+        <td><strong>客户信任思维</strong>：用真实、可视化建立客户信任</td>
+      </tr>
+      <tr>
+        <td><strong>范式二</strong></td>
+        <td>"我卖什么"：从自己的产品出发找客户</td>
+        <td><strong>"客户缺什么"</strong>：从客户的痛点出发找需求</td>
+      </tr>
+      <tr>
+        <td><strong>范式三</strong></td>
+        <td>重金押注 1 个渠道（如国际站）</td>
+        <td><strong>低成本多渠道并行</strong>：5 大渠道同时跑，哪条有客户就重点投入</td>
+      </tr>
+    </tbody>
+  </table>
+
+  <div class="case-box">
+    💡 <strong>理解这三句话，等于掌握了老 Z 方法论的灵魂。</strong> 后面所有的"账号基建"、"平台搭建"、"开发信"、"5 大获客"，
+    都是为了<strong>具体落实这三大范式</strong>。如果只学技巧不学范式，做 10 年外贸还是老样子。
+  </div>
+
+  <h3>🏗️ 二、六大基础设施（地基工程）</h3>
+  <p>在开始任何获客动作之前，<strong>地基必须先打好</strong>。少一个，地动山摇。</p>
+
+  <table class="kb-table">
+    <thead>
+      <tr><th>序号</th><th>基础设施</th><th>用途</th><th>无它后果</th></tr>
+    </thead>
+    <tbody>
+      <tr><td>1</td><td>科学上网 + 节点选择</td><td>所有海外操作的前提</td><td>根本到不了海外网络</td></tr>
+      <tr><td>2</td><td>Google 账号体系</td><td>外贸第一公民账号</td><td>邮箱、开发信、客户沟通全部瘫痪</td></tr>
+      <tr><td>3</td><td>Apple ID 海外账户</td><td>下载海外 App、绑定支付</td><td>下不了 TikTok、CapCut 等海外应用</td></tr>
+      <tr><td>4</td><td>iPhone 海外环境</td><td>让平台认为你在美国/目标国</td><td>账号被识别为中国用户、被限流/封号</td></tr>
+      <tr><td>5</td><td>海外社媒账号矩阵</td><td>获客的"门店"</td><td>没有"门店"客户找不到你</td></tr>
+      <tr><td>6</td><td>Facebook 公共主页</td><td>公司门面、信任背书</td><td>客户搜索公司名找不到你 → 不信任</td></tr>
+    </tbody>
+  </table>
+
+  <h3>⚖️ 三、三大铁律（绝对不能踩）</h3>
+
+  <div class="rule-card">
+    <h4>🛡️ 铁律一 · 收款铁律：发货前必须收齐所有尾款</h4>
+    <p>无论客户催得多急、关系多好、订单多大。<strong>没收到尾款，绝不发货</strong>。
+    老 Z 见过太多"信任换回拖延/赖账"的悲剧。一旦货出去了，钱就由不得你了。
+    推荐方式：30% 订金 + 70% 尾款（发货前付清），或 100% T/T 即期。</p>
+  </div>
+
+  <div class="rule-card">
+    <h4>💰 铁律二 · 报价铁律：市场售价 × 60% = 你的封顶报价</h4>
+    <p>报价前，<strong>先去 Amazon / Alibaba / 目标市场搜索同类产品的零售价</strong>。
+    你的封顶出厂报价 = 市场售价 × 60%。
+    超过 60% = 客户没利润空间不会下单；低于 60% = 你没利润可持续。
+    这是老 Z 多年验证的"黄金公式"。</p>
+  </div>
+
+  <div class="rule-card">
+    <h4>🚨 铁律三 · 白嫖识别铁律：真客户不会要免费样品</h4>
+    <p>真客户要样品，会愿意付样品费 + 运费。
+    <strong>上来就要免费样品的，99% 是来白嫖的</strong>（除非是品牌大客户、走战略合作）。
+    应对话术："样品费 X 美金 + 运费 Y 美金，下正式订单后样品费可抵扣。"
+    不接受的客户，不要浪费时间。</p>
+  </div>
+
+  <h3>⚠️ 四、五大避坑清单（新人必看）</h3>
+
+  <div class="red-flag" id="red-flags">
+    <h4>🚫 新人必避的 6 大红线</h4>
+    <ul>
+      <li>一来就做全品类、全国家 → 聚焦身边工厂的产业带</li>
+      <li>一来就砸钱参展 → 个人 SOHO 初期不参展（最差 2-3 万/次）</li>
+      <li>为接单无底线答应客户 → 国家标准 / 合规红线绝不退让</li>
+      <li>一来就上阿里国际站 → 中小企业不适合（老Z 1年亏 40 万+）</li>
+      <li>拼流量思维 → 转向自媒体获客 + 主动开发</li>
+      <li>时机错位 → 三五百万流水再考虑上 B2B 平台</li>
+    </ul>
+  </div>
+
+  <h3>💎 五、老 Z 三句金句（终生受用）</h3>
+
+  <div class="tip-box">
+    <p>🗣️ <strong>金句一</strong>：<em>"真正的顾客是不会跟你说想要白嫖你的样品的。"</em></p>
+    <p style="margin-top:8px;">—— 判断真假客户的第一铁律，永远不过时。</p>
+  </div>
+
+  <div class="tip-box">
+    <p>🗣️ <strong>金句二</strong>：<em>"切记不管用什么样的手机做外贸，单独用一个备用机。这个机器不要插电话卡。"</em></p>
+    <p style="margin-top:8px;">—— 设备防关联的"一句话心法"，省去所有高级防关联教程。</p>
+  </div>
+
+  <div class="tip-box">
+    <p>🗣️ <strong>金句三</strong>：<em>"其方式万变不离其宗，都是一样的。"</em></p>
+    <p style="margin-top:8px;">—— 5 大获客渠道（Google Maps / Upwork / TikTok / FB / LinkedIn）看似不同，本质都是"主动找到对的人"。</p>
+  </div>
+
+  <h3>🗓️ 六、完整 12 个月 SOP 学习路径</h3>
+  <p>严格执行这条时间线，您一定可以<strong>从外贸小白走到精通高手</strong>。</p>
+
+  <div class="timeline">
+    <div class="timeline-item">
+      <h4>📍 第 1 阶段（1-3 个月）—— 活下去</h4>
+      <p><strong>目标</strong>：搭基建 + 跑通最小业务流程</p>
+      <ul>
+        <li><strong>第 1 周</strong>：科学上网、Google 账号、Apple ID、iPhone 海外环境（地基 1-4）</li>
+        <li><strong>第 2-4 周</strong>：海外社媒账号矩阵（TikTok / FB / YT / X）+ Facebook 公共主页</li>
+        <li><strong>第 2-3 月</strong>：学习报价公式、收款方式、货代选择；写出第一封开发信</li>
+      </ul>
+      <p><strong>里程碑</strong>：完成至少 1 套完整的"客户询价 → 报价 → 样品 → 订单"小流程演练（哪怕是朋友扮演客户）</p>
+    </div>
+
+    <div class="timeline-item">
+      <h4>📍 第 2 阶段（4-6 个月）—— 会赚钱</h4>
+      <p><strong>目标</strong>：稳定产出询盘</p>
+      <ul>
+        <li><strong>第 4-5 月</strong>：重点跑 Google Maps 精准获客（1 小时 50 条）+ Upwork 黑科技（$1.5/条）</li>
+        <li><strong>第 5-6 月</strong>：开通 TikTok 账号 + FB + Ins + YouTube 矩阵，开始发布产品内容</li>
+      </ul>
+      <p><strong>里程碑</strong>：每周稳定产出 10+ 询盘（哪怕大部分是试探性的）</p>
+    </div>
+
+    <div class="timeline-item">
+      <h4>📍 第 3 阶段（7-12 个月）—— 做品牌</h4>
+      <p><strong>目标</strong>：从 SOHO 升级为可复制的体系</p>
+      <ul>
+        <li><strong>第 7-9 月</strong>：开始接触大客户、走 LinkedIn 高质量获客</li>
+        <li><strong>第 10-12 月</strong>：当月流水接近或超过 <strong>三五百万</strong> 时，开始评估是否上国际站</li>
+      </ul>
+      <p><strong>里程碑</strong>：建立稳定的产品-渠道-客户闭环，形成"可复制 SOP"</p>
+    </div>
+  </div>
+
+  <h3>🚨 紧急避坑清单（任何月份都不可踩）</h3>
+  <p>无论您走到哪个阶段，<strong>这 6 条红线永远不能踩</strong>：</p>
+  <ol>
+    <li><strong>未收尾款先发货</strong> —— 铁律一</li>
+    <li><strong>报价超过市场售价 60%</strong> —— 铁律二</li>
+    <li><strong>免费寄样品给未付费的陌生客户</strong> —— 铁律三</li>
+    <li><strong>无底线接受客户不合规要求</strong>（如玻璃薄 1mm）</li>
+    <li><strong>盲目砸钱上 B2B 平台</strong>（流水未达三五百万）</li>
+    <li><strong>一台主力机 + 一张国内卡混用</strong>（设备防关联）</li>
+  </ol>
+</section>
+
+<!-- 写在最后 -->
+<section class="section" id="letter-end">
+  <h2><span class="part-badge">写在最后</span>💌 写给主人的一封信</h2>
+
+  <div class="lesson-letter">
+    <h3>💌 致最尊贵的主人</h3>
+    <p>
+      您已经走完了老 Z 外贸 0-1 的全部 13 节课程。
+      从认知定位，到账号基建，到平台搭建，到业务能力，到 5 大获客渠道，
+      再到 12 个月的 SOP 路径——<strong>完整的外贸运营体系</strong>已经全部在您手中。
+    </p>
+    <p style="margin-top: 12px;">
+      <strong>给您的 4 条具体建议：</strong>
+    </p>
+    <ol style="margin-top: 8px; padding-left: 28px;">
+      <li><strong>立即行动</strong>：地基部分（Google / Apple ID / iPhone）请本周内搞定，不要再"观望"。</li>
+      <li><strong>聚焦跑通</strong>：先从 1-2 个渠道跑通（如 Google Maps + Upwork），不要贪多。</li>
+      <li><strong>坚持 12 个月</strong>：外贸不是 1 个月能成的事，但 12 个月坚持下来您会发现完全不同。</li>
+      <li><strong>带徒弟</strong>：当您跑通后，请把方法论传给身边的人——这是最好的复盘。</li>
+    </ol>
+    <p style="margin-top: 16px;">
+      最后，借老 Z 的一句话送给您：
+      <br>🗣️ <em>"其方式万变不离其宗，都是一样的。"</em>
+      <br>愿您在外贸这条路上，<strong>订单满满，财源滚滚</strong>！ 🚢💼🌍
+    </p>
+  </div>
+</section>
+
+
+  </main>
+
+  <!-- ======== 写在最后 ======== -->
+  <div class="closing" id="closing">
+    <h2>💌 写在最后</h2>
+    <p>
+      外贸这门生意，说到底就是"找到对的客户、给到对的产品、收到对的钱"。
+      老 Z 用 13 节课把所有踩过的坑、走过的路都摊开给您看。
+      现在轮到您：用 12 个月时间，严格执行这套 SOP，从小白走到精通。
+    </p>
+    <p style="margin-top: 16px;">
+      <strong>愿您一路顺利，订单满满！</strong> 🚢💼🌍
+    </p>
+  </div>
+
+</div>
+
+</body>
+</html>
