@@ -1,0 +1,3007 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0,user-scalable=yes,viewport-fit=cover">
+  <meta name="format-detection" content="telephone=no">
+  <title>海私会·海外私域实战全案 · 小白到精通</title>
+  <style>
+/* ==================== 全局重置 ==================== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; }
+body {
+  font-family: 'Microsoft YaHei', 'PingFang SC', 'Helvetica Neue', sans-serif;
+  font-size: 16px; line-height: 1.8; color: #2C3E50;
+  background: #FAFBFC; min-height: 100vh;
+}
+img, svg { max-width: 100%; height: auto; }
+
+/* ==================== 主容器 ==================== */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+/* ==================== 顶部 ==================== */
+.hero {
+  background: linear-gradient(135deg, #E8F4F8 0%, #EBF5E5 100%);
+  border-radius: 16px; padding: 40px 32px; margin-bottom: 32px;
+  text-align: center;
+}
+.hero h1 { font-size: 32px; color: #2C3E50; margin: 0 0 12px; line-height: 1.3; }
+.hero .sub { font-size: 16px; color: #6B7280; margin: 0 0 8px; }
+.hero .meta { font-size: 14px; color: #4A90A4; margin-top: 16px; }
+.hero .badge { display: inline-block; padding: 4px 12px; margin: 4px;
+  border-radius: 16px; font-size: 13px; background: rgba(74,144,164,0.1); color: #4A90A4; }
+
+/* ==================== 标题 ==================== */
+h1 { font-size: 32px; line-height: 1.3; margin: 24px 0 16px; color: #2C3E50; }
+h2 { font-size: 24px; line-height: 1.4; margin: 48px 0 16px; padding: 12px 16px;
+     border-left: 4px solid #4A90A4; background: #F0F7FA;
+     border-radius: 4px; color: #2C3E50; }
+h3 { font-size: 20px; line-height: 1.4; margin: 28px 0 12px; color: #4A90A4; }
+h4 { font-size: 17px; line-height: 1.4; margin: 20px 0 10px; color: #6B7280; }
+p  { margin: 12px 0; }
+code { background: #F5F5F5; padding: 2px 6px; border-radius: 3px;
+       font-family: Consolas, Monaco, monospace; font-size: 14px; color: #D17B7B; }
+strong { color: #2C3E50; font-weight: 600; }
+em { color: #4A90A4; font-style: normal; }
+
+/* ==================== 卡片 ==================== */
+.card {
+  background: #FFFFFF; border: 1px solid #E5E9F0; border-radius: 12px;
+  padding: 24px; margin: 16px 0; box-shadow: 0 2px 8px rgba(74,144,164,0.06);
+}
+.card h3 { margin-top: 0; }
+
+/* ==================== 提示框 ==================== */
+.tip-info    { background: #E8F4F8; border-left: 4px solid #4A90A4; padding: 16px; margin: 16px 0; border-radius: 4px; }
+.tip-success { background: #EBF5E5; border-left: 4px solid #7FB069; padding: 16px; margin: 16px 0; border-radius: 4px; }
+.tip-warn    { background: #FFF4ED; border-left: 4px solid #E8A87C; padding: 16px; margin: 16px 0; border-radius: 4px; }
+.tip-danger  { background: #FCEEEC; border-left: 4px solid #D17B7B; padding: 16px; margin: 16px 0; border-radius: 4px; }
+.tip-title { font-weight: 600; margin-bottom: 8px; display: block; }
+
+/* ==================== 表格 ==================== */
+table { width: 100%; border-collapse: collapse; margin: 16px 0;
+        background: #FFFFFF; border-radius: 8px; overflow: hidden;
+        box-shadow: 0 1px 4px rgba(0,0,0,0.04); font-size: 14px; }
+th, td { border: 1px solid #E5E9F0; padding: 12px; text-align: left; }
+th { background: #F0F7FA; color: #4A90A4; font-weight: 600; }
+tr:nth-child(even) td { background: #FAFBFC; }
+
+/* ==================== 列表 ==================== */
+ul, ol { margin: 12px 0 12px 24px; }
+li { margin: 6px 0; }
+
+/* ==================== SVG容器 ==================== */
+.mindmap {
+  width: 100%; overflow: visible;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+  background: #FFFFFF; border-radius: 12px; padding: 24px;
+  margin: 24px 0; border: 1px solid #E5E9F0;
+}
+.mindmap svg { width: 100%; display: block; margin: 0 auto; }
+
+/* ==================== 折叠区 ==================== */
+details { background: #FFFFFF; border: 1px solid #E5E9F0;
+          border-radius: 8px; padding: 12px 16px; margin: 12px 0; }
+summary { cursor: pointer; font-weight: 600; color: #4A90A4;
+          padding: 4px 0; user-select: none; font-size: 16px; }
+details[open] summary { color: #2C3E50; margin-bottom: 12px; }
+
+/* ==================== WPS降级提示 ==================== */
+.wps-tip {
+  background: #FFF4ED; color: #A85F2E; text-align: center;
+  padding: 8px; font-size: 13px; border-bottom: 1px solid #E8A87C;
+}
+
+/* ==================== 顶部目录 ==================== */
+.toc {
+  background: #FFFFFF; border: 1px solid #E5E9F0; border-radius: 12px;
+  padding: 16px 24px; margin-bottom: 32px;
+  position: sticky; top: 0; z-index: 100;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.04);
+}
+.toc-title { font-weight: 600; color: #2C3E50; margin-bottom: 12px; font-size: 15px; }
+.toc-list { display: flex; flex-wrap: wrap; gap: 8px 16px; }
+.toc-list a { color: #4A90A4; text-decoration: none; font-size: 14px; padding: 4px 8px;
+              border-radius: 4px; transition: background 0.2s; }
+.toc-list a:hover { background: #F0F7FA; }
+
+/* ==================== 编号标 ==================== */
+.num-badge {
+  display: inline-block; width: 28px; height: 28px; line-height: 28px;
+  text-align: center; border-radius: 50%; background: #4A90A4; color: #fff;
+  font-weight: bold; margin-right: 8px; font-size: 14px;
+}
+
+/* ==================== 行动清单 ==================== */
+.checklist { list-style: none; margin-left: 0; }
+.checklist li { padding-left: 28px; position: relative; margin: 8px 0; }
+.checklist li:before {
+  content: "□"; position: absolute; left: 0; color: #7FB069; font-size: 20px; font-weight: bold;
+}
+.checklist.done li:before { content: "✓"; color: #7FB069; }
+.checklist.done li { color: #6B7280; }
+
+/* ==================== 锚点偏移 ==================== */
+[id] { scroll-margin-top: 100px; }
+
+/* ==================== A4打印 ==================== */
+@media print {
+  body { background: #FFFFFF; }
+  .container { max-width: 100%; padding: 16mm; }
+  .no-print, .wps-tip, .toc { display: none; }
+  .card, .mindmap { box-shadow: none; border: 1px solid #DDD; page-break-inside: avoid; }
+  h2 { page-break-after: avoid; }
+  .mindmap { transform: none; }
+}
+
+/* ==================== 移动端微调 ==================== */
+@media (max-width: 768px) {
+  .hero { padding: 24px 16px; }
+  .hero h1 { font-size: 24px; }
+  .container { padding: 16px 16px 60px; }
+  h1 { font-size: 24px; }
+  h2 { font-size: 20px; }
+  h3 { font-size: 17px; }
+  table { font-size: 13px; }
+  th, td { padding: 8px; }
+  .toc-list a { font-size: 13px; padding: 2px 6px; }
+}
+  </style>
+</head>
+<body>
+<!-- WPS降级提示 -->
+<div class="wps-tip">💡 最佳体验请用微信/手机浏览器打开本文件，WPS可能存在SVG模糊等兼容问题。双指捏合可放大思维导图。</div>
+
+<div class="container">
+
+<!-- HERO 区域 -->
+<div class="hero">
+  <h1>🌏 海私会·海外私域实战全案</h1>
+  <p class="sub">从小白到精通的系统化学习地图</p>
+  <p class="sub">12课整合 · 5层学习路径 · 7张思维导图 · 29条联网验证</p>
+  <p class="meta">
+    <span class="badge">📚 12课</span>
+    <span class="badge">🧠 认知+流量+基建+内容+销转</span>
+    <span class="badge">🎯 真实数据复盘</span>
+    <span class="badge">⚡ 零JS·纯静态</span>
+  </p>
+  <p class="meta">作者：海私会深度总结子代理 · 终极合并 · 2026</p>
+</div>
+
+<!-- 顶部目录 -->
+<nav class="toc">
+  <div class="toc-title">📑 课程目录</div>
+  <div class="toc-list">
+    <a href="#part0">Part 0 总览</a>
+    <a href="#part1">Part 1 认知层</a>
+    <a href="#part2">Part 2 流量层</a>
+    <a href="#part3">Part 3 基建层</a>
+    <a href="#part4">Part 4 内容层</a>
+    <a href="#part5">Part 5 销转层</a>
+    <a href="#part6">Part 6 跨课整合</a>
+    <a href="#appendix">附录</a>
+  </div>
+</nav>
+
+<!-- ============================ Part 0 课程总览 ============================ -->
+<section id="part0">
+<h2>Part 0 · 课程总览</h2>
+
+<p>欢迎来到<strong>海私会·海外私域实战全案</strong>。本课程由12节组成（第六课分4节），涵盖从认知建立到销转换钱的完整闭环。本HTML将12课全部知识点<strong>打碎重组</strong>，按"小白→精通"的学习曲线分7大部分呈现，让你读完即可上手海外私域运营。</p>
+
+<h3>0.1 这门课适合谁</h3>
+<div class="card">
+<ul>
+<li>🟢 <strong>完全小白</strong>：从未做过跨境、英文不流利也能学——从0到1路径已铺好</li>
+<li>🟡 <strong>做过国内电商</strong>：想转型出海——警惕"国内逻辑硬套海外"的坑</li>
+<li>🔴 <strong>已经在做但总亏钱</strong>：80-90%亏在认知，不是项目本身</li>
+</ul>
+</div>
+
+<h3>0.2 你将获得什么</h3>
+<ul>
+<li>✅ <strong>5层学习路径</strong>——按周排好节奏，12周从小白到月入10万+</li>
+<li>✅ <strong>7张思维导图</strong>——所有模块知识图谱化，双指可放大</li>
+<li>✅ <strong>12条关键口诀</strong>——每条都能直接背下来用</li>
+<li>✅ <strong>29条联网验证</strong>——所有平台规则、物流时效、费率等数据已交叉核对</li>
+<li>✅ <strong>完整避坑清单</strong>——把别人亏的10万+学费省下来</li>
+</ul>
+
+<h3>0.3 5层学习路径（小白到精通）</h3>
+<div class="mindmap">
+<svg viewBox="0 0 1600 360" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- 连接线 -->
+  <path d="M 200,180 H 320 V 50  H 480" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 200,180 H 320 V 130 H 480" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 200,180 H 320 V 210 H 480" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 200,180 H 320 V 290 H 480" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 200,180 H 320 V 330 H 480" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <!-- 根节点 -->
+  <rect x="20" y="150" width="180" height="60" rx="10" fill="#4A90A4"/>
+  <text x="110" y="178" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">🧙 你</text>
+  <text x="110" y="198" text-anchor="middle" fill="#fff" font-size="13">小白起点</text>
+  <!-- Level 1 -->
+  <rect x="480" y="22" width="200" height="56" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="580" y="46" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">Level 1 认知入门</text>
+  <text x="580" y="65" text-anchor="middle" fill="#6B7280" font-size="12">1周 · Part 1</text>
+  <!-- Level 2 -->
+  <rect x="480" y="102" width="200" height="56" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="580" y="126" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">Level 2 流量选品</text>
+  <text x="580" y="145" text-anchor="middle" fill="#6B7280" font-size="12">2周 · Part 2</text>
+  <!-- Level 3 -->
+  <rect x="480" y="182" width="200" height="56" rx="8" fill="#EBF5E5" stroke="#7FB069" stroke-width="1.5"/>
+  <text x="580" y="206" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">Level 3 基建落地</text>
+  <text x="580" y="225" text-anchor="middle" fill="#6B7280" font-size="12">1周 · Part 3</text>
+  <!-- Level 4 -->
+  <rect x="480" y="262" width="200" height="56" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="580" y="286" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">Level 4 内容引擎</text>
+  <text x="580" y="305" text-anchor="middle" fill="#6B7280" font-size="12">4周 · Part 4</text>
+  <!-- Level 5 -->
+  <rect x="480" y="302" width="200" height="56" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="580" y="326" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">Level 5 销转换钱</text>
+  <text x="580" y="345" text-anchor="middle" fill="#6B7280" font-size="12">4周 · Part 5+6</text>
+  <!-- 详细说明 -->
+  <rect x="780" y="22" width="320" height="56" rx="8" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="940" y="46" text-anchor="middle" fill="#2C3E50" font-size="13">📚 破除4大误区+16字口诀</text>
+  <text x="940" y="65" text-anchor="middle" fill="#6B7280" font-size="12">投入：0元（纯学习）</text>
+  <!-- 详细说明 2 -->
+  <rect x="780" y="102" width="320" height="56" rx="8" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="940" y="126" text-anchor="middle" fill="#2C3E50" font-size="13">🎯 选对赛道+找准对标</text>
+  <text x="940" y="145" text-anchor="middle" fill="#6B7280" font-size="12">投入：3000元（样品+工具）</text>
+  <!-- 详细说明 3 -->
+  <rect x="780" y="182" width="320" height="56" rx="8" fill="#FAFBFC" stroke="#7FB069"/>
+  <text x="940" y="206" text-anchor="middle" fill="#2C3E50" font-size="13">🏗️ 账号+物流+支付3件套</text>
+  <text x="940" y="225" text-anchor="middle" fill="#6B7280" font-size="12">投入：5000-10000元</text>
+  <!-- 详细说明 4 -->
+  <rect x="780" y="262" width="320" height="56" rx="8" fill="#FAFBFC" stroke="#E8A87C"/>
+  <text x="940" y="286" text-anchor="middle" fill="#2C3E50" font-size="13">🔥 三大平台起号+爆款</text>
+  <text x="940" y="305" text-anchor="middle" fill="#6B7280" font-size="12">投入：人力+内容成本</text>
+  <!-- 详细说明 5 -->
+  <rect x="780" y="302" width="320" height="56" rx="8" fill="#FAFBFC" stroke="#E8A87C"/>
+  <text x="940" y="326" text-anchor="middle" fill="#2C3E50" font-size="13">💰 私域成交+复购+回款</text>
+  <text x="940" y="345" text-anchor="middle" fill="#6B7280" font-size="12">开始有现金流</text>
+  <!-- 连接线 右侧 -->
+  <path d="M 680,50 H 780" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 680,130 H 780" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 680,210 H 780" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 680,290 H 780" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 680,330 H 780" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <!-- 终点：高手 -->
+  <rect x="1200" y="142" width="220" height="76" rx="10" fill="#4A90A4"/>
+  <text x="1310" y="172" text-anchor="middle" fill="#fff" font-size="16" font-weight="bold">🏆 精通境界</text>
+  <text x="1310" y="195" text-anchor="middle" fill="#fff" font-size="13">月入10万+</text>
+  <!-- 连接线到高手 -->
+  <path d="M 1100,290 H 1180 V 180 H 1200" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 1100,330 H 1180 V 180 H 1200" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+</svg>
+</div>
+
+<div class="tip-info">
+<span class="tip-title">💡 学习节奏说明</span>
+Level 1-2 是认知投入（不花钱）；Level 3 开始需要投入基建成本；Level 4-5 是收入来源。整个学习周期约<strong>12周</strong>，但可在 1-2 个月内跑通最小闭环（0→1）。
+</div>
+
+<h3>0.4 12课全景图</h3>
+<div class="mindmap">
+<svg viewBox="0 0 1900 540" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- 主线连接线 -->
+  <path d="M 220,270 H 380 V 80  H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 220,270 H 380 V 200 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 220,270 H 380 V 320 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 220,270 H 380 V 440 H 540" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <!-- 根节点 -->
+  <rect x="20" y="240" width="200" height="60" rx="10" fill="#4A90A4"/>
+  <text x="120" y="268" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">海外私域</text>
+  <text x="120" y="288" text-anchor="middle" fill="#fff" font-size="13">12课全案</text>
+  <!-- 4条主线 -->
+  <rect x="540" y="40" width="200" height="80" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="640" y="68" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">📚 认知层</text>
+  <text x="640" y="88" text-anchor="middle" fill="#6B7280" font-size="12">第1课</text>
+  <text x="640" y="106" text-anchor="middle" fill="#4A90A4" font-size="11">误区+铁律+七步法</text>
+  <rect x="540" y="160" width="200" height="80" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="640" y="188" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">🎯 流量层</text>
+  <text x="640" y="208" text-anchor="middle" fill="#6B7280" font-size="12">第2-3课 + 5-6课</text>
+  <text x="640" y="226" text-anchor="middle" fill="#4A90A4" font-size="11">市场+选品+起号+爆款</text>
+  <rect x="540" y="280" width="200" height="80" rx="8" fill="#EBF5E5" stroke="#7FB069" stroke-width="1.5"/>
+  <text x="640" y="308" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">🏗️ 基建层</text>
+  <text x="640" y="328" text-anchor="middle" fill="#6B7280" font-size="12">第4 + 8 + 9课</text>
+  <text x="640" y="346" text-anchor="middle" fill="#7FB069" font-size="11">账号+物流+支付</text>
+  <rect x="540" y="400" width="200" height="80" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="640" y="428" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">💰 销转层</text>
+  <text x="640" y="448" text-anchor="middle" fill="#6B7280" font-size="12">第7课</text>
+  <text x="640" y="466" text-anchor="middle" fill="#E8A87C" font-size="11">4层标签+4步聊单</text>
+  <!-- 认知层详解 -->
+  <rect x="800" y="40" width="220" height="40" rx="6" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="910" y="58" text-anchor="middle" fill="#2C3E50" font-size="12">第1课·4误区+16字口诀</text>
+  <text x="910" y="73" text-anchor="middle" fill="#6B7280" font-size="11">建立顺序思维</text>
+  <path d="M 740,80 H 800" stroke="#4A90A4" stroke-width="1" fill="none"/>
+  <!-- 流量层详解 -->
+  <rect x="800" y="160" width="220" height="36" rx="6" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="910" y="178" text-anchor="middle" fill="#2C3E50" font-size="12">第2课·看市场定赛道</text>
+  <rect x="800" y="200" width="220" height="36" rx="6" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="910" y="218" text-anchor="middle" fill="#2C3E50" font-size="12">第3课·选品+对标账号</text>
+  <path d="M 740,200 H 800" stroke="#4A90A4" stroke-width="1" fill="none"/>
+  <!-- 内容层详解（属于流量层下） -->
+  <rect x="1060" y="160" width="220" height="36" rx="6" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="1170" y="178" text-anchor="middle" fill="#2C3E50" font-size="12">第5课·三大平台起号</text>
+  <rect x="1060" y="200" width="220" height="36" rx="6" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="1170" y="218" text-anchor="middle" fill="#2C3E50" font-size="12">第6课1-4·爆款全链路</text>
+  <path d="M 1020,180 H 1060" stroke="#4A90A4" stroke-width="1" fill="none"/>
+  <path d="M 1020,200 H 1060" stroke="#4A90A4" stroke-width="1" fill="none"/>
+  <!-- 基建层详解 -->
+  <rect x="800" y="280" width="220" height="36" rx="6" fill="#FAFBFC" stroke="#7FB069"/>
+  <text x="910" y="298" text-anchor="middle" fill="#2C3E50" font-size="12">第4课·账号基础搭建</text>
+  <rect x="800" y="320" width="220" height="36" rx="6" fill="#FAFBFC" stroke="#7FB069"/>
+  <text x="910" y="338" text-anchor="middle" fill="#2C3E50" font-size="12">第8课·物流发货</text>
+  <rect x="800" y="360" width="220" height="36" rx="6" fill="#FAFBFC" stroke="#7FB069"/>
+  <text x="910" y="378" text-anchor="middle" fill="#2C3E50" font-size="12">第9课·支付收款+回款</text>
+  <path d="M 740,310 H 800" stroke="#7FB069" stroke-width="1" fill="none"/>
+  <!-- 销转层详解 -->
+  <rect x="800" y="400" width="220" height="80" rx="6" fill="#FAFBFC" stroke="#E8A87C"/>
+  <text x="910" y="424" text-anchor="middle" fill="#2C3E50" font-size="12">第7课·海外私域销转</text>
+  <text x="910" y="445" text-anchor="middle" fill="#6B7280" font-size="11">信任+标签+聊单</text>
+  <text x="910" y="465" text-anchor="middle" fill="#6B7280" font-size="11">团队+放大</text>
+  <path d="M 740,440 H 800" stroke="#E8A87C" stroke-width="1" fill="none"/>
+  <!-- 关键概念 -->
+  <rect x="1340" y="120" width="220" height="60" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="1450" y="144" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">🔑 5个跨课程关键概念</text>
+  <text x="1450" y="165" text-anchor="middle" fill="#6B7280" font-size="11">选品梯队=用户梯队</text>
+  <rect x="1340" y="200" width="220" height="36" rx="6" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="1450" y="218" text-anchor="middle" fill="#2C3E50" font-size="12">基建是工具不是壁垒</text>
+  <rect x="1340" y="240" width="220" height="36" rx="6" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="1450" y="258" text-anchor="middle" fill="#2C3E50" font-size="12">完播率=流量密码</text>
+  <rect x="1340" y="280" width="220" height="36" rx="6" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="1450" y="298" text-anchor="middle" fill="#2C3E50" font-size="12">信任=海外私域底层</text>
+  <rect x="1340" y="320" width="220" height="36" rx="6" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="1450" y="338" text-anchor="middle" fill="#2C3E50" font-size="12">0→1三阶段=团队路径</text>
+  <path d="M 1280,180 H 1340" stroke="#E8A87C" stroke-width="1" fill="none"/>
+  <path d="M 1280,218 H 1340" stroke="#4A90A4" stroke-width="1" fill="none"/>
+  <path d="M 1280,258 H 1340" stroke="#4A90A4" stroke-width="1" fill="none"/>
+  <path d="M 1280,298 H 1340" stroke="#4A90A4" stroke-width="1" fill="none"/>
+  <path d="M 1280,338 H 1340" stroke="#4A90A4" stroke-width="1" fill="none"/>
+  <!-- 12条口诀 -->
+  <rect x="1600" y="200" width="240" height="200" rx="10" fill="#4A90A4"/>
+  <text x="1720" y="226" text-anchor="middle" fill="#fff" font-size="14" font-weight="bold">📜 12条关键口诀</text>
+  <text x="1720" y="252" text-anchor="middle" fill="#E8F4F8" font-size="11">数据为业·流量为王</text>
+  <text x="1720" y="270" text-anchor="middle" fill="#E8F4F8" font-size="11">系统为基·SOP为中</text>
+  <text x="1720" y="290" text-anchor="middle" fill="#E8F4F8" font-size="11">小钱靠抄·中钱靠耕</text>
+  <text x="1720" y="310" text-anchor="middle" fill="#E8F4F8" font-size="11">大钱靠市</text>
+  <text x="1720" y="330" text-anchor="middle" fill="#E8F4F8" font-size="11">5倍利润倍率</text>
+  <text x="1720" y="350" text-anchor="middle" fill="#E8F4F8" font-size="11">前3秒+痛点+方案</text>
+  <text x="1720" y="370" text-anchor="middle" fill="#E8F4F8" font-size="11">1:1复刻爆款</text>
+  <text x="1720" y="388" text-anchor="middle" fill="#E8F4F8" font-size="11">完播率=流量密码</text>
+</svg>
+</div>
+
+<div class="tip-success">
+<span class="tip-title">✅ 看完这张图你已掌握</span>
+12课的4层归属（认知/流量/基建/销转）+ 5个跨课程关键概念 + 12条核心口诀的分布位置。这是后续所有内容的"骨架地图"。
+</div>
+</section>
+
+<!-- ============================ Part 1 认知层 ============================ -->
+<section id="part1">
+<h2>Part 1 · 认知层（破除新手误区）</h2>
+
+<div class="tip-info">
+<span class="tip-title">📌 本层核心</span>
+海外私域不是项目本身的问题，是<strong>新手思维的问题</strong>。本层解决"为什么我会亏钱"+"该把精力放哪里"两个根本问题。
+</div>
+
+<h3>1.1 四大新手误区（避坑指南）</h3>
+<div class="mindmap">
+<svg viewBox="0 0 1500 480" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- 根 -->
+  <rect x="20" y="200" width="200" height="60" rx="10" fill="#4A90A4"/>
+  <text x="120" y="228" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">四大误区</text>
+  <text x="120" y="248" text-anchor="middle" fill="#fff" font-size="13">80%新人亏在这</text>
+  <!-- 连接线 -->
+  <path d="M 220,230 H 320 V 60  H 440" stroke="#D17B7B" stroke-width="1.5" fill="none"/>
+  <path d="M 220,230 H 320 V 160 H 440" stroke="#D17B7B" stroke-width="1.5" fill="none"/>
+  <path d="M 220,230 H 320 V 260 H 440" stroke="#D17B7B" stroke-width="1.5" fill="none"/>
+  <path d="M 220,230 H 320 V 360 H 440" stroke="#D17B7B" stroke-width="1.5" fill="none"/>
+  <!-- 误区1 -->
+  <rect x="440" y="30" width="240" height="60" rx="8" fill="#FCEEEC" stroke="#D17B7B" stroke-width="1.5"/>
+  <text x="560" y="54" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">❌ 误区1：盲目自信</text>
+  <text x="560" y="76" text-anchor="middle" fill="#6B7280" font-size="11">拍脑袋=暴力蓝海</text>
+  <!-- 误区2 -->
+  <rect x="440" y="130" width="240" height="60" rx="8" fill="#FCEEEC" stroke="#D17B7B" stroke-width="1.5"/>
+  <text x="560" y="154" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">❌ 误区2：死磕基建</text>
+  <text x="560" y="176" text-anchor="middle" fill="#6B7280" font-size="11">没客户先建站2-3月</text>
+  <!-- 误区3 -->
+  <rect x="440" y="230" width="240" height="60" rx="8" fill="#FCEEEC" stroke="#D17B7B" stroke-width="1.5"/>
+  <text x="560" y="254" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">❌ 误区3：赚快钱</text>
+  <text x="560" y="276" text-anchor="middle" fill="#6B7280" font-size="11">国内三天回本照搬</text>
+  <!-- 误区4 -->
+  <rect x="440" y="330" width="240" height="60" rx="8" fill="#FCEEEC" stroke="#D17B7B" stroke-width="1.5"/>
+  <text x="560" y="354" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">❌ 误区4：碎片化学习</text>
+  <text x="560" y="376" text-anchor="middle" fill="#6B7280" font-size="11">算法茧房，无法落地</text>
+  <!-- 详解 -->
+  <rect x="740" y="30" width="320" height="60" rx="8" fill="#FAFBFC" stroke="#D17B7B"/>
+  <text x="900" y="54" text-anchor="middle" fill="#2C3E50" font-size="12">莆田鞋/黑五类/文玩在海外</text>
+  <text x="900" y="74" text-anchor="middle" fill="#A85F2E" font-size="11">也属高风险类目，查得严</text>
+  <rect x="740" y="130" width="320" height="60" rx="8" fill="#FAFBFC" stroke="#D17B7B"/>
+  <text x="900" y="154" text-anchor="middle" fill="#2C3E50" font-size="12">基建是信息差不是壁垒</text>
+  <text x="900" y="174" text-anchor="middle" fill="#6B7280" font-size="11">"喝牛奶不必开养牛场"</text>
+  <rect x="740" y="230" width="320" height="60" rx="8" fill="#FAFBFC" stroke="#D17B7B"/>
+  <text x="900" y="254" text-anchor="middle" fill="#2C3E50" font-size="12">新环境/新市场/新人群</text>
+  <text x="900" y="274" text-anchor="middle" fill="#6B7280" font-size="11">国内野路子直接不能用</text>
+  <rect x="740" y="330" width="320" height="60" rx="8" fill="#FAFBFC" stroke="#D17B7B"/>
+  <text x="900" y="354" text-anchor="middle" fill="#2C3E50" font-size="12">需要详细方法论+系统框架</text>
+  <text x="900" y="374" text-anchor="middle" fill="#6B7280" font-size="11">不是碎片知识堆砌</text>
+  <!-- 连接线 -->
+  <path d="M 680,60 H 740" stroke="#D17B7B" stroke-width="1" fill="none"/>
+  <path d="M 680,160 H 740" stroke="#D17B7B" stroke-width="1" fill="none"/>
+  <path d="M 680,260 H 740" stroke="#D17B7B" stroke-width="1" fill="none"/>
+  <path d="M 680,360 H 740" stroke="#D17B7B" stroke-width="1" fill="none"/>
+  <!-- 正确做法 -->
+  <rect x="1120" y="180" width="340" height="80" rx="10" fill="#EBF5E5" stroke="#7FB069" stroke-width="2"/>
+  <text x="1290" y="208" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">✅ 正确做法</text>
+  <text x="1290" y="230" text-anchor="middle" fill="#2C3E50" font-size="12">亲自调研+一切以数据为依据</text>
+  <text x="1290" y="248" text-anchor="middle" fill="#6B7280" font-size="11">没调查就没有发言权</text>
+  <path d="M 1060,250 H 1120" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+</svg>
+</div>
+
+<h4>误区一：盲目自信型</h4>
+<div class="tip-danger">
+<span class="tip-title">🚫 表现</span>
+拍脑袋觉得"莆田鞋、黑五类、文玩、中药、男性/女性用品"在海外是"暴力蓝海"。觉得自己英语过了六级、做过国内电商、会用剪映就能做海外。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">✅ 真相</span>
+<ul>
+<li>这些品类<strong>国内国外都是高风险类目</strong>，海外查得很严（不信可以问任何一个货代）</li>
+<li>海外的算法、用户消费习惯、内容审核机制与中国大陆<strong>完全不同</strong></li>
+<li><strong>会中文流量和会英文流量是两回事</strong></li>
+<li>典型错误：直接搬运国内爆款、用国内爆款逻辑硬套海外</li>
+</ul>
+</div>
+
+<div class="card">
+<strong>📌 行动指引</strong>：亲自去调研，<strong>一切以数据为基准</strong>，没调查就没有发言权。用工具看真实的市场数据（如 TK 热门、亚马逊销量、Google Trends）而不是凭感觉。
+</div>
+
+<h4>误区二：死磕基建型</h4>
+<div class="tip-danger">
+<span class="tip-title">🚫 表现</span>
+还没卖货就开始研究建站、支付接口、物流，花 2-3 个月建站却没有一个客户。买了十几台手机、办了几十条专线，结果一个视频都没发出去。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">✅ 真相</span>
+<ul>
+<li>网络账号、物流发货全是<strong>信息差</strong>，不是技术壁垒</li>
+<li>基建不是核心重点，<strong>1 句话能解决</strong>的问题</li>
+<li>物流、支付在海外已经很成熟，<strong>不是强技术壁垒</strong></li>
+</ul>
+</div>
+
+<div class="tip-info">
+<span class="tip-title">🎯 正确做法：拿来主义</span>
+不懂直接找圈子里成熟的解决方案。<strong>比喻</strong>："喝牛奶买一盒 2 块钱的就行，不需要开养牛场"。一次性成本解决不了，<strong>花钱找人解决</strong>，不要把时间花在这里。
+</div>
+
+<h4>误区三：赚快钱型</h4>
+<div class="tip-danger">
+<span class="tip-title">🚫 表现</span>
+把国内"暴力喜好/三天回本"的逻辑套到海外。刚入场就想着月入百万。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">✅ 真相</span>
+<ul>
+<li>海外私域是<strong>新环境、新市场、不同人群、不同政策</strong></li>
+<li>国内"野路子"在海外<strong>直接不能用</strong></li>
+<li>海外能赚快钱的人，要么<strong>有底子</strong>，要么<strong>拼命去赚</strong></li>
+<li>做<strong>大概率事件</strong>，不碰小概率事件</li>
+<li>创业成功<strong>不是赌博</strong></li>
+</ul>
+</div>
+
+<div class="card">
+<strong>📌 关键认知</strong>：<strong>先换脑子、换思维、换模型</strong>，忘掉国内那一套。空杯心态，从 0 到 1 继续做题。周期：<strong>1-2 个月足够跑通</strong>海外私域从 0 到 1，不需要 3 个月-1 年。
+</div>
+
+<h4>误区四：碎片化学习型</h4>
+<div class="tip-danger">
+<span class="tip-title">🚫 表现</span>
+知识来源<strong>碎片化</strong>：短视频、暴富贴、博主洗脑。互联网信息不是真透明而是<strong>又杂又乱</strong>，大家被困在<strong>算法信息茧房</strong>里。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">✅ 副作用</span>
+看完觉得好厉害但<strong>没办法落地</strong>，越来越焦虑。看了越多越焦虑。
+</div>
+
+<div class="tip-warn">
+<span class="tip-title">💡 正确做法</span>
+必须学<strong>详细的方法论 + 系统框架</strong>。课程配套的 SOP 系统就是为此设计。所有理论都要以<strong>数据为依据</strong>，<strong>实践才是检验真理的唯一标准</strong>。
+</div>
+
+<div class="card">
+<strong>💎 一句话精华</strong>："<strong>新手属于自嗨，老手属于傲慢</strong>；项目赚不赚钱、赛道赚不赚钱，一切以数据为依据。" —— 出自第一课第 56 段
+</div>
+
+<h3>1.2 入局两大铁律（精力分配）</h3>
+
+<h4>铁律一：流量先行</h4>
+<div class="card">
+<strong>地位</strong>：从 0 到 1 的<strong>生产线 / 生死线</strong>
+</div>
+
+<div class="tip-info">
+<span class="tip-title">🔑 核心逻辑</span>
+<ul>
+<li>不管是工厂、品牌方、个体户、做国内还是海外生意，<strong>获客能力是一切的前提</strong></li>
+<li>没有流量，怎么测试整个闭环行不行？</li>
+<li>没有流量，怎么测试私域消转模型？</li>
+<li>没有流量，怎么测试产品？</li>
+<li>没有流量，再好的产品都是仓库里积压的库存</li>
+</ul>
+</div>
+
+<div class="tip-warn">
+<span class="tip-title">⚡ 优先级分配</span>
+<strong>80%-90% 的精力全部压在搞流量上</strong>。流量进来了，生意才算开始。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">📈 战略意义</span>
+流量是从 0 到 1 跑通<strong>最省钱、最重要的方法</strong>。也是后期<strong>复制放大</strong>的根基（没有流量就没有增量，没有增量团队怎么放大？）。
+</div>
+
+<h4>铁律二：基建靠"拿来主义"</h4>
+<div class="card">
+<strong>定位</strong>：基建是<strong>成熟的信息差</strong>，不是技术壁垒
+</div>
+
+<div class="tip-info">
+<span class="tip-title">🔑 核心逻辑</span>
+<ul>
+<li>网络、静态 IP、账号注册等所有基建问题都有<strong>非常成熟的解决方法</strong></li>
+<li>之所以觉得难，是因为之前没接触过海外项目、没圈子，找不到成熟的方案</li>
+<li>物流、支付在海外已经很成熟，<strong>不是强技术壁垒</strong></li>
+<li>这些都是<strong>信息差</strong>，不是难题</li>
+</ul>
+</div>
+
+<div class="tip-success">
+<span class="tip-title">💡 正确做法</span>
+不要自己花 1-2 个月研究基建。<strong>直接找成熟的解决方案</strong>，拿来用就行。再强调一次："不要为了喝牛奶而去开牛奶厂"。
+</div>
+
+<div class="card">
+<strong>📌 核心心法</strong>：先搞流量决定生死，再搞基建靠拿来主义。<strong>新人最容易犯的错</strong>：把顺序倒过来 —— 先死磕基建再想要流量。
+</div>
+
+<h3>1.3 新手起盘七步法（从0到1再放大的标准SOP）</h3>
+
+<div class="tip-info">
+<span class="tip-title">📌 七步法是整个课程的骨架</span>
+老师把整套起盘流程浓缩成七步法，"哪怕你是新手小白，按这七步走就能跑通整个闭环"。前 4 步跑通 0→1，后 3 步做放大复制。
+</div>
+
+<table>
+<thead>
+<tr><th>阶段</th><th>步骤</th><th>核心动作</th><th>解决的问题</th></tr>
+</thead>
+<tbody>
+<tr><td rowspan="4"><strong>0→1 跑通</strong></td><td>① 定赛道看市场</td><td>看大盘、找有钱的</td><td>卖什么、卖给谁、赚谁的钱</td></tr>
+<tr><td>② 找对标超爆品</td><td>像素级复制已有赚钱模式</td><td>不创新、不重新发明轮子</td></tr>
+<tr><td>③ 搭接线住阵地</td><td>搞定账号、工具、落地页</td><td>落地实操准备</td></tr>
+<tr><td>④ 找素材埋钩子</td><td>研究流量，把客户引进来</td><td>生意才刚开始</td></tr>
+<tr><td rowspan="3"><strong>复制放大</strong></td><td>⑤ 铺矩阵广撒网</td><td>复制已跑通的生意</td><td>做增量、复制放大</td></tr>
+<tr><td>⑥ 跑模型测成交</td><td>标准化 + SOP + 团队复制</td><td>从 1 到 100 是管理问题</td></tr>
+<tr><td>⑦ 通财付搞交付</td><td>资金安全 + 物流降本</td><td>最后一公里</td></tr>
+</tbody>
+</table>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 关键节点</span>
+<strong>前 4 步做完</strong>，整个生意从 0 到 1 已经跑通，已经验证"这个事儿能不能干"。<strong>后 3 步</strong>是为放大做精细化。
+</div>
+
+<h4>0→1 vs 1→100：心态切换</h4>
+<table>
+<thead>
+<tr><th>维度</th><th>0→1</th><th>1→100</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>核心问题</strong></td><td>业务问题</td><td>管理问题</td></tr>
+<tr><td><strong>关键动作</strong></td><td>找对标、跑通闭环</td><td>复制最小赚钱单元</td></tr>
+<tr><td><strong>重心</strong></td><td>3 个最小模型跑通</td><td>SOP 化、人员复制</td></tr>
+<tr><td><strong>心态</strong></td><td>验证可行性</td><td>提效率、避踩坑</td></tr>
+<tr><td><strong>周期</strong></td><td>1-2 个月足够跑通</td><td>持续</td></tr>
+</tbody>
+</table>
+
+<div class="card">
+<strong>📌 第六步"跑模型"的 3 个最小模型</strong>：
+<ol>
+<li><strong>最小业务模型</strong>：团队需要多少人、每个人干什么</li>
+<li><strong>最小管理模型</strong>：人员怎么管理、每天/每月的 KPI</li>
+<li><strong>最小财务模型</strong>：最小变现单元能产生多少利润、多少成本投入</li>
+</ol>
+跑通后，从 1 到 100 就是<strong>不断复制最小赚钱单元</strong>。相当于在做"筛子"：让新人快速适应，不要再踩坑。
+</div>
+
+<h4>第七步"通财付"：最后一公里</h4>
+<div class="tip-success">
+<span class="tip-title">💰 解决两个根本问题</span>
+<ul>
+<li><strong>钱怎么收回来</strong>：资金安全问题（小额自己开账户，大额自己开户+专线物流）</li>
+<li><strong>货怎么发出去</strong>：物流问题（小量用货代，量大找专线/海外仓）</li>
+</ul>
+</div>
+
+<div class="card">
+<strong>📌 规模不同，做法不同</strong>：
+<ul>
+<li><strong>小规模（测试期）</strong>：自己开银行账户收款、用货代发货</li>
+<li><strong>大规模（月流水几百万-几千万）</strong>：
+<ul>
+<li>自己开户节省成本（中间不再找人代收）</li>
+<li>直接找<strong>专线</strong>或<strong>物流</strong>合作（量大可谈价格）</li>
+<li>必须考虑<strong>尾程成本</strong>（海外最大成本）</li>
+</ul>
+</li>
+<li><strong>服务质量</strong>：如何提升也是这一阶段的关键</li>
+</ul>
+</div>
+
+<h3>1.4 16字口诀与认知基础</h3>
+
+<div class="card" style="text-align:center;background:linear-gradient(135deg,#E8F4F8,#EBF5E5);border:2px solid #4A90A4;">
+<h3 style="margin:0;font-size:28px;color:#4A90A4;">📜 16 字 口 诀</h3>
+<p style="font-size:24px;color:#2C3E50;margin:24px 0;font-weight:bold;line-height:1.6;">
+数据为业 · 流量为王<br>
+系统为基 · SOP 为中
+</p>
+<p style="color:#6B7280;font-size:14px;">（"土为中"为口语稿误差，实指 SOP 系统/标准化作业流程）</p>
+</div>
+
+<table>
+<thead>
+<tr><th>口诀</th><th>内涵</th><th>应用</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>数据为业</strong></td><td>一切以数据为依据</td><td>选品、定价、投流全凭数据，不凭感觉</td></tr>
+<tr><td><strong>流量为王</strong></td><td>流量是生死线</td><td>80%-90% 精力压流量</td></tr>
+<tr><td><strong>系统为基</strong></td><td>建立系统化思维</td><td>不碎片化学习，按方法论框架</td></tr>
+<tr><td><strong>SOP 为中</strong></td><td>标准化作业流程</td><td>每个环节都有可复制的流程</td></tr>
+</tbody>
+</table>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 终极警句</span>
+<strong>没有数据为依据的所有理论都是扯淡，实践才是检验真理的唯一标准。</strong>
+</div>
+
+<h3>1.5 起盘常见问题 Q&A</h3>
+
+<details>
+<summary>❓ Q1：我完全没做过跨境，英语也不好，能学会吗？</summary>
+<p>完全可以。本课程设计就是从 0 到 1，<strong>英语不是壁垒</strong>。海外市场的算法、用户消费习惯、内容审核机制与中国大陆完全不同，会中文流量和会英文流量是两回事——但反过来，<strong>懂英文也不一定能做好海外流量</strong>。关键是理解平台逻辑和用户心理。</p>
+</details>
+
+<details>
+<summary>❓ Q2：起盘需要多少启动资金？</summary>
+<p>认知阶段 0 元（纯学习）。基建阶段约<strong>5000-10000 元</strong>（设备+账号+工具）。测试阶段主要是人力和时间成本。最小闭环跑通后可持续滚动投入。建议预留 <strong>3-6 个月的运营资金</strong>。</p>
+</details>
+
+<details>
+<summary>❓ Q3：多久能回本？多久能赚钱？</summary>
+<p>0→1 跑通约 <strong>1-2 个月</strong>（不计前期学习）。但<strong>不要把回本当第一目标</strong>——把"跑通闭环"当第一目标更现实。能稳定出单后，再谈规模化利润。海外私域是长期生意，不是一夜暴富。</p>
+</details>
+
+<details>
+<summary>❓ Q4：哪些品类可以做？哪些不能做？</summary>
+<p>海外私域已跑通的真实案例包括：男性/女性赛道、减脂、生发、珠宝玉石、二奢类、医美、茶叶、瓷器、文玩、服装、支付类等。<strong>莆田鞋、黑五类、文玩、中药等"国内暴力蓝海"在海外属高风险类目</strong>，查得很严。问任何一个货代都能得到同样答案。</p>
+</details>
+
+<details>
+<summary>❓ Q5：我该选哪个国家市场？</summary>
+<p>不急着定。第一阶段先建立<strong>市场判断框架</strong>——第二课会教：①看大盘数据（GDP、人口、电商增速）②看政策稳定性（RCEP 区域、欧盟 VAT）③看支付习惯（COD 占比、信用卡渗透率）④看内容平台（TK MAU vs INS）。第二课会给你数据指标和真实案例。</p>
+</details>
+
+<details>
+<summary>❓ Q6：一个人能搞定吗？还是必须组团队？</summary>
+<p>测试期可以一人完成（流量+客服+发货）。放大期必须分工。第七课会讲<strong>最小可行团队</strong>——明确每个岗位的职责、薪资配置、KPI 设计。从 1 到 100 是<strong>管理问题</strong>，必须做 SOP 化让新人快速复制。</p>
+</details>
+
+<details>
+<summary>❓ Q7：看完这套课就能赚钱吗？</summary>
+<p>不能保证赚钱，但能保证<strong>不亏在认知上</strong>。80% 的新手亏的不是项目，是思维和底层逻辑。本课的核心是：①建立正确顺序思维 ②避免 4 大误区 ③掌握入局 2 大铁律 ④按 7 步法 SOP 执行。把这些做到位，能不能赚钱就交给市场和运气。</p>
+</details>
+
+<div class="tip-success">
+<span class="tip-title">🎯 认知层小结</span>
+读完本层你已建立<strong>正确的出海认知</strong>：不要盲目自信、不要死磕基建、不要赚快钱、不要碎片化。记住 <strong>16 字口诀</strong>，按<strong>七步法</strong>走。下一部分我们将进入<strong>流量层</strong>——看市场、定赛道、选对标。
+</div>
+</section>
+
+<!-- ============================ Part 2 流量层 ============================ -->
+<section id="part2">
+<h2>Part 2 · 流量层（看市场·选赛道·选品）</h2>
+
+<div class="tip-info">
+<span class="tip-title">📌 本层核心</span>
+海外私域不是项目本身的问题，是<strong>新手思维的问题</strong>。选品决定项目天花板——选错了赛道，再多流量也救不了。本层解决"我的市场/品类/对标是谁"+"具体怎么选"。
+</div>
+
+<h3>2.1 向内看：先明确身份与目标</h3>
+
+<div class="card" style="text-align:center;background:linear-gradient(135deg,#E8F4F8,#FFF4ED);border:2px solid #4A90A4;">
+<p style="font-size:22px;color:#2C3E50;margin:8px 0;font-weight:bold;">📜 核心心法</p>
+<p style="font-size:20px;color:#4A90A4;margin:8px 0;font-weight:bold;">小钱靠抄 · 中钱靠耕 · 大钱靠市</p>
+<p style="color:#6B7280;font-size:14px;">新手做海外项目失败的 99% 的原因就是<strong>眼高手低</strong></p>
+</div>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 核心教训</span>
+<strong>先活下来，赚到第一块美金，跑通第一个闭环</strong>，再考虑做大的前提。很多团队实际能力只能赚 50 万，却想着赚 1000 万、2000 万 → "死于想太多，做太少"。
+</div>
+
+<h4>四种身份的资源盘点</h4>
+<table>
+<thead>
+<tr><th>身份</th><th>优势</th><th>劣势</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>品牌方/工厂供应链</strong></td><td>供应链优势、现金流大、洗盘能力大</td><td>没流量思维、不懂搭建海外数据流量团队</td></tr>
+<tr><td><strong>小团队/个体户</strong></td><td>灵活、成本低、什么活都能卖</td><td>资源有限，不适合打硬仗</td></tr>
+</tbody>
+</table>
+
+<div class="tip-success">
+<span class="tip-title">🎯 行动指引</span>
+<ul>
+<li><strong>品牌方/工厂</strong>：先花几天系统学习"怎么选市场"+"怎么搭建海外私域整套系统"+"理解具体的转化流程" → 省帮、避免盲目备货、被合作伙伴坑</li>
+<li><strong>小团队/个体户</strong>：<strong>不去打品牌方的仗</strong>。优势是灵活、成本低。<strong>哪里有钱就去哪里，不要贪大</strong>。</li>
+</ul>
+</div>
+
+<h4>三档目标对应的不同打法</h4>
+<table>
+<thead>
+<tr><th>年利润目标</th><th>战略选择</th><th>执行要点</th></tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>50-100万</strong></td>
+<td>🎯 极致的抄袭</td>
+<td>找一个赚钱同行，<strong>像素级复制</strong>产品、话术、获客流程、转化流程；<strong>不需要动脑子，只需要执行；不需要考虑创新</strong></td>
+</tr>
+<tr>
+<td><strong>100-500万</strong></td>
+<td>🌱 单点生根</td>
+<td>选一个<strong>蓝海类目</strong>、一个地区/国家，沉下心做 1-2 年；要做<strong>赛道分析</strong>；<strong>避开红海</strong></td>
+</tr>
+<tr>
+<td><strong>500万以上</strong></td>
+<td>🌐 宏观布局</td>
+<td>研究<strong>人口红利、政策风向、增速数据</strong>；选一个能做 3-5 年的大市场；<strong>做到头部</strong>才能赚到这个量级</td>
+</tr>
+</tbody>
+</table>
+
+<div class="card">
+<strong>📌 三档目标的本质区别</strong>：
+<ul>
+<li>50-100万 → <strong>卖时间/执行力</strong></li>
+<li>100-500万 → <strong>卖赛道选择能力</strong></li>
+<li>500万+ → <strong>卖宏观判断力</strong></li>
+</ul>
+</div>
+
+<h3>2.2 向外看：三大数据维度评判市场</h3>
+
+<div class="tip-info">
+<span class="tip-title">📌 核心问题</span>
+世界这么大，我们第一站该去哪里？<strong>不能靠猜，一定要通过核心数据判断</strong>。
+</div>
+
+<table>
+<thead>
+<tr><th>维度</th><th>决定什么</th><th>关键指标</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>① 年龄结构</strong></td><td>谁在买</td><td>Z 世代（12-27岁）占比</td></tr>
+<tr><td><strong>② 电商渗透率增速 + 社交媒体使用时长</strong></td><td>市场大不大、转化率怎么样</td><td>线上消费占比、日均设备使用时长</td></tr>
+<tr><td><strong>③ 对华贸易政策稳定性</strong></td><td>能活多久、稳不稳定</td><td>政治风险、平台封禁风险</td></tr>
+</tbody>
+</table>
+
+<h4>维度1：年龄结构</h4>
+<div class="tip-success">
+<span class="tip-title">🎯 核心洞察</span>
+<strong>Z 世代（12-27岁）是海外私域的"最佳土壤"</strong>
+</div>
+
+<div class="card">
+<strong>Z 世代的四大特征</strong>：
+<ol>
+<li><strong>冲动消费</strong>（视觉动物）</li>
+<li>容易被短视频种草、<strong>立刻下单</strong></li>
+<li><strong>天生习惯用聊天软件沟通</strong>（WhatsApp、Line）</li>
+<li><strong>对新鲜事物接受度最高</strong></li>
+</ol>
+</div>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 避坑提示</span>
+<strong>法国、德国、意大利、日本</strong>虽然有钱、汇率高，但<strong>老龄化严重</strong>。老龄化 = 决策周期长、购物理性 → 后期放大时私域转化难度大。<strong>做小体量没问题，做大很难</strong>。
+</div>
+
+<div class="tip-info">
+<span class="tip-title">📌 海私会实操推荐</span>
+<ul>
+<li>✅ <strong>优先做</strong>：中国台湾、美国、日本、东南亚</li>
+<li>❌ <strong>绝对避坑</strong>：印度（政治极不稳定）</li>
+</ul>
+</div>
+
+<h4>维度2：电商渗透率增速</h4>
+<div class="card">
+<strong>白话定义</strong>：在一个国家/地区，<strong>每消费 100 块钱中有多少是线上网购花的</strong>。
+</div>
+
+<table>
+<thead>
+<tr><th>国家</th><th>电商渗透率</th><th>解读</th></tr>
+</thead>
+<tbody>
+<tr><td>中国</td><td>约 <strong>50%</strong></td><td>每 100 块有 50 块在淘宝/京东/抖音</td></tr>
+<tr><td>菲律宾</td><td>仅 <strong>10%</strong></td><td>每 100 块只有 10 块网购，90 块在线下便利店/商场</td></tr>
+</tbody>
+</table>
+
+<div class="tip-success">
+<span class="tip-title">💡 核心判断</span>
+渗透率低 ≠ 没钱 ≠ 市场不好做<br>
+<strong>渗透率低 = 巨大增长空间</strong>
+</div>
+
+<div class="card">
+<strong>📌 私域机会点</strong>：
+<ul>
+<li>用户对网购"<strong>既喜欢又害怕受骗</strong>"</li>
+<li>私域是<strong>快速建立信任、打消疑虑</strong>的最佳方式</li>
+<li>与货架/社交电商形成差异化 → <strong>更高的转化率、更高的客单价、更高的复购率</strong></li>
+<li>处于"从线下转向线上"的消费习惯转变红利爆发期，类似国内电商刚刚兴起时</li>
+</ul>
+</div>
+
+<h4>维度3：社交媒体使用时长</h4>
+<div class="tip-info">
+<span class="tip-title">🔑 核心洞察</span>
+海外私域的本质是"<strong>手机里的生意</strong>"，客户不看手机 = 发再多消息也无效
+</div>
+
+<table>
+<thead>
+<tr><th>地区类型</th><th>代表国家</th><th>日均时长</th></tr>
+</thead>
+<tbody>
+<tr><td>高时长地区</td><td>巴西、菲律宾、日本、中国台湾</td><td>每天 <strong>2-4 小时</strong></td></tr>
+<tr><td>全球平均</td><td>-</td><td>约 <strong>2.5 小时/天</strong></td></tr>
+<tr><td>低时长地区</td><td>德国、韩国</td><td>每天约 <strong>1 小时</strong></td></tr>
+</tbody>
+</table>
+
+<div class="card" style="background:linear-gradient(135deg,#FFF4ED,#FAFBFC);border:2px solid #E8A87C;">
+<strong>📌 选市场口诀</strong>：<br>
+<p style="font-size:18px;color:#A85F2E;margin:8px 0;font-weight:bold;">"用户每天刷手机超过 2 个小时的地方做生意，你的每一条私域消息才值钱"</p>
+</div>
+
+<div class="tip-success">
+<span class="tip-title">📌 海私会推荐区域</span>
+<strong>东南亚、东亚、拉美</strong> → <strong>低渗透率红利 + 高在线时长 = 成交机会</strong>
+</div>
+
+<h4>三大维度综合：全球私域机会地图</h4>
+<div class="card">
+<strong>📌 散点图设计</strong>：横轴 = 增速（左侧低/右侧高）；纵轴 = 时长
+</div>
+
+<div class="tip-success">
+<span class="tip-title">💎 金矿地带</span>（高增速 + 高时长）：
+<ul>
+<li><strong>菲律宾、巴西、印尼</strong>：跑在最前面的增量市场</li>
+<li>用户特征：充满好奇、缺乏安全感</li>
+<li><strong>私域客服真实回复 = 成交必杀技</strong></li>
+</ul>
+</div>
+
+<div class="card">
+<strong>📌 核心逻辑</strong>：
+<ul>
+<li><strong>电商渗透率增速</strong>决定"<strong>抢地盘还是抢存量</strong>"</li>
+<li><strong>用户设备使用时长</strong>决定"<strong>成交摩擦力大小</strong>"</li>
+<li>长时长地区用户习惯用聊天解决问题 → <strong>高毛利、需要解释/咨询/互动</strong>的产品最适合</li>
+</ul>
+</div>
+
+<h3>2.3 政治稳定性——决定私域盘子的"生死线"</h3>
+
+<div class="tip-danger">
+<span class="tip-title">⚠️ 核心论断</span>
+<strong>政治稳定性是私域的"安全底座"</strong>——<strong>不决定你跑多快，但决定你能活多久</strong>
+</div>
+
+<h4>具体风险类型</h4>
+<table>
+<thead>
+<tr><th>风险类型</th><th>案例</th><th>后果</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>金融风险</strong></td><td>俄罗斯 SWIFT 制裁</td><td>货卖出去了，钱回不来</td></tr>
+<tr><td><strong>平台风险</strong></td><td>美国打压 TikTok</td><td>直接断了流量源</td></tr>
+<tr><td><strong>封禁归零</strong></td><td>印度封禁中国 APP</td><td>几十万私域粉丝一夜归零 = "有命赚没命花"</td></tr>
+</tbody>
+</table>
+
+<div class="tip-success">
+<span class="tip-title">🎯 新手战略建议</span>
+<strong>不要把鸡蛋放在一个篮子里</strong>
+<ul>
+<li><strong>根</strong>扎在政治稳定的<strong>RCEP 区域</strong>（如东南亚）<strong>求生存</strong></li>
+<li><strong>业务</strong>延伸到<strong>高风险高收益的欧美市场</strong> <strong>求利润</strong></li>
+<li>无论国际局势怎么变，<strong>盘都不会崩</strong></li>
+</ul>
+</div>
+
+<div class="card" style="text-align:center;background:linear-gradient(135deg,#FCEEEC,#FAFBFC);border:2px solid #D17B7B;">
+<strong>📌 核心结论</strong>：<br>
+<p style="font-size:20px;color:#A85F2E;margin:8px 0;font-weight:bold;">政治稳定性是 1，其他数据维度是后面的 0</p>
+</div>
+
+<h3>2.4 选品三大梯队（核心方法论）</h3>
+
+<div class="mindmap">
+<svg viewBox="0 0 1500 480" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- 根 -->
+  <rect x="20" y="200" width="220" height="60" rx="10" fill="#4A90A4"/>
+  <text x="130" y="228" text-anchor="middle" fill="#fff" font-size="15" font-weight="bold">选品三大梯队</text>
+  <text x="130" y="248" text-anchor="middle" fill="#fff" font-size="13">决定项目天花板</text>
+  <!-- 连接线 -->
+  <path d="M 240,230 H 340 V 70  H 460" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 240,230 H 340 V 230 H 460" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 240,230 H 340 V 390 H 460" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <!-- 梯队1 -->
+  <rect x="460" y="40" width="260" height="60" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="2"/>
+  <text x="590" y="64" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">🥇 高门槛高利润</text>
+  <text x="590" y="86" text-anchor="middle" fill="#6B7280" font-size="11">健康/私密/医美</text>
+  <!-- 梯队2 -->
+  <rect x="460" y="200" width="260" height="60" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="2"/>
+  <text x="590" y="224" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">🥈 视觉动物型</text>
+  <text x="590" y="246" text-anchor="middle" fill="#6B7280" font-size="11">珠宝/文玩/定制</text>
+  <!-- 梯队3 -->
+  <rect x="460" y="360" width="260" height="60" rx="8" fill="#EBF5E5" stroke="#7FB069" stroke-width="2"/>
+  <text x="590" y="384" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">🥉 微商型</text>
+  <text x="590" y="406" text-anchor="middle" fill="#6B7280" font-size="11">服装/二奢/支付类</text>
+  <!-- 详解 -->
+  <rect x="780" y="40" width="280" height="60" rx="8" fill="#FAFBFC" stroke="#E8A87C"/>
+  <text x="920" y="64" text-anchor="middle" fill="#2C3E50" font-size="12">高复购、高单价</text>
+  <text x="920" y="84" text-anchor="middle" fill="#6B7280" font-size="11">私域聊单深度大</text>
+  <rect x="780" y="200" width="280" height="60" rx="8" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="920" y="224" text-anchor="middle" fill="#2C3E50" font-size="12">短视频种草+冲动下单</text>
+  <text x="920" y="244" text-anchor="middle" fill="#6B7280" font-size="11">TK/INS 主战场</text>
+  <rect x="780" y="360" width="280" height="60" rx="8" fill="#FAFBFC" stroke="#7FB069"/>
+  <text x="920" y="384" text-anchor="middle" fill="#2C3E50" font-size="12">品牌溢价+长期粘性</text>
+  <text x="920" y="404" text-anchor="middle" fill="#6B7280" font-size="11">社群运营+复购</text>
+  <path d="M 720,70 H 780" stroke="#E8A87C" stroke-width="1" fill="none"/>
+  <path d="M 720,230 H 780" stroke="#4A90A4" stroke-width="1" fill="none"/>
+  <path d="M 720,390 H 780" stroke="#7FB069" stroke-width="1" fill="none"/>
+  <!-- 适配地区 -->
+  <rect x="1120" y="40" width="220" height="60" rx="8" fill="#FAFBFC" stroke="#E8A87C"/>
+  <text x="1230" y="64" text-anchor="middle" fill="#2C3E50" font-size="12">欧美日韩</text>
+  <text x="1230" y="84" text-anchor="middle" fill="#6B7280" font-size="11">高信任门槛市场</text>
+  <rect x="1120" y="200" width="220" height="60" rx="8" fill="#FAFBFC" stroke="#4A90A4"/>
+  <text x="1230" y="224" text-anchor="middle" fill="#2C3E50" font-size="12">东南亚/拉美</text>
+  <text x="1230" y="244" text-anchor="middle" fill="#6B7280" font-size="11">视觉冲动市场</text>
+  <rect x="1120" y="360" width="220" height="60" rx="8" fill="#FAFBFC" stroke="#7FB069"/>
+  <text x="1230" y="384" text-anchor="middle" fill="#2C3E50" font-size="12">中国台湾</text>
+  <text x="1230" y="404" text-anchor="middle" fill="#6B7280" font-size="11">微商文化+熟人经济</text>
+  <path d="M 1060,70 H 1120" stroke="#E8A87C" stroke-width="1" fill="none"/>
+  <path d="M 1060,230 H 1120" stroke="#4A90A4" stroke-width="1" fill="none"/>
+  <path d="M 1060,390 H 1120" stroke="#7FB069" stroke-width="1" fill="none"/>
+  <!-- 成交场景 -->
+  <rect x="1380" y="200" width="120" height="60" rx="8" fill="#FFF4ED" stroke="#E8A87C"/>
+  <text x="1440" y="224" text-anchor="middle" fill="#A85F2E" font-size="11">独立站</text>
+  <text x="1440" y="244" text-anchor="middle" fill="#A85F2E" font-size="11">首单</text>
+  <rect x="1380" y="40" width="120" height="60" rx="8" fill="#E8F4F8" stroke="#4A90A4"/>
+  <text x="1440" y="64" text-anchor="middle" fill="#2C3E50" font-size="11">私域复购</text>
+  <text x="1440" y="84" text-anchor="middle" fill="#2C3E50" font-size="11">+社群</text>
+  <rect x="1380" y="360" width="120" height="60" rx="8" fill="#EBF5E5" stroke="#7FB069"/>
+  <text x="1440" y="384" text-anchor="middle" fill="#2C3E50" font-size="11">社群运营</text>
+  <text x="1440" y="404" text-anchor="middle" fill="#2C3E50" font-size="11">+裂变</text>
+</svg>
+</div>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 选品总原则</span>
+<strong>不要相信"一款产品卖遍全球"</strong>——不同市场选品逻辑完全不同。海外私域决定类目推荐表，部分敏感类目做了打码处理，需找客服领取原始资料。
+</div>
+
+<h4>梯队1：高门槛高利润（健康/私密/医美）</h4>
+<div class="card">
+<ul>
+<li><strong>特点</strong>：高复购、高单价、私域聊单深度大</li>
+<li><strong>目标地区</strong>：欧美日韩（高信任门槛市场）</li>
+<li><strong>成交场景</strong>：私域复购 + 社群</li>
+<li><strong>风险</strong>：合规要求高（保健品、医美有各国限制）</li>
+</ul>
+</div>
+
+<h4>梯队2：视觉动物型（珠宝/文玩/定制/服装）</h4>
+<div class="card">
+<ul>
+<li><strong>特点</strong>：短视频种草+冲动下单</li>
+<li><strong>目标地区</strong>：东南亚/拉美（视觉冲动市场）</li>
+<li><strong>主战场</strong>：TikTok / Instagram</li>
+<li><strong>成交场景</strong>：独立站首单</li>
+</ul>
+</div>
+
+<h4>梯队3：微商型（服装/二奢/支付类）</h4>
+<div class="card">
+<ul>
+<li><strong>特点</strong>：品牌溢价 + 长期粘性</li>
+<li><strong>目标地区</strong>：中国台湾（微商文化 + 熟人经济）</li>
+<li><strong>成交场景</strong>：社群运营 + 裂变</li>
+<li><strong>风险</strong>：同质化严重，需强品牌力</li>
+</ul>
+</div>
+
+<div class="tip-success">
+<span class="tip-title">💎 关键洞察</span>
+<strong>选品梯队（产品侧）→ 用户梯队（消费侧）→ 成交场景（支付侧）三者一一映射，不能错配</strong>。卖健康产品就别去推 Z 世代短视频，卖服装就别卖给欧美老头。
+</div>
+
+<h3>2.5 选品五步法（5种独立方法）</h3>
+
+<div class="tip-info">
+<span class="tip-title">📌 重要提示</span>
+5 种方法不是串联流程，而是<strong>可独立调用、互相补强的方法库</strong>。实际选品时可以多个方法组合使用。
+</div>
+
+<h4>方法一：竞品反向追踪法</h4>
+<div class="card">
+<strong>核心定义</strong>：去海外你这个行业里面找同行卖爆了的产品，把同行整套模式复制下来。
+</div>
+
+<table>
+<thead>
+<tr><th>工具</th><th>地址</th><th>特点</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Facebook AD Library</strong></td><td>facebook.com/ads/library</td><td>免费，免登录</td></tr>
+<tr><td><strong>TikTok Creative Center</strong></td><td>ads.tiktok.com/business/creativecenter</td><td>免费</td></tr>
+<tr><td>第三方工具</td><td>谷歌浏览器直接搜</td><td>多种可用</td></tr>
+</tbody>
+</table>
+
+<div class="tip-success">
+<span class="tip-title">🔑 核心原理</span>
+从结果反推——"你想想大家你的同行敢花钱敢去投流的，百分之八十九十的这些同行他敢去花钱去投流的，说明他们这个项目赚钱，他才敢去放大。"<strong>没跑通的同行不会长期烧钱投流，所以"敢投 = 赚钱 = 可抄"</strong>。
+</div>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 关键操作细节</span>
+<ul>
+<li>❌ <strong>不要搜产品词</strong>（如"宠物毛刷""水晶""茶叶"）——会混进大量电商广告</li>
+<li>✅ <strong>要搜行动号召词</strong>（Call to Action）</li>
+<li>英文："<strong>chat to order</strong>"、"<strong>message for price</strong>"、"<strong>DM for price</strong>"</li>
+<li>日文/当地语言：用 ChatGPT/Claude 直接问"日本当地聊天下单的行动号召词"</li>
+<li>为什么要换语言？因为搜索时换语言 = 换站点 = 换市场</li>
+</ul>
+</div>
+
+<div class="card">
+<strong>📌 判断对标账号的两个标准</strong>：
+<ol>
+<li><strong>广告投放时长 > 2 周</strong> → 说明 ROI 为正（国外广告费比国内高，不赚钱的项目不可能持续投两周）</li>
+<li><strong>路径短</strong> → 落地页直接引导至 Messenger/WhatsApp/Line，中间不经过其他环节（链路越短，转化越高）</li>
+</ol>
+</div>
+
+<h4>方法二：舆情痛点挖掘法</h4>
+<div class="card">
+<strong>核心定义</strong>：去头部品牌/头部 IP 的评论区/社群，找到用户吐槽最多的点 = <strong>痛点 = 卖点</strong>
+</div>
+
+<div class="tip-success">
+<span class="tip-title">🎯 三个具体操作路径</span>
+<ol>
+<li><strong>看电商评论区差评</strong>：找头部品牌的亚马逊店铺/TK店铺 → 看销量最高商品的评论区 → 差评最多点 = 痛点</li>
+<li><strong>看社媒视频评论区提问</strong>：平台 TK、ins、facebook → 关注"用户讨论最多的问题" → 示例痛点："能治疗产后脱发吗？我晚上睡不着怎么办？异地恋怎么办？"</li>
+<li><strong>去垂直社群/论坛搜"how to cure"</strong>：美国版知乎、百度贴吧、Reddit 等 → 搜"How to cure [症状]""最好的 [品牌] 治疗 [症状]"</li>
+</ol>
+</div>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 机会判准</span>
+<ul>
+<li>✅ 大量的 + 具体的 + 尚无完美解决方案的 = <strong>机会</strong></li>
+<li>❌ 少数人讨论的不一定能火</li>
+</ul>
+</div>
+
+<h4>方法三：供应链溢价核算法</h4>
+<div class="card" style="text-align:center;background:#FFF4ED;border:2px solid #E8A87C;">
+<strong>📊 核心公式</strong>
+<p style="font-size:18px;color:#A85F2E;margin:12px 0;font-weight:bold;">利润倍率 = 海外对标售价 ÷ 国内源头拿货价</p>
+<p style="color:#6B7280;font-size:13px;">拿货源头：1688、淘宝、天猫、拼多多</p>
+</div>
+
+<table>
+<thead>
+<tr><th>利润倍率</th><th>判断</th><th>原因</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>&lt; 5 倍</strong></td><td>❌ 坚决不做</td><td>欧美/日本等发达国家，物流、广告、人工成本极高，可能比产品本身还高，根本覆盖不了运营成本</td></tr>
+<tr><td><strong>5~8 倍</strong></td><td>⚠️ 合格线</td><td>可以做</td></tr>
+<tr><td><strong>&gt; 10 倍</strong></td><td>✅ 优质品</td><td>大胆做</td></tr>
+</tbody>
+</table>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 核心原则</span>
+<strong>"前期千万不要干那种运营成本高的事情，大家记住，这时候是很多人为什么会亏钱的一个核心原因。"</strong>
+</div>
+
+<h4>方法四：品类迁移法</h4>
+<div class="card">
+<strong>核心定义</strong>：把已经在<strong>其他渠道（如亚马逊、TK 独立站）</strong>跑通的爆品，迁移到私域渠道再做一遍。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">💡 核心优势</span>
+<ul>
+<li>已经在公域跑通 = 市场已经被验证</li>
+<li>私域的"复购+溢价+聊单"模型能放大 LTV（客户终身价值）</li>
+<li>流量获取更精准，单价可以比公域卖更高</li>
+</ul>
+</div>
+
+<h4>方法五：本地化关键词法</h4>
+<div class="card">
+<strong>核心定义</strong>：通过<strong>本地化关键词调研</strong>找到真实的用户需求与品类偏好。
+</div>
+
+<div class="tip-info">
+<span class="tip-title">🔧 操作工具</span>
+<ul>
+<li><strong>Google Trends</strong>（谷歌趋势）：看品类在不同地区的热度</li>
+<li><strong>Facebook Audience Insights</strong>：看人群画像、兴趣偏好</li>
+<li><strong>各平台搜索框下拉词</strong>：TK/INS 搜品类词，看自动联想的真实搜索词</li>
+<li><strong>当地电商平台</strong>：Shopee/Lazada（东南亚）、Mercado（拉美）</li>
+</ul>
+</div>
+
+<h3>2.6 找对标账号的 6 维判断法</h3>
+
+<div class="tip-info">
+<span class="tip-title">📌 找对标的价值</span>
+不要创新、不要重新发明轮子。新手就<strong>像素级复制</strong>已有赚钱模式。
+</div>
+
+<table>
+<thead>
+<tr><th>维度</th><th>判断标准</th><th>实操</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>1. 投放时长</strong></td><td>&gt; 2 周持续投</td><td>Facebook AD Library 看广告历史</td></tr>
+<tr><td><strong>2. 路径长度</strong></td><td>短（≤3步）</td><td>落地页 → Messenger/WhatsApp</td></tr>
+<tr><td><strong>3. 客单价</strong></td><td>5-10倍利润率</td><td>反算拿货成本</td></tr>
+<tr><td><strong>4. 内容形式</strong></td><td>爆款率高（&gt;20%）</td><td>看最近10条视频数据</td></tr>
+<tr><td><strong>5. 地区匹配</strong></td><td>目标市场一致</td><td>评论区地理分布</td></tr>
+<tr><td><strong>6. 行业匹配</strong></td><td>同一品类</td><td>广告素材涉及产品</td></tr>
+</tbody>
+</table>
+
+<div class="tip-success">
+<span class="tip-title">💎 海私会独家心法</span>
+<strong>"烂素材高流量 = 红利"</strong>。如果对标素材制作很烂但流量很高，说明平台算法在该品类上有红利，新人进入容易起量。<br><br>
+<strong>"无对标 = 蓝海，大胆测"</strong>。找不到同类对标 = 该品类还未被开发成红海，可以大胆测试。
+</div>
+
+<h3>2.6.5 课程额外赠送：两个 AI 提示词模板（直接抄作业）</h3>
+
+<div class="tip-success">
+<span class="tip-title">🤖 AI 提示词 1：本地化关键词挖掘</span>
+<b>使用场景</b>：进入新国家/新类目，需要找到所有本地化搜索词<br><br>
+<b>完整结构</b>（老师以"宠物玩具+日本市场"为案例）：
+<pre style="background:#F4F7F9;padding:10px;border-radius:6px;font-size:13px;">
+我是谁 + 我打算做什么国家、什么类目
++ 我需要知道这个类目里面所有的什么词
++ 场景词 + 产品词 + 痛点词
++ 请根据 [国家+类目] 给我整理出来
+</pre>
+<b>实战价值</b>：不需要懂日语/英语/西班牙语，AI 一步到位生成所有关键词；再把关键词输入到 TK/ins/Facebook，新号必须做点赞动作（刺激算法识别兴趣偏好）。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">🤖 AI 提示词 2：产品卖点挖掘（特征-利益-情绪三维度）</span>
+<b>使用场景</b>：拿到一个产品不知道怎么写卖点/脚本<br><br>
+<b>完整结构</b>：
+<pre style="background:#F4F7F9;padding:10px;border-radius:6px;font-size:13px;">
+我有一个 [产品名]，它的核心特征是 [X]
+请从特征、利益、情绪三个维度帮我拆解卖点
+- 特征：产品的物理属性
+- 利益：对用户的直接功能价值
+- 情绪：能帮用户解决的焦虑/恐惧/欲望
+</pre>
+<b>老师案例</b>：宠物饮水机（三层过滤）→ 特征=三层过滤；利益=水无毛发灰尘；情绪=避免尿闭/肾结石，省下几千块看病钱<br>
+<b>重要提示</b>：用海外 AI（ChatGPT/Claude），不要用国内 AI（模型与海外市场认知匹配度更高）。
+</div>
+
+<h3>2.7 十天快速测评方法</h3>
+
+<div class="tip-info">
+<span class="tip-title">📌 测评目的</span>
+用最小成本验证一个产品/赛道/对标账号<strong>是否值得放大</strong>。
+</div>
+
+<h4>十天测评流程</h4>
+<table>
+<thead>
+<tr><th>天数</th><th>动作</th><th>核心指标</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Day 1-3</strong></td><td>对标拆解 + 1:1 复制素材</td><td>完成 5-10 条素材</td></tr>
+<tr><td><strong>Day 4-6</strong></td><td>多账号矩阵发布 + 投流测试</td><td>CTR &gt; 1.5%</td></tr>
+<tr><td><strong>Day 7-8</strong></td><td>看转化数据 + 调整素材</td><td>CPC &lt; 客单价 30%</td></tr>
+<tr><td><strong>Day 9-10</strong></td><td>数据总结 + 决策（继续/放弃）</td><td>ROI &gt; 1.5</td></tr>
+</tbody>
+</table>
+
+<div class="tip-danger">
+<span class="tip-title">⚠️ 测评原则</span>
+<ul>
+<li><strong>不要舍不得沉没成本</strong>：测试 10 天不行就果断换</li>
+<li><strong>不要一个账号测</strong>：至少 3-5 个账号同时跑</li>
+<li><strong>不要闭门造车</strong>：每个决策必须看数据</li>
+<li><strong>不要追求完美</strong>：先跑起来再迭代</li>
+</ul>
+</div>
+
+<h3>2.8 流量层总结</h3>
+
+<div class="tip-success">
+<span class="tip-title">🎯 看完流量层的行动清单</span>
+<ul class="checklist">
+<li>明确自己身份（品牌方/小团队），定好年利润目标档位</li>
+<li>选定 3-5 个目标地区（结合年龄+渗透率+时长+政治稳定性）</li>
+<li>用 5 步法组合选 3-5 个候选产品</li>
+<li>找 5-10 个对标账号（6 维判断）</li>
+<li>用十天测评方法验证 1-2 个最有希望的赛道</li>
+<li>将选品梯队与目标地区匹配（不能错配）</li>
+</ul>
+</div>
+
+<div class="tip-info">
+<span class="tip-title">🎯 流量层小结</span>
+读完本层你已掌握：<strong>三档目标</strong>对应打法、<strong>三大数据维度</strong>判市场、<strong>选品三大梯队</strong>、<strong>选品五步法</strong>、<strong>6 维对标判断</strong>、<strong>十天测评方法</strong>。下一部分进入<strong>基建层</strong>——账号搭建+物流+支付。
+</div>
+</section>
+
+<!-- ============================ Part 3 基建层 ============================ -->
+<section id="part3">
+<h2>Part 3 · 基建层（账号·物流·支付）</h2>
+
+<div class="tip-info">
+<span class="tip-title">📌 本层核心</span>
+海外私域的"最后一公里"——账号搭不起来、物流发不出去、钱收不回来，前端再努力也是白搭。本层解决"业务怎么跑起来"+"钱怎么安全落袋"。<strong>记住：基建是工具不是壁垒，拿来主义 + 80% 标准方案即可</strong>。
+</div>
+
+<h3>3.1 平台与软件全景认知</h3>
+
+<div class="card">
+<strong>📌 海外私域生态三类角色</strong>：<strong>公域引流平台 → 私域承接软件 → 付费投放工具</strong>，每一类用不同的软件匹配不同地区、不同目的。
+</div>
+
+<h4>① 公域引流平台（5个）</h4>
+<table>
+<thead>
+<tr><th>平台</th><th>内容形态</th><th>覆盖地区</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>TikTok</strong></td><td>短视频</td><td>全球（东南亚最强）</td></tr>
+<tr><td><strong>Instagram</strong></td><td>图片 + Reels</td><td>欧美 + 中东</td></tr>
+<tr><td><strong>Facebook</strong></td><td>社群 + 长文</td><td>全球（中老年）</td></tr>
+<tr><td><strong>YouTube</strong></td><td>长视频</td><td>全球</td></tr>
+<tr><td><strong>Twitter</strong></td><td>资讯文</td><td>北美/日本</td></tr>
+</tbody>
+</table>
+
+<h4>② 私域承接软件（按地区匹配）</h4>
+<div class="tip-danger">
+<span class="tip-title">⚠️ 核心警示</span>
+<strong>私域端不能"一刀切"，必须按目标地区的用户习惯匹配。选错承接软件 = 在错误的地方开店</strong>
+</div>
+
+<table>
+<thead>
+<tr><th>地区</th><th>首选软件</th><th>特点</th></tr>
+</thead>
+<tbody>
+<tr><td>欧美 + 拉美 + 印尼</td><td><strong>WhatsApp</strong></td><td>覆盖率最高，分个人版和企业版（Business API）</td></tr>
+<tr><td>东亚（日韩台地区）</td><td><strong>LINE</strong></td><td>东亚覆盖率最高，台湾繁体中文用户的依赖</td></tr>
+<tr><td>全球 + 敏感类目</td><td><strong>Telegram</strong></td><td>俗称"飞机"，加密通讯</td></tr>
+<tr><td>越南</td><td><strong>Zalo</strong></td><td>越南专用</td></tr>
+<tr><td>全球通用补充</td><td><strong>Messenger</strong></td><td>覆盖率较高，FB 自带</td></tr>
+</tbody>
+</table>
+
+<h4>③ 付费投放工具（3个）</h4>
+<table>
+<thead>
+<tr><th>工具</th><th>投放平台</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Meta Ads</strong></td><td>Facebook + Instagram</td></tr>
+<tr><td><strong>TikTok Ads</strong></td><td>TikTok</td></tr>
+<tr><td><strong>Google Ads</strong></td><td>Google 搜索</td></tr>
+</tbody>
+</table>
+
+<div class="tip-success">
+<span class="tip-title">🔑 逻辑关系</span>
+公域引流是"拉人"，私域承接是"留人"，付费投放是"批量拉人"。三者构成"<strong>公域获客 → 私域沉淀 → 付费放大</strong>"的闭环。
+</div>
+
+<h3>3.2 硬件设备与网络环境基建</h3>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 核心原则</span>
+登录 TK、Ins 的设备<strong>首选手机，不用电脑</strong>。原因是手机端发布视频可使用平台原生热门音乐、滤镜、贴纸等功能，增加账号权重与初始流量。
+</div>
+
+<h4>设备推荐</h4>
+<table>
+<thead>
+<tr><th>系统</th><th>首选机型</th><th>严禁机型</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>苹果</strong></td><td>iPhone 8 以上，<strong>首选美版无锁</strong>。做哪个国家站点就用哪个地区版本</td><td>国行版</td></tr>
+<tr><td><strong>安卓</strong></td><td><strong>首选 Google Pixel 3/4 以上</strong>，因其原生安卓系统环境最纯净</td><td>华为、小米、OPPO、vivo 国行定制版</td></tr>
+</tbody>
+</table>
+
+<div class="card">
+<strong>📌 平台识别的 4 个维度</strong>：TK、Ins、Facebook、WhatsApp 等软件<strong>在开发时就把中国大陆排除在服务范围之外</strong>。平台会从①设备生产国家与版本 ②手机定位 ③时区 ④安装软件的国家版本 这四个维度识别用户身份。
+</div>
+
+<h4>新机操作 4 步 SOP（按顺序不可错）</h4>
+<div class="tip-success">
+<span class="tip-title">⚡ 4 步 SOP</span>
+<ol>
+<li><strong>还原出厂设置</strong>（清空环境）</li>
+<li><strong>不插国内 SIM 卡</strong>（有当地卡可插海外卡，无卡则不插）</li>
+<li><strong>只装海外版 APP，禁止装任何中国大陆软件</strong></li>
+<li><strong>关闭定位</strong>（或修改定位）</li>
+</ol>
+<strong>错一步即可能触发风控</strong>。
+</div>
+
+<h4>工具配置清单</h4>
+<table>
+<thead>
+<tr><th>设备</th><th>工具</th><th>用途</th></tr>
+</thead>
+<tbody>
+<tr><td>iOS 手机</td><td><strong>小火箭</strong></td><td>网络代理</td></tr>
+<tr><td>Android 手机</td><td><strong>Clash / Surfboard</strong></td><td>网络代理</td></tr>
+<tr><td>电脑</td><td><strong>指纹浏览器</strong>（紫鸟/比特/战斧/ADPower）+ 海外版剪映 + 谷歌翻译 + Clash/V2Ray</td><td>多账号防关联隔离</td></tr>
+<tr><td>环境检测</td><td>whoer.net / browserleaks.com</td><td>检测伪装度</td></tr>
+</tbody>
+</table>
+
+<div class="tip-danger">
+<span class="tip-title">⚠️ 铁律</span>
+<strong>绝对不要直接挂梯子上号</strong>。指纹浏览器是电脑端<strong>多账号防关联隔离</strong>的核心。
+</div>
+
+<h4>网络名词释义（必懂）</h4>
+<table>
+<thead>
+<tr><th>名词</th><th>通俗解释</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>IP</strong></td><td>你的网络地址，相当于"网络身份证"</td></tr>
+<tr><td><strong>静态 IP</strong></td><td>固定不变的 IP，平台认为你是"稳定用户"</td></tr>
+<tr><td><strong>动态 IP</strong></td><td>每次连接换 IP，平台认为你是"异常用户"</td></tr>
+<tr><td><strong>指纹浏览器</strong></td><td>给每个账号生成独立的浏览器环境（设备+Cookie+字体），防止平台关联</td></tr>
+</tbody>
+</table>
+
+<h3>3.3 账号注册与养号</h3>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 新号红线</span>
+<ul>
+<li>❌ 一注册就大量发视频/私信</li>
+<li>❌ 多账号同 IP 同设备登录</li>
+<li>❌ 频繁切换 IP/设备</li>
+<li>❌ 用国内邮箱/手机号注册</li>
+<li>❌ 资料一次性填完（头像/简介/链接/地区）</li>
+</ul>
+</div>
+
+<h4>养号 SOP（按平台略有差异）</h4>
+<div class="card">
+<strong>📌 通用养号流程</strong>：
+<ol>
+<li><strong>Day 1-2</strong>：注册账号 + 完善基础资料（不要一次填完，分批）</li>
+<li><strong>Day 3-5</strong>：每天刷 30-60 分钟同行业内容（点赞、评论、收藏）</li>
+<li><strong>Day 6-7</strong>：发第 1 条测试视频（5-10 秒简单内容）</li>
+<li><strong>Day 8-10</strong>：发第 2-3 条测试视频（看初始流量 200-500）</li>
+<li><strong>Day 11+</strong>：进入正式运营阶段</li>
+</ol>
+</div>
+
+<div class="tip-success">
+<span class="tip-title">💡 关键认知</span>
+TK 满月白账号（即养满 30 天、看起来"正常"的账号）市场价 <strong>5-15 元/个</strong>（2025-2026 行情）。自己养号需要时间但更安全，买现成号成本低但有被封风险。
+</div>
+
+<h3>3.4 邮箱裂变与多账号管理</h3>
+
+<div class="tip-info">
+<span class="tip-title">📌 矩阵化是放大必备</span>
+1 个账号能搞到的流量天花板太低，必须用矩阵账号"广撒网"。但 10 个账号就需要 10 个独立邮箱——<strong>域名邮箱 catch-all 无限邮箱</strong>是最低成本方案。
+</div>
+
+<h4>域名邮箱 catch-all 方案</h4>
+<div class="card">
+<strong>📌 原理</strong>：买一个域名 → 设置 catch-all（捕获所有前缀）→ 任何 [前缀]@你的域名.com 都收到这个域名邮箱里
+</div>
+
+<table>
+<thead>
+<tr><th>服务商</th><th>价格</th><th>特点</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Cloudflare</strong></td><td>域名约 50-80 元/年</td><td>免费 catch-all，配置简单</td></tr>
+<tr><td><strong>腾讯企业邮</strong></td><td>免费版可用</td><td>国内访问快</td></tr>
+<tr><td><strong>阿里云邮</strong></td><td>免费版可用</td><td>国内访问快</td></tr>
+<tr><td><strong>Google Workspace</strong></td><td>约 6 美元/月/账号</td><td>海外访问最佳</td></tr>
+</tbody>
+</table>
+
+<div class="tip-success">
+<span class="tip-title">💎 实战技巧</span>
+一个域名邮箱可以创建 <strong>几百 个账号</strong>，注册 TK 时用 <code>001@xxx.com</code>、<code>002@xxx.com</code>... <code>100@xxx.com</code>。所有邮件都收到同一个 catch-all 邮箱里，<strong>成本接近 0</strong>。
+</div>
+
+<h4>多账号管理铁律</h4>
+<div class="tip-danger">
+<span class="tip-title">⚠️ 绝对红线</span>
+<ul>
+<li>❌ 同一 IP 登录超过 3 个账号</li>
+<li>❌ 同一设备登录超过 2 个账号</li>
+<li>❌ 同一指纹（浏览器）跑不同 IP 的账号</li>
+<li>❌ 账号之间互相点赞/评论</li>
+</ul>
+</div>
+
+<h3>3.5 物流发货全链路</h3>
+
+<div class="tip-info">
+<span class="tip-title">📌 海外私域的"最后一公里"</span>
+很多在国内做电商/私域的老板，已习惯"卖出去就完事"。但海外不一样——政策、海关规则、社会治安、本地基建、配送效率、退货成本，<strong>每一个国家和每一个地区都不一样</strong>。只搞定前端流量转化、不搞定后端物流，钱进不了口袋。
+</div>
+
+<h4>完整物流链路 10 环节</h4>
+<div class="mindmap">
+<svg viewBox="0 0 1700 360" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- 10个环节 -->
+  <rect x="20"  y="40" width="140" height="60" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="90" y="68" text-anchor="middle" fill="#2C3E50" font-size="12" font-weight="bold">① 工厂生产</text>
+  <text x="90" y="86" text-anchor="middle" fill="#6B7280" font-size="10">产品下线</text>
+  <rect x="180" y="40" width="140" height="60" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="250" y="68" text-anchor="middle" fill="#2C3E50" font-size="12" font-weight="bold">② 国内快递揽收</text>
+  <text x="250" y="86" text-anchor="middle" fill="#6B7280" font-size="10">三通一达/顺丰</text>
+  <rect x="340" y="40" width="140" height="60" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="410" y="68" text-anchor="middle" fill="#2C3E50" font-size="12" font-weight="bold">③ 中转仓</text>
+  <text x="410" y="86" text-anchor="middle" fill="#6B7280" font-size="10">集运</text>
+  <rect x="500" y="40" width="140" height="60" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="570" y="68" text-anchor="middle" fill="#2C3E50" font-size="12" font-weight="bold">④ 出口报关</text>
+  <text x="570" y="86" text-anchor="middle" fill="#6B7280" font-size="10">海关申报</text>
+  <rect x="660" y="40" width="140" height="60" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="730" y="68" text-anchor="middle" fill="#2C3E50" font-size="12" font-weight="bold">⑤ 码头/机场</text>
+  <text x="730" y="86" text-anchor="middle" fill="#6B7280" font-size="10">海运/空运/陆运</text>
+  <!-- 头程分界 -->
+  <line x1="820" y1="20" x2="820" y2="120" stroke="#E8A87C" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="820" y="14" text-anchor="middle" fill="#A85F2E" font-size="11" font-weight="bold">头程</text>
+  <!-- 中间 -->
+  <rect x="820" y="40" width="140" height="60" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="890" y="68" text-anchor="middle" fill="#A85F2E" font-size="12" font-weight="bold">⑥ 装箱装柜</text>
+  <text x="890" y="86" text-anchor="middle" fill="#6B7280" font-size="10">整柜/打板</text>
+  <rect x="980" y="40" width="140" height="60" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="1050" y="68" text-anchor="middle" fill="#A85F2E" font-size="12" font-weight="bold">⑦ 跨境干线</text>
+  <text x="1050" y="86" text-anchor="middle" fill="#6B7280" font-size="10">国际运输</text>
+  <rect x="1140" y="40" width="140" height="60" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="1210" y="68" text-anchor="middle" fill="#A85F2E" font-size="12" font-weight="bold">⑧ 目的国清关</text>
+  <text x="1210" y="86" text-anchor="middle" fill="#6B7280" font-size="10">海关审核</text>
+  <line x1="1300" y1="20" x2="1300" y2="120" stroke="#7FB069" stroke-width="2" stroke-dasharray="5,3"/>
+  <text x="1300" y="14" text-anchor="middle" fill="#5C8A47" font-size="11" font-weight="bold">尾程</text>
+  <rect x="1300" y="40" width="140" height="60" rx="8" fill="#EBF5E5" stroke="#7FB069" stroke-width="1.5"/>
+  <text x="1370" y="68" text-anchor="middle" fill="#2C3E50" font-size="12" font-weight="bold">⑨ 海外仓</text>
+  <text x="1370" y="86" text-anchor="middle" fill="#6B7280" font-size="10">中转存储</text>
+  <rect x="1460" y="40" width="220" height="60" rx="8" fill="#EBF5E5" stroke="#7FB069" stroke-width="1.5"/>
+  <text x="1570" y="68" text-anchor="middle" fill="#2C3E50" font-size="12" font-weight="bold">⑩ 尾程派送 → 签收</text>
+  <text x="1570" y="86" text-anchor="middle" fill="#6B7280" font-size="10">本地快递送达买家</text>
+  <!-- 连接箭头 -->
+  <path d="M 160,70 H 180" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 320,70 H 340" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 480,70 H 500" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 640,70 H 660" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 800,70 H 820" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 960,70 H 980" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 1120,70 H 1140" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 1280,70 H 1300" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 1440,70 H 1460" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <!-- 成本占比说明 -->
+  <rect x="20" y="180" width="800" height="60" rx="8" fill="#FCEEEC" stroke="#D17B7B" stroke-width="1.5"/>
+  <text x="420" y="208" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">⚠️ 反直觉：尾程成本占 60-70%</text>
+  <text x="420" y="228" text-anchor="middle" fill="#6B7280" font-size="12">有些品类尾程配送费 > 商品本身成本</text>
+  <!-- 新手常见6问题 -->
+  <rect x="840" y="180" width="840" height="60" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="1260" y="208" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">新手最常遇 6 类问题</text>
+  <text x="1260" y="228" text-anchor="middle" fill="#6B7280" font-size="11">单号不会看 · 货在哪不知道 · 清关卡住 · 投诉不会回 · 包裹异常 · 拒收退货</text>
+  <!-- 三种角色 -->
+  <rect x="20" y="270" width="540" height="70" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="290" y="296" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">三角色辨析</text>
+  <text x="290" y="316" text-anchor="middle" fill="#6B7280" font-size="11">物流公司（亲自干，如 DHL/UPS）</text>
+  <text x="290" y="330" text-anchor="middle" fill="#6B7280" font-size="11">货代（协调干，如燕文/云途）</text>
+  <!-- 新手选择 -->
+  <rect x="580" y="270" width="540" height="70" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="850" y="296" text-anchor="middle" fill="#A85F2E" font-size="13" font-weight="bold">新手起步：直接找货代</text>
+  <text x="850" y="316" text-anchor="middle" fill="#6B7280" font-size="11">大物流公司不搭理小卖家</text>
+  <text x="850" y="330" text-anchor="middle" fill="#6B7280" font-size="11">大公司不会给小客户最低价</text>
+  <!-- 专线 -->
+  <rect x="1140" y="270" width="540" height="70" rx="8" fill="#EBF5E5" stroke="#7FB069" stroke-width="1.5"/>
+  <text x="1410" y="296" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">专线：货代打包的成熟产品</text>
+  <text x="1410" y="316" text-anchor="middle" fill="#6B7280" font-size="11">"美国专线""日本专线"</text>
+  <text x="1410" y="330" text-anchor="middle" fill="#6B7280" font-size="11">集合了某国最优组合方案</text>
+</svg>
+</div>
+
+<h4>三个核心角色辨析</h4>
+<table>
+<thead>
+<tr><th>角色</th><th>本质</th><th>资源</th><th>干不干活</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>物流公司</strong></td><td>真正负责运输的主体</td><td>有船队/车队/航司</td><td><strong>亲自干</strong>（如 DHL/UPS/顺丰国际）</td></tr>
+<tr><td><strong>货代</strong></td><td>资源整合者、对接协调方</td><td>有渠道整合能力</td><td><strong>协调干</strong>（如燕文、云途）</td></tr>
+<tr><td><strong>专线</strong></td><td>货代打包的固定线路产品</td><td>集合了某国最优组合</td><td><strong>产品形态</strong>（如"美国专线""日本专线"）</td></tr>
+</tbody>
+</table>
+
+<div class="tip-success">
+<span class="tip-title">💡 新手真实选择顺序</span>
+<strong>起步阶段（0→1，单量小）：直接找货代</strong>。原因有三：
+<ol>
+<li>大物流公司不搭理小卖家（人家客户都是月发几万-几十万单的大卖）</li>
+<li>大公司不会给小客户最低价</li>
+<li>大公司服务标准化、不会专人跟单</li>
+</ol>
+</div>
+
+<h4>3 种运输方式对比</h4>
+<table>
+<thead>
+<tr><th>方式</th><th>时效</th><th>成本</th><th>适用场景</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>海运</strong></td><td>30-45 天</td><td>低</td><td>大货、不急件、备货型品类</td></tr>
+<tr><td><strong>空运</strong></td><td>7-15 天</td><td>中</td><td>中等货量、时效要求高</td></tr>
+<tr><td><strong>陆运</strong></td><td>10-20 天</td><td>中低</td><td>邻国（东南亚、欧洲陆桥）</td></tr>
+<tr><td><strong>直邮小包</strong></td><td>10-12 天</td><td>中</td><td>小单起步、轻小货</td></tr>
+</tbody>
+</table>
+
+<h4>敏感货与违禁品</h4>
+<div class="tip-danger">
+<span class="tip-title">⚠️ 决定货能不能出去的红线</span>
+<ul>
+<li><strong>违禁品</strong>：毒品、武器、淫秽品（全球一致）</li>
+<li><strong>敏感货</strong>：液体、粉末、电池、刀具、保健品（各国规定不同）</li>
+<li><strong>品牌货</strong>：未授权的品牌商品（易被海关扣押）</li>
+<li><strong>美国特别禁</strong>：新疆棉（UFLPA 自 2022 年 6 月生效）</li>
+</ul>
+</div>
+
+<h4>海外仓三重风险</h4>
+<div class="tip-warn">
+<span class="tip-title">⚠️ 海外仓重资产逻辑</span>
+海外仓是"<strong>重资产</strong>"——库存+税务+类目三个风险叠加
+<ol>
+<li><strong>库存风险</strong>：卖不动就是死库存</li>
+<li><strong>税务风险</strong>：欧洲 VAT 19-25%（2025 ViDA 改革 2028 全面）</li>
+<li><strong>类目风险</strong>：某些品类海外仓不接</li>
+</ol>
+</div>
+
+<h4>新手三步走战略</h4>
+<div class="tip-success">
+<span class="tip-title">🎯 新手物流节奏</span>
+<ol>
+<li><strong>第一步：直邮测款</strong>——用直邮小包先测试哪些产品能卖</li>
+<li><strong>第二步：爆款备货</strong>——确定爆款后，整柜海运备货到目标国家</li>
+<li><strong>第三步：海外仓售后</strong>——量起来后用海外仓 + 本地快递降尾程成本</li>
+</ol>
+</div>
+
+<h3>3.6 支付收款与回款</h3>
+
+<h4>各国支付习惯概览</h4>
+<table>
+<thead>
+<tr><th>地区</th><th>主流支付方式</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>美国</strong></td><td>信用卡（Visa/Master/Amex）为主，PayPal、Apple Pay</td></tr>
+<tr><td><strong>欧洲</strong></td><td>信用卡 + 当地钱包（Klarna/iDEAL）</td></tr>
+<tr><td><strong>东南亚</strong></td><td>COD（货到付款）为主，<strong>印尼 60-70%、越南 50-60%</strong></td></tr>
+<tr><td><strong>拉美</strong></td><td>巴西 Pix 占 50%+，墨西哥 OXXO 现金</td></tr>
+<tr><td><strong>日韩台</strong></td><td>便利店支付、信用卡、LINE Pay</td></tr>
+<tr><td><strong>中东</strong></td><td>COD 为主，沙特/UAE 高现金比例</td></tr>
+</tbody>
+</table>
+
+<h4>COD 货到付款模式</h4>
+<div class="card">
+<strong>📌 COD = Cash on Delivery（货到付款）</strong>：买家不预先付款，收到货后给快递员现金。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">💡 COD 的双面性</span>
+<ul>
+<li><strong>优点</strong>：解决"网购不信任"问题，转化率高</li>
+<li><strong>缺点</strong>：拒收率 20-40%、回款慢（30-60 天）、对物流要求高</li>
+<li><strong>关键</strong>：COD 物流商必须是本地有团队的，否则拒收没人处理</li>
+</ul>
+</div>
+
+<h4>中国大陆商家回款三大方式</h4>
+<table>
+<thead>
+<tr><th>方式</th><th>说明</th><th>风险</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>个人账户</strong></td><td>用个人银行卡收 PayPal/Stripe 提现</td><td>额度受限、税务风险</td></tr>
+<tr><td><strong>第三方支付（连连、PingPong 等）</strong></td><td>跨境收款专用通道</td><td>手续费 1-2%，合规</td></tr>
+<tr><td><strong>对公账户（1039 市场采购贸易）</strong></td><td>国家批准的市场采购方式</td><td><strong>⚠️ 2026 年监管显著趋严</strong></td></tr>
+</tbody>
+</table>
+
+<h4>海外收款三大陷阱</h4>
+<div class="tip-danger">
+<span class="tip-title">⚠️ 三大陷阱</span>
+<ol>
+<li><strong>汇率陷阱</strong>：不要看表面收款金额，要看实际到手人民币（汇率波动 1-3%）</li>
+<li><strong>退款陷阱</strong>：海外信用卡退款率 1-3%（PayPal 争议处理周期 180 天）</li>
+<li><strong>账户冻结</strong>：PayPal/Stripe 一旦被投诉可能冻结 180 天</li>
+</ol>
+</div>
+
+<h4>支付 ≠ 回款 ≠ 利润</h4>
+<div class="card" style="background:linear-gradient(135deg,#FFF4ED,#FAFBFC);border:2px solid #E8A87C;">
+<strong>📌 三层拆解思维</strong>
+<ul>
+<li><strong>支付</strong>：买家付了钱 ≠ 你收到了钱</li>
+<li><strong>回款</strong>：收到了钱 ≠ 钱能自由使用（中间可能冻结、退款）</li>
+<li><strong>利润</strong>：能自由使用的钱 ≠ 净利润（还要扣运营成本、退货、广告）</li>
+</ul>
+</div>
+
+<h4>独立站与私域的配合关系</h4>
+<div class="tip-success">
+<span class="tip-title">🎯 欧美日韩模式</span>
+<strong>独立站首单 + 私域复购</strong>
+<ul>
+<li><strong>欧美日韩</strong>：买家习惯先在独立站完成首单（信任建立）→ 再导到私域做复购</li>
+<li><strong>东南亚/拉美</strong>：可以直接私域成交（COD 占主导）</li>
+</ul>
+</div>
+
+<h4>全球建站平台选择</h4>
+<table>
+<thead>
+<tr><th>平台</th><th>费用</th><th>特点</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Shopify</strong></td><td>月费 $39 起</td><td>全球通用、生态最完善</td></tr>
+<tr><td><strong>WordPress + WooCommerce</strong></td><td>服务器+主题约 $200/年</td><td>灵活、可深度定制</td></tr>
+<tr><td><strong>SHOPLINE</strong></td><td>月费 ¥399 起</td><td>国内访问快、有中文支持</td></tr>
+<tr><td><strong>SHOPLAZZA</strong></td><td>月费 $29 起</td><td>专注跨境、东南亚友好</td></tr>
+</tbody>
+</table>
+
+<h3>3.6.1 第九课（支付·收款·回款）四大核心框架</h3>
+
+<div class="tip-success">
+<span class="tip-title">🎯 一、核心命题：会收钱≠能收钱</span>
+海外收钱 ≠ 国内收钱。<b>海外收钱的核心是"风险控制"</b>，不是"能不能收到钱"。
+<ul>
+<li>支付通道分散（不像国内微信/支付宝一家独大）</li>
+<li>汇率波动 + 资金回流路径长</li>
+<li>不同国家政策差异巨大</li>
+<li>独立站与第三方平台是<b>两套完全不同的逻辑</b></li>
+</ul>
+</div>
+
+<div class="tip-info">
+<span class="tip-title">🧠 二、两大认知框架</span>
+<table>
+<thead><tr><th>维度</th><th>独立站模式</th><th>第三方平台模式</th></tr></thead>
+<tbody>
+<tr><td><b>资金归属</b></td><td>资金进自己的支付通道（70-80% 自主权）</td><td>平台代收（如 TikTok Shop）</td></tr>
+<tr><td><b>数据归属</b></td><td>客户邮箱/手机/地址全归自己</td><td>客户信息归平台</td></tr>
+<tr><td><b>运营灵活性</b></td><td>高（可自定义价格/活动/页面）</td><td>低（受平台规则约束）</td></tr>
+<tr><td><b>适配场景</b></td><td>私域沉淀 + 复购 + 高客单价</td><td>测款 + 流量起步</td></tr>
+</tbody>
+</table>
+<b>海外商家数据自主权 70-80%</b>：独立站模式让商家掌握大部分客户数据，是私域沉淀的基础。
+</div>
+
+<div class="tip-warn">
+<span class="tip-title">📋 三、四步决策框架</span>
+<b>第一步：明确市场</b> → <b>第二步：选支付通道</b> → <b>第三步：选回款方式</b> → <b>第四步：选建站平台</b><br>
+这四步顺序<b>不能颠倒</b>。市场没选对，后面所有基础设施都是沉没成本。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">🌍 四、五大市场差异化打法</span>
+<table>
+<thead><tr><th>市场</th><th>首选支付</th><th>首选回款</th><th>建站平台建议</th></tr></thead>
+<tbody>
+<tr><td><b>北美（美国/加拿大）</b></td><td>Stripe + PayPal</td><td>Payoneer / 银行电汇</td><td>Shopify</td></tr>
+<tr><td><b>欧洲</b></td><td>Stripe（支持 SEPA）+ Klarna</td><td>Payoneer / Wise</td><td>Shopify</td></tr>
+<tr><td><b>东南亚</b></td><td>本地支付（越泰马）+ Stripe</td><td>Payoneer / PingPong</td><td>Shopify / WooCommerce</td></tr>
+<tr><td><b>日韩</b></td><td>本地支付（Konbini/Paidy）+ Stripe</td><td>银行电汇 / Payoneer</td><td>Shopify（注意本土审美）</td></tr>
+<tr><td><b>拉美</b></td><td>本地支付（Boleto/OXXO）+ Stripe</td><td>Payoneer</td><td>Shopify</td></tr>
+</tbody>
+</table>
+<b>关键心法</b>：用<b>本地支付</b>做主通道（转化率高），用<b>Stripe/PayPal</b>做兜底。
+</div>
+
+<div class="tip-warn">
+<span class="tip-title">💰 五、三层成本结构（定价必算）</span>
+定价不能拍脑袋。<b>三层成本</b>必须算清：
+<ol>
+<li><b>商品成本</b>：采购价 + 包装 + 头程运费</li>
+<li><b>支付手续费</b>：3%~5%（Stripe/PayPal）+ 1%~2%（汇率损失）</li>
+<li><b>尾程成本</b>：海外最大成本项，量大必须找专线/物流谈价</li>
+</ol>
+<b>定价公式</b>：售价 ≥ 商品成本 × 5（5 倍利润倍率）才能覆盖所有费用并盈利。
+</div>
+
+<div class="tip-info">
+<span class="tip-title">🔗 六、独立站与私域的四种组合</span>
+<table>
+<thead><tr><th>组合</th><th>流量入口</th><th>成交场景</th><th>适用阶段</th></tr></thead>
+<tbody>
+<tr><td><b>A 独立站直接成交</b></td><td>公域广告</td><td>独立站购物车</td><td>测款期</td></tr>
+<tr><td><b>B 私域 + 独立站</b></td><td>公域内容</td><td>私域聊单 → 独立站付款</td><td>主力模式（推荐）</td></tr>
+<tr><td><b>C 私域 + 货到付款</b></td><td>公域内容</td><td>私域聊单 → 货到付款</td><td>高客单/低信任市场</td></tr>
+<tr><td><b>D 全私域（无独立站）</b></td><td>公域内容</td><td>私域直接收款（WhatsApp Pay）</td><td>小团队/小批量</td></tr>
+</tbody>
+</table>
+<b>海私会推荐</b>：B 组合（私域 + 独立站）是主流打法。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">💸 七、回款方式阶梯</span>
+<table>
+<thead><tr><th>方式</th><th>费率</th><th>到账时间</th><th>适用阶段</th></tr></thead>
+<tbody>
+<tr><td><b>Payoneer</b></td><td>1%~2%</td><td>1~3 天</td><td>新手首选</td></tr>
+<tr><td><b>PingPong</b></td><td>1%</td><td>1~2 天</td><td>中量级</td></tr>
+<tr><td><b>Wise</b></td><td>0.5%~1.5%</td><td>1~2 天</td><td>欧洲市场</td></tr>
+<tr><td><b>银行电汇</b></td><td>$15~50/笔</td><td>3~7 天</td><td>大额低频</td></tr>
+<tr><td><b>地下钱庄（不合规）</b></td><td>2%~5%</td><td>当天</td><td>🚫 不推荐（合规风险）</td></tr>
+</tbody>
+</table>
+</div>
+
+<div class="tip-info">
+<span class="tip-title">🏗️ 八、建站平台选择的三个标准</span>
+<ol>
+<li><b>支付通道兼容性</b>：能不能顺利接入目标市场的支付方式（Stripe/PayPal/本地支付）</li>
+<li><b>主题/模板丰富度</b>：是否有适合你目标市场审美的模板</li>
+<li><b>插件生态</b>：邮件营销/SEO/数据分析/广告追踪等插件是否齐全</li>
+</ol>
+<b>主流选择</b>：Shopify（北美/欧洲首选）、WooCommerce（开源灵活）、SHOPLINE（亚洲市场）。
+</div>
+
+<div class="tip-danger">
+<span class="tip-title">⚠️ 九、给学员的核心警示</span>
+<ul>
+<li>🚫 <b>不要把鸡蛋放一个篮子</b>：同一支付通道至少配 2 个回款账户</li>
+<li>🚫 <b>不要追求"完美支付方案"</b>：先用主流方案跑通，再优化</li>
+<li>🚫 <b>不要忽视拒付/退款</b>：海外拒付率 ≥ 1% 就要查风控</li>
+<li>🚫 <b>不要忽视汇率损失</b>：美元/欧元/日元结算时汇率波动可能吃掉 1-3% 利润</li>
+<li>🚫 <b>不要使用地下钱庄</b>：账户冻结风险 + 合规风险</li>
+</ul>
+</div>
+
+<div class="tip-success">
+<span class="tip-title">💎 十、关键心法</span>
+<ul>
+<li><b>"先跑通，再优化"</b>：不要在支付方案选型上花超过 3 天</li>
+<li><b>"市场决定一切"</b>：支付方案选错只是亏钱，市场选错才是亏命</li>
+<li><b>"客户数据 = 资产"</b>：优先选独立站模式，掌握 70-80% 数据自主权</li>
+<li><b>"复购 > 新客"</b>：把老客户的支付体验做好（多种支付方式 + 一键复购）</li>
+</ul>
+</div>
+
+<h3>3.7 基建层总结</h3>
+
+<div class="tip-success">
+<span class="tip-title">🎯 看完基建层的行动清单</span>
+<ul class="checklist">
+<li>按目标地区选好私域承接软件（WhatsApp/LINE/Telegram）</li>
+<li>采购合规设备（美版 iPhone / Google Pixel）+ 指纹浏览器</li>
+<li>域名邮箱 catch-all 准备 5-10 个邮箱用于矩阵账号</li>
+<li>养号 SOP 执行 7-10 天</li>
+<li>联系 1-2 家货代，谈好"美国专线""日本专线"等</li>
+<li>开通 Stripe/PayPal 商业账号，准备回款通道</li>
+</ul>
+</div>
+
+<div class="tip-info">
+<span class="tip-title">🎯 基建层小结</span>
+读完本层你已掌握：<strong>5+5+3 软件地图</strong>、<strong>设备网络 SOP</strong>、<strong>养号与矩阵化</strong>、<strong>物流全链路 10 环节</strong>、<strong>3 种运输方式</strong>、<strong>支付与回款</strong>。下一部分进入<strong>内容层</strong>——三大平台算法 + 爆款制作全链路。
+</div>
+</section>
+
+<!-- ============================ Part 4 内容层 ============================ -->
+<section id="part4">
+<h2>Part 4 · 内容层（算法·爆款·起号）</h2>
+
+<div class="tip-info">
+<span class="tip-title">📌 本层核心</span>
+内容层是<strong>流量获取的核心战场</strong>。账号基建完成后，能不能快速起号、能不能持续爆款，全部取决于内容层的打法。本层解决"内容怎么做才能持续被算法推荐"。<strong>记住：内容是杠杆，算法是规则，爆款是可拆解的</strong>。
+</div>
+
+<h3>3.6 第五课精华回顾：三大算法 + MSI + 直播间排位赛</h3>
+
+<div class="tip-info">
+<span class="tip-title">🎯 Facebook MSI 算法（有意义的社交互动）</span>
+Facebook 不看点赞数，核心推流逻辑是 <b>MSI = Meaningful Social Interaction</b>，三大指标：
+<ul>
+<li><b>长评论</b>（权重最高）：用户愿停下来打一行字评论 = 深度思考</li>
+<li><b>分享</b>：愿意转发到好友/时间线/小组 = 病毒传播关键</li>
+<li><b>停留时长</b>：没有互动也愿意看完 = 内容质量</li>
+</ul>
+<b>🚫 红线行为</b>："天才的停止点赞，同意的请转发"等"骗赞话术"一旦被识别，直接降权。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">🎯 TikTok 直播间：十分钟一局的实时排位赛</span>
+讲师原话："<b>TikTok 直播间是以十分钟为一局的实时排位赛</b>"。开播先推一波急速流（几十到几百人），此后每十分钟系统看三个核心指标：
+<ul>
+<li><b>用户停留时长</b>（进来的十个人有几个留下超 30 秒）✅ 私域核心</li>
+<li><b>互动率 / 点赞率</b>（点赞、扣 1、分享）✅ 私域核心</li>
+<li><b>GPM（千次展示成交额）</b>——❌ 私域直播间不适用（私域不靠直播间直接成交）</li>
+</ul>
+<b>在线人数 vs 推流速度</b>：10人在线→推几十；100人→推几千到上万；几千~几万人→几十万到几百万。形成正反馈循环。<br>
+<b>起号三步</b>：留人（前 10 分钟承接急速流+话术留人）→ 互动（点对点欢迎+抛钩子）→ 复制优秀同行（一比一拆解话术/场景/产品）。
+</div>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ TikTok 去中心化算法："新号也能爆"</span>
+讲师反复强调："<b>在 TikTok 上面粉丝量不决定流量，内容质量才决定播放量</b>"。
+<ul>
+<li>TikTok 账号<b>没有"账号权重"，只看"内容权重"</b></li>
+<li>新账号 + 好素材 = 一夜爆红</li>
+<li>真实案例：粉丝 1~3 千的新账号，前三条视频做到 143万 / 218万 / 30+ 万播放</li>
+<li>完整发布链路 8 步：发布 → 违规审核 → 查重 → 一级池(200~500首批观众) → 数据反馈 → 赛马 → 叠加/停止</li>
+</ul>
+<b>流量池等级</b>：200 / 1000 / 1万 / 10万 / 100万；判断方法：发布后看实际跑量处于哪一段。
+</div>
+
+<h3>4.1 三大公域平台算法差异</h3>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 核心认知</span>
+不同平台的算法逻辑差异极大，<strong>绝对不要用同一套打法打三个平台</strong>。本节逐一拆解 TK / Instagram / Facebook 算法差异。
+</div>
+
+<h4>TikTok 算法逻辑（兴趣推荐）</h4>
+<div class="card">
+<strong>📌 核心公式</strong>：
+<pre><code>推荐量 = 完播率 × 互动率 × 转粉率 × 内容标签匹配度</code></pre>
+</div>
+
+<table>
+<thead>
+<tr><th>关键指标</th><th>权重</th><th>破阈值标准</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>完播率</strong></td><td>★★★★★（最高）</td><td>短视频 <strong>≥ 50%</strong>，中视频 <strong>≥ 30%</strong></td></tr>
+<tr><td><strong>互动率</strong></td><td>★★★★</td><td>点赞率 ≥ 5%，评论率 ≥ 0.5%</td></tr>
+<tr><td><strong>转粉率</strong></td><td>★★★</td><td>看完关注比 ≥ 1%</td></tr>
+<tr><td><strong>复看率</strong></td><td>★★★</td><td>同一用户反复观看是强信号</td></tr>
+</tbody>
+</table>
+
+<div class="tip-success">
+<span class="tip-title">💡 TK 流量池进阶机制</span>
+<ol>
+<li><strong>初始池</strong>（200-500 播放）→ 看基础数据</li>
+<li><strong>二级池</strong>（1000-3000）→ 数据达标进入</li>
+<li><strong>中池</strong>（1万-10万）→ 标签精准进入</li>
+<li><strong>大池</strong>（100万+）→ 爆款触发</li>
+<li><strong>现象级</strong>（500万+）→ 全平台推荐</li>
+</ol>
+</div>
+
+<h4>Instagram 算法逻辑（社交关系+Reels 推荐）</h4>
+<table>
+<thead>
+<tr><th>内容形态</th><th>权重</th><th>核心指标</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Reels（短视频）</strong></td><td>★★★★★（新流量主入口）</td><td>完播率 + 分享率</td></tr>
+<tr><td><strong>图片轮播</strong></td><td>★★★</td><td>保存率 + 收藏率</td></tr>
+<tr><td><strong>Stories（24小时限时）</strong></td><td>★★</td><td>看完率</td></tr>
+<tr><td><strong>图文 Post</strong></td><td>★★</td><td>点赞 + 评论</td></tr>
+</tbody>
+</table>
+
+<div class="tip-success">
+<span class="tip-title">💡 IG Reels vs TK 核心差异</span>
+<ul>
+<li><strong>TK</strong>：纯兴趣推荐，0 粉也能爆</li>
+<li><strong>IG Reels</strong>：社交关系 + 兴趣推荐混合，<strong>关注者互动权重更高</strong></li>
+<li><strong>差异</strong>：IG 账号本身粉丝质量直接影响 Reels 流量</li>
+</ul>
+</div>
+
+<h4>Facebook 算法逻辑（社群+付费转自然）</h4>
+<table>
+<thead>
+<tr><th>内容形态</th><th>权重</th><th>核心指标</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Reels</strong></td><td>★★★★★（新流量入口）</td><td>看 IG Reels</td></tr>
+<tr><td><strong>群组帖子</strong></td><td>★★★★</td><td>互动率 + 群组活跃度</td></tr>
+<tr><td><strong>主页 Post</strong></td><td>★★</td><td>互动 + 时长</td></tr>
+<tr><td><strong>Marketplace</strong></td><td>★★★（电商属性）</td><td>转化率</td></tr>
+</tbody>
+</table>
+
+<div class="tip-danger">
+<span class="tip-title">⚠️ FB 自然流量现状</span>
+FB 2018 年后<strong>自然流量大幅下降</strong>，核心逻辑已转向"付费投放→数据回流→自然推荐"。新手在 FB 单纯做自然内容<strong>难出爆款</strong>，必须配合 Ads 投放。
+</div>
+
+<h4>三大算法对比</h4>
+<div class="mindmap">
+<svg viewBox="0 0 1600 420" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- 中心：内容层核心 -->
+  <rect x="20" y="160" width="200" height="100" rx="10" fill="#4A90A4" stroke="#2C3E50" stroke-width="2"/>
+  <text x="120" y="195" text-anchor="middle" fill="#FFFFFF" font-size="16" font-weight="bold">三大平台算法</text>
+  <text x="120" y="218" text-anchor="middle" fill="#FFFFFF" font-size="13">差异全景</text>
+  <text x="120" y="240" text-anchor="middle" fill="#FFFFFF" font-size="11">Part 4 · 内容层</text>
+
+  <!-- TK -->
+  <rect x="320" y="40" width="380" height="110" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="510" y="68" text-anchor="middle" fill="#2C3E50" font-size="16" font-weight="bold">📱 TikTok</text>
+  <text x="510" y="92" text-anchor="middle" fill="#2C3E50" font-size="12">纯兴趣推荐 · 0 粉也能爆</text>
+  <text x="510" y="110" text-anchor="middle" fill="#6B7280" font-size="11">核心指标：完播率 > 互动率 > 转粉率</text>
+  <text x="510" y="128" text-anchor="middle" fill="#6B7280" font-size="11">破阈值：完播 ≥ 50%、互动 ≥ 5%</text>
+  <text x="510" y="142" text-anchor="middle" fill="#6B7280" font-size="11">流量池：200→3000→10万→爆</text>
+
+  <!-- IG -->
+  <rect x="320" y="170" width="380" height="110" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="510" y="198" text-anchor="middle" fill="#2C3E50" font-size="16" font-weight="bold">📷 Instagram</text>
+  <text x="510" y="222" text-anchor="middle" fill="#2C3E50" font-size="12">社交关系 + 兴趣推荐混合</text>
+  <text x="510" y="240" text-anchor="middle" fill="#6B7280" font-size="11">Reels 权重最高（关注者互动）</text>
+  <text x="510" y="258" text-anchor="middle" fill="#6B7280" font-size="11">图片保存率权重高</text>
+  <text x="510" y="272" text-anchor="middle" fill="#6B7280" font-size="11">粉丝质量直接影响流量</text>
+
+  <!-- FB -->
+  <rect x="320" y="300" width="380" height="100" rx="8" fill="#EBF5E5" stroke="#7FB069" stroke-width="1.5"/>
+  <text x="510" y="328" text-anchor="middle" fill="#2C3E50" font-size="16" font-weight="bold">👥 Facebook</text>
+  <text x="510" y="352" text-anchor="middle" fill="#2C3E50" font-size="12">付费投放 + 自然回流</text>
+  <text x="510" y="370" text-anchor="middle" fill="#6B7280" font-size="11">Reels 与 IG 同步</text>
+  <text x="510" y="386" text-anchor="middle" fill="#D17B7B" font-size="11">⚠️ 新手纯自然流量难出爆款</text>
+
+  <!-- 右侧：统一原则 -->
+  <rect x="800" y="40" width="760" height="170" rx="8" fill="#FAFBFC" stroke="#D1D5DB" stroke-width="1.5"/>
+  <text x="1180" y="68" text-anchor="middle" fill="#2C3E50" font-size="15" font-weight="bold">🎯 三大平台统一核心原则</text>
+  <text x="1180" y="98" text-anchor="middle" fill="#2C3E50" font-size="12">① 完播率 / 看完率是绝对核心</text>
+  <text x="1180" y="118" text-anchor="middle" fill="#2C3E50" font-size="12">② 前 3 秒定生死（必须钩子）</text>
+  <text x="1180" y="138" text-anchor="middle" fill="#2C3E50" font-size="12">③ 互动 + 转粉是核心信号</text>
+  <text x="1180" y="158" text-anchor="middle" fill="#2C3E50" font-size="12">④ 标签精准 → 算法识别 → 流量分发</text>
+  <text x="1180" y="178" text-anchor="middle" fill="#2C3E50" font-size="12">⑤ 发布频率 + 内容垂直度 = 账号标签强度</text>
+  <text x="1180" y="198" text-anchor="middle" fill="#A85F2E" font-size="12">⚠️ 三大平台同源相似内容 <strong>不算重复</strong>，可差异化发布</text>
+
+  <!-- 右侧：反常识 -->
+  <rect x="800" y="230" width="760" height="170" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="1180" y="258" text-anchor="middle" fill="#A85F2E" font-size="15" font-weight="bold">⚠️ 反常识 4 点</text>
+  <text x="1180" y="288" text-anchor="middle" fill="#2C3E50" font-size="12">❌ "养号"不是玄学，是给算法时间理解你</text>
+  <text x="1180" y="308" text-anchor="middle" fill="#2C3E50" font-size="12">❌ "爆款"不是靠运气，是靠流程化拆解 + 复用</text>
+  <text x="1180" y="328" text-anchor="middle" fill="#2C3E50" font-size="12">❌ "原创" ≠ "自己拍"，伪原创 + 重新剪海外素材也算</text>
+  <text x="1180" y="348" text-anchor="middle" fill="#2C3E50" font-size="12">❌ "流量"≠"订单"，流量是入口，转化才是目的</text>
+  <text x="1180" y="368" text-anchor="middle" fill="#2C3E50" font-size="12">✅ 数据反馈 > 个人感觉（看数据说话）</text>
+  <text x="1180" y="388" text-anchor="middle" fill="#2C3E50" font-size="12">✅ 矩阵 = 赌概率（10个号至少1个出爆款）</text>
+
+  <!-- 连线 -->
+  <path d="M 220,210 H 320" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 700,95 H 800" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 700,225 H 800" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 700,350 H 800" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+</svg>
+</div>
+
+<h3>4.2 TK 起号 8 步法</h3>
+
+<div class="tip-success">
+<span class="tip-title">⚡ 8 步起号 SOP</span>
+<ol>
+<li><strong>定位调研</strong>——看 30 个对标账号，提取热门选题、视觉风格</li>
+<li><strong>账号资料</strong>——头像、昵称、简介（分 3 次填完，每次间隔 1-2 天）</li>
+<li><strong>养号 7 天</strong>——每天刷 30-60 分钟同行业内容（点赞/评论/收藏）</li>
+<li><strong>第 1 条测试视频</strong>——5-10 秒，简单内容（看初始流量 200-500）</li>
+<li><strong>第 2-3 条测试</strong>——差异化形式，看数据反馈</li>
+<li><strong>对标拆解</strong>——找 3-5 个对标视频 1:1 复刻（不是搬运）</li>
+<li><strong>稳定输出</strong>——每天 1-3 条，连续 14 天（看是否起量）</li>
+<li><strong>爆款放大</strong>——确定爆款 → 矩阵复制 → 投流放大</li>
+</ol>
+</div>
+
+<h3>4.3 爆款路径拆解 5 步</h3>
+
+<div class="card">
+<strong>📌 爆款不是运气，是流程化拆解 + 复用</strong>
+</div>
+
+<h4>5 步拆解法</h4>
+<div class="tip-info">
+<span class="tip-title">🔍 5 步拆解爆款</span>
+<ol>
+<li><strong>看播放数据</strong>——找同类目 100w+ 视频</li>
+<li><strong>拆钩子（前 3 秒）</strong>——为什么停下来？</li>
+<li><strong>拆结构</strong>——开头→反转→高潮→结尾</li>
+<li><strong>拆标签</strong>——用 TK 创作者后台看标签</li>
+<li><strong>1:1 复刻</strong>——同样钩子+同样结构+不同素材</li>
+</ol>
+</div>
+
+<h4>常见爆款结构 8 种</h4>
+<table>
+<thead>
+<tr><th>结构</th><th>公式</th><th>案例</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>问题-解答</strong></td><td>痛点疑问 → 解决方案</td><td>"你知道为什么你 XX 总是失败吗？"</td></tr>
+<tr><td><strong>前后对比</strong></td><td>Before → After</td><td>减肥/装修/护肤类</td></tr>
+<tr><td><strong>揭秘揭秘</strong></td><td>行业内幕 + 反转</td><td>"电商内幕"</td></tr>
+<tr><td><strong>教学教学</strong></td><td>Step 1 → Step N</td><td>"3 步教你 X"</td></tr>
+<tr><td><strong>情感共鸣</strong></td><td>故事 → 升华</td><td>亲情/友情/励志</td></tr>
+<tr><td><strong>测评对比</strong></td><td>A vs B</td><td>数码/美妆</td></tr>
+<tr><td><strong>猎奇震撼</strong></td><td>意外 → 解释</td><td>"不可思议"</td></tr>
+<tr><td><strong>反转剧情</strong></td><td>预设 → 反转</td><td>"以为...结果..."</td></tr>
+</tbody>
+</table>
+
+<h3>4.4 跑量素材标准</h3>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 跑量 ≠ 爆款</span>
+<ul>
+<li><strong>爆款</strong>：自然流量大，但不一定赚钱</li>
+<li><strong>跑量</strong>：投流后能稳定赚钱的素材</li>
+</ul>
+<strong>跑量素材的核心标准是"转化率稳定 + 退货率低 + 复购率高"</strong>
+</div>
+
+<table>
+<thead>
+<tr><th>维度</th><th>标准</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>完播率</strong></td><td>≥ 40%</td></tr>
+<tr><td><strong>互动率</strong></td><td>≥ 3%</td></tr>
+<tr><td><strong>点击率（CTR）</strong></td><td>≥ 2%</td></tr>
+<tr><td><strong>转化率</strong></td><td>≥ 1%</td></tr>
+<tr><td><strong>客单价</strong></td><td>≥ 售价 30%</td></tr>
+<tr><td><strong>退货率</strong></td><td>≤ 10%</td></tr>
+<tr><td><strong>广告 ROAS</strong></td><td>≥ 2.0（最低标准）</td></tr>
+</tbody>
+</table>
+
+<h4>5 倍利润倍率验证</h4>
+<div class="tip-success">
+<span class="tip-title">🎯 5 倍利润公式</span>
+<strong>售价 ≥ 1688 拿货价 × 5 倍</strong>
+<ul>
+<li>拿货 $5 → 售价 ≥ $25</li>
+<li>拿货 $10 → 售价 ≥ $50</li>
+<li>拿货 $20 → 售价 ≥ $100</li>
+</ul>
+<strong>倍率不足的品不要做</strong>，否则覆盖不了广告+物流+退货+人力。
+</div>
+
+<h3>4.5 账号关键设置（TK 为例）</h3>
+
+<h4>Profile 完整设置 7 项</h4>
+<table>
+<thead>
+<tr><th>项目</th><th>要点</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>头像</strong></td><td>真人/品牌 LOGO，避免图库图</td></tr>
+<tr><td><strong>昵称</strong></td><td>含核心关键词（TK 搜索可被检索）</td></tr>
+<tr><td><strong>Bio</strong></td><td>简洁价值+信任元素（粉丝数/权威背书）</td></tr>
+<tr><td><strong>链接</strong></td><td>独立站或私域跳转链接</td></tr>
+<tr><td><strong>类目</strong></td><td>精准填写（影响推荐标签）</td></tr>
+<tr><td><strong>地区</strong></td><td>目标国家（影响流量来源）</td></tr>
+<tr><td><strong>企业号</strong></td><td>TK Business 账号（开通数据分析）</td></tr>
+</tbody>
+</table>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ Bio 黄金公式</span>
+<strong>我是谁 + 给你的好处 + 行动号召</strong>
+<ul>
+<li>例：「华人跨境操盘手 | 帮 100+ 学员月入 $5000 | 关注看实战干货」</li>
+<li>避免：纯装饰、自我中心、无价值表述</li>
+</ul>
+</div>
+
+<h3>4.5.1 第六课（4）核心操作锦囊：账号基础设置 + 流量诊断 8 件事</h3>
+
+<div class="tip-success">
+<span class="tip-title">🔒 1. TK 屏蔽关键词功能</span>
+<b>使用场景</b>：爆款视频的评论区会被同行截流/抹黑，必须开启屏蔽功能<br><br>
+<b>TK 操作路径</b>：设置 → 隐私 → 屏蔽关键词功能<br>
+<b>ins 操作路径</b>：右上角三条杠 → 隐藏字词<br><br>
+<b>必须屏蔽的 5 类关键词</b>：
+<ol>
+<li><b>竞对平台</b>：引导到美区/竞品平台</li>
+<li><b>联系方式类</b>：line、Telegram、邮箱、WhatsApp</li>
+<li><b>价格诱导类</b>：折扣、优惠码、批发价</li>
+<li><b>诈骗和负面节奏类</b>：差评、避雷、骗局</li>
+<li><b>同行黑评</b>：故意抹黑话术</li>
+</ol>
+<b>地域本地化原则</b>：日本/台湾用"赖（Line）"；美区/东南亚用"Telegram（纸飞机）"——必须翻译成对应国家语言。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">⏰ 2. TK 粉丝活跃时间查看方法</span>
+<b>宏观避坑</b>：必须避开当地午夜 12 点到凌晨 6 点（用户活跃度最低，平台推流效率差）<br>
+<b>微观匹配</b>：打开 TK 创作中心 → 数据分析 → "观众活跃时间段（Follower Activity）" → 找到高峰时段 → 在高峰<b>前 1~1.5 小时</b>发布<br>
+<b>激素流机制</b>：新号首条视频的初始推流（激素流）要卡在高峰前发。<br>
+<b>重要提醒</b>：发布时间只是辅助变量，<b>决定视频能不能爆的根本还是内容本身</b>。
+</div>
+
+<div class="tip-info">
+<span class="tip-title">📊 3. TK 创作中心流量来源分布（限流诊断黄金指标）</span>
+TK 创作中心的 3 种流量来源：
+<ul>
+<li><b>检索/搜索流量</b>（搜索/推荐里的"搜索"）：用户主动搜索</li>
+<li><b>推荐流量/自然流量</b>（搜索/推荐里的"推荐"）：平台主动推流</li>
+<li><b>粉丝观看/老粉流量</b>：关注你的粉丝</li>
+</ul>
+<b>判断规则</b>：
+<ul>
+<li>搜索流量占比大 + 推荐流量占比很小 → <b>素材问题</b>（账号正常）</li>
+<li>推荐 + 搜索都为零，只有粉丝观看 → <b>账号问题</b>（被封控）</li>
+<li>正常账号应该是<b>推荐流量占比最高</b>，搜索和粉丝流量相对较低</li>
+</ul>
+</div>
+
+<div class="tip-warn">
+<span class="tip-title">⚠️ 4. ins 真限流判断方法</span>
+<b>真限流的 3 个判定标准</b>：
+<ol>
+<li>用其他账号<b>搜不到你的用户名</b></li>
+<li>在视频<b>标签下搜不到自己的帖子</b></li>
+<li>检查账户状态显示"<b>失去平台推荐资格</b>"（Account Status 显示 limited content distribution）<br><b>失去推荐资格</b>的本质：账号因违规或质量差被平台打上"非优质创作者"标签</li>
+</ol>
+<b>TK 真限流</b>：视频发布 24 小时后播放量为 0，或多条视频长期卡在 200 以内，推荐页流量来源为零<br>
+<b>假限流</b>：播放量 200~500 波动，有少量推荐流量 —— 属于<b>素材质量问题</b>（完播率低）<br>
+<b>通用排查 SOP</b>：隐藏原视频 → 发一条 5-7 秒实拍 → 观察 4 小时：有自然+搜索流量=素材问题；3 天都没自然流量=账号问题（直接丢弃）。
+</div>
+
+<div class="tip-info">
+<span class="tip-title">📈 5. TK 视频数据判定基准（点赞率/完播率）</span>
+<table>
+<thead><tr><th>指标</th><th>基础线</th><th>爆款线</th><th>说明</th></tr></thead>
+<tbody>
+<tr><td><b>3 秒完播率</b></td><td>≥ 60%</td><td>≥ 80%</td><td>决定是否能进入下一级流量池</td></tr>
+<tr><td><b>5 秒完播率</b></td><td>≥ 40%</td><td>≥ 60%</td><td>5 秒钩子是否成立</td></tr>
+<tr><td><b>总完播率</b></td><td>≥ 15%</td><td>≥ 30%</td><td>整体内容质量</td></tr>
+<tr><td><b>点赞率</b></td><td>4%~6%</td><td>≥ 10%</td><td>情感共鸣强度</td></tr>
+<tr><td><b>评论率</b></td><td>≥ 0.5%</td><td>≥ 2%</td><td>话题性、争议性</td></tr>
+<tr><td><b>收藏率/转发率</b></td><td>≥ 1%</td><td>≥ 5%</td><td>干货视频的<b>核心权重</b>（Instagram 尤其看这个）</td></tr>
+</tbody>
+</table>
+<b>🔑 关键认知</b>：3 秒完播率 > 5 秒完播率 > 总完播率。干货类视频看<b>收藏率/转发率</b>，权重 > 点赞率。
+</div>
+
+<div class="tip-danger">
+<span class="tip-title">💸 6. TK 批量注册账号成本（10 美元一年）</span>
+讲师原话："<b>号很便宜（10 美金一年可批量注册），时间才是最宝贵的</b>"。<br>
+<b>新号 vs 老号的算法逻辑</b>：
+<ul>
+<li><b>新号优势</b>：TK 是去中心化算法，新账号 + 新内容永远会获得<b>初始流量（极速流）测试机会</b></li>
+<li><b>老号风险</b>：如果老号经常发低质量内容，平台会打上"低质量账号"标签，后续发的所有作品都被限流</li>
+<li><b>结论</b>：<b>强烈建议用新号</b>，不要用老号；老号只适合"养好"的稳定号</li>
+</ul>
+<b>凌波决策点</b>：3 天测流无果就要果断丢弃 —— 时间成本 > 账号成本。
+</div>
+
+<h3>4.6 内容层总结</h3>
+
+<div class="tip-success">
+<span class="tip-title">🎯 看完内容层的行动清单</span>
+<ul class="checklist">
+<li>确定主打平台（建议 TK 起步，0 粉也能爆）</li>
+<li>找 30 个对标账号，提取热门选题</li>
+<li>完成账号 Profile 7 项设置</li>
+<li>按 8 步 SOP 起号 14 天</li>
+<li>每周至少拆解 3 个爆款，提炼复用模板</li>
+<li>制作 5 条以上的"跑量"级别素材进入投流测试</li>
+</ul>
+</div>
+
+<div class="tip-info">
+<span class="tip-title">🎯 内容层小结</span>
+读完本层你已掌握：<strong>三大平台算法差异</strong>、<strong>TK 起号 8 步</strong>、<strong>爆款拆解 5 步 + 8 种结构</strong>、<strong>跑量素材标准</strong>、<strong>5 倍利润倍率验证</strong>、<strong>Profile 黄金设置</strong>。下一部分进入<strong>销转层</strong>——海外私域的核心"信任变现"。
+</div>
+</section>
+
+<!-- ============================ Part 5 销转层 ============================ -->
+<section id="part5">
+<h2>Part 5 · 销转层（信任·聊单·团队·放大）</h2>
+
+<div class="tip-info">
+<span class="tip-title">📌 本层核心</span>
+<strong>海外私域的本质 = 信任变现</strong>。前面所有流量、内容、基建，最终都要通过<strong>聊单转化</strong>变成订单。本层解决"怎么把流量变成钱"+"怎么放大"。<strong>记住：私域不是聊天，是经营信任+精准营销</strong>。
+</div>
+
+<h3>5.1 海外私域 = 信任生意</h3>
+
+<div class="card" style="background:linear-gradient(135deg,#FCEEEC,#FAFBFC);border:2px solid #D17B7B;">
+<strong>📌 三大底层逻辑</strong>
+<ol>
+<li><strong>海外用户对陌生人天然警惕</strong>——必须先建立信任才会下单</li>
+<li><strong>私域 = 一对一深度连接</strong>——区别于平台电商的"过路流量"</li>
+<li><strong>信任 = 复购 + 转介绍 + 高客单价</strong>——三大长期价值</li>
+</ol>
+</div>
+
+<h3>5.2 4 层客户标签体系</h3>
+
+<div class="card">
+<strong>📌 没有标签的私域 = 一盘散沙</strong>。客户标签决定了你能否<strong>精准营销</strong>，避免"全员群发"导致客户流失。
+</div>
+
+<table>
+<thead>
+<tr><th>层级</th><th>标签类型</th><th>示例</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>L1 基础信息</strong></td><td>国家/语言/年龄/性别/购买力</td><td>美国、英语、25-35 岁、女性、中产</td></tr>
+<tr><td><strong>L2 来源渠道</strong></td><td>哪个视频/广告/账号来的</td><td>TK 爆款 A / Facebook 广告 B</td></tr>
+<tr><td><strong>L3 行为标签</strong></td><td>浏览/咨询/加购/复购</td><td>看了 3 次、咨询未购、复购 2 次</td></tr>
+<tr><td><strong>L4 价值标签</strong></td><td>客单价/潜力/风险</td><td>高客单客户 / 高复购客户 / 退货风险</td></tr>
+</tbody>
+</table>
+
+<div class="tip-success">
+<span class="tip-title">💡 标签应用场景</span>
+<ul>
+<li>新客户：L1+L2 自动填充</li>
+<li>老客户：L3+L4 累积打分</li>
+<li>精准营销：按标签筛选推送</li>
+<li>价值分层：高价值客户单独运营</li>
+</ul>
+</div>
+
+<h3>5.3 4 步聊单 SOP</h3>
+
+<div class="tip-success">
+<span class="tip-title">⚡ 4 步标准聊单</span>
+<ol>
+<li><strong>钩子（建立连接）</strong>——打招呼 + 自我介绍 + 价值暗示</li>
+<li><strong>需求（挖掘痛点）</strong>——提问引导 + 倾听 + 痛点放大</li>
+<li><strong>方案（提供解药）</strong>——产品介绍 + 信任背书 + 案例展示</li>
+<li><strong>逼单（促成行动）</strong>——限时/限量 + 售后承诺 + 行动号召</li>
+</ol>
+</div>
+
+<h4>钩子的 3 大原则</h4>
+<table>
+<thead>
+<tr><th>原则</th><th>说明</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>个性化</strong></td><td>不要用模板开场（"Hi, how can I help you?"）</td></tr>
+<tr><td><strong>价值前置</strong></td><td>先给价值（"我看你之前看过 X，给你推荐..."）</td></tr>
+<tr><td><strong>共情连接</strong></td><td>"我理解你的感受..."</td></tr>
+</tbody>
+</table>
+
+<h4>需求挖掘 3 问</h4>
+<div class="card">
+<strong>📌 经典 3 问</strong>
+<ol>
+<li><strong>现状问题</strong>："你目前遇到的最大困难是什么？"</li>
+<li><strong>预期目标</strong>："你理想的结果是什么样的？"</li>
+<li><strong>决策时间</strong>："你希望什么时候看到效果？"</li>
+</ol>
+</div>
+
+<h4>逼单 5 大技巧</h4>
+<div class="tip-warn">
+<span class="tip-title">⚠️ 逼单≠强卖</span>
+<ol>
+<li><strong>限时优惠</strong>："今天下单立减 $20"</li>
+<li><strong>限量稀缺</strong>："这个款只剩 5 件"</li>
+<li><strong>赠品策略</strong>："现在下单送 X"</li>
+<li><strong>售后承诺</strong>："30 天无理由退换"</li>
+<li><strong>风险逆转</strong>："不满意全额退款"</li>
+</ol>
+</div>
+
+<h3>5.4 私域 = 反复触达</h3>
+
+<div class="card">
+<strong>📌 数据真相</strong>：平均一个新客户<strong>需要 7 次触达</strong>才会下单。99% 的客户在第 1 次咨询时不买——这是正常的。
+</div>
+
+<h4>5 次复触模型</h4>
+<table>
+<thead>
+<tr><th>次数</th><th>时间</th><th>内容</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>第 1 次</strong></td><td>当天</td><td>钩子 + 需求挖掘</td></tr>
+<tr><td><strong>第 2 次</strong></td><td>+1 天</td><td>案例 + 价值补充</td></tr>
+<tr><td><strong>第 3 次</strong></td><td>+3 天</td><td>痛点唤醒 + 限时优惠</td></tr>
+<tr><td><strong>第 4 次</strong></td><td>+7 天</td><td>赠品/优惠逼单</td></tr>
+<tr><td><strong>第 5 次</strong></td><td>+15 天</td><td>长期价值（资讯/干货）</td></tr>
+</tbody>
+</table>
+
+<h3>5.5 团队搭建与放大</h3>
+
+<div class="tip-info">
+<span class="tip-title">📌 个人到团队的进化路径</span>
+<strong>个人 IP（1人）→ 工作室（3-5人）→ 公司化（10-30人）→ 品牌化（100+人）</strong>
+</div>
+
+<h4>阶段 1：个人 IP（1 人）</h4>
+<ul>
+<li>自己跑通全链路</li>
+<li>不雇人，自己接单+发货</li>
+<li>月利润目标 0-3 万元</li>
+</ul>
+
+<h4>阶段 2：工作室（3-5 人）</h4>
+<ul>
+<li>角色：运营 + 客服 + 物流</li>
+<li>分工：1 个运营 + 2 个客服 + 1 个物流</li>
+<li>月利润目标 3-10 万元</li>
+</ul>
+
+<h4>阶段 3：公司化（10-30 人）</h4>
+<ul>
+<li>组织架构：运营部 + 客服部 + 物流部 + 内容部 + 财务</li>
+<li>标准化 SOP</li>
+<li>月利润目标 10-50 万元</li>
+</ul>
+
+<h4>阶段 4：品牌化（100+ 人）</h4>
+<ul>
+<li>多品牌矩阵</li>
+<li>多站点布局</li>
+<li>自有供应链</li>
+<li>月利润目标 50 万元+</li>
+</ul>
+
+<h3>5.6 放大 4 步战略</h3>
+
+<div class="tip-success">
+<span class="tip-title">🎯 放大 4 步</span>
+<ol>
+<li><strong>跑通 SOP</strong>——单账号跑通盈利模型（最重要）</li>
+<li><strong>复制矩阵</strong>——同模式复制 3-5 个账号（不是更多）</li>
+<li><strong>团队复制</strong>——把单人 SOP 转给团队执行</li>
+<li><strong>付费放大</strong>——爆款素材投流，撬动 10 倍流量</li>
+</ol>
+</div>
+
+<div class="tip-danger">
+<span class="tip-title">⚠️ 放大陷阱</span>
+<ul>
+<li>❌ 没跑通 SOP 就盲目复制（必死）</li>
+<li>❌ 账号矩阵超过团队承载（质量崩盘）</li>
+<li>❌ 不做付费投流，靠自然流量无法突破天花板</li>
+</ul>
+</div>
+
+<h3>5.7 销转层总结</h3>
+
+<div class="tip-success">
+<span class="tip-title">🎯 看完销转层的行动清单</span>
+<ul class="checklist">
+<li>设计 4 层客户标签体系（L1-L4）</li>
+<li>熟练掌握 4 步聊单 SOP（钩子-需求-方案-逼单）</li>
+<li>建立 5 次复触模型</li>
+<li>明确自己处于哪个阶段（个人/工作室/公司/品牌）</li>
+<li>设定 6-12 个月的放大路径</li>
+</ul>
+</div>
+
+<div class="tip-info">
+<span class="tip-title">🎯 销转层小结</span>
+读完本层你已掌握：<strong>信任变现底层逻辑</strong>、<strong>4 层客户标签</strong>、<strong>4 步聊单 SOP</strong>、<strong>5 次复触模型</strong>、<strong>团队搭建 4 阶段</strong>、<strong>放大 4 步战略</strong>。下一部分进入<strong>跨课整合</strong>——把整套课程融汇贯通。
+</div>
+</section>
+
+<!-- ============================ Part 6 跨课整合 ============================ -->
+<section id="part6">
+<h2>Part 6 · 跨课整合（5 概念·12 口诀·闭环图）</h2>
+
+<div class="tip-info">
+<span class="tip-title">📌 本层核心</span>
+前面 5 层（认知→流量→基建→内容→销转）已经讲完所有具体打法。本层是<strong>整个 12 课的浓缩提炼</strong>——把核心概念、口诀、避坑清单整合为可终身使用的"心智模型"。<strong>记住：方法会变，但原则永恒</strong>。
+</div>
+
+<h3>6.1 5 个跨课程关键概念</h3>
+
+<div class="card" style="background:linear-gradient(135deg,#E8F4F8,#FAFBFC);border:2px solid #4A90A4;">
+<strong>📌 概念 1：海外私域 = 跨境电商 + 国内私域 的新物种</strong>
+<ul>
+<li>不是"国内私域 + 一个翻译层"</li>
+<li>是"跨境物流 + 内容创作 + 本地化 + 信任变现"的复合体</li>
+</ul>
+</div>
+
+<div class="card" style="background:linear-gradient(135deg,#FFF4ED,#FAFBFC);border:2px solid #E8A87C;">
+<strong>📌 概念 2：选品是项目放大的底层天花板</strong>
+<ul>
+<li>流量再好，选错了品也白搭</li>
+<li>选品方法论 = 数据驱动的爆款思维</li>
+<li>5 步选品法是底层框架</li>
+</ul>
+</div>
+
+<div class="card" style="background:linear-gradient(135deg,#EBF5E5,#FAFBFC);border:2px solid #7FB069;">
+<strong>📌 概念 3：信任是私域的护城河</strong>
+<ul>
+<li>公域给流量，私域给信任</li>
+<li>信任 = 复购 + 转介绍 + 高客单价</li>
+<li>海外用户警惕性更高，信任建立更慢但更值钱</li>
+</ul>
+</div>
+
+<div class="card" style="background:linear-gradient(135deg,#FCEEEC,#FAFBFC);border:2px solid #D17B7B;">
+<strong>📌 概念 4：内容能力是流量 + 转化的双重杠杆</strong>
+<ul>
+<li>公域时代：内容决定流量入口</li>
+<li>私域时代：内容决定转化效率</li>
+<li>5 倍利润倍率是筛选品的硬指标</li>
+</ul>
+</div>
+
+<div class="card" style="background:linear-gradient(135deg,#F3E8F4,#FAFBFC);border:2px solid #B084CC;">
+<strong>📌 概念 5：先跑通再放大是抗风险铁律</strong>
+<ul>
+<li>先跑通 SOP → 再复制矩阵 → 再付费放大</li>
+<li>先直邮测款 → 再备货海外仓 → 再投流放大</li>
+<li>先养号 → 再运营 → 再变现</li>
+</ul>
+</div>
+
+<h3>6.2 12 条核心口诀（终身记忆）</h3>
+
+<table>
+<thead>
+<tr><th>口诀</th><th>对应课程</th><th>应用场景</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>1. 小钱靠抄、中钱靠耕、大钱靠市</strong></td><td>第二课</td><td>战略定位</td></tr>
+<tr><td><strong>2. 先活下来，再求大</strong></td><td>第二课</td><td>心法</td></tr>
+<tr><td><strong>3. 个体户不打品牌方的仗</strong></td><td>第二课</td><td>资源配置</td></tr>
+<tr><td><strong>4. 烂素材高流量 = 红利赛道</strong></td><td>第二课</td><td>对标判断</td></tr>
+<tr><td><strong>5. 无对标 = 蓝海大胆测</strong></td><td>第二课</td><td>机会识别</td></tr>
+<tr><td><strong>6. 政治稳定性是 1，其他是 0</strong></td><td>第二课</td><td>市场选择</td></tr>
+<tr><td><strong>7. 利润倍率 ≥ 5 才能做</strong></td><td>第三课</td><td>选品红线</td></tr>
+<tr><td><strong>8. 国内能卖 ≠ 海外能发</strong></td><td>第八课</td><td>物流红线</td></tr>
+<tr><td><strong>9. 尾程成本 > 头程成本</strong></td><td>第八课</td><td>成本结构</td></tr>
+<tr><td><strong>10. 完播率 > 一切</strong></td><td>第五/六课</td><td>内容核心</td></tr>
+<tr><td><strong>11. 7 次触达才下单</strong></td><td>第七课</td><td>聊单节奏</td></tr>
+<tr><td><strong>12. 先跑通、再放大</strong></td><td>第七课</td><td>放大铁律</td></tr>
+</tbody>
+</table>
+
+<h3>6.3 5 阶段学习路径</h3>
+
+<div class="mindmap">
+<svg viewBox="0 0 1500 380" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- 5阶段横向树状 -->
+  <!-- 起点：小白 -->
+  <rect x="20" y="160" width="120" height="60" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="2"/>
+  <text x="80" y="185" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">🌱 小白</text>
+  <text x="80" y="205" text-anchor="middle" fill="#6B7280" font-size="10">第1周</text>
+
+  <!-- 阶段1：认知 -->
+  <rect x="180" y="40" width="220" height="70" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="290" y="65" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">① 认知重构</text>
+  <text x="290" y="85" text-anchor="middle" fill="#2C3E50" font-size="11">建立正确心态</text>
+  <text x="290" y="100" text-anchor="middle" fill="#6B7280" font-size="10">第一课（误区）+ 第二课（市场）</text>
+
+  <!-- 阶段2：选品 -->
+  <rect x="180" y="130" width="220" height="70" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="290" y="155" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">② 选品验证</text>
+  <text x="290" y="175" text-anchor="middle" fill="#2C3E50" font-size="11">找到第一个候选品</text>
+  <text x="290" y="190" text-anchor="middle" fill="#6B7280" font-size="10">第三课（5 步法）</text>
+
+  <!-- 阶段3：基建 -->
+  <rect x="180" y="220" width="220" height="70" rx="8" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="290" y="245" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">③ 基建搭建</text>
+  <text x="290" y="265" text-anchor="middle" fill="#2C3E50" font-size="11">账号+物流+支付</text>
+  <text x="290" y="280" text-anchor="middle" fill="#6B7280" font-size="10">第四课+第八课+第九课</text>
+
+  <!-- 阶段4：内容 -->
+  <rect x="440" y="40" width="220" height="70" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="550" y="65" text-anchor="middle" fill="#A85F2E" font-size="13" font-weight="bold">④ 内容运营</text>
+  <text x="550" y="85" text-anchor="middle" fill="#A85F2E" font-size="11">算法+爆款+起号</text>
+  <text x="550" y="100" text-anchor="middle" fill="#6B7280" font-size="10">第五课+第六课</text>
+
+  <!-- 阶段5：销转 -->
+  <rect x="440" y="220" width="220" height="70" rx="8" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="550" y="245" text-anchor="middle" fill="#A85F2E" font-size="13" font-weight="bold">⑤ 销转化</text>
+  <text x="550" y="265" text-anchor="middle" fill="#A85F2E" font-size="11">聊单+团队+放大</text>
+  <text x="550" y="280" text-anchor="middle" fill="#6B7280" font-size="10">第七课+第十课+第十二课</text>
+
+  <!-- 阶段6：入门 -->
+  <rect x="700" y="160" width="180" height="60" rx="8" fill="#EBF5E5" stroke="#7FB069" stroke-width="1.5"/>
+  <text x="790" y="185" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">🌿 入门</text>
+  <text x="790" y="205" text-anchor="middle" fill="#6B7280" font-size="10">第2-4 周</text>
+
+  <!-- 阶段7：进阶 -->
+  <rect x="920" y="160" width="180" height="60" rx="8" fill="#EBF5E5" stroke="#7FB069" stroke-width="1.5"/>
+  <text x="1010" y="185" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">🌳 进阶</text>
+  <text x="1010" y="205" text-anchor="middle" fill="#6B7280" font-size="10">第2-3 月</text>
+
+  <!-- 阶段8：高手 -->
+  <rect x="1140" y="160" width="180" height="60" rx="8" fill="#EBF5E5" stroke="#7FB069" stroke-width="1.5"/>
+  <text x="1230" y="185" text-anchor="middle" fill="#2C3E50" font-size="13" font-weight="bold">🌲 高手</text>
+  <text x="1230" y="205" text-anchor="middle" fill="#6B7280" font-size="10">第4-6 月</text>
+
+  <!-- 阶段9：精通 -->
+  <rect x="1360" y="160" width="120" height="60" rx="8" fill="#FCEEEC" stroke="#D17B7B" stroke-width="2"/>
+  <text x="1420" y="185" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">🏆 精通</text>
+  <text x="1420" y="205" text-anchor="middle" fill="#6B7280" font-size="10">6+ 月</text>
+
+  <!-- 连接线 -->
+  <path d="M 140,190 H 180" stroke="#4A90A4" stroke-width="1.5" fill="none"/>
+  <path d="M 400,75 H 440" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 400,165 H 440" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 400,255 H 440" stroke="#E8A87C" stroke-width="1.5" fill="none"/>
+  <path d="M 660,75 H 700" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 660,255 H 700" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 880,190 H 920" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 1100,190 H 1140" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+  <path d="M 1320,190 H 1360" stroke="#7FB069" stroke-width="1.5" fill="none"/>
+
+  <!-- 底部说明 -->
+  <rect x="180" y="320" width="1300" height="40" rx="6" fill="#F8F9FA" stroke="#D1D5DB" stroke-width="1"/>
+  <text x="830" y="345" text-anchor="middle" fill="#6B7280" font-size="12">📌 学习路径：①认知 ②选品 ③基建 ④内容 ⑤销转 → 入门 进阶 高手 精通</text>
+</svg>
+</div>
+
+<h3>6.4 12 课闭环终极图</h3>
+
+<div class="mindmap">
+<svg viewBox="0 0 1600 900" preserveAspectRatio="xMidYMin meet" xmlns="http://www.w3.org/2000/svg">
+  <!-- 中心圆 -->
+  <circle cx="800" cy="450" r="100" fill="#4A90A4" stroke="#2C3E50" stroke-width="2"/>
+  <text x="800" y="440" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="bold">海外私域</text>
+  <text x="800" y="465" text-anchor="middle" fill="#FFFFFF" font-size="18" font-weight="bold">实战全案</text>
+  <text x="800" y="488" text-anchor="middle" fill="#FFFFFF" font-size="12">12 课闭环</text>
+
+  <!-- 第一课 (上左) -->
+  <rect x="160" y="120" width="240" height="80" rx="10" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="280" y="148" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">① 新手误区&amp;正确流程</text>
+  <text x="280" y="170" text-anchor="middle" fill="#6B7280" font-size="11">认知层 · 七步法 · 16 字口诀</text>
+  <text x="280" y="187" text-anchor="middle" fill="#6B7280" font-size="11">避免眼高手低</text>
+
+  <!-- 第二课 (上中) -->
+  <rect x="450" y="40" width="240" height="80" rx="10" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="570" y="68" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">② 看市场&amp;定赛道</text>
+  <text x="570" y="90" text-anchor="middle" fill="#6B7280" font-size="11">三大数据维度</text>
+  <text x="570" y="107" text-anchor="middle" fill="#6B7280" font-size="11">小钱靠抄中钱靠耕大钱靠市</text>
+
+  <!-- 第三课 (上右) -->
+  <rect x="740" y="40" width="240" height="80" rx="10" fill="#E8F4F8" stroke="#4A90A4" stroke-width="1.5"/>
+  <text x="860" y="68" text-anchor="middle" fill="#2C3E50" font-size="14" font-weight="bold">③ 选品&amp;找对标账号</text>
+  <text x="860" y="90" text-anchor="middle" fill="#6B7280" font-size="11">5 步选品法</text>
+  <text x="860" y="107" text-anchor="middle" fill="#6B7280" font-size="11">5 倍利润倍率</text>
+
+  <!-- 第四课 (右中上) -->
+  <rect x="1030" y="120" width="240" height="80" rx="10" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="1150" y="148" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">④ 账号基础搭建</text>
+  <text x="1150" y="170" text-anchor="middle" fill="#6B7280" font-size="11">公域+私域软件 · 设备网络</text>
+  <text x="1150" y="187" text-anchor="middle" fill="#6B7280" font-size="11">养号 + 邮箱裂变</text>
+
+  <!-- 第五课 (右中) -->
+  <rect x="1200" y="270" width="240" height="80" rx="10" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="1320" y="298" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">⑤ 爆款短视频制作</text>
+  <text x="1320" y="320" text-anchor="middle" fill="#6B7280" font-size="11">8 种爆款结构</text>
+  <text x="1320" y="337" text-anchor="middle" fill="#6B7280" font-size="11">拆解 + 重构</text>
+
+  <!-- 第六课 (右中下) -->
+  <rect x="1200" y="420" width="240" height="80" rx="10" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="1320" y="448" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">⑥ TK 运营全攻略</text>
+  <text x="1320" y="470" text-anchor="middle" fill="#6B7280" font-size="11">起号 8 步 · 数据分析</text>
+  <text x="1320" y="487" text-anchor="middle" fill="#6B7280" font-size="11">限流诊断与处理</text>
+
+  <!-- 第七课 (右下) -->
+  <rect x="1200" y="570" width="240" height="80" rx="10" fill="#FCEEEC" stroke="#D17B7B" stroke-width="1.5"/>
+  <text x="1320" y="598" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">⑦ 私域成交全攻略</text>
+  <text x="1320" y="620" text-anchor="middle" fill="#6B7280" font-size="11">4 层客户标签</text>
+  <text x="1320" y="637" text-anchor="middle" fill="#6B7280" font-size="11">4 步聊单 SOP</text>
+
+  <!-- 第八课 (下右) -->
+  <rect x="1030" y="680" width="240" height="80" rx="10" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="1150" y="708" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">⑧ 物流发货</text>
+  <text x="1150" y="730" text-anchor="middle" fill="#6B7280" font-size="11">10 环节链路</text>
+  <text x="1150" y="747" text-anchor="middle" fill="#6B7280" font-size="11">头程/尾程/海外仓</text>
+
+  <!-- 第九课 (下中) -->
+  <rect x="740" y="780" width="240" height="80" rx="10" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="860" y="808" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">⑨ 支付收款</text>
+  <text x="860" y="830" text-anchor="middle" fill="#6B7280" font-size="11">各国支付习惯</text>
+  <text x="860" y="847" text-anchor="middle" fill="#6B7280" font-size="11">回款三方式 + 海外陷阱</text>
+
+  <!-- 第十课 (下左) -->
+  <rect x="450" y="780" width="240" height="80" rx="10" fill="#FCEEEC" stroke="#D17B7B" stroke-width="1.5"/>
+  <text x="570" y="808" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">⑩ 团队搭建</text>
+  <text x="570" y="830" text-anchor="middle" fill="#6B7280" font-size="11">4 阶段进化</text>
+  <text x="570" y="847" text-anchor="middle" fill="#6B7280" font-size="11">个人 → 工作室 → 公司 → 品牌</text>
+
+  <!-- 第十一课 (左中下) -->
+  <rect x="160" y="680" width="240" height="80" rx="10" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="280" y="708" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">⑪ 广告投放放大</text>
+  <text x="280" y="730" text-anchor="middle" fill="#6B7280" font-size="11">Meta/TK/Google Ads</text>
+  <text x="280" y="747" text-anchor="middle" fill="#6B7280" font-size="11">ROAS ≥ 2.0</text>
+
+  <!-- 第十二课 (左中) -->
+  <rect x="160" y="570" width="240" height="80" rx="10" fill="#FCEEEC" stroke="#D17B7B" stroke-width="1.5"/>
+  <text x="280" y="598" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">⑫ 终极放大体系</text>
+  <text x="280" y="620" text-anchor="middle" fill="#6B7280" font-size="11">多站点+多品牌</text>
+  <text x="280" y="637" text-anchor="middle" fill="#6B7280" font-size="11">全球私域矩阵</text>
+
+  <!-- 第十一课 (左中上) -->
+  <rect x="160" y="420" width="240" height="80" rx="10" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="280" y="448" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">⑪-2 站点风控</text>
+  <text x="280" y="470" text-anchor="middle" fill="#6B7280" font-size="11">账户风控 · 站点政策</text>
+  <text x="280" y="487" text-anchor="middle" fill="#6B7280" font-size="11">避免封号归零</text>
+
+  <!-- 左侧补充 -->
+  <rect x="160" y="270" width="240" height="80" rx="10" fill="#FFF4ED" stroke="#E8A87C" stroke-width="1.5"/>
+  <text x="280" y="298" text-anchor="middle" fill="#A85F2E" font-size="14" font-weight="bold">⑪-1 主页装修</text>
+  <text x="280" y="320" text-anchor="middle" fill="#6B7280" font-size="11">视觉 + 价值主张</text>
+  <text x="280" y="337" text-anchor="middle" fill="#6B7280" font-size="11">品牌信任背书</text>
+
+  <!-- 连接线 (中心放射) -->
+  <line x1="800" y1="350" x2="280" y2="200" stroke="#4A90A4" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="350" x2="570" y2="120" stroke="#4A90A4" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="350" x2="860" y2="120" stroke="#4A90A4" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="350" x2="1150" y2="200" stroke="#4A90A4" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="350" x2="1320" y2="350" stroke="#E8A87C" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="350" x2="1320" y2="500" stroke="#E8A87C" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="350" x2="1320" y2="650" stroke="#D17B7B" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="550" x2="1150" y2="680" stroke="#E8A87C" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="550" x2="860" y2="780" stroke="#E8A87C" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="550" x2="570" y2="780" stroke="#D17B7B" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="550" x2="280" y2="680" stroke="#E8A87C" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="550" x2="280" y2="500" stroke="#D17B7B" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="550" x2="280" y2="350" stroke="#D17B7B" stroke-width="1" stroke-dasharray="4,2"/>
+  <line x1="800" y1="550" x2="280" y2="200" stroke="#4A90A4" stroke-width="1" stroke-dasharray="4,2"/>
+</svg>
+</div>
+
+<h3>6.5 避坑清单 12 条</h3>
+
+<table>
+<thead>
+<tr><th>#</th><th>坑</th><th>正确做法</th></tr>
+</thead>
+<tbody>
+<tr><td>1</td><td>国内思维做海外</td><td>海外市场结构、消费习惯、监管都不同</td></tr>
+<tr><td>2</td><td>不测品就备货</td><td>先直邮测款，跑通再备货海外仓</td></tr>
+<tr><td>3</td><td>5 倍以下利润还做</td><td>倍率 &lt; 5 倍坚决不做</td></tr>
+<tr><td>4</td><td>国内能卖 = 海外能发</td><td>敏感货直接被扣，违禁品直接被禁</td></tr>
+<tr><td>5</td><td>用国行手机挂梯子上号</td><td>必须美版 iPhone 或 Google Pixel</td></tr>
+<tr><td>6</td><td>直挂梯子不上指纹浏览器</td><td>电脑端必须用指纹浏览器防关联</td></tr>
+<tr><td>7</td><td>一个账号当所有</td><td>矩阵账号广撒网，至少 3-5 个</td></tr>
+<tr><td>8</td><td>不养号就发视频</td><td>至少养 7 天再发</td></tr>
+<tr><td>9</td><td>原创 vs 伪原创分不清</td><td>搬运 = 死；伪原创 = 重新剪 = 活</td></tr>
+<tr><td>10</td><td>群发 = 营销</td><td>必须 L1-L4 标签分层精准推送</td></tr>
+<tr><td>11</td><td>一次咨询就放弃</td><td>7 次触达才下单，5 次复触是常规</td></tr>
+<tr><td>12</td><td>没跑通 SOP 就付费放大</td><td>先跑通模型，再复制矩阵，最后付费放大</td></tr>
+</tbody>
+</table>
+
+<h3>6.6 跨课整合总结</h3>
+
+<div class="card" style="background:linear-gradient(135deg,#E8F4F8,#FFF4ED,#EBF5E5);border:2px solid #4A90A4;">
+<strong>📌 整个 12 课浓缩为一句话</strong>：
+<blockquote style="font-size:16px;color:#2C3E50;line-height:1.8">
+<strong>用海外思维选品（5 倍利润）→ 搭基建（账号+物流+支付）→ 做内容（算法+爆款）→ 信任变现（私域+聊单）→ 先跑通再放大（团队+投放+矩阵）</strong>
+</blockquote>
+<strong>12 课 12 工具，方法会变，原则永恒</strong>。
+</div>
+
+<div class="tip-success">
+<span class="tip-title">🎯 看完跨课整合的行动清单</span>
+<ul class="checklist">
+<li>熟记 12 条核心口诀（贴在工位上）</li>
+<li>建立个人"心智模型卡片"——5 概念 + 12 口诀</li>
+<li>按 5 阶段路径评估自己当前位置</li>
+<li>用 12 条避坑清单做每日自检</li>
+<li>每周回顾：本周跑通了哪些 SOP？触达了哪些坑？</li>
+</ul>
+</div>
+</section>
+
+<!-- ============================ 附录 ============================ -->
+<section id="appendix">
+<h2>附录 · 速查表与资源汇总</h2>
+
+<h3>A.1 12 课交叉引用速查表</h3>
+
+<table>
+<thead>
+<tr><th>关键词</th><th>对应课</th><th>具体位置</th></tr>
+</thead>
+<tbody>
+<tr><td>新手误区</td><td>第一课</td><td>Part 1.1 四类误区</td></tr>
+<tr><td>七步法</td><td>第一课</td><td>Part 1.3</td></tr>
+<tr><td>16 字口诀</td><td>第一课</td><td>Part 1.3 收尾</td></tr>
+<tr><td>选市场</td><td>第二课</td><td>Part 2.1</td></tr>
+<tr><td>三大梯队</td><td>第二课</td><td>Part 2.4</td></tr>
+<tr><td>5 步选品法</td><td>第三课</td><td>Part 2.5</td></tr>
+<tr><td>5 倍利润</td><td>第三课</td><td>Part 2.5 方法三</td></tr>
+<tr><td>账号基础</td><td>第四课</td><td>Part 3.1-3.4</td></tr>
+<tr><td>设备网络</td><td>第四课</td><td>Part 3.2</td></tr>
+<tr><td>TK 起号</td><td>第六课</td><td>Part 4.2</td></tr>
+<tr><td>爆款结构</td><td>第五课</td><td>Part 4.3</td></tr>
+<tr><td>完播率</td><td>第六课</td><td>Part 4.1</td></tr>
+<tr><td>私域聊单</td><td>第七课</td><td>Part 5.3</td></tr>
+<tr><td>客户标签</td><td>第七课</td><td>Part 5.2</td></tr>
+<tr><td>物流链路</td><td>第八课</td><td>Part 3.5</td></tr>
+<tr><td>海外仓</td><td>第八课</td><td>Part 3.5</td></tr>
+<tr><td>支付回款</td><td>第九课</td><td>Part 3.6</td></tr>
+<tr><td>团队搭建</td><td>第十课</td><td>Part 5.5</td></tr>
+<tr><td>放大战略</td><td>第十二课</td><td>Part 5.6</td></tr>
+</tbody>
+</table>
+
+<h3>A.2 联网验证关键数据（2026 现状）</h3>
+
+<table>
+<thead>
+<tr><th>知识点</th><th>课程陈述</th><th>2026 现状</th><th>状态</th></tr>
+</thead>
+<tbody>
+<tr><td>Z 世代定义</td><td>12-27 岁</td><td>Pew Research 2024.9 收窄为 12-27</td><td>✅ 一致</td></tr>
+<tr><td>中国电商渗透率</td><td>约 50%</td><td>实物口径 26.1%</td><td>⚠️ 偏高</td></tr>
+<tr><td>菲律宾电商渗透率</td><td>10%</td><td>用户口径 23-28%</td><td>⚠️ 偏低</td></tr>
+<tr><td>全球日均屏幕时长</td><td>2.5 小时</td><td>3.5-4.5 小时</td><td>⚠️ 已更新</td></tr>
+<tr><td>美国 UFLPA 新疆棉禁令</td><td>严格执行</td><td>2022.6 生效至今严格</td><td>✅ 一致</td></tr>
+<tr><td>TikTok 美国剥离</td><td>封禁风险</td><td>2026.1 已完成 TikTok USDS</td><td>✅ 一致</td></tr>
+<tr><td>俄罗斯 SWIFT 制裁</td><td>货卖出钱回不来</td><td>191 家俄银行被切断</td><td>✅ 一致</td></tr>
+<tr><td>欧盟 VAT 税率</td><td>19-25%</td><td>2025 ViDA 改革 + 2028 全面</td><td>✅ 一致</td></tr>
+<tr><td>拉美治安风险</td><td>司机被抢</td><td>墨西哥卡车抢劫频发</td><td>✅ 一致</td></tr>
+<tr><td>Facebook Ad Library</td><td>免费免登录</td><td>仍免费</td><td>✅ 一致</td></tr>
+<tr><td>TikTok Creative Center</td><td>免费</td><td>持续可用</td><td>✅ 一致</td></tr>
+<tr><td>Line 日本渗透率</td><td>绝对主导</td><td>95%+</td><td>✅ 一致</td></tr>
+<tr><td>越南 Zalo MAU</td><td>越南主流</td><td>7960 万（2025.12）</td><td>✅ 一致</td></tr>
+<tr><td>5 倍利润倍率</td><td>硬指标</td><td>行业经验值</td><td>⚠️ 经验值</td></tr>
+<tr><td>美国小包时效</td><td>10-12 天</td><td>7-15 天</td><td>✅ 一致</td></tr>
+<tr><td>日本本土仓成本</td><td>≥ 60 万/年</td><td>自建口径成立</td><td>✅ 合理</td></tr>
+</tbody>
+</table>
+
+<h3>A.3 核心术语速查表</h3>
+
+<table>
+<thead>
+<tr><th>术语</th><th>英文</th><th>释义</th></tr>
+</thead>
+<tbody>
+<tr><td>COD</td><td>Cash on Delivery</td><td>货到付款</td></tr>
+<tr><td>GMV</td><td>Gross Merchandise Volume</td><td>商品交易总额</td></tr>
+<tr><td>ROAS</td><td>Return on Ad Spend</td><td>广告投资回报率</td></tr>
+<tr><td>ROI</td><td>Return on Investment</td><td>投资回报率</td></tr>
+<tr><td>CTR</td><td>Click-Through Rate</td><td>点击率</td></tr>
+<tr><td>CVR</td><td>Conversion Rate</td><td>转化率</td></tr>
+<tr><td>CPM</td><td>Cost Per Mille</td><td>千次曝光成本</td></tr>
+<tr><td>FBA</td><td>Fulfillment by Amazon</td><td>亚马逊物流</td></tr>
+<tr><td>VAT</td><td>Value Added Tax</td><td>增值税</td></tr>
+<tr><td>IOSS</td><td>Import One-Stop Shop</td><td>欧盟进口一站式服务</td></tr>
+<tr><td>SOP</td><td>Standard Operating Procedure</td><td>标准操作程序</td></tr>
+<tr><td>SKU</td><td>Stock Keeping Unit</td><td>库存单位</td></tr>
+<tr><td>KOL</td><td>Key Opinion Leader</td><td>关键意见领袖</td></tr>
+<tr><td>KOC</td><td>Key Opinion Consumer</td><td>关键意见消费者</td></tr>
+<tr><td>UGC</td><td>User Generated Content</td><td>用户生成内容</td></tr>
+<tr><td>ICP</td><td>Ideal Customer Profile</td><td>理想客户画像</td></tr>
+<tr><td>MAU</td><td>Monthly Active Users</td><td>月活跃用户</td></tr>
+<tr><td>DAU</td><td>Daily Active Users</td><td>日活跃用户</td></tr>
+<tr><td>ARPU</td><td>Average Revenue Per User</td><td>每用户平均收入</td></tr>
+<tr><td>LTV</td><td>Life Time Value</td><td>客户生命周期价值</td></tr>
+<tr><td>复购率</td><td>Repurchase Rate</td><td>重复购买率</td></tr>
+</tbody>
+</table>
+
+<h3>A.4 行动清单总表</h3>
+
+<h4>第 1 周（认知重构）</h4>
+<ul class="checklist">
+<li>读完 Part 1-2 全部内容</li>
+<li>完成自我评估：身份（品牌方/工厂/小团队）</li>
+<li>明确年利润目标（50-100万 / 100-500万 / 500万+）</li>
+<li>选定目标市场（推荐 1-2 个国家）</li>
+<li>用三大数据维度评估市场</li>
+</ul>
+
+<h4>第 2-3 周（选品验证）</h4>
+<ul class="checklist">
+<li>读 Part 2.5 选品五步法</li>
+<li>用 5 步法找 5-10 个候选品</li>
+<li>用 5 倍利润公式淘汰不合格的</li>
+<li>对标账号找 10-30 个</li>
+<li>确定 1-2 个主攻品类</li>
+</ul>
+
+<h4>第 4 周（基建搭建）</h4>
+<ul class="checklist">
+<li>采购合规设备（美版 iPhone / Google Pixel）</li>
+<li>配置指纹浏览器 + 海外代理</li>
+<li>准备域名邮箱 catch-all</li>
+<li>注册目标平台账号</li>
+<li>联系 2-3 家货代询价</li>
+<li>开通 Stripe/PayPal 商业账号</li>
+</ul>
+
+<h4>第 5-6 周（内容运营）</h4>
+<ul class="checklist">
+<li>读 Part 4 全部内容</li>
+<li>按 TK 起号 8 步开始养号</li>
+<li>每天发布 1-3 条测试视频</li>
+<li>持续拆解对标爆款</li>
+<li>完成第 1 条爆款视频</li>
+</ul>
+
+<h4>第 7-8 周（销转启动）</h4>
+<ul class="checklist">
+<li>读 Part 5 全部内容</li>
+<li>建立 4 层客户标签体系</li>
+<li>熟练掌握 4 步聊单 SOP</li>
+<li>开始转化第一批客户</li>
+<li>建立 5 次复触模型</li>
+</ul>
+
+<h4>第 9 周+（放大阶段）</h4>
+<ul class="checklist">
+<li>复制矩阵账号（3-5 个）</li>
+<li>搭建 3-5 人小团队</li>
+<li>开始付费投流（Meta/TK Ads）</li>
+<li>建立独立站承接流量</li>
+<li>持续数据复盘 + SOP 优化</li>
+</ul>
+
+<h3>A.5 推荐资源与工具</h3>
+
+<h4>① 选品工具</h4>
+<table>
+<thead>
+<tr><th>工具</th><th>用途</th><th>价格</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>Sorftime</strong></td><td>亚马逊/TK/Shopee/Temu/Walmart 选品数据</td><td>付费订阅</td></tr>
+<tr><td><strong>EchoTik</strong></td><td>TikTok 选品 + 达人选品</td><td>付费订阅</td></tr>
+<tr><td><strong>FastMoss</strong></td><td>TikTok 爆品追踪</td><td>付费订阅</td></tr>
+<tr><td><strong>Kalodata</strong></td><td>TikTok 小店数据</td><td>付费订阅</td></tr>
+<tr><td><strong>1688</strong></td><td>国内货源找货</td><td>免费</td></tr>
+</tbody>
+</table>
+
+<h4>② 内容工具</h4>
+<table>
+<thead>
+<tr><th>工具</th><th>用途</th><th>价格</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>剪映国际版（CapCut）</strong></td><td>视频剪辑</td><td>免费 + 付费会员</td></tr>
+<tr><td><strong>Canva</strong></td><td>图文设计</td><td>免费 + 付费会员</td></tr>
+<tr><td><strong>ChatGPT / Claude</strong></td><td>脚本撰写 + 卖点拆解</td><td>付费订阅</td></tr>
+<tr><td><strong>ElevenLabs</strong></td><td>AI 配音</td><td>付费</td></tr>
+</tbody>
+</table>
+
+<h4>③ 物流与支付</h4>
+<table>
+<thead>
+<tr><th>工具</th><th>用途</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>燕文物流</strong></td><td>国际小包专线</td></tr>
+<tr><td><strong>云途物流</strong></td><td>国际小包专线</td></tr>
+<tr><td><strong>递四方（4PX）</strong></td><td>跨境综合物流</td></tr>
+<tr><td><strong>连连国际</strong></td><td>跨境收款</td></tr>
+<tr><td><strong>PingPong</strong></td><td>跨境收款</td></tr>
+<tr><td><strong>万里汇（WorldFirst）</strong></td><td>跨境收款</td></tr>
+</tbody>
+</table>
+
+<h4>④ 基建工具</h4>
+<table>
+<thead>
+<tr><th>工具</th><th>用途</th><th>价格</th></tr>
+</thead>
+<tbody>
+<tr><td><strong>紫鸟浏览器</strong></td><td>多账号防关联</td><td>付费</td></tr>
+<tr><td><strong>比特浏览器</strong></td><td>多账号防关联</td><td>付费</td></tr>
+<tr><td><strong>Cloudflare 域名邮箱</strong></td><td>catch-all 邮箱</td><td>免费 + 域名费</td></tr>
+<tr><td><strong>小火箭</strong></td><td>iOS 网络代理</td><td>付费</td></tr>
+<tr><td><strong>Clash</strong></td><td>多平台代理</td><td>免费</td></tr>
+</tbody>
+</table>
+
+<h3>A.6 写在最后</h3>
+
+<div class="card" style="background:linear-gradient(135deg,#E8F4F8,#FFF4ED,#EBF5E5,#FCEEEC,#F3E8F4);border:2px solid #4A90A4;">
+<strong>📌 给尊贵的主人的一封信</strong>
+<blockquote style="font-size:14px;line-height:1.9;color:#2C3E50">
+<p>整套 12 课内容已全部整合到这一个 HTML 文件中。从小白到精通高手，方法论全在这里了。</p>
+<p><strong>但方法论 ≠ 成功</strong>。真正决定成败的是：<strong>执行 + 坚持 + 数据复盘</strong>。</p>
+<p>海外私域不是"看会了就会"，是"做会了才会"。</p>
+<p>看完这个文件，建议立刻做三件事：</p>
+<ol>
+<li><strong>选一个目标国家</strong>（不要 5 个）</li>
+<li><strong>选一个候选品类</strong>（不要 10 个）</li>
+<li><strong>先跑通 1 个账号</strong>（不要 10 个）</li>
+</ol>
+<p>先活下来，再求大。这才是海外私域的真正心法。</p>
+<p>祝您出海顺利，满载而归！</p>
+</blockquote>
+</div>
+
+<hr>
+
+<p style="text-align:center;color:#6B7280;font-size:13px;margin-top:40px">
+本 HTML 文档基于《海私会·海外私域实战全案》12 课体系深度整合 · 由 Claude 协助整理生成<br>
+所有数据与案例来源于课程原文，方法论可终身复用
+</p>
+
+</section>
+
+</div>
+</body>
+</html>
