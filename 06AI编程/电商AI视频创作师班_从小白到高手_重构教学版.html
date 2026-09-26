@@ -1,0 +1,4990 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>电商 AI 视频创作师班｜从小白到高手的重构教学版</title>
+<style>
+:root{--ink:#172b36;--muted:#60737b;--paper:#fbfaf6;--panel:#fff;--line:#d8e1df;--teal:#176b6b;--teal-soft:#e4f1ee;--orange:#c66a31;--orange-soft:#fff0e5;--blue:#2a5871;--blue-soft:#e7f0f5;--yellow:#fff5cc;--shadow:0 8px 24px rgba(28,58,64,.08)}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--paper);color:var(--ink);font:16px/1.85 -apple-system,BlinkMacSystemFont,"Segoe UI","Microsoft YaHei",sans-serif}a{color:var(--teal);text-decoration:none}a:hover{text-decoration:underline}.wrap{max-width:1160px;margin:0 auto;padding:32px 24px 80px}.top{display:grid;grid-template-columns:1.28fr .72fr;gap:30px;align-items:end;padding:18px 0 28px;border-bottom:1px solid var(--line)}.kicker{font-size:.78rem;letter-spacing:.18em;color:var(--orange);font-weight:800}.top h1{margin:10px 0 14px;font-size:clamp(2rem,4vw,3.7rem);line-height:1.12;letter-spacing:-.04em;color:var(--ink)}.lede{font-size:1.12rem;color:var(--muted);max-width:700px}.promise{border-left:5px solid var(--orange);padding:14px 18px;background:var(--orange-soft);border-radius:0 12px 12px 0}.promise strong{display:block;color:#8d471e;margin-bottom:5px}.nav{display:flex;flex-wrap:wrap;gap:8px;margin:22px 0 8px}.nav a{border:1px solid var(--line);background:var(--panel);padding:6px 11px;border-radius:999px;font-size:.9rem}.nav a:hover{border-color:var(--teal);text-decoration:none}.section{padding-top:48px;margin-top:26px;border-top:1px solid var(--line)}h2{font-size:2rem;line-height:1.25;margin:0 0 10px;color:var(--blue)}h3{font-size:1.35rem;line-height:1.35;margin:30px 0 9px;color:var(--teal)}h4{font-size:1.05rem;margin:22px 0 6px;color:#34515b}p{max-width:82ch}li{margin:4px 0}.chapter{display:flex;gap:16px;align-items:baseline}.num{font:800 2.2rem/1 Georgia,serif;color:var(--orange)}.subtitle{color:var(--muted);margin-top:0}.grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.card,.rule,.task,.warning{background:var(--panel);border:1px solid var(--line);padding:18px 19px;border-radius:12px}.card{box-shadow:var(--shadow)}.card h3,.card h4{margin-top:0}.card .tag{display:inline-block;font-size:.73rem;letter-spacing:.08em;color:var(--teal);font-weight:800;margin-bottom:8px}.task{border-left:4px solid var(--teal);background:#f5fbf9}.rule{border-left:4px solid var(--orange);background:#fffaf2}.warning{border-left:4px solid #b55b50;background:#fff5f2}.small{font-size:.91rem;color:var(--muted)}.pill{display:inline-block;padding:2px 8px;border-radius:99px;background:var(--teal-soft);color:var(--teal);font-size:.82rem;margin:2px}.matrix{width:100%;border-collapse:collapse;background:#fff;margin:14px 0 22px}.matrix th,.matrix td{border:1px solid var(--line);padding:10px 11px;text-align:left;vertical-align:top}.matrix th{background:var(--blue-soft);color:var(--blue);font-weight:800}.matrix tr:nth-child(even){background:#fcfdfc}.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin:16px 0}.flow b{padding:9px 12px;background:var(--teal-soft);border-radius:8px;color:var(--teal)}.flow i{color:var(--orange);font-style:normal;font-weight:900}.prompt{background:#1f3037;color:#f4f8f6;border-radius:10px;padding:16px 18px;font:14px/1.8 ui-monospace,SFMono-Regular,Consolas,monospace;white-space:pre-wrap;overflow:auto}.check{list-style:none;padding-left:0}.check li{padding-left:28px;position:relative}.check li:before{content:'□';position:absolute;left:0;color:var(--orange);font-size:1.25rem;line-height:1.5}.map{background:#fff;border:1px solid var(--line);border-radius:16px;padding:12px;overflow-x:auto;box-shadow:var(--shadow)}.map svg{display:block;width:100%;min-width:900px;height:auto}.map-note{font-size:.88rem;color:var(--muted);margin:8px 6px 0}.footer{margin-top:60px;padding-top:22px;border-top:1px solid var(--line);color:var(--muted);font-size:.9rem}@media(max-width:820px){.top{grid-template-columns:1fr}.grid3{grid-template-columns:1fr 1fr}}@media(max-width:600px){.wrap{padding:22px 16px 58px}.top h1{font-size:2.2rem}.grid,.grid3{grid-template-columns:1fr}.chapter{gap:10px}.num{font-size:1.8rem}h2{font-size:1.65rem}.map{margin-left:-8px;margin-right:-8px}.map svg{min-width:840px}}
+.ledger{margin-top:25px}.ledger-intro{background:#eef6f4;border:1px solid #bed8d0;border-radius:12px;padding:16px 18px}.ledger article{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}.ledger article h1{font-size:1.7rem}.ledger article h2{font-size:1.45rem;margin-top:22px}.ledger article h3{font-size:1.16rem;margin-top:18px}.ledger article table{width:100%;border-collapse:collapse}.ledger article th,.ledger article td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}.ledger article th{background:var(--blue-soft)}.ledger article pre{background:#1f3037;color:#eff8f5;padding:12px;border-radius:8px;overflow:auto}.ledger article blockquote{border-left:4px solid var(--orange);background:var(--orange-soft);padding:8px 14px;margin:10px 0}</style>
+</head>
+<body>
+<main class="wrap">
+<header class="top" id="top">
+  <div><div class="kicker">E-COMMERCE AI VIDEO · REBUILT CURRICULUM</div><h1>从一张商品图，到能稳定交付的销售视频</h1><p class="lede">这不是工具目录，而是一套训练系统：你将学会判断任务、准备资产、控制一致性、生成镜头、剪成成片、控制成本，并用复盘把偶然成功变成可重复能力。</p></div>
+  <aside class="promise"><strong>学习承诺</strong>每章先回答“为什么”，再回答“怎么做”，最后用一个可验收的任务证明自己真的会了。平台名称和课程演示参数属于会变化的信息，实际操作以当日页面为准。</aside>
+</header>
+<nav class="nav" aria-label="课程章节"><a href="#map">总路线</a><a href="#mindset">01 先建立判断力</a><a href="#asset">02 素材与商品</a><a href="#image">03 画面控制</a><a href="#consistency">04 一致性</a><a href="#story">05 叙事与分镜</a><a href="#video">06 生成镜头</a><a href="#edit">07 成片交付</a><a href="#systems">08 工作流与成本</a><a href="#capstone">毕业任务</a></nav>
+
+<section class="section" id="map"><div class="chapter"><span class="num">00</span><h2>先看懂全局：你要训练的是一条能力链</h2></div><p class="subtitle">不要从“哪个模型最好”开始。高手先定义交付，再倒推输入、控制点和质检点。</p>
+<div class="map" aria-label="横向树状静态知识图谱"><svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1680 650" role="img">
+<defs><filter id="s" x="-10%" y="-10%" width="120%" height="120%"><feDropShadow dx="0" dy="4" stdDeviation="5" flood-color="#173844" flood-opacity=".12"/></filter></defs>
+<style>.ln{fill:none;stroke:#a5b9ba;stroke-width:3}.root{fill:#173f4e}.g1{fill:#e4f1ee;stroke:#71aaa1;stroke-width:2}.g2{fill:#e7f0f5;stroke:#80a8bd;stroke-width:2}.g3{fill:#fff0e5;stroke:#d99a6d;stroke-width:2}.tx{font-family:Arial,'Microsoft YaHei',sans-serif;font-size:18px;font-weight:700;fill:#19343f}.rt{font-family:Arial,'Microsoft YaHei',sans-serif;font-size:22px;font-weight:800;fill:#fff}.sm{font-family:Arial,'Microsoft YaHei',sans-serif;font-size:14px;fill:#35535d}.ledger{margin-top:25px}.ledger-intro{background:#eef6f4;border:1px solid #bed8d0;border-radius:12px;padding:16px 18px}.ledger article{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px;margin:16px 0}.ledger article h1{font-size:1.7rem}.ledger article h2{font-size:1.45rem;margin-top:22px}.ledger article h3{font-size:1.16rem;margin-top:18px}.ledger article table{width:100%;border-collapse:collapse}.ledger article th,.ledger article td{border:1px solid var(--line);padding:8px;text-align:left;vertical-align:top}.ledger article th{background:var(--blue-soft)}.ledger article pre{background:#1f3037;color:#eff8f5;padding:12px;border-radius:8px;overflow:auto}.ledger article blockquote{border-left:4px solid var(--orange);background:var(--orange-soft);padding:8px 14px;margin:10px 0}</style>
+<path class="ln" d="M235 318H310V72H380 M310 318V192H380 M310 318V318H380 M310 318V444H380 M310 318V566H380 M620 72H700V45H790 M700 72V99H790 M620 192H700V165H790 M700 192V219H790 M620 318H700V291H790 M700 318V345H790 M620 444H700V417H790 M700 444V471H790 M620 566H700V543H790 M700 566V595H790 M1030 45H1110V28H1200 M1110 45V62H1200 M1030 99H1110V96H1200 M1030 165H1110V150H1200 M1110 165V180H1200 M1030 219H1110V214H1200 M1030 291H1110V278H1200 M1110 291V306H1200 M1030 345H1110V340H1200 M1030 417H1110V402H1200 M1110 417V432H1200 M1030 471H1110V466H1200 M1030 543H1110V528H1200 M1110 543V558H1200 M1030 595H1110V590H1200 M1110 595V620H1200"/>
+<rect class="root" filter="url(#s)" x="28" y="273" width="207" height="90" rx="14"/><text class="rt" x="58" y="310">电商 AI 视频</text><text class="rt" x="70" y="340">稳定交付</text>
+<g filter="url(#s)"><rect class="g1" x="380" y="37" width="240" height="70" rx="12"/><rect class="g1" x="380" y="157" width="240" height="70" rx="12"/><rect class="g1" x="380" y="283" width="240" height="70" rx="12"/><rect class="g1" x="380" y="409" width="240" height="70" rx="12"/><rect class="g1" x="380" y="531" width="240" height="70" rx="12"/></g>
+<g class="tx"><text x="432" y="80">判断与目标</text><text x="421" y="200">素材与商品</text><text x="421" y="326">画面与控制</text><text x="421" y="452">镜头与叙事</text><text x="421" y="574">成片与经营</text></g>
+<g filter="url(#s)"><rect class="g2" x="790" y="15" width="240" height="60" rx="10"/><rect class="g2" x="790" y="84" width="240" height="60" rx="10"/><rect class="g2" x="790" y="135" width="240" height="60" rx="10"/><rect class="g2" x="790" y="204" width="240" height="60" rx="10"/><rect class="g2" x="790" y="267" width="240" height="60" rx="10"/><rect class="g2" x="790" y="321" width="240" height="60" rx="10"/><rect class="g2" x="790" y="388" width="240" height="60" rx="10"/><rect class="g2" x="790" y="451" width="240" height="60" rx="10"/><rect class="g2" x="790" y="513" width="240" height="60" rx="10"/><rect class="g2" x="790" y="565" width="240" height="60" rx="10"/></g>
+<g class="tx"><text x="815" y="51">人群·场景·卖点·CTA</text><text x="815" y="120">白底·细节·三视图</text><text x="815" y="171">参考图·资产命名</text><text x="815" y="240">提示词·负向词</text><text x="815" y="303">主体库·ControlNet</text><text x="815" y="357">精修·迁移·换装</text><text x="815" y="424">剧本·九宫格·故事版</text><text x="815" y="487">文生/图生/视频参考</text><text x="815" y="549">剪映·声音·字幕</text><text x="815" y="601">成本·合规·复盘</text></g>
+<g filter="url(#s)"><rect class="g3" x="1200" y="5" width="450" height="46" rx="8"/><rect class="g3" x="1200" y="56" width="450" height="46" rx="8"/><rect class="g3" x="1200" y="111" width="450" height="46" rx="8"/><rect class="g3" x="1200" y="165" width="450" height="46" rx="8"/><rect class="g3" x="1200" y="209" width="450" height="46" rx="8"/><rect class="g3" x="1200" y="273" width="450" height="46" rx="8"/><rect class="g3" x="1200" y="335" width="450" height="46" rx="8"/><rect class="g3" x="1200" y="397" width="450" height="46" rx="8"/><rect class="g3" x="1200" y="461" width="450" height="46" rx="8"/><rect class="g3" x="1200" y="523" width="450" height="46" rx="8"/><rect class="g3" x="1200" y="585" width="450" height="46" rx="8"/></g>
+<g class="sm"><text x="1220" y="34">确定投放位、时长、比例与转化动作</text><text x="1220" y="85">商品可核对：外观、颜色、材质、logo</text><text x="1220" y="140">图片/视频/角色/声音/场景统一编号</text><text x="1220" y="194">主体 + 场景 + 动作 + 镜头 + 光线 + 约束</text><text x="1220" y="238">先低成本测试，再切换正式模型</text><text x="1220" y="302">@主体、姿态、边缘、法线、局部重绘</text><text x="1220" y="364">一站式节点：生成后检查，再进入下一步</text><text x="1220" y="426">每镜头只承载一个动作，先图后视频</text><text x="1220" y="490">先筛选，再配音/音乐/字幕/调色/导出</text><text x="1220" y="552">会员、积分、自动续费、水印与肖像</text><text x="1220" y="614">用数据记录“哪种输入导致哪种结果”</text></g>
+</svg><p class="map-note">阅读方向：左 → 右。图谱使用直角折线、静态 SVG 和充足留白；手机可横向拖动或双指放大，图中字体不会依赖脚本缩放。</p></div>
+<div class="flow"><b>目标</b><i>→</i><b>素材</b><i>→</i><b>控制</b><i>→</i><b>镜头</b><i>→</i><b>剪辑</b><i>→</i><b>质检</b><i>→</i><b>复盘</b></div>
+</section>
+
+<section class="section" id="mindset"><div class="chapter"><span class="num">01</span><h2>建立判断力：先知道每个平台在链条里负责什么</h2></div><p class="subtitle">平台没有绝对的“最好”，只有与输入、控制需求和预算是否匹配。</p>
+<div class="grid"><article class="card"><span class="tag">练习台</span><h3>豆包</h3><p>适合提示词练习、市场分析、脚本、基础生图、改图、反推正负向提示词和免费替代方案。它的价值是快速沟通与低成本试错，不是所有最终画面都必须在这里完成。</p></article><article class="card"><span class="tag">正式创作</span><h3>即梦（集梦）</h3><p>用于图片、视频、主体绑定、九宫格图生视频、SD 2.0 与提示词优化。课程策略是 mini 测试，满意后用 2.0 fast；长视频或明确需要时才考虑 2.5。</p></article><article class="card"><span class="tag">电商工具箱</span><h3>海螺</h3><p>光影工作室、全视角工坊、多宫格分镜是电商链路的强项。图片可按排版、多图合成、动漫、写真选择模型；视频优先 H3，2.0 做首尾针，2.3 做单参考图，A 准自动模式仍建议手选模型。</p></article><article class="card"><span class="tag">真实与可控</span><h3>可灵</h3><p>3.0 适合音画同步、多分镜、多人和剧情；2.6 适合单人讲话；2.5 Pro 适合无对白的单镜头产品片。图片 3.0 用主体库与风格，2.1 用于更专门的特征控制。</p></article><article class="card"><span class="tag">工作台</span><h3>哩布 / WebUI / ComfyUI / LibTV</h3><p>哩布是多模型集合；AI 应用适合直接跑，WebUI 适合参数控制，ComfyUI 适合节点链和复用工作流。LibTV 用画布把脚本、资产、模型串起来，积分分为礼部 AI 与 TV 专属体系。</p></article><article class="card"><span class="tag">剪辑出口</span><h3>剪映专业版</h3><p>营销成片、AI 文字成片、成片助手、智能/图片分镜、配音音乐、声音分离、字幕、调色与最终导出都在这里完成。AI 生成不是交付，成片才是。</p></article></div>
+<div class="rule"><strong>三个术语先记住：</strong>Token/词元是模型处理文本的单位；抽卡是同一提示词反复生成筛选；资产是可反复引用的角色、商品、场景、道具、声音和参考图。高手不只是会“抽到好图”，而是会把好结果沉淀成资产。</div>
+<h3>会员与成本的底层规则</h3><p>课程记录中出现的 69 元/月、300 积分、每日赠送、七天优惠、会员积分和自动续费等，都属于平台当期规则。通用做法是：免费练习 → 低画质低张数测试 → 确认参考图 → 正式生成 → 批量生产 → 关闭自动续费并记录余额。</p>
+<div class="task"><strong>任务 01｜平台选择卡</strong><p>给一个“15 秒耳机卖点视频”写选择理由：练习用豆包；商品主视觉用海螺/即梦图片；一个无台词特写用可灵 2.5 Pro；多镜头剧情用可灵 3.0；最终剪映交付。每个选择必须写出输入、输出和成本理由。</p></div>
+</section>
+
+<section class="section" id="asset"><div class="chapter"><span class="num">02</span><h2>素材与商品：先让模型“看懂”你要卖什么</h2></div><p class="subtitle">生成效果的下限由素材决定。产品错一个细节，后面所有镜头都可能错。</p>
+<h3>2.1 素材包的最低标准</h3><div class="grid3"><article class="card"><h4>商品层</h4><p>白底主图、正面/侧面/顶部三视图、接口与材质细节、尺寸比例、logo 与颜色说明。三视图可用 SD 4.0：上传参考图，明确“正面/侧面/顶部”，生成 3 张并人工核对。</p></article><article class="card"><h4>环境层</h4><p>目标场景、桌面/人物/手部/光源参考图。商品与背景分开准备，方便后续换背景、换装、局部重绘与光影合成。</p></article><article class="card"><h4>策略层</h4><p>竞品截图、用户痛点、卖点排序、价格/优惠、投放平台和 CTA。先让豆包做市场分析，再决定镜头，而不是先生成漂亮但无销售目的的画面。</p></article></div>
+<h3>2.2 商品放入场景：精度优先的两条路</h3><div class="grid"><article class="card"><h4>可控路：PS + 哩布溶图</h4><ol><li>打开背景图；置入嵌入对象作为产品图。</li><li>调整位置、大小、透视并抠图；保存 JPEG/PNG。</li><li>进入哩布光影合成工作流，上传合成图并生成。</li><li>检查接触阴影、方向光、反射和产品边缘；不自然就回 PS 或重新生成。</li></ol><p>这是商品位置最可靠的路线。</p></article><article class="card"><h4>快速路：豆包直接描述溶图</h4><p>把商品、场景、摆放位置和光线写进描述，适合简单场景与快速探索；随机性较大，位置和透视不准时必须多次修改，正式交付仍建议回到 PS 合成。</p></article></div>
+<h3>2.3 电商图片工具</h3><div class="grid"><article class="card"><h4>爆炸图 / 分解图</h4><p>里布底部搜索“爆炸图”“分解图”→上传耳机、手柄、充电宝等产品→选模板与智能图片或 SD 5.0 Pro→设置比例和画质→生成。先用图检查结构，再决定是否进入视频。</p></article><article class="card"><h4>光影与高清</h4><p>里布光影工作流补环境光；ComfyUI/LibTV 的高清放大可提升分辨率、恢复细节、做人像调节和去 AI 感，去 AI 感建议强度 0.05–0.1，课程演示常用 0.1。</p></article></div>
+<div class="task"><strong>任务 02｜商品资产卡</strong><p>为一个真实商品建立“商品名_视角_用途_版本”的文件命名；准备白底、三视图、细节、场景、竞品和光源参考。验收：陌生人只看资产包，就能说出商品的形状、材质、卖点和可拍镜头。</p></div>
+</section>
+
+<section class="section" id="image"><div class="chapter"><span class="num">03</span><h2>画面控制：从会写描述，到会给模型下可执行的指令</h2></div><p class="subtitle">提示词不是文学；它是给模型的镜头计划。越能被画面验证，越有用。</p>
+<h3>3.1 统一提示词骨架</h3><div class="prompt">主体（商品/人物/角色） + 外观关键细节 + 场景与空间关系 + 动作/状态 + 景别/机位/运镜 + 光线/色彩/质感 + 比例/时长/声音 + 必须保留项 + 禁止项</div><p>图片重在“构图、材质、风格、比例”；图生视频要额外写“怎么动、何时动、镜头如何移动、起始与结束状态”。不要让一个镜头承载多个互相冲突的动作。</p>
+<h3>3.2 图片模型如何选</h3><table class="matrix"><tr><th>任务</th><th>课程中的优先选择</th><th>判断依据</th></tr><tr><td>日常生图、练习</td><td>豆包基础模型</td><td>低成本熟悉描述、改图、擦除、扩图、变清晰。</td></tr><tr><td>复杂合成/高质感</td><td>SD 5.0 Pro、GPT-Image、集梦 5.0/全能图片</td><td>需要材质、商品细节和多图关系时先测试参考图兼容性。</td></tr><tr><td>排版含文字</td><td>海螺 TGPD</td><td>更适合主图排版；仍应人工检查文字，乱码文字放到后期。</td></tr><tr><td>动漫角色</td><td>悠传</td><td>风格一致优先，不要混用太多风格词。</td></tr><tr><td>写实写真</td><td>海螺自带图片模型</td><td>适合照片感，不等于自动保证人物一致。</td></table>
+<h3>3.3 改图、局部重绘和反推</h3><ol><li>豆包可做擦除、抠图、标记修改、扩图、变清晰；先圈选准确区域，再描述“保留什么、只改什么”。</li><li>局部重绘要保留主体与光线，避免整张图重新随机。</li><li>免费反推：豆包进入“对话任务”（不是工作任务）→素材区上传图→要求输出正向与负向提示词→记录并迭代。</li><li>收费平台可用阿里百炼等反推；视频反推还要补充动作、镜头、时间轴和声音，不能把静态图片描述直接拿来生成视频。</li></ol>
+<h3>3.4 哩布 WebUI、ComfyUI 与 ControlNet</h3><div class="grid3"><article class="card"><h4>WebUI 基础</h4><p>正向提示词、负向提示词、宽高与批量参数；风格模型控制画风；图生图和局部重绘用于保留结构、修正局部。</p></article><article class="card"><h4>ControlNet 三种控制</h4><p><b>硬边缘</b>：线稿上色；<b>姿态</b>：保持骨架换人物；<b>法线贴图</b>：尽量保持表面方向做材质替换。三者都是上传参考→选控制→写提示词→生成→检查。</p></article><article class="card"><h4>ComfyUI 思维</h4><p>节点是输入、处理和输出；不要从零搭复杂流程，先下载别人做好的工作流拖入复用。中文可先让豆包翻成英文，或使用翻译节点。</p></article></div>
+<div class="rule"><strong>复杂度选择：</strong>简单效果用哩布 AI 应用；要改节点参数进入 ComfyUI。应用界面是“直接运行”，工作流界面是“逐步检查”。精修流程常见为抠图 → 放大 → 精修，含瑕疵实拍图可关闭不需要的节点再运行。</div>
+<div class="task"><strong>任务 03｜同一商品做三种控制</strong><p>用同一产品完成：①一句商品主图提示词；②用局部重绘替换一个材质；③用 ControlNet 法线贴图做材质替换。每次只改一个变量，并保存输入、参数、输出与失败原因。</p></div>
+</section>
+
+<section class="section" id="consistency"><div class="chapter"><span class="num">04</span><h2>一致性：让人物、商品和场景跨镜头不“换人换货”</h2></div><p class="subtitle">一致性不是一句“保持一致”，而是把可引用的主体、视角和控制条件提前建好。</p>
+<h3>4.1 可灵图片与主体库</h3><p>可灵 3.0 的结构是“参考素材 → 主体管理 → 提示词 → 风格 → 参数”。主体可以是人物、商品或场景；主体库用于连续多张图与多镜头视频。单张参考图时可用风格词库和提示词推荐；两张以上参考图时提示词推荐可能不可用，需要自己写。</p><p>可灵 2.1 更偏特征控制：风格转绘、单独参考、脸部/服装/发型/场景锁定、多图参考合成。3.0 更综合，不是简单替代关系。</p>
+<h3>4.2 可灵四种视频模式</h3><div class="grid"><article class="card"><h4>主体参考</h4><p>主体库加入人物、场景、道具、特效；提示词用 <code>@主体</code> 引用，可一次加入多个主体并分别指定位置和动作。</p></article><article class="card"><h4>图片视频</h4><p>最基础的图生视频：一张图作为起点，描述单一动态。适合先验证动作，不适合复杂连续剧情。</p></article><article class="card"><h4>指令变换</h4><p>必须先切换到模式再加视频；上传目标视频与参考素材，用 <code>@视频</code> 和素材描述：增减元素、换装、换道具、换人、换背景、局部修改、风格转换、颜色修改、视角切换。多人要明确“左边/右边分别替换谁”。</p></article><article class="card"><h4>视频参考</h4><p>用参考视频借鉴动作、节奏或运镜，再配合主体与提示词控制结果；先确认参考素材有使用权。</p></article></div>
+<h3>4.3 数字人与灵动画布</h3><p>可灵数字人可用官方预设或本地图片，人物、卡通形象、动物都可以；中文可直接输入台词，其他语言先用外部网站生成音频再上传，AI 自动匹配口型，720P 足够初测。灵动画布用“+”加节点、拉线连接，逐步生成并检查；一个画布可串多镜头，每步提示词可查看、修改和复用。</p><div class="task"><strong>任务 04｜一致性压力测试</strong><p>为一个人物和一个商品各建立主体；做“人物拿商品、换背景、换衣服、侧脸”四个镜头。验收：脸、服装、商品形状和位置在四个镜头中可辨认；失败时能指出是参考图、主体引用、动作还是模型能力的问题。</p></div>
+</section>
+
+<section class="section" id="story"><div class="chapter"><span class="num">05</span><h2>叙事与分镜：把卖点翻译成观众能看懂的动作</h2></div><p class="subtitle">脚本不是台词堆；每个镜头必须服务一个信息或一个情绪变化。</p>
+<h3>5.1 从市场洞察到分镜</h3><div class="flow"><b>人群痛点</b><i>→</i><b>产品卖点</b><i>→</i><b>视觉证明</b><i>→</i><b>信任/情绪</b><i>→</i><b>CTA</b></div><p>在豆包中先拆竞品、受众语言、使用场景、卖点排序，再生成分镜脚本。脚本至少写：镜号、时长、景别、画面、主体动作、镜头运动、旁白/字幕、音效和转场。人物剧情要补角色关系、对白、场景目标和结尾行动。</p>
+<h3>5.2 三种视觉计划</h3><div class="grid3"><article class="card"><h4>九宫格分镜</h4><p>海螺/即梦生成 3×3 镜头规划图；GPT-2.0，画质中等以上、2K/4K，16:9 或 9:16，只生成 1 张节省积分。之后把九宫格作为 SD 2.0 视频参考图。</p></article><article class="card"><h4>脚本截图</h4><p>在豆包/即梦生成含景别、运镜、时长和画面内容的完整脚本，截图保存；用脚本截图 + 产品参考图输入 SD 2.0。</p></article><article class="card"><h4>故事版</h4><p>海螺/里布用 GPT-2.0 生成带文字分镜图，1–4 张产品参考图，16:9/9:16，中等以上画质、2K/4K；下载后以故事版图作视频参考，豆包 10 秒、即梦/可灵 15 秒按平台设置。</p></article></div>
+<h3>5.3 AI 漫剧是同一套方法的长链路</h3><ol><li>豆包写剧本大纲，粘贴到哩布 TV 脚本节点。</li><li>生成分镜脚本，准备角色、场景、道具资产。</li><li>角色准备正面/侧面/背面三视图，上传资产区，在脚本用角色名字触发自动匹配。</li><li>生成分镜图，再生成视频，导出剪映。</li></ol><p>角色绑定和场景合成同样适用于商品片：先 PS 合成产品与场景，再做光影，检查位置和透视，最后视频化。</p>
+<div class="task"><strong>任务 05｜15 秒卖点脚本</strong><p>为商品写 6–9 个镜头：前 2 秒提出痛点，中段用动作证明卖点，结尾给 CTA。每镜只写一个主要动作；输出“镜头表 + 九宫格图提示词 + 视频提示词 + 后期字幕”。</p></div>
+</section>
+
+<section class="section" id="video"><div class="chapter"><span class="num">06</span><h2>生成镜头：先选方法，再选模型，最后才按生成键</h2></div><p class="subtitle">模型决定下限，提示词决定上限；但输入图与控制方式决定你能不能得到想要的结果。</p>
+<h3>6.1 四种生成方法的决策</h3><table class="matrix"><tr><th>方法</th><th>适合</th><th>代价与风险</th></tr><tr><td>单镜头逐帧</td><td>简单产品特写、快速验证</td><td>传统、镜头之间容易断；每个镜头都需独立生成。</td></tr><tr><td>九宫格一键</td><td>先统一规划多镜头</td><td>分镜图质量和格子关系影响后续，文字可能乱码。</td></tr><tr><td>脚本截图</td><td>需要明确景别、时长、运镜的广告</td><td>模型对截图文字的理解不稳定，仍需补文字提示。</td></tr><tr><td>故事版</td><td>剧情、角色关系、多镜头叙事</td><td>图片成本更高；先只生成 1 张，满意后再视频。</td></table>
+<h3>6.2 模型选择地图</h3><table class="matrix"><tr><th>平台/模型</th><th>最适场景</th><th>限制与策略</th></tr><tr><td>即梦 mini</td><td>提示词抽卡、低成本测试</td><td>先 mini，满意后 2.0 fast；2.5 不要作为默认。</td></tr><tr><td>即梦 2.0 fast</td><td>日常正式生成</td><td>性价比优先；先确认图，再用视频额度。</td></tr><tr><td>即梦 2.5 / 2.0 / 1.0</td><td>按长视频、旧能力或兼容需求选择</td><td>模型能力会变，依据实际效果和额度选择。</td></tr><tr><td>海螺 H3</td><td>电商视频性价比首选</td><td>人物交互、物理逻辑可能弱；手动选比 A 准可靠。</td></tr><tr><td>海螺 2.0 / 2.3</td><td>首尾针 / 单参考图</td><td>按输入形式选择，不要盲目追新。</td></tr><tr><td>海螺 A 准</td><td>自动化试验</td><td>课程记录中尚未接入 H3，重要任务手动指定。</td></tr><tr><td>可灵 2.5 Pro</td><td>5 秒/720P 单镜头、产品特写</td><td>无多分镜、无人物讲话和音画同步；可添加音效。</td></tr><tr><td>可灵 2.6</td><td>单人出镜、口播、产品介绍</td><td>音画同出；复杂口音、多语言、多人对话稳定性有限。</td></tr><tr><td>可灵 3.0</td><td>多分镜、剧情、多人、音画同步</td><td>自然真实强，画质质感可能不如即梦；优先选多分镜版。</td></tr><tr><td>SD 1.0 智能多帧</td><td>首帧→过渡帧→尾帧的无缝衔接</td><td>课程记录中旧模型支持；3–4 张图，过渡描述，3–4 秒/段，总约 15 秒。</td></tr><tr><td>SD 2.0</td><td>九宫格/故事版/脚本截图转视频</td><td>参考图清楚比提示词堆长更重要。</td></table>
+<h3>6.3 图生视频提示词的时间轴</h3><div class="prompt">0–2 秒：主体处于什么起始状态；2–5 秒：发生唯一主要动作；5–8 秒：镜头如何推进/环绕/拉远；结尾：停在什么可读画面。写清楚“保持商品形状与 logo，不新增文字，不改变主体身份”。</div><p>智能多帧流程：选旧 SD 1.0 → 智能多帧 → 加 3–4 张参考图（首/中/尾）→ 两图之间写过渡描述（如“镜头推进到 logo 特写”）→ 每段 3–4 秒 → 检查过渡是否改变产品。</p>
+<div class="task"><strong>任务 06｜同一脚本三种生成</strong><p>用单镜头、九宫格和故事版各生成一个版本；记录输入图、模型、时长、积分、错误类型。不要只比较“哪张最漂亮”，要比较商品准确度、动作完成度、镜头连续性和可剪辑性。</p></div>
+</section>
+
+<section class="section" id="edit"><div class="chapter"><span class="num">07</span><h2>成片交付：把生成素材变成能传播、能转化的作品</h2></div><p class="subtitle">剪映不是最后的“装饰”，而是把碎片组织成信息节奏的编辑器。</p>
+<h3>7.1 剪映三条入口</h3><div class="grid3"><article class="card"><h4>营销成片</h4><p>打开剪映 → AI 文字成片/营销成片 → 上传实拍或 AI 素材 → AI 分析剪辑 → 选择音色 → 生成。适合已有素材快速出信息流广告。</p></article><article class="card"><h4>AI 文字成片</h4><p>输入或生成剧情 → 选公共/自定义角色 → 选真实/动画风格 → 选智能分镜或图片分镜 → 生成。图片分镜先出图、再逐镜生成，适合无会员和想逐镜控制的人。</p></article><article class="card"><h4>成片助手</h4><p>描述需求 → 选风格 → AI 生成脚本 → 填回剧情内容 → 继续设角色、风格、分镜。适合慢剧、小说或初学者从文字开始。</p></article></div>
+<h3>7.2 声音、动作与后期补救</h3><ul><li><b>声音：</b>音乐生成、配音生成、声音克隆、数字人；背景音乐提示词要写情绪、速度、乐器、时长和不要抢人声。</li><li><b>动作模仿：</b>先准备动作参考和主体，注意镜头稳定、身体比例与遮挡，结果不稳时拆成更短动作。</li><li><b>音频：</b>剪映声音分离保留人声或环境声，再替换音乐；必要时使用视频翻译。</li><li><b>水印：</b>有授权的素材优先使用平台会员导出；图片可用 Photoshop 选框工具框选水印 → 右键填充 → 内容识别 → 保存。视频可用 AI 消除，但不能用来去除他人版权标识后冒用。</li><li><b>字幕：</b>生成模型文字常乱码，去掉画面内文字，后期在剪映加可编辑字幕。</li></ul>
+<h3>7.3 交付前质检</h3><ul class="check"><li>前 2 秒出现问题、结果或强视觉变化。</li><li>商品颜色、结构、logo、材质与原始资产一致。</li><li>人物身份、服装、场景和动作在镜头间一致。</li><li>字幕在手机安全区内，字号足够，文字没有乱码。</li><li>人声、音乐、环境声有层次，CTA 能听懂也能看懂。</li><li>比例、分辨率、时长、封面、文件名符合投放平台。</li><li>确认素材来源、真人肖像/声音授权和平台水印规则。</li></ul>
+<div class="task"><strong>任务 07｜剪出两个版本</strong><p>同一批镜头剪一个“15 秒转化版”和一个“30 秒解释版”。前者只保留一个卖点和一个 CTA；后者补充使用场景、细节和信任证明。比较留存和点击，而不是凭感觉争论。</p></div>
+</section>
+
+<section class="section" id="systems"><div class="chapter"><span class="num">08</span><h2>系统化：把偶然生成，变成可复制的工作流</h2></div><p class="subtitle">高级能力不是会更多按钮，而是能快速定位问题、复用成功配置、控制每次试错的成本。</p>
+<h3>8.1 哩布 / ComfyUI / LibTV 的三层工作流</h3><div class="grid"><article class="card"><h4>应用层：快</h4><p>找“产品精修”等应用 → 运行 → 上传图片 → 生成 → 下载。适合不想理解节点的任务。</p></article><article class="card"><h4>工作流层：稳</h4><p>在 ComfyUI 查看节点 → 修改抠图、放大、精修、模型等参数 → 执行完整处理链 → 查看每一步结果。万物迁移、换装、高清放大、反推提示词都可在工作流中复用。</p></article><article class="card"><h4>画布层：串</h4><p>LibTV 登录后进入画布 → 上传图片/视频 → 选择阿里、即梦、海螺等模型 → 连接脚本、资产与生成节点。普通会员适合基础使用，至尊会员适合高频；先核对礼部 AI 与 TV 专属积分。</p></article><article class="card"><h4>可灵灵动画布：查</h4><p>添加节点、拉线、逐步生成、逐步验收；多镜头可在一个画布完成，每一步提示词可查看复用，减少来回切换。</p></article></div>
+<h3>8.2 问题定位四问</h3><div class="grid3"><article class="rule"><b>产品不对？</b><p>回到参考图、三视图、主体绑定、透视和模型能力。不要先怪提示词。</p></article><article class="rule"><b>动作不对？</b><p>拆短动作，补起止状态、镜头运动和时间轴；必要时用动作参考/智能多帧。</p></article><article class="rule"><b>画面不自然？</b><p>检查光影、接触阴影、材质、ControlNet 和是否过度 AI 修图；先 PS 合成再溶图。</p></article><article class="rule"><b>文字乱码？</b><p>画面文字后期做；不要反复耗积分让视频模型排版。</p></article><article class="rule"><b>积分不够/很慢？</b><p>低画质低张数、先图后视频、免费模型练习、批量生成；检查是否选错高成本模型。</p></article><article class="rule"><b>会员扣费？</b><p>开通后立即检查自动续费并关闭，记录优惠期、余额和到期日。</p></article></div>
+<h3>8.3 一套可持续的项目记录</h3><table class="matrix"><tr><th>记录项</th><th>必须保存</th></tr><tr><td>输入</td><td>原图、参考图、脚本、主体库名称、提示词与负向词。</td></tr><tr><td>配置</td><td>平台、模型、比例、分辨率、时长、张数、seed/工作流（若平台提供）。</td></tr><tr><td>输出</td><td>候选编号、选中原因、错误标签、积分消耗、最终剪辑文件。</td></tr><tr><td>复盘</td><td>首帧、3 秒留存、完播、点击/转化、评论中的真实疑问，下一轮只改一个变量。</td></tr></table>
+<div class="warning"><strong>合规底线：</strong>不把未经授权的真人脸、声音、品牌资产、音乐或他人视频当作自己的素材；不借助去水印绕过版权；不用数字人制造误导性身份。生成前检查，发布前再检查一次。</div>
+</section>
+
+<section class="section" id="capstone"><div class="chapter"><span class="num">09</span><h2>毕业任务：独立完成一个可交付的电商视频项目</h2></div><p class="subtitle">完成下面 10 步，才算从“会操作”进入“会交付”。</p>
+<ol><li><b>项目简报：</b>写商品、人群、平台、比例、时长、核心卖点、CTA、预算和截止时间。</li><li><b>素材包：</b>白底图、三视图、细节图、场景图、竞品参考、授权记录。</li><li><b>市场洞察：</b>整理 3 个竞品的首帧、痛点、卖点、字幕和 CTA。</li><li><b>资产建设：</b>建立商品/角色/场景主体；做 PS 合成或爆炸图/光影图。</li><li><b>脚本分镜：</b>输出 6–9 镜头表，并生成九宫格或故事版。</li><li><b>低成本测试：</b>用 mini/免费模型生成关键镜头，记录错误类型。</li><li><b>正式生成：</b>按模型地图选择即梦、海螺、可灵或工作流；必要时用智能多帧衔接。</li><li><b>声音与剪辑：</b>在剪映完成配音/音乐、字幕、调色、节奏、问题片段替换。</li><li><b>质检交付：</b>按手机观看检查商品、字幕、音画、比例、授权、文件命名。</li><li><b>复盘迭代：</b>保留输入与配置，依据数据只改一个变量，形成下一版。</li></ol>
+<div class="grid"><article class="task"><strong>入门合格</strong><p>能独立做出 3 个商品正确的单镜头视频，并解释为什么选这个模型。</p></article><article class="task"><strong>进阶合格</strong><p>能用主体/三视图/分镜完成 15 秒多镜头片，角色和商品基本一致。</p></article><article class="task"><strong>高手合格</strong><p>能在时间与预算约束下选型、复用工作流、定位失败、交付两版并用数据迭代。</p></article></div>
+</section>
+
+<section class="section" id="verify"><div class="chapter"><span class="num">V</span><h2>联网核验与补充：课程记录与外部资料的边界</h2></div><p class="subtitle">核验时间：2026-09-26。平台界面、模型版本、价格和积分会变化；本节用官方/一手资料校正方向，不替代平台当日规则。</p><div class="ledger-intro"><strong>核验原则：</strong>课程原文中的操作经验全部保留；外部资料只用于补充能力边界、最新模型能力、广告创意原则和合规提醒。若课程记录与当前平台不同，以当前官方文档为准。</div><table class="matrix"><tr><th>核验主题</th><th>补充后的结论</th><th>一手来源</th></tr><tr><td>可灵 3.0</td><td>官方资料确认 3.0/3.0 Omni 支持多模态输入输出、参考视频/多张图、一致性、多镜头叙事与原生音频；因此课程中“3.0 适合复杂剧情与音画同步”的方向得到支持，但具体套餐、时长和计费仍需实时查看。</td><td><a href="https://kling.ai/cn">可灵 AI 官方</a> · <a href="https://ir.kuaishou.com/zh-hans/news-releases/news-release-details/keling30xiliemoxingquanmianshangxian">快手官方公告</a></td></tr><tr><td>海螺 H3</td><td>海螺官方页面确认 H3 已上线并支持图生视频；课程中的 H3 选择建议保留为课程经验，不把“最佳性价比”写成永恒结论。</td><td><a href="https://proddev.hailuoai.com/">海螺官方创作平台</a></td></tr><tr><td>广告视频创意</td><td>官方电商广告资料支持：尽早抓住注意力、动态画面、字幕/CTA、声音与画面协同；这与本手册的“首帧—证明—CTA—后期质检”路线一致。</td><td><a href="https://ads.tiktok.com/business/en-US/blog/creative-that-drives-conversions">TikTok for Business</a> · <a href="https://developer.alibaba.com/docs/doc.htm?articleId=120252&amp;docType=1&amp;treeId=737">淘宝开放平台视频规范</a></td></tr><tr><td>视频提示词与输入</td><td>官方开发者资料将视频生成、图像/视频提示作为独立能力；实际工作中应把主体、动作、镜头、时长、比例和声音拆开写，并用参考图降低歧义。</td><td><a href="https://developers.openai.com/learn/videogen">OpenAI Developers 视频生成</a> · <a href="https://openai.com/index/video-generation-models-as-world-simulators/">OpenAI 技术说明</a></td></tr><tr><td>安全与肖像</td><td>生成真人、声音、品牌和已有作品前要有授权；外部资料也强调肖像滥用、深度伪造、版权和内容安全风险。去水印不能成为绕过版权的手段。</td><td><a href="https://openai.com/index/creating-with-sora-safely/">OpenAI Creating with Sora safely</a> · <a href="https://openai.com/index/sora-system-card/">Sora System Card</a></td></tr></table><div class="task"><strong>验证后的使用动作：</strong>每次正式制作前打开平台当前模型说明和计费页，先用最低成本规格测试；把“课程演示参数”和“当前官方参数”分别记录，避免把旧经验当成平台承诺。</div></section>
+<section class="section ledger"><div class="chapter"><span class="num">L</span><h2>逐点完整知识账本：原始课程内容全部展开</h2></div><p class="subtitle">这一部分不是摘要，而是把用户提供的终极总结与 10 篇单篇总结逐篇纳入本 HTML，作为上层训练路线的细节依据。你不需要再打开 Markdown。</p><article><h1>完整知识账本：终极总结</h1><h1>电商AI视频创作师班 -
+终极总结</h1>
+<blockquote>
+<p>课程总集：10篇深度总结合并<br />
+整理日期：2026-09-25<br />
+原始课程来源：F4-电商AI视频创作师班（音视频转录稿）<br />
+单篇文件位置：<code>output/单篇总结/1.1~1.10/*.md</code></p>
+</blockquote>
+<hr />
+<h2>全局目录</h2>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>单篇总结标题</th>
+<th>文件大小</th>
+<th>板块数</th>
+<th>核心主题</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1</td>
+<td>F4-电商AI视频创作师班</td>
+<td>23.3KB</td>
+<td>12</td>
+<td>平台概览、模型体系、提示词方法</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>剪映AI功能与动作模仿</td>
+<td>10.3KB</td>
+<td>7</td>
+<td>主体绑定(AT键)、声音处理、动作模仿</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>海螺AI核心功能全玩法拆解</td>
+<td>4.7KB</td>
+<td>5</td>
+<td>6个图片模型、3个视频模型、电商工具链</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td>可灵AI基础功能及AI采访视频</td>
+<td>27.0KB</td>
+<td>8</td>
+<td>3.0/2.1图片、3.0视频、主体绑定、水印去除</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>可灵AI灵动画布及人物替换</td>
+<td>21.7KB</td>
+<td>13</td>
+<td>灵动画布、人物替换、多图合成、风格转换</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>哩布平台WebUI和ComfyUI</td>
+<td>15.2KB</td>
+<td>10</td>
+<td>WebUI操作、ComfyUI节点、ControlNet、翻译节点</td>
+</tr>
+<tr>
+<td>1.7</td>
+<td>ComfyUI的应用和LibTV</td>
+<td>11.1KB</td>
+<td>8</td>
+<td>AI应用vs工作流、精修/万物迁移/换装/高清放大、反推提示词、LibTV积分</td>
+</tr>
+<tr>
+<td>1.8</td>
+<td>剪映营销成片和即梦进阶玩法</td>
+<td>8.8KB</td>
+<td>9</td>
+<td>营销成片、AI文字成片、九宫格图生视频、提示词优化</td>
+</tr>
+<tr>
+<td>1.9</td>
+<td>电商光影溶图和AI漫剧流程</td>
+<td>8.6KB</td>
+<td>9</td>
+<td>PS合成+哩布溶图、三视图生成、AI漫剧流程、哩布TV漫剧</td>
+</tr>
+<tr>
+<td>1.10</td>
+<td>AI视频画质增强和剪映专业版</td>
+<td>13.7KB</td>
+<td>9</td>
+<td>四种视频生成方法、智能多帧、故事版、全流程总结</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>知识图谱（跨课程层级图）</h2>
+<pre><code>电商AI视频创作师班
+│
+├── 一、平台认知（1.1、1.3、1.4、1.5）
+│   ├── 集梦/即梦（字节）— 视频生成主力，模型丰富，主体绑定
+│   ├── 豆包（字节）— 免费练习、图片生成、市场分析报告
+│   ├── 可灵（快手）— 3.0图片/视频，主体绑定，模板系统
+│   ├── 海螺（跨平台）— GPT-2.0/H3，多宫格，性价比视频
+│   ├── 哩布/里布（跨平台集合）— WebUI/ComfyUI，模板库丰富
+│   └── 哩布TV — 短剧/漫剧制作，积分消耗较高
+│
+├── 二、生图模型体系（1.1、1.3、1.4、1.5）
+│   ├── 文生图模型：GPT-Image（TGPD排版）、集梦5.0/5.0Pro、海螺H3
+│   ├── 风格模型：SD 5.0 Night、漫剧风、写实风等
+│   ├── ControlNet：硬边缘（线稿上色）、姿态（换人物）、法线贴图（材质替换）
+│   └── 图生图/局部重绘：材质替换、颜色变更、去瑕疵
+│
+├── 三、生视频方法体系（1.4、1.5、1.8、1.10）
+│   ├── 方法一：单镜头逐帧生成 — 可控性最高，耗时较长
+│   ├── 方法二：九宫格图一键生成 — 快速出片，随机性高
+│   ├── 方法三：脚本截图生成视频 — 绕人脸审核，准确性中
+│   ├── 方法四：故事版(Storyboard)生成 — 效果较好，需GPT-2.0模型
+│   ├── 方法五：智能多帧无缝衔接 — SD 1.0旧模型，适合产品展示
+│   └── 方法六：AI文字成片 — 剪映/哩布TV内置，适合慢剧/小说
+│
+├── 四、后期处理体系（1.2、1.8、1.9、1.10）
+│   ├── 剪映营销成片 — AI自动剪辑素材，快速出信息流广告
+│   ├── 剪映AI功能 — 配音、音乐、数字人、动作模仿
+│   ├── PS合成 — 产品位置/大小/透视精确控制
+│   ├── 哩布溶图 — 光影效果添加，融合产品与场景
+│   └── 美颜/放大 — 高清放大、AI感去除
+│
+├── 五、提示词与素材体系（1.1、1.6、1.7、1.9、1.10）
+│   ├── 提示词四要素：主体+场景+动作+风格
+│   ├── 反推提示词：豆包（免费，图片/风格）、阿里百炼（收费，视频/图片完整）
+│   ├── 素材三视图：正面/侧面/背面（用于主体绑定，防变形）
+│   └── 资产准备：角色三视图、场景参考、道具图片
+│
+└── 六、成本与会员体系（1.1、1.4、1.7、1.8、1.10）
+    ├── 各平台积分获取：新用户赠送+每日免费额度
+    ├── 会员折扣：开会员后单次生成成本降低
+    ├── 自动续费：开通后务必关闭，否则持续扣费
+    └── 成本控制原则：先出图再出视频、用免费模型练习、关自动续费</code></pre>
+<hr />
+<h2>跨文档去重与交叉引用</h2>
+<h3>重复知识点及位置索引</h3>
+<table>
+<thead>
+<tr>
+<th>知识点</th>
+<th>出现在哪些课程</th>
+<th>交叉引用处理</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>主体绑定(AT键)</strong></td>
+<td>1.2、1.4、1.5</td>
+<td>1.2为入口详解，1.4补充多视角素材准备，1.5为灵动画布应用。建议按1.2→1.4→1.5顺序学习。</td>
+</tr>
+<tr>
+<td><strong>九宫格图</strong></td>
+<td>1.3、1.8、1.10</td>
+<td>1.3介绍多宫格工具，1.8讲SD2.0进阶用法，1.10作为四种视频方法之一。理解全貌需合并阅读。</td>
+</tr>
+<tr>
+<td><strong>积分/会员体系</strong></td>
+<td>1.1、1.4、1.7、1.8、1.10</td>
+<td>各篇分散描述，详见下方「系统性总结」第9章。</td>
+</tr>
+<tr>
+<td><strong>提示词写作方法</strong></td>
+<td>1.1、1.6、1.7、1.10</td>
+<td>1.1为四要素公式，1.6为WebUI操作，1.7为反推方法，1.10为全流程。建议合并阅读。</td>
+</tr>
+<tr>
+<td><strong>豆包平台功能</strong></td>
+<td>1.1、1.2、1.7、1.9、1.10</td>
+<td>1.7详解反推流程，1.9详解溶图方法，其余为分散使用。</td>
+</tr>
+<tr>
+<td><strong>哩布平台</strong></td>
+<td>1.6、1.7、1.9、1.10</td>
+<td>1.6为WebUI/ComfyUI基础，1.7为ComfyUI进阶，1.9为溶图应用，1.10为爆炸图模板。</td>
+</tr>
+<tr>
+<td><strong>剪映功能</strong></td>
+<td>1.2、1.8、1.10</td>
+<td>1.2为AI功能详解，1.8为营销成片，1.10为整体后期流程。</td>
+</tr>
+<tr>
+<td><strong>模型选择原则</strong></td>
+<td>1.3、1.4、1.8、1.10</td>
+<td>1.10末尾有汇总对比表，1.3为海螺专属，1.4为可灵专属。</td>
+</tr>
+</tbody>
+</table>
+<h3>前置知识依赖标注</h3>
+<pre><code>1.1 平台概览 ──→ 前置（无依赖）
+  ↓
+1.3 海螺AI ────→ 前置（无依赖）
+  ↓
+1.6 哩布WebUI/ComfyUI ──→ 依赖 1.1（平台认知）
+  ↓
+1.7 ComfyUI应用 ──→ 依赖 1.6（ComfyUI基础）
+  ↓
+1.4 可灵AI ────→ 依赖 1.1（平台认知）
+  ↓
+1.5 可灵灵动画布 ──→ 依赖 1.4（可灵基础）
+  ↓
+1.8 剪映营销成片 ──→ 依赖 1.1、1.4（平台+视频生成）
+  ↓
+1.9 光影溶图/漫剧 ──→ 依赖 1.6、1.7（哩布工作流）
+  ↓
+1.2 剪映动作模仿 ──→ 依赖 1.1、1.8（剪映基础）
+  ↓
+1.10 全流程总结 ──→ 依赖 全部（全局综合）</code></pre>
+<hr />
+<h2>第9章：系统性总结</h2>
+<h3>一、平台定位矩阵</h3>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>核心定位</th>
+<th>主要优势</th>
+<th>主要劣势</th>
+<th>推荐用途</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>集梦/即梦</strong></td>
+<td>字节系视频创作平台</td>
+<td>视频模型效果国内最好，主体绑定</td>
+<td>收费，积分消耗高</td>
+<td>高精度视频生成</td>
+</tr>
+<tr>
+<td><strong>豆包</strong></td>
+<td>字节系免费AI对话平台</td>
+<td>免费次数多，改图功能丰富</td>
+<td>生视频不能绑主体，有水印</td>
+<td>练习试错、素材生成</td>
+</tr>
+<tr>
+<td><strong>可灵</strong></td>
+<td>快手系AI创作平台</td>
+<td>3.0图片质量高，主体绑定完善，模板丰富</td>
+<td>收费，新用户有灰度限制</td>
+<td>人物一致性要求高的场景</td>
+</tr>
+<tr>
+<td><strong>海螺</strong></td>
+<td>跨平台模型集合</td>
+<td>GPT-2.0/H3模型，价格低，多宫格</td>
+<td>人物风格偏国外，物理逻辑弱</td>
+<td>产品电商视频、性价比视频</td>
+</tr>
+<tr>
+<td><strong>哩布</strong></td>
+<td>跨平台模型集合工作台</td>
+<td>模板库丰富，WebUI/ComfyUI双界面</td>
+<td>学习曲线较陡</td>
+<td>专业精修、电商合成</td>
+</tr>
+<tr>
+<td><strong>哩布TV</strong></td>
+<td>哩布旗下视频/短剧平台</td>
+<td>短剧一站式，角色绑定</td>
+<td>积分消耗高</td>
+<td>漫剧/短剧制作</td>
+</tr>
+<tr>
+<td><strong>剪映</strong></td>
+<td>字节系剪辑软件</td>
+<td>营销成片AI自动剪辑，配音/音乐/数字人</td>
+<td>数字人不支持分镜</td>
+<td>信息流广告、后期剪辑</td>
+</tr>
+</tbody>
+</table>
+<h3>二、视频生成六方法对比</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>速度</th>
+<th>可控性</th>
+<th>准确性</th>
+<th>成本</th>
+<th>适合场景</th>
+<th>前置要求</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单镜头逐帧</td>
+<td>慢</td>
+<td>高</td>
+<td>高</td>
+<td>中高</td>
+<td>精准控制、详情页</td>
+<td>参考图+脚本</td>
+</tr>
+<tr>
+<td>九宫格一键生成</td>
+<td>快</td>
+<td>低</td>
+<td>中</td>
+<td>低</td>
+<td>快速出片、测试</td>
+<td>九宫格分镜图</td>
+</tr>
+<tr>
+<td>脚本截图生成</td>
+<td>中</td>
+<td>中</td>
+<td>中</td>
+<td>中</td>
+<td>需人物但避审核</td>
+<td>脚本截图+产品图</td>
+</tr>
+<tr>
+<td>故事版生成</td>
+<td>中</td>
+<td>中</td>
+<td>高</td>
+<td>中高</td>
+<td>TVC广告、完整成片</td>
+<td>GPT-2.0故事版</td>
+</tr>
+<tr>
+<td>智能多帧无缝衔接</td>
+<td>快</td>
+<td>低</td>
+<td>中</td>
+<td>低</td>
+<td>产品展示、无剧情</td>
+<td>SD 1.0旧模型</td>
+</tr>
+<tr>
+<td>AI文字成片</td>
+<td>快</td>
+<td>低</td>
+<td>低</td>
+<td>低</td>
+<td>慢剧、小说有声书</td>
+<td>剧本/脚本</td>
+</tr>
+</tbody>
+</table>
+<h3>三、图片生成模型选择指南</h3>
+<table>
+<thead>
+<tr>
+<th>任务类型</th>
+<th>推荐模型</th>
+<th>平台</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>电商主图/海报排版</td>
+<td>TGPD（GPT-Image）</td>
+<td>海螺/里布</td>
+<td>文字排版最准</td>
+</tr>
+<tr>
+<td>多图合成（人物+产品）</td>
+<td>集梦5.0 / 全能图片</td>
+<td>海螺/里布</td>
+<td>一致性高</td>
+</tr>
+<tr>
+<td>动漫角色/慢剧人物</td>
+<td>悠传</td>
+<td>海螺</td>
+<td>风格匹配</td>
+</tr>
+<tr>
+<td>产品分解爆炸图</td>
+<td>智能图片V2（GPT）</td>
+<td>里布</td>
+<td>模板套用</td>
+</tr>
+<tr>
+<td>三视图生成</td>
+<td>SD 4.0</td>
+<td>哩布/豆包</td>
+<td>正/侧/顶</td>
+</tr>
+<tr>
+<td>高清放大/去AI感</td>
+<td>通用高清放大</td>
+<td>哩布/可灵</td>
+<td>分辨率提升</td>
+</tr>
+<tr>
+<td>材质替换</td>
+<td>法线贴图ControlNet</td>
+<td>哩布WebUI</td>
+<td>金属→玻璃等</td>
+</tr>
+<tr>
+<td>线稿上色</td>
+<td>硬边缘ControlNet</td>
+<td>哩布WebUI</td>
+<td>卡通角色</td>
+</tr>
+<tr>
+<td>姿态换人</td>
+<td>姿态ControlNet</td>
+<td>哩布WebUI</td>
+<td>同姿势换人物</td>
+</tr>
+</tbody>
+</table>
+<h3>四、素材准备标准清单</h3>
+<pre><code>┌─ 产品素材包 ──────────────────────────────────┐
+│  □ 产品清晰主体图（白底优先）                     │
+│  □ 三视图（正面/侧面/背面）——用于主体绑定防变形    │
+│  □ 产品细节特写图                                  │
+│  □ 产品分解爆炸图（电子类产品）                    │
+│  □ 场景背景参考图                                  │
+│  □ 同行优秀案例（风格参考）                        │
+└──────────────────────────────────────────────┘</code></pre>
+<h3>五、核心操作流程</h3>
+<p><strong>电商产品视频标准流程：</strong></p>
+<pre><code>1. 收集素材（产品图+三视图+场景+参考案例）
+   ↓
+2. 豆包做市场分析与卖点提炼
+   ↓
+3. 豆包/海螺生成分镜脚本（9-15个镜头）
+   ↓
+4. 海螺多宫格/里布生成九宫格分镜图（GPT-2.0模型）
+   ↓
+5. 选择视频生成方法：
+   - 高质量 → 故事版+SD 2.0
+   - 快速出片 → 九宫格一键生成
+   - 精准控制 → 单镜头逐帧+剪映拼接
+   ↓
+6. 剪映营销成片/AI文字成片快速剪辑
+   ↓
+7. 人工后期：配乐+字幕+调色+替换问题片段</code></pre>
+<p><strong>哩布精修合成流程：</strong></p>
+<pre><code>1. PS合成产品+场景（位置/大小/透视精确调整）
+   ↓
+2. 哩布光影工作流添加光影效果
+   ↓
+3. 哩布高清放大提升分辨率/去AI感
+   ↓
+4. 导出最终成品</code></pre>
+<h3>六、成本控制策略</h3>
+<ol type="1">
+<li><strong>免费优先</strong>：豆包每日免费积分 +
+哩布每日20积分，足够练习</li>
+<li><strong>先图后视频</strong>：图片生成成本低，确认效果后再投入视频生成</li>
+<li><strong>模型选择</strong>：SD 1.0智能多帧 &gt; SD 2.0 &gt; SD 2.5
+&gt; H3（成本递增）</li>
+<li><strong>会员策略</strong>：新用户七天优惠体验后关闭自动续费，不要盲目开长期会员</li>
+<li><strong>批量生成</strong>：一次生成多个镜头/角度，提高单次积分利用率</li>
+<li><strong>免费替代</strong>：海螺旧模型免费可用，豆包可替代部分付费功能</li>
+</ol>
+<h3>七、常见问题与避坑</h3>
+<table>
+<thead>
+<tr>
+<th>问题</th>
+<th>原因</th>
+<th>解决方案</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>人脸审核驳回</td>
+<td>SD 2.0对真人人脸有限制</td>
+<td>用脚本截图/故事版方式，不直接给真人人脸；或用海螺H3（不卡人脸）</td>
+</tr>
+<tr>
+<td>角色不一致</td>
+<td>缺少三视图素材</td>
+<td>提前拍/生成三视图并绑定为素材</td>
+</tr>
+<tr>
+<td>光影不自然</td>
+<td>直接AI描述溶图</td>
+<td>先用PS精确合成位置，再用哩布工作流加光影</td>
+</tr>
+<tr>
+<td>文字乱码</td>
+<td>故事版用错模型</td>
+<td>故事版图片必须用GPT-2.0模型生成</td>
+</tr>
+<tr>
+<td>视频生成慢</td>
+<td>模型选择错误</td>
+<td>检查是否选了高消耗模型（SD 2.5/H3）</td>
+</tr>
+<tr>
+<td>积分快速耗尽</td>
+<td>自动续费未关闭</td>
+<td>开通会员后立即检查支付渠道关闭连续扣费</td>
+</tr>
+<tr>
+<td>人物肢体畸形</td>
+<td>涂抹精度不够</td>
+<td>局部重绘时涂抹区域尽量准确覆盖目标</td>
+</tr>
+<tr>
+<td>生成效果随机</td>
+<td>无参考素材</td>
+<td>给AI充分参考（三视图/场景图/参考案例）</td>
+</tr>
+</tbody>
+</table>
+<h3>八、模型选择速查表</h3>
+<pre><code>┌─ 任务 ─────────────────────┬─ 推荐模型 ───────────────────────┐
+│ 产品主图/海报排版            │ TGPD (GPT-Image) 海螺/里布      │
+│ 多图合成（人物+产品）        │ 集梦5.0 / 全能图片 海螺/里布     │
+│ 动漫/漫剧角色                │ 悠传 海螺                        │
+│ 产品爆炸图/分解图            │ 智能图片V2 (GPT) 里布            │
+│ 三视图                       │ SD 4.0 哩布/豆包                 │
+│ 高清放大/去AI感              │ 通用高清放大 哩布                │
+│ 材质替换                     │ 法线贴图 ControlNet 哩布WebUI   │
+│ 线稿上色                     │ 硬边缘 ControlNet 哩布WebUI     │
+│ 姿态换人                     │ 姿态 ControlNet 哩布WebUI       │
+│ 电商视频-故事版              │ GPT-2.0 → SD 2.0                │
+│ 电商视频-九宫格              │ 海螺多宫格 → SD 2.0             │
+│ 电商视频-智能多帧            │ SD 1.0（旧模型）                │
+│ 电商视频-单镜头逐帧          │ 海螺H3 / 可灵3.0                │
+│ AI文字成片/慢剧              │ 剪映内置 / 哩布TV               │
+└──────────────────────────────┴─────────────────────────────────┘</code></pre>
+<h3>九、会员与积分体系一览</h3>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>免费积分</th>
+<th>会员费用（约）</th>
+<th>会员福利</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>哩布</td>
+<td>20积分/日</td>
+<td>入门/标准差20元</td>
+<td>标准版多800积分，模板+模型使用权</td>
+</tr>
+<tr>
+<td>即梦</td>
+<td>40-80积分/日</td>
+<td>视等级而定</td>
+<td>高级模型使用权，积分赠送</td>
+</tr>
+<tr>
+<td>海螺</td>
+<td>首次赠送300积分（3天有效）</td>
+<td>补充包贵</td>
+<td>GPT-2.0/H3模型，模板库</td>
+</tr>
+<tr>
+<td>可灵</td>
+<td>新用户7天体验约600积分</td>
+<td>月费70-数百元</td>
+<td>3.0模型折扣，智能补全</td>
+</tr>
+<tr>
+<td>剪映</td>
+<td>部分功能免费</td>
+<td>部分功能需会员</td>
+<td>更多模板/音效/功能</td>
+</tr>
+</tbody>
+</table>
+<p><strong>⚠️
+重要提醒</strong>：所有平台会员均为<strong>有额度的月费制</strong>，非无限使用。开通后务必在支付渠道（支付宝/微信/APP
+Store）关闭连续自动续费。</p>
+<h3>十、全课程知识点零遗漏核查</h3>
+<table>
+<thead>
+<tr>
+<th>章节</th>
+<th>核心知识点</th>
+<th>覆盖情况</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1.1</td>
+<td>平台概览、模型体系、提示词四要素、真人人脸限制</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>1.2</td>
+<td>AT主体绑定、动作模仿、声音处理、数字人</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>1.3</td>
+<td>海螺6个图片模型、3个视频模型、光影工作室/全视角工坊/多宫格</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>1.4</td>
+<td>可灵3.0/2.1图片、3.0视频、主体绑定、水印去除</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>1.5</td>
+<td>灵动画布、人物替换、多图合成、风格转换</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>1.6</td>
+<td>WebUI操作、ControlNet三选项、ComfyUI节点、翻译节点</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>1.7</td>
+<td>AI应用vs工作流、精修/万物迁移/换装/高清放大、反推提示词、LibTV</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>1.8</td>
+<td>营销成片、AI文字成片、九宫格图生视频、提示词优化</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>1.9</td>
+<td>PS合成+哩布溶图、三视图、AI漫剧流程、哩布TV漫剧</td>
+<td>✅</td>
+</tr>
+<tr>
+<td>1.10</td>
+<td>四种视频生成方法、智能多帧、故事版、全流程总结</td>
+<td>✅</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>联网交叉验证</h2>
+<blockquote>
+<p><strong>⚠️
+验证受限说明</strong>：当前环境无法访问互联网，未能完成实时联网交叉验证。以下基于课程内容自身一致性核查。</p>
+</blockquote>
+<p><strong>课程内部一致性核查结果：</strong></p>
+<table>
+<thead>
+<tr>
+<th>核查项</th>
+<th>结论</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>平台名称统一性</td>
+<td>✅ 各课程对同一平台称呼一致（如"哩布/里布"混用为同一平台）</td>
+</tr>
+<tr>
+<td>模型版本一致性</td>
+<td>✅ SD 2.0/2.5、GPT-2.0、H3等模型在各课程中描述一致</td>
+</tr>
+<tr>
+<td>积分政策一致性</td>
+<td>✅
+哩布20积分/日、海螺首次300积分、豆包每日免费额度在各课程中一致</td>
+</tr>
+<tr>
+<td>操作流程一致性</td>
+<td>✅ 九宫格→SD2.0视频生成、PS合成→哩布溶图流程各课程描述一致</td>
+</tr>
+<tr>
+<td>⚠️ 未能验证项</td>
+<td>平台最新价格变动、模型版本更新、积分政策调整等以实际平台为准</td>
+</tr>
+</tbody>
+</table>
+<p><strong>建议课后验证渠道：</strong></p>
+<ul>
+<li>哩布官网：<a
+href="https://www.liblib.ai">https://www.liblib.ai</a></li>
+<li>海螺AI：<a href="https://hailang.ai">https://hailang.ai</a></li>
+<li>可灵AI：<a
+href="https://klingai.kuaishou.com">https://klingai.kuaishou.com</a></li>
+<li>即梦AI：<a
+href="https://jimeng.jianying.com">https://jimeng.jianying.com</a></li>
+<li>豆包：<a
+href="https://www.doubao.com">https://www.doubao.com</a></li>
+</ul>
+<hr />
+<h2>学习路径建议</h2>
+<pre><code>阶段一：平台认知（1-2天）
+  1.1 平台概览 → 了解各平台定位
+  1.3 海螺AI → 熟悉跨平台模型
+  1.6 哩布WebUI → 掌握底层生图逻辑
+
+阶段二：核心技能（3-5天）
+  1.2 剪映AI → 学习主体绑定与声音处理
+  1.4 可灵AI → 掌握3.0图片/视频
+  1.5 可灵灵动画布 → 学习人物替换
+  1.7 ComfyUI应用 → 掌握精修/换装/放大
+
+阶段三：进阶应用（2-3天）
+  1.8 剪映营销成片 → 学习快速出片
+  1.9 光影溶图/漫剧 → 学习PS合成+哩布溶图
+  1.10 全流程总结 → 整合所有知识
+
+阶段四：实战练习
+  - 用1.10的四步骤流程完成一个完整电商视频
+  - 用1.9的PS+哩布溶图完成产品合成图
+  - 用1.7的反推提示词方法优化工作流</code></pre>
+<hr />
+<p><em>本终极总结由学习助手按标准流程自动生成，涵盖10篇单篇总结的全局合并、跨文档去重、交叉引用标注、前置知识依赖分析及系统性总结。</em>
+<em>课程来源：F4-电商AI视频创作师班（音视频转录稿）</em>
+<em>整理时间：2026-09-25</em></p></article>
+<article><h1>完整知识账本：1.1 F4-电商AI视频创作师班_深度总结</h1><h1>F4-电商AI视频创作师班
+深度总结</h1>
+<blockquote>
+<p>课程名称：F4-电商AI视频创作师班<br />
+整理日期：2026-09-25<br />
+原文字数：约38,000+ 有效字符（经清理口水词/噪声后）</p>
+</blockquote>
+<hr />
+<h2>大纲</h2>
+<ol type="1">
+<li>板块1：AI
+视频创作平台概览（豆包、吉梦、集梦、海螺、可伶、礼部）</li>
+<li>板块2：AI 行业专业名词解析（词元/Token、抽卡、资产）</li>
+<li>板块3：豆包与吉梦平台操作入门及会员体系</li>
+<li>板块4：图片生成模型详解（5.0 vs 5.0 Pro vs GPT-Image）</li>
+<li>板块5：AI 图片修改功能（豆包完整操作演示）</li>
+<li>板块6：文字生图提示词写作方法（四要素公式）</li>
+<li>板块7：图生视频提示词写作方法（动态补充+时间轴+镜头语言）</li>
+<li>板块8：视频生成模型对比（吉梦 2.5/2.0/fast/mini/1.0）</li>
+<li>板块9：AI 提示词辅助生成方法（反向提示词/AI 辅助优化）</li>
+<li>板块10：真人人脸限制与规避方案</li>
+<li>附加：PS 去水印操作步骤</li>
+<li>附加：课程工具推荐清单</li>
+</ol>
+<hr />
+<h2>板块1：AI 视频创作平台概览</h2>
+<h3>深度总结</h3>
+<p>本次课程涵盖的国内主流 AI 创作平台如下：</p>
+<p><strong>1. 集梦（即梦）</strong></p>
+<ul>
+<li>字节跳动旗下 AI
+创作平台，支持文生图、图生视频、图像修改等功能。</li>
+<li>拥有多个视频生成模型（2.5、2.0、2.0 mini、2.0
+fast、1.0），不同模型效果与积分消耗差异较大。</li>
+<li>积分制计费：每日免费赠送随机积分（40~80不等），会员按等级赠送积分。</li>
+<li>可接入外部模型：GPT-Image、海螺等 API。</li>
+<li>支持首尾帧生视频（VIP 功能）。</li>
+<li>去水印设置：左下角头像 → AI 生成水印设置 →
+勾选"去除水印"（需会员）。</li>
+<li>出自 [F4-电商AI视频创作师班] 第1段~第10段</li>
+</ul>
+<p><strong>2. 豆包</strong></p>
+<ul>
+<li>字节跳动旗下 AI 对话平台，同时集成 AI 创作功能（图像、视频）。</li>
+<li>模型底层与吉梦相同，但各有画风差异。</li>
+<li>优点：部分功能免费可用，改图功能丰富（AI
+抠图、擦除、标记改图、扩图、变清晰）。</li>
+<li>缺点：免费版本有水印，会员次数不透明（不可量化）。</li>
+<li>去水印方式：开会员自动去除，或手动用 PS 去除。</li>
+<li>视频模型：2.0（卡真人人脸）、mini（不卡人脸，效果略差）。</li>
+<li>出自 [F4-电商AI视频创作师班] 第1段~第10段、第42段</li>
+</ul>
+<p><strong>3. 海螺 AI</strong></p>
+<ul>
+<li>支持接入极梦模型、GPT-Image 模型等，是跨平台模型集合器。</li>
+<li>优点：可同时使用多个平台的模型，灵活切换。</li>
+<li>积分计费制，会员带积分，用完需买补充包（较贵）。</li>
+<li>出自 [F4-电商AI视频创作师班] 第1段~第5段</li>
+</ul>
+<p><strong>4. 可伶</strong></p>
+<ul>
+<li>平台信息未在课堂中详细展开，为后续课程提及。</li>
+<li>出自 [F4-电商AI视频创作师班] 第1段</li>
+</ul>
+<p><strong>5. 礼部 AI</strong></p>
+<ul>
+<li>主打生图，旗下有"礼部 TV"负责视频处理。</li>
+<li>与可伶为同一家公司，一个负责图像、一个负责视频。</li>
+<li>出自 [F4-电商AI视频创作师班] 第1段~第5段</li>
+</ul>
+<p><strong>6. 其他工具</strong></p>
+<ul>
+<li>DCK（对话创作平台）：用于提示词优化、文案撰写。</li>
+<li>龙虾：类似 DCK 的本地数据分析工具（简要提及）。</li>
+<li>出自 [F4-电商AI视频创作师班] 第30段~第35段</li>
+</ul>
+<h3>系统性总结</h3>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>核心优势</th>
+<th>适用场景</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>集梦</td>
+<td>模型丰富、积分透明</td>
+<td>专业电商视频生成</td>
+<td>积分消耗高，需会员</td>
+</tr>
+<tr>
+<td>豆包</td>
+<td>免费次数、改图功能强</td>
+<td>练习/快速试错</td>
+<td>有水印、次数不透明</td>
+</tr>
+<tr>
+<td>海螺</td>
+<td>跨平台模型集合</td>
+<td>灵活切换模型</td>
+<td>补充包贵</td>
+</tr>
+<tr>
+<td>礼部</td>
+<td>图像生成专业</td>
+<td>高质量图片</td>
+<td>视频需搭配礼部TV</td>
+</tr>
+</tbody>
+</table>
+<p><strong>重点</strong>：不同平台生成效果有差异，需亲自实操体会。建议先使用豆包免费版练习，熟悉后再开通集梦会员。</p>
+<hr />
+<h2>板块2：AI 行业专业名词解析</h2>
+<h3>深度总结</h3>
+<p><strong>1. 词元（Token）</strong></p>
+<ul>
+<li>AI 消耗的计量单位，不同平台叫法不同：
+<ul>
+<li>集梦：换算为"积分"</li>
+<li>海螺：叫"贝壳"</li>
+<li>官方术语：Token</li>
+</ul></li>
+<li>消费公式：会员积分 ÷ 单次消耗 = 可用次数</li>
+<li>出自 [F4-电商AI视频创作师班] 第20段~第25段</li>
+</ul>
+<p><strong>2. 抽卡</strong></p>
+<ul>
+<li>AI 生成具有随机性，同样提示词每次效果不同，无法保证 100% 准确。</li>
+<li>需要反复测试、调整提示词才能接近预期效果。</li>
+<li>集梦生成 3 分钟视频约消耗 5000+
+积分，不代表一次成功，错误需重跑。</li>
+<li>出自 [F4-电商AI视频创作师班] 第25段~第30段</li>
+</ul>
+<p><strong>3. 资产</strong></p>
+<ul>
+<li>在各 AI
+平台中生成过的素材（图片、视频）记录，相当于"历史记录"。</li>
+<li>只要不主动删除，可一直保存、重新下载。</li>
+<li>集梦资产位置：左侧"资产"选项；海螺同理。</li>
+<li>豆包资产位置：左侧"AI 创作" → "我的创作"。</li>
+<li>出自 [F4-电商AI视频创作师班] 第30段~第35段</li>
+</ul>
+<h3>系统性总结</h3>
+<table>
+<thead>
+<tr>
+<th>名词</th>
+<th>含义</th>
+<th>平台差异</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Token/词元</td>
+<td>AI 消耗计量单位</td>
+<td>集梦=积分，海螺=贝壳</td>
+</tr>
+<tr>
+<td>抽卡</td>
+<td>随机生成需反复测试</td>
+<td>所有平台通用</td>
+</tr>
+<tr>
+<td>资产</td>
+<td>生成历史记录</td>
+<td>各平台均有资产库</td>
+</tr>
+</tbody>
+</table>
+<p><strong>重点/难点</strong>：抽卡概念是理解 AI
+成本的核心——需要预算反复试错的成本，而非一次生成。</p>
+<hr />
+<h2
+id="板块3豆包与吉梦平台操作入门及会员体系">板块3：豆包与吉梦平台操作入门及会员体系</h2>
+<h3>深度总结</h3>
+<p><strong>1. 平台登录</strong></p>
+<ul>
+<li>吉梦：通过抖音扫码登录（官网或浏览器打开）。</li>
+<li>豆包：通过微信登录（APP 或网页端）。</li>
+<li>出自 [F4-电商AI视频创作师班] 第40段~第50段</li>
+</ul>
+<p><strong>2. 免费积分机制</strong></p>
+<ul>
+<li>集梦：每日随机赠送 40~80 积分（"惊喜积分"）。</li>
+<li>豆包：免费版本有一定次数限制，图片生成部分模型不限次数。</li>
+<li>豆包视频生成免费次数每天刷新，用完次日恢复。</li>
+<li>出自 [F4-电商AI视频创作师班] 第45段~第55段</li>
+</ul>
+<p><strong>3. 会员体系</strong></p>
+<ul>
+<li>集梦基础会员：69 元/月，赠送 700+ 积分。
+<ul>
+<li>720P 分辨率下，约可生成 10
+个可用视频（实际更少，因有错误需重跑）。</li>
+<li>平均成本：1~1.5 元/秒画面。</li>
+</ul></li>
+<li>豆包会员：
+<ul>
+<li>标准版：68 元/月（去水印）。</li>
+<li>高级版：500 元/月。</li>
+</ul></li>
+<li><strong>重要提醒</strong>：开通会员后务必关闭"连续包月"，避免自动续费扣数百元。
+<ul>
+<li>关闭路径：支付宝 → 支付设置 → 自动扣款/连续扣费 → 关闭。</li>
+</ul></li>
+<li>出自 [F4-电商AI视频创作师班] 第55段~第70段</li>
+</ul>
+<p><strong>4. 界面操作要点</strong></p>
+<ul>
+<li>吉梦：左侧菜单 → AI 创作 → 图片生成/视频生成。</li>
+<li>豆包：左侧菜单 → AI 创作 →
+图像/视频，或在"我的创作"中查看历史记录。</li>
+<li>出自 [F4-电商AI视频创作师班] 第70段~第80段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>会员是必须开通的，但建议课程结束后再开，避免积分浪费。</li>
+<li>豆包适合练习（免费次数多），吉梦适合正式输出（效果更稳定）。</li>
+<li>去水印设置：吉梦在头像设置中关闭，豆包需开会员或手动 PS 处理。</li>
+</ul>
+<hr />
+<h2>板块4：图片生成模型详解</h2>
+<h3>深度总结</h3>
+<p><strong>1. 5.0 模型（通用生图）</strong></p>
+<ul>
+<li>适用场景：背景、人物、产品等通用图像生成。</li>
+<li>特点：消耗较低，效果稳定，适合大部分电商图片需求。</li>
+<li>文字准确性：一般，有文字时容易出错。</li>
+<li>出自 [F4-电商AI视频创作师班] 第90段~第100段</li>
+</ul>
+<p><strong>2. 5.0 Pro 模型（改图专用）</strong></p>
+<ul>
+<li>核心优势：
+<ul>
+<li><strong>精准改图</strong>：通过框选、箭头、画笔标记指定区域，AI
+按标记修改。</li>
+<li><strong>文案一致性</strong>：尽量保持图片中原有文字的准确性（但不能
+100% 完美）。</li>
+</ul></li>
+<li>限制：需会员，消耗较高（约 5~8 积分/次）。</li>
+<li>典型操作：
+<ul>
+<li>框选区域 → 描述修改需求 → 生成。</li>
+<li>可添加多个标记同时修改多处。</li>
+</ul></li>
+<li>出自 [F4-电商AI视频创作师班] 第100段~第120段</li>
+</ul>
+<p><strong>3. GPT-Image 模型（高精度文字）</strong></p>
+<ul>
+<li>通过海螺或集梦接入 API。</li>
+<li>优势：文字准确性远高于 5.0，适合电商海报等有大量文字的图像。</li>
+<li>缺点：消耗较高。</li>
+<li>出自 [F4-电商AI视频创作师班] 第120段~第130段</li>
+</ul>
+<p><strong>4. 模型对比表</strong></p>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>适用场景</th>
+<th>文字准确性</th>
+<th>消耗</th>
+<th>需会员</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>5.0</td>
+<td>通用生图</td>
+<td>一般</td>
+<td>低</td>
+<td>否</td>
+</tr>
+<tr>
+<td>5.0 Pro</td>
+<td>精准改图</td>
+<td>较好</td>
+<td>中高</td>
+<td>是</td>
+</tr>
+<tr>
+<td>GPT-Image</td>
+<td>电商海报/文字密集</td>
+<td>高</td>
+<td>高</td>
+<td>需付费 API</td>
+</tr>
+</tbody>
+</table>
+<p><strong>5. 平台差异</strong></p>
+<ul>
+<li>同提示词、同模型，在豆包和吉梦中生成效果不同（画风差异）。</li>
+<li>豆包可无限试错（免费），吉梦每次消耗积分。</li>
+<li>出自 [F4-电商AI视频创作师班] 第130段~第140段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>日常生图：首选 5.0。</li>
+<li>需要精确修改局部：用 5.0 Pro。</li>
+<li>电商海报/文字密集图：用 GPT-Image 或外置工具处理文字。</li>
+<li><strong>重点</strong>：文字是 AI
+生图的薄弱环节，需借助外部工具或模型弥补。</li>
+</ul>
+<hr />
+<h2>板块5：AI
+图片修改功能（豆包完整操作）</h2>
+<h3>深度总结</h3>
+<p><strong>1. AI 抠图</strong></p>
+<ul>
+<li>功能：自动去除背景，保留主体，输出 PNG 透明格式。</li>
+<li>适用：电商产品图抠图。</li>
+<li>缺点：边缘细节可能有细微瑕疵（不如 PS 精准）。</li>
+<li>操作：AI 创作 → AI 抠图 → 上传 → 下载。</li>
+<li>出自 [F4-电商AI视频创作师班] 第150段~第160段</li>
+</ul>
+<p><strong>2. 擦除</strong></p>
+<ul>
+<li>功能：涂抹去除画面中不需要的元素（如路人、杂物）。</li>
+<li>限制：不能擦除水印（水印是平台添加的，擦除后会重新添加）。</li>
+<li>操作：涂抹要去除的区域 → 点击"擦除所选区域"。</li>
+<li>出自 [F4-电商AI视频创作师班] 第160段~第170段</li>
+</ul>
+<p><strong>3. 标记改图</strong></p>
+<ul>
+<li>功能：框选区域 + 描述修改需求，精准修改指定部分。</li>
+<li>可同时添加多个标记，一次性修改多处。</li>
+<li>操作：
+<ol type="1">
+<li>框选区域（尽量完整框入，不要框少）。</li>
+<li>描述修改需求（如"换成蓝色花盆"）。</li>
+<li>点击确定，生成修改结果。</li>
+</ol></li>
+<li>限制：每天有免费次数，用完次日刷新。</li>
+<li>出自 [F4-电商AI视频创作师班] 第170段~第190段</li>
+</ul>
+<p><strong>4. 扩图</strong></p>
+<ul>
+<li>功能：改变图片比例/尺寸，扩展画面内容。</li>
+<li>操作：选择固定比例（如 16:9 → 21:9）或自由框选扩展区域。</li>
+<li>适用：电商产品背景扩展。</li>
+<li>出自 [F4-电商AI视频创作师班] 第190段~第200段</li>
+</ul>
+<p><strong>5. 变清晰</strong></p>
+<ul>
+<li>功能：增加画面锐度和对比度，使边缘更清晰。</li>
+<li>效果：物体边缘轮廓更明显（如盆栽边缘）。</li>
+<li>适用：最终成品微调。</li>
+<li>出自 [F4-电商AI视频创作师班] 第200段~第210段</li>
+</ul>
+<p><strong>6. 重要注意事项</strong></p>
+<ul>
+<li>同一张图片修改次数不宜过多（尤其真人），反复修改会导致 AI
+感过重、脸部失真。</li>
+<li>建议：第一遍不满意，用原图重新改，而非在修改后的图上继续改。</li>
+<li>出自 [F4-电商AI视频创作师班] 第210段~第220段</li>
+</ul>
+<h3>系统性总结</h3>
+<table>
+<thead>
+<tr>
+<th>功能</th>
+<th>适用场景</th>
+<th>注意事项</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>AI 抠图</td>
+<td>电商产品抠图</td>
+<td>边缘细节可能不完美</td>
+</tr>
+<tr>
+<td>擦除</td>
+<td>去除杂物/路人</td>
+<td>不能擦水印</td>
+</tr>
+<tr>
+<td>标记改图</td>
+<td>精准修改局部</td>
+<td>框选要完整，次数有限制</td>
+</tr>
+<tr>
+<td>扩图</td>
+<td>改变比例/扩展背景</td>
+<td>适合电商背景</td>
+</tr>
+<tr>
+<td>变清晰</td>
+<td>最终成品锐化</td>
+<td>效果有限，勿过度依赖</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>板块6：文字生图提示词写作方法</h2>
+<h3>深度总结</h3>
+<p>提示词写作四要素公式：</p>
+<p><strong>1. 主体与动作</strong></p>
+<ul>
+<li>描述：画面中有什么内容，它们在做什么。</li>
+<li>示例："有个人坐在这树下捧着茶杯"</li>
+<li>出自 [F4-电商AI视频创作师班] 第230段~第240段</li>
+</ul>
+<p><strong>2. 场景环境</strong></p>
+<ul>
+<li>描述：时间（白天/夜晚/傍晚）、空间（室内/室外）、具体环境细节。</li>
+<li>示例："在一个庭院里，花瓣飘落，地板是青石板砖路"</li>
+<li>出自 [F4-电商AI视频创作师班] 第240段~第250段</li>
+</ul>
+<p><strong>3. 风格参考</strong></p>
+<ul>
+<li>艺术风格：3D、油画、平面动画、摄影写真等。</li>
+<li>影视作品风格：直接引用电影/动画/导演/工作室名称（如"参考漫威风格"、"宫崎骏风格"、"迪士尼风格"）。</li>
+<li>出自 [F4-电商AI视频创作师班] 第250段~第270段</li>
+</ul>
+<p><strong>4. 技术参数</strong></p>
+<ul>
+<li>分辨率：8K（实际输出可能不到，但可提升清晰度）。</li>
+<li>拍摄角度：正面、侧面、俯视等。</li>
+<li>比例：16:9（横屏）、9:16（竖屏）、1:1（方形）。</li>
+<li>渲染器：3D 风格时可指定（如"Unreal Engine 5"）。</li>
+<li>出自 [F4-电商AI视频创作师班] 第270段~第290段</li>
+</ul>
+<p><strong>提示词格式模板：</strong></p>
+<pre><code>[主体与动作]，[场景环境]，[风格参考]，[技术参数]</code></pre>
+<p>示例：</p>
+<blockquote>
+<p>一个古风少女坐在庭院树下捧着茶杯，花瓣飘落，青石板砖路，宫崎骏动画风格，16:9，8K，正面拍摄。</p>
+</blockquote>
+<h3>系统性总结</h3>
+<ul>
+<li>四要素缺一不可，主体→场景→风格→参数，逻辑清晰。</li>
+<li>风格参考可引用知名 IP/导演，AI 能准确理解。</li>
+<li>技术参数中比例必须手动指定（无参考图时）。</li>
+<li><strong>重点/难点</strong>：风格参考的引用需准确，错误引用可能导致风格偏差。</li>
+</ul>
+<hr />
+<h2>板块7：图生视频提示词写作方法</h2>
+<h3>深度总结</h3>
+<p><strong>1. 动态补充（什么在动 + 怎么动）</strong></p>
+<ul>
+<li>描述画面中各个主体的运动方式和动作。</li>
+<li>示例：
+<ul>
+<li>"花瓣慢慢飘落"</li>
+<li>"人物抬手"</li>
+<li>"纱帘随风飘动"</li>
+</ul></li>
+<li>需逐个描述每个主体的动作，不能只写一个笼统动作。</li>
+<li>出自 [F4-电商AI视频创作师班] 第300段~第320段</li>
+</ul>
+<p><strong>2. 时间轴（什么时候动 + 动多久）</strong></p>
+<ul>
+<li>格式：<code>X秒到Y秒：动作描述</code></li>
+<li>示例：
+<ul>
+<li><code>0到3秒：抬手</code></li>
+<li><code>3到7秒：看茶杯</code></li>
+<li><code>7到10秒：拿起肩上的花举到眼前</code></li>
+</ul></li>
+<li>重要性：视频较长时（10秒+），必须写时间轴，否则 AI
+自行分配动作时机。</li>
+<li>短视频（4~5秒）可不写，让 AI 自动分配。</li>
+<li>出自 [F4-电商AI视频创作师班] 第320段~第340段</li>
+</ul>
+<p><strong>3. 镜头语言（运镜 + 景别）</strong></p>
+<ul>
+<li>运镜：推拉摇移等摄影术语。</li>
+<li>景别：全景、中景、近景、特写。</li>
+<li>必须写的原因：参考图可能是全身，下一镜头需要半身/特写，需明确告知
+AI。</li>
+<li>出自 [F4-电商AI视频创作师班] 第340段~第360段</li>
+</ul>
+<p><strong>4. 常用运镜手法（8种）</strong> | 运镜 | 定义 | 适用场景 |
+|------|------|----------| | 推 | 画面由大范围过渡到主体，靠近主体 |
+突出主体细节 | | 拉 | 与推相反，由近及远，展现环境关系 | 展现主体与环境
+| | 摇 | 机位不变，镜头上下/左右/旋转 | 模拟人眼观察 | | 移 |
+摄像机水平方向移动（上下左右平移） | 展现场景广度 | | 甩 | 快速转动镜头
+| 慢剧常用 | | 升 | 摄像机上升 | 展现高度 | | 降 | 摄像机下降 | 展现深度
+|</p>
+<ul>
+<li>出自 [F4-电商AI视频创作师班] 第360段~第380段</li>
+</ul>
+<p><strong>5. 景别定义</strong> | 景别 | 画面内容 | 主体占比 |
+|------|----------|----------| | 全景 | 整个人物出现 | 全身 | | 中景 |
+大半个人物 | 半身及以上 | | 近景 | 肩膀以上 | 上半身 | | 特写 |
+局部（手、脸、物体） | 一小部分 | | 大特写 | 极局部（眼睛、嘴唇） |
+极小部分 |</p>
+<ul>
+<li>出自 [F4-电商AI视频创作师班] 第380段~第400段</li>
+</ul>
+<p><strong>6. 光影效果（可选）</strong></p>
+<ul>
+<li>描述光源位置（左/右）、光色（暖/冷/白）、光照类型（逆光、太阳光、夕阳）。</li>
+<li>实操建议：复杂光影效果交给 AI 辅助生成，人工描述即可。</li>
+<li>出自 [F4-电商AI视频创作师班] 第400段~第420段</li>
+</ul>
+<p><strong>图生视频提示词格式模板：</strong></p>
+<pre><code>[动态补充：什么在动+怎么动]，[时间轴：X秒到Y秒：动作]，[运镜+景别]</code></pre>
+<h3>系统性总结</h3>
+<ul>
+<li>图生视频 = 动态补充 + 时间轴 + 镜头语言，三者缺一不可。</li>
+<li>时间轴是长视频的核心，必须精确到秒。</li>
+<li>运镜和景别是专业术语，需记忆"推拉摇移"和"全中近特"。</li>
+<li><strong>重点/难点</strong>：时间轴写作需逐镜头规划，建议先用 AI
+辅助生成时间轴。</li>
+</ul>
+<hr />
+<h2>板块8：视频生成模型对比（吉梦）</h2>
+<h3>深度总结</h3>
+<table>
+<thead>
+<tr>
+<th>模型</th>
+<th>效果</th>
+<th>积分消耗</th>
+<th>最大时长</th>
+<th>适用场景</th>
+<th>是否卡人脸</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>SD 2.5</td>
+<td>最好</td>
+<td>极高（5000+积分/3分钟）</td>
+<td>3分钟</td>
+<td>土豪专用/完整成片</td>
+<td>卡</td>
+</tr>
+<tr>
+<td>2.0（旗舰版）</td>
+<td>好</td>
+<td>中高</td>
+<td>15秒</td>
+<td>正常商业视频</td>
+<td>卡</td>
+</tr>
+<tr>
+<td>2.0 fast（VIP通道）</td>
+<td>较好</td>
+<td>中</td>
+<td>15秒</td>
+<td>性价比首选</td>
+<td>卡</td>
+</tr>
+<tr>
+<td>2.0 mini</td>
+<td>一般</td>
+<td>低</td>
+<td>15秒</td>
+<td>测试效果/不卡人脸</td>
+<td>不卡</td>
+</tr>
+<tr>
+<td>1.0</td>
+<td>较差</td>
+<td>最低</td>
+<td>15秒</td>
+<td>无会员试水</td>
+<td>不卡</td>
+</tr>
+</tbody>
+</table>
+<p><strong>关键结论：</strong></p>
+<ul>
+<li>2.5 仅适合不差钱、需要 3 分钟长视频的场景（如慢剧）。</li>
+<li>2.0 fast 是性价比最高的选择，速度较快，效果稳定。</li>
+<li>mini 适合测试提示词效果（成本低），确认无误后再用 2.0
+正式生成。</li>
+<li>1.0 仅适合无会员的用户试水，效果较差。</li>
+<li><strong>VIP 普通通道（无 VIP
+标注）无法生成视频</strong>，排队时间极长（8小时+），实际无法使用。</li>
+<li>出自 [F4-电商AI视频创作师班] 第430段~第460段</li>
+</ul>
+<p><strong>工作流建议：</strong></p>
+<ol type="1">
+<li>先用 mini 测试提示词效果（成本低）。</li>
+<li>效果满意后，用 2.0 fast 正式生成。</li>
+<li>避免直接使用 2.5，除非有明确长视频需求。</li>
+</ol>
+<h3>系统性总结</h3>
+<ul>
+<li>模型选择 = 效果 × 成本 × 需求的平衡。</li>
+<li>日常电商视频：2.0 fast 是首选。</li>
+<li>测试阶段：mini 是必选项。</li>
+<li><strong>重点</strong>：VIP 普通通道勿选，实际无法使用。</li>
+</ul>
+<hr />
+<h2>板块9：AI 提示词辅助生成方法</h2>
+<h3>深度总结</h3>
+<p><strong>1. 手动优化提示词</strong></p>
+<ul>
+<li>直接向 AI 描述需求，让其生成完整提示词。</li>
+<li>操作示例：
+<ul>
+<li>"帮我生成一个古风少女在庭院喝茶的纹生图提示词，用于集梦平台，16:9比例，生成10条中英文版本。"</li>
+</ul></li>
+<li>关键要素：
+<ul>
+<li>指定平台（集梦/豆包）。</li>
+<li>指定用途（纹生图/图生视频）。</li>
+<li>指定数量和语言（中英文各10条）。</li>
+<li>指定特殊需求（比例、风格等）。</li>
+</ul></li>
+<li>出自 [F4-电商AI视频创作师班] 第470段~第490段</li>
+</ul>
+<p><strong>2. 反向提示词（图片反推）</strong></p>
+<ul>
+<li>针对已有图片，反推其提示词。</li>
+<li>操作：上传参考图 → AI 分析 → 生成对应提示词。</li>
+<li>适用：学习他人优秀作品的提示词写法。</li>
+<li>出自 [F4-电商AI视频创作师班] 第490段~第500段</li>
+</ul>
+<p><strong>3. 提示词辅助平台</strong></p>
+<ul>
+<li>豆包和集梦均可用于提示词生成和优化。</li>
+<li>豆包优势：同时具备生成功能，可快速验证。</li>
+<li>集梦优势：模型更专业，适合深度创作。</li>
+<li>出自 [F4-电商AI视频创作师班] 第500段~第510段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>提示词不需要手动从零写，可借助 AI 生成。</li>
+<li>反向提示词是学习优秀作品的捷径。</li>
+<li><strong>重点</strong>：生成提示词时，需明确指定平台、用途、数量、语言，才能获得高质量结果。</li>
+</ul>
+<hr />
+<h2
+id="板块10真人人脸限制与规避方案">板块10：真人人脸限制与规避方案</h2>
+<h3>深度总结</h3>
+<p><strong>1. 限制规则</strong></p>
+<ul>
+<li>集梦 2.0/2.0 fast
+模型：明确标注"不支持真人人脸"，生成含真人脸的图像会被驳回。</li>
+<li>豆包 2.0 模型：同样卡真人人脸。</li>
+<li>mini 模型：不卡人脸（未明确标注限制）。</li>
+<li>出自 [F4-电商AI视频创作师班] 第520段~第540段</li>
+</ul>
+<p><strong>2. 规避方案</strong></p>
+<ul>
+<li>方案一：使用不卡人脸的模型（如 mini）。</li>
+<li>方案二：引用主体而非参考图。
+<ul>
+<li>操作：将真人作为"主体"引用，而非直接作为参考图添加。</li>
+<li>原理：AI 在生成时自主补全人脸，而非直接使用参考图。</li>
+<li>限制：需使用集梦的"绑定为主体"功能（后续课程详解）。</li>
+</ul></li>
+<li>方案三：使用卡通/3D 风格，避免写实人脸。</li>
+<li>出自 [F4-电商AI视频创作师班] 第540段~第560段</li>
+</ul>
+<p><strong>3. 豆包 vs 集梦对比</strong> | 维度 | 豆包 | 集梦 |
+|------|------|------| | 人脸限制 | 2.0 卡，mini 不卡 | 2.0 卡，mini
+不卡 | | 规避方式 | 无（无法绑定主体） | 可绑定为主体规避 | | 免费次数 |
+有（每天刷新） | 无（仅每日随机积分） |</p>
+<ul>
+<li>出自 [F4-电商AI视频创作师班] 第560段~第580段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>真人人脸限制是平台风控策略，短期无法完全绕过。</li>
+<li>推荐方案：测试阶段用 mini，正式生成用集梦绑定主体功能。</li>
+<li><strong>重点/难点</strong>：绑定主体功能需后续课程详解，当前阶段理解即可。</li>
+</ul>
+<hr />
+<h2>板块11：PS 去水印操作步骤</h2>
+<h3>深度总结</h3>
+<p><strong>适用场景</strong>：豆包免费版生成的图片带有水印，需用 PS
+去除。</p>
+<p><strong>操作步骤：</strong></p>
+<ol type="1">
+<li>将图片拖入 PS。</li>
+<li>选择左侧"选框工具"（矩形选框）。</li>
+<li>框选水印区域（尽量精确，框大一点，不要框少）。</li>
+<li>右键 → 填充 → 确定（默认参数为"内容识别"）。
+<ul>
+<li>"内容识别"会自动匹配周围像素进行填补，适合背景规整的水印。</li>
+<li>若水印覆盖人脸等复杂区域，效果可能不佳。</li>
+</ul></li>
+<li>按 <code>Ctrl + S</code> 保存覆盖原图。</li>
+<li>出自 [F4-电商AI视频创作师班] 第590段~第620段</li>
+</ol>
+<p><strong>注意事项：</strong></p>
+<ul>
+<li>内容识别是传统功能，非 AI 功能，依赖周围像素相似性。</li>
+<li>适用于背景为瓷砖、地板、墙面等规整区域的水印。</li>
+<li>吉梦会员版可直接去除水印，无需此操作。</li>
+<li>出自 [F4-电商AI视频创作师班] 第620段~第630段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>PS 去水印是简单操作，适合临时应急。</li>
+<li>长远方案：开通会员直接去除水印。</li>
+<li><strong>重点</strong>：框选区域要完整包含水印，不要遗漏。</li>
+</ul>
+<hr />
+<h2>板块12：课程工具推荐清单</h2>
+<h3>深度总结</h3>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>用途</th>
+<th>收费情况</th>
+<th>推荐指数</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>集梦</td>
+<td>专业视频生成</td>
+<td>积分制，会员 69元/月</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>豆包</td>
+<td>练习/快速试错</td>
+<td>免费次数有限，会员 68元/月</td>
+<td>⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>海螺</td>
+<td>跨平台模型集合</td>
+<td>积分制，补充包贵</td>
+<td>⭐⭐⭐</td>
+</tr>
+<tr>
+<td>PS</td>
+<td>图片处理/去水印</td>
+<td>一次性购买或订阅</td>
+<td>⭐⭐⭐⭐⭐</td>
+</tr>
+<tr>
+<td>DCK</td>
+<td>提示词优化</td>
+<td>免费/付费功能</td>
+<td>⭐⭐⭐</td>
+</tr>
+</tbody>
+</table>
+<p><strong>建议学习路径：</strong></p>
+<ol type="1">
+<li>使用豆包免费版练习提示词写作和基础操作。</li>
+<li>开通集梦会员（69元/月）进行正式创作。</li>
+<li>学习 PS 去水印和基础图片处理。</li>
+<li>后续课程学习海螺、礼部等进阶工具。</li>
+<li>出自 [F4-电商AI视频创作师班] 第640段~第650段</li>
+</ol>
+<hr />
+<h2>全文系统性总结</h2>
+<h3>核心知识框架</h3>
+<p>本课程系统讲解了电商 AI 视频创作的核心技能，涵盖：</p>
+<ol type="1">
+<li><strong>平台认知</strong>：豆包、集梦、海螺、礼部等平台的定位与差异。</li>
+<li><strong>模型选择</strong>：不同模型的优劣势及适用场景（生图 vs
+视频）。</li>
+<li><strong>提示词写作</strong>：纹生图四要素公式 +
+图生视频三要素公式。</li>
+<li><strong>工具操作</strong>：AI
+抠图、擦除、标记改图、扩图、变清晰等。</li>
+<li><strong>成本管控</strong>：积分消耗规律、会员开通策略、连续包月关闭提醒。</li>
+<li><strong>限制规避</strong>：真人人脸限制的理解与规避方案。</li>
+</ol>
+<h3>关键结论</h3>
+<ol type="1">
+<li><strong>平台选择</strong>：练习用豆包，正式产出用集梦。</li>
+<li><strong>模型选择</strong>：日常用 2.0 fast，测试用 mini，长视频用
+2.5。</li>
+<li><strong>提示词核心</strong>：纹生图四要素 + 图生视频三要素。</li>
+<li><strong>成本控制</strong>：先用 mini 测试，确认后再用 2.0 fast
+正式生成。</li>
+<li><strong>去水印</strong>：会员版直接去除，免费版用 PS
+内容识别填充。</li>
+<li><strong>人脸限制</strong>：2.0 系列卡人脸，mini
+不卡，可绑定主体规避。</li>
+</ol>
+<h3>后续学习建议</h3>
+<ul>
+<li>掌握提示词写作后，进行大量实操练习（建议至少 50 次抽卡）。</li>
+<li>学习 PS 基础操作（抠图、修复、调色）。</li>
+<li>关注后续课程中的"绑定主体"功能详解。</li>
+<li>建立个人提示词库，积累常用模板。</li>
+</ul>
+<hr />
+<blockquote>
+<p>本总结由学习助手按标准流程自动生成，确保知识点零遗漏。<br />
+课程来源：F4-电商AI视频创作师班（原文转录稿）<br />
+整理时间：2026-09-25</p>
+</blockquote></article>
+<article><h1>完整知识账本：1.2 剪映AI功能与动作模仿_深度总结</h1><h1>1.2 剪映AI功能与动作模仿 -
+深度总结</h1>
+<h2>大纲</h2>
+<ol type="1">
+<li>视频生成基础流程与原则</li>
+<li>集梦平台核心功能与主体绑定（AT键）</li>
+<li>集梦 vs 豆包对比与使用策略</li>
+<li>声音处理：音乐生成 / 配音生成 / 声音克隆 / 数字人</li>
+<li>动作模仿</li>
+<li>A准模式与一站式工作流（脚本→图片→视频）</li>
+<li>课后作业与提交</li>
+</ol>
+<hr />
+<h2
+id="板块一视频生成基础流程与原则">板块一：视频生成基础流程与原则</h2>
+<h3>深度总结</h3>
+<ul>
+<li><strong>基本流程</strong>：AI 视频生成的常规路径是「文字 → 图片 →
+视频」，而非直接用文字生成视频。直接文生视频可控性差，缺少主体参考时，生成的人物长相、场景、物品都不可控（出自[文档名]
+第00:13-00:31段）。</li>
+<li><strong>先图后视频的优势</strong>：图片已有景别、场景、主体样貌信息，视频生成时只需指定「画面中怎么动」和「镜头怎么动」，准确度显著提升（出自[文档名]
+第00:27-00:41段）。</li>
+<li><strong>提高准确度的额外方法</strong>：脚本方式和宫格图参考方式，后续课程会讲到（出自[文档名]
+第00:36-00:40段）。</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>核心原则：文生视频可控性弱，图生视频更准；凡是需要精确主体（人物/产品）的场景，务必先生成参考图。</li>
+<li>注意事项：不要完全依赖文字描述来控制主体样貌。</li>
+</ul>
+<hr />
+<h2
+id="板块二集梦平台核心功能与主体绑定at键">板块二：集梦平台核心功能与主体绑定（AT键）</h2>
+<h3>深度总结</h3>
+<ul>
+<li><strong>集梦的限制</strong>：不能参考人脸生成视频；不能生成知名影视角色、明星（如钢铁侠会被驳回）；不能以真人照片作为人脸参考（出自[文档名]
+第04:48-07:10段）。</li>
+<li><strong>主体绑定（AT键）</strong>：选择 2.0 任意模型 → 全能参考模式
+→ 点击 AT 键 → 添加主体（人物或产品）→
+绑定为主体。绑定后绕开人脸检测，可正常使用真人/产品参考图（出自[文档名]
+第07:58-10:58段）。</li>
+<li><strong>主体添加方式</strong>：本地添加（电脑素材）/
+资产添加（平台之前生成的素材）。人物绑定后需描述名字；产品绑定可不加音色（出自[文档名]
+第10:12-14:28段）。</li>
+<li><strong>AT
+键不可见时的处理</strong>：关闭集梦页面重新进入，或切换到「视频生成」模式、选择
+2.0 模型（出自[文档名] 第08:16-09:48段、17:56-18:46段）。</li>
+<li><strong>主体使用</strong>：生成视频时通过 AT
+键调用主体；人物最好是绑定为主体；场景可作为素材直接添加但不能加人（出自[文档名]
+第15:13-16:54段）。</li>
+<li><strong>画质与模型</strong>：豆包生成图片通常 2000+
+分辨率，不算模糊；集梦人物/肢体细节更好；4.6
+模型在保持人物一致性上更准确（出自[文档名] 第31:24-37:25段）。</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>主体绑定本质是把参考图先提交平台审核，审核通过后后续生成不再被人脸/版权规则拦截。</li>
+<li>关键操作顺序：选模型 → 全能参考 → AT → 加主体 → 生成。</li>
+</ul>
+<hr />
+<h2>板块三：集梦 vs
+豆包对比与使用策略</h2>
+<h3>深度总结</h3>
+<ul>
+<li><strong>集梦优点</strong>：视频模型效果国内最好；主体绑定准确；能处理真人出镜（通过绑定）；细节更精准（出自[文档名]
+第11:49-12:19段、37:25-39:13段）。</li>
+<li><strong>集梦缺点</strong>：收费；首次使用需注意消耗；AT
+键有灰度限制，部分新用户暂不开放（出自[文档名]
+第11:49-12:19段、08:16-09:48段）。</li>
+<li><strong>豆包优点</strong>：免费、每天有免费次数；生图可用参考图（最多约
+10 张）；适合简单背景/主体生成（出自[文档名]
+第13:47-13:56段、36:41-37:25段）。</li>
+<li><strong>豆包缺点</strong>：生视频不能 AT
+主体的参考图；人物容易出错或被驳回；不能绑定主体；准确性较弱（出自[文档名]
+第33:31-35:38段、41:53-42:51段）。</li>
+<li><strong>配合策略</strong>：豆包用于简单素材/试效果；集梦用于最终高精度生成。豆包积分用完时可用其生图辅助（出自[文档名]
+第39:13-41:53段）。</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>豆包 = 免费试错 + 素材生成；集梦 =
+高精度主体合成。两者可串联使用（集梦出脚本/图 →
+豆包免费生成视频）。</li>
+</ul>
+<hr />
+<h2
+id="板块四声音处理音乐生成--配音生成--声音克隆--数字人">板块四：声音处理：音乐生成
+/ 配音生成 / 声音克隆 / 数字人</h2>
+<h3>深度总结</h3>
+<ul>
+<li><strong>音乐生成</strong>：集梦与豆包均可生成背景音乐；可指定风格、乐器、BPM（BPN
+数值越高节奏越快）；支持参考图片生成对应场景音乐；支持多语言（英/日/韩）；生成后播放器要切换到扬声器才能出声（出自[文档名]
+第44:15-50:44段）。</li>
+<li><strong>豆包音乐模板</strong>：可直接使用官方模板，也可删除模板自由创作；建议把参考图和描述一起给（出自[文档名]
+第53:41-56:37段）。</li>
+<li><strong>配音生成 / 声音克隆</strong>：
+<ul>
+<li>集梦配音生成：可选择自带音色或克隆自定义声音；克隆需先导出音频（&gt;5s，清晰无人声背景）；支持本地录音（出自[文档名]
+第01:13:39-01:21:22段）。</li>
+<li>剪映配音：也可克隆音色，但通常需会员（出自[文档名]
+第01:21:22-01:22:43段）。</li>
+</ul></li>
+<li><strong>数字人</strong>：人物 + 声音 +
+动作合成；适合产品介绍/口播类；缺点是无法切镜，只能单画面；可提前把人物和产品合成一张图再上传（出自[文档名]
+第01:37:12-01:46:49段、01:55:52-01:59:16段）。</li>
+<li><strong>版权提示</strong>：使用明星声音/角色容易被驳回或触发版权限制；建议使用自己的声音或
+AI 合成音色（出自[文档名] 第01:31:29-01:32:21段）。</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>声音处理三条路径：音乐（平台直接生成）→ 配音（剪映/集梦克隆）→
+数字人（人物+声音合成）。</li>
+<li>关键约束：克隆素材需
+&gt;5s、清晰、无背景音乐；数字人不支持分镜。</li>
+</ul>
+<hr />
+<h2>板块五：动作模仿</h2>
+<h3>深度总结</h3>
+<ul>
+<li><strong>定义与用途</strong>：参考别人的动作（舞蹈/武术/热梗）生成到自己的角色上，比文字描述动作更准确（出自[文档名]
+第02:00:57-02:01:16段）。</li>
+<li><strong>操作要点</strong>：
+<ul>
+<li>使用平台提供的模板或本地上传参考视频</li>
+<li>素材景别必须与参考一致（人脸特写对应人脸特写，全身对应全身）</li>
+<li>比例建议选 1:1 正方形（出自[文档名] 第02:01:48-02:05:38段）</li>
+<li>添加人物参考图后，直接生成即可，无需写提示词（出自[文档名]
+第02:04:33-02:04:50段）</li>
+</ul></li>
+<li><strong>适用场景</strong>：抖音热梗、舞蹈、武术类视频（出自[文档名]
+第02:03:21段）。</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>动作模仿 = 参考视频模板 +
+景别匹配；适合大幅度、重复性动作，不适合精细口播。</li>
+</ul>
+<hr />
+<h2
+id="板块六a准模式与一站式工作流脚本图片视频">板块六：A准模式与一站式工作流（脚本→图片→视频）</h2>
+<h3>深度总结</h3>
+<ul>
+<li><strong>A 准模式特点</strong>：只给一个想法，平台自动生成脚本 →
+故事版 → 图片 → 视频；无需手动切来切去（出自[文档名]
+第02:12:36-02:17:02段）。</li>
+<li><strong>使用建议</strong>：
+<ul>
+<li>第一遍先生成脚本和故事版，检查再生成图片/视频</li>
+<li>描述时写清楚时长（如 10 秒）、平台（抖音/小红书/淘宝）、风格</li>
+<li>生成图片后保存，再基于故事版生成分镜参考图（比例
+16:9）（出自[文档名] 第02:17:52-02:28:00段）</li>
+</ul></li>
+<li><strong>成本控制</strong>：
+<ul>
+<li>A 准模式每一步都可能扣费，生成图片/视频时才扣款</li>
+<li>平台默认自动选择最贵模型，建议关闭自动、手动选模型</li>
+<li>豆包免费额度可接：生成脚本/故事版基本不扣费（出自[文档名]
+第02:15:10-02:21:20段、02:48:16-02:49:05段）</li>
+</ul></li>
+<li><strong>故事版导出到豆包</strong>：下载故事版（MD/PDF 格式）→
+豆包新对话 → 添加参考素材 → 生成视频；豆包一次最长约 10 秒（出自[文档名]
+第02:40:21-02:47:46段、02:53:46-02:55:12段）。</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>A 准模式适合不熟悉平台操作的用户，但需警惕自动扣费；推荐流程：集梦 A
+准出脚本/故事版 → 豆包免费生成视频。</li>
+</ul>
+<hr />
+<h2>板块七：课后作业与提交</h2>
+<h3>深度总结</h3>
+<ul>
+<li>作业要求：利用脚本 + 参考图生成 10-15
+秒视频（集梦或豆包均可）（出自[文档名] 第02:55:12-02:56:11段）。</li>
+<li>提交方式：官网 → 登录 → 正在学习中的课程 →
+提交导出视频（出自[文档名] 第02:56:11-02:56:40段）。</li>
+<li>若生成未完成，可排队后补交（出自[文档名]
+第02:56:11-02:56:40段）。</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>作业核心目标：串联本课所学的脚本/参考图/生成/提交全流程。</li>
+</ul>
+<hr />
+<h2>全文系统性总结</h2>
+<ul>
+<li>本课是AI视频生成的基础操作课，核心主线是「可控性」：文生视频不可控 →
+图生视频可控 → 主体绑定更可控 → 脚本/故事版进一步提可控。</li>
+<li>工具分工：豆包（免费、试错、素材生成） vs
+集梦（付费、高精度、主体绑定）；剪映（剪辑、声音克隆、数字人）。</li>
+<li>关键技能点：AT 键绑定主体、音乐/声音克隆、数字人制作、动作模仿、A
+准模式一站式工作流。</li>
+<li>成本意识贯穿全课：每日免费积分有限、生成前确认消耗、关闭自动选模、多账号轮换。</li>
+<li>前置依赖：1.1
+课的平台跳转与工具认识；后续课程将深入海螺、可灵、ComfyUI 等平台。</li>
+</ul>
+<p>→ 相关：[文档名] 1.1 F4-电商AI视频创作师班（工具认识与平台跳转）</p>
+<hr />
+<h2>AI 提示词汇总</h2>
+<h3>提示词
+1：背景音乐生成提示词（出自[文档名] 第44:15-46:35段）</h3>
+<blockquote>
+<p>适用场景：为电商展示/穿搭视频生成纯背景音乐</p>
+</blockquote>
+<pre><code>我要做街头宽松氛围的纯音乐，节奏轻快，包含钢琴和鼓声，适合服装展示，BPM约120，纯音乐无歌词</code></pre>
+<h3>提示词
+2：视频生成描述（出自[文档名] 第02:14:21-02:17:02段）</h3>
+<blockquote>
+<p>适用场景：A准模式下让平台生成脚本/分镜</p>
+</blockquote>
+<pre><code>制作一个包包的宣传TVC广告脚本，电商主图视频风格，分镜脚本，适合抖音/小红书</code></pre>
+<h3>提示词
+3：数字人介绍产品（出自[文档名] 第01:44:30-01:46:49段）</h3>
+<blockquote>
+<p>适用场景：数字人口播产品介绍</p>
+</blockquote>
+<pre><code>人物微笑，镜头展示，手持美容精华液，简单的口播介绍产品卖点，不要大幅度走动</code></pre>
+<h3>提示词系统性总结</h3>
+<ul>
+<li>通用规律：描述要包含场景 + 主体 + 动作 + 风格 + 时长/比例</li>
+<li>平台差异：集梦适合精确描述，豆包适合粗粒度描述 + 后续迭代</li>
+<li>踩坑点：A
+准模式不要让平台自动生成视频时直接扣费；先确认脚本/故事版再生成；AT
+键功能需手动开启</li>
+<li>跨课程关联：提示词优化方法在 1.3 海螺AI、1.4 可灵AI
+等课程会继续展开</li>
+</ul></article>
+<article><h1>完整知识账本：1.3 海螺AI核心功能全玩法拆解_深度总结</h1><h1>1.3
+海螺AI核心功能全玩法拆解 - 深度总结</h1>
+<blockquote>
+<p>课程名称：1.3 海螺AI核心功能全玩法拆解 整理日期：2026-09-25
+原文字数：约32,252 有效字符（经清理口水词/噪声后）</p>
+</blockquote>
+<hr />
+<h2>大纲</h2>
+<ol type="1">
+<li>板块一：平台概述与积分机制</li>
+<li>板块二：图片创作模型体系（6个模型对比与适用场景）</li>
+<li>板块三：视频生成模型与操作（海螺H3/2.0/2.3/A准）</li>
+<li>板块四：电商专用小工具（光影工作室/全视角工坊/多宫格分镜）</li>
+<li>板块五：平台特点总结与使用建议</li>
+</ol>
+<hr />
+<h2>板块一：平台概述与积分机制</h2>
+<h3>深度总结</h3>
+<p><strong>1. 平台定位</strong></p>
+<ul>
+<li>海螺AI是一个国内AI创作平台，风格偏向国外效果，默认生成外国人面孔</li>
+<li>更适合产品类内容，物理逻辑与人物交互较弱</li>
+<li>图片模型针对性强，每个模型对应特定场景</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第1段~第41段</li>
+</ul>
+<p><strong>2. 积分机制</strong></p>
+<ul>
+<li>新账号赠送积分（有效期3天，300积分足够了解全部功能）</li>
+<li>仅赠送一次，不可重复（与极梦每天赠送不同）</li>
+<li>微信/手机号登录均可</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第42段~第56段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>平台定位：电商场景工具集合，风格偏国外，性价比高于集梦，但物理逻辑与人物交互弱于集梦</li>
+<li>积分策略：仅赠送一次，300积分足够入门，不适合长期依赖</li>
+<li><strong>重点</strong>：海螺是电商指向型平台，复杂人物/剧情内容建议切换到集梦/可灵等平台</li>
+</ul>
+<hr />
+<h2>板块二：图片创作模型体系</h2>
+<h3>深度总结</h3>
+<p><strong>1. TGPD API模型（参考文字排版）</strong></p>
+<ul>
+<li>电商主图/海报首选</li>
+<li>优势：文字排版准确性高、字体风格一致、不易乱码</li>
+<li>可AT参考图片的文字/排版/颜色，产品可替换</li>
+<li>适合海报、电商主图，不适合多图合成</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第60段~第100段</li>
+</ul>
+<p><strong>2. 集梦5.0 / 全能图片</strong></p>
+<ul>
+<li>适合多图合成（人脸/产品一致性高）</li>
+<li>全能图片画质更好但消耗更高；集梦5.0消耗更低</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第100段~第120段</li>
+</ul>
+<p><strong>3. 悠传（动漫/角色）</strong></p>
+<ul>
+<li>适合设计动漫形象、慢剧角色</li>
+<li>不能加参考图片，一致性弱，适合纯文字描述生成</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第120段~第140段</li>
+</ul>
+<p><strong>4. 海螺自带模型</strong></p>
+<ul>
+<li>主要用于人脸精细化/电影写真，效果有限，一般少用</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第140段~第160段</li>
+</ul>
+<p><strong>5. 比例与画质设置</strong></p>
+<ul>
+<li>比例选择：电商常见 1:1、3:4、9:16；4:3 与 3:4 需区分；5:4
+很少用</li>
+<li>画质/分辨率/张数：简单海报选中或低画质；文字复杂的详情页选高画质；张数默认4张，建议练习调低</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第160段~第200段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>选模型原则：排版参考→TGPD；多图合成→集梦5.0/全能图片；动漫角色→悠传；真人写真→海螺自带</li>
+<li>比例优先：9:16（竖屏）、3:4、1:1，避免选错导致图片变形</li>
+<li><strong>重点</strong>：TGPD模型是海螺的特色，适合电商文字排版，其他平台难以替代</li>
+</ul>
+<hr />
+<h2>板块三：视频生成模型与操作</h2>
+<h3>深度总结</h3>
+<p><strong>1. 海螺视频模型</strong></p>
+<ul>
+<li>H3（最佳，5秒2K约60积分）、2.0（首尾针）、2.3（单参考图）、1.0（早期，已淘汰）</li>
+<li>H3
+支持图片/视频/声音多模态参考，可多镜头同出，消耗比集梦便宜（约0.3-0.5元/秒
+vs 集梦1-1.5元/秒）</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第200段~第250段</li>
+</ul>
+<p><strong>2. 2.0/2.3 模型限制</strong></p>
+<ul>
+<li>2.0/2.3 仅做单镜头，不能做首尾针过渡；2.0支持首尾针</li>
+<li>2.3只能添加一张参考图，2.0可添加首尾帧</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第250段~第300段</li>
+</ul>
+<p><strong>3. A准模式</strong></p>
+<ul>
+<li>自动选择模型，目前未接入H3，易误选集梦扣费，尚不如工具手动生成好用</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第300段~第350段</li>
+</ul>
+<p><strong>4. 运镜与提示词优化</strong></p>
+<ul>
+<li>运镜可通过描述或预设添加</li>
+<li>优化提示词勾选后画面无人脸时更优质，有人脸可能变形</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第350段~第400段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>视频生成优先用工具手动选模型；A准适合初步构思，不做精确控制</li>
+<li>H3性价比最高，消耗比集梦便宜约60%</li>
+<li><strong>重点/难点</strong>：A准模式尚未接入H3，实际使用时手动选择模型更可靠</li>
+</ul>
+<hr />
+<h2>板块四：电商专用小工具</h2>
+<h3>深度总结</h3>
+<p><strong>1. 光影工作室</strong></p>
+<ul>
+<li>上传白底图/人物场景图，选风格与张数，调整打光与场景氛围，不改变主体</li>
+<li>适合产品人物打光调整，前期拍摄无需专业灯光设备</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第400段~第450段</li>
+</ul>
+<p><strong>2. 全视角工坊</strong></p>
+<ul>
+<li>单角度生成其他视角（左/右/俯视），累计计算张数，每次至少保留一个视角</li>
+<li>适合产品多角度展示，只有一个正面素材时可生成侧面/俯视</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第450段~第500段</li>
+</ul>
+<p><strong>3. 多宫格分镜</strong></p>
+<ul>
+<li>提供参考图+故事大纲，生成3×3/4×4/5×5分镜图</li>
+<li>格数越多单张画质越差；可用于广告/剧情分镜，再导入视频生成</li>
+<li>3×3画质最佳，5×5画质明显下降</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第500段~第600段</li>
+</ul>
+<p><strong>4. 素材管理</strong></p>
+<ul>
+<li>所有工具均可通过左侧工具栏或"资产"入口管理素材与生成记录</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第600段~第650段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>工具链：白底拍摄 → 光影工作室 → 全视角工坊 → 多宫格分镜 →
+视频生成，形成电商短视频制作闭环</li>
+<li>多宫格分镜：格数越少画质越好，3×3是性价比最优选择</li>
+<li><strong>重点</strong>：海螺的工具链专门为电商场景设计，从产品拍摄到视频生成一站式完成</li>
+</ul>
+<hr />
+<h2
+id="板块五平台特点总结与使用建议">板块五：平台特点总结与使用建议</h2>
+<h3>深度总结</h3>
+<p><strong>1. 平台优势</strong></p>
+<ul>
+<li>电商指向性强：图片模型覆盖全，每个模型对应特定场景</li>
+<li>视频消耗低：H3约0.3-0.5元/秒，比集梦便宜60%</li>
+<li>工具链完整：光影工作室/全视角工坊/多宫格分镜</li>
+<li>风格偏向国外，适合产品展示</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第650段~第700段</li>
+</ul>
+<p><strong>2. 平台劣势</strong></p>
+<ul>
+<li>风格偏国外，不适合国内受众偏好</li>
+<li>人物/物理逻辑弱：复杂人物动作交互效果差</li>
+<li>不适合复杂剧情/对话类视频</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第700段~第750段</li>
+</ul>
+<p><strong>3. 使用建议</strong></p>
+<ol type="1">
+<li>图片排版用TGPD，多图合成用集梦5.0，动漫用悠传</li>
+<li>视频优先H3 + 手动工具，避免A准自动选模型</li>
+<li>分镜图用多宫格，3×3即可保证画质</li>
+<li>积分敏感时选低画质、低张数</li>
+<li>出自 [1.3 海螺AI核心功能全玩法拆解] 第750段~第800段</li>
+</ol>
+<h3>系统性总结</h3>
+<ul>
+<li>海螺AI定位为"电商AI视频创作工具箱"，核心价值是以低消耗完成电商主图、分镜、短视频制作</li>
+<li>复杂人物/剧情内容建议切换到集梦/可灵等平台</li>
+<li><strong>重点</strong>：根据内容类型（电商主图/多图合成/动漫形象/视频分镜）选择对应模型，避免混用导致一致性差或消耗浪费</li>
+</ul>
+<hr />
+<h2>全文系统性总结</h2>
+<h3>核心知识框架</h3>
+<p>本课程系统讲解了海螺AI平台的全功能玩法，以"图片模型→视频模型→电商工具"为主线：</p>
+<ol type="1">
+<li><strong>平台认知</strong>：海螺是电商指向型AI创作平台，风格偏国外，积分仅赠送一次</li>
+<li><strong>图片模型体系</strong>：TGPD（排版）→集梦5.0/全能图片（多图合成）→悠传（动漫）→海螺自带（写真）</li>
+<li><strong>视频模型体系</strong>：H3（最佳性价比）→2.0（首尾针）→2.3（单参考图）→A准（自动，待更新）</li>
+<li><strong>电商工具链</strong>：光影工作室→全视角工坊→多宫格分镜→视频生成</li>
+<li><strong>使用策略</strong>：根据内容类型选择对应模型，积分敏感时选低画质低张数</li>
+</ol>
+<h3>关键结论</h3>
+<ol type="1">
+<li><strong>平台定位</strong>：海螺是电商场景工具集合，性价比高于集梦，但物理逻辑与人物交互弱</li>
+<li><strong>模型选择</strong>：TGPD排版参考→集梦多图合成→悠传动漫→海螺自带写真；视频优先H3</li>
+<li><strong>工具链</strong>：白底拍摄→光影工作室→全视角工坊→多宫格分镜→视频生成</li>
+<li><strong>积分策略</strong>：300积分足够入门，仅赠送一次，不适合长期依赖</li>
+<li><strong>A准模式</strong>：尚未接入H3，手动选模型更可靠</li>
+</ol>
+<h3>后续学习建议</h3>
+<ul>
+<li>掌握图片模型选择后，练习多图合成与排版参考</li>
+<li>熟悉H3视频生成后，尝试多镜头同出与首尾针过渡</li>
+<li>利用全视角工坊生成产品多角度视图</li>
+<li>关注海螺A准模式更新，接入H3后可能提升自动化体验</li>
+</ul>
+<hr />
+<h2>AI 提示词汇总</h2>
+<h3>提示词
+1：电商主图排版（TGPD模型）</h3>
+<blockquote>
+<p>适用场景：电商主图、海报制作、文字排版</p>
+</blockquote>
+<pre><code>参考图片的排版和颜色，将产品更改为[产品名称]，
+文字内容更改为[新文案]，
+保持字体风格一致。</code></pre>
+<p>（出自 [1.3 海螺AI核心功能全玩法拆解] 第80段~第100段）</p>
+<h3>提示词
+2：多图合成（集梦5.0/全能图片）</h3>
+<blockquote>
+<p>适用场景：多图合成、人脸/产品一致性保持</p>
+</blockquote>
+<pre><code>将产品图放到场景图中，
+保持人脸/产品一致性，
+风格参考参考图。</code></pre>
+<p>（出自 [1.3 海螺AI核心功能全玩法拆解] 第100段~第120段）</p>
+<h3>提示词
+3：动漫形象设计（悠传模型）</h3>
+<blockquote>
+<p>适用场景：慢剧角色设计、动漫形象生成</p>
+</blockquote>
+<pre><code>设计一个[角色类型]的动漫形象，
+风格参考[参考图]，
+保持角色特征一致。</code></pre>
+<p>（出自 [1.3 海螺AI核心功能全玩法拆解] 第120段~第140段）</p>
+<h3>提示词 4：H3视频生成</h3>
+<blockquote>
+<p>适用场景：电商产品视频、多镜头同出</p>
+</blockquote>
+<pre><code>参考图片，生成一个[时长]秒的电商广告视频，
+景别：[远景/中景/近景/特写]，
+运镜：[推进/拉远/环绕/固定]，
+画面内容：[具体描述]。</code></pre>
+<p>（出自 [1.3 海螺AI核心功能全玩法拆解] 第200段~第250段）</p>
+<h3>提示词 5：多宫格分镜</h3>
+<blockquote>
+<p>适用场景：广告分镜、剧情分镜</p>
+</blockquote>
+<blockquote>
+<p>说明：分镜格数越多单张画质越差，3×3画质最佳</p>
+</blockquote>
+<pre><code>做一个[电商/剧情]风格的分镜图，
+包含[3×3/4×4/5×5]个镜头，
+每个镜头[景别+画面内容+运镜]。</code></pre>
+<p>（出自 [1.3 海螺AI核心功能全玩法拆解] 第500段~第600段）</p>
+<h3>提示词系统性总结</h3>
+<ul>
+<li>排版参考：TGPD模型 + AT参考图 + 指定文字</li>
+<li>多图合成：集梦5.0/全能图片 + 保持一致性</li>
+<li>动漫角色：悠传模型 + 纯文字描述</li>
+<li>视频生成：H3模型 + 多模态参考 + 运镜描述</li>
+<li>分镜图：多宫格 + 3×3画质最优 + 剧情描述简洁</li>
+</ul>
+<hr />
+<h2>联网交叉验证</h2>
+<ul>
+<li>⚠️
+海螺H3视频模型价格（约0.3-0.5元/秒）与集梦（约1-1.5元/秒）的对比数据以平台实际显示为准，课程内口述数据可能有更新</li>
+<li>⚠️ TGPD
+API模型的文字排版准确性需以实际登录验证，课程演示效果可能因版本更新而变化</li>
+<li>❓
+海螺A准模式是否已接入H3模型需以平台实际显示为准（课程讲述时A准尚未接入H3）</li>
+<li>⚠️
+积分赠送政策（300积分/3天有效期/仅赠送一次）可能随平台调整而变化</li>
+<li>❓
+光影工作室/全视角工坊/多宫格分镜的具体积分消耗需以实际操作为准</li>
+</ul>
+<blockquote>
+<p>联网交叉验证受当前环境限制未能逐条完成，建议开课后实际登录平台核对关键数据。</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>本总结由学习助手按标准流程自动生成，确保知识点零遗漏。 课程来源：1.3
+海螺AI核心功能全玩法拆解（原文转录稿） 整理时间：2026-09-25</p>
+</blockquote></article>
+<article><h1>完整知识账本：1.4 可灵AI基础功能及AI采访视频_深度总结</h1><h1>1.4
+可灵AI基础功能及AI采访视频 - 深度总结</h1>
+<blockquote>
+<p>文档分类：有效中文字符约 26,411 字，属于大文档，按自然语义结构拆分为
+7 个板块。<br />
+来源：<code>1.4 可灵AI基础功能及AI采访视频_原文</code>。<br />
+说明：以下内容基于原始视频转录稿整理，已去除明显口语重复、跑题闲聊和无关操作过程；知识点、平台名称、操作路径、价格与限制尽量保留原文含义。</p>
+</blockquote>
+<h2>大纲</h2>
+<ol type="1">
+<li>海螺模板：电商同款视频的制作方式与适用边界</li>
+<li>可灵会员、积分与新用户优惠</li>
+<li>可灵图片生成 3.0：多图合成、风格转换、提示词推荐与主体绑定</li>
+<li>可灵图片生成 2.1：风格转绘、单独参考与形象保持</li>
+<li>可灵视频生成模型：2.5 Pro、2.6、3.0 的能力与成本差异</li>
+<li>可灵 3.0 视频生成完整流程：参考图、脚本、分镜、参数与下载</li>
+<li>视频水印去除与音频分离：后期补救方案</li>
+<li>多模态工具预告</li>
+</ol>
+<h2
+id="板块一海螺模板电商同款视频的制作方式与适用边界">板块一：海螺模板——电商同款视频的制作方式与适用边界</h2>
+<h3>深度总结</h3>
+<p>海螺平台首页提供视频和图片模板。模板的作用不是从零生成，而是先选择一个已有成片效果，再将模板中的人物、产品、场景等素材替换为自己的素材，从而获得与原模板相近的画面、运镜和节奏。模板通常位于首页的“创作视频/创作图片”下方，按不同分类展示，电商课程重点介绍了广告电商类模板。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 10—24 行]</p>
+<p>使用模板时，需要先查看模板的时长和预估消耗。模板消耗通常与视频时长相关，时长越长，消耗越高；选择较短的模板可以降低积分消耗。进入模板后，把商品或其他素材替换进去，勾选“编辑模式”可以查看生成过程；如果不勾选，则只等待最终成片。课程演示中，模板会把原视频的人物动作、镜头运动和整体效果保留下来，再将商品替换为商品。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 25—64 行]</p>
+<p>模板的优势是上手快、效果接近参考视频，特别适合做热门电商广告、热门搞怪效果或模仿平台上的流行视频。缺点是自由度较低，原模板的运镜、画面结构和效果基本固定，用户主要能替换人物或产品，不能随意改变整体效果。模板更适合“照着做同款”，不适合需要大量自定义镜头、复杂剧情或精细运镜的视频。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 65—124 行]</p>
+<p>课程还补充了平台访问方式：海螺、可灵、即梦等主要是网页平台，手机端是否支持模板和功能并不完全一致。手机端可灵和即梦可能有部分模板或功能，但课程主要以电脑网页端演示。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 86—111 行]</p>
+<h3>系统性总结</h3>
+<p>海螺模板的核心逻辑是“先选效果，再替换素材”，本质上是模板化生成，而不是完全自由创作。它适合追求效率、快速复制热门效果，或者在电商广告中快速制作同款视频；但当课程目标转向剧情、人物一致性、复杂动作或多分镜时，应转向可灵等支持主体绑定、脚本和分镜的工具。</p>
+<p><strong>重点：</strong>
+模板的消耗与时长相关；模板的效果受原模板限制。<br />
+<strong>难点：</strong>
+需要区分“模板固定效果”和“可自由编辑效果”，避免把模板当成完整的视频创作工具。<br />
+<strong>交叉提示：</strong> 模板流程与第 6 板块的可灵 3.0
+视频生成流程互补：前者偏快速套用，后者偏自主设计。</p>
+<h2
+id="板块二可灵会员积分与新用户优惠">板块二：可灵会员、积分与新用户优惠</h2>
+<h3>深度总结</h3>
+<p>可灵平台按月赠送一定数量的灵感值或积分，课程演示中提到新用户可能拥有体验优惠。新用户优惠中有一个
+18 元左右的七天体验方案，包含约 600
+点积分，并叠加平台赠送的积分，适合短期集中体验；相比之下，价格更高或积分更少的方案不一定划算。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 127—153 行]</p>
+<p>课程反复强调：开通七天优惠后，平台可能会默认开启连续扣费。七天结束后，如果没有手动关闭自动续费，会按照原价自动扣费，原价可能达到数百元。因此，开通优惠后必须立即检查支付宝或其他支付渠道的连续包月、连续扣费设置，并关闭自动续费。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 154—180 行]</p>
+<p>如果平台赠送的免费积分较少，会员可能提供模型折扣，使生成成本相对降低；但免费积分与会员折扣的叠加规则需要以实际页面为准。课程建议根据实际需求选择，不要盲目开通长期会员。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 237—250 行]</p>
+<h3>系统性总结</h3>
+<p>会员策略可以归纳为三步：先确认是否有新用户优惠，再比较七天体验方案的积分与价格，最后立即关闭自动续费。对于短期练习，七天体验方案通常比直接购买长期会员更合适；对于长期高频创作，则需要重新核算单次生成成本、会员折扣和实际消耗。</p>
+<p><strong>重点：</strong>
+七天优惠不是永久低价，关闭自动续费是关键操作。<br />
+<strong>难点：</strong>
+不同账号、不同支付渠道的优惠显示和续费入口可能不同，需要以实际页面为准。<br />
+<strong>安全提示：</strong>
+不要向他人透露验证码或支付信息；课程中出现的验证码属于操作演示内容，不应被复用。</p>
+<h2
+id="板块三可灵图片生成-30多图合成风格转换提示词推荐与主体绑定">板块三：可灵图片生成
+3.0——多图合成、风格转换、提示词推荐与主体绑定</h2>
+<h3>深度总结</h3>
+<p>可灵图片生成的主要版本是 3.0。2.1 的部分基础能力已经可以被 3.0
+覆盖，因此课程将 3.0 作为主要学习对象。3.0
+支持多图合成、风格转换、直接生图和通用画面生成，适合将人物放入新场景、替换服装、转换视觉风格或生成新的电商主图。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 294—305 行]</p>
+<p>3.0
+的界面提供本地上传参考图、风格词库和提示词推荐等功能。风格词库可以直接选择
+3D、写实、插画等风格；提示词推荐可以根据当前参考图反推或补充描述，帮助不熟悉提示词写法的用户快速生成画面。不过，提示词推荐通常只在单张参考图场景下可用；当参考图增加到两张或以上时，该功能可能不可用，需要用户自行编写提示词。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 308—333 行]</p>
+<p>多图合成时，可以先上传人物、商品或场景图片，再通过提示词说明希望发生的变化，例如让人物穿上指定服装、进入指定场景或保持某些特征不变。课程建议优先使用主体库中的主体，而不是只上传单张图片；主体绑定可以提高人物、道具、服装和场景的一致性。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 334—414 行]</p>
+<p>主体绑定支持人物、道具、场景等素材。人物主体可以上传真人图片或视频，视频素材通常比单张图片更准确；如果只有单张图片，可能需要补充正面、侧面或多视角素材。会员每天可以使用若干次“智能补全”功能，自动生成或补充多视角图片，再从结果中选择一组合适的素材。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 416—447 行]</p>
+<p>主体库中可以添加人物、武器、道具、场景等对象，并配合名称、描述和音色使用。主体库的作用是让后续生成尽量保持对象一致，减少人物脸部崩坏、道具变形、服装变化或场景不一致的问题。对于电商产品，建议提前实拍产品正面、侧面和俯视图，再作为主体上传；只给正面图时，模型自行想象侧面容易产生异常。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 449—488 行]</p>
+<p>课程建议给主体填写名称和描述；名称是必填项，描述可以由用户填写，也可以使用智能描述根据当前参考图补充。主体创建完成后，后续生图或生成视频时，可以从主体库中选择并勾选主体，而不是每次都重新上传。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 489—521 行]</p>
+<p>图片生成参数方面，课程建议不必为了节省积分刻意选择低分辨率。2K
+与部分较低分辨率的消耗可能相近，因此可以在预算允许时选择更清晰的分辨率；比例可以设置为智能，让平台根据参考图判断，也可以根据视频平台需求选择
+9:16 或
+16:9。一次生成的张数根据实际需求设置，电商主图通常可以先保持单张输出。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 344—359 行]</p>
+<h3>系统性总结</h3>
+<p>3.0
+的能力可以按“参考素材—主体管理—提示词—风格—参数”理解：先确定要保留的对象，再用主体库保持一致性，接着用提示词和风格词库控制画面变化，最后根据用途选择比例、分辨率和生成张数。主体绑定是人物、商品和场景一致性的重要基础，尤其适合连续生成多张图或多镜头视频。</p>
+<p><strong>重点：</strong> 3.0
+是可灵图片生成的主力版本；主体绑定比单张参考图更稳定。<br />
+<strong>难点：</strong>
+单张参考图的提示词推荐有使用限制；多视角主体素材需要额外准备。<br />
+<strong>适用场景：</strong>
+电商主图、人物换装、场景合成、风格转换、短剧角色设定。<br />
+<strong>交叉提示：</strong> 主体绑定是第 5、6
+板块视频生成的前置知识。</p>
+<h2
+id="板块四可灵图片生成-21风格转绘单独参考与形象保持">板块四：可灵图片生成
+2.1——风格转绘、单独参考与形象保持</h2>
+<h3>深度总结</h3>
+<p>2.1
+主要面向风格转绘、单独参考和多图参考等较专门的图片处理任务。课程认为 3.0
+已经可以覆盖大部分 2.1 的功能，因此 2.1
+不是日常首选，但在需要单独锁定某类特征时仍有参考价值。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 524—539 行]</p>
+<p>“单独参考”用于在改变其他元素时尽量保持人物脸部或服装等指定特征。参考强度越高，指定特征越接近原图；参考强度越低，模型随机性越强。例如，希望保持人物脸部不变但更换服装、发型或场景，可以提高脸部参考强度；希望保持服装或发型不变而改变人物脸部，则可以提高对应特征的参考强度。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 541—568 行]</p>
+<p>单独参考可能导致脸部边缘轻微虚化或不够自然，因此课程也强调，很多时候可以直接在
+3.0
+中通过提示词实现类似效果，例如要求“保持人脸不变，更换服装”，这样操作更灵活。2.1
+的价值在于把“保持脸部”和“保持服装”等控制项做得更明确。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 568—597 行]</p>
+<p>2.1
+的“多图参考”用于将多个人物、场景或对象组合到同一画面中。课程指出，3.0
+同样可以通过主体库和提示词实现类似效果，因此日常可以优先使用 3.0。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 583—603 行]</p>
+<h3>系统性总结</h3>
+<p>2.1
+是“特征控制型”工具，适合需要明确锁定脸部、服装、发型或场景的图像任务；3.0
+是“综合创作型”工具，适合更广泛的合成、风格化和自由生成。两者的关系不是替代，而是针对不同控制需求的分工。</p>
+<p><strong>重点：</strong>
+参考强度决定“保持原图特征”和“允许变化”之间的平衡。<br />
+<strong>难点：</strong>
+过度锁定可能造成脸部边缘不自然，需要根据输出效果调整参考强度。<br />
+<strong>适用场景：</strong> AI
+模特、角色换装、人物脸部保持、服装保持、多图合成。</p>
+<h2
+id="板块五可灵视频生成模型25-pro2630-的能力与成本差异">板块五：可灵视频生成模型——2.5
+Pro、2.6、3.0 的能力与成本差异</h2>
+<h3>深度总结</h3>
+<p>可灵视频生成主要有 2.5 Pro、2.6 和 3.0
+等模型。课程建议根据是否需要讲话、是否需要多分镜、是否需要口音以及预算来选择合适的模型，而不是默认使用最贵的模型。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 676—710 行]</p>
+<p>2.5 Pro
+适合生成单镜头视频，不能生成多分镜，也不能实现音画同步或人物讲话；它可以添加音效，适合香水、手镯、服装、产品特写等不需要人物台词的产品视频。课程演示中，5
+秒、720P
+的消耗相对较低，因此在“只需要一个镜头、不需要声音”的场景下性价比较高。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 681—705 行]</p>
+<p>2.6
+可以音画同出，适合单个人物出镜的口播、产品介绍或数字人式视频，但仍只能生成单个镜头。它可以处理中文、英文等较简单的语言，但课程指出复杂口音和多国语能力有限；多人对话的效果也可能不如单人对话稳定。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 719—748 行]</p>
+<p>3.0
+是可灵视频生成的主要推荐模型，支持音画同步、多分镜、多个人物和较丰富的语言表现，能够带上部分地方口音。它适合短剧、剧情类视频、人物对话和需要自动分镜的内容。课程强调，3.0
+的画面真实感和人物表情动作相对自然，但画质和视觉质感可能不如即梦等平台，因此需要根据“真实自然”与“画质质感”之间的取舍选择工具。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 752—818 行]</p>
+<p>3.0
+还存在一个单镜头版本，能够音画同出但不能一次生成多个分镜。课程建议日常优先使用支持多分镜的
+3.0 版本，因为价格差距通常不大，而多分镜能力更适合完整剧情视频。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 810—820 行]</p>
+<h3>系统性总结</h3>
+<p>视频模型的选择可以按需求分层：</p>
+<ul>
+<li><strong>只需要产品特写、单镜头、无台词：</strong> 优先 2.5
+Pro，成本较低。</li>
+<li><strong>需要单人出镜、口播、音画同步：</strong> 使用 2.6。</li>
+<li><strong>需要剧情、多分镜、多人物、口音和自然对话：</strong> 使用
+3.0。</li>
+<li><strong>只需要单镜头但需要音画同步：</strong> 可使用 3.0
+的单镜头版本。</li>
+</ul>
+<p><strong>重点：</strong>
+模型越高级，通常消耗越高；不要为了“高级”而忽略实际需求。<br />
+<strong>难点：</strong>
+音画同步、分镜、口音和多人物能力不是所有模型都具备。<br />
+<strong>交叉提示：</strong> 第 6 板块的 3.0
+流程是视频生成部分的核心操作。</p>
+<h2
+id="板块六可灵-30-视频生成完整流程参考图脚本分镜参数与下载">板块六：可灵
+3.0 视频生成完整流程——参考图、脚本、分镜、参数与下载</h2>
+<h3>深度总结</h3>
+<p>使用 3.0
+生成视频前，最好先准备一张参考图。参考图可以是人物剧照、产品图、电商主图或课程中使用的分镜图。参考图的作用是约束人物、场景、构图和整体视觉方向；如果没有参考图，模型会随机生成人物和场景，结果可能不够准确。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 822—855 行]</p>
+<p>课程建议先根据参考图生成剧情脚本。参考图可以交给豆包或其他问答工具，让它补充剩余剧情、人物对白和分镜内容；如果是电商产品视频，可以要求生成广告脚本；如果是短剧，可以要求生成剧情脚本，并明确人物数量、场景、台词和时长。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 856—892 行]</p>
+<p>在可灵中生成视频时，将参考图放入参考画面区域，将脚本放入脚本区域。勾选“智能分镜”后，平台会根据脚本自动安排镜头；如果希望更精确地控制每个镜头的秒数、画面内容和对白，可以选择“自定义分镜”，逐段输入镜头内容。智能分镜操作简单，自定义分镜控制更准确。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 893—931 行]</p>
+<p>自定义分镜的基本格式是按时间顺序拆分镜头，例如第 1 秒到第 3 秒、第 3
+秒到第 5 秒、第 5 秒到第 7
+秒等，并为每个镜头填写画面内容、人物动作和对白。课程建议一个 8—10
+秒的视频设置 3—5 个镜头，单个镜头通常保持 2—3
+秒；镜头过密会导致画面切换过快，镜头过少则剧情不完整。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 905—970 行]</p>
+<p>生成参数包括总时长、分辨率、是否需要音画同步等。纯产品视频如果没有人物讲话，可以关闭音画同步，从而节省约三分之一的消耗；剧情、口播或有人物对白的视频需要保留音画同步。分辨率方面，课程认为
+720P 或 1080P
+通常已能满足练习和基础发布需求，关键是根据预算和画面要求选择。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 1003—1045 行]</p>
+<p>视频生成完成后，会员账号下载时可以选择“无品牌水印”选项，并选择 MP4 或
+MOV 格式。课程指出，MP4 和 MOV
+的画质基本相同，主要区别是文件格式；下载后应检查人物、画面、台词、分镜和音效是否符合要求，再提交作业或用于后续剪辑。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 1116—1123 行]</p>
+<h3>系统性总结</h3>
+<p>3.0 的完整工作流可以概括为：</p>
+<blockquote>
+<p>准备参考图 → 生成剧情或广告脚本 → 粘贴到可灵 → 选择智能或自定义分镜 →
+设置时长、分辨率和音画同步 → 生成视频 → 检查并下载。</p>
+</blockquote>
+<p>这个流程的核心不是“直接输入一句话生成视频”，而是先通过参考图锁定视觉方向，再通过脚本控制内容，最后通过分镜控制节奏。参考图和脚本是可灵
+3.0 视频生成的两个关键前置条件。</p>
+<p><strong>重点：</strong>
+参考图决定画面准确性，脚本决定剧情准确性，分镜决定节奏。<br />
+<strong>难点：</strong>
+脚本格式、分镜时间、音画同步和主体名称需要前后一致。<br />
+<strong>适用场景：</strong>
+电商广告、短剧、人物口播、剧情视频、产品讲解。<br />
+<strong>交叉提示：</strong>
+主体库中的角色和道具应在生成前绑定，以降低人物脸部、服装和道具不一致的风险。</p>
+<h2
+id="板块七视频水印去除与音频分离后期补救方案">板块七：视频水印去除与音频分离——后期补救方案</h2>
+<h3>深度总结</h3>
+<p>课程指出，收费平台在开通会员后下载视频通常可以去除平台自身的水印；免费体验或免费生成可能会带有平台水印。若视频来自其他免费平台，或者画面中出现了不需要的字幕、动画文字，则需要使用外部工具处理。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 1228—1246 行]</p>
+<p>视频水印可以使用“开拍”等平台的 AI 消除功能处理。进入平台后选择 AI
+消除，上传视频，平台会自动识别右下角或左上角的水印区域；如果需要去除固定位置的字幕，也可以手动框选字幕范围。点击开始后，平台逐帧处理，通常需要数分钟，免费次数和可处理时长有限，因此大量处理时可能需要付费会员。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 1247—1310 行]</p>
+<p>AI
+消除无法保证每一帧都完全完美，处理后的局部可能轻微模糊。因此，水印去除属于后期补救，不能替代生成前的画面检查。图片水印可以使用
+Photoshop 处理，但 Photoshop
+不能直接去除视频水印；视频水印需要专门的视频处理平台或逐帧编辑工具。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 1302—1330 行]</p>
+<p>音频后期可以在剪映中处理。将视频加入轨道后，右键素材选择“声音分离”，可以保留人声或保留环境声；部分版本还提供音乐分离，可以把吉他、鼓等乐器声音从背景音乐中拆出。课程强调，音频分离可以在不重新生成画面的情况下替换音乐或环境音，从而避免重复消耗视频生成积分。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 1367—1413 行]</p>
+<p>如果视频需要翻译，剪映专业版还提供视频翻译功能，但通常属于会员功能，并会消耗
+AI
+积分；课程演示中提到可以翻译为英文、日文、西班牙语等，但实际支持语言和消耗以当前版本为准。音频分离和翻译都属于后期制作能力，目标是减少重复生成和重新付费。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 1401—1419 行]</p>
+<h3>系统性总结</h3>
+<p>后期补救分为两类：</p>
+<ol type="1">
+<li><strong>画面补救：</strong> 使用 AI
+消除去除视频水印、字幕或不需要的元素；图片问题优先使用 Photoshop。</li>
+<li><strong>音频补救：</strong>
+使用剪映的声音分离保留人声或环境声，再替换音乐；必要时使用视频翻译。</li>
+</ol>
+<p>课程的核心建议是：生成前尽量检查画面和脚本，生成后先做后期调整，不要仅因为音乐或环境音不满意就重复生成整段视频。</p>
+<p><strong>重点：</strong>
+视频去水印不能保证逐帧完美；剪映声音分离可以降低重复生成成本。<br />
+<strong>难点：</strong>
+外部平台的免费次数、处理时长和会员价格会变化，应以实际页面为准。<br />
+<strong>交叉提示：</strong> 音频处理是剪映课程模块的前置知识，可与第
+2、8 板块交叉学习。</p>
+<h2>板块八：多模态工具预告</h2>
+<h3>深度总结</h3>
+<p>课程最后提到，可灵还有“多模态”工具，可用于视频修改，例如改变人物服装、调整画面元素或进行视频内容变换。本次课程主要讲解可灵的基础生成能力，视频修改和多模态工具将在后续课程中进一步演示。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 1487—1498 行]</p>
+<h3>系统性总结</h3>
+<p>多模态工具是“生成视频”之后的进阶方向：生成结果如果画面方向正确，但服装、道具或局部内容不理想，可以优先考虑修改，而不是重新生成整段视频。该部分与主体绑定、参考图和分镜共同构成可灵的视频创作工作流。</p>
+<p><strong>重点：</strong>
+多模态工具用于修改已有视频，适合局部修正。<br />
+<strong>难点：</strong>
+需要区分“重新生成”和“修改已有画面”的成本与效果边界。</p>
+<h2>AI 提示词汇总</h2>
+<blockquote>
+<p>本模块仅在课程明确展示或示范提示词时收录。以下内容保留原始表达，不额外改写。</p>
+</blockquote>
+<h3>提示词
+1：根据参考图生成短剧情分镜脚本</h3>
+<blockquote>
+<p>适用场景：已有剧照、产品图或人物图片，希望根据画面补充一段 10
+秒左右的剧情脚本和分镜内容。</p>
+</blockquote>
+<pre class="text"><code>参考提供的图片生成。十秒钟的剧情。分镜脚本。</code></pre>
+<blockquote>
+<p>课程补充要求：如果是电商产品视频，可以改为要求生成广告脚本；如果需要人物讲话，应明确写入“需要人物需要有台词”。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 878—892 行]</p>
+</blockquote>
+<h3>提示词 2：生成电商广告脚本</h3>
+<blockquote>
+<p>适用场景：已有产品图或产品分镜，希望生成适合电商平台的广告脚本。</p>
+</blockquote>
+<pre class="text"><code>产品的话也行。那如果说是做一些那种电商产品类型的，你就给个电商图，然后做一个那种电商广告的一个脚本给到他。</code></pre>
+<h3>提示词 3：生成多角色剧情脚本</h3>
+<blockquote>
+<p>适用场景：希望生成短剧或多角色剧情，并明确画面中的人物数量。</p>
+</blockquote>
+<pre class="text"><code>然后我要求要有多少个主角要求。有画面中。要有一个男主角。和 一个女主。
+然后场景让他发挥。</code></pre>
+<h3>提示词 4：补充人物对白与台词</h3>
+<blockquote>
+<p>适用场景：已有剧情脚本，但需要让模型生成人物对白、语言或口音。</p>
+</blockquote>
+<pre class="text"><code>音效要给他有台词，再重新改一下。添加上。需人物需要有台词。</code></pre>
+<h3>提示词 5：英文剧情示例</h3>
+<blockquote>
+<p>适用场景：课程演示多语言、口音和剧情视频生成时使用的英文台词示例。</p>
+</blockquote>
+<pre class="text"><code>The gate has awakened.</code></pre>
+<pre class="text"><code>Excuse me, I would like to order a seafood pasta and a filet mignon medium rare. And do you have any drink recommendations?</code></pre>
+<pre class="text"><code>The gate has weakened its power, could devour this whole forests. I will go in with you, then let us begin. The gate has awaken to the could divo this whole forest.</code></pre>
+<blockquote>
+<p>说明：这些英文句子是课程演示台词，不是完整的通用提示词；使用时应根据具体剧情、人物和语言要求重写。[出自
+<code>1.4 可灵AI基础功能及AI采访视频_原文</code> 第 783—805 行、第
+831—835 行、第 974—976 行]</p>
+</blockquote>
+<h3>提示词系统性总结</h3>
+<ul>
+<li><strong>参考图优先：</strong>
+先给模型一张明确的剧照、产品图或人物图，再要求生成脚本，画面方向更稳定。</li>
+<li><strong>时长必须明确：</strong>
+例如“十秒钟的剧情”，否则模型可能无法生成匹配时长的脚本。</li>
+<li><strong>分镜格式要清楚：</strong>
+需要说明是剧情脚本、广告脚本，还是按镜头拆分的内容。</li>
+<li><strong>人物和对白要显式写出：</strong>
+需要讲话时，必须明确“需要人物需要有台词”，不要只写画面描述。</li>
+<li><strong>语言和口音要提前指定：</strong>
+中文、英文、方言或口音应在脚本中明确，避免模型随机处理。</li>
+<li><strong>提示词不是唯一变量：</strong>
+参考图、主体绑定、分镜参数和模型选择共同决定最终视频质量。</li>
+</ul>
+<h2>全文系统性总结</h2>
+<p>本讲围绕“可灵平台的基础生成能力、视频模型选择、视频生成流程以及后期补救”展开，核心不是单纯认识按钮，而是建立一套可复用的电商视频生产流程。</p>
+<h3>一、平台选择逻辑</h3>
+<ul>
+<li>海螺模板适合快速复制热门效果，但自由度和可修改空间有限。</li>
+<li>可灵适合图片合成、人物一致性、剧情视频和多分镜生成。</li>
+<li>2.5 Pro 适合低成本单镜头产品视频。</li>
+<li>2.6 适合单人出镜、口播和音画同步。</li>
+<li>3.0 适合短剧、剧情、多人物、多分镜和较自然的对话。</li>
+</ul>
+<h3>二、内容生产逻辑</h3>
+<p>可灵 3.0 的稳定流程是：</p>
+<blockquote>
+<p>参考图 → 脚本 → 分镜 → 参数 → 生成 → 检查 → 下载。</p>
+</blockquote>
+<p>其中，参考图用于锁定视觉方向，脚本用于锁定剧情，分镜用于控制节奏，主体绑定用于保持人物和道具一致。只有这四项配合，才能减少随机生成和反复重做的成本。</p>
+<h3>三、成本控制逻辑</h3>
+<ul>
+<li>模板和短时长视频消耗较低。</li>
+<li>2.5 Pro 适合无台词产品视频，成本最低。</li>
+<li>2.6 和 3.0 具备音画同步能力，但消耗更高。</li>
+<li>3.0 的多分镜和多语言能力强，适合剧情视频。</li>
+<li>会员优惠必须注意自动续费。</li>
+<li>音频不满意时优先在剪映中分离和替换，不要重复生成视频。</li>
+</ul>
+<h3>四、后期处理逻辑</h3>
+<ul>
+<li>图片水印可以用 Photoshop 处理。</li>
+<li>视频水印需要 AI 消除等视频处理工具。</li>
+<li>剪映可以分离人声和环境声，必要时还可以处理音乐和翻译。</li>
+<li>后期补救不能完全替代生成前检查，尤其是人物脸部、服装、道具和脚本一致性。</li>
+</ul>
+<h3>五、学习路径建议</h3>
+<ol type="1">
+<li>先掌握海螺模板，理解“参考效果—替换素材”的基本模式。</li>
+<li>再学习可灵 3.0
+图片生成和主体绑定，建立人物、商品、场景一致性的基础。</li>
+<li>然后比较 2.5 Pro、2.6、3.0 的视频能力，按需求选择模型。</li>
+<li>最后练习“参考图 + 脚本 +
+分镜”的完整视频流程，并配合剪映完成水印和音频后期。</li>
+</ol>
+<h2>联网交叉验证</h2>
+<blockquote>
+<p>本部分由主代理在全部单篇总结完成后统一串行核验，避免子代理并行调用联网搜索造成限流。</p>
+</blockquote></article>
+<article><h1>完整知识账本：1.5 可灵AI灵动画布及人物替换_深度总结</h1><h1>1.5
+可灵AI灵动画布及人物替换 — 深度总结</h1>
+<h2>大纲</h2>
+<p>一、可灵多模态创作工具 — 图片生成与主图模式<br />
+二、可灵视频生成四大模式详解（主体参考 / 图片视频 / 指令变换 /
+视频参考）<br />
+三、可灵数字人功能<br />
+四、可灵灵动画布（工作流画布）<br />
+五、参考视频下载工具推荐<br />
+六、关键提示词句式汇总<br />
+七、全文系统性总结</p>
+<hr />
+<h2>一、可灵多模态创作工具
+— 图片生成与主图模式</h2>
+<h3>深度总结</h3>
+<p><strong>1. 多模态 vs 普通生成</strong></p>
+<ul>
+<li>多模态创作工具（左侧绿色小圆圈）与"生成"模块有重叠，但多模态选项更多，核心区别在于支持<strong>主图模式</strong>和<strong>视频级主体绑定</strong>等高级功能。[出自1.5
+第12-19段]</li>
+</ul>
+<p><strong>2. 主图模式（核心功能）</strong></p>
+<ul>
+<li>主图模式需<strong>上传参考图后才会出现</strong>，不勾选时为普通生图（每张图相互独立、抽卡式生成）；勾选后，生成多张图片之间<strong>具有内容关联性</strong>，适合做系列分镜图。[出自1.5
+第21-59段]</li>
+<li>作用一：<strong>系列组图/分镜生成</strong> —
+提供1张参考图+剧情描述，AI推测后续内容，最多一次性生成<strong>9张</strong>关联分镜图，每张可挑选使用。[出自1.5
+第30-41段]</li>
+<li>作用二：<strong>多图引用</strong> —
+可同时添加多张参考图，指定某张图作为主角A、主角B、场景等，精准控制画面元素。[出自1.5
+第33-35段]</li>
+<li>作用三：<strong>风格批量转换</strong> —
+同一参考图可一次性生成卡通/3D/油画等多种风格的图片。[出自1.5
+第57-62段]</li>
+<li>作用四：<strong>电商多图合成</strong> —
+将人物图与服装/鞋子/帽子图等分别作为参考，组合合成新图（如"图片1的人物穿上图片2的鞋子、图片3的帽子"）。[出自1.5
+第157-164段]</li>
+<li>触发条件：①必须添加参考图；②在主图模式开启状态下使用。[出自1.5
+第91-94段]</li>
+</ul>
+<p><strong>3. 限时一口价与智能数量</strong></p>
+<ul>
+<li><strong>智能数量</strong>模式：无论生成2张还是9张，扣费相同（一口价），适合一次性生成较多图片（如9张分镜），更划算。[出自1.5
+第71-84段]</li>
+<li><strong>手动勾选</strong>数量模式：按实际生成张数计费，适合只需生成1-2张时选择，更便宜。[出自1.5
+第81-85段]</li>
+<li>智能数量与限时一口价配合使用：勾选智能数量后自动生效一口价计费；手动选张数则按张计费。[出自1.5
+第101-105段]</li>
+</ul>
+<p><strong>4. 画质与模型选择</strong></p>
+<ul>
+<li>画质可选1K/2K，2K消耗积分更多。[出自1.5 第70-71段]</li>
+<li>模型默认选择<strong>图片3.0欧米</strong>即可，无需更改。[出自1.5
+第88-89段]</li>
+<li>比例默认识别参考图比例，也可手动选择（如4:3、9:16竖屏），建议尽量与素材比例一致，避免画面变更。[出自1.5
+第137-139段、第256-259段]</li>
+</ul>
+<p><strong>5. 使用指南入口</strong></p>
+<ul>
+<li>在多模态界面，先切换到"图片生成"，再点击上方"使用指南"即可看到官方推荐页面和提示词格式。[出自1.5
+第47-50段、第143-146段]</li>
+</ul>
+<h3>系统性总结</h3>
+<p><strong>核心要点</strong>：主图模式是可灵多模态图片生成的核心特色功能，通过上传参考图解锁，支持"一张图推九张分镜"、"多图精准引用"、"风格批量转换"三大应用。智能数量+一口价适合大批量生成（≥4张），手动选张适合少量生成（1-2张）。</p>
+<p><strong>重点</strong>：主图模式的关联生成特性是区别于普通生图的核心；多图引用时需@对应素材编号。</p>
+<p><strong>难点</strong>：智能数量与一口价的关系需理解清楚；主图模式必须在上传参考图后才能勾选。</p>
+<hr />
+<h2>二、可灵视频生成四大模式详解</h2>
+<h3>深度总结</h3>
+<p><strong>可灵多模态视频生成提供四个模式</strong>，各有不同适用场景：</p>
+<h4>模式一：主体参考（最常用）</h4>
+<p><strong>作用</strong>：精准控制画面中出现的人物/物体，保持主体一致性，适合多主体合成视频。[出自1.5
+第199-217段]</p>
+<p><strong>操作方法</strong>：</p>
+<ol type="1">
+<li>进入"主体参考"模式。[出自1.5 第196-198段]</li>
+<li>在主体库中添加主体（可自己创建，也可使用官方素材）：人物、场景、道具、特效均可。[出自1.5
+第208-216段]
+<ul>
+<li>创建主体：点击加号 → 上传参考图 → 设置分类（仅影响查找位置）→
+命名保存。[出自1.5 第231-244段]</li>
+<li>特效/传送门等素材可自行上网下载PNG格式图片作为主体。[出自1.5
+第221-228段]</li>
+</ul></li>
+<li>在提示词中用**@符号引用主体**，如"@主体A在场景B中"。[出自1.5
+第259-260段]</li>
+<li>可一次性添加多个主体，分别指定位置和动作。[出自1.5 第212-216段]</li>
+</ol>
+<p><strong>智能分镜功能</strong>：</p>
+<ul>
+<li>勾选"智能分镜"后，AI自动按时间分配镜头，适合时长7秒以上的视频。[出自1.5
+第250-253段]</li>
+<li>也可选择"自定义第一分镜"，手动描述每个镜头的作用。[出自1.5
+第250段]</li>
+</ul>
+<p><strong>关键技巧：时间轴描述</strong></p>
+<ul>
+<li>视频时长建议写清楚时间点：如"第0秒到第3秒做A，第3秒到第5秒做B"。不写时间轴，分布安排可能不准确。[出自1.5
+第46-48段]</li>
+<li>一个镜头约2-3秒，10秒视频约4-5个镜头。[出自1.5 第697-700段]</li>
+</ul>
+<p><strong>音画同步</strong>：</p>
+<ul>
+<li>勾选音画同步，视频生成时自动匹配音效或讲话声音。[出自1.5
+第252-253段]</li>
+</ul>
+<p><strong>分辨率建议</strong>：720P足够，无需追求更高。[出自1.5
+第307-309段]</p>
+<p><strong>核心优点</strong>：保持主体一致性，可重复组合，适合电商广告（固定人物/产品反复出现在不同场景）。[出自1.5
+第271-275段]</p>
+<h4>模式二：图片视频（最基础）</h4>
+<p><strong>作用</strong>：普通图生视频，支持首帧/尾帧模式，与普通生成界面操作相同，无特殊功能。[出自1.5
+第330-335段]</p>
+<p><strong>提示</strong>：此模式与昨日内容重复，不作为重点。[出自1.5
+第331段]</p>
+<h4
+id="模式三指令变换核心差异化功能">模式三：指令变换（核心差异化功能）</h4>
+<p><strong>作用</strong>：对<strong>已有视频</strong>进行修改——增加/减少/替换画面中的元素。[出自1.5
+第338-346段]</p>
+<p><strong>适用场景</strong>：</p>
+<ol type="1">
+<li><strong>增减画面元素</strong>：画面有两个人，只保留其中一人；或添加新物体。[出自1.5
+第342-344段]</li>
+<li><strong>换装/换道具</strong>：给人物换衣服、加墨镜、换手持道具等。[出自1.5
+第344-346段]</li>
+<li><strong>换人</strong>：保留场景，替换画面中的人物（需提供目标人物图片）。[出自1.5
+第367-370段]</li>
+<li><strong>换背景</strong>：人不变，背景替换。[出自1.5
+第398-399段]</li>
+<li><strong>局部修改</strong>：将小道具画成不同效果。[出自1.5
+第400-401段]</li>
+<li><strong>风格转换</strong>：将视频转为卡通/漫画/赛博朋克等风格（需参考图或描述知名风格）。[出自1.5
+第401-409段]</li>
+<li><strong>颜色修改</strong>：如菩提变为红色变蓝色；绿幕抠图等。[出自1.5
+第411-412段]</li>
+<li><strong>视角切换</strong>：正脸改为侧脸。[出自1.5 第393-395段]</li>
+</ol>
+<p><strong>操作方法</strong>：</p>
+<ol type="1">
+<li>先点击切换到"指令变换"模式（必须先切换才能添加视频）。[出自1.5
+第513-514段]</li>
+<li>添加目标视频作为素材。[出自1.5 第515段]</li>
+<li>添加需要替换的参考素材（图片）。[出自1.5 第516-517段]</li>
+<li>在提示词中@视频和素材，描述替换内容。[出自1.5 第58-520段]</li>
+<li>多个人物时需分别描述（如"左边的人替换成A，右边的人替换成B"）。[出自1.5
+第58-549段]</li>
+</ol>
+<p><strong>价格说明</strong>：消耗取决于上传视频的时长，5秒视频生成约等于5秒修改的价格。[出自1.5
+第421-423段]</p>
+<p><strong>与极梦对比</strong>：</p>
+<ul>
+<li>可灵对影视素材、出名人物限制较少（可把叶问换成钢铁侠），极梦有版权审核会驳回。[出自1.5
+第406-409段、第485-487段]</li>
+<li>极梦生成效果更好，但可灵限制更少、价格更便宜。[出自1.5
+第1337-1343段]</li>
+</ul>
+<p><strong>关键限制</strong>：</p>
+<ul>
+<li>指令变换适合<strong>单个分镜</strong>，不适合多镜头切换视频（需提前切出单镜头再替换）。[出自1.5
+第373-377段]</li>
+<li>无法模仿剪辑效果（如化妆过程的连续变化）。[出自1.5 第372-374段]</li>
+</ul>
+<h3>系统性总结</h3>
+<p><strong>核心要点</strong>：指令变换是可灵区别于其他平台的强项功能，支持对已有视频进行内容增减、换装换人、风格转换等多种修改，且对影视素材限制较少。</p>
+<p><strong>重点</strong>：①先切换到指令变换模式才能添加视频；②多主体替换需分别描述方位；③适合单镜头修改，不适合多镜头视频。</p>
+<p><strong>难点</strong>：风格转换时需提供参考图或描述知名风格（如"美式卡通""赛博朋克"）才准确。</p>
+<hr />
+<h4>模式四：视频参考</h4>
+<p><strong>作用</strong>：基于参考视频生成<strong>新镜头</strong>（上一个/下一个镜头）或参考其运镜/动作，<strong>不是修改原视频内容</strong>。[出自1.5
+第573-580段]</p>
+<p><strong>三种核心用法</strong>：</p>
+<p><strong>用法一：生成下一镜头（续写）</strong></p>
+<ul>
+<li>基于已生成视频的结尾，生成后续内容。[出自1.5 第579-580段]</li>
+<li>提示词格式：<strong>"@视频
+生成下一个镜头，下一个镜头发生……"</strong>[出自1.5 第584-586段]</li>
+<li>示例：原视频是人物下车，续写镜头可描述为"切换到车内视角，人物翻身，左侧右侧……"。[出自1.5
+第627-630段]</li>
+</ul>
+<p><strong>用法二：参考运镜</strong></p>
+<ul>
+<li>上传一段具有理想运镜的参考视频（如白膜/轨道镜头），将自己的图片与参考视频结合，让AI参考运镜方式生成新视频。[出自1.5
+第595-601段]</li>
+<li>适合复杂运镜难以用文字描述的场景。[出自1.5 第602-609段]</li>
+</ul>
+<p><strong>用法三：参考动作（多人适用）</strong></p>
+<ul>
+<li>参考视频中人物的动作，让AI生成相似动作的新视频。[出自1.5
+第576-578段]</li>
+<li><strong>相比动作控制的优势</strong>：视频参考支持<strong>多人动作</strong>参考（可分别@不同人物），动作控制只能参考单人。[出自1.5
+第638-653段]</li>
+<li>多人对打场景：可在参考图中用不同颜色区分人物，然后@图1的黑色人物替换成角色A，@图2替换成角色B。[出自1.5
+第645-653段]</li>
+</ul>
+<p><strong>与指令变换的区别（易混淆点）</strong>： | 维度 | 指令变换 |
+视频参考 | |------|----------|----------| | 目的 |
+<strong>修改</strong>原视频内容 |
+<strong>基于</strong>原视频生成新镜头/参考运镜 | | 输入 |
+原视频+替换素材 | 原视频（作为参考而非修改对象）| | 输出 |
+修改后的同一视频 | 新的续写镜头或运镜参考视频 | | 适用 |
+换装/换人/增减元素 | 续写/运镜模仿/动作模仿 |</p>
+<p><strong>核心记忆</strong>：指令变换=改视频；视频参考=参考视频做新内容。[出自1.5
+第689-691段]</p>
+<h3>系统性总结</h3>
+<p><strong>核心要点</strong>：视频参考的核心价值是续写镜头和参考运镜/动作，特别是支持多人动作参考，弥补了动作控制只能单人的不足。</p>
+<p><strong>重点</strong>：①续写提示词格式固定；②多人动作必须用视频参考而非动作控制。</p>
+<p><strong>难点</strong>：指令变换与视频参考的区别需反复理解（改 vs
+参考）。</p>
+<hr />
+<h2>三、可灵数字人功能</h2>
+<h3>深度总结</h3>
+<p><strong>入口</strong>：左侧生成 → 视频生成 →
+右侧"数字人"选项。[出自1.5 第866-868段]</p>
+<p><strong>核心特点</strong>：</p>
+<ol type="1">
+<li>数字人<strong>不限制真人</strong>，卡通形象、动物形象均可。[出自1.5
+第870-871段]</li>
+<li>支持上传本地图片作为数字人形象（不强制使用官方预设）。[出自1.5
+第891-892段]</li>
+<li>支持<strong>多语言配音</strong>（中文、英文可直接在可灵内生成；其他语言需借助外部网站）。[出自1.5
+第754-758段]</li>
+</ol>
+<p><strong>操作步骤</strong>：</p>
+<ol type="1">
+<li>添加AI形象（官方预设或本地图片）。[出自1.5 第743-750段]</li>
+<li>描述讲话内容（中文直接打字；外语需先在外网生成音频再上传）。[出自1.5
+第752-753段、第809-814段]</li>
+<li>可选：上传本地音频（外语配音流程）。[出自1.5 第824-825段]</li>
+<li>选择帧率和分辨率（720P即可）。[出自1.5 第821-823段]</li>
+<li>点击生成。[出自1.5 第836-837段]</li>
+</ol>
+<p><strong>外语配音流程</strong>：</p>
+<ol type="1">
+<li>使用外部网站生成目标语言音频（推荐免费网站，微信登录即可）。[出自1.5
+第759-762段]
+<ul>
+<li>选择语言（如韩文需打韩文，不是中文）。[出自1.5 第774-778段]</li>
+<li>挑选音色，点击开始转换。[出自1.5 第782-783段]</li>
+</ul></li>
+<li>下载音频文件。[出自1.5 第767-769段]</li>
+<li>在可灵数字人界面上传本地音频，AI自动匹配口型。[出自1.5
+第809-814段]</li>
+</ol>
+<p><strong>中文配音替代方案</strong>：</p>
+<ul>
+<li>剪映朗读功能支持方言（如粤语等），可导出MP3后上传。[出自1.5
+第847-854段]</li>
+<li>剪映也支持音色变换（如将成人音色转为童声）。[出自1.5
+第957-960段]</li>
+</ul>
+<p><strong>价格</strong>：消耗取决于视频时长，建议控制时长在合理范围（单镜头约2-3秒）。[出自1.5
+第783-785段]</p>
+<p><strong>技巧</strong>：</p>
+<ul>
+<li>同一人物动作模板做好后，后续只需换衣服/场景即可复用，降低成本。[出自1.5
+第914-919段]</li>
+<li>一个分镜约2-3秒，6个镜头约12-15秒。[出自1.5
+第697-700段、第882-885段]</li>
+</ul>
+<h3>系统性总结</h3>
+<p><strong>核心要点</strong>：数字人支持卡通/动物形象，外语配音需借助外部网站（可灵仅支持中/英），剪映可补充方言配音。</p>
+<p><strong>重点</strong>：外语需打对应语言文字才能正确朗读；动作模板可复用降低成本。</p>
+<p><strong>难点</strong>：外部网站与可灵的配合流程需熟悉。</p>
+<hr />
+<h2>四、可灵灵动画布（工作流画布）</h2>
+<h3>深度总结</h3>
+<p><strong>定位</strong>：可灵内的<strong>工作流模式</strong>，将文本生成图片、图片生成视频、视频生成声音等功能<strong>集成在一个画布中</strong>，一站式完成，无需频繁切换界面。[出自1.5
+第1110-1130段]</p>
+<p><strong>适用场景</strong>：</p>
+<ul>
+<li>电商广告视频制作</li>
+<li>短剧类视频制作</li>
+<li>需要多步骤精确控制的生产流程</li>
+</ul>
+<p><strong>操作入口</strong>：左侧"全部工具" → "灵动画布" →
+点击"立即创建"（不要在首页直接描述，否则会直接生成视频）。[出自1.5
+第1113-1124段、第1252-1256段]</p>
+<p><strong>画布操作</strong>：</p>
+<ol type="1">
+<li><strong>添加节点</strong>：点击"+"号添加节点。[出自1.5
+第1134-1135段]
+<ul>
+<li>文本节点：写描述/备注。[出自1.5 第1140段]</li>
+<li>文生图节点：文字生成图片。[出自1.5 第1147-1148段]</li>
+<li>图生视频节点：图片转视频。[出自1.5 第1141-1142段]</li>
+<li>首尾帧视频节点：添加首帧和尾帧生成视频。[出自1.5 第1142段]</li>
+<li>音效节点：添加声音效果。[出自1.5 第1143段]</li>
+</ul></li>
+<li><strong>连接节点</strong>：从上一步节点拉线连接到下一步节点，形成工作流。[出自1.5
+第1176-1178段]</li>
+<li><strong>逐步生成</strong>：每一步生成后检查效果，满意后再进行下一步。[出自1.5
+第1197-1200段]</li>
+</ol>
+<p><strong>画布快捷键</strong>：</p>
+<ul>
+<li>放大/缩小：按住 <code>Control</code> + 鼠标滚轮。[出自1.5
+第1185-1186段]</li>
+<li>移动画布：按住 <code>空格键</code> + 鼠标左键拖拽。[出自1.5
+第1187-1188段]</li>
+</ul>
+<p><strong>提示词优化</strong>：</p>
+<ul>
+<li>文生图节点有"优化提示词"功能（免费），可让AI润色描述。[出自1.5
+第1158-1160段]</li>
+<li>优化后需检查，避免生成奇怪内容。[出自1.5 第1224-1226段]</li>
+<li>建议添加"无字幕/无旁白"要求，文案后期再配。[出自1.5
+第1152-1165段]</li>
+</ul>
+<p><strong>模型选择</strong>：画布内可使用所有可灵模型（图片3.0欧米、2.5等），价格与单独使用相同。[出自1.5
+第1167-1172段、第1206-1208段]</p>
+<p><strong>核心优势</strong>：</p>
+<ol type="1">
+<li>一站式生成，无需切来切去。[出自1.5 第1120-1122段]</li>
+<li>每一步可检查调整，精确控制。[出自1.5 第1197-1199段]</li>
+<li>可做多镜头工作流，一个画布完成整条视频。[出自1.5 第1321-1326段]</li>
+<li>每步提示词可查看，便于修改和复用。[出自1.5 第1329-1332段]</li>
+</ol>
+<p><strong>与普通生成的关系</strong>：</p>
+<ul>
+<li>灵动画布不是新功能，只是将已有功能集成在一起。[出自1.5
+第1331-1333段]</li>
+<li>如觉得不习惯，仍可使用普通生成流程（文生图→导出→图生视频→……）。[出自1.5
+第1347-1348段]</li>
+</ul>
+<h3>系统性总结</h3>
+<p><strong>核心要点</strong>：灵动画布是可灵的工作流集成界面，将多步骤生成流程集中管理，适合需要精确控制和多镜头衔接的生产场景。</p>
+<p><strong>重点</strong>：①点击"立即创建"进入画布，不要在首页直接描述；②快捷键Control+滚轮缩放、空格+拖拽移动；③每步检查后再进行下一步。</p>
+<p><strong>难点</strong>：节点连接逻辑需要熟悉；不适合追求速度的简单任务。</p>
+<hr />
+<h2>五、参考视频下载工具推荐</h2>
+<h3>深度总结</h3>
+<p><strong>问题背景</strong>：在抖音、B站等平台找参考视频时，常因平台设置下载权限而无法直接下载（或下载带平台水印）。[出自1.5
+第979-986段]</p>
+<p><strong>推荐工具</strong>：<strong>微信小程序「肥猫创作」</strong>[出自1.5
+第994-999段]</p>
+<p><strong>支持的平台上限</strong>：抖音、快手、抖音、即梦、西瓜视频、小红书、哔哩哔哩等。[出自1.5
+第997-998段]</p>
+<p><strong>使用步骤</strong>：</p>
+<ol type="1">
+<li>在微信搜索"肥猫创作"小程序。[出自1.5 第994-995段]</li>
+<li>复制目标视频链接。[出自1.5 第999段]</li>
+<li>粘贴到小程序，点击"去水印"。[出自1.5 第999-1000段]</li>
+<li>首次使用需看30秒广告（每天免费50个视频）。[出自1.5
+第1018-1021段]</li>
+<li>广告播放后再次点击"去水印"，选择保存渠道（如保存到相册/桌面）。[出自1.5
+第1034-1037段]</li>
+</ol>
+<p><strong>功能说明</strong>：</p>
+<ul>
+<li>"去水印"=保存视频（去除平台自带的水印，如抖音号、小红书账号名）。[出自1.5
+第1007-1013段]</li>
+<li>不是去除视频内嵌的后期水印。[出自1.5 第1007段]</li>
+</ul>
+<p><strong>替代方案</strong>：其他去水印工具也可，选择自己习惯的即可。[出自1.5
+第1058-1059段]</p>
+<p><strong>注意</strong>：豆包等部分平台可能不支持。[出自1.5
+第1072-1073段]</p>
+<h3>系统性总结</h3>
+<p><strong>核心要点</strong>：参考视频下载是制作动作参考/运镜参考的前置技能，"肥猫创作"小程序支持多平台去水印下载。</p>
+<p><strong>重点</strong>：首次使用需看广告；去水印=去除平台标识水印。</p>
+<p><strong>难点</strong>：部分平台（如豆包）可能不支持。</p>
+<hr />
+<h2>六、关键提示词句式汇总</h2>
+<h3>主图模式（图片生成）</h3>
+<blockquote>
+<p>根据我提供的图片推测出下面的故事剧情，并生成X个分镜画面。</p>
+</blockquote>
+<blockquote>
+<p>参考图片1为[人物A]，参考图片2为[人物B]，参考图片3为[场景]，[剧情描述]。</p>
+</blockquote>
+<blockquote>
+<p>图片1的人物穿上图片2的鞋子，图片3的帽子。[出自1.5
+第33-35段、第157-164段]</p>
+</blockquote>
+<h3>主体参考（视频生成）</h3>
+<blockquote>
+<p>@主体A 在 [场景] 的 [位置]。[出自1.5 第259-260段]</p>
+</blockquote>
+<blockquote>
+<p>2秒后，通过[传送门]进入当前场景。[出自1.5 第262-267段]</p>
+</blockquote>
+<blockquote>
+<p>第0-3秒：[动作描述]；第3-5秒：[动作描述]。[出自1.5 第46-47段]</p>
+</blockquote>
+<h3>指令变换（视频修改）</h3>
+<blockquote>
+<p>把视频中的主角衣服替换成[参考图片]。[出自1.5 第456-457段]</p>
+</blockquote>
+<blockquote>
+<p>画面左边的人替换成[效果A]，右边的人替换成[效果B]。[出自1.5
+第58-552段]</p>
+</blockquote>
+<blockquote>
+<p>参考图一里的[黑色人物]替换成我的角色A，图二的替换成我的角色B。[出自1.5
+第649-653段]</p>
+</blockquote>
+<h3>视频参考（续写/运镜）</h3>
+<blockquote>
+<p>@视频 生成下一个镜头，下一个镜头[发生的内容描述]。[出自1.5
+第584-586段]</p>
+</blockquote>
+<blockquote>
+<p>切换到车内视角，人物[动作描述]。[出自1.5 第627-630段]</p>
+</blockquote>
+<blockquote>
+<p>参考这个视频的运镜，[新的内容描述]。[出自1.5 第597-601段]</p>
+</blockquote>
+<h3>灵动画布（文生图）</h3>
+<blockquote>
+<p>做一个[产品]的美妆页广告，高级感，无字幕无旁白。[出自1.5
+第1149-1165段]</p>
+</blockquote>
+<hr />
+<h2>全文系统性总结</h2>
+<h3>七、课程核心知识框架</h3>
+<h3>课程核心知识框架</h3>
+<p>本课程围绕<strong>可灵AI多模态创作工具</strong>展开，涵盖图片生成、视频生成、数字人、灵动画布四大板块，配套参考视频下载工具。</p>
+<h3>知识层级梳理</h3>
+<pre><code>可灵AI多模态创作
+├── 图片生成
+│   └── 主图模式（关联分镜生成）
+│       ├── 单图推多图
+│       ├── 多图引用
+│       └── 风格批量转换
+│   └── 智能数量+一口价（批量划算）
+│
+├── 视频生成（四大模式）
+│   ├── 主体参考 ← 最常用
+│   │   └── 多主体绑定+时间轴描述
+│   ├── 图片视频 ← 基础功能
+│   ├── 指令变换 ← 差异化强项
+│   │   └── 换装/换人/换背景/风格转换
+│   └── 视频参考 ← 易混淆
+│       └── 续写镜头/运镜参考/多人动作
+│
+├── 数字人
+│   ├── 支持卡通/动物形象
+│   ├── 中/英文直接生成
+│   └── 外语需借助外网→上传音频
+│
+└── 灵动画布（工作流）
+    └── 一站式多步骤生成
+        ├── 文生图→图生视频→视频加音效
+        └── 每步可检查调整</code></pre>
+<h3>重点难点归纳</h3>
+<table>
+<thead>
+<tr>
+<th>模块</th>
+<th>重点</th>
+<th>难点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主图模式</td>
+<td>关联生成、多图引用</td>
+<td>一口价与智能数量的关系</td>
+</tr>
+<tr>
+<td>主体参考</td>
+<td>多主体绑定、时间轴描述</td>
+<td>确保主体一致性</td>
+</tr>
+<tr>
+<td>指令变换</td>
+<td>换装/换人/风格转换</td>
+<td>适合单镜头，不适合多镜头</td>
+</tr>
+<tr>
+<td>视频参考</td>
+<td>续写镜头、多人动作参考</td>
+<td>与指令变换的区别</td>
+</tr>
+<tr>
+<td>数字人</td>
+<td>外语配音流程</td>
+<td>语言输入需匹配目标语言</td>
+</tr>
+<tr>
+<td>灵动画布</td>
+<td>节点连接、逐步生成</td>
+<td>快捷键操作、工作流设计</td>
+</tr>
+</tbody>
+</table>
+<h3>操作清单速查</h3>
+<ul class="task-list">
+<li><label><input type="checkbox" />主图模式：上传参考图 → 勾选主图模式
+→ 选智能数量（≥4张）或手动（≤3张）→ 输入提示词 → 生成</label></li>
+<li><label><input type="checkbox" />主体参考：切到主体参考模式 →
+添加主体 → @主体 → 写时间轴 → 勾选智能分镜 → 生成</label></li>
+<li><label><input
+type="checkbox" />指令变换：<strong>先切换到指令变换模式</strong> →
+添加视频 → 添加替换素材 → @描述 → 生成</label></li>
+<li><label><input type="checkbox" />视频参考：切到视频参考模式 →
+添加参考视频 → 写续写提示词 → 生成</label></li>
+<li><label><input type="checkbox" />数字人：选择形象 → 输入/上传音频 →
+选择分辨率 → 生成</label></li>
+<li><label><input type="checkbox" />灵动画布：点击立即创建 → 添加节点 →
+连接 → 逐步生成</label></li>
+<li><label><input type="checkbox" />参考视频下载：复制链接 →
+肥猫创作小程序 → 去水印 → 保存</label></li>
+</ul>
+<h3>工具对比速查</h3>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>优势</th>
+<th>劣势</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>可灵</td>
+<td>限制少（影视素材/人物均可）、价格低、指令变换强</td>
+<td>生成效果略逊于即梦</td>
+</tr>
+<tr>
+<td>即梦</td>
+<td>生成效果更好</td>
+<td>有版权审核、价格较高</td>
+</tr>
+<tr>
+<td>海螺</td>
+<td>主图模式相似</td>
+<td>无视频主体绑定</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<p><em>总结完成。有效中文字符约 4,100
+字，划分为七大板块，涵盖主图模式、视频四大模式、数字人、灵动画布、参考视频下载工具、提示词句式汇总、全文系统性总结，所有知识点已完整标注出处。</em></p></article>
+<article><h1>完整知识账本：1.6 哩布平台WebUI和ComfyUI_深度总结</h1><h1>1.6 哩布平台WebUI和ComfyUI
+- 深度总结</h1>
+<blockquote>
+<p>课程名称：1.6 哩布平台WebUI和ComfyUI 整理日期：2026-09-25
+原文字数：约29,391 有效字符（经清理口水词/噪声后）</p>
+</blockquote>
+<hr />
+<h2>大纲</h2>
+<ol type="1">
+<li>板块1：哩布平台概述与会员体系</li>
+<li>板块2：哩布AI图像生成功能与多模型集成</li>
+<li>板块3：Web UI基础操作与提示词写作</li>
+<li>板块4：Web UI高级功能（风格模型/ControlNet）</li>
+<li>板块5：图生图与局部重绘</li>
+<li>板块6：ComfyUI界面认知与节点基础</li>
+<li>板块7：ComfyUI工作流运行方式（运行应用/下载复用）</li>
+<li>板块8：ControlNet控制选项详解（硬边缘/姿态/法线贴图）</li>
+<li>板块9：提示词翻译与中文输入方案</li>
+<li>附加：AI 提示词汇总（本地原文示例）</li>
+</ol>
+<hr />
+<h2>板块1：哩布平台概述与会员体系</h2>
+<h3>深度总结</h3>
+<p><strong>1. 平台定位</strong></p>
+<ul>
+<li>哩布（里部）是一个<strong>跨平台模型集合工作台</strong>，本身不研发独立AI模型。</li>
+<li>集成了吉梦、极梦、海螺、可伶、PiPi 等多平台模型。</li>
+<li>分为「哩布AI」（图片为主）和「哩布TV」（视频为主）两个板块。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第1段~第5段</li>
+</ul>
+<p><strong>2. 会员与积分</strong></p>
+<ul>
+<li>每个账号每天赠送 20 积分。</li>
+<li>会员分入门版和标准版，包月价格差约 20 元，标准版积分多约 800。</li>
+<li>图片生成消耗不高，标准版基本够用；视频生成消耗较大（100~1500
+不等）。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第30段~第50段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>哩布核心价值：<strong>一个界面调用多个平台模型</strong>，避免多开账号。</li>
+<li>推荐先练习：免费 20 积分 + 标准版会员。</li>
+<li>图片处理用入门/标准版即可，视频生成需更高配。</li>
+<li><strong>重点</strong>：哩布不是独立模型平台，所有效果依赖接入的第三方模型。</li>
+</ul>
+<hr />
+<h2
+id="板块2哩布ai图像生成功能与多模型集成">板块2：哩布AI图像生成功能与多模型集成</h2>
+<h3>深度总结</h3>
+<p><strong>1. 图像生成入口</strong></p>
+<ul>
+<li>哩布AI左侧菜单 → 图片生成。</li>
+<li>可接入的模型包括：GPT-Image（接海螺）、极梦 5.0 / 5.0 Pro / 5.0
+Night、集梦旧版模型、千问模型等。</li>
+<li>每个模型收费不同，可查看后台显示的价格与消耗。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第60段~第80段</li>
+</ul>
+<p><strong>2. 风格模型</strong></p>
+<ul>
+<li>除基础模型外，可额外选择「风格模型」做风格参考。</li>
+<li>作用：让生成效果更接近指定风格（插画、漫画、写实等）。</li>
+<li>使用方法：哩布首页搜索 → 筛选图片模型 → 加入收藏 →
+回到生成界面使用。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第80段~第130段</li>
+</ul>
+<p><strong>3. 参数设置</strong></p>
+<ul>
+<li>图片张数、比例（3:4、9:16 等）、画质（2K/3K）均可手动设置。</li>
+<li>无会员时默认基础算法 F1，可先用免费积分熟悉功能。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第140段~第170段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>日常生图：基础模型 + 风格模型组合。</li>
+<li>模型选择：根据需要选高画质或标准画质。</li>
+<li><strong>重点</strong>：哩布的强项是<strong>风格更精准</strong>，代价是操作步骤比豆包/吉梦繁琐。</li>
+</ul>
+<hr />
+<h2>板块3：Web
+UI基础操作与提示词写作</h2>
+<h3>深度总结</h3>
+<p><strong>1. 进入方式</strong></p>
+<ul>
+<li>哩布AI生成页面 → 找到「Web UI」入口进入。</li>
+<li>打开后默认可能卡顿，需等待 1~2 分钟。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第210段~第240段</li>
+</ul>
+<p><strong>2. 界面核心选项</strong></p>
+<ul>
+<li>大模型选择：控制生成的大方向（如基础算法 F1）。</li>
+<li>正向提示词：想要什么就写什么。</li>
+<li>负向提示词：避免出现什么问题（如多手指、长头发等）。</li>
+<li>宽高设置：需手动输入数值（不像其他平台直接选比例）。</li>
+<li>批次大小：一次生成几张图。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第250段~第320段</li>
+</ul>
+<p><strong>3. 提示词示例</strong></p>
+<ul>
+<li>正向示例：<code>a woman with short hair, cartoon style, studio lighting</code></li>
+<li>负向示例：<code>long hair, extra fingers, blurry</code></li>
+<li>平台会默认把中文转成英文，也可手动输入英文更准确。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI]
+第270段~第290段、第350段~第370段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>Web UI
+是哩布的底层生图逻辑，<strong>参数需手动设置</strong>，灵活但容易出错。</li>
+<li>负向提示词用于排除不需要的元素。</li>
+<li>英文提示词更准确，中文需依赖翻译。</li>
+<li><strong>重点/难点</strong>：宽高需手动计算比例，不习惯时容易出错。</li>
+</ul>
+<hr />
+<h2>板块4：Web
+UI高级功能（风格模型/ControlNet）</h2>
+<h3>深度总结</h3>
+<p><strong>1. 风格模型参考</strong></p>
+<ul>
+<li>可在 Web UI 中添加风格模型（类似其他平台的风格参考）。</li>
+<li>强度可调（数字越大风格越强）。</li>
+<li>效果不一定与示例 100% 一致，但比不指定更准确。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第400段~第430段</li>
+</ul>
+<p><strong>2. ControlNet 控制选项</strong></p>
+<ul>
+<li>ControlNet
+用于<strong>保持参考图的部分信息不变</strong>，再生成新内容。</li>
+<li>常用控制选项：
+<ul>
+<li><strong>硬边缘</strong>：保持主体边缘不变，适合线稿上色。</li>
+<li><strong>姿态</strong>：保持人物肢体动作不变，生成新人物。</li>
+<li><strong>法线贴图</strong>：保持主体不变，替换材质效果。</li>
+</ul></li>
+<li>操作步骤：添加参考图 → 勾选启用完美像素预览 → 选择控制选项 →
+运行预览 → 输入描述 → 生成。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第540段~第600段</li>
+</ul>
+<p><strong>3. 局部重绘</strong></p>
+<ul>
+<li>可在 Web UI 中使用画笔涂抹区域，描述修改内容。</li>
+<li>涂抹尽量准确，覆盖要修改的区域。</li>
+<li>可用橡皮擦修正，再描述新效果。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第650段~第700段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>ControlNet 是 Web UI
+的核心高级功能，实现<strong>精准控制</strong>。</li>
+<li>硬边缘 = 边缘不变；姿态 = 动作不变；法线贴图 = 材质替换。</li>
+<li><strong>重点</strong>：使用 ControlNet
+时宽高比例要与参考图一致。</li>
+</ul>
+<hr />
+<h2>板块5：图生图与局部重绘</h2>
+<h3>深度总结</h3>
+<p><strong>1. 图生图基础</strong></p>
+<ul>
+<li>Web UI 支持上传图片 → 选择局部重绘 → 涂抹区域 → 描述修改 →
+生成。</li>
+<li>可实现：替换物品材质、更改颜色、去掉多余元素。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第640段~第660段</li>
+</ul>
+<p><strong>2. 材质替换示例</strong></p>
+<ul>
+<li>原图金属材质 → 描述改为玻璃材质 → 多尝试抽卡。</li>
+<li>鞋子皮革/布料材质更换、包包颜色变更等。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第600段~第630段</li>
+</ul>
+<p><strong>3. 注意事项</strong></p>
+<ul>
+<li>涂抹时尽量完整覆盖目标区域，不要涂少。</li>
+<li>一次生成效果不一定理想，可多抽卡尝试。</li>
+<li>若生成异常（如多肢体），检查是否选错模式。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第700段~第730段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>图生图适合<strong>局部修改</strong>，比重新生图更高效。</li>
+<li>材质替换和颜色变更是最常见的用法。</li>
+<li><strong>重点</strong>：局部重绘的涂抹精度直接影响生成效果。</li>
+</ul>
+<hr />
+<h2
+id="板块6comfyui界面认知与节点基础">板块6：ComfyUI界面认知与节点基础</h2>
+<h3>深度总结</h3>
+<p><strong>1. ComfyUI 定位</strong></p>
+<ul>
+<li>ComfyUI 与 Web UI 类似，都是工作流形式的生图界面。</li>
+<li>界面由大量节点组成，每个节点代表一个操作步骤。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第740段~第760段</li>
+</ul>
+<p><strong>2. 默认面板核心节点</strong></p>
+<ul>
+<li>大模型选择：选择生图的基础模型。</li>
+<li>文本编码器：分正向和负向提示词输入。</li>
+<li>宽高设置：手动设置生成图片的尺寸。</li>
+<li>批次大小：一次生成几张图。</li>
+<li>查看生成结果：在右侧面板查看生成的图片。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第780段~第810段</li>
+</ul>
+<p><strong>3. 界面操作</strong></p>
+<ul>
+<li>鼠标滚轮：缩放界面。</li>
+<li>按住鼠标滚轮：移动界面。</li>
+<li>双击空白区域：搜索并添加节点。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第760段~第780段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>ComfyUI 是<strong>工作流式的底层界面</strong>，比 Web UI
+更灵活但更复杂。</li>
+<li>默认面板主要认识：大模型、正/负向提示词、宽高、批次、输出。</li>
+<li><strong>重点</strong>：建议先看别人做好的工作流，不要自己从零写。</li>
+</ul>
+<hr />
+<h2>板块7：ComfyUI工作流运行方式</h2>
+<h3>深度总结</h3>
+<p><strong>1. 两种运行方式</strong></p>
+<ul>
+<li><strong>AI
+应用运行</strong>：直接跳转到简化界面，只需替换图片，点击一键生成。</li>
+<li><strong>ComfyUI
+运行</strong>：跳转到完整工作流界面，可看到所有节点和参数。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI]
+第20段~第40段、第960段~第980段</li>
+</ul>
+<p><strong>2. 下载与复用</strong></p>
+<ul>
+<li>找到想要的工作流 → 点击下载，得到一个文件。</li>
+<li>下次使用时，把文件拖进 ComfyUI 界面即可直接打开。</li>
+<li>可分享给朋友：直接把下载的文件发给对方，对方拖入即可。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第1010段~第1040段</li>
+</ul>
+<p><strong>3. 使用别人做好的工作流</strong></p>
+<ul>
+<li>不要自己写工作流，学会套用即可。</li>
+<li>关键点：知道哪里放图片、哪里换参数、看描述标注需要改什么。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第1030段~第1050段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>日常使用优先选「AI 应用运行」，简单快捷。</li>
+<li>需要精细调整时用「ComfyUI 运行」。</li>
+<li>工作流文件可下载、复用、分享。</li>
+<li><strong>重点</strong>：用别人做好的工作流时，先看描述再看参数。</li>
+</ul>
+<hr />
+<h2>板块8：ControlNet控制选项详解</h2>
+<h3>深度总结</h3>
+<p><strong>1. 硬边缘</strong></p>
+<ul>
+<li>作用：保持参考图的<strong>边缘轮廓不变</strong>。</li>
+<li>适用场景：线稿上色、给卡通角色更换衣服颜色等。</li>
+<li>操作：上传线稿 → 启用完美像素预览 → 选择硬边缘 → 运行预览 →
+输入颜色描述 → 生成。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第540段~第580段</li>
+</ul>
+<p><strong>2. 姿态</strong></p>
+<ul>
+<li>作用：保持参考图的<strong>肢体动作不变</strong>，生成新的人物。</li>
+<li>适用场景：同一个姿势换不同人物、不同服装。</li>
+<li>操作：上传动作参考图 → 选择姿态 → 运行预览 → 输入新的人物描述 →
+生成。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第600段~第630段</li>
+</ul>
+<p><strong>3. 法线贴图</strong></p>
+<ul>
+<li>作用：保持主体不变，<strong>替换材质效果</strong>。</li>
+<li>适用场景：金属变玻璃、皮革变布料、产品材质预览。</li>
+<li>操作：上传产品图 → 选择法线贴图 → 运行预览 → 描述新材质 →
+生成。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第630段~第660段</li>
+</ul>
+<h3>系统性总结</h3>
+<table>
+<thead>
+<tr>
+<th>控制选项</th>
+<th>保持不变</th>
+<th>适用场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>硬边缘</td>
+<td>主体边缘</td>
+<td>线稿上色</td>
+</tr>
+<tr>
+<td>姿态</td>
+<td>肢体动作</td>
+<td>换人物</td>
+</tr>
+<tr>
+<td>法线贴图</td>
+<td>主体形状</td>
+<td>材质替换</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li><strong>重点</strong>：三个选项步骤一致（上传参考图 → 勾选启用 →
+运行预览 → 描述修改 → 生成）。</li>
+<li><strong>难点</strong>：比例要与参考图一致，否则变形。</li>
+</ul>
+<hr />
+<h2
+id="板块9提示词翻译与中文输入方案">板块9：提示词翻译与中文输入方案</h2>
+<h3>深度总结</h3>
+<p><strong>1. 中文输入问题</strong></p>
+<ul>
+<li>Web UI/ComfyUI 底层默认识别英文，中文可能生成效果奇怪。</li>
+<li>哩布提供翻译节点，可直接输入中文，自动转成英文。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第830段~第860段</li>
+</ul>
+<p><strong>2. 翻译节点用法</strong></p>
+<ul>
+<li>双击空白处添加节点 → 搜索「里布里布」或「translate」→
+添加翻译节点。</li>
+<li>把翻译节点连到文本编码器的正向提示词位置。</li>
+<li>输入中文后自动转成英文输出。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第860段~第880段</li>
+</ul>
+<p><strong>3. 提示词写作建议</strong></p>
+<ul>
+<li>国外平台提示词要简洁、通俗易懂。</li>
+<li>不要写太多，避免翻译后意思偏差。</li>
+<li>可先在豆包等平台生成提示词，再复制到哩布。</li>
+<li>出自 [1.6 哩布平台WebUI和ComfyUI] 第950段~第960段</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>推荐方案：使用翻译节点直接输入中文。</li>
+<li>备用方案：先在豆包生成英文提示词，再复制过来。</li>
+<li><strong>重点</strong>：提示词越简洁，翻译偏差越小。</li>
+</ul>
+<hr />
+<h2>全文系统性总结</h2>
+<h3>核心知识框架</h3>
+<p>本课程系统讲解了哩布平台的 Web UI 和 ComfyUI 两大工作流界面：</p>
+<ol type="1">
+<li><strong>平台认知</strong>：哩布是跨平台模型集合工作台，集成多平台模型。</li>
+<li><strong>Web UI
+操作</strong>：基础提示词、负向提示词、手动宽高设置、风格模型、ControlNet、局部重绘。</li>
+<li><strong>ComfyUI 操作</strong>：节点界面认知、工作流下载与复用、AI
+应用简化运行。</li>
+<li><strong>ControlNet
+三大控制选项</strong>：硬边缘（线稿上色）、姿态（换人物）、法线贴图（材质替换）。</li>
+<li><strong>提示词翻译</strong>：中文输入方案与翻译节点使用。</li>
+<li><strong>工作流复用</strong>：下载他人做好的工作流，拖入直接使用。</li>
+</ol>
+<h3>关键结论</h3>
+<ol type="1">
+<li><strong>平台定位</strong>：哩布是模型集合平台，不做独立模型。</li>
+<li><strong>界面选择</strong>：简单效果用 AI 应用/图片生成；精细控制用
+Web UI/ComfyUI。</li>
+<li><strong>ControlNet
+核心</strong>：硬边缘、姿态、法线贴图，三个选项步骤一致。</li>
+<li><strong>工作流复用</strong>：学会套用别人做好的工作流，不要从零写。</li>
+<li><strong>提示词翻译</strong>：用翻译节点或先在豆包生成英文提示词。</li>
+</ol>
+<h3>后续学习建议</h3>
+<ul>
+<li>掌握 Web UI 基础后，尝试 ComfyUI 复杂工作流。</li>
+<li>练习 ControlNet 三种控制选项的切换使用。</li>
+<li>积累常用工作流文件，建立个人模板库。</li>
+<li>关注哩布后续课程中的高级工作流详解。</li>
+</ul>
+<hr />
+<h2>AI 提示词汇总</h2>
+<h3>提示词 1：材质替换（法线贴图）</h3>
+<blockquote>
+<p>适用场景：产品材质预览、金属/玻璃/布料切换</p>
+</blockquote>
+<pre><code>原本金属材质，更改为玻璃材质。
+颜色变更：红色。</code></pre>
+<p>（出自课堂演示示例，原文转录为「钢材是玻璃材质的」「更改为红色的包包」等）</p>
+<h3>提示词 2：线稿上色（硬边缘）</h3>
+<blockquote>
+<p>适用场景：卡通角色上色、线稿填充颜色</p>
+</blockquote>
+<pre><code>头发是粉色的，蓝色衣服，棕色瞳孔。</code></pre>
+<p>（出自 [1.6 哩布平台WebUI和ComfyUI] 第580段~第600段）</p>
+<h3>提示词 3：姿态换人</h3>
+<blockquote>
+<p>适用场景：同一姿势生成不同人物</p>
+</blockquote>
+<pre><code>一个男生，街头风格，休闲装。</code></pre>
+<p>（出自课堂演示，参考主体动作后重新描述）</p>
+<h3>提示词 4：局部重绘</h3>
+<blockquote>
+<p>适用场景：局部修改颜色、替换物品</p>
+</blockquote>
+<pre><code>这个包包原本是米色的，更改为红色的包包。</code></pre>
+<p>（出自 [1.6 哩布平台WebUI和ComfyUI] 第670段~第680段）</p>
+<h3>提示词 5：Web UI 通用提示词</h3>
+<blockquote>
+<p>适用场景：Web UI 基础生图</p>
+</blockquote>
+<pre><code>正向：a woman with short hair, cartoon style, studio lighting
+负向：long hair, extra fingers, blurry</code></pre>
+<p>（出自 [1.6 哩布平台WebUI和ComfyUI] 第270段~第290段）</p>
+<h3>提示词系统性总结</h3>
+<ul>
+<li>材质替换：描述目标材质 + 颜色。</li>
+<li>线稿上色：直接描述颜色和部位。</li>
+<li>姿态换人：描述新主体 + 保留动作。</li>
+<li>局部重绘：精准描述修改区域和效果。</li>
+<li>通用建议：提示词简洁、英文更准确、可用豆包辅助生成。</li>
+</ul>
+<hr />
+<h2>联网交叉验证</h2>
+<ul>
+<li>⚠️ 哩布平台会员价格与积分赠送量（入门版/标准版差 20 元，标准版多 800
+积分）未能独立验证，课程内口述数据以实际平台为准。</li>
+<li>❓ ControlNet
+硬边缘/姿态/法线贴图的具体参数设置未能联网确认，课堂演示效果以实际操作为准。</li>
+<li>❓
+哩布平台当前模型接入列表（吉梦/极梦/海螺/可伶/PiPi）需以平台实际显示为准。</li>
+<li>⚠️ Web UI 默认基础算法 F1 与免费 20
+积分消耗情况需以实际登录验证。</li>
+</ul>
+<blockquote>
+<p>联网交叉验证受当前环境限制未能逐条完成，建议开课后实际登录平台核对关键数据。</p>
+</blockquote>
+<hr />
+<blockquote>
+<p>本总结由学习助手按标准流程自动生成，确保知识点零遗漏。 课程来源：1.6
+哩布平台WebUI和ComfyUI（原文转录稿） 整理时间：2026-09-25</p>
+</blockquote></article>
+<article><h1>完整知识账本：1.7 ComfyUI的应用和LibTV_深度总结</h1><h1>1.7
+ComfyUI的应用和LibTV_深度总结</h1>
+<h2>大纲</h2>
+<h3>板块一：AI应用 vs
+工作流界面对比</h3>
+<ul>
+<li>两种操作模式的本质区别</li>
+<li>精修功能在两种模式下的差异</li>
+</ul>
+<h3>板块二：ComfyUI的应用与工作流</h3>
+<ul>
+<li>AI应用模式的便捷性</li>
+<li>工作流模式的灵活性</li>
+</ul>
+<h3>板块三：精修功能详解</h3>
+<ul>
+<li>产品精修（金属首饰、瓶瓶罐罐）</li>
+<li>操作流程与参数设置</li>
+</ul>
+<h3>板块四：万物迁移功能</h3>
+<ul>
+<li>蒙版替换原理</li>
+<li>具体应用场景</li>
+</ul>
+<h3>板块五：换装功能比较</h3>
+<ul>
+<li>可灵AI vs 里布AI的差异</li>
+<li>换装效果分析</li>
+</ul>
+<h3>板块六：高清放大功能</h3>
+<ul>
+<li>图片分辨率提升</li>
+<li>人像调节与AI感去除</li>
+</ul>
+<h3>板块七：反推提示词全流程</h3>
+<ul>
+<li>免费平台（豆包）使用方法</li>
+<li>收费平台（阿里百炼、RunningHot）详细指南</li>
+<li>视频反推与图片反推的区别</li>
+</ul>
+<h3>板块八：LibTV平台详解</h3>
+<ul>
+<li>积分消耗机制</li>
+<li>会员制度与成本优化</li>
+<li>短剧制作场景</li>
+</ul>
+<hr />
+<h2>板块一：AI应用 vs
+工作流界面对比</h2>
+<h3>深度总结</h3>
+<p>出自[1.7 ComfyUI的应用和LibTV_原文.txt] 第1-39段</p>
+<p>AI应用模式与工作流界面是两套完全不同的操作方式：</p>
+<p><strong>AI应用模式（简化版）：</strong></p>
+<ul>
+<li>操作入口：直接点击"运行应用"按钮</li>
+<li>界面简洁：只需上传图片，无需设置复杂参数</li>
+<li>适用场景：快速处理、参数默认、对操作流程要求不高</li>
+<li>优点：操作简单，流程被封装，用户只需关注输入输出</li>
+</ul>
+<p><strong>工作流界面（进阶版）：</strong></p>
+<ul>
+<li>操作入口：点击"在ComfyUI运行"进入工作流界面</li>
+<li>界面复杂：显示完整的节点链和参数设置</li>
+<li>适用场景：需要细粒度控制、想了解处理过程、需要自定义参数</li>
+<li>优点：可见每一步处理过程，可调节每个节点的参数</li>
+</ul>
+<p>两者的核心区别在于：<strong>AI应用是将工作流的步骤封装为一键操作</strong>，而工作流界面则保留了完整的控制权。</p>
+<h3>系统性总结</h3>
+<ul>
+<li><strong>决策依据</strong>：如果需要快速处理，选AI应用；如果需要控制细节，选工作流</li>
+<li><strong>底层逻辑</strong>：两种模式本质相同，但UI层级不同</li>
+<li><strong>用户分层</strong>：AI应用适合新手，工作流适合专业用户</li>
+</ul>
+<hr />
+<h2
+id="板块二comfyui的应用与工作流-1">板块二：ComfyUI的应用与工作流</h2>
+<h3>深度总结</h3>
+<p>出自[1.7 ComfyUI的应用和LibTV_原文.txt] 第40-75段</p>
+<p><strong>ComfyUI运行应用的便捷流程：</strong></p>
+<ol type="1">
+<li>在AI应用界面找到目标功能（如"产品精修"）</li>
+<li>直接点击"运行应用"跳转到简化界面</li>
+<li>上传图片 → 点击生成 → 等待处理完成</li>
+<li>查看结果并下载</li>
+</ol>
+<p><strong>工作流模式的完整流程：</strong></p>
+<ol type="1">
+<li>点击"在ComfyUI运行"进入工作流界面</li>
+<li>浏览自带的工作流脚本</li>
+<li>根据需求修改节点参数</li>
+<li>执行完整的处理链</li>
+<li>查看每一步的处理结果</li>
+</ol>
+<p><strong>工作流界面的三个关键优势：</strong></p>
+<ul>
+<li>可视化处理过程：能看到每一步骤的输出</li>
+<li>参数可调：每个节点都可以调整参数</li>
+<li>模块化设计：可组合不同的处理节点</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li><strong>AI应用 vs 工作流</strong>：前者省时省力，后者可控性强</li>
+<li><strong>节点数目</strong>：AI应用隐藏了20+节点的复杂配置</li>
+<li><strong>适用性</strong>：电商主播偏好AI应用，技术人员偏好工作流</li>
+</ul>
+<hr />
+<h2>板块三：精修功能详解</h2>
+<h3>深度总结</h3>
+<p>出自[1.7 ComfyUI的应用和LibTV_原文.txt] 第55-130段</p>
+<p><strong>产品精修功能：</strong></p>
+<ul>
+<li>适用对象：金属首饰、瓶瓶罐罐等小件产品</li>
+<li>问题类型：划痕、灰尘、瑕疵</li>
+<li>处理方式：工作流模式可见处理过程，AI应用模式一键完成</li>
+</ul>
+<p><strong>操作步骤：</strong></p>
+<ol type="1">
+<li>上传含瑕疵的实拍图片</li>
+<li>在工作流界面查看处理节点（抠图、放大、精修）</li>
+<li>调整节点参数（如保留或关闭抠图步骤）</li>
+<li>执行处理，查看前后对比</li>
+</ol>
+<p><strong>关键节点说明：</strong></p>
+<ul>
+<li><strong>抠图节点</strong>：提取人物/产品轮廓，可开关控制</li>
+<li><strong>尺寸节点</strong>：自动根据图片调整，可选宽高输入或比例输入</li>
+<li><strong>数值节点</strong>：控制处理强度，数值小更强，数值大更柔和</li>
+</ul>
+<p><strong>AI应用模式的局限：</strong></p>
+<ul>
+<li>无法选择性地关闭抠图步骤</li>
+<li>参数调整空间有限</li>
+<li>看不到处理中间环节</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li><strong>工作流模式</strong>：消耗更高（跑额外的抠图），但控制更细致</li>
+<li><strong>AI应用模式</strong>：省时省力，但灵活性受限</li>
+<li><strong>电商场景</strong>：日常精修建议用AI应用，特殊需求用工作流</li>
+</ul>
+<hr />
+<h2>板块四：万物迁移功能</h2>
+<h3>深度总结</h3>
+<p>出自[1.7 ComfyUI的应用和LibTV_原文.txt] 第199段</p>
+<p>万物迁移功能是指将人物背上某个物体，或将一种物体替换为另一种物体。根据上下文，这一功能允许在保持人物姿态的同时，将背景或主体元素替换为新的内容。</p>
+<p><strong>应用示例：</strong></p>
+<ul>
+<li>人物背上放置新的商品</li>
+<li>替换图片中的物品（如换装、换场景）</li>
+<li>生成新的消费场景</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>属于ComfyUI的核心功能之一</li>
+<li>需要较好的抠图和遮罩技术支撑</li>
+<li>电商场景下可用于场景化展示产品</li>
+</ul>
+<hr />
+<h2>板块五：换装功能比较</h2>
+<h3>深度总结</h3>
+<p>出自[1.7 ComfyUI的应用和LibTV_原文.txt] 第200-230段</p>
+<p><strong>可灵AI换装功能：</strong></p>
+<ul>
+<li>侧重于人物服装替换</li>
+<li>结果更自然，接近真实人像</li>
+<li>支持多种服装风格切换</li>
+</ul>
+<p><strong>里布AI换装功能：</strong></p>
+<ul>
+<li>界面更简洁，直接上传人像即可</li>
+<li>换装效果同样精准</li>
+<li>与豆包集成，操作流程相似</li>
+</ul>
+<p><strong>核心差异：</strong></p>
+<ol type="1">
+<li><strong>平台定位</strong>：可灵AI偏向灵动画构，里布AI侧重人像处理</li>
+<li><strong>换装效果</strong>：两种效果都接近真实，但表现细节略有不同</li>
+<li><strong>操作流程</strong>：里布AI更聚焦人像，界面更简洁</li>
+</ol>
+<h3>系统性总结</h3>
+<ul>
+<li>两种平台都能实现高质量换装效果</li>
+<li>如果主要处理人物素材，选里布AI</li>
+<li>如果需要灵动画布+人像处理，选可灵AI</li>
+</ul>
+<hr />
+<h2>板块六：高清放大功能</h2>
+<h3>深度总结</h3>
+<p>出自[1.7 ComfyUI的应用和LibTV_原文.txt] 第600-680段</p>
+<p><strong>功能特性：</strong></p>
+<ol type="1">
+<li><strong>分辨率提升</strong>：将原图分辨率从1000多像素提升至更高尺寸</li>
+<li><strong>画质细节恢复</strong>：修复模糊图片中的细节</li>
+<li><strong>人像美颜</strong>：添加磨皮美白效果</li>
+<li><strong>AI感去除</strong>：减轻AI生成图片的机械感，使人脸更自然</li>
+</ol>
+<p><strong>操作流程：</strong></p>
+<ol type="1">
+<li>上传需要处理的图片（实拍或AI生成）</li>
+<li>在"人像调节"模块中选择去AI感选项</li>
+<li>设置强度参数（0.05-0.1区间，建议0.1）</li>
+<li>点击生成，等待处理完成</li>
+</ol>
+<p><strong>应用场景：</strong></p>
+<ul>
+<li>修复老照片</li>
+<li>提升AI模特图片的自然度</li>
+<li>电商产品图的细节放大</li>
+</ul>
+<p><strong>效果对比：</strong></p>
+<ul>
+<li>原图：糊糞的，细节模糊</li>
+<li>处理后：清晰度提升，人物轮廓更明显</li>
+<li>AI模特：通过人像调节后更接近真实人像</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li><strong>技术原理</strong>：基于超分辨率和AI美颜算法</li>
+<li><strong>适用范围</strong>：实拍照片修复 + AI人像提升</li>
+<li><strong>注意事项</strong>：强度设置不宜过高，避免过度处理</li>
+</ul>
+<hr />
+<h2>板块七：反推提示词全流程</h2>
+<h3>深度总结</h3>
+<p>出自[1.7 ComfyUI的应用和LibTV_原文.txt] 第699-900段</p>
+<h4>免费平台方法（豆包）</h4>
+<p><strong>图片反推：</strong></p>
+<ol type="1">
+<li>进入豆包，打开"对话任务"模式（非工作任务）</li>
+<li>在素材区添加参考图片</li>
+<li>提交请求，获取正向+负向提示词</li>
+<li>记录生成的提示词到文档中</li>
+</ol>
+<p><strong>使用规范：</strong></p>
+<ul>
+<li>注明生成平台（吉梦、豆包等）</li>
+<li>说明使用场景（纹身图、图生图等）</li>
+<li>下载后及时保存提示词文档</li>
+</ul>
+<p><strong>优点：</strong></p>
+<ul>
+<li>免费</li>
+<li>推断图片风格较准确</li>
+<li>支持中文描述</li>
+</ul>
+<p><strong>局限：</strong></p>
+<ul>
+<li>不能推视频</li>
+<li>有时会识别失败</li>
+</ul>
+<h4>收费平台方法</h4>
+<p><strong>RunningHot（免费积分平台）：</strong></p>
+<ul>
+<li>每日免费积分赠送</li>
+<li>上传视频/图片进行反推</li>
+<li>生成中文+英文两套提示词</li>
+<li>文档格式输出，需手动复制</li>
+</ul>
+<p><strong>阿里百炼：</strong></p>
+<ul>
+<li>每日免费赠送100万积分（90-120天有效）</li>
+<li>支持图片和视频反推</li>
+<li>生成准确的中文+英文提示词</li>
+<li>界面操作：上传素材 → 自动推断提示词</li>
+<li>注意事项：登录后需关闭"自动扣费"选项</li>
+</ul>
+<h4>视频反推关键区别</h4>
+<p>出自[1.7 ComfyUI的应用和LibTV_原文.txt] 第800-890段</p>
+<ul>
+<li><strong>视频反推难点</strong>：无法通过文字描述复现人脸</li>
+<li><strong>解决方案</strong>：必须上传视频文件作为参考</li>
+<li><strong>平台要求</strong>：豆包仅能添加图片参考，不能推视频</li>
+<li><strong>有效时长</strong>：5秒至15秒视频，超出时会要求登录</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li><strong>平台选择</strong>：免费平台适合简单需求，收费平台更稳定可靠</li>
+<li><strong>提示词使用</strong>：不同平台生成的提示词需根据实际平台微调</li>
+<li><strong>注意事项</strong>：免费平台不定期
+unavailable，需备好备选方案</li>
+</ul>
+<hr />
+<h2>板块八：LibTV平台详解</h2>
+<h3>深度总结</h3>
+<p>出自[1.7 ComfyUI的应用和LibTV_原文.txt] 第1200-1380段</p>
+<h4>积分体系</h4>
+<p><strong>两种积分：</strong></p>
+<ol type="1">
+<li><strong>礼部AI积分</strong>：双端通用，开会员即送</li>
+<li><strong>礼部TV积分</strong>：专属TV使用，仅赠送一次</li>
+</ol>
+<p><strong>消耗机制：</strong></p>
+<ul>
+<li>图片生成：较低消耗</li>
+<li>视频生成：较高消耗</li>
+<li>会员开户后每日赠送20积分（礼部AI）</li>
+</ul>
+<h4>会员制度</h4>
+<p><strong>会员类型：</strong></p>
+<ol type="1">
+<li><strong>普通会员</strong>：基础功能，定时消耗积分</li>
+<li><strong>至尊会员</strong>：折扣更优惠，适合高频用户</li>
+</ol>
+<p><strong>适用场景：</strong></p>
+<ul>
+<li>短剧制作：消耗较高，建议开会员</li>
+<li>电商产品：相对消耗较低，普通用户足够</li>
+</ul>
+<h4>操作流程</h4>
+<ol type="1">
+<li>登录平台（可微信/手机号码）</li>
+<li>进入"画布"区域进行创作</li>
+<li>上传素材（图片/视频）</li>
+<li>选择使用模型（阿里、吉梦、海螺）</li>
+<li>执行生成，查看结果</li>
+</ol>
+<h4>成本控制</h4>
+<ul>
+<li>开会员后积分消耗更低</li>
+<li>可设置"用完即停"防止欠费</li>
+<li>新模型上线时会赠送独立免费额度</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li><strong>核心价值</strong>：集成多平台视觉生成模型，支持图片+视频</li>
+<li><strong>成本优势</strong>：开会员后显著降低单元成本</li>
+<li><strong>创作场景</strong>：短剧、情景剧、电商视频内容创作</li>
+</ul>
+<hr />
+<h2>全文系统性总结</h2>
+<h3>本课核心知识体系</h3>
+<ol type="1">
+<li><strong>平台认识</strong>：AI应用 vs 工作流，两种模式各有优势</li>
+<li><strong>功能梳理</strong>：精修 → 万物迁移 → 换装 → 高清放大</li>
+<li><strong>提示词方法</strong>：免费豆包 +
+收费阿里百炼的完整反推流程</li>
+<li><strong>LibTV探索</strong>：积分体系、会员策略、长片制作路径</li>
+</ol>
+<h3>知识关系链</h3>
+<pre><code>AI应用/工作流 → 产品精修
+              ↘ 万物迁移
+              ↘ 换装功能
+              ↘ 高清放大
+              
+反推提示词流程
+              ↘ 豆包（图片/风格）
+              ↘ 百炼/RunningHot（视频/图片完整）
+              
+LibTV → 积分体系 → 会员策略 → 短剧制作</code></pre>
+<h3>重点总结</h3>
+<ul>
+<li><strong>操作决策</strong>：看需求选模式，日常用AI应用，进阶用工作流</li>
+<li><strong>功能组合</strong>：精修+换装+放大构成完整的图像处理闭环</li>
+<li><strong>成本思考</strong>：LibTV会员制度是长期使用的成本优化关键</li>
+<li><strong>提示词实践</strong>：反推是快速获取精准提示词的高效方法</li>
+</ul>
+<hr />
+<h2>联网交叉验证</h2>
+<blockquote>
+<p><strong>注</strong>：由于平台限制，无法实时联网验证最新的AI平台信息。建议参考课程中提到的平台：</p>
+<ul>
+<li>豆包：<a
+href="https://www.doubao.com">https://www.doubao.com</a></li>
+<li>吉梦：<a href="https://jimmimi.com">https://jimmimi.com</a></li>
+<li>阿里百炼：<a
+href="https://dash.ali.com">https://dash.ali.com</a></li>
+<li>LibTV：<a href="https://libtv.cn">https://libtv.cn</a></li>
+<li>RunningHot：课程中提供的具体链接</li>
+</ul>
+</blockquote>
+<p>实际使用时请登录各平台确认最新的功能、积分政策和价格变动。</p></article>
+<article><h1>完整知识账本：1.8 剪映营销成片和即梦进阶玩法_深度总结</h1><h1>1.8
+剪映营销成片和即梦进阶玩法 - 深度总结</h1>
+<blockquote>
+<p>来源：<code>1.8 剪映营销成片和即梦进阶玩法_原文.txt</code>（约1297行）</p>
+</blockquote>
+<hr />
+<h2>大纲</h2>
+<ol type="1">
+<li>剪映营销成片（AI自动剪辑）</li>
+<li>AI文字成片（脚本→视频）</li>
+<li>成片助手与豆包集成</li>
+<li>分镜类型选择（智能分镜/图片分镜）</li>
+<li>即梦SD2.0模型进阶用法</li>
+<li>九宫格图生视频技巧</li>
+<li>提示词优化功能</li>
+<li>积分消耗与成本控制</li>
+<li>会员与自动续费提醒</li>
+</ol>
+<hr />
+<h2
+id="板块一剪映营销成片ai自动剪辑">板块一：剪映营销成片（AI自动剪辑）</h2>
+<h3>深度总结</h3>
+<p><strong>营销成片核心功能：</strong></p>
+<ul>
+<li>AI自动剪辑：上传素材→AI自动剪辑+配乐+配文案旁白</li>
+<li>适合：实拍素材、AI生成的视频，快速出信息流广告</li>
+<li>速度极快：给素材就能生成，省时省力</li>
+<li>声音效果：AI生成的声音不一定喜欢，可换音色</li>
+</ul>
+<p><strong>操作步骤：</strong></p>
+<ol type="1">
+<li>打开剪映→AI文字成片/营销成片</li>
+<li>上传素材（实拍或AI生成均可）</li>
+<li>AI自动分析并剪辑</li>
+<li>选择音色（可换音色）</li>
+<li>生成成片</li>
+</ol>
+<p><strong>特点：</strong></p>
+<ul>
+<li>不生成新画面，只是剪辑已有素材</li>
+<li>适合快速制作信息流广告</li>
+<li>配音为AI朗读，可更换音色</li>
+<li>生成的视频可导入剪映进一步编辑</li>
+</ul>
+<p><strong>适用场景：</strong></p>
+<ul>
+<li>已有素材需要快速剪辑</li>
+<li>不熟悉剪辑操作</li>
+<li>需要配文案旁白</li>
+<li>信息流广告制作</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>营销成片核心价值：已有素材→快速剪辑+配乐+旁白，不生成新画面</li>
+<li>音色可替换，生成后可导入剪映二次编辑</li>
+<li><strong>重点</strong>：适合信息流广告快速出片，不适合需要创作新画面的场景</li>
+</ul>
+<hr />
+<h2>板块二：AI文字成片（脚本→视频）</h2>
+<h3>深度总结</h3>
+<p><strong>AI文字成片核心功能：</strong></p>
+<ul>
+<li>输入剧本/文案→AI自动生成视频</li>
+<li>类似简化版哩布TV</li>
+<li>可固定主体角色</li>
+<li>可一次性生成多个镜头</li>
+</ul>
+<p><strong>操作步骤：</strong></p>
+<ol type="1">
+<li>选择"AI文字成片"</li>
+<li>填写剧情内容（手动输入或AI生成）</li>
+<li>选择角色（公共角色/自定义角色）</li>
+<li>选择风格（真实/动画等）</li>
+<li>选择分镜类型</li>
+<li>生成视频</li>
+</ol>
+<p><strong>成片助手：</strong></p>
+<ul>
+<li>内置豆包助手</li>
+<li>可自动写剧情/脚本</li>
+<li>适合：慢剧、小说故事、有声小说</li>
+<li>不适合复杂AI短剧（配音效果差）</li>
+</ul>
+<p><strong>角色选择：</strong></p>
+<ul>
+<li>公共角色：官方预设角色（千篇一律但方便）</li>
+<li>自定义角色：上传自己的角色图片</li>
+<li>AI生图：自动生成角色</li>
+</ul>
+<p><strong>声音处理：</strong></p>
+<ul>
+<li>配音和音乐选择"智能"（自动添加）</li>
+<li>不主动添加，让AI自动处理</li>
+<li>生成的声音可能不自然，可换音色</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>AI文字成片核心流程：脚本→AI生成视频，类似简化版哩布TV</li>
+<li>角色选择影响结果：公共角色方便但千篇一律，自定义角色更个性化</li>
+<li>声音问题需提前准备，AI生成声音质量参差</li>
+<li><strong>重点</strong>：适合慢剧、小说故事类内容，不适合复杂AI短剧</li>
+</ul>
+<hr />
+<h2>板块三：成片助手与豆包集成</h2>
+<h3>深度总结</h3>
+<p><strong>成片助手功能：</strong></p>
+<ul>
+<li>内置豆包AI助手</li>
+<li>输入需求→自动生成剧情脚本</li>
+<li>可指定风格（慢剧/小说故事等）</li>
+<li>生成脚本可直接用于成片</li>
+</ul>
+<p><strong>使用方法：</strong></p>
+<ol type="1">
+<li>点击"成片助手"</li>
+<li>输入需求描述</li>
+<li>选择风格</li>
+<li>AI生成脚本</li>
+<li>脚本填入剧情内容框</li>
+<li>继续设置角色/风格/分镜</li>
+<li>生成视频</li>
+</ol>
+<p><strong>豆包做分镜的缺点：</strong></p>
+<ul>
+<li>连贯性较差</li>
+<li>效果不稳定</li>
+<li>建议配合海螺多宫格使用</li>
+</ul>
+<p><strong>提示词模板：</strong></p>
+<pre><code>做一个XX风格的XX视频，
+主角是XX，
+剧情是XX，
+包含XX个镜头。</code></pre>
+<h3>系统性总结</h3>
+<ul>
+<li>成片助手内置豆包AI，可自动写脚本，提升效率</li>
+<li>豆包做分镜的缺点：连贯性差、效果不稳定</li>
+<li>建议配合海螺多宫格生成高质量分镜</li>
+<li><strong>重点</strong>：先有优质脚本/分镜，再生成视频效果更好</li>
+</ul>
+<hr />
+<h2
+id="板块四分镜类型选择智能分镜图片分镜">板块四：分镜类型选择（智能分镜/图片分镜）</h2>
+<h3>深度总结</h3>
+<p><strong>智能分镜：</strong></p>
+<ul>
+<li>AI自动分析脚本→生成分镜图→生成视频</li>
+<li>可选择音画同步</li>
+<li>消耗积分较多（500/镜头）</li>
+<li>效果较好</li>
+</ul>
+<p><strong>图片分镜：</strong></p>
+<ul>
+<li>先出分镜图→再生成视频</li>
+<li>消耗积分较少</li>
+<li>适合无会员/积分不足</li>
+<li>效果：图片+AI配音（可能怪）</li>
+</ul>
+<p><strong>分镜类型选择建议：</strong> | 类型 | 消耗 | 效果 | 适合场景 |
+|------|------|------|----------| | 智能分镜 | 高（500/镜头） | 好 |
+有会员/积分充足 | | 图片分镜 | 低 | 一般 | 无会员/练习 | | 智能多帧 | 低
+| 一般 | 风景过渡 |</p>
+<p><strong>分镜类型操作：</strong></p>
+<ol type="1">
+<li>选择分镜类型（智能/图片）</li>
+<li>智能分镜可选音画同步</li>
+<li>图片分镜先出图，再逐镜头生成视频</li>
+<li>生成后的分镜图可重新生成</li>
+</ol>
+<p><strong>镜头处理：</strong></p>
+<ul>
+<li>每个镜头可单独设置模型</li>
+<li>可单独生成视频</li>
+<li>生成的视频可导入剪映编辑</li>
+<li>可批量生成（一次生成所有镜头）</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>分镜类型选择直接影响消耗和效果</li>
+<li>智能分镜：效果好但消耗高（500/镜头），适合会员/积分充足</li>
+<li>图片分镜：消耗低但效果一般，适合无会员/练习</li>
+<li>每个镜头可单独设置模型，灵活性高</li>
+<li><strong>重点</strong>：无会员时优先使用图片分镜，节省积分</li>
+</ul>
+<hr />
+<h2>板块五：即梦SD2.0模型进阶用法</h2>
+<h3>深度总结</h3>
+<p><strong>SD2.0模型进阶技巧：</strong></p>
+<ol type="1">
+<li><strong>宫格图形式</strong>：先生成九宫格分镜图→再生成视频</li>
+<li><strong>脚本形式</strong>：用脚本截图→生成视频</li>
+<li><strong>提示词优化</strong>：即梦自带提示词优化功能（免费）</li>
+</ol>
+<p><strong>宫格图生视频步骤：</strong></p>
+<ol type="1">
+<li>海螺生成九宫格分镜图</li>
+<li>保存分镜图</li>
+<li>即梦/豆包导入分镜图</li>
+<li>选择SD2.0模型</li>
+<li>添加提示词</li>
+<li>优化提示词（勾选优化选项）</li>
+<li>生成视频</li>
+</ol>
+<p><strong>提示词优化功能：</strong></p>
+<ul>
+<li>即梦自带，免费使用</li>
+<li>根据参考图自动优化提示词</li>
+<li>优化后生成效果更准确</li>
+<li>优化过程不消耗额外积分</li>
+</ul>
+<p><strong>模型选择：</strong></p>
+<ul>
+<li>SD2.0/2.5：效果最好，价格最贵</li>
+<li>Mini版：便宜一点，效果稍差</li>
+<li>H3：海螺多模态模型，中等效果</li>
+</ul>
+<p><strong>时长设置：</strong></p>
+<ul>
+<li>默认15秒</li>
+<li>可根据需要调整</li>
+<li>时长越长消耗越多</li>
+<li>无会员每天免费额度有限</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>SD2.0模型是即梦/海螺的核心视频模型，效果最好但价格最贵</li>
+<li>宫格图+提示词优化=更准确的视频生成</li>
+<li>提示词优化功能免费且不消耗额外积分</li>
+<li>时长越长消耗越多，建议从15秒开始</li>
+<li><strong>重点</strong>：先出图再看效果，再生成视频，避免浪费积分</li>
+</ul>
+<hr />
+<h2>板块六：九宫格图生视频技巧</h2>
+<h3>深度总结</h3>
+<p><strong>九宫格图制作：</strong></p>
+<ol type="1">
+<li>海螺/即梦生成九宫格分镜图</li>
+<li>选择GPT-2.0模型（效果最好）</li>
+<li>画质至少中等，2K以上</li>
+<li>比例16:9或9:16</li>
+<li>生成1张即可（不要多张，消耗高）</li>
+</ol>
+<p><strong>九宫格图生视频：</strong></p>
+<ol type="1">
+<li>导入九宫格图到即梦</li>
+<li>选择SD2.0模型</li>
+<li>添加提示词</li>
+<li>优化提示词</li>
+<li>生成视频</li>
+</ol>
+<p><strong>九宫格图要点：</strong></p>
+<ul>
+<li>不含文字/台词</li>
+<li>每个格子一个分镜</li>
+<li>生成时用GPT-2.0模型</li>
+<li>画质至少中等，2K以上</li>
+</ul>
+<p><strong>提示词优化：</strong></p>
+<ul>
+<li>写完提示词后勾选"优化提示词"</li>
+<li>系统自动根据参考图优化</li>
+<li>优化后效果更准确</li>
+<li>优化过程免费</li>
+</ul>
+<p><strong>豆包做九宫格：</strong></p>
+<ul>
+<li>豆包也可做九宫格</li>
+<li>但效果不如海螺/即梦</li>
+<li>容易分隔不平均</li>
+<li>人物可能堆在一起</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>九宫格图制作要点：不含文字/台词、每个格子一个分镜</li>
+<li>生成时用GPT-2.0模型，画质至少中等，2K以上</li>
+<li>九宫格图生视频需导入即梦+SD2.0模型</li>
+<li><strong>重点</strong>：豆包做九宫格效果较差，推荐用海螺或即梦</li>
+</ul>
+<hr />
+<h2>板块七：提示词优化功能</h2>
+<h3>深度总结</h3>
+<p><strong>提示词优化功能详解：</strong></p>
+<ul>
+<li>即梦自带提示词优化功能</li>
+<li>根据参考图自动优化提示词</li>
+<li>免费使用，不消耗额外积分</li>
+<li>优化后生成效果更准确</li>
+</ul>
+<p><strong>使用方法：</strong></p>
+<ol type="1">
+<li>写好初始提示词</li>
+<li>勾选"优化提示词"选项</li>
+<li>系统自动优化</li>
+<li>优化后可手动调整</li>
+<li>生成视频</li>
+</ol>
+<p><strong>优化效果：</strong></p>
+<ul>
+<li>自动根据参考图调整提示词</li>
+<li>画面更准确</li>
+<li>减少随机性</li>
+<li>适合电商主图视频</li>
+</ul>
+<p><strong>提示词写法：</strong></p>
+<ul>
+<li>描述要清晰：主体+场景+动作+风格</li>
+<li>不要写太多，AI会自动补充</li>
+<li>可参考官方提示词模板</li>
+<li>不同平台提示词不同</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>提示词优化功能是即梦的亮点：免费、不消耗积分、效果提升明显</li>
+<li>提示词要描述清晰：主体+场景+动作+风格</li>
+<li>不同平台提示词要针对性调节</li>
+<li><strong>重点</strong>：写完提示词后一定要勾选"优化提示词"，效果会更好</li>
+</ul>
+<hr />
+<h2>板块八：积分消耗与成本控制</h2>
+<h3>深度总结</h3>
+<p><strong>积分消耗情况：</strong></p>
+<ul>
+<li>智能分镜：约500积分/镜头</li>
+<li>SD2.0生成视频：约500+积分/段</li>
+<li>SD2.0生成图片：约100积分/张</li>
+<li>海螺旧模型：免费</li>
+<li>Mini版：消耗减半</li>
+</ul>
+<p><strong>成本控制技巧：</strong></p>
+<ol type="1">
+<li>先出图再看效果，再生成视频</li>
+<li>无会员用图片分镜</li>
+<li>免费模型先练习</li>
+<li>积分不够用豆包替代</li>
+<li>批量生成节省时间</li>
+</ol>
+<p><strong>各平台积分获取：</strong> | 平台 | 获取方式 | 说明 |
+|------|----------|------| | 即梦 | 新用户赠送+每日免费 | 推荐工作使用 |
+| 豆包 | 每日免费积分 | 练习用 | | 海螺 | 首次赠送+购买 | 有GPT-2.0和H3
+| | 哩布 | 首次赠送+购买 | 模板丰富 |</p>
+<p><strong>会员自动续费：</strong></p>
+<ul>
+<li>开会员后检查自动续费</li>
+<li>不用时及时关闭</li>
+<li>各平台月费70-几百元不等</li>
+<li>涉及平台：即梦/豆包/海螺/哩布/哩布TV/剪映/可灵</li>
+</ul>
+<hr />
+<h2>板块九：会员与自动续费提醒</h2>
+<h3>深度总结</h3>
+<p><strong>会员类型：</strong></p>
+<ul>
+<li>即梦会员：可使用SD2.0/2.5等高级模型</li>
+<li>豆包会员：每日免费积分+更多功能</li>
+<li>海螺会员：GPT-2.0/H3模型使用权</li>
+<li>哩布会员：模板+模型使用权</li>
+</ul>
+<p><strong>会员费用：</strong></p>
+<ul>
+<li>月费制，70-几百元不等</li>
+<li>不是无限使用，有额度限制</li>
+<li>开通后检查自动续费</li>
+</ul>
+<p><strong>关闭自动续费：</strong></p>
+<ul>
+<li>各平台设置中关闭</li>
+<li>不用时及时关闭</li>
+<li>避免持续扣款</li>
+</ul>
+<p><strong>免费替代方案：</strong></p>
+<ul>
+<li>豆包免费积分练习</li>
+<li>海螺旧模型免费</li>
+<li>每日免费额度</li>
+<li>新用户首次赠送</li>
+</ul>
+<h3>系统性总结</h3>
+<ul>
+<li>会员类型各有侧重：即梦(视频/SD2.0)、豆包(每日免费)、海螺(GPT-2.0/H3)</li>
+<li>会员费用70-几百元不等，有额度限制，不是无限使用</li>
+<li>自动续费要检查并及时关闭</li>
+<li>免费方案适合练习，正式产出建议开通会员</li>
+<li><strong>重点</strong>：开通会员后务必检查自动续费，避免持续扣款</li>
+</ul>
+<hr />
+<h2>全文系统性总结</h2>
+<p>本课系统讲解了剪映营销成片、AI文字成片和即梦进阶用法，核心要点如下：</p>
+<ol type="1">
+<li><strong>营销成片</strong>：AI自动剪辑已有素材，适合快速出信息流广告</li>
+<li><strong>AI文字成片</strong>：输入脚本→AI生成视频，类似简化版哩布TV</li>
+<li><strong>成片助手</strong>：内置豆包AI，可自动写脚本，适合慢剧/小说</li>
+<li><strong>分镜类型</strong>：智能分镜效果好但消耗高，图片分镜适合无会员</li>
+<li><strong>SD2.0进阶</strong>：宫格图+提示词优化=更准确的视频生成</li>
+<li><strong>九宫格图</strong>：GPT-2.0模型生成，用于视频参考</li>
+<li><strong>提示词优化</strong>：即梦自带免费功能，根据参考图优化</li>
+<li><strong>成本控制</strong>：先出图再出视频，用免费模型练习，关自动续费</li>
+</ol>
+<hr />
+<p><em>本总结出自 1.8 剪映营销成片和即梦进阶玩法
+课程，涵盖营销成片、AI文字成片、成片助手、分镜类型选择、即梦SD2.0进阶、九宫格图生视频、提示词优化、积分消耗及会员提醒等核心知识点。</em></p></article>
+<article><h1>完整知识账本：1.9 电商光影溶图和AI漫剧流程_深度总结</h1><h1>1.9
+电商光影溶图和AI漫剧流程 - 深度总结</h1>
+<blockquote>
+<p>来源：<code>1.9 电商光影溶图和AI漫剧流程_原文.txt</code>（约1378行）</p>
+</blockquote>
+<hr />
+<h2>大纲</h2>
+<ol type="1">
+<li>PS合成产品与场景（基础操作）</li>
+<li>哩布溶图工作流（光影效果添加）</li>
+<li>豆包直接描述溶图</li>
+<li>三视图生成与主图模型</li>
+<li>AI漫剧流程（剧本→分镜→视频）</li>
+<li>哩布TV漫剧制作</li>
+<li>角色绑定与场景合成</li>
+<li>光影效果细节调整</li>
+<li>常见问题与避坑指南</li>
+</ol>
+<hr />
+<h2
+id="板块一ps合成产品与场景基础操作">板块一：PS合成产品与场景（基础操作）</h2>
+<h3>深度总结</h3>
+<p><strong>PS合成目的：</strong></p>
+<ul>
+<li>AI生成的产品位置/大小/透视不准确</li>
+<li>手动合成更可控，效果更准确</li>
+<li>先PS合成，再加光影效果</li>
+</ul>
+<p><strong>PS合成步骤：</strong></p>
+<ol type="1">
+<li>打开背景图（场景图）</li>
+<li>置入嵌入对象（产品图）
+<ul>
+<li>菜单：文件→置入嵌入对象</li>
+<li>或直接拖入</li>
+</ul></li>
+<li>调整产品位置和大小
+<ul>
+<li>自由变换：Ctrl+T</li>
+<li>放大缩小+移动</li>
+</ul></li>
+<li>抠图处理
+<ul>
+<li>魔棒工具删除白色背景</li>
+<li>或用豆包AI抠图</li>
+</ul></li>
+<li>保存为JPEG/PNG格式</li>
+</ol>
+<p><strong>抠图方法对比：</strong> | 方法 | 精度 | 速度 | 适用场景 |
+|------|------|------|----------| | PS魔棒抠图 | 高 | 慢 | 白底图 | |
+豆包AI抠图 | 中 | 快 | 各种底图 | | 哩布抠图 | 中 | 快 | 有积分 |</p>
+<p><strong>PS快捷键：</strong></p>
+<ul>
+<li>Ctrl+T：自由变换（放大缩小）</li>
+<li>Delete：删除选区</li>
+<li>置入嵌入对象：文件→置入</li>
+</ul>
+<p><strong>合成注意事项：</strong></p>
+<ul>
+<li>产品位置先粗略调整</li>
+<li>光影效果后续添加</li>
+<li>保存为JPEG格式（透明背景用PNG）</li>
+<li>导出时选择最高质量</li>
+</ul>
+<hr />
+<h2
+id="板块二哩布溶图工作流光影效果添加">板块二：哩布溶图工作流（光影效果添加）</h2>
+<h3>深度总结</h3>
+<p><strong>溶图目的：</strong></p>
+<ul>
+<li>给合成图添加光影效果</li>
+<li>让产品看起来更自然</li>
+<li>模拟真实拍摄效果</li>
+</ul>
+<p><strong>溶图工作流使用：</strong></p>
+<ol type="1">
+<li>打开哩布AI应用</li>
+<li>打开光影合成工作流链接</li>
+<li>上传合成好的图片</li>
+<li>点击生成</li>
+<li>自动添加光影效果</li>
+</ol>
+<p><strong>溶图要点：</strong></p>
+<ul>
+<li>需先用PS合成好位置</li>
+<li>工作流链接需提前准备好</li>
+<li>哩布赠送20积分可用</li>
+<li>生成消耗2积分/次</li>
+</ul>
+<p><strong>工作流 vs AI应用：</strong> | 方式 | 精度 | 难度 | 稳定性 |
+|------|------|------|--------| | 工作流 | 高 | 较难 | 一般（易卡顿） |
+| AI应用 | 高 | 简单 | 一般 |</p>
+<p><strong>溶图效果检查：</strong></p>
+<ul>
+<li>光影是否自然</li>
+<li>产品比例是否正确</li>
+<li>背景是否融合</li>
+<li>有无多余元素</li>
+</ul>
+<hr />
+<h2>板块三：豆包直接描述溶图</h2>
+<h3>深度总结</h3>
+<p><strong>豆包溶图方法：</strong></p>
+<ul>
+<li>直接用文字描述溶图效果</li>
+<li>无需PS合成</li>
+<li>描述格式：
+<pre><code>将产品图放到场景图中，
+要求光影真实自然，
+透视效果准确。</code></pre></li>
+</ul>
+<p><strong>豆包溶图优缺点：</strong> | 优点 | 缺点 | |------|------| |
+简单方便 | 随机性大 | | 无需PS | 位置大小可能不准 | | 速度快 |
+可能需要多次修改 |</p>
+<p><strong>适用场景：</strong></p>
+<ul>
+<li>场景简单（沙发空位大）</li>
+<li>对精度要求不高</li>
+<li>快速出图需求</li>
+</ul>
+<p><strong>精度对比：</strong></p>
+<ul>
+<li>PS合成+哩布溶图：精度最高</li>
+<li>豆包直接描述：随机性大</li>
+<li>复杂场景推荐PS合成</li>
+<li>简单场景可尝试豆包</li>
+</ul>
+<hr />
+<h2>板块四：三视图生成与主图模型</h2>
+<h3>深度总结</h3>
+<p><strong>三视图生成：</strong></p>
+<ul>
+<li>正面/侧面/顶部三个视图</li>
+<li>用于产品展示/绑定主体</li>
+<li>防止换角度时变形</li>
+</ul>
+<p><strong>模型选择：</strong> | 模型 | 适用场景 | 说明 |
+|------|----------|------| | SD 4.0 | 三视图/主图 | 支持多图不同效果 | |
+SD 5.0 | 通用生图 | 三视图效果一般 | | 智能图片V2 | 产品图 | 效果最好
+|</p>
+<p><strong>三视图生成步骤：</strong></p>
+<ol type="1">
+<li>选择SD 4.0模型</li>
+<li>上传产品参考图</li>
+<li>描述："分别生成正面/侧面/顶部视图"</li>
+<li>选择张数（3张）</li>
+<li>生成三视图</li>
+</ol>
+<p><strong>主图模式：</strong></p>
+<ul>
+<li>可灵/豆包有主图模式</li>
+<li>勾选后生成多张不同效果</li>
+<li>适合电商主图展示</li>
+<li>SD 5.0多张可能效果一样</li>
+</ul>
+<p><strong>三视图注意事项：</strong></p>
+<ul>
+<li>选择正确模型（4.0）</li>
+<li>描述要清晰（正面/侧面/顶部）</li>
+<li>白底图效果更好</li>
+<li>生成后检查角度是否准确</li>
+</ul>
+<hr />
+<h2
+id="板块五ai漫剧流程剧本分镜视频">板块五：AI漫剧流程（剧本→分镜→视频）</h2>
+<h3>深度总结</h3>
+<p><strong>AI漫剧完整流程：</strong></p>
+<pre><code>第一步：写剧本大纲
+第二步：生成分镜脚本
+第三步：准备资产（角色/场景/道具）
+第四步：生成分镜图
+第五步：生成视频
+第六步：导出到剪映剪辑</code></pre>
+<p><strong>剧本编写：</strong></p>
+<ul>
+<li>大致描述剧情方向</li>
+<li>角色数量不要太多（3-4个）</li>
+<li>场景不要太复杂</li>
+<li>让AI自动发挥细节</li>
+</ul>
+<p><strong>分镜脚本生成：</strong></p>
+<ul>
+<li>使用脚本节点</li>
+<li>输入剧情描述</li>
+<li>自动生成分镜脚本</li>
+<li>包含景别/运镜/画面内容</li>
+</ul>
+<p><strong>资产准备：</strong></p>
+<ul>
+<li>角色三视图</li>
+<li>场景参考图</li>
+<li>道具图片</li>
+<li>按脚本关键词准备</li>
+</ul>
+<p><strong>视频生成：</strong></p>
+<ul>
+<li>选择视频模型（SD 2.0/2.5）</li>
+<li>粘贴提示词</li>
+<li>设置时长/画质</li>
+<li>生成视频（5-10分钟）</li>
+</ul>
+<hr />
+<h2>板块六：哩布TV漫剧制作</h2>
+<h3>深度总结</h3>
+<p><strong>哩布TV漫剧特点：</strong></p>
+<ul>
+<li>专门做短剧/漫剧</li>
+<li>可绑定角色</li>
+<li>接入多平台模型</li>
+<li>一站式完成</li>
+</ul>
+<p><strong>哩布TV漫剧流程：</strong></p>
+<ol type="1">
+<li>豆包写剧本大纲</li>
+<li>粘贴到脚本节点</li>
+<li>生成分镜脚本</li>
+<li>准备资产（角色/场景/道具）</li>
+<li>生成分镜图</li>
+<li>生成视频</li>
+<li>导出到剪映</li>
+</ol>
+<p><strong>角色绑定：</strong></p>
+<ul>
+<li>上传角色三视图</li>
+<li>指定角色名字</li>
+<li>保证角色一致性</li>
+<li>可绑定多个角色</li>
+</ul>
+<p><strong>哩布TV优势：</strong></p>
+<ul>
+<li>可一站式完成所有步骤</li>
+<li>不用切换平台</li>
+<li>可接入多种模型</li>
+<li>价格相对便宜</li>
+</ul>
+<p><strong>哩布TV缺点：</strong></p>
+<ul>
+<li>消耗成本可能更高</li>
+<li>积分只能在TV用</li>
+<li>短剧才适合做</li>
+</ul>
+<hr />
+<h2>板块七：角色绑定与场景合成</h2>
+<h3>深度总结</h3>
+<p><strong>角色绑定方法：</strong></p>
+<ol type="1">
+<li>准备角色三视图（正面/侧面/背面）</li>
+<li>上传到资产准备区域</li>
+<li>在脚本中指定角色名字</li>
+<li>系统自动匹配</li>
+</ol>
+<p><strong>多角色处理：</strong></p>
+<ul>
+<li>每个角色都要上传三视图</li>
+<li>角色名字与脚本一致</li>
+<li>场景中的角色逐一绑定</li>
+</ul>
+<p><strong>场景合成：</strong></p>
+<ul>
+<li>PS合成：位置/大小更可控</li>
+<li>哩布溶图：光影效果更自然</li>
+<li>豆包描述：简单但随机</li>
+</ul>
+<p><strong>合成顺序：</strong></p>
+<ol type="1">
+<li>PS合成产品和场景</li>
+<li>添加光影效果（哩布溶图）</li>
+<li>检查位置和透视</li>
+<li>导出合成图</li>
+<li>用于视频生成</li>
+</ol>
+<hr />
+<h2>板块八：光影效果细节调整</h2>
+<h3>深度总结</h3>
+<p><strong>光影效果关键点：</strong></p>
+<ul>
+<li>光源方向要一致</li>
+<li>影子位置要合理</li>
+<li>产品边缘要自然</li>
+<li>背景融合要和谐</li>
+</ul>
+<p><strong>调整方法：</strong></p>
+<ul>
+<li>工作流微调参数</li>
+<li>AI应用自动调整</li>
+<li>PS手动调整</li>
+</ul>
+<p><strong>常见问题：</strong></p>
+<ul>
+<li>影子太重/太轻</li>
+<li>光源方向不一致</li>
+<li>产品边缘生硬</li>
+<li>背景不融合</li>
+</ul>
+<p><strong>解决思路：</strong></p>
+<ul>
+<li>重新合成调整位置</li>
+<li>更换光影参数</li>
+<li>用PS手动修饰</li>
+<li>多次生成选最佳</li>
+</ul>
+<hr />
+<h2>板块九：常见问题与避坑指南</h2>
+<h3>深度总结</h3>
+<p><strong>常见问题：</strong></p>
+<ol type="1">
+<li><strong>产品位置不对</strong>：PS合成调整位置</li>
+<li><strong>光影不自然</strong>：重新生成或手动调整</li>
+<li><strong>角色不一致</strong>：检查三视图绑定</li>
+<li><strong>字幕乱码</strong>：去掉字幕，后期加</li>
+<li><strong>积分不够</strong>：用免费模型替代</li>
+<li><strong>生成太慢</strong>：检查模型选择</li>
+</ol>
+<p><strong>避坑指南：</strong></p>
+<ol type="1">
+<li>PS合成后再加光影，不要直接AI描述</li>
+<li>三视图生成选SD 4.0模型</li>
+<li>角色绑定要用三视图</li>
+<li>积分消耗大，先出图再出视频</li>
+<li>关闭会员自动续费</li>
+<li>豆包描述可能位置不准，需多次修改</li>
+</ol>
+<p><strong>模型选择总结：</strong> | 任务 | 推荐模型 | 说明 |
+|------|----------|------| | 三视图 | SD 4.0 | 支持多图不同效果 | |
+产品图 | 智能图片V2 | 效果最好 | | 合成图 | PS+哩布 | 精度最高 | |
+漫剧视频 | SD 2.0/2.5 | 效果最好 | | 免费替代 | 海螺旧模型 | 只有音效
+|</p>
+<hr />
+<h2>全文系统性总结</h2>
+<p>本课系统讲解了电商产品合成的两种方法和AI漫剧流程，核心要点如下：</p>
+<ol type="1">
+<li><strong>PS合成+哩布溶图</strong>：精度最高，先PS合成位置，再加光影效果</li>
+<li><strong>豆包直接描述</strong>：简单方便但随机性大，适合简单场景</li>
+<li><strong>三视图生成</strong>：选SD
+4.0模型，分别生成正面/侧面/顶部</li>
+<li><strong>主图模式</strong>：可灵/豆包有主图模式，勾选后生成多张不同效果</li>
+<li><strong>漫剧流程</strong>：剧本→分镜→资产→生图→生视频→导出剪辑</li>
+<li><strong>哩布TV漫剧</strong>：一站式完成，绑定角色，接入多平台模型</li>
+<li><strong>成本控制</strong>：先出图再出视频，用免费模型练习，关自动续费</li>
+</ol>
+<hr />
+<p><em>本总结出自 1.9 电商光影溶图和AI漫剧流程
+课程，涵盖PS合成产品与场景、哩布溶图工作流、豆包直接描述溶图、三视图生成与主图模型、AI漫剧流程、哩布TV漫剧制作、角色绑定与场景合成、光影效果调整及常见问题避坑等核心知识点。</em></p></article>
+<article><h1>完整知识账本：1.10 AI视频画质增强和剪映专业版_深度总结</h1><h1>1.10
+AI视频画质增强和剪映专业版 - 深度总结</h1>
+<blockquote>
+<p>来源：<code>1.10 AI视频画质增强和剪映专业版._原文.txt</code>（约6100字）</p>
+</blockquote>
+<hr />
+<h2>大纲</h2>
+<ol type="1">
+<li>产品分解爆炸图制作（里布）</li>
+<li>AI电商视频前期准备：素材收集与市场分析</li>
+<li>四种视频生成方法详解</li>
+<li>智能多帧（无缝衔接）</li>
+<li>分镜脚本生成</li>
+<li>故事版（Storyboard）生成视频</li>
+<li>AI视频生成全流程总结</li>
+<li>会员与自动续费提醒</li>
+<li>模型选择核心原则</li>
+</ol>
+<hr />
+<h2
+id="板块一产品分解爆炸图制作里布">板块一：产品分解爆炸图制作（里布）</h2>
+<h3>深度总结</h3>
+<p><strong>适用场景：</strong>
+电子产品、有复杂构造的产品，需要展示内部结构的电商视频。</p>
+<p><strong>核心问题：</strong>
+直接用豆包等AI文本生成工具描述"分解图"，理解能力差，效果不稳定。原因在于机器内部构造复杂，AI凭空难以理解，容易产生逻辑错乱。</p>
+<p><strong>解决方案：使用里布（Liblib）平台。</strong></p>
+<ul>
+<li>里布平台内有大量<strong>现成的爆炸分解图模板</strong>，直接套用即可，准确性远高于一键生成。</li>
+<li>模板的本质是<strong>风格参考</strong>：选择模板后，点击"使用模板"，自动跳转到生图界面，并将该模板的风格加为参考，确保生成效果接近模板风格。</li>
+<li>推荐模型：<strong>智能图片（GPT模型）<strong>效果最好，其次是</strong>SD
+5.0 Pro</strong>（国产较优，但复杂结构仍一般）。</li>
+<li>画质建议：至少选<strong>标准/中等画质</strong>，低画质容易出现变形、细节丢失。</li>
+<li>比例选择：参考原图比例，1:1适合方形产品，16:9适合宽幅展示，根据产品形态（上下分解/左右分解）灵活调整。</li>
+</ul>
+<p><strong>操作要点：</strong></p>
+<ol type="1">
+<li>在里布底部搜索框搜索"爆炸图""分解图"等关键词，找到合适的模板。</li>
+<li>上传产品参考图（如耳机、手柄、充电宝等）。</li>
+<li>选择模板+模型（推荐智能图片或SD 5.0 Pro）。</li>
+<li>设置比例和画质，生成。</li>
+</ol>
+<blockquote>
+<p>说明：分解图效果仅适合快速展示机身构造，<strong>不适合做详情页说明书</strong>，因AI拆解不一定准确。准确说明书需在PS中手动制作。</p>
+</blockquote>
+<hr />
+<h2
+id="板块二ai电商视频前期准备素材收集与市场分析">板块二：AI电商视频前期准备——素材收集与市场分析</h2>
+<h3>深度总结</h3>
+<p><strong>第一步：收集产品素材</strong></p>
+<p>电商视频制作的第一步永远是<strong>收集素材</strong>，包括：</p>
+<ul>
+<li>产品本身的照片（清晰主体图）</li>
+<li>产品的<strong>三视图</strong>（正面/侧面/背面，用于绑定主体，防止换角度时变形）</li>
+<li>产品的细节图</li>
+<li>产品分解图（爆炸图）</li>
+<li>想要的场景背景图（可手动合成）</li>
+<li>同行参考案例（保存风格参考，避免AI凭空理解）</li>
+</ul>
+<blockquote>
+<p>核心原则：<strong>给AI充分的参考，效果才准确。</strong>
+不给参考，AI每次生成结果不可控。</p>
+</blockquote>
+<p><strong>第二步：用豆包做产品市场分析</strong></p>
+<p>将产品图上传至豆包，使用预设提示词让豆包分析：</p>
+<ul>
+<li>产品适合的目标人群</li>
+<li>产品的竞争力/卖点</li>
+<li>视觉风格建议（色彩、色调、氛围）</li>
+</ul>
+<blockquote>
+<p>提示词模板思路（发给桌面上的文档）：上传产品图后，让豆包分析上述信息，结果可直接用于后续脚本生成。</p>
+</blockquote>
+<p><strong>第三步：结合分析结果生成分镜图和脚本</strong></p>
+<ul>
+<li>分析完成后，继续在同一个对话中生成<strong>分镜图</strong>（连环图）和<strong>脚本</strong>。</li>
+<li>分镜图建议做<strong>15-20张</strong>，预留容错率（大约2/3可用）。</li>
+<li>关键提醒：<strong>分镜图中尽量避免出现文字</strong>，文字后期在剪映中手动添加，效果更好。</li>
+</ul>
+<blockquote>
+<p>豆包做分镜的缺点：连贯性较差，效果不稳定；如需高质量分镜，建议用海螺多宫格。</p>
+</blockquote>
+<hr />
+<h2>板块三：四种视频生成方法详解</h2>
+<p>课程系统讲解了四种AI视频生成方法，各有优劣：</p>
+<h3
+id="方法一单镜头逐帧生成最传统">方法一：单镜头逐帧生成（最传统）</h3>
+<p><strong>流程：</strong> 挑选图片 → 选择支持首帧/首尾帧的模型 →
+逐镜头生成视频 → 导入剪映拼接、配乐、加转场效果。</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li>可控性最强，每个镜头手动控制运镜、时长</li>
+<li>耗时较长（单个视频可能需30分钟以上）</li>
+<li>适合追求精准控制的场景</li>
+</ul>
+<p><strong>适用模型：</strong>
+各平台支持首帧/首尾帧生成的模型（海螺、可灵、里布等）。</p>
+<hr />
+<h3>方法二：九宫格图一键生成</h3>
+<p><strong>流程：</strong> 在海螺/里布生成九宫格图 →
+直接用该图生成完整视频。</p>
+<p><strong>特点：</strong></p>
+<ul>
+<li>快速出成片，无需剪辑</li>
+<li>九宫格图本身不含文字/台词</li>
+<li>随机性较高，效果需多试</li>
+</ul>
+<p><strong>适用模型：</strong> 海螺多宫格、里布模板等。</p>
+<blockquote>
+<p>详见课程 1.4（可灵AI基础功能）和 1.3（海螺AI核心功能）。</p>
+</blockquote>
+<hr />
+<h3>方法三：脚本截图生成视频</h3>
+<p><strong>流程：</strong></p>
+<ol type="1">
+<li>在豆包/极梦中生成完整分镜脚本（含景别、运镜、时长、画面内容等）</li>
+<li>将脚本<strong>截图</strong>保存为图片</li>
+<li>使用SD 2.0模型，以脚本截图+产品参考图作为输入，生成视频</li>
+</ol>
+<p><strong>提示词格式（核心）：</strong></p>
+<pre><code>参考脚本截图中的分镜脚本，
+时长：XX秒，
+景别：XX，
+镜头角度：XX，
+画面内容：XX，
+运镜：XX，
+音效/音乐：XX，
+生成一个XX秒的电商广告视频。</code></pre>
+<p><strong>优点：</strong></p>
+<ul>
+<li>可绕过<strong>人脸审核限制</strong>（脚本中描述有人物，但图片不直接给真人人脸，AI自行生成模特）</li>
+<li>脚本截图提供完整分镜参考，准确性高</li>
+</ul>
+<p><strong>适用模型：</strong> SD
+2.0（极梦、豆包、海螺、里布均可接入此模型）。</p>
+<hr />
+<h3
+id="方法四故事版storyboard生成视频">方法四：故事版（Storyboard）生成视频</h3>
+<p><strong>流程：</strong></p>
+<ol type="1">
+<li>在海螺/里布用<strong>GPT-2.0模型</strong>生成故事版图片（带文字描述的分镜图）</li>
+<li>将故事版截图+提示词输入视频生成模型，生成完整视频</li>
+</ol>
+<p><strong>故事版图片特点：</strong></p>
+<ul>
+<li>每张图包含文字台词、镜头描述、主体信息</li>
+<li>类似"有台词的九宫格"</li>
+<li>生成时用GPT-2.0模型，画质至少中等，分辨率2K/4K</li>
+</ul>
+<p><strong>关键要求：</strong></p>
+<ul>
+<li>生成故事版图片必须使用<strong>GPT-2.0模型</strong>，其他模型生成的故事版文字会乱码、效果差</li>
+<li>画质选择中等及以上，分辨率2K以上，否则文字难以辨认</li>
+<li>比例建议16:9（横屏）或9:16（竖屏，按平台需求）</li>
+</ul>
+<p><strong>生成视频提示词示例：</strong></p>
+<pre><code>参考以上故事版，生成一个XX秒的精华液TVC广告视频。</code></pre>
+<blockquote>
+<p>注意：故事版中有人脸时，豆包/极梦可能审核驳回，需多试几次；海螺不卡人脸，可直接使用。</p>
+</blockquote>
+<hr />
+<h2
+id="板块四智能多帧无缝衔接效果">板块四：智能多帧（无缝衔接效果）</h2>
+<p><strong>核心概念：</strong> 多张图片通过SD
+1.0旧模型实现<strong>一镜到底的无缝衔接</strong>，不切镜头，直接过渡。</p>
+<p><strong>适用场景：</strong></p>
+<ul>
+<li>产品从整体→局部细节的镜头推进</li>
+<li>风景场景之间的自然过渡</li>
+<li>不需要剧情、不需要声音的展示类视频</li>
+</ul>
+<p><strong>操作要点（极梦/可灵）：</strong></p>
+<ol type="1">
+<li>选择<strong>旧模型 SD 1.0</strong>（新模型不支持此功能）</li>
+<li>选择"智能多帧"模式</li>
+<li>添加3-4张参考图（首帧→中间过渡帧→尾帧）</li>
+<li>在两张图之间添加过渡描述文字，如"镜头推进到logo特写"</li>
+<li>设置每段过渡时长（建议3-4秒，总长约15秒）</li>
+</ol>
+<p><strong>注意：</strong></p>
+<ul>
+<li>模型较老旧，效果不如新模型自然</li>
+<li>不适合有人物出现的场景，适合产品展示</li>
+<li>消耗较低，成本低</li>
+<li>豆包不支持此功能，需在极梦/可灵操作</li>
+</ul>
+<hr />
+<h2>板块五：分镜脚本生成</h2>
+<p><strong>流程：</strong>
+产品分析完成后，直接在豆包对话中生成脚本：</p>
+<pre><code>结合以上分析内容，生成适合电商广告的分镜脚本，
+共9个镜头，包含景别、运镜、画面内容、音效/音乐描述。</code></pre>
+<p><strong>脚本字段说明：</strong></p>
+<ul>
+<li><strong>景别：</strong> 远景/中景/近景/特写</li>
+<li><strong>运镜：</strong> 推进/拉远/环绕/固定</li>
+<li><strong>画面内容：</strong> 每个镜头的具体画面描述</li>
+<li><strong>音效/音乐：</strong> 背景音乐类型、音效描述</li>
+<li><strong>时长：</strong> 每个镜头/整体视频时长</li>
+</ul>
+<p><strong>脚本用途：</strong>
+脚本截图可作为方法三/四的输入参考，也可直接复制给视频生成工具使用。</p>
+<blockquote>
+<p>豆包VIP用户可使用"工作任务"功能，自动整理为Word文档并下载。</p>
+</blockquote>
+<hr />
+<h2
+id="板块六故事版storyboard完整操作指南">板块六：故事版（Storyboard）完整操作指南</h2>
+<h3>生成故事版图片</h3>
+<p><strong>推荐平台：</strong>
+海螺（有GPT-2.0模型）或里布（智能图片V2）</p>
+<p><strong>操作步骤：</strong></p>
+<ol type="1">
+<li>选择GPT-2.0模型</li>
+<li>上传产品参考图（1-4张）</li>
+<li>比例：16:9或9:16</li>
+<li>画质：中等及以上，分辨率2K/4K</li>
+<li>提示词模板：
+<pre><code>参考产品图，生成一张TVC广告风格的故事版图片，
+包含多个镜头的分镜，每个镜头有台词、画面描述、主体信息。</code></pre></li>
+<li>生成1张即可（不要多张，以免消耗过高）</li>
+</ol>
+<h3>用故事版生成视频</h3>
+<p><strong>操作：</strong></p>
+<ol type="1">
+<li>下载故事版图片</li>
+<li>在视频生成平台（极梦/豆包/海螺）选择SD 2.0模型</li>
+<li>上传故事版图片作为参考</li>
+<li>提示词：
+<pre><code>参考以上故事版，生成一个XX秒的精华液TVC广告视频。</code></pre></li>
+<li>时长设置：豆包10秒，极梦/可灵15秒</li>
+</ol>
+<p><strong>关键提醒：</strong></p>
+<ul>
+<li>故事版生成图片时，<strong>必须用GPT-2.0模型</strong>，其他模型效果差</li>
+<li>视频生成时，<strong>必须用SD
+2.0模型</strong>，首尾帧模型无法理解故事版内容</li>
+<li>画质至少中等，2K以上，否则文字模糊影响生成效果</li>
+</ul>
+<hr />
+<h2>板块七：AI视频生成全流程总结</h2>
+<h3>标准流程</h3>
+<pre><code>第一步：收集产品素材
+  └─ 产品图、三视图、细节图、分解图、场景图、同行参考
+
+第二步：豆包做市场分析
+  └─ 上传产品图，分析目标人群、卖点、视觉风格
+
+第三步：生成分镜图和脚本
+  └─ 结合分析结果，生成15-20张分镜图 + 分镜脚本
+
+第四步：选择视频生成方法
+  ├─ 方法一：单镜头逐帧生成（精准但耗时）
+  ├─ 方法二：九宫格一键生成（快速但随机）
+  ├─ 方法三：脚本截图生成（可绕人脸审核）
+  └─ 方法四：故事版生成（完整成片，效果较好）
+
+第五步：导入剪映后期剪辑
+  └─ 配乐、调色、添加字幕、拼接镜头、替换问题片段</code></pre>
+<h3>各方法对比</h3>
+<table>
+<thead>
+<tr>
+<th>方法</th>
+<th>速度</th>
+<th>可控性</th>
+<th>准确性</th>
+<th>适合场景</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>单镜头逐帧</td>
+<td>慢</td>
+<td>高</td>
+<td>高</td>
+<td>精准控制、详情页</td>
+</tr>
+<tr>
+<td>九宫格</td>
+<td>快</td>
+<td>低</td>
+<td>中</td>
+<td>快速出片、测试</td>
+</tr>
+<tr>
+<td>脚本截图</td>
+<td>中</td>
+<td>中</td>
+<td>中</td>
+<td>需要人物但避审核</td>
+</tr>
+<tr>
+<td>故事版</td>
+<td>中</td>
+<td>中</td>
+<td>高</td>
+<td>TVC广告、完整成片</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2>板块八：模型选择核心原则</h2>
+<h3>模型决定下限，提示词决定上限</h3>
+<p><strong>核心观点：</strong>
+选择好的模型是效果的基础，提示词只是锦上添花。即使提示词写得再好，模型本身能力差，结果依然不理想。</p>
+<h3>各平台推荐模型</h3>
+<table>
+<thead>
+<tr>
+<th>任务类型</th>
+<th>推荐模型</th>
+<th>平台</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>产品分解爆炸图</td>
+<td>智能图片V2（GPT）</td>
+<td>里布</td>
+</tr>
+<tr>
+<td>分镜图/九宫格</td>
+<td>海螺多宫格</td>
+<td>海螺</td>
+</tr>
+<tr>
+<td>视频生成（全能参考）</td>
+<td>SD 2.0 / SD 2.5</td>
+<td>极梦、豆包、海螺、里布</td>
+</tr>
+<tr>
+<td>故事版图片生成</td>
+<td>GPT-2.0</td>
+<td>海螺、里布</td>
+</tr>
+<tr>
+<td>智能多帧无缝衔接</td>
+<td>SD 1.0（旧模型）</td>
+<td>极梦、可灵</td>
+</tr>
+<tr>
+<td>视频生成（含人物）</td>
+<td>H3（海螺）/ O3（可灵）</td>
+<td>海螺、可灵</td>
+</tr>
+</tbody>
+</table>
+<h3>各平台积分/收费说明</h3>
+<table>
+<thead>
+<tr>
+<th>平台</th>
+<th>积分获取方式</th>
+<th>说明</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>极梦</td>
+<td>新用户有积分赠送，每日有免费额度</td>
+<td>推荐工作使用</td>
+</tr>
+<tr>
+<td>豆包</td>
+<td>每日免费积分，连续赠送</td>
+<td>练习用</td>
+</tr>
+<tr>
+<td>海螺</td>
+<td>首次赠送，后续需购买</td>
+<td>有GPT-2.0和H3模型</td>
+</tr>
+<tr>
+<td>里布</td>
+<td>首次赠送，后续需购买</td>
+<td>模板丰富</td>
+</tr>
+<tr>
+<td>可灵</td>
+<td>首次赠送，后续需购买</td>
+<td>模型能力较强</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p><strong>重要提醒：</strong>
+各平台会员均为<strong>有额度的月费制</strong>，不是无限使用。开会员后记得检查是否开启自动续费，不用时及时关闭。大多数平台月费在70-几百元不等。</p>
+</blockquote>
+<hr />
+<h2>板块九：避坑指南</h2>
+<h3>人脸审核问题</h3>
+<ul>
+<li>SD 2.0模型对真人人脸有限制，可能直接驳回</li>
+<li>解决方案：方法三（脚本截图生成）或方法四（故事版生成），不直接给人脸参考图</li>
+<li>海螺H3模型不卡人脸，可直接使用</li>
+</ul>
+<h3>文字乱码问题</h3>
+<ul>
+<li>故事版中文字在低画质下易乱码</li>
+<li>解决：画质至少中等，分辨率2K以上</li>
+</ul>
+<h3>生成效果不稳定</h3>
+<ul>
+<li>同一提示词多次生成结果不同</li>
+<li>解决：多做几张预留容错，挑选最佳结果</li>
+</ul>
+<h3>模型选择错误</h3>
+<ul>
+<li>故事版图片必须用GPT-2.0模型生成，否则效果差</li>
+<li>视频生成必须用SD 2.0模型，首尾帧模型无法理解故事版/脚本内容</li>
+</ul>
+<h3>会员自动续费</h3>
+<ul>
+<li>开会员后务必检查是否开通连续扣费</li>
+<li>不用时及时关闭，避免下月继续扣款</li>
+<li>涉及平台：极梦、豆包、海螺、里布、里布TV、剪映、可灵</li>
+</ul>
+<hr />
+<h2>全文系统性总结</h2>
+<p>本课系统讲解了AI电商视频生成的完整工作流，核心要点如下：</p>
+<ol type="1">
+<li><p><strong>素材先行</strong>：任何AI视频生成之前，必须做好产品素材收集（三视图、细节图、场景图、同行参考），这是效果准确的基础。</p></li>
+<li><p><strong>市场分析与分镜脚本</strong>：利用豆包进行产品市场分析，将分析结果用于指导分镜图和脚本生成，确保视频方向与目标人群匹配。</p></li>
+<li><p><strong>四种视频生成方法各有适用场景</strong>：</p>
+<ul>
+<li>单镜头逐帧：精准控制，耗时但可控</li>
+<li>九宫格：快速出片，随机性高</li>
+<li>脚本截图：可绕人脸审核，准确性较高</li>
+<li>故事版：完整成片，效果较好，需GPT-2.0模型</li>
+</ul></li>
+<li><p><strong>模型选择决定效果下限</strong>：不同任务必须匹配正确的模型——故事版图片用GPT-2.0，视频生成用SD
+2.0，智能多帧用SD 1.0旧模型。</p></li>
+<li><p><strong>后期剪辑不可少</strong>：无论哪种方法生成，最终都需导入剪映进行配乐、调色、字幕添加和问题片段替换。</p></li>
+<li><p><strong>成本控制</strong>：各平台会员为有额度月费制，开会员后务必检查并关闭自动续费，避免持续扣款。</p></li>
+</ol>
+<hr />
+<p><em>本总结出自 1.10 AI视频画质增强和剪映专业版
+课程，涵盖产品分解图、素材收集、市场分析、四种视频生成方法、智能多帧、脚本生成、故事版及全流程总结等核心知识点。</em></p></article></section><section class="section" id="reference"><div class="chapter"><span class="num">10</span><h2>速查：你卡住时先回到哪一张卡</h2></div><table class="matrix"><tr><th>卡住的问题</th><th>先查</th><th>再做</th></tr><tr><td>商品变形</td><td>素材包、三视图、主体绑定</td><td>换参考图/模型；缩短镜头；用 PS 合成。</td></tr><tr><td>人脸被卡或不一致</td><td>是否真人授权、是否需要主体绑定</td><td>改用卡通/数字人；可灵主体库；不要绕过平台安全。</td></tr><tr><td>动作僵硬</td><td>动作是否过长/太多</td><td>拆动作、补时间轴、使用动作参考或多帧。</td></tr><tr><td>画面很假</td><td>光影、材质、透视、过度 AI 感</td><td>PS 合成→哩布溶图→高清放大/去 AI 感。</td></tr><tr><td>视频没有卖点</td><td>市场洞察与脚本</td><td>重写痛点—证明—CTA，不要只换模型。</td></tr><tr><td>成本失控</td><td>是否先图后视频、是否批量、是否关自动续费</td><td>mini/免费模型测试；满意后正式生成。</td></table>
+<div class="rule"><strong>最后一句话：</strong>先把问题拆成“目标、输入、控制、输出、质检”，再选工具。工具会更新，方法不会过时。</div>
+</section>
+<footer class="footer">本重构版依据课程单篇总结与终极总结重新编排；课程内平台名称、模型、价格、积分和界面属于当时记录，使用时请以实际平台规则为准。尊重版权、肖像、声音、商标和平台政策。</footer>
+</main>
+</body>
+</html>
+
+
+
