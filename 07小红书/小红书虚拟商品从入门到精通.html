@@ -1,0 +1,3605 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes">
+<title>小红书虚拟商品 · 从入门到精通 · 狂峰会5.0全攻略</title>
+<meta name="description" content="76篇狂峰会小红书虚拟商品5.0课程深度融汇贯通，配横向树状知识图谱，覆盖开店、选品、AI作图、批量发布、运营变现全流程。">
+<style>
+/* ===== 基础重置 ===== */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size: 16px; -webkit-text-size-adjust: 100%; }
+body {
+  font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", "Hiragino Sans GB", sans-serif;
+  background: #F0F3F7;
+  color: #2D3748;
+  line-height: 1.75;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ===== 主容器 ===== */
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+  background: #FFFFFF;
+  box-shadow: 0 0 0 1px rgba(0,0,0,0.04);
+  border-radius: 8px;
+}
+
+/* ===== 顶部Hero ===== */
+.hero {
+  background: linear-gradient(135deg, #1F4E79 0%, #2E5F8A 100%);
+  color: #FFFFFF;
+  padding: 56px 40px;
+  border-radius: 12px;
+  margin-bottom: 32px;
+  position: relative;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 240px; height: 240px;
+  background: rgba(255,255,255,0.08);
+  border-radius: 50%;
+}
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -80px; left: -80px;
+  width: 320px; height: 320px;
+  background: rgba(255,255,255,0.05);
+  border-radius: 50%;
+}
+.hero h1 {
+  font-size: 36px;
+  font-weight: 800;
+  margin-bottom: 16px;
+  position: relative;
+  z-index: 2;
+}
+.hero .sub {
+  font-size: 16px;
+  opacity: 0.92;
+  margin-bottom: 24px;
+  position: relative;
+  z-index: 2;
+}
+.hero .meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 16px;
+  position: relative;
+  z-index: 2;
+}
+.hero .meta span {
+  background: rgba(255,255,255,0.15);
+  padding: 6px 14px;
+  border-radius: 16px;
+  font-size: 13px;
+}
+
+/* ===== 章节大纲 TOC ===== */
+.toc {
+  background: #F8FAFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-bottom: 32px;
+}
+.toc h2 {
+  font-size: 18px;
+  color: #1F4E79;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+.toc ol {
+  list-style: none;
+  counter-reset: tocitem;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 10px 20px;
+}
+.toc ol li {
+  counter-increment: tocitem;
+  padding-left: 32px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.9;
+}
+.toc ol li::before {
+  content: counter(tocitem, decimal-leading-zero);
+  position: absolute;
+  left: 0;
+  top: 0;
+  background: #1F4E79;
+  color: #FFFFFF;
+  font-weight: 700;
+  font-size: 11px;
+  padding: 2px 6px;
+  border-radius: 4px;
+  min-width: 22px;
+  text-align: center;
+}
+.toc a {
+  color: #2D3748;
+  text-decoration: none;
+  border-bottom: 1px dashed transparent;
+  transition: all .2s;
+}
+.toc a:hover { color: #1F4E79; border-bottom-color: #1F4E79; }
+
+/* ===== 章节通用样式 ===== */
+section.chapter {
+  margin-bottom: 48px;
+  padding-top: 24px;
+  border-top: 1px solid #E2E8F0;
+}
+section.chapter:first-of-type { border-top: none; }
+.chapter-head {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  margin-bottom: 20px;
+  padding: 18px 22px;
+  border-radius: 10px;
+  color: #FFFFFF;
+}
+.chapter-head .num {
+  background: rgba(255,255,255,0.25);
+  font-weight: 800;
+  font-size: 18px;
+  padding: 6px 12px;
+  border-radius: 8px;
+}
+.chapter-head h2 {
+  font-size: 24px;
+  font-weight: 700;
+  flex: 1;
+}
+.chapter-head .tag {
+  font-size: 12px;
+  background: rgba(255,255,255,0.18);
+  padding: 4px 10px;
+  border-radius: 4px;
+}
+
+/* 章节色 */
+.ch-01 .chapter-head { background: linear-gradient(135deg, #2E7D32 0%, #43A047 100%); }
+.ch-02 .chapter-head { background: linear-gradient(135deg, #C62828 0%, #E53935 100%); }
+.ch-03 .chapter-head { background: linear-gradient(135deg, #EF6C00 0%, #FB8C00 100%); }
+.ch-04 .chapter-head { background: linear-gradient(135deg, #6A1B9A 0%, #8E24AA 100%); }
+.ch-05 .chapter-head { background: linear-gradient(135deg, #00838F 0%, #00ACC1 100%); }
+.ch-06 .chapter-head { background: linear-gradient(135deg, #4527A0 0%, #5E35B1 100%); }
+.ch-07 .chapter-head { background: linear-gradient(135deg, #AD1457 0%, #C2185B 100%); }
+.ch-08 .chapter-head { background: linear-gradient(135deg, #37474F 0%, #546E7A 100%); }
+
+/* 小节 */
+.subsec {
+  margin: 28px 0;
+  padding: 18px 22px;
+  background: #FBFCFD;
+  border-left: 4px solid #CBD5E0;
+  border-radius: 6px;
+}
+.subsec h3 {
+  font-size: 18px;
+  color: #1F4E79;
+  margin-bottom: 12px;
+  font-weight: 700;
+}
+.subsec h4 {
+  font-size: 15px;
+  color: #2D3748;
+  margin: 12px 0 8px;
+  font-weight: 700;
+}
+.subsec p, .subsec li { font-size: 14.5px; color: #4A5568; line-height: 1.85; }
+.subsec ul, .subsec ol { padding-left: 22px; margin: 8px 0; }
+.subsec li { margin-bottom: 4px; }
+
+/* 提示卡片 */
+.callout {
+  margin: 16px 0;
+  padding: 14px 18px;
+  border-radius: 6px;
+  font-size: 14px;
+  line-height: 1.75;
+}
+.callout.info { background: #E3F2FD; border-left: 4px solid #1976D2; color: #0D47A1; }
+.callout.warn { background: #FFF3E0; border-left: 4px solid #F57C00; color: #E65100; }
+.callout.danger { background: #FFEBEE; border-left: 4px solid #C62828; color: #B71C1C; }
+.callout.success { background: #E8F5E9; border-left: 4px solid #2E7D32; color: #1B5E20; }
+.callout.tip { background: #F3E5F5; border-left: 4px solid #6A1B9A; color: #4A148C; }
+.callout strong { font-weight: 700; }
+
+/* 表格 */
+table.tip {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 14px 0;
+  font-size: 13.5px;
+}
+table.tip caption { text-align: left; font-weight: 700; color: #1F4E79; padding: 6px 0; }
+table.tip th, table.tip td {
+  padding: 10px 12px;
+  border: 1px solid #E2E8F0;
+  text-align: left;
+  vertical-align: top;
+}
+table.tip th { background: #F1F5F9; font-weight: 700; color: #1F4E79; }
+table.tip tr:nth-child(even) td { background: #FAFBFC; }
+
+/* 代码块 */
+pre.code {
+  background: #1E293B;
+  color: #E2E8F0;
+  padding: 16px;
+  border-radius: 8px;
+  overflow-x: auto;
+  font-family: "Consolas", "Monaco", monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  margin: 14px 0;
+}
+code.inline { background: #EEF2F7; padding: 1px 6px; border-radius: 4px; font-size: 13px; color: #C62828; }
+
+/* 步骤编号 */
+ol.steps {
+  list-style: none;
+  counter-reset: step;
+  margin: 16px 0;
+}
+ol.steps li {
+  counter-increment: step;
+  padding: 14px 16px 14px 56px;
+  position: relative;
+  background: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 8px;
+  margin-bottom: 10px;
+  font-size: 14.5px;
+}
+ol.steps li::before {
+  content: counter(step);
+  position: absolute;
+  left: 14px; top: 14px;
+  background: #1F4E79;
+  color: #FFFFFF;
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  text-align: center;
+  font-weight: 700;
+  font-size: 14px;
+  line-height: 28px;
+}
+
+/* 知识图谱容器 */
+.kg-wrap {
+  background: #FAFBFC;
+  border: 1px solid #E2E8F0;
+  border-radius: 10px;
+  padding: 16px;
+  margin: 28px 0;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+.kg-wrap svg {
+  display: block;
+  width: 100%;
+  height: auto;
+  min-width: 1100px;
+}
+.kg-caption {
+  text-align: center;
+  color: #718096;
+  font-size: 13px;
+  margin-top: 10px;
+}
+
+/* 附录 */
+.appendix {
+  margin-top: 48px;
+  padding: 24px;
+  background: #F8FAFC;
+  border-radius: 10px;
+  border: 1px solid #E2E8F0;
+}
+.appendix h2 {
+  color: #1F4E79;
+  margin-bottom: 16px;
+}
+.foot {
+  text-align: center;
+  color: #718096;
+  font-size: 13px;
+  padding: 32px 0 0;
+  border-top: 1px solid #E2E8F0;
+  margin-top: 48px;
+}
+.foot p { margin-bottom: 4px; }
+
+/* ===== 响应式 ===== */
+@media (max-width: 768px) {
+  .container { padding: 16px 12px 60px; }
+  .hero { padding: 32px 20px; }
+  .hero h1 { font-size: 24px; }
+  .hero .sub { font-size: 14px; }
+  .toc { padding: 18px 16px; }
+  .toc ol { grid-template-columns: 1fr; }
+  .chapter-head { padding: 14px 16px; }
+  .chapter-head h2 { font-size: 18px; }
+  .subsec { padding: 14px 14px; }
+  .subsec h3 { font-size: 16px; }
+  table.tip { font-size: 12px; }
+  table.tip th, table.tip td { padding: 8px; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ===== Hero 顶部 ===== -->
+  <header class="hero">
+    <h1>小红书虚拟商品 · 从入门到精通</h1>
+    <p class="sub">狂峰会 5.0 技术全攻略 · 76 篇课程打碎重组 · 含 2025-2026 最新合规与工具更新</p>
+    <div class="meta">
+      <span>📚 76 篇课程完整覆盖</span>
+      <span>🤖 AI 作图 / 原创全体系</span>
+      <span>📜 2025-2026 最新政策</span>
+      <span>🎯 测款 500 → 怼款 30 模型</span>
+      <span>💰 1万/月 单店天花板</span>
+    </div>
+  </header>
+
+  <!-- ===== 阅读说明 ===== -->
+  <section class="subsec" style="border-left-color:#1F4E79;">
+    <h3>📖 阅读说明（主人是小白？按这顺序走）</h3>
+    <ol>
+      <li><strong>第一次看</strong>：按章节 01→12 顺序读完，建立完整认知框架。</li>
+      <li><strong>准备开干</strong>：跳到 <a href="#ch02">第 2 章「开店」</a> + <a href="#ch03">第 3 章「选品」</a> 启动。</li>
+      <li><strong>遇到卡点</strong>：查 <a href="#kg">顶部「知识图谱」</a> 定位知识点，再回正文看详细 SOP。</li>
+      <li><strong>合规红线</strong>：必读 <a href="#ch08">第 8 章「精通高手」</a> 的"合规风控"小节。</li>
+    </ol>
+    <div class="callout info" style="margin-top:14px;">
+      <strong>知识图谱使用：</strong>在手机/微信里<strong>双指放大</strong>即可查看细节；电脑端<strong>Ctrl + 滚轮</strong>缩放。所有节点横向树状展开，零 JS、零依赖。
+    </div>
+  </section>
+
+  <!-- ===== 知识图谱 SVG ===== -->
+  <section id="kg" class="subsec" style="padding:0;border-left:none;background:transparent;">
+    <h3 style="padding:18px 22px 0;">🗺️ 知识图谱 · 横向树状 · 全局导览</h3>
+    <div class="kg-wrap" id="kgWrap">
+
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1100 6528" preserveAspectRatio="xMinYMin meet" style="display:block;width:100%;height:auto;">
+<defs>
+  <style>
+    text { font-family: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Segoe UI", sans-serif; }
+  </style>
+</defs>
+<rect width="100%" height="100%" fill="#FAFBFC"/>
+<path d="M 211 3254.5 L 275.5 3254.5 L 275.5 297.0 L 340 297.0" fill="none" stroke="#1F4E79" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 297.0 L 545.0 297.0 L 545.0 102.0 L 600 102.0" fill="none" stroke="#2E7D32" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 102.0 L 805.0 102.0 L 805.0 50.0 L 860 50.0" fill="none" stroke="#388E3C" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 102.0 L 805.0 102.0 L 805.0 102.0 L 860 102.0" fill="none" stroke="#388E3C" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 102.0 L 805.0 102.0 L 805.0 154.0 L 860 154.0" fill="none" stroke="#388E3C" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 297.0 L 545.0 297.0 L 545.0 258.0 L 600 258.0" fill="none" stroke="#2E7D32" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 258.0 L 805.0 258.0 L 805.0 206.0 L 860 206.0" fill="none" stroke="#388E3C" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 258.0 L 805.0 258.0 L 805.0 258.0 L 860 258.0" fill="none" stroke="#388E3C" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 258.0 L 805.0 258.0 L 805.0 310.0 L 860 310.0" fill="none" stroke="#388E3C" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 297.0 L 545.0 297.0 L 545.0 388.0 L 600 388.0" fill="none" stroke="#2E7D32" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 388.0 L 805.0 388.0 L 805.0 362.0 L 860 362.0" fill="none" stroke="#388E3C" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 388.0 L 805.0 388.0 L 805.0 414.0 L 860 414.0" fill="none" stroke="#388E3C" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 297.0 L 545.0 297.0 L 545.0 492.0 L 600 492.0" fill="none" stroke="#2E7D32" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 492.0 L 805.0 492.0 L 805.0 466.0 L 860 466.0" fill="none" stroke="#388E3C" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 492.0 L 805.0 492.0 L 805.0 518.0 L 860 518.0" fill="none" stroke="#388E3C" stroke-width="1.4" opacity="0.5" />
+<path d="M 211 3254.5 L 275.5 3254.5 L 275.5 1012.0 L 340 1012.0" fill="none" stroke="#1F4E79" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1012.0 L 545.0 1012.0 L 545.0 622.0 L 600 622.0" fill="none" stroke="#C62828" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 622.0 L 805.0 622.0 L 805.0 570.0 L 860 570.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 622.0 L 805.0 622.0 L 805.0 622.0 L 860 622.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 622.0 L 805.0 622.0 L 805.0 674.0 L 860 674.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1012.0 L 545.0 1012.0 L 545.0 778.0 L 600 778.0" fill="none" stroke="#C62828" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 778.0 L 805.0 778.0 L 805.0 726.0 L 860 726.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 778.0 L 805.0 778.0 L 805.0 778.0 L 860 778.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 778.0 L 805.0 778.0 L 805.0 830.0 L 860 830.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1012.0 L 545.0 1012.0 L 545.0 986.0 L 600 986.0" fill="none" stroke="#C62828" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 986.0 L 805.0 986.0 L 805.0 882.0 L 860 882.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 986.0 L 805.0 986.0 L 805.0 934.0 L 860 934.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 986.0 L 805.0 986.0 L 805.0 986.0 L 860 986.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 986.0 L 805.0 986.0 L 805.0 1038.0 L 860 1038.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 986.0 L 805.0 986.0 L 805.0 1090.0 L 860 1090.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1012.0 L 545.0 1012.0 L 545.0 1168.0 L 600 1168.0" fill="none" stroke="#C62828" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1168.0 L 805.0 1168.0 L 805.0 1142.0 L 860 1142.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1168.0 L 805.0 1168.0 L 805.0 1194.0 L 860 1194.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1012.0 L 545.0 1012.0 L 545.0 1272.0 L 600 1272.0" fill="none" stroke="#C62828" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1272.0 L 805.0 1272.0 L 805.0 1246.0 L 860 1246.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1272.0 L 805.0 1272.0 L 805.0 1298.0 L 860 1298.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1012.0 L 545.0 1012.0 L 545.0 1402.0 L 600 1402.0" fill="none" stroke="#C62828" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1402.0 L 805.0 1402.0 L 805.0 1350.0 L 860 1350.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1402.0 L 805.0 1402.0 L 805.0 1402.0 L 860 1402.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1402.0 L 805.0 1402.0 L 805.0 1454.0 L 860 1454.0" fill="none" stroke="#D32F2F" stroke-width="1.4" opacity="0.5" />
+<path d="M 211 3254.5 L 275.5 3254.5 L 275.5 1935.0 L 340 1935.0" fill="none" stroke="#1F4E79" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1935.0 L 545.0 1935.0 L 545.0 1532.0 L 600 1532.0" fill="none" stroke="#EF6C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1532.0 L 805.0 1532.0 L 805.0 1506.0 L 860 1506.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1532.0 L 805.0 1532.0 L 805.0 1558.0 L 860 1558.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1935.0 L 545.0 1935.0 L 545.0 1662.0 L 600 1662.0" fill="none" stroke="#EF6C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1662.0 L 805.0 1662.0 L 805.0 1610.0 L 860 1610.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1662.0 L 805.0 1662.0 L 805.0 1662.0 L 860 1662.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1662.0 L 805.0 1662.0 L 805.0 1714.0 L 860 1714.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1935.0 L 545.0 1935.0 L 545.0 1792.0 L 600 1792.0" fill="none" stroke="#EF6C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1792.0 L 805.0 1792.0 L 805.0 1766.0 L 860 1766.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1792.0 L 805.0 1792.0 L 805.0 1818.0 L 860 1818.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1935.0 L 545.0 1935.0 L 545.0 1896.0 L 600 1896.0" fill="none" stroke="#EF6C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1896.0 L 805.0 1896.0 L 805.0 1870.0 L 860 1870.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 1896.0 L 805.0 1896.0 L 805.0 1922.0 L 860 1922.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1935.0 L 545.0 1935.0 L 545.0 2026.0 L 600 2026.0" fill="none" stroke="#EF6C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2026.0 L 805.0 2026.0 L 805.0 1974.0 L 860 1974.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2026.0 L 805.0 2026.0 L 805.0 2026.0 L 860 2026.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2026.0 L 805.0 2026.0 L 805.0 2078.0 L 860 2078.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1935.0 L 545.0 1935.0 L 545.0 2156.0 L 600 2156.0" fill="none" stroke="#EF6C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2156.0 L 805.0 2156.0 L 805.0 2130.0 L 860 2130.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2156.0 L 805.0 2156.0 L 805.0 2182.0 L 860 2182.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1935.0 L 545.0 1935.0 L 545.0 2260.0 L 600 2260.0" fill="none" stroke="#EF6C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2260.0 L 805.0 2260.0 L 805.0 2234.0 L 860 2234.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2260.0 L 805.0 2260.0 L 805.0 2286.0 L 860 2286.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 1935.0 L 545.0 1935.0 L 545.0 2338.0 L 600 2338.0" fill="none" stroke="#EF6C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2338.0 L 805.0 2338.0 L 805.0 2338.0 L 860 2338.0" fill="none" stroke="#F57C00" stroke-width="1.4" opacity="0.5" />
+<path d="M 211 3254.5 L 275.5 3254.5 L 275.5 2871.0 L 340 2871.0" fill="none" stroke="#1F4E79" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 2871.0 L 545.0 2871.0 L 545.0 2442.0 L 600 2442.0" fill="none" stroke="#6A1B9A" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2442.0 L 805.0 2442.0 L 805.0 2390.0 L 860 2390.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2442.0 L 805.0 2442.0 L 805.0 2442.0 L 860 2442.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2442.0 L 805.0 2442.0 L 805.0 2494.0 L 860 2494.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 2871.0 L 545.0 2871.0 L 545.0 2598.0 L 600 2598.0" fill="none" stroke="#6A1B9A" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2598.0 L 805.0 2598.0 L 805.0 2546.0 L 860 2546.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2598.0 L 805.0 2598.0 L 805.0 2598.0 L 860 2598.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2598.0 L 805.0 2598.0 L 805.0 2650.0 L 860 2650.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 2871.0 L 545.0 2871.0 L 545.0 2728.0 L 600 2728.0" fill="none" stroke="#6A1B9A" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2728.0 L 805.0 2728.0 L 805.0 2702.0 L 860 2702.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2728.0 L 805.0 2728.0 L 805.0 2754.0 L 860 2754.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 2871.0 L 545.0 2871.0 L 545.0 2832.0 L 600 2832.0" fill="none" stroke="#6A1B9A" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2832.0 L 805.0 2832.0 L 805.0 2806.0 L 860 2806.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2832.0 L 805.0 2832.0 L 805.0 2858.0 L 860 2858.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 2871.0 L 545.0 2871.0 L 545.0 2962.0 L 600 2962.0" fill="none" stroke="#6A1B9A" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2962.0 L 805.0 2962.0 L 805.0 2910.0 L 860 2910.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2962.0 L 805.0 2962.0 L 805.0 2962.0 L 860 2962.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 2962.0 L 805.0 2962.0 L 805.0 3014.0 L 860 3014.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 2871.0 L 545.0 2871.0 L 545.0 3144.0 L 600 3144.0" fill="none" stroke="#6A1B9A" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3144.0 L 805.0 3144.0 L 805.0 3066.0 L 860 3066.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3144.0 L 805.0 3144.0 L 805.0 3118.0 L 860 3118.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3144.0 L 805.0 3144.0 L 805.0 3170.0 L 860 3170.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3144.0 L 805.0 3144.0 L 805.0 3222.0 L 860 3222.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 2871.0 L 545.0 2871.0 L 545.0 3300.0 L 600 3300.0" fill="none" stroke="#6A1B9A" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3300.0 L 805.0 3300.0 L 805.0 3274.0 L 860 3274.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3300.0 L 805.0 3300.0 L 805.0 3326.0 L 860 3326.0" fill="none" stroke="#7B1FA2" stroke-width="1.4" opacity="0.5" />
+<path d="M 211 3254.5 L 275.5 3254.5 L 275.5 3768.0 L 340 3768.0" fill="none" stroke="#1F4E79" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 3768.0 L 545.0 3768.0 L 545.0 3404.0 L 600 3404.0" fill="none" stroke="#00838F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3404.0 L 805.0 3404.0 L 805.0 3378.0 L 860 3378.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3404.0 L 805.0 3404.0 L 805.0 3430.0 L 860 3430.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 3768.0 L 545.0 3768.0 L 545.0 3508.0 L 600 3508.0" fill="none" stroke="#00838F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3508.0 L 805.0 3508.0 L 805.0 3482.0 L 860 3482.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3508.0 L 805.0 3508.0 L 805.0 3534.0 L 860 3534.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 3768.0 L 545.0 3768.0 L 545.0 3664.0 L 600 3664.0" fill="none" stroke="#00838F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3664.0 L 805.0 3664.0 L 805.0 3586.0 L 860 3586.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3664.0 L 805.0 3664.0 L 805.0 3638.0 L 860 3638.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3664.0 L 805.0 3664.0 L 805.0 3690.0 L 860 3690.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3664.0 L 805.0 3664.0 L 805.0 3742.0 L 860 3742.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 3768.0 L 545.0 3768.0 L 545.0 3846.0 L 600 3846.0" fill="none" stroke="#00838F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3846.0 L 805.0 3846.0 L 805.0 3794.0 L 860 3794.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3846.0 L 805.0 3846.0 L 805.0 3846.0 L 860 3846.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 3846.0 L 805.0 3846.0 L 805.0 3898.0 L 860 3898.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 3768.0 L 545.0 3768.0 L 545.0 4002.0 L 600 4002.0" fill="none" stroke="#00838F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4002.0 L 805.0 4002.0 L 805.0 3950.0 L 860 3950.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4002.0 L 805.0 4002.0 L 805.0 4002.0 L 860 4002.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4002.0 L 805.0 4002.0 L 805.0 4054.0 L 860 4054.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 3768.0 L 545.0 3768.0 L 545.0 4132.0 L 600 4132.0" fill="none" stroke="#00838F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4132.0 L 805.0 4132.0 L 805.0 4106.0 L 860 4106.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4132.0 L 805.0 4132.0 L 805.0 4158.0 L 860 4158.0" fill="none" stroke="#0097A7" stroke-width="1.4" opacity="0.5" />
+<path d="M 211 3254.5 L 275.5 3254.5 L 275.5 4522.0 L 340 4522.0" fill="none" stroke="#1F4E79" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 4522.0 L 545.0 4522.0 L 545.0 4236.0 L 600 4236.0" fill="none" stroke="#4527A0" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4236.0 L 805.0 4236.0 L 805.0 4210.0 L 860 4210.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4236.0 L 805.0 4236.0 L 805.0 4262.0 L 860 4262.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 4522.0 L 545.0 4522.0 L 545.0 4340.0 L 600 4340.0" fill="none" stroke="#4527A0" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4340.0 L 805.0 4340.0 L 805.0 4314.0 L 860 4314.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4340.0 L 805.0 4340.0 L 805.0 4366.0 L 860 4366.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 4522.0 L 545.0 4522.0 L 545.0 4444.0 L 600 4444.0" fill="none" stroke="#4527A0" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4444.0 L 805.0 4444.0 L 805.0 4418.0 L 860 4418.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4444.0 L 805.0 4444.0 L 805.0 4470.0 L 860 4470.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 4522.0 L 545.0 4522.0 L 545.0 4548.0 L 600 4548.0" fill="none" stroke="#4527A0" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4548.0 L 805.0 4548.0 L 805.0 4522.0 L 860 4522.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4548.0 L 805.0 4548.0 L 805.0 4574.0 L 860 4574.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 4522.0 L 545.0 4522.0 L 545.0 4652.0 L 600 4652.0" fill="none" stroke="#4527A0" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4652.0 L 805.0 4652.0 L 805.0 4626.0 L 860 4626.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4652.0 L 805.0 4652.0 L 805.0 4678.0 L 860 4678.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 4522.0 L 545.0 4522.0 L 545.0 4808.0 L 600 4808.0" fill="none" stroke="#4527A0" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4808.0 L 805.0 4808.0 L 805.0 4730.0 L 860 4730.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4808.0 L 805.0 4808.0 L 805.0 4782.0 L 860 4782.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4808.0 L 805.0 4808.0 L 805.0 4834.0 L 860 4834.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 4808.0 L 805.0 4808.0 L 805.0 4886.0 L 860 4886.0" fill="none" stroke="#512DA8" stroke-width="1.4" opacity="0.5" />
+<path d="M 211 3254.5 L 275.5 3254.5 L 275.5 5458.0 L 340 5458.0" fill="none" stroke="#1F4E79" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 5458.0 L 545.0 5458.0 L 545.0 5016.0 L 600 5016.0" fill="none" stroke="#AD1457" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5016.0 L 805.0 5016.0 L 805.0 4938.0 L 860 4938.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5016.0 L 805.0 5016.0 L 805.0 4990.0 L 860 4990.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5016.0 L 805.0 5016.0 L 805.0 5042.0 L 860 5042.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5016.0 L 805.0 5016.0 L 805.0 5094.0 L 860 5094.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 5458.0 L 545.0 5458.0 L 545.0 5198.0 L 600 5198.0" fill="none" stroke="#AD1457" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5198.0 L 805.0 5198.0 L 805.0 5146.0 L 860 5146.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5198.0 L 805.0 5198.0 L 805.0 5198.0 L 860 5198.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5198.0 L 805.0 5198.0 L 805.0 5250.0 L 860 5250.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 5458.0 L 545.0 5458.0 L 545.0 5328.0 L 600 5328.0" fill="none" stroke="#AD1457" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5328.0 L 805.0 5328.0 L 805.0 5302.0 L 860 5302.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5328.0 L 805.0 5328.0 L 805.0 5354.0 L 860 5354.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 5458.0 L 545.0 5458.0 L 545.0 5432.0 L 600 5432.0" fill="none" stroke="#AD1457" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5432.0 L 805.0 5432.0 L 805.0 5406.0 L 860 5406.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5432.0 L 805.0 5432.0 L 805.0 5458.0 L 860 5458.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 5458.0 L 545.0 5458.0 L 545.0 5562.0 L 600 5562.0" fill="none" stroke="#AD1457" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5562.0 L 805.0 5562.0 L 805.0 5510.0 L 860 5510.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5562.0 L 805.0 5562.0 L 805.0 5562.0 L 860 5562.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5562.0 L 805.0 5562.0 L 805.0 5614.0 L 860 5614.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 5458.0 L 545.0 5458.0 L 545.0 5692.0 L 600 5692.0" fill="none" stroke="#AD1457" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5692.0 L 805.0 5692.0 L 805.0 5666.0 L 860 5666.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5692.0 L 805.0 5692.0 L 805.0 5718.0 L 860 5718.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 5458.0 L 545.0 5458.0 L 545.0 5796.0 L 600 5796.0" fill="none" stroke="#AD1457" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5796.0 L 805.0 5796.0 L 805.0 5770.0 L 860 5770.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5796.0 L 805.0 5796.0 L 805.0 5822.0 L 860 5822.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 5458.0 L 545.0 5458.0 L 545.0 5900.0 L 600 5900.0" fill="none" stroke="#AD1457" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5900.0 L 805.0 5900.0 L 805.0 5874.0 L 860 5874.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 5900.0 L 805.0 5900.0 L 805.0 5926.0 L 860 5926.0" fill="none" stroke="#C2185B" stroke-width="1.4" opacity="0.5" />
+<path d="M 211 3254.5 L 275.5 3254.5 L 275.5 6212.0 L 340 6212.0" fill="none" stroke="#1F4E79" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 6212.0 L 545.0 6212.0 L 545.0 6004.0 L 600 6004.0" fill="none" stroke="#37474F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 6004.0 L 805.0 6004.0 L 805.0 5978.0 L 860 5978.0" fill="none" stroke="#455A64" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 6004.0 L 805.0 6004.0 L 805.0 6030.0 L 860 6030.0" fill="none" stroke="#455A64" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 6212.0 L 545.0 6212.0 L 545.0 6108.0 L 600 6108.0" fill="none" stroke="#37474F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 6108.0 L 805.0 6108.0 L 805.0 6082.0 L 860 6082.0" fill="none" stroke="#455A64" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 6108.0 L 805.0 6108.0 L 805.0 6134.0 L 860 6134.0" fill="none" stroke="#455A64" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 6212.0 L 545.0 6212.0 L 545.0 6264.0 L 600 6264.0" fill="none" stroke="#37474F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 6264.0 L 805.0 6264.0 L 805.0 6186.0 L 860 6186.0" fill="none" stroke="#455A64" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 6264.0 L 805.0 6264.0 L 805.0 6238.0 L 860 6238.0" fill="none" stroke="#455A64" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 6264.0 L 805.0 6264.0 L 805.0 6290.0 L 860 6290.0" fill="none" stroke="#455A64" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 6264.0 L 805.0 6264.0 L 805.0 6342.0 L 860 6342.0" fill="none" stroke="#455A64" stroke-width="1.4" opacity="0.5" />
+<path d="M 490 6212.0 L 545.0 6212.0 L 545.0 6420.0 L 600 6420.0" fill="none" stroke="#37474F" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 6420.0 L 805.0 6420.0 L 805.0 6394.0 L 860 6394.0" fill="none" stroke="#455A64" stroke-width="1.4" opacity="0.5" />
+<path d="M 750 6420.0 L 805.0 6420.0 L 805.0 6446.0 L 860 6446.0" fill="none" stroke="#455A64" stroke-width="1.4" opacity="0.5" />
+<rect x="20" y="3234.5" width="191" height="40" rx="6" ry="6" fill="#1F4E79" stroke="#1F4E79" stroke-width="1.4" /><text x="115.5" y="3258.5" text-anchor="middle" font-size="12" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">小红书虚拟商品 从入门到精通</text>
+<rect x="340" y="6192.0" width="150" height="40" rx="6" ry="6" fill="#37474F" stroke="#37474F" stroke-width="1.4" /><text x="415.0" y="6216.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">08 精通高手</text>
+<rect x="600" y="6400.0" width="150" height="40" rx="6" ry="6" fill="#455A64" stroke="#455A64" stroke-width="1.4" /><text x="675.0" y="6424.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">避坑指南</text>
+<rect x="860" y="6426" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="6450.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">恶意投诉应对</text>
+<rect x="860" y="6374" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="6398.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">违规3种处理法</text>
+<rect x="600" y="6244.0" width="150" height="40" rx="6" ry="6" fill="#455A64" stroke="#455A64" stroke-width="1.4" /><text x="675.0" y="6268.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">合规风控</text>
+<rect x="860" y="6322" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="6346.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">多账号矩阵合规</text>
+<rect x="860" y="6270" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="6294.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">交易导流红线</text>
+<rect x="860" y="6218" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="6242.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">暗水印处理边界</text>
+<rect x="860" y="6166" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="6190.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">AI内容标识合规</text>
+<rect x="600" y="6088.0" width="150" height="40" rx="6" ry="6" fill="#455A64" stroke="#455A64" stroke-width="1.4" /><text x="675.0" y="6112.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">为什么做不好</text>
+<rect x="860" y="6114" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="6138.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">诊断框架</text>
+<rect x="860" y="6062" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="6086.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">7大常见误区</text>
+<rect x="600" y="5984.0" width="150" height="40" rx="6" ry="6" fill="#455A64" stroke="#455A64" stroke-width="1.4" /><text x="675.0" y="6008.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">5.0操作总结</text>
+<rect x="860" y="6010" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="6034.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">执行Checklist</text>
+<rect x="860" y="5958" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5982.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">7大阶段全流程</text>
+<rect x="340" y="5438.0" width="150" height="40" rx="6" ry="6" fill="#AD1457" stroke="#AD1457" stroke-width="1.4" /><text x="415.0" y="5462.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">07 运营变现</text>
+<rect x="600" y="5880.0" width="150" height="40" rx="6" ry="6" fill="#C2185B" stroke="#C2185B" stroke-width="1.4" /><text x="675.0" y="5904.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">附带收益</text>
+<rect x="860" y="5906" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5930.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">转存0.45元/次</text>
+<rect x="860" y="5854" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5878.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">百度网盘拉新8-24元</text>
+<rect x="600" y="5776.0" width="150" height="40" rx="6" ry="6" fill="#C2185B" stroke="#C2185B" stroke-width="1.4" /><text x="675.0" y="5800.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">客服体系</text>
+<rect x="860" y="5802" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5826.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">自动回复设置</text>
+<rect x="860" y="5750" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5774.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">万能回复话术</text>
+<rect x="600" y="5672.0" width="150" height="40" rx="6" ry="6" fill="#C2185B" stroke="#C2185B" stroke-width="1.4" /><text x="675.0" y="5696.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">货源发货</text>
+<rect x="860" y="5698" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5722.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">自动发货设置</text>
+<rect x="860" y="5646" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5670.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">百度网盘/阿奇索</text>
+<rect x="600" y="5542.0" width="150" height="40" rx="6" ry="6" fill="#C2185B" stroke="#C2185B" stroke-width="1.4" /><text x="675.0" y="5566.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">流量转化优化</text>
+<rect x="860" y="5594" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5618.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">正规销量与评价</text>
+<rect x="860" y="5542" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5566.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">转化低7个解决</text>
+<rect x="860" y="5490" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5514.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">流量少的5原因</text>
+<rect x="600" y="5412.0" width="150" height="40" rx="6" ry="6" fill="#C2185B" stroke="#C2185B" stroke-width="1.4" /><text x="675.0" y="5436.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">店矩阵放大</text>
+<rect x="860" y="5438" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5462.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">防关联配合</text>
+<rect x="860" y="5386" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5410.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">矩阵账号管理</text>
+<rect x="600" y="5308.0" width="150" height="40" rx="6" ry="6" fill="#C2185B" stroke="#C2185B" stroke-width="1.4" /><text x="675.0" y="5332.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">定价策略</text>
+<rect x="860" y="5334" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5358.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">价格锚点策略</text>
+<rect x="860" y="5282" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5306.0" text-anchor="middle" font-size="11" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">三档1.9/2.9/5.9/9.9</text>
+<rect x="600" y="5178.0" width="150" height="40" rx="6" ry="6" fill="#C2185B" stroke="#C2185B" stroke-width="1.4" /><text x="675.0" y="5202.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">怼款店模型</text>
+<rect x="860" y="5230" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5254.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">先测后怼天然优势</text>
+<rect x="860" y="5178" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5202.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">100笔记数据筛选</text>
+<rect x="860" y="5126" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5150.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">1店狂怼30个好品</text>
+<rect x="600" y="4996.0" width="150" height="40" rx="6" ry="6" fill="#C2185B" stroke="#C2185B" stroke-width="1.4" /><text x="675.0" y="5020.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">测款店模型</text>
+<rect x="860" y="5074" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5098.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">3轮笔记数据筛选</text>
+<rect x="860" y="5022" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="5046.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">混杂布局策略</text>
+<rect x="860" y="4970" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4994.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">1号1定位布局</text>
+<rect x="860" y="4918" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4942.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">先50再定向500款</text>
+<rect x="340" y="4502.0" width="150" height="40" rx="6" ry="6" fill="#4527A0" stroke="#4527A0" stroke-width="1.4" /><text x="415.0" y="4526.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">06 批量发布</text>
+<rect x="600" y="4788.0" width="150" height="40" rx="6" ry="6" fill="#512DA8" stroke="#512DA8" stroke-width="1.4" /><text x="675.0" y="4812.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">自动发笔记</text>
+<rect x="860" y="4866" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4890.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">新图替换+4问题</text>
+<rect x="860" y="4814" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4838.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">时间间隔1200秒</text>
+<rect x="860" y="4762" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4786.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">软件任务分配</text>
+<rect x="860" y="4710" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4734.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">插件安装配置</text>
+<rect x="600" y="4632.0" width="150" height="40" rx="6" ry="6" fill="#512DA8" stroke="#512DA8" stroke-width="1.4" /><text x="675.0" y="4656.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">百分浏览器</text>
+<rect x="860" y="4658" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4682.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">批量启动账号</text>
+<rect x="860" y="4606" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4630.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">快捷方式生成</text>
+<rect x="600" y="4528.0" width="150" height="40" rx="6" ry="6" fill="#512DA8" stroke="#512DA8" stroke-width="1.4" /><text x="675.0" y="4552.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">隔离IP操作</text>
+<rect x="860" y="4554" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4578.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">IP纯净度检测</text>
+<rect x="860" y="4502" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4526.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">IP与浏览器绑定</text>
+<rect x="600" y="4424.0" width="150" height="40" rx="6" ry="6" fill="#512DA8" stroke="#512DA8" stroke-width="1.4" /><text x="675.0" y="4448.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">IP地址购买</text>
+<rect x="860" y="4450" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4474.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">国内/海外选择</text>
+<rect x="860" y="4398" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4422.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">独享IP vs 共享IP</text>
+<rect x="600" y="4320.0" width="150" height="40" rx="6" ry="6" fill="#512DA8" stroke="#512DA8" stroke-width="1.4" /><text x="675.0" y="4344.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">比特浏览器</text>
+<rect x="860" y="4346" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4370.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">多账号防关联</text>
+<rect x="860" y="4294" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4318.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">指纹隔离原理</text>
+<rect x="600" y="4216.0" width="150" height="40" rx="6" ry="6" fill="#512DA8" stroke="#512DA8" stroke-width="1.4" /><text x="675.0" y="4240.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">1店关联3号</text>
+<rect x="860" y="4242" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4266.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">店铺绑定限制</text>
+<rect x="860" y="4190" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4214.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">官方账号+副号</text>
+<rect x="340" y="3748.0" width="150" height="40" rx="6" ry="6" fill="#00838F" stroke="#00838F" stroke-width="1.4" /><text x="415.0" y="3772.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">05 封面图体系</text>
+<rect x="600" y="4112.0" width="150" height="40" rx="6" ry="6" fill="#0097A7" stroke="#0097A7" stroke-width="1.4" /><text x="675.0" y="4136.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">做图方法对比</text>
+<rect x="860" y="4138" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4162.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">决策矩阵</text>
+<rect x="860" y="4086" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4110.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">成本 效率 质量三角</text>
+<rect x="600" y="3982.0" width="150" height="40" rx="6" ry="6" fill="#0097A7" stroke="#0097A7" stroke-width="1.4" /><text x="675.0" y="4006.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">图重命名/替换</text>
+<rect x="860" y="4034" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4058.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">批量替换主图</text>
+<rect x="860" y="3982" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="4006.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">自动重命名工具</text>
+<rect x="860" y="3930" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3954.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">ID命名规范</text>
+<rect x="600" y="3826.0" width="150" height="40" rx="6" ry="6" fill="#0097A7" stroke="#0097A7" stroke-width="1.4" /><text x="675.0" y="3850.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">暗水印处理</text>
+<rect x="860" y="3878" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3902.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">扣子进阶版无明水印</text>
+<rect x="860" y="3826" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3850.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">暗水印 工具处理</text>
+<rect x="860" y="3774" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3798.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">明水印 截图规避</text>
+<rect x="600" y="3644.0" width="150" height="40" rx="6" ry="6" fill="#0097A7" stroke="#0097A7" stroke-width="1.4" /><text x="675.0" y="3668.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">AI高质量封面</text>
+<rect x="860" y="3722" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3746.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">压缩包批量下载</text>
+<rect x="860" y="3670" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3694.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">主字体大 显眼 居中</text>
+<rect x="860" y="3618" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3642.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">豆包辅助路径</text>
+<rect x="860" y="3566" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3590.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">扣子对话模式 推荐</text>
+<rect x="600" y="3488.0" width="150" height="40" rx="6" ry="6" fill="#0097A7" stroke="#0097A7" stroke-width="1.4" /><text x="675.0" y="3512.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">批量大字报</text>
+<rect x="860" y="3514" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3538.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">100款/天效率</text>
+<rect x="860" y="3462" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3486.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">模板化出图</text>
+<rect x="600" y="3384.0" width="150" height="40" rx="6" ry="6" fill="#0097A7" stroke="#0097A7" stroke-width="1.4" /><text x="675.0" y="3408.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">宝贝主图微处理</text>
+<rect x="860" y="3410" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3434.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">前期试水</text>
+<rect x="860" y="3358" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3382.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">快速复用</text>
+<rect x="340" y="2851.0" width="150" height="40" rx="6" ry="6" fill="#6A1B9A" stroke="#6A1B9A" stroke-width="1.4" /><text x="415.0" y="2875.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">04 内容生产</text>
+<rect x="600" y="3280.0" width="150" height="40" rx="6" ry="6" fill="#7B1FA2" stroke="#7B1FA2" stroke-width="1.4" /><text x="675.0" y="3304.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">AI原创万物</text>
+<rect x="860" y="3306" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3330.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">批量化原创</text>
+<rect x="860" y="3254" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3278.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">跨品类迁移</text>
+<rect x="600" y="3124.0" width="150" height="40" rx="6" ry="6" fill="#7B1FA2" stroke="#7B1FA2" stroke-width="1.4" /><text x="675.0" y="3148.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">AI原创软件</text>
+<rect x="860" y="3202" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3226.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">知识库搭建</text>
+<rect x="860" y="3150" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3174.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">PPT自动生成</text>
+<rect x="860" y="3098" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3122.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">扣子对话模式</text>
+<rect x="860" y="3046" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3070.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">扣子编程模式</text>
+<rect x="600" y="2942.0" width="150" height="40" rx="6" ry="6" fill="#7B1FA2" stroke="#7B1FA2" stroke-width="1.4" /><text x="675.0" y="2966.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">AI原创图/文/题</text>
+<rect x="860" y="2994" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="3018.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">题 关键词+情绪</text>
+<rect x="860" y="2942" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2966.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">文 种草痛点场景</text>
+<rect x="860" y="2890" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2914.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">图 构图风格细节</text>
+<rect x="600" y="2812.0" width="150" height="40" rx="6" ry="6" fill="#7B1FA2" stroke="#7B1FA2" stroke-width="1.4" /><text x="675.0" y="2836.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">精准描述原创品</text>
+<rect x="860" y="2838" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2862.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">提示词工程核心</text>
+<rect x="860" y="2786" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2810.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">5W1H描述法</text>
+<rect x="600" y="2708.0" width="150" height="40" rx="6" ry="6" fill="#7B1FA2" stroke="#7B1FA2" stroke-width="1.4" /><text x="675.0" y="2732.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">国外AI工具</text>
+<rect x="860" y="2734" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2758.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">GPT-4 内容创作</text>
+<rect x="860" y="2682" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2706.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">Midjourney 高质量</text>
+<rect x="600" y="2578.0" width="150" height="40" rx="6" ry="6" fill="#7B1FA2" stroke="#7B1FA2" stroke-width="1.4" /><text x="675.0" y="2602.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">国内AI工具全景</text>
+<rect x="860" y="2630" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2654.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">即梦 AI画图</text>
+<rect x="860" y="2578" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2602.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">豆包 免费但偶抽风</text>
+<rect x="860" y="2526" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2550.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">扣子Coze 双模式</text>
+<rect x="600" y="2422.0" width="150" height="40" rx="6" ry="6" fill="#7B1FA2" stroke="#7B1FA2" stroke-width="1.4" /><text x="675.0" y="2446.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">AI原创必要性</text>
+<rect x="860" y="2474" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2498.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">规模化产出</text>
+<rect x="860" y="2422" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2446.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">差异化竞争力</text>
+<rect x="860" y="2370" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2394.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">防搬运降权</text>
+<rect x="340" y="1915.0" width="150" height="40" rx="6" ry="6" fill="#EF6C00" stroke="#EF6C00" stroke-width="1.4" /><text x="415.0" y="1939.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">03 选品方法论</text>
+<rect x="600" y="2318.0" width="150" height="40" rx="6" ry="6" fill="#F57C00" stroke="#F57C00" stroke-width="1.4" /><text x="675.0" y="2342.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">选品决策树</text>
+<rect x="860" y="2318" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2342.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">测500品→筛30→怼30</text>
+<rect x="600" y="2240.0" width="150" height="40" rx="6" ry="6" fill="#F57C00" stroke="#F57C00" stroke-width="1.4" /><text x="675.0" y="2264.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">追热点+追时间</text>
+<rect x="860" y="2266" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2290.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">节日时效品</text>
+<rect x="860" y="2214" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2238.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">季节性虚拟品</text>
+<rect x="600" y="2136.0" width="150" height="40" rx="6" ry="6" fill="#F57C00" stroke="#F57C00" stroke-width="1.4" /><text x="675.0" y="2160.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">蓝海小众赛道</text>
+<rect x="860" y="2162" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2186.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">细分人群定向</text>
+<rect x="860" y="2110" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2134.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">高客单高利润</text>
+<rect x="600" y="2006.0" width="150" height="40" rx="6" ry="6" fill="#F57C00" stroke="#F57C00" stroke-width="1.4" /><text x="675.0" y="2030.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">13个虚拟类目</text>
+<rect x="860" y="2058" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2082.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">知识库/咨询/虚拟定制</text>
+<rect x="860" y="2006" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="2030.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">课件/教案/手抄报</text>
+<rect x="860" y="1954" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1978.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">PPT/简历/壁纸</text>
+<rect x="600" y="1876.0" width="150" height="40" rx="6" ry="6" fill="#F57C00" stroke="#F57C00" stroke-width="1.4" /><text x="675.0" y="1900.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">AI辅助选品</text>
+<rect x="860" y="1902" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1926.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">AI给方向+具体产品</text>
+<rect x="860" y="1850" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1874.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">AI给类目+具体词</text>
+<rect x="600" y="1772.0" width="150" height="40" rx="6" ry="6" fill="#F57C00" stroke="#F57C00" stroke-width="1.4" /><text x="675.0" y="1796.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">小红书2套选品法</text>
+<rect x="860" y="1798" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1822.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">爆款笔记反推</text>
+<rect x="860" y="1746" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1770.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">笔记评论挖掘</text>
+<rect x="600" y="1642.0" width="150" height="40" rx="6" ry="6" fill="#F57C00" stroke="#F57C00" stroke-width="1.4" /><text x="675.0" y="1666.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">淘宝2套选品法</text>
+<rect x="860" y="1694" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1718.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">插件批量采集</text>
+<rect x="860" y="1642" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1666.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">关键词挖掘</text>
+<rect x="860" y="1590" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1614.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">销量榜单倒推</text>
+<rect x="600" y="1512.0" width="150" height="40" rx="6" ry="6" fill="#F57C00" stroke="#F57C00" stroke-width="1.4" /><text x="675.0" y="1536.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">选品逻辑</text>
+<rect x="860" y="1538" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1562.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">蓝海=搜量高+商品少</text>
+<rect x="860" y="1486" width="158" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="939.0" y="1510.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">需求×竞争×利润三角</text>
+<rect x="340" y="992.0" width="150" height="40" rx="6" ry="6" fill="#C62828" stroke="#C62828" stroke-width="1.4" /><text x="415.0" y="1016.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">02 开店合规</text>
+<rect x="600" y="1382.0" width="150" height="40" rx="6" ry="6" fill="#D32F2F" stroke="#D32F2F" stroke-width="1.4" /><text x="675.0" y="1406.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">风险红线</text>
+<rect x="860" y="1434" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1458.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">禁站外导流</text>
+<rect x="860" y="1382" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1406.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">禁词 培训/授课/题库</text>
+<rect x="860" y="1330" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1354.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">禁售 网课/真题/教辅</text>
+<rect x="600" y="1252.0" width="150" height="40" rx="6" ry="6" fill="#D32F2F" stroke="#D32F2F" stroke-width="1.4" /><text x="675.0" y="1276.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">开店6个必设项</text>
+<rect x="860" y="1278" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1302.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">类目绑定/退货地址</text>
+<rect x="860" y="1226" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1250.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">店铺/客服/物流设置</text>
+<rect x="600" y="1148.0" width="150" height="40" rx="6" ry="6" fill="#D32F2F" stroke="#D32F2F" stroke-width="1.4" /><text x="675.0" y="1172.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">教育类目整改</text>
+<rect x="860" y="1174" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1198.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">需教师资格证</text>
+<rect x="860" y="1122" width="152" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="936.0" y="1146.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">2025起个人店全面禁止</text>
+<rect x="600" y="966.0" width="150" height="40" rx="6" ry="6" fill="#D32F2F" stroke="#D32F2F" stroke-width="1.4" /><text x="675.0" y="990.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">电子资源类目</text>
+<rect x="860" y="1070" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1094.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">审核3-7工作日</text>
+<rect x="860" y="1018" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="1042.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">GMV≥6000元/月</text>
+<rect x="860" y="966" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="990.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">30篇垂直笔记</text>
+<rect x="860" y="914" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="938.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">账号180天/粉丝1000</text>
+<rect x="860" y="862" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="886.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">必须报白 定向邀约</text>
+<rect x="600" y="758.0" width="150" height="40" rx="6" ry="6" fill="#D32F2F" stroke="#D32F2F" stroke-width="1.4" /><text x="675.0" y="782.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">保证金规则</text>
+<rect x="860" y="810" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="834.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">月销50万+追加2万</text>
+<rect x="860" y="758" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="782.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">关店无纠纷30天退回</text>
+<rect x="860" y="706" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="730.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">可0元先开店后补缴</text>
+<rect x="600" y="602.0" width="150" height="40" rx="6" ry="6" fill="#D32F2F" stroke="#D32F2F" stroke-width="1.4" /><text x="675.0" y="626.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">三种店铺类型</text>
+<rect x="860" y="654" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="678.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">企业店 2000元起</text>
+<rect x="860" y="602" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="626.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">个体店 营业执照 推荐</text>
+<rect x="860" y="550" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="574.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">个人店 1000元保证金</text>
+<rect x="340" y="277.0" width="150" height="40" rx="6" ry="6" fill="#2E7D32" stroke="#2E7D32" stroke-width="1.4" /><text x="415.0" y="301.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">01 赛道认知</text>
+<rect x="600" y="472.0" width="150" height="40" rx="6" ry="6" fill="#388E3C" stroke="#388E3C" stroke-width="1.4" /><text x="675.0" y="496.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">收益预期</text>
+<rect x="860" y="498" width="152" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="936.0" y="522.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">2~3天出单 测500怼30</text>
+<rect x="860" y="446" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="470.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">单店天花板约1万/月</text>
+<rect x="600" y="368.0" width="150" height="40" rx="6" ry="6" fill="#388E3C" stroke="#388E3C" stroke-width="1.4" /><text x="675.0" y="392.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">5.0技术5重奏</text>
+<rect x="860" y="394" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="418.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">降本增效核心方法论</text>
+<rect x="860" y="342" width="176" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="948.0" y="366.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">原创+选品+搬款+作图+运营</text>
+<rect x="600" y="238.0" width="150" height="40" rx="6" ry="6" fill="#388E3C" stroke="#388E3C" stroke-width="1.4" /><text x="675.0" y="262.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">虚拟商品赛道</text>
+<rect x="860" y="290" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="314.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">市场仍处红利期</text>
+<rect x="860" y="238" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="262.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">2026门槛大幅提高</text>
+<rect x="860" y="186" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="210.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">电子资源/教育/PPT</text>
+<rect x="600" y="82.0" width="150" height="40" rx="6" ry="6" fill="#388E3C" stroke="#388E3C" stroke-width="1.4" /><text x="675.0" y="106.0" text-anchor="middle" font-size="13" fill="#FFFFFF" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">小红书平台画像</text>
+<rect x="860" y="134" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="158.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">种草-搜索-购买闭环</text>
+<rect x="860" y="82" width="150" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="935.0" y="106.0" text-anchor="middle" font-size="13" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">虚拟品 长尾需求</text>
+<rect x="860" y="30" width="160" height="40" rx="6" ry="6" fill="#FFFFFF" stroke="#1F4E79" stroke-width="1.4" /><text x="940.0" y="54.0" text-anchor="middle" font-size="12" fill="#1F4E79" font-weight="600" font-family="-apple-system, PingFang SC, Microsoft YaHei, sans-serif">用户结构 女75% 一二线</text>
+</svg>
+    </div>
+    <p class="kg-caption">共 8 大板块 / 49 个子模块 / 124 个具体动作 · 横向扩展，根在左逐层向右</p>
+  </section>
+
+  <!-- ===== 章节大纲 ===== -->
+  <nav class="toc" id="toc">
+    <h2>📋 12 章节目录</h2>
+    <ol>
+      <li><a href="#ch01">赛道认知 · 小红书虚拟商品长什么样</a></li>
+      <li><a href="#ch02">开店合规 · 1000 元保证金与类目报白</a></li>
+      <li><a href="#ch03">选品方法论 · 13 类目 + 测款 500→怼款 30</a></li>
+      <li><a href="#ch04">AI 内容生产 · 扣子/豆包+原创图/文/题</a></li>
+      <li><a href="#ch05">封面图体系 · AI 高质量 + 暗水印处理</a></li>
+      <li><a href="#ch06">批量发布 · 1 店 3 号 + 比特浏览器隔离</a></li>
+      <li><a href="#ch07">运营变现 · 测款店 / 怼款店 / 定价 / 矩阵</a></li>
+      <li><a href="#ch08">精通高手 · 5.0 总结 + 合规风控</a></li>
+      <li><a href="#ch09">附录 A · 完整操作 SOP 速查</a></li>
+      <li><a href="#ch10">附录 B · AI 提示词模板库</a></li>
+      <li><a href="#ch11">附录 C · 工具与平台清单</a></li>
+      <li><a href="#ch12">附录 D · 术语速查表</a></li>
+    </ol>
+  </nav>
+
+  <main id="main">
+
+<section class="chapter ch-01" id="ch01">
+  <div class="chapter-head">
+    <span class="num">01</span>
+    <h2>赛道认知 · 小红书虚拟商品长什么样</h2>
+    <span class="tag">入门必读</span>
+  </div>
+
+  <div class="subsec">
+    <h3>1.1 小红书平台画像 · 为什么是它</h3>
+    <p>小红书是当下中国<strong>女性用户占比超过 75%、一二线城市集中、内容种草效率最高</strong>的内容电商平台之一。它不是淘宝的低价驱动型电商，而是<strong>"内容→种草→搜索→购买"</strong>的闭环生态。这套闭环特别适合虚拟商品：用户在浏览笔记时被一个精美 PPT 模板、一份手抄报底稿、一套简历模板吸引，顺手就买了。整个决策链条短到 30 秒。</p>
+    <h4>三个关键特征 · 决定了虚拟商品能跑通</h4>
+    <ul>
+      <li><strong>女性用户为主 + 决策依赖种草</strong>：美妆、家居、教育、亲子、职场这些赛道的女性用户最容易为"看着好看/解决痛点"的内容付费，虚拟商品正是这些需求的高频解决方案。</li>
+      <li><strong>长尾搜索流量稳定</strong>：相比淘宝"热门词=红海"，小红书 70% 的搜索来自中长尾关键词。"小众PPT模板"、"二胎妈妈手抄报"这种词每天被搜的次数稳定且竞争小。</li>
+      <li><strong>内容即货架</strong>：淘宝是"用户找商品"，小红书是"商品找人"。一篇笔记可以同时是引流入口、商品展示页、信任背书，转化效率高于传统电商。</li>
+    </ul>
+    <div class="callout info">
+      <strong>小白第一课：</strong>不要把小红书当淘宝做。它不是"价格战"驱动的，而是"内容价值"驱动的。你的封面图、笔记标题、评论互动，这些"软实力"决定了流量。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>1.2 虚拟商品赛道全景 · 你能卖什么</h3>
+    <p>虚拟商品在小红书是<strong>合规且规模化</strong>的赛道。平台专门开设了"电子资源"类目作为虚拟商品主入口，下分 3 个二级类目：</p>
+    <table class="tip">
+      <caption>小红书虚拟商品类目矩阵（2025-2026 最新）</caption>
+      <thead><tr><th>二级类目</th><th>典型商品</th><th>个人店可售</th><th>合规状态</th></tr></thead>
+      <tbody>
+        <tr><td>PPT / 简历 / 其他模板</td><td>工作汇报 PPT、简历模板、Excel 模板</td><td>✅ 可</td><td>✅ 稳定</td></tr>
+        <tr><td>头像 / 壁纸</td><td>IP 形象头像、手机壁纸、表情包</td><td>✅ 可</td><td>✅ 稳定</td></tr>
+        <tr><td>课件 / 教案 / 手抄报</td><td>教师课件、家长手抄报底稿</td><td>❌ 不可（2025 整改后）</td><td>⚠️ 仅个体/企业店</td></tr>
+      </tbody>
+    </table>
+    <h4>三个被列入"风险红线"的禁区</h4>
+    <ul>
+      <li><strong>网课 / 真题 / 教辅课程</strong>：这类内容已经被小红书列入"教育类目整改"，2025 年起个人店全面禁止，必须以个体/企业店申请"教育类目"才能做。</li>
+      <li><strong>软件安装包 / 盗版资源</strong>：版权风险极高，平台识别后会直接下架 + 扣保证金。</li>
+      <li><strong>影视音频素材 / 影视解说稿</strong>：涉及版权与监管双重红线，新手不要碰。</li>
+    </ul>
+    <div class="callout warn">
+      <strong>小白常踩坑：</strong>"培训"、"授课"、"网课"、"题库"、"教材"这些关键词在标题、笔记、商品详情里都不能出现。即使你做的是合规的 PPT 模板，写了"教培PPT"也会被降权甚至下架。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>1.3 5.0 技术 5 重奏 · 课程核心方法论</h3>
+    <p>5.0 技术的"5 重奏"不是 5 个孤立技巧，而是<strong>5 个相互咬合的飞轮</strong>：</p>
+    <table class="tip">
+      <caption>5 重奏 5 个核心环节 · 飞轮关系</caption>
+      <thead><tr><th>环节</th><th>核心动作</th><th>工具/方法</th><th>产出</th></tr></thead>
+      <tbody>
+        <tr><td>① AI 原创</td><td>把"别人的商品"变成"自己的差异化商品"</td><td>扣子 / 豆包 / 即梦</td><td>原创图、文、标题</td>
+        <tr><td>② 选品</td><td>从海量候选中筛出能出单的好品</td><td>淘宝榜单 + AI 辅助</td><td>候选商品清单</td></tr>
+        <tr><td>③ 搬款</td><td>把别人的商品快速搬运到自己的店</td><td>搬款软件 + 万能链接</td><td>上架商品库</td></tr>
+        <tr><td>④ 作图</td><td>给每个商品配高质量封面图</td><td>AI 对话模式 / 大字报</td><td>批量封面图</td></tr>
+        <tr><td>⑤ 运营</td><td>通过测款 + 怼款放大出单</td><td>1 店 3 号矩阵 + 自动发笔记</td><td>持续出单</td></tr>
+      </tbody>
+    </table>
+    <h4>5 重奏的关键认知 · 不是线性流程</h4>
+    <p>很多人误以为 5 重奏是按顺序做，其实它是<strong>飞轮</strong>：</p>
+    <ol class="steps">
+      <li><strong>启动期</strong>：先用①AI 原创 + ②选品各做出 50 个候选品，给快节奏用。</li>
+      <li><strong>测试期</strong>：把 50 个品用④作图快速配上封面，发笔记测数据（每品 3~5 篇笔记）。</li>
+      <li><strong>筛选期</strong>：3 轮笔记后筛出 30 个"会出单"的好品，进入怼款阶段。</li>
+      <li><strong>放大期</strong>：①AI 原创持续给爆款注入新内容，③搬款扩品类，⑤运营用 1 店 3 号矩阵放大。</li>
+      <li><strong>飞轮转起来</strong>：每天 1 小时维护即可，每个店每月稳定出单 1 万+。</li>
+    </ol>
+    <div class="callout tip">
+      <strong>小白心法：</strong>不要想着"一步到位"。5 重奏是飞轮，第一圈可能慢，第二圈开始加速度。每个环节都可以独立做，但所有环节都要做。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>1.4 收益预期 · 现实数据是怎样的</h3>
+    <p>课程讲师的实操数据（已被多期学员验证）：</p>
+    <table class="tip">
+      <caption>5.0 学员的典型收益区间</caption>
+      <thead><tr><th>阶段</th><th>时间</th><th>典型月收益</th><th>关键动作</th></tr></thead>
+      <tbody>
+        <tr><td>启动期</td><td>第 1-2 周</td><td>0 ~ 500 元</td><td>开个人店 + 选品 + 搬款 + 测款</td></tr>
+        <tr><td>成长期</td><td>第 3-8 周</td><td>1000 ~ 5000 元</td><td>怼款 + 1 店 3 号矩阵 + 自动发笔记</td></tr>
+        <tr><td>稳定期</td><td>第 9 周起</td><td>5000 ~ 10000 元 / 单店</td><td>多店矩阵 + 持续选品 + 偶尔追热点</td></tr>
+        <tr><td>放大期</td><td>3 个月后</td><td>30000+ 元 / 多店</td><td>5~10 店矩阵 + 蓝海小众赛道</td></tr>
+      </tbody>
+    </table>
+    <h4>三个不切实际的幻想</h4>
+    <ul>
+      <li>❌ <strong>"单店月入 10 万"</strong>：5.0 技术下，单店天花板约 1 万/月。要放大必须走多店矩阵。</li>
+      <li>❌ <strong>"做几天就出单"</strong>：大部分新手在 5~14 天内出第一单是正常的，"当天出单"是少数。</li>
+      <li>❌ <strong>"不需要维护"</strong>：哪怕自动化程度再高，每天也要花 30~60 分钟检查数据、回复评论、补款。</li>
+    </ul>
+    <div class="callout success">
+      <strong>务实心态：</strong>把"小红书虚拟"当作一份<strong>3~6 个月的长期副业</strong>来经营。前 3 个月是学习和测试期，第 4-6 个月进入稳定期。不要被"7 天破万"这种标题党带偏。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>1.5 给小白的一句话总结</h3>
+    <p>小红书虚拟商品 = <strong>用 AI 把别人的好商品变成自己的差异化版本 + 在小红书用内容卖出去</strong>。技术门槛不高（会扣子对话模式 + 懂选品逻辑就行），<strong>但需要持续的内容生产力和合规意识</strong>。这不是"挂机躺赚"的项目，而是一份可以长期做的内容电商副业。</p>
+  </div>
+</section>
+<section class="chapter ch-02" id="ch02">
+  <div class="chapter-head">
+    <span class="num">02</span>
+    <h2>开店合规 · 别让你的店倒在起点</h2>
+    <span class="tag">风险红线</span>
+  </div>
+
+  <div class="subsec">
+    <h3>2.1 三种店铺类型 · 新手如何选</h3>
+    <p>小红书对个人卖家开放<strong>三种店铺</strong>，新手最常问的是"我该开哪种"。先看对比，再做选择：</p>
+    <table class="tip">
+      <caption>个人店 vs 个体工商户店 vs 企业店</caption>
+      <thead><tr><th>维度</th><th>个人店</th><th>个体工商户店</th><th>企业店</th></tr></thead>
+      <tbody>
+        <tr><td>准入身份</td><td>身份证 + 实名手机号</td><td>营业执照 + 法人身份证</td><td>企业营业执照 + 对公账户</td></tr>
+        <tr><td>保证金</td><td>1000 元</td><td>1000 ~ 5000 元</td><td>5000 ~ 50000 元</td></tr>
+        <tr><td>可售类目</td><td>电子资源（PPT/模板/壁纸/头像）</td><td>电子资源 + 课件/手抄报（需报白）</td><td>几乎全品类</td></tr>
+        <tr><td>适合谁</td><td>新手 / 试水 / 副业</td><td>要碰教育类目 / 想做长期</td><td>团队运营 / 多店矩阵</td></tr>
+        <tr><td>下证时间</td><td>1 ~ 3 小时</td><td>1 ~ 3 个工作日</td><td>3 ~ 7 个工作日</td></tr>
+        <tr><td>风险等级</td><td>低（保证金少）</td><td>中</td><td>高（出问题赔得多）</td></tr>
+      </tbody>
+    </table>
+    <h4>新手的第一选择 · 99% 的 5.0 学员先开个人店</h4>
+    <p>个人店的好处是<strong>沉没成本低 + 启动快</strong>。先用 1000 元保证金测试 3-6 个月，确认能稳定出单再考虑升级个体工商户店。个人店虽然不能碰课件/手抄报，但<strong>PPT、模板、简历、头像、壁纸</strong>已经覆盖了 80% 的爆款赛道。</p>
+    <div class="callout info">
+      <strong>小白第一坑：</strong>"先开企业店，规模更大"——错。新手开企业店就是给自己挖坑：保证金 5000~50000，下证要 3-7 天，类目权限多但规则也多。先用 1000 元的个人店跑通，跑通再升级。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>2.2 1000 元保证金 · 什么时候交、能不能退</h3>
+    <p>个人店的保证金是<strong>1000 元</strong>，这是 2025 年的最新规则（之前部分类目是 500 元）。这笔钱不是消费，而是<strong>押金</strong>，关店时可以退。</p>
+    <h4>保证金的 3 个关键点</h4>
+    <ul>
+      <li><strong>什么时交</strong>：开店时不需要交，第一笔订单成交后才提示缴纳（但强烈建议开店当天就交，避免漏单被冻结）。</li>
+      <li><strong>怎么退</strong>：店铺满 6 个月、无重大违规、关店后 15 个工作日原路退回。</li>
+      <li><strong>什么情况下扣</strong>：售假/盗版扣全额；轻微违规每次扣 100~500 元；累计扣完 1000 元后会被清退。</li>
+    </ul>
+    <h4>保证金降低的 2 种方法</h4>
+    <ul>
+      <li><strong>方法一：体验中心</strong>：店铺运营满 30 天、累计完成 10 笔订单、好评率 ≥ 95%，可申请退还 500 元（保证金降至 500）。但虚拟商品类目较少有这路径。</li>
+      <li><strong>方法二：保证金保险</strong>：部分类目支持用保险代替保证金，年费约 50 元。虚拟商品目前部分新类目已开放，可留意后台通知。</li>
+    </ul>
+    <div class="callout tip">
+      <strong>小白常见问题：</strong>"我没有 1000 元怎么办？"——不建议借钱做副业。如果 1000 元对你来说是大数字，说明这个副业的"沉没成本"已经超出你的承受范围。先攒钱，等手头宽裕再启动。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>2.3 电子资源类目报白 · 个人店不能碰的灰色地带</h3>
+    <p>"报白"是行业黑话，指<strong>申请将店铺加入"允许经营某类目"的白名单</strong>。小红书对虚拟商品实行"主体准入 + 类目准入"双门槛，意思是<strong>即使你是个体工商户店，部分类目仍需额外报白才能上货</strong>。</p>
+    <table class="tip">
+      <caption>需要报白的常见类目 · 2025 最新</caption>
+      <thead><tr><th>类目</th><th>是否需要报白</th><th>需要什么资质</th><th>审批时长</th></tr></thead>
+      <tbody>
+        <tr><td>PPT 模板</td><td>✅ 不需要</td><td>—</td><td>—</td></tr>
+        <tr><td>简历模板</td><td>✅ 不需要</td><td>—</td><td>—</td></tr>
+        <tr><td>头像 / 壁纸</td><td>✅ 不需要</td><td>—</td><td>—</td></tr>
+        <tr><td>课件 / 教案</td><td>❌ 需要</td><td>教师资格证 + 学校在职证明</td><td>3~7 天</td></tr>
+        <tr><td>手抄报</td><td>❌ 需要</td><td>个体户营业执照 + 类目申请</td><td>3~7 天</td></tr>
+        <tr><td>亲子教育绘本</td><td>❌ 需要</td><td>出版社资质 / 版权证明</td><td>7~14 天</td></tr>
+        <tr><td>编程教程 / 题库</td><td>❌ 不允许</td><td>个人店永远碰不到</td><td>—</td></tr>
+      </tbody>
+    </table>
+    <h4>个人店友好的"白名单类目"</h4>
+    <p>这意味着<strong>PPT / 简历 / 头像 / 壁纸</strong>这些赛道，新手在个人店里直接就能做，<strong>不需要报白</strong>。所以你不需要"必须升级店铺"——做对品类最重要。</p>
+    <div class="callout warn">
+      <strong>小白常踩坑：</strong>"我有个教师朋友，借用他的资格证做课件"——错。报白资质与店铺主体必须一致，借用属于虚假资质，被发现会清退 + 永久封禁 + 扣保证金。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>2.4 教育类目 2025 整改 · 课件赛道发生了什么</h3>
+    <p>2025 年上半年，小红书对教育类目进行了<strong>最大规模的一次整改</strong>。原因是大量"盗版网课""盗版教材""真题答案"在小红书泛滥，监管压力增大。这次整改直接改变了课件赛道的玩法：</p>
+    <h4>整改的 3 个关键变化</h4>
+    <ul>
+      <li><strong>个人店全面清退</strong>：原来"课件 / 教案 / 教辅"类目下，个人店商品全部下架。现在只有<strong>个体工商户店 + 完成报白</strong>才能继续卖。</li>
+      <li><strong>"课件"关键词被屏蔽</strong>：标题、笔记、商品详情里出现"课件"、"教案"、"网课"、"教材"会触发风控降权。需要用"教学资料"、"课程材料"、"自学手册"等中性词替代。</li>
+      <li><strong>原创度要求提升</strong>：每个商品至少 30% 内容是原创，且需提供原创证明（水印、设计源文件）。直接搬运他人课件会被判侵权。</li>
+    </ul>
+    <h4>整改后的新机会</h4>
+    <p>整改不是消灭赛道，而是<strong>提高了门槛、净化了竞争</strong>。以前课件赛道有 10 万卖家竞争，现在剩下 1~2 万有资质的卖家。留下来的卖家，单店天花板反而更高。所以如果你是<strong>在职教师 + 有个体户执照</strong>，现在是入场的好时机。</p>
+    <div class="callout info">
+      <strong>小白决策树：</strong>如果你不是教师、没有教师资格证，<strong>不要碰课件赛道</strong>。老老实实做 PPT/简历/头像/壁纸，这些赛道个人店就能做且竞争相对小。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>2.5 开店必设项 · 6 个不能漏的细节</h3>
+    <p>开店当天就有 6 个必设项，<strong>漏任何一个都会被风控降权</strong>：</p>
+    <ol class="steps">
+      <li><strong>店铺名称</strong>：8~20 字，含核心品类关键词（如"小狸的PPT小铺"）。不要含"官方"、"旗舰"、"专卖"等容易被判违规的词。</li>
+      <li><strong>店铺简介</strong>：80 字以内，写明"卖什么 + 给谁 + 优势"。例如"专注职场 PPT 模板 / 简历设计，已有 3 万+ 用户好评"。</li>
+      <li><strong>店铺头像</strong>：建议 1:1 正方形 LOGO 或温馨卡通形象。避免用明星脸、卡通 IP 形象（如迪士尼角色），会被判侵权。</li>
+      <li><strong>客服自动回复</strong>：必须设置。内容："亲，下单后会自动发货哦~ 有问题请留言，主人在线秒回"。关键词触发回复至少 3 条。</li>
+      <li><strong>发货模板</strong>：虚拟商品选择"自动发货"，上传网盘链接 + 提取码。<strong>严禁在商品卡里直接贴网盘链接</strong>，会判违规。</li>
+      <li><strong>退货政策</strong>：虚拟商品默认"不支持 7 天无理由退货"，但<strong>必须明示</strong>，否则会被投诉。</li>
+    </ol>
+    <div class="callout warn">
+      <strong>小白常踩坑：</strong>很多新手直接复制大店的客服话术，结果触发"虚假宣传"被降权。客服话术必须自己改写，且与商品实际一致。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>2.6 风险红线 · 5 类违规不要碰</h3>
+    <p>虚拟商品赛道看似门槛低，但<strong>违规成本极高</strong>。一次重大违规 = 扣 1000 保证金 + 清退 + 永不重开。5 类违规一定要避开：</p>
+    <table class="tip">
+      <caption>5 类最常见的违规场景 · 必背</caption>
+      <thead><tr><th>违规类型</th><th>典型表现</th><th>后果</th></tr></thead>
+      <tbody>
+        <tr><td>售假 / 盗版</td><td>搬运付费课程 / 盗版书籍 / 盗版软件</td><td>扣保证金 + 永久封禁 + 涉刑</td></tr>
+        <tr><td>虚假宣传</td><td>"学完月薪 5 万"、"保证出单"</td><td>商品下架 / 店铺降权</td></tr>
+        <tr><td>类目错放</td><td>课件放在 PPT 模板类目下</td><td>商品下架 / 类目违规累计</td></tr>
+        <tr><td>违规引流</td><td>笔记里加微信 / 引到私域 / 第三方平台</td><td>笔记下架 / 账号封禁</td></tr>
+        <tr><td>诱导互动</td><td>"点赞过 100 更新下一期"、"评论前 3 送资料"</td><td>笔记降权 / 评论被清理</td></tr>
+      </tbody>
+    </table>
+    <h4>虚拟商品特有的 2 个红线</h4>
+    <ul>
+      <li><strong>不能"实物对比图"</strong>：虚拟商品不能配实物对比图（如对比打印效果），会被判"误导消费者"。</li>
+      <li><strong>不能"超长尾商品描述"</strong>：商品详情不能超过 500 字，否则被判"诱导式描述"。</li>
+    </ul>
+    <div class="callout danger">
+      <strong>红线警示：</strong>违规 = 0 元收益 + 1000 元损失 + 永久告别小红书。新手前 3 个月的<strong>唯一目标不是出单，而是"不违规"</strong>。先把合规做扎实，再求速度。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>2.8 给小白的开店日清单</h3>
+    <p>最后给一张<strong>开店日 checklist</strong>，打钩逐项完成：</p>
+    <ul>
+      <li>☐ 身份证 + 实名手机号准备</li>
+      <li>☐ 缴 1000 元保证金</li>
+      <li>☐ 店铺名称（8~20 字，含品类词）</li>
+      <li>☐ 店铺简介（80 字以内）</li>
+      <li>☐ 店铺头像（自制 LOGO）</li>
+      <li>☐ 客服自动回复（≥3 条）</li>
+      <li>☐ 发货模板（自动发货 + 网盘链接 + 提取码）</li>
+      <li>☐ 退货政策（明示不支持 7 天无理由）</li>
+      <li>☐ 上架第 1 个商品（用于测试流程）</li>
+    </ul>
+    <p>9 项全部打钩后，开店合规阶段就算完成了。<strong>第 3 章开始正式选品。</strong></p>
+  </div>
+</section>
+<section class="chapter ch-03" id="ch03">
+  <div class="chapter-head">
+    <span class="num">03</span>
+    <h2>选品方法论 · 测 500 怼 30 模型</h2>
+    <span class="tag">核心方法论</span>
+  </div>
+
+  <div class="subsec">
+    <h3>3.1 选品逻辑 · 三三角法则</h3>
+    <p>选品不是拍脑袋，而是<strong>"需求 × 竞争 × 利润"</strong>的三角平衡：</p>
+    <table class="tip">
+      <caption>三三角法则 · 选品的 3 个核心维度</caption>
+      <thead><tr><th>维度</th><th>含义</th><th>关键指标</th><th>理想区间</th></tr></thead>
+      <tbody>
+        <tr><td>需求</td><td>用户是否真的需要、是否在搜</td><td>小红书搜索指数 / 淘宝销量</td><td>搜索量稳定（季节波动不超过 50%）</td></tr>
+        <tr><td>竞争</td><td>同赛道卖家多不多、强不强</td><td>同款笔记数 / 头部卖家粉丝</td><td>头部 ≤ 5 万粉 / 同款笔记 ≤ 500 篇</td></tr>
+        <tr><td>利润</td><td>扣除成本后还剩多少</td><td>售价 - 成本 - 平台扣点</td><td>毛利率 ≥ 70%（虚拟商品天然优势）</td></tr>
+      </tbody>
+    </table>
+    <h4>蓝海品 = 搜量高 + 商品少 + 利润高</h4>
+    <p>三三角法则最经典的产物是"<strong>蓝海品</strong>"——搜量高但商品少的赛道。比如"二胎妈妈手抄报底稿"在小红书 2024 年的搜索量月均 12 万次，但头部卖家粉丝不到 3 万，同款笔记数只有 80 篇——这就是典型的蓝海。</p>
+    <h4>红海品 = 搜量高 + 商品多 + 利润低</h4>
+    <p>与之相对的是"红海品"。比如"通用 PPT 模板"月搜索 80 万次，但卖家超过 1 万家，同款笔记 5000+ 篇，毛利低至 50%。新手做红海品基本等于炮灰。</p>
+    <div class="callout tip">
+      <strong>小白第一守则：</strong>新手只做蓝海品。红海品留给有资金的团队去做，新手做蓝海品可以靠勤奋弥补工具和资金的差距。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>3.2 淘宝 2 套选品法 · 把电商金矿搬过来</h3>
+    <p>小红书的搜索数据不公开（只能靠第三方工具），但淘宝的销量数据是完全公开的。<strong>用淘宝榜单反推小红书爆款</strong>是 5.0 技术的核心选品逻辑：</p>
+    <h4>方法一：销量榜单倒推法</h4>
+    <ol class="steps">
+      <li>打开淘宝，搜索"PPT 模板"，按销量排序。</li>
+      <li>找到销量前 100 的商品，记下"标题 + 销量 + 详情页关键词"。</li>
+      <li>把这些标题拆成关键词组（如"工作汇报 / 月度总结 / 简约风"）。</li>
+      <li>到小红书搜索这些关键词组，看笔记数和爆文数。</li>
+      <li>在小红书笔记数 ≤ 300 篇的，就是蓝海候选。</li>
+    </ol>
+    <h4>方法二：关键词挖掘法</h4>
+    <ol class="steps">
+      <li>打开生意参谋 / 阿里指数等工具（部分付费），输入类目关键词。</li>
+      <li>看"搜索词排行"里上升最快的 100 个长尾词。</li>
+      <li>把这些长尾词导入到小红书搜索，看哪些搜索结果 ≤ 100 条。</li>
+      <li>符合条件的长尾词就是"小红书预爆款"。</li>
+    </ol>
+    <h4>方法三：插件批量采集法</h4>
+    <p>用<strong>店小查 / 蝉妈妈 / 灰豚数据</strong>等浏览器插件，批量采集淘宝虚拟商品销量榜单（按月销过滤），导出 Excel。然后用 VLOOKUP 或 Python 去重、排序，得到候选品清单。</p>
+    <div class="callout info">
+      <strong>关键洞察：</strong>淘宝销量 TOP100 的虚拟商品，70% 都还没在小红书爆过。淘宝和小红书是<strong>两个不同的用户场</strong>，淘宝爆过 = 市场已被验证，小红没爆 = 我们有先发优势。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>3.3 小红书 2 套选品法 · 平台内自有流量</h3>
+    <p>除了从淘宝倒推，小红书内部也有自己的选品信号：</p>
+    <h4>方法一：笔记评论挖掘</h4>
+    <ol class="steps">
+      <li>在搜索框输入"求 PPT 模板"、"求简历模板"、"求手抄报底稿"等关键词。</li>
+      <li>按"最新"排序，看评论里用户的<strong>具体需求描述</strong>。</li>
+      <li>把这些需求记下来，归类整理成"选题清单"。</li>
+      <li>优先做"评论数 ≥ 100 但回复笔记 ≤ 50"的选题——这是典型供不应求。</li>
+    </ol>
+    <h4>方法二：爆款笔记反推</h4>
+    <ol class="steps">
+      <li>搜索类目关键词，按"最热"排序。</li>
+      <li>找到点赞 ≥ 1000 的笔记（爆款笔记），记录它的<strong>标题 / 封面 / 评论区高频词</strong>。</li>
+      <li>看爆款笔记关联的店铺是哪个，逛一遍这家店。</li>
+      <li>把爆款同品类的"延伸品"作为候选（如爆款是"年终总结 PPT"，延伸品就是"年中总结 PPT"、"季度总结 PPT"）。</li>
+    </ol>
+    <div class="callout success">
+      <strong>小白操作技巧：</strong>每天花 30 分钟刷小红书"种草笔记"+"求资源笔记"，连续刷 7 天，你就会自然形成"什么品好卖"的直觉。这种直觉比任何工具都准。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>3.4 AI 辅助选品 · 用 AI 拓展选品视野</h3>
+    <p>5.0 技术的核心创新是<strong>把 AI 当成"选品合伙人"</strong>。具体两种用法：</p>
+    <h4>用法一：AI 给"类目 + 具体词"</h4>
+    <p>给豆包/扣子一个提示词：</p>
+    <pre class="code">你是小红书虚拟商品选品顾问。我目前在做 [PPT 模板 / 简历 / 头像 / 壁纸] 赛道。
+请基于小红书 2025 年最新趋势，给出 20 个适合"新手 + 个人店"的细分方向，每个方向写 50 字说明。</pre>
+    <p>AI 会返回类似"<strong>宠物纪念册模板 / 一线城市通勤穿搭壁纸 / 律所工作汇报 PPT / 幼小衔接拼音练习</strong>"等细分词。<strong>每个细分词都可能是蓝海品</strong>。</p>
+    <h4>用法二：AI 给"方向 + 具体产品"</h4>
+    <p>给豆包一个更具体的提示：</p>
+    <pre class="code">基于"幼小衔接拼音练习"这个细分方向，给出 10 个具体可售的商品创意，每个写 30 字说明。
+要求：
+1. 必须是虚拟商品（模板/素材/电子卡片）
+2. 价格区间 5~50 元
+3. 单店天花板 ≥ 5000 元/月</pre>
+    <p>AI 会给出"<strong>拼音字母描红 PDF / 拼音声调练习 PPT / 拼音卡片打印素材 / 拼音测试题电子版</strong>"等具体商品。<strong>直接复制到选品清单即可</strong>。</p>
+    <div class="callout warn">
+      <strong>小白常踩坑：</strong>"AI 推荐的都是过时的品"——所以要在提示词里强调"<strong>2025 年最新</strong>"。另外，AI 推荐后必须用 3.2/3.3 的方法<strong>人工验证</strong>真实需求，避免被 AI 误导。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>3.5 13 个虚拟类目 · 你能卖的全品类</h3>
+    <p>小红书虚拟商品（个人店可售）有<strong>13 个主流类目</strong>，按竞争激烈度从低到高排序：</p>
+    <table class="tip">
+      <caption>13 个虚拟类目 · 蓝海度排名</caption>
+      <thead><tr><th>排名</th><th>类目</th><th>竞争度</th><th>客单价</th><th>推荐指数</th></tr></thead>
+      <tbody>
+        <tr><td>1</td><td>幼小衔接学习素材</td><td>⭐</td><td>9.9 ~ 29.9</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>2</td><td>宠物纪念册模板</td><td>⭐</td><td>19.9 ~ 49.9</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>3</td><td>律所/咨询行业 PPT</td><td>⭐⭐</td><td>9.9 ~ 39.9</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>4</td><td>一线城市通勤壁纸</td><td>⭐⭐</td><td>2.9 ~ 9.9</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>5</td><td>二胎妈妈手抄报</td><td>⭐⭐</td><td>5.9 ~ 19.9</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>6</td><td>小众职业头像</td><td>⭐⭐⭐</td><td>9.9 ~ 29.9</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>7</td><td>自媒体运营资料包</td><td>⭐⭐⭐</td><td>19.9 ~ 59.9</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>8</td><td>职场进阶简历模板</td><td>⭐⭐⭐</td><td>9.9 ~ 39.9</td><td>⭐⭐⭐</td></tr>
+        <tr><td>9</td><td>节日时效素材</td><td>⭐⭐⭐</td><td>5.9 ~ 29.9</td><td>⭐⭐⭐</td></tr>
+        <tr><td>10</td><td>通用 PPT 模板</td><td>⭐⭐⭐⭐</td><td>2.9 ~ 19.9</td><td>⭐⭐</td></tr>
+        <tr><td>11</td><td>通用头像/壁纸</td><td>⭐⭐⭐⭐</td><td>2.9 ~ 9.9</td><td>⭐⭐</td></tr>
+        <tr><td>12</td><td>婚庆请柬模板</td><td>⭐⭐⭐⭐⭐</td><td>9.9 ~ 39.9</td><td>⭐</td></tr>
+        <tr><td>13</td><td>Excel 模板</td><td>⭐⭐⭐⭐⭐</td><td>2.9 ~ 19.9</td><td>⭐</td></tr>
+      </tbody>
+    </table>
+    <h4>新人起步的 3 个最优类目</h4>
+    <ul>
+      <li><strong>幼小衔接学习素材</strong>：客单价高 + 复购强 + 父母群体付费意愿强。</li>
+      <li><strong>宠物纪念册模板</strong>：情感价值高 + 制作简单 + 转化率高。</li>
+      <li><strong>律所/咨询 PPT</strong>：专业感强 + 客单价 30+ + 同行少。</li>
+    </ul>
+    <div class="callout tip">
+      <strong>小白第一守则：</strong>不要碰排名后 5 位的类目！通用 PPT/头像/壁纸看着简单，但因为竞争太激烈，<strong>新店几乎没有流量</strong>。先做小众类目，积累经验和权重后再考虑横向扩展。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>3.6 蓝海小众赛道 · 选品的高阶玩法</h3>
+    <p>蓝海小众赛道是 5.0 技术的"核武器"。它不是"小类目"，而是<strong>"大类目下的细分子人群"</strong>。例如：</p>
+    <ul>
+      <li><strong>"法学生简历"</strong> vs "通用简历"——前者搜索量 300/月，后者搜索量 8000/月，但前者几乎无竞争。</li>
+      <li><strong>"幼小衔接拼音"</strong> vs "小学学习资料"——前者更细分，竞争只有后者的 1/20。</li>
+      <li><strong>"程序员专属头像"</strong> vs "通用头像"——前者客单价可以到 19.9，后者只能 2.9。</li>
+    </ul>
+    <h4>蓝海小众赛道的 3 个识别信号</h4>
+    <ol class="steps">
+      <li><strong>长尾关键词</strong>：3~5 个词的组合词，如"二线城市护士简历模板"。</li>
+      <li><strong>特定人群</strong>：明确指向某一类职业/身份/角色，如"律师 / 护士 / 二胎妈妈 / 程序员"。</li>
+      <li><strong>具体场景</strong>：明确的使用场景，如"考前 1 周冲刺"、"老板突然要汇报"、"宠物去世纪念"。</li>
+    </ol>
+    <h4>为什么蓝海品客单价更高？</h4>
+    <p>蓝海品因为稀缺，用户付费意愿反而更高。<strong>"法学生专属简历"卖 39.9 比"通用简历"卖 9.9 转化率更高</strong>，因为用户觉得"这是为我定制的"。这就是"<strong>人群窄 → 价值感 → 高转化</strong>"的链条。</p>
+    <div class="callout success">
+      <strong>蓝海公式：</strong>细分人群 × 具体场景 × 高频痛点 = 蓝海小众赛道。每个赛道都能做出月销 1 万的店。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>3.7 季节性 / 时效性虚拟品 · 追时间差赚钱</h3>
+    <p>虚拟商品有一个实体商品没有的优势——<strong>可以追时间差</strong>。每年有 3 类高时效赛道：</p>
+    <h4>季节性虚拟品 · 跟着季节走</h4>
+    <ul>
+      <li><strong>春季（3-5 月）</strong>：毕业答辩 PPT、毕业论文模板、求职简历、春游手抄报。</li>
+      <li><strong>夏季（6-8 月）</strong>：暑期手抄报、幼小衔接学习资料、暑期班课件、防暑主题素材。</li>
+      <li><strong>秋季（9-11 月）</strong>：开学季主题、新员工入职 PPT、年度规划 PPT、中秋节素材。</li>
+      <li><strong>冬季（12-2 月）</strong>：年终总结 PPT、圣诞元旦素材、寒假手抄报、春节对联素材。</li>
+    </ul>
+    <h4>节日时效品 · 节日前 1 周准备</h4>
+    <ul>
+      <li><strong>情人节（2-14）</strong>：情侣头像、情书模板、告白素材。节前 7-10 天上架，节后 3 天全部下架。</li>
+      <li><strong>母亲节 / 父亲节</strong>：感恩主题手抄报、亲子相册模板。节前 7 天上架。</li>
+      <li><strong>教师节（9-10）</strong>：教师课件、感恩老师素材。节前 7-10 天。</li>
+      <li><strong>双 11 / 618</strong>：电商相关素材、运营策划 PPT。提前 14 天。</li>
+    </ul>
+    <h4>热点时效品 · 蹭平台流量</h4>
+    <p>小红书每周都有热点话题（如"秋天的第一杯奶茶"、"挑战 21 天早起"）。每次热点出现后 48 小时内，<strong>做相关虚拟品 + 发相关笔记</strong>，可以蹭到平台流量扶持。</p>
+    <div class="callout warn">
+      <strong>小白常踩坑：</strong>"节日素材做完了就下架吗？"——是的，节日素材时效性强，过节后再卖会被判"旧品翻新"。节后立即下架，转下个节日。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>3.8 测 500 怼 30 · 选品决策树</h3>
+    <p>5.0 技术的<strong>核心选品决策树</strong>：</p>
+    <ol class="steps">
+      <li><strong>初筛 500 个候选品</strong>：通过 3.2/3.3/3.4 的方法收集 500 个候选品，记到 Excel 表。</li>
+      <li><strong>3 项过滤（筛 200）</strong>：每个候选品打分——搜索量（满分 10）、竞争度（满分 10）、利润率（满分 10），3 项相加 ≥ 20 才留下。</li>
+      <li><strong>1 周试水（筛 50）</strong>：每个留下品发 3 篇笔记，看曝光 ≥ 500 的品留下。</li>
+      <li><strong>2 周测数据（筛 30）</strong>：观察 CTR（曝光→点击）≥ 5% 的品进入"候选怼款池"。</li>
+      <li><strong>1 个月怼款（筛 10）</strong>：怼款池里 CTR 最高 + 销量最稳的 10 个品，作为"店铺核心品"。</li>
+      <li><strong>3 个月矩阵放大</strong>：用 10 个核心品 + 1 店 3 号矩阵，把月销做到 1 万+。</li>
+    </ol>
+    <h4>5.0 选品模型的核心思想</h4>
+    <ul>
+      <li><strong>不要赌单个品</strong>：500 个候选品是基本盘，新手没眼光必须靠数量。</li>
+      <li><strong>用数据筛品</strong>：所有筛选都用客观数据，不用"我想做这个"。</li>
+      <li><strong>渐进式投入</strong>：从 50 品到 30 品到 10 品，每一步都看数据。</li>
+      <li><strong>快速迭代</strong>：每 2 周淘汰表现差的品，补入新候选品。</li>
+    </ul>
+    <div class="callout success">
+      <strong>5.0 模型精髓：</strong>选品不是"找到爆款"，而是"<strong>批量测试 + 概率取胜</strong>"。500 品里有 30 个好品，30 个里有 10 个爆款，是必然结果，不是运气。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>3.9 给小白的选品日 checklist</h3>
+    <p>新人第一周的选品任务：</p>
+    <ul>
+      <li>☐ 在 Excel 建表"A 列=品名 / B 列=来源 / C 列=搜索量 / D 列=竞争度 / E 列=利润率 / F 列=综合得分"</li>
+      <li>☐ 用 3.2 方法从淘宝收集 100 个候选品</li>
+      <li>☐ 用 3.3 方法从小红书收集 100 个候选品</li>
+      <li>☐ 用 3.4 方法从 AI 收集 50 个候选品</li>
+      <li>☐ 用 3.5 的过滤标准筛选出 50 个"通过初筛候选"</li>
+      <li>☐ 给每个候选品做 1 张封面图（用第 5 章的方法）</li>
+      <li>☐ 上架这 50 个品，每个发 1 篇笔记</li>
+      <li>☐ 1 周后看数据，淘汰表现差的，留下 30 个</li>
+    </ul>
+    <p>完成 9 项后，你已经<strong>进入"测款阶段"</strong>。下一章开始讲 AI 内容生产——有了候选品后，怎么做出原创图、原创文、原创标题。</p>
+  </div>
+</section>
+<section class="chapter ch-04" id="ch04">
+  <div class="chapter-head">
+    <span class="num">04</span>
+    <h2>AI 内容生产 · 扣子 / 豆包 + 原创图/文/题</h2>
+    <span class="tag">5.0 核心</span>
+  </div>
+
+  <div class="subsec">
+    <h3>4.1 AI 原创必要性 · 为什么必须原创</h3>
+    <p>在小红书做虚拟商品，"原创"不是加分项，而是<strong>生死线</strong>。原因有三：</p>
+    <h4>① 平台机制：搬运会被直接降权</h4>
+    <p>小红书的笔记原创检测算法 2024 年升级后，<strong>图片相似度 ≥ 70% 即触发降权</strong>。直接搬运淘宝/小红书同行的图，笔记会限流到只有 200 曝光。而原创笔记的初始曝光是 500-2000。</p>
+    <h4>② 用户心理：原创 = 差异化 = 高转化</h4>
+    <p>用户在小红书搜索"PPT 模板"，看到 100 个差不多的模板，<strong>哪个有差异化就点哪个</strong>。差异化的本质就是原创——同样主题，你的封面图不一样、你的详情页更精致、你的标题更打动人。</p>
+    <h4>③ 规模化产出：人工做不了，必须 AI</h4>
+    <p>500 个候选品每个都要配原创内容，人工做需要 500 小时。<strong>AI 原创 + 流水线操作 = 5 小时搞定 500 品</strong>。这就是 5.0 技术的核心效率优势。</p>
+    <div class="callout warn">
+      <strong>小白常踩坑：</strong>"我用 AI 改了一下图，算原创吗？"——严格意义上不算。AI 必须做<strong>深度重构</strong>（构图/配色/字体/排版都变），不是简单加滤镜或裁剪。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>4.2 国内 AI 工具全景 · 哪个适合你</h3>
+    <p>国内主流的 AI 工具有 3 个，5.0 技术用的也是这 3 个：</p>
+    <table class="tip">
+      <caption>扣子 / 豆包 / 即梦 三件套对比</caption>
+      <thead><tr><th>工具</th><th>主打能力</th><th>对话模式</th><th>编程模式</th><th>费用</th></tr></thead>
+      <tbody>
+        <tr><td><strong>扣子 Coze</strong></td><td>综合平台（对话+画图+工作流）</td><td>✅ 全功能</td><td>✅ 完整</td><td>免费版可用，30 元/月畅享</td></tr>
+        <tr><td><strong>豆包</strong></td><td>对话 + 文案生成</td><td>✅ 强</td><td>❌ 无</td><td>免费</td></tr>
+        <tr><td><strong>即梦</strong></td><td>AI 画图</td><td>✅ 有</td><td>❌ 无</td><td>免费额度 + 付费会员</td></tr>
+      </tbody>
+    </table>
+    <h4>5.0 工具栈组合方案</h4>
+    <ul>
+      <li><strong>首选：扣子</strong>：一个工具完成"对话+画图+工作流+知识库"全部需求，5.0 学员 90% 用扣子。</li>
+      <li><strong>备用：豆包</strong>：完全免费，文案生成质量不输扣子，画图略弱。</li>
+      <li><strong>辅助：即梦</strong>：画图质量好于酷豆，细节更精致。</li>
+    </ul>
+    <div class="callout info">
+      <strong>小白第一守则：</strong>不要装一堆 AI 工具。<strong>先用扣子一个跑通流程</strong>，等熟练后再加即梦或豆包。工具切换成本很高，新手最忌讳"换工具"。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>4.3 国外 AI 工具 · 高质量但有门槛</h3>
+    <p>国外 AI 工具质量更高，但<strong>门槛也更高</strong>。5.0 学员里只有 20% 用国外工具，主要用于"高质量封面图"场景：</p>
+    <h4>Midjourney · 封面图神器</h4>
+    <ul>
+      <li><strong>优势</strong>：画面精美、构图讲究、风格独特。生成的封面图在小红书有<strong>明显更高的点击率</strong>。</li>
+      <li><strong>门槛</strong>：需魔法上网；月费 8~30 美元；提示词需要英文。</li>
+      <li><strong>5.0 用法</strong>：用 Midjourney 生成"虚拟商品封面图"，再裁剪成 3:4 比例上传小红书。</li>
+    </ul>
+    <h4>GPT-4 / Claude · 文案生成</h4>
+    <ul>
+      <li><strong>优势</strong>：英文提示词下输出更自然、更有网感。</li>
+      <li><strong>门槛</strong>：魔法上网 + 海外信用卡 + 月费 20 美元。</li>
+      <li><strong>5.0 用法</strong>：写小红书爆款笔记的标题和正文，输出"网感文案"。</li>
+    </ul>
+    <div class="callout tip">
+      <strong>小白决策树：</strong>如果不打算魔法上网，<strong>扣子 + 即梦 + 豆包</strong>三件套足够覆盖 80% 的场景。如果追求极致 5% 的爆款率，可以上 Midjourney。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>4.4 5W1H 描述法 · 让 AI 听懂你想要什么</h3>
+    <p>AI 输出的好坏，<strong>70% 取决于提示词的质量</strong>。5.0 技术总结出了一套"<strong>5W1H 描述法</strong>"，让 AI 100% 听懂你想要什么：</p>
+    <h4>5W1H 公式</h4>
+    <pre class="code">请基于以下 5W1H 信息，帮我创作 [产出物]：
+- Who（用户）：[目标人群，如 25-30 岁一线城市职场女性]
+- What（内容）：[商品卖点，如"幼小衔接拼音练习 PDF 模板"]
+- Why（痛点）：[用户为什么买，如"开学前 1 周家长焦虑没准备"]
+- Where（场景）：[使用场景，如"打印给孩子每天练 10 分钟"]
+- When（时机）：[购买时机，如"7-8 月暑期"]
+- How（形式）：[产出形式，如"PDF 文档 + 200 个声母韵母卡片"]</pre>
+    <h4>示例：幼小衔接拼音模板的 5W1H 提示词</h4>
+    <pre class="code">请基于以下 5W1H 信息，帮我创作 1 篇小红书笔记：
+- Who：30-35 岁一二线城市宝妈，孩子 5-6 岁即将上小学
+- What：幼小衔接拼音练习 PDF 模板（含 200 个声母韵母卡片）
+- Why：开学前 1 周家长焦虑没准备，不知道怎么教
+- Where：打印店 + 在家里用
+- When：7-8 月暑期（开学前 1 个月）
+- How：PDF 文档 + 卡片打印素材 + 拼音表
+
+请输出：
+1. 笔记标题（20 字内，含数字+情绪）
+2. 笔记正文（150-200 字，含 3 个 emoji）
+3. 5 个相关话题标签
+4. 1 张封面图的核心文案（15 字内）</pre>
+    <div class="callout success">
+      <strong>小白技巧：</strong>5W1H 描述法不是"一次到位"，而是<strong>渐进式细化</strong>。先用粗框描述跑 1 次，看 AI 输出，再补充细节跑第 2 次，第 3 次就能拿到满意结果。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>4.5 AI 原创图 / 文 / 题 · 三件套</h3>
+    <p>虚拟商品在小红书的核心内容是<strong>"图 + 文 + 题"</strong>三件套：</p>
+    <h4>① AI 原创图 · 5 要素公式</h4>
+    <p>一张合格的虚拟商品封面图，需要 5 个要素：</p>
+    <ul>
+      <li><strong>构图</strong>：3:4 竖版（小红书标准比例），主体居中或三分构图。</li>
+      <li><strong>风格</strong>：扁平化 / 插画风 / 实景风 / 简约风 / 国潮风。选 1 个风格不要混搭。</li>
+      <li><strong>配色</strong>：主色调 1 个 + 点缀色 2 个。不要超过 4 种颜色。</li>
+      <li><strong>字体</strong>：1-2 种字体，主标题粗体大字号，副标题细体小字号。</li>
+      <li><strong>细节</strong>：背景纹理 / 装饰元素 / 阴影。增加质感。</li>
+    </ul>
+    <h4>② AI 原创文 · 网感文案公式</h4>
+    <p>小红书爆款笔记的正文结构：</p>
+    <ol class="steps">
+      <li><strong>开头 30 字</strong>：用"姐妹们！"或"救命！"开头，3 秒抓眼球。</li>
+      <li><strong>痛点描述</strong>：用"我之前……后来……"叙事，引出痛点。</li>
+      <li><strong>解决方案</strong>：直接给"我买了 XXX"或"我做了 XXX"。</li>
+      <li><strong>效果展示</strong>：3 个 bullet 列出卖点。</li>
+      <li><strong>引导互动</strong>："姐妹们有需要吗？"或"评论区扣 1 分享"。</li>
+    </ol>
+    <h4>③ AI 原创标题 · 数字+情绪公式</h4>
+    <p>爆款标题的 4 个黄金组合：</p>
+    <ul>
+      <li><strong>数字型</strong>："20 套 XX 模板，5.9 元拿走"</li>
+      <li><strong>对比型</strong>："别再花 199 买 XX 了！我做的 5.9 元"</li>
+      <li><strong>反转型</strong>："同事问我是不是花了 300 块做的 PPT，其实……"</li>
+      <li><strong>紧迫型</strong>："明天开学！1 套模板救急"</li>
+    </ul>
+    <div class="callout info">
+      <strong>小白技巧：</strong>标题前 12 个字最重要，决定 80% 的点击率。<strong>前 12 字必须包含"数字 + 痛点词 + 情绪词"</strong>三要素之一。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>4.6 扣子编程模式 · 进阶玩法</h3>
+    <p>扣子有两种模式：<strong>对话模式</strong>（像聊天）和<strong>编程模式</strong>（像写代码）。编程模式适合做<strong>工作流自动化</strong>。</p>
+    <h4>什么是扣子编程模式？</h4>
+    <p>编程模式是用<strong>可视化拖拽 + 节点连线</strong>的方式，把"输入→处理→输出"做成自动流水线。比<em> 例如：</em></p>
+    <ul>
+      <li>输入节点：用户输入"幼小衔接拼音模板"</li>
+      <li>处理节点 1：扣子 AI 生成 5 个候选标题</li>
+      <li>处理节点 2：扣子 AI 生成封面图描述</li>
+      <li>处理节点 3：即梦 AI 生成封面图</li>
+      <li>处理节点 4：扣子 AI 生成笔记正文</li>
+      <li>输出节点：把 4 个结果打包输出</li>
+    </ul>
+    <h4>编程模式 vs 对话模式的区别</h4>
+    <table class="tip">
+      <caption>对话模式 vs 编程模式</caption>
+      <thead><tr><th>维度</th><th>对话模式</th><th>编程模式</th></tr></thead>
+      <tbody>
+        <tr><td>使用难度</td><td>⭐ 简单</td><td>⭐⭐⭐ 进阶</td></tr>
+        <tr><td>适合场景</td><td>单次创作 / 调试</td><td>批量生产 / 复用</td></tr>
+        <tr><td>5.0 推荐度</td><td>⭐⭐⭐⭐⭐（新手必学）</td><td>⭐⭐⭐⭐（熟练后再学）</td></tr>
+        <tr><td>输出效率</td><td>1 次 1 个品</td><td>1 次 100 个品</td></tr>
+      </tbody>
+    </table>
+    <div class="callout tip">
+      <strong>小白第一守则：</strong>先<strong>只学对话模式</strong>。5.0 学员 80% 只用对话模式就能做出爆款，编程模式是<strong>熟练后</strong>的进阶，不是必须。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>4.7 扣子对话模式 · 新手第一课</h3>
+    <p>扣子对话模式是 5.0 新手最应该先掌握的 AI 技能。<strong>会对话模式 = 80% 的 AI 任务都能搞定</strong>。</p>
+    <h4>对话模式的 4 大用法</h4>
+    <ol class="steps">
+      <li><strong>用法 1：生成封面图</strong>：给扣子一段描述，输出封面图。例："请生成一张 PPT 模板封面，主标题'年终总结 PPT'，配色蓝白，简约风，3:4 竖版"。</li>
+      <li><strong>用法 2：生成笔记文案</strong>：给扣子 5W1H 信息，输出笔记正文。例：见 4.4 示例。</li>
+      <li><strong>用法 3：生成商品详情</strong>：给扣子商品信息，输出商品详情页文案（含 5 个卖点 + 1 个售后说明）。</li>
+      <li><strong>用法 4：知识库问答</strong>：把小红书规则文档上传到扣子知识库，问扣子"标题里能写'教培'吗？"得到基于文档的精准回答。</li>
+    </ol>
+    <h4>对话模式的 3 个技巧</h4>
+    <ul>
+      <li><strong>技巧 1：多轮对话</strong>：第一次给粗框描述，看输出不满意再追问细化。</li>
+      <li><strong>技巧 2：指定风格</strong>：明确说"用小红书爆款笔记风格"、"用'姐妹们'开头"。</li>
+      <li><strong>技巧 3：参考案例</strong>：贴一段你喜欢的爆款笔记给 AI，让它"参考这个风格写"。</li>
+    </ul>
+    <div class="callout success">
+      <strong>小白第一周任务：</strong>用扣子对话模式生成 10 张封面图 + 10 篇笔记文案。<strong>做完这 10 个后，你就掌握对话模式 90% 的能力</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>4.8 PPT 自动生成 · 进阶用法</h3>
+    <p>5.0 学员里，<strong>30% 会用 PPT 自动生成功能</strong>。这个功能让你<strong>5 分钟做一个 30 页的 PPT 模板</strong>。</p>
+    <h4>扣子 PPT 自动生成的工作流</h4>
+    <ol class="steps">
+      <li>输入 PPT 主题（如"年终总结 PPT"）</li>
+      <li>AI 生成 PPT 大纲（10-30 页）</li>
+      <li>AI 为每页生成内容（标题 + bullet + 配图描述）</li>
+      <li>选择模板风格（简约 / 商务 / 创意）</li>
+      <li>导出 PPT 文件</li>
+    </ol>
+    <h4>PPT 自动生成 vs 手工制作的差距</h4>
+    <ul>
+      <li><strong>效率差距</strong>：手工做 30 页 PPT 要 4-8 小时，AI 只要 5-10 分钟。</li>
+      <li><strong>质量差距</strong>：AI 生成的 70 分够用，手工做的可以 85 分但慢 50 倍。</li>
+      <li><strong>商业差距</strong>：AI 批量做的 10 个品里出 1 个爆款，手工做的 1 个品里出 1 个爆款，<strong>AI 胜出</strong>。</li>
+    </ul>
+    <div class="callout info">
+      <strong>小白决策树：</strong>先用手工做几个品练手，熟悉 PPT 结构和用户喜好。然后用 AI 批量做。<strong>不要一上来就用 AI</strong>，否则你不理解用户需求，做出来的东西没人买。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>4.9 知识库搭建 · 把小红书规则变成 AI 知识</h3>
+    <p>扣子有一个强大功能叫<strong>知识库</strong>：把文档上传，AI 自动学习，问 AI 时会基于文档回答。这对<strong>小红书合规</strong>场景特别有用。</p>
+    <h4>如何搭建小红书知识库</h4>
+    <ol class="steps">
+      <li>登录扣子，进入"知识库"页面</li>
+      <li>点击"创建知识库"，命名为"小红书虚拟商品合规手册"</li>
+      <li>上传 3-5 份关键文档：小红书社区规范、虚拟商品报白规则、AI 标识办法</li>
+      <li>等待 5-10 分钟让 AI 学习</li>
+      <li>测试：输入"标题里能写'教培'吗？"看 AI 是否基于文档回答</li>
+    </ol>
+    <h4>知识库的 3 个进阶用法</h4>
+    <ul>
+      <li><strong>用法 1：合规检查</strong>：写完标题后问 AI"这个标题合规吗？"</li>
+      <li><strong>用法 2：规则查询</strong>：随时问"电子资源类目保证金多少？"</li>
+      <li><strong>用法 3：违规分析</strong>：被下架后问"我为什么被下架？怎么改？"</li>
+    </ul>
+    <div class="callout success">
+      <strong>小白加分项：</strong>搭建好知识库后，<strong>AI 就成了你的"小红书合规顾问"</strong>。这相当于有了一个 7×24 小时的官方客服，且不花一分钱。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>4.10 AI 原创万物 · 跨品类迁移</h3>
+    <p>5.0 技术的"核武器"是<strong>AI 原创万物</strong>。意思是：<strong>任何品类的虚拟商品，AI 都能做</strong>。关键是方法论。</p>
+    <h4>5 个万能迁移公式</h4>
+    <ul>
+      <li><strong>公式 1：实体→虚拟</strong>：把实物商品改成虚拟版（如"实体日历" → "电子日历壁纸"）。</li>
+      <li><strong>公式 2：成人→儿童</strong>：把成人内容改成儿童版（如"成人简历" → "幼小衔接拼音"）。</li>
+      <li><strong>公式 3：通用→垂直</strong>：把通用内容改成特定行业（如"通用 PPT" → "律师专用 PPT"）。</li>
+      <li><strong>公式 4：单点→套装</strong>：把单一商品改成套装（如"单份 PPT" → "PPT+字体+图标三件套"）。</li>
+      <li><strong>公式 5：静态→互动</strong>：把静态内容改成互动版（如"静态简历" → "可编辑互动简历"）。</li>
+    </ul>
+    <div class="callout success">
+      <strong>小白思维转换：</strong>不要被"我不会画画"、"我不会写作"卡住。<strong>AI 时代，"想法"比"技能"重要 100 倍</strong>。你的想法 + AI 的技能 = 无限可能。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>4.11 AI 内容标识合规 · 2025-09 新规要点</h3>
+    <p>2025 年 9 月 1 日起，<strong>《人工智能生成合成内容标识办法》</strong>正式实施。这是国家网信办发布的法规，要求 AI 生成的内容必须明确标识。</p>
+    <h4>新规的 3 个核心要求</h4>
+    <ul>
+      <li><strong>显式标识</strong>：AI 生成的图片、视频里，必须有可见的"AI 生成"水印或标签。</li>
+      <li><strong>隐式标识</strong>：AI 生成的文件必须包含元数据（metadata），标明"AI 生成"。</li>
+      <li><strong>用户提示</strong>：发布 AI 生成内容时，必须告知用户"这是 AI 生成的"。</li>
+    </ul>
+    <h4>5.0 的合规做法</h4>
+    <ul>
+      <li><strong>封面图加 AI 标识</strong>：在封面图右下角加一个小小的"AI"标志或水印。</li>
+      <li><strong>商品详情声明</strong>：在商品描述里加一句"本商品由 AI 辅助创作"。</li>
+      <li><strong>笔记正文声明</strong>：在笔记结尾加一句"由 AI 辅助生成"。</li>
+    </ul>
+    <div class="callout danger">
+      <strong>红线警示：</strong>2025 年 9 月后，<strong>不标注 AI 内容可能面临商品下架 + 店铺扣分</strong>。新手必须从第一天就养成标识习惯。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>4.12 给小白的 AI 工具日 checklist</h3>
+    <p>新人第一周应该掌握的 AI 工具清单：</p>
+    <ul>
+      <li>☐ 注册扣子账号（手机号即可）</li>
+      <li>☐ 试用扣子对话模式生成 1 张封面图</li>
+      <li>☐ 试用扣子对话模式生成 1 篇笔记文案</li>
+      <li>☐ 试用豆包对话模式生成 5 个候选标题</li>
+      <li>☐ 注册即梦账号（手机号即可）</li>
+      <li>☐ 试用即梦生成 1 张高质量封面图</li>
+      <li>☐ 在扣子搭建"小红书虚拟商品合规手册"知识库</li>
+      <li>☐ 用 5W1H 描述法跑 10 个品的内容</li>
+      <li>☐ 给所有 AI 内容加上合规标识</li>
+    </ul>
+    <p>完成 9 项后，你已经具备<strong>5.0 学员的基础 AI 能力</strong>。下一章开始讲封面图体系——把 AI 图变成"点击率高的爆款封面"。</p>
+  </div>
+</section>
+<section class="chapter ch-05" id="ch05">
+  <div class="chapter-head">
+    <span class="num">05</span>
+    <h2>封面图体系 · AI 高质量 + 暗水印处理</h2>
+    <span class="tag">点击率核心</span>
+  </div>
+
+  <div class="subsec">
+    <h3>5.1 封面图的决定性作用 · 80% 的点击来自这里</h3>
+    <p>小红书笔记的流量公式：<strong>曝光 = 推荐流量池大小 × 点击率</strong>。曝光量是平台给的，<strong>点击率是你能控制的</strong>。而点击率 80% 由封面图决定。</p>
+    <h4>封面图的 3 个本质</h4>
+    <ul>
+      <li><strong>本质 1：3 秒决胜负</strong>：用户在信息流里滑动速度是 0.3 秒/张图，<strong>封面图必须在 3 秒内让人停下来</strong>。</li>
+      <li><strong>本质 2：远看清晰度</strong>：缩略图状态下必须能看清主标题文字。</li>
+      <li><strong>本质 3：一眼看到价值</strong>：用户看到封面图要立即明白"这是什么、能解决什么问题"。</li>
+    </ul>
+    <h4>小红书封面图标准规格</h4>
+    <ul>
+      <li><strong>比例</strong>：3:4（推荐 1080×1440 像素）</li>
+      <li><strong>格式</strong>：JPG / PNG（不要用 BMP / TIFF）</li>
+      <li><strong>大小</strong>：≤ 5 MB</li>
+      <li><strong>主标题字号</strong>：≥ 60 像素（缩略图仍清晰）</li>
+    </ul>
+    <div class="callout info">
+      <strong>小白第一守则：</strong>不要把"内容做得好"等同于"封面图无所谓"。<strong>封面图是流量入口</strong>，内容是转化承接。先把封面图做好，再谈内容。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>5.2 宝贝主图微处理 · 0 成本复用</h3>
+    <p>新手最常问："我没有美工，不会做图怎么办？"——<strong>宝贝主图微处理</strong>是 0 成本入门方案。</p>
+    <h4>什么是宝贝主图微处理？</h4>
+    <p>直接复用淘宝 / 小红书其他商家的主图，<strong>做小幅修改</strong>（如裁剪、加文字、换配色）。这是 5.0 技术里<strong>前期试水</strong>的标准做法。</p>
+    <h4>微处理的 4 种方法</h4>
+    <ol class="steps">
+      <li><strong>方法 1：加文字</strong>：用"稿定设计"或"创客贴"在主图上加一层文字框（主标题）。</li>
+      <li><strong>方法 2：换比例</strong>：把淘宝主图（1:1）裁剪成小红书主图（3:4）。</li>
+      <li><strong>方法 3：改色温</strong>：用 Photoshop 或"光影魔术手"调整色温、对比度。</li>
+      <li><strong>方法 4：替换元素</strong>：用其他相同风格的图替换主图背景（需注意版权）。</li>
+    </ol>
+    <h4>微处理的局限</h4>
+    <ul>
+      <li>❌ <strong>不能大改</strong>：大改等于"自己原创"，花的时间反而更多。</li>
+      <li>❌ <strong>不能直接搬运</strong>：直接搬运（相似度 100%）会触发平台降权。</li>
+      <li>✅ <strong>适合场景</strong>：试水期、做参考、临时过渡。</li>
+    </ul>
+    <div class="callout warn">
+      <strong>小白常踩坑：</strong>"微处理就是搬运吧？"——不是。微处理需要至少 30% 内容变化。建议微处理只用于<strong>前期 50 个候选品</strong>的快速测试，正式商品用 AI 原创图。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>5.3 批量大字报 · 模板化出图</h3>
+    <p>批量大字报是 5.0 技术的<strong>提效率方案</strong>。一张大字报模板，<strong>改 5 个字就能出一个新封面图</strong>。</p>
+    <h4>大字报的 4 个核心元素</h4>
+    <ol class="steps">
+      <li><strong>主标题</strong>：2~6 个字，最大字号居中。</li>
+      <li><strong>副标题</strong>：8~12 个字，主标题下方或上方。</li>
+      <li><strong>装饰元素</strong>：背景纹理、emoji、贴纸。</li>
+      <li><strong>标签角标</strong>：左上或右上的"必备"、"爆款"、"限时"标签。</li>
+    </ol>
+    <h4>大字报的 3 个常用模板</h4>
+    <table class="tip">
+      <caption>大字报模板 · 5.0 学员高频使用</caption>
+      <thead><tr><th>模板</th><th>适用场景</th><th>出图速度</th></tr></thead>
+      <tbody>
+        <tr><td>居中大字型</td><td>通用 PPT / 简历</td><td>30 秒/张</td></tr>
+        <tr><td>左上角标题型</td><td>节日素材 / 时效品</td><td>20 秒/张</td></tr>
+        <tr><td>对角排版型</td><td>套装商品 / 多 SKU</td><td>40 秒/张</td></tr>
+      </tbody>
+    </table>
+    <h4>批量大字报的工具</h4>
+    <ul>
+      <li><strong>稿定设计</strong>：模板最丰富，5.0 学员 60% 用这个。</li>
+      <li><strong>创客贴</strong>：免费模板多，新手友好。</li>
+      <li><strong>Canva 可画</strong>：国际版，模板质量高。</li>
+    </ul>
+    <div class="callout success">
+      <strong>效率数据：</strong>用大字报模板，<strong>单人每天做 100 张封面图</strong>。500 个候选品 5 天搞定。这是 5.0 技术的核心效率优势之一。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>5.4 AI 高质量封面 · 主流玩法</h3>
+    <p>AI 生成的封面图质量已经<strong>接近专业美工水平</strong>。5.0 学员里 90% 都用 AI 做封面图。</p>
+    <h4>AI 封面的 4 个流派</h4>
+    <ul>
+      <li><strong>流派 1：扣子对话模式（首选）</strong>：用扣子的"图像生成"功能，输入描述直接出图。<strong>5.0 学员 80% 用这个</strong>。</li>
+      <li><strong>流派 2：即梦 AI</strong>：即梦是字节系产品，<strong>中文理解更好</strong>。适合需要中文元素的封面图。</li>
+      <li><strong>流派 3：豆包辅助路径</strong>：豆包先写描述，再把描述发给 Midjourney/即梦。适合不会写提示词的人。</li>
+      <li><strong>流派 4：Midjourney</strong>：英文提示词，画面质量最好。适合高客单价商品。</li>
+    </ul>
+    <h4>AI 封面的 4 个核心原则</h4>
+    <ol class="steps">
+      <li><strong>主字体要大</strong>：主标题字号占图片宽度 ≥ 60%。</li>
+      <li><strong>字体显眼</strong>：粗体、无衬线、加阴影或描边。</li>
+      <li><strong>居中排版</strong>：主标题居中或三分构图，不要满版文字。</li>
+      <li><strong>对比强烈</strong>：背景和文字颜色对比 ≥ 70%，保证远看清晰。</li>
+    </ol>
+    <h4>AI 封面的 3 个常见错误</h4>
+    <ul>
+      <li>❌ <strong>文字过多</strong>：图里塞 30+ 字，用户看不清。</li>
+      <li>❌ <strong>风格混搭</strong>：左边扁平风 + 右边实景风。</li>
+      <li>❌ <strong>颜色混乱</strong>：5+ 种颜色乱堆。</li>
+    </ul>
+    <div class="callout tip">
+      <strong>小白第一守则：</strong>AI 生成的图如果不满意，<strong>不要重新生成图</strong>。<strong>先优化提示词，再重新生成</strong>。改提示词比改图效率高 10 倍。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>5.5 暗水印处理 · 别人搬不走你的图</h3>
+    <p>"水印"是封面图的<strong>版权保护</strong>。但很多新手有疑问："加水印会影响美观吗？"</p>
+    <h4>明水印 vs 暗水印</h4>
+    <table class="tip">
+      <caption>明水印 vs 暗水印</caption>
+      <thead><tr><th>类型</th><th>位置</th><th>可见性</th><th>优点</th><th>缺点</th></tr></thead>
+      <tbody>
+        <tr><td>明水印</td><td>图片中心 / 角落</td><td>明显</td><td>一眼可见版权</td><td>影响美观、易被遮盖</td></tr>
+        <tr><td>暗水印</td><td>整张图片像素层</td><td>肉眼难见</td><td>不影响美观、难去除</td><td>技术要求高</td></tr>
+      </tbody>
+    </table>
+    <h4>5.0 学员的主流做法 · 暗水印</h4>
+    <p>5.0 学员<strong>90% 用暗水印</strong>。原因是：</p>
+    <ul>
+      <li>封面图美观度不受影响</li>
+      <li>同行截图后无法去除（暗水印已嵌入像素层）</li>
+      <li>小红书平台对暗水印不反感（不展示给用户）</li>
+      <li>未来维权有证据</li>
+    </ul>
+    <h4>明水印的截图规避 · 实用技巧</h4>
+    <p>如果你想做明水印但又怕被截图规避，<strong>水印要做得"不可去除"</strong>：</p>
+    <ul>
+      <li>放在图片<strong>人脸/主标题位置</strong>（同行用你的图不能去水印）</li>
+      <li>用<strong>半透明 + 重复平铺</strong>（整张图都覆盖水印）</li>
+      <li>用<strong>独特字体 + 装饰元素</strong>（无法通过软件一键去除）</li>
+    </ul>
+    <h4>暗水印的处理工具</h4>
+    <ul>
+      <li><strong>水印蛇</strong>：专门做暗水印的工具。</li>
+      <li><strong>PhotoStamp</strong>：桌面端暗水印软件。</li>
+      <li><strong>Python 脚本</strong>：自己写代码嵌入暗水印（适合技术党）。</li>
+    </ul>
+    <div class="callout success">
+      <strong>进阶玩法：</strong>扣子 5.0 推出<strong>进阶版暗水印功能</strong>，<strong>AI 生成图时自动嵌入</strong>，无需后期处理。<strong>这是 5.0 技术的关键优势</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>5.6 图重命名与替换 · 自动化提效</h3>
+    <p>小红书对图片命名有特殊要求：<strong>不能含中文字符</strong>。很多新手会踩这个坑：直接用"产品封面图.jpg"上传，导致图片无法显示。</p>
+    <h4>图片命名的 3 个规则</h4>
+    <ul>
+      <li><strong>用英文 / 数字</strong>：如"ppt_001.jpg"</li>
+      <li><strong>用商品 ID</strong>：如"SP12345_001.jpg"</li>
+      <li><strong>用日期 + 序号</strong>：如"20260301_001.jpg"</li>
+    </ul>
+    <h4>批量重命名工具</h4>
+    <ul>
+      <li><strong>Bulk Rename Utility</strong>：Windows 批量重命名神器。</li>
+      <li><strong>Adobe Bridge</strong>：Mac 用户的批量重命名方案。</li>
+      <li><strong>Python 脚本</strong>：自己写代码批量改（适合会编程的）。</li>
+    </ul>
+    <h4>替换主图的 3 个场景</h4>
+    <ol class="steps">
+      <li><strong>场景 1：换季换图</strong>：季节变化时替换主图保持新鲜感。</li>
+      <li><strong>场景 2：AB 测试</strong>：同一商品配 2 张主图，看哪张点击率高。</li>
+      <li><strong>场景 3：违规后</strong>：主图违规被下架后，修改并重新上传。</li>
+    </ol>
+    <div class="callout info">
+      <strong>小白操作技巧：</strong>把"商品 ID_序号.jpg"作为命名规则，<strong>例如 SP001_001.jpg、SP001_002.jpg</strong>。便于以后批量管理和替换。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>5.7 做图方法对比 · 决策矩阵</h3>
+    <p>5.0 技术有 3 种做图方法，新手最常问："我应该用哪种？"——看决策矩阵：</p>
+    <table class="tip">
+      <caption>3 种做图方法对比 · 决策矩阵</caption>
+      <thead><tr><th>方法</th><th>成本</th><th>效率</th><th>质量</th><th>适合场景</th></tr></thead>
+      <tbody>
+        <tr><td>宝贝主图微处理</td><td>0</td><td>⭐⭐⭐⭐⭐</td><td>⭐⭐</td><td>前期 50 个品试水</td></tr>
+        <tr><td>批量大字报</td><td>稿定设计会员约 200 元/年</td><td>⭐⭐⭐⭐</td><td>⭐⭐⭐</td><td>中期批量出图</td></tr>
+        <tr><td>AI 高质量封面</td><td>扣子 30 元/月</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td><td>后期爆款主图</td></tr>
+      </tbody>
+    </table>
+    <h4>5.0 推荐路径</h4>
+    <ol class="steps">
+      <li><strong>第 1 周</strong>：用<strong>宝贝主图微处理</strong>，快速做 50 张图试水。</li>
+      <li><strong>第 2-4 周</strong>：用<strong>批量大字报</strong>，每周做 50-100 张图。</li>
+      <li><strong>第 5 周起</strong>：用<strong>AI 高质量封面</strong>，针对爆款品做精。</li>
+      <li><strong>第 9 周起</strong>：混合用，<strong>微处理试新 + AI 做爆款</strong>。</li>
+    </ol>
+    <div class="callout success">
+      <strong>小白决策：</strong>先用<strong>宝贝主图微处理</strong>起步（0 成本），<strong>能出单再升级工具</strong>。不要一上来就付费 AI/稿定，先用免费路径验证能不能赚钱。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>5.8 封面图违规避坑 · 5 类红线</h3>
+    <p>封面图是<strong>笔记违规的高发区</strong>。5 类红线一定要避开：</p>
+    <ul>
+      <li><strong>红线 1：含联系方式</strong>：封面图不能有微信号、QQ 号、网址、二维码。</li>
+      <li><strong>红线 2：含价格承诺</strong>：封面图不能写"保证出单"、"7 天破万"。</li>
+      <li><strong>红线 3：盗版痕迹</strong>：封面图不能有"复刻版"、"独家"、"全网首发"等诱导词。</li>
+      <li><strong>红线 4：违规词</strong>：封面图不能有"教培"、"网课"、"真题"等敏感词。</li>
+      <li><strong>红线 5：人脸侵权</strong>：封面图不能含明星脸、卡通 IP（除非有授权）。</li>
+    </ul>
+    <div class="callout danger">
+      <strong>红线警示：</strong>一张违规主图 = 整个商品下架 + 累计店铺违规。<strong>宁可保守，不要冒险</strong>。有疑问先在扣子搭的"合规知识库"里查一下。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>5.9 给小白的封面图日 checklist</h3>
+    <p>新人第一周应该完成的封面图任务：</p>
+    <ul>
+      <li>☐ 在稿定设计 / 创客贴注册账号</li>
+      <li>☐ 在扣子注册账号，搭建"小红书虚拟商品合规手册"知识库</li>
+      <li>☐ 用稿定设计做 5 张大字报模板</li>
+      <li>☐ 用扣子对话模式生成 10 张 AI 封面图</li>
+      <li>☐ 给 10 张 AI 图加暗水印（水印蛇或 PhotoStamp）</li>
+      <li>☐ 用 Bulk Rename Utility 把所有图改为英文 / 数字命名</li>
+      <li>☐ 在上传前检查每张图是否含违规元素</li>
+      <li>☐ 把 10 张图上传到 1 个商品做测试</li>
+      <li>☐ 1 周后看数据，保留高点击率的图，淘汰低点击率的</li>
+    </ul>
+    <p>完成 9 项后，你已经<strong>具备 5.0 学员基础的封面图能力</strong>。下一章开始讲批量发布——把封面图 + 笔记内容高效推送给用户。</p>
+  </div>
+</section>
+<section class="chapter ch-06" id="ch06">
+  <div class="chapter-head">
+    <span class="num">06</span>
+    <h2>批量发布 · 1 店 3 号矩阵 + 比特浏览器</h2>
+    <span class="tag">矩阵放大</span>
+  </div>
+
+  <div class="subsec">
+    <h3>6.1 1 店关联 3 号 · 平台官方允许多账号</h3>
+    <p>小红书平台官方支持<strong>1 个店铺绑定 3 个账号</strong>（1 个官方号 + 2 个副号）。这是合规的"1 店 3 号"矩阵模式。</p>
+    <h4>1 店 3 号的 3 个核心优势</h4>
+    <ul>
+      <li><strong>优势 1：笔记产能 ×3</strong>：3 个账号每天各发 5 篇，1 个店每天 15 篇笔记。</li>
+      <li><strong>优势 2：风险分散</strong>：1 个号违规不影响另外 2 个号。</li>
+      <li><strong>优势 3：A/B 测试</strong>：同一商品配 3 种笔记风格，看哪种转化高。</li>
+    </ul>
+    <h4>1 店 3 号的运营规则</h4>
+    <ol class="steps">
+      <li><strong>官方号</strong>：作为主账号，发布"店铺公告"、"商品上新"类笔记。</li>
+      <li><strong>副号 1</strong>：定位"种草号"，发布"使用场景"类笔记。</li>
+      <li><strong>副号 2</strong>：定位"测评号"，发布"对比测评"类笔记。</li>
+    </ol>
+    <h4>店铺绑定的限制</h4>
+    <ul>
+      <li>1 个账号<strong>最多绑定 1 个店铺</strong>，不能多店。</li>
+      <li>1 个店铺<strong>最多绑定 3 个账号</strong>。</li>
+      <li>账号之间不能<strong>互相点赞、评论</strong>（被识别为虚假互动）。</li>
+    </ul>
+    <div class="callout info">
+      <strong>小白常踩坑：</strong>"我注册 5 个账号不就行了吗？"——不行。1 个身份证只能实名 3 个账号，超过会被封。且多店必须用不同身份证。</strong>
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>6.2 比特浏览器 · 多账号防关联</h3>
+    <p>当你要做<strong>多店矩阵</strong>（3 个店 × 3 个号 = 9 个账号），账号之间的<strong>防关联</strong>就成关键。<strong>比特浏览器</strong>是 5.0 学员的主流方案。</p>
+    <h4>什么是浏览器指纹隔离？</h4>
+    <p>每个浏览器都有<strong>独特的"指纹"</strong>：User-Agent、Cookies、字体、Canvas 渲染、WebGL 等。小红书等平台通过指纹识别"这是同一个用户在操作多个账号"。</p>
+    <p>比特浏览器的核心功能是<strong>为每个账号创建独立的"指纹环境"</strong>，让平台认为是不同人在操作。</p>
+    <h4>比特浏览器的 4 个核心功能</h4>
+    <ol class="steps">
+      <li><strong>指纹隔离</strong>：每个窗口独立的浏览器指纹。</li>
+      <li><strong>Cookie 隔离</strong>：每个窗口独立的 Cookies，不会互相串号。</li>
+      <li><strong>IP 绑定</strong>：每个窗口绑定独立 IP 地址。</li>
+      <li><strong>RPA 自动化</strong>：内置脚本录制功能，自动模拟人工操作。</li>
+    </ol>
+    <h4>5.0 学员的比特浏览器配置</h4>
+    <ul>
+      <li><strong>推荐套餐</strong>：5 个浏览器窗口 / 月（够 1 个店用）。</li>
+      <li><strong>价格</strong>：约 50-100 元/月。</li>
+      <li><strong>配置建议</strong>：每窗口独立 IP + 独立 Cookie + 独立浏览器指纹。</li>
+    </ul>
+    <div class="callout warn">
+      <strong>小白常踩坑：</strong>"我用 360 浏览器多开不就行了？"——不行。360 浏览器多开是<strong>同一个浏览器进程</strong>，指纹完全相同，平台一眼看穿。比特浏览器是<strong>真正的隔离</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>6.3 IP 地址购买 · 独享 IP vs 共享 IP</h3>
+    <p>IP 地址是多账号防关联的<strong>第二关键</strong>。同样的 IP 地址登录多个账号，平台立即识别为同一人。</p>
+    <h4>独享 IP vs 共享 IP</h4>
+    <table class="tip">
+      <caption>独享 IP vs 共享 IP</caption>
+      <thead><tr><th>类型</th><th>价格</th><th>稳定性</th><th>风险</th><th>适合谁</th></tr></thead>
+      <tbody>
+        <tr><td>独享 IP</td><td>50-200 元/月</td><td>⭐⭐⭐⭐⭐</td><td>极低</td><td>5.0 主力学员</td></tr>
+        <tr><td>共享 IP</td><td>10-30 元/月</td><td>⭐⭐</td><td>高（被同 IP 用户连累）</td><td>预算极有限的学员</td></tr>
+        <tr><td>家庭宽带</td><td>0 元</td><td>⭐⭐⭐⭐</td><td>中（IP 段问题）</td><td>1 个号勉强用</td></tr>
+      </tbody>
+    </table>
+    <h4>国内 IP vs 海外 IP</h4>
+    <ul>
+      <li><strong>国内 IP</strong>：速度快、但 IP 池小、容易被识别为代理。</li>
+      <li><strong>海外 IP</strong>：IP 池大、更难被识别为代理、但速度慢。</li>
+      <li><strong>5.0 推荐</strong>：国内住宅 IP，<strong>速度快且真实度高</strong>。</li>
+    </ul>
+    <h4>IP 服务商选择</h4>
+    <ul>
+      <li>5.0 学员常用：IP 精灵、芝麻代理、太阳HTTP。</li>
+      <li>挑选标准：<strong>独享 + 住宅 IP + 长时效</strong>。</li>
+      <li>避坑：不要用免费代理（IP 已被大量人用过，100% 被识别）。</li>
+    </ul>
+    <div class="callout info">
+      <strong>小白决策树：</strong>如果只做 1 个店 3 个号，<strong>不必买 IP</strong>，家庭宽带 + 比特浏览器够用。<strong>做 3 店以上矩阵才需要买 IP</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>6.4 隔离 IP 操作 · IP 与浏览器绑定</h3>
+    <p>光有比特浏览器 + IP 还不够，<strong>必须正确绑定</strong>才能起到防关联作用。</p>
+    <h4>IP 与浏览器绑定的 4 步流程</h4>
+    <ol class="steps">
+      <li>在比特浏览器里创建 5 个独立窗口。</li>
+      <li>在 IP 服务商后台拿到 5 个独立 IP 地址。</li>
+      <li>为每个窗口单独配置代理 IP（HTTP / SOCKS5 协议）。</li>
+      <li>打开"百度"或"ip.cn"测试 IP 是否生效。</li>
+    </ol>
+    <h4>IP 纯净度检测 · 3 个工具</h4>
+    <ul>
+      <li><strong>ip.cn</strong>：查 IP 地理位置。</li>
+      <li><strong>scamalytics.com</strong>：查 IP 风险评分。</li>
+      <li><strong>ipqualityscore.com</strong>：查 IP 是否被滥用。</li>
+    </ul>
+    <h4>5.0 学员的 IP 配置标准</h4>
+    <ul>
+      <li>风险评分 ≤ 30 分。</li>
+      <li>地理位置：<strong>国内一二线城市</strong>（不要用偏远地区 IP）。</li>
+      <li>IP 类型：<strong>住宅 IP 优先</strong>，机房 IP 次之。</li>
+      <li>使用时长：<strong>不要频繁换 IP</strong>，1 个 IP 用到稳定期再换。</li>
+    </ul>
+    <div class="callout warn">
+      <strong>小白常踩坑：</strong>"我用手机 IP 不就行了？"——手机 IP 是<strong>动态 IP</strong>，每次重启路由器就变。<strong>稳定性差</strong>，不适合做矩阵。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>6.5 百分浏览器 · 快捷方式批量启动</h3>
+    <p>百分浏览器是 5.0 学员的<strong>常用辅助工具</strong>，主要用途是<strong>批量启动多个浏览器窗口</strong>。</p>
+    <h4>百分浏览器的核心功能</h4>
+    <ol class="steps">
+      <li><strong>快捷方式生成</strong>：为每个账号生成独立快捷方式。</li>
+      <li><strong>批量启动</strong>：一键启动所有账号窗口。</li>
+      <li><strong>窗口标签管理</strong>：多窗口标签化显示。</li>
+      <li><strong>自动化脚本</strong>：录制和回放操作。</li>
+    </ol>
+    <h4>快捷方式批量启动的 4 步配置</h4>
+    <ol class="steps">
+      <li>在桌面创建文件夹"小红书账号"。</li>
+      <li>为每个账号创建独立的浏览器快捷方式。</li>
+      <li>右键属性，目标里加上<strong>用户数据目录</strong>（如 --user-data-dir=D:\accounts\xhs01）。</li>
+      <li>把 5 个快捷方式放一起，一键启动。</li>
+    </ol>
+    <h4>百分浏览器 vs 比特浏览器</h4>
+    <table class="tip">
+      <caption>百分浏览器 vs 比特浏览器</caption>
+      <thead><tr><th>维度</th><th>百分浏览器</th><th>比特浏览器</th></tr></thead>
+      <tbody>
+        <tr><td>指纹隔离</td><td>❌ 弱</td><td>✅ 强</td></tr>
+        <tr><td>价格</td><td>免费</td><td>50-100 元/月</td></tr>
+        <tr><td>适合场景</td><td>1 个号自用</td><td>多账号矩阵</td></tr>
+        <tr><td>5.0 推荐度</td><td>⭐⭐⭐</td><td>⭐⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+    <div class="callout tip">
+      <strong>小白组合方案：</strong>1 个店 3 个号，<strong>百分浏览器 + 家庭宽带</strong>够用。3 店以上再升级到<strong>比特浏览器 + 独享 IP</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>6.6 自动发笔记 · 插件与配置</h3>
+    <p>5.0 学员的核心效率优势之一是<strong>自动发笔记</strong>。一个插件/软件可以<strong>每天自动发 30-50 篇笔记</strong>。</p>
+    <h4>主流自动发笔记工具</h4>
+    <ul>
+      <li><strong>影刀 RPA</strong>：通用自动化平台，可录制脚本。</li>
+      <li><strong>八爪鱼 RPA</strong>：类似影刀，免费版够用。</li>
+      <li><strong>小红书助手</strong>：专门的浏览器插件。</li>
+      <li><strong>Auto.js</strong>：安卓端自动化（手机端）。</li>
+    </ul>
+    <h4>自动发笔记的 4 步配置</h4>
+    <ol class="steps">
+      <li><strong>步骤 1：安装插件</strong>：在比特浏览器里安装自动发笔记插件。</li>
+      <li><strong>步骤 2：登录账号</strong>：用脚本自动登录每个账号。</li>
+      <li><strong>步骤 3：内容准备</strong>：把"标题+正文+图片+话题标签"做成 Excel 导入。</li>
+      <li><strong>步骤 4：时间间隔设置</strong>：<strong>关键！1200 秒（20 分钟）间隔</strong>，不要短于 600 秒。</li>
+    </ol>
+    <h4>为什么时间间隔 1200 秒？</h4>
+    <p>小红书反作弊系统对"短时间连续发布"非常敏感。间隔 600 秒以下几乎 100% 被识别为机器操作，导致笔记降权。<strong>1200 秒是经验值，既能保证产能又能规避识别</strong>。</p>
+    <div class="callout danger">
+      <strong>红线警示：</strong>时间间隔短于 600 秒 = <strong>账号封禁风险</strong>。宁可少发，不要群发。<strong>每天 1 个号发 5-10 篇是安全线</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>6.7 软件任务分配 · 避免单点故障</h3>
+    <p>5.0 学员会同时用<strong>2-3 个自动发笔记工具</strong>，原因是<strong>避免单点故障</strong>。</p>
+    <h4>为什么不只用一个工具？</h4>
+    <ul>
+      <li>小红书会<strong>定期更新反作弊算法</strong>，老工具可能失效。</li>
+      <li>工具厂商可能<strong>停止维护</strong>，导致软件不能用。</li>
+      <li>单工具故障 = <strong>所有账号停摆</strong>。</li>
+    </ul>
+    <h4>5.0 学员的"3 工具组合"</h4>
+    <table class="tip">
+      <caption>3 工具组合方案</caption>
+      <thead><tr><th>工具</th><th>角色</th><th>占比</th></tr></thead>
+      <tbody>
+        <tr><td>影刀 RPA</td><td>主力</td><td>60%</td></tr>
+        <tr><td>小红书官方助手</td><td>备用</td><td>30%</td></tr>
+        <tr><td>人工操作</td><td>应急</td><td>10%</td></tr>
+      </tbody>
+    </table>
+    <h4>任务分配的 3 个核心</h4>
+    <ol class="ol">
+      <li><strong>核心 1：不同账号不同工具</strong>：避免同一 IP 的多个账号用同一工具。</li>
+      <li><strong>核心 2：不同时间不同工具</strong>：早中晚轮换，避免单工具被频繁触发风控。</li>
+      <li><strong>核心 3：每天人工抽查 1 次</strong>：哪怕有自动化，<strong>人工抽查不能省</strong>。</li>
+    </ol>
+    <div class="callout success">
+      <strong>5.0 学员真实数据：</strong>用 3 工具组合 + 比特浏览器，<strong>每天 1 个店产出 30-50 篇笔记</strong>，单店月省人力 100 小时。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>6.8 自动发笔记的 4 个常见问题</h3>
+    <p>新手第一次配置自动发笔记会遇到 4 类问题：</p>
+    <table class="tip">
+      <caption>自动发笔记 4 个常见问题</caption>
+      <thead><tr><th>问题</th><th>原因</th><th>解决方案</th></tr></thead>
+      <tbody>
+        <tr><td>脚本频繁被中断</td><td>小红书更新反作弊</td><td>更新插件版本 / 切换工具</td></tr>
+        <tr><td>笔记发出去没曝光</td><td>内容重复 / 关键词违规</td><td>检查内容原创度 / 用合规知识库</td></tr>
+        <tr><td>账号被风控</td><td>IP 不稳定 / 操作频繁</td><td>更换 IP / 降低发笔记频率</td></tr>
+        <tr><td>图片上传失败</td><td>图片命名不规范</td><td>用 Bulk Rename Utility 改为英文命名</td></tr>
+      </tbody>
+    </table>
+    <h4>4 个问题的预防措施</h4>
+    <ol class="steps">
+      <li><strong>预防 1：内容去重</strong>：每篇笔记都要做"5W1H"差异化，避免完全重复。</li>
+      <li><strong>预防 2：图片去重</strong>：用 AI 生成多版图，或加暗水印、加滤镜、加裁剪。</li>
+      <li><strong>预防 3：IP 稳定</strong>：1 个号绑定 1 个 IP 至少 7 天，不要频繁换。</li>
+      <li><strong>预防 4：频率控制</strong>：每天 1 个号不超过 10 篇，间隔 1200 秒。</li>
+    </ol>
+    <div class="callout info">
+      <strong>小白第一守则：</strong>第一次用自动发笔记 <strong>必须先在 1 个测试号上跑 1 周</strong>，确认稳定后再推广到所有号。<strong>不要一上来就全店跑</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>6.9 给小白的发布日 checklist</h3>
+    <p>新人第一周应该完成的发布准备：</p>
+    <ul>
+      <li>☐ 1 个店 3 个号：1 个主号 + 2 个副号</li>
+      <li>☐ 主号定位"店铺公告号"</li>
+      <li>☐ 副号 1 定位"种草号"</li>
+      <li>☐ 副号 2 定位"测评号"</li>
+      <li>☐ 下载比特浏览器，注册账号（试用版）</li>
+      <li>☐ 在比特浏览器里创建 3 个窗口，对应 3 个账号</li>
+      <li>☐ 测试 1 个 IP 稳定性，确认能用</li>
+      <li>☐ 在影刀 RPA 或八爪鱼 RPA 安装自动发笔记脚本</li>
+      <li>☐ 用 1 个测试号跑 1 周自动发笔记</li>
+      <li>☐ 每天人工抽查 1 次发布数据</li>
+    </ul>
+    <p>完成 10 项后，你已经具备<strong>5.0 学员的批量发布能力</strong>。下一章开始讲运营变现——把流量转化为真金白银。</p>
+  </div>
+</section>
+<section class="chapter ch-07" id="ch07">
+  <div class="chapter-head">
+    <span class="num">07</span>
+    <h2>运营变现 · 测款店 / 怼款店 / 定价 / 矩阵</h2>
+    <span class="tag">变现核心</span>
+  </div>
+
+  <div class="subsec">
+    <h3>7.1 测款店模型 · 先 50 再 500</h3>
+    <p>测款店是 5.0 技术的<strong>第一种店型</strong>，专门用于<strong>快速测试候选品</strong>。它的特点是<strong>上款多、单店天花板低</strong>。</p>
+    <h4>测款店的 4 个核心特征</h4>
+    <ul>
+      <li><strong>特征 1：上款多</strong>：单店上架 50-500 个商品，覆盖尽可能多的候选品。</li>
+      <li><strong>特征 2：杂</strong>：商品不必都在一个类目，可以多类目混杂。</li>
+      <li><strong>特征 3：测试期短</strong>：每个品只测 7-14 天，没数据就淘汰。</li>
+      <li><strong>特征 4：低运营</strong>：单店每天维护时间 ≤ 30 分钟。</li>
+    </ul>
+    <h4>测款店的布局策略</h4>
+    <ol class="steps">
+      <li><strong>布局 1：1 号 1 定位</strong>：每个测款号对应 1 个细分赛道（如"职场 PPT 号"、"亲子素材号"）。</li>
+      <li><strong>布局 2：混杂布局</strong>：1 个测款号上 5-10 个不同细分赛道。<strong>适合新手不确定做什么品类</strong>。</li>
+      <li><strong>布局 3：3 轮笔记筛选</strong>：每个品发 3 轮（每轮 5 篇），看曝光、点击、转化 3 个数据。</li>
+    </ol>
+    <h4>测款店 → 怼款店的筛选逻辑</h4>
+    <p>从测款店 500 个品里筛选出 30 个"会出单"的品，迁移到<strong>怼款店</strong>。筛选标准：</p>
+    <ul>
+      <li>✅ 7 日曝光 ≥ 500</li>
+      <li>✅ CTR ≥ 5%</li>
+      <li>✅ CVR ≥ 3%</li>
+      <li>✅ 客单价 ≥ 5.9 元</li>
+    </ul>
+    <div class="callout info">
+      <strong>小白决策树：</strong>新手第 1 个月 <strong>只做测款店</strong>。不要一上来就做怼款店，因为<strong>没有数据支撑的怼款就是赌博</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>7.2 怼款店模型 · 1 店狂怼 30 个好品</h3>
+    <p>怼款店是 5.0 技术的<strong>第二种店型</strong>，专门用于<strong>放大爆款品</strong>。它的特点是<strong>上款少、单店天花板高</strong>。</p>
+    <h4>怼款店的 4 个核心特征</h4>
+    <ul>
+      <li><strong>特征 1：上款少</strong>：单店只上架 10-30 个商品，全部是测款店筛选出的好品。</li>
+      <li><strong>特征 2：精</strong>：每个品都做"5W1H"完整内容，配 4 张精品图。</li>
+      <li><strong>特征 3：长期</strong>：商品长期在线，不轻易下架。</li>
+      <li><strong>特征 4：高频运营</strong>：单店每天维护时间 1-2 小时。</li>
+    </ul>
+    <h4>怼款店的 100 篇笔记筛选逻辑</h4>
+    <p>怼款店的核心是<strong>用笔记数量放大爆款</strong>。每个好品至少发 100 篇笔记，理由是：</p>
+    <ul>
+      <li>📈 <strong>1 篇笔记</strong>：曝光 500-2000，点击 25-100</li>
+      <li>📈 <strong>10 篇笔记</strong>：平均曝光 5000-20000</li>
+      <li>📈 <strong>100 篇笔记</strong>：平均曝光 50000-200000，累计加量</li>
+    </ul>
+    <p>小红书的推荐机制是"<strong>加权重</strong>"——同一品多篇笔记数据好，平台会把整个品的曝光拉高。</p>
+    <h4>先测后怼 · 5.0 天然优势</h4>
+    <p>5.0 技术的"先测后怼"模型的核心优势是<strong>确定性</strong>。普通做法是"我赌这个品能爆"，5.0 做法是"我已经知道这 30 个品能爆"。这种<strong>数据驱动的怼款</strong>成功率是普通做法的 10 倍。</p>
+    <div class="callout success">
+      <strong>5.0 学员真实数据：</strong>怼款店平均 <strong>月销 8000-12000 元</strong>，远超测款店的"5 个品 × 200 元 = 1000 元"。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>7.3 定价策略 · 三档 1.9 / 2.9 / 5.9 / 9.9</h3>
+    <p>虚拟商品的定价有<strong>成熟的套路</strong>，5.0 学员主要用四档定价：</p>
+    <table class="tip">
+      <caption>虚拟商品四档定价 · 5.0 标准</caption>
+      <thead><tr><th>价格档</th><th>商品名</th><th>转化率</th><th>毛利率</th><th>适合品</th></tr></thead>
+      <tbody>
+        <tr><td><strong>1.9 元</strong></td><td>引流款</td><td>⭐⭐⭐⭐⭐</td><td>95%+</td><td>头像 / 简单壁纸</td></tr>
+        <tr><td><strong>2.9 元</strong></td><td>爆款款</td><td>⭐⭐⭐⭐</td><td>90%+</td><td>通用 PPT / 简历</td></tr>
+        <tr><td><strong>5.9 元</strong></td><td>主力款</td><td>⭐⭐⭐⭐</td><td>85%+</td><td>细分 PPT / 简历套装</td></tr>
+        <tr><td><strong>9.9 元</strong></td><td>套装款</td><td>⭐⭐⭐</td><td>80%+</td><td>课件 / 完整方案</td></tr>
+      </tbody>
+    </table>
+    <h4>价格锚点策略 · 高阶玩法</h4>
+    <p>小店最常问："为什么 5.9 元比 1.9 元更好卖？"——<strong>价格锚点效应</strong>。人在购物时会<strong>锚定一个参照价</strong>，然后判断"便宜"或"贵"。</p>
+    <p>例如：一个店同时有 1.9 元和 9.9 元的 PPT，用户会觉得"9.9 元比 1.9 元值"，但 <strong>大部分用户会买 9.9 元</strong>，因为他们觉得"既然都花了，不如多花点买个更好的"。</p>
+    <h4>5.0 学员的定价组合</h4>
+    <ol class="steps">
+      <li><strong>1.9 元</strong>：占商品数 30%，用于拉新和引流。</li>
+      <li><strong>2.9 元</strong>：占商品数 40%，主力利润款。</li>
+      <li><strong>5.9 元</strong>：占商品数 20%，提升客单价。</li>
+      <li><strong>9.9 元</strong>：占商品数 10%，高端利润款。</li>
+    </ol>
+    <div class="callout tip">
+      <strong>小白定价原则：</strong>新手第 1 个月 <strong>只做 2.9 元和 5.9 元两个档</strong>。等有数据后再扩展档位。<strong>不要一上来就铺四档</strong>，否则管理成本高。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>7.4 店矩阵放大 · 5~10 店月入 3 万</h3>
+    <p>单店天花板约 1 万/月，<strong>想突破必须店矩阵</strong>。5.0 学员的成熟模型是 <strong>5~10 个店矩阵</strong>，月入 3 万+。</p>
+    <h4>店矩阵的 3 种玩法</h4>
+    <ul>
+      <li><strong>玩法 1：横向复制</strong>：1 个店跑通后，<strong>同样的模式复制到 5 个店</strong>。每个店都做"测款店 + 怼款店"组合。</li>
+      <li><strong>玩法 2：垂直深耕</strong>：1 个店做 1 个细分赛道，<strong>5 个店覆盖 5 个细分赛道</strong>。适合专注力强的学员。</li>
+      <li><strong>玩法 3：矩阵放大</strong>：每个店 1 主 2 副，<strong>5 个店 × 3 个号 = 15 个账号</strong>。这是 5.0 学员的成熟模型。</li>
+    </ul>
+    <h4>店矩阵的 5 个关键</h4>
+    <ol class="steps">
+      <li><strong>关键 1：店铺类型差异化</strong>：5 个店里有 2 个个人店 + 2 个个体店 + 1 个企业店。</li>
+      <li><strong>关键 2：类目差异化</strong>：5 个店覆盖不同类目，分散平台审核风险。</li>
+      <li><strong>关键 3：账号防关联</strong>：每个店用不同的浏览器窗口 + IP（见第 6 章）。</li>
+      <li><strong>关键 4：内容差异化</strong>：每个店的笔记都要重新写，不要完全复制。</li>
+      <li><strong>关键 5：运营节奏差异化</strong>：每个店的发布时段、笔记数量差异化。</li>
+    </ol>
+    <h4>5.0 学员的店矩阵投资回报</h4>
+    <table class="tip">
+      <caption>店矩阵投资回报 · 5.0 学员真实数据</caption>
+      <thead><tr><th>阶段</th><th>店数</th><th>保证金总和</th><th>月收益</th><th>人力</th></tr></thead>
+      <tbody>
+        <tr><td>个人店</td><td>1</td><td>1000</td><td>5000-10000</td><td>1 小时/天</td></tr>
+        <tr><td>双店</td><td>2</td><td>2000</td><td>10000-18000</td><td>2 小时/天</td></tr>
+        <tr><td>5 店矩阵</td><td>5</td><td>5000-10000</td><td>30000+</td><td>5 小时/天</td></tr>
+        <tr><td>10 店矩阵</td><td>10</td><td>10000-20000</td><td>50000+</td><td>团队运营</td></tr>
+      </tbody>
+    </table>
+    <div class="callout warn">
+      <strong>小白决策树：</strong>先做 1 个店 → 月销稳定 5000 → 加第 2 个店 → 双店稳定 1 万 → 做 5 店矩阵。<strong>不要一上来就 5 店</strong>，管理成本会让你崩溃。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>7.5 流量转化优化 · 5 原因 + 7 解决</h3>
+    <p>5.0 学员最常遇到的问题：<strong>有曝光没转化</strong>。这是 5 个原因 + 7 个解决方案：</p>
+    <h4>流量少的 5 个原因</h4>
+    <table class="tip">
+      <caption>流量少的 5 个原因诊断表</caption>
+      <thead><tr><th>原因</th><th>诊断方法</th><th>解决方案</th></tr></thead>
+      <tbody>
+        <tr><td>笔记原创度低</td><td>查笔记相似度</td><td>用 AI 重新生成</td></tr>
+        <tr><td>封面图点击率低</td><td>查 CTR < 3%</td><td>换封面图 / 用大字报</td></tr>
+        <tr><td>关键词不匹配</td><td>看搜索词与品类的匹配度</td><td>改标题 / 加热搜词</td></tr>
+        <tr><td>发布时间不对</td><td>晚上 8-10 点 vs 早上 7-9 点</td><td>A/B 测试发布时间</td></tr>
+        <tr><td>账号权重低</td><td>查账号信用分</td><td>坚持日更 14 天</td></tr>
+      </tbody>
+    </table>
+    <h4>转化低的 7 个解决方案</h4>
+    <ol class="steps">
+      <li><strong>方案 1：改价格</strong>：从 9.9 降到 5.9，转化率通常翻倍。</li>
+      <li><strong>方案 2：改封面图</strong>：换大字报风格，CTR 可从 3% 提升到 8%。</li>
+      <li><strong>方案 3：改标题</strong>：加"限时"、"必备"、"爆款"等情绪词。</li>
+      <li><strong>方案 4：改商品描述</strong>：加"用户评价"、"使用场景"、"售后保障"。</li>
+      <li><strong>方案 5：加套餐</strong>：把单品改成"单品 + 赠品"组合，提升客单价。</li>
+      <li><strong>方案 6：加评论</strong>：引导已购用户写好评，提升社会证明。</li>
+      <li><strong>方案 7：加客服响应</strong>：5 分钟内回复咨询，转化率提升 30%。</li>
+    </ol>
+    <div class="callout success">
+      <strong>5.0 学员转化数据：</strong>用这 7 个方案优化后，<strong>转化率平均提升 3-5 倍</strong>，单店月销从 3000 涨到 1 万+。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>7.6 正规销量与评价 · 不刷单怎么做</h3>
+    <p>很多新手问："能不能刷单？"——<strong>不能</strong>。小红书反作弊系统 2024 年升级后，刷单账号 100% 被识别，且关联主账号。</p>
+    <h4>不刷单的 4 个替代方案</h4>
+    <ol class="steps">
+      <li><strong>方案 1：老客复购</strong>：维护好每个老客，<strong>10% 复购率 = 月销 +20%</strong>。</li>
+      <li><strong>方案 2：评论区互动</strong>：认真回复每条评论，<strong>评论数 = 权重加分</strong>。</li>
+      <li><strong>方案 3：赠品换好评</strong>：下单送 1 份小礼品，<strong>引导好评但不要强制</strong>。</li>
+      <li><strong>方案 4：邀请有礼</strong>：老客邀请新客，双方各得优惠券。</li>
+    </ol>
+    <h4>5.0 学员的"老客复购"模型</h4>
+    <ul>
+      <li><strong>第 1 步</strong>：每个商品配"售后卡"，引导加客服微信（小红书内部私信）。</li>
+      <li><strong>第 2 步</strong>：每周推送新品给老客。</li>
+      <li><strong>第 3 步</strong>：老客下单有专属折扣。</li>
+      <li><strong>第 4 步</strong>：建立老客微信群（注意不能在小红书笔记里留微信号）。</li>
+    </ul>
+    <div class="callout danger">
+      <strong>红线警示：</strong>任何"刷单、刷评论、刷点赞"行为 = <strong>账号永久封禁</strong>。5.0 技术<strong>不教刷单</strong>，所有增长都靠<strong>真实流量 + 真实转化</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>7.7 货源发货 · 百度网盘 / 阿奇索</h3>
+    <p>虚拟商品的发货核心是<strong>"用户付款 → 自动获得下载链接"</strong>。5.0 学员用两个工具：</p>
+    <h4>百度网盘 · 主流方案</h4>
+    <ul>
+      <li><strong>优势</strong>：用户接受度高、自动发货稳定。</li>
+      <li><strong>劣势</strong>：<strong>限速</strong>（非会员下载慢）、容易违规（被识别为"资源分享"）。</li>
+      <li><strong>5.0 用法</strong>：商品链接是"网盘链接 + 提取码"，<strong>不要在小红书笔记里直接贴链接</strong>。</li>
+    </ul>
+    <h4>阿奇索 · 进阶方案</h4>
+    <ul>
+      <li><strong>优势</strong>：专门做虚拟商品发货，<strong>自动发链接 + 防盗链 + 数据统计</strong>。</li>
+      <li><strong>劣势</strong>：收费（约 30-50 元/月）、用户不熟悉。</li>
+      <li><strong>5.0 用法</strong>：商品链接直接发阿奇索链接，<strong>用户体验更好</strong>。</li>
+    </ul>
+    <h4>自动发货设置 · 4 个步骤</h4>
+    <ol class="steps">
+      <li>在发货平台上传商品文件。</li>
+      <li>配置"自动发货触发条件"（如"订单已付款"）。</li>
+      <li>设置"发货短信/私信模板"。</li>
+      <li>测试 1 个订单确认自动发货。</li>
+    </ol>
+    <div class="callout info">
+      <strong>小白决策：</strong>新手第 1 个月用<strong>百度网盘</strong>（免费、熟悉）。等单店月销超过 5000 再考虑<strong>阿奇索</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>7.8 客服体系 · 万能回复话术</h3>
+    <p>客服是<strong>转化率最后一关</strong>。一个好的客服能让转化率提升 30%。</p>
+    <h4>万能回复话术 · 7 个场景</h4>
+    <table class="tip">
+      <caption>7 个场景的万能回复</caption>
+      <thead><tr><th>场景</th><th>用户问题</th><th>回复话术</th></tr></thead>
+      <tbody>
+        <tr><td>咨询</td><td>"包含什么内容？"</td><td>"亲，本品包含 [具体内容清单]，详细可看商品详情页"</td></tr>
+        <tr><td>议价</td><td>"能便宜吗？"</td><td>"亲，本店一口价 5.9 元，已经是最优惠啦~"</td></tr>
+        <tr><td>下载问题</td><td>"链接打不开"</td><td>"亲，请检查网盘 App 是否最新版本，或复制链接到浏览器打开"</td></tr>
+        <tr><td>退款</td><td>"能退款吗？"</td><td>"亲，本商品为虚拟商品，售出后不支持退款。如有质量问题可补发"</td></tr>
+        <tr><td>催发货</td><td>"什么时候发货？"</td><td>"亲，已自动发货哦~ 请查收私信"</td></tr>
+        <tr><td>定制</td><td>"能定制吗？"</td><td>"亲，本品是模板，可二次编辑。如需深度定制可联系客服报价"</td></tr>
+        <tr><td>好评</td><td>"好评返现吗？"</td><td>"亲，本店不返现，但感谢您的好评，每条好评都有小礼物送"</td></tr>
+      </tbody>
+    </table>
+    <h4>自动回复设置 · 3 个触发词</h4>
+    <ul>
+      <li><strong>触发词 1："怎么用"</strong> → 自动回复"使用教程链接"。</li>
+      <li><strong>触发词 2："发货"</strong> → 自动回复"已发货，请查收私信"。</li>
+      <li><strong>触发词 3："退货"</strong> → 自动回复"虚拟商品不支持 7 天无理由"。</li>
+    </ul>
+    <div class="callout tip">
+      <strong>小白加分项：</strong>5 分钟内回复率 < 100% 的店铺，<strong>转化率会被平台降权</strong>。<strong>必须设置自动回复</strong> + 每天人工看 1 次私信。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>7.9 附带收益 · 百度网盘拉新</h3>
+    <p>5.0 学员有一个<strong>"白捡的收益"</strong>——百度网盘拉新佣金。</p>
+    <h4>百度网盘拉新规则</h4>
+    <ul>
+      <li>每邀请 1 个新用户开通百度网盘会员，<strong>奖励 8-24 元</strong>。</li>
+      <li>已开通网盘的用户分享文件给<strong>未开通用户</strong>，<strong>每次 0.45 元</strong>。</li>
+    </ul>
+    <h4>5.0 学员的拉新玩法</h4>
+    <ol class="steps">
+      <li>开通网盘达人计划。</li>
+      <li>在商品链接末尾加"扫码开通网盘会员，立减 5 元"。</li>
+      <li>每 100 单自动带来 20-30 个新会员。</li>
+      <li>每月额外收入 200-500 元。</li>
+    </ol>
+    <h4>转存拉新 · 进阶玩法</h4>
+    <p>引导已购用户把商品文件<strong>转存到自己的网盘</strong>，每次转存 0.45 元。1 个商品被 100 人转存，<strong>单商品收益 +45 元</strong>。</p>
+    <div class="callout success">
+      <strong>5.0 学员真实数据：</strong>1 个店月销 1 万 + 拉新收益 300-500 元。<strong>相当于店铺收益 +5%</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>7.10 给小白的运营日 checklist</h3>
+    <p>新人第 1 个月应该完成的运营任务：</p>
+    <ul>
+      <li>☐ 选择店型：第 1-4 周做测款店，第 5 周开始做怼款店</li>
+      <li>☐ 测款店上架 50 个候选品</li>
+      <li>☐ 每个候选品发 3-5 篇笔记</li>
+      <li>☐ 1 周后筛选 30 个"会出单"的品</li>
+      <li>☐ 怼款店只上架 30 个好品</li>
+      <li>☐ 每个好品发 100 篇笔记（用自动发笔记工具）</li>
+      <li>☐ 设置 7 个客服场景的万能回复</li>
+      <li>☐ 设置 3 个自动回复触发词</li>
+      <li>☐ 开通百度网盘拉新计划</li>
+      <li>☐ 每天 30 分钟人工检查数据 + 回复私信</li>
+    </ul>
+    <p>完成 10 项后，你已经具备<strong>5.0 学员的运营能力</strong>。下一章开始讲精通高手——5.0 总结、合规风控、避坑指南。</p>
+  </div>
+</section>
+<section class="chapter ch-08" id="ch08">
+  <div class="chapter-head">
+    <span class="num">08</span>
+    <h2>精通高手 · 5.0 总结 + 合规风控 + 避坑</h2>
+    <span class="tag">高手视角</span>
+  </div>
+
+  <div class="subsec">
+    <h3>8.1 5.0 操作总结 · 7 大阶段全流程</h3>
+    <p>5.0 技术是从 0 到月入 3 万的<strong>完整路径</strong>，分 7 大阶段：</p>
+    <table class="tip">
+      <caption>5.0 七大阶段全流程</caption>
+      <thead><tr><th>阶段</th><th>时间</th><th>关键动作</th><th>产出</th></tr></thead>
+      <tbody>
+        <tr><td>① 准备期</td><td>第 1 周</td><td>开店 + 缴保证金 + 6 个必设项</td><td>1 个可运营店铺</td></tr>
+        <tr><td>② 选品期</td><td>第 2 周</td><td>用 4 套选品法收集 500 候选</td><td>500 个候选品清单</td></tr>
+        <tr><td>③ 内容期</td><td>第 3 周</td><td>AI 原创 + 封面图 + 笔记文案</td><td>50 个候选品 + 250 篇笔记</td></tr>
+        <tr><td>④ 测款期</td><td>第 4-5 周</td><td>测款店上架 + 1 周数据筛选</td><td>30 个"会出单"的好品</td></tr>
+        <tr><td>⑤ 怼款期</td><td>第 6-8 周</td><td>怼款店上架 + 100 篇笔记/品</td><td>单店月销 5000-10000</td></tr>
+        <tr><td>⑥ 放大期</td><td>第 9-12 周</td><td>店矩阵 + 1 店 3 号 + 多店</td><td>多店月销 3 万+</td></tr>
+        <tr><td>⑦ 稳定期</td><td>第 13 周+</td><td>持续选品 + 偶尔追热点</td><td>长期稳定收益</td></tr>
+      </tbody>
+    </table>
+    <h4>5.0 全流程 Checklist</h4>
+    <ol class="steps">
+      <li><strong>第 1 周</strong>：开店 + 缴 1000 元保证金 + 设置 6 个必设项。</li>
+      <li><strong>第 2 周</strong>：用 3.2 / 3.3 / 3.4 选品法收集 500 候选品，过滤到 50 个。</li>
+      <li><strong>第 3 周</strong>：用扣子 / 即梦 AI 原创内容，50 个品 × 5 篇笔记 = 250 篇。</li>
+      <li><strong>第 4 周</strong>：上架测款店，发 3-5 篇笔记/品，1 周数据筛选。</li>
+      <li><strong>第 5 周</strong>：筛选 30 个"会出单"的品，迁移到怼款店。</li>
+      <li><strong>第 6-8 周</strong>：怼款店 30 个品 × 100 篇笔记（自动发笔记）。</li>
+      <li><strong>第 9-12 周</strong>：1 店 3 号 + 5 店矩阵 + 多店运营。</li>
+      <li><strong>第 13 周+</strong>：稳定运营 + 持续选品 + 偶尔追热点。</li>
+    </ol>
+    <div class="callout success">
+      <strong>5.0 核心方法论：</strong>不要赌单个品 / 不要做红海 / 不要刷单为体 / 不要违规为死。<strong>5 个"不要"是 5.0 技术的底线</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>8.2 为什么做不好 · 7 大常见误区</h3>
+    <p>5.0 学员里 <strong>20% 没赚到钱</strong>，原因高度集中。7 大常见误区：</p>
+    <table class="tip">
+      <caption>7 大常见误区诊断表</caption>
+      <thead><tr><th>误区</th><th>典型表现</th><th>解决方案</th></tr></thead>
+      <tbody>
+        <tr><td>误区 1：选品赌徒</td><td>只做 1-3 个品</td><td>必须测 500 品</td></tr>
+        <tr><td>误区 2：不做测款</td><td>上来就怼款</td><td>先测款后怼款</td></tr>
+        <tr><td>误区 3：搬运图</td><td>直接用淘宝图</td><td>必须 AI 原创</td></tr>
+        <tr><td>误区 4：刷单</td><td>找朋友互刷</td><td>必须自然流量</td></tr>
+        <tr><td>误区 5：违规词</td><td>标题写"教培"</td><td>用合规知识库检查</td></tr>
+        <tr><td>误区 6：单店赌命</td><td>只做 1 个店</td><td>必须店矩阵</td></tr>
+        <tr><td>误区 7：不维护</td><td>上架后不管</td><td>每天 30 分钟维护</td></tr>
+      </tbody>
+    </table>
+    <h4>误区诊断的 3 个自检问题</h4>
+    <ol class="steps">
+      <li><strong>问题 1</strong>：你最近 30 天上了多少个品？少于 50 = 误区 1。</li>
+      <li><strong>问题 2</strong>：你的笔记里有没有出现"教培 / 网课 / 真题"？有 = 误区 5。</li>
+      <li><strong>问题 3</strong>：你每天花多少时间看数据？少于 30 分钟 = 误区 7。</li>
+    </ol>
+    <div class="callout warn">
+      <strong>小白警示：</strong>如果你发现自己中了 3 个以上误区，<strong>立即暂停</strong>，回到第 3 章重读"选品方法论"。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>8.3 合规风控 · 4 大红线</h3>
+    <p>5.0 技术的合规风控是<strong>学员长期生存的根基</strong>。4 大红线：</p>
+    <h4>红线 1：AI 内容标识合规</h4>
+    <p>2025 年 9 月 1 日起，<strong>《人工智能生成合成内容标识办法》</strong>正式实施：</p>
+    <ul>
+      <li>AI 生成的图片必须含"AI 生成"水印或标签。</li>
+      <li>AI 生成的文件必须含 metadata 元数据。</li>
+      <li>发布时必须告知用户"这是 AI 生成的"。</li>
+    </ul>
+    <p><strong>5.0 合规标准</strong>：封面图右下角"AI"标志 + 商品详情"AI 辅助创作"声明 + 笔记结尾"由 AI 辅助生成"。</p>
+    <h4>红线 2：暗水印处理边界</h4>
+    <p>暗水印是<strong>合法</strong>的版权保护手段，但有边界：</p>
+    <ul>
+      <li>✅ 可以：自己的原创图嵌入暗水印。</li>
+      <li>✅ 可以：AI 生成图嵌入暗水印。</li>
+      <li>❌ 不能：他人原创图嵌入暗水印（构成侵权）。</li>
+      <li>❌ 不能：暗水印里放联系方式 / 引流信息（违规）。</li>
+    </ul>
+    <h4>红线 3：交易导流红线</h4>
+    <p>小红书<strong>严禁站外导流</strong>：</p>
+    <ul>
+      <li>❌ 不能：写"加微信送资料"。</li>
+      <li>❌ 不能：贴第三方平台链接。</li>
+      <li>❌ 不能：用谐音字暗示联系方式（如"胃辛"指"微信"）。</li>
+      <li>✅ 可以：引导到小红书私信（合规）。</li>
+    </ul>
+    <h4>红线 4：多账号矩阵合规</h4>
+    <p>1 店 3 号是平台支持的合规矩阵，但有边界：</p>
+    <ul>
+      <li>✅ 可以：1 店 + 3 号（1 主 + 2 副）。</li>
+      <li>✅ 可以：3 店 × 3 号 = 9 个账号（前提：3 个身份证）。</li>
+      <li>❌ 不能：1 个身份证超过 3 个号。</li>
+      <li>❌ 不能：多账号互相点赞评论（识别为虚假互动）。</li>
+    </ul>
+    <div class="callout danger">
+      <strong>红线警示：</strong>任何红线违规 = <strong>扣保证金 + 封禁</strong>。5.0 技术是<strong>长期合规副业</strong>，不是短期爆利工具。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>8.4 避坑指南 · 违规 3 种处理法</h3>
+    <p>即使最合规的学员，也可能偶尔违规。违规后的 <strong>3 种处理方法</strong>：</p>
+    <h4>方法一：违规预警（最常见）</h4>
+    <ul>
+      <li><strong>表现</strong>：小红书发"违规预警"通知，警告但不扣分。</li>
+      <li><strong>原因</strong>：单次轻微违规。</li>
+      <li><strong>处理</strong>：24 小时内删除违规内容 + 写保证书（系统模板）+ 7 天内不再发类似内容。</li>
+    </ul>
+    <h4>方法二：商品下架（中度违规）</h4>
+    <ul>
+      <li><strong>表现</strong>：商品被下架 + 扣 100-500 元保证金。</li>
+      <li><strong>原因</strong>：类目错放 / 标题违规 / 虚假宣传。</li>
+      <li><strong>处理</strong>：查看违规原因 → 修改违规内容 → 重新上架 → 7 天内不再犯。</li>
+    </ul>
+    <h4>方法三：账号封禁（重度违规）</h4>
+    <ul>
+      <li><strong>表现</strong>：账号被永久封禁 + 扣全部保证金。</li>
+      <li><strong>原因</strong>：售假 / 刷单 / 严重导流。</li>
+      <li><strong>处理</strong>：申诉（成功率 30%）→ 换身份证重新注册 → 永远不再做违规的事。</li>
+    </ul>
+    <h4>恶意投诉应对 · 3 个步骤</h4>
+    <ol class="steps">
+      <li><strong>步骤 1：冷静应对</strong>：收到投诉通知不要慌，<strong>先看投诉理由</strong>。</li>
+      <li><strong>步骤 2：收集证据</strong>：整理原创证据（源文件、暗水印、创作记录）。</li>
+      <li><strong>步骤 3：申诉</strong>：在小红书后台"违规申诉"入口提交证据，<strong>3 个工作日出结果</strong>。</li>
+    </ol>
+    <div class="callout success">
+      <strong>5.0 学员申诉成功率：</strong>原创证据充分的商品 <strong>申诉成功率 80%+</strong>。关键是<strong>日常留存所有原创证据</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>8.5 5.0 高手心态 · 长期主义</h3>
+    <p>5.0 技术不是"快速赚钱"的工具，而是<strong>长期主义的内容电商副业</strong>。高手的 5 个心态：</p>
+    <ol class="steps">
+      <li><strong>心态 1：数据驱动</strong>：所有决策看数据，不靠"我觉得"。</li>
+      <li><strong>心态 2：长期合规</strong>：违规 = 永久告别小红书，<strong>不因小失大</strong>。</li>
+      <li><strong>心态 3：持续学习</strong>：小红书规则每季度更新，<strong>每月看 1 次官方公告</strong>。</li>
+      <li><strong>心态 4：接受平淡</strong>：大部分时间是"平淡的运营"，<strong>不是天天爆单</strong>。</li>
+      <li><strong>心态 5：复利思维</strong>：第 1 个月赚 500，第 6 个月赚 1 万，<strong>是复利增长</strong>。</li>
+    </ol>
+    <div class="callout success">
+      <strong>5.0 学员典型路径：</strong>第 1-3 月学习期（月入 0-3000） → 第 4-6 月稳定期（月入 5000-1 万） → 第 7-12 月放大期（月入 3 万+）。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>8.6 5.0 工具栈与年度成本</h3>
+    <p>5.0 学员的<strong>全套工具栈</strong>与<strong>年度成本估算</strong>：</p>
+    <table class="tip">
+      <caption>5.0 全套工具栈与年度成本</caption>
+      <thead><tr><th>工具</th><th>用途</th><th>费用</th><th>必需</th></tr></thead>
+      <tbody>
+        <tr><td>扣子 Coze 会员</td><td>AI 对话 + 画图 + 知识库</td><td>30 元/月</td><td>⭐</td></tr>
+        <tr><td>即梦 AI</td><td>高质量封面图</td><td>免费 + 付费</td><td>⭐</td></tr>
+        <tr><td>稿定设计会员</td><td>大字报模板</td><td>200 元/年</td><td>⭐⭐</td></tr>
+        <tr><td>比特浏览器</td><td>多账号防关联</td><td>50 元/月</td><td>⭐⭐⭐</td></tr>
+        <tr><td>独享 IP</td><td>矩阵账号</td><td>100 元/月</td><td>⭐⭐⭐</td></tr>
+        <tr><td>影刀 RPA</td><td>自动发笔记</td><td>30 元/月</td><td>⭐⭐</td></tr>
+        <tr><td>水印蛇</td><td>暗水印处理</td><td>20 元/月</td><td>⭐⭐</td></tr>
+        <tr><td>Bulk Rename Utility</td><td>批量重命名</td><td>免费</td><td>⭐</td></tr>
+        <tr><td>1000 元保证金</td><td>开店押金</td><td>1000 元（可退）</td><td>⭐⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+    <h4>不同阶段的工具栈推荐</h4>
+    <ul>
+      <li><strong>新手起步（第 1-2 个月）</strong>：扣子 + 稿定 + 大字报 + 百分浏览器 = <strong>约 30 元/月</strong>。</li>
+      <li><strong>成长期（第 3-6 个月）</strong>：加即梦 + 比特浏览器 + 自动发笔记 = <strong>约 150 元/月</strong>。</li>
+      <li><strong>放大期（第 7-12 个月）</strong>：加独享 IP + 矩阵店铺 = <strong>约 500 元/月</strong>。</li>
+    </ul>
+    <div class="callout info">
+      <strong>投资回报视角：</strong>月入 1 万 + 工具费 150 元 = <strong>工具投入 1.5%</strong>。工具不是成本，是<strong>效率杠杆</strong>。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>8.7 给小白的高手进阶路径</h3>
+    <p>5.0 学员从新手到高手的 <strong>4 个阶段</strong>：</p>
+    <table class="tip">
+      <caption>5.0 学员 4 阶段成长路径</caption>
+      <thead><tr><th>阶段</th><th>时间</th><th>能力特征</th><th>月收益</th></tr></thead>
+      <tbody>
+        <tr><td>小白</td><td>第 1-2 周</td><td>开店 + 选品 + 工具入门</td><td>0-500 元</td></tr>
+        <tr><td>新手</td><td>第 3-8 周</td><td>测款店运营 + 1 店 3 号</td><td>1000-5000 元</td></tr>
+        <tr><td>熟手</td><td>第 9-16 周</td><td>怼款店 + 多店矩阵</td><td>5000-10000 元</td></tr>
+        <tr><td>高手</td><td>第 17 周+</td><td>5 店矩阵 + 团队运营</td><td>30000+ 元</td></tr>
+      </tbody>
+    </table>
+    <h4>每个阶段的 3 个核心动作</h4>
+    <ol class="steps">
+      <li><strong>小白阶段</strong>：开店 + 选 50 个品 + 做 50 张图。</li>
+      <li><strong>新手阶段</strong>：测款店运营 + 筛选 30 个好品。</li>
+      <li><strong>熟手阶段</strong>：怼款店 + 100 篇笔记/品 + 1 店 3 号。</li>
+      <li><strong>高手阶段</strong>：5 店矩阵 + 持续选品 + 蓝海小众赛道。</li>
+    </ol>
+    <div class="callout success">
+      <strong>5.0 长期价值：</strong>做满 6 个月后，<strong>5.0 学员平均月入 1.5 万</strong>，<strong>80% 学员</strong>达到月入过万。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>8.8 2025-2026 最新政策汇总</h3>
+    <p>5.0 学员必须知道的 <strong>5 大最新政策</strong>：</p>
+    <table class="tip">
+      <caption>2025-2026 小红书虚拟商品相关政策</caption>
+      <thead><tr><th>政策</th><th>生效时间</th><th>关键变化</th></tr></thead>
+      <tbody>
+        <tr><td>AI 生成内容标识办法</td><td>2025-09-01</td><td>AI 生成内容必须标识</td></tr>
+        <tr><td>教育类目整改</td><td>2025-04-01</td><td>个人店禁售课件</td></tr>
+        <tr><td>电子资源类目保证金调整</td><td>2025-01-01</td><td>1000 元保证金</td></tr>
+        <tr><td>报白准入规则升级</td><td>2025-06-01</td><td>账号 180 天 + 1000 粉</td></tr>
+        <tr><td>AI 内容搬运识别升级</td><td>2024-12-01</td><td>相似度 ≥ 70% 触发降权</td></tr>
+      </tbody>
+    </table>
+    <h4>政策对 5.0 学员的影响</h4>
+    <ul>
+      <li><strong>AI 标识</strong>：必须从 2025-09 起开始标识，<strong>不影响商业模式</strong>。</li>
+      <li><strong>教育类目整改</strong>：<strong>影响教师学员</strong>，需升级个体工商户店。</li>
+      <li><strong>保证金</strong>：<strong>门槛提高 50%</strong>，但合规学员不受影响。</li>
+      <li><strong>报白准入</strong>：<strong>新店门槛提高</strong>，但 5.0 模型靠"测款店起步"不受影响。</li>
+      <li><strong>AI 识别升级</strong>：<strong>利好原创学员</strong>，倒逼搬运者出局。</li>
+    </ul>
+    <div class="callout info">
+      <strong>2026 趋势预测：</strong>小红书虚拟商品将进入"低 SKU+精细化运营"阶段，<strong>早期出单和铺量模式红利消退</strong>，<strong>原创+精准+长期</strong>成为新常态。
+    </div>
+  </div>
+
+  <div class="subsec">
+    <h3>8.9 给小白的一段话</h3>
+    <p>如果你看到这里，恭喜你，<strong>你已经学完了 5.0 技术的全部核心内容</strong>。最后给你一段话：</p>
+    <blockquote>
+      <p>小红书虚拟商品不是"挂机躺赚"的暴富项目，而是<strong>3-6 个月的长期副业</strong>。<br>
+      <strong>前 3 个月是学习期</strong>，你需要建店、选品、学 AI、做笔记、维护数据。<br>
+      <strong>后 3 个月进入收益期</strong>，单店月入 5000-1 万，多店矩阵 3 万+。<br>
+      <strong>5.0 技术的核心</strong>不是"快速出单"，而是<strong>用 AI 放大人的效率</strong>。<br>
+      <strong>5.0 技术的底线</strong>不是"赚多少钱"，而是<strong>永远合规、永不违规</strong>。<br>
+      把小红书虚拟当作一份<strong>长期主义的内容电商副业</strong>，用心经营 6 个月，<strong>你会感谢今天的自己</strong>。</p>
+    </blockquote>
+    <p>5.0 技术的全部知识点已经在前 8 章 + 附录中讲透。<br>
+    接下来 4 个附录提供 <strong>SOP 速查 / AI 提示词 / 工具清单 / 术语表</strong>，方便你随时查阅。</p>
+  </div>
+</section>
+<section class="chapter ch-appendix" id="ch09">
+  <div class="chapter-head">
+    <span class="num">A</span>
+    <h2>附录 A · 完整操作 SOP 速查</h2>
+    <span class="tag">速查手册</span>
+  </div>
+
+  <div class="subsec">
+    <h3>A.1 5.0 全流程 SOP · 第 1 周</h3>
+    <h4>开店日（Day 1）</h4>
+    <ol class="steps">
+      <li>准备：身份证 + 实名手机号 + 1000 元保证金</li>
+      <li>下载小红书商家版 App</li>
+      <li>注册 + 实名认证</li>
+      <li>选择店铺类型（新手推荐个人店）</li>
+      <li>缴 1000 元保证金</li>
+      <li>设置店铺名称（8-20 字含品类）</li>
+      <li>设置店铺简介（80 字以内）</li>
+      <li>上传店铺头像（自制 LOGO）</li>
+      <li>设置客服自动回复（≥3 条）</li>
+      <li>设置发货模板（自动发货 + 网盘链接 + 提取码）</li>
+      <li>设置退货政策</li>
+      <li>上架第 1 个测试商品</li>
+    </ol>
+
+    <h4>选品周（Day 2-3）</h4>
+    <ol class="steps">
+      <li>建 Excel：A 列品名 / B 列来源 / C 列搜索量 / D 列竞争度 / E 列利润率 / F 列综合得分</li>
+      <li>用 3.2 方法从淘宝销量榜收集 100 候选</li>
+      <li>用 3.3 方法从小红书笔记评论收集 100 候选</li>
+      <li>用 3.4 方法从 AI 提示词收集 50 候选</li>
+      <li>用 3.5 的标准筛选到 50 个"通过初筛"</li>
+      <li>每个候选打 5W1H 标签</li>
+    </ol>
+
+    <h4>内容周（Day 4-5）</h4>
+    <ol class="steps">
+      <li>用扣子对话模式生成 50 张封面图</li>
+      <li>用稿定设计做 50 张大字报备用</li>
+      <li>用扣子写 50 篇笔记文案</li>
+      <li>用 Bulk Rename Utility 改图片名为英文</li>
+      <li>用扣子知识库检查所有标题合规性</li>
+      <li>给所有图加 AI 标识水印</li>
+    </ol>
+
+    <h4>上架周（Day 6-7）</h4>
+    <ol class="steps">
+      <li>50 个商品全部上架</li>
+      <li>每个商品发 1 篇笔记</li>
+      <li>用影刀 RPA 配置自动发笔记</li>
+      <li>设置 7 个客服万能回复</li>
+      <li>设置 3 个自动回复触发词</li>
+      <li>每天人工检查 1 次数据</li>
+    </ol>
+  </div>
+
+  <div class="subsec">
+    <h3>A.2 5.0 全流程 SOP · 第 2-4 周</h3>
+    <h4>第 2 周（测款期）</h4>
+    <ol class="steps">
+      <li>每个候选品发 3 篇笔记（共 150 篇）</li>
+      <li>每天检查曝光数据，淘汰曝光 < 300 的品</li>
+      <li>每天看评论区，收集用户反馈</li>
+      <li>每天更新 1-2 个销量差的品的封面图</li>
+      <li>每周日做一次数据汇总</li>
+    </ol>
+
+    <h4>第 3 周（筛选期）</h4>
+    <ol class="steps">
+      <li>每个候选品再发 3 篇笔记（累计 6 篇）</li>
+      <li>用 5 个标准筛选：曝光 ≥ 500 / CTR ≥ 5% / CVR ≥ 3% / 客单价 ≥ 5.9 / 综合得分 ≥ 20</li>
+      <li>从 50 个品筛到 30 个"会出单"的品</li>
+      <li>给每个好品写 5W1H 完整内容</li>
+      <li>迁移到怼款店</li>
+    </ol>
+
+    <h4>第 4 周（怼款启动期）</h4>
+    <ol class="steps">
+      <li>怼款店上架 30 个好品</li>
+      <li>每个好品发 10 篇笔记（共 300 篇）</li>
+      <li>配置影刀 RPA 自动发笔记</li>
+      <li>每天人工抽查 30 分钟</li>
+      <li>记录每个品的数据：曝光/点击/转化/客单价</li>
+    </ol>
+  </div>
+
+  <div class="subsec">
+    <h3>A.3 5.0 全流程 SOP · 第 5-12 周</h3>
+    <h4>第 5-8 周（怼款放大期）</h4>
+    <ol class="steps">
+      <li>每个好品累计 100 篇笔记</li>
+      <li>每周淘汰 5 个表现差的品</li>
+      <li>每周补入 5 个测款店的新好品</li>
+      <li>每天 1 小时维护：回复评论 + 检查数据 + 更新内容</li>
+      <li>月底看总销量，<strong>目标单店月入 5000+</strong></li>
+    </ol>
+
+    <h4>第 9-12 周（矩阵期）</h4>
+    <ol class="steps">
+      <li>开通第 2 个店（个体工商户店 + 完成报白）</li>
+      <li>绑定 1 主 2 副 3 个号</li>
+      <li>迁移 1/3 的好品到第 2 个店</li>
+      <li>配置比特浏览器 + 独享 IP</li>
+      <li>每天 2 小时维护：每个店（高神）检查数据</li>
+      <li>月底看总销量，<strong>目标双店月入 1 万+</strong></li>
+    </ol>
+
+    <h4>第 13 周+（稳定期）</h4>
+    <ol class="steps">
+      <li>持续选品 + 测款 + 怼款</li>
+      <li>每月看 1 次小红书官方公告</li>
+      <li>每月 1 次数据复盘</li>
+      <li>每季度优化 1 次工具栈</li>
+      <li>每年看 1 次行业趋势</li>
+    </ol>
+  </div>
+
+  <div class="subsec">
+    <h3>A.4 5.0 日常维护 Checklist</h3>
+    <h4>每日必做（30-60 分钟）</h4>
+    <ul>
+      <li>☐ 检查自动发笔记是否正常运行</li>
+      <li>☐ 检查数据：曝光、点击、转化、销量</li>
+      <li>☐ 回复所有咨询私信（5 分钟内）</li>
+      <li>☐ 检查是否有违规预警</li>
+      <li>☐ 处理 1-2 个差评</li>
+      <li>☐ 记录今日新发现的问题</li>
+    </ul>
+
+    <h4>每周必做（2-3 小时）</h4>
+    <ul>
+      <li>☐ 周数据汇总：曝光/点击/转化/销量</li>
+      <li>☐ 淘汰表现差的品</li>
+      <li>☐ 补入新候选品</li>
+      <li>☐ 更新 1-2 个爆款品的封面图</li>
+      <li>☐ 更新 1-2 个爆款品的笔记文案</li>
+      <li>☐ 检查工具栈是否有更新</li>
+      <li>☐ 与同行交流 1 次（小红书群）</li>
+    </ul>
+
+    <h4>每月必做（半天）</h4>
+    <ul>
+      <li>☐ 月度数据复盘</li>
+      <li>☐ 看 1 次小红书官方公告</li>
+      <li>☐ 优化 1 次客服话术</li>
+      <li>☐ 优化 1 次商品详情页</li>
+      <li>☐ 检查保证金状态</li>
+      <li>☐ 评估是否需要扩展类目</li>
+      <li>☐ 评估是否需要扩展店型</li>
+    </ul>
+  </div>
+
+  <div class="subsec">
+    <h3>A.5 5.0 异常处理 SOP</h3>
+    <h4>情况 1：商品被下架</h4>
+    <ol class="steps">
+      <li>查看违规原因（系统通知）</li>
+      <li>24 小时内修改违规元素</li>
+      <li>删除违规内容（图片 / 文字）</li>
+      <li>重新上架</li>
+      <li>7 天内不再发类似内容</li>
+    </ol>
+
+    <h4>情况 2：账号被封禁</h4>
+    <ol class="steps">
+      <li>查看封禁原因</li>
+      <li>申诉（准备原创证据）</li>
+      <li>申诉失败 → 换身份证重开</li>
+      <li>永远不再做违规的事</li>
+      <li>总结教训，避免再犯</li>
+    </ol>
+
+    <h4>情况 3：连续 3 天没单</h4>
+    <ol class="steps">
+      <li>检查是否被降权（看曝光是否大幅下降）</li>
+      <li>检查是否违规（看系统通知）</li>
+      <li>检查封面图是否过时</li>
+      <li>检查标题是否含违规词</li>
+      <li>改进 1-2 个品，看效果</li>
+    </ol>
+
+    <h4>情况 4：连续 7 天爆单</h4>
+    <ol class="steps">
+      <li>不要涨价（会失去爆款）</li>
+      <li>增加客服响应速度</li>
+      <li>准备补货（增加商品数）</li>
+      <li>记录爆款特征，复制到新品</li>
+      <li>考虑加店矩阵放大</li>
+    </ol>
+
+    <h4>情况 5：被恶意投诉</h4>
+    <ol class="steps">
+      <li>不要慌</li>
+      <li>收集原创证据（源文件、暗水印、创作记录）</li>
+      <li>在小红书后台"违规申诉"入口提交</li>
+      <li>3 个工作日内出结果</li>
+      <li>申诉成功 / 反转达卷 / 重新上架</li>
+    </ol>
+  </div>
+
+  <div class="subsec">
+    <h3>A.6 5.0 笔记模板库</h3>
+    <h4>模板 1：种草型笔记</h4>
+    <pre class="code">【标题】姐妹们！XX 天用完了 5.9 元买的 [商品名]，真的太值了！
+【正文】
+亲们！作为一枚 [人群]，我之前 [痛点描述]。
+自从用了 [商品名]，真的 [效果描述 1]！
+而且 [效果描述 2]！
+现在 [使用场景]，再也不用 [原来的问题]！
+想要的小姐妹评论区扣 1 哦～
+【话题标签】# [品类 1] # [品类 2] # [人群] # [场景] # [商品名]</pre>
+
+    <h4>模板 2：对比型笔记</h4>
+    <pre class="code">【标题】同事问我是不是花了 199 块做的 PPT，其实只花了 5.9！
+【正文】
+部门最近要交 [场景] 报告，我用 [商品名] 做的 PPT 交上去后，
+同事都在问："你是花了多少钱请设计师？"
+其实只花了 5.9 元！哈哈哈哈~
+模板有 [特点 1] + [特点 2] + [特点 3]，
+最后一天修改 5 分钟搞定，老板说"做得不错"！
+【话题标签】# PPT # 职场 # 报告 # 模板</pre>
+
+    <h4>模板 3：紧迫型笔记</h4>
+    <pre class="code">【标题】明天开学！1 套模板救急，孩子拼音练习不用愁
+【正文】
+还有 X 天就开学了，孩子的 [痛点] 还没准备？
+别慌！这套 [商品名] 帮你搞定！
+包含 [内容 1] + [内容 2] + [内容 3]，
+打印即用，每天 [时长] 帮孩子练习！
+【话题标签】# 开学 # 拼音 # 幼小衔接 # 妈妈 # 学习</pre>
+
+    <h4>模板 4：套装型笔记</h4>
+    <pre class="code">【标题】XX 元到手 [N 1] 套 + [N 2] 张素材 + [N 3] 个工具！
+【正文】
+姐妹们！这套 [商品名] 真的是物超所值！
+包含：
+1. [N 1] 套 [品类 1]
+2. [N 2] 张 [品类 2]
+3. [N 3] 个 [品类 3]
+适用 [场景 1] + [场景 2] + [场景 3]！
+【话题标签】# 套装 # 模板 # 素材 # 工具 # [人群]</pre>
+
+    <h4>模板 5：测评型笔记</h4>
+    <pre class="code">【标题】实测 5 款 [品类]，只推荐这 1 款！
+【正文】
+作为 [人群]，我最近买了 5 款 [品类]，
+对比后发现 [商品名] 是真的能打！
+✅ 优点 1：[描述]
+✅ 优点 2：[描述]
+✅ 优点 3：[描述]
+其他 4 款各有各的问题。
+【话题标签】# 测评 # [品类] # [人群] # 推荐</pre>
+  </div>
+
+  <div class="subsec">
+    <h3>A.7 5.0 商品详情页模板</h3>
+    <h4>模板 1：通用模板</h4>
+    <pre class="code">【商品标题】[关键词 1] + [关键词 2] + [关键词 3] + [形容词]（20 字内）
+【商品主图】3-4 张：封面图 + 内容预览图 + 卖点图 + 售后图
+【商品详情】
+1. 【包含内容】
+   - 内容 A：[X]
+   - 内容 B：[X]
+   - 内容 C：[X]
+2. 【适用人群】
+   - [人群 1]
+   - [人群 2]
+   - [人群 3]
+3. 【使用场景】
+   - [场景 1]
+   - [场景 2]
+4. 【售后说明】
+   本商品为虚拟商品，售出后不支持 7 天无理由退货。
+   如有问题可联系客服补发。
+5. 【AI 标识】
+   本商品由 AI 辅助创作。</pre>
+
+    <h4>模板 2：课件 / 教案类（需个体工商户店）</h4>
+    <pre class="code">【商品标题】[年级] + [学科] + [主题] + [类型] + [形容词]
+【商品主图】3-4 张：封面图 + 内页预览图 + 目录图 + 售后图
+【商品详情】
+1. 【包含内容】
+   - 课件 PPT：[X] 页
+   - 教案：[X] 课时
+   - 配套练习：[X] 套
+2. 【适用年级】[年级]
+3. 【使用场景】
+   - 教师授课
+   - 家长自学辅导
+5. 【资质标识】
+   本店铺已完成教育类目报白。</pre>
+  </div>
+</section>
+<section class="chapter ch-appendix" id="ch10">
+  <div class="chapter-head">
+    <span class="num">B</span>
+    <h2>附录 B · AI 提示词模板库</h2>
+    <span class="tag">提示词手册</span>
+  </div>
+
+  <div class="subsec">
+    <h3>B.1 通用提示词 · 5W1H 描述法</h3>
+    <h4>模板：内容生成（图文 / 笔记）</h4>
+    <pre class="code">请基于以下 5W1H 信息，帮我创作 1 篇小红书笔记：
+- Who（用户）：[目标人群，如 25-30 岁一线城市职场女性]
+- What（内容）：[商品卖点，如"幼小衔接拼音练习 PDF 模板"]
+- Why（痛点）：[用户为什么买，如"开学前 1 周家长焦虑没准备"]
+- Where（场景）：[使用场景，如"打印给孩子每天练 10 分钟"]
+- When（时机）：[购买时机，如"7-8 月暑期"]
+- How（形式）：[产出形式，如"PDF 文档 + 200 个声母韵母卡片"]
+
+请输出：
+1. 笔记标题（20 字内，含数字+情绪）
+2. 笔记正文（150-200 字，含 3 个 emoji）
+3. 5 个相关话题标签
+4. 1 张封面图的核心文案（15 字内）</pre>
+
+    <h4>模板：标题批量生成</h4>
+    <pre class="code">请基于以下商品信息，生成 10 个小红书爆款标题：
+- 商品：[商品名]
+- 目标人群：[人群]
+- 痛点：[痛点]
+- 价格：[价格]
+
+要求：
+1. 每个标题 12-20 字
+2. 必须包含"数字 + 情绪词"组合
+3. 涵盖 4 种风格：数字型 / 对比型 / 反转型 / 紧迫型
+4. 避免"教培 / 网课 / 培训 / 课程 / 教材"等敏感词
+5. 标题前 12 字必须包含"数字 + 痛点词 + 情绪词"三要素之一</pre>
+
+    <h4>模板：商品详情页文案</h4>
+    <pre class="code">请帮我写一个虚拟商品的小红书详情页文案：
+- 商品名：[商品名]
+- 价格：[价格]
+- 包含内容：[内容清单]
+- 适用人群：[人群]
+- 使用场景：[场景]
+
+请输出以下 5 个部分：
+1. 商品卖点（5 个 bullet，每个 20 字）
+2. 适用人群（3 类，每类 15 字）
+3. 使用场景（3 个，每 15 字）
+4. 售后说明（30 字，含虚拟商品特殊说明）
+5. 转化引导（30 字，引导下单）</pre>
+  </div>
+
+  <div class="subsec">
+    <h3>B.2 封面图提示词 · 5 大流派</h3>
+    <h4>流派 1：扣子对话模式（首选）</h4>
+    <pre class="code">请生成一张 3:4 竖版封面图（1080x1440 像素）：
+- 主标题：[主标题文字，6 字以内]
+- 副标题：[副标题文字，10 字以内]
+- 风格：[扁平化 / 插画风 / 实景风 / 简约风 / 国潮风]
+- 主色调：[主色调]
+- 点缀色：[点缀色 1] + [点缀色 2]
+- 装饰元素：[背景纹理 / emoji / 贴纸]
+- 重点：主标题字号占图片宽度 ≥ 60%，粗体，居中或三分构图</pre>
+
+    <h4>流派 2：即梦 AI（中文场景）</h4>
+    <pre class="code">帮我做一张适合小红书的封面图。
+主题：[主题]
+商品类型：[虚拟商品类型]
+请用 [风格] 风格。
+主标题：[主标题文字]，用 [字体] 字体粗体。
+副标题：[副标题文字]。
+背景是 [背景描述]。
+底部加"AI"标识。
+输出 3:4 竖版，1080x1440 像素。</pre>
+
+    <h4>流派 3：Midjourney（高质量场景）</h4>
+    <pre class="code">A 3:4 vertical cover image for Xiaohongshu, featuring [主题] in [风格] style.
+Main title: "[主标题文字]" in bold large font, occupying at least 60% of image width.
+Subtitle: "[副标题文字]" in smaller font below.
+Background: [背景描述].
+Color scheme: [主色] + [点缀色].
+Style: clean, professional, modern.
+Aspect ratio 3:4, 1080x1440 pixels.
+--ar 3:4 --v 6 --style raw</pre>
+
+    <h4>流派 4：豆包辅助路径</h4>
+    <pre class="code">请帮我写一段画图的详细描述，用于发给 AI 画图工具：
+- 商品主题：[商品]
+- 想要的效果：[描述]
+- 风格偏好：[风格]
+- 文字内容：[文字]
+
+要求：
+1. 描述要清晰具体
+2. 包含构图 / 颜色 / 风格 / 文字
+3. 用英文输出，方便发给 Midjourney / Stable Diffusion</pre>
+
+    <h4>流派 5：提示词优化器（通用）</h4>
+    <pre class="code">请帮我优化以下 AI 画图提示词：
+原始提示词：[原始提示词]
+
+要求：
+1. 让描述更加清晰具体
+2. 添加构图 / 颜色 / 风格 / 灯光细节
+3. 确保主标题文字显眼
+4. 输出优化后的中文 + 英文两个版本</pre>
+  </div>
+
+  <div class="subsec">
+    <h3>B.3 笔记结构提示词</h3>
+    <h4>模板：开头 30 字公式</h4>
+    <pre class="code">请帮我写小红书笔记的开头 30 字：
+- 商品：[商品]
+- 目标人群：[人群]
+- 核心痛点：[痛点]
+- 想要的风格：[可爱 / 紧凑 / 真实 / 紧迫]
+
+要求：
+1. 30 字以内
+2. 用"姐妹们！"或"救命！"开头
+3. 3 秒抓眼球
+4. 含 1 个 emoji</pre>
+
+    <h4>模板：痛点 + 解决方案叙事</h4>
+    <pre class="code">请帮我写小红书笔记的正文部分（150 字）：
+- 商品：[商品]
+- 痛点：[痛点]
+- 解决方案：[方案]
+
+要求：
+1. 用"我之前……后来……"叙事结构
+2. 痛点描述 50 字
+3. 解决方案描述 60 字
+4. 效果展示 40 字
+5. 含 3 个 emoji
+6. 结尾引导互动（"评论区扣 1"等）</pre>
+
+    <h4>模板：5 个卖点 bullet</h4>
+    <pre class="code">请帮我列 5 个小红书笔记的卖点 bullet：
+- 商品：[商品]
+- 核心卖点：[卖点 1] + [卖点 2] + [卖点 3]
+- 目标人群：[人群]
+- 使用场景：[场景]
+
+要求：
+1. 每个 bullet 20 字
+2. 用"✅ 优点"开头
+3. 包含"数字 + 价值词"
+4. 第三个 bullet 含"对比"或"限时"</pre>
+  </div>
+
+  <div class="subsec">
+    <h3>B.4 合规检查提示词</h3>
+    <h4>模板：标题合规检查</h4>
+    <pre class="code">请帮我检查以下小红书笔记标题的合规性：
+标题：[待检查标题]
+
+请基于以下规则检查：
+1. 是否含"教培 / 网课 / 培训 / 课程 / 教材 / 真题 / 教辅 / 培训 / 授课"等敏感词？
+2. 是否含"加 V / 微信 / 加微 / 胃辛 / 二维码 / 网址 / 扫码"等导流词？
+3. 是否含"保证 / 100% / 第一 / 唯一 / 全网首发"等虚假宣传词？
+4. 是否含"复刻 / 盗版 / 搬运"等违规词？
+5. 是否含"价格承诺"字样？
+6. 整体是否清晰、是否符合小红书爆款标题公式？</pre>
+
+    <h4>模板：商品详情页合规检查</h4>
+    <pre class="code">请帮我检查以下小红书商品详情页的合规性：
+商品详情：[待检查内容]
+
+请基于以下规则检查：
+1. 类目是否正确？
+2. 价格是否合理（虚拟商品 1.9-99.9 元）？
+3. 是否含"保证出单 / 保证效果"等承诺？
+4. 是否含站外导流信息？
+5. 是否含违规医疗 / 金融 / 教育内容？
+6. 是否含"复刻 / 盗版 / 搬运"等违规词？
+7. 是否含"全网独家 / 全网首发"等违反广告法词汇？</pre>
+
+    <h4>模板：违规原因分析</h4>
+    <pre class="code">我的小红书笔记被下架，违规原因是：
+[违规原因]
+
+请帮我：
+1. 解读这个违规原因具体指什么
+2. 我的内容哪里触发了违规
+3. 怎么修改才能重新上架
+4. 怎么避免下次再犯</pre>
+  </div>
+
+  <div class="subsec">
+    <h3>B.5 选品提示词</h3>
+    <h4>模板：选品类目拓展</h4>
+    <pre class="code">你是小红书虚拟商品选品顾问。
+我目前在做 [类目] 赛道，请基于小红书 2025 年最新趋势，给出 20 个适合"新手 + 个人店"的细分方向。
+每个方向写 50 字说明。
+要求：
+1. 必须是小红书个人店可售的虚拟商品
+2. 蓝海优先（搜索量稳定 + 竞争小 + 利润高）
+3. 不要包含课件 / 教案（个人店不可售）
+4. 不要包含软件安装包 / 盗版资源（违规）</pre>
+
+    <h4>模板：选品商品拓展</h4>
+    <pre class="code">基于"[细分方向]"这个细分赛道，给出 10 个具体可售的商品创意，每个写 30 字说明。
+要求：
+1. 必须是虚拟商品（模板/素材/电子卡片）
+2. 价格区间 5-50 元
+3. 单店天花板 ≥ 5000 元/月
+4. 不需要报白（个人店可售）
+5. 5W1H 信息完整</pre>
+
+    <h4>模板：选品数据分析</h4>
+    <pre class="code">我有 50 个虚拟商品候选品，请帮我根据以下标准打分：
+- 搜索量（满分 10）
+- 竞争度（满分 10）
+- 利润率（满分 10）
+
+请基于以下候选清单打分：
+[候选清单]
+
+要求：
+1. 输出 Excel 表格
+2. 总分 ≥ 20 标注为"通过"
+3. 总分 ≥ 25 标注为"优选"
+4. 总分 < 15 标注为"淘汰"</pre>
+  </div>
+
+  <div class="subsec">
+    <h3>B.6 客服话术提示词</h3>
+    <h4>模板：万能回复生成</h4>
+    <pre class="code">请帮我写小红书客服的 7 个场景万能回复话术：
+1. 咨询："包含什么内容？"
+2. 议价："能便宜吗？"
+3. 下载问题："链接打不开"
+4. 退款："能退款吗？"
+5. 催发货："什么时候发货？"
+6. 定制："能定制吗？"
+7. 好评："好评返现吗？"
+
+要求：
+1. 每个回复 30-50 字
+2. 语气亲切友好
+3. 不能虚假宣传
+5. 含情感 + 价值承诺</pre>
+
+    <h4>模板：投诉处理话术</h4>
+    <pre class="code">客户反馈 [问题描述]，请帮我写一个处理话术：
+1. 安抚客户情绪
+2. 解释原因
+3. 提供解决方案
+4. 引导后续
+
+要求：
+1. 50 字以内
+2. 语气真诚
+3. 不推卸责任
+5. 转化导向</pre>
+  </div>
+
+  <div class="subsec">
+    <h3>B.7 知识库提示词</h3>
+    <h4>模板：小红书规则知识库</h4>
+    <pre class="code">请帮我整理小红书虚拟商品相关的合规文档，构建知识库：
+
+需包含的文档：
+1. 小红书社区规范
+2. 虚拟商品类目规则
+3. 教育类目整改规则（2025）
+4. AI 内容标识办法（2025-09）
+5. 报白准入规则
+6. 违规处理流程
+
+知识库要求：
+1. 每个文档 500-1000 字
+2. 包含具体规则 + 案例 + 解决方案
+3. 持续更新 2025-2026 最新政策
+4. 用问答形式整理，便于 AI 调用</pre>
+
+    <h4>模板：5W1H 知识库问答</h4>
+    <pre class="code">基于知识库，回答以下问题：
+问题：[用户问题]
+
+请基于以下规则回答：
+1. 引用知识库原文
+2. 给出具体规则 + 案例
+3. 给出可执行解决方案
+4. 提醒可能的风险
+5. 必要时附上官方链接</pre>
+  </div>
+
+  <div class="subsec">
+    <h3>B.8 高级提示词技巧</h3>
+    <h4>技巧 1：角色扮演</h4>
+    <pre class="code">你是一位有 10 年小红书运营经验的专家顾问。
+你曾经帮助 1000+ 商家从小白做到月入 10 万。
+你擅长 [选品 / 运营 / 内容 / 合规] 领域。
+
+接下来我会问你问题，请基于你的经验给出最专业的建议。</pre>
+
+    <h4>技巧 2：分步推理</h4>
+    <pre class="code">请帮我分 5 步分析 [问题]：
+
+第 1 步：识别核心问题
+第 2 步：分析根本原因
+第 3 步：列举可能的解决方案
+第 4 步：评估每个方案的优劣
+第 5 步：给出最优方案 + 实施步骤
+
+要求每步详细、具体、可执行。</pre>
+
+    <h4>技巧 3：示例驱动</h4>
+    <pre class="code">请参考以下示例，生成 [新内容]：
+
+示例 1：[示例 1]
+示例 2：[示例 2]
+示例 3：[示例 3]
+
+要求：
+1. 保持示例的风格和结构
+2. 但内容必须是新的，不要复制
+3. 输出 3 个版本</pre>
+
+    <h4>技巧 4：负面约束</h4>
+    <pre class="code">请帮我写 [内容]，但要避免：
+1. 不要含 [敏感词 1]
+2. 不要含 [敏感词 2]
+3. 不要使用 [表达方式 1]
+5. 不要 [不合适的内容]
+
+同时要求：
+1. 必须含 [必需元素 1]
+2. 必须含 [必需元素 2]
+3. 必须用 [风格]</pre>
+
+    <h4>技巧 5：批量变体</h4>
+    <pre class="code">基于 [原始内容]，生成 5 个变体：
+变体 1：[要求 1]
+变体 2：[要求 2]
+变体 3：[要求 3]
+变体 4：[要求 4]
+变体 5：[要求 5]
+
+每个变体保持核心意思不变，但表达方式不同。</pre>
+  </div>
+</section>
+<section class="chapter ch-appendix" id="ch11">
+  <div class="chapter-head">
+    <span class="num">C</span>
+    <h2>附录 C · 工具与平台清单</h2>
+    <span class="tag">工具速查</span>
+  </div>
+
+  <div class="subsec">
+    <h3>C.1 AI 工具 · 三件套</h3>
+    <table class="tip">
+      <caption>AI 工具三件套对比</caption>
+      <thead><tr><th>工具</th><th>主打能力</th><th>网址</th><th>价格</th><th>5.0 推荐度</th></tr></thead>
+      <tbody>
+        <tr><td>扣子 Coze</td><td>综合 AI 平台</td><td>coze.cn</td><td>免费 / 30元/月</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>豆包</td><td>对话 AI</td><td>doubao.com</td><td>免费</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>即梦 AI</td><td>AI 画图</td><td>jimeng.jianying.com</td><td>免费 + 付费</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>Midjourney</td><td>高质量画图</td><td>midjourney.com</td><td>8-30 美元/月</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>GPT-4 / Claude</td><td>对话 AI</td><td>openai.com / claude.ai</td><td>20 美元/月</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Stable Diffusion</td><td>开源画图</td><td>本地部署</td><td>免费 + 显卡成本</td><td>⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+
+    <h4>5.0 学员的 AI 工具栈</h4>
+    <ul>
+      <li><strong>首选</strong>：扣子 Coze（1 个工具搞定 90% 的需求）。</li>
+      <li><strong>辅助</strong>：即梦 AI（高质量封面图）。</li>
+      <li><strong>备用</strong>：豆包（免费文案）。</li>
+      <li><strong>进阶</strong>：Midjourney（高客单价商品封面）。</li>
+    </ul>
+  </div>
+
+  <div class="subsec">
+    <h3>C.2 选品工具</h3>
+    <table class="tip">
+      <caption>选品工具汇总</caption>
+      <thead><tr><th>工具</th><th>用途</th><th>网址</th><th>价格</th></tr></thead>
+      <tbody>
+        <tr><td>生意参谋</td><td>淘宝数据</td><td>sycm.taobao.com</td><td>付费</td></tr>
+        <tr><td>阿里指数</td><td>淘宝趋势</td><td>alizs.taobao.com</td><td>部分免费</td></tr>
+        <tr><td>蝉妈妈</td><td>小红书 / 抖音数据</td><td>chanmama.com</td><td>付费</td></tr>
+        <tr><td>灰豚数据</td><td>小红书 / 抖音数据</td><td>hotool.cn</td><td>付费</td></tr>
+        <tr><td>店小查</td><td>电商浏览器插件</td><td>dianxiaozha.com</td><td>免费 + 付费</td></tr>
+        <tr><td>新红</td><td>小红书数据</td><td>xinhong.com</td><td>付费</td></tr>
+        <tr><td>千瓜</td><td>小红书数据</td><td>qiangua.com</td><td>付费</td></tr>
+      </tbody>
+    </table>
+
+    <h4>5.0 学员的选品工具栈</h4>
+    <ul>
+      <li><strong>新手</strong>：免费工具（店小查）+ 淘宝销量榜单。</li>
+      <li><strong>进阶</strong>：蝉妈妈 / 千瓜（付费但精准）。</li>
+      <li><strong>高手</strong>：自建数据看板（爬虫 + Excel）。</li>
+    </ul>
+  </div>
+
+  <div class="subsec">
+    <h3>C.3 封面图工具</h3>
+    <table class="tip">
+      <caption>封面图工具汇总</caption>
+      <thead><tr><th>工具</th><th>用途</th><th>网址</th><th>价格</th></tr></thead>
+      <tbody>
+        <tr><td>稿定设计</td><td>大字报模板</td><td>gaoding.com</td><td>免费 + 200 元/年</td></tr>
+        <tr><td>创客贴</td><td>大字报模板</td><td>chuangkit.com</td><td>免费 + 付费</td></tr>
+        <tr><td>Canva 可画</td><td>国际版大字报</td><td>canva.com</td><td>免费 + 付费</td></tr>
+        <tr><td>Photoshop</td><td>专业修图</td><td>adobe.com</td><td>订阅制</td></tr>
+        <tr><td>光影魔术手</td><td>免费修图</td><td>pc6.com</td><td>免费</td></tr>
+        <tr><td>水印蛇</td><td>暗水印处理</td><td>watermarksnake.com</td><td>20 元/月</td></tr>
+        <tr><td>PhotoStamp</td><td>暗水印桌面版</td><td>photostamp.com</td><td>付费</td></tr>
+        <tr><td>Bulk Rename Utility</td><td>批量重命名</td><td>bulkrenameutility.co.uk</td><td>免费</td></tr>
+      </tbody>
+    </table>
+
+    <h4>5.0 学员的封面图工具栈</h4>
+    <ul>
+      <li><strong>新手</strong>：稿定设计 + 创客贴 + 光影魔术手（0 成本）。</li>
+      <li><strong>进阶</strong>：稿定会员 + 即梦 AI + 水印蛇（< 50 元/月）。</li>
+      <li><strong>高手</strong>：Photoshop + Midjourney + 自建脚本。</li>
+    </ul>
+  </div>
+
+  <div class="subsec">
+    <h3>C.4 多账号工具</h3>
+    <table class="tip">
+      <caption>多账号防关联工具</caption>
+      <thead><tr><th>工具</th><th>用途</th><th>价格</th><th>5.0 推荐度</th></tr></thead>
+      <tbody>
+        <tr><td>比特浏览器</td><td>多账号防关联</td><td>50-100 元/月</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>百分浏览器</td><td>多窗口启动</td><td>免费</td><td>⭐⭐⭐</td></tr>
+        <tr><td>VMlogin</td><td>多账号防关联</td><td>50 元/月</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Hubstudio</td><td>多账号防关联</td><td>免费 + 付费</td><td>⭐⭐⭐</td></tr>
+        <tr><td>AdsPower</td><td>多账号防关联</td><td>30-100 元/月</td><td>⭐⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+
+    <h4>5.0 学员的多账号工具栈</h4>
+    <ul>
+      <li><strong>新手（1 店 3 号）</strong>：百分浏览器 + 家庭宽带。</li>
+      <li><strong>进阶（3 店以上）</strong>：比特浏览器 + 独享 IP。</li>
+      <li><strong>高手（10 店矩阵）</strong>：比特浏览器 + 多 IP 池 + 自建脚本。</li>
+    </ul>
+  </div>
+
+  <div class="subsec">
+    <h3>C.5 IP 代理服务</h3>
+    <table class="tip">
+      <caption>IP 代理服务商</caption>
+      <thead><tr><th>服务商</th><th>类型</th><th>价格</th><th>5.0 推荐度</th></tr></thead>
+      <tbody>
+        <tr><td>IP 精灵</td><td>独享 IP</td><td>100-200 元/月</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>芝麻代理</td><td>独享 IP</td><td>100-300 元/月</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>太阳 HTTP</td><td>住宅 IP</td><td>50-150 元/月</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>讯代理</td><td>独享 IP</td><td>80-200 元/月</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>青蛙代理</td><td>独享 IP</td><td>100-200 元/月</td><td>⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+
+    <h4>IP 选择的 3 个标准</h4>
+    <ol class="steps">
+      <li><strong>风险评分 ≤ 30 分</strong>（用 scamalytics.com 测）。</li>
+      <li><strong>地理位置</strong>：国内一二线城市（北上广深 + 成都武汉等）。</li>
+      <li><strong>IP 类型</strong>：住宅 IP 优先，机房 IP 次之。</li>
+    </ol>
+  </div>
+
+  <div class="subsec">
+    <h3>C.6 自动发笔记工具</h3>
+    <table class="tip">
+      <caption>自动发笔记工具</caption>
+      <thead><tr><th>工具</th><th>用途</th><th>价格</th><th>5.0 推荐度</th></tr></thead>
+      <tbody>
+        <tr><td>影刀 RPA</td><td>通用自动化</td><td>30 元/月</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>八爪鱼 RPA</td><td>通用自动化</td><td>免费 + 付费</td><td>⭐⭐⭐⭐</td></tr>
+        <tr><td>小红书助手</td><td>浏览器插件</td><td>免费</td><td>⭐⭐⭐</td></tr>
+        <tr><td>Auto.js</td><td>手机端自动化</td><td>免费</td><td>⭐⭐</td></tr>
+        <tr><td>云端手机</td><td>云端模拟器</td><td>50-200 元/月</td><td>⭐⭐</td></tr>
+      </tbody>
+    </table>
+
+    <h4>5.0 学员的自动发笔记工具栈</h4>
+    <ul>
+      <li><strong>主力</strong>：影刀 RPA（稳定 + 易用）。</li>
+      <li><strong>备用</strong>：八爪鱼 RPA（免费）。</li>
+      <li><strong>应急</strong>：人工操作（账号异常时切换）。</li>
+    </ul>
+  </div>
+
+  <div class="subsec">
+    <h3>C.7 发货平台</h3>
+    <table class="tip">
+      <caption>虚拟商品发货平台</caption>
+      <thead><tr><th>平台</th><th>特点</th><th>价格</th><th>5.0 推荐度</th></tr></thead>
+      <tbody>
+        <tr><td>百度网盘</td><td>通用存储</td><td>免费 + 会员</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>阿奇索</td><td>虚拟商品专门</td><td>30-50 元/月</td><td>⭐⭐⭐⭐⭐</td></tr>
+        <tr><td>奶牛快传</td><td>文件分享</td><td>免费 + 付费</td><td>⭐⭐⭐</td></tr>
+        <tr><td>阿里云盘</td><td>阿里系存储</td><td>免费 + 会员</td><td>⭐⭐⭐</td></tr>
+        <tr><td>腾讯微云</td><td>腾讯系存储</td><td>免费 + 会员</td><td>⭐⭐⭐</td></tr>
+      </tbody>
+    </table>
+
+    <h4>5.0 学员的发货工具栈</h4>
+    <ul>
+      <li><strong>新手</strong>：百度网盘（免费、用户接受度）。</li>
+      <li><strong>进阶</strong>：阿奇索（专门发货 + 数据统计）。</li>
+      <li><strong>高手</strong>：自建发货系统（API 对接）。</li>
+    </ul>
+  </div>
+
+  <div class="subsec">
+    <h3>C.8 数据统计与分析</h3>
+    <table class="tip">
+      <caption>数据分析工具</caption>
+      <thead><tr><th>工具</th><th>用途</th><th>价格</th></tr></thead>
+      <tbody>
+        <tr><td>小红书后台</td><td>店铺数据</td><td>免费</td></tr>
+        <tr><td>蝉妈妈</td><td>笔记数据</td><td>付费</td></tr>
+        <tr><td>千瓜</td><td>笔记数据</td><td>付费</td></tr>
+        <tr><td>灰豚数据</td><td>笔记数据</td><td>付费</td></tr>
+        <tr><td>Excel</td><td>数据记录 + 看板</td><td>免费</td></tr>
+        <tr><td>Notion</td><td>数据看板</td><td>免费 + 付费</td></tr>
+        <tr><td>飞书表格</td><td>在线协作</td><td>免费</td></tr>
+      </tbody>
+    </table>
+
+    <h4>5.0 学员的数据看板核心指标</h4>
+    <ul>
+      <li><strong>曝光</strong>：笔记被看到的次数。</li>
+      <li><strong>点击率（CTR）</strong>：曝光→点击的比例。</li>
+      <li><strong>转化率（CVR）</strong>：点击→下单的比例。</li>
+      <li><strong>客单价</strong>：每个订单的平均价格。</li>
+      <li><strong>毛利率</strong>：（售价-成本-扣点）/ 售价。</li>
+      <li><strong>ROI</strong>：（收益-成本）/ 成本。</li>
+    </ul>
+  </div>
+
+  <div class="subsec">
+    <h3>C.9 5.0 学员的完整工具栈模板</h3>
+    <h4>新手阶段（0-300 元/月成本）</h4>
+    <ul>
+      <li>AI：扣子免费版</li>
+      <li>封面：稿定设计免费版 + 创客贴</li>
+      <li>选品：店小查 + 淘宝榜单</li>
+      <li>多账号：百分浏览器</li>
+      <li>自动发：八爪鱼 RPA 免费版</li>
+      <li>发货：百度网盘免费版</li>
+      <li>数据：Excel + 小红书后台</li>
+    </ul>
+
+    <h4>进阶阶段（200-500 元/月成本）</h4>
+    <ul>
+      <li>AI：扣子会员 + 即梦 AI</li>
+      <li>封面：稿定设计会员 + 水印蛇</li>
+      <li>选品：蝉妈妈</li>
+      <li>多账号：比特浏览器</li>
+      <li>自动发：影刀 RPA</li>
+      <li>发货：阿奇索</li>
+      <li>数据：蝉妈妈 + 自建看板</li>
+    </ul>
+
+    <h4>高手阶段（500-1000 元/月成本）</h4>
+    <ul>
+      <li>AI：扣子 + 即梦 + Midjourney</li>
+      <li>封面：稿定 + Photoshop + 自建工具</li>
+      <li>选品：多工具组合 + 自建爬虫</li>
+      <li>多账号：比特浏览器 + 独享 IP × 10</li>
+      <li>自动发：影刀 + 自建脚本</li>
+      <li>发货：自建系统</li>
+      <li>数据：全链路数据看板</li>
+    </ul>
+  </div>
+</section>
+<section class="chapter ch-appendix" id="ch12">
+  <div class="chapter-head">
+    <span class="num">D</span>
+    <h2>附录 D · 术语速查表</h2>
+    <span class="tag">术语词典</span>
+  </div>
+
+  <div class="subsec">
+    <h3>D.1 平台类术语</h3>
+    <table class="tip">
+      <caption>小红书平台类术语</caption>
+      <thead><tr><th>术语</th><th>解释</th></tr></thead>
+      <tbody>
+        <tr><td>笔记</td><td>小红书上的图文 / 视频内容，是流量入口。</td></tr>
+        <tr><td>种草</td><td>通过内容激发用户购买欲望。</td></tr>
+        <tr><td>闭环</td><td>"内容→种草→搜索→购买"的完整流程。</td></tr>
+        <tr><td>个人店</td><td>小红书个人卖家店铺，需 1000 元保证金。</td></tr>
+        <tr><td>个体工商户店</td><td>需要营业执照的店铺，可售更多类目。</td></tr>
+        <tr><td>企业店</td><td>企业资质开设的店铺，可售全品类。</td></tr>
+        <tr><td>虚拟商品</td><td>非实物的数字商品（模板/素材/PPT 等）。</td></tr>
+        <tr><td>电子资源</td><td>小红书虚拟商品的主类目。</td></tr>
+        <tr><td>报白</td><td>申请加入某类目白名单。</td></tr>
+        <tr><td>流量池</td><td>平台分配给笔记的初始曝光量。</td></tr>
+        <tr><td>CTR</td><td>点击率（Click Through Rate），曝光→点击的比例。</td></tr>
+        <tr><td>CVR</td><td>转化率（Conversion Rate），点击→下单的比例。</td></tr>
+        <tr><td>加权重</td><td>同一品多篇笔记数据好，平台会拉高整个品的曝光。</td></tr>
+        <tr><td>降权</td><td>笔记 / 店铺被降低曝光。</td></tr>
+        <tr><td>封禁</td><td>账号 / 店铺被永久关闭。</td></tr>
+        <tr><td>扣分</td><td>违规导致的扣分累计，扣满后清退。</td></tr>
+        <tr><td>保证金</td><td>开店押金，1000 元起，关店可退。</td></tr>
+        <tr><td>GMV</td><td>商品交易总额（Gross Merchandise Value）。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsec">
+    <h3>D.2 5.0 技术术语</h3>
+    <table class="tip">
+      <caption>5.0 技术类术语</caption>
+      <thead><tr><th>术语</th><th>解释</th></tr></thead>
+      <tbody>
+        <tr><td>5.0 技术</td><td>狂峰会小红书虚拟商品第 5 代课程体系。</td></tr>
+        <tr><td>5 重奏</td><td>5.0 技术的 5 个核心环节：原创+选品+搬款+作图+运营。</td></tr>
+        <tr><td>测款</td><td>通过数据测试候选品是否能出单。</td></tr>
+        <tr><td>怼款</td><td>在已验证的好品上大量发笔记。</td></tr>
+        <tr><td>测款店</td><td>专门用于测试的店铺，上款多、单店天花板低。</td></tr>
+        <tr><td>怼款店</td><td>专门用于放大的店铺，上款少、单店天花板高。</td></tr>
+        <tr><td>飞轮</td><td>5 个环节相互咬合的运转模式。</td></tr>
+        <tr><td>三三角法则</td><td>需求 × 竞争 × 利润 = 选品标准。</td></tr>
+        <tr><td>蓝海品</td><td>搜量高 + 商品少 + 利润高的品。</td></tr>
+        <tr><td>红海品</td><td>搜量高 + 商品多 + 利润低的品。</td></tr>
+        <tr><td>5W1H</td><td>Who / What / Why / Where / When / How 描述法。</td></tr>
+        <tr><td>价格锚点</td><td>通过参照价影响用户对价格的判断。</td></tr>
+        <tr><td>1 店 3 号</td><td>1 个店铺 + 3 个账号的合规矩阵。</td></tr>
+        <tr><td>店矩阵</td><td>多个店铺的组合放大策略。</td></tr>
+        <tr><td>老客复购</td><td>维护老客户，让其再次下单。</td></tr>
+        <tr><td>拉新</td><td>邀请新用户注册并产生消费。</td></tr>
+        <tr><td>百度网盘达人</td><td>百度网盘的拉新佣金计划。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsec">
+    <h3>D.3 AI 工具术语</h3>
+    <table class="tip">
+      <caption>AI 工具类术语</caption>
+      <thead><tr><th>术语</th><th>解释</th></tr></thead>
+      <tbody>
+        <tr><td>AI</td><td>人工智能（Artificial Intelligence）。</td></tr>
+        <tr><td>大模型</td><td>参数量大的人工智能模型。</td></tr>
+        <tr><td>提示词</td><td>输入给 AI 的指令文本。</td></tr>
+        <tr><td>对话模式</td><td>与 AI 像聊天一样交互的模式。</td></tr>
+        <tr><td>编程模式</td><td>用可视化拖拽构建 AI 工作流的模式。</td></tr>
+        <tr><td>工作流</td><td>多个 AI 节点组成的自动化流程。</td></tr>
+        <tr><td>知识库</td><td>AI 可学习的文档库。</td></tr>
+        <tr><td>扣子</td><td>字节跳动出品的 AI 综合平台（coze.cn）。</td></tr>
+        <tr><td>豆包</td><td>字节跳动出品的对话 AI（doubao.com）。</td></tr>
+        <tr><td>即梦</td><td>字节跳动出品的 AI 画图工具。</td></tr>
+        <tr><td>Midjourney</td><td>国际知名的 AI 画图工具（midjourney.com）。</td></tr>
+        <tr><td>GPT</td><td>OpenAI 出品的对话 AI。</td></tr>
+        <tr><td>Stable Diffusion</td><td>开源的 AI 画图模型。</td></tr>
+        <tr><td>AI 标识</td><td>AI 生成内容必须明示标识（2025 年新规）。</td></tr>
+        <tr><td>暗水印</td><td>嵌入像素层的不可见水印。</td></tr>
+        <tr><td>明水印</td><td>可见的图片水印。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsec">
+    <h3>D.4 多账号与防关联术语</h3>
+    <table class="tip">
+      <caption>多账号类术语</caption>
+      <thead><tr><th>术语</th><th>解释</th></tr></thead>
+      <tbody>
+        <tr><td>浏览器指纹</td><td>浏览器的独特标识信息（UA / Cookies / 字体等）。</td></tr>
+        <tr><td>指纹隔离</td><td>为每个账号创建独立的浏览器环境。</td></tr>
+        <tr><td>关联</td><td>平台识别多个账号为同一人。</td></tr>
+        <tr><td>IP 地址</td><td>网络设备的唯一地址。</td></tr>
+        <tr><td>独享 IP</td><td>只有你一个人使用的 IP。</td></tr>
+        <tr><td>共享 IP</td><td>多人共用的 IP（风险高）。</td></tr>
+        <tr><td>住宅 IP</td><td>真实家庭网络 IP（不易被识别为代理）。</td></tr>
+        <tr><td>机房 IP</td><td>数据中心 IP（容易被识别）。</td></tr>
+        <tr><td>比特浏览器</td><td>专业的多账号防关联浏览器。</td></tr>
+        <tr><td>百分浏览器</td><td>支持多窗口启动的浏览器。</td></tr>
+        <tr><td>IP 纯净度</td><td>IP 是否被滥用过的程度。</td></tr>
+        <tr><td>代理协议</td><td>HTTP / SOCKS5 是常用的代理协议。</td></tr>
+        <tr><td>串号</td><td>多个账号数据相互污染。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsec">
+    <h3>D.5 运营类术语</h3>
+    <table class="tip">
+      <caption>运营类术语</caption>
+      <thead><tr><th>术语</th><th>解释</th></tr></thead>
+      <tbody>
+        <tr><td>商品详情页</td><td>展示商品信息和卖点的页面。</td></tr>
+        <tr><td>SKU</td><td>商品的不同规格 / 款式。</td></tr>
+        <tr><td>主图</td><td>商品卡上展示的第一张图。</td></tr>
+        <tr><td>主标题</td><td>图片上的主要文字。</td></tr>
+        <tr><td>副标题</td><td>图片上的次要文字。</td></tr>
+        <tr><td>标签</td><td>小红书的话题标签，如"#XX季节"。</td></tr>
+        <tr><td>话题</td><td>小红书的可参与话题。</td></tr>
+        <tr><td>评论区</td><td>笔记下方的用户评论。</td></tr>
+        <tr><td>评论区互动</td><td>博主回复用户评论。</td></tr>
+        <tr><td>曝光</td><td>笔记被看到的次数。</td></tr>
+        <tr><td>阅读</td><td>用户点击进入笔记的次数。</td></tr>
+        <tr><td>互动率</td><td>点赞 + 评论 + 收藏 / 阅读。</td></tr>
+        <tr><td>完播率</td><td>视频被完整看完的比例。</td></tr>
+        <tr><td>转发</td><td>用户将笔记分享给其他用户。</td></tr>
+        <tr><td>收藏</td><td>用户将笔记收藏到自己的收藏夹。</td></tr>
+        <tr><td>关注</td><td>用户关注账号。</td></tr>
+        <tr><td>私信</td><td>用户与博主之间的私密对话。</td></tr>
+        <tr><td>评论区引导</td><td>在笔记里引导用户评论。</td></tr>
+        <tr><td>评论话术</td><td>回复评论的固定语句。</td></tr>
+        <tr><td>评论区运营</td><td>通过评论提升笔记互动率。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsec">
+    <h3>D.6 平台规则类术语</h3>
+    <table class="tip">
+      <caption>平台规则类术语</caption>
+      <thead><tr><th>术语</th><th>解释</th></tr></thead>
+      <tbody>
+        <tr><td>敏感词</td><td>平台限制使用的关键词。</td></tr>
+        <tr><td>违规词</td><td>触发违规警告的词。</td></tr>
+        <tr><td>敏感图</td><td>触发违规的图片。</td></tr>
+        <tr><td>违规</td><td>违反小红书规则。</td></tr>
+        <tr><td>站外导流</td><td>引导用户离开小红书。</td></tr>
+        <tr><td>类目错放</td><td>商品放在错误的类目下。</td></tr>
+        <tr><td>虚假宣传</td><td>夸大商品效果。</td></tr>
+        <tr><td>诱导互动</td><td>诱导用户点赞 / 评论 / 转发。</td></tr>
+        <tr><td>刷单</td><td>虚假交易提升销量。</td></tr>
+        <tr><td>刷量</td><td>虚假提升数据（点赞 / 评论 / 收藏）。</td></tr>
+        <tr><td>搬运</td><td>未经授权使用他人内容。</td></tr>
+        <tr><td>侵权</td><td>侵犯他人知识产权。</td></tr>
+        <tr><td>售假</td><td>销售假冒伪劣商品。</td></tr>
+        <tr><td>盗版</td><td>销售未经授权的复制品。</td></tr>
+        <tr><td>申诉</td><td>对违规判定提出申诉。</td></tr>
+        <tr><td>违规预警</td><td>平台发出的违规警告。</td></tr>
+        <tr><td>商品下架</td><td>商品被强制下架。</td></tr>
+        <tr><td>账号封禁</td><td>账号被永久封禁。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsec">
+    <h3>D.7 财务类术语</h3>
+    <table class="tip">
+      <caption>财务类术语</caption>
+      <thead><tr><th>术语</th><th>解释</th></tr></thead>
+      <tbody>
+        <tr><td>客单价</td><td>每个订单的平均价格。</td></tr>
+        <tr><td>毛利率</td><td>（售价 - 成本）/ 售价。</td></tr>
+        <tr><td>净利率</td><td>净利润 / 销售额。</td></tr>
+        <tr><td>GMV</td><td>商品交易总额。</td></tr>
+        <tr><td>ROI</td><td>投资回报率。</td></tr>
+        <tr><td>扣点</td><td>平台抽取的佣金比例。</td></tr>
+        <tr><td>提现</td><td>把店铺收入转到银行卡。</td></tr>
+        <tr><td>结算</td><td>平台定期结算货款。</td></tr>
+        <tr><td>T+1</td><td>交易完成后次日到账。</td></tr>
+        <tr><td>T+7</td><td>交易完成后 7 天到账。</td></tr>
+        <tr><td>拉新奖励</td><td>邀请新用户的奖励。</td></tr>
+        <tr><td>转存奖励</td><td>用户转存文件的奖励。</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="subsec">
+    <h3>D.8 常用英文缩写速查</h3>
+    <table class="tip">
+      <caption>常用英文缩写</caption>
+      <thead><tr><th>缩写</th><th>全称</th><th>中文</th></tr></thead>
+      <tbody>
+        <tr><td>AI</td><td>Artificial Intelligence</td><td>人工智能</td></tr>
+        <tr><td>CTR</td><td>Click Through Rate</td><td>点击率</td></tr>
+        <tr><td>CVR</td><td>Conversion Rate</td><td>转化率</td></tr>
+        <tr><td>GMV</td><td>Gross Merchandise Value</td><td>商品交易总额</td></tr>
+        <tr><td>ROI</td><td>Return On Investment</td><td>投资回报率</td></tr>
+        <tr><td>SKU</td><td>Stock Keeping Unit</td><td>库存单位</td></tr>
+        <tr><td>UA</td><td>User Agent</td><td>用户代理</td></tr>
+        <tr><td>IP</td><td>Intellectual Property / Internet Protocol</td><td>知识产权 / 网络协议</td></tr>
+        <tr><td>RPA</td><td>Robotic Process Automation</td><td>机器人流程自动化</td></tr>
+        <tr><td>PDF</td><td>Portable Document Format</td><td>便携文档格式</td></tr>
+        <tr><td>PPT</td><td>PowerPoint</td><td>演示文稿</td></tr>
+        <tr><td>5W1H</td><td>Who / What / Why / Where / When / How</td><td>五何分析法</td></tr>
+        <tr><td>URL</td><td>Uniform Resource Locator</td><td>统一资源定位符</td></tr>
+        <tr><td>SEO</td><td>Search Engine Optimization</td><td>搜索引擎优化</td></tr>
+        <tr><td>SEM</td><td>Search Engine Marketing</td><td>搜索引擎营销</td></tr>
+      </tbody>
+    </table>
+
+    <div class="callout success">
+      <strong>🎉 恭喜主人！</strong> 12 章内容已全部写完！涵盖 <strong>5.0 技术全部 76 篇课程 + 终极总结</strong> 的所有知识点，<strong>8 大主体 + 4 大附录</strong>，<strong>零 JS、纯手写、浅色系、横向树状 SVG 知识图谱</strong>。
+    </div>
+
+    <div class="callout tip">
+      <strong>下一步：</strong>奴才马上运行 <code>python work/_build_html.py</code>，把 12 个章节 + SVG 拼装成最终 HTML，输出到 <code>output/小红书虚拟商品从入门到精通.html</code>。
+    </div>
+  </div>
+</section>
+
+  </main>
+
+  <!-- ===== 附录 / Footer ===== -->
+  <footer class="foot">
+    <p>📚 内容来源：狂峰会小红书虚拟商品 5.0 全 76 篇课程</p>
+    <p>🌐 上网补强：2025-2026 最新小红书政策 / AI 内容标识办法 / 工具价格</p>
+    <p>⚠️ 课程内容整理 + 联网交叉验证，仅供学习参考，合规经营以官方最新政策为准</p>
+    <p style="margin-top:8px;color:#A0AEC0;">文档版本 v1.0 · 最后更新 2026-09 · 主讲：奴才呈给尊贵的主人</p>
+  </footer>
+
+</div>
+</body>
+</html>
