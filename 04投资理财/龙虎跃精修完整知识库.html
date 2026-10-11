@@ -1,0 +1,2610 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0">
+<meta name="description" content="龙虎跃精修（高阶课）完整知识库：从小白到高手的5大模块·6张思维导图·实战案例·九重交易境界">
+<meta name="theme-color" content="#2563eb">
+<title>龙虎跃精修（高阶课）· 完整知识库 | 张穗鸿老师</title>
+<style>
+/* ========== 基础重置 ========== */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+html { -webkit-text-size-adjust: 100%; -webkit-tap-highlight-color: transparent; }
+body {
+    font-family: -apple-system, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+    font-size: 16px;
+    line-height: 1.75;
+    color: #1e293b;
+    background: #ffffff;
+    word-wrap: break-word;
+    overflow-x: hidden;
+}
+
+/* ========== 配色变量（CSS变量，便于主题切换） ========== */
+:root {
+    --color-primary: #2563eb;     /* 主蓝 */
+    --color-primary-dark: #1d4ed8;
+    --color-primary-light: #dbeafe;
+    --color-success: #059669;     /* 主绿 */
+    --color-success-light: #d1fae5;
+    --color-danger: #dc2626;      /* 主红 */
+    --color-danger-light: #fee2e2;
+    --color-warning: #d97706;     /* 警示橙 */
+    --color-warning-light: #fef3c7;
+    --color-purple: #7c3aed;      /* 紫（中性） */
+    --color-purple-light: #ede9fe;
+    --color-text: #1e293b;        /* 主文字 */
+    --color-text-light: #475569;  /* 次文字 */
+    --color-text-muted: #94a3b8;  /* 辅助文字 */
+    --color-bg: #ffffff;          /* 主背景 */
+    --color-bg-soft: #f8fafc;     /* 淡背景 */
+    --color-bg-tint: #eff6ff;     /* 蓝色淡背景 */
+    --color-border: #e2e8f0;      /* 主边框 */
+    --color-border-soft: #f1f5f9; /* 淡边框 */
+    --color-shadow: rgba(15, 23, 42, 0.06);
+    --color-shadow-md: rgba(15, 23, 42, 0.08);
+    --radius-sm: 4px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 16px;
+    --transition: 0.2s ease;
+}
+
+/* ========== 顶部固定导航 ========== */
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(255, 255, 255, 0.96);
+    border-bottom: 1px solid var(--color-border);
+    box-shadow: 0 1px 3px var(--color-shadow);
+    backdrop-filter: saturate(180%) blur(8px);
+    -webkit-backdrop-filter: saturate(180%) blur(8px);
+}
+.site-header-inner {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 10px 16px;
+    overflow-x: auto;
+    white-space: nowrap;
+    -webkit-overflow-scrolling: touch;
+}
+.site-header-inner::-webkit-scrollbar { display: none; }
+.site-logo {
+    display: inline-block;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-right: 14px;
+    vertical-align: middle;
+}
+.site-nav { display: inline-block; vertical-align: middle; }
+.site-nav a {
+    display: inline-block;
+    padding: 6px 10px;
+    margin: 0 2px;
+    font-size: 13px;
+    color: var(--color-text-light);
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    transition: all 0.15s;
+}
+.site-nav a:hover { color: var(--color-primary); background: var(--color-bg-tint); }
+.site-nav a:focus { outline: 2px solid var(--color-primary); outline-offset: 2px; }
+
+/* ========== 正文容器 ========== */
+.container {
+    max-width: 1160px;
+    margin: 0 auto;
+    padding: 32px 24px 80px;
+}
+
+/* ========== 首屏 Hero ========== */
+.hero {
+    text-align: center;
+    padding: 48px 16px 56px;
+    margin-bottom: 32px;
+    background: linear-gradient(180deg, #ffffff 0%, var(--color-bg-soft) 100%);
+    border-radius: var(--radius-lg);
+    border: 1px solid var(--color-border);
+}
+.hero-tag {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 16px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-primary);
+    background: var(--color-bg-tint);
+    border: 1px solid #bfdbfe;
+    border-radius: 999px;
+    letter-spacing: 0.5px;
+}
+.hero-title {
+    font-size: 32px;
+    font-weight: 800;
+    line-height: 1.3;
+    color: var(--color-text);
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+}
+.hero-subtitle {
+    font-size: 16px;
+    color: var(--color-text-light);
+    margin-bottom: 24px;
+}
+.hero-quote {
+    display: inline-block;
+    max-width: 720px;
+    margin: 0 auto 28px;
+    padding: 14px 20px;
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--color-text);
+    background: #ffffff;
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    box-shadow: 0 1px 2px var(--color-shadow);
+    text-align: left;
+}
+.hero-quote strong { color: var(--color-danger); }
+.hero-mindmap {
+    margin: 24px auto 0;
+    max-width: 100%;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+/* ========== 板块通用样式 ========== */
+.section { margin-bottom: 64px; }
+.section-header {
+    margin-bottom: 28px;
+    padding-bottom: 16px;
+    border-bottom: 2px solid var(--color-border);
+    position: relative;
+}
+.section-header::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 60px;
+    height: 2px;
+    background: linear-gradient(90deg, var(--color-primary), var(--color-success));
+    border-radius: 2px;
+}
+.section-num {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-right: 12px;
+    font-size: 12px;
+    font-weight: 700;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    border-radius: 999px;
+    vertical-align: middle;
+    letter-spacing: 0.5px;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.25);
+}
+.section-title {
+    display: inline-block;
+    font-size: 26px;
+    font-weight: 800;
+    color: var(--color-text);
+    vertical-align: middle;
+    letter-spacing: -0.3px;
+}
+.section-desc {
+    margin-top: 12px;
+    font-size: 15px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+.section-intro {
+    padding: 18px 22px;
+    margin-bottom: 28px;
+    background: linear-gradient(135deg, var(--color-bg-soft) 0%, #ffffff 100%);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-md);
+    color: var(--color-text);
+    font-size: 15px;
+    line-height: 1.85;
+    box-shadow: 0 1px 3px var(--color-shadow);
+}
+
+/* ========== 小白入门路径 (#path) ========== */
+.path-steps {
+    display: block;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 0;
+    table-layout: fixed;
+}
+.path-steps td {
+    width: 20%;
+    padding: 16px 12px;
+    text-align: center;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    vertical-align: top;
+}
+.path-steps td:not(:last-child) {
+    border-right: none;
+}
+.path-step-num {
+    display: inline-block;
+    width: 32px;
+    height: 32px;
+    line-height: 32px;
+    margin-bottom: 8px;
+    font-size: 16px;
+    font-weight: 700;
+    color: #ffffff;
+    background: var(--color-primary);
+    border-radius: 50%;
+}
+.path-step-title {
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 6px;
+}
+.path-step-desc {
+    font-size: 13px;
+    color: var(--color-text-light);
+    line-height: 1.6;
+}
+
+/* ========== 5 大模块知识库 (#modules) ========== */
+.module {
+    margin-bottom: 48px;
+    padding: 28px 30px;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    box-shadow: 0 2px 8px var(--color-shadow);
+    transition: box-shadow var(--transition);
+}
+.module:hover {
+    box-shadow: 0 4px 16px var(--color-shadow-md);
+}
+.module-header {
+    display: block;
+    margin-bottom: 22px;
+    padding-bottom: 16px;
+    border-bottom: 1px dashed var(--color-border);
+    overflow: hidden;
+}
+.module-badge {
+    float: left;
+    width: 60px;
+    height: 60px;
+    line-height: 60px;
+    margin-right: 18px;
+    text-align: center;
+    font-size: 24px;
+    font-weight: 800;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    border-radius: var(--radius-md);
+    box-shadow: 0 4px 10px rgba(37, 99, 235, 0.3);
+}
+.module-badge.green {
+    background: linear-gradient(135deg, #10b981, var(--color-success));
+    box-shadow: 0 4px 10px rgba(5, 150, 105, 0.3);
+}
+.module-badge.red {
+    background: linear-gradient(135deg, #ef4444, var(--color-danger));
+    box-shadow: 0 4px 10px rgba(220, 38, 38, 0.3);
+}
+.module-badge.purple {
+    background: linear-gradient(135deg, #8b5cf6, var(--color-purple));
+    box-shadow: 0 4px 10px rgba(124, 58, 237, 0.3);
+}
+.module-badge.orange {
+    background: linear-gradient(135deg, #f59e0b, var(--color-warning));
+    box-shadow: 0 4px 10px rgba(217, 119, 6, 0.3);
+}
+.module-title {
+    font-size: 22px;
+    font-weight: 800;
+    color: var(--color-text);
+    margin-bottom: 6px;
+    letter-spacing: -0.2px;
+}
+.module-subtitle {
+    font-size: 13px;
+    color: var(--color-text-light);
+    font-weight: 500;
+}
+.module-content { font-size: 15px; line-height: 1.9; color: var(--color-text); }
+.module-content p { margin: 12px 0; }
+.module-content h4 {
+    position: relative;
+    padding: 14px 16px 14px 20px;
+    margin: 24px 0 14px 0;
+    font-size: 16px;
+    font-weight: 700;
+    color: var(--color-text);
+    background: linear-gradient(90deg, var(--color-bg-soft) 0%, #ffffff 100%);
+    border-left: 4px solid var(--color-primary);
+    border-radius: var(--radius-sm);
+    line-height: 1.5;
+}
+.module-content h4 strong { color: var(--color-danger); }
+.module-content ul, .module-content ol {
+    padding-left: 24px;
+    margin: 10px 0;
+}
+.module-content li {
+    margin: 6px 0;
+    line-height: 1.8;
+}
+.module-content strong { color: var(--color-text); font-weight: 700; }
+.module-content em { color: var(--color-primary); font-style: normal; font-weight: 600; }
+.module-placeholder {
+    padding: 24px;
+    margin: 16px 0;
+    background: var(--color-bg-soft);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-md);
+    text-align: center;
+    color: var(--color-text-muted);
+    font-size: 14px;
+}
+
+/* ========== 知识图谱 SVG 占位 (#mindmaps) ========== */
+.mindmap-grid {
+    display: block;
+    width: 100%;
+    border-collapse: separate;
+    border-spacing: 16px;
+    table-layout: fixed;
+}
+.mindmap-grid td {
+    width: 50%;
+    padding: 16px;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    vertical-align: top;
+}
+.mindmap-svg-wrap {
+    width: 100%;
+    overflow: hidden;
+    border-radius: var(--radius-sm);
+    background: var(--color-bg-soft);
+    /* 可选：双指缩放支持（在 SVG 元素添加 touch-action: pinch-zoom） */
+}
+.mindmap-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    touch-action: pinch-zoom;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.mindmap-caption {
+    margin-top: 10px;
+    font-size: 13px;
+    color: var(--color-text-light);
+    text-align: center;
+}
+.mindmap-placeholder {
+    aspect-ratio: 16 / 9;
+    display: table;
+    width: 100%;
+    background: var(--color-bg-soft);
+    border: 1px dashed var(--color-border);
+    border-radius: var(--radius-sm);
+}
+.mindmap-placeholder-inner {
+    display: table-cell;
+    text-align: center;
+    vertical-align: middle;
+    color: var(--color-text-muted);
+    font-size: 13px;
+    padding: 16px;
+}
+
+/* ========== 实战案例库 (#cases) ========== */
+.case-card {
+    margin-bottom: 28px;
+    padding: 22px 24px;
+    background: #ffffff;
+    border: 1px solid var(--color-border);
+    border-left: 5px solid var(--color-success);
+    border-radius: var(--radius-lg);
+    box-shadow: 0 2px 6px var(--color-shadow);
+    transition: all var(--transition);
+}
+.case-card:hover {
+    box-shadow: 0 4px 14px var(--color-shadow-md);
+    transform: translateY(-1px);
+}
+.case-card-header {
+    margin-bottom: 14px;
+    padding-bottom: 12px;
+    border-bottom: 1px dashed var(--color-border-soft);
+    overflow: hidden;
+}
+.case-name {
+    float: left;
+    font-size: 19px;
+    font-weight: 800;
+    color: var(--color-text);
+    letter-spacing: -0.2px;
+}
+.case-tag {
+    float: right;
+    padding: 4px 12px;
+    font-size: 12px;
+    font-weight: 600;
+    color: var(--color-success);
+    background: var(--color-success-light);
+    border: 1px solid #6ee7b7;
+    border-radius: 999px;
+}
+.case-meta {
+    display: block;
+    width: 100%;
+    margin: 14px 0;
+    border-collapse: separate;
+    border-spacing: 0;
+    font-size: 13px;
+    border-radius: var(--radius-md);
+    overflow: hidden;
+    border: 1px solid var(--color-border);
+}
+.case-meta th, .case-meta td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--color-border-soft);
+    text-align: left;
+    vertical-align: top;
+    line-height: 1.7;
+}
+.case-meta tr:last-child th, .case-meta tr:last-child td { border-bottom: none; }
+.case-meta th {
+    width: 110px;
+    background: var(--color-bg-soft);
+    font-weight: 700;
+    color: var(--color-primary);
+    border-right: 1px solid var(--color-border-soft);
+}
+
+/* ========== 九重交易境界 (#levels) ========== */
+.levels-list {
+    list-style: none;
+    counter-reset: levelcounter;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+    gap: 16px;
+}
+.levels-list li {
+    position: relative;
+    padding: 22px 22px 22px 72px;
+    margin-bottom: 0;
+    background: linear-gradient(135deg, #ffffff 0%, var(--color-bg-soft) 100%);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    counter-increment: levelcounter;
+    box-shadow: 0 1px 3px var(--color-shadow);
+    transition: all var(--transition);
+}
+.levels-list li:hover {
+    box-shadow: 0 4px 12px var(--color-shadow-md);
+    transform: translateY(-2px);
+}
+.levels-list li::before {
+    content: counter(levelcounter);
+    position: absolute;
+    left: 18px;
+    top: 22px;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    font-size: 17px;
+    font-weight: 800;
+    color: #ffffff;
+    background: linear-gradient(135deg, var(--color-primary), var(--color-primary-dark));
+    border-radius: 50%;
+    box-shadow: 0 2px 6px rgba(37, 99, 235, 0.3);
+}
+.levels-list li:nth-child(3n+2)::before {
+    background: linear-gradient(135deg, #10b981, var(--color-success));
+    box-shadow: 0 2px 6px rgba(5, 150, 105, 0.3);
+}
+.levels-list li:nth-child(3n+3)::before {
+    background: linear-gradient(135deg, #8b5cf6, var(--color-purple));
+    box-shadow: 0 2px 6px rgba(124, 58, 237, 0.3);
+}
+.level-title {
+    display: block;
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--color-text);
+    margin-bottom: 6px;
+}
+.level-desc {
+    font-size: 14px;
+    color: var(--color-text-light);
+    line-height: 1.7;
+}
+
+/* ========== 学习路径与工具清单 (#tools) ========== */
+.tools-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 24px;
+    font-size: 14px;
+}
+.tools-table th, .tools-table td {
+    padding: 10px 12px;
+    border: 1px solid var(--color-border);
+    text-align: left;
+    vertical-align: top;
+}
+.tools-table thead th {
+    background: var(--color-bg-soft);
+    font-weight: 700;
+    color: var(--color-text);
+}
+.tools-table tbody tr:nth-child(even) { background: #fafbfc; }
+.tools-table code {
+    font-family: "SF Mono", "Cascadia Mono", Consolas, "Microsoft YaHei Mono", monospace;
+    font-size: 13px;
+    color: var(--color-danger);
+    background: var(--color-bg-soft);
+    padding: 1px 6px;
+    border-radius: 3px;
+}
+.discipline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+.discipline-list li {
+    padding: 10px 14px 10px 36px;
+    margin-bottom: 8px;
+    background: var(--color-bg-soft);
+    border-left: 3px solid var(--color-danger);
+    border-radius: var(--radius-sm);
+    font-size: 14px;
+    color: var(--color-text);
+    position: relative;
+}
+.discipline-list li::before {
+    content: "✕";
+    position: absolute;
+    left: 12px;
+    top: 10px;
+    color: var(--color-danger);
+    font-weight: 700;
+}
+
+/* ========== 信息提示框 ========== */
+.note {
+    padding: 14px 18px;
+    margin: 18px 0;
+    background: linear-gradient(135deg, #fffbeb 0%, #fef3c7 100%);
+    border: 1px solid #fde68a;
+    border-left: 4px solid var(--color-warning);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    line-height: 1.75;
+    color: #78350f;
+    box-shadow: 0 1px 2px var(--color-shadow);
+}
+.note strong { color: #92400e; }
+.tip {
+    padding: 14px 18px;
+    margin: 18px 0;
+    background: linear-gradient(135deg, #ecfdf5 0%, var(--color-success-light) 100%);
+    border: 1px solid #a7f3d0;
+    border-left: 4px solid var(--color-success);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    line-height: 1.75;
+    color: #064e3b;
+    box-shadow: 0 1px 2px var(--color-shadow);
+}
+.warn {
+    padding: 14px 18px;
+    margin: 18px 0;
+    background: linear-gradient(135deg, #fef2f2 0%, var(--color-danger-light) 100%);
+    border: 1px solid #fecaca;
+    border-left: 4px solid var(--color-danger);
+    border-radius: var(--radius-md);
+    font-size: 14px;
+    line-height: 1.75;
+    color: #7f1d1d;
+    box-shadow: 0 1px 2px var(--color-shadow);
+}
+
+/* ========== 返回顶部 ========== */
+.back-to-top {
+    position: fixed;
+    right: 18px;
+    bottom: 18px;
+    width: 44px;
+    height: 44px;
+    line-height: 44px;
+    text-align: center;
+    font-size: 18px;
+    color: #ffffff;
+    background: var(--color-primary);
+    border-radius: 50%;
+    text-decoration: none;
+    box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+    z-index: 50;
+    opacity: 0.9;
+}
+.back-to-top:hover { opacity: 1; }
+
+/* ========== 页脚 ========== */
+.site-footer {
+    padding: 32px 24px;
+    margin-top: 48px;
+    background: var(--color-bg-soft);
+    border-top: 1px solid var(--color-border);
+    text-align: center;
+    font-size: 13px;
+    color: var(--color-text-muted);
+}
+.site-footer p { margin: 4px 0; }
+.site-footer strong { color: var(--color-text-light); }
+
+/* ========== 移动端适配 ========== */
+@media (max-width: 768px) {
+    .container { padding: 20px 14px 60px; }
+    .hero { padding: 32px 12px 40px; }
+    .hero-title { font-size: 24px; }
+    .hero-subtitle { font-size: 14px; }
+    .hero-quote { font-size: 14px; padding: 12px 14px; }
+    .section { margin-bottom: 44px; }
+    .section-title { font-size: 20px; }
+    .section-num { padding: 3px 10px; font-size: 11px; }
+    .module { padding: 20px 16px; margin-bottom: 32px; }
+    .module-badge { width: 48px; height: 48px; line-height: 48px; font-size: 20px; margin-right: 14px; }
+    .module-title { font-size: 18px; }
+    .module-content { font-size: 14px; }
+    .module-content h4 { font-size: 15px; padding: 12px 12px 12px 16px; }
+    .mindmap-grid, .mindmap-grid tbody, .mindmap-grid tr, .mindmap-grid td {
+        display: block;
+        width: 100%;
+    }
+    .mindmap-grid td { width: 100%; margin-bottom: 14px; }
+    .path-steps, .path-steps tbody, .path-steps tr, .path-steps td {
+        display: block;
+        width: 100%;
+    }
+    .path-steps td {
+        width: 100%;
+        margin-bottom: 10px;
+        border-right: 1px solid var(--color-border) !important;
+    }
+    .case-card { padding: 16px; }
+    .case-name { float: none; display: block; font-size: 17px; margin-bottom: 6px; }
+    .case-tag { float: none; display: inline-block; margin-top: 0; }
+    .case-meta th, .case-meta td { padding: 8px 10px; font-size: 12px; }
+    .case-meta th { width: 90px; }
+    .levels-list { grid-template-columns: 1fr; gap: 12px; }
+    .levels-list li { padding: 18px 16px 18px 60px; }
+    .levels-list li::before { width: 34px; height: 34px; line-height: 34px; font-size: 15px; left: 14px; top: 18px; }
+    .level-title { font-size: 15px; }
+    .level-desc { font-size: 13px; }
+    .site-header-inner { padding: 8px 12px; }
+    .site-nav a { font-size: 12px; padding: 5px 7px; }
+    .site-logo { font-size: 14px; margin-right: 10px; }
+    .back-to-top { right: 12px; bottom: 12px; width: 40px; height: 40px; line-height: 40px; }
+    .note, .tip, .warn { padding: 12px 14px; font-size: 13px; }
+}
+@media (max-width: 420px) {
+    .hero-title { font-size: 21px; }
+    .section-title { font-size: 18px; }
+    .module-title { font-size: 16px; }
+    .case-meta th { width: 76px; }
+    .path-step-num { width: 28px; height: 28px; line-height: 28px; font-size: 14px; }
+}
+
+/* ========== 打印样式 ========== */
+@media print {
+    .site-header, .back-to-top { display: none; }
+    body { font-size: 12pt; }
+    .container { max-width: 100%; padding: 0; }
+    .module, .case-card { break-inside: avoid; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ========== 顶部固定导航 ========== -->
+<header class="site-header">
+    <div class="site-header-inner">
+        <span class="site-logo">龙虎跃精修</span>
+        <nav class="site-nav">
+            <a href="#hero">首屏</a>
+            <a href="#path">入门路径</a>
+            <a href="#modules">5大模块</a>
+            <a href="#mindmaps">知识图谱</a>
+            <a href="#cases">实战案例</a>
+            <a href="#levels">九重境界</a>
+            <a href="#tools">工具清单</a>
+        </nav>
+    </div>
+</header>
+
+<div class="container">
+
+<!-- ========== 1. 首屏 ========== -->
+<section id="hero" class="hero">
+    <span class="hero-tag">张穗鸿老师 · 高阶课</span>
+    <h1 class="hero-title">龙虎跃精修（高阶课）</h1>
+    <p class="hero-subtitle">从 0 基础小白到稳定盈利高手的完整知识库</p>
+    <div class="hero-quote">
+        核心一句话：<strong>用 AI 选出大美女（启动股），用缠论识别顶底，用一统天下做长中线，用卷钱机器/双龙战法做实战 —— 五位一体，九重境界，逐步通关。</strong>
+    </div>
+    <div class="hero-mindmap" aria-label="全课程总思维导图">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;background:#ffffff;">
+  <style>
+    .root { fill:#2563eb; stroke:#1e40af; stroke-width:1.5; }
+    .root-text { font-size:16px; font-weight:bold; fill:#ffffff; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l1 { fill:#dbeafe; stroke:#2563eb; stroke-width:1; }
+    .l1-text { font-size:14px; font-weight:bold; fill:#1e3a8a; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l2 { fill:#dcfce7; stroke:#16a34a; stroke-width:1; }
+    .l2-text { font-size:13px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3 { fill:#fef3c7; stroke:#d97706; stroke-width:1; }
+    .l3-text { font-size:12px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-sub { font-size:11px; fill:#475569; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .line { stroke:#94a3b8; stroke-width:1.5; fill:none; }
+    .line-dim { stroke:#cbd5e1; stroke-width:1; fill:none; stroke-dasharray:3,3; }
+    g.node:hover rect { opacity:0.85; }
+  </style>
+  <!-- 根节点 -->
+  <g class="node">
+    <rect class="root" x="60" y="475" width="200" height="50" rx="6"/>
+    <text class="root-text" x="160" y="500" text-anchor="middle" dominant-baseline="middle">龙虎跃精修课</text>
+  </g>
+  <!-- 一级节点（5个模块） -->
+  <g class="node">
+    <rect class="l1" x="380" y="95" width="220" height="44" rx="5"/>
+    <text class="l1-text" x="490" y="117" text-anchor="middle" dominant-baseline="middle">模块1：九五至尊（AI选股）</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="380" y="285" width="220" height="44" rx="5"/>
+    <text class="l1-text" x="490" y="307" text-anchor="middle" dominant-baseline="middle">模块2：大美女模式</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="380" y="475" width="220" height="44" rx="5"/>
+    <text class="l1-text" x="490" y="497" text-anchor="middle" dominant-baseline="middle">模块3：一统天下</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="380" y="665" width="220" height="44" rx="5"/>
+    <text class="l1-text" x="490" y="687" text-anchor="middle" dominant-baseline="middle">模块4：缠论体系</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="380" y="855" width="220" height="44" rx="5"/>
+    <text class="l1-text" x="490" y="877" text-anchor="middle" dominant-baseline="middle">模块5：实战战法</text>
+  </g>
+  <!-- 根→一级连接线 -->
+  <path class="line" d="M 260 500 L 310 500 L 310 117 L 380 117"/>
+  <path class="line" d="M 260 500 L 310 500 L 310 307 L 380 307"/>
+  <path class="line" d="M 260 500 L 380 497"/>
+  <path class="line" d="M 260 500 L 310 500 L 310 687 L 380 687"/>
+  <path class="line" d="M 260 500 L 310 500 L 310 877 L 380 877"/>
+  <!-- 标题 -->
+  <text style="font-size:18px;font-weight:bold;fill:#0f172a;font-family:sans-serif;" x="800" y="985" text-anchor="middle" dominant-baseline="middle">龙虎跃精修课 · 全课程知识图谱</text>
+</svg>
+    </div>
+</section>
+
+<!-- ========== 2. 小白入门路径 ========== -->
+<section id="path" class="section">
+    <header class="section-header">
+        <span class="section-num">02</span>
+        <h2 class="section-title">小白入门路径</h2>
+        <p class="section-desc">5 步走，从看不懂 K 线到独立操盘的通关地图</p>
+    </header>
+    <div class="section-intro">
+        主人是小白也没关系，按这 5 步顺序学习，每一步都为下一步打基础。约 30 天可完成第一轮通关。
+    </div>
+    <table class="path-steps">
+        <tbody>
+            <tr>
+                <td>
+                    <span class="path-step-num">1</span>
+                    <div class="path-step-title">看懂 K 线与均线</div>
+                    <div class="path-step-desc">M4 / M8 / M20 基础，理解阳线、阴线、量价</div>
+                </td>
+                <td>
+                    <span class="path-step-num">2</span>
+                    <div class="path-step-title">学会找"大美女"</div>
+                    <div class="path-step-desc">用 AI 选出启动股，识别 95% 涨幅基因</div>
+                </td>
+                <td>
+                    <span class="path-step-num">3</span>
+                    <div class="path-step-title">掌握缠论顶底</div>
+                    <div class="path-step-desc">分型→笔→线段→中枢→背驰，识别绝对顶底</div>
+                </td>
+                <td>
+                    <span class="path-step-num">4</span>
+                    <div class="path-step-title">一统天下做长中线</div>
+                    <div class="path-step-desc">分区卷钱，按周期分批买入持有</div>
+                </td>
+                <td>
+                    <span class="path-step-num">5</span>
+                    <div class="path-step-title">实战战法变现</div>
+                    <div class="path-step-desc">卷钱机器 / 双龙战法 / 做 T / 复盘</div>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- ========== 3. 5 大模块知识库 ========== -->
+<section id="modules" class="section">
+    <header class="section-header">
+        <span class="section-num">03</span>
+        <h2 class="section-title">5 大模块知识库</h2>
+        <p class="section-desc">课程核心：5 大模块构成完整的"选股 → 择时 → 持仓 → 战法 → 复盘"闭环</p>
+    </header>
+    <div class="section-intro">
+        每个模块都包含：核心概念 · 操作步骤 · AI 公式 · 实战要点 · 常见误区。主人按顺序学习即可。
+    </div>
+
+    <!-- 模块 1：九五至尊 -->
+    <article class="module">
+        <header class="module-header">
+            <div class="module-badge">1</div>
+            <div class="module-title">九五至尊：AI 选股 —— 95% 涨幅基因</div>
+            <div class="module-subtitle">核心：找出具有"翻倍基因"的启动股</div>
+        </header>
+        <div class="module-content">
+            <p><strong>九五至尊</strong>是张老师体系里专门抓"<strong>95% 涨幅基因</strong>"的 AI 选股公式，名字来自《易经》"九五，飞龙在天"——找到一只股即将从"小泥鳅变龙"的那个关键时刻，在它刚启动时就上车，吃主升浪的"鱼身鱼尾"。</p>
+
+            <h4>① 什么是"九五至尊"指标</h4>
+            <p>这是一套<strong>写进通达信软件</strong>的选股公式（让电脑替你按规则扫描全市场 5000 多只股票的工具）。它在通达信里的代号叫 <code>JAWZZ</code>。</p>
+
+            <h4>② 龙头股五大条件</h4>
+            <ul>
+                <li><strong>从涨停板开始启动</strong>（普通股 10%、ST 股 5%；这是多头最强烈的信号）</li>
+                <li><strong>价格低</strong>（≤10 元，散户买得起，涨起来空间大）</li>
+                <li><strong>流通市值适中</strong>（30-200 亿，既不会小到没量，也不会大到没人炒）</li>
+                <li><strong>KDJ 三周期共振</strong>（3 个不同时间周期 KDJ 同时金叉）</li>
+                <li><strong>逆势启动</strong>（大盘跌的时候它能涨停 = 主力资金真金白银在拉）</li>
+            </ul>
+
+            <h4>③ 通达信选股 6 步实操</h4>
+            <ol>
+                <li>打开通达信 → 点击顶部"<strong>公式</strong>" → 选择"<strong>综合选股</strong>"</li>
+                <li>左侧"条件组"目录树 → 展开"加号(+)→ 技术指标 → 其他类型" → 找到"<strong>九五至尊</strong>"</li>
+                <li>设置条件 → 选"小于"或"上穿"等具体规则 → 数值填入对应门槛</li>
+                <li><strong>必须点"加入条件"按钮</strong>（漏了电脑什么都不选）</li>
+                <li>点"<strong>执行选股</strong>" → 软件全市场扫描</li>
+                <li>选完后<strong>保存方案</strong>（命名"九五至尊"），第二天通过"<strong>引入方案</strong>"一键调用</li>
+            </ol>
+
+            <h4>④ 每日选股时点</h4>
+            <p>必须是 <strong>下午 3:10 分之后</strong>（有时 3:30 后），等交易所数据落库，盘中不能操作。数据要完整：首次使用要从 <strong>1990 年 1 月 1 日</strong> 下载到当天的全部日线数据。</p>
+
+            <h4>⑤ 起爆前四信号（小白版）</h4>
+            <ul>
+                <li><strong>缩量回调不破启动价</strong>——主力没跑，筹码锁定</li>
+                <li><strong>均线聚拢后一阳穿三线</strong>——5/10/20 日均线粘合后被一根大阳线全部突破</li>
+                <li><strong>红肥绿瘦</strong>——上涨时放量（红柱粗），下跌时缩量（绿柱细）</li>
+                <li><strong>周 KDJ 在 20 以下金叉 + 底部首根放量涨停</strong>——典型"超跌反转 + 主力动手"组合</li>
+            </ul>
+
+            <h4>⑥ 买入分级（按确定性分仓位）</h4>
+            <ul>
+                <li><strong>激进首板</strong>（一板=第 1 个涨停板）：适合高手，胜率 50% 左右</li>
+                <li><strong>稳健二板</strong>（第 2 个连续涨停）：<strong>最适合散户</strong>——龙头已明确，胜率 70%+，是确定性最高的入场点</li>
+                <li><strong>高位三板+</strong>（3 个及以上连续涨停）：<strong>只适合高手</strong>，风险大但爆发力强</li>
+            </ul>
+
+            <h4>⑦ 与"潜龙在渊"战法的搭配</h4>
+            <p><strong>九五至尊</strong>抓的是右侧（已启动的龙头）；<strong>潜龙在渊</strong>抓的是左侧（还在超跌底部、即将反弹的股）。两者<strong>互补不冲突</strong>——张老师的体系里"右侧追龙头 + 左侧埋伏底"是两条独立的赚钱路线。</p>
+
+            <h4>⑧ 风险红线（必须剔除的股）</h4>
+            <ul>
+                <li><strong>ST/*ST 股</strong>（带星号 ST 标的）：可能退市，涨停只赚 5%，退市可能血本无归</li>
+                <li><strong>业绩爆雷股</strong>（突然业绩亏损、突发利空）：如案例中的<strong>新华联</strong>——一季度季报严重亏损导致大跌</li>
+                <li><strong>没有系统性风险但"自然跌下来"的才是合格标的</strong>——大盘调整、情绪悲观导致的下跌是好的入场机会</li>
+            </ul>
+
+            <div class="tip">
+                <strong>📊 实战案例 1：剑桥科技（603083）—— AI 算力主升浪</strong><br>
+                时间：2023 年 ChatGPT 行情期间。股价从 <strong>12 元 → 47 元</strong>（4 倍涨幅）。九五至尊基因：从首板启动 → 二板定龙头 → 周线多周期 KDJ 共振。教训：<strong>二板入场是确定性最高的点</strong>——一板风险大，三板以上位置高。
+            </div>
+
+            <div class="tip">
+                <strong>📊 实战案例 2：有棵树（002209）—— 通达信综合选股实战</strong><br>
+                时间：第 36 节实操案例。股价 <strong>5.2 → 6.31 元</strong>（约 21%，1 个月内）。用通达信"九五至尊 + 综合得分 + 波段底"三条件同时筛选，命中"启动红柱"信号后介入。核心：通达信不是"看一个指标就买"，而是"<strong>多条件交集</strong>"，大幅提高胜率。
+            </div>
+
+            <div class="note">
+                <strong>📝 小白口诀：</strong>龙头二板最稳，左侧右侧两条腿；ST 雷股不碰，自然超跌才合格。
+            </div>
+
+            <p style="font-size:13px; color:var(--color-text-muted); margin-top:12px;">📌 <strong>对应原课程章节：</strong>第 25 节（九五至尊基础）、第 29 节（AI 选股全流程 · 五层筛选）、第 38 节（九五至尊深化）、第 26 节（潜龙在渊，互补战法）、第 36 节（AI 选股实操）</p>
+        </div>
+    </article>
+
+    <!-- 模块 2：大美女模式 -->
+    <article class="module">
+        <header class="module-header">
+            <div class="module-badge green">2</div>
+            <div class="module-title">大美女模式：M4 / M8 / M20 均线 + 量价</div>
+            <div class="module-subtitle">核心：识别"主力建仓完毕、即将拉升"的启动信号</div>
+        </header>
+        <div class="module-content">
+            <p><strong>大美女模式</strong>是张老师最经典的抄底战法，专门抓"长期下跌后底部反转"的股，核心是"<strong>M4/M8/M20 三条均线 + 头肩底形态 + 量价配合</strong>"——名字虽叫"大美女"，实际是一套非常严谨的技术分析体系。</p>
+
+            <h4>① M4/M8/M20 均线是什么</h4>
+            <p>均线就是把过去 N 天的收盘价<strong>算个平均数</strong>，每天往前挪一格画出来的线：</p>
+            <ul>
+                <li><strong>M4</strong> = 过去 4 根 K 线的均价 → <strong>最灵敏</strong>，短期涨跌它最先反应（冲刺手）</li>
+                <li><strong>M8</strong> = 过去 8 根 K 线的均价 → <strong>中等速度</strong>，节奏手</li>
+                <li><strong>M20</strong> = 过去 20 根 K 线的均价 → <strong>最慢</strong>，代表中期趋势（领跑员）</li>
+            </ul>
+            <p><strong>关键信号：</strong>金叉（M4 从下方穿越 M8 = 买入）；死叉（M4 从上方跌破 M8 = 卖出）；多头排列（M4 &gt; M8 &gt; M20 三线向上发散 = 最强上涨形态）；20 日线是"短线多空分水岭"：股价站上 20 日线 = 偏多；跌破 = 偏空。</p>
+
+            <h4>② 头肩底形态（小白版）</h4>
+            <p>股价长期下跌后，画出来的 K 线像一个人形——<strong>左肩（低）、头（最低）、右肩（低）</strong>，连接两个高点形成"颈线"。颈线被<strong>带量突破</strong>的那一刻 = 形态确认 = 买入信号。</p>
+            <ul>
+                <li><strong>胜率</strong>：日线级别带量确认时突破成功率约 <strong>78%-83%</strong></li>
+                <li><strong>测幅目标</strong>：突破后涨幅 ≈ "头部到颈线的垂直距离"</li>
+                <li><strong>失败警示</strong>：突破必须带量，无量易假突破；必须等收盘确认，不可抢"半成品"</li>
+            </ul>
+
+            <h4>③ 大美女"四步筛选"法</h4>
+            <ol>
+                <li><strong>周线看趋势</strong>：周线必须已经走出底部（长期下跌 → 缩量横盘 → 出现底分型）</li>
+                <li><strong>日线找买点</strong>：日线 M4 上穿 M8 + M20 方向向上 = 趋势确认</li>
+                <li><strong>5 分钟找精确入场点</strong>：5 分钟级别出现头肩底颈线突破 = 精确买点</li>
+                <li><strong>量价配合</strong>：突破时必须放量（成交量 &gt; 前 5 日均量 ×1.5 倍），无量突破就是假突破</li>
+            </ol>
+
+            <h4>④ 大美女 + 缠论"底分型"三重共振</h4>
+            <p><strong>底分型</strong>：3 根 K 线的组合，中间 K 线的最低点比左右两根都低，但高点比左右都高 → 下跌动能衰竭的信号。当日线出现<strong>底分型 + M4 上穿 M8 + 5 分钟头肩底突破</strong> = <strong>三重共振买点</strong>（确定性最高）。</p>
+
+            <h4>⑤ 大美女的"做 T 玩法"</h4>
+            <p>底仓不变，<strong>每天在 5 分钟/1 分钟波动里低买高卖</strong>，把持仓成本越做越低。</p>
+            <ul>
+                <li>单次目标利润 0.5%-2%</li>
+                <li>日内振幅低于 2% 不做 T</li>
+                <li><strong>70% 底仓 + 30% 活动资金</strong></li>
+            </ul>
+
+            <h4>⑥ 大美女的止损纪律</h4>
+            <ul>
+                <li>跌破 5 日线立即减仓</li>
+                <li>单票最大回撤 &gt; 15% 强制清仓</li>
+                <li>跌破头肩底颈线 = 形态失败，必须止损</li>
+                <li><strong>铁律</strong>：买入即设止损，绝不让小亏变大亏</li>
+            </ul>
+
+            <h4>⑦ 大美女的"美人标准"</h4>
+            <ul>
+                <li>行业地位：细分行业龙头或二线蓝筹</li>
+                <li>市值：30-300 亿（既不会被游资忽略，也不会大到拉不动）</li>
+                <li>业绩：稳定或拐点向上（不能是 ST 或业绩爆雷）</li>
+                <li>技术位置：长期下跌 30%-50% 后的底部（不是高位追涨）</li>
+            </ul>
+
+            <h4>⑧ 大美女的"成长路径"思维（强化学习）</h4>
+            <p>张老师比喻：选股就像养女儿。</p>
+            <ul>
+                <li><strong>1 年龄</strong>（下跌段）：不看，等"长大"</li>
+                <li><strong>18 岁</strong>（横盘段）：开始留意基本面</li>
+                <li><strong>出嫁年龄</strong>（启动段）：M4 穿 M8 + 头肩底突破 = "该娶回家了"</li>
+            </ul>
+
+            <div class="tip">
+                <strong>📊 实战案例 1：厚普股份（300471）—— 大美女模式 + 做 T 实战</strong><br>
+                时间：第 37 节复盘案例。当日 5 分钟出现"<strong>底分型 + 站上 5 日线</strong>" = 第 1 次买入信号 → 建 1 层仓；价格回踩不破 5 日线 → 第 2 次买入 → 再建 1 层仓；5 分钟形成"<strong>顶分型 + MACD 死叉</strong>" = 卖出信号 → 出 1 层仓。收益：<strong>单日做 T 收益约 8%</strong>，日内在 1 个亿资金容量内安全。教训：<strong>做 T 适合"活跃区"</strong>（市场情绪高涨），冰点区不做 T。
+            </div>
+
+            <div class="tip">
+                <strong>📊 实战案例 2：金山股份（600396）—— 大美女 + 三机器联合作战</strong><br>
+                时间：第 34 节案例（4 月 8 日）。形态：周线级别出现"波段底"信号 + 5 分钟级别形成"头肩底"形态。机器 1（周→30 分钟）：30 分钟底分型形成 → 4 月 9 日开盘建仓 <strong>5 成</strong>（100 万 → 50 万）；机器 2（日→5 分钟）：5 分钟头肩底颈线突破 → 同步建仓 <strong>3 成</strong>（30 万）。共振买点：周线 + 30 分钟 + 5 分钟三周期共振 = 确定性最高。教训：<strong>多周期共振 = 高胜率</strong>，单周期信号再强也别孤注一掷。
+            </div>
+
+            <div class="note">
+                <strong>📝 小白口诀：</strong>大美女有三美：M4M8M20 排队、头肩底突破带量、底分型三重确认。
+            </div>
+
+            <h4>⑧ 实战复盘 · 大美女验证清单</h4>
+            <p>买入大美女后，<strong>每天收盘 30 分钟</strong>对照以下 8 项打分（每项 1 分，满分 8 分）：</p>
+            <ol>
+                <li>M4 是否仍 > M8？（多头排列保持 +1）</li>
+                <li>M4 是否仍 > M20？（中期趋势保持 +1）</li>
+                <li>5 日均量是否持续放大？（量价配合 +1）</li>
+                <li>股价是否站在 M20 上方？（短线偏多 +1）</li>
+                <li>大盘情绪温度计是否在 2000-4100 活跃区？（环境友好 +1）</li>
+                <li>所属板块是否轮动到主升浪？（风口延续 +1）</li>
+                <li>主力资金是否净流入？（资金驱动 +1）</li>
+                <li>是否触发"<strong>跌破 5 日线立即离场</strong>"铁律？（<strong>触发了 +1（果断执行）；没触发也 +1（持仓正确）</strong>）</li>
+            </ol>
+            <p><strong>评分规则</strong>：≥ 6 分 = 继续持有；4-5 分 = 减半仓；≤ 3 分 = <strong>次日开盘清仓</strong>。<strong>实战复盘不是看赚多少，而是看战法是否被严格执行</strong>——赚 5% 严格执行 &gt; 赚 20% 凭运气。</p>
+
+            <p style="font-size:13px; color:var(--color-text-muted); margin-top:12px;">📌 <strong>对应原课程章节：</strong>第 24 节（大美女基础 + M4/M8/M20）、第 28 节（头肩底详解 + 实战复盘）、第 39 节（缠论底分型 + 大美女联动）、第 37 节（厚普股份做 T 复盘）、第 42 节（美女成长路径思维）</p>
+        </div>
+    </article>
+
+    <!-- 模块 3：一统天下 -->
+    <article class="module">
+        <header class="module-header">
+            <div class="module-badge red">3</div>
+            <div class="module-title">一统天下：AI 长中线 + 分区卷钱</div>
+            <div class="module-subtitle">核心：用 AI 做长中线布局，按周期分批卷钱</div>
+        </header>
+        <div class="module-content">
+            <p><strong>一统天下</strong>是张老师体系的"<strong>集大成战法</strong>"，本质是用 AI 把"九五至尊（龙头）、潜龙在渊（底部）、博弈长阳（强势）"三类股票<strong>统一打分排序</strong>，同时配合"分区卷钱"（30 亿以下小盘、30-300 亿中盘、300 亿以上大盘）三档分仓操作，覆盖长线、中线、短线全周期。</p>
+
+            <h4>① 一统天下的本质</h4>
+            <p>不是某一个具体公式，而是一套"<strong>五维评分卡</strong>"——给全市场每一只股票在 5 个维度上各打 1 分，加权后总分排序，挑出前 10-30 只买。类比：就像选秀节目，5 个评委各打 1 分，加权总分前 10 名出道，剩下的 4990 个全淘汰。<strong>电脑干这事 1 秒，人眼要 1 个月</strong>——这就是 AI 比人强的地方。</p>
+
+            <h4>② 一统天下五维框架</h4>
+            <ul>
+                <li><strong>周线维度（20%）</strong>：周 KDJ 金叉、周 MACD 零上、周均线多头排列</li>
+                <li><strong>综合得分（25%）</strong>：行为因子 25% + 均线趋势 20% + 动量 15% + 技术 15% + 稳定性 15% + 基本面 10%，输出 0-100 分</li>
+                <li><strong>波段底（15%）</strong>：处于日/周线波段底部，反弹空间 ≥ 20%</li>
+                <li><strong>行业维度（20%）</strong>：当前主流赛道（航天航空、半导体、AI、电力、算力）+ 行业景气向上</li>
+                <li><strong>活跃度（20%）</strong>：融资融券余额周增幅 &gt; 0、换手率 3-15%、近 20 日涨停 ≥ 2 次、龙虎榜机构净买</li>
+            </ul>
+
+            <h4>③ 一统天下的"颜色信号"系统</h4>
+            <ul>
+                <li><strong>白柱</strong>：波段底信号 → 适合关注</li>
+                <li><strong>紫柱</strong>：极品底信号 → 适合重仓（<strong>一年内最确定的底部</strong>）</li>
+                <li><strong>红柱</strong>：启动信号 → 适合追涨（已突破，趋势确立）</li>
+                <li><strong>黄色</strong>：备钱信号 → 准备子弹，但还没到买点</li>
+                <li><strong>绿色</strong>：风险区域 → 不操作</li>
+            </ul>
+            <p><strong>关键</strong>：紫柱（极品底）一年只出现 30-50 次，<strong>是张老师体系里确定性最高的买入信号</strong>。</p>
+
+            <h4>④ 长中短线"三机器"分工</h4>
+            <ul>
+                <li><strong>长线（机器 1）</strong>：<strong>月线 + 周线</strong>选股 → 30 分钟建仓 → <strong>5 成仓</strong> → 持有 1-3 个月到 1 年。代表案例：<strong>中航电测 7→64.88 元（10 倍涨幅）</strong></li>
+                <li><strong>中线（机器 2）</strong>：日线选股 → 5 分钟建仓 → <strong>3 成仓</strong> → 持有 1-4 周。代表案例：华尔泰、康源药业、斯丹利</li>
+                <li><strong>短线（机器 3）</strong>：30 分钟选股 → 1 分钟建仓 → <strong>2 成仓</strong> → 持有 1-3 天。代表案例：<strong>国联股份 63.88→69.63（1 天 9000 元利润）</strong></li>
+            </ul>
+            <p><strong>联动规则</strong>：长线信号是"主仓位"，中短线信号是"做 T 加减仓"，三者独立运行但共用同一只股票。</p>
+            <p><strong>📅 月线看大势</strong>：长线选股<strong>必须先看月线</strong>——月线 MACD 金叉 + 月线站上 5 月均线 = 长线重仓信号；月线空头排列时（MACD 在 0 轴下方）坚决不做长线。月线级别的"紫柱极品底"一年只出现 3-5 次，<strong>遇到就重仓</strong>。周线确认方向、月线定调、60 分钟找精确买点——三周期共振 = 长线最佳买点。</p>
+            <p><strong>🔄 板块轮动</strong>（= 行业轮动）：A 股市场资金按"消费→医药→科技→新能源→军工→金融"等板块<strong>周期性切换</strong>。识别方法：① 板块指数站上年线 + MACD 金叉（板块启动）；② 板块成交量连续 3 天放大（资金涌入）；③ 政策风口或产业景气拐点（催化剂）。一统天下的"<strong>分区卷钱</strong>"本质就是<strong>跟随板块轮动</strong>：资金流入哪分区（30 亿/30-300 亿/300 亿以上），哪分区的龙头股就是主战场。案例：2023 年 AI 板块轮动到 30-300 亿中盘股 → 海天瑞声、剑桥科技、中大力德等龙头集中爆发。</p>
+
+            <h4>⑤ 一统天下的"分区卷钱模式"</h4>
+            <ul>
+                <li><strong>小盘股（30 亿以下）</strong>：波动大、容易翻倍 → 适合小资金快进快出</li>
+                <li><strong>中盘股（30-300 亿）</strong>：行业龙头集中地 → <strong>张老师主战场</strong></li>
+                <li><strong>大盘股（300 亿以上）</strong>：稳定但慢 → 适合大资金长线持有</li>
+                <li><strong>ST/*ST 股</strong>（虽然不属于分区，但必须识别）：用净利润指标识别（连续 2 年亏损 = ST 风险）</li>
+            </ul>
+            <p>案例：<strong>中天金融</strong> → 看财报发现连续亏损 → 排除。</p>
+
+            <h4>⑥ 江恩时间窗口</h4>
+            <p>关键时间节点：<strong>34 天、55 天、89 天、144 天</strong>（来自江恩理论 / 斐波那契数列）。含义：从重要低点/高点算起，到这些天数时容易出现转折。实战用法：买入后第 34/55/89/144 天附近密切关注，<strong>容易见顶或见底</strong>。</p>
+
+            <h4>⑦ 一统天下的"中枢画法"</h4>
+            <p>缠论核心概念（详见模块 4）：<strong>中枢 = 3 段价格重叠区间</strong> = 多空双方反复争夺的"引力中心"。中枢画法：取 3 个高点的最低 + 3 个低点的最高 = 中枢上下沿。一统天下用法：<strong>两中枢 + 背驰 = 80% 概率下跌</strong>（趋势背驰的经典信号）。<strong>跌破 5 日线立即离场</strong> = 一统天下铁律。</p>
+
+            <h4>⑧ 风险过滤清单</h4>
+            <ul>
+                <li>T+1 制度适配（A 股当天买次日才能卖，避免做 T 失误被套）</li>
+                <li>涨跌停板过滤（涨停板不买、跌停板不卖，规避流动性风险）</li>
+                <li>ST/商誉雷/解禁事件剔除</li>
+                <li>单股仓位 ≤ 35%（强制分散，不孤注一掷）</li>
+            </ul>
+
+            <h4>⑨ 走势必完美的三条件（小白版）</h4>
+            <ol>
+                <li>至少 2 个中枢同向 → 形成"趋势"（而非盘整）</li>
+                <li>第二个中枢后必须出现"背驰"（价格新高但动能没新高）</li>
+                <li>跌破 5 日均线离场</li>
+            </ol>
+            <p>三条件同时满足 = 卖出信号。</p>
+
+            <div class="tip">
+                <strong>📊 实战案例 1：中航电测（600855）—— 长线 10 倍神话</strong><br>
+                时间：2023 年军工重组行情。股价 <strong>7 元 → 64.88 元</strong>（约 10 倍涨幅）。战法：周线级别一统天下信号 → 30 分钟建仓 5 成 → 持有数月。基因：重组预期 + 军工赛道 + 周线 KDJ 三周期共振。教训：<strong>长线要敢于在周线底部重仓</strong>，然后让利润奔跑。
+            </div>
+
+            <div class="tip">
+                <strong>📊 实战案例 2：首要控股（002669）—— 中线 2 个月翻倍</strong><br>
+                时间：第 32 节案例。股价 <strong>23 → 47 元</strong>（约 2 倍涨幅，2 个月内）。战法：日线级别紫柱极品底 → 5 分钟建仓 3 成。基因：业绩拐点 + 行业政策催化。教训：<strong>紫柱信号极其稀有（一年 30-50 次）</strong>，出现就要敢于重仓。
+            </div>
+
+            <div class="tip">
+                <strong>📊 实战案例 3：国联股份（603613）—— 短中线 1 天 9000 元</strong><br>
+                时间：第 35 节复盘案例。股价 <strong>63.88 → 69.63 元</strong>（1 天内 9% 涨幅）。操作：5 分钟头肩底突破 → 建仓 5 成 15 万 → 1 天后卖出 → 利润 <strong>9000 元</strong>（5 成仓 15 万 × 9% × 7 折佣金 = 9000+）。教训：<strong>短中线核心是"信号出现就动手，信号消失就清仓"</strong>。
+            </div>
+
+            <div class="note">
+                <strong>📝 小白口诀：</strong>一统天下五维打分：周线定方向、综合看质地、波段找底部、行业看景气、活跃看资金。紫柱极品底一年三十次，遇到了就别错过。
+            </div>
+
+            <p style="font-size:13px; color:var(--color-text-muted); margin-top:12px;">📌 <strong>对应原课程章节：</strong>第 32 节（一统天下长线）、第 33 节（一统天下中线）、第 36 节（AI 选股实操）、第 42 节（强化学习一统天下）、第 30、31 节（缠论中枢 + 背驰）</p>
+        </div>
+    </article>
+
+    <!-- 模块 4：缠论体系 -->
+    <article class="module">
+        <header class="module-header">
+            <div class="module-badge purple">4</div>
+            <div class="module-title">缠论体系：分型→笔→线段→中枢→背驰</div>
+            <div class="module-subtitle">核心：识别市场的"绝对顶底"，解决"何时买卖"问题</div>
+        </header>
+        <div class="module-content">
+            <p><strong>缠论</strong>是用"<strong>数学化递归</strong>"给市场做完全分类的分析理论，由网名"缠中说禅"（疑为李彪）的博主 2006 年提出。它把 K 线从最小到最大拆成 5 个零件：<strong>分型→笔→线段→中枢→走势类型</strong>，像搭积木一样层层递进。</p>
+
+            <h4>① K 线包含处理（分型判定的预备动作）</h4>
+            <p>这是缠论最容易被忽视、却<strong>最关键的预备步骤</strong>——分型判别前必须先处理"包含关系"，否则顶底分型永远判错。</p>
+            <p><strong>什么是包含关系？</strong>相邻两根 K 线，一根的高点比另一根高，但低点也比另一根高（即"完全被另一根包住"）——这种"怀孕 K 线"（类比"孕线"）必须先合并再判分型。</p>
+            <p><strong>四大处理规则</strong>：</p>
+            <ul>
+                <li><strong>规则 1 · 上升取高高</strong>：当前方向向上时，新 K 线高点 = 前两根中较高的高点；新 K 线低点 = 前两根中较高的低点</li>
+                <li><strong>规则 2 · 下降取低低</strong>：当前方向向下时，新 K 线高点 = 前两根中较低的高点；新 K 线低点 = 前两根中较低的低点</li>
+                <li><strong>规则 3 · 从左到右处理</strong>：必须按时间顺序从左到右逐根处理，<strong>顺序不可逆</strong>，处理完一根才能处理下一根</li>
+                <li><strong>规则 4 · 方向看前后</strong>：处理完前两根后，若新 K 线相对第三根仍是包含关系，继续按当前方向处理；若方向反转，<strong>用第三根 K 线作为新基准</strong>重新判断方向</li>
+            </ul>
+            <p><strong>为什么要先处理？</strong>不处理包含关系，连续几根小阴小阳 K 线会让你看不出真正的顶底分型——可能你以为没有顶分型，实际已经连续 3 根新高了。</p>
+            <p><strong>小白比喻</strong>：把 K 线图想象成山峰剖面图，包含处理就像"把同方向的小台阶合并成一个大台阶"——这样山的"轮廓线"才看得清楚，顶底分型才能精准识别。</p>
+
+            <h4>② 缠论 5 个核心零件</h4>
+            <ul>
+                <li><strong>分型</strong>：3 根 K 线的组合。
+                    <ul>
+                        <li><strong>顶分型</strong>（小山头）：中间 K 线的最高/最低点比左右两根都高 → 可能见顶</li>
+                        <li><strong>底分型</strong>（小山谷）：中间 K 线的最高/最低点比左右两根都低 → 可能见底</li>
+                    </ul>
+                </li>
+                <li><strong>笔</strong>：连接一个顶分型和一个底分型，中间至少隔 1 根独立 K 线（实操中标准是 5 根）。上涨笔 = 底→顶；下跌笔 = 顶→底</li>
+                <li><strong>线段</strong>：至少由 3 笔构成（必须是奇数笔），前三笔必须有价格重叠。比笔更稳定，是中期方向判断的依据</li>
+                <li><strong>中枢</strong>：至少 3 段重叠的价格区间，是多空双方反复争夺的"<strong>引力中心</strong>"——<strong>这是缠论最核心的概念</strong>。中枢可以扩张、可以新生、可以级别升级</li>
+                <li><strong>走势类型</strong>：只有两种——<strong>趋势</strong>（含 ≥ 2 个同向中枢）和<strong>盘整</strong>（只含 1 个中枢，横盘震荡）</li>
+            </ul>
+            <p>类比：把 K 线图想象成一幅画，分型是"点"，笔是"短线条"，线段是"长曲线"，中枢是"画框"，走势类型是"整幅画的风格（横摆/上升/下降）"。</p>
+
+            <h4>② 缠论的"自相似性"原理（小白版）</h4>
+            <p>市场像一棵<strong>圣诞树</strong>——不管您看 1 分钟图、日线图还是周线图，里面都能找到"小山头、小山谷、中枢"这些相同的形状。学术名叫"<strong>自同构性</strong>"：分形几何（专门研究"任意放大都长得一样"的图形）。</p>
+            <p>类比：俄罗斯套娃——打开大娃娃，里面套着同样形状的小娃娃，再打开还有更小的。市场的"大行情"和"小行情"就是这种套娃关系。</p>
+            <p><strong>实战意义</strong>：让"级别"从固定时间周期（日线、60 分钟），变成"由走势自身生长出来的"——一段日线级别的中枢，在 30 分钟图上可能就是一个完整的走势类型。这就是"<strong>大级别背驰要等小级别确认</strong>"的理论根基 = "<strong>区间套</strong>"打法。</p>
+
+            <h4>③ 缠论的"递归结构"（小白版）</h4>
+            <p>缠论用 5 个零件，像俄罗斯套娃一样层层递归：</p>
+            <ol>
+                <li>3 根 K 线 → 分型（顶/底）</li>
+                <li>顶底相连 + 中间独立 K 线 → 笔</li>
+                <li>≥ 3 笔（前三笔重叠）→ 线段</li>
+                <li>≥ 3 段重叠区间 → 中枢</li>
+                <li>中枢数量与方向 → 走势类型（盘整/趋势）</li>
+            </ol>
+            <p>每一层都是下一层的"积木"，上一层又可以被下一层再分解。<strong>可无限放大或缩小</strong>——日线看不清，切换到 60 分钟再拆；60 分钟看不清，再切到 15 分钟。</p>
+
+            <h4>④ 缠论的"动力学"——背驰</h4>
+            <ul>
+                <li><strong>走势终完美</strong>（第一公理）：任何级别的任何走势（上涨、下跌、盘整）必然完成、必然终结、必然转化为其他类型。这是否定"永远涨/永远跌"幻想的哲学宣言，让交易从"预测"变成"跟踪结构是否完成"</li>
+                <li><strong>背驰</strong>：价格创出新高或新低，但推动它的"动能"（用 MACD 柱面积、黄白线高度衡量）没能同步创新高/新低——这就是"动能衰竭"信号
+                    <ul>
+                        <li><strong>趋势背驰</strong>：a+A+b+B+c 结构中，b 与 c 段力度对比 → 引发<strong>一类买卖点</strong></li>
+                        <li><strong>盘整背驰</strong>：中枢内同向段力度对比 → 多引发继续震荡</li>
+                    </ul>
+                </li>
+            </ul>
+            <p>小白比喻：把汽车爬坡比作一段上涨——价格是车的高度，MACD 是油门力度。坡度没变但油门变小了（背驰），就是快没油了，准备下坡。</p>
+
+            <h4>⑤ 缠论的三类买卖点（小白版）</h4>
+            <ul>
+                <li><strong>一买</strong>：下跌最后一个中枢之后的趋势背驰点——位置最低但<strong>风险最高</strong>（可能失败），建议 10-20% 仓位试错</li>
+                <li><strong>二买</strong>：一买之后回踩不创新低——<strong>安全性最高</strong>，是散户主仓入场点（30-50%）</li>
+                <li><strong>三买</strong>：价格突破中枢后回踩不破中枢上沿（ZG = 中枢最高点）——<strong>胜率最高（70-75%）</strong>，是趋势加速确认信号（20-40%）</li>
+            </ul>
+            <p>类比：三类买点就像三种入座方式——一买是"最早进影院、可能选错片"；二买是"看片不错再补票"；三买是"口碑爆了、追票入场"——按确定性分配仓位。</p>
+
+            <h4>⑥ 缠论与均线/K 线/MACD 的区别</h4>
+            <ul>
+                <li>传统技术分析（K 线形态、均线、MACD）是"<strong>经验归纳</strong>"——历史上这么走大概率会那么走</li>
+                <li>缠论是"<strong>自上而下的演绎体系</strong>"——从公理出发，用递归定义一切</li>
+            </ul>
+            <p>类比：传统分析像老中医"望闻问切"凭经验；缠论像现代医学，先拍片（分型）、再验血（笔）、再分科（中枢），一步一步严格诊断。</p>
+
+            <h4>⑦ 缠论的中阴阶段（小白版）</h4>
+            <p>含义：前一走势刚结束、下一走势未确立的"<strong>灰色阶段</strong>"——方向不明。识别方法：<strong>第三类买卖点</strong> = 突破/跌破最后一个中枢后回踩不破/不站 = 中阴结束、新走势确立。实战用法：<strong>中阴阶段不操作</strong>（除非你已用 3331 分仓），等方向明确再动手。</p>
+
+            <h4>⑧ 缠论的"级别"概念与"区间套"</h4>
+            <p>缠论的"级别"不是固定时间周期，而是"<strong>由中枢数量递归生长出来</strong>"的。实战固定一个主操作级别（日线或 30 分钟），不要在 5 分钟以下玩。多级别共振：用"<strong>区间套</strong>"——大级别买点要等小级别背驰确认。例如：日线底背驰 → 60 分钟底背驰 → 15 分钟底背驰 → 5 分钟一买，多级别共振才动手。</p>
+
+            <div class="tip">
+                <strong>📊 实战案例 1：缠论 + 一统天下 + 头肩底共振（华尔泰 001217）</strong><br>
+                时间：第 33 节中线案例。缠论结构：日线级别两中枢下跌 + 第二个中枢后趋势背驰 + 紫柱极品底信号。买点：日线一买（背驰点）+ 5 分钟头肩底突破 = <strong>双周期共振买点</strong>。结果：底部反弹 <strong>4-5 倍</strong>。教训：<strong>缠论结构 + AI 信号 + 形态确认 = 三重共振</strong>胜率最高。
+            </div>
+
+            <div class="tip">
+                <strong>📊 实战案例 2：海天瑞声（688787）—— ChatGPT 行情的缠论三买</strong><br>
+                时间：2023 年初。缠论结构：日线突破中枢后回踩不破 → <strong>三买确立</strong>。买点：三买 + 周线一统天下启动红柱 + 5 分钟头肩底颈线突破 = 多重共振。结果：<strong>主升浪翻倍</strong>。教训：<strong>三买是胜率最高的买点（70-75%）</strong>，但要等"突破后回踩不破"。
+            </div>
+
+            <div class="note">
+                <strong>📝 小白口诀：</strong>缠论五零件：分型笔线段中枢走势类型；三类买点：一买试错、二买主仓、三买追涨。背驰就是"价格新高但油门变小"——准备下坡。
+            </div>
+
+            <p style="font-size:13px; color:var(--color-text-muted); margin-top:12px;">📌 <strong>对应原课程章节：</strong>第 30 节（缠论基础：分型、笔、线段）、第 31 节（缠论深化：中枢、走势类型、背驰）、第 42 节（强化学习缠论 + 一统天下）</p>
+        </div>
+    </article>
+
+    <!-- 模块 5：实战战法 -->
+    <article class="module">
+        <header class="module-header">
+            <div class="module-badge orange">5</div>
+            <div class="module-title">实战战法：卷钱机器 / 双龙战法 / 做 T / 复盘</div>
+            <div class="module-subtitle">核心：把知识变成"账户里的钱"</div>
+        </header>
+        <div class="module-content">
+            <p>这是把上述理论落地的"<strong>工具箱</strong>"——卷钱机器教你在不同周期上抓机会；双龙战法教你怎么建仓（先轻仓试错，再大部队跟进）；做 T 教你在不预测方向下用波动赚利润；复盘教你每天检查对错、迭代系统。</p>
+
+            <h4>① 卷钱机器（多周期共振原理）</h4>
+            <p>在<strong>多个时间周期</strong>上同时找买入信号，全部对上才动手。</p>
+            <ul>
+                <li>大周期看方向、小周期找买点：
+                    <ul>
+                        <li>周线判断战略方向（日线/30 分钟看浪型结构）</li>
+                        <li>30 分钟确定波段方向</li>
+                        <li>5 分钟找精确买点</li>
+                        <li>1 分钟观察盘口异动</li>
+                    </ul>
+                </li>
+                <li>只有当多个周期同时发出<strong>同向信号</strong>时（比如周线多头 + 日线金叉 + 30 分钟突破 + 5 分钟回踩不破），胜率才会显著提升</li>
+                <li><strong>风险提示</strong>：1 分钟周期假信号多（&gt;65% 假突破），不要单独依赖 1 分钟图</li>
+            </ul>
+
+            <h4>② 三个卷钱机器的分工（资金分级）</h4>
+            <p>适用场景：<strong>资金量 ≥ 1 亿</strong>的大资金（散户小资金可借鉴思路，但仓位需缩小）。同一只股票 + 三个不同周期 + 三个独立仓位：</p>
+            <ul>
+                <li><strong>机器 1</strong>（周→30 分钟，<strong>5 成仓</strong>）= 中长期趋势仓位</li>
+                <li><strong>机器 2</strong>（日→5 分钟，<strong>3 成仓</strong>）= 短线做 T 仓位</li>
+                <li><strong>机器 3</strong>（30 分钟→1 分钟，<strong>2 成仓</strong>）= 超短线博弈仓位</li>
+            </ul>
+            <p><strong>核心规则</strong>：</p>
+            <ul>
+                <li>指导周期给方向（周/日/30 分钟），操作周期给点位（30/5/1 分钟）</li>
+                <li><strong>先看指导周期，再看操作周期</strong></li>
+                <li><strong>指导无信号 + 操作有信号 = 不操作</strong></li>
+                <li><strong>指导有信号 + 操作有信号 = 可操作</strong></li>
+            </ul>
+            <p><strong>快捷键</strong>：91 = 1 分钟，92 = 15 分钟，93 = 30 分钟，96 = 日线。</p>
+            <p><strong>5 分钟做 T 黄金法则</strong>：3 成仓 = 3 次信号 = 3 次各买 1 层（<strong>分批建仓是常态</strong>）；出 1 次卖出信号 → 卖 1 层；出 1 次买入信号 → 买 1 层；<strong>永远分批建仓，不满仓干</strong>。</p>
+
+            <h4>③ 双龙战法（斥候 + 大部队）</h4>
+            <p>先派一小队（<strong>斥候</strong>）去探路，确认安全后主力部队（<strong>大部队</strong>）才跟进。</p>
+            <ul>
+                <li><strong>斥候阶段</strong>：用极小仓位（通常 100 股或总资金 1% 以内）买入。
+                    <ul>
+                        <li>触发条件：<strong>M4 上穿 M8</strong>（金叉）+ 5 分钟底分型形成</li>
+                        <li>目的：用最小成本验证判断</li>
+                    </ul>
+                </li>
+                <li><strong>观察阶段</strong>：监测股价走势、成交量、技术指标变化。
+                    <ul>
+                        <li><strong>关键参数</strong>：等待 5 分钟出现<strong>启动信号</strong>（如站上 M20）</li>
+                    </ul>
+                </li>
+                <li><strong>确认阶段</strong>：若信号成立（突破关键位、放量上涨），再投入主力仓位（"大部队跟进"）。
+                    <ul>
+                        <li>大部队建仓方式：<strong>条件单</strong>——"股价穿 M20 自动成交"</li>
+                        <li>条件单有效期：<strong>8 天</strong>（超过 8 天信号失效）</li>
+                    </ul>
+                </li>
+                <li><strong>若信号失效</strong>：斥候仓损失极小（可忽略不计），直接止损出局</li>
+                <li><strong>核心原则</strong>：试探仓损失可控，便于快速止损；主力仓必须看到明确信号才动手</li>
+                <li><strong>时间止损</strong>：<strong>13 天</strong>——大部队建仓后 13 天内未启动 = 强制清仓</li>
+            </ul>
+
+            <h4>④ 做 T 原理（A 股 T+0 实战）</h4>
+            <p>底仓不变，每天在波动里低买高卖赚差价，把持仓成本越做越低。A 股 T+1 制度（当天买次日才能卖）下，利用已持有的"底仓"做日内高抛低吸。总股数在做 T 前后保持不变，目标是"赚波动差价，而非趋势"。</p>
+            <ul>
+                <li><strong>正 T</strong>：先买后卖（适合上涨或震荡）</li>
+                <li><strong>反 T</strong>：先卖后买（适合下跌或冲高回落）</li>
+                <li><strong>核心原则</strong>：顺大势，逆小势——上涨趋势主要用正 T，下跌趋势主要用反 T</li>
+            </ul>
+            <p><strong>操作纪律</strong>：</p>
+            <ul>
+                <li>单次目标利润 0.5%-2%</li>
+                <li>日内振幅低于 2% 不做 T</li>
+                <li><strong>70% 底仓 + 30% 活动资金</strong></li>
+                <li>选日成交额 &gt; 5 亿、换手率 &gt; 3% 的活跃股</li>
+                <li>严格止损，绝不让做 T 变成"加仓摊平成本"</li>
+            </ul>
+            <p><strong>核心心法</strong>：A 股 90% 的时间是震荡市，所以做 T 永远有市场。</p>
+            <p><strong>市场情绪指标</strong>：</p>
+            <ul>
+                <li><strong>活跃区</strong>（市场情绪高涨）= 适合做 T（波动大、机会多）</li>
+                <li><strong>冰点区</strong>（市场恐慌）= 不做 T（容易做反方向被套）</li>
+            </ul>
+
+            <h4>⑤ 复盘方法（学习高效复盘）</h4>
+            <p>复盘不是"看对错"，而是看"自己在哪一层境界"——详见模块 7。</p>
+            <p><strong>📅 实战复盘 · 日报导读四要素</strong>（每日必看，源自第 41 节）：</p>
+            <ol>
+                <li><strong>盘面亮点</strong>：看市场情绪（赚钱效应 / 亏钱效应 / 打板情况）。情绪是"<strong>女朋友情绪</strong>"——红色（赚钱效应强）适合操作，白色（情绪中性）谨慎操作，绿色（亏钱效应强）空仓</li>
+                <li><strong>龙虎榜</strong>：看主力资金流向（游资 vs 散户构成）。主力净流出 + 游资撤退 = 坚决不操作；主力净流入 + 游资接力 = 重点关注</li>
+                <li><strong>涨停原因复盘</strong>：理清消息面与涨停的关系——很多"<strong>无效涨停</strong>"（无题材支撑）第二日大概率回落，<strong>不参与</strong></li>
+                <li><strong>未来新增事件</strong>：本月/下周即将发生的事件（奥运、政策、产业大会等）→ 提前布局相关板块</li>
+            </ol>
+            <p><strong>🌡️ 市场情绪温度计</strong>：</p>
+            <ul>
+                <li><strong>过热区（4100 以上）</strong>：连续涨停家数 &gt; 80、连板高度 ≥ 7 板 → 风险大于机会，<strong>分批止盈</strong></li>
+                <li><strong>活跃区（2000-4100）</strong>：正常波动 → <strong>正常操作</strong>（做 T 黄金期）</li>
+                <li><strong>冰点区（860 以下）</strong>：连续大面、跌停家数 &gt; 涨停家数 → <strong>空仓或只做反 T</strong></li>
+            </ul>
+            <p><strong>📊 大盘打分 8 指标体系</strong>（每晚给大盘打分，决定次日仓位）：最新连板高度（加分）+ 涨停家数（加分）+ 涨跌家数比（加分）+ 龙头股走势（加分）+ 板块轮动（加分）- 大面数（减分）- 跌停家数（减分）- 主力净流出（减分）。总分 &lt; 0 → 第二天低开概率大，<strong>次日开盘前 30 分钟不操作</strong>。</p>
+            <p><strong>📝 每日复盘清单</strong>：</p>
+            <ol>
+                <li><strong>买入逻辑</strong>：今天为什么买？是否符合战法（大美女 / 九五至尊 / 一统天下 / 卷钱机器 / 双龙 / 做 T）？当时 K 线/指标/形态是否准确判断？</li>
+                <li><strong>卖出逻辑</strong>：今天为什么卖（或没卖）？止盈/止损/信号消失/分批减仓？是否守住了"<strong>跌破 5 日线立即离场</strong>"铁律？卖出后是否真的回到预期走势（验证判断）？</li>
+                <li><strong>仓位管理</strong>：是否守住了 3331/三机器上限？单只个股是否 &gt; 30%？单一行业是否 &gt; 30%？</li>
+                <li><strong>心态</strong>：是否被情绪左右？涨了看涨、跌了看跌？是否做到"知行合一"？</li>
+                <li><strong>反思</strong>（找错不找功）：这一笔交易<strong>如果按战法严格执行</strong>，结果会不同吗？错在哪个环节（信号识别 / 仓位 / 心态 / 纪律）？明天的具体改进行动是什么？</li>
+            </ol>
+            <p><strong>反思三问</strong>（每天睡前的灵魂拷问）：① 我今天遵守了所有铁律吗？② 我今天的亏损是"<strong>战法内的合理亏损</strong>"（如假突破止损）还是"<strong>战法外的错误亏损</strong>"（如追高被套）？③ 如果按 100% 严格执行战法，账户曲线会更平滑吗？</p>
+            <p><strong>核心心法</strong>：复盘是"<strong>找错</strong>"而不是"<strong>找功</strong>"——只复盘亏损单子，看自己哪里没遵守纪律。每周做一次"<strong>战法回测</strong>"：选 5 只近 1 个月按战法应该操作的股，事后看战法胜率（&gt; 60% 才合格）；每月做一次"<strong>战法迭代</strong>"：本月哪条战法失效了？是市场风格切换还是执行不到位？</p>
+
+            <h4>⑥ 3331 仓位管理（铁律）</h4>
+            <p>把钱分批投入，越涨越减仓、越跌越加仓，错了就立刻认赔出局。</p>
+            <ul>
+                <li><strong>3331 分仓</strong>：总资金切成 <strong>30% 短线 + 30% 波段 + 30% 机动 + 10% 保险</strong></li>
+                <li><strong>单只个股</strong>不超过总资金 20%-30%</li>
+                <li><strong>单一行业</strong>不超过 30%</li>
+            </ul>
+            <p><strong>金字塔加仓</strong>：</p>
+            <ul>
+                <li><strong>正金字塔</strong>：越跌越买、每次买更少（摊薄成本）——适合底部确认后</li>
+                <li><strong>倒金字塔</strong>：越涨越买、每次买更多（追强势股）——适合主升浪已确立</li>
+            </ul>
+            <p><strong>止损铁律</strong>：买入即设止损——跌破关键均线（5/10/20 日线）；单只个股回撤 &gt; 15%；基本面恶化（业绩爆雷、行业政策剧变）时立即减仓。</p>
+            <p><strong>数据印证</strong>：一次性满仓遭遇暴跌平均亏损 37%，分批建仓者仅亏损 11%；严格执行分批策略的交易者三年存活率 78%，远超满仓操作的 23%。</p>
+
+            <h4>⑦ 大资金 vs 小资金战法匹配</h4>
+            <p><strong>大资金（主力/机构）特点</strong>：分批建仓、滚动做 T（数周完成布局）；左侧交易（越跌越买）；强制分散（单股不超过净值 10%）；中长线持有（数月至数年），赚企业盈利增长的钱。</p>
+            <p><strong>小资金（散户）特点</strong>：常一次性满仓追高；右侧确认后打板跟进；集中火力 1-2 只高确定性标的；短线博弈（几天到几周），赚市场情绪溢价的钱。</p>
+            <p><strong>资金分层观点</strong>：</p>
+            <ul>
+                <li><strong>20 万以内</strong>灵活试错</li>
+                <li><strong>20-50 万</strong>严控仓位</li>
+                <li><strong>50-100 万</strong>重风控、放弃超短</li>
+                <li><strong>100 万以上</strong>重流动性、体系化操作</li>
+            </ul>
+            <p><strong>常见误区</strong>：拿小资金硬套大资金交易体系 = 必亏。</p>
+
+            <h4>⑧ 资金量级与战法匹配表</h4>
+            <table class="tools-table" style="margin-top:8px;">
+                <thead>
+                    <tr>
+                        <th>战法</th>
+                        <th>适合资金量</th>
+                        <th>周期</th>
+                        <th>风险</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr><td>九五至尊（龙头二板）</td><td>20-100 万</td><td>短线 1-2 周</td><td>中高</td></tr>
+                    <tr><td>大美女（头肩底）</td><td>30-300 亿市值股</td><td>中线 1-3 月</td><td>中</td></tr>
+                    <tr><td>一统天下（AI 选股）</td><td>50 万-1 亿</td><td>长中线</td><td>中低</td></tr>
+                    <tr><td>卷钱机器（多周期）</td><td>≥ 1 亿</td><td>灵活</td><td>中</td></tr>
+                    <tr><td>双龙战法（斥候大部队）</td><td>20-100 万</td><td>短线 1-2 周</td><td>中</td></tr>
+                    <tr><td>做 T（不预测方向）</td><td>任何资金</td><td>日内</td><td>低</td></tr>
+                </tbody>
+            </table>
+
+            <div class="tip">
+                <strong>📊 实战案例 1：国联股份（603613）—— 卷钱机器短线 1 天 9000 元</strong><br>
+                时间：第 35 节。5 分钟头肩底突破 → 5 成仓 15 万 → 1 天后卖出 → 利润 <strong>9000 元</strong>。教训：<strong>卷钱机器 + 三机器 = 大资金精细化运作</strong>。
+            </div>
+
+            <div class="tip">
+                <strong>📊 实战案例 2：中大力德（002896）—— 双龙战法 5 个涨停板</strong><br>
+                时间：第 43 节。斥候建仓（M4 穿 M8 买 100 股）→ 5 分钟启动信号确认 → 大部队条件单跟进 → <strong>连续 5 个涨停板</strong>。教训：<strong>双龙战法让小资金也能吃到主升浪</strong>。
+            </div>
+
+            <div class="tip">
+                <strong>📊 实战案例 3：巨轮智能（002301）—— 双龙战法 65% 收益</strong><br>
+                时间：第 43 节。斥候建仓 → 大部队跟进 → 股价从 <strong>3.02 → 4.90 元</strong>（约 65% 涨幅）。教训：<strong>严格守 13 天时间止损</strong>（无效信号不拖泥带水）。
+            </div>
+
+            <div class="note">
+                <strong>📝 小白口诀：</strong>卷钱机器多周期共振；双龙战法斥候大部队；做 T 不满仓干；复盘只复盘亏损单。3331 仓位管理是铁律：30% 短线 + 30% 波段 + 30% 机动 + 10% 保险。
+            </div>
+
+            <p style="font-size:13px; color:var(--color-text-muted); margin-top:12px;">📌 <strong>对应原课程章节：</strong>第 34 节（三个卷钱机器）、第 35 节（卷钱机器具体操作）、第 37 节（复盘如何做 T）、第 41 节（日报导读逻辑梳理）、第 43 节（强化学习双龙战法）</p>
+        </div>
+    </article>
+</section>
+
+<!-- ========== 4. 跨模块知识图谱 ========== -->
+<section id="mindmaps" class="section">
+    <header class="section-header">
+        <span class="section-num">04</span>
+        <h2 class="section-title">跨模块知识图谱</h2>
+        <p class="section-desc">6 张思维导图，把零散的知识点串成"看得见的关系网"</p>
+    </header>
+    <div class="section-intro">
+        思维导图是"看一眼就懂全貌"的最佳工具。每张图都是横向树状结构，支持手机双指缩放。
+    </div>
+    <table class="mindmap-grid">
+        <tbody>
+            <tr>
+                <td>
+                    <div class="mindmap-svg-wrap">
+                        <!-- [SVG 设计师]：图1 - 九五至尊选股逻辑全景图 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;background:#ffffff;">
+  <style>
+    .root { fill:#2563eb; stroke:#1e40af; stroke-width:1.5; }
+    .root-text { font-size:18px; font-weight:bold; fill:#ffffff; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l1 { fill:#dbeafe; stroke:#2563eb; stroke-width:1; }
+    .l1-text { font-size:15px; font-weight:bold; fill:#1e3a8a; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l2 { fill:#dcfce7; stroke:#16a34a; stroke-width:1; }
+    .l2-text { font-size:13px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3 { fill:#fef3c7; stroke:#d97706; stroke-width:1; }
+    .l3-title { font-size:13px; font-weight:bold; fill:#7c2d12; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-text { font-size:12px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-sub { font-size:11px; fill:#475569; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .line { stroke:#94a3b8; stroke-width:1.5; fill:none; }
+    .line-dim { stroke:#cbd5e1; stroke-width:1; fill:none; stroke-dasharray:3,3; }
+    g.node:hover rect { opacity:0.85; }
+  </style>
+
+  <!-- ===== 根节点 ===== -->
+  <g class="node">
+    <rect class="root" x="80" y="375" width="200" height="56" rx="6"/>
+    <text class="root-text" x="180" y="403" text-anchor="middle" dominant-baseline="middle">九五至尊</text>
+  </g>
+
+  <!-- ===== 一级节点：3 个分支 ===== -->
+  <g class="node">
+    <rect class="l1" x="400" y="125" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="150" text-anchor="middle" dominant-baseline="middle">95%涨幅基因</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="375" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="400" text-anchor="middle" dominant-baseline="middle">AI 选股原理</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="625" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="650" text-anchor="middle" dominant-baseline="middle">实战案例</text>
+  </g>
+
+  <!-- ===== 二级节点：95%涨幅基因（3 个子） ===== -->
+  <g class="node">
+    <rect class="l2" x="760" y="50" width="180" height="44" rx="4"/>
+    <text class="l2-text" x="850" y="72" text-anchor="middle" dominant-baseline="middle">大形态（底部结构）</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="760" y="125" width="180" height="44" rx="4"/>
+    <text class="l2-text" x="850" y="147" text-anchor="middle" dominant-baseline="middle">强题材（风口）</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="760" y="200" width="180" height="44" rx="4"/>
+    <text class="l2-text" x="850" y="222" text-anchor="middle" dominant-baseline="middle">主力介入（筹码）</text>
+  </g>
+
+  <!-- ===== 二级节点：AI 选股原理（2 个子） ===== -->
+  <g class="node">
+    <rect class="l2" x="760" y="325" width="180" height="44" rx="4"/>
+    <text class="l2-text" x="850" y="347" text-anchor="middle" dominant-baseline="middle">量价匹配</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="760" y="425" width="180" height="44" rx="4"/>
+    <text class="l2-text" x="850" y="447" text-anchor="middle" dominant-baseline="middle">历史相似度</text>
+  </g>
+
+  <!-- ===== 二级节点：实战（详情卡） ===== -->
+  <g class="node">
+    <rect class="l3" x="760" y="600" width="260" height="100" rx="5"/>
+    <text class="l3-title" x="890" y="624" text-anchor="middle" dominant-baseline="middle">5个板中大力德</text>
+    <text class="l3-text" x="890" y="650" text-anchor="middle" dominant-baseline="middle">002896</text>
+    <text class="l3-sub" x="890" y="672" text-anchor="middle" dominant-baseline="middle">5连板，AI 公式命中</text>
+  </g>
+
+  <!-- ===== 三级详情卡（最右） ===== -->
+  <g class="node">
+    <rect class="l3" x="1100" y="50" width="380" height="194" rx="5"/>
+    <text class="l3-title" x="1290" y="76" text-anchor="middle" dominant-baseline="middle">九五至尊 · 核心要点</text>
+    <text class="l3-text" x="1115" y="106" dominant-baseline="middle">① 95%涨幅基因 = 大形态 + 强题材</text>
+    <text class="l3-text" x="1115" y="130" dominant-baseline="middle">② + 主力介入（资金流入）</text>
+    <text class="l3-text" x="1115" y="154" dominant-baseline="middle">③ AI 量价匹配筛选相似历史走势</text>
+    <text class="l3-text" x="1115" y="178" dominant-baseline="middle">④ 历史相似度高的标的优先介入</text>
+    <text class="l3-sub" x="1115" y="206" dominant-baseline="middle">操作纪律：3331 仓位 + 13天止损</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1100" y="325" width="380" height="144" rx="5"/>
+    <text class="l3-title" x="1290" y="351" text-anchor="middle" dominant-baseline="middle">AI 选股原理</text>
+    <text class="l3-text" x="1115" y="381" dominant-baseline="middle">· 量价匹配：成交量与价格走势契合</text>
+    <text class="l3-text" x="1115" y="405" dominant-baseline="middle">· 历史相似：与历史大牛股形态对比</text>
+    <text class="l3-text" x="1115" y="429" dominant-baseline="middle">· AI 自动打分，Top 1% 进入观察池</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1100" y="600" width="380" height="100" rx="5"/>
+    <text class="l3-title" x="1290" y="626" text-anchor="middle" dominant-baseline="middle">实战成果</text>
+    <text class="l3-text" x="1115" y="656" dominant-baseline="middle">5个板中大力德 002896</text>
+    <text class="l3-text" x="1115" y="678" dominant-baseline="middle">命中涨幅 95%+，AI 公式成功验证</text>
+  </g>
+
+  <!-- ===== 连接线：根 → 一级 ===== -->
+  <path class="line" d="M 280 403 L 340 403 L 340 150 L 400 150"/>
+  <path class="line" d="M 280 403 L 400 400"/>
+  <path class="line" d="M 280 403 L 340 403 L 340 650 L 400 650"/>
+
+  <!-- ===== 连接线：一级 → 二级 ===== -->
+  <!-- 95%涨幅基因 -->
+  <path class="line" d="M 620 150 L 690 150 L 690 72 L 760 72"/>
+  <path class="line" d="M 620 150 L 760 147"/>
+  <path class="line" d="M 620 150 L 690 150 L 690 222 L 760 222"/>
+  <!-- AI 选股原理 -->
+  <path class="line" d="M 620 400 L 690 400 L 690 347 L 760 347"/>
+  <path class="line" d="M 620 400 L 690 400 L 690 447 L 760 447"/>
+  <!-- 实战 -->
+  <path class="line" d="M 620 650 L 690 650 L 690 650 L 760 650"/>
+
+  <!-- ===== 连接线：二级 → 三级详情 ===== -->
+  <path class="line-dim" d="M 940 147 L 1020 147 L 1020 150 L 1100 150"/>
+  <path class="line-dim" d="M 940 397 L 1020 397 L 1020 400 L 1100 400"/>
+  <path class="line-dim" d="M 1020 650 L 1100 650"/>
+
+  <!-- ===== 标题 ===== -->
+  <text style="font-size:18px;font-weight:bold;fill:#0f172a;font-family:sans-serif;" x="800" y="765" text-anchor="middle" dominant-baseline="middle">九五至尊 · AI 选股体系</text>
+</svg>
+                    </div>
+                    <p class="mindmap-caption">图 1：九五至尊选股逻辑全景</p>
+                </td>
+                <td>
+                    <div class="mindmap-svg-wrap">
+                        <!-- [SVG 设计师]：图2 - 大美女模式均线系统 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 700" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;background:#ffffff;">
+  <style>
+    .root { fill:#2563eb; stroke:#1e40af; stroke-width:1.5; }
+    .root-text { font-size:18px; font-weight:bold; fill:#ffffff; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l1 { fill:#dbeafe; stroke:#2563eb; stroke-width:1; }
+    .l1-text { font-size:15px; font-weight:bold; fill:#1e3a8a; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l2 { fill:#dcfce7; stroke:#16a34a; stroke-width:1; }
+    .l2-text { font-size:13px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3 { fill:#fee2e2; stroke:#dc2626; stroke-width:1; }
+    .l3-title { font-size:13px; font-weight:bold; fill:#7f1d1d; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-text { font-size:12px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-sub { font-size:11px; fill:#475569; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .line { stroke:#94a3b8; stroke-width:1.5; fill:none; }
+    .line-dim { stroke:#cbd5e1; stroke-width:1; fill:none; stroke-dasharray:3,3; }
+    g.node:hover rect { opacity:0.85; }
+  </style>
+
+  <!-- ===== 根节点 ===== -->
+  <g class="node">
+    <rect class="root" x="80" y="310" width="200" height="56" rx="6"/>
+    <text class="root-text" x="180" y="338" text-anchor="middle" dominant-baseline="middle">大美女</text>
+  </g>
+
+  <!-- ===== 一级节点：3 个分支 ===== -->
+  <g class="node">
+    <rect class="l1" x="400" y="100" width="240" height="50" rx="5"/>
+    <text class="l1-text" x="520" y="125" text-anchor="middle" dominant-baseline="middle">M4 / M8 / M20 系统</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="310" width="240" height="50" rx="5"/>
+    <text class="l1-text" x="520" y="335" text-anchor="middle" dominant-baseline="middle">量价配合</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="520" width="240" height="50" rx="5"/>
+    <text class="l1-text" x="520" y="545" text-anchor="middle" dominant-baseline="middle">实战案例</text>
+  </g>
+
+  <!-- ===== 二级节点：M4/M8/M20 系统 ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="60" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="82" text-anchor="middle" dominant-baseline="middle">M4 穿 M8（金叉）</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="150" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="172" text-anchor="middle" dominant-baseline="middle">上穿 M20（多头）</text>
+  </g>
+
+  <!-- ===== 二级节点：量价配合 ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="270" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="292" text-anchor="middle" dominant-baseline="middle">活跃期（量价齐升）</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="360" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="382" text-anchor="middle" dominant-baseline="middle">冰点期（缩量回踩）</text>
+  </g>
+
+  <!-- ===== 二级节点：实战案例 ===== -->
+  <g class="node">
+    <rect class="l3" x="780" y="510" width="240" height="80" rx="5"/>
+    <text class="l3-title" x="900" y="534" text-anchor="middle" dominant-baseline="middle">厚普股份 300471</text>
+    <text class="l3-text" x="900" y="558" text-anchor="middle" dominant-baseline="middle">M4 穿 M8 → 上穿 M20</text>
+    <text class="l3-sub" x="900" y="578" text-anchor="middle" dominant-baseline="middle">活跃期介入 · 5天涨幅 40%+</text>
+  </g>
+
+  <!-- ===== 三级详情卡（最右） ===== -->
+  <g class="node">
+    <rect class="l3" x="1130" y="60" width="380" height="134" rx="5"/>
+    <text class="l3-title" x="1320" y="86" text-anchor="middle" dominant-baseline="middle">大美女 · 选股三步</text>
+    <text class="l3-text" x="1145" y="114" dominant-baseline="middle">① M4 上穿 M8 形成短期金叉</text>
+    <text class="l3-text" x="1145" y="138" dominant-baseline="middle">② M4 上穿 M20 确立多头趋势</text>
+    <text class="l3-text" x="1145" y="162" dominant-baseline="middle">③ 量价配合过滤假突破</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1130" y="270" width="380" height="134" rx="5"/>
+    <text class="l3-title" x="1320" y="296" text-anchor="middle" dominant-baseline="middle">活跃期 vs 冰点期</text>
+    <text class="l3-text" x="1145" y="324" dominant-baseline="middle">· 活跃期：成交量放大，价升量增</text>
+    <text class="l3-text" x="1145" y="348" dominant-baseline="middle">· 冰点期：缩量回踩，蓄势待发</text>
+    <text class="l3-text" x="1145" y="372" dominant-baseline="middle">· 最佳买点：冰点→活跃切换点</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1130" y="510" width="380" height="80" rx="5"/>
+    <text class="l3-title" x="1320" y="536" text-anchor="middle" dominant-baseline="middle">实战成果</text>
+    <text class="l3-text" x="1145" y="562" dominant-baseline="middle">厚普股份 300471：5天 40%+</text>
+    <text class="l3-sub" x="1145" y="580" dominant-baseline="middle">M 系统 + 量价共振 典型案例</text>
+  </g>
+
+  <!-- ===== 连接线：根 → 一级 ===== -->
+  <path class="line" d="M 280 338 L 340 338 L 340 125 L 400 125"/>
+  <path class="line" d="M 280 338 L 400 335"/>
+  <path class="line" d="M 280 338 L 340 338 L 340 545 L 400 545"/>
+
+  <!-- ===== 连接线：一级 → 二级 ===== -->
+  <!-- M4/M8/M20 -->
+  <path class="line" d="M 640 125 L 710 125 L 710 82 L 780 82"/>
+  <path class="line" d="M 640 125 L 710 125 L 710 172 L 780 172"/>
+  <!-- 量价配合 -->
+  <path class="line" d="M 640 335 L 710 335 L 710 292 L 780 292"/>
+  <path class="line" d="M 640 335 L 710 335 L 710 382 L 780 382"/>
+  <!-- 实战 -->
+  <path class="line" d="M 640 545 L 710 545 L 710 550 L 780 550"/>
+
+  <!-- ===== 连接线：二级 → 三级详情 ===== -->
+  <path class="line-dim" d="M 980 127 L 1055 127 L 1055 127 L 1130 127"/>
+  <path class="line-dim" d="M 980 337 L 1055 337 L 1055 337 L 1130 337"/>
+  <path class="line-dim" d="M 1020 550 L 1130 550"/>
+
+  <!-- ===== 标题 ===== -->
+  <text style="font-size:18px;font-weight:bold;fill:#0f172a;font-family:sans-serif;" x="800" y="660" text-anchor="middle" dominant-baseline="middle">大美女 · M 均线 + 量价共振体系</text>
+</svg>
+                    </div>
+                    <p class="mindmap-caption">图 2：大美女模式均线系统</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="mindmap-svg-wrap">
+                        <!-- [SVG 设计师]：图3 - 一统天下分区卷钱 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 800" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;background:#ffffff;">
+  <style>
+    .root { fill:#2563eb; stroke:#1e40af; stroke-width:1.5; }
+    .root-text { font-size:18px; font-weight:bold; fill:#ffffff; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l1 { fill:#dbeafe; stroke:#2563eb; stroke-width:1; }
+    .l1-text { font-size:15px; font-weight:bold; fill:#1e3a8a; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l2 { fill:#dcfce7; stroke:#16a34a; stroke-width:1; }
+    .l2-text { font-size:13px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3 { fill:#fee2e2; stroke:#dc2626; stroke-width:1; }
+    .l3-title { font-size:13px; font-weight:bold; fill:#7f1d1d; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-text { font-size:12px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-sub { font-size:11px; fill:#475569; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .line { stroke:#94a3b8; stroke-width:1.5; fill:none; }
+    .line-dim { stroke:#cbd5e1; stroke-width:1; fill:none; stroke-dasharray:3,3; }
+    g.node:hover rect { opacity:0.85; }
+  </style>
+
+  <!-- ===== 根节点 ===== -->
+  <g class="node">
+    <rect class="root" x="80" y="360" width="200" height="56" rx="6"/>
+    <text class="root-text" x="180" y="388" text-anchor="middle" dominant-baseline="middle">一统天下</text>
+  </g>
+
+  <!-- ===== 一级节点：4 个分支 ===== -->
+  <g class="node">
+    <rect class="l1" x="400" y="120" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="145" text-anchor="middle" dominant-baseline="middle">AI 长线</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="320" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="345" text-anchor="middle" dominant-baseline="middle">AI 中线</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="520" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="545" text-anchor="middle" dominant-baseline="middle">分区卷钱</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="680" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="705" text-anchor="middle" dominant-baseline="middle">实战案例</text>
+  </g>
+
+  <!-- ===== 二级节点：AI 长线（2 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="760" y="80" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="860" y="102" text-anchor="middle" dominant-baseline="middle">周线级别</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="760" y="160" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="860" y="182" text-anchor="middle" dominant-baseline="middle">多维度得分</text>
+  </g>
+
+  <!-- ===== 二级节点：AI 中线（1 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="760" y="320" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="860" y="342" text-anchor="middle" dominant-baseline="middle">日线级别</text>
+  </g>
+
+  <!-- ===== 二级节点：分区卷钱（2 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="760" y="480" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="860" y="502" text-anchor="middle" dominant-baseline="middle">多周期共振</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="760" y="560" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="860" y="582" text-anchor="middle" dominant-baseline="middle">30-300 亿资金</text>
+  </g>
+
+  <!-- ===== 二级节点：实战案例 ===== -->
+  <g class="node">
+    <rect class="l3" x="760" y="670" width="240" height="80" rx="5"/>
+    <text class="l3-title" x="880" y="694" text-anchor="middle" dominant-baseline="middle">巨轮智能 002301</text>
+    <text class="l3-text" x="880" y="718" text-anchor="middle" dominant-baseline="middle">周线 + 日线 双级别共振</text>
+    <text class="l3-sub" x="880" y="738" text-anchor="middle" dominant-baseline="middle">主力净流入持续放大</text>
+  </g>
+
+  <!-- ===== 三级详情卡（最右） ===== -->
+  <g class="node">
+    <rect class="l3" x="1100" y="80" width="400" height="124" rx="5"/>
+    <text class="l3-title" x="1300" y="106" text-anchor="middle" dominant-baseline="middle">AI 长线 · 选股逻辑</text>
+    <text class="l3-text" x="1115" y="134" dominant-baseline="middle">· 周线级别趋势向上（MACD 金叉）</text>
+    <text class="l3-text" x="1115" y="158" dominant-baseline="middle">· 行业景气度 + 政策驱动 + 资金面</text>
+    <text class="l3-text" x="1115" y="182" dominant-baseline="middle">· AI 综合得分 Top 5% 进入长线池</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1100" y="320" width="400" height="44" rx="5"/>
+    <text class="l3-title" x="1300" y="346" text-anchor="middle" dominant-baseline="middle">AI 中线 · 日线级别波段</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1100" y="480" width="400" height="124" rx="5"/>
+    <text class="l3-title" x="1300" y="506" text-anchor="middle" dominant-baseline="middle">分区卷钱 · 资金驱动</text>
+    <text class="l3-text" x="1115" y="534" dominant-baseline="middle">· 多周期共振：周线+日线+60分钟</text>
+    <text class="l3-text" x="1115" y="558" dominant-baseline="middle">· 资金面：主力净流入 30-300 亿</text>
+    <text class="l3-text" x="1115" y="582" dominant-baseline="middle">· 行业轮动到该分区 → 资金涌入</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1100" y="670" width="400" height="80" rx="5"/>
+    <text class="l3-title" x="1300" y="696" text-anchor="middle" dominant-baseline="middle">实战成果</text>
+    <text class="l3-text" x="1115" y="722" dominant-baseline="middle">巨轮智能 002301：周线 + 日线双周期共振</text>
+    <text class="l3-sub" x="1115" y="740" dominant-baseline="middle">AI 5 层筛选 · 主升浪捕捉</text>
+  </g>
+
+  <!-- ===== 连接线：根 → 一级 ===== -->
+  <path class="line" d="M 280 388 L 340 388 L 340 145 L 400 145"/>
+  <path class="line" d="M 280 388 L 340 388 L 340 345 L 400 345"/>
+  <path class="line" d="M 280 388 L 340 388 L 340 545 L 400 545"/>
+  <path class="line" d="M 280 388 L 340 388 L 340 705 L 400 705"/>
+
+  <!-- ===== 连接线：一级 → 二级 ===== -->
+  <!-- AI 长线 -->
+  <path class="line" d="M 620 145 L 690 145 L 690 102 L 760 102"/>
+  <path class="line" d="M 620 145 L 690 145 L 690 182 L 760 182"/>
+  <!-- AI 中线 -->
+  <path class="line" d="M 620 345 L 690 345 L 690 342 L 760 342"/>
+  <!-- 分区卷钱 -->
+  <path class="line" d="M 620 545 L 690 545 L 690 502 L 760 502"/>
+  <path class="line" d="M 620 545 L 690 545 L 690 582 L 760 582"/>
+  <!-- 实战 -->
+  <path class="line" d="M 620 705 L 690 705 L 690 710 L 760 710"/>
+
+  <!-- ===== 连接线：二级 → 三级详情 ===== -->
+  <path class="line-dim" d="M 960 142 L 1030 142 L 1030 142 L 1100 142"/>
+  <path class="line-dim" d="M 960 342 L 1100 342"/>
+  <path class="line-dim" d="M 960 542 L 1030 542 L 1030 542 L 1100 542"/>
+  <path class="line-dim" d="M 1000 710 L 1100 710"/>
+
+  <!-- ===== 标题 ===== -->
+  <text style="font-size:18px;font-weight:bold;fill:#0f172a;font-family:sans-serif;" x="800" y="780" text-anchor="middle" dominant-baseline="middle">一统天下 · AI 长中线 + 分区卷钱</text>
+</svg>
+                    </div>
+                    <p class="mindmap-caption">图 3：一统天下分区卷钱</p>
+                </td>
+                <td>
+                    <div class="mindmap-svg-wrap">
+                        <!-- [SVG 设计师]：图4 - 缠论完整推导 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 900" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;background:#ffffff;">
+  <style>
+    .root { fill:#2563eb; stroke:#1e40af; stroke-width:1.5; }
+    .root-text { font-size:18px; font-weight:bold; fill:#ffffff; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l1 { fill:#dbeafe; stroke:#2563eb; stroke-width:1; }
+    .l1-text { font-size:15px; font-weight:bold; fill:#1e3a8a; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l2 { fill:#dcfce7; stroke:#16a34a; stroke-width:1; }
+    .l2-text { font-size:13px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3 { fill:#e9d5ff; stroke:#7c3aed; stroke-width:1; }
+    .l3-title { font-size:13px; font-weight:bold; fill:#4c1d95; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-text { font-size:12px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-sub { font-size:11px; fill:#475569; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .line { stroke:#94a3b8; stroke-width:1.5; fill:none; }
+    .line-dim { stroke:#cbd5e1; stroke-width:1; fill:none; stroke-dasharray:3,3; }
+    g.node:hover rect { opacity:0.85; }
+  </style>
+
+  <!-- ===== 根节点 ===== -->
+  <g class="node">
+    <rect class="root" x="80" y="410" width="180" height="56" rx="6"/>
+    <text class="root-text" x="170" y="438" text-anchor="middle" dominant-baseline="middle">缠论</text>
+  </g>
+
+  <!-- ===== 一级节点：5 个分支 ===== -->
+  <g class="node">
+    <rect class="l1" x="400" y="100" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="125" text-anchor="middle" dominant-baseline="middle">分型（最基础）</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="290" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="315" text-anchor="middle" dominant-baseline="middle">笔</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="430" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="455" text-anchor="middle" dominant-baseline="middle">线段</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="620" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="645" text-anchor="middle" dominant-baseline="middle">中枢</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="810" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="835" text-anchor="middle" dominant-baseline="middle">背驰（买卖点）</text>
+  </g>
+
+  <!-- ===== 二级节点：分型（2 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="50" width="180" height="44" rx="4"/>
+    <text class="l2-text" x="870" y="72" text-anchor="middle" dominant-baseline="middle">顶分型</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="155" width="180" height="44" rx="4"/>
+    <text class="l2-text" x="870" y="177" text-anchor="middle" dominant-baseline="middle">底分型</text>
+  </g>
+
+  <!-- ===== 二级节点：中枢（3 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="560" width="180" height="44" rx="4"/>
+    <text class="l2-text" x="870" y="582" text-anchor="middle" dominant-baseline="middle">5 分钟中枢</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="620" width="180" height="44" rx="4"/>
+    <text class="l2-text" x="870" y="642" text-anchor="middle" dominant-baseline="middle">30 分钟中枢</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="680" width="180" height="44" rx="4"/>
+    <text class="l2-text" x="870" y="702" text-anchor="middle" dominant-baseline="middle">日线中枢</text>
+  </g>
+
+  <!-- ===== 三级详情卡（最右） ===== -->
+  <g class="node">
+    <rect class="l3" x="1130" y="50" width="450" height="149" rx="5"/>
+    <text class="l3-title" x="1355" y="76" text-anchor="middle" dominant-baseline="middle">分型 · 缠论最基础构件</text>
+    <text class="l3-text" x="1145" y="104" dominant-baseline="middle">· 顶分型：K线中间高、两侧低 → 卖点</text>
+    <text class="l3-text" x="1145" y="128" dominant-baseline="middle">· 底分型：K线中间低、两侧高 → 买点</text>
+    <text class="l3-text" x="1145" y="152" dominant-baseline="middle">· 顶底分型相连 → 构成「笔」</text>
+    <text class="l3-text" x="1145" y="176" dominant-baseline="middle">· 三笔重合区间 → 构成「线段」</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1130" y="270" width="450" height="90" rx="5"/>
+    <text class="l3-title" x="1355" y="296" text-anchor="middle" dominant-baseline="middle">笔 · 顶底分型连接</text>
+    <text class="l3-text" x="1145" y="324" dominant-baseline="middle">· 上升笔：底分型 + 顶分型</text>
+    <text class="l3-text" x="1145" y="346" dominant-baseline="middle">· 下降笔：顶分型 + 底分型</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1130" y="410" width="450" height="90" rx="5"/>
+    <text class="l3-title" x="1355" y="436" text-anchor="middle" dominant-baseline="middle">线段 · 三笔构成</text>
+    <text class="l3-text" x="1145" y="464" dominant-baseline="middle">· 至少三笔重合构成线段</text>
+    <text class="l3-text" x="1145" y="486" dominant-baseline="middle">· 线段破坏需反向线段确认</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1130" y="540" width="450" height="184" rx="5"/>
+    <text class="l3-title" x="1355" y="566" text-anchor="middle" dominant-baseline="middle">中枢 · 价格重叠区间</text>
+    <text class="l3-text" x="1145" y="594" dominant-baseline="middle">· 5F 中枢：超短线 T+0</text>
+    <text class="l3-text" x="1145" y="618" dominant-baseline="middle">· 30F 中枢：日内波段</text>
+    <text class="l3-text" x="1145" y="642" dominant-baseline="middle">· 日线中枢：中期趋势</text>
+    <text class="l3-text" x="1145" y="666" dominant-baseline="middle">· 中枢震荡：高抛低吸</text>
+    <text class="l3-text" x="1145" y="690" dominant-baseline="middle">· 中枢突破：趋势启动</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1130" y="770" width="450" height="124" rx="5"/>
+    <text class="l3-title" x="1355" y="796" text-anchor="middle" dominant-baseline="middle">背驰 · 一类买卖点</text>
+    <text class="l3-text" x="1145" y="824" dominant-baseline="middle">· 顶背驰：价格新高，MACD 面积/高度背离 → 卖</text>
+    <text class="l3-text" x="1145" y="848" dominant-baseline="middle">· 底背驰：价格新低，MACD 面积/高度背离 → 买</text>
+    <text class="l3-text" x="1145" y="872" dominant-baseline="middle">· 一买最安全，二买最常用，三买最暴力</text>
+  </g>
+
+  <!-- ===== 连接线：根 → 一级 ===== -->
+  <path class="line" d="M 260 438 L 330 438 L 330 125 L 400 125"/>
+  <path class="line" d="M 260 438 L 330 438 L 330 315 L 400 315"/>
+  <path class="line" d="M 260 438 L 330 438 L 330 455 L 400 455"/>
+  <path class="line" d="M 260 438 L 330 438 L 330 645 L 400 645"/>
+  <path class="line" d="M 260 438 L 330 438 L 330 835 L 400 835"/>
+
+  <!-- ===== 连接线：一级 → 二级 ===== -->
+  <!-- 分型 -->
+  <path class="line" d="M 620 125 L 700 125 L 700 72 L 780 72"/>
+  <path class="line" d="M 620 125 L 700 125 L 700 177 L 780 177"/>
+  <!-- 中枢 -->
+  <path class="line" d="M 620 645 L 700 645 L 700 582 L 780 582"/>
+  <path class="line" d="M 620 645 L 780 642"/>
+  <path class="line" d="M 620 645 L 700 645 L 700 702 L 780 702"/>
+
+  <!-- ===== 连接线：一级 → 三级详情（笔、线段、背驰无子节点） ===== -->
+  <path class="line-dim" d="M 620 315 L 875 315 L 875 315 L 1130 315"/>
+  <path class="line-dim" d="M 620 455 L 875 455 L 875 455 L 1130 455"/>
+  <path class="line-dim" d="M 620 835 L 875 835 L 875 832 L 1130 832"/>
+
+  <!-- ===== 连接线：二级 → 三级详情 ===== -->
+  <path class="line-dim" d="M 960 125 L 1045 125 L 1045 125 L 1130 125"/>
+  <path class="line-dim" d="M 960 645 L 1045 645 L 1045 632 L 1130 632"/>
+
+  <!-- ===== 标题 ===== -->
+  <text style="font-size:18px;font-weight:bold;fill:#0f172a;font-family:sans-serif;" x="850" y="20" text-anchor="middle" dominant-baseline="middle">缠论 · 价格走势的几何分解</text>
+</svg>
+                    </div>
+                    <p class="mindmap-caption">图 4：缠论完整推导</p>
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <div class="mindmap-svg-wrap">
+                        <!-- [SVG 设计师]：图5 - 实战战法决策树 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 900" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;background:#ffffff;">
+  <style>
+    .root { fill:#2563eb; stroke:#1e40af; stroke-width:1.5; }
+    .root-text { font-size:18px; font-weight:bold; fill:#ffffff; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l1 { fill:#dbeafe; stroke:#2563eb; stroke-width:1; }
+    .l1-text { font-size:15px; font-weight:bold; fill:#1e3a8a; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l2 { fill:#dcfce7; stroke:#16a34a; stroke-width:1; }
+    .l2-text { font-size:13px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3 { fill:#e9d5ff; stroke:#7c3aed; stroke-width:1; }
+    .l3-title { font-size:13px; font-weight:bold; fill:#4c1d95; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-text { font-size:12px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-sub { font-size:11px; fill:#475569; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .line { stroke:#94a3b8; stroke-width:1.5; fill:none; }
+    .line-dim { stroke:#cbd5e1; stroke-width:1; fill:none; stroke-dasharray:3,3; }
+    g.node:hover rect { opacity:0.85; }
+  </style>
+
+  <!-- ===== 根节点 ===== -->
+  <g class="node">
+    <rect class="root" x="80" y="420" width="200" height="56" rx="6"/>
+    <text class="root-text" x="180" y="448" text-anchor="middle" dominant-baseline="middle">战法体系</text>
+  </g>
+
+  <!-- ===== 一级节点：4 个分类 ===== -->
+  <g class="node">
+    <rect class="l1" x="400" y="150" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="175" text-anchor="middle" dominant-baseline="middle">选股战法</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="380" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="405" text-anchor="middle" dominant-baseline="middle">操作战法</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="600" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="625" text-anchor="middle" dominant-baseline="middle">持股战法</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="800" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="825" text-anchor="middle" dominant-baseline="middle">风控</text>
+  </g>
+
+  <!-- ===== 二级节点：选股战法（3 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="80" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="102" text-anchor="middle" dominant-baseline="middle">九五至尊</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="150" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="172" text-anchor="middle" dominant-baseline="middle">潜龙在渊</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="220" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="242" text-anchor="middle" dominant-baseline="middle">博弈长阳</text>
+  </g>
+
+  <!-- ===== 二级节点：操作战法（2 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="345" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="367" text-anchor="middle" dominant-baseline="middle">双龙战法</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="420" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="442" text-anchor="middle" dominant-baseline="middle">卷钱机器</text>
+  </g>
+
+  <!-- ===== 二级节点：持股战法（2 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="565" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="587" text-anchor="middle" dominant-baseline="middle">做T</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="640" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="662" text-anchor="middle" dominant-baseline="middle">复盘</text>
+  </g>
+
+  <!-- ===== 二级节点：风控（2 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="765" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="787" text-anchor="middle" dominant-baseline="middle">3331 仓位</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="840" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="862" text-anchor="middle" dominant-baseline="middle">13天时间止损</text>
+  </g>
+
+  <!-- ===== 三级详情卡（最右） ===== -->
+  <g class="node">
+    <rect class="l3" x="1140" y="80" width="450" height="184" rx="5"/>
+    <text class="l3-title" x="1365" y="106" text-anchor="middle" dominant-baseline="middle">选股战法 · 三大法宝</text>
+    <text class="l3-text" x="1155" y="134" dominant-baseline="middle">· 九五至尊：95%涨幅基因 + AI 公式</text>
+    <text class="l3-text" x="1155" y="158" dominant-baseline="middle">· 潜龙在渊：底部蓄势 + 主力暗中建仓</text>
+    <text class="l3-text" x="1155" y="182" dominant-baseline="middle">· 博弈长阳：突破关键位 + 量能配合</text>
+    <text class="l3-text" x="1155" y="206" dominant-baseline="middle">· 三大战法交叉验证，提高胜率</text>
+    <text class="l3-text" x="1155" y="230" dominant-baseline="middle">· 配合 AI 公式与人工复盘双校验</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1140" y="320" width="450" height="144" rx="5"/>
+    <text class="l3-title" x="1365" y="346" text-anchor="middle" dominant-baseline="middle">操作战法 · 精准进出</text>
+    <text class="l3-text" x="1155" y="374" dominant-baseline="middle">· 双龙战法：题材龙头 + 资金龙头共振</text>
+    <text class="l3-text" x="1155" y="398" dominant-baseline="middle">· 卷钱机器：主升浪加速段暴力介入</text>
+    <text class="l3-text" x="1155" y="422" dominant-baseline="middle">· 买点：分歧转一致的临界点</text>
+    <text class="l3-text" x="1155" y="446" dominant-baseline="middle">· 卖点：高潮后量价背离即撤</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1140" y="540" width="450" height="144" rx="5"/>
+    <text class="l3-title" x="1365" y="566" text-anchor="middle" dominant-baseline="middle">持股战法 · 攻守兼备</text>
+    <text class="l3-text" x="1155" y="594" dominant-baseline="middle">· 做T：底仓 + 浮仓滚动，降本增厚利润</text>
+    <text class="l3-text" x="1155" y="618" dominant-baseline="middle">· 做T 关键：日线 + 30 分钟 双级别信号</text>
+    <text class="l3-text" x="1155" y="642" dominant-baseline="middle">· 复盘：每日/每周/每月 三维度总结</text>
+    <text class="l3-text" x="1155" y="666" dominant-baseline="middle">· 复盘要点：买点逻辑、卖点逻辑、改进点</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1140" y="760" width="450" height="124" rx="5"/>
+    <text class="l3-title" x="1365" y="786" text-anchor="middle" dominant-baseline="middle">风控 · 3331 仓位 + 13 天止损</text>
+    <text class="l3-text" x="1155" y="814" dominant-baseline="middle">· 3331：3 成底仓 + 3 成浮仓 + 3 成现金 + 1 成预备</text>
+    <text class="l3-text" x="1155" y="838" dominant-baseline="middle">· 13 天止损：买入后 13 个交易日未达预期 → 减仓</text>
+    <text class="l3-text" x="1155" y="862" dominant-baseline="middle">· 严格执行，避免深套与情绪化交易</text>
+  </g>
+
+  <!-- ===== 连接线：根 → 一级 ===== -->
+  <path class="line" d="M 280 448 L 340 448 L 340 175 L 400 175"/>
+  <path class="line" d="M 280 448 L 340 448 L 340 405 L 400 405"/>
+  <path class="line" d="M 280 448 L 340 448 L 340 625 L 400 625"/>
+  <path class="line" d="M 280 448 L 340 448 L 340 825 L 400 825"/>
+
+  <!-- ===== 连接线：一级 → 二级 ===== -->
+  <!-- 选股战法 -->
+  <path class="line" d="M 620 175 L 700 175 L 700 102 L 780 102"/>
+  <path class="line" d="M 620 175 L 780 172"/>
+  <path class="line" d="M 620 175 L 700 175 L 700 242 L 780 242"/>
+  <!-- 操作战法 -->
+  <path class="line" d="M 620 405 L 700 405 L 700 367 L 780 367"/>
+  <path class="line" d="M 620 405 L 700 405 L 700 442 L 780 442"/>
+  <!-- 持股战法 -->
+  <path class="line" d="M 620 625 L 700 625 L 700 587 L 780 587"/>
+  <path class="line" d="M 620 625 L 700 625 L 700 662 L 780 662"/>
+  <!-- 风控 -->
+  <path class="line" d="M 620 825 L 700 825 L 700 787 L 780 787"/>
+  <path class="line" d="M 620 825 L 700 825 L 700 862 L 780 862"/>
+
+  <!-- ===== 连接线：二级 → 三级详情 ===== -->
+  <path class="line-dim" d="M 980 175 L 1060 175 L 1060 175 L 1140 175"/>
+  <path class="line-dim" d="M 980 405 L 1060 405 L 1060 392 L 1140 392"/>
+  <path class="line-dim" d="M 980 625 L 1060 625 L 1060 612 L 1140 612"/>
+  <path class="line-dim" d="M 980 825 L 1060 825 L 1060 822 L 1140 822"/>
+
+  <!-- ===== 标题 ===== -->
+  <text style="font-size:18px;font-weight:bold;fill:#0f172a;font-family:sans-serif;" x="850" y="20" text-anchor="middle" dominant-baseline="middle">实战战法体系 · 选股/操作/持股/风控</text>
+</svg>
+                    </div>
+                    <p class="mindmap-caption">图 5：实战战法决策树</p>
+                </td>
+                <td>
+                    <div class="mindmap-svg-wrap">
+                        <!-- [SVG 设计师]：图6 - 九重交易境界升级路径 -->
+                        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1700 900" preserveAspectRatio="xMidYMid meet" style="width:100%;height:auto;background:#ffffff;">
+  <style>
+    .root { fill:#2563eb; stroke:#1e40af; stroke-width:1.5; }
+    .root-text { font-size:18px; font-weight:bold; fill:#ffffff; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l1 { fill:#dbeafe; stroke:#2563eb; stroke-width:1; }
+    .l1-text { font-size:15px; font-weight:bold; fill:#1e3a8a; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l2 { fill:#dcfce7; stroke:#16a34a; stroke-width:1; }
+    .l2-text { font-size:13px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3 { fill:#e9d5ff; stroke:#7c3aed; stroke-width:1; }
+    .l3-title { font-size:13px; font-weight:bold; fill:#4c1d95; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-text { font-size:12px; fill:#1e293b; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .l3-sub { font-size:11px; fill:#475569; font-family:"Microsoft YaHei","PingFang SC",sans-serif; }
+    .line { stroke:#94a3b8; stroke-width:1.5; fill:none; }
+    .line-dim { stroke:#cbd5e1; stroke-width:1; fill:none; stroke-dasharray:3,3; }
+    g.node:hover rect { opacity:0.85; }
+  </style>
+
+  <!-- ===== 根节点 ===== -->
+  <g class="node">
+    <rect class="root" x="80" y="420" width="200" height="56" rx="6"/>
+    <text class="root-text" x="180" y="448" text-anchor="middle" dominant-baseline="middle">战法体系</text>
+  </g>
+
+  <!-- ===== 一级节点：4 个分类 ===== -->
+  <g class="node">
+    <rect class="l1" x="400" y="150" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="175" text-anchor="middle" dominant-baseline="middle">选股战法</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="380" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="405" text-anchor="middle" dominant-baseline="middle">操作战法</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="600" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="625" text-anchor="middle" dominant-baseline="middle">持股战法</text>
+  </g>
+  <g class="node">
+    <rect class="l1" x="400" y="800" width="220" height="50" rx="5"/>
+    <text class="l1-text" x="510" y="825" text-anchor="middle" dominant-baseline="middle">风控</text>
+  </g>
+
+  <!-- ===== 二级节点：选股战法（3 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="80" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="102" text-anchor="middle" dominant-baseline="middle">九五至尊</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="150" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="172" text-anchor="middle" dominant-baseline="middle">潜龙在渊</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="220" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="242" text-anchor="middle" dominant-baseline="middle">博弈长阳</text>
+  </g>
+
+  <!-- ===== 二级节点：操作战法（2 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="345" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="367" text-anchor="middle" dominant-baseline="middle">双龙战法</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="420" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="442" text-anchor="middle" dominant-baseline="middle">卷钱机器</text>
+  </g>
+
+  <!-- ===== 二级节点：持股战法（2 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="565" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="587" text-anchor="middle" dominant-baseline="middle">做T</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="640" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="662" text-anchor="middle" dominant-baseline="middle">复盘</text>
+  </g>
+
+  <!-- ===== 二级节点：风控（2 个） ===== -->
+  <g class="node">
+    <rect class="l2" x="780" y="765" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="787" text-anchor="middle" dominant-baseline="middle">3331 仓位</text>
+  </g>
+  <g class="node">
+    <rect class="l2" x="780" y="840" width="200" height="44" rx="4"/>
+    <text class="l2-text" x="880" y="862" text-anchor="middle" dominant-baseline="middle">13天时间止损</text>
+  </g>
+
+  <!-- ===== 三级详情卡（最右） ===== -->
+  <g class="node">
+    <rect class="l3" x="1140" y="80" width="450" height="184" rx="5"/>
+    <text class="l3-title" x="1365" y="106" text-anchor="middle" dominant-baseline="middle">选股战法 · 三大法宝</text>
+    <text class="l3-text" x="1155" y="134" dominant-baseline="middle">· 九五至尊：95%涨幅基因 + AI 公式</text>
+    <text class="l3-text" x="1155" y="158" dominant-baseline="middle">· 潜龙在渊：底部蓄势 + 主力暗中建仓</text>
+    <text class="l3-text" x="1155" y="182" dominant-baseline="middle">· 博弈长阳：突破关键位 + 量能配合</text>
+    <text class="l3-text" x="1155" y="206" dominant-baseline="middle">· 三大战法交叉验证，提高胜率</text>
+    <text class="l3-text" x="1155" y="230" dominant-baseline="middle">· 配合 AI 公式与人工复盘双校验</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1140" y="320" width="450" height="144" rx="5"/>
+    <text class="l3-title" x="1365" y="346" text-anchor="middle" dominant-baseline="middle">操作战法 · 精准进出</text>
+    <text class="l3-text" x="1155" y="374" dominant-baseline="middle">· 双龙战法：题材龙头 + 资金龙头共振</text>
+    <text class="l3-text" x="1155" y="398" dominant-baseline="middle">· 卷钱机器：主升浪加速段暴力介入</text>
+    <text class="l3-text" x="1155" y="422" dominant-baseline="middle">· 买点：分歧转一致的临界点</text>
+    <text class="l3-text" x="1155" y="446" dominant-baseline="middle">· 卖点：高潮后量价背离即撤</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1140" y="540" width="450" height="144" rx="5"/>
+    <text class="l3-title" x="1365" y="566" text-anchor="middle" dominant-baseline="middle">持股战法 · 攻守兼备</text>
+    <text class="l3-text" x="1155" y="594" dominant-baseline="middle">· 做T：底仓 + 浮仓滚动，降本增厚利润</text>
+    <text class="l3-text" x="1155" y="618" dominant-baseline="middle">· 做T 关键：日线 + 30 分钟 双级别信号</text>
+    <text class="l3-text" x="1155" y="642" dominant-baseline="middle">· 复盘：每日/每周/每月 三维度总结</text>
+    <text class="l3-text" x="1155" y="666" dominant-baseline="middle">· 复盘要点：买点逻辑、卖点逻辑、改进点</text>
+  </g>
+  <g class="node">
+    <rect class="l3" x="1140" y="760" width="450" height="124" rx="5"/>
+    <text class="l3-title" x="1365" y="786" text-anchor="middle" dominant-baseline="middle">风控 · 3331 仓位 + 13 天止损</text>
+    <text class="l3-text" x="1155" y="814" dominant-baseline="middle">· 3331：3 成底仓 + 3 成浮仓 + 3 成现金 + 1 成预备</text>
+    <text class="l3-text" x="1155" y="838" dominant-baseline="middle">· 13 天止损：买入后 13 个交易日未达预期 → 减仓</text>
+    <text class="l3-text" x="1155" y="862" dominant-baseline="middle">· 严格执行，避免深套与情绪化交易</text>
+  </g>
+
+  <!-- ===== 连接线：根 → 一级 ===== -->
+  <path class="line" d="M 280 448 L 340 448 L 340 175 L 400 175"/>
+  <path class="line" d="M 280 448 L 340 448 L 340 405 L 400 405"/>
+  <path class="line" d="M 280 448 L 340 448 L 340 625 L 400 625"/>
+  <path class="line" d="M 280 448 L 340 448 L 340 825 L 400 825"/>
+
+  <!-- ===== 连接线：一级 → 二级 ===== -->
+  <!-- 选股战法 -->
+  <path class="line" d="M 620 175 L 700 175 L 700 102 L 780 102"/>
+  <path class="line" d="M 620 175 L 780 172"/>
+  <path class="line" d="M 620 175 L 700 175 L 700 242 L 780 242"/>
+  <!-- 操作战法 -->
+  <path class="line" d="M 620 405 L 700 405 L 700 367 L 780 367"/>
+  <path class="line" d="M 620 405 L 700 405 L 700 442 L 780 442"/>
+  <!-- 持股战法 -->
+  <path class="line" d="M 620 625 L 700 625 L 700 587 L 780 587"/>
+  <path class="line" d="M 620 625 L 700 625 L 700 662 L 780 662"/>
+  <!-- 风控 -->
+  <path class="line" d="M 620 825 L 700 825 L 700 787 L 780 787"/>
+  <path class="line" d="M 620 825 L 700 825 L 700 862 L 780 862"/>
+
+  <!-- ===== 连接线：二级 → 三级详情 ===== -->
+  <path class="line-dim" d="M 980 175 L 1060 175 L 1060 175 L 1140 175"/>
+  <path class="line-dim" d="M 980 405 L 1060 405 L 1060 392 L 1140 392"/>
+  <path class="line-dim" d="M 980 625 L 1060 625 L 1060 612 L 1140 612"/>
+  <path class="line-dim" d="M 980 825 L 1060 825 L 1060 822 L 1140 822"/>
+
+  <!-- ===== 标题 ===== -->
+  <text style="font-size:18px;font-weight:bold;fill:#0f172a;font-family:sans-serif;" x="850" y="20" text-anchor="middle" dominant-baseline="middle">实战战法体系 · 选股/操作/持股/风控</text>
+</svg>
+                    </div>
+                    <p class="mindmap-caption">图 6：九重交易境界升级路径</p>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</section>
+
+<!-- ========== 5. 实战案例库 ========== -->
+<section id="cases" class="section">
+    <header class="section-header">
+        <span class="section-num">05</span>
+        <h2 class="section-title">实战案例库</h2>
+        <p class="section-desc">从真实案例中学习：厚普股份、巨轮智能、有棵树等</p>
+    </header>
+    <div class="section-intro">
+        案例是最好的老师。每个案例都包含：标的名称、买入逻辑、走势复盘、关键节点、教训。
+    </div>
+
+    <article class="case-card">
+        <header class="case-card-header">
+            <div class="case-name">厚普股份</div>
+            <span class="case-tag">大美女模式</span>
+        </header>
+        <table class="case-meta">
+            <tbody><tr><th>案例定位</th><td>大美女模式典型案例（板块 2），氢能题材 + M 均线系统共振</td></tr>
+                <tr><th>买入逻辑</th><td>冰点期 → 活跃期切换点；M4 上穿 M8 形成短期金叉 → M4 上穿 M20 确立多头趋势；叠加氢能政策风口</td></tr>
+                <tr><th>走势复盘</th><td>头肩底右肩放量突破 → 5 天涨幅 40%+；典型「M系统 + 量价共振」完整模型</td></tr>
+                <tr><th>关键节点</th><td>① 头肩底右肩缩量回踩不破颈线；② M4 穿 M8 启动；③ 突破 M20 加速；④ 5 日均量持续放大</td></tr>
+                <tr><th>复盘心得</th><td>大美女的「美」在于节奏：先 M4/M8 蓄势，再 M20 突破，最后量能配合；缺一不可。买入时不在冰点，而在冰点转活跃的临界点</td></tr></tbody>
+        </table>
+    </article>
+
+    <article class="case-card">
+        <header class="case-card-header">
+            <div class="case-name">巨轮智能</div>
+            <span class="case-tag">九五至尊</span>
+        </header>
+        <table class="case-meta">
+            <tbody><tr><th>案例定位</th><td>一统天下（板块 3）AI 长中线 + 双龙战法（板块 5）实战标的，股票代码 002301</td></tr>
+                <tr><th>买入逻辑</th><td>周线级别 MACD 金叉 + 日线多周期共振（周/日/60 分钟同向）；AI 5 层筛选后 Top 1% 标的</td></tr>
+                <tr><th>走势复盘</th><td>股价从 3.02 → 4.90 元（约 65% 涨幅）；斥候建仓 → 大部队跟进 → 主升浪捕捉</td></tr>
+                <tr><th>关键节点</th><td>① 周线 MACD 金叉（指导周期给方向）；② 5 分钟头肩底形成（操作周期给点位）；③ 主力净流入持续放大；④ 严格守 13 天时间止损</td></tr>
+                <tr><th>复盘心得</th><td>一统天下 + 双龙战法 = 战略选股 + 战术买点；周线看大势、5 分钟找精确入场点；斥候先小仓试错，大部队跟条件单（股价穿 M20 自动成交），条件单 8 天内有效</td></tr></tbody>
+        </table>
+    </article>
+
+    <article class="case-card">
+        <header class="case-card-header">
+            <div class="case-name">有棵树</div>
+            <span class="case-tag">一统天下</span>
+        </header>
+        <table class="case-meta">
+            <tbody><tr><th>案例定位</th><td>一统天下（板块 3）分区卷钱典型案例，行业轮动到该分区时资金涌入</td></tr>
+                <tr><th>买入逻辑</th><td>多周期共振（周线 + 日线 + 60 分钟同向）+ 主力净流入 30-300 亿 + 行业轮动信号</td></tr>
+                <tr><th>走势复盘</th><td>行业轮动到该分区 → 资金涌入 → 主升浪启动；典型「多周期共振 + 资金驱动」模型</td></tr>
+                <tr><th>关键节点</th><td>① 周线级别 MACD 金叉（指导周期）；② 日线多头排列；③ 60 分钟回踩不破 M20；④ 主力净流入持续放大</td></tr>
+                <tr><th>复盘心得</th><td>分区卷钱 = 行业轮动 + 资金驱动 + 多周期共振；三者缺一不可。当行业进入主升浪时，整个板块的标的都会受益</td></tr></tbody>
+        </table>
+    </article>
+    <article class="case-card">
+        <header class="case-card-header">
+            <div class="case-name">中航电测</div>
+            <span class="case-tag">九五至尊 + 双龙战法</span>
+        </header>
+        <table class="case-meta">
+            <tbody>
+                <tr><th>案例定位</th><td>九五至尊（板块 1）AI 选股命中 + 双龙战法（板块 5）经典案例，95% 涨幅基因</td></tr>
+                <tr><th>买入逻辑</th><td>大形态（底部结构）+ 强题材（重组并购）+ 主力介入（资金流入）三因共振；AI 公式命中 + 历史相似度高</td></tr>
+                <tr><th>走势复盘</th><td>斥候建仓 → 大部队条件单跟进 → 主升浪加速 → 持续走高</td></tr>
+                <tr><th>关键节点</th><td>① 重组并购题材爆发（强风口）；② 主力资金净流入持续放大（筹码集中）；③ AI 公式 Top 1% 命中（历史相似度高）；④ 双龙战法条件单触发</td></tr>
+                <tr><th>复盘心得</th><td>九五至尊 = 大形态 + 强题材 + 主力介入的「三位一体」；AI 公式是辅助决策工具，不是圣杯；当三大要素齐聚时胜率最高（&gt; 70%）。双龙战法让小资金也能在主升浪中分一杯羹</td></tr>
+            </tbody>
+        </table>
+    </article>
+ 002896</div>
+            <span class="case-tag">双龙战法 5 个涨停</span>
+        </header>
+        <table class="case-meta">
+            <tbody>
+                <tr><th>案例定位</th><td>双龙战法（板块 5）经典案例，斥候 + 大部队模型完整演绎</td></tr>
+                <tr><th>买入逻辑</th><td>斥候建仓（M4 穿 M8 买 100 股，损失可控）→ 等待 5 分钟启动信号 → 大部队条件单跟进</td></tr>
+                <tr><th>走势复盘</th><td>连续 5 个涨停板；斥候仓 + 大部队仓双线获利</td></tr>
+                <tr><th>关键节点</th><td>① 斥候仓 100 股探路；② 5 分钟站上 M20 启动确认；③ 大部队条件单「穿 M20 自动成交」；④ 严守 13 天时间止损</td></tr>
+                <tr><th>复盘心得</th><td>小资金 100 股探路是关键——试探仓损失可控，便于快速止损；主力仓必须看到明确信号才动手</td></tr>
+            </tbody>
+        </table>
+    </article>
+
+    <article class="case-card">
+        <header class="case-card-header">
+            <div class="case-name">国联股份 603613</div>
+            <span class="case-tag">卷钱机器 1 天 9000 元</span>
+        </header>
+        <table class="case-meta">
+            <tbody>
+                <tr><th>案例定位</th><td>卷钱机器（板块 5）多周期共振实战案例，资金分级运作典型</td></tr>
+                <tr><th>买入逻辑</th><td>5 分钟头肩底突破（操作周期给点位）+ 30 分钟/日线多周期共振（指导周期给方向）</td></tr>
+                <tr><th>走势复盘</th><td>5 成仓 15 万介入 → 1 天后卖出 → 利润 9000 元</td></tr>
+                <tr><th>关键节点</th><td>① 5 分钟头肩底突破颈线；② 30 分钟金叉确认；③ 日线无明显背驰；④ 严格执行 5 成仓上限</td></tr>
+                <tr><th>复盘心得</th><td>卷钱机器 + 三机器 = 大资金精细化运作；短线 1 天 9000 元不算暴利，但稳定可复制</td></tr>
+            </tbody>
+        </table>
+    </article>
+
+    <article class="case-card">
+        <header class="case-card-header">
+            <div class="case-name">华尔泰 + 海天瑞声</div>
+            <span class="case-tag">缠论背驰典型</span>
+        </header>
+        <table class="case-meta">
+            <tbody>
+                <tr><th>案例定位</th><td>缠论体系（板块 4）背驰买点典型案例，30 分钟 + 日线双级别验证</td></tr>
+                <tr><th>买入逻辑</th><td>华尔泰：30 分钟底背驰 + 日线 MACD 背离 → 一类买点；海天瑞声：日线中枢下沿 + 30 分钟二类买点</td></tr>
+                <tr><th>走势复盘</th><td>两标的均在背驰买点介入后开启主升浪；MACD 面积/高度背离提供关键反转信号</td></tr>
+                <tr><th>关键节点</th><td>① 价格新低但 MACD 面积/高度不新低（背驰信号）；② 30 分钟底分型形成；③ 中枢下沿支撑确认；④ 多级别共振确认</td></tr>
+                <tr><th>复盘心得</th><td>缠论一买最安全，二买最常用，三买最暴力；背驰是「势能用尽」的信号，必须配合多级别共振</td></tr>
+            </tbody>
+        </table>
+    </article>
+</section>
+
+<!-- ========== 6. 九重交易境界 ========== -->
+<section id="levels" class="section">
+    <header class="section-header">
+        <span class="section-num">06</span>
+        <h2 class="section-title">九重交易境界</h2>
+        <p class="section-desc">从 0 基础小白到稳定盈利高手，必经的 9 个阶段</p>
+    </header>
+    <div class="section-intro">
+        主人目前处于第几重？每一重都有明确特征和过关标志。境界不是炫技，而是"账户稳定盈利"的必经之路。
+    </div>
+    <ol class="levels-list">
+        <li>
+            <span class="level-title">第 1 重：盲人摸象</span>
+            <span class="level-desc">看不懂 K 线、不知道何时买卖、听消息操作。<br><strong>典型表现：</strong>① 看不到市场结构（趋势/震荡/下跌）；② 把消息当信号，被「内幕」「牛股推荐」吸引；③ 频繁追涨杀跌；④ 凭感觉买卖，每次都觉得自己能赢。<br><strong>过关标志：</strong>过关标志：能看懂基础 K 线含义（阳线/阴线/十字星/锤头等）；知道「位置不同含义不同」（底部阳线 ≠ 顶部阳线）。</span>
+        </li>
+        <li>
+            <span class="level-title">第 2 重：纸上谈兵</span>
+            <span class="level-desc">学了一堆技术指标，但实战仍亏损。<br><strong>典型表现：</strong>① MACD 金叉买入，结果被套；② 学了均线但不会用；③ 指标冲突时不知所措；④ 战法知道很多但没一个能用。<br><strong>过关标志：</strong>过关标志：能识别均线系统的基本含义（M4/M8/M20 的排列）；明白「指标只是工具，不是圣杯」。</span>
+        </li>
+        <li>
+            <span class="level-title">第 3 重：似懂非懂</span>
+            <span class="level-desc">知道一些战法，但执行不到位。<br><strong>典型表现：</strong>① 选股选对了，但买点不对；② 买对了拿不住，赚一点就卖；③ 卖错了反而长期持有；④ 心态不稳，涨了看涨、跌了看跌。<br><strong>过关标志：</strong>过关标志：能用 AI 选出大美女（M 均线系统 + 量价共振）；能用九五至尊公式筛选标的。</span>
+        </li>
+        <li>
+            <span class="level-title">第 4 重：知行合一</span>
+            <span class="level-desc">能稳定执行一套战法，但仍有时亏损。<br><strong>典型表现：</strong>① 选定一套战法反复用；② 严格执行买点/卖点；③ 偶尔被假突破骗；④ 仍依赖单一战法，不能灵活切换。<br><strong>过关标志：</strong>过关标志：能在实战中稳定识别买点（双龙战法/卷钱机器/大美女任选其一）；年化能跑赢指数。</span>
+        </li>
+        <li>
+            <span class="level-title">第 5 重：顺势而为</span>
+            <span class="level-desc">开始能识别大盘趋势，逆势不操作。<br><strong>典型表现：</strong>① 看懂大盘周期（春夏秋冬）；② 逆势空仓不手痒；③ 仓位管理有纪律（3331 分仓）；④ 知道不操作也是操作。<br><strong>过关标志：</strong>过关标志：能用一统天下做长中线（周线 + 日线 + 60 分钟共振）；单一行业不超过 30% 仓位。</span>
+        </li>
+        <li>
+            <span class="level-title">第 6 重：缠论入境</span>
+            <span class="level-desc">掌握缠论顶底分型，能识别绝对顶底。<br><strong>典型表现：</strong>① 看任何 K 线图都能画出分型/笔/线段；② 识别中枢与背驰；③ 用缠论定位买卖点；④ 多级别联立判断。<br><strong>过关标志：</strong>过关标志：能独立画出中枢、识别背驰；一买/二买/三买概念清晰；区间套判断熟练。</span>
+        </li>
+        <li>
+            <span class="level-title">第 7 重：多法合一</span>
+            <span class="level-desc">能根据不同行情灵活切换战法。<br><strong>典型表现：</strong>① 牛市中用一统天下长线持有；② 震荡市用卷钱机器做 T；③ 主升浪用双龙战法追击；④ 下跌市空仓或做反 T。<br><strong>过关标志：</strong>过关标志：卷钱机器、双龙战法、做 T 都能稳定盈利；不同市况使用不同战法，年化 20%+。</span>
+        </li>
+        <li>
+            <span class="level-title">第 8 重：稳定盈利</span>
+            <span class="level-desc">账户长期稳定盈利，盈亏比大于 2:1。<br><strong>典型表现：</strong>① 年化稳定正收益（连续 3 年正收益）；② 盈亏比 ≥ 2:1（赚一次抵亏两次）；③ 最大回撤可控（&lt; 20%）；④ 资金量阶梯适配战法。<br><strong>过关标志：</strong>过关标志：年化稳定正收益；账户曲线平稳向上（不追求暴利，追求复利）。</span>
+        </li>
+        <li>
+            <span class="level-title">第 9 重：无为而治</span>
+            <span class="level-desc">不操作就是最好的操作，看得懂、忍得住、拿得稳。<br><strong>典型表现：</strong>① 知道何时不动比动更重要；② 心态如水，盈亏不惊；③ 见自己、见天地、见众生；④ 交易如呼吸，自然而然。<br><strong>过关标志：</strong>过关标志：心态如水，盈亏不惊；账户曲线几乎是一条向上的平滑直线；不依赖战法，因为已内化为本能。</span>
+        </li>
+    </ol>
+</section>
+
+<!-- ========== 7. 学习路径与工具清单 ========== -->
+<section id="tools" class="section">
+    <header class="section-header">
+        <span class="section-num">07</span>
+        <h2 class="section-title">学习路径与工具清单</h2>
+        <p class="section-desc">股票代码、AI 公式、纪律清单 —— 主人必备工具箱</p>
+    </header>
+    <div class="section-intro">
+        这里汇总所有"落地工具"：可直接复制的股票代码、通达信/同花顺公式、操盘纪律清单。
+    </div>
+
+    <h3 style="font-size:17px; font-weight:700; color:var(--color-text); margin:24px 0 12px;">📌 关键股票代码</h3>
+    <table class="tools-table">
+        <thead>
+            <tr>
+                <th style="width:18%;">名称</th>
+                <th style="width:18%;">代码</th>
+                <th style="width:32%;">所属模块</th>
+                <th>备注</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>厚普股份</td>
+                <td><code>300471</code></td>
+                <td>大美女模式</td>
+                <td>M 均线系统共振 · 5 天 40% 涨幅；大美女模式典型案例</td>
+            </tr>
+            <tr>
+                <td>巨轮智能</td>
+                <td><code>002031</code></td>
+                <td>九五至尊</td>
+                <td>AI 长中线 + 双龙战法；股价 3.02 → 4.90 元（约 65%）</td>
+            </tr>
+            <tr>
+                <td>有棵树</td>
+                <td><code>300209</code></td>
+                <td>一统天下</td>
+                <td>分区卷钱 + 行业轮动；一统天下典型案例</td>
+            </tr>
+
+            <tr>
+                <td>中航电测</td>
+                <td><code>300114</code></td>
+                <td>九五至尊 + 双龙战法</td>
+                <td>重组并购 + AI 公式命中；95% 涨幅基因</td>
+            </tr>
+            <tr>
+                <td>中大力德</td>
+                <td><code>002896</code></td>
+                <td>双龙战法</td>
+                <td>斥候 + 大部队；连续 5 个涨停板</td>
+            </tr>
+            <tr>
+                <td>国联股份</td>
+                <td><code>603613</code></td>
+                <td>卷钱机器</td>
+                <td>5 分钟头肩底突破；1 天利润 9000 元</td>
+            </tr>
+            <tr>
+                <td>剑桥科技</td>
+                <td><code>603083</code></td>
+                <td>九五至尊</td>
+                <td>CPO 题材 + AI 公式 Top 1% 命中</td>
+            </tr>
+            <tr>
+                <td>首要控股</td>
+                <td><code>000630</code></td>
+                <td>一统天下</td>
+                <td>铜业题材 + 多周期共振 + 主力净流入</td>
+            </tr>
+            <tr>
+                <td>华尔泰</td>
+                <td><code>001217</code></td>
+                <td>缠论体系</td>
+                <td>30 分钟底背驰 + 日线 MACD 背离 → 一类买点</td>
+            </tr>
+            <tr>
+                <td>海天瑞声</td>
+                <td><code>688787</code></td>
+                <td>缠论体系</td>
+                <td>日线中枢下沿 + 30 分钟二类买点</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 style="font-size:17px; font-weight:700; color:var(--color-text); margin:24px 0 12px;">📌 AI 公式清单</h3>
+    <table class="tools-table">
+        <thead>
+            <tr>
+                <th style="width:22%;">公式名称</th>
+                <th style="width:30%;">所属模块</th>
+                <th>核心条件</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>九五至尊选股公式</td>
+                <td>模块 1（AI 选股）</td>
+                <td>大形态（底部结构）+ 强题材（风口）+ 主力介入（资金流入）；AI 量价匹配 + 历史相似度 Top 1%</td>
+            </tr>
+            <tr>
+                <td>大美女均线公式</td>
+                <td>模块 2（均线系统）</td>
+                <td>M4 上穿 M8（金叉）+ M4 上穿 M20（多头趋势）+ 量价配合（5 日均量持续放大）+ 活跃期介入</td>
+            </tr>
+            <tr>
+                <td>一统天下长中线公式</td>
+                <td>模块 3（AI 长中线）</td>
+                <td>周线级别 MACD 金叉 + 行业景气度 + 政策驱动 + 资金面 + AI 综合得分 Top 5%；多周期共振（周/日/60 分钟）</td>
+            </tr>
+            <tr>
+                <td>缠论顶底分型公式</td>
+                <td>模块 4（缠论体系）</td>
+                <td>顶分型（中间高两侧低 → 卖点）+ 底分型（中间低两侧高 → 买点）+ 笔连接（至少 3 笔构成线段）+ 中枢重叠区间 + 背驰（MACD 面积/高度背离）</td>
+            </tr>
+            <tr>
+                <td>双龙战法买入公式</td>
+                <td>模块 5（实战战法）</td>
+                <td>斥候建仓（M4 穿 M8 + 5 分钟底分型）+ 等待启动信号（5 分钟站上 M20）+ 大部队条件单（穿 M20 自动成交，8 天有效）+ 13 天时间止损</td>
+            </tr>
+
+            <tr>
+                <td>卷钱机器多周期公式</td>
+                <td>模块 5（实战战法）</td>
+                <td>多周期共振：周/日/30 分/5 分/1 分 同时同向；指导周期给方向（周/日/30 分钟）+ 操作周期给点位（30/5/1 分钟）；指导无信号 + 操作有信号 = 不操作</td>
+            </tr>
+            <tr>
+                <td>做 T 日内公式</td>
+                <td>模块 5（实战战法）</td>
+                <td>选股（成交额 &gt; 5 亿、换手率 &gt; 3%）+ 信号识别（5 分钟金叉/死叉）+ 分批操作（70% 底仓 + 30% 活动资金）+ 严格止损（0.5%-2% 目标利润）</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <h3 style="font-size:17px; font-weight:700; color:var(--color-danger); margin:24px 0 12px;">🚫 操盘纪律清单（必背）</h3>
+    <ul class="discipline-list">
+        <li>不满仓操作，永远保留 30% 现金应对极端行情</li>
+        <li>不追高买入，错过就等下一次机会</li>
+        <li>不止损不进场，每笔交易前先设好止损位</li>
+        <li>不在情绪激动时操作（贪婪/恐惧/愤怒）</li>
+        <li>不复盘不睡觉，每日必做复盘笔记</li>
+        <li>不相信小道消息，所有买入逻辑必须经得起推敲</li>
+        <li>不频繁交易，短线不超过 1/3 仓位</li>
+        <li>不单独依赖 1 分钟图（&gt; 65% 假信号）</li>
+        <li>不把做 T 变成加仓摊平（单次目标 0.5%-2%）</li>
+        <li>不在同向强信号时犹豫（M 均线金叉 + 量能放大 + 多周期共振 = 立刻行动）</li>
+        <li>不重仓单只（单股不超过 20%-30%）；不重仓单行业（不超过 30%）</li>
+        <li>不忽略时间止损（13 天未启动 = 强制清仓）</li>
+    </ul>
+
+    <div class="warn">
+        <strong>⚠️ 重要提示：</strong>本知识库内容仅供学习参考，不构成任何投资建议。股市有风险，投资需谨慎。所有操作决策由主人独立判断。
+    </div>
+</section>
+
+</div><!-- /.container -->
+
+<!-- 返回顶部 -->
+<a href="#hero" class="back-to-top" aria-label="返回顶部">↑</a>
+
+<!-- 页脚 -->
+<footer class="site-footer">
+    <p><strong>龙虎跃精修（高阶课）· 完整知识库</strong></p>
+    <p>为尊贵的主人打造 · 从小白到高手的一站式学习资料</p>
+    <p>课程来源：张穗鸿老师 · 高阶课（第24-43节）</p>
+</footer>
+
+</body>
+</html>

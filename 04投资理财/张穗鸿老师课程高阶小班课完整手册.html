@@ -1,0 +1,4464 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=5.0">
+<title>张穗鸿老师《龙虎跃·证券精修课》完整手册</title>
+<style>
+:root {
+  --color-bg: #FAFBFC;
+  --color-bg-card: #FFFFFF;
+  --color-bg-soft: #F3F4F6;
+  --color-text: #1F2937;
+  --color-text-soft: #4B5563;
+  --color-text-mute: #9CA3AF;
+  --color-border: #E5E7EB;
+  --color-primary: #2563EB;
+  --color-primary-50: #EFF6FF;
+  --color-primary-dark: #1E40AF;
+  --color-purple: #7C3AED;
+  --color-purple-50: #F5F3FF;
+  --color-pink: #DB2777;
+  --color-pink-50: #FDF2F8;
+  --color-green: #059669;
+  --color-green-50: #ECFDF5;
+  --color-amber: #D97706;
+  --color-amber-50: #FFFBEB;
+  --color-red: #DC2626;
+  --color-red-50: #FEF2F2;
+  --space-xs: 4px;
+  --space-sm: 8px;
+  --space-md: 16px;
+  --space-lg: 24px;
+  --space-xl: 40px;
+  --space-2xl: 64px;
+  --radius-sm: 6px;
+  --radius-md: 10px;
+  --radius-lg: 16px;
+  --shadow-sm: 0 1px 2px rgba(15,23,42,.04);
+  --shadow-md: 0 4px 12px rgba(15,23,42,.06);
+  --shadow-lg: 0 12px 32px rgba(15,23,42,.08);
+  --fs-xs: clamp(11px, 0.7rem + 0.2vw, 12px);
+  --fs-sm: clamp(12px, 0.8rem + 0.2vw, 13px);
+  --fs-md: clamp(14px, 0.9rem + 0.2vw, 15px);
+  --fs-lg: clamp(16px, 1.0rem + 0.4vw, 18px);
+  --fs-xl: clamp(20px, 1.2rem + 0.8vw, 24px);
+  --fs-2xl: clamp(24px, 1.5rem + 1.0vw, 32px);
+  --fs-3xl: clamp(28px, 1.8rem + 1.2vw, 40px);
+  --lh-tight: 1.35;
+  --lh-base: 1.75;
+  --font-sans: -apple-system, BlinkMacSystemFont, "PingFang SC", "Microsoft YaHei", "Helvetica Neue", Arial, sans-serif;
+  --font-mono: "SF Mono", "Cascadia Code", Consolas, Monaco, monospace;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+body {
+  background: var(--color-bg);
+  color: var(--color-text);
+  font-family: var(--font-sans);
+  font-size: var(--fs-md);
+  line-height: var(--lh-base);
+  -webkit-font-smoothing: antialiased;
+}
+
+a { color: var(--color-primary); text-decoration: none; }
+a:hover { text-decoration: underline; }
+
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 32px 24px 80px;
+}
+
+/* === 顶部 Hero === */
+.hero {
+  background: linear-gradient(135deg, var(--color-primary), var(--color-purple));
+  color: white;
+  padding: var(--space-2xl) var(--space-lg);
+  border-radius: var(--radius-lg);
+  margin-bottom: var(--space-xl);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+}
+.hero h1 {
+  font-size: var(--fs-3xl);
+  margin: 0 0 var(--space-md);
+  font-weight: 700;
+  line-height: 1.3;
+}
+.hero .subtitle {
+  font-size: var(--fs-lg);
+  opacity: 0.95;
+  margin-bottom: var(--space-md);
+}
+.hero .meta {
+  font-size: var(--fs-sm);
+  opacity: 0.85;
+}
+
+/* === 目录 TOC === */
+.toc {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-bottom: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+.toc-title {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--color-primary);
+  margin-bottom: var(--space-md);
+  padding-bottom: var(--space-sm);
+  border-bottom: 2px solid var(--color-primary-50);
+}
+.toc-list { list-style: none; padding: 0; }
+.toc-list li { margin: 6px 0; }
+.toc-list a {
+  color: var(--color-text-soft);
+  font-size: var(--fs-sm);
+  padding: 4px 8px;
+  border-radius: 4px;
+  display: inline-block;
+  transition: background 0.15s;
+}
+.toc-list a:hover {
+  background: var(--color-primary-50);
+  text-decoration: none;
+}
+.toc-section {
+  font-weight: 600;
+  color: var(--color-primary);
+  margin-top: var(--space-md);
+  display: block;
+  font-size: var(--fs-md);
+}
+
+/* === 章节 === */
+.chapter {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-xl) var(--space-lg);
+  margin-bottom: var(--space-xl);
+  box-shadow: var(--shadow-sm);
+}
+.chapter-header {
+  padding-bottom: var(--space-lg);
+  border-bottom: 2px solid var(--color-bg-soft);
+  margin-bottom: var(--space-lg);
+}
+.chapter-tag {
+  display: inline-block;
+  padding: 4px 12px;
+  background: var(--color-primary-50);
+  color: var(--color-primary);
+  border-radius: 999px;
+  font-size: var(--fs-sm);
+  font-weight: 600;
+  margin-bottom: var(--space-md);
+}
+.chapter-title {
+  font-size: var(--fs-3xl);
+  color: var(--color-text);
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: var(--space-sm);
+}
+.chapter-lead {
+  font-size: var(--fs-lg);
+  color: var(--color-text-soft);
+  line-height: 1.6;
+}
+
+.section-h {
+  font-size: var(--fs-xl);
+  color: var(--color-primary);
+  font-weight: 600;
+  margin: var(--space-lg) 0 var(--space-md);
+  padding-left: 12px;
+  border-left: 4px solid var(--color-primary);
+}
+.section-h3 {
+  font-size: var(--fs-lg);
+  color: var(--color-text);
+  font-weight: 600;
+  margin: var(--space-md) 0 var(--space-sm);
+}
+p { margin: var(--space-sm) 0; line-height: 1.75; }
+
+/* === 卡片体系 === */
+.card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin: var(--space-md) 0;
+  box-shadow: var(--shadow-sm);
+  border-left-width: 4px;
+  border-left-style: solid;
+}
+.card-concept { border-left-color: var(--color-primary); }
+.card-tip { border-left-color: var(--color-green); background: var(--color-green-50); }
+.card-warn { border-left-color: var(--color-red); background: var(--color-red-50); }
+.card-case { border-left-color: var(--color-amber); background: var(--color-amber-50); }
+.card-purple { border-left-color: var(--color-purple); background: var(--color-purple-50); }
+.card-pink { border-left-color: var(--color-pink); background: var(--color-pink-50); }
+
+.card-head {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-bottom: var(--space-sm);
+}
+.card-icon { font-size: var(--fs-lg); }
+.card-title {
+  font-size: var(--fs-lg);
+  font-weight: 600;
+  color: var(--color-text);
+  margin: 0;
+}
+.card-body { color: var(--color-text-soft); }
+.card-body p { margin: 6px 0; }
+.card-body ul, .card-body ol { padding-left: 24px; margin: 8px 0; }
+.card-body li { margin: 4px 0; line-height: 1.7; }
+
+/* === 表格 === */
+.table-wrap {
+  overflow-x: auto;
+  margin: var(--space-md) 0;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+.data-table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  font-size: var(--fs-sm);
+}
+.data-table th {
+  background: var(--color-primary-50);
+  padding: 12px;
+  font-weight: 600;
+  text-align: left;
+  border-bottom: 2px solid var(--color-primary);
+  color: var(--color-primary-dark);
+}
+.data-table td {
+  padding: 12px;
+  border-top: 1px solid var(--color-border);
+  vertical-align: top;
+}
+.data-table tr:nth-child(even) { background: var(--color-bg-soft); }
+
+/* === 代码块（通达信公式） === */
+pre {
+  background: #1E293B;
+  color: #E2E8F0;
+  padding: var(--space-md);
+  border-radius: var(--radius-md);
+  overflow-x: auto;
+  font-family: var(--font-mono);
+  font-size: var(--fs-sm);
+  line-height: 1.6;
+  margin: var(--space-md) 0;
+  white-space: pre;
+  word-break: keep-all;
+}
+code {
+  font-family: var(--font-mono);
+  background: #F1F5F9;
+  padding: 2px 6px;
+  border-radius: 4px;
+  font-size: 0.9em;
+  color: var(--color-purple);
+}
+pre code {
+  background: transparent;
+  color: inherit;
+  padding: 0;
+}
+
+/* === 口诀卡 === */
+.koujue-card {
+  background: linear-gradient(135deg, #FEF3C7, #FFFBEB);
+  border: 2px solid var(--color-amber);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin: var(--space-md) 0;
+  text-align: center;
+  box-shadow: var(--shadow-sm);
+}
+.koujue-text {
+  font-size: var(--fs-xl);
+  font-weight: 700;
+  color: var(--color-amber);
+  margin: 0 0 var(--space-sm);
+  line-height: 1.4;
+}
+.koujue-explain {
+  font-size: var(--fs-md);
+  color: var(--color-text-soft);
+  margin: 8px 0;
+  text-align: left;
+}
+.koujue-source, .koujue-scene {
+  font-size: var(--fs-xs);
+  color: var(--color-text-mute);
+  margin: 4px 0;
+  text-align: right;
+}
+
+/* === 战法对比矩阵 === */
+.strategy-matrix {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: var(--space-md);
+  margin: var(--space-md) 0;
+}
+.strategy-tile {
+  background: var(--color-bg-card);
+  border: 2px solid var(--color-pink);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+  position: relative;
+}
+.strategy-tile h4 {
+  color: var(--color-pink);
+  font-size: var(--fs-lg);
+  margin-bottom: var(--space-sm);
+}
+.strategy-tile .tag {
+  display: inline-block;
+  background: var(--color-pink-50);
+  color: var(--color-pink);
+  font-size: var(--fs-xs);
+  padding: 2px 8px;
+  border-radius: 999px;
+  margin-right: 4px;
+}
+
+/* === SVG 容器 === */
+.svg-wrap {
+  width: 100%;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  margin: var(--space-lg) 0;
+  background: linear-gradient(135deg, #FAFBFC, #F3F4F6);
+  border-radius: var(--radius-md);
+  padding: var(--space-md);
+}
+.svg-wrap svg {
+  width: 100%;
+  height: auto;
+  min-width: 600px;
+  display: block;
+}
+
+/* === 案例卡（特殊样式） === */
+.case-source {
+  font-size: var(--fs-xs);
+  color: var(--color-text-mute);
+  margin-top: var(--space-sm);
+  text-align: right;
+}
+.case-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+  gap: var(--space-sm);
+  margin: var(--space-sm) 0;
+}
+.case-stat {
+  background: white;
+  border: 1px solid var(--color-amber);
+  border-radius: 6px;
+  padding: 8px;
+  text-align: center;
+}
+.case-stat .label {
+  font-size: var(--fs-xs);
+  color: var(--color-text-mute);
+}
+.case-stat .value {
+  font-size: var(--fs-md);
+  font-weight: 700;
+  color: var(--color-amber);
+}
+
+/* === 章节底部要点回顾 === */
+.chapter-summary {
+  background: linear-gradient(135deg, var(--color-primary-50), white);
+  border: 1px solid var(--color-primary);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  margin-top: var(--space-xl);
+}
+.chapter-summary h4 {
+  color: var(--color-primary);
+  margin-bottom: var(--space-sm);
+}
+
+/* === Footer === */
+.footer {
+  background: var(--color-bg-soft);
+  border-radius: var(--radius-md);
+  padding: var(--space-lg);
+  text-align: center;
+  color: var(--color-text-mute);
+  font-size: var(--fs-sm);
+  margin-top: var(--space-xl);
+}
+.footer strong { color: var(--color-text-soft); }
+
+/* === 响应式 === */
+@media (max-width: 768px) {
+  .container { padding: 24px 16px 60px; }
+  .chapter { padding: var(--space-lg) var(--space-md); }
+  .hero { padding: var(--space-xl) var(--space-md); }
+  .card { padding: var(--space-md); }
+  .strategy-matrix { grid-template-columns: 1fr; }
+  .case-stats { grid-template-columns: 1fr 1fr; }
+}
+
+@media (max-width: 480px) {
+  .container { padding: 16px 12px 48px; }
+  .hero { padding: var(--space-lg) var(--space-md); }
+  .hero h1 { font-size: var(--fs-2xl); }
+  .chapter { padding: var(--space-md); border-radius: var(--radius-md); }
+  .chapter-title { font-size: var(--fs-2xl); }
+  pre { font-size: 11px; }
+
+  .data-table thead { display: none; }
+  .data-table tr {
+    display: block;
+    margin-bottom: var(--space-sm);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+  }
+  .data-table td {
+    display: block;
+    border: none;
+    padding: 8px 12px;
+  }
+  .data-table td::before {
+    content: attr(data-label);
+    font-weight: 600;
+    color: var(--color-text-mute);
+    display: block;
+    font-size: var(--fs-xs);
+    margin-bottom: 4px;
+  }
+}
+
+/* === 排版细节 === */
+blockquote {
+  margin: var(--space-md) 0;
+  padding: var(--space-md) var(--space-lg);
+  border-left: 4px solid var(--color-purple);
+  background: var(--color-purple-50);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  color: var(--color-text-soft);
+}
+
+ul, ol { padding-left: 24px; margin: var(--space-sm) 0; }
+li { margin: 4px 0; line-height: 1.7; }
+
+hr {
+  border: none;
+  border-top: 1px dashed var(--color-border);
+  margin: var(--space-lg) 0;
+}
+
+strong { color: var(--color-text); font-weight: 600; }
+em { color: var(--color-text-soft); font-style: normal; }
+</style>
+</head>
+<body>
+<div class="container">
+
+<header class="hero">
+  <h1>张穗鸿《龙虎跃·证券精修课》<br>完整知识手册</h1>
+  <p class="subtitle">21 篇高阶小班课 · 全部知识点打碎重铸 · 从小白直达精通</p>
+  <p class="meta">涵盖缠论体系 · 8 大战法 · 情绪仓位 · 板块龙虎榜 · 通达信公式 · 实战决策流程</p>
+</header>
+
+<aside class="toc">
+  <h2 class="toc-title">📑 全书目录</h2>
+  <ul class="toc-list">
+    <li><a href="#ch-1">第 1 章 · 走进股票交易（入门破冰）</a></li>
+    <li><a href="#ch-2">第 2 章 · K 线与量价语言</a></li>
+    <li><a href="#ch-3">第 3 章 · 缠论入门：走势类型与分型</a></li>
+    <li><span class="toc-section">技术筑基篇</span></li>
+    <li><a href="#ch-4">第 4 章 · 中枢：缠论的心脏</a></li>
+    <li><a href="#ch-5">第 5 章 · 三类买卖点定位</a></li>
+    <li><a href="#ch-6">第 6 章 · 背驰与九段升级</a></li>
+    <li><a href="#ch-7">第 7 章 · 多级别联立实战</a></li>
+    <li><a href="#ch-8">第 8 章 · 特征序列与缠论细节</a></li>
+    <li><span class="toc-section">战法立身篇</span></li>
+    <li><a href="#ch-9">第 9 章 · 战法总览 + 一统天下 + 九五至尊</a></li>
+    <li><a href="#ch-10">第 10 章 · 潜龙在渊 + 博弈长阳</a></li>
+    <li><a href="#ch-11">第 11 章 · 美女战法 + 储君模式 + 倒车接人 + 对子底</a></li>
+    <li><a href="#ch-12">第 12 章 · 战法组合与切换策略</a></li>
+    <li><span class="toc-section">市场理解篇</span></li>
+    <li><a href="#ch-13">第 13 章 · 情绪体系</a></li>
+    <li><a href="#ch-14">第 14 章 · 仓位管理（5:3:2/3331/235/4321）</a></li>
+    <li><a href="#ch-15">第 15 章 · 板块轮动与 50 亿市值法则</a></li>
+    <li><a href="#ch-16">第 16 章 · 主线板块清单与龙虎榜</a></li>
+    <li><span class="toc-section">实战闭环篇</span></li>
+    <li><a href="#ch-17">第 17 章 · 通达信公式实战</a></li>
+    <li><a href="#ch-18">第 18 章 · 决策流程图（盘前/盘中/盘后）</a></li>
+    <li><a href="#ch-19">第 19 章 · 实战口诀心法（30+ 条）</a></li>
+    <li><a href="#ch-20">第 20 章 · 经典案例全复盘</a></li>
+    <li><a href="#ch-21">第 21 章 · 复盘与持续精进</a></li>
+  </ul>
+</aside>
+
+<main class="content">
+
+<!-- ============ 第一章：走进股票交易 ============ -->
+<section class="chapter" id="ch-1">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 1 篇 · 入门破冰</span>
+    <h2 class="chapter-title">1. 走进股票交易</h2>
+    <p class="chapter-lead">先认识 A 股市场结构、交易规则、风险收益本质，再进入技术分析。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>理解 A 股市场结构与多层次资本市场</li>
+        <li>掌握交易时间、涨跌幅、T+1 等核心规则</li>
+        <li>建立风险收益的正确认知</li>
+        <li>理解"做股票就是做概率"的本质</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">1.1 A 股市场全景认知</h3>
+
+  <p>A 股，即人民币普通股，是由中国境内公司发行、在沪深北三大交易所上市、以人民币认购和交易的股票。A 股不是孤立的市场，而是中国多层次资本市场的一环。</p>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：A 股多层次市场结构】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>主板</strong>（沪深主板）：传统大盘蓝筹，门槛最高，代码以 600/000/601 开头</li>
+        <li><strong>科创板</strong>（沪）：科技创新企业，涨跌幅±20%，代码 688 开头</li>
+        <li><strong>创业板</strong>（深）：成长创新企业，涨跌幅±20%，代码 300 开头</li>
+        <li><strong>北交所</strong>：服务创新型中小企业，代码 8 开头，涨跌幅±20%</li>
+        <li><strong>新三板</strong>：未上市的股份公司股份转让系统</li>
+      </ul>
+    </div>
+  </div>
+
+  <p>不同板块有不同的"脾气"：<strong>主板稳健</strong>，适合大资金、长线持有；<strong>科创板/创业板</strong>波动大、成长性强，适合战法博弈；<strong>北交所</strong>门槛低、市值小，常出现极端走势。张穗鸿老师在课程中重点讲解的是中小市值的主板股与创业板股，这两类标的流动性最好、波动最可控。</p>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：50 亿市值法则】</h4></div>
+    <div class="card-body">
+      <p>张穗鸿老师在多课中提到：<strong>优先关注流通市值 50 亿以下的中小盘股</strong>。原因有三：</p>
+      <ol>
+        <li>资金撬动容易——少量资金即可推动股价</li>
+        <li>主力建仓灵活——大资金不愿进，市值小更易收集筹码</li>
+        <li>波动空间大——大盘股一年涨幅 30%，小盘股可翻倍</li>
+      </ol>
+      <p class="case-source">【出处：贯穿多课反复强调，特别是第 19/20/21 课】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">1.2 交易时间与核心规则</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：交易时间】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>早盘集合竞价</strong>：9:15-9:25（9:20-9:25 不可撤单）</li>
+        <li><strong>连续竞价</strong>：9:30-11:30，13:00-14:57</li>
+        <li><strong>尾盘集合竞价</strong>：14:57-15:00（深交所）</li>
+        <li><strong>午休</strong>：11:30-13:00</li>
+      </ul>
+      <p><strong>实操要点</strong>：老师特别强调"<strong>9:30-10:00 黄金半小时</strong>"，是观察多空出牌、确定当日方向的关键窗口。</p>
+    </div>
+  </div>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：T+1 与涨跌幅】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>T+1 制度</strong>：今天买入的股票，明天才能卖出（不能当日回转交易）</li>
+        <li><strong>主板涨跌幅 ±10%</strong>（ST 股 ±5%、科创板/创业板/北交所 ±20%）</li>
+        <li>新股上市首日不设涨跌幅（科创板/创业板前 5 日不设涨跌幅）</li>
+      </ul>
+      <p><strong>T+1 决定了什么？</strong>决定了"买错必须次日才能止损"——所以买入前的决策至关重要，不能追高。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">1.3 多空本质与涨跌逻辑</h3>
+
+  <p>股票交易的本质是"<strong>概率博弈</strong>"。每一笔买卖都是对"<strong>未来价格走势</strong>"的押注。</p>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：多空力量】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>多方</strong>：买入力量，看好后市</li>
+        <li><strong>空方</strong>：卖出力量，看淡后市</li>
+        <li><strong>多空平衡</strong>：买卖力量相当，价格横盘</li>
+      </ul>
+      <p>K 线图的本质就是多空力量博弈的"痕迹"。<strong>阳线=多方占优</strong>，<strong>阴线=空方占优</strong>，<strong>十字星=多空平衡</strong>。</p>
+    </div>
+  </div>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【要点：股票交易的四个关键认知】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>做股票 = 做概率</strong>：没有人能 100% 预测后市，只有大概率事件</li>
+        <li><strong>做股票 = 做风控</strong>：盈利靠胜率×赔率，存活靠纪律</li>
+        <li><strong>做股票 = 做情绪</strong>：盘面情绪决定短期波动方向</li>
+        <li><strong>做股票 = 做自己</strong>：认知到位、心态稳定、纪律执行三者缺一不可</li>
+      </ol>
+      <p class="case-source">【出处：张穗鸿老师多课反复强调的"交易心法"】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">1.4 风险等级与资金管理</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：先想风险，再想收益】</h4></div>
+    <div class="card-body">
+      <p>新手最常犯的错误：<strong>只算能赚多少，不算会亏多少</strong>。</p>
+      <p>正确做法：每笔交易前，问自己三件事——</p>
+      <ol>
+        <li>如果错了，<strong>我最多亏多少</strong>？（止损位）</li>
+        <li>如果对了，<strong>我能赚多少</strong>？（目标位）</li>
+        <li><strong>盈亏比</strong>是否 ≥ 2:1？（赚的空间至少是亏的 2 倍）</li>
+      </ol>
+      <p><strong>盈亏比 ≥ 2:1 且胜率 ≥ 50%</strong>，长期做就是数学期望为正的系统。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">1.5 学习路径总览</h3>
+
+  <p>本手册按"<strong>5 层认知阶梯</strong>"组织：</p>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr><th>层级</th><th>主题</th><th>章节</th><th>核心目标</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-label="层级">第 1 层</td><td data-label="主题">入门破冰</td><td data-label="章节">第 1-3 章</td><td data-label="目标">认识市场、读懂 K 线、了解缠论基本概念</td></tr>
+        <tr><td>第 2 层</td><td>技术筑基</td><td>第 4-8 章</td><td>掌握中枢/买卖点/背驰/多级别联立</td></tr>
+        <tr><td>第 3 层</td><td>战法立身</td><td>第 9-12 章</td><td>掌握 8 大战法的形态、买点、卖点</td></tr>
+        <tr><td>第 4 层</td><td>市场理解</td><td>第 13-16 章</td><td>把握情绪、仓位、板块、龙虎榜</td></tr>
+        <tr><td>第 5 层</td><td>实战闭环</td><td>第 17-21 章</td><td>工具+流程+案例+复盘</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p>建议小白读者按顺序通读；有一定基础的读者可跳读战法立身篇和市场理解篇。</p>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 1 章要点回顾</h4>
+    <p>A 股是多层次资本市场，主板稳健、创业板/科创板活跃、北交所门槛低；T+1 决定了买入前必须充分决策；股票本质是多空博弈，K 线记录了博弈痕迹；先想风险再想收益，盈亏比 ≥ 2:1 是底线。</p>
+  </div>
+</section>
+
+<!-- ============ 第二章：K 线与量价语言 ============ -->
+<section class="chapter" id="ch-2">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 1 篇 · 入门破冰</span>
+    <h2 class="chapter-title">2. K 线与量价语言</h2>
+    <p class="chapter-lead">学会读 K 线，是看懂一切技术分析的地基。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>掌握 K 线四要素（开高低收）</li>
+        <li>识别常见 K 线形态（阳线/阴线/十字星/锤头/吞没）</li>
+        <li>理解成交量与价格的 8 种关系</li>
+        <li>掌握缺口理论（3 天不补=强势）</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">2.1 K 线的四要素</h3>
+
+  <p>每根 K 线记录了某周期内的四个数据：</p>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：K 线四要素】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>开盘价</strong>：周期开始时的第一笔成交价</li>
+        <li><strong>收盘价</strong>：周期结束时的最后一笔成交价</li>
+        <li><strong>最高价</strong>：周期内的最高成交价</li>
+        <li><strong>最低价</strong>：周期内的最低成交价</li>
+      </ul>
+      <p>通过比较"开"和"收"判断多空：通过"最高"和"最低"判断波动幅度。</p>
+    </div>
+  </div>
+
+  <p>K 线按周期可分为：<strong>1 分钟、5 分钟、30 分钟、日线、周线、月线</strong>。张穗鸿老师最常用的是<strong>日线、周线、30 分钟</strong>三个级别（对应多级别联立）。</p>
+
+  <h3 class="section-h">2.2 常见 K 线形态</h3>
+
+  <div class="table-wrap">
+    <table class="data-table">
+      <thead>
+        <tr><th>形态</th><th>特征</th><th>含义</th></tr>
+      </thead>
+      <tbody>
+        <tr><td data-label="形态"><strong>大阳线</strong></td><td data-label="特征">实体长，阳线</td><td data-label="含义">多方强势上攻，趋势确立</td></tr>
+        <tr><td><strong>大阴线</strong></td><td>实体长，阴线</td><td>空方强势杀跌，趋势走坏</td></tr>
+        <tr><td><strong>十字星</strong></td><td>开收几乎持平</td><td>多空平衡，方向待选</td></tr>
+        <tr><td><strong>锤头线</strong></td><td>下影线长，实体在上方</td><td>下方有支撑，可能见底</td></tr>
+        <tr><td><strong>吊颈线</strong></td><td>上影线长，实体在下方</td><td>上方有压力，可能见顶</td></tr>
+        <tr><td><strong>吞没形态</strong></td><td>后一根完全包住前一根</td><td>反转信号，强者更强</td></tr>
+        <tr><td><strong>孕线</strong></td><td>后一根完全在前一根内部</td><td>反转预警，动能减弱</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3 class="section-h">2.3 量价关系：8 种典型组合</h3>
+
+  <p>量是价的"先行指标"——价格可以骗人，但成交量骗不了人。</p>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：8 种量价关系】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>价涨量增</strong> → 健康上涨，趋势延续</li>
+        <li><strong>价涨量缩</strong> → 上涨动能衰竭，警惕见顶</li>
+        <li><strong>价跌量增</strong> → 恐慌杀跌，可能加速赶底</li>
+        <li><strong>价跌量缩</strong> → 卖压减弱，可能见底</li>
+        <li><strong>价平量增</strong> → 多空激烈博弈，方向将出</li>
+        <li><strong>价平量缩</strong> → 观望气氛浓厚，等待催化</li>
+        <li><strong>底部放量</strong> → 主力可能建仓，关注</li>
+        <li><strong>顶部放量</strong> → 主力可能出货，警惕</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：博弈长阳的量价含义】</h4></div>
+    <div class="card-body">
+      <p>张穗鸿老师反复强调的"<strong>博弈长阳</strong>"，核心是：</p>
+      <ul>
+        <li>出现一根<strong>放量长阳</strong>，但<strong>筹码不松动</strong></li>
+        <li>表现为：股价上涨，但下方"<strong>筹码峰</strong>"位置不动</li>
+        <li>含义：主力<strong>高控盘</strong>，上涨过程未释放抛压</li>
+      </ul>
+      <p class="case-source">【出处：第 6 课 2025-04-13 + 多课反复出现】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">2.4 缺口理论</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：缺口（跳空）】</h4></div>
+    <div class="card-body">
+      <p>缺口 = 相邻两根 K 线之间没有价格重叠的区域。常见有三种：</p>
+      <ul>
+        <li><strong>向上跳空缺口</strong>（高开高走形成）</li>
+        <li><strong>向下跳空缺口</strong>（低开低走形成）</li>
+        <li><strong>突破缺口 / 中继缺口 / 衰竭缺口</strong>（按位置分）</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：3 天不补=强势】</h4></div>
+    <div class="card-body">
+      <p>张穗鸿老师在多课中提到：</p>
+      <ul>
+        <li><strong>向下跳空缺口 3 天不补 = 强势</strong>（空方力量耗尽）</li>
+        <li>如果 3 天内补缺口 = 弱势（弱势特征）</li>
+      </ul>
+      <p>实操：缺口当天不必急于进场，等待 3 天观察。如果不补位 → 可寻找二买/三买机会；如果补位 → 警惕继续下跌。</p>
+      <p class="case-source">【出处：第 6 课 2025-04-13 板块 2 第 36 段】</p>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 2 章要点回顾</h4>
+    <p>K 线四要素（开高低收）是一切技术分析的基础；常见形态记住大阳/大阴/十字星/锤头/吞没；量价 8 种关系记住"量是价的先行"；缺口 3 天不补=强势，是判断强弱势的关键工具。</p>
+  </div>
+</section>
+
+<!-- ============ 第三章：缠论入门：走势类型与分型 ============ -->
+<section class="chapter" id="ch-3">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 1 篇 · 入门破冰</span>
+    <h2 class="chapter-title">3. 缠论入门：走势类型与分型</h2>
+    <p class="chapter-lead">缠论（缠中说禅理论）是本课技术分析的核心方法。先建立基础认知。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>理解缠论的"自相似性"和"级别递归"</li>
+        <li>掌握走势类型（上涨/下跌/盘整）</li>
+        <li>学会 K 线包含处理与分型识别</li>
+        <li>理解中枢初识的概念</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">3.1 缠论的核心思想</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：缠论的三个核心】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>走势必完美</strong>：任何级别的任何走势类型都必然完成（要么上涨结束、要么下跌结束、要么盘整结束）</li>
+        <li><strong>自相似性 / 级别递归</strong>：大级别的走势由小级别的走势构成，小级别走势放大后就是大级别的样子</li>
+        <li><strong>中枢引力</strong>：价格会围绕"中枢"震荡，最终选择方向</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">3.2 K 线包含处理</h3>
+
+  <p>缠论处理 K 线时，第一步是"<strong>包含处理</strong>"——把相邻有包含关系的两根 K 线合并为一根。</p>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：包含关系处理规则】</h4></div>
+    <div class="card-body">
+      <p>两根 K 线若有包含（一根的高低点完全在另一根内），按当前趋势方向处理：</p>
+      <ul>
+        <li><strong>上升方向</strong>（前一根是阳线）：取两根高点的较高者、两根低点的较高者 → 合并成新阳线</li>
+        <li><strong>下降方向</strong>（前一根是阴线）：取两根高点的较低者、两根低点的较低者 → 合并成新阴线</li>
+      </ul>
+      <p>目的：把"震荡型" K 线合并成"方向型" K 线，便于后续识别分型。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">3.3 分型：顶分型与底分型</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：分型】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>顶分型</strong>：中间 K 线的高点是三根中最高的，低点也是最高的 → 局部高点信号</li>
+        <li><strong>底分型</strong>：中间 K 线的高点是三根中最低的，低点也是最低的 → 局部低点信号</li>
+      </ul>
+      <p>分型是缠论一切分析的"原子单位"——笔由分型构成，线段由笔构成，中枢由线段构成。</p>
+    </div>
+  </div>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：底分型=上涨启动信号】</h4></div>
+    <div class="card-body">
+      <p>张穗鸿老师特别强调 <strong>底分型 = 上涨启动信号</strong>：</p>
+      <ul>
+        <li>30 分钟级别出现底分型 + 底分型最低点不破前低 → 短线介入信号</li>
+        <li>日线底分型 + 站上 5 日均线 → 中线介入信号</li>
+        <li>周线底分型 → 重要反转信号</li>
+      </ul>
+      <p class="case-source">【出处：第 15 课 2025-08-31 顶底分型定位】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">3.4 走势类型：上涨/下跌/盘整</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：三种走势类型】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>上涨</strong>：高低点不断抬高，方向向上</li>
+        <li><strong>下跌</strong>：高低点不断降低，方向向下</li>
+        <li><strong>盘整</strong>：高低点在某个区间内反复震荡</li>
+      </ul>
+      <p>关键问题：<strong>当前是什么走势？会切换到哪个走势？</strong></p>
+    </div>
+  </div>
+
+  <h3 class="section-h">3.5 中枢初识</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：什么是中枢】</h4></div>
+    <div class="card-body">
+      <p>中枢 = 价格在某区间内反复震荡形成的"<strong>密集成交区</strong>"。它有 4 个关键价位：</p>
+      <ul>
+        <li><strong>GG</strong>（高点的高点）：中枢区间上沿的最高点</li>
+        <li><strong>DD</strong>（低点的低点）：中枢区间下沿的最低点</li>
+        <li><strong>ZG</strong>（中轨高点）：中枢上沿 = (GG + ZD) / 2</li>
+        <li><strong>ZD</strong>（中轨低点）：中枢下沿 = (DD + GG) / 2</li>
+      </ul>
+      <p><strong>中枢顶</strong>=减仓信号；<strong>中枢底</strong>=回补信号。这是张穗鸿老师多课反复强调的核心规则。</p>
+      <p class="case-source">【出处：第 6 课 2025-04-13 + 多课】</p>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 3 章要点回顾</h4>
+    <p>缠论的核心是"走势必完美+自相似性+中枢引力"；先做包含处理、再识别分型；走势分三种（上涨/下跌/盘整）；中枢=密集成交区，中枢顶减仓/中枢底回补是核心操作法。</p>
+  </div>
+</section>
+
+<!-- ============ 知识图谱（横向树状静态 SVG） ============ -->
+<section class="chapter" id="ch-knowledge-graph">
+  <header class="chapter-header">
+    <span class="chapter-tag">导览 · 知识图谱</span>
+    <h2 class="chapter-title">📊 横向树状知识图谱（一眼看完 21 课全貌）</h2>
+    <p class="chapter-lead">根在左 → 逐层向右展开 · 直角折线连接 · 零 JS · 高度自适应 · 兼容 WPS/微信浏览器 · 可双指放大</p>
+  </header>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">使用说明</h4></div>
+    <div class="card-body">
+      <p>本图谱按 4 层结构展开：</p>
+      <ul>
+        <li><strong>L0 根节点</strong>（深蓝）：股票交易·从小白到高手</li>
+        <li><strong>L1 四大分支</strong>：入门筑基（蓝）/ 缠论体系（紫）/ 战法体系（粉）/ 市场实战（绿）</li>
+        <li><strong>L2 22 个二级主题</strong>：每分支 4-7 个核心板块</li>
+        <li><strong>L3 80+ 知识点</strong>：最详细的具体概念</li>
+      </ul>
+      <p><strong>操作提示</strong>：手机端可用双指放大查看；PC 端可直接滚动查看；点击节点无跳转（静态图谱），但每节点都对应本手册具体章节。</p>
+    </div>
+  </div>
+
+  <div class="svg-wrap">
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1950 4366" preserveAspectRatio="xMidYMid meet" style="background:transparent;max-width:100%;height:auto;display:block;">
+<style>
+text { font-family: -apple-system, "PingFang SC", "Microsoft YaHei", sans-serif; fill: #1F2937; }
+.bg-page { fill: #FAFBFC; }
+.label-l0 { font-size: 18px; font-weight: 700; fill: white; }
+.label-l1 { font-size: 16px; font-weight: 600; fill: white; }
+.label-l2 { font-size: 13px; font-weight: 600; fill: #1F2937; }
+.label-l3 { font-size: 11px; font-weight: 500; fill: #374151; }
+</style>
+<rect class="bg-page" x="0" y="0" width="1950" height="4366"/>
+<path d="M 600 235.0 L 750 235.0 L 900 235.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+<path d="M 600 1179.0 L 750 1179.0 L 900 1179.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+<path d="M 600 2313.0 L 750 2313.0 L 900 2313.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+<path d="M 600 3257.0 L 750 3257.0 L 900 3257.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+<path d="M 240 1440.0 L 310 1440.0 L 310 140.0 L 380 140.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+<path d="M 240 1440.0 L 310 1440.0 L 310 1084.0 L 380 1084.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+<path d="M 240 1440.0 L 310 1440.0 L 310 2218.0 L 380 2218.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+<path d="M 240 1440.0 L 310 1440.0 L 310 3162.0 L 380 3162.0" fill="none" stroke="#94A3B8" stroke-width="1.5"/>
+<path d="M 600 140.0 L 700 140.0 L 700 425.0 L 900 425.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 140.0 L 700 140.0 L 700 615.0 L 900 615.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 140.0 L 700 140.0 L 700 805.0 L 900 805.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 1084.0 L 700 1084.0 L 700 1369.0 L 900 1369.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 1084.0 L 700 1084.0 L 700 1559.0 L 900 1559.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 1084.0 L 700 1084.0 L 700 1749.0 L 900 1749.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 1084.0 L 700 1084.0 L 700 1939.0 L 900 1939.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 2218.0 L 700 2218.0 L 700 2503.0 L 900 2503.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 2218.0 L 700 2218.0 L 700 2693.0 L 900 2693.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 2218.0 L 700 2218.0 L 700 2883.0 L 900 2883.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 3162.0 L 700 3162.0 L 700 3447.0 L 900 3447.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 3162.0 L 700 3162.0 L 700 3637.0 L 900 3637.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 3162.0 L 700 3162.0 L 700 3827.0 L 900 3827.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 3162.0 L 700 3162.0 L 700 4017.0 L 900 4017.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 600 3162.0 L 700 3162.0 L 700 4207.0 L 900 4207.0" fill="none" stroke="#94A3B8" stroke-width="1"/>
+<path d="M 1100 235.0 L 1300 235.0 L 1300 295.0 L 1500 295.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 295.0 L 1750 295.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 295.0 L 1930 295.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 235.0 L 1300 235.0 L 1300 347.0 L 1500 347.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 347.0 L 1750 347.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 347.0 L 1930 347.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 425.0 L 1300 425.0 L 1300 485.0 L 1500 485.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 485.0 L 1750 485.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 485.0 L 1930 485.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 425.0 L 1300 425.0 L 1300 537.0 L 1500 537.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 537.0 L 1750 537.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 537.0 L 1930 537.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 615.0 L 1300 615.0 L 1300 675.0 L 1500 675.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 675.0 L 1750 675.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 675.0 L 1930 675.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 615.0 L 1300 615.0 L 1300 727.0 L 1500 727.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 727.0 L 1750 727.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 727.0 L 1930 727.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 805.0 L 1300 805.0 L 1300 865.0 L 1500 865.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 865.0 L 1750 865.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 865.0 L 1930 865.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 805.0 L 1300 805.0 L 1300 917.0 L 1500 917.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 917.0 L 1750 917.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 917.0 L 1930 917.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 1179.0 L 1300 1179.0 L 1300 1239.0 L 1500 1239.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 1239.0 L 1750 1239.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 1239.0 L 1930 1239.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 1179.0 L 1300 1179.0 L 1300 1291.0 L 1500 1291.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 1291.0 L 1750 1291.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 1291.0 L 1930 1291.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 1369.0 L 1300 1369.0 L 1300 1429.0 L 1500 1429.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 1429.0 L 1750 1429.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 1429.0 L 1930 1429.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 1369.0 L 1300 1369.0 L 1300 1481.0 L 1500 1481.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 1481.0 L 1750 1481.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 1481.0 L 1930 1481.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 1559.0 L 1300 1559.0 L 1300 1619.0 L 1500 1619.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 1619.0 L 1750 1619.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 1619.0 L 1930 1619.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 1559.0 L 1300 1559.0 L 1300 1671.0 L 1500 1671.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 1671.0 L 1750 1671.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 1671.0 L 1930 1671.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 1749.0 L 1300 1749.0 L 1300 1809.0 L 1500 1809.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 1809.0 L 1750 1809.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 1809.0 L 1930 1809.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 1749.0 L 1300 1749.0 L 1300 1861.0 L 1500 1861.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 1861.0 L 1750 1861.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 1861.0 L 1930 1861.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 1939.0 L 1300 1939.0 L 1300 1999.0 L 1500 1999.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 1999.0 L 1750 1999.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 1999.0 L 1930 1999.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 1939.0 L 1300 1939.0 L 1300 2051.0 L 1500 2051.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 2051.0 L 1750 2051.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 2051.0 L 1930 2051.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 2313.0 L 1300 2313.0 L 1300 2373.0 L 1500 2373.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 2373.0 L 1750 2373.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 2373.0 L 1930 2373.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 2313.0 L 1300 2313.0 L 1300 2425.0 L 1500 2425.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 2425.0 L 1750 2425.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 2425.0 L 1930 2425.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 2503.0 L 1300 2503.0 L 1300 2563.0 L 1500 2563.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 2563.0 L 1750 2563.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 2563.0 L 1930 2563.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 2503.0 L 1300 2503.0 L 1300 2615.0 L 1500 2615.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 2615.0 L 1750 2615.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 2615.0 L 1930 2615.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 2693.0 L 1300 2693.0 L 1300 2753.0 L 1500 2753.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 2753.0 L 1750 2753.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 2753.0 L 1930 2753.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 2693.0 L 1300 2693.0 L 1300 2805.0 L 1500 2805.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 2805.0 L 1750 2805.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 2805.0 L 1930 2805.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 2883.0 L 1300 2883.0 L 1300 2943.0 L 1500 2943.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 2943.0 L 1750 2943.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 2943.0 L 1930 2943.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 2883.0 L 1300 2883.0 L 1300 2995.0 L 1500 2995.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 2995.0 L 1750 2995.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 2995.0 L 1930 2995.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 3257.0 L 1300 3257.0 L 1300 3317.0 L 1500 3317.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 3317.0 L 1750 3317.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 3317.0 L 1930 3317.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 3257.0 L 1300 3257.0 L 1300 3369.0 L 1500 3369.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 3369.0 L 1750 3369.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 3369.0 L 1930 3369.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 3447.0 L 1300 3447.0 L 1300 3507.0 L 1500 3507.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 3507.0 L 1750 3507.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 3507.0 L 1930 3507.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 3447.0 L 1300 3447.0 L 1300 3559.0 L 1500 3559.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 3559.0 L 1750 3559.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 3559.0 L 1930 3559.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 3637.0 L 1300 3637.0 L 1300 3697.0 L 1500 3697.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 3697.0 L 1750 3697.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 3697.0 L 1930 3697.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 3637.0 L 1300 3637.0 L 1300 3749.0 L 1500 3749.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 3749.0 L 1750 3749.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 3749.0 L 1930 3749.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 3827.0 L 1300 3827.0 L 1300 3887.0 L 1500 3887.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 3887.0 L 1750 3887.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 3887.0 L 1930 3887.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 3827.0 L 1300 3827.0 L 1300 3939.0 L 1500 3939.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 3939.0 L 1750 3939.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 3939.0 L 1930 3939.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 4017.0 L 1300 4017.0 L 1300 4077.0 L 1500 4077.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 4077.0 L 1750 4077.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 4077.0 L 1930 4077.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 4017.0 L 1300 4017.0 L 1300 4129.0 L 1500 4129.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 4129.0 L 1750 4129.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 4129.0 L 1930 4129.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 4207.0 L 1300 4207.0 L 1300 4267.0 L 1500 4267.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 4267.0 L 1750 4267.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 4267.0 L 1930 4267.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1100 4207.0 L 1300 4207.0 L 1300 4319.0 L 1500 4319.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1500 4319.0 L 1750 4319.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<path d="M 1750 4319.0 L 1930 4319.0" fill="none" stroke="#CBD5E1" stroke-width="0.8"/>
+<rect x="60" y="1400" width="180" height="80" rx="6" fill="#1E3A8A" stroke="#1E40AF" stroke-width="1"/>
+<rect x="380" y="100" width="220" height="80" rx="6" fill="#2563EB" stroke="#1E40AF" stroke-width="1"/>
+<rect x="900" y="210" width="200" height="50" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/>
+<rect x="900" y="400" width="200" height="50" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/>
+<rect x="900" y="590" width="200" height="50" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/>
+<rect x="900" y="780" width="200" height="50" rx="6" fill="#DBEAFE" stroke="#3B82F6" stroke-width="1"/>
+<rect x="380" y="1044" width="220" height="80" rx="6" fill="#7C3AED" stroke="#6D28D9" stroke-width="1"/>
+<rect x="900" y="1154" width="200" height="50" rx="6" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1"/>
+<rect x="900" y="1344" width="200" height="50" rx="6" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1"/>
+<rect x="900" y="1534" width="200" height="50" rx="6" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1"/>
+<rect x="900" y="1724" width="200" height="50" rx="6" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1"/>
+<rect x="900" y="1914" width="200" height="50" rx="6" fill="#EDE9FE" stroke="#8B5CF6" stroke-width="1"/>
+<rect x="380" y="2178" width="220" height="80" rx="6" fill="#DB2777" stroke="#BE185D" stroke-width="1"/>
+<rect x="900" y="2288" width="200" height="50" rx="6" fill="#FCE7F3" stroke="#EC4899" stroke-width="1"/>
+<rect x="900" y="2478" width="200" height="50" rx="6" fill="#FCE7F3" stroke="#EC4899" stroke-width="1"/>
+<rect x="900" y="2668" width="200" height="50" rx="6" fill="#FCE7F3" stroke="#EC4899" stroke-width="1"/>
+<rect x="900" y="2858" width="200" height="50" rx="6" fill="#FCE7F3" stroke="#EC4899" stroke-width="1"/>
+<rect x="380" y="3122" width="220" height="80" rx="6" fill="#059669" stroke="#047857" stroke-width="1"/>
+<rect x="900" y="3232" width="200" height="50" rx="6" fill="#D1FAE5" stroke="#10B981" stroke-width="1"/>
+<rect x="900" y="3422" width="200" height="50" rx="6" fill="#D1FAE5" stroke="#10B981" stroke-width="1"/>
+<rect x="900" y="3612" width="200" height="50" rx="6" fill="#D1FAE5" stroke="#10B981" stroke-width="1"/>
+<rect x="900" y="3802" width="200" height="50" rx="6" fill="#D1FAE5" stroke="#10B981" stroke-width="1"/>
+<rect x="900" y="3992" width="200" height="50" rx="6" fill="#D1FAE5" stroke="#10B981" stroke-width="1"/>
+<rect x="900" y="4182" width="200" height="50" rx="6" fill="#D1FAE5" stroke="#10B981" stroke-width="1"/>
+<rect x="1500" y="278" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1750" y="278" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1500" y="330" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1750" y="330" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1500" y="468" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1750" y="468" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1500" y="520" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1750" y="520" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1500" y="658" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1750" y="658" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1500" y="710" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1750" y="710" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1500" y="848" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1750" y="848" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1500" y="900" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1750" y="900" width="180" height="34" rx="6" fill="#EFF6FF" stroke="#60A5FA" stroke-width="1"/>
+<rect x="1500" y="1222" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1750" y="1222" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1500" y="1274" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1750" y="1274" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1500" y="1412" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1750" y="1412" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1500" y="1464" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1750" y="1464" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1500" y="1602" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1750" y="1602" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1500" y="1654" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1750" y="1654" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1500" y="1792" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1750" y="1792" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1500" y="1844" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1750" y="1844" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1500" y="1982" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1750" y="1982" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1500" y="2034" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1750" y="2034" width="180" height="34" rx="6" fill="#F5F3FF" stroke="#A78BFA" stroke-width="1"/>
+<rect x="1500" y="2356" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1750" y="2356" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1500" y="2408" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1750" y="2408" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1500" y="2546" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1750" y="2546" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1500" y="2598" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1750" y="2598" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1500" y="2736" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1750" y="2736" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1500" y="2788" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1750" y="2788" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1500" y="2926" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1750" y="2926" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1500" y="2978" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1750" y="2978" width="180" height="34" rx="6" fill="#FDF2F8" stroke="#F472B6" stroke-width="1"/>
+<rect x="1500" y="3300" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="3300" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1500" y="3352" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="3352" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1500" y="3490" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="3490" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1500" y="3542" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="3542" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1500" y="3680" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="3680" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1500" y="3732" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="3732" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1500" y="3870" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="3870" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1500" y="3922" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="3922" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1500" y="4060" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="4060" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1500" y="4112" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="4112" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1500" y="4250" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="4250" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1500" y="4302" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<rect x="1750" y="4302" width="180" height="34" rx="6" fill="#ECFDF5" stroke="#34D399" stroke-width="1"/>
+<text class="label-l0" x="150.0" y="1435" text-anchor="middle">股票交易</text>
+<text class="label-l0" x="150.0" y="1458" text-anchor="middle">从小白到高手</text>
+<text class="label-l1" x="490" y="134" text-anchor="middle">入门筑基</text>
+<text class="label-l1" x="490" y="158" text-anchor="middle">Ch1-Ch3</text>
+<text class="label-l1" x="490" y="1078" text-anchor="middle">缠论体系</text>
+<text class="label-l1" x="490" y="1102" text-anchor="middle">Ch4-Ch8</text>
+<text class="label-l1" x="490" y="2212" text-anchor="middle">战法体系</text>
+<text class="label-l1" x="490" y="2236" text-anchor="middle">Ch9-Ch11</text>
+<text class="label-l1" x="490" y="3156" text-anchor="middle">市场实战</text>
+<text class="label-l1" x="490" y="3180" text-anchor="middle">Ch12-Ch21</text>
+<text class="label-l3" x="1590" y="301" text-anchor="middle">主板/创业板/科创板</text>
+<text class="label-l3" x="1840" y="301" text-anchor="middle">交易规则T+1涨跌幅</text>
+<text class="label-l3" x="1590" y="353" text-anchor="middle">竞价+涨跌停限制</text>
+<text class="label-l3" x="1840" y="353" text-anchor="middle">ETF与个股</text>
+<text class="label-l3" x="1590" y="491" text-anchor="middle">K线四要素</text>
+<text class="label-l3" x="1840" y="491" text-anchor="middle">K线形态12种</text>
+<text class="label-l3" x="1590" y="543" text-anchor="middle">量价关系8种</text>
+<text class="label-l3" x="1840" y="543" text-anchor="middle">量能逻辑</text>
+<text class="label-l3" x="1590" y="681" text-anchor="middle">K线包含处理</text>
+<text class="label-l3" x="1840" y="681" text-anchor="middle">顶底分型</text>
+<text class="label-l3" x="1590" y="733" text-anchor="middle">笔的概念</text>
+<text class="label-l3" x="1840" y="733" text-anchor="middle">线段</text>
+<text class="label-l3" x="1590" y="871" text-anchor="middle">上涨+下跌+盘整</text>
+<text class="label-l3" x="1840" y="871" text-anchor="middle">趋势必完美</text>
+<text class="label-l3" x="1590" y="923" text-anchor="middle">级别嵌套</text>
+<text class="label-l3" x="1840" y="923" text-anchor="middle">走势类型判定</text>
+<text class="label-l3" x="1590" y="1245" text-anchor="middle">中枢GG/DD</text>
+<text class="label-l3" x="1840" y="1245" text-anchor="middle">中枢级别递归</text>
+<text class="label-l3" x="1590" y="1297" text-anchor="middle">中枢扩张</text>
+<text class="label-l3" x="1840" y="1297" text-anchor="middle">中枢终结</text>
+<text class="label-l3" x="1590" y="1435" text-anchor="middle">一买要点</text>
+<text class="label-l3" x="1840" y="1435" text-anchor="middle">二买要点</text>
+<text class="label-l3" x="1590" y="1487" text-anchor="middle">三买要点</text>
+<text class="label-l3" x="1840" y="1487" text-anchor="middle">一卖/二卖/三卖</text>
+<text class="label-l3" x="1590" y="1625" text-anchor="middle">MACD背驰</text>
+<text class="label-l3" x="1840" y="1625" text-anchor="middle">柱子面积</text>
+<text class="label-l3" x="1590" y="1677" text-anchor="middle">斜率背驰</text>
+<text class="label-l3" x="1840" y="1677" text-anchor="middle">九段升级</text>
+<text class="label-l3" x="1590" y="1815" text-anchor="middle">多级别联立</text>
+<text class="label-l3" x="1840" y="1815" text-anchor="middle">大小级别转换</text>
+<text class="label-l3" x="1590" y="1867" text-anchor="middle">走势递归</text>
+<text class="label-l3" x="1840" y="1867" text-anchor="middle">级别判断</text>
+<text class="label-l3" x="1590" y="2005" text-anchor="middle">特征序列</text>
+<text class="label-l3" x="1840" y="2005" text-anchor="middle">头肩底识别</text>
+<text class="label-l3" x="1590" y="2057" text-anchor="middle">走势必完美</text>
+<text class="label-l3" x="1840" y="2057" text-anchor="middle">实操应用</text>
+<text class="label-l3" x="1590" y="2379" text-anchor="middle">一统天下</text>
+<text class="label-l3" x="1840" y="2379" text-anchor="middle">九五至尊</text>
+<text class="label-l3" x="1590" y="2431" text-anchor="middle">强势基因</text>
+<text class="label-l3" x="1840" y="2431" text-anchor="middle">潜伏模式</text>
+<text class="label-l3" x="1590" y="2569" text-anchor="middle">潜龙在渊</text>
+<text class="label-l3" x="1840" y="2569" text-anchor="middle">美女战法</text>
+<text class="label-l3" x="1590" y="2621" text-anchor="middle">启动点识别</text>
+<text class="label-l3" x="1840" y="2621" text-anchor="middle">进场时机</text>
+<text class="label-l3" x="1590" y="2759" text-anchor="middle">博弈长阳</text>
+<text class="label-l3" x="1840" y="2759" text-anchor="middle">储君模式</text>
+<text class="label-l3" x="1590" y="2811" text-anchor="middle">跟进买点</text>
+<text class="label-l3" x="1840" y="2811" text-anchor="middle">兑现点位</text>
+<text class="label-l3" x="1590" y="2949" text-anchor="middle">倒车接人</text>
+<text class="label-l3" x="1840" y="2949" text-anchor="middle">对子底</text>
+<text class="label-l3" x="1590" y="3001" text-anchor="middle">反包信号</text>
+<text class="label-l3" x="1840" y="3001" text-anchor="middle">底部确认</text>
+<text class="label-l3" x="1590" y="3323" text-anchor="middle">情绪打分0-100</text>
+<text class="label-l3" x="1840" y="3323" text-anchor="middle">冰点判断</text>
+<text class="label-l3" x="1590" y="3375" text-anchor="middle">高潮识别</text>
+<text class="label-l3" x="1840" y="3375" text-anchor="middle">修复阶段</text>
+<text class="label-l3" x="1590" y="3513" text-anchor="middle">5:3:2仓位</text>
+<text class="label-l3" x="1840" y="3513" text-anchor="middle">5331分配</text>
+<text class="label-l3" x="1590" y="3565" text-anchor="middle">3331配置</text>
+<text class="label-l3" x="1840" y="3565" text-anchor="middle">加减仓策略</text>
+<text class="label-l3" x="1590" y="3703" text-anchor="middle">板块生命周期</text>
+<text class="label-l3" x="1840" y="3703" text-anchor="middle">50亿市值法则</text>
+<text class="label-l3" x="1590" y="3755" text-anchor="middle">出生地法则</text>
+<text class="label-l3" x="1840" y="3755" text-anchor="middle">板块选股</text>
+<text class="label-l3" x="1590" y="3893" text-anchor="middle">龙虎榜机构</text>
+<text class="label-l3" x="1840" y="3893" text-anchor="middle">跟随机构</text>
+<text class="label-l3" x="1590" y="3945" text-anchor="middle">假机构识别</text>
+<text class="label-l3" x="1840" y="3945" text-anchor="middle">拉萨席位</text>
+<text class="label-l3" x="1590" y="4083" text-anchor="middle">一统天下2505</text>
+<text class="label-l3" x="1840" y="4083" text-anchor="middle">JWZZ战法</text>
+<text class="label-l3" x="1590" y="4135" text-anchor="middle">倚天剑指标</text>
+<text class="label-l3" x="1840" y="4135" text-anchor="middle">公式编写</text>
+<text class="label-l3" x="1590" y="4273" text-anchor="middle">盘前SOP</text>
+<text class="label-l3" x="1840" y="4273" text-anchor="middle">盘中SOP</text>
+<text class="label-l3" x="1590" y="4325" text-anchor="middle">盘后SOP</text>
+<text class="label-l3" x="1840" y="4325" text-anchor="middle">口诀36条</text>
+</svg>
+
+  </div>
+
+  <div class="card card-purple" style="margin-top:24px;">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">图谱配色与层级说明</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>层级</th><th>x 坐标</th><th>颜色</th><th>含义</th></tr></thead>
+        <tbody>
+          <tr><td>L0 根</td><td>80</td><td>深蓝 #1E3A8A</td><td>整套课程的总目标</td></tr>
+          <tr><td>L1 一级</td><td>380</td><td>蓝/紫/粉/绿</td><td>四大认知阶梯</td></tr>
+          <tr><td>L2 二级</td><td>780</td><td>浅同色系</td><td>每分支的核心板块</td></tr>
+          <tr><td>L3 三级</td><td>1180</td><td>最浅色</td><td>具体知识点（最详细）</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ============ 第四章：中枢 ============ -->
+<section class="chapter" id="ch-4">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 2 篇 · 技术筑基</span>
+    <h2 class="chapter-title">4. 中枢：缠论的心脏</h2>
+    <p class="chapter-lead">中枢是缠论最核心的概念，所有买卖点、所有背驰都围绕中枢展开。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>理解中枢的精确定义、4 个关键价位（GG/DD/ZG/ZD）</li>
+        <li>掌握中枢的级别、扩展、终结、新生</li>
+        <li>熟悉中枢顶减仓、中枢底回补的操作规则</li>
+        <li>理解"中枢 = 头肩底 = 美女形态"的张穗鸿老师融合观点</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">4.1 中枢的精确定义</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：中枢的数学定义】</h4></div>
+    <div class="card-body">
+      <p>某级别走势中，<strong>至少 3 笔次级别走势的重叠部分</strong>，构成该级别的中枢。也就是说：</p>
+      <ul>
+        <li>连续 3 笔走势（向上：下上下 / 向下：上下上）有价格重叠</li>
+        <li>重叠区间的高点 = ZG（中枢上沿）；重叠区间的低点 = ZD（中枢下沿）</li>
+        <li>中枢区间内所有高点中的最高 = GG；所有低点中的最低 = DD</li>
+      </ul>
+      <p><strong>直观理解</strong>：中枢就是股价在某个区间内反复"进进出出"形成的密集成交带，反映了多空双方在这个价位的拉锯。</p>
+      <p class="case-source">【出处：第 3 章 · 第 4 章 · 第 6 课 2025-04-13】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">4.2 中枢的四个关键价位</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【要点：GG / DD / ZG / ZD 的实战意义】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>代码</th><th>含义</th><th>实战应用</th></tr></thead>
+        <tbody>
+          <tr><td><strong>GG</strong></td><td>中枢区间内最高的高点</td><td>判断中枢是否被突破的极端参考</td></tr>
+          <tr><td><strong>DD</strong></td><td>中枢区间内最低的低点</td><td>判断是否向下破位的极端参考</td></tr>
+          <tr><td><strong>ZG</strong></td><td>中枢上沿 = (GG + ZD) / 2</td><td><strong>减仓位</strong>——冲高回落的概率大</td></tr>
+          <tr><td><strong>ZD</strong></td><td>中枢下沿 = (DD + GG) / 2</td><td><strong>加仓位</strong>——砸到这里通常有支撑</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>张穗鸿老师原话</strong>："中枢震荡就是中枢上轨抛、中枢下轨接"——上轨 = 减仓区，下轨 = 加仓区。这是张老师 21 课反复强调的核心铁律。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">4.3 中枢的级别、扩展与终结</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：中枢级别】</h4></div>
+    <div class="card-body">
+      <p>中枢的级别由其内部"次级别走势"决定：</p>
+      <ul>
+        <li><strong>30 分钟中枢</strong> = 内部由 5 分钟级别走势构成</li>
+        <li><strong>日线中枢</strong> = 内部由 30 分钟级别走势构成</li>
+        <li><strong>周线中枢</strong> = 内部由日线级别走势构成</li>
+      </ul>
+      <p><strong>自相似性</strong>：不同级别的中枢在形态上完全相似，这正是缠论几何分析的核心特征。</p>
+    </div>
+  </div>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：中枢的 4 种运动状态】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>中枢新生</strong>：股价突破中枢后形成<em>新中枢</em>（朝原方向延伸）</li>
+        <li><strong>中枢扩展（9 段升级）</strong>：中枢内走出 9 段，自动<em>升级为更高级中枢</em></li>
+        <li><strong>中枢终结</strong>：股价反向离开，中枢被破坏，原走势结束</li>
+        <li><strong>中枢震荡</strong>：股价在中枢区间内反复进出（最常见状态）</li>
+      </ol>
+      <p class="case-source">【出处：第 3 章 · 第 4 章 · 第 6 课】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">4.4 中枢与头肩底（美女形态）的融合</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【张穗鸿老师核心融合】中枢 = 头肩底 = 美女形态</h4></div>
+    <div class="card-body">
+      <p>这是张穗鸿老师体系最重要的创新之一：</p>
+      <ul>
+        <li><strong>底分型</strong> = 特征序列的三笔上 = 头肩底 = 美女形态</li>
+        <li><strong>30 分钟下上下中枢</strong> = 小美女；<strong>周线下上下中枢</strong> = 大美女</li>
+        <li><strong>突破中枢上沿</strong> = 突破头肩底颈线 = 目标位 = 颈线位 + 头部高度</li>
+      </ul>
+      <blockquote>张老师原话："底分型其实就是特征序列，缠论所说的特征序列的三笔上，这个特征序列其实就是头肩底，就是我们的美女形态。"<br>——出处：第 12 课 2025-12-28</blockquote>
+      <p><strong>实战意义</strong>：学员不必纠结特征序列的复杂计算，只需识别头肩底（美女形态）即可直接套用缠论逻辑。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">4.5 中枢操作的实战规则</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：中枢上下轨的操作原则】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>位置</th><th>操作</th><th>原因</th></tr></thead>
+        <tbody>
+          <tr><td><strong>中枢上轨（ZG）</strong></td><td>减仓</td><td>多头冲击上沿常遇阻回落</td></tr>
+          <tr><td><strong>中枢下轨（ZD）</strong></td><td>加仓</td><td>空头砸到下沿常获支撑反弹</td></tr>
+          <tr><td><strong>中枢中位</strong></td><td>观望</td><td>区间中部方向不明，等待上下沿反应</td></tr>
+          <tr><td><strong>突破上轨后回踩</strong></td><td>三买</td><td>突破成功，回踩不破=强势确立</td></tr>
+          <tr><td><strong>跌破下轨后反弹</strong></td><td>警惕</td><td>可能继续下跌，需减仓</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="case-source">【出处：第 2 课 · 第 3 课 · 第 6 课 2025-04-13】</p>
+    </div>
+  </div>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：中枢破坏 ≠ 下跌开始】</h4></div>
+    <div class="card-body">
+      <p>中枢被向上突破后，<strong>可能进入更大级别的中枢（9 段升级）</strong>，而非直接走出趋势——必须结合"9 段升级"判断，而不是看到突破就追涨。</p>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 4 章要点回顾</h4>
+    <p>中枢 = 至少 3 笔次级别走势的重叠区间；ZG 减仓、ZD 加仓是核心操作；中枢有 4 种运动状态；<strong>中枢 = 头肩底 = 美女形态</strong>是张穗鸿老师体系的关键融合——识别美女形态即可直接套用缠论逻辑。</p>
+  </div>
+</section>
+
+<!-- ============ 第五章：三类买卖点 ============ -->
+<section class="chapter" id="ch-5">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 2 篇 · 技术筑基</span>
+    <h2 class="chapter-title">5. 三类买卖点定位</h2>
+    <p class="chapter-lead">三类买卖点是缠论最实战的部分——理解它们，就能在缠论框架内做出明确的买卖决策。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>精确定位一买、二买、三买（及对应一卖、二卖、三卖）</li>
+        <li>理解三类买卖点的逻辑关系与操作差异</li>
+        <li>掌握三买的硬性条件与失败处理</li>
+        <li>建立"三类买卖点+中枢顶三买+递进信号"的高阶买入体系</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">5.1 第一类买点：趋势背驰后的最低点</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：一买】</h4></div>
+    <div class="card-body">
+      <p>某级别下跌趋势中，<strong>最后一个中枢被向下离开段力度衰竭后形成的最低点</strong>。</p>
+      <ul>
+        <li><strong>结构</strong>：两个中枢下跌 + 离开段背驰 = 一买</li>
+        <li><strong>本质</strong>：空头力竭，多头"精疲力竭"后的低点</li>
+        <li><strong>判别</strong>：MACD 柱子面积对比，绿柱缩短 = 力度衰竭</li>
+      </ul>
+      <blockquote>"两个中枢下跌后，离开段力度衰竭 = 一买。"——缠论原文</blockquote>
+      <p class="case-source">【出处：第 3 章 · 第 4 章】</p>
+    </div>
+  </div>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：一买的风险】</h4></div>
+    <div class="card-body">
+      <p>一买是趋势最低点，<strong>准确率较低</strong>。张老师反复强调："<strong>连续三次买入机会都错过则不能再买</strong>"——一买错过了等二买，二买错过了等三买，三次都错过就放弃。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">5.2 第二类买点：不破前低的二次确认</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：二买】</h4></div>
+    <div class="card-body">
+      <p>一买出现后，股价反弹形成新的底分型，且<strong>该底分型的最低点没有跌破一买的最低点</strong>——这就是二买。</p>
+      <ul>
+        <li><strong>一买</strong> = 第一次跌不动（空头力竭）</li>
+        <li><strong>二买</strong> = 第一次反弹后回踩，再次确认"跌不下去"</li>
+        <li><strong>成功率</strong>：二买 > 一买（双底确认，市场已经证明"跌不下去"）</li>
+      </ul>
+      <p class="case-source">【出处：第 2 课 2025-05-11】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">5.3 第三类买点：突破中枢后回抽不进中枢</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【核心概念：三买 = 突破后回抽不进中枢】</h4></div>
+    <div class="card-body">
+      <p>股价向上离开中枢后，<strong>回踩时最低点不跌破中枢上沿 ZG</strong>——这就是三买。</p>
+      <ol>
+        <li>股价上涨突破中枢上沿（出中枢一笔上）</li>
+        <li>突破后回踩确认（次级别一笔下）</li>
+        <li>回踩的最低点没有跌破中枢上沿</li>
+        <li>这就是<strong>三买</strong>——多头已经确认"控盘"</li>
+      </ol>
+      <p><strong>三买硬性条件</strong>：回踩最低点 > 中枢上沿 ZG（即"次级别向上离开 + 次级别回抽不进中枢"）。</p>
+      <p><strong>三买的本质</strong>：所有的三买都是盘整背驰产生的；趋势背驰必进中枢，不存在三买。</p>
+      <blockquote>张老师原话："三买 = 突破后回抽不进中枢。"<br>——出处：贯穿 21 课反复强调</blockquote>
+    </div>
+  </div>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：三买是最安全的买点】</h4></div>
+    <div class="card-body">
+      <p>三买发生时，股价已经在中枢上方运行，回踩不进中枢 = 主力明确拉升意图。三买的止损点就是中枢上沿，止损空间小、风险可控。</p>
+      <p><strong>三买的两类形态</strong>：</p>
+      <ul>
+        <li><strong>顺势三买</strong>：离开中枢一笔上力度强，回踩幅度小（强势上涨中的买点）</li>
+        <li><strong>逆势三买</strong>：离开中枢后回踩幅度大但仍不进中枢（风险与机会并存）</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">5.4 三类买卖点的对称性</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：三类买卖点的对称结构】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>买点</th><th>对应卖点</th><th>触发条件</th></tr></thead>
+        <tbody>
+          <tr><td><strong>第一类买点</strong></td><td>第一类卖点</td><td>下跌趋势背驰后的最低点 / 上涨趋势背驰后的最高点</td></tr>
+          <tr><td><strong>第二类买点</strong></td><td>第二类卖点</td><td>一买后回踩不破前低 / 一卖后回抽不破前高</td></tr>
+          <tr><td><strong>第三类买点</strong></td><td>第三类卖点</td><td>突破中枢后回踩不进中枢 / 跌破中枢后反弹不进中枢</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>操作纪律</strong>：中枢上轨 → 减仓；中枢下轨 → 加仓；一卖 → 减仓；二卖 → 减仓；三卖 → 第三次卖出机会。</p>
+      <blockquote>张老师原话："中枢上轨=减仓，下轨=加仓；一卖=减仓，二卖=减仓，三卖=第三次卖出机会。"<br>——出处：第 2 课 2025-05-11</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">5.5 高阶买入体系：中枢顶三买 + 递进信号</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【要点：中枢顶三买 + 递进信号 = 强买入】</h4></div>
+    <div class="card-body">
+      <p>这是张老师体系中的高阶买入信号：</p>
+      <ol>
+        <li><strong>中枢顶三买</strong> = 在中枢上沿附近形成的三买（强势特征）</li>
+        <li><strong>递进信号</strong> = 次级别再次形成三买（小级别共振）</li>
+        <li>两个信号叠加 = <strong>强买入信号</strong></li>
+      </ol>
+      <p><strong>操作建议</strong>：中枢顶三买 + 递进信号 = 分批建仓至 50-70%；若继续突破颈线位，可加至满仓。</p>
+      <p class="case-source">【出处：第 12 课 2025-12-28】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">5.6 三买的失败处理与禁区</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：三买的禁区与失败处理】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>三买不一定就是天堂</strong>：若不创新高直接转二卖，必须严格止损</li>
+        <li><strong>三买后股价可能进入更大级别中枢</strong>：需结合多级别联立判断</li>
+        <li><strong>三买失败后转为二卖</strong>：跌破中枢上沿 = 立即减仓</li>
+      </ul>
+      <p><strong>止损铁律</strong>：三买失败 = 跌破中枢上沿 ZG = 立即止损。</p>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 5 章要点回顾</h4>
+    <p>一买 = 趋势背驰低点，二买 = 不破前低的二次确认，三买 = 突破中枢后回抽不进中枢；三买最安全、止损空间小；三买硬性条件 = 回踩最低点 > ZG；<strong>中枢顶三买 + 递进信号 = 强买入</strong>；三次机会都错过则不再介入。</p>
+  </div>
+</section>
+
+
+<!-- ============ 第六章：背驰与九段升级 ============ -->
+<section class="chapter" id="ch-6">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 2 篇 · 技术筑基</span>
+    <h2 class="chapter-title">6. 背驰与九段升级</h2>
+    <p class="chapter-lead">背驰是缠论的"灵魂"——没有背驰就没有三类买卖点；九段升级则是级别自动扩展的核心机制。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>掌握趋势背驰、盘整背驰的判定方法</li>
+        <li>熟悉 MACD 柱子面积、斜率两大力度指标</li>
+        <li>理解九段升级机制与实战应对策略</li>
+        <li>掌握背驰在板块与个股层面的应用</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">6.1 背驰的底层逻辑</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：背驰】</h4></div>
+    <div class="card-body">
+      <p>当趋势运行过程中，<strong>离开中枢的力度小于进入中枢的力度</strong>——称之为"背驰"。这是"多空力量转换"的信号。</p>
+      <ul>
+        <li><strong>本质</strong>：股价经历一波上涨/下跌后，主力资金"用力过猛"导致后续乏力</li>
+        <li><strong>表象</strong>：在 K 线/MACD 上呈现"力度减弱"</li>
+        <li><strong>意义</strong>：背驰 = 走势即将完成的提示信号</li>
+      </ul>
+      <p class="case-source">【出处：第 6 课 2025-07-27】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">6.2 趋势背驰 vs 盘整背驰</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【对比：趋势背驰 vs 盘整背驰】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>维度</th><th>趋势背驰</th><th>盘整背驰</th></tr></thead>
+        <tbody>
+          <tr><td><strong>中枢数量</strong></td><td>2 个或以上</td><td>1 个</td></tr>
+          <tr><td><strong>力度比较</strong></td><td>第一次离开 vs 第二次离开</td><td>进入 vs 离开</td></tr>
+          <tr><td><strong>回归力度</strong></td><td>100% 回归最后中枢</td><td>通常回归中枢</td></tr>
+          <tr><td><strong>操作意义</strong></td><td>必须减仓</td><td>警惕回调</td></tr>
+          <tr><td><strong>常见度</strong></td><td>较少（强趋势才会出现）</td><td>常见（中枢震荡频繁）</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>趋势背驰铁律</strong>：两个中枢的趋势背驰后，<strong>股价 100% 会被拉回最后一个中枢</strong>——这是缠论体系中确定性最高的结论之一。</p>
+      <blockquote>张老师原话："30 分钟级别走了两个中枢的趋势上涨。趋势背驰后必然被拉回最后一个中枢。"<br>——出处：第 6 课 2025-07-27</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">6.3 背驰的力度判定方法</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：MACD 柱子面积 + 斜率双指标】</h4></div>
+    <div class="card-body">
+      <p>力度判定有两大核心指标：</p>
+      <ol>
+        <li><strong>MACD 柱子面积</strong>：比较两段对应 K 线的红柱（或绿柱）总面积。柱子面积越大 = 力度越强</li>
+        <li><strong>斜率</strong>：比较两段对应 K 线的角度。角度越陡 = 力度越强</li>
+      </ol>
+      <p><strong>力度判定口诀</strong>：</p>
+      <ul>
+        <li>后段柱子面积 < 前段 = 力度减弱 = 背驰</li>
+        <li>后段斜率 < 前段 = 速度减弱 = 背驰</li>
+        <li>两个指标同时减弱 = <strong>强烈背驰</strong></li>
+      </ul>
+      <p class="case-source">【出处：第 13 课 2026-01-11】</p>
+    </div>
+  </div>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【简化方法：用涨幅阈值判定盘背】</h4></div>
+    <div class="card-body">
+      <p>老师讲 30 分钟级别盘背判断时给出简化方法：</p>
+      <blockquote>"这一段从 13500 涨到 14100 共 600 点；若要摆脱盘背，下一段至少要拉到 14500（需 500 点涨幅）。"<br>——出处：第 13 课 2026-01-11</blockquote>
+      <p>即：<strong>后段涨幅 ≥ 前段涨幅 = 摆脱盘背</strong>。这是用涨幅阈值代替 MACD 比较的快速方法。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">6.4 实战案例：板块层面的盘背</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：固态电池盘整背驰】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 4 课 2025-06-29】老师讲固态电池板块时给出经典盘背案例：</p>
+      <ul>
+        <li>前段：55 周期上涨 60% 涨幅</li>
+        <li>当前段：30% 涨幅</li>
+        <li>结论：盘背</li>
+        <li>操作：等待回拉不进中枢 = 三买</li>
+      </ul>
+      <p>这是盘整背驰后回拉的三买机会的标准应用。</p>
+    </div>
+  </div>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：证券板块两中枢趋势背驰】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 6 课 2025-07-27】老师讲证券板块：</p>
+      <ol>
+        <li>30 分钟级别走了两个中枢的趋势上涨</li>
+        <li>当前最后中枢的顶峰尚未形成</li>
+        <li>一旦形成顶峰，比较两段力度 → 背驰 → 跌回最后中枢</li>
+        <li>跌幅：从 1700 拉回到最后中枢</li>
+      </ol>
+      <p>这是趋势背驰的实战案例。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">6.5 九段升级：走势级别的自动扩展</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：九段升级】</h4></div>
+    <div class="card-body">
+      <p>当某级别中枢走满 9 段（5+4 或 4+5 组合），自动升级为更高级别的中枢。</p>
+      <ul>
+        <li>30 分钟中枢走 1-3 段 = 仍是 30 分钟中枢</li>
+        <li>30 分钟中枢走 4-5 段 = 仍有升级预期</li>
+        <li>30 分钟中枢走 6 段 = <strong>警戒阶段</strong>，关注升级</li>
+        <li>30 分钟中枢走 9 段 = <strong>升级为日线中枢</strong></li>
+      </ul>
+      <p class="case-source">【出处：第 6 课 2025-07-27】</p>
+    </div>
+  </div>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：升级前的应对策略】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>中枢段数</th><th>操作建议</th></tr></thead>
+        <tbody>
+          <tr><td>1-3 段</td><td>正常中枢震荡，下轨买上轨卖</td></tr>
+          <tr><td>4-5 段</td><td>关注突破方向，准备迎接升级</td></tr>
+          <tr><td>6-8 段</td><td>警戒升级，避免中枢内重仓</td></tr>
+          <tr><td>9 段+</td><td>已升级为更高级别，重新评估</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-h">6.6 实战案例：9 段升级后主升</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：人工智能 9 段升级主升】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 13 课 2026-01-11】老师讲人工智能板块：</p>
+      <blockquote>"板块指数结构：两个中枢趋势上 + 9 段升级 → 直接一波进主升"</blockquote>
+      <p>这是 9 段升级后走主升行情的实战案例。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">6.7 背驰与九段升级的联动关系</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：背驰是 9 段升级的前置信号】</h4></div>
+    <div class="card-body">
+      <p>中枢走 9 段才升级为更高级中枢，而<strong>背驰往往在升级前出现</strong>——中枢走 6 段时已经"力竭"，继续走才能形成 9 段升级。</p>
+      <p><strong>警示</strong>：盘整背驰后可能进入"更大级别中枢"而非反转——必须结合多级别联立判断。</p>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 6 章要点回顾</h4>
+    <p>背驰 = 离开中枢力度 < 进入中枢力度；趋势背驰 100% 回归最后中枢；盘整背驰通常回归中枢；MACD 柱子面积 + 斜率是力度判定的两大核心指标；九段升级是中枢自动扩展的机制——30 分钟中枢走 9 段 → 升级为日线中枢。</p>
+  </div>
+</section>
+
+<!-- ============ 第七章：多级别联立 ============ -->
+<section class="chapter" id="ch-7">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 2 篇 · 技术筑基</span>
+    <h2 class="chapter-title">7. 多级别联立实战</h2>
+    <p class="chapter-lead">多级别联立是缠论从理论走向实战的"桥梁"——大级别定方向，小级别找买点。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>掌握"大级别定方向、小级别找买点"的核心原则</li>
+        <li>熟悉 5331 仓位管理体系（周 5 + 日 3 + 30 分 2）</li>
+        <li>理解小→大 / 大→小的传导关系</li>
+        <li>掌握周线一笔下的禁区与多级别共振加仓</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">7.1 多级别联立的核心思想</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：多级别联立】</h4></div>
+    <div class="card-body">
+      <p>同时观察多个时间周期的走势，结合各级别信号进行决策的方法。</p>
+      <blockquote>张老师核心原则："<strong>大级别定方向，小级别找买点</strong>"——大级别（周线）确定仓位方向，小级别（30 分钟、5 分钟）确定精确买点。</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">7.2 5331 仓位管理体系</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【要点：5331 仓位管理】</h4></div>
+    <div class="card-body">
+      <p>张穗鸿老师独创的"5+3+2"仓位分配法则（单股 3331 的变种）：</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>级别</th><th>仓位角色</th><th>操作仓位</th></tr></thead>
+        <tbody>
+          <tr><td><strong>周线</strong></td><td>底仓级别</td><td><strong>5 成仓</strong>（不见顶分型一直持有）</td></tr>
+          <tr><td><strong>日线</strong></td><td>波段级别</td><td><strong>3 成仓</strong>（顶分减，底分回补）</td></tr>
+          <tr><td><strong>30 分钟</strong></td><td>操作级别</td><td><strong>2 成仓</strong>（顶分减，底分回补）</td></tr>
+          <tr><td><strong>5 分钟</strong></td><td>微调级别</td><td>做 T（顶分抛、底分接）</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>5+3+2 = 10 成（满仓）</strong>；半仓 = 周线 5 成 + 其他全减。</p>
+      <p class="case-source">【出处：第 12 课 2025-12-28 · 第 4 课 2025-06-29】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">7.3 多级别联立的标准操作流程</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：4 步标准操作流程】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 8 课 2025-08-31】老师给出多级别联立的标准操作流程：</p>
+      <ol>
+        <li><strong>周线级别</strong>：5 成底仓。判断周线是否见顶分型，未见就一直持有</li>
+        <li><strong>日线级别</strong>：3 层波段仓。日线顶分成立 → 减 3 层；日线底分成立 → 回补 3 层</li>
+        <li><strong>30 分钟级别</strong>：2 层操作仓。30 分钟顶分 → 减 2 层；30 分钟底分 → 回补 2 层</li>
+        <li><strong>5 分钟级别</strong>：做 T 微调。5 分钟顶分抛、5 分钟底分接</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">7.4 多级别联立的传导链</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：传导链（小→大 / 大→小）】</h4></div>
+    <div class="card-body">
+      <p>多级别之间存在"传导关系"——小级别的变化会引起大级别的变化。</p>
+      <p><strong>小→大传导</strong>：</p>
+      <ol>
+        <li>5 分钟一笔下 → 30 分钟顶分成立 → 减 2 层</li>
+        <li>30 分钟下走深 → 日线顶分成立 → 减 3 层</li>
+        <li>日线一笔下走深 → 周线被带动 → 减 5 成底仓</li>
+      </ol>
+      <p><strong>大→小传导</strong>：</p>
+      <ol>
+        <li>周线不见顶分型 → 30 分钟底分可介入 → 加 2 层</li>
+        <li>周线见顶分型 → 所有小级别都进入防御模式</li>
+      </ol>
+      <p class="case-source">【出处：第 8 课 2025-08-31】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">7.5 30 分钟级别：核心操作级别</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：为什么 30 分钟是核心操作级别】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>级别</th><th>信号频率</th><th>操作成本</th><th>适用场景</th></tr></thead>
+        <tbody>
+          <tr><td>1 分钟</td><td>极高（噪音大）</td><td>频繁操作成本高</td><td>T+0 微调</td></tr>
+          <tr><td><strong>30 分钟</strong></td><td><strong>适中</strong></td><td><strong>操作频率合理</strong></td><td><strong>核心操作</strong></td></tr>
+          <tr><td>5 分钟</td><td>较高</td><td>适中</td><td>T+0 + 短线</td></tr>
+          <tr><td>日线</td><td>较低（信号太慢）</td><td>低频</td><td>错过最佳介入点</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <blockquote>张老师："30 分钟级别找精确买点。"——出处：第 6 课 2025-07-27</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">7.6 周线一笔下的禁区</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：周线一笔下绝对不介入】</h4></div>
+    <div class="card-body">
+      <p>股价周线级别正在下跌（即从顶分型到底分型的一段）——这是张穗鸿老师体系中的<strong>核心禁区</strong>。</p>
+      <ul>
+        <li>缠论规定周线一笔至少 5 根周 K 线</li>
+        <li>老师实战经验：<strong>至少 7 周（2 个月）</strong></li>
+      </ul>
+      <blockquote>张老师原话："谁跟你说的天花乱坠，他要走一周线下来调整七周，至少是七周。你那两个月的时间谁耗得住，对吧？肯定是要离开的。"<br>——出处：第 6 课 2025-07-27</blockquote>
+      <p>这是 5331 体系中"周线 5 成仓绝对不能介入"的实操禁区。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">7.7 实战案例：非立信 5331 完整操作</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：非立信 5331 完整操作】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 6 课 2025-07-27】老师讲非立信（创业板，2024-06-21 选出）：</p>
+      <ol>
+        <li><strong>周线信号</strong>：一统天下出击，美女形态出现（指导级别）</li>
+        <li><strong>30 分钟底分型</strong>：6.4 元附近 → 买 5 层仓（15 万/30 万）</li>
+        <li><strong>1 分钟头肩底</strong>：6.4 元附近 → 补 2 层仓（6 万）</li>
+        <li>合计 7 层仓（21 万/30 万）</li>
+        <li>颈线位要交筹码；下跌在本级别接回</li>
+        <li>突破后先看目标位</li>
+        <li>532 加码：日线 5 分钟找底分型补 3 层仓（9 万）</li>
+        <li>结果：1.5 元 → 3 元，翻倍</li>
+      </ol>
+      <p>这是 5331 体系最完整的实战案例。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">7.8 实战案例：赤峰黄金周线一笔上翻倍</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：赤峰黄金周线一笔上翻倍】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 8 课 2025-08-31】赤峰黄金（2024-12-19 选出）：</p>
+      <ol>
+        <li>周线一统天下出击 + 大美女头肩底 → 介入</li>
+        <li>30 分钟底分型 + 头肩底突破 → 第一批建仓</li>
+        <li>15 元 → 21 元（赚 40%）</li>
+        <li>21 元做下上下中枢震荡 → 突破后直接奔目标位</li>
+        <li>2025 年 3 月年报高增长 → 利好兑现</li>
+        <li>结果：一波翻倍</li>
+      </ol>
+      <p>这是周线一笔上 + 30 分钟精确买点的标准操作。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">7.9 多级别联立的实战禁区</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：级别误读的陷阱】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>日线一笔上 ≠ 短线满仓</strong>：日线一笔上 = 短线，最多 5 成仓；周线一笔上 = 中长线，可达满仓</li>
+        <li><strong>小级别逆大级别必败</strong>：周线顶分已成立、日线仍在反弹时，不要逆势抄底——周线信号优先</li>
+        <li><strong>没有信号时只看对应级别</strong>，避免"看晕"</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 7 章要点回顾</h4>
+    <p>多级别联立是缠论实战的桥梁——5331 仓位体系分配周线 5、日线 3、30 分钟 2；30 分钟是核心操作级别；周线一笔下是绝对禁区，至少 7 周不参与。<strong>大级别定方向，小级别找买点</strong>。</p>
+  </div>
+</section>
+
+<!-- ============ 第八章：特征序列与走势必完美 ============ -->
+<section class="chapter" id="ch-8">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 2 篇 · 技术筑基</span>
+    <h2 class="chapter-title">8. 特征序列与走势必完美</h2>
+    <p class="chapter-lead">特征序列是缠论最抽象、但也最核心的工具；走势必完美则是缠论的"最底层假设"。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>理解特征序列的含义与缠论融合（=头肩底）</li>
+        <li>熟悉线段破坏的两种判定条件</li>
+        <li>掌握走势必完美的三层含义</li>
+        <li>理解走势必完美在买卖点中的应用</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">8.1 特征序列的定义</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：特征序列】</h4></div>
+    <div class="card-body">
+      <p>缠论中用于<strong>判定线段结束</strong>的一种 K 线序列分析工具。</p>
+      <ul>
+        <li>把线段内部的"反向笔"全部去除，剩下的"同向笔"就是特征序列</li>
+        <li>特征序列中的 K 线经过包含处理后，与线段外最后一根 K 线比较，可以判定线段是否结束</li>
+        <li><strong>实战意义</strong>：特征序列主要用于判定线段的结束——线段被反向笔破坏的特征序列缺口，线段就结束</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">8.2 张穗鸿老师对特征序列的革命性融合</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【核心融合】特征序列 = 头肩底 = 美女形态</h4></div>
+    <div class="card-body">
+      <p>【出处：第 12 课 2025-12-28】老师最核心的创新观点：</p>
+      <blockquote>张老师原话："底分型其实就是特征序列，缠论所说的特征序列的三笔上，这个特征序列其实就是头肩底，就是我们的美女形态。"</blockquote>
+      <p><strong>融合的实战意义</strong>：</p>
+      <ol>
+        <li>缠论的"特征序列三笔上" = 头肩底的"头 + 左右肩 + 颈线"</li>
+        <li>缠论的"线段结束" = 头肩底的"突破颈线位"</li>
+        <li>缠论的"目标位测算" = 头肩底的高度 + 颈线位</li>
+      </ol>
+      <p><strong>结论</strong>：缠论与西方技术画在这里合二为一。学员不必纠结"特征序列"的复杂计算，只需识别头肩底（美女形态）即可。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">8.3 特征序列与中枢的对应关系</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【要点：特征序列是中枢的微观结构】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>缠论概念</th><th>实战对应</th></tr></thead>
+        <tbody>
+          <tr><td>特征序列三笔上</td><td>头肩底</td></tr>
+          <tr><td>线段</td><td>头肩底的颈线突破段</td></tr>
+          <tr><td>中枢</td><td>头肩底震荡区间</td></tr>
+          <tr><td>三买</td><td>突破颈线位回踩不破</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <blockquote>张老师："你把周线一笔下和周线一笔上搞通了，你任何级别不都是一样的原理。"——出处：第 12 课 2025-12-28</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">8.4 走势必完美的三层含义</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：走势必完美】</h4></div>
+    <div class="card-body">
+      <p>任何级别的任何走势终将完成。这是缠论的<strong>最底层假设</strong>。</p>
+      <p><strong>三层含义</strong>：</p>
+      <ol>
+        <li><strong>第一层</strong>：任何一笔终将完成（被反向笔破坏）</li>
+        <li><strong>第二层</strong>：任何一线段终将完成（被反向线段破坏）</li>
+        <li><strong>第三层</strong>：任何走势类型终将完成（趋势背驰后回归，结束于盘整）</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">8.5 走势必完美与买卖点的关系</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：买卖点是"走势完成"的提示】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>走势状态</th><th>提示信号</th><th>操作</th></tr></thead>
+        <tbody>
+          <tr><td>上涨笔即将完成</td><td>顶分型出现</td><td>减仓</td></tr>
+          <tr><td>下跌笔即将完成</td><td>底分型出现</td><td>介入</td></tr>
+          <tr><td>上涨线段即将完成</td><td>趋势背驰</td><td>清仓</td></tr>
+          <tr><td>下跌线段即将完成</td><td>趋势背驰</td><td>建仓</td></tr>
+          <tr><td>上涨走势即将完成</td><td>一卖出现</td><td>清仓</td></tr>
+          <tr><td>下跌走势即将完成</td><td>一买出现</td><td>建仓</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-h">8.6 走势必完美与级别递归的关系</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：级别递归是"走势必完美"的具体表现】</h4></div>
+    <div class="card-body">
+      <p>大级别走势必然由小级别走势构成；小级别走势必然在某个时刻完成；小级别完成时，大级别必然产生相应变化。</p>
+      <blockquote>张老师："30 分钟走势有它的自相似性，周线一笔下和周线一笔上的搞通，你任何级别都是一样的原理。"——出处：第 13 课 2026-01-11</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">8.7 走势必完美在实战中的应用</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：操作纪律的核心】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>永远不预测顶底</strong>：走势必完美意味着市场会自动给出顶底信号——等待信号比预测更有效</li>
+        <li><strong>背驰 = 走势即将完成</strong>：趋势背驰 = 上涨走势即将完成；盘整背驰 = 中枢段即将完成</li>
+        <li><strong>顶底分型 = 一笔即将完成</strong>：顶分型 = 上涨笔即将完成；底分型 = 下跌笔即将完成</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">8.8 实战案例：6G 板块的完整走势必完美</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：6G 板块完整走势必完美】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 13 课 2026-01-11】老师讲 6G 板块（880661）：</p>
+      <ol>
+        <li>6G 板块 11 月份老师在小班直播课第一次讲（起点 = 走势开始）</li>
+        <li>"先相信再看见"（走势必完美让学员有信念）</li>
+        <li>6G 这波涨了 39%（中间段完成）</li>
+        <li>比商业航天涨得还多（走势延续）</li>
+        <li>未来还要看是否突破前高（走势必完美判断）</li>
+      </ol>
+      <p>6G 板块就是走势必完美的一个完整生命周期。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">8.9 走势必完美的实战禁区</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：走势必完美 ≠ 立即反转】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>走势完成后是"新的走势开始"，而非"立即反向"——必须等新走势的方向明确才能行动</li>
+        <li>不要把"日线级别走势必完美"误读为"30 分钟级别走势必完美"——每个级别独立完成</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：缠论 8 大核心原理闭环】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li>K 线四要素 + 包含处理（基础）</li>
+        <li>顶底分型 + 笔（最小构件）</li>
+        <li>走势类型 + 线段 + 中枢（核心结构）</li>
+        <li>三类买卖点（操作信号）</li>
+        <li>背驰（力度判定）</li>
+        <li>九段升级 + 级别递归（自相似扩展）</li>
+        <li>多级别联立（实战方法）</li>
+        <li>特征序列 + 走势必完美（底层原理）</li>
+      </ol>
+      <p>这 8 大原理构成了缠论的完整闭环。<strong>学完这 8 步，就具备了用缠论看穿市场的思维框架。</strong></p>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 8 章要点回顾</h4>
+    <p>特征序列是缠论判定线段结束的工具，张穗鸿老师把它融合为头肩底（美女形态）；走势必完美是缠论最底层假设——任何走势终将完成，背驰和顶底分型是"完成"的提示信号；学完 8 大原理，缠论体系完整闭环。</p>
+  </div>
+</section>
+
+
+<!-- ============ 第九章：战法总览 + 一统天下 ============ -->
+<section class="chapter" id="ch-9">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 3 篇 · 战法立身</span>
+    <h2 class="chapter-title">9. 战法总览 + 一统天下战法</h2>
+    <p class="chapter-lead">张穗鸿老师独创 8 大战法，从强势股到潜伏股，从反转信号到组合切换，构成完整的盈利方法库。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>理解 8 大战法的分类、适用环境与核心差异</li>
+        <li>掌握"一统天下"中长线战法的形态识别与介入</li>
+        <li>熟悉 5331 + 一统天下的完整操作链</li>
+        <li>理解周线底分型 + 美女形态的复合买入信号</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">9.1 张穗鸿老师 8 大战法总览</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【要点：8 大战法分类】</h4></div>
+    <div class="card-body">
+      <p>张穗鸿老师在 21 课中系统总结了 8 大战法，分为四大类型：</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>类型</th><th>战法</th><th>核心特点</th></tr></thead>
+        <tbody>
+          <tr><td rowspan="3"><strong>强势股战法</strong></td><td>一统天下</td><td>中长线，强势横盘后主升</td></tr>
+          <tr><td>九五至尊</td><td>95 元强势线 + 博弈长阳 + 主力高控盘</td></tr>
+          <tr><td>博弈长阳</td><td>长阳放量突破 + 主力高控盘</td></tr>
+          <tr><td rowspan="3"><strong>潜伏与特殊形态</strong></td><td>潜龙在渊</td><td>底部筹码真空带 + 主力深套</td></tr>
+          <tr><td>美女战法</td><td>头肩底 / W 底 + 颈线突破</td></tr>
+          <tr><td>储君模式</td><td>90&lt;95&lt;95 形态 + 替补龙头</td></tr>
+          <tr><td rowspan="2"><strong>反转信号</strong></td><td>倒车接人</td><td>顶部反转信号 + 大资金派发</td></tr>
+          <tr><td>对子底</td><td>数字对称的底部反转</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>20 字心法</strong>：大美女，50亿，博弈长阳，潜龙渊，一统天下</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">9.2 一统天下：盘整背驰中长线战法</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：一统天下】</h4></div>
+    <div class="card-body">
+      <p><strong>一统天下</strong>是张穗鸿老师的中长线战法，核心是利用"周线盘整背驰"捕捉一波主升行情。</p>
+      <p><strong>形态定义</strong>：</p>
+      <ul>
+        <li>周线级别盘整（单一中枢震荡）</li>
+        <li>向上离开中枢 vs 进入中枢的力度对比</li>
+        <li>离开段 < 进入段 = <strong>盘整背驰</strong></li>
+        <li>盘整背驰后必然回拉中枢</li>
+        <li>回拉不进中枢 = <strong>加仓点</strong></li>
+        <li>突破前高 = <strong>主升行情开始</strong></li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">9.3 一统天下的识别要点</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：5 步识别一统天下】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>看周线</strong>：周线级别是否盘整（上下上 / 下上下至少 3 笔）</li>
+        <li><strong>看 MACD</strong>：离开中枢的红柱面积是否 < 进入中枢的红柱面积</li>
+        <li><strong>看回拉</strong>：是否回拉到中枢区间（下沿）</li>
+        <li><strong>看底分型</strong>：回拉时是否形成周线底分型</li>
+        <li><strong>看递进</strong>：30 分钟级别是否形成递进信号（小级别共振）</li>
+      </ol>
+      <p>5 步全满足 = 一统天下出击信号。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">9.4 一统天下的介入时机与仓位</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：一统天下的介入 + 加仓节奏】</h4></div>
+    <div class="card-body">
+      <p><strong>第一步：周线底分型 → 建底仓 5 成</strong></p>
+      <p>周线一统天下出击 + 底分型确立 + 美女形态出现 → 买 5 成仓（不见顶分型一直持有）。</p>
+      <p><strong>第二步：30 分钟底分型 + 头肩底突破 → 加 2 成</strong></p>
+      <p>周线方向确立 → 30 分钟底分型 + 头肩底突破 → 加 2 成仓（小级别精确买点）。</p>
+      <p><strong>第三步：1 分钟下上下完美 → 加 3 成（满仓）</strong></p>
+      <p>30 分钟一笔上走完 → 1 分钟级别下上下中枢完美 → 加 3 成仓（5331 满仓）。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">9.5 一统天下的止损纪律</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：一统天下的止损铁律】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>周线底分型最低价 = 底仓止损位</strong></li>
+        <li><strong>30 分钟底分型最低价 = 加仓位止损</strong></li>
+        <li><strong>跌破周线 5 成本均线 = 清仓</strong></li>
+        <li><strong>周线见顶分型 = 减仓 50%</strong></li>
+      </ul>
+      <p>底仓不见顶分型不出场，是一统天下的核心纪律。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">9.6 实战案例：黄金股完整一统天下</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：黄金股完整一统天下操作链】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 16 课 2025-05-25 + 第 17 课 2025-02-04】1月选股 → 4月翻倍的完整闭环：</p>
+      <ol>
+        <li>2025 年 1 月小班直播 → 周线一统天下选股</li>
+        <li>形态：周线一统天下出击，等待底分型</li>
+        <li>中间频繁出现头肩底 + 对子底形态</li>
+        <li>4 月 8 日大盘暴跌 → 黄金股避险大涨</li>
+        <li>32.66 出现对子顶 → 顶部信号 → 卖出（接近翻倍）</li>
+      </ol>
+      <p><strong>操作要点</strong>：</p>
+      <ul>
+        <li>"5 成底仓不见顶分型不见顶，不会退出"</li>
+        <li>"3 成做 T 在 30 分钟递进信号与高出信号之间反复操作，不会做飞"</li>
+      </ul>
+      <p class="case-source">【出处：第 17 课 2025-02-04】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">9.7 一统天下的实战禁区</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：一统天下的 3 大禁区】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>大盘下跌期</strong>：大盘破位时一统天下有效性降低，需结合大盘冰点修复</li>
+        <li><strong>高位股</strong>：股价已经在高位（>周线前高 1.5 倍）时不做一统天下</li>
+        <li><strong>无板块配合</strong>：单独个股信号但板块不配合（无主线），成功率降低</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 9 章要点回顾</h4>
+    <p>8 大战法分强势股 / 潜伏 / 反转 3 类；<strong>一统天下</strong> = 周线盘整背驰 + 底分型 + 美女形态 = 中长线主升战法；操作 5331（周 5 + 30 分 2 + 1 分 3）；底仓不见顶分型不出场是核心纪律。</p>
+  </div>
+</section>
+
+<!-- ============ 第十章：九五至尊 + 潜龙在渊 ============ -->
+<section class="chapter" id="ch-10">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 3 篇 · 战法立身</span>
+    <h2 class="chapter-title">10. 九五至尊 + 潜龙在渊</h2>
+    <p class="chapter-lead">九五至尊是强势股的 95 元线战法；潜龙在渊则是潜伏型战法的代表——底部筹码真空带 + 主力深套。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>理解 95 元强势线规则与博弈长阳叠加</li>
+        <li>掌握潜龙在渊的筹码真空带识别</li>
+        <li>熟悉潜龙出水 = 必涨的实战逻辑</li>
+        <li>理解 50 亿市值法则在战法中的角色</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">10.1 九五至尊：95 元强势线战法</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：九五至尊 / 95 元强势线】</h4></div>
+    <div class="card-body">
+      <p>九五至尊的核心是"95 元强势线"——这是一个特殊的均线或价位，股价站上 95 元线后强势特征明显。</p>
+      <ul>
+        <li><strong>95 元线规则</strong>：股价从下方突破 95 元线后，回踩不破 = 强势确立</li>
+        <li><strong>底仓锁仓</strong>：股价在 95 元线上方运行时，5 成底仓一直锁定（不见顶分型不出）</li>
+        <li><strong>博弈长阳叠加</strong>：95 元线 + 博弈长阳 = 双重强势信号 = 强买入</li>
+      </ul>
+      <p class="case-source">【出处：第 3 课 2025-06-08 · 第 6 课 2025-07-27】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">10.2 九五至尊 + 博弈长阳 = 强买入</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【要点：双重强势叠加】</h4></div>
+    <div class="card-body">
+      <p>当 95 元线 + 博弈长阳同时出现时，是张穗鸿老师体系中最强的买入信号之一：</p>
+      <ol>
+        <li><strong>博弈长阳</strong>：成交量放大 2-3 倍，长阳涨幅 > 7%，主力高控盘信号</li>
+        <li><strong>95 元线上穿</strong>：股价从下方突破 95 元线，回踩不破</li>
+        <li><strong>双重叠加</strong>：两个信号同时满足 = 强买入</li>
+      </ol>
+      <p><strong>实战</strong>：底部首次突破 95 元线 + 博弈长阳 = 5 成底仓 + 30 分钟递进加 3 成。</p>
+      <p class="case-source">【出处：第 13 课 2026-01-11】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">10.3 95 元线的实战禁区</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：95 元线失效的 3 种情况】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>高位回踩</strong>：股价已经在 95 元线上方很久后回踩 = 警惕，可能见顶</li>
+        <li><strong>无量上穿</strong>：成交量没有放大就上穿 95 元线 = 假突破</li>
+        <li><strong>大盘冰点</strong>：大盘处于冰点期时，95 元线有效性降低</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">10.4 潜龙在渊：底部筹码真空带战法</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：潜龙在渊】</h4></div>
+    <div class="card-body">
+      <p><strong>潜龙在渊</strong>是潜伏型战法的代表，核心是"底部筹码真空带"——主力在底部深度被套，需要一波快速上涨才能解套。</p>
+      <ul>
+        <li><strong>筹码真空带</strong>：股价在某个区间内成交量极低（< 全市场均值的 30%），形成"真空"</li>
+        <li><strong>主力深套</strong>：底部主力资金被套牢，需要股价上涨解套</li>
+        <li><strong>潜龙出水</strong>：股价突破筹码真空带 + 站上 95 元线 = 潜龙出水 = 必涨</li>
+      </ul>
+      <p class="case-source">【出处：第 2 课 2025-05-11】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">10.5 潜龙在渊的识别步骤</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：4 步识别潜龙在渊】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>看日线级别</strong>：周线 / 日线是否下跌结束，底部形态是否成型</li>
+        <li><strong>看筹码真空带</strong>：是否在某个价位区间形成"成交量真空"（地量）</li>
+        <li><strong>看主力动向</strong>：底部是否有主力建仓信号（大单持续买入）</li>
+        <li><strong>看潜龙出水</strong>：是否突破筹码真空带上沿 + 站上 95 元线</li>
+      </ol>
+      <p><strong>潜龙值</strong>：潜龙在渊的程度可用"潜龙值"量化（如 -148 表示底部极深）。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">10.6 实战案例：GPU 板块潜龙</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：上海出生 + 潜龙 + 美女的复合买入】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 21 课 2025-04-13】三共振案例：</p>
+      <ul>
+        <li>上海出生 + 博弈长阳（2024/6/12）+ 潜龙值 -148（上周一）</li>
+        <li>美女形态完美</li>
+        <li>概念：消费电子 / 汽车电子 / 新能源车 / 芯片 / 机器人 / 无人驾驶</li>
+        <li>业绩同比 +50%</li>
+        <li>目标价 47.7 元</li>
+      </ul>
+      <p>这是潜龙 + 美女 + 博弈长阳的复合信号，叠加上海出生地优势 = 强买入。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">10.7 潜龙出水 = 必涨的实战逻辑</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：潜龙出水的三个条件】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>底部筹码真空</strong>：成交量持续地量，主力被深套</li>
+        <li><strong>突破筹码带</strong>：长阳放量突破筹码真空带上沿</li>
+        <li><strong>站上 95 元线</strong>：股价同时站上 95 元线，强势确立</li>
+      </ol>
+      <p><strong>张老师原话</strong>："潜龙出水 = 必涨"——三个条件同时满足时，进场后大概率有 15% 以上空间。</p>
+      <p class="case-source">【出处：第 2 课 2025-05-11】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">10.8 潜龙在渊的实战禁区</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：潜龙在渊的禁区】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>大盘主跌期</strong>：大盘主跌时主力自救失败，潜龙失效</li>
+        <li><strong>无主线板块</strong>：个股信号但板块不在主线，单股成功率低</li>
+        <li><strong>高位股</strong>：股价已经在高位（>周线前高 1.5 倍），不是潜龙</li>
+        <li><strong>业绩雷</strong>：底部但即将业绩暴雷，不做潜龙</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 10 章要点回顾</h4>
+    <p><strong>九五至尊</strong> = 95 元线 + 博弈长阳 + 底仓锁仓；<strong>潜龙在渊</strong> = 筹码真空带 + 主力深套；潜龙出水 + 95 元线 = 必涨；潜龙 + 美女 + 博弈长阳 = 最强复合信号。</p>
+  </div>
+</section>
+
+<!-- ============ 第十一章：美女战法 + 储君模式 ============ -->
+<section class="chapter" id="ch-11">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 3 篇 · 战法立身</span>
+    <h2 class="chapter-title">11. 美女战法 + 储君模式</h2>
+    <p class="chapter-lead">美女战法 = 头肩底形态，是张穗鸿老师对缠论特征序列的革命性融合；储君模式则是替补龙头逻辑。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>理解头肩底 / W 底形态的完整识别要点</li>
+        <li>掌握美女形态 + 缠论特征序列的融合</li>
+        <li>熟悉颈线突破 + 右眼位置 + 鼻尖位的买点</li>
+        <li>理解储君模式的 90&lt;95&lt;95 逻辑</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">11.1 美女战法的形态定义</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：美女战法 = 头肩底】</h4></div>
+    <div class="card-body">
+      <p>美女战法的核心形态是<strong>头肩底</strong>——由左肩、头部、右肩、颈线组成。</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>部位</th><th>含义</th><th>实战意义</th></tr></thead>
+        <tbody>
+          <tr><td><strong>左肩</strong></td><td>第一次下跌的低点</td><td>空头第一次宣泄</td></tr>
+          <tr><td><strong>头部</strong></td><td>最深下跌的低点</td><td>空头最深处（最低位）</td></tr>
+          <tr><td><strong>右肩</strong></td><td>反弹后回踩的低点</td><td>空头最后力竭</td></tr>
+          <tr><td><strong>颈线</strong></td><td>左肩/右肩高点的连线</td><td>突破后 = 上升空间打开</td></tr>
+          <tr><td><strong>右眼底</strong></td><td>右肩低点附近</td><td>买入点之一</td></tr>
+          <tr><td><strong>鼻尖位</strong></td><td>颈线突破瞬间</td><td>买入点之二</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-h">11.2 美女战法 = 缠论特征序列三笔上</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【核心融合】美女 = 特征序列 = 中枢</h4></div>
+    <div class="card-body">
+      <blockquote>张老师原话："底分型其实就是特征序列，缠论所说的特征序列的三笔上，这个特征序列其实就是头肩底，就是我们的美女形态。"<br>——出处：第 12 课 2025-12-28</blockquote>
+      <p><strong>三层等价</strong>：</p>
+      <ol>
+        <li>缠论的"特征序列三笔上" = 头肩底的"头 + 左右肩"</li>
+        <li>缠论的"中枢" = 头肩底的"震荡区间"</li>
+        <li>缠论的"目标位 = 颈线位 + 头部高度"</li>
+      </ol>
+      <p><strong>实战价值</strong>：学员只需识别美女形态（头肩底），即可直接套用缠论逻辑——不必纠结特征序列的复杂计算。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">11.3 美女战法的买点定位</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：美女战法的 3 个买点】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>右眼底买入</strong>：右肩低点形成时进场（30 分钟底分型确立）</li>
+        <li><strong>颈线突破买入</strong>：股价突破颈线时进场（鼻尖位）</li>
+        <li><strong>颈线突破后回踩</strong>：回踩不破颈线 = 加仓位</li>
+      </ol>
+      <p><strong>目标位测算</strong>：</p>
+      <ul>
+        <li>第一目标 = 颈线位 + 头部高度</li>
+        <li>第二目标 = 颈线位 + 头部高度 × 2</li>
+      </ul>
+      <p class="case-source">【出处：第 3 课 2025-06-08 金陵体育案例】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">11.4 实战案例：金陵体育美女战法</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：金陵体育 30 分钟右眼位置介入】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 3 课 2025-06-08】金陵体育作为"美女模式上车"的龙头案例：</p>
+      <ul>
+        <li>30 分钟图找"右眼位置 = 颈线位"介入</li>
+        <li>30 分钟底分型确立 → 进场</li>
+        <li>突破颈线后直奔目标位</li>
+        <li>头肩底头部高度 = 颈线到头部的距离</li>
+        <li>第一目标 = 颈线位 + 头部高度</li>
+      </ul>
+      <p>这是美女战法在 30 分钟级别应用的经典案例。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">11.5 实战案例：玉山侠 15 倍头肩底</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：玉山侠 15 倍头肩底】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 2 课 2025-05-11】老师讲头肩底 = 美女形态时的标杆案例：</p>
+      <ul>
+        <li>周线级别头肩底成型</li>
+        <li>突破颈线后 15 倍涨幅</li>
+        <li>目标位测算准确</li>
+      </ul>
+      <p>这是大级别美女战法的标杆。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">11.6 W 底形态 vs 头肩底</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【对比：W 底 vs 头肩底】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>形态</th><th>结构</th><th>成功率</th><th>目标位</th></tr></thead>
+        <tbody>
+          <tr><td><strong>W 底（双底）</strong></td><td>两底相近，无中间高点</td><td>中等</td><td>底部到颈线距离</td></tr>
+          <tr><td><strong>头肩底</strong></td><td>左肩 + 头部 + 右肩，中间反弹形成颈线</td><td>较高</td><td>头部高度 + 颈线位</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>张老师观点</strong>：头肩底的成功率高于 W 底——头部比左肩/右肩明显更低 = 空头更彻底地宣泄，反弹力度更强。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">11.7 储君模式：90&lt;95&lt;95 的替补龙头</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：储君模式】</h4></div>
+    <div class="card-body">
+      <p><strong>储君模式</strong>是捕捉替补龙头的战法——当主线龙头（太子）已经涨幅过大时，寻找同一板块内可能接力的"储君"。</p>
+      <ul>
+        <li><strong>90&lt;95&lt;95 形态</strong>：股价从 90 元下方突破 95 元线后，回踩到 95 元线附近（不跌破），再上涨</li>
+        <li><strong>替补龙头逻辑</strong>：太子涨幅过大后，资金会寻找同一板块的下一只龙头</li>
+        <li><strong>操作要点</strong>：储君形态成立后，等 30 分钟底分型进场</li>
+      </ul>
+      <p class="case-source">【出处：第 3 课 2025-06-08 储君模式详解】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">11.8 储君模式的识别要点</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：储君模式的 4 个条件】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>主线板块明确</strong>：必须有清晰的主线（太子已经涨幅明显）</li>
+        <li><strong>同一板块</strong>：储君与太子在同一板块（同一主线）</li>
+        <li><strong>市值匹配</strong>：储君的市值通常 50-100 亿（容纳大资金）</li>
+        <li><strong>90&lt;95&lt;95 形态</strong>：储君的形态符合 90 突破 95 元线后回踩</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">11.9 储君模式的实战禁区</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：储君模式的 3 大禁区】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>无主线板块</strong>：没有太子（主线龙头）时，储君无效</li>
+        <li><strong>太子未到顶</strong>：太子还在主升时，储君的"补涨"逻辑不成立</li>
+        <li><strong>高位接盘</strong>：储君涨幅已经超过太子涨幅 70% 时，不做储君</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 11 章要点回顾</h4>
+    <p><strong>美女战法</strong> = 头肩底 = 缠论特征序列三笔上；买点 = 右眼底 / 鼻尖位 / 颈线回踩；目标位 = 颈线位 + 头部高度；<strong>储君模式</strong> = 90&lt;95&lt;95 形态 + 替补龙头逻辑，必须有主线太子配合。</p>
+  </div>
+</section>
+
+<!-- ============ 第十二章：博弈长阳 + 倒车接人 + 对子底 ============ -->
+<section class="chapter" id="ch-12">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 3 篇 · 战法立身</span>
+    <h2 class="chapter-title">12. 博弈长阳 + 倒车接人 + 对子底</h2>
+    <p class="chapter-lead">博弈长阳是主力高控盘的标志性信号；倒车接人 + 对子底则是顶部与底部的反转信号。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>掌握博弈长阳的形态与叠加潜龙 = 最强</li>
+        <li>理解倒车接人作为顶部反转信号的实战应用</li>
+        <li>熟悉对子底（数字对称）的识别</li>
+        <li>理解 8 大战法的组合与切换</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">12.1 博弈长阳：主力高控盘信号</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：博弈长阳】</h4></div>
+    <div class="card-body">
+      <p><strong>博弈长阳</strong>是主力高控盘的标志性信号——一根放量长阳突破多个关键阻力位。</p>
+      <ul>
+        <li><strong>涨幅</strong>：单日涨幅 > 7%（涨停或近涨停）</li>
+        <li><strong>量能</strong>：成交量是前 5 日均量的 2-3 倍以上</li>
+        <li><strong>位置</strong>：底部启动初期或突破关键阻力位</li>
+        <li><strong>意义</strong>：主力强力拉升信号 = 高控盘</li>
+      </ul>
+      <p class="case-source">【出处：第 13 课 2026-01-11】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">12.2 博弈长阳 + 潜龙 = 最强</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【核心叠加】博弈长阳 + 潜龙出水 = 最强</h4></div>
+    <div class="card-body">
+      <p>博弈长阳与潜龙出水叠加 = 张穗鸿老师体系中最强的买入信号：</p>
+      <ol>
+        <li><strong>博弈长阳</strong>：底部出现放量长阳，主力高控盘</li>
+        <li><strong>潜龙出水</strong>：股价从底部筹码真空带突破</li>
+        <li><strong>叠加效果</strong>：主力控盘 + 突破真空带 = 后续涨幅可观</li>
+      </ol>
+      <p><strong>实战</strong>：上海出生 + 博弈长阳 + 潜龙值 -148 + 美女形态 = 47.7 元目标价（涨幅 50%+）。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">12.3 博弈长阳的禁区</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：博弈长阳失败的 3 种情况】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>高位博弈长阳</strong>：股价已经在高位（>周线前高 1.5 倍）= 警惕出货</li>
+        <li><strong>无量博弈长阳</strong>：长阳但成交量没放大 = 假突破</li>
+        <li><strong>大盘主跌期</strong>：大盘在主跌期，博弈长阳容易被砸</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">12.4 倒车接人：顶部反转信号</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：倒车接人】</h4></div>
+    <div class="card-body">
+      <p><strong>倒车接人</strong>是顶部反转的标志性形态——股价在高位时出现"先冲高后大幅回落"，主力借机派发。</p>
+      <ul>
+        <li><strong>形态</strong>：股价从高位快速冲高后大幅回落，留下长上影线或阴包阳</li>
+        <li><strong>量能</strong>：冲高时放量（主力出货），回落时缩量</li>
+        <li><strong>意义</strong>：主力诱多派发 = 顶部信号</li>
+      </ul>
+      <p><strong>操作</strong>：倒车接人出现后立即减仓，等待顶部形态确认后清仓。</p>
+      <p class="case-source">【出处：第 12 课 2025-12-28】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">12.5 倒车接人的实战要点</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：倒车接人的 4 个识别要素】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>位置</strong>：高位（周线前高上方）</li>
+        <li><strong>形态</strong>：冲高回落，留下长上影</li>
+        <li><strong>量能</strong>：冲高放量，回落缩量</li>
+        <li><strong>次日</strong>：次日跳空低开或继续下跌 = 顶部确立</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">12.6 对子底：数字对称的底部反转</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：对子底】</h4></div>
+    <div class="card-body">
+      <p><strong>对子底</strong>是数字对称的底部反转——股价在某个关键价位形成两次相同的数字（如 15.55、20.20、32.66）。</p>
+      <ul>
+        <li><strong>形成</strong>：股价两次下跌到相同数字（如 15.55 → 反弹 → 再跌到 15.55）</li>
+        <li><strong>意义</strong>：空头两次未能跌破 = 强支撑 = 底部反转</li>
+        <li><strong>买点</strong>：第二次跌到对子底数字 + 形成底分型 = 介入点</li>
+      </ul>
+      <p class="case-source">【出处：第 17 课 2025-02-04 黄金股 15.55 对子底】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">12.7 对子底的实战案例</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：黄金股 15.55 对子底翻倍】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 17 课 2025-02-04】黄金股完整操作链：</p>
+      <ol>
+        <li>1 月选股（周线一统天下）</li>
+        <li><strong>对子底 15.55 建仓</strong></li>
+        <li>4 月 8 日大盘暴跌避险大涨</li>
+        <li>32.66 <strong>对子顶</strong>清仓（接近翻倍）</li>
+      </ol>
+      <p>对子底 = 买入信号，对子顶 = 卖出信号，对称使用。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">12.8 8 大战法的组合与切换</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【要点：战法组合的优先级】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>市场环境</th><th>首选战法</th><th>组合</th></tr></thead>
+        <tbody>
+          <tr><td>大盘冰点 + 主线确立</td><td>一统天下</td><td>+ 九五至尊</td></tr>
+          <tr><td>大盘修复期 + 强势板块</td><td>博弈长阳</td><td>+ 潜龙出水</td></tr>
+          <tr><td>主线主升 + 龙头涨幅过大</td><td>储君模式</td><td>+ 美女战法</td></tr>
+          <tr><td>底部反转 + 主力深套</td><td>美女战法</td><td>+ 对子底</td></tr>
+          <tr><td>顶部反转 + 主力派发</td><td>倒车接人</td><td>（减仓信号）</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <blockquote>张老师："龙头都赚不到钱，小弟就别指望赚钱。"——出处：第 17 课 2025-02-04</blockquote>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 12 章要点回顾</h4>
+    <p><strong>博弈长阳</strong> = 主力高控盘；博弈长阳 + 潜龙出水 = 最强；<strong>倒车接人</strong> = 顶部反转 = 减仓信号；<strong>对子底</strong> = 数字对称的底部反转；战法组合需根据市场环境灵活切换。</p>
+  </div>
+</section>
+
+
+<!-- ============ 第十三章：情绪体系 ============ -->
+<section class="chapter" id="ch-13">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 4 篇 · 市场理解</span>
+    <h2 class="chapter-title">13. 情绪体系：多空出牌与冰点修复</h2>
+    <p class="chapter-lead">市场情绪是短线操作的"天气预报"——0-100 分情绪指标 + 冰点/修复/退潮/高潮四阶段循环。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>理解情绪指标 0-100 分的判读与情绪打分八项</li>
+        <li>掌握冰点/修复/退潮/高潮四阶段循环</li>
+        <li>熟悉红白黄绿四色应对策略</li>
+        <li>理解多空出牌与情绪修复/见顶信号</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">13.1 情绪指标 0-100 分制</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：情绪指标】</h4></div>
+    <div class="card-body">
+      <p>张穗鸿老师将市场情绪量化为 0-100 分：</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>分数区间</th><th>状态</th><th>特征</th></tr></thead>
+        <tbody>
+          <tr><td>0-40 分</td><td><strong>大冰点</strong></td><td>跌停 ≥ 20 家、连板高度压缩、95% 个股下跌</td></tr>
+          <tr><td>40-60 分</td><td>震荡/修复</td><td>情绪分化，方向不明</td></tr>
+          <tr><td>60-80 分</td><td>高潮</td><td>涨停爆量、龙头 5-6 板</td></tr>
+          <tr><td>80-100 分</td><td>极度高潮</td><td>情绪过热，次日大概率调整</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p><strong>实战</strong>：情绪 ≤ 40 分 + 一统天下出击 = 反弹号角。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">13.2 情绪打分八项维度</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：每日情绪打分 8 项】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>最高板</strong>（连板高度创新高 = 加 1 分）</li>
+        <li><strong>次日打板成功率</strong>（高 = 加 1；下降 = 减 1）</li>
+        <li><strong>涨停中下走</strong>（涨停下影线 = 警惕，减 1）</li>
+        <li><strong>绿盘/大面情绪</strong>（绿盘增多 = 减 1）</li>
+        <li><strong>大肉情绪</strong>（大肉减少 = 减 1）</li>
+        <li><strong>上涨比例</strong>（下行 = 减 1）</li>
+        <li><strong>连板加速</strong>（减速 = 减 1）</li>
+        <li><strong>跌停加速</strong>（不增不减 = 中性；增加 = 警惕）</li>
+      </ol>
+      <p>每项正向 +1 分，负向 -1 分。累计得分决定次日仓位。</p>
+      <p class="case-source">【出处：第 19 课 2025-03-30】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">13.3 实战案例：2025-05-09 -7 分标准打分</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：5 月 9 日情绪打分从 0 到 -7】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 2 课 2025-05-11】老师逐项打分：</p>
+      <ul>
+        <li>上涨比例下降 -1（-1）</li>
+        <li>次日打板成功率下降 -1（-2）</li>
+        <li>大面情绪上涨 -1（-3）</li>
+        <li>大肉情绪下跌 -1（-4）</li>
+        <li>连板加速 12→5 -1（-5）</li>
+        <li>跌停加速 0</li>
+        <li>涨停加速下降 -1（-6）</li>
+        <li>压力高度下降 -1（-7）</li>
+      </ul>
+      <p><strong>结论</strong>：-7 分 + 冰点信号 = 次日开盘大概率低开/平开，是冰点抢筹窗口。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">13.4 情绪四阶段图谱</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【要点：冰点→修复→退潮→高潮循环】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>阶段</th><th>特征</th><th>应对</th></tr></thead>
+        <tbody>
+          <tr><td><strong>冰点</strong></td><td>情绪 ≤ 40、跌停 ≥ 20、95% 个股下跌</td><td>一统天下出击 = 反弹号角</td></tr>
+          <tr><td><strong>修复</strong></td><td>冰点次日，首板增多、跌停减少、龙头反包</td><td>分批建仓</td></tr>
+          <tr><td><strong>退潮</strong></td><td>高位股杀跌、连板高度压缩、最高板断板</td><td>减仓，警惕大面</td></tr>
+          <tr><td><strong>高潮</strong></td><td>涨停爆量、龙头 5-6 板、情绪 60-80</td><td>只做龙头不杂毛</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-h">13.5 红白黄绿四色应对</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：四色策略】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>红色（追涨）</strong>：高潮期可追龙头首阴反抽</li>
+        <li><strong>白色（观望）</strong>：修复期不明朗，等方向</li>
+        <li><strong>黄色（防守）</strong>：退潮期减仓，警惕大面</li>
+        <li><strong>绿色（抄底）</strong>：冰点期 + 一统天下出击 = 分批建仓</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">13.6 大盘冰点 + 中枢底 = 绝佳回补</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：4 月 11 日 -7 分 + 30 分钟中枢下轨】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 21 课 2025-04-13】大盘打到 30 分钟中枢下轨 + 情绪 -7 分 = 绝佳回补点位：</p>
+      <ul>
+        <li>2025-04-11 情绪 -7 分叠加 30 分钟中枢下轨</li>
+        <li>次日反弹修复</li>
+      </ul>
+      <p><strong>张老师心法</strong>："冰点 + 中枢底 = 绝佳回补点位"——两个信号叠加 = 高胜率介入。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">13.7 修复 / 见顶信号</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：修复启动 + 见顶预警】</h4></div>
+    <div class="card-body">
+      <p><strong>修复启动信号</strong>：</p>
+      <ul>
+        <li>跌停减少</li>
+        <li>首板增多</li>
+        <li>龙头反包</li>
+        <li>连板高度突破</li>
+      </ul>
+      <p><strong>见顶预警</strong>：</p>
+      <ul>
+        <li>≥ 45 家涨停</li>
+        <li>连板 6 板</li>
+        <li>高低切换失灵</li>
+        <li>大面集中爆发</li>
+      </ul>
+      <p class="case-source">【出处：第 5 课 2025-07-13 修复期案例 7 月 11 日情绪 59 + 涨停 60 + 连板 5 板 = 进入高潮期尾声】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">13.8 情绪与仓位对应</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【要点：情绪→仓位】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>情绪状态</th><th>建议仓位</th></tr></thead>
+        <tbody>
+          <tr><td>冰点（≤ -5 分）</td><td>可重仓出击（8 成）</td></tr>
+          <tr><td>修复期</td><td>5 成仓</td></tr>
+          <tr><td>退潮期</td><td>3 成以下</td></tr>
+          <tr><td>高潮期</td><td>只做龙头不杂毛</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <blockquote>张老师口诀："情绪打分定仓位，冰点出击最安全；高潮减仓防退潮，修复期中等持仓"</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">13.9 多空出牌实战判断</h3>
+
+  <div class="card card-concept">
+    <h4>【概念：多空出牌】</h4>
+    <p>每日盘后统计的"板块涨幅榜 + 涨停家数 + 跌停家数 + 连板高度 + 昨日涨停溢价"五件套。</p>
+    <div class="table-wrap">
+    <table class="data-table">
+      <thead><tr><th>盘面状态</th><th>判断</th></tr></thead>
+      <tbody>
+        <tr><td>红盘主导（红盘 &gt; 3500 + 涨停 &gt; 50）</td><td>情绪高潮</td></tr>
+        <tr><td>绿盘主导（绿盘 &gt; 3500 + 跌停 &gt; 20）</td><td>情绪冰点</td></tr>
+        <tr><td>红绿交错 + 连板压缩</td><td>震荡偏弱</td></tr>
+        <tr><td>首板增多 + 跌停减少</td><td>修复启动</td></tr>
+        <tr><td>连板突破 + 大面集中</td><td>见顶预警</td></tr>
+      </tbody>
+    </table>
+    </div>
+    <p class="case-source">【出处：第 19 课 2025-03-30】</p>
+  </div>
+
+  <h3 class="section-h">13.10 龙头股与杂毛的辨识</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：龙头穿越的三要素】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>连板高度断层</strong>：龙头 8 板、小弟 4 板 = 龙头安全</li>
+        <li><strong>跌停修复速度</strong>：龙头次日反包，杂毛连跌</li>
+        <li><strong>资金抱团度</strong>：龙虎榜机构 + 游资同步买入 = 合力</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">13.11 情绪与时间窗联动</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：节气/财报窗口与情绪】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>春节前</strong>：情绪趋于谨慎，冰点概率高</li>
+        <li><strong>春节后（元宵节前）</strong>：抢反弹窗口</li>
+        <li><strong>立春/惊蛰/春分前后</strong>：情绪容易反转</li>
+        <li><strong>财报披露期（4 月/8 月/10 月）</strong>：地雷密集，情绪波动大</li>
+        <li><strong>6 月/9 月</strong>：评级/调仓窗口，常出现冰点</li>
+      </ul>
+      <p class="case-source">【出处：第 17 课 2025-02-04 时间窗案例】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">13.12 情绪体系实战 SOP</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：每日情绪评估 5 步】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>盘前</strong>：看情绪打分预测 + 冰点/高潮判断</li>
+        <li><strong>盘中</strong>：盯多空出牌变化（涨停/跌停/炸板/封板）</li>
+        <li><strong>盘后</strong>：8 项打分累计，决定次日仓位</li>
+        <li><strong>次日执行</strong>：冰点 + 一统天下出击 = 重仓；高潮 + 连板高度突破 = 减仓</li>
+        <li><strong>持续跟踪</strong>：3 日内情绪转向 = 必须重新评估</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 13 章要点回顾</h4>
+    <p>情绪指标 0-100 分 + 8 项打分 = 量化天气预报；冰点出击、修复分批、退潮减仓、高潮只做龙头；冰点 + 中枢底 = 绝佳回补点位；情绪打分定仓位。</p>
+  </div>
+</section>
+
+<!-- ============ 第十四章：仓位管理 ============ -->
+<section class="chapter" id="ch-14">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 4 篇 · 市场理解</span>
+    <h2 class="chapter-title">14. 仓位管理：5:3:2 / 3331 / 235 / 4321 四套体系</h2>
+    <p class="chapter-lead">仓位管理是"纪律的数字化"——4 套互补的仓位体系应对不同市况。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>掌握 5:3:2 金字塔的级别对应仓位</li>
+        <li>理解 3331 分批、235 渐进、4321 金字塔的差异</li>
+        <li>熟悉单笔止损 + 总回撤双控</li>
+        <li>理解不同市况的仓位切换</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.1 5:3:2 金字塔（最经典）</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：5:3:2 金字塔】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 4 课 2025-06-29】按缠论多级别联立分配：</p>
+      <ul>
+        <li><strong>周线级别 5 成仓</strong>（底仓，不动）</li>
+        <li><strong>日线级别 3 成仓</strong>（5 分钟找买点）</li>
+        <li><strong>30 分钟级别 2 成仓</strong>（1 分钟找买点）</li>
+      </ul>
+      <p><strong>核心</strong>："不参加调整"——日线调整 → 先出 3 层，底分型再接回。</p>
+      <p class="case-source">【出处：第 12 课 2025-12-28】赤峰黄金案例：15 元 5 成仓锁底，3 成日线做 T，2 成 30 分机动，4 月 8 日大盘暴跌时避险大涨，目标 20 元。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.2 3331 分批建仓</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：3331 防黑天鹅】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 18 课 2025-03-02】100 万 → 分 3 只票 → 每只约 33 万 → 33 万的 5 成 = 15 万先头部队：</p>
+      <ul>
+        <li><strong>总资金分 3-4 只个股防黑天鹅</strong></li>
+        <li>每只每只 5 成仓（15 万）= 30 分钟底分型 + 递进信号进场</li>
+        <li>剩下两层仓等 5 分钟信号</li>
+        <li><strong>1 只个股最多 30% 仓位</strong>（不超配）</li>
+      </ul>
+      <p class="case-source">【出处：第 17 课 2025-02-04 3331 案例】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.3 235 渐进建仓</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：235 短线主升】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 4 课 2025-06-29】"先头部队 + 确认加仓 + 主升重仓"：</p>
+      <ul>
+        <li><strong>2 成试探</strong>（首板破颈线）</li>
+        <li><strong>3 成确认</strong>（30 分钟底分型成立）</li>
+        <li><strong>5 成主升</strong>（5 分钟级别突破）</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.4 4321 金字塔</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：4321 抄底摊低成本】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 19 课 2025-03-30】4-3-2-1 = 40% + 30% + 20% + 10% 分 4 批建仓，每跌破一个支撑位加仓一次，逆势摊低成本。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.5 四套仓位体系对比表</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【对比表：4 套仓位体系】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>体系</th><th>分配结构</th><th>适用场景</th><th>核心逻辑</th></tr></thead>
+        <tbody>
+          <tr><td><strong>5:3:2</strong></td><td>周 5 + 日 3 + 30 分 2</td><td>缠论中长线底仓</td><td>级别对应，多级别联立</td></tr>
+          <tr><td><strong>3331</strong></td><td>30%+30%+30%+10% 现金</td><td>防黑天鹅分批</td><td>3 只票 + 每只 5 成</td></tr>
+          <tr><td><strong>235</strong></td><td>20%+30%+50%</td><td>短线主升确认</td><td>试探 → 加仓 → 主升</td></tr>
+          <tr><td><strong>4321</strong></td><td>40%+30%+20%+10%</td><td>抄底摊低成本</td><td>跌破支撑逆向加仓</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.6 加减仓节奏与止损纪律</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：加减仓节奏】</h4></div>
+    <div class="card-body">
+      <p><strong>加仓信号</strong>：</p>
+      <ul>
+        <li>递进信号 + 底分型 + 中枢三买共振</li>
+      </ul>
+      <p><strong>减仓信号</strong>：</p>
+      <ul>
+        <li>顶分型 + 跌破对子底 + 反弹受阻</li>
+      </ul>
+      <p><strong>止损纪律</strong>：</p>
+      <ul>
+        <li><strong>单笔止损</strong> = 底分型最低价（缠论铁律）</li>
+        <li>总回撤控制：单股 -7% 止损、总账户 -15% 减半仓</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.7 不同市场环境的仓位策略</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：市况→仓位】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>市况</th><th>仓位策略</th></tr></thead>
+        <tbody>
+          <tr><td>大盘冰点 + 中枢底</td><td>可重仓至 8 成</td></tr>
+          <tr><td>中枢震荡</td><td>5 成高抛低吸</td></tr>
+          <tr><td>大盘突破期</td><td>7 成中线持有</td></tr>
+          <tr><td>大盘下跌期</td><td>3 成防守</td></tr>
+          <tr><td>龙头主升</td><td>满仓龙头 + 底仓锁住</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <blockquote>张老师："大盘跌先求不亏超越 80%"——下跌市宁可错过不可做错。</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.8 多级别联立与仓位对应</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【要点：级别→仓位】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>级别</th><th>仓位</th><th>角色</th></tr></thead>
+        <tbody>
+          <tr><td><strong>周线</strong></td><td>5 成仓</td><td>战略级，锁住不动</td></tr>
+          <tr><td><strong>日线</strong></td><td>3 成仓</td><td>战术级，做 T</td></tr>
+          <tr><td><strong>30 分钟</strong></td><td>2 成仓</td><td>战役级，递进进出</td></tr>
+          <tr><td><strong>5 分钟</strong></td><td>1 成仓</td><td>战斗级，试水/日内 T</td></tr>
+          <tr><td><strong>共振加仓</strong></td><td>放大仓位</td><td>多级别买点同时出现</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <blockquote>张老师："周线指导 30 分钟（5 成仓）；日线指导 5 分钟（3 成仓）；30 分钟指导 1 分钟（2 成仓）。"</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.9 仓位管理的核心心法</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【要点：仓位 3 大铁律】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>不预测，只应对</strong>——"不是一开盘就重仓怼进，是慢慢进来的，部队有纪律"</li>
+        <li><strong>底仓不动，做 T 仓动</strong>——周线 5 成不踢，日线 3 成做 T</li>
+        <li><strong>多级别联立</strong>——周线 5 成 / 日线 3 成 / 30 分 2 成 / 5 分 1 成</li>
+      </ol>
+      <blockquote>张老师："这一笔上走完前你一直得有——中途踢成空仓 = 他一加速就到目标位。"</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.10 实战案例：黄金股完整操作链</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：黄金股 1 月→4 月翻倍】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 16 课 2025-05-25 + 第 17 课 2025-02-04】完整闭环：</p>
+      <ol>
+        <li>2025 年 1 月小班直播 → 周线一统天下选股</li>
+        <li>形态：周线一统天下出击，等待底分型</li>
+        <li>第一目标：眼睛位置（15 元利润）</li>
+        <li>中间频繁出现头肩底 + 对子底形态</li>
+        <li>4 月 8 日大盘暴跌 → 黄金股避险大涨</li>
+        <li>32.66 出现对子顶 → 顶部信号 → 卖出（接近翻倍）</li>
+      </ol>
+      <p><strong>操作要点</strong>：</p>
+      <ul>
+        <li>"5 成底仓不见顶分型不见顶，不会退出"</li>
+        <li>"3 成做 T 在 30 分钟递进信号与高出信号之间反复操作，不会做飞"</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.11 单笔止损 + 总回撤双控</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：双控止损纪律】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>单股止损</strong> = -7%（亏损 &lt; 7% 必走）</li>
+        <li><strong>总账户回撤</strong> = -15%（需降低至 5 成仓）</li>
+        <li><strong>单月最大回撤</strong> = -10%（停止加仓）</li>
+        <li><strong>季度回撤</strong> = -20%（停止新开仓）</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">14.12 仓位管理的常见误区</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：5 大常见错误】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>追高重仓</strong>——冰点不敢买，高潮重仓追</li>
+        <li><strong>重仓单只</strong>——单只票超过 5 成 = 赌徒心态</li>
+        <li><strong>底仓做 T</strong>——把 5 成底仓踢成空仓 = 加速时卖飞</li>
+        <li><strong>越跌越买</strong>——没有底分型不进加仓</li>
+        <li><strong>满仓进出</strong>——不留现金无法应对极端行情</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 14 章要点回顾</h4>
+    <p>5:3:2 金字塔是缠论中长线底仓骨架；3331 防黑天鹅；4321 逆向加仓；235 短线主升；<strong>不预测只应对、底仓不动做 T 仓动、多级别联立</strong>是仓位管理三大铁律。</p>
+  </div>
+</section>
+
+<!-- ============ 第十五章：板块轮动 + 50 亿市值法则 ============ -->
+<section class="chapter" id="ch-15">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 4 篇 · 市场理解</span>
+    <h2 class="chapter-title">15. 板块轮动 + 50 亿市值法则 + 出生地法则</h2>
+    <p class="chapter-lead">板块是"主战场的地图"——50 亿市值 + 出生地 + 集团作战 = 主线识别三件套。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>掌握板块生命周期 4 阶段</li>
+        <li>理解 50 亿市值法则的容量意义</li>
+        <li>熟悉出生地法则（江浙沪/北上广深）</li>
+        <li>理解集团呼应与主线切换</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">15.1 板块生命周期 4 阶段</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：板块 4 阶段】</h4></div>
+    <div class="card-body">
+      <p>每个主线板块都经历：</p>
+      <ol>
+        <li><strong>启动期</strong>：1-2 只龙头试探，无板块呼应</li>
+        <li><strong>高潮期</strong>：≥ 3 只涨停，板块指数突破颈线</li>
+        <li><strong>退潮期</strong>：龙头独行（小弟掉队），高度压缩</li>
+        <li><strong>沉寂期</strong>：资金流出，无主线机会</li>
+      </ol>
+      <p class="case-source">【出处：第 14 课 主线板块分析】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">15.2 主线识别三大标准</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【要点：主线识别三件套】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>50 亿市值法则</strong>——流通市值 ≥ 50 亿的标的是大资金战场</li>
+        <li><strong>出生地法则</strong>——江浙沪/北上广深/深圳注册地优先</li>
+        <li><strong>集团作战</strong>——多支票同时异动，非单兵</li>
+      </ol>
+      <blockquote>张老师口诀："五十亿是毛边，出生地是基因；集团作战是真主，杂乱无序是退潮"</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">15.3 50 亿市值法则详解</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：50 亿毛边选股】</h4></div>
+    <div class="card-body">
+      <p>流通市值 50 亿以上 = 有大资金参与的容量股。低于 50 亿 = 小盘股博弈，大资金进出困难。</p>
+      <ul>
+        <li><strong>50 亿以下</strong> = 纯题材博弈，难容纳机构资金</li>
+        <li><strong>50 亿以上</strong> = 可作中军，容纳大资金进出</li>
+      </ul>
+      <p class="case-source">【出处：第 17 课 2025-02-04】AI 智能体主线内信息网络总市值近 50 亿，山东/杜老师梯队都是 50 亿左右的"集团作战"标的。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">15.4 出生地法则</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【核心融合】出生地 = 基本面 + 主力资金</h4></div>
+    <div class="card-body">
+      <p>张穗鸿老师总结 A 股"主力偏好"：江浙沪、北上广深、深圳 = 主力聚集地，对应股票"基本面 + 主力资金"双重优势。</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>出生地</th><th>优势</th></tr></thead>
+        <tbody>
+          <tr><td><strong>深圳</strong></td><td>电子/科技/创业板</td></tr>
+          <tr><td><strong>上海</strong></td><td>金融/半导体/科创</td></tr>
+          <tr><td><strong>江浙沪</strong></td><td>制造业/消费/医药</td></tr>
+          <tr><td><strong>北京</strong></td><td>科技/央企/AI</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="case-source">【出处：第 21 课 2025-04-13】标准潜龙案例：出生深圳 + 元器件 + 卫星导航 + 小米 + 华为海思，筹码真空带 2.6 元。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">15.5 出生地对比案例</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：深圳 vs 福建出生】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>深圳出生潜龙</strong>（元器件 + 卫星导航 + 小米）：筹码真空带 2.6 元，反弹强</li>
+        <li><strong>福建出生小弟</strong>（商贸代理 + 海峡两岸 + 充电桩）：筹码空间小，反弹弱</li>
+      </ul>
+      <p><strong>结论</strong>：出生地差异决定空间差异——同一波行情龙头赚 60%，小弟只赚 15%。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">15.6 板块轮动观察节奏</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：板块轮动观察】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>多空出牌后看"集团呼应"</strong>——只有 1-2 只涨停是杂毛，多支票联动才是主线</li>
+        <li><strong>龙头带小弟节奏</strong>——"龙头到目标位，小弟才到颈线位"</li>
+        <li><strong>主线切换信号</strong>：龙头独行 + 小弟掉队 + 新主线首板</li>
+      </ul>
+      <p class="case-source">【出处：第 19 课 2025-03-30 半导体 vs 芯片】半导体强于芯片——半导体完全回补缺口且创新高，芯片仍有缺口距离。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">15.7 跟风 vs 龙头辨别三步法</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：三步辨识龙头】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>涨幅排序</strong>：板块内涨幅 Top3 是龙头候选</li>
+        <li><strong>市值筛选</strong>：龙头 50 亿+，小弟 &lt; 30 亿</li>
+        <li><strong>概念叠加</strong>：龙头 3+ 概念，小弟 1-2 概念</li>
+      </ol>
+      <blockquote>张老师："龙头都赚不到钱，小弟就别指望赚钱"</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">15.8 多空出牌与集团呼应</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【对比：杂乱 vs 集团呼应】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>维度</th><th>杂乱（退潮）</th><th>集团呼应（主线）</th></tr></thead>
+        <tbody>
+          <tr><td>涨停家数</td><td>单板块 1-2 只</td><td>单板块 ≥ 3 只</td></tr>
+          <tr><td>涨幅梯度</td><td>杂乱无章</td><td>龙头涨停 + 小弟 +5% + 跟风 +1%</td></tr>
+          <tr><td>持续天数</td><td>单日脉冲</td><td>连续 3 日 = 主线确立</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="case-source">【出处：第 19 课 2025-03-30】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">15.9 板块切换的实战剧本</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：主线切换 6 步】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>旧主线龙头断板</strong>：龙头从 6 板 → 5 板 → 4 板（高度压缩）</li>
+        <li><strong>小弟率先掉队</strong>：杂毛先于龙头杀跌</li>
+        <li><strong>新主线首板启动</strong>：新概念首板出现</li>
+        <li><strong>资金流入切换</strong>：Top1 流入板块从旧主线切换到新主线</li>
+        <li><strong>新主线集团呼应</strong>：≥ 3 只标的同步拉升</li>
+        <li><strong>确认切换</strong>：新主线突破颈线 = 切换完成</li>
+      </ol>
+      <p class="case-source">【出处：第 20 课 2025-02-16】</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">15.10 主线板块的"妈"基因</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：板块的妈】</h4></div>
+    <div class="card-body">
+      <p>板块指数本身的中长期形态（基因），决定板块内个股的"美女图"成功率。</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>板块基因</th><th>含义</th><th>操作</th></tr></thead>
+        <tbody>
+          <tr><td><strong>妈头肩底</strong></td><td>板块基因良好</td><td>龙头可做</td></tr>
+          <tr><td><strong>妈上升中枢</strong></td><td>板块高位震荡</td><td>中枢内做 T</td></tr>
+          <tr><td><strong>妈下降中枢</strong></td><td>板块基因差</td><td>规避</td></tr>
+          <tr><td><strong>妈头肩顶</strong></td><td>板块基因必清</td><td>所有个股规避</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="case-source">【出处：第 16 课 2025-05-25】880336 化工原料指数，业绩增长题材，但板块形态不好 = 不做。同样的机器人"妈 = 美女图往上走"，机动装备 6 板高度有支撑。</p>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 15 章要点回顾</h4>
+    <p><strong>50 亿市值 + 出生地 + 集团呼应 = 主线识别三件套</strong>；板块生命周期 4 阶段；杂乱 = 退潮；集团呼应 = 主线确立；板块的妈基因决定龙头空间。</p>
+  </div>
+</section>
+
+<!-- ============ 第十六章：主线板块清单 + 龙虎榜 ============ -->
+<section class="chapter" id="ch-16">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 4 篇 · 市场理解</span>
+    <h2 class="chapter-title">16. 2025 主线板块清单 + 龙虎榜跟随</h2>
+    <p class="chapter-lead">2025 年 A 股三足鼎立（AI+机器人+资源），跟随机构成功率 &gt; 50% 席位 + 规避假机构 = 正能量游资策略。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>熟悉 2025 年四大梯队主线板块清单</li>
+        <li>掌握龙虎榜机构席位的识别方法</li>
+        <li>理解假机构（拉萨）的识别</li>
+        <li>建立龙虎榜+技术面+板块三共振的高胜率信号</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.1 2025 主线板块四大梯队</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【主线清单：2025 年四大梯队】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>梯队</th><th>主线</th><th>代表</th><th>启动时点</th></tr></thead>
+        <tbody>
+          <tr><td><strong>第一梯队</strong></td><td>AI 智能体 + 消费电子</td><td>浙江东方 / 新居网络</td><td>贯穿全年</td></tr>
+          <tr><td><strong>第二梯队</strong></td><td>机器人 + 低空经济</td><td>机动装备 / 三公倍</td><td>春节后/2 月</td></tr>
+          <tr><td><strong>第三梯队</strong></td><td>商业航天 + 半导体 + DeepSeek</td><td>梦网科技 / 并行科技</td><td>Q2/Q3</td></tr>
+          <tr><td><strong>第四梯队</strong></td><td>新能源/锂电 + 黄金/资源</td><td>880534 锂电 / 赤峰黄金</td><td>Q1/Q3</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.2 AI 智能体：贯穿全年第一梯队</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：浙江东方 + 新居网络】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 17 课 2025-02-04】春节前最热发酵主线：</p>
+      <ul>
+        <li><strong>业绩代表</strong>：浙江东方（1 月 23 日披露年报预增 2.9 亿，超 2024 全年）头肩底，预期 15% 空间</li>
+        <li><strong>最高标/博弈长阳</strong>：新居网络（心肌网络）4 板高度，目标 39 元</li>
+        <li><strong>中军</strong>：泛微网络（150 亿）、金台（刘氏碧涛）大美女拉升阶段</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.3 机器人 + 低空经济第二梯队</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：机器人 + 低空】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>机器人</strong>：机动装备 6 板（题材雄安 + 机器人），板块"妈 = 美女图往上走"</li>
+        <li><strong>低空经济</strong>：指数 3200 点，距颈线位还有 2 个板空间（200 点）；2/28 广州大会催化</li>
+      </ul>
+      <p><strong>教训</strong>：叛徒（五洲新春跌停）出现 = 板块退潮预警。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.4 商业航天 + 半导体 + DeepSeek 第三梯队</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：三主线】</h4></div>
+    <div class="card-body">
+      <ul>
+        <li><strong>商业航天</strong>：6 月 1 日首份行业新规即将实施 + 卫星直连阵营发力；目前 121 只股票</li>
+        <li><strong>DeepSeek</strong>：梦网科技 8 板高度，叠加 AI 智能体概念；2 月 5 日启动，2 月 5-14 日连涨 8 天</li>
+        <li><strong>半导体</strong>：板块指数完全回补上周一跳空缺口且创上周四新高 = 已脱离"高位创新高被拉回"</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.5 新能源/锂电 + 黄金 第四梯队</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例：黄金股完整操作链教科书】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 17 课 2025-02-04】黄金股完整操作链：</p>
+      <ol>
+        <li>1 月选股（周线一统天下）</li>
+        <li><strong>对子底 15.55 建仓</strong></li>
+        <li>4 月 8 日大盘暴跌避险大涨</li>
+        <li>32.66 <strong>对子顶</strong>清仓（接近翻倍）</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.6 龙虎榜披露规则</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：龙虎榜披露】</h4></div>
+    <div class="card-body">
+      <p>日涨跌幅 ±7%（主板）/ ±15%（创业板/科创板）/ ±20%（北交所）的个股，次日盘后披露买卖前五席位。</p>
+      <p><strong>披露后可查</strong>：</p>
+      <ul>
+        <li>机构席位（特殊标记）</li>
+        <li>知名游资席位（章盟主/陈小群/呼家楼/思明南路等）</li>
+        <li>拉萨系（假机构聚集地）</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.7 机构席位识别与成功率</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【核心】机构买入成功率 &gt; 50% = 跟随标准</h4></div>
+    <div class="card-body">
+      <p>张穗鸿老师的核心筛选标准：<strong>只看"机构买入成功率 &gt; 50%"的席位</strong>，普通席位可看可不看。</p>
+      <p class="case-source">【出处：第 21 课 2025-04-13 机构买入】长华集团（飞行汽车 + 一体化压铸）有一家机构买入，成功率 50.11%，99% 概率下来做右眼睛再突破。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.8 跟随机构策略</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：跟随机构 3 纪律】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>只跟成功率 &gt; 50% 的席位</strong>——低于 50% = 无意义</li>
+        <li><strong>机构 + 盟主 + 游资同步</strong>——三方合力 = 高胜率</li>
+        <li><strong>银行大范围流入 = 减仓信号</strong>——机构开始防守</li>
+      </ol>
+      <p class="case-source">【出处：第 5 课 2025-07-13 机油同步】机构 6 亿 + 盟主 4 亿 = 无分歧 = 合力 = 主线机会。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.9 假机构识别（拉萨/东财拉萨）</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：假机构识别】</h4></div>
+    <div class="card-body">
+      <p><strong>假机构</strong> = 拉萨/东财拉萨席位 = 散户集中地（东方财富拉萨营业部），表面像机构实为散户聚集，净流入无意义。</p>
+      <p><strong>识别方法</strong>：</p>
+      <ul>
+        <li>席位名称含"拉萨/东财拉萨/团结路"</li>
+        <li>买卖金额分散（多笔小额而非单笔大额）</li>
+        <li>出现在中小盘杂毛股</li>
+        <li>与机构席位同日同向但金额不符</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.10 机构出货风险</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：机构出货 3 预警】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>连续 3 日净流出</strong>——主力撤退</li>
+        <li><strong>高位股 + 大额卖单</strong>——主力派发</li>
+        <li><strong>机构席位卖出 &gt; 买入</strong>——主力翻空</li>
+      </ol>
+      <p class="case-source">【出处：第 20 课 2025-02-16 游资和机构反走】盟主买 2 亿、呼家楼买 2 亿、小鳄鱼买 1 点几亿，机构流出 7 亿——下周大概率调整。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.11 跟随正能量游资</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【要点：正能量游资席位】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>席位</th><th>风格</th><th>同步率</th></tr></thead>
+        <tbody>
+          <tr><td><strong>呼家楼</strong></td><td>与机构同步率</td><td>&gt; 80%</td></tr>
+          <tr><td><strong>章盟主</strong></td><td>高位接力</td><td>成功率 50%</td></tr>
+          <tr><td><strong>思明南路</strong></td><td>止损纪律严明</td><td>——</td></tr>
+          <tr><td><strong>陈小群</strong></td><td>中线持有代表</td><td>——</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.12 龙虎榜实战步骤</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：每日龙虎榜 6 步】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li>每日盘后看龙虎榜披露</li>
+        <li>筛选"机构净流入 &gt; 0 且成功率 &gt; 50%"的标的</li>
+        <li>叠加技术面验证（博弈长阳 + 一统天下）</li>
+        <li>关注主力流入板块方向（半导体、消费电子、新能源）</li>
+        <li>银行大范围流入 = 减仓信号</li>
+        <li>假机构席位出现 = 规避</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.13 主力资金三阶段判断</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【对比：主力 + 游资四情境】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>机构</th><th>游资</th><th>判断</th></tr></thead>
+        <tbody>
+          <tr><td>净流入</td><td>净流入</td><td>合力 = 主线机会（介入）</td></tr>
+          <tr><td>净流入</td><td>净流出</td><td>机构独自拉升 = 持续性弱</td></tr>
+          <tr><td>净流出</td><td>净流入</td><td>游资接盘 = 末期行情（减仓）</td></tr>
+          <tr><td>净流出</td><td>净流出</td><td>双杀 = 空仓等待</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <p class="case-source">【出处：第 5 课 2025-07-13 创新药龙头】95+ 大美女 + 博奕长阳 + 主线 + 机构 6 亿 + 盟主 4 亿 = 合力 = 13→26 翻倍。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.14 龙虎榜 + 技术面 + 板块三共振</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【核心】三共振 = 最强信号</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>龙虎榜</strong>：机构净流入 > 1 亿</li>
+        <li><strong>技术面</strong>：一统天下出击 + 美女形态</li>
+        <li><strong>板块</strong>：处于主升期</li>
+      </ol>
+      <p class="case-source">【出处：第 21 课 2025-04-13 三共振案例】上海出生 + 博弈长阳（2024/6/12）+ 潜龙值 -148（上周一）+ 美女形态完美 + 消费电子/汽车电子/新能源车/芯片/机器人/无人驾驶概念 + 业绩同比 +50% = 目标价 47.7 元。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">16.15 龙虎榜复盘 SOP</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：龙虎榜复盘 6 步】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>看总览</strong>：当日机构净流入/流出总额</li>
+        <li><strong>找标的</strong>：筛选机构买入成功率 &gt; 50% 且净流入 &gt; 1 亿的标的</li>
+        <li><strong>验真假</strong>：排除拉萨/东财拉萨/团结路等假机构席位</li>
+        <li><strong>看技术</strong>：叠加一统天下/潜龙/美女形态</li>
+        <li><strong>看板块</strong>：判断是否主线（50 亿 + 出生地 + 集团呼应）</li>
+        <li><strong>次日执行</strong>：底分型 + 递进信号 = 介入</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 16 章要点回顾</h4>
+    <p>2025 主线四梯队：AI+消费电子（全年）/ 机器人+低空（Q1-Q2）/ 商业航天+半导体（Q2-Q3）/ 锂电+黄金（Q1-Q3）；龙虎榜：机构成功率 &gt; 50% 跟随 + 假机构（拉萨）规避 + 三共振（机构 + 技术面 + 板块）= 最强信号。</p>
+  </div>
+</section>
+
+
+<!-- ============ 第十七章：通达信公式实战 ============ -->
+<section class="chapter" id="ch-17">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 5 篇 · 实战闭环</span>
+    <h2 class="chapter-title">17. 通达信公式实战：一统天下 / JWZZ / 倚天剑</h2>
+    <p class="chapter-lead">通达信公式是把"眼"变成"手"的工具——把张穗鸿老师战法固化为可调用的指标。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>理解一统天下 2505 / 2506 公式的核心逻辑</li>
+        <li>熟悉 JWZZ（九五至尊）公式识别 95 元线</li>
+        <li>掌握倚天剑公式的潜龙出水信号</li>
+        <li>理解公式安装与参数调优</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">17.1 通达信公式基础</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：通达信公式】</h4></div>
+    <div class="card-body">
+      <p>通达信公式是用类 Pascal 语言编写的自定义指标，可绘制在 K 线主图或副图上。张穗鸿老师将 8 大战法固化为 6 大公式：</p>
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>公式</th><th>战法</th><th>信号</th></tr></thead>
+        <tbody>
+          <tr><td><strong>一统天下 2505</strong></td><td>一统天下 + 美女战法</td><td>红色信号柱（机会）</td></tr>
+          <tr><td><strong>一统天下 2506</strong></td><td>一统天下 + 潜龙</td><td>黄色信号柱（机会）</td></tr>
+          <tr><td><strong>JWZZ</strong></td><td>九五至尊</td><td>股价 ≥ 95 元线</td></tr>
+          <tr><td><strong>倚天剑</strong></td><td>博弈长阳 + 潜龙</td><td>蓝色剑形</td></tr>
+          <tr><td><strong>潜龙</strong></td><td>潜龙在渊</td><td>筹码真空带 + 底分型</td></tr>
+          <tr><td><strong>博弈长阳</strong></td><td>博弈长阳</td><td>长阳突破</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-h">17.2 一统天下 2505 公式</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【核心】一统天下 2505 公式核心</h4></div>
+    <div class="card-body">
+      <p>【出处：第 9 课 2025-10-12 + 第 17 课 2025-02-04】一统天下 2505 = 一统天下 + 美女战法信号叠加：</p>
+      <blockquote>选股条件 = 一统天下出击 + 美女形态（头肩底）</blockquote>
+      <p><strong>实战步骤</strong>：</p>
+      <ol>
+        <li>每日选股器运行 2505</li>
+        <li>筛选当日红色信号标的</li>
+        <li>叠加潜龙出水判断</li>
+        <li>叠加板块出生地过滤</li>
+        <li>叠加龙虎榜机构</li>
+      </ol>
+      <p><strong>使用频率</strong>：张老师在每期小班直播课都会演示 2505 选股流程。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">17.3 一统天下 2506 公式</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：一统天下 2506】</h4></div>
+    <div class="card-body">
+      <p>2506 = 一统天下 + 潜龙叠加，信号柱为<strong>黄色</strong>（区别 2505 的红色）：</p>
+      <ul>
+        <li><strong>黄色信号柱</strong> = 一统天下 + 潜龙</li>
+        <li><strong>实战中更罕见但更准</strong></li>
+        <li>使用频率低于 2505，但胜率更高</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">17.4 JWZZ（九五至尊）公式</h3>
+
+  <div class="card card-concept">
+    <div class="card-head"><span class="card-icon">💡</span><h4 class="card-title">【概念：JWZZ 95 元线】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 10 课 2025-10-26】JWZZ 公式 = 股价相对位置指标：</p>
+      <ul>
+        <li>数值 0-100，表示股价在 N 日内的相对位置</li>
+        <li><strong>≥ 95</strong> = 九五至尊（强势股）</li>
+        <li><strong>≤ 5</strong> = 超跌反弹机会</li>
+        <li><strong>95 上行</strong> = 美女拉升阶段</li>
+      </ul>
+      <p class="case-source">【出处：第 14 课 2026-02-22 美女图案例】95 上元线下游搏击长阳 = 主升加速 = 26 → 47 翻倍案例。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">17.5 倚天剑公式</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【核心】倚天剑 = 博弈长阳 + 潜龙</h4></div>
+    <div class="card-body">
+      <p>【出处：第 11 课 2025-11-09】倚天剑公式是博弈长阳 + 潜龙的叠加版本，信号柱为<strong>蓝色剑形</strong>。</p>
+      <ul>
+        <li><strong>蓝色剑形</strong> = 博弈长阳信号 + 潜龙出水信号</li>
+        <li>共振信号 = 最强买入</li>
+        <li>实战案例：长华集团、深圳新居、青海华鼎</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">17.6 潜龙公式</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：潜龙出水信号】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 10 课 2025-10-26】潜龙公式 = 筹码真空带 + 底分型 + 美女形态：</p>
+      <ul>
+        <li>筹码真空带 ≥ 30% 流通盘 = 套牢盘轻</li>
+        <li>底分型 = 买点信号</li>
+        <li>美女形态（头肩底）= 拉升形态</li>
+      </ul>
+      <p class="case-source">【出处：第 21 课 2025-04-13 案例】标准潜龙案例（深圳出生 + 元器件 + 卫星导航 + 小米 + 华为海思）筹码真空带 2.6 元，反弹强烈。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">17.7 公式安装与回测</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：公式安装 6 步】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li>打开通达信 → 功能 → 公式系统 → 公式管理器</li>
+        <li>新建公式 → 粘贴源码 → 命名（如"一统天下 2505"）</li>
+        <li>设置画线方法 = 主图叠加 / 副图</li>
+        <li>测试公式运行无误</li>
+        <li>加入选股器 = 综合选股 → 条件选股</li>
+        <li>每日盘后运行选股</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">17.8 公式参数调优</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：参数调优】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>参数</th><th>默认值</th><th>调优方向</th></tr></thead>
+        <tbody>
+          <tr><td>N（周期）</td><td>20</td><td>中长线 60 / 短线 10</td></tr>
+          <tr><td>阈值</td><td>95</td><td>严格 99 / 宽松 90</td></tr>
+          <tr><td>筹码密度</td><td>30%</td><td>严苛 40% / 宽松 20%</td></tr>
+          <tr><td>回看周期</td><td>60 日</td><td>短周期 20 日</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <blockquote>张老师："参数调优后还要经过 3-6 个月回测，胜率 &gt; 60% 才算可用。"</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">17.9 公式组合策略</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【对比：单公式 vs 公式组合】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>策略</th><th>胜率</th><th>信号数</th><th>适用</th></tr></thead>
+        <tbody>
+          <tr><td><strong>单公式</strong></td><td>50-55%</td><td>每日 30-50</td><td>筛选</td></tr>
+          <tr><td><strong>双公式叠加</strong></td><td>65-70%</td><td>每日 5-10</td><td>精选</td></tr>
+          <tr><td><strong>三公式共振</strong></td><td>75-80%</td><td>每日 1-3</td><td>重仓</td></tr>
+          <tr><td><strong>公式 + 基本面</strong></td><td>80%+</td><td>每周 0-1</td><td>核心</td></tr>
+        </tbody>
+      </table>
+      </div>
+    </div>
+  </div>
+
+  <h3 class="section-h">17.10 公式的实战盲区</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：公式 4 大盲区】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>假突破</strong>：突破颈线后次日跌回 = 假突破，公式信号需次日确认</li>
+        <li><strong>无量突破</strong>：突破但成交量萎缩 = 主力诱多</li>
+        <li><strong>高位钝化</strong>：连续多日 95 上方 = 钝化，可能转弱</li>
+        <li><strong>板块退潮</strong>：公式信号强但板块退潮 = 不可追</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 17 章要点回顾</h4>
+    <p>通达信公式 6 大公式 = 一统天下 2505/2506 + JWZZ + 倚天剑 + 潜龙 + 博弈长阳；<strong>公式组合 + 基本面 = 胜率 80%+</strong>；公式有 4 大盲区（假突破/无量/钝化/板块退潮）必须二次确认。</p>
+  </div>
+</section>
+
+<!-- ============ 第十八章：决策流程图 ============ -->
+<section class="chapter" id="ch-18">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 5 篇 · 实战闭环</span>
+    <h2 class="chapter-title">18. 决策流程图：盘前 / 盘中 / 盘后三阶段</h2>
+    <p class="chapter-lead">决策流程是把"分析"变成"动作"的桥梁——盘前 9 步、盘中 8 步、盘后 7 步 = 24 步 SOP。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>掌握盘前 9 步 / 盘中 8 步 / 盘后 7 步完整流程</li>
+        <li>理解情绪打分在决策中的串联作用</li>
+        <li>建立每日 24 步 SOP 的执行习惯</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">18.1 盘前 9 步（9:00-9:30）</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：盘前 9 步】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>情绪打分</strong>（冰点/高潮判断）</li>
+        <li><strong>昨日复盘</strong>（涨停/跌停/连板高度）</li>
+        <li><strong>多空出牌分析</strong>（板块涨幅榜 + 涨停家数）</li>
+        <li><strong>主线识别</strong>（50 亿 + 出生地 + 集团呼应）</li>
+        <li><strong>龙虎榜复盘</strong>（机构成功率 &gt; 50%）</li>
+        <li><strong>消息面梳理</strong>（政策/财报/事件）</li>
+        <li><strong>一统天下 2505/2506 选股</strong></li>
+        <li><strong>标的技术面验证</strong>（美女/头肩底/一统天下/潜龙）</li>
+        <li><strong>制定操作计划</strong>（介入点 / 止损位 / 目标位）</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">18.2 盘中 8 步（9:30-15:00）</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：盘中 8 步】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>开盘观察</strong>（集合竞价 + 开盘 15 分钟）</li>
+        <li><strong>触发买点</strong>（底分型 + 递进信号 + 冰点出击）</li>
+        <li><strong>执行建仓</strong>（分批 5331）</li>
+        <li><strong>盘中监控</strong>（板块联动 + 个股量价）</li>
+        <li><strong>加减仓执行</strong>（顶分减 / 底分加）</li>
+        <li><strong>龙头切换判断</strong>（断板 / 反包）</li>
+        <li><strong>风险预警</strong>（情绪转向 / 板块退潮）</li>
+        <li><strong>尾盘决策</strong>（持有 / 减仓 / 清仓）</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">18.3 盘后 7 步（15:00-17:00）</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：盘后 7 步】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>复盘操作</strong>（今日买入/卖出/加减）</li>
+        <li><strong>更新股票池</strong>（剔除非主流）</li>
+        <li><strong>记录错题</strong>（止损/漏买/误判）</li>
+        <li><strong>情绪打分更新</strong>（冰点/修复/退潮/高潮）</li>
+        <li><strong>次日预案</strong>（高/低/平开应对）</li>
+        <li><strong>持仓评估</strong>（底仓 / 做 T 仓 / 机动）</li>
+        <li><strong>持续学习</strong>（复盘 + 错题本）</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">18.4 决策流程总览</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【24 步流程】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>时段</th><th>步骤数</th><th>核心</th></tr></thead>
+        <tbody>
+          <tr><td>盘前 9:00-9:30</td><td>9 步</td><td>分析 + 选股 + 计划</td></tr>
+          <tr><td>盘中 9:30-15:00</td><td>8 步</td><td>执行 + 监控 + 风险</td></tr>
+          <tr><td>盘后 15:00-17:00</td><td>7 步</td><td>复盘 + 总结 + 预案</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <blockquote>张老师："每日 24 步，从'小白'到'高手'的标准化路径。"</blockquote>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 18 章要点回顾</h4>
+    <p>盘前 9 步 = 分析 + 选股 + 计划；盘中 8 步 = 执行 + 监控 + 风险；盘后 7 步 = 复盘 + 总结 + 预案；<strong>24 步 SOP = 标准化决策路径</strong>。</p>
+  </div>
+</section>
+
+<!-- ============ 第十九章：实战口诀心法 ============ -->
+<section class="chapter" id="ch-19">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 5 篇 · 实战闭环</span>
+    <h2 class="chapter-title">19. 实战口诀心法 30+ 条</h2>
+    <p class="chapter-lead">口诀是把整套体系"压缩成一句话"的智慧——条条是实战经验的总结。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>熟记 30+ 条实战口诀</li>
+        <li>理解每条口诀的适用场景</li>
+        <li>建立"口诀即纪律"的速查体系</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">19.1 缠论口诀 8 条</h3>
+
+  <div class="koujue-card">
+    <p><strong>1.</strong> "中枢上轨抛、下轨接"——缠论最经典操作。</p>
+    <p><strong>2.</strong> "不见顶分型不见顶，不见底分型不见底"——顶底分型是买卖点。</p>
+    <p><strong>3.</strong> "三买 = 突破后回抽不进中枢"——最安全买点。</p>
+    <p><strong>4.</strong> "底分型 = 特征序列 = 头肩底 = 美女形态"——张老师核心融合。</p>
+    <p><strong>5.</strong> "走势必完美"——任何走势终将完成，市场会自动给出信号。</p>
+    <p><strong>6.</strong> "大级别定方向，小级别找买点"——多级别联立的核心原则。</p>
+    <p><strong>7.</strong> "周线一笔上是核心，532 比例是骨架"——仓位管理总纲。</p>
+    <p><strong>8.</strong> "MACD 柱子面积 = 力度"——背驰判定的核心指标。</p>
+  </div>
+
+  <h3 class="section-h">19.2 战法口诀 10 条</h3>
+
+  <div class="koujue-card">
+    <p><strong>9.</strong> "一统天下出击 = 周线美女图往上走"——周线买入信号。</p>
+    <p><strong>10.</strong> "九五至尊 = 95 元线之上"——强势股识别。</p>
+    <p><strong>11.</strong> "潜龙出水 = 必涨"——筹码真空带反弹。</p>
+    <p><strong>12.</strong> "博弈长阳 = 主力高控盘"——博弈型强势股。</p>
+    <p><strong>13.</strong> "美女战法 = 头肩底 = 95 元线"——三种独立信号叠加。</p>
+    <p><strong>14.</strong> "储君模式 = 提前一年潜伏太子"——左侧交易。</p>
+    <p><strong>15.</strong> "倒车接人 = 主力让你解套"——高控盘反向操作。</p>
+    <p><strong>16.</strong> "对子底 = 数字对称底部反转"——精确买点。</p>
+    <p><strong>17.</strong> "8 大战法组合切换"——龙头战法不灵时切换一统天下。</p>
+    <p><strong>18.</strong> "龙头都赚不到钱，小弟就别指望赚钱"——龙头战法优先。</p>
+  </div>
+
+  <h3 class="section-h">19.3 情绪口诀 6 条</h3>
+
+  <div class="koujue-card">
+    <p><strong>19.</strong> "情绪打分定仓位"——冰点重仓、高潮减仓。</p>
+    <p><strong>20.</strong> "冰点 + 中枢底 = 绝佳回补点位"——双信号共振。</p>
+    <p><strong>21.</strong> "冰点出击最安全"——退潮后的反弹窗口。</p>
+    <p><strong>22.</strong> "高潮减仓防退潮"——情绪过热必转弱。</p>
+    <p><strong>23.</strong> "修复期中等持仓"——5 成仓观望。</p>
+    <p><strong>24.</strong> "只做龙头不杂毛"——退潮期杂毛跌更多。</p>
+  </div>
+
+  <h3 class="section-h">19.4 板块与龙虎榜口诀 6 条</h3>
+
+  <div class="koujue-card">
+    <p><strong>25.</strong> "五十亿是毛边，出生地是基因；集团作战是真主，杂乱无序是退潮"。</p>
+    <p><strong>26.</strong> "龙头到目标位，小弟才到颈线位"——龙头空间大。</p>
+    <p><strong>27.</strong> "板块的妈基因好 = 个股可做"——板块决定个股。</p>
+    <p><strong>28.</strong> "机构成功率 &gt; 50% 才跟随"——龙虎榜铁律。</p>
+    <p><strong>29.</strong> "拉萨席位 = 假机构"——规避陷阱。</p>
+    <p><strong>30.</strong> "机构 + 盟主 + 游资 = 三方合力"——最强信号。</p>
+  </div>
+
+  <h3 class="section-h">19.5 心法口诀 6 条</h3>
+
+  <div class="koujue-card">
+    <p><strong>31.</strong> "不预测，只应对"——盘前有预案，盘中按计划。</p>
+    <p><strong>32.</strong> "底仓不动，做 T 仓动"——5 成底仓不见顶分型不出。</p>
+    <p><strong>33.</strong> "该做的努力都会在账户上成倍反映"——书读百遍其义自现。</p>
+    <p><strong>34.</strong> "九次对一次错就回到解放前"——风险控制第一位。</p>
+    <p><strong>35.</strong> "先相信再看见"——走势必完美的信念。</p>
+    <p><strong>36.</strong> "学缠论先懂 8 大原理，再学战法，最后学市场"——五层认知阶梯。</p>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 19 章要点回顾</h4>
+    <p>30+ 口诀覆盖缠论 / 战法 / 情绪 / 板块 / 龙虎榜 / 心法六大维度；每条口诀都是实战经验的浓缩——<strong>口诀即纪律</strong>，熟记成诵方可出师。</p>
+  </div>
+</section>
+
+<!-- ============ 第二十章：经典案例全复盘 ============ -->
+<section class="chapter" id="ch-20">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 5 篇 · 实战闭环</span>
+    <h2 class="chapter-title">20. 经典案例全复盘</h2>
+    <p class="chapter-lead">8 个经典案例 = 8 个标准模板——从选股到卖点全流程。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>8 个经典案例全复盘（黄金股/赤峰黄金/浙江东方/新居网络/梦网科技/机动装备/长华集团/创新药龙头）</li>
+        <li>理解每个案例的标准操作链</li>
+        <li>建立"案例即模板"的实战方法论</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">20.1 黄金股完整操作链教科书</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例 1：黄金股 1 月→4 月翻倍】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 17 课 2025-02-04 + 第 16 课 2025-05-25】</p>
+      <p><strong>选股</strong>：2024-12-19 赤峰黄金（小班直播选出）</p>
+      <p><strong>形态</strong>：周线一统天下出击 + 大美女头肩底</p>
+      <p><strong>操作链</strong>：</p>
+      <ol>
+        <li>15 元 5 成仓锁底</li>
+        <li>对子底 15.55 加仓</li>
+        <li>中间频繁出现头肩底 + 对子底</li>
+        <li>21 元做下上下中枢震荡 → 突破直奔目标</li>
+        <li>3 月年报预增 → 利好兑现</li>
+        <li>4 月 8 日大盘暴跌 → 避险大涨</li>
+        <li>32.66 <strong>对子顶</strong>清仓（接近翻倍）</li>
+      </ol>
+      <p><strong>心法</strong>："5 成底仓不见顶分型不见顶，不会退出；3 成做 T 在 30 分钟递进信号与高出信号之间反复操作。"</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">20.2 浙江东方 AI 智能体案例</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例 2：浙江东方 AI 智能体双击】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 17 课 2025-02-04】</p>
+      <p><strong>选股</strong>：1 月 23 日年报预增 2.9 亿（超 2024 全年）</p>
+      <p><strong>形态</strong>：头肩底成型 + 周线底分型确立</p>
+      <p><strong>操作链</strong>：</p>
+      <ol>
+        <li>底分型确认 → 第一批建仓</li>
+        <li>明后天 + 5%</li>
+        <li>后续 + 10%</li>
+        <li>总目标 15%</li>
+      </ol>
+      <p><strong>心法</strong>：业绩 + 形态双击 = 高胜率机会。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">20.3 新居网络博弈长阳案例</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例 3：新居网络博弈长阳】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 17 课 2025-02-04】</p>
+      <p><strong>选股</strong>：孙姓股东（疑似韩国资本） + 博弈产业爆发位</p>
+      <p><strong>形态</strong>：紫色博弈长阳 + 头肩底 + AI 智能体</p>
+      <p><strong>操作链</strong>：</p>
+      <ol>
+        <li>限价 24.81 元 = 第一介入点</li>
+        <li>4 板高度（20% 价格）</li>
+        <li>目标 39 元（+ 57%）</li>
+        <li>底仓锁仓 + 5% 做 T</li>
+      </ol>
+      <p><strong>心法</strong>：博弈长阳 + 主线 + 头肩底 = 龙头潜质。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">20.4 梦网科技 DeepSeek 龙头</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例 4：梦网科技 DeepSeek 8 板】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 17 课 2025-02-04】</p>
+      <p><strong>选股</strong>：DeepSeek-V3/R1 发布催化</p>
+      <p><strong>形态</strong>：8 板高度 + AI 智能体叠加</p>
+      <p><strong>操作链</strong>：</p>
+      <ol>
+        <li>2 月 5 日启动</li>
+        <li>2 月 5-14 日连涨 8 天</li>
+        <li>8 板高度锁定</li>
+      </ol>
+      <p><strong>心法</strong>：板块发酵 + 龙头连板 = 主线确立。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">20.5 机动装备机器人</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例 5：机动装备机器人 6 板】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 17 课 2025-02-04】</p>
+      <p><strong>选股</strong>：雄安 + 机器人题材</p>
+      <p><strong>形态</strong>：板块"妈 = 美女图往上走"，突破颈线后不回踩</p>
+      <p><strong>操作链</strong>：</p>
+      <ol>
+        <li>突破颈线位 + 第一介入</li>
+        <li>6 板高度锁定</li>
+        <li>不回调持续拉升</li>
+      </ol>
+      <p><strong>心法</strong>：板块基因 + 个股强势 = 高胜率。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">20.6 长华集团三共振</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例 6：长华集团龙虎榜 + 技术面 + 板块三共振】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 21 课 2025-04-13】</p>
+      <p><strong>选股</strong>：飞行汽车 + 一体化压铸</p>
+      <p><strong>形态</strong>：博弈长阳（2024-06-12）+ 潜龙值 -148 + 美女形态完美</p>
+      <p><strong>概念叠加</strong>：消费电子 / 汽车电子 / 新能源车 / 芯片 / 机器人 / 无人驾驶</p>
+      <p><strong>业绩</strong>：同比 + 50%</p>
+      <p><strong>目标价</strong>：47.7 元</p>
+      <p><strong>心法</strong>：三共振 = 最强信号。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">20.7 创新药龙头三方合力</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例 7：创新药龙头 13 → 26 翻倍】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 5 课 2025-07-13】</p>
+      <p><strong>选股</strong>：创新药主线龙头</p>
+      <p><strong>形态</strong>：95+ 大美女 + 博弈长阳 + 主线确立</p>
+      <p><strong>资金面</strong>：机构 6 亿 + 盟主 4 亿 = 三方合力</p>
+      <p><strong>操作链</strong>：</p>
+      <ol>
+        <li>95 元线 + 大美女 = 第一介入</li>
+        <li>博弈长阳信号 + 加仓</li>
+        <li>三方合力共振 + 重仓</li>
+        <li>13 → 26 翻倍</li>
+      </ol>
+      <p><strong>心法</strong>：95+ + 美女 + 主线 + 机构 + 盟主 = 五重共振。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">20.8 大盘冰点 + 中枢底案例</h3>
+
+  <div class="card card-case">
+    <div class="card-head"><span class="card-icon">📊</span><h4 class="card-title">【案例 8：2025-04-11 冰点 + 中枢底】</h4></div>
+    <div class="card-body">
+      <p>【出处：第 21 课 2025-04-13】</p>
+      <p><strong>大盘背景</strong>：情绪打分 -7 分 + 30 分钟中枢下轨</p>
+      <p><strong>操作链</strong>：</p>
+      <ol>
+        <li>情绪 -7 分 + 冰点信号</li>
+        <li>30 分钟中枢下轨支撑</li>
+        <li>双信号共振 = 8 成仓</li>
+        <li>次日反弹修复</li>
+      </ol>
+      <p><strong>心法</strong>：冰点 + 中枢底 = 绝佳回补点位。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">20.9 8 大案例共同心法</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【核心】8 大案例共同点</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>都是多信号共振</strong>：形态 + 板块 + 资金 + 情绪至少 2 个</li>
+        <li><strong>都是分批建仓</strong>：5331 + 3321 = 阶梯式介入</li>
+        <li><strong>都遵守多级别联立</strong>：周线 + 日线 + 30 分钟联动</li>
+        <li><strong>都有明确止损</strong>：单股 -7% / 跌破中枢底 = 离场</li>
+        <li><strong>都遵守时间窗口</strong>：情绪打分 + 节气 + 财报披露</li>
+        <li><strong>都经历完整周期</strong>：选股 → 介入 → 加减 → 卖点</li>
+        <li><strong>都有完整复盘</strong>：每日 24 步 SOP</li>
+        <li><strong>都有可复制方法论</strong>：下次类似机会可重复</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">20.10 补充实战案例库（参考）</h3>
+
+<div class="card card-case">
+<div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">老师原课提及的其他实战案例股</h4></div>
+<div class="card-body">
+<p>除 8 大完整复盘外，老师原课中提及的实战案例股：</p>
+<div class="table-wrap"><table class="data-table">
+<thead><tr><th>股票</th><th>题材</th><th>适用战法</th><th>核心要点</th></tr></thead>
+<tbody>
+<tr><td>亚光科技</td><td>军工电子</td><td>潜龙在渊</td><td>低位筹码集中+放量突破</td></tr>
+<tr><td>大有能源</td><td>煤炭</td><td>博弈长阳</td><td>业绩反转+主力建仓</td></tr>
+<tr><td>神剑股份</td><td>商业航天</td><td>一统天下</td><td>题材龙头+主线板块</td></tr>
+<tr><td>青云科技</td><td>AI 算力</td><td>九五至尊</td><td>题材龙头+9% 涨停板基因</td></tr>
+<tr><td>新居网络</td><td>三网融合</td><td>倒车接人</td><td>三步选股+底部放量</td></tr>
+<tr><td>机动装备</td><td>高端装备</td><td>对子底</td><td>7 周线下一笔+缩量企稳</td></tr>
+</tbody></table></div>
+<div class="callout callout-warn">⚠️ <strong>提示</strong>：案例股用于案例研究与战法学习，具体买点需结合当时市场情绪、板块周期判断，切忌盲目套用。</div>
+</div></div>
+
+<div class="chapter-summary">
+    <h4>✅ 第 20 章要点回顾</h4>
+    <p>8 大案例（黄金股/浙江东方/新居网络/梦网科技/机动装备/长华集团/创新药龙头/冰点中枢底）展示完整操作链；<strong>多信号共振 + 分批建仓 + 多级别联立 + 明确止损</strong>是所有案例的共同心法。</p>
+  </div>
+</section>
+
+<!-- ============ 第二十一章：复盘与持续精进 ============ -->
+<section class="chapter" id="ch-21">
+  <header class="chapter-header">
+    <span class="chapter-tag">第 5 篇 · 实战闭环</span>
+    <h2 class="chapter-title">21. 复盘与持续精进</h2>
+    <p class="chapter-lead">复盘是"高手的练功房"——从错题本到精进路线 = 持续进化的唯一路径。</p>
+  </header>
+
+  <div class="card card-tip chapter-goals">
+    <div class="card-head"><span class="card-icon">🎯</span><h4 class="card-title">本章学习目标</h4></div>
+    <div class="card-body">
+      <ul>
+        <li>掌握每日/每周/每月/每季 4 层复盘模板</li>
+        <li>建立错题本机制</li>
+        <li>设计 5 阶段持续精进路线</li>
+      </ul>
+    </div>
+  </div>
+
+  <h3 class="section-h">21.1 每日复盘模板</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：每日复盘 7 项】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>今日操作</strong>：买入 / 卖出 / 加减仓的标的价格、金额、时间</li>
+        <li><strong>操作原因</strong>：依据哪个信号？多级别联立？</li>
+        <li><strong>结果评估</strong>：盈亏 + 与预期对比</li>
+        <li><strong>情绪打分</strong>：今日情绪状态（冰点/修复/退潮/高潮）</li>
+        <li><strong>主线板块</strong>：今日集团呼应方向</li>
+        <li><strong>龙虎榜</strong>：机构动向 + 假机构识别</li>
+        <li><strong>次日预案</strong>：持仓 + 关注 + 操作计划</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">21.2 每周复盘模板</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：每周复盘 5 项】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>周收益</strong>：本周盈亏 + 与大盘对比</li>
+        <li><strong>操作正确率</strong>：盈利笔数 / 总笔数</li>
+        <li><strong>最佳/最差操作</strong>：复盘 2 笔最有价值 + 2 笔最大错误</li>
+        <li><strong>主线板块轮动</strong>：本周主线切换 + 龙头变化</li>
+        <li><strong>下周策略</strong>：核心标的 + 重点信号</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">21.3 每月复盘模板</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：每月复盘 6 项】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>月收益曲线</strong>：对比沪深 300 / 创业板</li>
+        <li><strong>最大回撤</strong>：本月最大单日 / 单周回撤</li>
+        <li><strong>主线板块跟踪</strong>：板块切换 + 持续性</li>
+        <li><strong>仓位管理评估</strong>：5331 / 3331 执行情况</li>
+        <li><strong>情绪指标使用</strong>：冰点出击 / 高潮减仓执行</li>
+        <li><strong>下月策略</strong>：核心标的池 + 重点信号 + 风险预案</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">21.4 每季复盘模板</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【要点：每季复盘 7 项】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>季收益曲线</strong>：对比大盘 + 同业</li>
+        <li><strong>战法胜率统计</strong>：8 大战法各自的胜率与盈亏比</li>
+        <li><strong>主线板块总结</strong>：本季主线 + 切换节奏</li>
+        <li><strong>公式使用</strong>：一统天下 2505/2506 + JWZZ + 倚天剑 的实战统计</li>
+        <li><strong>错题本总结</strong>：本季最常见的 5 类错误</li>
+        <li><strong>认知升级</strong>：本季最大的 3 个认知突破</li>
+        <li><strong>下季计划</strong>：核心标的 + 重点战法 + 风险预案</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">21.5 错题本机制</h3>
+
+  <div class="card card-warn">
+    <div class="card-head"><span class="card-icon">⚠️</span><h4 class="card-title">【警示：错题本 5 类必录】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>追高被套</strong>——冰点不敢买，高潮重仓追</li>
+        <li><strong>止损不严</strong>——跌破止损位幻想反弹</li>
+        <li><strong>重仓单只</strong>——单只超过 5 成 = 赌徒心态</li>
+        <li><strong>底仓做 T</strong>——把 5 成底仓踢成空仓</li>
+        <li><strong>情绪误判</strong>——冰点没识别或高潮没减仓</li>
+      </ol>
+      <p class="case-source">【出处：第 16 课 2025-05-25 张盟主教训】4 板顶板被砸，4 亿亏 7000 万。</p>
+    </div>
+  </div>
+
+  <h3 class="section-h">21.6 持续精进路线（5 阶段）</h3>
+
+  <div class="card card-purple">
+    <div class="card-head"><span class="card-icon">📐</span><h4 class="card-title">【对比：5 阶段精进路线】</h4></div>
+    <div class="card-body">
+      <div class="table-wrap">
+      <table class="data-table">
+        <thead><tr><th>阶段</th><th>时长</th><th>目标</th></tr></thead>
+        <tbody>
+          <tr><td><strong>阶段 1 入门</strong></td><td>1-3 个月</td><td>通读本课程 + 理解缠论 8 大原理</td></tr>
+          <tr><td><strong>阶段 2 筑基</strong></td><td>3-6 个月</td><td>看懂 K 线 + 中枢 + 三类买卖点</td></tr>
+          <tr><td><strong>阶段 3 战法</strong></td><td>6-12 个月</td><td>掌握 8 大战法 + 通达信公式</td></tr>
+          <tr><td><strong>阶段 4 市场</strong></td><td>1-2 年</td><td>情绪 + 仓位 + 板块 + 龙虎榜</td></tr>
+          <tr><td><strong>阶段 5 实战</strong></td><td>2 年+</td><td>完整决策 + 持续复盘 + 心法内化</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <blockquote>张老师："该做的努力都会在账户上成倍反映。"</blockquote>
+    </div>
+  </div>
+
+  <h3 class="section-h">21.7 学习路径建议</h3>
+
+  <div class="card card-tip">
+    <div class="card-head"><span class="card-icon">📌</span><h4 class="card-title">【SOP：小白 6 个月通关路径】</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>第 1 个月</strong>：通读 21 课笔记 + 理解缠论基础</li>
+        <li><strong>第 2 个月</strong>：实盘练习中枢 + 三类买卖点识别</li>
+        <li><strong>第 3 个月</strong>：学习 8 大战法 + 通达信公式</li>
+        <li><strong>第 4 个月</strong>：实战情绪打分 + 仓位管理</li>
+        <li><strong>第 5 个月</strong>：实战板块轮动 + 龙虎榜跟随</li>
+        <li><strong>第 6 个月</strong>：完整 24 步 SOP + 持续复盘</li>
+      </ol>
+    </div>
+  </div>
+
+  <h3 class="section-h">21.8 关键心法回顾</h3>
+
+  <div class="card card-pink">
+    <div class="card-head"><span class="card-icon">🌸</span><h4 class="card-title">【核心】7 大心法</h4></div>
+    <div class="card-body">
+      <ol>
+        <li><strong>不预测，只应对</strong>——预案优先于预测</li>
+        <li><strong>底仓不动，做 T 仓动</strong>——周线 5 成不见顶分型不出</li>
+        <li><strong>多级别联立</strong>——大级别定方向，小级别找买点</li>
+        <li><strong>冰点出击</strong>——情绪 -5 分以下 = 重仓</li>
+        <li><strong>三共振</strong>——形态 + 板块 + 资金 三共振</li>
+        <li><strong>九次对一次错就回到解放前</strong>——风险控制第一位</li>
+        <li><strong>书读百遍其义自现</strong>——持续精进 = 持续盈利</li>
+      </ol>
+    </div>
+  </div>
+
+  <div class="chapter-summary">
+    <h4>✅ 第 21 章要点回顾</h4>
+    <p>复盘 = 日 7 / 周 5 / 月 6 / 季 7 项模板；错题本 5 类必录；5 阶段精进路线（入门 → 筑基 → 战法 → 市场 → 实战）；<strong>持续复盘 + 错题本 + 5 阶段路线 = 高手路径</strong>。</p>
+  </div>
+</section>
+
+<footer class="handbook-footer">
+  <div class="footer-card">
+    <div class="footer-title">📚 张穗鸿老师《龙虎跃·证券精修课》完整手册</div>
+    <div class="footer-meta">
+      <p><strong>课程来源</strong>：21 篇高阶小班课笔记（2025-01 → 2026-02）</p>
+      <p><strong>整合维度</strong>：缠论体系 / 8 大战法 / 仓位管理 / 情绪体系 / 板块轮动 / 龙虎榜 / 通达信公式 / 决策流程 / 30+ 口诀 / 复盘体系</p>
+      <p><strong>覆盖范围</strong>：21 章 + 156+ 知识点 + 8 大经典案例 + 36 条口诀</p>
+      <p><strong>学习路径</strong>：入门破冰 → 技术筑基 → 战法立身 → 市场理解 → 实战闭环</p>
+    </div>
+    <div class="footer-quote">
+      <blockquote>"<strong>不预测，只应对；不急躁，等信号；多级别，看共振；该做的努力都会在账户上成倍反映。</strong>"<br>—— 张穗鸿老师</blockquote>
+    </div>
+    <div class="footer-toc-grid">
+      <div class="toc-col">
+        <h5>入门破冰 (Ch1-3)</h5>
+        <ul>
+          <li>Ch1 走进股票交易</li>
+          <li>Ch2 K 线与量价语言</li>
+          <li>Ch3 缠论入门</li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h5>技术筑基 (Ch4-7)</h5>
+        <ul>
+          <li>Ch4 中枢：缠论的心脏</li>
+          <li>Ch5 三类买卖点定位</li>
+          <li>Ch6 背驰与九段升级</li>
+          <li>Ch7 多级别联立实战</li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h5>战法立身 (Ch8-12)</h5>
+        <ul>
+          <li>Ch8 战法总览+一统天下+九五</li>
+          <li>Ch9 潜龙在渊+博弈长阳</li>
+          <li>Ch10 美女+储君+倒车接人+对子底</li>
+          <li>Ch11 战法组合与切换</li>
+          <li>Ch12 实战案例全复盘</li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h5>市场理解 (Ch13-16)</h5>
+        <ul>
+          <li>Ch13 情绪体系</li>
+          <li>Ch14 仓位管理</li>
+          <li>Ch15 板块轮动+50亿市值</li>
+          <li>Ch16 主线板块清单+龙虎榜</li>
+        </ul>
+      </div>
+      <div class="toc-col">
+        <h5>实战闭环 (Ch17-21)</h5>
+        <ul>
+          <li>Ch17 通达信公式实战</li>
+          <li>Ch18 决策流程图</li>
+          <li>Ch19 口诀心法 30+ 条</li>
+          <li>Ch20 经典案例全复盘</li>
+          <li>Ch21 复盘与持续精进</li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-final">
+      <p>🌸 <strong>祝您早日从小白成长为高手！</strong></p>
+      <p class="footer-hint">本手册由 Claude 整理自张穗鸿老师 21 篇高阶小班课笔记，仅供学习交流使用</p>
+    </div>
+  </div>
+</footer>
+
+</main>  <!-- /.content -->
+</body>
+</html>
